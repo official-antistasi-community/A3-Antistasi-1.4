@@ -6,8 +6,8 @@
 ["spawnMarkerName", "ION support corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_ION_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F\Flags\flag_ion_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "Flag_EnochLooters"] call _fnc_saveToTemplate;
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_ion_black_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "Faction_CUP_PMC_ION_black"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -27,11 +27,8 @@
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_nM1035_amb_ION"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["CUP_I_BTR80A_ION", "CUP_I_BTR80_ION"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["CUP_B_Challenger2_NATO"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["CUP_B_Challenger2_Desert_BAF"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_I_Hilux_zu23_TK"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
-
 
 ["vehiclesTransportBoats", ["CUP_B_Zodiac_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB_USMC", "CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -70,6 +67,16 @@
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08",
+"WhiteHead_09","WhiteHead_10","WhiteHead_12","WhiteHead_13",
+"WhiteHead_17","WhiteHead_18","WhiteHead_19","WhiteHead_20"]] call _fnc_saveToTemplate;
+["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -151,6 +158,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
+private _sfmmItems = ["cup_optic_an_pvs_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
@@ -181,6 +189,8 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
+_sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_11", "CUP_I_B_PMC_Unit_20", "CUP_I_B_PMC_Unit_42"]];
 _sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Black_TL"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_B_Armatus_BB_Black"]];
@@ -193,7 +203,7 @@ _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black_NoHS"]];
 _sfLoadoutData set ["slHat", ["CUP_H_OpsCore_Black_SF"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_PMC_Cap_Back_PRR_Grey"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", []];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

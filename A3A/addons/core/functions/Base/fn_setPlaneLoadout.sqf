@@ -60,6 +60,8 @@ if (_type == "CAS") then
         case "RHS_Su25SM_CAS_vvs";
         case "rhsgref_cdf_b_su25";
         case "UK3CB_TKA_B_Su25SM_CAS";
+        case "UK3CB_LDF_B_Su25SM_CAS";
+        case "UK3CB_ADA_I_Su25SM_CAS";
         case "UK3CB_CW_SOV_O_LATE_Su25SM_CAS":
         {
             _loadout = ["rhs_mag_kh29D","rhs_mag_kh29D","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_b8m1_s8kom","rhs_mag_b8m1_s8kom","rhs_mag_R60M","rhs_mag_R60M","rhs_ASO2_CMFlare_Chaff_Magazine_x4"];
@@ -93,66 +95,60 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["missiles_DAR"]];
             _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F"]];
         };
-        case "UK3CB_AAF_B_L39_PYLON":
+        case "UK3CB_AAF_B_L39_PYLON";
+        case "UK3CB_KRG_B_L39_PYLON";
+        case "UK3CB_LDF_B_L39_PYLON":
         {
             _loadout = ["PylonRack_7Rnd_Rocket_04_AP_F","PylonRack_3Rnd_LG_scalpel","PylonRack_12Rnd_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_12Rnd_missiles","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_AP_F"];
             _plane setVariable ["mainGun", "Twin_Cannon_20mm"];
             _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F", "missiles_DAR"]];
             _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
         };
+        case "UK3CB_TKA_B_MIG21_AT":
+        {
+            _loadout = ["uk3cb_mag_kh25MA","rhs_mag_b8m1_bd3_umk2a_s8t","rhs_mag_b8m1_bd3_umk2a_s8t","uk3cb_mag_kh25MA"];
+            _plane setVariable ["mainGun", "uk3cb_mig21_GSh23L_23mm"];
+            _plane setVariable ["rocketLauncher", ["rhs_weap_s8t"]];
+            _plane setVariable ["missileLauncher", ["uk3cb_weap_kh25ma_Launcher"]];
+        };
         // cup aircraft
         case "CUP_B_L39_CZ":
         {
-            _loadout = ["PylonRack_20Rnd_Rocket_03_AP_F","CUP_PylonPod_32Rnd_S5_plane_M","CUP_PylonPod_32Rnd_S5_plane_M","PylonRack_20Rnd_Rocket_03_AP_F"];
+            _loadout = ["CUP_PylonPod_20Rnd_S8_plane_M","PylonRack_1Rnd_Missile_AGM_01_F","PylonRack_1Rnd_Missile_AGM_01_F","CUP_PylonPod_20Rnd_S8_plane_M"];
             _plane setVariable ["mainGun", "CUP_Vaconnon_GSh23L_l39"];
-            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_dS5_veh", "Rocket_03_AP_Plane_CAS_02_F"]];
-        };
-        case "CUP_B_Su25_Dyn_CDF":
-        {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_R73_Vympel"];
-            _plane setVariable ["mainGun", "CUP_Vacannon_GSh302K_veh"];
             _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_S8_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_R73_veh", "CUP_Vmlauncher_Kh29L_veh"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_01_Plane_CAS_02_F"]];
         };
-        case "CUP_O_Su25_Dyn_RU":
-        {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_R73_Vympel"];
-            _plane setVariable ["mainGun", "CUP_Vacannon_GSh302K_veh"];
-            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_S8_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_R73_veh", "CUP_Vmlauncher_Kh29L_veh"]];
-        };
-        case "CUP_O_Su25_Dyn_SLA":
-        {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_R73_Vympel"];
-            _plane setVariable ["mainGun", "CUP_Vacannon_GSh302K_veh"];
-            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_S8_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_R73_veh", "CUP_Vmlauncher_Kh29L_veh"]];
-        };
+        case "CUP_B_Su25_Dyn_CDF";
+        case "CUP_O_Su25_Dyn_RU";
+        case "CUP_O_Su25_Dyn_SLA";
         case "CUP_O_Su25_Dyn_TKA":
         {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_20Rnd_S8_plane_M","CUP_PylonPod_1Rnd_R73_Vympel"];
+            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_AP_F","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","PylonRack_20Rnd_Rocket_03_AP_F","PylonRack_20Rnd_Rocket_03_HE_F","CUP_PylonPod_1Rnd_R73_Vympel"];
             _plane setVariable ["mainGun", "CUP_Vacannon_GSh302K_veh"];
-            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_S8_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_R73_veh", "CUP_Vmlauncher_Kh29L_veh"]];
+            _plane setVariable ["rocketLauncher", ["Rocket_03_HE_Plane_CAS_02_F", "Rocket_03_AP_Plane_CAS_02_F"]];
+            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_Kh29L_veh"]];
         };
-        case "CUP_B_A10_DYN_USA":
+        case "CUP_B_A10_AT_USA":
         {
-            _loadout = ["CUP_PylonPod_2Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_ALQ_131"];
+            _loadout = ["CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_ALQ_131","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M"];
             _plane setVariable ["mainGun", "CUP_Vacannon_GAU8_veh"];
-            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_FFAR_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AIM9L_veh_1Rnd", "CUP_Vmlauncher_AGM65pod_veh"]];
+            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_FFAR_veh", "CUP_Vmlauncher_CRV7_veh"]];
+            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AGM65pod_veh"]];
         };
         case "CUP_B_GR9_DYN_GB":
         {
-            _loadout = ["CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_ANAAQ_28","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M"];
+            _loadout = ["CUP_PylonPod_19Rnd_CRV7_FAT_plane_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","PylonWeapon_300Rnd_20mm_shells","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_CRV7_FAT_plane_M"];
+            _plane setVariable ["mainGun", "Twin_Cannon_20mm"];
             _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_CRV7_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AIM9L_veh_1Rnd"]];
+            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AGM65pod_veh"]];
         };
         case "CUP_B_AV8B_DYN_USMC":
         {
-            _loadout = ["CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_ANAAQ_28","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_GBU12_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M"];
+            _loadout = ["CUP_PylonPod_19Rnd_CRV7_FAT_plane_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_CRV7_FAT_plane_M"];
+            _plane setVariable ["mainGun", "CUP_Vacannon_GAU12_veh"];
             _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_CRV7_veh"]];
-            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AIM9L_veh_1Rnd"]];
+            _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AGM65pod_veh"]];
         };
         default
         {
@@ -193,6 +189,7 @@ if (_type == "AA") then
         case "rhsgref_cdf_b_mig29s";
         case "UK3CB_TKA_O_MIG29SM";
         case "UK3CB_CW_SOV_O_LATE_MIG29S";
+        case "UK3CB_LDF_B_MIG29SM";
         case "UK3CB_AAF_O_MIG29S":
         {
             _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R77_AKU170_MIG29","rhs_mag_R77_AKU170_MIG29","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
@@ -201,9 +198,18 @@ if (_type == "AA") then
         {
             _loadout = ["rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R74M2_int","rhs_mag_R74M2_int","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170"];
         };
-        case "UK3CB_TKA_B_L39_PYLON":
+        case "UK3CB_ANA_B_L39_PYLON";
+        case "UK3CB_ADA_I_L39_PYLON";
+        case "UK3CB_TKA_B_L39_PYLON";
+        case "UK3CB_KRG_B_L39_PYLON";
+        case "UK3CB_LDF_B_L39_PYLON":
         {
             _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
+        };
+        case "UK3CB_LDF_B_MIG21_AA";
+        case "UK3CB_TKA_B_MIG21_AA":
+        {
+            _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73"];
         };
         case "vn_b_air_f4c_cap":
         {
@@ -231,25 +237,23 @@ if (_type == "AA") then
         {
             _loadout = ["CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","PylonRack_1Rnd_AAA_missiles"];
         };
-        case "CUP_B_SU34_CDF" || "CUP_O_SU34_RU"|| "CUP_O_SU34_SLA":
-        {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel"];
-        };
-        case "CUP_O_SU34_RU":
-        {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel"];
-        };
+        case "CUP_B_SU34_CDF";
+        case "CUP_O_SU34_RU";
         case "CUP_O_SU34_SLA":
         {
-            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","PylonRack_1Rnd_Missile_AA_03_F","CUP_PylonPod_1Rnd_R73_Vympel"];
+            _loadout = ["CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel","CUP_PylonPod_1Rnd_R73_Vympel"];
         };
         case "CUP_B_F35B_USMC":
         {
             _loadout = ["CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_INT_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_INT_M","CUP_PylonWeapon_220Rnd_TE1_Red_Tracer_GAU22_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_INT_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_INT_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M"];
         };
-         case "CUP_B_AV8B_DYN_USMC":
+        case "CUP_B_GR9_DYN_GB":
         {
-            _loadout = ["CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","PylonRack_1Rnd_AAA_missiles"];
+            _loadout = ["CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_ALQ_131","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M"];
+        };
+        case "CUP_B_AV8B_DYN_USMC":
+        {
+            _loadout = ["CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M"];
         };
         case "CUP_I_JAS39_RACS":
         {

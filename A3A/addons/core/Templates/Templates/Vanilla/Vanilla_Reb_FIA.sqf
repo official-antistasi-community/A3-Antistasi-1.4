@@ -13,13 +13,12 @@
 ["vehicleLightArmed", "I_G_Offroad_01_armed_F"] call _fnc_saveToTemplate;
 ["vehicleTruck", "I_G_Van_01_transport_F"] call _fnc_saveToTemplate;
 ["vehicleAT", "I_G_Offroad_01_AT_F"] call _fnc_saveToTemplate;
-["vehicleAA", ""] call _fnc_saveToTemplate;
+private _vehicleAA = "";
 
 ["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
 ["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
 
 ["vehiclePlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
@@ -28,7 +27,7 @@
 
 ["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
 ["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-["staticAA", "I_static_AA_F"] call _fnc_saveToTemplate;
+private _staticAA = "I_static_AA_F";
 ["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -38,6 +37,13 @@
 
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
+
+if (allowDLCWS && A3A_hasWS) then {
+  _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
+  _staticAA = "I_Tura_ZU23_lxWS";
+};
+["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
+["staticAA", _staticAA] call _fnc_saveToTemplate;
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -93,6 +99,15 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 ];
 };
 
+if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
+    "U_lxWS_ION_Casual1",
+    "U_lxWS_ION_Casual2",
+    "U_lxWS_ION_Casual3",
+    "U_lxWS_ION_Casual4",
+    "U_lxWS_ION_Casual5",
+    "U_lxWS_SFIA_deserter"
+];
+};
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 
@@ -109,6 +124,15 @@ if (allowDLCExpansion) then {_dlcUniforms append [
     "H_Bandanna_sand",
     "H_Bandanna_cbr"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04",
+"GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08",
+"GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
+["voices", ["Male01GRE", "Male02GRE", "Male03GRE", "Male04GRE", "Male05GRE", "Male06GRE"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

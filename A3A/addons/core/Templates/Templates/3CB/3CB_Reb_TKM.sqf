@@ -19,7 +19,6 @@
 ["vehicleRepair", "UK3CB_CCM_I_V3S_Repair"] call _fnc_saveToTemplate;
 
 ["vehiclePlane", "UK3CB_CHC_I_Antonov_AN2"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "UK3CB_TKC_C_Kamaz_Open"] call _fnc_saveToTemplate;
@@ -88,6 +87,13 @@ private _rebUniforms = [
     "UK3CB_TKC_H_Turban_04_1",
     "UK3CB_TKC_H_Turban_05_1"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

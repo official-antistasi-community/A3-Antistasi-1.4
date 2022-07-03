@@ -83,7 +83,7 @@ _vehInGarage = _vehInGarage + vehInGarage;
 	if ((_friendX getVariable ["spawner",false]) and (side group _friendX == teamPlayer))then {
 		if ((alive _friendX) and (!isPlayer _friendX)) then {
 			if (((isPlayer leader _friendX) and (!isMultiplayer)) or (group _friendX in (hcAllGroups theBoss)) and (not((group _friendX) getVariable ["esNATO",false]))) then {
-				_resourcesBackground = _resourcesBackground + (server getVariable [(_friendX getVariable "unitType"),0]);
+				_resourcesBackground = _resourcesBackground + (server getVariable [(_friendX getVariable "unitType"),0]) / 2;
 				_backpck = backpack _friendX;
 				if (_backpck != "") then {
                     private _assemblesTo = getText (configFile/"CfgVehicles"/_backpck/"assembleInfo"/"assembleTo");
@@ -262,6 +262,6 @@ _fuelAmountleftArray = [];
 
 saveProfileNamespace;
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",str _resourcesBackground," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
+_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
 ["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

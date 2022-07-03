@@ -19,11 +19,10 @@
 ["vehicleRepair", "UK3CB_CCM_I_V3S_Repair"] call _fnc_saveToTemplate;
 
 ["vehiclePlane", "UK3CB_CHC_I_Antonov_AN2"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
 
 ["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "UK3CB_TKC_C_Kamaz_Open"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "UK3CB_CHC_C_Mi8AMT"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "UK3CB_C_Bell412_Civ"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 
 ["staticMG", "UK3CB_NAP_I_DSHKM"] call _fnc_saveToTemplate;
@@ -88,6 +87,16 @@ private _rebUniforms = [
     "UK3CB_H_Ushanka_Cap_03",
     "UK3CB_H_Ushanka_Cap_01"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["LivonianHead_6","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_05","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10",
+"WhiteHead_12","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_16",
+"WhiteHead_17","WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["RHS_Male01CZ","RHS_Male02CZ","RHS_Male03CZ","RHS_Male04CZ","RHS_Male05CZ"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

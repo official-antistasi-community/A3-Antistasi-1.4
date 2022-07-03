@@ -4,335 +4,333 @@
     <Container name="HR_GRG">
         <Key ID="STR_HR_GRG_Generic_Cancel">
             <Original>Cancel</Original>
-            <English>Cancel</English>
+            <French>Annuler</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Lock">
             <Original>(Un)Lock</Original>
-            <English>(Un)Lock</English>
+            <French>(Dé)Verrouiller</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Confirm">
             <Original>Confirm</Original>
-            <English>Confirm</English>
+            <French>Confirmer</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Cars">
             <Original>Cars</Original>
-            <English>Cars</English>
+            <French>Voitures</French>
         </Key>
         <Key ID="STR_HR_Garage_Generic_capacity">
             <Original>Available space in garage</Original>
-            <English>Available space in garage</English>
+            <French>Espace disponible dans le garage</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Armored">
             <Original>Armor</Original>
-            <English>Armor</English>
+            <French>Blindés</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Air">
             <Original>Aircraft</Original>
-            <English>Aircraft</English>
+            <French>Aéronefs</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_AirDisabled">
             <Original>You can only access aircrafts from a friendly airbase</Original>
-            <English>You can only access aircrafts from a friendly airbase</English>
+            <French>Vous ne pouvez accéder aux aéronefs qu'à partir d'une base aérienne alliée</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Boat">
             <Original>Ships</Original>
-            <English>Ships</English>
+            <French>Navires</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Static">
             <Original>Statics</Original>
-            <English>Statics</English>
+            <French>Statique</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Mounts">
             <Original>Mounts</Original>
-            <English>Mounts</English>
+            <French>Montures</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Texture">
             <Original>Texture</Original>
-            <English>Texture</English>
+            <French>Texture</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Anim">
             <Original>Customize</Original>
-            <English>Customize</English>
+            <French>Personnaliser</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_Pylons">
             <Original>Pylons</Original>
-            <English>Pylons</English>
+            <French>Pylônes</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_PylonDisabled">
             <Original>Pylons require an ammo source to edit</Original>
-            <English>Pylons require an ammo source to edit</English>
+            <French>Les pylônes nécessitent une source de munitions pour être modifiés</French>
         </Key>
                 <Key ID="STR_HR_GRG_Generic_full">
             <Original>full</Original>
-            <English>full</English>
+            <French>plein</French>
         </Key>
         <Key ID="STR_HR_GRG_Generic_capacity">
             <Original>Available space in garage</Original>
-            <English>Available space in garage</English>
+            <French>Espace disponible dans le garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_Header">
             <Original>Sources:</Original>
-            <English>Sources:</English>
+            <French>Sources:</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Available">
             <Original>Vehicles will be rearmed when ungaraged</Original>
-            <English>Vehicles will be rearmed when ungaraged</English>
+            <French>Les véhicules seront réarmés lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
             <Original>Vehicles won't be rearmed when ungaraged as the garage lacks an ammo source</Original>
-            <English>Vehicles won't be rearmed when ungaraged as the garage lacks an ammo source</English>
+            <French>Les véhicules ne seront pas réarmés lorsqu'ils sortiront du garage car le garage n'a pas de source de munitions</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled">
             <Original>Rearm disabled by server</Original>
-            <English>Rearm disabled by server</English>
+            <French>Réarmement désactivé par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
             <Original>Vehicles will be refueled when ungaraged</Original>
-            <English>Vehicles will be refueled when ungaraged</English>
+            <French>Les véhicules seront ravitaillés en carburant lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable">
             <Original>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</Original>
-            <English>Vehicles won't be refueled when ungaraged as the garage lacks a fuel source</English>
+            <French>Les véhicules ne seront pas ravitaillées en carburant lorsqu'ils sortiront du garage car le garage n'a pas de source de carburant</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
             <Original>Refuel disabled by server settings</Original>
-            <English>Refuel disabled by server settings</English>
+            <French>Ravitaillement désactivé par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
             <Original>Vehicles will be repaired when ungaraged</Original>
-            <English>Vehicles will be repaired when ungaraged</English>
+            <French>Les véhicules seront réparés lorsqu'ils sortiront du garage</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Unavailable">
             <Original>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</Original>
-            <English>Vehicles won't be repaired when ungaraged as the garage lacks a repair source</English>
+            <French>Les véhicules ne seront pas réparés lorsqu'ils sortiront du garage, car le garage n'a pas de source de réparation</French>
         </Key>
         <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
             <Original>Repair disabled by server settings</Original>
-            <English>Repair disabled by server settings</English>
+            <French>Réparation désactivée par le serveur</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
             <Original>Vehicle is an ammo source</Original>
-            <English>Vehicle is an ammo source</English>
+            <French>Le véhicule est une source de munitions</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isFuelSource">
             <Original>Vehicle is a fuel source</Original>
-            <English>Vehicle is a fuel source</English>
+            <French>Le véhicule est une source de carburant</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isRepairSource">
             <Original>Vehicle is a repair source</Original>
-            <English>Vehicle is a repair source</English>
+            <French>Le véhicule est une source de réparation</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_isNotSource">
             <Original>Vehicle is not a source</Original>
-            <English>Vehicle is not a source</English>
+            <French>Le véhicule n'est pas une source</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Seats">
             <Original>Seats:</Original>
-            <English>Seats:</English>
+            <French>Sièges:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Cargo">
             <Original>Cargo:</Original>
-            <English>Cargo:</English>
+            <French>Cargo:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
             <Original>Ace Cargo:</Original>
-            <English>Ace Cargo:</English>
+            <French>Cargo d'Ace:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Capacity">
             <Original>Capacity:</Original>
-            <English>Capacity:</English>
+            <French>Capacité:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Available">
             <Original>Available:</Original>
-            <English>Available:</English>
+            <French>Disponible:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Speed">
             <Original>Top speed:</Original>
-            <English>Top speed:</English>
+            <French>Vitesse de pointe:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_HP">
             <Original>Horse power:</Original>
-            <English>Horse power:</English>
+            <French>Puissance:</French>
         </Key>
         <Key ID="STR_HR_GRG_InfoPanel_Mass">
             <Original>Mass:</Original>
-            <English>Mass:</English>
+            <French>Masse:</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_fullRefuel">
             <Original>Vehicle can be fully refueled with</Original>
-            <English>Vehicle can be fully refueled with</English>
+            <French>Le véhicule peut être entièrement ravitaillé avec</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_partialRefuel">
             <Original>Vehicle can only be partially refueled to</Original>
-            <English>Vehicle can only be partially refueled to</English>
+            <French>Le véhicule ne peut être ravitaillé que partiellement à</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_noRefuel">
             <Original>Vehicle can not be refueled</Original>
-            <English>Vehicle can not be refueled</English>
+            <French>Le véhicule ne peut pas être ravitaillé</French>
         </Key>
         <Key ID ="STR_HR_GRG_Refuel_factionFuel">
             <Original>Factions has</Original>
-            <English>Factions has</English>
+            <French>Les factions ont</French>
         </Key>
         <Key ID="STR_HR_GRG_openGarage_Action">
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</Original>
-            <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Open Garage</English>
+            <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Ouvrir Garage</French>
         </Key>
         <Key ID="STR_HR_GRG_addVehicle_Action">
             <!--%1 is display name of vehicle-->
             <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
-            <English>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</English>
+            <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Null">
             <Original>You are not looking at a vehicle</Original>
-            <English>You are not looking at a vehicle</English>
+            <French>Vous ne regardez pas un véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_confirm_NullSelection">
             <Original>No vehicle selected</Original>
-            <English>No vehicle selected</English>
+            <French>Aucun véhicule sélectionné</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_SATow">
             <Original>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</Original>
-            <English>You can't garage a Vehicle with your Tow Rope out or a Vehicle attached</English>
+            <French>Vous ne pouvez pas garer un véhicule avec votre câble de remorquage hors d'un véhicule attaché</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_LTC">
             <Original>Loot crate stored</Original>
-            <English>Loot crate stored</English>
+            <French>Caisse de butin stockée</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Item_Stored">
             <Original>Item stored</Original>
-            <English>Item stored</English>
+            <French>Article stocké</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_sold">
             <Original>Fuel sold</Original>
-            <English>Fuel sold</English>
+            <French>Carburant vendu</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only">
             <Original>Fuel sources can only be garaged by commander</Original>
-            <English>Fuel sources can only be garaged by commander</English>
+            <French>Les sources de carburant ne peuvent être garées que par le commandant</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Distance">
             <Original>You can't garage vehicles that are more than 25m away from you</Original>
-            <English>You can't garage vehicles that are more than 25m away from you</English>
+            <French>Vous ne pouvez pas garer des véhicules à plus de 25 mètres de vous</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Destroyed">
             <Original>You can't garage a destroyed vehicle</Original>
-            <English>You can't garage a destroyed vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule détruit</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Locked">
             <Original>You can't garage a locked vehicle</Original>
-            <English>You can't garage a locked vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule verrouillé</French>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
             <Original>You and the vehicle need to be in a %1 garrisons surroundings in order to garage a it</Original>
-            <English>You and the vehicle need to be in a %1 garrisons surroundings in order to garage a it</English>
+            <French>Vous et le véhicule devez être dans les alentours d'une garnisons %1 afin de le ranger</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesEngaging">
             <Original>You can't garage vehicles while enemies are engaging you</Original>
-            <English>You can't garage vehicles while enemies are engaging you</English>
+            <French>Vous ne pouvez pas garer des véhicules pendant que des ennemis vous attaquent</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_enemiesNear">
             <Original>You can't garage vehicles while enemies are near you</Original>
-            <English>You can't garage vehicles while enemies are near you</English>
+            <French>Vous ne pouvez pas garer des véhicules lorsque des ennemis sont près de vous</French>
         </Key>
         <!--%1 is faction name-->
         <Key ID="STR_HR_GRG_Feedback_addVehicle_airBlocked">
             <Original>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</Original>
-            <English>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</English>
+            <French>Vous ne pouvez pas garer un aéronef tant que vous n'êtes pas à proximité d'un aéroport appartenant à %1. Veuillez déplacer votre aéronef vers un aéroport sous votre contrôle pour le garer</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_GenericFail">
             <Original>You can't garage this</Original>
-            <English>You can't garage this</English>
+            <French>Vous ne pouvez pas ranger ça</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_inVehicle">
             <Original>You can't garage a vehicle while in another vehicle</Original>
-            <English>You can't garage a vehicle while in another vehicle</English>
+            <French>Vous ne pouvez pas garer un véhicule en étant dans un véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Crewed">
             <Original>You can't garage a vehicle with crew inside</Original>
-            <English>You can't garage a vehicle with crew inside</English>
+            <French>Vous ne pouvez pas garer un véhicule avec un équipage à l'intérieur</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Capacity">
             <Original>There's not enough room to garage this vehicle</Original>
-            <English>There's not enough room to garage this vehicle</English>
+            <French>Il n'y a pas assez de place pour garer ce véhicule</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_addVehicle_Success">
             <!--%1 is display name of vehicle-->
             <Original>%1 Garaged</Original>
-            <English>%1 Garaged</English>
+            <French>%1 garé</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_requestMount_Denied">
             <Original>Can't mount static</Original>
-            <English>Can't mount static</English>
+            <French>Impossible de monter statique</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_checkedOutToolTip">
             <!-- name is appended on at the start with a space in between-->
             <Original>is looking at this vehicle.</Original>
-            <English>is looking at this vehicle.</English>
+            <French>regarde ce véhicule.</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_LockedToolTip">
             <!-- name is appended on at the end with a spcae in between-->
             <Original>Vehicle is locked by</Original>
-            <English>Vehicle is locked by</English>
+            <French>Le véhicule est verrouillé par</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
             <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
             <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;br/&gt;Placer: Espace&lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_TooFar">
             <Original>&lt;t size='0.6'&gt;Can't place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Can't place vehicle that far away &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Impossible de placer un véhicule aussi loin &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CP_Blocked">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Quelque chose bloque l'emplacement &lt;br/&gt; Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_CallbackFailed">
             <Original>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</Original>
-            <English>&lt;t size='0.6'&gt;Something is blocking placement &lt;br/&gt; Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;/t&gt;</English>
+            <French>&lt;t size='0.6'&gt;Quelque chose bloque l'emplacement &lt;br/&gt; Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;/t&gt;</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Controls">
             <Original>Camera controls</Original>
-            <English>Camera controls</English>
+            <French>Contrôles de la caméra</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Rotate">
             <Original>Rotate: Right Mouse Button + Move mouse</Original>
-            <English>Rotate: Right Mouse Button + Move mouse</English>
+            <French>Rotation : Bouton droit de la souris + Déplacer la souris</French>
         </Key>
         <Key ID="STR_HR_GRG_Feedback_Cam_Zoom">
             <Original>Zoom: Right Mouse Button + Mouse wheel</Original>
-            <English>Zoom: Right Mouse Button + Mouse wheel</English>
+            <French>Zoom: bouton droit de la souris + molette de la souris</French>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Mirror">
             <Original>Mirror</Original>
-            <English>Mirror</English>
+            <French>Miroir</French>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_CustomPreset">
             <Original>[Custom preset]</Original>
-            <English>[Custom preset]</English>
+            <French>[Préréglage personnalisé]</French>
         </Key>
         <!--%1 is pylon number-->
         <Key ID="STR_HR_GRG_Pylons_PylonText">
             <Original>Pylon %1</Original>
-            <English>Pylon %1</English>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Empty">
             <Original>[Empty]</Original>
-            <English>[Empty]</English>
+            <French>[Vide]</French>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_noPylons">
             <Original>No pylon customizations for:</Original>
-            <English>No pylon customizations for:</English>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Gunner">
             <Original>Gunner</Original>
-            <English>Gunner</English>
+            <French>Tireur</French>
         </Key>
         <Key ID="STR_HR_GRG_Pylons_Driver">
             <Original>Driver</Original>
-            <English>Driver</English>
+            <French>Pilote</French>
         </Key>
         </Container>
   </Package>

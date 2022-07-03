@@ -6,7 +6,7 @@
 ["spawnMarkerName", "TKA Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
-["flagTexture", "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa"] call _fnc_saveToTemplate;
+["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_tka_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "Faction_CUP_TKA"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -26,12 +26,9 @@
 ["vehiclesRepairTrucks", ["CUP_O_Ural_Repair_TKA", "CUP_O_V3S_Repair_TKA", "CUP_O_M113A3_Repair_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_O_V3S_Refuel_TKA", "CUP_O_Ural_Refuel_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_O_LR_Ambulance_TKA", "CUP_O_BMP2_AMB_TKA", "CUP_O_M113A3_Med_TKA"]] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", ["CUP_O_BMP1_TKA", "CUP_O_BMP1P_TKA", "CUP_O_BMP2_TKA", "CUP_O_BMP2_ZU_TKA", "CUP_O_BRDM2_TKA", "CUP_O_BRDM2_ATGM_TKA", "CUP_O_BTR40_MG_TKA", "CUP_O_BTR80_TK", "CUP_O_BTR80A_TK", "CUP_O_M113A3_TKA", "CUP_O_MTLB_pk_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_O_T34_TKA", "CUP_O_T55_TK", "CUP_O_T72_TKA"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_O_ZSU23_TK"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["CUP_O_PBX_RU"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -60,11 +57,18 @@
 ["staticAT", ["CUP_O_Metis_TK"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_O_Igla_AA_pod_TK"]] call _fnc_saveToTemplate;
 ["staticMortars", ["CUP_O_2b14_82mm_TK"]] call _fnc_saveToTemplate;
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be compatible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["voices", ["CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

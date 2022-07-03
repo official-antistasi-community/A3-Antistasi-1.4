@@ -112,15 +112,15 @@ class Params
     class unlockItem
     {
         title = "Number of the same item required to unlock";
-        values[] = {9999,15,25,40,1e6};
-        texts[] = {"Load from save (Default: 25)","15","25","40","1 000 000"};
+        values[] = {9999,15,25,40,-1};
+        texts[] = {"Load from save (Default: 25)","15","25","40","No unlocks"};
         default = 9999;
     };
-    class memberOnlyMagLimit
+    class guestItemLimit
     {
-        title = "Number of magazines needed for guests to be able to use them";
-        values[] = {9999,10,20,30,40,50,60};
-        texts[] = {"Load from save (Default: 40)","10","20","30","40","50","60"};
+        title = "Default number of items needed for guests to be able to use them";
+        values[] = {9999,0,10,15,25,40};
+        texts[] = {"Load from save (Default: 25)","No limit","10","15","25","40"};
         default = 9999;
     };
     class civTraffic
@@ -298,11 +298,18 @@ class Params
         texts[] =  {"Load from save (Default: No)","Yes","No"};
         default = 9999;
     };
-        class VN
+    class VN
     {
         title = "Allow VN DLC (S.O.G. PRAIRIE FIRE)?";
         values[] = {9999,1,0};
         texts[] =  {"Load from save (Default: No)","Yes","No"};
+        default = 9999;
+    };
+    class WS
+    {
+        title = "Allow Items and Vehicles from Western Sahara DLC?";
+        values[] = {9999,1,0};
+        texts[] = {"Load from save (Default: No)","Yes","No"};
         default = 9999;
     };
     class Spacer0

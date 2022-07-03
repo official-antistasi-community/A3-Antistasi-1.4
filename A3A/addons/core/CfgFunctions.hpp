@@ -79,7 +79,9 @@ class CfgFunctions
             class equipmentClassToCategories {};
             class equipmentIsValidForCurrentModset {};
             class equipmentSort {};
+            class fetchRebelGear {};
             class fillLootCrate {};
+            class generateRebelGear {};
             class getRadio {};
             class hasARadio {};
             class itemConfig {};
@@ -509,7 +511,7 @@ class CfgFunctions
             class punishment {};
             class punishment_addActionForgive {};
             class punishment_checkStatus {};
-            class punishment_FF {};
+            class punishment_evaluateEvent {};
             class punishment_FF_checkNearHQ {};
             class punishment_FF_addEH {};
             class punishment_oceanGulag {};

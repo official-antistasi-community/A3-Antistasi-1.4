@@ -16,6 +16,11 @@
 
 ["vehiclesCivFuel", []] call _fnc_saveToTemplate;            //this line determines civilian fuel vehicles
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", []] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

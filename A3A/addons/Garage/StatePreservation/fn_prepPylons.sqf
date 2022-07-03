@@ -31,15 +31,13 @@ private _turrets = [[-1]] + allTurrets _veh;
 private _toRemove = [];
 {
     private _turret = _x;
-    {
-        private _mags = weaponMag(_x);
-        if (_mags isEqualTo []) then {continue}; //no mags, dont remove
+    private _baseWeapons = getArray (([_veh, _turret] call BIS_fnc_turretConfig) / "Weapons");
+    private _weapons = (_veh weaponsTurret _turret) apply { toLower _x };
+    // Avoiding array subtract in case there's a pylon and non-pylon copy of the same weapon
+    // RHS has case bugs (zu-23 notably) so we force everything lower
+    { _weapons deleteAt (_weapons find toLower _x) } forEach _baseWeapons;
+    { _toRemove pushBack [_x, _turret] } forEach _weapons;
 
-        private _pylonWeapon = _mags findIf {magPylonWeapon(_x) != ""};
-        if (_pylonWeapon isEqualTo -1) then {continue}; //no pylon weapon, dont remove
-
-        _toRemove pushBack [_x, _turret]; //pylon weapon, remove
-    } forEach (_veh weaponsTurret _turret);
 } forEach _turrets;
 
 Trace_1("Removing pylon weapons: %1", _toRemove);

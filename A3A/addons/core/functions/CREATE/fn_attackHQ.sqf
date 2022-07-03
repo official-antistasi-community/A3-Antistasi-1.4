@@ -36,7 +36,7 @@ sleep (60 * _delay);
 
 // Create the attacking force
 private _vehCount = round (1 + random 1 + 2 * A3A_balancePlayerScale);
-private _attackRatio = (0.5 + random 1) * (tierWar * 0.03);
+private _attackRatio = (0.5 + random 1) * (tierWar+5) * 0.025;
 private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
 private _data = [_side, _airbase, _targPos, "attack", _vehCount, _attackCount, nil, "SpecOps"] call A3A_fnc_createAttackForceAir;

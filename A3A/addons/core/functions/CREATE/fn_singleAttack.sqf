@@ -30,10 +30,10 @@ private _crewGroups = [];
 private _cargoGroups = [];
 
 // Set the attack heli count now
-private _AHratio = tierWar * ([0.15, 0.03] select (_landBase == ""));
+private _AHratio = (5 + tierWar) * ([0.1, 0.2] select (_landBase == ""));
 private _AHcount = random 0.3 + _vehCount * (0.5 * random 1) * _AHratio;
 
-ServerDebug_4("Land base %1 (%2 possible), air base %3, aiming for %4 attack helis", _landBase, _countLandBases, _airBase, _AHcount);
+ServerDebug_4("Land base %1 (%2 possible), air base %3, aiming for %4 air supports", _landBase, _countLandBases, _airBase, _AHcount);
 
 if (_landBase != "") then
 {
@@ -41,7 +41,7 @@ if (_landBase != "") then
     // If we're sending a lot of stuff or there's only one land base, send some air transports anyway
     if (_groundVehCount >= 4 or _countLandBases == 1) then { _groundVehCount = _groundVehCount * (0.5 + random 0.5) };
     _groundVehCount = round _groundVehCount;
-    private _attackCount = round (_groundVehCount * (0.3 + random 0.2));
+    private _attackCount = round (_groundVehCount * (0.25 + random 0.2));
 
     private _data = [_side, _landBase, _mrkDest, "defence", _groundVehCount, _attackCount] call A3A_fnc_createAttackForceLand;
     _resourcesSpent = _resourcesSpent + _data#0;

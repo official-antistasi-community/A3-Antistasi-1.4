@@ -29,10 +29,8 @@ private _airbase = [_side, _targPos] call A3A_fnc_availableBasesAir;
 if (isNil "_airbase") exitWith { Info("QRF cancelled because no airbases available (how?)"); -1 };
 
 private _vehCount = 3 min ceil (_maxSpend / (1.5 * A3A_balanceVehicleCost));
-private _attackRatio = (0.5 + random 1) * (tierWar * 0.03);
 // TODO: bias a bit for tank/APC/static targets?
-private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
-if (_vehCount == 1) then { _attackCount = 0 };
+private _attackCount = round random ([0, 0, 0.8, 1.5] select _vehCount);
 
 // 1.5 cost factor for air
 private _estResources = 1.5 * _vehCount * A3A_balanceVehicleCost;

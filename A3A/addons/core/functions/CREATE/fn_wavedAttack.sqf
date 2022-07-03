@@ -52,7 +52,7 @@ private _victory = false;
 while {_wave <= _maxWaves and !_victory} do
 {
     // Somewhat flattened because a lot of the work is done by garrisons
-    private _vehCount = round (1.5 + random 1.5 + 3*A3A_balancePlayerScale);
+    private _vehCount = round (2 + random 1.5 + 3*A3A_balancePlayerScale);
     if (_targside != teamPlayer) then { _vehCount = 4 + round (random 2) };
     if (_wave == 1) then { _vehCount = _vehCount + 2 };
 
@@ -83,7 +83,7 @@ while {_wave <= _maxWaves and !_victory} do
         _attackHelis = _attackHelis select { canMove _x and canFire _x };
 
         private _remSupports = (count _airSupports + count _attackHelis);
-        private _reqSupports = round (_vehCount * (0.1 + random 0.1 + tierWar * 0.03));
+        private _reqSupports = round (_vehCount * (0.1 + random 0.1 + (5 + tierWar) * 0.025));
         _countNewSupport = 1 max (_reqSupports - _remSupports);
 
         ServerDebug_3("Remaining air supports %1, plus %2 attack helis. Adding %3 air supports", _airSupports, count _attackHelis, _countNewSupport);
@@ -100,7 +100,7 @@ while {_wave <= _maxWaves and !_victory} do
         // If we're sending a lot of stuff or there's only one land base, send some air transports anyway
         if (_groundVehCount >= 4 or _countLandBases == 1) then { _groundVehCount = _groundVehCount * (0.5 + random 0.5) };
         _groundVehCount = ceil _groundVehCount;
-        private _attackCount = round (_groundVehCount * (0.3 + random 0.2));
+        private _attackCount = round (_groundVehCount * (0.25 + random 0.2));
 
         // ["_side", "_originMrk", "_destMrk", "_resPool", "_vehCount", "_attackVehCount", "_tierMod"]
         private _data = [_side, _landBase, _mrkDest, "attack", _groundVehCount, _attackCount, 2] call A3A_fnc_createAttackForceLand;
@@ -132,7 +132,7 @@ while {_wave <= _maxWaves and !_victory} do
     {
         private _possibles = ["AH", 1];
         if !("UAV" in _airSupports) then { _possibles append ["UAV", 1] };
-        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };
+//        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };      // CAS now included in air attack vehicles
         if !("ASF" in _airSupports) then { _possibles append ["ASF", 0.3] };
 
         private _support = selectRandomWeighted _possibles;

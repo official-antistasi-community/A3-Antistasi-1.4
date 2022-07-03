@@ -25,12 +25,16 @@ private _carWeight =        [50, 50, 50, 50, 50, 50, 50, 40, 35, 30] select _lev
 private _aaWeight =         [ 0,  0,  3,  5,  7,  8, 10, 12, 13, 14] select _level;
 private _tankWeight =       [ 0,  5, 10, 15, 20, 25, 30, 35, 40, 50] select _level;
 
+// filter out weak AA that shouldn't be tier-scaled (eg. Avenger, zu23)
+private _vehAA = (_faction get "vehiclesAA") select { A3A_vehicleResourceCosts get _x >= 100 };
+if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
+
 // only occupants use militia vehicles?
 if (_side == Occupants) then {
     [_faction get "vehiclesMilitiaLightArmed", _milCarWeight] call _fnc_addArrayToWeights;
 };
 [_faction get "vehiclesLightArmed", _carWeight] call _fnc_addArrayToWeights;
-[_faction get "vehiclesAA", _aaWeight] call _fnc_addArrayToWeights;
 [_faction get "vehiclesTanks", _tankWeight] call _fnc_addArrayToWeights;
+[_vehAA, _aaWeight] call _fnc_addArrayToWeights;
 
 _vehWeights;

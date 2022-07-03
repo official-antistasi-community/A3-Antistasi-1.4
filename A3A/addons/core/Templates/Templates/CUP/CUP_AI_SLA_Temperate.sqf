@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_O_UAZ_Unarmed_SLA"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_O_UAZ_AGS30_SLA", "CUP_O_UAZ_MG_SLA", "CUP_O_UAZ_METIS_SLA", "CUP_O_UAZ_SPG9_SLA"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["CUP_O_UAZ_AGS30_SLA", "CUP_O_UAZ_MG_SLA", "CUP_O_UAZ_METIS_SLA", "CUP_O_UAZ_SPG9_SLA", "CUP_O_Ural_ZU23_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_O_Ural_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["CUP_O_Ural_Open_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_O_Ural_Reammo_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_O_Ural_Repair_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_O_Ural_Refuel_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_O_UAZ_AMB_RU", "CUP_O_BMP2_AMB_sla"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_O_BMP2_SLA", "CUP_O_BRDM2_SLA", "CUP_O_BRDM2_ATGM_SLA", "CUP_O_BTR60_SLA", "CUP_O_BTR80_SLA", "CUP_O_BTR80A_SLA", "CUP_O_MTLB_pk_SLA"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_O_BRDM2_SLA", "CUP_O_BRDM2_ATGM_SLA", "CUP_O_BTR60_SLA", "CUP_O_MTLB_pk_SLA"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_O_BMP2_SLA", "CUP_O_BMP2_SLA", "CUP_O_BTR80_SLA", "CUP_O_BTR80A_SLA"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["CUP_O_BMP2_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_O_T72_RU", "CUP_O_T55_CHDKZ"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_O_ZSU23_ChDKZ"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_O_ZSU23_SLA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["CUP_O_PBX_RU"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["CUP_O_UH1H_SLA", "CUP_O_UH1H_slick_SLA"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_O_Mi8_SLA_1"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["CUP_O_Mi8_SLA_2", "CUP_O_Mi24_D_Dynamic_SLA", "CUP_O_Ka50_DL_SLA", "CUP_O_UH1H_gunship_SLA"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_O_Mi8_SLA_2", "CUP_O_UH1H_gunship_SLA"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["CUP_O_Mi24_D_Dynamic_SLA", "CUP_O_Ka50_SLA"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_O_BM21_SLA"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_O_BM21_SLA", ["CUP_40Rnd_GRAD_HE"]]]] call _fnc_saveToTemplate;

@@ -28,8 +28,7 @@ if (isNil "_base") exitWith { Info("QRF cancelled because no land bases availabl
 [_base, 10] call A3A_fnc_addTimeForIdle;
 
 private _vehCount = 3 min ceil (_maxSpend / A3A_balanceVehicleCost);
-private _attackCount = round (random 0.3 + _vehCount * 0.4);
-if (_vehCount == 1) then { _attackCount = 0 };
+private _attackCount = [0, 0, round random 1, 1] select _vehCount;
 
 private _estResources = _vehCount * A3A_balanceVehicleCost;
 A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 2700, 2700, _estResources];

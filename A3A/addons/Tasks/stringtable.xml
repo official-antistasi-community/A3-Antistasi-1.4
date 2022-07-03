@@ -16,6 +16,36 @@
       <!-- %1 = Faction name | %2 = Location name | %3 = time in format H:M -->
         <Original>We have spotted a %1 SpecOp team patrolling around a %2. Ambush them and we will have one less problem. Do this before %3. Be careful, they are tough boys.</Original>
       </Key>
+      
+      
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_resource_title">
+        <Original>Resource Acquisition</Original>
+      </Key> 
+      <!-- %1 = Location name | %2 = time in format H:M -->
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_resource_description">
+        <Original>A %1 would be a fine addition to our cause. Go there and capture it before %2.</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_outpost_title">
+        <Original>Take the Outpost</Original>
+      </Key> 
+      <!-- %1 = Location name | %2 = time in format H:M -->
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_outpost_description">
+        <Original>A %1 is disturbing our operations in the area. Go there and capture it before %2.</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_seaport_title">
+        <Original>Secure the Seaport</Original>
+      </Key> 
+      <!-- %1 = Location name | %2 = time in format H:M -->
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_seaport_description">
+        <Original>%1 is an important fishing supplier for our local Fish&amp;Chips dinners. Go there and capture it before %2.</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_factory_title">
+        <Original>Reclaim means of production</Original>
+      </Key> 
+      <!-- %1 = Location name | %2 = time in format H:M -->
+      <Key ID="STR_antistasi_LTasks_CON_Outpost_factory_description">
+        <Original>%1 is being used to aid the enemy. Go there and capture it before %2.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

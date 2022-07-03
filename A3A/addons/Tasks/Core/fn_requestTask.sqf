@@ -45,9 +45,8 @@ _taskTypes = _taskTypes select {
     private _cfg = TASKS_CFG / _x;
 
     //Common criterias
-    private _requiredAddons = getArray (_cfg/"requiredAddons");
-    if (_requiredAddons findIf {!([_x] call _fnc_requirementMeet)} < 0) then {
-        Debug_2("Task %1 is missing one or more required addons: %2", _x, _requiredAddons); continueWith false;
+    if ([_cfg] call _fnc_requirementMeet) then {
+        Debug_2("Task %1 is missing one or more required addons: %2", _x, getArray (_cfg/_requiredAddons)); continueWith false;
     };
 
     private _cat = getText (_cfg/"Category");

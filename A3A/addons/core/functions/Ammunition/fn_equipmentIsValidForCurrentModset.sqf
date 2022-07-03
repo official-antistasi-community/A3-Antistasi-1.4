@@ -120,6 +120,7 @@ if (A3A_hasUNS && {(_itemIsVanilla || _itemMod in _acemods || _itemMod in _TFARm
 				case "LaserDesignator";
 				case "MineDetector";
 				case "NVGoggles";
+				case "Radio";
 				case "UAVTerminal";
 				case "Unknown": { false };
 				default { true };

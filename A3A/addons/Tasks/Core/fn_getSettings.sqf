@@ -1,6 +1,6 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (isNil QGVAR(TaskID)) then { GVAR(TaskID) = 0 };
+if (isNil QGVAR(TaskUID)) then { GVAR(TaskUID) = 0 };
 if (isNil QGVAR(ChainStates)) then { GVAR(ChainStates) = createHashMap };
 if (isNil QGVAR(Settings)) then { GVAR(Settings) = createHashMap };
 

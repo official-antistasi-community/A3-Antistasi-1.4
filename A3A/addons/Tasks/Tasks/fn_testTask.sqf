@@ -57,7 +57,7 @@ _this set ["Stages", _stages];
     _this set ["Children", [_subTaskA]];
 */
 private _subTaskA = createHashMap;
-_subTaskA set ["TaskID", [call FUNC(genTaskID), _this get "TaskID"]];
+_subTaskA set ["TaskID", [call FUNC(genTaskUID), _this get "TaskID"]];
 _subTaskA set ["title", "Test sub task A"];
 _subTaskA set ["description", "Test sub task A description"];
 _this set ["Children", [_subTaskA]]; // Type: Array of hashMaps | Optional | sub tasks of the main task

@@ -7,7 +7,7 @@ params [["_taskHM", _emptyHM, [_emptyHM]]];
 if (_taskHM isEqualTo _emptyHM) exitWith { Error_1("Invalid parameters passed: %1", _this) };
 if (!canSuspend) exitWith { Error_1("Tasks needs to run in scheduled environment") };
 
-_taskHM set ["TaskID", call FUNC(genTaskID)];
+_taskHM set ["TaskID", call FUNC(genTaskUID)];
 
 //load task
 private _taskData = missionNameSpace getVariable getText ((_taskHM get "Cfg") / "Func");

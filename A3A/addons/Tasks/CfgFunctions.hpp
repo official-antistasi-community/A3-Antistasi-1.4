@@ -2,7 +2,7 @@ class CfgFunctions {
     class ADDON {
         class Core {
             file = QPATHTOFOLDER(Core);
-            class genTaskID {};
+            class genTaskUID {};
             class getSettings { postInit = 1; };
             class requestTask {};
             class runTask {};

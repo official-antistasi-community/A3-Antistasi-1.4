@@ -4,7 +4,7 @@ params ["_taskHM"];
 
 //get task state from hm
 private _taskID = _taskHM get "TaskID";
-if (isNil "_taskID") then { _taskID = call FUNC(genTaskID); _taskHM set ["TaskID", _taskID]; };
+if (isNil "_taskID") then { _taskID = call FUNC(genTaskUID); _taskHM set ["TaskID", _taskID]; };
 if (_taskID isEqualType []) then {_taskID = _taskID#0};
 
 private _description = [

@@ -1,3 +1,5 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 private _possibleMarkers = [];
 private _controlsX = [controlsX] call FUNC(nearHostileMarkers);

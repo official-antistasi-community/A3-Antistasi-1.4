@@ -26,7 +26,6 @@ if (_stage > 1) then { _taskHM call ((_stages#0) getOrDefault ["Init",{}]) };
 
 _taskHM set ["Rewards",[]];
 {
-    _taskHM set ["__CurrentStage", (_taskHM get "__CurrentStage") +1]; //increment stage count (for saving/loading)
     _taskHM call FUNC(updateTaskState);
     if !("Action" in _x) exitWith { Error_1("Stage %1 is missing the action",_x) };
     if !("Condition" in _x) exitWith { Error_1("Stage %1 is missing the condition",_x) };
@@ -42,6 +41,7 @@ _taskHM set ["Rewards",[]];
         || (_taskHM getOrDefault ["cancellationToken", false])
         || (_x getOrDefault ["cancellationToken", false])
     };
+    _taskHM set ["__CurrentStage", (_taskHM get "__CurrentStage") +1]; //increment stage count (for saving/loading)
 
     if (_taskHM getOrDefault ["cancellationToken", false]) exitWith {
         _taskHM set ["Successful", false];

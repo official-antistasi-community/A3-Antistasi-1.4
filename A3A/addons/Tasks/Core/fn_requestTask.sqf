@@ -13,7 +13,7 @@ if (isNil QGVAR(Settings)) then { call FUNC(getSettings)};
 
 //Task loading from save, format: TaskName, Params, stage, task version
 if (_taskTypes isEqualTypeParams ["",[],0,0]) exitWith {
-    private _cfg = TASK_CFG/(_taskTypes#0);
+    private _cfg = TASKS_CFG/(_taskTypes#0);
     private _version = getNumber (_cfg/"Version");
 
     if (_version isNotEqualTo (_taskTypes#3)) exitWith { false; };

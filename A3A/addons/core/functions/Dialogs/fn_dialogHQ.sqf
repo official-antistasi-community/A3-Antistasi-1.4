@@ -1,5 +1,13 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private ["_display","_childControl","_veh","_textX","_costs","_typeVehX"];
-_nul = createDialog "HQ_menu";
+
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul = createDialog "HQ_menu";
+#endif
 
 sleep 1;
 disableSerialization;

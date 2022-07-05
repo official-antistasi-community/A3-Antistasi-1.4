@@ -29,7 +29,11 @@ if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 		if ((canFire _veh) and (alive _veh) and (isNil "typeAmmunition")) then
 			{
 			_areAlive = true;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 			_nul = createDialog "mortar_type";
+#endif
 			waitUntil {!dialog or !(isNil "typeAmmunition")};
 			if !(isNil "typeAmmunition") then
 				{
@@ -72,7 +76,11 @@ hcShowBar true;
 if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 	{
 	closedialog 0;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 	_nul = createDialog "strike_type";
+#endif
 	}
 else
 	{
@@ -145,7 +153,11 @@ if (_typeArty != "BARRAGE") then
 	if (_typeAmmunition != "2Rnd_155mm_Mo_LG") then
 		{
 		closedialog 0;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
 		_nul = createDialog "rounds_number";
+#endif
 		}
 	else
 		{

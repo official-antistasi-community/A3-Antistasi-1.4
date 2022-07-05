@@ -12,8 +12,8 @@ switch _typeX do
     case "take":
     {
         removeAllActions _flag;
-        _actionX = _flag addAction ["<t>Take the Flag<t> <img image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa' size='1.8' shadow=2 />", A3A_fnc_mrkWIN,nil,6,true,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag setUserActionText [_actionX,"Take the Flag","<t size='2'><img image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa'/></t>"];
+        _actionX = _flag addAction ["<t>Take the Flag<t> <img image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa' size='1.8' shadow=2 />", A3A_fnc_mrkWIN,nil,6,true,true,"","(isNil 'A3A_isPlayerCapturingFlag' || {!A3A_isPlayerCapturingFlag}) && (_this == _this getVariable ['owner',objNull])",4];
+        _flag setUserActionText [_actionX,"Take the Flag","<img size='2' image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa'/>"];
     };
     case "unit":
     {
@@ -21,11 +21,25 @@ switch _typeX do
     };
     case "vehicle":
     {
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+            ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
+        } else {
+            if (A3A_GUIDevPreview) then {
+                createDialog "A3A_BuyVehicleDialog";
+            } else {
+                createDialog "vehicle_option";
+            };
+        }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "mission":
     {
-        petros addAction ["Mission Request", {CreateDialog "mission_menu";},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and ([_this] call A3A_fnc_isMember) and (petros == leader group petros)",4];
+        petros addAction ["Mission Request", {
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+            CreateDialog "mission_menu";
+#endif
+        },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and ([_this] call A3A_fnc_isMember) and (petros == leader group petros)",4];
         petros addAction ["HQ Management", A3A_fnc_dialogHQ,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)", 4];
         petros addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];
     };
@@ -113,7 +127,7 @@ switch _typeX do
     };
     case "seaport":
     {
-        _flag addAction ["Buy Boat", {[FactionGet(reb,"vehicleBoat")] spawn A3A_fnc_addFIAVeh},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        // No additional actions assigned.
     };
     case "garage":
     {
@@ -129,9 +143,20 @@ switch _typeX do
     };
     case "SDKFlag":
     {
+#ifdef UseDoomGUI
+        if (true) exitWith { ERROR("Disabled due to UseDoomGUI Switch.") };
+#endif
         removeAllActions _flag;
         _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;} else {nul = createDialog "vehicle_option"}},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+            ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
+        } else {
+            if (A3A_GUIDevPreview) then {
+                createDialog "A3A_BuyVehicleDialog";
+            } else {
+                createDialog "vehicle_option";
+            };
+        }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         [_flag] call HR_GRG_fnc_initGarage;
     };
     case "Intel_Small":

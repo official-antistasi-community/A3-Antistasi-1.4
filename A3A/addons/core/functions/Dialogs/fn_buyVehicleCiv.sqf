@@ -1,7 +1,11 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 private ["_display","_childControl"];
-_nul = createDialog "civ_vehicle";
+if (A3A_GUIDevPreview) then {
+	createDialog "A3A_BuyVehicleDialog";
+} else {
+	createDialog "civ_vehicle";
+};
 
 //sleep 1;
 disableSerialization;

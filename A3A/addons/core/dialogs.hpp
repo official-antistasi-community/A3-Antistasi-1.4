@@ -875,7 +875,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_music_tooltip;
-			action = "closedialog 0; if (musicON) then {musicON = false; [""Music"", ""Music turned OFF""] call A3A_fnc_customHint;} else {musicON = true; [""Music"", ""Music turned ON""] call A3A_fnc_customHint;}; nul = spawn A3A_fnc_musica"";";
+			action = "closedialog 0; if (musicON) then {musicON = false; [""Music"", ""Music turned OFF""] call A3A_fnc_customHint;} else {musicON = true; [""Music"", ""Music turned ON""] call A3A_fnc_customHint;}; nul = [] spawn A3A_fnc_musica;";
 		};
 		/*
 		class 8slots_L3: A3A_core_BattleMenuRedButton
@@ -1607,7 +1607,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_AI_control_tooltip;
-		action = "closeDialog 0; if ((count groupselectedUnits player > 0) and (count hcSelected player > 0)) exitWith {[""AI Control"", ""You must select from HC or Squad Bars, not both.""] call A3A_fnc_customHint;}; if (count groupselectedUnits player == 1) then {nul = [groupselectedUnits player] spawn A3A_fnc_controlunit""}; if (count hcSelected player == 1) then {nul = [hcSelected player] spawn A3A_fnc_controlHCsquad"";};";
+		action = "closeDialog 0; if ((count groupselectedUnits player > 0) and (count hcSelected player > 0)) exitWith {[""AI Control"", ""You must select from HC or Squad Bars, not both.""] call A3A_fnc_customHint;}; if (count groupselectedUnits player == 1) then {nul = [groupselectedUnits player] spawn A3A_fnc_controlunit}; if (count hcSelected player == 1) then {nul = [hcSelected player] spawn A3A_fnc_controlHCsquad;};";
 		};
 		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
@@ -1651,7 +1651,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison"", ""No units or squads selected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
 		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
@@ -1673,7 +1673,7 @@ class AI_management 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_AI_management_dismiss_units_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Dismiss Squad"", ""No units or squads selected""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Dismiss Squad"", ""No units or squads selected""] call A3A_fnc_customHint;}";
 		};
 		class 8slots_R4: A3A_core_BattleMenuRedButton
 		{
@@ -1780,13 +1780,13 @@ class commander_comm 		{
 		class 8slots_R3: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
-			text = "";//$STR_antistasi_dialogs_commander_comm_faction_garage;
+			text = "Arsenal Limits";		//$STR_antistasi_dialogs_commander_comm_faction_garage;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "";//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "";
+			tooltip = "Manage arsenal limitations of guests";	//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
+			action = "if (player == theBoss) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""You're not the Commander!""] call A3A_fnc_customHint}";
 		};
 		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
@@ -1925,7 +1925,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_dismiss_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Squad"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_dismissPlayerGroup} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_dismissSquad}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Squad"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
 		};
 		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
@@ -1936,7 +1936,7 @@ class dismiss_menu 				{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_dismiss_menu_garrison_tooltip;
-			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison""} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison""}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Static"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
+			action = "closeDialog 0;if (count groupselectedUnits player > 0) then {nul = [groupselectedUnits player] spawn A3A_fnc_addToGarrison} else {if (count (hcSelected player) > 0) then {nul = [hcSelected player] spawn A3A_fnc_addToGarrison}}; if ((count groupselectedUnits player == 0) and (count hcSelected player == 0)) then {[""Garrison Static"", ""No units or squads selected.""] call A3A_fnc_customHint;}";
 		};
 		/*
 		class HQ_button_Gremove: A3A_core_BattleMenuRedButton

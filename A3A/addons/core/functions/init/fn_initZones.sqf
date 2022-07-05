@@ -13,10 +13,11 @@ Info("initZones started");
 
 forcedSpawn = [];
 citiesX = [];
+private _mapInfo = missionConfigFile/"A3A"/"mapInfo"/toLower worldName;
+if (!isClass _mapInfo) then {_mapInfo = configFile/"A3A"/"mapInfo"/toLower worldName};
 
 [] call A3A_fnc_prepareMarkerArrays;
 
-private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
 private ["_name", "_sizeX", "_sizeY", "_size", "_pos", "_mrk"];
 
 if ((toLower worldName) in ["altis", "chernarus_summer"]) then {
@@ -64,7 +65,8 @@ markersX apply {
     //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
-("population" call _fnc_mapInfo) params [["_townPopulations", [], [[]]], ["_disabledTowns",[],[[]]]];
+private _townPopulations = getArray (_mapInfo/"population");
+private _disabledTowns = getArray (_mapInfo/"disabledTowns");
 {server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
 private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 
@@ -83,7 +85,7 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 
 	if (_hardCodedPopulation) then
 	{
-		_numCiv = server getVariable _nameX;
+		_numCiv = server getVariable [_nameX, server getVariable (configName _x)]; //backwards compat to config name based pop defines
 		if (isNil "_numCiv" || {!(_numCiv isEqualType 0)}) then
 		{
             Error_1("Bad population count data for %1", _nameX);
@@ -141,10 +143,11 @@ if (debug) then {
     Debug("Setting up Radio Towers.");
 };
 
-("antennas" call _fnc_mapInfo) params [["_posAntennas", [], [[]]], ["_blacklistIndex",[],[[]]]];
+private _posAntennas = getArray (_mapInfo/"antennas");
+private _blacklistIndex = getArray (_mapInfo/"antennasBlacklistIndex");
 private _hardCodedAntennas = _posAntennas isNotEqualTo [];
 
-("bank" call _fnc_mapInfo) params [["_posBank", [], [[]]]];
+private _posBank = getArray (_mapInfo/"banks");
 if ( _posBank isEqualTo []) then {banks = nearestObjects [[worldSize/2, worldSize/2], _banktypes, worldSize]};
 
 // Land_A_TVTower_base can't be destroyed, Land_Communication_F and Land_Vysilac_FM are not replaced with "Ruins" when destroyed.
@@ -278,7 +281,7 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 };
 
 // fuel rework
-("fuelStationTypes" call _fnc_mapInfo) params [["_fuelStationTypes", [], [[]]]];
+private _fuelStationTypes = getArray (_mapInfo/"fuelStationTypes");
 if( _fuelStationTypes isEqualTo [] ) then {_fuelStationTypes = ["Land_Fuelstation_Feed_F", "Land_fs_feed_F", "Land_FuelStation_01_pump_F", "Land_FuelStation_01_pump_malevil_F", "Land_FuelStation_03_pump_F", "Land_FuelStation_02_pump_F"]};
 A3A_fuelStationTypes = _fuelStationTypes;
 A3A_fuelStations = nearestObjects [[worldSize/2, worldSize/2], _fuelStationTypes, worldSize];
@@ -286,10 +289,11 @@ A3A_fuelStations apply {
 	_mrkFinalFuel = createMarker [format ["Ant%1", mapGridPosition _x], position _x];
 	_mrkFinalFuel setMarkerShape "ICON";
 	_mrkFinalFuel setMarkerType "loc_Fuelstation";
-	_mrkFinalFuel setMarkerColor "ColorPink";
-	_mrkFinalFuel setMarkerText "fuel station";
+	_mrkFinalFuel setMarkerColor "ColorWhite"; 
+	_mrkFinalFuel setMarkerText "Fuel station";
+	_mrkFinalFuel setMarkerAlpha 0.75;
 	if(A3A_hasACE) then {
-		[_x, 10000] call ace_refuel_fnc_setFuel; // only call on fuels that are not blacklisted and first zone init.
+		[_x, 250] call ace_refuel_fnc_setFuel; // only call on fuels that are not blacklisted and first zone init.
 	};
 };
 

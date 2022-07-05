@@ -14,6 +14,11 @@ class CfgPatches {
     };
 };
 
+class A3A {
+    #include "mapInfo.hpp"
+    #include "NavGrid.hpp"
+};
+
 class CfgMissions
 {
     class MPMissions

@@ -5,9 +5,6 @@ scriptName "fn_initGarrisons";
 FIX_LINE_NUMBERS()
 Info("InitGarrisons started");
 
-//get terrain specific info
-private _fnc_mapInfo = compile preProcessFileLineNumbers format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];;
-
 _fnc_initMarker =
 {
 	params ["_mrkCSAT", "_target", "_mrkType", "_mrkText", ["_useSideName", false]];
@@ -93,7 +90,8 @@ _fnc_initGarrison =
 	} forEach _markerArray;
 };
 
-("garrison" call _fnc_mapInfo) params [["_mrkNATO", [], [[]]], ["_mrkCSAT",[],[[]]], ["_controlsNATO", [], [[]]], ["_controlsCSAT",[],[[]]]];
+private _mapInfoRoot = if (isClass (missionConfigFile/"A3A"/"mapInfo"/toLower worldName)) then {missionConfigFile} else {configFile};
+getArray (_mapInfoRoot/"A3A"/"mapInfo"/toLower worldName/"garrison") params [["_mrkNATO", [], [[]]], ["_mrkCSAT",[],[[]]], ["_controlsNATO", [], [[]]], ["_controlsCSAT",[],[[]]]];
 
 if (debug) then
 {
@@ -135,10 +133,6 @@ else
 [_mrkCSAT, seaports, "b_naval", "Sea Port"] call _fnc_initMarker;
 
 if (!(isNil "loadLastSave") && {loadLastSave}) exitWith {};
-
-//Set carrier markers to the same as airbases below.
-if (isServer) then {"NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType")};
-if (isServer) then {"CSAT_carrier" setMarkertype FactionGet(inv,"flagMarkerType")};
 
 if (debug) then {
     Debug("Setting up Airbase stuff.");

@@ -60,8 +60,6 @@ if (side group player == teamPlayer) then
 	_newUnit setCaptive false;
 	_newUnit setRank (_rankX);
 	_newUnit setVariable ["rankX",_rankX,true];
-	_newUnit setUnitTrait ["camouflageCoef",0.8];
-	_newUnit setUnitTrait ["audibleCoef",0.8];
 	{
     _newUnit addOwnedMine _x;
     } count (getAllOwnedMines (_oldUnit));
@@ -233,7 +231,6 @@ if (side group player == teamPlayer) then
 			[_bag2] remoteExec ["A3A_fnc_postmortem", 2];
 			}
 		];
-	[true] spawn A3A_fnc_reinitY;
 	[] spawn A3A_fnc_unitTraits;
 	[] spawn A3A_fnc_statistics;
 	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};

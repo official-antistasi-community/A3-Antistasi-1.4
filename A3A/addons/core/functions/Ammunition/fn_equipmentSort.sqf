@@ -73,6 +73,8 @@ allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "vn_b_acc_seal_01");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "UK3CB_G_Balaclava2_MEE");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "UK3CB_G_Balaclava_Neck_Shemag_MEE");
 
 ////////////////
 //   Radios   //

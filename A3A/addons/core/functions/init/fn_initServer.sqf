@@ -160,6 +160,7 @@ if !(loadLastSave) then {
 	} foreach FactionGet(reb,"initialRebelEquipment");
     Info("Initial arsenal unlocks completed");
 };
+call A3A_fnc_generateRebelGear;
 call A3A_fnc_createPetros;
 
 [petros,"hint","Server load finished", "Server Information"] remoteExec ["A3A_fnc_commsMP", 0];

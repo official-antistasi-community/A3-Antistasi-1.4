@@ -5,14 +5,14 @@ _strength = 49;
 _isJammed = false;
 _interference = 1;
 _sendInterference = 1;
+private _bases = outposts + airportsx + seaports;
 while {true} do
 	{
 	private _antennas = [];
 	{
-	_outpost = [outposts,_x] call BIS_fnc_nearestPosition;
+	_outpost = [_bases,_x] call BIS_fnc_nearestPosition;
 	if (sidesX getVariable [_outpost,sideUnknown] != _sideX) then {_antennas pushBack _x};
 	} forEach antennas;
-	if (_sideX != teamPlayer) then {_antennas pushBack [vehicleBox]};
 	if !(_antennas isEqualTo []) then
 		{
 		_jammer = [_antennas,player] call BIS_fnc_nearestPosition;
@@ -21,7 +21,7 @@ while {true} do
 
 	    if (_dist < _rad) then
 	    	{
-			_interference = _strength - (_distPercent * _strength) + 1; // Calculat the recieving interference, which has to be above 1 to have any effect.
+			_interference = _strength - (_distPercent * _strength) + 1; // Calculate the recieving interference, which has to be above 1 to have any effect.
 			_sendInterference = 1/_interference; //Calculate the sending interference, which needs to be below 1 to have any effect.
 			if (!_isJammed) then {_isJammed = true};
 			player setVariable ["tf_receivingDistanceMultiplicator", _interference];

@@ -10,6 +10,7 @@ if(spawner getVariable _markerX == 2) exitWith {};
 _vehiclesX = [];
 _groups = [];
 _soldiers = [];
+private _dogs = [];
 
 _positionX = getMarkerPos (_markerX);
 _pos = [];
@@ -83,6 +84,7 @@ if (_patrol) then
 			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
 			{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -131,6 +133,7 @@ _flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
+if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
 // Only create ammoBox if it's been recharged (see reinforcementsAI)
 private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
@@ -327,6 +330,7 @@ deleteMarker _mrk;
 //{if ((!alive _x) and (not(_x in destroyedBuildings))) then {destroyedBuildings = destroyedBuildings + [position _x]; publicVariableServer "destroyedBuildings"}} forEach _buildings;
 
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
+{ deleteVehicle _x } forEach _dogs;
 { deleteGroup _x } forEach _groups;
 
 {

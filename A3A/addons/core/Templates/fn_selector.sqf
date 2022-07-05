@@ -1,16 +1,11 @@
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _worldName = toLower worldName;
 
-//======================|
-// Climate Getter       |
-//======================|
-private _fileName = format [ EQPATHTOFOLDER(maps,Antistasi_%1.%1\mapInfo.sqf), worldName];; //can be moved away as it has nothing to do with selector anymore
-A3A_climate = ["climate"] call compile preProcessFileLineNumbers _filename;
+private _worldName = toLower worldName;
 
 private _fnc_requirementMeet = { getArray (_this/"requiredAddons") findIf { !(isClass (configFile/"CfgPatches"/_x)) } == -1 };
 
-//dependecies: _worldName
+//dependecies: _worldName, A3A_climate
 private _fnc_gatherTemplates = {
     params ["_type", ["_pool", []]]; //_pool and _nodes are modified
     if (isClass (_x/_type)) then {
@@ -24,22 +19,19 @@ private _fnc_gatherTemplates = {
                 if (toLower _faction isEqualTo "camo") then {
                     if (_countClasses > 1) then { continue };
 
-                    private _camo = if (getText (_x/_worldName) isNotEqualTo "") then { getText (_x/_worldName) } else { getText (_x/"Default") };
+                    private _camo = if (getText (_x/A3A_climate) isNotEqualTo "") then { getText (_x/A3A_climate) } else { getText (_x/"Default") };
                     _fileNameComposition pushBack _camo;
                 } else {
                     _fileNameComposition pushBack _faction;
                 };
 
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _fileNameComposition = [getText (_x/"file")];
-                };
-
                 if (isClass (_x/"camo")) then { //example: Vanilla_AI_CSAT_Arid.sqf
-                    private _camo = if (getText (_x/"camo"/_worldName) isNotEqualTo "") then { getText (_x/"camo"/_worldName) } else { getText (_x/"camo"/"Default") };
+                    private _camo = if (getText (_x/"camo"/A3A_climate) isNotEqualTo "") then { getText (_x/"camo"/A3A_climate) } else { getText (_x/"camo"/"Default") };
                     _fileNameComposition pushBack _camo;
                 };
-                if (isClass (_x/"file")) then { //file overwrite (absolute path, excluding file extention)
-                    _pool pushBackUnique getText (_x/"file");
+
+                if (isText (_x/"file")) then { //file overwrite (absolute path)
+                    _pool pushBackUnique ((getText (_x/"file")) + ".sqf");
                 } else {
                     _pool pushBackUnique (_rootPath + (_fileNameComposition joinString "_") + ".sqf");
                 };
@@ -68,6 +60,20 @@ private _updatePreferedFaction = {
     private _side = ["Occ","Inv","Reb","Civ"] # _this;
     if (getNumber (_x/_entryName) > (_prioritisations#_this#0)) then {
         private _defaultFaction = if (getText (_x/"worldDefaults"/_worldName/_side) isNotEqualTo "") then { getText (_x/"worldDefaults"/_worldName/_side) } else { getText (_x/"worldDefaults"/"Default"/_side) };
+        if (_defaultFaction isEqualTo "") exitWith {
+            private _pool = ["AI","AI","Reb","Civ"] # _this;
+            if (isClass (_x/_pool) && {
+                (count ("true" configClasses (_x/_pool)) == 0)
+                || (
+                    (count ("true" configClasses (_x/_pool)) == 1)
+                    && (toLower configName (_x/_pool)) isEqualTo "camo"
+                )//no factions defined
+            }) then { // single civ template defined for modset, but no faction defined
+                Debug_2("No worldDefault for side %1 on modset: %2", _side, _modset);
+                _prioritisations set [_this, [getNumber (_x/_entryName), "", _modset]]; //_modset hacked from parent scope
+            };
+        };
+
         _prioritisations set [_this, [getNumber (_x/_entryName), _defaultFaction, _modset]]; //_modset hacked from parent scope
     };
 };
@@ -134,6 +140,8 @@ call compile preprocessFileLineNumbers (_nodes deleteAt _vanillaNodes);
     private _side = [west, east, resistance, civilian] # _forEachIndex;
     private _templateName = ([_modset, _type, _faction] select {_x isNotEqualTo ""}) joinString "_";
     private _index = _templatePool findIf {_templateName in _x};
+    Debug_2("Available templates for faction %1: %2", _type, _templatePool);
+    Debug_1("Looking for template with name: %1", _templateName);
     [_templatePool # _index, _side] call A3A_fnc_compatibilityLoadFaction;
 
     Info_2("Loading template: %1 for side: %2", _templatePool#_index, _side);

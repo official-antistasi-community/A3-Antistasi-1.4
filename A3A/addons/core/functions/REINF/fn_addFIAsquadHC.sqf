@@ -115,7 +115,11 @@ if (_isInfantry and (_costs + _vehCost) > server getVariable "resourcesFIA") exi
     [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup;
 };
 
-createDialog "veh_query";
+#ifdef UseDoomGUI
+    ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+    createDialog "veh_query";
+#endif
 sleep 1;
 disableSerialization;
 private _display = findDisplay 100;

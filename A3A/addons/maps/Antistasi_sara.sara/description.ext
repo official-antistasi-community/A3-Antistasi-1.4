@@ -1,6 +1,6 @@
 #include "..\missionDescription\master.hpp"
 
-OnLoadName = $STR_antistasi_mission_info_sara_mapname_text;
+OnLoadName = $STR_antistasi_mission_info_sara_mapname_short_text;
 OnLoadMission = $STR_antistasi_mission_info_sara_blurb_text;
 briefingName = $STR_antistasi_mission_info_sara_mapname_text;
 overviewText = $STR_antistasi_mission_info_sara_description_text;
@@ -10,10 +10,6 @@ overviewPicture = "Pictures\Mission\pic.jpg"; // NB, this will resolve from root
 class CfgNotifications
 {
     #include "..\missionDescription\CfgNotificationsContents.hpp"
-};
-
-class CfgSounds {
-    #include "..\missionDescription\CfgSoundsContents.hpp"
 };
 
 class CfgDebriefing {

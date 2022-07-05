@@ -16,6 +16,7 @@ _size = [_markerX] call A3A_fnc_sizeMarker;
 
 _civs = [];
 _soldiers = [];
+private _dogs = [];
 _groups = [];
 _vehiclesX = [];
 
@@ -109,6 +110,7 @@ if (_patrol) then
 			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
 			{
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
@@ -125,6 +127,7 @@ _flagX = createVehicle [_typeVehX, _positionX, [],0, "NONE"];
 _flagX allowDamage false;
 [_flagX,"take"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_flagX];
 _vehiclesX pushBack _flagX;
+if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
 if (not(_markerX in destroyedSites)) then
 {
@@ -223,6 +226,7 @@ deleteMarker _mrk;
 
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _civs;
+{ deleteVehicle _x } forEach _dogs;
 { deleteGroup _x } forEach _groups;
 
 {

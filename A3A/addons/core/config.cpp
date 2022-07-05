@@ -14,6 +14,7 @@ class CfgPatches {
     };
 };
 
+#include "CfgSounds.hpp"
 class A3A {
     #include "Templates.hpp"
 
@@ -35,5 +36,9 @@ class A3A {
     #include "CfgFunctions.hpp"
 #endif
 
-#include "defines.hpp"
-#include "dialogs.hpp"
+#ifndef UseDoomGUI
+    #include "defines.hpp"
+    #include "dialogs.hpp"
+#endif
+
+#include "keybinds.hpp"

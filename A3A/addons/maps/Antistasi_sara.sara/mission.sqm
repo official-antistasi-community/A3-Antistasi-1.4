@@ -4217,7 +4217,7 @@ class Mission
 				class Item0
 				{
 					dataType="Marker";
-					position[]={1385.301,-50.098419,657.04468};
+					position[]={4000,0,11000};
 					name="CSAT_carrier";
 					type="flag_CSAT";
 					id=380;
@@ -4237,7 +4237,7 @@ class Mission
 				class Item0
 				{
 					dataType="Marker";
-					position[]={7948.6885,-70.022148,20037.252};
+					position[]={18000,0,7000};
 					name="NATO_carrier";
 					type="flag_UN";
 					id=381;

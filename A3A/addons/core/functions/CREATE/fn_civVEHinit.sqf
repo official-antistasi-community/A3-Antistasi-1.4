@@ -29,3 +29,4 @@ if ((count crew _veh == 0) and (!A3A_hasRHS) and !(A3A_hasIFA)) then
 		}
 		];
 	};
+["civVehInit", [_veh]] call EFUNC(Events,triggerEvent);

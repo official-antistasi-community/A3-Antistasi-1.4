@@ -59,5 +59,6 @@ private _reportCleared = false;
 } forEach vehicles;
 if (_reportCleared) then { publicVariable "reportedVehs" };//spare publicVariable for every vehicle at hq
 
+["vehicleBoxHeal", [_posHQ]] call EFUNC(Events,triggerEvent);
 [localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_Healed"] call A3A_fnc_customHint;
 nil

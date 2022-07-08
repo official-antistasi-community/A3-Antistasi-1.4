@@ -68,20 +68,11 @@ switch (_mode) do
 			_button setVariable ["className", _className];
 			_button ctrlCommit 0;
 
-
-			_button ctrlAddEventHandler ["MouseExit", {
-				params ["_control"];
-				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, false];
-			}];
-			_button ctrlAddEventHandler ["MouseEnter", {
-				params ["_control"];
-				A3A_building_EHDB set [TELL_MOUSE_DOWN_TO_CHILL, true];
-			}];
 			_button ctrlAddEventHandler ["ButtonDown", {
 				params ["_control"];
 
 				if(isNil "A3A_building_EHDB") then {
-					// how the fucked did you do this? No databases?
+					// how the fuck did you do this? No databases?
 					call A3A_initBuildingDB;
 				};
 

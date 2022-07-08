@@ -41,51 +41,41 @@ for "_i" from 1 to 36 do {
 
 private _emptyDisplay = findDisplay 46 createDisplay "A3A_teamLeaderBuilder";
 A3A_building_EHDB set [BUILD_DISPLAY, _emptyDisplay];
-call (A3A_building_EHDB # UPDATE_BB);
-
-private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", {
-	params ["_displayOrControl", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
-	
-	if( A3A_building_EHDB # TELL_MOUSE_DOWN_TO_CHILL) exitWith {};
-	if ( _button isNotEqualTo 0) exitWith {};		//TODO check to see if users are okay with middleMouse clicks?
-	if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
-	
-	private _vehiclePos = screenToWorld [_xPos, _yPos]; 
-	if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
-	
-	
-	private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
-	private _direction = getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-	
-	(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction];
-		
-	//deleteVehicle vec;
-	_vehicle = _className createVehicleLocal [0,0,0];
-	_vehicle setDir _direction;
-	_vehicle setPos _vehiclePos;
-	playSound3D[getMissionPath "Sounds\hammer.ogg", player];
-	(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 		 
-}];
-
-
-A3A_building_EHDB set [MOUSE_DOWN_EH, _mouseDownEH]; 
+call (A3A_building_EHDB # UPDATE_BB); 
 
 private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	params["_displayOrControl","_key"];
 	if (_key in [DIK_ESCAPE,DIK_Y]) then {
 		call (A3A_building_EHDB # END_BUILD_FUNC);
 	};
+
+	if (_key isEqualTo DIK_SPACE) then {
+		if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
+
+		private _mousePosition = getMousePosition;
+		private _vehiclePos = screenToWorld[_mousePosition #0, _mousePosition#1];
+		if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
+	
+	
+		private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
+		private _direction = getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+	
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction];
+		
+		_vehicle = _className createVehicleLocal [0,0,0];
+		_vehicle setDir _direction;
+		_vehicle setPos _vehiclePos;
+		//playSound3D[getMissionPath "Sounds\hammer.ogg", player];
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 
+	};
 	
 	
 	if (_key isEqualTo DIK_E) then {
 		A3A_building_EHDB set [E_PRESSED, true];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - diag_deltaTime * 120);
-		
 	};
 	
 	if (_key isEqualTo DIK_R ) then {
 		A3A_building_EHDB set [R_PRESSED, true];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + diag_deltaTime * 120);
 	};	 
 }];
 
@@ -118,12 +108,12 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	
 	// rotation
 	if (A3A_building_EHDB # R_PRESSED) then {
-		A3A_building_EHDB set [R_PRESSED, false];
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + diag_deltaTime * 120);
 		_stateChange = true;
 	};
 	
 	if (A3A_building_EHDB # E_PRESSED) then {
-		A3A_building_EHDB set [E_PRESSED, false];
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - diag_deltaTime * 120);
 		_stateChange = true;
 	};
 

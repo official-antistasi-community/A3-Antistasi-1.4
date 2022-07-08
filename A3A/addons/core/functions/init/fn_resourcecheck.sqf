@@ -7,7 +7,8 @@ if (!isServer) exitWith {
 while {true} do
 {
 	//sleep 600;//600
-	nextTick = time + 600;
+	private _time = time;
+	nextTick = _time + 600;
 	waitUntil {sleep 15; time >= nextTick};
 	if (isMultiplayer) then {waitUntil {sleep 10; isPlayer theBoss}};
 
@@ -131,7 +132,6 @@ while {true} do
 		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
 
 	{
-		private _time = time;
 		private _object = _x # 0;
 		private _objectTimeout = _x # 1;
 

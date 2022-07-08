@@ -17,7 +17,6 @@ Example:
 
 params [["_object", objNull, [objNull]]];
 
-systemChat str _object;
 
 private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
 		private _constructionObject = (_thisArgs # 0);

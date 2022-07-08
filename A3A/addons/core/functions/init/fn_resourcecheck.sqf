@@ -129,6 +129,8 @@ while {true} do
 	};
 
 	if (!isNil "A3A_notBuiltObjectList") then {
+
+		//A3A_notBuiltObjectList was defined but it was an empty array -> exit out of scope
 		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
 
 	{

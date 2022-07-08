@@ -46,7 +46,7 @@ if (isNil "A3A_notBuiltObjectList") then {
 	//_vehicle setVariable ["holdTimeOut", _buildTimeOut]
 
 	A3A_notBuiltObjectList pushBack [_vehicle, _buildTimeOut];
-	publicVariable "A3A_notBuiltObjectList";
+	publicVariable "A3A_notBuiltObjectList"; //TODO check to see if the clients use this, maybe I can use publicVariableServer
 
 	private _jipKey = "A3A_utilityItems_teamPlacer_" + ((str _vehicle splitString ":") joinString "");
 

@@ -47,7 +47,7 @@ private _mouseDownEH = _emptyDisplay displayAddEventHandler ["MouseButtonDown", 
 	params ["_displayOrControl", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
 	
 	if( A3A_building_EHDB # TELL_MOUSE_DOWN_TO_CHILL) exitWith {};
-	if ( _button isNotEqualTo 0) exitWith {};
+	if ( _button isNotEqualTo 0) exitWith {};		//TODO check to see if users are okay with middleMouse clicks?
 	if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 	
 	private _vehiclePos = screenToWorld [_xPos, _yPos]; 
@@ -72,27 +72,38 @@ A3A_building_EHDB set [MOUSE_DOWN_EH, _mouseDownEH];
 
 private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	params["_displayOrControl","_key"];
-	if (_key in [DIK_ESCAPE,DIK_Y] && (A3A_building_EHDB # WAIT_TIME) < time) then {
-		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
+	if (_key in [DIK_ESCAPE,DIK_Y]) then {
 		call (A3A_building_EHDB # END_BUILD_FUNC);
 	};
 	
 	
-	if (_key isEqualTo DIK_E && (A3A_building_EHDB # WAIT_TIME) < time) then {
+	if (_key isEqualTo DIK_E) then {
 		A3A_building_EHDB set [E_PRESSED, true];
-		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - 2);
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) - diag_deltaTime * 120);
 		
 	};
 	
-	if (_key isEqualTo DIK_R && (A3A_building_EHDB # WAIT_TIME) < time) then {
+	if (_key isEqualTo DIK_R ) then {
 		A3A_building_EHDB set [R_PRESSED, true];
-		A3A_building_EHDB set [WAIT_TIME , (A3A_building_EHDB # WAIT_TIME ) + diag_deltaTime];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + 2);
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setDir ((getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) + diag_deltaTime * 120);
 	};	 
 }];
 
 A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
+
+private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
+	params ["_displayOrControl", "_key"];
+
+	if (_key isEqualTo DIK_E) then {
+		A3A_building_EHDB set [E_PRESSED, false];
+	};
+
+	if (_key isEqualTo DIK_R) then {
+		A3A_building_EHDB set [R_PRESSED, false];
+	};
+}];
+
+A3A_building_EHDB set [KEY_UP_EH, _upKeyEH];
 
 
 private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {

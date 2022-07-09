@@ -8,7 +8,7 @@ class Events {
         class params {
             // naming scheme of elements: _{Index}
             class _0 {
-                description = "Vehicle being initilized";
+                description = "Vehicle being initialized";
                 types[] = {"OBJECT"}; //valid types, if optional then nil is also valid, Note: "ANY" allow all data types
                 optional = 0; //if this param is not required
             };
@@ -73,7 +73,7 @@ class Events {
         isLocal = 1;
         class params {
             class _0 {
-                description = "Unit being initilized";
+                description = "Unit being initialized";
                 types[] = {"OBJECT"};
                 optional = 0;
             };
@@ -83,7 +83,7 @@ class Events {
         isLocal = 1;
         class params {
             class _0 {
-                description = "civ vehicle being initilized";
+                description = "civ vehicle being initialized";
                 types[] = {"OBJECT"};
                 optional = 0;
             };
@@ -113,7 +113,7 @@ class Events {
         isLocal = 1;
         class params {
             class _0 {
-                description = "Unit being initilized";
+                description = "Unit being initialized";
                 types[] = {"OBJECT"};
                 optional = 0;
             };

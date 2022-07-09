@@ -26,7 +26,7 @@ params [["_centerObject", player, [objNull]], ["_buildingRadius", 20, [0]]];
 if(!isNil "A3A_building_EHDB") exitwith {};
 
 [_centerObject, _buildingRadius] call A3A_fnc_initBuildingDB;
-cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
+cam = "camconstruct" camCreate (position _centerObject vectorAdd [0,0,2.5]);
 cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
 
@@ -68,7 +68,7 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		//playSound3D[getMissionPath "Sounds\hammer.ogg", player];
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 
 	};
-	
+
 	
 	if (_key isEqualTo DIK_E) then {
 		A3A_building_EHDB set [E_PRESSED, true];
@@ -76,6 +76,25 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	
 	if (_key isEqualTo DIK_R ) then {
 		A3A_building_EHDB set [R_PRESSED, true];
+	};
+
+	//TODO add the movement controls for the camera!
+	if (_key isEqualTo DIK_W) then {
+	};
+	
+	if (_key isEqualTo DIK_A) then {
+	};
+
+	if (_key isEqualTo DIK_S) then {
+	};
+	
+	if (_key isEqualTo DIK_D) then {
+	};
+
+	if (_key isEqualTo DIK_Q) then {
+	};
+	
+	if (_key isEqualTo DIK_Z) then {
 	};	 
 }];
 
@@ -95,6 +114,12 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 
 A3A_building_EHDB set [KEY_UP_EH, _upKeyEH];
 
+
+private _mouseZChanged = _emptyDisplay displayAddEventHandler["MouseZChanged", {
+	params ["_displayOrControl", "_scroll"];
+
+	//  A3A_building_EHDB set [MOUSE_Z_CHANGED, true];
+}];
 
 private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	private _stateChange = false;

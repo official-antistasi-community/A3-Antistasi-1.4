@@ -14,16 +14,16 @@
 //////////////////////////
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
-["surrenderCrate", "vn_o_ammobox_04"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["surrenderCrate", "vn_o_ammobox_04"] call _fnc_saveToTemplate;
+["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;
 
 // All fo bellow are optional overrides
-["firstAidKits", ["vn_o_item_firstaidkit"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.
-["mediKits", ["vn_o_item_medikit_01"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.
+["firstAidKits", ["vn_o_item_firstaidkit"]] call _fnc_saveToTemplate;
+["mediKits", ["vn_o_item_medikit_01"]] call _fnc_saveToTemplate;
 
-["placeIntel_desk", ["Land_vn_us_common_table_01",0]] call _fnc_saveToTemplate;  // [classname,azimuth].
-["placeIntel_itemMedium", ["Land_vn_file1_f",-25,false]] call _fnc_saveToTemplate;  // [classname,azimuth,isComputer].
-["placeIntel_itemLarge", ["Land_vn_filephotos_f",-25,false]] call _fnc_saveToTemplate;  // [classname,azimuth,isComputer].
+["placeIntel_desk", ["Land_vn_us_common_table_01",0]] call _fnc_saveToTemplate;
+["placeIntel_itemMedium", ["Land_vn_file1_f",-25,false]] call _fnc_saveToTemplate;
+["placeIntel_itemLarge", ["Land_vn_filephotos_f",-25,false]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -31,35 +31,34 @@
 
 ["vehiclesBasic", ["vn_o_bicycle_01"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["vn_o_wheeled_btr40_01"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02","vn_o_wheeled_btr40_mg_01"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02", "vn_o_wheeled_btr40_mg_01"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["vn_o_wheeled_z157_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["vn_o_wheeled_z157_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["vn_o_wheeled_z157_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["vn_o_wheeled_btr40_02"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["vn_o_wheeled_btr40_mg_02","vn_o_wheeled_btr40_mg_01"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["vn_o_armor_type63_01", "vn_o_armor_m41_01"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["vn_o_wheeled_btr40_mg_03","vn_o_wheeled_z157_mg_02"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
-
+["vehiclesAPCs", ["vn_o_armor_m113_acav_01","vn_o_armor_m113_acav_03","vn_o_armor_m113_01"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["vn_o_armor_m41_01","vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["vn_o_wheeled_btr40_mg_03", "vn_o_wheeled_z157_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["vn_o_boat_01_mg_03"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["vn_o_boat_04_02"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["vn_o_air_mi2_04_04"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["vn_o_air_mi2_05_06"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["vn_o_air_mig19_at"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["vn_o_air_mig19_cap"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["vn_o_air_mi2_04_02","vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["vn_o_vc_static_mortar_type53"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["vn_o_vc_static_mortar_type53", "vn_o_nva_static_h12", "vn_o_nva_static_d44_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["vn_o_vc_static_mortar_type53", ["vn_mortar_type53_mag_he_x8"]]
+["vn_o_vc_static_mortar_type53", ["vn_mortar_type53_mag_he_x8"]],
+["vn_o_nva_static_h12", ["vn_h12_v_12_he_mag"]],
+["vn_o_nva_static_d44_01", ["vn_cannon_d44_mag_he_x12"]]
 ]] call _fnc_saveToTemplate;
 
 //Config special vehicles
@@ -69,7 +68,7 @@
 
 ["vehiclesPolice", ["vn_i_wheeled_m151_02_mp"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["vn_o_nva_static_dshkm_high_01"]] call _fnc_saveToTemplate;
+["staticMGs", ["vn_o_nva_static_dshkm_high_01", "vn_o_nva_static_rpd_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
 ["staticAA", ["vn_o_nva_static_zpu4"]] call _fnc_saveToTemplate;
 ["staticMortars", ["vn_o_nva_65_static_mortar_type63"]] call _fnc_saveToTemplate;
@@ -89,12 +88,13 @@
 ///  Identities   ///
 /////////////////////
 
-["faces", ["AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03","AsianHead_A3_04","AsianHead_A3_05","AsianHead_A3_06","AsianHead_A3_07"]] call _fnc_saveToTemplate;
+["faces", ["AsianHead_A3_01", "AsianHead_A3_02", "AsianHead_A3_03", "AsianHead_A3_04", "AsianHead_A3_05", "AsianHead_A3_06", "AsianHead_A3_07"]] call _fnc_saveToTemplate;
 ["voices", ["vie"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
+
 private _loadoutData = call _fnc_createLoadoutData;
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
@@ -361,15 +361,12 @@ private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["vn_o_uniform_nva_army_04_03"]];
 _crewLoadoutData set ["vests", ["vn_o_vest_06"]];
 _crewLoadoutData set ["helmets", ["vn_o_helmet_tsh3_01", "vn_o_helmet_tsh3_02"]];
-_crewLoadoutData set ["SMGs", [
-["vn_pps43", "", "", "", ["vn_pps_mag", "vn_pps_mag", "vn_pps_t_mag"], [], ""]
-]];
+
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["vn_o_uniform_nva_army_01_03"]];
 _pilotLoadoutData set ["vests", ["vn_o_vest_05"]];
 _pilotLoadoutData set ["helmets", ["vn_o_helmet_zsh3_02", "vn_o_helmet_zsh3_01"]];
-_pilotLoadoutData set ["SMGs", []];
 
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -850,7 +847,7 @@ private _unitTypes = [
 //The following lines are determining the loadout of the pilots
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _SquadLeaderTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

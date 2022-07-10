@@ -388,8 +388,6 @@ private _squadLeaderTemplate = {
     ["primary", 6] call _fnc_addMagazines;
     ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
-    ["lightATLaunchers"] call _fnc_setLauncher;
-
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 4] call _fnc_addMagazines;
     ["handgun", 4] call _fnc_addAdditionalMuzzleMagazines;
@@ -412,8 +410,6 @@ private _riflemanTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-
-    ["lightATLaunchers"] call _fnc_setLauncher;
 
     [selectRandom ["rifles", "SMGs"]] call _fnc_setPrimary;
     ["primary", 6] call _fnc_addMagazines;

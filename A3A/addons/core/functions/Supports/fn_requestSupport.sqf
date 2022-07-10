@@ -64,6 +64,9 @@ Debug_1("Resource max spend %1", _maxSpend);
 
 // Calculate support type weighting factors based on other recent strikes near target
 private _classWeightsHM = call {
+    // Shortcut this for air targets
+    if (_target isKindOf "Air") exitWith { createHashMapFromArray [["AREA", 0], ["TROOPS", 0], ["TARGET", 1]] };
+
     // AREA has stronger reduction than TROOPS but over a smaller area
     private _weightArea = 1;
     private _weightTarget = 1;
@@ -95,15 +98,15 @@ Debug_1("Base support type weights: %1", _classWeightsHM);
 
 
 // Avoid making area attacks against friendlies, although "mistakes" can be made
-private _nearfriendlies = units _side inAreaArray [_targPos, 300, 300];
-if (_side == Occupants) then { _nearFriendlies append (units civilian inAreaArray [_targPos, 300, 300]) };
-private _maxFriendlies = if (_side == Invaders) then { random [2, 4, 10] } else { random [0, 1, 5] };
+private _nearfriendlies = units _side inAreaArray [_targPos, 200, 200];
+if (_side == Occupants) then { _nearFriendlies append (units civilian inAreaArray [_targPos, 200, 200]) };
+private _maxFriendlies = if (_side == Invaders) then { random [2, 4, 10] } else { random [0, 2, 5] };
 
 // Occupants avoid making area attacks against groups of houses within towns
 // many buildings within military facilities also count as HOUSE, so first check if we're inside a town radius
 private _nearHouses = call {
     if (_side == Invaders || { -1 == citiesX findIf { _targPos inArea _x }}) exitWith { [] };
-    nearestTerrainObjects [_targPos, ["HOUSE"], 150, false];
+    nearestTerrainObjects [_targPos, ["HOUSE"], 100, false];
 };
 private _maxHouses = (1 + random 5) ^ 2;
 Debug_4("Total friendlies %1, max friendlies %2, total houses %3, max houses %4", count _nearFriendlies, _maxFriendlies, count _nearHouses, _maxHouses);
@@ -129,7 +132,7 @@ private _availParams = [_target, _side, _maxSpend];        //, _nearStrikes];
 
     // First fetch the weight factor derived from other recent strikes near target
     private _proxWeight = _classWeightsHM get _class;
-    if (_proxWeight <= 0) then { continue };                // support class overused against target
+    if (_proxWeight <= 0) then { continue };                // support class overused or useless against target
 
     // call the availability function for each support type
     private _availFunc = missionNamespace getVariable format ["A3A_fnc_SUP_%1Available", _x];

@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_CW_US_B_LATE_M151_Jeep_Closed", "UK3CB_CW_US_B_LATE_M151_Jeep_Open", "UK3CB_CW_US_B_LATE_M1025_Unarmed", "UK3CB_CW_US_B_LATE_M998_4DR", "UK3CB_CW_US_B_LATE_M998_2DR"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_CW_US_B_LATE_M1025_M2", "UK3CB_CW_US_B_LATE_M1025_MK19", "UK3CB_CW_US_B_LATE_M1025_TOW", "UK3CB_CW_US_B_LATE_M151_Jeep_TOW"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_CW_US_B_LATE_M1025_M2", "UK3CB_CW_US_B_LATE_M1025_M2", "UK3CB_CW_US_B_LATE_M1025_MK19", "UK3CB_CW_US_B_LATE_M1025_TOW", "UK3CB_CW_US_B_LATE_M151_Jeep_HMG"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_CW_US_B_LATE_M939", "UK3CB_CW_US_B_LATE_M939_Guntruck", "UK3CB_CW_US_B_LATE_M939_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_CW_US_B_LATE_M939_Recovery", "UK3CB_CW_US_B_LATE_M977A4_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_CW_US_B_LATE_M939_Reammo", "UK3CB_CW_US_B_LATE_M977A4_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_CW_US_B_LATE_M939_Repair", "UK3CB_CW_US_B_LATE_M977A4_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_CW_US_B_LATE_M939_Fuel", "UK3CB_CW_US_B_LATE_M978A4_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_CW_US_B_LATE_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_CW_US_B_LATE_M2A2", "UK3CB_CW_US_B_LATE_M113_MK19", "UK3CB_CW_US_B_LATE_M113_M240", "UK3CB_CW_US_B_LATE_M113_M2", "UK3CB_CW_US_B_LATE_LAV25_HQ", "UK3CB_CW_US_B_LATE_LAV25", "UK3CB_CW_US_B_LATE_AAV"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_CW_US_B_LATE_M113_MK19", "UK3CB_CW_US_B_LATE_M113_M240", "UK3CB_CW_US_B_LATE_M113_M2", "UK3CB_CW_US_B_LATE_LAV25_HQ"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_CW_US_B_LATE_M2A2", "UK3CB_CW_US_B_LATE_LAV25", "UK3CB_CW_US_B_LATE_AAV"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_CW_US_B_LATE_M2A2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_CW_US_B_EARLY_M1A1", "UK3CB_CW_US_B_EARLY_M60a3", "UK3CB_CW_US_B_EARLY_M60a1"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
@@ -39,8 +41,9 @@
 ["vehiclesPlanesTransport", ["UK3CB_CW_US_B_EARLY_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_CW_US_B_EARLY_UH1H"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_CW_US_B_EARLY_CH47", "UK3CB_CW_US_B_EARLY_UH1H_M240", "UK3CB_CW_US_B_LATE_UH60M2", "UK3CB_CW_US_B_LATE_UH60M", "UK3CB_CW_US_B_LATE_UH1H"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_CW_US_B_EARLY_UH1H_GUNSHIP", "UK3CB_CW_US_B_EARLY_AH1Z", "UK3CB_CW_US_B_EARLY_AH1Z_CS", "UK3CB_CW_US_B_EARLY_AH1Z_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_CW_US_B_EARLY_CH47", "UK3CB_CW_US_B_EARLY_UH1H_M240", "UK3CB_CW_US_B_LATE_UH60M2", "UK3CB_CW_US_B_LATE_UH60M"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_CW_US_B_EARLY_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_CW_US_B_EARLY_AH1Z", "UK3CB_CW_US_B_EARLY_AH1Z_CS", "UK3CB_CW_US_B_EARLY_AH1Z_GS"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109", "RHS_M119_WD", "UK3CB_CW_US_B_LATE_M270_MLRS_HE", "UK3CB_CW_US_B_LATE_M270_MLRS_CLUSTER"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -71,6 +74,8 @@
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

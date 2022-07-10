@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["UK3CB_KRG_B_Quadbike"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_KRG_B_M270_Transport", "UK3CB_KRG_B_BTR40", "UK3CB_KRG_B_M1025_Unarmed", "UK3CB_KRG_B_M998_2DR", "UK3CB_KRG_B_M998_4DR", "UK3CB_KRG_B_Pickup"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_KRG_B_Pickup_M2", "UK3CB_KRG_B_Pickup_DSHKM", "UK3CB_KRG_B_M1025_TOW", "UK3CB_KRG_B_M1025_M2", "UK3CB_KRG_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_KRG_B_Pickup_M2", "UK3CB_KRG_B_Pickup_DSHKM", "UK3CB_KRG_B_M1025_TOW", "UK3CB_KRG_B_M1025_M2", "UK3CB_KRG_B_M939_ZU23", "UK3CB_KRG_B_MTVR_ZU23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_KRG_B_M939_Closed", "UK3CB_KRG_B_M939_Guntruck", "UK3CB_KRG_B_M939_Open", "UK3CB_KRG_B_MTVR_Closed"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_KRG_B_M939_Recovery", "UK3CB_KRG_B_MTVR_Recovery", "UK3CB_KRG_B_M270_Carrier"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_KRG_B_M939_Reammo", "UK3CB_KRG_B_MTVR_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_KRG_B_M939_Repair", "UK3CB_KRG_B_MTVR_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_KRG_B_MTVR_Refuel", "UK3CB_KRG_B_M939_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_LDF_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_KRG_B_M2A2", "UK3CB_KRG_B_BTR60", "UK3CB_KRG_B_M113tank_M2_90"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_KRG_B_M113tank_M2_90", "UK3CB_KRG_B_M113tank_M2_90", "UK3CB_KRG_B_MTLB_PKT", "UK3CB_KRG_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_KRG_B_M2A2", "UK3CB_KRG_B_BTR60", "UK3CB_KRG_B_BTR60", "UK3CB_KRG_B_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_KRG_B_M2A2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_KRG_B_FV4201", "UK3CB_KRG_B_M60A3", "UK3CB_KRG_B_M60A1"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_KRG_B_M939_ZU23", "UK3CB_KRG_B_MTLB_ZU23", "UK3CB_KRG_B_MTVR_ZU23", "UK3CB_KRG_B_M270_Avenger", "UK3CB_KRG_B_ZsuTank"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_KRG_B_M270_Avenger", "UK3CB_KRG_B_ZsuTank"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UK3CB_MDF_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_MDF_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_KRG_B_Bell412_Utility", "UK3CB_KRG_B_UH1H"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_KRG_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_KRG_B_Bell412_Armed", "UK3CB_KRG_B_Bell412_Armed_AT", "UK3CB_KRG_B_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_KRG_B_Bell412_Armed", "UK3CB_KRG_B_Bell412_Armed_AT", "UK3CB_KRG_B_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_KRG_B_M109", "UK3CB_KRG_B_M270_MLRS_Cluster", "UK3CB_KRG_B_M270_MLRS_HE", "UK3CB_KRG_B_M939_MLRS", "UK3CB_KRG_B_MTVR_MLRS", "UK3CB_KRG_B_M119"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -74,6 +77,8 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

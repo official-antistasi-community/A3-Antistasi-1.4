@@ -45,7 +45,7 @@ private _cargoGroup = [_posOrigin, _side, _groupType, true, false] call A3A_fnc_
 
 private _landPad = objNull;
 if (_isLand) then {
-	private _landPos = [_posDest, getPosATL _vehicle, false, []] call A3A_fnc_findSafeRoadToUnload;
+	private _landPos = [_posDest, getPosATL _vehicle, true, []] call A3A_fnc_findSafeRoadToUnload;		// should actually be safe...
 	Debug_1("Landpos veh = %1", _landPos);
 	[getPosATL _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
 

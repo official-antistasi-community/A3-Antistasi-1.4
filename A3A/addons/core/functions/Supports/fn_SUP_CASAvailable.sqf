@@ -20,7 +20,7 @@ if (_faction get "vehiclesPlanesCAS" isEqualTo []) exitWith { 0 };      // CAS a
 
 if (_target isKindOf "Air") exitWith { 0 };         // can't hit air
 
-if (_target isKindOf "Man") exitWith { 0.2 };       // Don't use too often against meatsacks
+if (_target isKindOf "Man") exitWith { 0.001 };       // Don't spawn to attack meatsacks, but re-use active supports
 
 // Against vehicles and statics, use more frequently against more dangerous stuff
 private _threat = A3A_groundVehicleThreat getOrDefault [typeOf _target, 0];

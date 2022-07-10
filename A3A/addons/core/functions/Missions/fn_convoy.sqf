@@ -127,7 +127,7 @@ private _route = [_posOrigin, _posDest] call A3A_fnc_findPath;
 _route = _route apply { _x select 0 };			// reduce to position array
 if (_route isEqualTo []) then { _route = [_posOrigin, _posDest] };
 
-private _vehPool = ([_sideX, tierWar] call A3A_getVehiclesGroundTransport) + ([_sideX, tierWar] call A3A_getVehiclesGroundSupport);
+private _vehPool = ([_sideX, tierWar] call A3A_fnc_getVehiclesGroundTransport) + ([_sideX, tierWar] call A3A_fnc_getVehiclesGroundSupport);
 private _pathState = [];			// Set the scope so that state is preserved between findPosOnRoute calls
 private _resourcesSpent = 0;
 

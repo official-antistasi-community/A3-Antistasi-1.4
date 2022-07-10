@@ -37,8 +37,14 @@ private _posDestination = if(_destination isEqualType "") then {getMarkerPos _de
 private _path = [_posOrigin, _posDestination] call A3A_fnc_findPath;
 _path = [_path] call A3A_fnc_trimPath;          // some functionality here is questionable...
 
-//Get rid of the first part of to avoid driving back
-if(count _path > 0) then{ _path deleteAt 0 };
+// Pathfinding failed? Just make a waypoint on the destination
+if(count _path < 2) then {
+    private _wp = _group addWaypoint [_destination, 0];
+    _wp setWaypointBehaviour "SAFE";
+    _group setCurrentWaypoint _wp;
+};
+
+_path deleteAt 0;       //Get rid of the first part of to avoid driving back
 
 // Do some additional distance-based culling to improve travel speed
 reverse _path;
@@ -56,10 +62,6 @@ private _distToPrev = 0;
 _path = _culledPath;
 reverse _path;
 
-private _waypoints = _path apply {_group addWaypoint [_x, 0]};
+private _waypoints = _path apply {_group addWaypoint [ATLtoASL _x, -1]};
 {_x setWaypointBehaviour "SAFE"} forEach _waypoints;
-
-if (count _waypoints > 0) then
-{
-    _group setCurrentWaypoint (_waypoints select 0);
-};
+_group setCurrentWaypoint (_waypoints select 0);

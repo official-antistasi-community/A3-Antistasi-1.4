@@ -116,7 +116,8 @@ _plane addEventHandler ["Fired", {
             [_plane, _weapon, _mode] spawn
             {
                 params ["_plane", "_weapon", "_mode"];
-                sleep (_plane getVariable ["mainGunReload", 0.1]);
+                sleep (0.05 + (_plane getVariable "mainGunReload"));
+                //Debug_2("Firing followup %1 burst with mode %2", _weapon, _mode); 
                 (driver _plane) forceWeaponFire [_weapon, _mode];
             };
         };
@@ -142,7 +143,8 @@ _plane addEventHandler ["Fired", {
             [_plane, _weapon, _mode] spawn
             {
                 params ["_plane", "_weapon", "_mode"];
-                sleep (_plane getVariable ["rocketReload", 0.3]);
+                sleep (0.1 + (_plane getVariable "rocketReload"));
+                //Debug_2("Firing followup %1 burst with mode %2", _weapon, _mode); 
                 (driver _plane) forceWeaponFire [_weapon, _mode];
             };
         };
@@ -169,8 +171,10 @@ _plane addEventHandler ["Fired", {
 
 
 //distances:
-#define DIST_REPOS 3000
+#define DIST_REPOS 5000
 #define DIST_APPROACH 2000
+#define ALT_REPOS 700
+#define ALT_APPROACH 400
 
 while {count waypoints _group > 0} do { deleteWaypoint [_group, 0] };
 private _setupWP = _group addWaypoint [_suppCenter, 0];
@@ -180,7 +184,7 @@ private _loiterWP = _group addWaypoint [_suppCenter, 0];
 _loiterWP setWaypointSpeed "NORMAL";
 _loiterWP setWaypointType "Loiter";
 _loiterWP setWaypointLoiterRadius DIST_REPOS;
-_loiterWP setWaypointLoiterAltitude 500;
+_loiterWP setWaypointLoiterAltitude ALT_REPOS;
 _group setCurrentWaypoint _loiterWP;
 
 
@@ -220,7 +224,7 @@ while {true} do
     switch (_state) do
     {
         case STATE_PICK_TARGET: {
-            if (_plane distance2d _suppCenter > 1.5*DIST_REPOS) exitWith { sleep 5 };
+            if (_plane distance2d _suppCenter > 1.5 * DIST_REPOS) exitWith { sleep 5 };
             if (_suppTarget isEqualTo []) exitWith { sleep 5 };
             
             _targetObj = _suppTarget select 0;
@@ -295,7 +299,7 @@ while {true} do
             // Move the approach waypoint
             _setupWP setWaypointPosition [_lastKnownPos vectorAdd [0,0,50], -1];           // just aim above the target
             _group setCurrentWaypoint _setupWP;
-            _plane flyInHeight (500 * _dist / 3000);
+            _plane flyInHeight (ALT_REPOS min (ALT_APPROACH * _dist / DIST_APPROACH));
             sleep 1;
         };
 
@@ -304,8 +308,8 @@ while {true} do
             private _dist = _plane distance2d _lastKnownPos;
             private _targVector = _lastKnownPos vectorDiff (getPosASL _plane);
             private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
-            if (_dist < DIST_REPOS+300 and _dist > DIST_REPOS-200 and _dotdir > -0.3) exitWith {
-                Debug_1("%1 switching to approach", _supportName); 
+            if (_dist < DIST_REPOS*1.1 and _dist > DIST_REPOS*0.9 and _dotdir > -0.3) exitWith {
+                Debug_1("%1 switching to approach", _supportName);
                 _state = STATE_APPROACH;
                 _acquired = false;
             };
@@ -318,7 +322,7 @@ while {true} do
 
             _setupWP setWaypointPosition [_repathPos, -1];
             _group setCurrentWaypoint _setupWP;
-            _plane flyInHeight 500;
+            _plane flyInHeight ALT_REPOS;
             sleep 2;
         };
 

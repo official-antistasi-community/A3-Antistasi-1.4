@@ -58,6 +58,7 @@ private _fnc_executeWeaponFire =
         //Force weapon fire
         _plane setVariable ["rocketShots", _rocketShots min _currentHighest];
         _plane setVariable ["rocketReload", getNumber (_modeCfg >> "reloadTime")];
+        Debug_3("Firing %1 shots with mode %2 and reload %3", _plane getVariable "rocketShots", configName _modeCfg, _plane getVariable "rocketReload");
         (driver _plane) forceWeaponFire [_selectedWeapon, configName _modeCfg];
     };
 
@@ -73,6 +74,7 @@ private _fnc_executeWeaponFire =
         //Force weapon fire
         _plane setVariable ["mainGunShots", _mainGunShots];
         _plane setVariable ["mainGunReload", getNumber (_modeCfg >> "reloadTime")];
+        Debug_3("Firing %1 shots with mode %2 and reload %3", _plane getVariable "mainGunShots", configName _modeCfg, _plane getVariable "mainGunReload");
         (driver _plane) forceWeaponFire [_selectedWeapon, configName _modeCfg];
     };
 };
@@ -87,6 +89,7 @@ private _fireParams =
 ];
 */
 //private _fireParams = [[true, 30, 0, 0], [true, 30, 0, 0], [true, 30, 0, 0]];
+//private _fireParams = [[true, 0, 0, 1], [true, 0, 0, 1], [true, 0, 0, 1]];
 private _fireParams = +(_plane getVariable "fireParams");
 _plane setVariable ["currentTarget", _target];
 

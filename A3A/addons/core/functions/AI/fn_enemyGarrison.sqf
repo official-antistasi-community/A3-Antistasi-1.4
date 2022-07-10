@@ -49,7 +49,7 @@ if (leader _group getVariable ["A3A_resPool", "legacy"] == "legacy") then {
 } forEach units _group;
 
 // Fire off UPSMON patrol, "ORIGINAL" shouldn't change position
-[leader _group, _marker, "AWARE", "SPAWNED", "ORIGINAL", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+[leader _group, _marker, "AWARE", "SPAWNED", "ORIGINAL", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 
 
 // Delete these troops when the garrison despawns

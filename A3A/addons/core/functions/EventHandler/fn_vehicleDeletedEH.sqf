@@ -10,10 +10,14 @@ private _side = _veh getVariable ["ownerSide", teamPlayer];
 private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
 if (!alive _veh || (_side != Occupants && _side != Invaders) || _vehCost == 0) exitWith {};
 
+// Apparently some vehicles (eg. CUP C47, su25) return an empty array for getAllHitPointsDamage
 Debug_1("Calculating damage for vehicle type %1", typeof _veh);
-private _allHP = getAllHitPointsDamage _veh select 2;
-private _total = 0; { _total = _total + _x } forEach _allHP;
-private _vehDamage = damage _veh max (_total / count _allHP);
+private _vehDamage = damage _veh;
+if (getAllHitPointsDamage _veh isNotEqualTo []) then {
+    private _allHP = getAllHitPointsDamage _veh select 2;
+    private _total = 0; { _total = _total + _x } forEach _allHP;
+    _vehDamage = _vehDamage max (_total / count _allHP);
+};
 
 private _pool = _veh getVariable ["A3A_resPool", "legacy"];
 Debug_5("Vehicle type %1 deleted with side %2, pool %3, cost %4, damage %5", typeof _veh, _side, _pool, _vehCost, _vehDamage);

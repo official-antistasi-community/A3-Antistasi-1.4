@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["CUP_I_MTVR_Repair_RACS", "CUP_I_M113A3_Repair_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_I_MTVR_Refuel_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_LR_Ambulance_RACS", "CUP_I_M113A1_Med_RACS"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["CUP_I_LAV25_HQ_RACS", "CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB", "CUP_B_RG31_Mk19_OD_USA", "CUP_B_RG31E_M2_OD_USA", "CUP_B_RG31_M2_OD_USA", "CUP_B_RG31_M2_OD_GC_USA"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB", "CUP_B_RG31_Mk19_OD_USA", "CUP_B_RG31E_M2_OD_USA", "CUP_B_RG31_M2_OD_USA", "CUP_B_RG31_M2_OD_GC_USA"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["CUP_I_AAV_RACS", "CUP_B_M1126_ICV_M2_Woodland", "CUP_B_M1126_ICV_MK19_Woodland", "CUP_I_LAV25_RACS", "CUP_I_LAV25M240_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["CUP_B_M2Bradley_USA_W", "CUP_B_M7Bradley_USA_W", "CUP_B_M2A3Bradley_USA_W", "CUP_B_M2A3Bradley_USA_W"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_M1A2C_OD_US_Army", "CUP_B_M1A2SEP_TUSK_II_OD_US_Army", "CUP_B_M1A1SA_TUSK_OD_US_Army", "CUP_I_M60A3_RACS", "CUP_I_M60A3_TTS_RACS", "CUP_B_M1A2SEP_RACS", "CUP_B_M1A2SEP_TUSK_RACS", "CUP_I_T72_RACS"]] call _fnc_saveToTemplate;
@@ -36,7 +36,7 @@
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["CUP_I_LAV25_RACS", "CUP_I_LAV25M240_RACS", "CUP_I_AAV_RACS"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["CUP_B_A10_AT_USA"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["CUP_B_A10_DYN_USA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["CUP_I_JAS39_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_I_C130J_RACS"]] call _fnc_saveToTemplate;
 

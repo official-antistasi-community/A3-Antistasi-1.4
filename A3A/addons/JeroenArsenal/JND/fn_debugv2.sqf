@@ -158,7 +158,14 @@ fnc_debugv2_overwrite = {
 
 					_input = (_strings joinString "") + _input;
                     //logging of executed code for security
-                    ServerInfo_3("Saved Debug line executed by %1[%2]"+endl+"=============="+endl+"%3"+endl+"==============",name player, clientOwner, _input);
+                    call {
+                        if (A3A_logDebugConsole isEqualTo -1) exitWith {};
+                        if !(
+                            (A3A_logDebugConsole isEqualTo 1) &&
+                            {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
+                        ) exitWith {};
+                        ServerInfo_3("Saved Debug line executed by %1[%2]"+endl+"=============="+endl+"%3"+endl+"==============",name player, clientOwner, _input);
+                    };
 					call compile _input;
 				}
 			],[
@@ -280,6 +287,11 @@ fnc_debugv2_overwrite = {
 	}];
 
     //logging of executed code for security
+    if (A3A_logDebugConsole isEqualTo -1) exitWith {};
+    if !(
+        (A3A_logDebugConsole isEqualTo 1) &&
+        {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
+    ) exitWith {};
     {
         private _ctrl = _display displayCtrl (_x#0);
         _ctrl setVariable ["JN_Debug_buttonName", _x#1];

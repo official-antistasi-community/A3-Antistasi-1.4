@@ -32,17 +32,18 @@ if (isNil "A3A_notBuiltObjectList") then {
 	private _className = _x # 0;
 	private _position = _x # 1;
 	private _direction = _x # 2;
-	// private _holdTime = _x # 3;
+	private _vectorDirAndUp = _x # 3;
+	// private _holdTime = _x # 4;
 	// private _buildTimeOut = time + 1200;
 	
 	private _constructionName = selectRandom _constructionObjects;
 	
 	private _vehicle = createVehicle [_constructionName, [0,0,0], [], 0, "CAN_COLLIDE"];
-	_vehicle setPos _position;
+	_vehicle setPosATL _position; // place on the ground
 	_vehicle setDir _direction;
 	_vehicle setVariable ["position", _position, true];
-	_vehicle setVariable ["direction", _direction, true];
 	_vehicle setVariable ["className", _className, true];
+	_vehicle setVariable ["vectorDirAndUp", _vectorDirAndUp, true];
 	//_vehicle setVariable ["holdTimeOut", _buildTimeOut]
 
 	A3A_notBuiltObjectList pushBack [_vehicle, _buildTimeOut];
@@ -71,12 +72,12 @@ if (isNil "A3A_notBuiltObjectList") then {
 
 		private _className = _target getVariable ["className", [0,0,0]];
 		private _position = _target getVariable ["position", [0,0,0]];
-		private _direction = _target getVariable ["direction", [0,0,0]];
+		private _vectorDirAndUp = _target getVariable ["vectorDirAndUp", [[0,1,0],[0,0,1]]];
 		//private _objectTimeout = _target getVariable ["holdTimeOut", 10];
 
 		private _vehicle = createVehicle [_className, [0,0,0], [], 0, "CAN_COLLIDE"];
 		_vehicle setPos _position;
-		_vehicle setDir _direction;
+		_vehicle setVectorDirAndUp _vectorDirAndUp;
 		deleteVehicle _target;
 
 		//remove from list

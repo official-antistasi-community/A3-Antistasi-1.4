@@ -43,7 +43,7 @@
 
 ["vehiclesHelisLight", ["UK3CB_ANA_B_UH1H", "UK3CB_ANA_B_Benches_MH9"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_ANA_B_B_UH60M2", "UK3CB_ANA_B_B_UH60M", "UK3CB_ANA_B_Mi8AMT", "UK3CB_ANA_B_Mi8", "UK3CB_ANA_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["UK3CB_ANA_B_Mi8AMTSh", "UK3CB_ANA_B_UH1H_GUNSHIP"] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_ANA_B_Mi8AMTSh", "UK3CB_ANA_B_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["UK3CB_ANA_B_Mi_24P", "UK3CB_ANA_B_Mi_24V"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_ANA_B_BM21"]] call _fnc_saveToTemplate;

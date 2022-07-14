@@ -31,6 +31,8 @@ if (!isNil "_AIScriptHandle") then { terminate _AIScriptHandle; _group setVariab
 private _despawnerHandle = _group getVariable "A3A_despawnerHandle";
 if (!isNil "_despawnerHandle") then { terminate _despawnerHandle; _group setVariable ["A3A_despawnerHandle", nil]; };
 
+ServerDebug_2("Adding group %1 to garrison at %2", _group, _marker);
+
 // Add units to the garrison list
 private _unitTypes = units _group apply { _x getVariable "unitType" };
 [_unitTypes, side _group, _marker, 0] remoteExec ["A3A_fnc_garrisonUpdate", 2];
@@ -49,14 +51,33 @@ if (leader _group getVariable ["A3A_resPool", "legacy"] == "legacy") then {
 } forEach units _group;
 
 // Fire off UPSMON patrol, "ORIGINAL" shouldn't change position
-[leader _group, _marker, "AWARE", "SPAWNED", "ORIGINAL", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+//[leader _group, _marker, "AWARE", "SPAWNED", "ORIGINAL", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+// TODO: err, this sometimes makes the troops walk miles away?
 
+[_group, _marker] spawn {
+    params ["_group", "_marker"];
+
+    _group setVariable ["A3A_AIScriptHandle", _thisScript];
+
+    private _mrkSize = (markerSize _marker # 0 + markerSize _marker # 1) / 2;
+    private _wp = _group addWaypoint [markerPos _marker, 0];
+    _wp setWaypointCompletionRadius 20;
+    _group setCurrentWaypoint _wp;
+
+    while {!isNull leader _group} do {
+        if (unitReady leader _group) then {
+            _wp setWaypointPosition [markerPos _marker, _mrkSize];
+            _group setCurrentWaypoint _wp;
+        };
+        sleep 30;
+    };
+};
 
 // Delete these troops when the garrison despawns
 [_group, _marker] spawn {
     params ["_group", "_marker"];
+    _group deleteGroupWhenEmpty true; 
     _group setVariable ["A3A_despawnerHandle", _thisScript];
     while {spawner getVariable _marker != 2} do { sleep 10 };
     { deleteVehicle _x } forEach units _group;
-    deleteGroup _group;
 };

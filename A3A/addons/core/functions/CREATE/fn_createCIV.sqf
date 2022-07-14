@@ -43,7 +43,8 @@ _area = [_markerX] call A3A_fnc_sizeMarker;
 _roads = _roads call BIS_fnc_arrayShuffle;
 private _maxRoads = count _roads;
 
-private _numParked = _numCiv * (1/60) * civTraffic;		// civTraffic is 0,1,2(default),4
+_numCiv = 15 * sqrt _numCiv * (1 - tierWar / 20); 			// reduce civ activity with war level
+private _numParked = _numCiv * (1/60) * civTraffic;			// civTraffic is 0,1,2(default),4
 private _numTraffic = _numCiv * (1/300) * civTraffic;
 
 if ((daytime < 8) or (daytime > 21)) then {_numParked = _numParked * 1.5; _numTraffic = _numTraffic / 4 };

@@ -55,7 +55,7 @@ if (vehicle leader _group != leader _group) exitWith
     { _x disableAI "AUTOCOMBAT" } forEach units _group;
     _group setBehaviourStrong "AWARE";
     private _wp = _group addWaypoint [markerPos _marker, 50];
-    Debug_1("Creating RTB waypoint for vehicle type %1", typeof vehicle leader _group);
+    ServerDebug_2("Group %1 with vehicle %2 returning to base", _group, typeof vehicle leader _group);
     _group setCurrentWaypoint _wp;
 };
 
@@ -72,6 +72,7 @@ if (_marker != "") exitWith { [_group, _marker] call A3A_fnc_enemyGarrison };
 // Foot troops can retreat to any unspawned friendly location
 _marker = [_group, outposts + airportsX + resourcesX + factories + seaports] call _fnc_nearestBase;
 if (isNil "_marker") exitWith {
+    ServerDebug_1("Group %1 surrendering due to no retreat locations", _group);
     { _x spawn A3A_fnc_surrenderAction } forEach units _group;
 };
 [_group] spawn A3A_fnc_groupDespawner;
@@ -80,3 +81,4 @@ if (isNil "_marker") exitWith {
 _group setBehaviourStrong "AWARE";
 private _wp = _group addWaypoint [markerPos _marker, 50];
 _group setCurrentWaypoint _wp;
+ServerDebug_1("Group %1 returning to base on foot", _group);

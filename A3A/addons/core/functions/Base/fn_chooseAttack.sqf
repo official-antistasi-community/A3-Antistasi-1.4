@@ -28,7 +28,7 @@ private _rebWeightMul = call {
     private _hqPos = markerPos "Synd_HQ";
     {
         _totalW = _totalW + _x; 
-        if !(markerPos (_targets#_forEachIndex#0) distance2d _hqPos < distanceMission) then { continue };
+        if (markerPos (_targets#_forEachIndex#0) distance2d _hqPos > distanceMission) then { continue };
         _distW = _distW + _x;
         _weights set [_forEachIndex, _x * A3A_attackMissionDistMul];
     } forEach _weights;
@@ -42,10 +42,10 @@ if (gameMode == 1) then
     private _targetsAndWeightsEnemy = [_enemySide, _side] call A3A_fnc_findAttackTargets;
     if (_targetsAndWeightsEnemy#0 isEqualTo []) exitWith {};
 
-    // at war tier 1, want about 10% of attacks to be against rebels
+    // at war tier 1, want about 20% of attacks to be against rebels if all else is equal
     private _aggro = [aggressionOccupants, aggressionInvaders] select (_side == Invaders);
-    private _weightFactor = 0.05 * (tierWar + _aggro/20) * _rebWeightMul;
-    _weights apply { _x * _weightFactor };
+    private _weightFactor = (0.1 + tierWar/10 + _aggro/200) / _rebWeightMul;
+    _weights = _weights apply { _x * _weightFactor };
 
     _targets append (_targetsAndWeightsEnemy#0);
     _weights append (_targetsAndWeightsEnemy#1);
@@ -56,8 +56,9 @@ if (_targets isEqualTo []) exitWith {
     false;
 };
 
+Debug("Final target choice list:");
 {
-    Debug_2("Target: weight %1, %2", _weights#_forEachIndex, _x);
+    Debug_2("Target: weight %1, %2", (_weights#_forEachIndex) toFixed 3, _x);
 } forEach _targets;
 
 // Cull anything worse than 10:1 value ratio, otherwise we'll launch some really stupid attacks occasionally

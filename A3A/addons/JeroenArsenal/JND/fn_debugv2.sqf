@@ -160,7 +160,7 @@ fnc_debugv2_overwrite = {
                     //logging of executed code for security
                     call {
                         if (A3A_logDebugConsole isEqualTo -1) exitWith {};
-                        if !(
+                        if (
                             (A3A_logDebugConsole isEqualTo 1) &&
                             {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
                         ) exitWith {};
@@ -287,15 +287,15 @@ fnc_debugv2_overwrite = {
 	}];
 
     //logging of executed code for security
-    if (A3A_logDebugConsole isEqualTo -1) exitWith {};
-    if !(
-        (A3A_logDebugConsole isEqualTo 1) &&
-        {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
-    ) exitWith {};
     {
         private _ctrl = _display displayCtrl (_x#0);
         _ctrl setVariable ["JN_Debug_buttonName", _x#1];
         _ctrl ctrlAddEventHandler ["ButtonClick", {
+            if (A3A_logDebugConsole isEqualTo -1) exitWith {};
+            if (
+                (A3A_logDebugConsole isEqualTo 1) &&
+                {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
+            ) exitWith {};
             params ["_ctrl"];
             private _btnName = _ctrl getVariable ["JN_Debug_buttonName", "[ERROR NONAME]"];
             private _code = ctrlText (findDisplay 49 displayCtrl 12284);

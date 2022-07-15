@@ -337,7 +337,7 @@ class Params
     {
         title = "Log debug console use";
         values[] = {9999,-1,1,2};
-        texts[] = {"Load from save (Default: All none-dev)", "None", "All none-dev", "All"};
+        texts[] = {"Load from save (Default: All non-dev)", "None", "All non-dev", "All"};
         default = 9999;
     };
     class A3A_GUIDevPreview

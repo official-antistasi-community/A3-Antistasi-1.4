@@ -27,7 +27,7 @@
 ["vehiclesFuelTrucks", ["UK3CB_MDF_B_MTVR_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_MDF_B_M113_Medical"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Camo", ]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Camo"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_MDF_B_Warrior_Cage"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_MDF_B_M60A3"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;

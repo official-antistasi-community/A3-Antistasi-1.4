@@ -117,7 +117,6 @@ setVar("vehiclesTrucks", _vehTrucks);
 //Armed cars
 private _carsArmed =
 OccAndInv("vehiclesLightArmed")
-+ OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesMilitiaLightArmed")
 + [Reb("vehicleLightArmed")];
 setVar("vehiclesLightArmed", _carsArmed);
@@ -125,6 +124,7 @@ setVar("vehiclesLightArmed", _carsArmed);
 //Unarmed cars
 private _carsUnarmed =
 OccAndInv("vehiclesLightUnarmed")      // anything else?
++ OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesPolice")
 + [Reb("vehicleLightUnarmed")];
 setVar("vehiclesLightUnarmed", _carsUnarmed);

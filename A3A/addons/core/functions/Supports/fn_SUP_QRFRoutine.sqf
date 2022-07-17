@@ -23,7 +23,14 @@ ServerInfo_1("Spawn performed: Vehicles %1", _vehicles apply { typeOf _x });
 // Update the resource usage for the final value
 [_estResources - _resources, _side, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
+// Find nearest garrison marker and use that as attempted capture/garrison target if close
+private _nearMrk = call {
+    private _potentials = outposts + airportsX + resourcesX + factories + seaports;
+    _potentials = _potentials select { markerPos _x distance2d _targPos < 500 };
+    [_potentials, _targPos] call BIS_fnc_nearestPosition;       // might be nil
+};
 
+private _timeOut = time + 1800;
 private _searchTime = time;
 private _travelling = true;
 private _soldiers = [];
@@ -32,8 +39,12 @@ private _soldiers = [];
 while {true} do
 {
     private _curSoldiers = { _x call A3A_fnc_canFight } count _soldiers;
-    if (_curSoldiers < count _soldiers * 0.25) exitWith {
+    if (_curSoldiers <= count _soldiers * 0.25) exitWith {
         ServerInfo_1("QRF %1 has been defeated, starting retreat", _supportName);
+    };
+    if (time > _timeOut) exitWith {
+        // Still need this in case a QRF knows about enemies but isn't dealing with them
+        ServerInfo_1("QRF %1 has timed out, starting retreat", _supportName);
     };
 
     if (_travelling and {-1 != _cargoGroups findif { leader _x distance2d _targPos < 300 }}) then {
@@ -50,18 +61,16 @@ while {true} do
         };
     };
 
+    // Attempt to flip marker in case it was left empty
+    if (!isNil "_nearMrk") then { [_nearMrk, sidesX getVariable _nearMrk] remoteExec ["A3A_fnc_zoneCheck", 2] };
     sleep 30;
 };
 
-// Hack. Find nearest friendly garrison marker and use that as attempted garrison target if close
-private _potentials = outposts + airportsX + resourcesX + factories + seaports;
-_potentials = _potentials select { sidesX getVariable _x == _side };
-private _nearestMrk = [_potentials, _targPos] call BIS_fnc_nearestPosition;     // might be nil, which is fine?
 
 { [_x] spawn A3A_fnc_VEHDespawner } forEach _vehicles;
 { [_x] spawn A3A_fnc_enemyReturnToBase } forEach _crewGroups;
 {
-    if (isNil "_nearestMrk") then { [_x] spawn A3A_fnc_enemyReturnToBase; continue };
-    [_x, _nearestMrk] spawn A3A_fnc_enemyReturnToBase;
+    if (isNil "_nearMrk") then { [_x] spawn A3A_fnc_enemyReturnToBase; continue };
+    [_x, _nearMrk] spawn A3A_fnc_enemyReturnToBase;
     sleep 10;
 } forEach _cargoGroups;

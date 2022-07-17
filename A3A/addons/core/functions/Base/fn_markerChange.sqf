@@ -304,14 +304,6 @@ if (_winner == teamPlayer) then
 	};
     [Occupants, _prestigeOccupants#0, _prestigeOccupants#1, true] spawn A3A_fnc_addAggression;
     [Invaders, _prestigeInvaders#0, _prestigeInvaders#1, true] spawn A3A_fnc_addAggression;
-	[_markerX] spawn {
-		params ["_markerX"];
-		// This allows enemies to retake rebel markers with random junk until the marker is despawned
-		while { spawner getVariable _markerX != 2 and sidesX getVariable _markerX == teamPlayer } do {
-			sleep 60;
-			[_markerX,teamPlayer] remoteExec ["A3A_fnc_zoneCheck",2];
-		};
-	};
 }
 else
 	{

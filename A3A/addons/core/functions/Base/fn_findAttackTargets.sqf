@@ -185,12 +185,10 @@ private _finalWeights = [];
 
 } forEach _possibleTargets;
 
-Debug_2("Weights %1, targets %2", _finalWeights, _finalTargets);
-// Normalize for readability
-private _weightMul = 1 / selectMax _finalWeights;
-_finalWeights = _finalWeights apply { _x * _weightMul };
+// Multiply up for readability
+_finalWeights = _finalWeights apply { _x * 10 };
 {
-    Debug_2("Target: weight %1, %2", _finalWeights#_forEachIndex, _x);
+    Debug_2("Target: weight %1, %2", (_finalWeights#_forEachIndex) toFixed 3, _x);
 } forEach _finalTargets;
 
 [_finalTargets, _finalWeights];

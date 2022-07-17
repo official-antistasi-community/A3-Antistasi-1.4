@@ -24,4 +24,4 @@ if (_target isKindOf "Man") exitWith { 0.001 };       // Don't spawn to attack m
 
 // Against vehicles and statics, use more frequently against more dangerous stuff
 private _threat = A3A_groundVehicleThreat getOrDefault [typeOf _target, 0];
-0.4 + _threat / 100;
+0.001 + _threat / 80;

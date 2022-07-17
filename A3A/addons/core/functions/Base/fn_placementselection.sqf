@@ -100,15 +100,7 @@ if (visiblemap) then {
 		} forEach _controlsX;
 		[_positionClicked] remoteExec ["A3A_fnc_createPetros", 2];
 	};
-	[_positionClicked] call A3A_fnc_relocateHQObjects;
-	//If it's a new game, we teleport everyone to new HQ, yay!
-	if (_newGame) then {
-		{
-			if ((side _x == teamPlayer) or (side _x == civilian)) then {
-				_x setPos getPos petros;
-			};
-		} forEach (call A3A_fnc_playableUnits);
-	};
+	[_positionClicked, _newGame] remoteExec ["A3A_fnc_relocateHQObjects", 2];
 	openmap [false,false];
 };
 

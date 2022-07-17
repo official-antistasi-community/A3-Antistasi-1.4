@@ -16,7 +16,7 @@ petros setBehaviour "SAFE";
 // Put petros back on the server, otherwise might cause issues on disconnect
 [group petros, 2] remoteExec ["setGroupOwner", 2];
 
-[getPos petros] call A3A_fnc_relocateHQObjects;
+[getPos petros, false] remoteExec ["A3A_fnc_relocateHQObjects", 2];
 
 if (isNil "placementDone") then {placementDone = true; publicVariable "placementDone"};
 sleep 5;

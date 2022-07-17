@@ -53,7 +53,18 @@ if (NavGrid isEqualTo []) exitWith {
 {
 	private _index = _forEachIndex;
 	private _position = _x select 0;
-	if (count _position < 3) then { _position set [2, 0] };				// expand to ATL with global effect
+	if (count _position < 3) then { _position set [2, 0] };
+/*
+        // Only need this if we have waypoints on bridges, which I'm not sure we do
+        private _road = roadAt _position;
+        if (isNull _road or {!(getRoadInfo _road # 8)}) exitWith { _position set [2, 0] };
+
+        // do we need to use lineIntersectsSurfaces? Sadly yes.
+        private _highpos = getPosASL _road vectorAdd [0,0,100];
+        _li = lineIntersectsSurfaces [_highpos, _highpos [0,0,-200], objNull, objNull, true, 1, "ROADWAY", "VIEW"];
+        if (_li isNotEqualTo []) then { _position = (_li#0#0) };
+    };
+*/
 	private _mainMarkers = [_position] call A3A_fnc_getMainPositions;
 	{
 		[_index, _x] call A3A_fnc_setNavData;

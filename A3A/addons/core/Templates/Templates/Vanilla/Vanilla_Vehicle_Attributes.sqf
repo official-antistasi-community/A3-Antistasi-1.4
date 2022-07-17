@@ -9,4 +9,4 @@
     // AAF trash CAS
     ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]]
 
-] call _fnc_saveToTemplate;
+]] call _fnc_saveToTemplate;

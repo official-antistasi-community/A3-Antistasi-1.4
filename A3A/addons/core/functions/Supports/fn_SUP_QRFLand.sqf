@@ -41,6 +41,6 @@ if (_delay < 0) then { _delay = 0 };            // land QRFs slow enough already
 [[_suppName, _side, _resPool, _delay, _targPos, _base, false, _vehCount, _attackCount, _estResources], "A3A_fnc_SUP_QRFRoutine"] call A3A_fnc_scheduler;
 
 private _approxTime = _delay + (markerPos _base distance2D _targPos) / (30 / 3.6);      // (badly) estimated travel time
-[_reveal, _side, "QRFLand", _targPos, _approxTime] spawn A3A_fnc_showInterceptedSetupCall;
+[_reveal, _side, "QRFLAND", _targPos, _approxTime] spawn A3A_fnc_showInterceptedSetupCall;
 
 _estResources;            // *estimated* resource cost of QRF

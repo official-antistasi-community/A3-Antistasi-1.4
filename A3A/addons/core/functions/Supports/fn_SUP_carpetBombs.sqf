@@ -29,7 +29,7 @@ A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 300];
 
 [_supportName, _side, _delay, _targPos, _reveal] spawn A3A_fnc_SUP_carpetBombsRoutine;
 
-[_reveal, _side, "CarpetBombs", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
+[_reveal, _side, "CARPETBOMBS", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
 // Return resource cost of support
 200;

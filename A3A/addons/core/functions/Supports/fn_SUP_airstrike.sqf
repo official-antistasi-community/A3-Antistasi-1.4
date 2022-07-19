@@ -40,7 +40,7 @@ A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 200];
 
 [_supportName, _side, _delay, _targPos, _airport, _resPool, _planeType, _bombType, _reveal] spawn A3A_fnc_SUP_airstrikeRoutine;
 
-[_reveal, _side, "Airstrike", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
+[_reveal, _side, "AIRSTRIKE", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
 // Return resource cost of support (planecost + 0)
 A3A_vehicleResourceCosts get _planeType;

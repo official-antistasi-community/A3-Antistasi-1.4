@@ -26,8 +26,8 @@ ServerInfo_1("Spawn performed: Vehicles %1", _vehicles apply { typeOf _x });
 // Find nearest garrison marker and use that as attempted capture/garrison target if close
 private _nearMrk = call {
     private _potentials = outposts + airportsX + resourcesX + factories + seaports;
-    _potentials = _potentials select { markerPos _x distance2d _targPos < 500 };
-    [_potentials, _targPos] call BIS_fnc_nearestPosition;       // might be nil
+    private _nearMrk = [_potentials, _targPos] call BIS_fnc_nearestPosition;       // might be nil
+    [nil, _nearMrk] select (markerPos _nearMrk distance2d _targPos < 500);
 };
 
 private _timeOut = time + 1800;

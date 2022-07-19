@@ -33,23 +33,23 @@ A3A_supportTypesHM = createHashMapFromArray [
     // effradius: Strike radius, used for detecting friendly fire
     // strikepower: Approx resource value per strike for multi-target supports
     // can we remove this now that it's single-target? Add strikes in support instead?
-    ["airstrike",  ["AREA",   0.5, 150,   0]],              // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
-    ["artillery",  ["AREA",   0.5, 150,  85]],              // balanced against mortars, total will be 0.5
-    ["mortar",     ["AREA",   0.5, 100,  50]],
+    ["AIRSTRIKE",  ["AREA",   0.5, 150,   0]],              // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
+    ["ARTILLERY",  ["AREA",   0.5, 150,  85]],              // balanced against mortars, total will be 0.5
+    ["MORTAR",     ["AREA",   0.5, 100,  50]],
     ["ASF",        ["TARGET", 1.0,   0, 100]],              // balanced against SAMs (if available), 66/33 weighting
     ["CAS",        ["TARGET", 1.0,   0, 100]],
-    ["QRFLand",    ["TROOPS", 1.0,   0,   0]],
-    ["QRFAir",     ["TROOPS", 0.5,   0,   0]]
+    ["QRFLAND",    ["TROOPS", 1.0,   0,   0]],
+    ["QRFAIR",     ["TROOPS", 0.5,   0,   0]]
 ];
 
 if (allowUnfairSupports) then {
 // well, everyone thinks gunships are unfair...
-//    ["gunship",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
-    A3A_supportTypesHM set ["carpetBombs",  ["AREA", 0.5, 200,   0]];     // balanced against airstrikes
+//    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
+    A3A_supportTypesHM set ["CARPETBOMBS",  ["AREA", 0.5, 200,   0]];     // balanced against airstrikes
     A3A_supportTypesHM set ["SAM",          ["TARGET", 1.0, 0, 100]];   // balanced against ASF
 };
 if (allowFuturisticSupports) then {
-//    A3A_supportTypesHM set ["orbitalStrike", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
+//    A3A_supportTypesHM set ["ORBITALSTRIKE", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
 };
 
 // TODO: Define separate hashmap per side, pre-check for existence of vehicle supports?

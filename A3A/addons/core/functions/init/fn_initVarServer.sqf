@@ -48,7 +48,7 @@ DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
 //Max units we aim to spawn in. Unused now.
-DECLARE_SERVER_VAR(maxUnits, 140);
+//DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
 DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
@@ -126,10 +126,6 @@ A3A_activePlayerCount = 1;
 A3A_balancePlayerScale = 1;
 A3A_balanceVehicleCost = 110;
 A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
-
-// Define these here in case people want to change it live
-A3A_invaderDefenceMul = 1.5;
-A3A_invaderAttackMul = 1.5;
 
 // Current resources, overwritten by saved game
 A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max

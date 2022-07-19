@@ -56,11 +56,11 @@ if (_target isEqualType objNull) then {
 };
 
 // name, side, suppType, pos, radius, remTargets, targets
-private _suppData = [_supportName, _side, "Artillery", markerPos _base, 10000, _targArray];
+private _suppData = [_supportName, _side, "ARTILLERY", markerPos _base, 10000, _targArray];
 A3A_activeSupports pushBack _suppData;
 [_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 
-[_reveal, _side, "Artillery", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
+[_reveal, _side, "ARTILLERY", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
 // Vehicle cost + extra support cost for balance
 (A3A_vehicleResourceCosts get _vehType) + 200;

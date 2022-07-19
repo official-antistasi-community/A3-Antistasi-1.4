@@ -79,11 +79,11 @@ if (_target isEqualType objNull) then {
 };
 
 // name, side, suppType, pos, radius, remTargets, targets
-private _suppData = [_supportName, _side, "Mortar", _spawnPos, 3000, _targArray];
+private _suppData = [_supportName, _side, "MORTAR", _spawnPos, 3000, _targArray];
 A3A_activeSupports pushBack _suppData;
 [_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 
-[_reveal, _side, "Mortar", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
+[_reveal, _side, "MORTAR", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
 // Mortar cost (might be free?) + extra support cost for balance
 (A3A_vehicleResourceCosts getOrDefault [_vehType, 0]) + 100;

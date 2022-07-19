@@ -33,13 +33,16 @@ A3A_paramTable = [
     ["limitedFT", "allowFT", [], true],									// backwards naming...
     ["playerMarkersEnabled", "pMarkers", [], true],
 
-    ["allowUnfairSupports", "allowUnfairSupports", [], false],
-    ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
-    ["A3A_enemybalanceMul", "enemyBalanceMul", [], 10],
-    ["A3A_enemyAttackMul", "enemyAttackMul", [], 10],
-    ["A3A_attackMissionDistMul", "attackMissionDistMul", [], 2],
+    ["allowUnfairSupports", "allowUnfairSupports", ["server"], false],
+    ["allowFuturisticSupports", "allowFuturisticSupports", ["server"], false],
+    ["A3A_enemybalanceMul", "enemyBalanceMul", ["server"], 10],
+    ["A3A_enemyAttackMul", "enemyAttackMul", ["server"], 10],
+    ["A3A_attackMissionDistMul", "attackMissionDistMul", ["server"], 2],
     ["skillMult", "AISkill", [], 2],
     ["napalmEnabled", "napalmEnabled", [], true],
+
+    ["A3A_invaderDefenceMul", "", ["server"], 1.1],           // no params for these yet
+    ["A3A_invaderAttackMul", "", ["server"], 1.2],
 
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],

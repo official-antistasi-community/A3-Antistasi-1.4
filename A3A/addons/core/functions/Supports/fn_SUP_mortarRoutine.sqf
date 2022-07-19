@@ -26,7 +26,7 @@ sleep _sleepTime;
 //Decrease number of rounds and time alive if aggro is low
 private _sideAggression = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 private _numberOfRounds = 32;
-private _timeAlive = 900;
+private _timeAlive = 1200;
 
 //If the aggro is low, the mortar will shoot less and stay longer in one spot
 if((30 + random 40) >_sideAggression) then

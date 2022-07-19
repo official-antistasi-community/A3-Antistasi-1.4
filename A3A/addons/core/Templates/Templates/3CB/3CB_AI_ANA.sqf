@@ -29,7 +29,7 @@
 ["vehiclesMedical", ["UK3CB_ANA_B_M113_AMB"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["UK3CB_ANA_B_M113_M2", "UK3CB_ANA_B_M113_MK19", "UK3CB_ANA_B_M113_M240", "UK3CB_ANA_B_MaxxPro_MK19", "UK3CB_ANA_B_MaxxPro_M2", "UK3CB_ANA_B_M1117"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["UK3CB_ANA_B_BMP1", "UK3CB_ANA_B_BMP2"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_ANA_B_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_ANA_B_T72BM", "UK3CB_ANA_B_T72B", "UK3CB_ANA_B_T72A", "UK3CB_ANA_B_T55", "UK3CB_ANA_B_T72A"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_ANA_B_ZsuTank"]] call _fnc_saveToTemplate;
 

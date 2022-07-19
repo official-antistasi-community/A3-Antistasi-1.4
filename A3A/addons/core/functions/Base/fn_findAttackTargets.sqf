@@ -95,10 +95,10 @@ private _finalWeights = [];
         _baseValue * (tierWar / 10);                                                // Invaders more likely to care at high tiers
     } else {
         private _baseValue = call {
-            if (_x in outposts) exitWith { [20, 35] select (count (_radioTowers inAreaArray _x) > 0) };
+            if (_x in outposts) exitWith { [20, 25] select (count (_radioTowers inAreaArray _x) > 0) };
             if (_x == "Synd_HQ") exitWith { 40 };
-            if (_x in seaports) exitWith { 25 };
-            if (_x in airportsX) exitWith { [80, 150] select (count _possibleStartBases == 1) };        // If down to carrier, more important to take an airfield
+            if (_x in seaports) exitWith { 20 };
+            if (_x in airportsX) exitWith { [60, 90] select (count _possibleStartBases == 1) };        // If down to carrier, more important to take an airfield
             if (_x in factories) exitWith { 15 };
             10;     // resources
         };
@@ -130,7 +130,7 @@ private _finalWeights = [];
         private _landBase = [_x] call A3A_fnc_findBasesForConvoy;
         if (_landBase == "") then { continue };             // no suitable base found 
         _finalTargets pushBack [_target, _landBase, _value, _localThreat, 0, 1];
-        _finalWeights pushBack (_value / _localThreat^0.7) ^ 2;
+        _finalWeights pushBack (_value / _localThreat^0.8) ^ 2;
         continue;
     };
 
@@ -171,7 +171,7 @@ private _finalWeights = [];
         _finalTargets pushBack [_target, _x, _value, _localThreat, _flyoverThreat, _countLand];
 
         private _difficulty = (_localThreat + 2*_flyoverThreat) * (1 + 2^(-_countLand));
-        private _weight = (_value / _difficulty^0.7) ^ 2;           // prefer high value over low difficulty a bit
+        private _weight = (_value / _difficulty^0.8) ^ 2;           // prefer high value over low difficulty a bit
         //Debug_5("%1 to %2: Diff: %3, value: %4, weight: %5", _x, _target, _difficulty, _value, _weight);
 
         _maxWeight = _weight max _maxWeight;

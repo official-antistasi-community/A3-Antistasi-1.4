@@ -40,8 +40,8 @@ while {true} do
     // players ^ 0.7 because we have some enemy skill scaling, plus proportionally lower activity with higher player counts
     A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.7 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 6 players @ war tier 6
     A3A_balancePlayerScale = A3A_balancePlayerScale * (A3A_enemyBalanceMul / 10);           // enemyBalanceMul is default 10
-    A3A_balanceVehicleCost = (100 + tierWar * 10);                                          // checked: does approximately match vehicle+crew+cargo costs
-    A3A_balanceResourceRate = 2 * A3A_balancePlayerScale * A3A_balanceVehicleCost;              // base resources gained per 10 minutes
+    A3A_balanceVehicleCost = (100 + tierWar * 5);                                           // Not really but whatever
+    A3A_balanceResourceRate = 2 * A3A_balancePlayerScale * A3A_balanceVehicleCost;          // base resources gained per 10 minutes
     publicVariable "A3A_balancePlayerScale";            // needed for determining enemy skill on headless clients
 
     // Old balance param still used for marker spawning decisions at the moment

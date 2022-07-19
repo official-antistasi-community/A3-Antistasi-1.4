@@ -137,7 +137,7 @@ else
 
     // land units are a bit cheaper, attack is generally more expensive than defence
     private _atkResources = _defResources + _localThreat + _flyoverThreat;
-    _atkResources = _atkResources * (1 + 2^(-_countLandAttackBases));
+    _atkResources = _atkResources * (0.75 + 2^(-_countLandAttackBases));
     [-_atkResources, _side, "attack"] call A3A_fnc_addEnemyResources;
 
     // Flip marker and add garrison once flipped

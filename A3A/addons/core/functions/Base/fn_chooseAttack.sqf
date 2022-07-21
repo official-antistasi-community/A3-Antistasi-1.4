@@ -91,12 +91,12 @@ if (_targetMrk in citiesX) exitWith {
     if (_side == Invaders) then {
         // Punishment, unsimulated
         Info_2("Starting punishment mission from %1 to %2", _originMrk, _targetMrk);
-        [_originMrk, _targetMrk] spawn A3A_fnc_invaderPunish;
+        [_targetMrk, _originMrk] spawn A3A_fnc_invaderPunish;
     } else {
         // Supply convoy, unsimulated
         // Do we allow these even if there's already a convoy? Probably not harmful.
         Info_2("Sending supply convoy from %1 to %2", _originMrk, _targetMrk);
-        [[_targetMrk, _originMrk, "supplies", "attack"],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
+        [[_targetMrk, _originMrk, "Supplies", "attack"],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
     };
     true;
 };
@@ -137,7 +137,7 @@ else
 
     // land units are a bit cheaper, attack is generally more expensive than defence
     private _atkResources = _defResources + _localThreat + _flyoverThreat;
-    _atkResources = _atkResources * (1 + 2^(-_countLandAttackBases));
+    _atkResources = _atkResources * (0.75 + 2^(-_countLandAttackBases));
     [-_atkResources, _side, "attack"] call A3A_fnc_addEnemyResources;
 
     // Flip marker and add garrison once flipped

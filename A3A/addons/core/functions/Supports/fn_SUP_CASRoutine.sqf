@@ -64,8 +64,12 @@ private _fnc_getFireMatrix =
         if(_allowHeavyWeapon) exitWith { [[true, 30, 3, 1], [true, 30, 3, 1], [true, 30, 3, 0]] };
         [[true, 25, 3, 1], [true, 25, 3, 0], [true, 25, 3, 0]];
     };
-    if(_allowHeavyWeapon) exitWith { [[true, 35, 5, 0], [true, 35, 5, 0], [true, 35, 5, 0]] };
-    [[true, 25, 3, 0], [false, 25, 5, 0], [true, 25, 3, 0]];
+    if !(_targetType isKindOf "Man") exitWith
+    {
+        if(_allowHeavyWeapon) exitWith { [[true, 35, 3, 0], [true, 35, 3, 0], [true, 35, 3, 0]] };
+        [[true, 25, 3, 0], [true, 25, 3, 0], [true, 25, 3, 0]];
+    };
+    [[false, 0, 0, 0], [true, 15, 0, 0], [true, 15, 0, 0]];
 };
 
 
@@ -249,6 +253,11 @@ while {true} do
 
         case STATE_APPROACH: {
             if (!_acquired) then {
+                if (_targetObj isKindOf "Man" and _lastKnownPos distance2d _targetObj > 100) then {
+                    // Switch to any man-sized target near the target zone
+                    private _nearTarget = selectRandom (units side _targetObj inAreaArray [_lastKnownPos, 100, 100]);
+                    if (!isNil "_nearTarget" and {_nearTarget call A3A_fnc_canFight} ) then { _targetObj = _nearTarget };
+                };
                 private _targetPos = eyePos _targetObj;                 // Seems to work well even for non-turreted vehicles?
                 private _planePos = getPosASL _plane;
                 if (terrainIntersectASL [_targetPos, _planePos]) exitWith { 
@@ -256,6 +265,9 @@ while {true} do
                 };
                 if (lineIntersects [_targetPos, _planePos, _targetObj, _plane]) exitWith {
                     Debug("Acquisition blocked by object");
+                    if !(_targetObj isKindOf "Man") exitWith {};
+                    // Try another nearby target in case they're in the open
+                    _targetObj = selectRandom (units side _targetObj inAreaArray [getPosATL _targetObj, 20, 20]);
                 };
 
                 private _vis = 1 max getNumber (configFile >> "CfgVehicles" >> typeOf _targetObj >> "camouflage");

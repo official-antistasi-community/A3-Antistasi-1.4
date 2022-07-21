@@ -18,7 +18,7 @@ params ["_targetSide", "_side"];
 
 
 private _possibleStartBases = airportsX select {sidesX getVariable [_x, sideUnknown] == _side && [_x] call A3A_fnc_airportCanAttack};
-_possibleStartBases pushBack (["NATO_carrier", "CSAT_Carrier"] select (_side == Invaders));
+_possibleStartBases pushBack (["NATO_carrier", "CSAT_carrier"] select (_side == Invaders));
 private _airportPositions = _possibleStartBases apply { markerPos _x };
 
 private _possibleTargets = airportsX + outposts + seaports + factories + resourcesX;
@@ -90,19 +90,19 @@ private _finalWeights = [];
     // Target value calc
     private _value = if (_x in citiesX) then {
         // just base this on population?
-        private _baseValue = sqrt ((server getVariable _x) # 0);            // so 100 pop town has equal value to resource at start of game
-        if (_side == Occupants) exitWith { _baseValue * (1 - tierWar / 20) };         // Occupants more likely to care about towns at low tiers
-        _baseValue * (tierWar / 10);                                                // Invaders more likely to care at high tiers
+        private _baseValue = sqrt ((server getVariable _x) # 0);                   // Low-value but threat is probably low too due to lack of garrison
+        if (_side == Occupants) exitWith { _baseValue * (1.5 - tierWar / 10) };    // Occupants more likely to care about towns at low tiers
+        _baseValue * (tierWar / 5);                                                // Invaders more likely to care at high tiers
     } else {
         private _baseValue = call {
-            if (_x in outposts) exitWith { [20, 35] select (count (_radioTowers inAreaArray _x) > 0) };
-            if (_x == "Synd_HQ") exitWith { 40 };
-            if (_x in seaports) exitWith { 25 };
-            if (_x in airportsX) exitWith { [80, 150] select (count _possibleStartBases == 1) };        // If down to carrier, more important to take an airfield
+            if (_x in outposts) exitWith { [20, 25] select (count (_radioTowers inAreaArray _x) > 0) };
+            if (_x == "Synd_HQ") exitWith { 60 };
+            if (_x in seaports) exitWith { 20 };
+            if (_x in airportsX) exitWith { [60, 90] select (count _possibleStartBases == 1) };        // If down to carrier, more important to take an airfield
             if (_x in factories) exitWith { 15 };
             10;     // resources
         };
-        _baseValue + ([_x, true] call A3A_fnc_garrisonSize);         // Don't use frontline adjustment here
+        _baseValue + ([_x, true] call A3A_fnc_garrisonSize) / 2;         // Bit of preference for large/defensible targets. Don't use frontline adjustment here
     };
 
     // calculate local target difficulty
@@ -130,7 +130,7 @@ private _finalWeights = [];
         private _landBase = [_x] call A3A_fnc_findBasesForConvoy;
         if (_landBase == "") then { continue };             // no suitable base found 
         _finalTargets pushBack [_target, _landBase, _value, _localThreat, 0, 1];
-        _finalWeights pushBack (_value / _localThreat^0.7) ^ 2;
+        _finalWeights pushBack (_value / _localThreat^0.8) ^ 2;
         continue;
     };
 
@@ -170,8 +170,8 @@ private _finalWeights = [];
         if (_flyoverThreat > 300) then { continue };
         _finalTargets pushBack [_target, _x, _value, _localThreat, _flyoverThreat, _countLand];
 
-        private _difficulty = (_localThreat + 2*_flyoverThreat) * (1 + 2^(-_countLand));
-        private _weight = (_value / _difficulty^0.7) ^ 2;           // prefer high value over low difficulty a bit
+        private _difficulty = (_localThreat + 2*_flyoverThreat) * (0.75 + 2^(-_countLand));
+        private _weight = (_value / _difficulty^0.8) ^ 2;           // prefer high value over low difficulty a bit
         //Debug_5("%1 to %2: Diff: %3, value: %4, weight: %5", _x, _target, _difficulty, _value, _weight);
 
         _maxWeight = _weight max _maxWeight;

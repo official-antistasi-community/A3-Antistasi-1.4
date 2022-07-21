@@ -235,6 +235,13 @@ class Params
         texts[] =  {"Load from save (Default: Normal)","Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
         default = 9999;
     };
+    class invaderBalanceMul
+    {
+        title = "Resource multiplier for invaders relative to occupants";
+        values[] = {9999,10,11,12,13,14,15};
+        texts[] =  {"Load from save (Default: 1.2x)","1.0x","1.1x","1.2x","1.3x","1.4x","1.5x"};
+        default = 9999;
+    };
     class attackMissionDistMul
     {
         title = "Enemy preference for attacking rebel targets within mission distance";

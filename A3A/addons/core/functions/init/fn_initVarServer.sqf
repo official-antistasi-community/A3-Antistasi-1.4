@@ -88,8 +88,6 @@ DECLARE_SERVER_VAR(A3A_taskCount, 0);
 DECLARE_SERVER_VAR(staticsToSave, []);
 //Whether the players have access to radios.
 DECLARE_SERVER_VAR(haveRadio, false);
-//List of vehicles that are reported (I.e - Players can't go undercover in them)
-DECLARE_SERVER_VAR(reportedVehs, []);
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
@@ -123,15 +121,15 @@ A3A_recentDamageInv = [];
 
 // Balance params updated by aggressionUpdateLoop
 A3A_activePlayerCount = 1;
-A3A_balancePlayerScale = 1;
+A3A_balancePlayerScale = A3A_enemyBalanceMul;
 A3A_balanceVehicleCost = 110;
 A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
 
 // Current resources, overwritten by saved game
 A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max
-A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderDefenceMul * 6;							// 60% of max
-A3A_resourcesAttackOcc = -A3A_balanceResourceRate * A3A_enemyattackMul;									// ~100 min to attack
-A3A_resourcesAttackInv = -A3A_balanceResourceRate * A3A_enemyattackMul * A3A_invaderAttackMul * 0.5;	// ~50 min to attack
+A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderBalanceMul * 6;							// 60% of max
+A3A_resourcesAttackOcc = -10 * A3A_balanceResourceRate * A3A_enemyattackMul;								// ~100 min to attack
+A3A_resourcesAttackInv = -10 * A3A_balanceResourceRate * A3A_enemyattackMul * A3A_invaderbalanceMul * 0.5;	// ~50 min to attack
 
 // HQ knowledge values
 A3A_curHQInfoOcc = 0;			// 0-1 ranges for current HQ

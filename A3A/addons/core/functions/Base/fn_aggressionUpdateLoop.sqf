@@ -39,9 +39,11 @@ while {true} do
     // Key balance numbers!
     // players ^ 0.7 because we have some enemy skill scaling, plus proportionally lower activity with higher player counts
     A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.7 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 6 players @ war tier 6
-    A3A_balancePlayerScale = A3A_balancePlayerScale * (A3A_enemyBalanceMul / 10);           // enemyBalanceMul is default 10
-    A3A_balanceVehicleCost = (100 + tierWar * 10);                                          // checked: does approximately match vehicle+crew+cargo costs
-    A3A_balanceResourceRate = 2 * A3A_balancePlayerScale * A3A_balanceVehicleCost;              // base resources gained per 10 minutes
+    A3A_balancePlayerScale = A3A_balancePlayerScale * A3A_enemyBalanceMul;
+    A3A_balanceVehicleCost = 100 + tierWar * 10;                                            // pretty close to true
+    A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;          // base resources gained per 10 minutes
+    // back off the tier scaling a bit for reb vs occ vs inv, because you get some natural tier scaling due to attack choice
+    if (gameMode == 1) then { A3A_balanceResourceRate = A3A_balanceResourceRate * (1 - tierWar / 35) };
     publicVariable "A3A_balancePlayerScale";            // needed for determining enemy skill on headless clients
 
     // Old balance param still used for marker spawning decisions at the moment
@@ -55,11 +57,19 @@ while {true} do
         private _resRateDef = A3A_balanceResourceRate / 10;
         if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionOccupants/200) };
         if (_noAirport) then { _resRateDef = _resRateDef * 0.5 };
-        A3A_resourcesDefenceOcc = (A3A_resourcesDefenceOcc + _resRateDef) min (_resRateDef * 100);
 
-        private _resRateAtk = A3A_balanceResourceRate * A3A_enemyAttackMul / 100;       // enemyAttackMul is default 10, resource rate is per 10min
+        private _resRateAtk = A3A_balanceResourceRate * A3A_enemyAttackMul / 15;       // Attack rate is 2/3 of defence
         if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionOccupants/200) };
         if (_noAirport) then { _resRateAtk = _resRateAtk * 0.5 };
+
+        // Move some attack resources to or from defence depending on defence resource level
+        private _maxDef = _resRateDef*100;
+        private _shift = linearConversion [0, _maxDef, A3A_resourcesDefenceOcc, -0.5, 0.5, true];
+        _resRateDef = _resRateDef - _resRateAtk * _shift;
+        _resRateAtk = _resRateAtk + _resRateAtk * _shift * ([1, 0.5] select (_shift > 0));
+
+        Debug_4("Adding %1 def resources to %2 and %3 atk resources to %4", _resRateDef, A3A_resourcesDefenceOcc, _resRateAtk, A3A_resourcesAttackOcc);
+        A3A_resourcesDefenceOcc = (A3A_resourcesDefenceOcc + _resRateDef) min _maxDef;
         A3A_resourcesAttackOcc = A3A_resourcesAttackOcc + _resRateAtk;
 
         if (A3A_resourcesAttackOcc > 0 && !bigAttackInProgress) then
@@ -76,13 +86,21 @@ while {true} do
     {
         private _noAirport = -1 == airportsX findIf { sidesX getVariable _x == Invaders };
 
-        private _resRateDef = A3A_invaderDefenceMul * A3A_balanceResourceRate / 10;
+        private _resRateDef = A3A_invaderBalanceMul * A3A_balanceResourceRate / 10;
         if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionInvaders/200) };
         if (_noAirport) then { _resRateDef = _resRateDef * 0.2 };               // Invaders continue attacking but stop defending
-        A3A_resourcesDefenceInv = (A3A_resourcesDefenceInv + _resRateDef) min (_resRateDef * 100);
 
-        private _resRateAtk = A3A_invaderAttackMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 100;
+        private _resRateAtk = A3A_invaderBalanceMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;
         if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionInvaders/200) };
+
+        // Move some attack resources to or from defence depending on defence resource level
+        private _maxDef = _resRateDef*100;
+        private _shift = linearConversion [0, _maxDef, A3A_resourcesDefenceInv, -0.5, 0.5, true];
+        _resRateDef = _resRateDef - _resRateAtk * _shift;
+        _resRateAtk = _resRateAtk + _resRateAtk * _shift * ([1, 0.5] select (_shift > 0));
+
+        Debug_4("Adding %1 def resources to %2 and %3 atk resources to %4", _resRateDef, A3A_resourcesDefenceInv, _resRateAtk, A3A_resourcesAttackInv);
+        A3A_resourcesDefenceInv = (A3A_resourcesDefenceInv + _resRateDef) min _maxDef;
         A3A_resourcesAttackInv = A3A_resourcesAttackInv + _resRateAtk;
 
         if (A3A_resourcesAttackInv > 0 && !bigAttackInProgress) then

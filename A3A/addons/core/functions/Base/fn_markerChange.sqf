@@ -315,6 +315,13 @@ else
 		[_x, _winner, true] call A3A_fnc_vehKilledOrCaptured;
 	} forEach _staticWeapons;
 
+	// Clear out captured statics on marker despawn
+	[_staticWeapons, _markerX] spawn {
+		params ["_statics", "_markerX"];
+		waitUntil { sleep 1; spawner getVariable _markerX == 2 };
+		{ deleteVehicle _x } forEach (_statics - staticsToSave);
+	};
+
 	if (!isNull _flagX) then
 	{
 		//_flagX setVariable ["isGettingCaptured", nil, true];

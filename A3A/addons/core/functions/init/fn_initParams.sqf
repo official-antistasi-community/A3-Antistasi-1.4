@@ -21,6 +21,7 @@ Info("Initializing global params");
 // - "server" means that the var won't be broadcast to clients & HCs
 // - "override" means that the var's value will be overwritten by the default even if it already exists
 // - "oldsave" means that the var was saved separately with the same name in older versions
+// - "div10" means that the value from config parameters will be divided by 10
 // default can be either a number or bool. If bool, values from config params will be converted
 // params.hpp should be updated to match this table
 
@@ -35,14 +36,12 @@ A3A_paramTable = [
 
     ["allowUnfairSupports", "allowUnfairSupports", ["server"], false],
     ["allowFuturisticSupports", "allowFuturisticSupports", ["server"], false],
-    ["A3A_enemybalanceMul", "enemyBalanceMul", ["server"], 10],
-    ["A3A_enemyAttackMul", "enemyAttackMul", ["server"], 10],
+    ["A3A_enemybalanceMul", "enemyBalanceMul", ["server", "div10"], 1.0],
+    ["A3A_enemyAttackMul", "enemyAttackMul", ["server", "div10"], 1.0],
+    ["A3A_invaderBalanceMul", "invaderBalanceMul", ["server", "div10"], 1.2],
     ["A3A_attackMissionDistMul", "attackMissionDistMul", ["server"], 2],
     ["skillMult", "AISkill", [], 2],
     ["napalmEnabled", "napalmEnabled", [], true],
-
-    ["A3A_invaderDefenceMul", "", ["server"], 1.1],           // no params for these yet
-    ["A3A_invaderAttackMul", "", ["server"], 1.2],
 
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],
@@ -180,8 +179,8 @@ if (isMultiplayer) then {
             };
             if (_val == 9999) exitWith {};			// "Default (xxx)" option, do nothing here
 
-            // conversion to bool
-            if (_default isEqualType true) then { _val = _val isEqualTo 1 };
+            if (_default isEqualType true) then { _val = _val isEqualTo 1 };        // conversion to bool
+            if ("div10" in _options) then { _val = _val / 10 };
             missionNamespace setVariable [_varName, _val];
         };
         if !("server" in _options)	then { publicVariable _varName };

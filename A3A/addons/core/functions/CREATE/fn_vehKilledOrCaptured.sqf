@@ -62,9 +62,11 @@ if (_side == civilian) then
 
 if (_captured) then
 {
+	if (_sideEnemy == teamPlayer) then {
+		// Remove from vehicle despawner. Should work because this function is called locally to original vehicle creator
+		private _despawnerHandle = _veh getVariable "A3A_despawnerHandle";
+		if (!isNil "_despawnerHandle") then { terminate _despawnerHandle; _veh setVariable ["A3A_despawnerHandle", nil]; };
+	};
 	// Do the actual side-switch
 	_veh setVariable ["ownerSide", _sideEnemy, true];
-	if (_sideEnemy == teamPlayer) then {
-		if !(_veh isKindOf "StaticWeapon") then { [_veh] spawn A3A_fnc_VEHdespawner };
-	};
 };

@@ -14,7 +14,6 @@ Public: Yes
 Dependencies:
     <HashMap> A3A_faction_civ
     <HashMap> A3A_faction_reb
-    <ARRAY> reportedVehs
     <ARRAY> controlsX
     <ARRAY> airportsX
     <ARRAY> outposts
@@ -44,8 +43,7 @@ if(!(_result select 0)) exitWith
     {
         if !(isNull (objectParent player)) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
             {
                 if ((isPlayer _x) && (captive _x)) then
                 {
@@ -101,7 +99,7 @@ while {_reason == ""} do
             _reason = "VNoCivil"
         };
 
-        if (_veh in reportedVehs) exitWith
+        if (_veh getVariable ["A3A_reported", false]) exitWith
         {
             _reason = "VCompromised"
         };
@@ -228,8 +226,7 @@ switch (_reason) do
         ["Undercover", "You have been reported or spotted by the enemy!"] call A3A_fnc_customHint;
         if (vehicle player != player) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
         }
         else
         {
@@ -247,14 +244,12 @@ switch (_reason) do
     case "SpotBombTruck":
     {
         ["Undercover", "Explosives have been spotted on your vehicle!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique (objectParent player);
-        publicVariable "reportedVehs";
+        (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "Highway":
     {
         ["Undercover", "You went too far away from any roads and have been spotted!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique (objectParent player);
-        publicVariable "reportedVehs";
+        (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "clothes":
     {
@@ -283,8 +278,7 @@ switch (_reason) do
         ["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock!"] call A3A_fnc_customHint;
         if !(isNull objectParent player) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
         }
         else
         {
@@ -296,15 +290,13 @@ switch (_reason) do
         private _veh = objectParent player;
         private _detectedBy = _veh getVariable "NoFlyZoneDetected";
         ["Undercover", format ["You have violated the airspace of %1!", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique _veh;
-        publicVariable "reportedVehs";
+        _veh setVariable ["A3A_reported", true, true];
         _veh setVariable ["NoFlyZoneDetected", nil, true];
     };
     case "Control":
     {
         ["Undercover", "The Installation Garrison has recognised you!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique(vehicle player);
-        publicVariable "reportedVehs";
+        (objectParent player) setVariable ["A3A_reported", true, true];
     };
     default
     {

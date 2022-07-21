@@ -62,44 +62,44 @@ private _taskIcon = "";
 private _taskState1 = "CREATED";
 private _typeVehObj = "";
 
-switch (_convoyType) do
+switch (tolower _convoyType) do
 {
-    case "Ammunition":
+    case "ammunition":
     {
         _textX = format ["A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Ammo Convoy";
         _taskIcon = "rearm";
         _typeVehObj = selectRandom (_faction get "vehiclesAmmoTrucks");
     };
-    case "Armor":
+    case "armor":
     {
         _textX = format ["A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Armored Convoy";
         _taskIcon = "Destroy";
         _typeVehObj = selectRandom (_faction get "vehiclesAA");
     };
-    case "Prisoners":
+    case "prisoners":
     {
         _textX = format ["A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Prisoner Convoy";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
-    case "Reinforcements":
+    case "reinforcements":
     {
         _textX = format ["Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Reinforcements Convoy";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
-    case "Money":
+    case "money":
     {
         _textX = format ["A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Money Convoy";
         _taskIcon = "move";
         _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
     };
-    case "Supplies":
+    case "supplies":
     {
         _textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = "Supply Convoy";
@@ -214,8 +214,7 @@ if (_convoyType == "Reinforcements") then
 };
 if ((_convoyType == "Money") or (_convoyType == "Supplies")) then
 {
-    reportedVehs pushBack _vehObj;
-    publicVariable "reportedVehs";
+    _vehObj setVariable ["A3A_reported", true, true];
 };
 if (_convoyType == "Ammunition") then
 {
@@ -238,7 +237,7 @@ private _vehLead = [_typeVehX, "Convoy Lead"] call _fnc_spawnConvoyVehicle;
 // Apply convoy resource cost, if it's from attack or defence pool
 if (_resPool != "legacy") then {
     private _resources = 10 * count _soldiers;
-    { _resources = _resources + A3A_vehicleResourceCosts getOrDefault [typeOf _x, 0] } forEach _vehiclesX;
+    { _resources = _resources + (A3A_vehicleResourceCosts getOrDefault [typeOf _x, 0]) } forEach _vehiclesX;
     [-_resources, _sideX, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
 };
 
@@ -420,8 +419,6 @@ if (_convoyType == "Money") then
             {if (_x distance _vehObj < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
         };
     };
-    reportedVehs = reportedVehs - [_vehObj];
-    publicVariable "reportedVehs";
 };
 
 if (_convoyType == "Supplies") then
@@ -454,8 +451,6 @@ if (_convoyType == "Supplies") then
             [15*_bonus,0,_mrkDest] remoteExec ["A3A_fnc_citySupportChange",2];
         };
     };
-    reportedVehs = reportedVehs - [_vehObj];
-    publicVariable "reportedVehs";
 };
 
 [_taskId, "CONVOY", _taskState] call A3A_fnc_taskSetState;

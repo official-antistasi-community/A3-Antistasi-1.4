@@ -247,7 +247,7 @@ player addEventHandler ["GetInMan", {
 	};
 	if (!_exit) then {
 		if ((typeOf _veh) in undercoverVehicles) then {
-			if (!(_veh in reportedVehs)) then {
+			if !(_veh getVariable ["A3A_reported", false]) then {
 				[] spawn A3A_fnc_goUndercover;
 			};
 		};

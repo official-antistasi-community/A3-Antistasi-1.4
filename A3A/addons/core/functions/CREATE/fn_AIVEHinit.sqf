@@ -218,17 +218,6 @@ if (A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0] > 0) then {
 	_veh addEventHandler ["Deleted", A3A_fnc_vehicleDeletedEH];
 };
 
-// Handler to prevent vehDespawner deleting vehicles for an hour after rebels exit them
-_veh addEventHandler ["GetOut", {
-	params ["_veh", "_role", "_unit"];
-	if !(_unit isEqualType objNull) exitWith {
-		ServerError_3("GetOut handler weird input: %1, %2, %3", _veh, _role, _unit);
-	};
-	if (side group _unit == teamPlayer) then {
-		_veh setVariable ["despawnBlockTime", time + 3600];			// despawner always launched locally
-	};
-}];
-
 
 //add logistics loading to loadable objects
 if([typeOf _veh] call A3A_fnc_logistics_isLoadable) then {[_veh] call A3A_fnc_logistics_addLoadAction;};

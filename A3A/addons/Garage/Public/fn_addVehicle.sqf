@@ -106,11 +106,9 @@ if (
 //here to allow adaption of external antistasi system without needing to addapt code under APL-ND
 private _broadcastReportedVehsAndStaticsToSave = {
     publicVariable "staticsToSave";
-    publicVariable "reportedVehs";
 };
 //_this is vehicle
 private _deleteFromReportedVehsAndStaticsToSave = {
-    reportedVehs deleteAt (reportedVehs find _this);
     staticsToSave deleteAt (staticsToSave find _this);
 };
 //_this is vehicle

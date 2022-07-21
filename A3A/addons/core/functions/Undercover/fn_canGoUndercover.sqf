@@ -18,7 +18,6 @@ Dependencies:
     <ARRAY> outposts
     <ARRAY> seaports
     <ARRAY> undercoverVehicles
-    <ARRAY> reportedVehs
     <ARRAY> allArmoredHeadgear
     <NAMESPACE> sidesX
     <SIDE> teamPlayer
@@ -54,7 +53,7 @@ if !(isNull (objectParent player)) then
         ["Undercover", "You are not in a civilian vehicle."] call A3A_fnc_customHint;
         _result = [false, "In non civilian vehicle"];
     };
-    if ((objectParent player) in reportedVehs) then
+    if ((objectParent player) getVariable ["A3A_reported", false]) then
     {
         ["Undercover", "This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover."] call A3A_fnc_customHint;
         _result = [false, "In reported vehicle"];

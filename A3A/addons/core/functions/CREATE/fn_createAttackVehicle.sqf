@@ -39,7 +39,7 @@ private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehi
 if (_expectedCargo > 0) then
 {
     // These types won't let the cargo group disembark, so they're a waste of units even if they have spare seats
-    if (_vehicleType in (FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesTanks"))) exitWith {};
+    if (_vehicleType in (FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesTanks"))) exitWith {};
 
     //Vehicle is able to transport units
     private _groupType = call {

@@ -153,7 +153,7 @@ while {_wave <= _maxWaves and !_victory} do
         _vehicles = _vehicles + _data#1;
         _crewGroups = _crewGroups + _data#2;
         _cargoGroups = _cargoGroups + _data#3;
-        { if (_x in (_faction get "vehiclesHelisAttack")) then { _attackHelis pushBack _x } } forEach (_data#1);
+        { if (_x in (_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack")) then { _attackHelis pushBack _x } } forEach (_data#1);
 
         [-(_data#0), _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 

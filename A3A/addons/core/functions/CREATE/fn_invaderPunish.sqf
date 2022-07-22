@@ -49,7 +49,7 @@ _data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
 [-_resources, Invaders, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
 // May as well do it properly here
-A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, _resources];
+A3A_supportStrikes pushBack [Invaders, "TROOPS", markerPos _mrkDest, time + 1800, 1800, _resources];
 
 ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x}); 
 
@@ -97,6 +97,7 @@ private _soldiers = [];
 
 waitUntil {
     sleep 10;
+//    Debug_4("Soldiers %1 initial, %2 active. Civs %3 initial, %4 active", count _soldiers, {_x call A3A_fnc_canFight} count _soldiers, count _civilians, {alive _x} count _civilians);
     ({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3)
     or (time > _missionMinTime and ({alive _x} count _civilians < count _civilians / 4))
     or (time > _missionExpireTime)

@@ -65,7 +65,7 @@ if (isNull _staticGroup) then { _staticGroup = createGroup [teamPlayer, true] };
     if (count _possibleCrew == 0) exitWith {};
     private _unit = _possibleCrew deleteAt 0;
     [_unit] joinSilent _staticGroup;
-    [_static, clientOwner] remoteExec ["setOwner", 2];                      // otherwise unit tends to jump back off for some reason
+    [_x, clientOwner] remoteExec ["setOwner", 2];                      // otherwise unit tends to jump back off for some reason
     [_staticGroup, clientOwner] remoteExec ["setGroupOwner", 2];            // required because joinSilent won't switch locality if the group is empty
 
     // Wait until the unit is local before we do anything else

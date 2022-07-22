@@ -7,24 +7,24 @@ Environment: Scheduled
 
 Arguments:
     <SIDE> Side (occupants or invaders) which should send the support.
-    <STRING> Resource pool to be used for the support (probably "attack").
     <POS2D> or <OBJECT> Target position or object to be attacked.
+    <STRING> Resource pool to be used for the support (probably "attack").
     <NUMBER> Precision of support, should be based on knowledge of target (0 min, 4 max).
     <NUMBER> How much information to reveal about support, 0 low 1 high.
     <NUMBER> Optional, minimum delay in seconds before setup (Default: Calculated based on tier/aggro).
 
 Examples:
-    [Occupants, "attack", getposATL _rebelUnit, 1, 0, 300] remoteExec ["A3A_fnc_requestArtillery", 2];
+    [Occupants, getposATL _rebelUnit, "attack", 1, 0, 300] remoteExec ["A3A_fnc_requestArtillery", 2];
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_side", "_resPool", "_targPos", "_precision", "_reveal", "_delay"];        // might not be a unit, so we can't just use caller
+params ["_side", "_target", "_resPool", "_precision", "_reveal", "_delay"];        // might not be a unit, so we can't just use caller
 
 waitUntil { isNil "A3A_supportCallInProgress" };
 A3A_supportCallInProgress = true;
 
-Info_3("Requested artillery against %1 from %2 pool by side %3", _targPos, _resPool, _side);
+Info_3("Requested artillery against %1 from %2 pool by side %3", _target, _resPool, _side);
 
 // Sort out target info
 private _deprecisionRange = random (150 - ((_precision/4) * (_precision/4) * 125));

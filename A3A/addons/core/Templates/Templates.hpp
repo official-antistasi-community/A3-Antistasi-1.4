@@ -267,6 +267,11 @@ class Templates
             {
                 Occ = "LDF";
             };
+            class vt7
+            {
+                Occ = "LDF";
+                Inv = "HIDF";
+            };
             class tem_anizay : kunduz {};
             class altis
             {

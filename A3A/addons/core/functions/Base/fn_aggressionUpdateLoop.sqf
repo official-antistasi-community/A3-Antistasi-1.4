@@ -37,8 +37,8 @@ while {true} do
     A3A_recentDamageInv = A3A_recentDamageInv select { _x#2 > 0 };
 
     // Key balance numbers!
-    // players ^ 0.7 because we have some enemy skill scaling, plus proportionally lower activity with higher player counts
-    A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.7 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 6 players @ war tier 6
+    // players ^ 0.8 because we have some enemy skill scaling, plus proportionally lower activity with higher player counts
+    A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.8 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 5 players @ war tier 6
     A3A_balancePlayerScale = A3A_balancePlayerScale * A3A_enemyBalanceMul;
     A3A_balanceVehicleCost = 100 + tierWar * 10;                                            // pretty close to true
     A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;          // base resources gained per 10 minutes
@@ -66,7 +66,7 @@ while {true} do
         private _maxDef = _resRateDef*100;
         private _shift = linearConversion [0, _maxDef, A3A_resourcesDefenceOcc, -0.5, 0.5, true];
         _resRateDef = _resRateDef - _resRateAtk * _shift;
-        _resRateAtk = _resRateAtk + _resRateAtk * _shift * ([1, 0.5] select (_shift > 0));
+        _resRateAtk = _resRateAtk + _resRateAtk * _shift;
 
         Debug_4("Adding %1 def resources to %2 and %3 atk resources to %4", _resRateDef, A3A_resourcesDefenceOcc, _resRateAtk, A3A_resourcesAttackOcc);
         A3A_resourcesDefenceOcc = (A3A_resourcesDefenceOcc + _resRateDef) min _maxDef;
@@ -97,7 +97,7 @@ while {true} do
         private _maxDef = _resRateDef*100;
         private _shift = linearConversion [0, _maxDef, A3A_resourcesDefenceInv, -0.5, 0.5, true];
         _resRateDef = _resRateDef - _resRateAtk * _shift;
-        _resRateAtk = _resRateAtk + _resRateAtk * _shift * ([1, 0.5] select (_shift > 0));
+        _resRateAtk = _resRateAtk + _resRateAtk * _shift;
 
         Debug_4("Adding %1 def resources to %2 and %3 atk resources to %4", _resRateDef, A3A_resourcesDefenceInv, _resRateAtk, A3A_resourcesAttackInv);
         A3A_resourcesDefenceInv = (A3A_resourcesDefenceInv + _resRateDef) min _maxDef;

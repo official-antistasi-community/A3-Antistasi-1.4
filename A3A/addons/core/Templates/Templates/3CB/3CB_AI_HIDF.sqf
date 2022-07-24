@@ -36,14 +36,14 @@
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_B_LAV25_HIDF", "UK3CB_B_AAV_HIDF"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF", "UK3CB_B_Mystere_HIDF_CAS1"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["UK3CB_B_Mystere_HIDF_CAS1"]] call _fnc_saveToTemplate;      // "RHSGREF_A29B_HIDF" -> needs laser activation
 ["vehiclesPlanesAA", ["UK3CB_B_Mystere_HIDF_AA1"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed", "UK3CB_B_Bell412_Utility_HIDF"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhs_uh1h_hidf", "UK3CB_B_Bell412_Utility_HIDF"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["rhs_uh1h_hidf_gunship", "UK3CB_B_Bell412_Armed_HIDF", "UK3CB_B_Bell412_Armed_AT_HIDF"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_CW_US_B_EARLY_AH1Z", "UK3CB_CW_US_B_EARLY_AH1Z_CS", "UK3CB_CW_US_B_EARLY_AH1Z_GS"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [

@@ -40,6 +40,13 @@ if (_targside == teamPlayer) then {
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
 };
 
+// Generate reveal value for the attack wave notifications
+private _reveal = call {
+    if (_targside != teamPlayer) exitWith {0};
+    private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
+    [_side, _targPos, _reveal] call A3A_fnc_useRadioKey;
+};
+
 
 // These mostly used for cleanup?
 private _allCargoGroups = [];
@@ -119,7 +126,6 @@ while {_wave <= _maxWaves and !_victory} do
     private _approxTime = 60 + random 120;
     if (!isNil "_landBase") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
 
-    private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
     [_reveal, _side, "MajorAttack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
 
     sleep _approxTime;

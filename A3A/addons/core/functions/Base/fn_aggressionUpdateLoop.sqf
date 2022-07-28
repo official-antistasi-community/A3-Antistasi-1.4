@@ -38,6 +38,7 @@ while {true} do
 
     // Key balance numbers!
     // players ^ 0.8 because we have some enemy skill scaling, plus proportionally lower activity with higher player counts
+    private _lastScale = A3A_balancePlayerScale;
     A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.8 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 5 players @ war tier 6
     A3A_balancePlayerScale = A3A_balancePlayerScale * A3A_enemyBalanceMul;
     A3A_balanceVehicleCost = 100 + tierWar * 10;                                            // pretty close to true
@@ -46,21 +47,22 @@ while {true} do
     if (gameMode == 1) then { A3A_balanceResourceRate = A3A_balanceResourceRate * (1 - tierWar / 35) };
     publicVariable "A3A_balancePlayerScale";            // needed for determining enemy skill on headless clients
 
+    // Rescale defence resources when player count or difficulty changes
+    A3A_resourcesDefenceOcc = A3A_resourcesDefenceOcc * A3A_balancePlayerScale / _lastScale;
+    A3A_resourcesDefenceInv = A3A_resourcesDefenceInv * A3A_balancePlayerScale / _lastScale;
+
     // Old balance param still used for marker spawning decisions at the moment
 	difficultyCoef = floor (A3A_activePlayerCount / 5);
 	publicVariable "difficultyCoef";
 
     if(gameMode != 4) then
     {
+        private _aggroMul = [0.8 + aggressionOccupants/250, 0.5 + aggressionOccupants/200] select (gameMode != 1);
+        private _resRateDef = _aggroMul * A3A_balanceResourceRate / 10;
+        private _resRateAtk = _aggroMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;       // Attack rate is 2/3 of defence
+
         private _noAirport = -1 == airportsX findIf { sidesX getVariable _x == Occupants };
-
-        private _resRateDef = A3A_balanceResourceRate / 10;
-        if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionOccupants/200) };
-        if (_noAirport) then { _resRateDef = _resRateDef * 0.5 };
-
-        private _resRateAtk = A3A_balanceResourceRate * A3A_enemyAttackMul / 15;       // Attack rate is 2/3 of defence
-        if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionOccupants/200) };
-        if (_noAirport) then { _resRateAtk = _resRateAtk * 0.5 };
+        if (_noAirport) then { _resRateDef = _resRateDef * 0.6; _resRateAtk = _resRateAtk * 0.6 };
 
         // Move some attack resources to or from defence depending on defence resource level
         private _maxDef = _resRateDef*100;
@@ -84,14 +86,12 @@ while {true} do
 
     if (gameMode != 3) then
     {
+        private _aggroMul = [0.8 + aggressionInvaders/250, 0.5 + aggressionInvaders/200] select (gameMode != 1);
+        private _resRateDef = _aggroMul * A3A_invaderBalanceMul * A3A_balanceResourceRate / 10;
+        private _resRateAtk = _aggroMul * A3A_invaderBalanceMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;
+
         private _noAirport = -1 == airportsX findIf { sidesX getVariable _x == Invaders };
-
-        private _resRateDef = A3A_invaderBalanceMul * A3A_balanceResourceRate / 10;
-        if (gameMode != 1) then { _resRateDef = _resRateDef * (0.5 + aggressionInvaders/200) };
         if (_noAirport) then { _resRateDef = _resRateDef * 0.2 };               // Invaders continue attacking but stop defending
-
-        private _resRateAtk = A3A_invaderBalanceMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;
-        if (gameMode != 1) then { _resRateAtk = _resRateAtk * (0.5 + aggressionInvaders/200) };
 
         // Move some attack resources to or from defence depending on defence resource level
         private _maxDef = _resRateDef*100;

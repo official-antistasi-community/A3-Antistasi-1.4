@@ -634,6 +634,7 @@ class CfgFunctions
             class requestSupport {};
             class showInterceptedSetupCall {};
             class showInterceptedSupportCall {};
+            class useRadioKey {};
             class SUP_airstrike {};
             class SUP_airstrikeAvailable {};
             class SUP_airstrikeRoutine {};

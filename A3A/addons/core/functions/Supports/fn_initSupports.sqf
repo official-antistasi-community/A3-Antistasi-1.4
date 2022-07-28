@@ -19,7 +19,7 @@ A3A_supportStrikes = [];
 // only need this for the support system itself in this version?
 
 // Active multitarget supports
-// [_suppname, _side, _supptype, _center, _radius, _target], _target is [unit, position] array, or [] for free
+// [_suppname, _side, _supptype, _center, _radius, _target, _reveal], _target is [unit, position] array, or [] for free
 A3A_activeSupports = [];
 
 // Interfaces:
@@ -60,14 +60,15 @@ if (allowFuturisticSupports) then {
 A3A_supportMarkersXYI = [];        // format [x, y, index into markerTypes]
 A3A_supportMarkerTypes = [];     // format [markerName, markerType, hasRadio, defenceMul, ...]
 
-#define RADIO_TOWER_BONUS 0.2
+#define RADIO_TOWER_BONUS 0.15
 
 // Build arrays of markers that have defence bonuses
 { A3A_supportMarkerTypes pushBack [_x, "Airport", false, 1.0] } forEach airportsX;
 { A3A_supportMarkerTypes pushBack [_x, "Seaport", false, 0.6] } forEach seaports;
 { A3A_supportMarkerTypes pushBack [_x, "Outpost", false, 0.6] } forEach outposts;
 { A3A_supportMarkerTypes pushBack [_x, "Resource", false, 0.4] } forEach resourcesX;
-{ A3A_supportMarkerTypes pushBack [_x, "Factory", false, 0.4] } forEach factories;
+{ A3A_supportMarkerTypes pushBack [_x, "Factory", false, 0.5] } forEach factories;
+{ A3A_supportMarkerTypes pushBack [_x, "Town", false, 0.3] } forEach citiesX;
 {
     _x pushBack (0.5 + random 0.5);         // current random defence multiplier
     private _pos = markerPos (_x#0);

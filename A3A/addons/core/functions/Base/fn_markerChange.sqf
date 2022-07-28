@@ -74,8 +74,12 @@ if (_winner == teamPlayer) then
 	if (_resources < _minAttack) exitWith {
 		Debug_2("Available resources (%1) below minimum attack (%2), sending no counterattack", _resources, _minAttack);
 	};
+
 	private _vehCount = round (random 0.5 + _resources / A3A_balanceVehicleCost);
-	[[_markerX, _looser, _vehCount], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+	private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
+	_reveal = [_looser, markerPos _markerX, _reveal] call A3A_fnc_useRadioKey;
+
+	[[_markerX, _looser, _vehCount, _reveal], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
 
 	// just estimates here. 
 	A3A_supportStrikes pushBack [_looser, "TROOPS", markerPos _markerX, time + 2700, 2700, _resources];

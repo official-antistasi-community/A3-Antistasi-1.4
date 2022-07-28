@@ -7,6 +7,7 @@
         _mrkDest: MARKER : The target position where the attack will be send to
         _side: SIDE : The side to send the attack
         _vehCount: NUMBER : Number of vehicles to use in the attack
+        _reveal: NUMBER : Amount of info to reveal to rebels, 0 low, 1 high
 
     Returns:
         Nothing
@@ -14,7 +15,7 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_mrkDest", "_side", "_vehCount"];
+params ["_mrkDest", "_side", "_vehCount", "_reveal"];
 private _targPos = markerPos _mrkDest;
 
 ServerInfo_1("Starting attack with parameters %1", _this);
@@ -58,7 +59,6 @@ if (_landBase != "") then
 private _approxTime = 60 + random 120;
 if (_landBase != "") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
 
-private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
 [_reveal, _side, "Counterattack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
 
 sleep _approxTime;

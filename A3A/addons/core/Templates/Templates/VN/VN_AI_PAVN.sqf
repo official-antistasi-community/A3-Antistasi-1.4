@@ -31,14 +31,16 @@
 
 ["vehiclesBasic", ["vn_o_bicycle_01"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["vn_o_wheeled_btr40_01"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02", "vn_o_wheeled_btr40_mg_01"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02", "vn_o_wheeled_btr40_mg_01", "vn_o_wheeled_btr40_mg_03", "vn_o_wheeled_z157_mg_02", "vn_o_wheeled_z157_mg_01"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["vn_o_wheeled_z157_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["vn_o_wheeled_z157_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["vn_o_wheeled_z157_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["vn_o_wheeled_btr40_02"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["vn_o_armor_m113_acav_01","vn_o_armor_m113_acav_03","vn_o_armor_m113_01"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02", "vn_o_armor_m113_01"]] call _fnc_saveToTemplate;             // Fill out with trucks to make the tier scaling look more plausible
+["vehiclesAPCs", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02", "vn_o_armor_m113_acav_01","vn_o_armor_m113_acav_03"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["vn_o_armor_m41_01","vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["vn_o_wheeled_btr40_mg_03", "vn_o_wheeled_z157_mg_02"]] call _fnc_saveToTemplate;
 
@@ -52,7 +54,8 @@
 
 ["vehiclesHelisLight", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_04_03", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_04_03", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;             // just dupe these, better than using CAS
 
 ["vehiclesArtillery", ["vn_o_vc_static_mortar_type53", "vn_o_nva_static_h12", "vn_o_nva_static_d44_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -83,6 +86,8 @@
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["vn_mine_tripwire_arty"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["vn_mine_punji_02"]] call _fnc_saveToTemplate;
+
+#include "VN_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

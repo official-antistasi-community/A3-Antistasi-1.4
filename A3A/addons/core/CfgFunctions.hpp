@@ -7,7 +7,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\AI);
             class airbomb {};
             class AIreactOnKill {};
-            class artillery {};
             class artySupport {};
             class askHelp {};
             class assaultBuilding {};
@@ -304,7 +303,6 @@ class CfgFunctions
 
         class EventHandler {
             file = QPATHTOFOLDER(functions\EventHandler);
-            class addArtilleryDetectionEH {};
             class addArtilleryTrailEH {};
             class enemyUnitDeletedEH {};
             class enemyUnitKilledEH {};

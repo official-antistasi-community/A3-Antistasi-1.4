@@ -1,8 +1,21 @@
 
-/*
+/*  Spawns and maintains an air or land QRF
 
+Environment: Server or HC, must be spawned
 
+Arguments:
+    <STRING> Unique support name (mostly for logging)
+    <SIDE> Side to send support from
+    <STRING> Resource pool of support, "attack" or "defence"
+    <SCALAR> Delay time in seconds
+    <POS2D> Target position for airstrike
+    <STRING> Marker name of source airport
+    <BOOL> Whether the QRF is air (true) or land (false)
+    <INTEGER> Total vehicle count of QRF
+    <INTEGER> Support (non-transport) vehicle count of QRF
+    <SCALAR> Estimated resources already spent on support 
 */
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

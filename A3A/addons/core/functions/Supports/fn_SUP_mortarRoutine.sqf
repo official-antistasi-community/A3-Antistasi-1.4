@@ -1,19 +1,16 @@
-/*  The routine which controls the mortar support in all aspects
+/*  Create and maintain mortar and artillery supports
 
-    Execution on: Server
+Environment: Server, must be spawned
 
-    Scope: Internal
+Arguments:
+    <ARRAY> Active support data, see initSupports
+    <OBJECT> Mortar/artillery vehicle
+    <GROUP> Crew group of mortar/artillery vehicle
+    <SCALAR> Delay time in seconds
+    <SCALAR> Amount of information to reveal to rebels, 0-1
 
-    Params:
-        _suppData: ARRAY : Active support data for this support
-        _mortar: OBJECT : The mortar or artillery vehicle object
-        _crewGroup: GROUP : The crewgroup of the mortar
-        _sleepTime: NUMBER : Delay time in seconds before mortar will start firing
-        _reveal: NUMBER : Reveal value for support (0-1?)
-
-    Returns:
-        Nothing
 */
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

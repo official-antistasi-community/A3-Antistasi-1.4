@@ -1,3 +1,14 @@
+/*  Maintains SAM launcher support
+
+Environment: Server, must be spawned
+
+Arguments:
+    <ARRAY> Active support data, see initSupports
+    <OBJECT> SAM launcher vehicle
+    <GROUP> Crew group for vehicle
+    <SCALAR> Delay time in seconds
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+*/
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

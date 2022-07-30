@@ -59,7 +59,7 @@ private _victory = false;
 while {_wave <= _maxWaves and !_victory} do
 {
     // Somewhat flattened because a lot of the work is done by garrisons
-    private _vehCount = round (2 + random 1.5 + 3*A3A_balancePlayerScale);
+    private _vehCount = round (2 + random 1 + 3*A3A_balancePlayerScale);
     if (_targside != teamPlayer) then { _vehCount = 4 + round (random 2) };
     if (_wave == 1) then { _vehCount = _vehCount + 2 };
 
@@ -138,7 +138,7 @@ while {_wave <= _maxWaves and !_victory} do
     {
         private _possibles = ["AH", 1];
         if !("UAV" in _airSupports) then { _possibles append ["UAV", 1] };
-//        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };      // CAS now included in air attack vehicles
+        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };
         if !("ASF" in _airSupports) then { _possibles append ["ASF", 0.3] };
 
         private _support = selectRandomWeighted _possibles;

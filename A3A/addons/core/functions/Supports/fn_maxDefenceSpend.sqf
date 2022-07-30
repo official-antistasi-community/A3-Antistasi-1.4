@@ -1,8 +1,8 @@
 /*
-Maintainer:
+Maintainer: John Jordan
     Return free defence resources to spend against given position & target
 
-Scope: Server, scheduled
+Environment: Server, scheduled
 
 Arguments:
     <SIDE> Side using the resources, must be occupants or invaders

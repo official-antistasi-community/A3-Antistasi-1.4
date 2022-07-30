@@ -36,13 +36,13 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-    "outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+    "outpostsFIA","minesX","staticsX","antennas","mrkNATO","mrkSDK","prestigeNATO",
     "prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
     "prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
-    "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
-    "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
+    "garrison","tasks","membersX","vehInGarage","destroyedBuildings","idlebases",
+    "chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
     "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "enemyResources", "HQKnowledge",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
+    "testingTimerIsActive", "version", "HR_Garage", "A3A_fuelAmountleftArray"
 ];
 
 private _varName = _this select 0;
@@ -57,14 +57,9 @@ if (_varName in _specialVarLoads) then {
         };
         A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
     };
-    if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-    //Keep this for backwards compatiblity
-    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
     if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
     if (_varName == 'nextTick') then {nextTick = time + _varValue};
     if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
-    if (_varName == 'smallCAmrk') then {};      // Ignore. These are not persistent.
     if (_varName == 'mrkNATO') then {{sidesX setVariable [[_x] call _translateMarker,Occupants,true]} forEach _varValue;};
     if (_varName == 'mrkCSAT') then {{sidesX setVariable [[_x] call _translateMarker,Invaders,true]} forEach _varValue;};
     if (_varName == 'mrkSDK') then {{sidesX setVariable [[_x] call _translateMarker,teamPlayer,true]} forEach _varValue;};
@@ -277,11 +272,6 @@ if (_varName in _specialVarLoads) then {
     if (_varname == 'idlebases') then {
         {
             server setVariable [(_x select 0),(_x select 1),true];
-        } forEach _varValue;
-    };
-    if (_varname == 'idleassets') then {
-        {
-            timer setVariable [(_x select 0),(_x select 1),true];
         } forEach _varValue;
     };
     if (_varname == 'killZones') then {

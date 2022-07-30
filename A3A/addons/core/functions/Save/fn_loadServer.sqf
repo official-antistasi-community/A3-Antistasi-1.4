@@ -13,7 +13,6 @@ if (isServer) then {
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
-//  ["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
@@ -31,8 +30,7 @@ if (isServer) then {
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
 	["enemyResources"] call A3A_fnc_getStatVariable;
 	["HQKnowledge"] call A3A_fnc_getStatVariable;
-//	["idlebases"] call A3A_fnc_getStatVariable;
-//	["idleassets"] call A3A_fnc_getStatVariable;
+//	["idlebases"] call A3A_fnc_getStatVariable;			// Might bring this back at some point
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;
@@ -98,13 +96,6 @@ if (isServer) then {
 
 	["chopForest"] call A3A_fnc_getStatVariable;
 
-	/*
-	{
-	_buildings = nearestObjects [_x, listMilBld, 25, true];
-	(_buildings select 1) setDamage 1;
-	} forEach destroyedBuildings;
-	*/
-
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;
@@ -112,16 +103,9 @@ if (isServer) then {
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
-	//Isn't that just tierCheck.sqf?
-//	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
-//	if (tierWar > 10) then {tierWar = 10};
-//	publicVariable "tierWar";
 
 	tierPreference = 1;
 	publicVariable "tierPreference";
-	//Updating the preferences based on war level
-//	[] call A3A_fnc_updatePreference;
-
 	// update war tier silently, calls updatePreference if changed
 	[true] call A3A_fnc_tierCheck;
 

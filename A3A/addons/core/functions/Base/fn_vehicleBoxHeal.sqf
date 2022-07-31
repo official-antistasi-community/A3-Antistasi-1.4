@@ -19,6 +19,9 @@ Example:
 
 License: MIT License
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 if ((serverTime - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
     if (hasInterface) then {
         [localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_UsedRecently"] call A3A_fnc_customHint;

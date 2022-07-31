@@ -1,7 +1,7 @@
 class A3A_BuyVehicleDialog : A3A_DefaultDialog
 {
   idd = A3A_IDD_BUYVEHICLEDIALOG;
-  onLoad = "[""onLoad""] spawn A3A_fnc_buyVehicleDialog";
+  onLoad = "[""onLoad""] spawn A3A_GUI_fnc_buyVehicleDialog";
 
   class Controls
   {

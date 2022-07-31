@@ -16,7 +16,7 @@ Dependencies:
     None
 
 Example:
-    ["update"] call A3A_fnc_commanderTab;
+    ["update"] call FUNC(commanderTab);
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -88,10 +88,10 @@ switch (_mode) do
         if !(_selectedGroup isEqualTo grpNull) then
         {
             // If a group is selected show the single group view
-            ["updateSingleGroupView"] call A3A_fnc_commanderTab;
+            ["updateSingleGroupView"] call FUNC(commanderTab);
         } else {
             // If no group is selected show the multiple groups view
-            ["updateMultipleGroupsView"] call A3A_fnc_commanderTab;
+            ["updateMultipleGroupsView"] call FUNC(commanderTab);
         };
     };
 
@@ -106,7 +106,7 @@ switch (_mode) do
         private _fireMissionButton = _display displayCtrl A3A_IDC_HCFIREMISSIONBUTTON;
         _fireMissionButton ctrlShow false;
 
-        private _groupInfo = [_selectedGroup] call A3A_fnc_getGroupInfo;
+        private _groupInfo = [_selectedGroup] call FUNC(getGroupInfo);
         _groupInfo params [
             "_group",
             "_groupID",
@@ -318,7 +318,7 @@ switch (_mode) do
                 private _display = findDisplay A3A_IDD_MAINDIALOG;
                 private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
                 _commanderMap setVariable ["selectedGroup", _control getVariable "groupToSelect"];
-                ["update"] call A3A_fnc_commanderTab;
+                ["update"] call FUNC(commanderTab);
             }];
             _groupNameLabel ctrlSetPosition [0, 0, 54 * GRID_W, 6 * GRID_H];
             _groupNameLabel ctrlSetBackgroundColor [0,0,0,1];
@@ -686,7 +686,7 @@ switch (_mode) do
             private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
             _fireMissionControlsGroup setVariable ["startPos", _clickedWorldPosition];
             _commanderMap setVariable ["selectFireMissionPos", false];
-            ["updateFireMissionView"] call A3A_fnc_commanderTab;
+            ["updateFireMissionView"] call FUNC(commanderTab);
             Trace_1("Set fire mission startPos: %1", _clickedWorldPosition);
         };
 
@@ -697,7 +697,7 @@ switch (_mode) do
             private _fireMissionControlsGroup = _display displayCtrl A3A_IDC_FIREMISSONCONTROLSGROUP;
             _fireMissionControlsGroup setVariable ["endPos", _clickedWorldPosition];
             _commanderMap setVariable ["selectFireMissionEndPos", false];
-            ["updateFireMissionView"] call A3A_fnc_commanderTab;
+            ["updateFireMissionView"] call FUNC(commanderTab);
             Trace_1("Set fire mission endPos: %1", _clickedWorldPosition);
         };
 
@@ -720,13 +720,13 @@ switch (_mode) do
         if (_distance > _maxDistance) exitWith {
             Debug("Distance too large, deselecting group");
             _commanderMap setVariable ["selectedGroup", grpNull];
-            ["update"] call A3A_fnc_commanderTab;
+            ["update"] call FUNC(commanderTab);
         };
 
         _commanderMap setVariable ["selectedGroup", _selectedGroup];
 
         // Update single group view
-        ["update"] call A3A_fnc_commanderTab;
+        ["update"] call FUNC(commanderTab);
     };
 
     case ("groupNameLabelClicked"):
@@ -735,7 +735,7 @@ switch (_mode) do
         private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
         _commanderMap setVariable ["selectedGroup", grpNull];
-        ["update"] call A3A_fnc_commanderTab;
+        ["update"] call FUNC(commanderTab);
     };
 
     case ("groupRemoteControlButtonClicked"):
@@ -757,7 +757,7 @@ switch (_mode) do
         [[_group]] spawn A3A_fnc_dismissSquad;
         // TODO UI-update: might need a slight delay here, tab gets updated before squad has been completely dismissed
         // leaving it visible in the list even though it should be gone
-        ["update"] call A3A_fnc_commanderTab;
+        ["update"] call FUNC(commanderTab);
     };
 
     case ("groupFastTravelButtonClicked"):
@@ -766,8 +766,8 @@ switch (_mode) do
         private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
         private _selectedGroup = _commanderMap getVariable "selectedGroup";
-        ["setHcMode", [true, _selectedGroup]] call A3A_fnc_fastTravelTab;
-        ["switchTab", ["fasttravel"]] call A3A_fnc_mainDialog;
+        ["setHcMode", [true, _selectedGroup]] call FUNC(fastTravelTab);
+        ["switchTab", ["fasttravel"]] call FUNC(mainDialog);
     };
 
     case ("fireMissionSelectionChanged"):
@@ -874,7 +874,7 @@ switch (_mode) do
         };
 
         // Update fire mission view to show changes
-        ["updateFireMissionView"] call A3A_fnc_commanderTab;
+        ["updateFireMissionView"] call FUNC(commanderTab);
     };
 
     case ("fireMissionButtonClicked"):

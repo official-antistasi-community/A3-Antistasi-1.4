@@ -17,8 +17,8 @@ Dependencies:
     None
 
 Example:
-    ["onLoad"] spawn A3A_fnc_mainDialog; // initialization
-    ["switchTab", ["player"]] call A3A_fnc_mainDialog; // switching to the player tab
+    ["onLoad"] spawn FUNC(mainDialog); // initialization
+    ["switchTab", ["player"]] call FUNC(mainDialog); // switching to the player tab
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -57,7 +57,7 @@ switch (_mode) do
         setGroupIconsSelectable false;
 
         // Show player tab content
-        ["switchTab", ["player"]] call A3A_fnc_mainDialog;
+        ["switchTab", ["player"]] call FUNC(mainDialog);
 
         // Cache group info in map control
         Debug("Caching group info");
@@ -67,7 +67,7 @@ switch (_mode) do
         if (player == theBoss) then
         {
             {
-                private _groupData = [_x] call A3A_fnc_getGroupInfo;
+                private _groupData = [_x] call FUNC(getGroupInfo);
                 _hcGroupData pushBack _groupData;
             } forEach hcallGroups player;
         };
@@ -85,19 +85,19 @@ switch (_mode) do
 
         // Commander map Draw EHs
         // Fire mission markers
-        private _fireMissionEH = _commanderMap ctrlAddEventHandler ["Draw","call A3A_fnc_fireMissionEH"];
+        private _fireMissionEH = _commanderMap ctrlAddEventHandler ["Draw","call FUNC(fireMissionEH)"];
         Debug_1("Adding Fire Mission Draw EH to commander map: %1", _fireMissionEH);
         // Select marker
-        private _commanderHcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
+        private _commanderHcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawSelectEH)"];
         Debug_1("Adding HC group selection Draw EH to commander map: %1", _commanderHcSelectEH);
         // High command groups
-        private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawHcGroupsEH"];
+        private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawHcGroupsEH)"];
         Debug_1("Adding HC group marker Draw EH to commander map: %1", _commanderHcGroupsEH);
         // Outposts
-        private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+        private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
         Debug_1("Adding outposts Draw EH to commander map: %1", _commanderOutpostsEH);
         // User Markers
-        private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawUserMarkersEH"];
+        private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawUserMarkersEH)"];
         Debug_1("Adding user markers Draw EH to commander map: %1", _commanderUserMarkersEH);
 
 
@@ -106,10 +106,10 @@ switch (_mode) do
         // Fast Travel map Draw EHs
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
         // Select marker
-        private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawSelectEH"];
+        private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawSelectEH)"];
         Debug_1("Adding destination select marker Draw EH to Fast Travel map: %1", _fastTravelSelectEH);
         // Outposts
-        private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+        private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
         Debug_1("Adding outposts Draw EH to Fast Travel map: %1", _fastTravelOutpostsEH);
 
 
@@ -249,48 +249,48 @@ switch (_mode) do
         {
             case ("player"):
             {
-                ["update"] call A3A_fnc_playerTab;
+                ["update"] call FUNC(playerTab);
             };
 
             case ("commander"):
             {
-                ["update"] call A3A_fnc_commanderTab;
+                ["update"] call FUNC(commanderTab);
             };
 
             case ("admin"):
             {
-                ["update"] call A3A_fnc_adminTab;
+                ["update"] call FUNC(adminTab);
             };
 
             case ("fasttravel"):
             {
-                ["clearSelectedLocation"] call A3A_fnc_fastTravelTab;
-                ["update"] call A3A_fnc_fastTravelTab;
+                ["clearSelectedLocation"] call FUNC(fastTravelTab);
+                ["update"] call FUNC(fastTravelTab);
             };
 
             case ("construct"):
             {
-                ["update"] call A3A_fnc_constructTab;
+                ["update"] call FUNC(constructTab);
             };
 
             case ("aimanagement"):
             {
-                ["update"] call A3A_fnc_aiManagementTab;
+                ["update"] call FUNC(aiManagementTab);
             };
 
             case ("donate"):
             {
-                ["update"] call A3A_fnc_donateTab;
+                ["update"] call FUNC(donateTab);
             };
 
             case ("airsupport"):
             {
-                ["update"] call A3A_fnc_airSupportTab;
+                ["update"] call FUNC(airSupportTab);
             };
 
             case ("playermanagement"):
             {
-                ["update"] call A3A_fnc_playerManagementTab;
+                ["update"] call FUNC(playerManagementTab);
             };
         };
     };

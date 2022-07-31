@@ -16,7 +16,7 @@ Dependencies:
     None
 
 Example:
-    ["update"] call A3A_fnc_fastTravelTab;
+    ["update"] call FUNC(fastTravelTab);
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -40,11 +40,11 @@ switch (_mode) do
         _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
         if (_hcMode) then {
             _backButton ctrlAddEventHandler ["MouseButtonClick", {
-                ["switchTab", ["commander"]] call A3A_fnc_mainDialog;
+                ["switchTab", ["commander"]] call FUNC(mainDialog);
             }];
         } else {
             _backButton ctrlAddEventHandler ["MouseButtonClick", {
-                ["switchTab", ["player"]] call A3A_fnc_mainDialog;
+                ["switchTab", ["player"]] call FUNC(mainDialog);
             }];
         };
         _backButton ctrlShow true;
@@ -171,15 +171,15 @@ switch (_mode) do
         if (_distance > _maxDistance) exitWith
         {
             Debug("Distance too large, deselecting");
-            ["clearSelectedLocation"] call A3A_fnc_fastTravelTab;
-            ["update"] call A3A_fnc_fastTravelTab;
+            ["clearSelectedLocation"] call FUNC(fastTravelTab);
+            ["update"] call FUNC(fastTravelTab);
         };
 
         _fastTravelMap setVariable ["selectedMarker", _selectedMarker];
         private _position = getMarkerPos _selectedMarker;
         _fastTravelMap setVariable ["selectMarkerData", [_position]];
 
-        ["update"] call A3A_fnc_fastTravelTab;
+        ["update"] call FUNC(fastTravelTab);
     };
 
     case ("clearSelectedLocation"):

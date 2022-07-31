@@ -17,8 +17,8 @@ Dependencies:
     None
 
 Example:
-    ["onLoad"] spawn A3A_fnc_hqDialog; // initialization
-    ["switchTab", ["garrison"]] call A3A_fnc_hqDialog; // switching to the garrison tab
+    ["onLoad"] spawn FUNC(hqDialog); // initialization
+    ["switchTab", ["garrison"]] call FUNC(hqDialog); // switching to the garrison tab
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -44,7 +44,7 @@ switch (_mode) do
         setGroupIconsSelectable false;
 
         // Show main tab content
-        ["switchTab", ["main"]] call A3A_fnc_hqDialog;
+        ["switchTab", ["main"]] call FUNC(hqDialog);
 
         // Move HQ button
         // TODO UI-update: Move to updateMainTab?
@@ -56,12 +56,12 @@ switch (_mode) do
         if (_canMoveHQ # 0) then {
             _moveHqButton ctrlEnable true;
             _moveHqButton ctrlSetTooltip "";
-            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call A3A_fnc_configColorToArray);
+            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call FUNC(configColorToArray));
             _moveHqIcon ctrlSetTooltip "";
         } else {
             _moveHqButton ctrlEnable false;
             _moveHqButton ctrlSetTooltip _canMoveHQ # 1;
-            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call A3A_fnc_configColorToArray);
+            _moveHqIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call FUNC(configColorToArray));
             _moveHqIcon ctrlSetTooltip _canMoveHQ # 1;
         };
 
@@ -77,13 +77,13 @@ switch (_mode) do
         _restSlider sliderSetRange [0,24];
         _restSlider sliderSetSpeed [1,1];
         _restSlider sliderSetPosition 0;
-        ["restSliderChanged"] spawn A3A_fnc_hqDialog;
+        ["restSliderChanged"] spawn FUNC(hqDialog);
 
         // Garrison tab map drawing EHs
         // Select marker
-        _garrisonMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawSelectEH"];
+        _garrisonMap ctrlAddEventHandler ["Draw", "_this call FUNC(mapDrawSelectEH)"];
         // Outposts
-        _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+        _garrisonMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
 
         Debug("HqDialog onLoad complete.");
     };
@@ -163,17 +163,17 @@ switch (_mode) do
         {
             case ("main"):
             {
-                ["updateMainTab"] call A3A_fnc_hqDialog;
+                ["updateMainTab"] call FUNC(hqDialog);
             };
 
             case ("garrison"):
             {
-                ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+                ["updateGarrisonTab"] call FUNC(hqDialog);
             };
 
             case ("minefields"):
             {
-                ["updateMinefieldsTab"] call A3A_fnc_hqDialog;
+                ["updateMinefieldsTab"] call FUNC(hqDialog);
             };
         };
     };
@@ -315,7 +315,7 @@ switch (_mode) do
         private _backButton = _display displayCtrl A3A_IDC_HQDIALOGBACKBUTTON;
         _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
         _backButton ctrlAddEventHandler ["MouseButtonClick", {
-            ["switchTab", ["main"]] call A3A_fnc_hqDialog;
+            ["switchTab", ["main"]] call FUNC(hqDialog);
         }];
         _backButton ctrlShow true;
 
@@ -331,7 +331,7 @@ switch (_mode) do
         {
             Trace("No marker selected, selecting HQ");
             _hqMapPos = _garrisonMap ctrlMapWorldToScreen (getMarkerPos "Synd_HQ");
-            ["garrisonMapClicked", [_hqMapPos]] call A3A_fnc_hqDialog;
+            ["garrisonMapClicked", [_hqMapPos]] call FUNC(hqDialog);
         };
 
         // Get the data from the marker
@@ -508,7 +508,7 @@ switch (_mode) do
         private _backButton = _display displayCtrl A3A_IDC_HQDIALOGBACKBUTTON;
         _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
         _backButton ctrlAddEventHandler ["MouseButtonClick", {
-            ["switchTab", ["main"]] call A3A_fnc_hqDialog;
+            ["switchTab", ["main"]] call FUNC(hqDialog);
         }];
         _backButton ctrlShow true;
     };
@@ -551,7 +551,7 @@ switch (_mode) do
         private _factionMoneyEditBox = _display displayCtrl A3A_IDC_FACTIONMONEYEDITBOX;
         private _factionMoneyEditBoxValue = floor parseNumber ctrlText _factionMoneyEditBox;
         [_factionMoneyEditBoxValue] call A3A_fnc_theBossSteal;
-        ["updateMainTab"] call A3A_fnc_hqDialog;
+        ["updateMainTab"] call FUNC(hqDialog);
     };
 
     case ("garrisonMapClicked"):
@@ -577,7 +577,7 @@ switch (_mode) do
         private _position = getMarkerPos _selectedMarker;
         _garrisonMap setVariable ["selectMarkerData", [_position]];
 
-        ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+        ["updateGarrisonTab"] call FUNC(hqDialog);
     };
 
     // Updating the garrison numbers
@@ -618,7 +618,7 @@ switch (_mode) do
 
         sleep 1; // TODO UI-update: bad hack to make it correctly update the UI with the new number
 
-        ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+        ["updateGarrisonTab"] call FUNC(hqDialog);
     };
 
     case ("garrisonRemove"):
@@ -659,7 +659,7 @@ switch (_mode) do
 
         sleep 1; // TODO UI-update: bad hack to make it correctly update the UI with the new number
 
-        ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+        ["updateGarrisonTab"] call FUNC(hqDialog);
     };
 
     case ("dismissGarrison"):
@@ -671,7 +671,7 @@ switch (_mode) do
 
         sleep 1; // Same stupd hack as before, need to fix this
 
-        ["updateGarrisonTab"] call A3A_fnc_hqDialog;
+        ["updateGarrisonTab"] call FUNC(hqDialog);
     };
 
     case ("skipTime"):

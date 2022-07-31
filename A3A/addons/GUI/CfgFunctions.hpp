@@ -1,6 +1,6 @@
 // note use of preInit & postInit will run for EVERY mission, use sparingly or with non a3a mission aborts in place, example check if the class (missionConfigFile >> "A3A") exists
 class CfgFunctions {
-    class A3A {
+    class ADDON {
         class GUI {
             file = QPATHTOFOLDER(functions\GUI);
             class adminTab {};
@@ -38,8 +38,7 @@ class CfgFunctions {
             class setupConfirmDialog {};
             class setupHQPosDialog {};
         };
-    };
-    class ADDON {
+
         class controlsHelpers {
             file = QPATHTOFOLDER(functions\controlsHelpers);
             class directChildCtrls {};
@@ -47,8 +46,8 @@ class CfgFunctions {
             class sortCGList {};
         };
 
-        class ObjectHelpers {
-            file = QPATHTOFOLDER(functions\ObjectHelpers);
+        class objectHelpers {
+            file = QPATHTOFOLDER(functions\objectHelpers);
             class sizeOf {};
         };
     };

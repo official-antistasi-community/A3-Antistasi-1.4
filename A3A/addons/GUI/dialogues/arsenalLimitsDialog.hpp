@@ -15,7 +15,7 @@ class A3A_ArsenalLimitsDialog {
     idd = A3A_IDD_ARSENALLIMITSDIALOG;
     movingenable = false;
 
-    onLoad = "['typeSelect'] spawn A3A_fnc_arsenalLimitsDialog";
+    onLoad = "['typeSelect'] spawn A3A_GUI_fnc_arsenalLimitsDialog";
     onUnload = "publicVariable 'A3A_arsenalLimits'";
 
     class ControlsBackground {
@@ -44,7 +44,7 @@ class A3A_ArsenalLimitsDialog {
             idc = A3A_IDC_ARSLIMARROWMINUS;
             text = "-";
             colorBackground[]={0,0,0,0.8};
-            onButtonClick = "['listButton', [-1]] call A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['listButton', [-1]] call A3A_GUI_fnc_arsenalLimitsDialog";
             fade = 1;
             enable = 0;
             w = 6*AL_GRID_W;			// x/y ignored
@@ -53,7 +53,7 @@ class A3A_ArsenalLimitsDialog {
         };
         class ArrowRight: ArrowLeft {
             idc = A3A_IDC_ARSLIMARROWPLUS;
-            onButtonClick = "['listButton', [1]] call A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['listButton', [1]] call A3A_GUI_fnc_arsenalLimitsDialog";
             text="+";
         };
         class MainListBox : RscListNBox {
@@ -111,14 +111,14 @@ class A3A_ArsenalLimitsDialog {
             idc = A3A_IDC_ARSLIMSTEPBUTTON;
             x = AL_CENTER_X - 20*AL_GRID_W;
             text = "";              // stringtable combination doesn't work so prep in onLoad instead
-            onButtonClick = "['stepButton'] call A3A_fnc_arsenalLimitsDialog";
-            onLoad = "['stepButton'] spawn A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['stepButton'] call A3A_GUI_fnc_arsenalLimitsDialog";
+            onLoad = "['stepButton'] spawn A3A_GUI_fnc_arsenalLimitsDialog";
         };
         class ResetButton : CloseButton {
             idc = A3A_IDC_ARSLIMRESETBUTTON;
             x = AL_CENTER_X + 40*AL_GRID_W;
             text = $STR_antistasi_arsenal_limits_dialog_reset;
-            onButtonClick = "['resetButton'] call A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['resetButton'] call A3A_GUI_fnc_arsenalLimitsDialog";
         };
 
         class TypeSelection : RscControlsGroup {
@@ -133,7 +133,7 @@ class A3A_ArsenalLimitsDialog {
                     idc = A3A_IDC_ARSLIMTYPESBASE + 0;
                     text="\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\PrimaryWeapon_ca.paa";
                     tooltip="$STR_A3_RscDisplayArsenal_tab_PrimaryWeapon";
-                    onButtonClick = "['typeSelect', [ctrlIDC (_this#0)]] call A3A_fnc_arsenalLimitsDialog";
+                    onButtonClick = "['typeSelect', [ctrlIDC (_this#0)]] call A3A_GUI_fnc_arsenalLimitsDialog";
                     colorBackground[]={0,0,0,0.5};
                     colorDisabled[] = {0,0,0,1};
                     colorBackgroundDisabled[] = {1,1,1,1};

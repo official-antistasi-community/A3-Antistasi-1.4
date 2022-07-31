@@ -16,7 +16,7 @@
     None
 
     Example:
-      _commanderMap ctrlAddEventHandler ["Draw", "_this call A3A_fnc_mapDrawUserMarkersEH"];
+      _commanderMap ctrlAddEventHandler ["Draw", "_this call FUNC(mapDrawUserMarkersEH)"];
 */
 
 #include "..\..\dialogues\textures.inc"

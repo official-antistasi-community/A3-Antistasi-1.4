@@ -17,7 +17,7 @@ Dependencies:
     None
 
 Example:
-    ["onLoad"] spawn A3A_fnc_buyVehicleDialog; // initialization
+    ["onLoad"] spawn FUNC(buyVehicleDialog); // initialization
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -80,7 +80,7 @@ switch (_mode) do
             private _className = _x select 0;
             private _price = _x select 1;
             private _canGoUndercover = _x select 2;
-            private _crewCount = [_className] call A3A_fnc_getVehicleCrewCount;
+            private _crewCount = [_className] call FUNC(getVehicleCrewCount);
             private _driver = _crewCount select 0;
             private _coPilot = _crewCount select 1;
             private _commander = _crewCount select 2;

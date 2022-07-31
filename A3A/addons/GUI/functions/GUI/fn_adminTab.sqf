@@ -16,7 +16,7 @@ Dependencies:
     None
 
 Example:
-    ["update"] call A3A_fnc_adminTab;
+    ["update"] call FUNC(adminTab);
 */
 
 #include "..\..\dialogues\ids.inc"

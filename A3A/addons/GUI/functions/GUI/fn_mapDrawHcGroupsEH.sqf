@@ -15,7 +15,7 @@ Dependencies:
     Map must be open
 
 Example:
-    _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawHcGroupsEH)"];
+    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawHcGroupsEH"];
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

@@ -81,9 +81,9 @@ switch (_mode) do
 
         // Garrison tab map drawing EHs
         // Select marker
-        _garrisonMap ctrlAddEventHandler ["Draw", "_this call FUNC(mapDrawSelectEH)"];
+        _garrisonMap ctrlAddEventHandler ["Draw", "_this call A3A_GUI_fnc_mapDrawSelectEH"];
         // Outposts
-        _garrisonMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
+        _garrisonMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawOutpostsEH"];
 
         Debug("HqDialog onLoad complete.");
     };

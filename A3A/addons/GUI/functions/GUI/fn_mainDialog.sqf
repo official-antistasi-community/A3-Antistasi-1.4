@@ -85,19 +85,19 @@ switch (_mode) do
 
         // Commander map Draw EHs
         // Fire mission markers
-        private _fireMissionEH = _commanderMap ctrlAddEventHandler ["Draw","call FUNC(fireMissionEH)"];
+        private _fireMissionEH = _commanderMap ctrlAddEventHandler ["Draw","call A3A_GUI_fnc_fireMissionEH"];
         Debug_1("Adding Fire Mission Draw EH to commander map: %1", _fireMissionEH);
         // Select marker
-        private _commanderHcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawSelectEH)"];
+        private _commanderHcSelectEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawSelectEH"];
         Debug_1("Adding HC group selection Draw EH to commander map: %1", _commanderHcSelectEH);
         // High command groups
-        private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawHcGroupsEH)"];
+        private _commanderHcGroupsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawHcGroupsEH"];
         Debug_1("Adding HC group marker Draw EH to commander map: %1", _commanderHcGroupsEH);
         // Outposts
-        private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
+        private _commanderOutpostsEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawOutpostsEH"];
         Debug_1("Adding outposts Draw EH to commander map: %1", _commanderOutpostsEH);
         // User Markers
-        private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawUserMarkersEH)"];
+        private _commanderUserMarkersEH = _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawUserMarkersEH"];
         Debug_1("Adding user markers Draw EH to commander map: %1", _commanderUserMarkersEH);
 
 
@@ -106,10 +106,10 @@ switch (_mode) do
         // Fast Travel map Draw EHs
         private _fastTravelMap = _display displayCtrl A3A_IDC_FASTTRAVELMAP;
         // Select marker
-        private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawSelectEH)"];
+        private _fastTravelSelectEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawSelectEH"];
         Debug_1("Adding destination select marker Draw EH to Fast Travel map: %1", _fastTravelSelectEH);
         // Outposts
-        private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
+        private _fastTravelOutpostsEH = _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawOutpostsEH"];
         Debug_1("Adding outposts Draw EH to Fast Travel map: %1", _fastTravelOutpostsEH);
 
 

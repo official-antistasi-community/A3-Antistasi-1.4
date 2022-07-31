@@ -19,7 +19,7 @@ Dependencies:
     Dialog with map must be open
 
 Example:
-    _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawSelectEH)"];
+    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawSelectEH"];
 */
 
 #include "..\..\dialogues\defines.hpp"

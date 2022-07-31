@@ -20,7 +20,7 @@
         <ARRAY> citiesX
 
     Example:
-        _fastTravelMap ctrlAddEventHandler ["Draw","_this call FUNC(mapDrawOutpostsEH)"];
+        _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawOutpostsEH"];
 */
 
 #include "..\..\dialogues\textures.inc"

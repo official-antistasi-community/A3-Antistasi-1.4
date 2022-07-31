@@ -15,7 +15,7 @@ Dependencies:
     Main Dialog must be open
 
 Example:
-    _commanderMap ctrlAddEventHandler ["Draw","_this call FUNC(fireMissionEH)"];
+    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_fireMissionEH"];
 */
 
 #include "..\..\dialogues\ids.inc"

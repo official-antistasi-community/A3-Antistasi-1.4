@@ -61,18 +61,18 @@ private _costs = call {
         or (_typeX in [FactionGet(reb,"vehicleCivBoat"),FactionGet(reb,"vehicleCivCar"),FactionGet(reb,"vehicleCivTruck")])
     ) exitWith {25};
     if (
-        _typeX in (OccAndInv("vehiclesLight")
+        _typeX in (FactionGet(all,"vehiclesLight")
+            + FactionGet(all,"vehiclesLightAPCs")
             + OccAndInv("vehiclesTrucks")
             + OccAndInv("vehiclesCargoTrucks")
             + OccAndInv("vehiclesAmmoTrucks")
             + OccAndInv("vehiclesRepairTrucks")
             + OccAndInv("vehiclesFuelTrucks")
             + OccAndInv("vehiclesMedical")
-            + FactionGet(all,"vehiclesLightAPCs")
         )
         or (_typeX in FactionGet(all,"vehiclesBoats"))
     ) exitWith {100};
-    if (_typeX in (OccAndInv("vehiclesHelisLight") + [FactionGet(reb,"vehicleCivHeli")])) exitWith {500};
+    if (_typeX in (FactionGet(all,"vehiclesHelisLight") + [FactionGet(reb,"vehicleCivHeli")])) exitWith {500};
     if (
         (_typeX in FactionGet(all,"vehiclesAPCs"))
         || (_typeX in FactionGet(all,"vehiclesIFVs"))
@@ -86,7 +86,7 @@ private _costs = call {
         or (_typeX in FactionGet(all,"vehiclesAA"))
         or (_typeX in FactionGet(all,"vehiclesArtillery"))
     ) exitWith {3000};
-    if (_typeX in (OccAndInv("vehiclesPlanesCAS") + OccAndInv("vehiclesPlanesAA"))) exitWith {4000};
+    if (_typeX in (FactionGet(all,"vehiclesPlanesCAS") + FactionGet(all,"vehiclesPlanesAA"))) exitWith {4000};
     0;
 };
 

@@ -47,7 +47,7 @@ DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
 DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
-//Max units we aim to spawn in. Unused now.
+//Max units we aim to spawn in. Still declared in initParams and modifiable in game options, but unused
 //DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
@@ -121,7 +121,7 @@ A3A_recentDamageInv = [];
 
 // Balance params updated by aggressionUpdateLoop
 A3A_activePlayerCount = 1;
-A3A_balancePlayerScale = A3A_enemyBalanceMul;
+A3A_balancePlayerScale = 1;					// Important due to load/save scaling to 1 playerScale
 A3A_balanceVehicleCost = 110;
 A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
 

@@ -33,9 +33,12 @@ if (_delay < 0) then { _delay = 5 / A3A_balancePlayerScale };
 [_airbase, _delay + 10] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
 sleep (60 * _delay);
 
+// Send in a UAV. Add half a vehicle if they're unavailable
+// ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
+private _uavSupp = ["UAV", _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
 
 // Create the attacking force
-private _vehCount = round (1 + random 1 + 2 * A3A_balancePlayerScale);
+private _vehCount = round (1 + random 1 + 2 * A3A_balancePlayerScale + ([0, 0.5] select (_uavSupp == "")));
 private _attackRatio = (0.5 + random 1) * (tierWar+5) * 0.025;
 private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
@@ -47,11 +50,6 @@ _data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
 A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, _resources];
 
 ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x});
-
-
-// Send in a UAV
-// ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
-["UAV", _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
 
 // Call up some artillery
 call {

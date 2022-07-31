@@ -7,7 +7,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\AI);
             class airbomb {};
             class AIreactOnKill {};
-            class artillery {};
             class artySupport {};
             class askHelp {};
             class assaultBuilding {};
@@ -304,7 +303,6 @@ class CfgFunctions
 
         class EventHandler {
             file = QPATHTOFOLDER(functions\EventHandler);
-            class addArtilleryDetectionEH {};
             class addArtilleryTrailEH {};
             class enemyUnitDeletedEH {};
             class enemyUnitKilledEH {};
@@ -634,6 +632,7 @@ class CfgFunctions
             class requestSupport {};
             class showInterceptedSetupCall {};
             class showInterceptedSupportCall {};
+            class useRadioKey {};
             class SUP_airstrike {};
             class SUP_airstrikeAvailable {};
             class SUP_airstrikeRoutine {};
@@ -707,6 +706,7 @@ class CfgFunctions
             class loadout_setBackpack {};
             class loadout_addEquipment {};
             class loadout_setHelmet {};
+            class loadout_setFacewear {};
             class loadout_addItems {};
             class loadout_additionalMuzzleMags {};
             class loadout_setUniform {};

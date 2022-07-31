@@ -42,6 +42,9 @@ if (_target isEqualType objNull and _supportIndex != -1) exitWith {
 A3A_supportCount = A3A_supportCount + 1;
 private _supportName = format ["%1%2", _type, A3A_supportCount];
 
+// Spend radio key to boost support's reveal value if available
+_reveal = [_side, _targPos, _reveal] call A3A_fnc_useRadioKey;
+
 // create function returns <0 if it couldn't do anything
 private _createFunc = missionNamespace getVariable ("A3A_fnc_SUP_" + _type);
 private _resourceCost = [_supportName, _side, _resPool, _maxSpend, _target, _targPos, _reveal, _delay] call _createFunc;
@@ -54,7 +57,8 @@ if (_caller isEqualType []) then {
     // support spends should only care about defence pool?
     // because that's what it's being used to manage
     // [side, callpos, targpos, resources, starttime]
-    A3A_supportSpends pushBack [_side, _caller, _targPos, _resourceCost, time];
+    private _spendTarg = [_targPos, _target] select (_target isEqualType objNull and {_target isKindOf "Air"});
+    A3A_supportSpends pushBack [_side, _caller, _spendTarg, _resourceCost, time];
 };
 
 A3A_supportCallInProgress = nil;

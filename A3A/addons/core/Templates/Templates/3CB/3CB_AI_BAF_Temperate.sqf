@@ -42,8 +42,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DPMT_RM"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_BAF_Merlin_HC3_CSAR_DPMT_RM", "UK3CB_BAF_Merlin_HC3_18_GPMG_DPMT_RM", "UK3CB_BAF_Chinook_HC1_DPMT"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["UK3CB_BAF_Apache_AH1_CAS_DPMT_RM", "UK3CB_BAF_Apache_AH1_DPMT_RM", "UK3CB_BAF_Wildcat_AH1_CAS_6A_DPMT_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_BAF_Apache_AH1_CAS_DPMT_RM", "UK3CB_BAF_Apache_AH1_DPMT_RM", "UK3CB_BAF_Wildcat_AH1_CAS_6A_DPMT_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_BAF_Wildcat_AH1_CAS_6A_DPMT_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_BAF_Apache_AH1_CAS_DPMT_RM", "UK3CB_BAF_Apache_AH1_DPMT_RM"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", [ "rhsusf_m109_usarmy"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [

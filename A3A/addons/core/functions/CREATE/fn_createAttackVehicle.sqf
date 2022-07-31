@@ -36,10 +36,10 @@ private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 
 private _cargoGroup = grpNull;
 private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount);
-if (_expectedCargo > 0) then
+if (_expectedCargo >= 2) then
 {
     // These types won't let the cargo group disembark, so they're a waste of units even if they have spare seats
-    if (_vehicleType in (FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesTanks"))) exitWith {};
+    if (_vehicleType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack"));
 
     //Vehicle is able to transport units
     private _groupType = call {

@@ -1,24 +1,17 @@
 /*
-Author: Wurzel0701
+Maintainer: John Jordan
     Adds a given target to the given support
-
-Arguments:
-    <ARRAY> The array of the active support (eg from A3A_activeSupportsMulti)
-    <OBJECT> The target object
-    <NUMBER> The support precision (range 0 - 4, 4 is lowest)
-    <NUMBER> The reveal value of the call (range 0 - 1)
-
-Return Value:
-    <NIL>
 
 Scope: Server
 Environment: Scheduled
-Public: No
-Dependencies:
-    <BOOL> supportTargetsChanging
 
-Example:
-    ["CAS0", [_myCar, 3], 0.75] spawn A3A_fnc_addSupportTarget;
+Arguments:
+    <ARRAY|STRING> The active support array (from A3A_activeSupports) or name
+    <OBJECT> The target object
+    <POS2D> Target position
+
+Return Value:
+    <NIL>
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
@@ -44,6 +37,3 @@ private _strikeTarg = if (_baseType == "TARGET") then { _target } else { _targPo
 A3A_supportStrikes pushBack [_suppSide, _baseType, _strikeTarg, time + 20*60, 20*60, _strikePower];
 
 true;
-
-// TODO: probably need to deal with this shit
-//supportTargetsChanging = false;

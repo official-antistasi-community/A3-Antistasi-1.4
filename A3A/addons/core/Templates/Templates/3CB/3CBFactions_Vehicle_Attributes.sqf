@@ -24,15 +24,16 @@
     ["RHSGREF_A29B_HIDF", ["cost", 120]],
     ["UK3CB_B_Mystere_HIDF_CAS1", ["cost", 200]],           // not many missiles. Gun is actually good though
     ["UK3CB_B_Mystere_HIDF_AA1", ["cost", 200]],            // no mid-range AA missiles
-    ["UK3CB_MDF_B_Mystere_AA1", ["cost", 200]],
+    ["UK3CB_MDF_B_Mystere_AA1", ["cost", 200]]
 
     // American attack helis with hellfires & chaingun, better than Russian stuff
-    ["UK3CB_AAF_B_AH1Z", ["cost", 300]],
+/*    ["UK3CB_AAF_B_AH1Z", ["cost", 300]],
     ["UK3CB_CW_US_B_LATE_AH1Z", ["cost", 300]],
     ["UK3CB_CW_US_B_LATE_AH1Z_CS", ["cost", 300]],
     ["UK3CB_MDF_B_AH1Z_NAVY", ["cost", 300]],
     ["UK3CB_MDF_B_AH1Z_CS_NAVY", ["cost", 300]],
     ["RHS_AH1Z", ["cost", 300]],
     ["RHS_AH1Z_CS", ["cost", 300]]
+*/
 
 ]] call _fnc_saveToTemplate;

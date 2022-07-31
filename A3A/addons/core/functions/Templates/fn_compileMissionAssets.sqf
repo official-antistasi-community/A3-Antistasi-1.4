@@ -128,6 +128,7 @@ OccAndInv("vehiclesLightUnarmed")      // anything else?
 + OccAndInv("vehiclesPolice")
 + [Reb("vehicleLightUnarmed")];
 setVar("vehiclesLightUnarmed", _carsUnarmed);
+setVar("vehiclesLight", _carsArmed + _carsUnarmed);
 
 //all Occ&Inv armor
 private _vehArmor =
@@ -137,22 +138,6 @@ getVar("vehiclesTanks")
 + getVar("vehiclesAPCs");
 + getVar("vehiclesIFVs");
 setVar("vehiclesArmor", _vehArmor);
-
-//vehicles that the AI have "unlimited" of
-private _vehUnlimited =
-OccAndInv("vehiclesLight")
-+ OccAndInv("vehiclesTrucks")
-+ OccAndInv("vehiclesAmmoTrucks")
-+ OccAndInv("vehiclesRepairTrucks")
-+ OccAndInv("vehiclesFuelTrucks")
-+ OccAndInv("vehiclesMedical")
-+ OccAndInv("vehiclesTransportBoats")
-+ OccAndInv("vehiclesHelisLight")
-+ OccAndInv("uavsAttack")
-+ OccAndInv("uavsPortable")
-+ OccAndInv("staticMGs")
-+ OccAndInv("staticMortars");
-setVar("vehiclesUnlimited", _vehUnlimited);
 
 //rebel vehicles
 private _vehReb = [

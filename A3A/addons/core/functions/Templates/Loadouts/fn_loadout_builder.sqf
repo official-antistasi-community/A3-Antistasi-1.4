@@ -120,6 +120,14 @@ private _fnc_setHelmet = {
 	[_finalLoadout, _helmet] call A3A_fnc_loadout_setHelmet;
 };
 
+private _fnc_setFacewear = {
+	params ["_key"];
+	private _data = _loadoutDataForTemplate getOrDefault [_key, []];
+	if (_data isEqualTo []) exitWith {};
+	private _facewear = selectRandom _data;
+	[_finalLoadout, _facewear] call A3A_fnc_loadout_setFacewear;
+};
+
 //Adds a vest to the loadout, selected at random from the category in loadout data.
 private _fnc_setVest = {
 	params ["_key"];

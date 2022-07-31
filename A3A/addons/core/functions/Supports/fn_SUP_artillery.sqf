@@ -7,7 +7,7 @@ Arguments:
     <SIDE> The side from which the support should be sent
     <STRING> Resource pool used for this support. Should be "attack" or "defence"
     <SCALAR> Maximum resources to spend. Not used here.
-    <OBJECT|BOOL>: Target of the support. "false" creates with no initial target
+    <OBJECT|BOOL> Target of the support, or objNull for position strike. "false" creates with no initial target
     <POS2D> Target position for initial artillery strike
     <SCALAR> 0-1, higher values more information provided about support
     <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
@@ -24,13 +24,13 @@ private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "vehiclesArtillery");
 private _shellType = ((_faction get "magazines") get _vehType)#0;
 
-Info_4("Artillery support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
+Info_4("Artillery support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _targPos, _vehType, _shellType);
 
 private _possibleBases = airportsX select
 {
     (sidesX getVariable [_x, sideUnknown] == _side) &&
-    {(markerPos _x distance2D _target <= 10000) &&
-    {(markerPos _X distance2D _target > 2000) &&
+    {(markerPos _x distance2D _targPos <= 10000) &&
+    {(markerPos _X distance2D _targPos > 2000) &&
     {spawner getVariable _x == 2}}}
 };
 if(count _possibleBases == 0) exitWith { Debug("Couldn't find a suitable base for artillery"); -1 };

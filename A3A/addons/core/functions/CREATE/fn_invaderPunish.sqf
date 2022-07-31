@@ -126,6 +126,10 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     [_taskId, "invaderPunish", "FAILED"] call A3A_fnc_taskSetState;
     [_posDest, -30, 3000] call _fnc_adjustNearCities;
 
+    // Invaders pay extra to destroy a city
+    private _citypop = (server getVariable _mrkDest) select 0;
+    [-4 * _citypop, Invaders, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
+
     destroyedSites = destroyedSites + [_mrkDest];
     publicVariable "destroyedSites";
     private _mineTypes = A3A_faction_inv get "minefieldAPERS";

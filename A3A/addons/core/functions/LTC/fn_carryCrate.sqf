@@ -32,7 +32,7 @@ if (_pickUp) then {
     _player setVariable ["carryingCrate", true];
     [_player ,_crate] spawn {
         params ["_player", "_crate"];
-        waitUntil {_player forceWalk true; !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _crate) };
+        waitUntil {_player allowSprint false; !alive _crate or !(_player getVariable ["carryingCrate", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _crate) };
         [_crate, false, _player] call A3A_fnc_carryCrate;
     };
 } else {
@@ -47,5 +47,5 @@ if (_pickUp) then {
         _crate setVelocity [0,0,0.3];
     };
     _player setVariable ["carryingCrate", nil];
-    _player forceWalk false;
+    _player allowSprint true;
 };

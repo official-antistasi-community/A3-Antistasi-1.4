@@ -121,7 +121,7 @@ A3A_recentDamageInv = [];
 
 // Balance params updated by aggressionUpdateLoop
 A3A_activePlayerCount = 1;
-A3A_balancePlayerScale = A3A_enemyBalanceMul;
+A3A_balancePlayerScale = 1;					// Important due to load/save scaling to 1 playerScale
 A3A_balanceVehicleCost = 110;
 A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
 

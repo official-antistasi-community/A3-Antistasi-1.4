@@ -1,3 +1,16 @@
+/*  Carpet bomb target area
+
+Environment: Server, must be spawned
+
+Arguments:
+    <STRING> Unique support name (mostly for logging)
+    <SIDE> Side to send support from
+    <SCALAR> Delay time in seconds
+    <POS2D> Target position for airstrike
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+
+*/
+
 params ["_supportName", "_side", "_delay", "_targPos", "_reveal"];
 
 sleep _delay;

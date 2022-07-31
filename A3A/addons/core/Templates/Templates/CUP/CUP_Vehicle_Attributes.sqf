@@ -40,7 +40,7 @@
 //    ["CUP_O_Ka50_SLA", ["cost", 250]],              // rockets & missiles but fixed cannon
 //    ["CUP_O_Ka50_RU", ["cost", 250]],
 //    ["CUP_O_Ka52_RU", ["cost", 250]],
-    ["CUP_B_AH64D_DL_USA", ["cost", 300]],           // better than the russian stuff
-    ["CUP_B_AH1Z_Dynamic_USMC", ["cost", 300]]
+    ["CUP_B_AH64D_DL_USA", ["cost", 350]]           // better than the russian stuff
+//    ["CUP_B_AH1Z_Dynamic_USMC", ["cost", 300]]
 
 ]] call _fnc_saveToTemplate;

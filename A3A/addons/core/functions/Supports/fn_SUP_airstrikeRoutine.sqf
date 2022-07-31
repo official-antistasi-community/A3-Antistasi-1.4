@@ -1,3 +1,19 @@
+/*  Send airstrike against target
+
+Environment: Server, must be spawned
+
+Arguments:
+    <STRING> Unique support name (mostly for logging)
+    <SIDE> Side to send support from
+    <SCALAR> Delay time in seconds
+    <POS2D> Target position for airstrike
+    <STRING> Marker name of source airport
+    <STRING> Resource pool of support, "attack" or "defence"
+    <STRING> Classname of aircraft to use
+    <STRING> Bomb type to use, "HE", "CLUSTER" or "NAPALM"
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

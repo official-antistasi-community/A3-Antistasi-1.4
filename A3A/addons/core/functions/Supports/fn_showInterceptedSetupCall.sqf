@@ -22,27 +22,6 @@ FIX_LINE_NUMBERS()
 
 params ["_reveal", "_side", "_supportType", "_position", "_setupTime"];
 
-//If you have found a key before, you get the full message if it is somewhere around your HQ
-if(_position distance2D (getMarkerPos "Synd_HQ") < distanceMission) then
-{
-    if(_side == Occupants) then
-    {
-        if(occupantsRadioKeys > 0) then
-        {
-            occupantsRadioKeys = occupantsRadioKeys - 1;
-            _reveal = 1;
-        };
-    }
-    else
-    {
-        if(invaderRadioKeys > 0) then
-        {
-            invaderRadioKeys = invaderRadioKeys - 1;
-            _reveal = 1;
-        };
-    };
-};
-
 //Nothing will be revealed
 if(_reveal <= 0.2) exitWith {};
 

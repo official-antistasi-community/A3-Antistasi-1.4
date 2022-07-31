@@ -1,3 +1,16 @@
+/*  Create and maintain air superiority fighter support
+
+Environment: Server, must be spawned
+
+Arguments:
+    <ARRAY> Active support data, see initSupports
+    <STRING> Resource pool of support, "attack" or "defence"
+    <STRING> Marker name of source airport
+    <STRING> Classname of aircraft to use
+    <SCALAR> Delay time in seconds
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

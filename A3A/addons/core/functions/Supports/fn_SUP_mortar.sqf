@@ -7,7 +7,7 @@ Arguments:
     <SIDE> The side from which the support should be sent
     <STRING> Resource pool used for this support. Should be "attack" or "defence"
     <SCALAR> Maximum resources to spend. Not used here.
-    <OBJECT|BOOL> Target of the support. "false" creates with no initial target
+    <OBJECT|BOOL> Target of the support, or objNull for positional strike. "false" creates with no initial target
     <POS2D> Target position for initial mortar strike
     <SCALAR> 0-1, higher values more information provided about support
     <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
@@ -25,7 +25,7 @@ private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "staticMortars");
 private _shellType = _faction get "mortarMagazineHE";
 
-Info_4("Mortar support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _target, _vehType, _shellType);
+Info_4("Mortar support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _targPos, _vehType, _shellType);
 
 //Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
 private _possibleBases = (outposts + airportsX) select

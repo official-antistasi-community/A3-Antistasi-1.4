@@ -40,6 +40,13 @@ if (_targside == teamPlayer) then {
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
 };
 
+// Generate reveal value for the attack wave notifications
+private _reveal = call {
+    if (_targside != teamPlayer) exitWith {0};
+    private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
+    [_side, _targPos, _reveal] call A3A_fnc_useRadioKey;
+};
+
 
 // These mostly used for cleanup?
 private _allCargoGroups = [];
@@ -52,7 +59,7 @@ private _victory = false;
 while {_wave <= _maxWaves and !_victory} do
 {
     // Somewhat flattened because a lot of the work is done by garrisons
-    private _vehCount = round (2 + random 1.5 + 3*A3A_balancePlayerScale);
+    private _vehCount = round (2 + random 1 + 3*A3A_balancePlayerScale);
     if (_targside != teamPlayer) then { _vehCount = 4 + round (random 2) };
     if (_wave == 1) then { _vehCount = _vehCount + 2 };
 
@@ -119,7 +126,6 @@ while {_wave <= _maxWaves and !_victory} do
     private _approxTime = 60 + random 120;
     if (!isNil "_landBase") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
 
-    private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
     [_reveal, _side, "MajorAttack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
 
     sleep _approxTime;
@@ -132,14 +138,15 @@ while {_wave <= _maxWaves and !_victory} do
     {
         private _possibles = ["AH", 1];
         if !("UAV" in _airSupports) then { _possibles append ["UAV", 1] };
-//        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };      // CAS now included in air attack vehicles
+        if !("CAS" in _airSupports) then { _possibles append ["CAS", 0.6] };
         if !("ASF" in _airSupports) then { _possibles append ["ASF", 0.3] };
 
         private _support = selectRandomWeighted _possibles;
         if (_support == "AH") then { _newAttackHelis = _newAttackHelis + 1 }
         else {
             // ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
-            [_support, _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
+            private _suppName = [_support, _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
+            if (_suppName == "") exitWith { _newAttackHelis = _newAttackHelis + 1 };
             _airSupports pushBack _support;
             _airVehicleCount = _airVehicleCount - 1;
         };

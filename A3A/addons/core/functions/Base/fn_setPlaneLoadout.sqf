@@ -73,17 +73,25 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_s8"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_kh29d_Launcher", "rhs_weap_kh25mtp_Launcher"]];
         };
-        case "vn_b_air_f4c_hcas":
+        case "vn_b_air_f4c_at":
         {
             _loadout = ["vn_missile_f4_out_agm45_mag_x1","vn_missile_f4_out_agm45_mag_x1","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_bomb_f4_out_750_blu1b_fb_mag_x3","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1"];
             _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
             _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
         };
-        case "vn_o_air_mi2_04_04":
+        case "vn_b_air_f100d_at":
         {
-            _loadout = ["vn_rocket_s5_heat_x16","vn_rocket_s5_heat_x16"];
-            _plane setVariable ["mainGun", "vn_ns23_v_01"];
+            _loadout = ["vn_rocket_ffar_f4_lau59_m229_he_x21","vn_rocket_ffar_f4_lau59_m229_he_x21","vn_fuel_f100_335_camo_01_mag","vn_fuel_f100_335_camo_01_mag","vn_missile_agm45_03_mag_x1","vn_missile_agm45_03_mag_x1"];
+            _plane setVariable ["mainGun", "vn_m39a1_v_quad"];
+            _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
+        };
+        case "vn_o_air_mig19_at":
+        {
+            _loadout = ["vn_rocket_s5_heat_x16","vn_rocket_s5_heat_x16","vn_missile_kh66_mag_01_x1","vn_missile_kh66_mag_01_x1"];
+            _plane setVariable ["mainGun", "vn_nr30_v_01"];
             _plane setVariable ["rocketLauncher", ["vn_rocket_s5_heat_launcher"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
         };
         case "RHSGREF_A29B_HIDF":
         {
@@ -220,9 +228,13 @@ if (_type == "AA") then
         {
             _loadout = ["vn_fuel_f4_370_mag","vn_fuel_f4_370_mag","","","vn_fuel_f4_600_mag","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1"];
         };
-        case "vn_o_air_mi2_05_06":
+        case "vn_b_air_f100d_cap":
         {
-            _loadout = ["vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_at3_mag_01_x1","vn_missile_sa7b_mag_x2","vn_missile_sa7b_mag_x2"];
+            _loadout = ["vn_rocket_ffar_f4_lau59_m229_he_x21","vn_rocket_ffar_f4_lau59_m229_he_x21","vn_fuel_f100_335_mag","vn_fuel_f100_335_mag","vn_missile_aim9e_mag_x1","vn_missile_aim9e_mag_x1"];
+        };
+        case "vn_o_air_mig19_cap":
+        {
+            _loadout = ["vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1"];
         };
         case "UK3CB_B_Mystere_HIDF_AA1";
         case "UK3CB_MDF_B_Mystere_AA1":

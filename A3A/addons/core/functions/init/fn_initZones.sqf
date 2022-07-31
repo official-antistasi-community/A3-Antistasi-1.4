@@ -53,7 +53,7 @@ defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
-markersX = airportsX + outposts + resourcesX + factories + seaports + controlsX + ["Synd_HQ"];
+markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
 if (debug) then {
     Debug_1("Building roads for %1.",worldname);
 };

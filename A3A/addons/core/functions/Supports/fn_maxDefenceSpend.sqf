@@ -1,8 +1,8 @@
 /*
-Maintainer:
+Maintainer: John Jordan
     Return free defence resources to spend against given position & target
 
-Scope: Server, scheduled
+Environment: Server, scheduled
 
 Arguments:
     <SIDE> Side using the resources, must be occupants or invaders
@@ -27,10 +27,10 @@ private _targetSide = if (_target isEqualType objNull) then { side group _target
 private _curResources = [A3A_resourcesDefenceInv, A3A_resourcesDefenceOcc] select (_side == Occupants);
 private _maxResources = A3A_balanceResourceRate * 10 * ([1, A3A_invaderBalanceMul] select (_side == Invaders));
 if (gameMode == 1) then {
-    // Invaders can use 25-75% of max, rebels 50-100%, depending on aggro
+    // Other enemy can use 30-55% of max, rebels 60-85%, depending on aggro. Resource rate/max are also increased by aggro in initSupports
     private _aggro = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);
-    if (_targetSide != teamPlayer) exitWith { _maxResources = _maxResources * (0.25 + (100-_aggro)/200) };
-    _maxResources = _maxResources * (0.5 + _aggro/200);
+    if (_targetSide != teamPlayer) exitWith { _maxResources = _maxResources * (0.3 + (100-_aggro)/400) };
+    _maxResources = _maxResources * (0.6 + _aggro/400);
 };
 Debug_2("Current resources %1, max resources %2", _curResources, _maxResources);
 if (_curResources < 0) exitWith { 0 };
@@ -73,8 +73,8 @@ if (_callPos isEqualType "") then
     private _mrkIndex = A3A_supportMarkerTypes findif { _callPos == _x#0 };     // lookup marker name
     _callPos = markerPos _callPos;
     if (_mrkIndex == -1) exitWith {
-        Error_1("Unknown support marker: %1", _target); 
-        _maxSpend = _maxSpend * 0.2;
+        Error_1("Unknown support marker: %1", _target);
+        _maxSpend = _maxSpend * 0.15;
     };
     private _mrkType = A3A_supportMarkerTypes select _mrkIndex;
     _maxSpend = _maxSpend * (_mrkType#3);     // * _mrkType#4;            // location type multiplier * time-based random
@@ -88,13 +88,13 @@ else
     // Enemy markers near target reduce max spend
     private _targPos = [getPosATL _target, _callPos] select (_target isEqualType west);
     private _closeMrk = A3A_supportMarkersXYI inAreaArray [_callPos, 1000, 1000];
-    private _defMul = 0.2;
+    private _defMul = 0.15;
     private _defSub = 0;
     {
         private _mrkType = A3A_supportMarkerTypes select (_x#2);
         if (sidesX getVariable (_mrkType#0) != _side) then {        // enemy marker
             private _dist = _x distance2d _targPos;
-            _defSub = _defSub max (0.4 * (1 - _dist / 500));
+            _defSub = _defSub max (_mrkType#3 * (1 - _dist / 500));
         } else {                                                      // friendly marker
             private _dist = _x distance2d _callPos;
             _defMul = _defMul max (_mrkType#3 * (1 - _dist / 1000));
@@ -149,6 +149,7 @@ private _targPosSpend = 0;
     // [side, type, callpos, targpos, resources, start time]
     _x params ["_spSide", "_spCallPos", "_spTargPos", "_spRes", "_spTime"];
     if (_spSide != _side) then { continue };
+    if !(_spTargPos isEqualType []) then { continue };                // anti-air spend
 
     // Falloff resource spend over one hour
     private _res = linearConversion [_spTime, (_spTime)+3600, time, _spRes, 0, true];

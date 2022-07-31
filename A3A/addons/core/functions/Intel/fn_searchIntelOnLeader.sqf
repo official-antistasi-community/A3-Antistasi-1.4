@@ -78,6 +78,7 @@ if(_caller getVariable ["intelFound", false]) then
     {
         ["Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
         ["Small", _side] remoteExec ["A3A_fnc_selectIntel", 2];
+        [20, _caller] call A3A_fnc_playerScoreAdd;
     }
     else
     {

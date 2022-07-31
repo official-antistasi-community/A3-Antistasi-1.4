@@ -83,8 +83,9 @@ if (_sideX == Invaders) then
 		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
 		if !(_taskId call BIS_fnc_taskCompleted) then
 		{
-            private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
-            [getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
+			// Needs rework
+            //private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
+            //[getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_createSupport", 2];
 		};
 	};
 }

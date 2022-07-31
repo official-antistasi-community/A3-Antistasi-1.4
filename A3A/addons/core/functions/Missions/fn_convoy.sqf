@@ -8,7 +8,6 @@ params ["_mrkDest", "_mrkOrigin", ["_convoyType", ""], ["_resPool", "legacy"], [
 private _difficult = if (random 10 < tierWar) then {true} else {false};
 private _sideX = if (sidesX getVariable [_mrkOrigin,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-private _isMilitia = (_sideX == Occupants and (random 10 >= tierWar) and !_difficult);
 
 private _posSpawn = getMarkerPos _mrkOrigin;			// used for spawning infantry before moving them into vehicles
 private _posHQ = getMarkerPos respawnTeamPlayer;
@@ -221,8 +220,8 @@ if (_convoyType == "Ammunition") then
     [_vehObj] spawn A3A_fnc_fillLootCrate;
 };
 
-// Initial escort vehicles
-private _countX = if (_difficult) then {2} else {1};
+// Initial escort vehicles, 0-1 for SP, 1-2 for 10+
+private _countX = round ((A3A_balancePlayerScale min 1.5) + random 0.5 + ([-0.75, 0.25] select _difficult));
 for "_i" from 1 to _countX do
 {
     sleep 2;
@@ -231,7 +230,7 @@ for "_i" from 1 to _countX do
 
 // Lead vehicle
 sleep 2;
-private _typeVehX = selectRandom (if (_sideX == Occupants && _isMilitia) then {_faction get "vehiclesPolice"} else {_faction get "vehiclesLightArmed"});
+private _typeVehX = selectRandom (if (_sideX == Occupants && random 4 < tierWar) then {_faction get "vehiclesPolice"} else {_faction get "vehiclesLightArmed"});
 private _vehLead = [_typeVehX, "Convoy Lead"] call _fnc_spawnConvoyVehicle;
 
 // Apply convoy resource cost, if it's from attack or defence pool

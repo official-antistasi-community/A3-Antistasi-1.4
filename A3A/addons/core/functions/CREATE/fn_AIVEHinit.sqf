@@ -48,6 +48,8 @@ if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 	// isn't this section basically supposed to be all ground vehicles?
 	if (_side == teamPlayer or _side == civilian) exitWith {};				// arguable
 
+	if (_typeX in FactionGet(all,"vehiclesArmor")) then { _veh call A3A_fnc_addActionBreachVehicle };
+
 	if (_veh isKindOf "Car") then
 	{
 		_veh addEventHandler ["HandleDamage",{if (((_this select 1) find "wheel" != -1) and ((_this select 4=="") or (side (_this select 3) != teamPlayer)) and (!isPlayer driver (_this select 0))) then {0} else {(_this select 2)}}];
@@ -60,8 +62,7 @@ if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 	}
 	else
 	{
-		if (_typeX in FactionGet(all,"vehiclesArmor")) then { _veh call A3A_fnc_addActionBreachVehicle };
-		if (_typeX in FactionGet(all,"vehiclesAPCs")) then
+		if (_typeX in FactionGet(all,"vehiclesAPCs") + FactionGet(all,"vehiclesIFVs") + FactionGet(all,"vehiclesLightAPCs")) then
 		{
 			_veh addEventHandler ["HandleDamage",{private ["_veh"]; _veh = _this select 0; if (!canFire _veh) then {[_veh] call A3A_fnc_smokeCoverAuto; _veh removeEventHandler ["HandleDamage",_thisEventHandler]};if (((_this select 1) find "wheel" != -1) and (_this select 4=="") and (!isPlayer driver (_veh))) then {0;} else {(_this select 2);}}];
 			_veh setVariable ["within",true];

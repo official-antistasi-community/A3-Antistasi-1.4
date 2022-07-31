@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private ["_pos","_rnd","_posFire"];
 _movedX = false;
 if (petros != (leader group petros)) then

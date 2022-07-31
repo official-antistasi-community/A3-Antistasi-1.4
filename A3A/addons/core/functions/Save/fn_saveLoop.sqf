@@ -278,6 +278,10 @@ private _resDefInv = A3A_resourcesDefenceInv;
 	if (_resPool == "attack") then { _resAttInv = _resAttInv + 10 };
 } forEach units Invaders;
 
+// Adjust defence resources to playerScale 1 so that it doesn't get mangled on save/load
+_resDefOcc = _resDefOcc / A3A_balancePlayerScale;
+_resDefInv = _resDefInv / A3A_balancePlayerScale;
+
 // Enemy resources. Could hashmap this instead...
 ["enemyResources", [_resDefOcc, _resDefInv, _resAttOcc, _resAttInv]] call A3A_fnc_setStatVariable;
 

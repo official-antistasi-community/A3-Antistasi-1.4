@@ -76,7 +76,7 @@ if (_winner == teamPlayer) then
 	};
 
 	private _vehCount = round (random 0.5 + _resources / A3A_balanceVehicleCost);
-	private _reveal = [_targPos] call A3A_fnc_calculateSupportCallReveal;
+	private _reveal = [markerPos _markerX] call A3A_fnc_calculateSupportCallReveal;
 	_reveal = [_looser, markerPos _markerX, _reveal] call A3A_fnc_useRadioKey;
 
 	[[_markerX, _looser, _vehCount, _reveal], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;

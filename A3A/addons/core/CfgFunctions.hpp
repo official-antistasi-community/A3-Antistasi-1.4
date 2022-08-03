@@ -285,11 +285,14 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Dialogs);
             class buyVehicle {};
             class buyVehicleCiv {};
+            class canFastTravel {};
+            class calculateFastTravelCost {};
             class clearForest {};
             class createDialog_setParams {};
             class createDialog_shouldLoadPersonalSave {};
             class dialogHQ {};
             class fastTravelRadio {};
+            class fastTravelAsync {};
             class HQGameOptions {};
             class loadPreviousSession {};
             class mineDialog {};

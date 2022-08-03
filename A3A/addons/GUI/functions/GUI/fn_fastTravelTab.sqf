@@ -27,6 +27,12 @@ FIX_LINE_NUMBERS()
 
 params[["_mode","update"], ["_params",[]]];
 
+// For now, we will use the old fastTravel until map selection is integrated.
+closeDialog 1;
+[] call A3A_fnc_fastTravelRadio;
+if (true) exitWith {};
+
+
 switch (_mode) do
 {
     case ("update"):
@@ -73,18 +79,19 @@ switch (_mode) do
             private _locationName = [_selectedMarker] call A3A_fnc_getLocationMarkerName;
 
             // Check if location is valid for fast travel
-            private _canFastTravelToLocation = nil;
+            private _canFastTravelTuple = [];
             if (_hcMode) then {
                 private _hcGroup = _fastTravelMap getVariable "hcGroup";
-                _canFastTravelToLocation = [_hcGroup, _selectedMarker] call A3A_fnc_canFastTravelToLocation;
+                _canFastTravelTuple = [_hcGroup, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
             } else {
-                _canFastTravelToLocation = [player, _selectedMarker] call A3A_fnc_canFastTravelToLocation;
+                _canFastTravelTuple = [player, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
             };
-            if !(_canFastTravelToLocation # 0) exitWith {
+            _canFastTravelTuple params ["_isFastTravelAllowed","_fastTravelBlockers"];
+            if !(_isFastTravelAllowed) exitWith {
                 // Not a valid location for fast travel
 
                 // Disable commit button and show what's wrong in info text
-                _infoText = _canFastTravelToLocation # 1;
+                _infoText = _fastTravelBlockers joinString ", ";
                 _fastTravelCommitButton ctrlEnable false;
                 _fastTravelSelectText ctrlShow false;
                 _fastTravelInfoText ctrlShow true;
@@ -107,8 +114,8 @@ switch (_mode) do
             };
 
             // Time
-            // TODO UI-update: Add case for calculating time for HC groups when in hc mode
-            private _fastTravelTime = [player, _selectedMarker] call A3A_fnc_getFastTravelTime;
+            // TODO UI-update: Add case for calculating time for HC groups when in hc modelToWorld
+            [player, markerPos _selectedMarker] call A3A_fnc_calculateFastTravelCost params ["_fastTravelCost","_fastTravelTime"];
             private _timeString = [_fastTravelTime] call A3A_fnc_formatTime;
             _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_time" + " " + _timeString + ".<br/><br/>";
 
@@ -209,10 +216,10 @@ switch (_mode) do
         if (_hcMode) then {
             private _hcGroup = _fastTravelMap getVariable ["hcGroup", grpNull];
             closeDialog 1;
-            [_hcGroup, _marker] spawn A3A_fnc_fastTravel;
+            [_hcGroup, markerPos _marker] call A3A_fnc_fastTravelAsync;
         } else {
             closeDialog 1;
-            [player, _marker] spawn A3A_fnc_fastTravel;
+            [player, markerPos _marker] call A3A_fnc_fastTravelAsync;
         };
     };
 

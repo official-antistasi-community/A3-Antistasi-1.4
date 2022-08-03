@@ -70,8 +70,8 @@ switch (_mode) do
         // Fast travel
         private _fastTravelButton = _display displayCtrl A3A_IDC_FASTTRAVELBUTTON;
         private _fastTravelIcon = _display displayCtrl A3A_IDC_FASTTRAVELICON;
-        private _canFastTravel = [player] call A3A_fnc_canFastTravel;
-        if (_canFastTravel # 0) then {
+        [player] call A3A_fnc_canFastTravel params ["_isFastTravelAllowed","_fastTravelBlockers"];
+        if (_isFastTravelAllowed) then {
             _fastTravelButton ctrlEnable true;
             _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip";
             _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call FUNC(configColorToArray));
@@ -79,9 +79,9 @@ switch (_mode) do
 
         } else {
             _fastTravelButton ctrlEnable false;
-            _fastTravelButton ctrlSetTooltip (_canFastTravel # 1);
+            _fastTravelButton ctrlSetTooltip (_fastTravelBlockers joinString ", ");
             _fastTravelIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call FUNC(configColorToArray));
-            _fastTravelIcon ctrlSetTooltip (_canFastTravel # 1);
+            _fastTravelIcon ctrlSetTooltip (_fastTravelBlockers joinString ", ");
         };
 
         // Construct

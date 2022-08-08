@@ -28,7 +28,7 @@ params ["_suppName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_
 private _airbase = [_side, _targPos] call A3A_fnc_availableBasesAir;
 if (isNil "_airbase") exitWith { Info("QRF cancelled because no airbases available (how?)"); -1 };
 
-private _vehCount = 3 min ceil (_maxSpend / (1.5 * A3A_balanceVehicleCost));
+private _vehCount = 3 min ceil (_maxSpend / A3A_balanceVehicleCost);        // will overshoot a bit (no 1.5x factor). This is preferable to sending tiny QRFs
 // TODO: bias a bit for tank/APC/static targets?
 private _attackCount = round random ([0, 0, 0.8, 1.5] select _vehCount);
 

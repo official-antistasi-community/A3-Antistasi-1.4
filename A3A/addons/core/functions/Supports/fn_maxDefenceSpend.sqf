@@ -65,8 +65,8 @@ if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
 
 
 // For ground targets, spend limit depends on markers near caller
-private _maxSpend = _maxResources;
 private _maxSpendLoc = _maxResources;
+private _threatBalance = 1;
 if (_callPos isEqualType "") then
 {
     // If target is a marker, just return the location's maximum
@@ -74,12 +74,11 @@ if (_callPos isEqualType "") then
     _callPos = markerPos _callPos;
     if (_mrkIndex == -1) exitWith {
         Error_1("Unknown support marker: %1", _target);
-        _maxSpend = _maxSpend * 0.15;
+        _maxSpendLoc = _maxSpendLoc * 0.15;
     };
     private _mrkType = A3A_supportMarkerTypes select _mrkIndex;
-    _maxSpend = _maxSpend * (_mrkType#3);     // * _mrkType#4;            // location type multiplier * time-based random
-    _maxSpendLoc = _maxSpend * _maxResMod;
-    Debug_1("Marker max spend %1", _maxSpend);
+    _maxSpendLoc = _maxSpendLoc * (_mrkType#3);     // * _mrkType#4;            // location type multiplier * time-based random
+    Debug_1("Marker max spend %1", _maxSpendLoc);
 }
 else 
 {
@@ -100,9 +99,8 @@ else
             _defMul = _defMul max (_mrkType#3 * (1 - _dist / 1000));
         };
     } forEach _closeMrk;
-    _maxSpend = _maxSpend * (_defMul - _defSub);
-    _maxSpendLoc = _maxSpend * _maxResMod;
-    Debug_3("Maxspend %1 from defmul %2 and defsub %3", _maxSpend, _defMul, _defSub);
+    _maxSpendLoc = _maxSpendLoc * (_defMul - _defSub);
+    Debug_3("Max location spend %1 from defmul %2 and defsub %3", _maxSpendLoc, _defMul, _defSub);
 
 
     // Prevent overreacting to threats: recentDamage + enemyStr - friendlyStr
@@ -136,10 +134,13 @@ else
         //};
     } forEach _nearFriends;
 
-    Debug_3("Recent damage %1, enemy strength %2, friend strength %3", _recentDamage, _enemyStr, _friendStr);
-    _maxSpend = _maxSpend min 2*(2*_recentDamage + _enemyStr - _friendStr);
+    _threatBalance = (2*_recentDamage + _enemyStr) / (_friendStr max 1);
+    _threatBalance = 1 min (_threatBalance - 1);
+    Debug_4("Threat balance %1 from: Recent damage %2 enemy strength %3 friend strength %4", _threatBalance, _recentDamage, _enemyStr, _friendStr);
+
+//    _maxSpend = _maxSpend min 2*(2*_recentDamage + _enemyStr - _friendStr);
 };
-if (_maxSpend <= 0) exitWith { 0 };
+if (_maxSpendLoc <= 0 or _threatBalance <= 0) exitWith { 0 };                  // possible if near enemy markers
 
 
 // Determine how much we've already spent to support the target & caller positions
@@ -164,7 +165,15 @@ private _targPosSpend = 0;
 
 } forEach A3A_supportSpends;
 
-Debug_4("Callpos spend %1, targpos spend %2, max spend %3, max loc %4", _callPosSpend, _targPosSpend, _maxSpend, _maxSpendLoc);
+Debug_2("Callpos spend %1, targpos spend %2", _callPosSpend, _targPosSpend);
 
-_maxSpend = _maxSpend - (_callPosSpend max _targPosSpend);      // reduce by what's already been spent
-_curResources min _maxSpend min _maxSpendLoc;
+private _maxSpend = _threatBalance*_maxSpendLoc - (_callPosSpend max _targPosSpend);      // reduce by what's already been spent
+_maxSpend = _maxSpend min _curResources min (_maxResMod*_maxSpendLoc);
+
+// If result is low then there's an increasing chance of not sending anything for now
+// Does this adequately replace the counterAttack size check? Probably...
+private _minThreshold = (2.1 * A3A_balanceVehicleCost) min (0.5 * _maxSpendLoc);
+private _minResponse = round (time / 120) random _minThreshold;
+Debug_3("Max spend %1 with minThreshold %2 and minResponse %3", _maxSpend, _minThreshold, _minResponse);
+if (_maxSpend < _minResponse) then { _maxSpend = 0 };
+_maxSpend;

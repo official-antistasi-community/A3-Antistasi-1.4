@@ -182,7 +182,7 @@ else
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
 			deleteGroup _groupUAV;
 			};
-		{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+		{[_x, "", false] call A3A_fnc_NATOinit} forEach units _groupX;
 		}
 	else
 		{

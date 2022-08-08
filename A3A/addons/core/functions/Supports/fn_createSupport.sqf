@@ -28,8 +28,9 @@ Debug_5("Attempting to create %1 support with side %2, pool %3, target %4 and re
 
 // Attempt to use active support if there's a valid one
 private _supportIndex = A3A_activeSupports findIf {
-    _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg"];
-    _suppSide == _side and _suppType == _type and _suppTarg isEqualTo [] and { _targpos distance2d _center < _radius };
+    _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg", ["_minRadius", 0]];
+    private _dist = _targpos distance2d _center;
+    _suppSide == _side and _suppType == _type and _suppTarg isEqualTo [] and _dist < _radius and _dist > _minRadius;
 };
 if (_target isEqualType objNull and _supportIndex != -1) exitWith {
     private _activeSupport = A3A_activeSupports # _supportIndex;

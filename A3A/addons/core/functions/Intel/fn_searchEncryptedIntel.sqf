@@ -58,7 +58,7 @@ private _largeAttackChance = switch (true) do {
 private _attack = selectRandomWeighted ["No", _noAttackChance, "Small", 0.6, "Large", _largeAttackChance];
 if (_attack != "No") then {
     private _isLargeAttack = (_attack == "Large");
-    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
+//    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
 };
 
 //decryption proccess

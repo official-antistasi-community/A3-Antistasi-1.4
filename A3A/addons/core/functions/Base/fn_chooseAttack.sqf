@@ -42,9 +42,9 @@ if (gameMode == 1) then
     private _targetsAndWeightsEnemy = [_enemySide, _side] call A3A_fnc_findAttackTargets;
     if (_targetsAndWeightsEnemy#0 isEqualTo []) exitWith {};
 
-    // at war tier 1, want about 20% of attacks to be against rebels if all else is equal
+    // Reduce chance of attacking rebels a bit at lower war tiers & aggro
     private _aggro = [aggressionOccupants, aggressionInvaders] select (_side == Invaders);
-    private _weightFactor = (0.1 + tierWar/10 + _aggro/200) / _rebWeightMul;
+    private _weightFactor = (0.4 + tierWar/30 + _aggro/200) / _rebWeightMul;
     _weights = _weights apply { _x * _weightFactor };
 
     _targets append (_targetsAndWeightsEnemy#0);

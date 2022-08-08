@@ -23,14 +23,15 @@ params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos",
 private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "vehiclesArtillery");
 private _shellType = ((_faction get "magazines") get _vehType)#0;
+([_vehType, _shellType] call A3A_fnc_getArtilleryRanges) params ["_minRange", "_maxRange"];
 
-Info_4("Artillery support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _targPos, _vehType, _shellType);
+Info_6("Artillery support %1 against %2 will be carried out by a %3 with %4 mags, min range %5 max %6", _supportName, _targPos, _vehType, _shellType, _minRange, _maxRange);
 
 private _possibleBases = airportsX select
 {
     (sidesX getVariable [_x, sideUnknown] == _side) &&
-    {(markerPos _x distance2D _targPos <= 10000) &&
-    {(markerPos _X distance2D _targPos > 2000) &&
+    {(markerPos _x distance2D _targPos <= _maxRange) &&
+    {(markerPos _X distance2D _targPos > _minRange) &&
     {spawner getVariable _x == 2}}}
 };
 if(count _possibleBases == 0) exitWith { Debug("Couldn't find a suitable base for artillery"); -1 };
@@ -56,7 +57,7 @@ if (_target isEqualType objNull) then {
 };
 
 // name, side, suppType, pos, radius, remTargets, targets
-private _suppData = [_supportName, _side, "ARTILLERY", markerPos _base, 10000, _targArray];
+private _suppData = [_supportName, _side, "ARTILLERY", markerPos _base, _maxRange, _targArray, _minRange];
 A3A_activeSupports pushBack _suppData;
 [_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 

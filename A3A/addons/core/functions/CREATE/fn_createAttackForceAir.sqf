@@ -68,7 +68,7 @@ for "_i" from 1 to _vehCount do {
     };
 
     if (_isTransport) then { _numTransports = _numTransports + 1 };
-    _isTransport = (_numTransports / count _vehicles) <= _transportRatio;
+    _isTransport = (_numTransports / _i) <= _transportRatio;
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

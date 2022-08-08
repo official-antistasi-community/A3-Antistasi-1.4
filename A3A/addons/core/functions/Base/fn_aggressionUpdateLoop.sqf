@@ -57,7 +57,7 @@ while {true} do
 
     if(gameMode != 4) then
     {
-        private _aggroMul = [0.8 + aggressionOccupants/250, 0.5 + aggressionOccupants/200] select (gameMode != 1);
+        private _aggroMul = [1.0 + aggressionOccupants/200, 0.5 + aggressionOccupants/200] select (gameMode != 1);
         private _resRateDef = _aggroMul * A3A_balanceResourceRate / 10;
         private _resRateAtk = _aggroMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;       // Attack rate is 2/3 of defence
 
@@ -86,7 +86,7 @@ while {true} do
 
     if (gameMode != 3) then
     {
-        private _aggroMul = [0.8 + aggressionInvaders/250, 0.5 + aggressionInvaders/200] select (gameMode != 1);
+        private _aggroMul = [1.0 + aggressionInvaders/200, 0.5 + aggressionInvaders/200] select (gameMode != 1);
         private _resRateDef = _aggroMul * A3A_invaderBalanceMul * A3A_balanceResourceRate / 10;
         private _resRateAtk = _aggroMul * A3A_invaderBalanceMul * A3A_balanceResourceRate * A3A_enemyAttackMul / 15;
 

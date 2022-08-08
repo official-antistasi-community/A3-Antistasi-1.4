@@ -19,7 +19,8 @@ A3A_supportStrikes = [];
 // only need this for the support system itself in this version?
 
 // Active multitarget supports
-// [_suppname, _side, _supptype, _center, _radius, _target, _reveal], _target is [unit, position] array, or [] for free
+// [_suppname, _side, _supptype, _center, _radius, _target, _minRadius (opt)]
+// _target is [unit, position] array, or [] for free
 A3A_activeSupports = [];
 
 // Interfaces:

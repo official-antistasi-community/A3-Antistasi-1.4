@@ -38,8 +38,8 @@ private _path = [_posOrigin, _posDestination] call A3A_fnc_findPath;
 _path = [_path] call A3A_fnc_trimPath;          // some functionality here is questionable...
 
 // Pathfinding failed? Just make a waypoint on the destination
-if(count _path < 2) then {
-    private _wp = _group addWaypoint [_destination, 0];
+if(count _path < 2) exitWith {
+    private _wp = _group addWaypoint [_posDestination, 0];
     _wp setWaypointBehaviour "SAFE";
     _group setCurrentWaypoint _wp;
 };

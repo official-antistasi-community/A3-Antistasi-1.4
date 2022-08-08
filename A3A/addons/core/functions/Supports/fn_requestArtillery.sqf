@@ -42,9 +42,10 @@ Debug_2("Final target %1 at position %2", _target, _targPos);
 // Build hashmap of active supports with spare targets capable of hitting the area
 private _actSuppHM = createHashMap;
 {
-    _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg"];
+    _x params ["_suppName", "_suppSide", "_suppType", "_center", "_radius", "_suppTarg", ["_minRadius", 0]];
     if (_suppSide != _side or _suppType in _actSuppHM) then { continue };         // only use first one found
-    if (_suppTarg isNotEqualTo [] or _targpos distance2d _center > _radius) then { continue };        // ready for new target + in range
+    private _dist = _targpos distance2d _center;
+    if (_suppTarg isNotEqualTo [] or _dist > _radius or _dist < _minRadius) then { continue };        // ready for new target + in range
     _actSuppHM set [_suppType, _x];
 } forEach A3A_activeSupports;
 Debug_1("Relevant active supports found: %1", _actSuppHM);

@@ -24,15 +24,17 @@ params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos",
 private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "staticMortars");
 private _shellType = _faction get "mortarMagazineHE";
+([_vehType, _shellType] call A3A_fnc_getArtilleryRanges) params ["_minRange", "_maxRange"];
 
-Info_4("Mortar support %1 against %2 will be carried out by a %3 with %4 mags", _supportName, _targPos, _vehType, _shellType);
+Info_6("Mortar support %1 against %2 will be carried out by a %3 with %4 mags, min range %5 max %6", _supportName, _targPos, _vehType, _shellType, _minRange, _maxRange);
 
 //Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
 private _possibleBases = (outposts + airportsX) select
 {
     (sidesX getVariable [_x, sideUnknown] == _side) &&
-    {(markerPos _x distance2D _targPos <= 3000) &&
-    {spawner getVariable _x == 2}}
+    {(markerPos _x distance2D _targPos <= _maxRange) &&
+    {(markerPos _X distance2D _targPos > _minRange) &&
+    {spawner getVariable _x == 2}}}
 };
 if(count _possibleBases == 0) exitWith { Debug("No bases found for mortar support"); -1 };
 
@@ -79,7 +81,7 @@ if (_target isEqualType objNull) then {
 };
 
 // name, side, suppType, pos, radius, remTargets, targets
-private _suppData = [_supportName, _side, "MORTAR", _spawnPos, 3000, _targArray];
+private _suppData = [_supportName, _side, "MORTAR", _spawnPos, _maxRange, _targArray, _minRange];
 A3A_activeSupports pushBack _suppData;
 [_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 

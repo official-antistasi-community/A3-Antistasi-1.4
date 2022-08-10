@@ -92,7 +92,7 @@ class HQ_menu 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "if (isMultiPlayer) then {if (player == theBoss) then {nul=call A3A_fnc_theBossSteal} else {[""Money Grab"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;}} else {[""Money Grab"", ""This function is MP only.""] call A3A_fnc_customHint;};";
+			action = "if (isMultiPlayer) then {if (player == theBoss and theBoss call A3A_fnc_isMember) then {nul=call A3A_fnc_theBossSteal} else {[""Money Grab"", ""Only Member Commander has access to this function.""] call A3A_fnc_customHint;}} else {[""Money Grab"", ""This function is MP only.""] call A3A_fnc_customHint;};";
 		};
 		class HQ_button_savegame: A3A_core_BattleMenuRedButton
 		{
@@ -1786,7 +1786,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Manage arsenal limitations of guests";	//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "if (player == theBoss) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""You're not the Commander!""] call A3A_fnc_customHint}";
+			action = "if (player == theBoss && theBoss call A3A_fnc_isMember) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""Only member commanders have access to this function""] call A3A_fnc_customHint}";
 		};
 		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{

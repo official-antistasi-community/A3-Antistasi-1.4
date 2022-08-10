@@ -19,7 +19,7 @@
 HR_GRG_Prefix = "Antistasi";
 //Overwrite client
 HR_GRG_cmdClient = {
-    if ((isServer && hasInterface) || {admin owner _this > 0}) then {_this} else {theBoss}; //LAN Host or admin on DS or commander
+    if ((isServer && hasInterface) || {admin owner _this > 0}) then {_this} else { [objNull, theBoss] select (theBoss call A3A_fnc_isMember) }; //LAN Host or admin on DS or member-commander
 };
 
 //condition to automatically close garage/placement as if canceled

@@ -1147,7 +1147,7 @@ class mission_menu 		{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""AS"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_CONV: A3A_core_BattleMenuRedButton
 		{
@@ -1157,7 +1157,7 @@ class mission_menu 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""CONVOY"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_DES: A3A_core_BattleMenuRedButton
 		{
@@ -1167,7 +1167,7 @@ class mission_menu 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""DES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_vehicle: A3A_core_BattleMenuRedButton
 		{
@@ -1177,7 +1177,7 @@ class mission_menu 		{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""CON"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_LOG: A3A_core_BattleMenuRedButton
 		{
@@ -1188,7 +1188,7 @@ class mission_menu 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""LOG"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_SUPP: A3A_core_BattleMenuRedButton
 		{
@@ -1199,7 +1199,7 @@ class mission_menu 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_mission_menu_support_missions_tooltip;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""SUPP"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_RES: A3A_core_BattleMenuRedButton
 		{
@@ -1209,7 +1209,7 @@ class mission_menu 		{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;if (([player] call A3A_fnc_isMember) or (not(isPlayer theBoss))) then {[""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]} else {[""Mission Request"", ""Only Player Commander has access to this function.""] call A3A_fnc_customHint;};";
+			action = "closeDialog 0; [""RES"", clientOwner] remoteExec [""A3A_fnc_missionRequest"", 2]";
 		};
 		class HQ_button_exit: A3A_core_BattleMenuRedButton
 		{

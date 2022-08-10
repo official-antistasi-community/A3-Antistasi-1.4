@@ -4,6 +4,7 @@ params ["_playerX", ["_newBoss", objNull]];
 // Find real player unit, in case of remote control
 _playerX = _playerX getVariable ["owner", _playerX];
 
+private _forceElection = false;
 private _text = "";
 if (_playerX getVariable ["eligible",false]) then
 {
@@ -30,6 +31,7 @@ if (_playerX getVariable ["eligible",false]) then
 }
 else
 {
+	if ([_playerX] call A3A_fnc_isMember) then { _forceElection = true };
 	_playerX setVariable ["eligible",true,true];
 	_text = "You are now eligible to be commander of our forces.";
 };
@@ -37,4 +39,4 @@ else
 ["Commander", _text] remoteExec ["A3A_fnc_customHint", _playerX];
 
 // Will remove current boss if now ineligible
-[] call A3A_fnc_assignBossIfNone;
+[_forceElection] call A3A_fnc_assignBossIfNone;

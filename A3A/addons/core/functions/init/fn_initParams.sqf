@@ -51,7 +51,7 @@ A3A_paramTable = [
     ["allowDLCWS", "WS", [], false],
 
     ["membershipEnabled", "membership", [], true],
-    ["switchCom", "switchComm", ["server"], true],						// dead param
+    ["A3A_guestCommander", "guestCommander", ["server"], true],
     ["tkpunish", "tkPunish", [], true],
     ["memberDistance", "memberDistance", [], 5000],
     ["memberSlots", "memberSlots", ["server"], 20],

@@ -74,9 +74,9 @@ class Params
         texts[] = {"Load from save (Default: Yes)","Yes","No"};
         default = 9999;
     };
-    class switchComm
+    class guestCommander
     {
-        title = "Enable Commander Switch (highest ranked player)";
+        title = "Allow guests to become commander when no members are eligible";
         values[] = {9999,1,0};
         texts[] = {"Load from save (Default: Yes)","Yes","No"};
         default = 9999;

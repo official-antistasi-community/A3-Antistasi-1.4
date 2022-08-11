@@ -119,10 +119,11 @@ private _finalWeights = [];
     } forEach _localMarkers;
 
     // Assume that rebel targets will be actively defended by rebels
-    if (_targetSide == teamPlayer) then { _localThreat = _localThreat + 200 };
+    if (_targetSide == teamPlayer) then { _localThreat = _localThreat + 150 };
 
     // Increase threat for active rebels already nearby
-    _localThreat = _localThreat + 30 * count (_rebelPlayers inAreaArray [_targpos, 500, 500]);
+    // players partially accounted for in active-defence bonus above
+    _localThreat = _localThreat + 10 * count (_rebelPlayers inAreaArray [_targpos, 500, 500]);
     _localThreat = _localThreat + 10 * count (_rebelAISpawners inAreaArray [_targpos, 500, 500]);
 
     // Supply convoys shortcut

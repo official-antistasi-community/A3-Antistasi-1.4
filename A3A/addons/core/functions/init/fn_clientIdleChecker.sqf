@@ -12,6 +12,12 @@ Arguments:
 A3A_lastActiveTime = time;
 A3A_lastPlayerDir = getDir player;
 
+// In case commander is just controlling HC squads on the map
+addMissionEventHandler ["HCGroupSelectionChanged", {
+    if (player getVariable ["isAFK", false]) then { player setVariable ["isAFK", nil, [2, clientOwner]] };
+    A3A_lastActiveTime = time;
+}];
+
 while {true} do {
     sleep 10;
     private _oldDir = A3A_lastPlayerDir;

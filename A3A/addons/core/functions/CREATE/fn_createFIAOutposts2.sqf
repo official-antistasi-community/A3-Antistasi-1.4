@@ -50,6 +50,7 @@ else
 	_groupX setCombatMode "GREEN";
 	{[_x,_markerX] spawn A3A_fnc_FIAinitBases;} forEach units _groupX;
 	};
+["locationSpawned", [_markerX, "RebelRoadblock", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({alive _x} count units _groupX == 0) or (not(_markerX in outpostsFIA))};
 
@@ -76,3 +77,4 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in outp
 if (_isRoad) then { if (!isNull _veh) then { deleteVehicle _veh } };
 { deleteVehicle _x } forEach units _groupX;
 deleteGroup _groupX;
+["locationSpawned", [_markerX, "RebelRoadblock", false]] call EFUNC(Events,triggerEvent);

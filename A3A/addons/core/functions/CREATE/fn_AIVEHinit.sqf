@@ -225,3 +225,7 @@ if([typeOf _veh] call A3A_fnc_logistics_isLoadable) then {[_veh] call A3A_fnc_lo
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;
+
+if (!isNull _veh) then {
+    ["AIVehInit", [_veh, _side]] call EFUNC(Events,triggerEvent);
+};

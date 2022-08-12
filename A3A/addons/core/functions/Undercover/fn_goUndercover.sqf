@@ -74,6 +74,7 @@ private _roadblocks = controlsX select {isOnRoad(getMarkerPos _x)};
 private _secureBases = airportsX + outposts + seaports + _roadblocks;
 private _isInRoadblock = false;
 private _reason = "";
+["Undercover", [""]] call EFUNC(Events,triggerEvent);
 
 while {_reason == ""} do
 {
@@ -304,3 +305,4 @@ switch (_reason) do
         ["Undercover", "Unknown error occured in undercover execution routine!"] call A3A_fnc_customHint;
     };
 };
+["Undercover", [_reason]] call EFUNC(Events,triggerEvent);

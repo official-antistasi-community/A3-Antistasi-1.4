@@ -217,6 +217,7 @@ for "_i" from 0 to (count _array - 1) do
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 	};
 	};//TODO need delete UPSMON link
+["locationSpawned", [_markerX, "Resource", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
@@ -236,3 +237,4 @@ deleteMarker _mrk;
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+["locationSpawned", [_markerX, "Resource", false]] call EFUNC(Events,triggerEvent);

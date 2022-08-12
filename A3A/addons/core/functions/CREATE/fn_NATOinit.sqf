@@ -95,7 +95,7 @@ private _regularVoices = (_faction get "voices");
 private ["_face", "_voice"];
 
 switch (true) do {
-case ("militia_" in (_unit getVariable "unitType")): 
+case ("militia_" in (_unit getVariable "unitType")):
     {
     _skill = _skill * 0.7;
     _face = selectRandom (_faction getOrDefault ["milFaces", _regularFaces]);
@@ -269,3 +269,4 @@ if (_reveal) then
         _unit reveal [_x,1.5];
     } forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanceSPWN)}
 };
+["AIInit", [_unit, _side, _marker, _unit getVariable "spawner"]] call EFUNC(Events,triggerEvent);

@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private ["_veh"];
 
 _veh = _this select 0;
@@ -29,3 +32,4 @@ if ((count crew _veh == 0) and (!A3A_hasRHS) and !(A3A_hasIFA)) then
 		}
 		];
 	};
+["civVehInit", [_veh]] call EFUNC(Events,triggerEvent);

@@ -321,6 +321,7 @@ for "_i" from 0 to (count _array - 1) do
 		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
 	};
 };//TODO need delete UPSMON link
+["locationSpawned", [_markerX, "Outpost", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
@@ -348,3 +349,4 @@ if (!isNil "_ammoBox") then {
 	private _lootCD = 120*16 / ([_markerX] call A3A_fnc_garrisonSize);
 	garrison setVariable [_markerX + "_lootCD", _lootCD, true];
 };
+["locationSpawned", [_markerX, "Outpost", false]] call EFUNC(Events,triggerEvent);

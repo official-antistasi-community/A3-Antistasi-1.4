@@ -37,7 +37,7 @@ private _estResources = 1.5 * _vehCount * A3A_balanceVehicleCost;
 A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 45*60, 45*60, _estResources];
 
 private _aggro = [aggressionOccupants, aggressionInvaders] select (_side == Invaders);
-if (_delay < 0) then { _delay = (0.5 + random 1) * (500 - 20*tierWar - 2.5*_aggro) };
+if (_delay < 0) then { _delay = (0.5 + random 1) * (300 - 15*tierWar - 1*_aggro) };
 
 //Set idle times for marker, just so that stuff doesn't spawn on top? Carrier will ignore anyway
 [_airbase, 5+_delay/60] call A3A_fnc_addTimeForIdle;

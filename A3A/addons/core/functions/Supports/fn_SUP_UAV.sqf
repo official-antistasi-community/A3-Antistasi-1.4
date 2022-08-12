@@ -28,7 +28,7 @@ private _planeType = selectRandom (Faction(_side) get "uavsAttack");
 if (isNil "_planeType") exitWith { Debug("No attack UAVs available for %1 support", _supportName); -1 };
 
 private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if (_delay < 0) then { _delay = (0.5 + random 1) * (500 - 20*tierWar - 2.5*_aggro) };
+if (_delay < 0) then { _delay = (0.5 + random 1) * (300 - 15*tierWar - 1*_aggro) };
 
 // Well, it doesn't actually hit anything...
 // ["_side", "_supptype", "_basetype", "_target", "_endtime", "_duration", "_power"]

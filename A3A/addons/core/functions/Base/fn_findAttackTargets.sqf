@@ -118,12 +118,13 @@ private _finalWeights = [];
         if (_dist > 500) then { _nonLocalMarkers pushBack [_x#0, _x#1, (_x#2) - _threat] };
     } forEach _localMarkers;
 
-    // Assume that rebel targets will be actively defended by rebels
-    if (_targetSide == teamPlayer) then { _localThreat = _localThreat + 150 };
-
-    // Increase threat for active rebels already nearby
-    // players partially accounted for in active-defence bonus above
-    _localThreat = _localThreat + 10 * count (_rebelPlayers inAreaArray [_targpos, 500, 500]);
+    // If it's rebel, assume active defence. Avoid attacking enemy targets that are already under attack by rebels
+    if (_targetSide == teamPlayer) then {
+        _localThreat = _localThreat + 150;
+    } else {
+        _localThreat = _localThreat + 30 * count (_rebelPlayers inAreaArray [_targpos, 500, 500]);
+    };
+    // Rebel AIs count either way, as they're relatively static
     _localThreat = _localThreat + 10 * count (_rebelAISpawners inAreaArray [_targpos, 500, 500]);
 
     // Supply convoys shortcut
@@ -171,7 +172,8 @@ private _finalWeights = [];
         if (_flyoverThreat > 300) then { continue };
         _finalTargets pushBack [_target, _x, _value, _localThreat, _flyoverThreat, _countLand];
 
-        private _difficulty = (_localThreat + 2*_flyoverThreat) * (0.75 + 2^(-_countLand));
+        private _distFactor = linearConversion [0, distanceForAirAttack, _dist, 0.65, 1, true];
+        private _difficulty = (_localThreat + 2*_flyoverThreat) * (_distFactor + 2^(-_countLand));
         private _weight = (_value / _difficulty^0.8) ^ 2;           // prefer high value over low difficulty a bit
         //Debug_5("%1 to %2: Diff: %3, value: %4, weight: %5", _x, _target, _difficulty, _value, _weight);
 

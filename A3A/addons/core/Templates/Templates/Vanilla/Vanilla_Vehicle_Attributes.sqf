@@ -1,4 +1,4 @@
-["vehicleAttributes", [
+["attributesVehicles", [
     // Attack helis with only fixed miniguns
     ["O_Heli_Light_02_dynamicLoadout_F", ["cost", 100]],
     ["O_Heli_Light_02_F", ["cost", 100]],

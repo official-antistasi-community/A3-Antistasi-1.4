@@ -1,4 +1,4 @@
-["vehicleAttributes", [
+["attributesVehicles", [
 
     // Weak AA vehicles. Leave threat because they're still dangerous in rebel hands
     ["CUP_B_nM1097_AVENGER_USA_DES", ["cost", 70]],

@@ -1,4 +1,4 @@
-["vehicleAttributes", [
+["attributesVehicles", [
 
 /*
     ["UK3CB_ADA_I_BMP2", ["cost", 120], ["threat", 150]],

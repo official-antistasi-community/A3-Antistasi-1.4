@@ -1,4 +1,4 @@
-["vehicleAttributes", [
+["attributesVehicles", [
 
     // In AA arrays but really light-armed
     ["vn_b_wheeled_m54_mg_02", ["cost", 60], ["threat", 80]],

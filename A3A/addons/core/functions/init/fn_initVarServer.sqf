@@ -397,7 +397,7 @@ private _groundVehicleThreat = createHashMap;
 
 
 // Template overrides
-private _overrides = FactionGet(Occ, "vehicleAttributes") + FactionGet(Inv, "vehicleAttributes");
+private _overrides = FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
 	private _vehType = _x select 0;
 	if !(_vehType in _vehicleResourceCosts) then { continue };

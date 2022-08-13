@@ -1,4 +1,4 @@
-["vehicleAttributes", [
+["attributesVehicles", [
 
     // Apaches stronk
     ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM", ["cost", 350]],

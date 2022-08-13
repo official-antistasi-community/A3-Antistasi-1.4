@@ -693,6 +693,7 @@ class CfgFunctions
             class loadout_setBackpack {};
             class loadout_addEquipment {};
             class loadout_setHelmet {};
+            class loadout_setFacewear {};
             class loadout_addItems {};
             class loadout_additionalMuzzleMags {};
             class loadout_setUniform {};

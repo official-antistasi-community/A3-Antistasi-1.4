@@ -188,6 +188,20 @@ private _categoryOverrideTable = [
 ["vn_m63a_cdo", ["MachineGuns","Weapons"]],
 ["vn_m127", ["Unknown","Weapons"]],								// flare launcher secondary
 ["vn_mk1_udg", ["Unknown","Weapons"]],							// underwater defence gun
+["vn_m1_garand", ["Rifles","Weapons"]],
+["vn_m1_garand_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_l1a1_01", ["Rifles","Weapons"]],
+["vn_l1a1_01_camo", ["Rifles","Weapons"]],
+["vn_l1a1_01_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_l1a1_02", ["Rifles","Weapons"]],
+["vn_l1a1_02_camo", ["Rifles","Weapons"]],
+["vn_l1a1_02_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_l1a1_03", ["Rifles","Weapons"]],
+["vn_l1a1_03_camo", ["Rifles","Weapons"]],
+["vn_l1a1_xm148", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_l1a1_xm148_camo", ["Rifles","Weapons","GrenadeLaunchers"]],
+["vn_l2a1_01", ["MachineGuns","Weapons"]],
+["vn_f1_smg", ["SMGs","Weapons"]],
 
 //ACRE Radios
 //Using Gadgets instead of Radios to prevent future issues as they don't use the Radio Slot

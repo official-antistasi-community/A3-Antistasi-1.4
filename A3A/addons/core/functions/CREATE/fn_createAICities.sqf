@@ -68,8 +68,11 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do
 	_countX = _countX + 1;
 	};
 
+["locationSpawned", [_markerX, "City", true]] call EFUNC(Events,triggerEvent);
+
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
 {deleteGroup _x} forEach _groups;
+["locationSpawned", [_markerX, "City", false]] call EFUNC(Events,triggerEvent);

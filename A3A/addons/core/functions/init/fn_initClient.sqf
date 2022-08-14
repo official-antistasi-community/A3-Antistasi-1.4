@@ -377,7 +377,7 @@ vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, tru
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 
 vehicleBox addAction ["Buy Vehicle", {
-	if ([getPos player] call A3A_fnc_enemyNearCheck) then {
+	if ([player] call A3A_fnc_enemyNearCheck) then {
 		["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
 	} else {
 		if (A3A_GUIDevPreview) then {

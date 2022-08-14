@@ -43,7 +43,7 @@ if !(_inArea > -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_badLocation",[Fact
 
     //No hostiles near
 
-if ([_player] call A3A_fnc_enemyNearCheck) exitWith {
+if ([getPosATL _player] call A3A_fnc_enemyNearCheck) exitWith {
     ["STR_HR_GRG_Feedback_addVehicle_enemiesEngaging"] remoteExec ["HR_GRG_fnc_Hint", _client];
     false;
 };

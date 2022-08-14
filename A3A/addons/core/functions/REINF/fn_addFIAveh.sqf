@@ -2,7 +2,7 @@
 FIX_LINE_NUMBERS()
 if (!(isNil "placingVehicle") && {placingVehicle}) exitWith {["Add Vehicle", "Unable to buy vehicle, you are already placing something."] call A3A_fnc_customHint;};
 if (player != player getVariable ["owner",player]) exitWith {["Add Vehicle", "You cannot buy vehicles while you are controlling AI."] call A3A_fnc_customHint;};
-if ([player] call A3A_fnc_enemyNearCheck) exitWith {["Add Vehicle", "You cannot buy vehicles with enemies nearby."] call A3A_fnc_customHint;};
+if ([getPosATL player] call A3A_fnc_enemyNearCheck) exitWith {["Add Vehicle", "You cannot buy vehicles with enemies nearby."] call A3A_fnc_customHint;};
 
 
 private _typeVehX = _this select 0;

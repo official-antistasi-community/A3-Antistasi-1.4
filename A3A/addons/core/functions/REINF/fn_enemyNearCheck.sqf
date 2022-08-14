@@ -2,7 +2,7 @@
 Author: [A3A Team]
     Enemy near searches
 Arguments:
-    0.<ANY>  object/location/postion that will be used for the center of search
+    0.<ANY>  location/postion that will be used for the center of search
 Return Value:
     <BOOL> 		if enemies are near
 

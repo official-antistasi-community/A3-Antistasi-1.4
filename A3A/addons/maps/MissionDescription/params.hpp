@@ -105,8 +105,8 @@ class Params
     class enemyNearDistanceLimit
     {
         title = "Distance used to check for enemies near";
-        values[] = {9999,0,100,200,300,400,500};
-        texts[] = {"Load from save (Default: 300)", "0", "100", "200", "300", "400", "500"};
+        values[] = {9999,100,200,300,400,500};
+        texts[] = {"Load from save (Default: 300)", "100", "200", "300", "400", "500"};
         default = 9999;
     };
     class AISkill

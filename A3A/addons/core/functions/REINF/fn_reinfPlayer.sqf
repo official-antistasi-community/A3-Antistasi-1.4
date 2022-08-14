@@ -4,7 +4,7 @@ if (recruitCooldown > time) exitWith {["AI Recruitment", format ["You need to wa
 
 if (player != player getVariable ["owner",player]) exitWith {["AI Recruitment", "You cannot buy units while you are controlling AI."] call A3A_fnc_customHint;};
 
-if ([player, enemyNearDistance] call A3A_fnc_enemyNearCheck) exitWith {["AI Recruitment", "You cannot Recruit Units with enemies nearby."] call A3A_fnc_customHint;};
+if ([player] call A3A_fnc_enemyNearCheck) exitWith {["AI Recruitment", "You cannot Recruit Units with enemies nearby."] call A3A_fnc_customHint;};
 
 if (player != leader group player) exitWith {["AI Recruitment", "You cannot recruit units as you are not your group leader."] call A3A_fnc_customHint;};
 

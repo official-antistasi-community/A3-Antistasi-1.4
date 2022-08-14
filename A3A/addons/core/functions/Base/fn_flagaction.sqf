@@ -17,11 +17,11 @@ switch _typeX do
     };
     case "unit":
     {
-        _flag addAction ["Unit Recruitment", {if ([player, enemyNearDistance] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction ["Unit Recruitment", {if ([player] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "vehicle":
     {
-        _flag addAction ["Buy Vehicle", {if ([player, enemyNearDistance] call A3A_fnc_enemyNearCheck) then {
+        _flag addAction ["Buy Vehicle", {if ([player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
             if (A3A_GUIDevPreview) then {
@@ -147,8 +147,8 @@ switch _typeX do
         if (true) exitWith { ERROR("Disabled due to UseDoomGUI Switch.") };
 #endif
         removeAllActions _flag;
-        _flag addAction ["Unit Recruitment", {if ([player, enemyNearDistance] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction ["Buy Vehicle", {if ([player, enemyNearDistance] call A3A_fnc_enemyNearCheck) then {
+        _flag addAction ["Unit Recruitment", {if ([getPos player] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction ["Buy Vehicle", {if ([getPos player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
             if (A3A_GUIDevPreview) then {

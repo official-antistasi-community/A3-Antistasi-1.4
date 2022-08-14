@@ -47,7 +47,7 @@ if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo 
     ["STR_HR_GRG_Feedback_addVehicle_enemiesEngaging"] remoteExec ["HR_GRG_fnc_Hint", _client];
     false;
 };
-if (_units findIf{_player distance _x < 100} != -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_enemiesNear"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if ([_player] call A3A_fnc_enemyNearCheck) exitWith {["STR_HR_GRG_Feedback_addVehicle_enemiesNear"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //LTC refund
 if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) exitWith {

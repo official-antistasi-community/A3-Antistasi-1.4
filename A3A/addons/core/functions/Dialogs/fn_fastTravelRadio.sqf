@@ -3,7 +3,6 @@ private ["_roads","_pos","_positionX","_groupX"];
 _markersX = markersX + [respawnTeamPlayer];
 
 _esHC = false;
-if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached."] call A3A_fnc_customHint;};
 if (count hcSelected player > 1) exitWith {["Fast Travel", "You can select one group only to Fast Travel"] call A3A_fnc_customHint;};
 if (count hcSelected player == 1) then {_groupX = hcSelected player select 0; _esHC = true} else {_groupX = group player};
 _checkForPlayer = false;
@@ -15,6 +14,8 @@ if ((_boss != player) and (!_esHC)) then {_groupX = player};
 if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel", "You cannot Fast Travel groups commanded by players."] call A3A_fnc_customHint;};
 
 if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI."] call A3A_fnc_customHint;};
+
+if (!_esHC and !isNil {vehicle player getVariable "SA_Tow_Ropes"}) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached."] call A3A_fnc_customHint;};
 
 if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "You cannot fast travel while being FF Punished."] call A3A_fnc_customHint;};
 

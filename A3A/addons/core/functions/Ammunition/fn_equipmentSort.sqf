@@ -115,7 +115,7 @@ allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x
 
 //Remove False NVGs
 allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
-/*
+
 private _removableDefaultItems = [
 	[allFirstAidKits,"FirstAidKit","firstAidKits"],
 	[allMedikits,"Medikit","mediKits"],
@@ -129,4 +129,4 @@ private _removableDefaultItems = [
 		_itemCategoryArray deleteAt (_itemCategoryArray find _vanillaItem);
 	};
 } forEach _removableDefaultItems;
-*/
+

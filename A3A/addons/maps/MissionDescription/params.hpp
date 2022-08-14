@@ -340,6 +340,13 @@ class Params
         texts[] = {"Load from save (Default: Debug)", "Error", "Info", "Debug"};
         default = 9999;
     };
+    class A3A_logDebugConsole
+    {
+        title = "Log debug console use";
+        values[] = {9999,-1,1,2};
+        texts[] = {"Load from save (Default: All non-dev)", "None", "All non-dev", "All"};
+        default = 9999;
+    };
     class A3A_GUIDevPreview
     {
         title = "Use In-Development UI Preview.";

@@ -71,6 +71,7 @@
 
 //Enabling log types
 #define Log_Error
+#define Log_Warning
 #define Log_Info
 #define Log_Debug
 #define Log_Verbose
@@ -159,6 +160,54 @@ _LOG_breakUpLogLine(_LOG_logLine) remoteExec ["A3A_fnc_localLog", 2]; \
     #define ServerErrorArray(Message, Array)
     #define ErrorArrayFormat(Message, Frmat, Array)
     #define ServerErrorArrayFormat(Message, Frmat, Array)
+#endif
+
+#ifdef Log_Warning
+    #define Warning(Message) if (0 < VARDEF(LogLevel,4)) then { _LOG_Message("Warning", Message); if !(isServer) then {_LOG_ServerMessage("Warning", Message)} };
+    #define Warning_1(Message, A) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_2(Message, A,B) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_3(Message, A,B,C) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_4(Message, A,B,C,D) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_5(Message, A,B,C,D,E) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_6(Message, A,B,C,D,E,F) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_7(Message, A,B,C,D,E,F,G) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F,G]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define Warning_8(Message, A,B,C,D,E,F,G,H) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; _LOG_Message("Warning", _msg); if !(isServer) then {_LOG_ServerMessage("Warning", _msg)} };
+    #define ServerWarning(Message) if (0 < VARDEF(LogLevel,4)) then { _LOG_ServerMessage("Warning", Message) };
+    #define ServerWarning_1(Message, A) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_2(Message, A,B) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_3(Message, A,B,C) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_4(Message, A,B,C,D) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_5(Message, A,B,C,D,E) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_6(Message, A,B,C,D,E,F) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_7(Message, A,B,C,D,E,F,G) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F,G]; _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarning_8(Message, A,B,C,D,E,F,G,H) if (0 < VARDEF(LogLevel,4)) then { private _msg = format [Message,A,B,C,D,E,F,G,H]; _LOG_ServerMessage("Warning", _msg) };
+    #define WarningArray(Message, Array) if (0 < VARDEF(LogLevel,4)) then { private _msg = (Message + " [" + _LOG_newLine + (Array joinString _LOG_newLine) + _LOG_newLine + "]"); _LOG_Message("Warning", _msg); _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarningArray(Message, Array) if (0 < VARDEF(LogLevel,4)) then { _LOG_ServerMessage("Warning", (Message + " [" + _LOG_newLine + (Array joinString _LOG_newLine) + _LOG_newLine + "]")) };
+    #define WarningArrayFormat(Message, Frmat, Array) if (0 < VARDEF(LogLevel,4)) then { private _msg = (Message + " [" + _LOG_newLine + (Array apply {format ([Frmat] + _x)} joinString _LOG_newLine) + _LOG_newLine + "]"); _LOG_Message("Warning", _msg); _LOG_ServerMessage("Warning", _msg) };
+    #define ServerWarningArrayFormat(Message, Frmat, Array) if (0 < VARDEF(LogLevel,4)) then { _LOG_ServerMessage("Warning", (Message + " [" + _LOG_newLine + (Array apply {format ([Frmat] + _x)} joinString _LOG_newLine) + _LOG_newLine + "]")) };
+#else
+    #define Warning(Message)
+    #define Warning_1(Message, A)
+    #define Warning_2(Message, A,B)
+    #define Warning_3(Message, A,B,C)
+    #define Warning_4(Message, A,B,C,D)
+    #define Warning_5(Message, A,B,C,D,E)
+    #define Warning_6(Message, A,B,C,D,E,F)
+    #define Warning_7(Message, A,B,C,D,E,F,G)
+    #define Warning_8(Message, A,B,C,D,E,F,G,H)
+    #define ServerWarning(Message)
+    #define ServerWarning_1(Message, A)
+    #define ServerWarning_2(Message, A,B)
+    #define ServerWarning_3(Message, A,B,C)
+    #define ServerWarning_4(Message, A,B,C,D)
+    #define ServerWarning_5(Message, A,B,C,D,E)
+    #define ServerWarning_6(Message, A,B,C,D,E,F)
+    #define ServerWarning_7(Message, A,B,C,D,E,F,G)
+    #define ServerWarning_8(Message, A,B,C,D,E,F,G,H)
+    #define WarningArray(Message, Array)
+    #define ServerWarningArray(Message, Array)
+    #define WarningArrayFormat(Message, Frmat, Array)
+    #define ServerWarningArrayFormat(Message, Frmat, Array)
 #endif
 
 #ifdef Log_Info

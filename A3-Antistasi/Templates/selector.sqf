@@ -284,7 +284,7 @@ A3A_Inv_template = switch(true) do {
             };
             default {
                  Info("Using RHS AFRF as Placeholder Template");
-                ["Templates\NewTemplates\3CB\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
+                ["Templates\NewTemplates\RHS\RHS_AI_AFRF_Temperate.sqf", east] call A3A_fnc_compatibilityLoadFaction;
             };
         };
         "3CBFactions"

@@ -626,7 +626,7 @@
         <Korean>저항세력의 지도자가 되고 영웅이 되십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_credits_generic_version_text">
-        <Original>2.5.4</Original>
+        <Original>2.5.5</Original>
       </Key>
     </Container>
     <Container name="dialog_vehicle_purchase">

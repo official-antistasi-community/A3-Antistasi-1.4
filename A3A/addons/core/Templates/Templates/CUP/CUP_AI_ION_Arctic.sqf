@@ -160,6 +160,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
+private _sfmmItems = ["cup_optic_an_pvs_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
@@ -190,6 +191,8 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
+_sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_30", "CUP_I_B_PMC_Unit_27", "CUP_I_B_PMC_Unit_34"]];
 _sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Winter_TL"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_PMC_CIRAS_Winter_Patrol"]];
@@ -202,7 +205,7 @@ _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black_NoHS"]];
 _sfLoadoutData set ["slHat", ["CUP_H_OpsCore_Black_SF"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_PMC_Cap_Back_PRR_Grey"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", []];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

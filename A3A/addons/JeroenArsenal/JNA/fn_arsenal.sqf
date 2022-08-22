@@ -14,6 +14,10 @@
 #include "\A3\ui_f\hpp\defineDIKCodes.inc"
 #include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
+#include "..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
+
 #define FADE_DELAY	0.15
 
 #define MODLIST ["","curator","kart","heli","mark","expansion","expansionpremium"]
@@ -1860,6 +1864,10 @@ switch _mode do {
 						};
 					}forEach _oldMagazines;
 
+					{ _x resize 2 } forEach _oldMagazines;
+					_newMagazines = magazinesAmmoFull player;
+					{ _x resize 2 } forEach _newMagazines;
+
 					_updateMagazineList = [];
 					{
 						_magazine = _x select 0;
@@ -1867,7 +1875,7 @@ switch _mode do {
 						_indexItem = _magazine call jn_fnc_arsenal_itemType;
 
 						[_indexItem, _magazine, _amount] call jn_fnc_arsenal_addItem;//TODO
-					}forEach(_oldMagazines - magazinesAmmoFull player);
+					}forEach(_oldMagazines - _newMagazines);
 
 					_newAttachments = switch _index do {
 						case IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON: {primaryweaponitems player};

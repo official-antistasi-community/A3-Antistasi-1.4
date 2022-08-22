@@ -1,6 +1,30 @@
-private ["_unit","_dist","_return"];
-_unit = _this select 0;
-_dist = _this select 1;
-_return = false;
-{if (_x distance _unit < _dist) exitWith {_return = true}} forEach (allUnits select {((side group _x == Occupants) or (side group _x == Invaders)) and ([_x] call A3A_fnc_canFight)});
-_return
+/*
+Author: [A3A Team]
+    Enemy near searches
+Arguments:
+    0.<ANY>  location/postion that will be used for the center of search
+Return Value:
+    <BOOL> 		if enemies are near
+
+Scope: Clients
+Environment: Unscheduled
+Public: yes
+Dependencies: 
+
+Example:
+    [cursorObject] call A3A_fnc_enemyNearCheck; 
+*/
+
+params ["_unitPos"];
+
+
+
+private _nearEnemies = (units Occupants + units Invaders) inAreaArray [_unitPos, enemyNearDistance, enemyNearDistance];
+_nearEnemies = _nearEnemies select { behaviour _x == "COMBAT" and _x call A3A_fnc_canFight };
+
+
+(_nearEnemies isNotEqualTo [])
+
+
+
+

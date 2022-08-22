@@ -102,19 +102,21 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     private _location = ([_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir)#0;
     private _location = _location vectorAdd _nodeOffset;
 
-    private _bbv = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
-    private _bbc = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
-    private _yEnd = _bbv + _bbc - 0.1;
+    private _bbv = (boundingBoxReal _vehicle select 0 select 1);
+    private _bbc = (boundingBoxReal _cargo select 0 select 1);
+    private _yEnd = _bbv + _bbc;
 
     if (_instant) then {
         _location set [1, _yEnd-0.1];
         _cargo attachto [_vehicle,_location];
     } else {
+        private _prevTime = time;
         while {(_location#1) > _yEnd} do {
             uiSleep 0.1;
             if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
-            _location = _location vectorAdd [0,-0.1,0];
+            _location = _location vectorAdd [0,_prevTime-time,0];
             _cargo attachto [_vehicle,_location];
+            _prevTime = time;
         };
     };
     if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted

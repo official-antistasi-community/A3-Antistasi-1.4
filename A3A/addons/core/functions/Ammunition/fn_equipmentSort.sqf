@@ -73,6 +73,8 @@ allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_O_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "G_B_Diving");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "LIB_Glasses");
 allCosmeticGlasses deleteAt (allCosmeticGlasses find "vn_b_acc_seal_01");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "UK3CB_G_Balaclava2_MEE");
+allCosmeticGlasses deleteAt (allCosmeticGlasses find "UK3CB_G_Balaclava_Neck_Shemag_MEE");
 
 ////////////////
 //   Radios   //
@@ -113,7 +115,7 @@ allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x
 
 //Remove False NVGs
 allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
-/*
+
 private _removableDefaultItems = [
 	[allFirstAidKits,"FirstAidKit","firstAidKits"],
 	[allMedikits,"Medikit","mediKits"],
@@ -127,4 +129,4 @@ private _removableDefaultItems = [
 		_itemCategoryArray deleteAt (_itemCategoryArray find _vanillaItem);
 	};
 } forEach _removableDefaultItems;
-*/
+

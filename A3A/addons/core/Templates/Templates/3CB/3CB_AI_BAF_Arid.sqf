@@ -29,8 +29,6 @@
 ["vehiclesAPCs", ["UK3CB_BAF_FV432_Mk3_GPMG_Sand_DDPM", "UK3CB_BAF_FV432_Mk3_RWS_Sand_DDPM", "UK3CB_BAF_Warrior_A3_D_MTP", "UK3CB_BAF_Warrior_A3_D_Camo_MTP", "UK3CB_BAF_Warrior_A3_D_Cage_MTP", "UK3CB_BAF_Warrior_A3_D_Cage_Camo_MTP"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhsusf_m1a1fep_d","rhsusf_m1a1aimd_usarmy","rhsusf_m1a1aim_tuski_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskiid_usarmy","rhsusf_m1a2sep2d_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_BAF_RHIB_HMG_DDPM", "UK3CB_BAF_RHIB_GPMG_DDPM"]] call _fnc_saveToTemplate;

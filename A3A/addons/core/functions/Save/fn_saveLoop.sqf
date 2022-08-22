@@ -260,6 +260,6 @@ _fuelAmountleftArray = [];
 
 saveProfileNamespace;
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",str _hrBackground,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
+_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
 ["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

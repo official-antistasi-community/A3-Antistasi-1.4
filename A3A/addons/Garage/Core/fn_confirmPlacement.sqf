@@ -45,7 +45,6 @@ HR_GRG_placing = true;
 //define global variables
 HR_GRG_pos = screenToWorld [0.5,0.5];
 HR_GRG_dir = 0;
-HR_GRG_keyPause = time;
 HR_GRG_keyQ = false;
 HR_GRG_keyE = false;
 HR_GRG_validPlacement = 0;
@@ -56,12 +55,14 @@ HR_GRG_CP_callBack = [_callBack, _callBackArgs];
 HR_GRG_callBackFeedback = "";
 HR_GRG_EH_EF = -1;
 HR_GRG_EH_keyDown = -1;
+HR_GRG_EH_KeyUp = -1;
 
 //define private use function
 HR_GRG_cleanUp = {
     //remove EH's
     removeMissionEventHandler ["EachFrame", HR_GRG_EH_EF];
     findDisplay 46 displayRemoveEventHandler ["KeyDown", HR_GRG_EH_keyDown];
+    findDisplay 46 displayRemoveEventHandler ["KeyUp", HR_GRG_EH_keyUp];
     terminate HR_GRG_keyHint;
 
     //remove display vehicle
@@ -73,7 +74,6 @@ HR_GRG_cleanUp = {
     HR_GRG_pos = nil;
     HR_GRG_dir = nil;
     HR_GRG_bb = nil;
-    HR_GRG_keyPause = nil;
     HR_GRG_keyQ = nil;
     HR_GRG_keyE = nil;
     HR_GRG_EH_EF = nil;
@@ -210,20 +210,30 @@ private _adjustment = (_bb#1) vectorDiff _diff;
 HR_GRG_dispSquare = [_adjustment, _diff apply {_x + 0.6}, (_bb#2)]; //square offset from center, square radius [x,y], bb diameter
 
 //add EH's (data is set on the display vehicle)
+HR_GRG_EH_KeyUp = findDisplay 46 displayAddEventHandler ["KeyUp", {
+    params ["", "_key"];
+
+    if (_key isEqualTo DIK_Q) then {
+        HR_GRG_keyQ = false;
+    };
+
+    if (_key isEqualTo DIK_E) then {
+        HR_GRG_keyE = false;
+    };
+}];
+
 HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
     params ["", "_key"];
     private _return = false;
 
     //rotate vehicle
-    if (_key isEqualTo DIK_Q && HR_GRG_keyPause < time) then {
+    if (_key isEqualTo DIK_Q) then {
         _return = true;
-        HR_GRG_keyPause = time + 0.01;
         HR_GRG_keyQ = true;
     };
 
-    if (_key isEqualTo DIK_E && HR_GRG_keyPause < time) then {
+    if (_key isEqualTo DIK_E) then {
         _return = true;
-        HR_GRG_keyPause = time + 0.01;
         HR_GRG_keyE = true;
     };
 
@@ -311,14 +321,12 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
     };
 
     if (HR_GRG_keyQ) then {
-        HR_GRG_keyQ = false;
-        HR_GRG_dir = HR_GRG_dir - 1;
+        HR_GRG_dir = HR_GRG_dir - diag_deltaTime * 120;     // full rotation in three seconds
         _updateState = true;
     };
 
     if (HR_GRG_keyE) then {
-        HR_GRG_keyE = false;
-        HR_GRG_dir = HR_GRG_dir + 1;
+        HR_GRG_dir = HR_GRG_dir + diag_deltaTime * 120;
         _updateState = true;
     };
 

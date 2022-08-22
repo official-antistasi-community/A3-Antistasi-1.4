@@ -80,3 +80,4 @@ _EHkilledIdx = _unit addEventHandler
 		};
 	}
 ];
+["civInit", [_unit]] call EFUNC(Events,triggerEvent);

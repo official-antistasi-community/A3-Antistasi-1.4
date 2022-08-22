@@ -38,8 +38,6 @@
     ,"UK3CB_TKC_C_V3S_Closed", 0.3
     ,"UK3CB_TKC_C_V3S_Open", 0.3]] call _fnc_saveToTemplate;
 
-["vehiclesCivHeli", []] call _fnc_saveToTemplate;
-
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
     ,"C_Boat_Civil_01_police_F", 0.1
@@ -59,16 +57,19 @@
     ,"UK3CB_TKC_C_Ural_Repair", 0.1
     ,"UK3CB_TKC_C_V3S_Repair", 0.1]] call _fnc_saveToTemplate;
 
-["vehiclesCivMedical", ["UK3CB_TKC_C_S1203_Amb", 0.1]] call _fnc_saveToTemplate;
+["vehiclesCivMedical", [
+    "UK3CB_TKC_C_S1203_Amb", 0.1
+    ,"UK3CB_C_Hilux_Ambulance", 0.1
+    ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", [
     "UK3CB_TKC_C_Kamaz_Fuel", 0.1
     ,"UK3CB_TKC_C_Ural_Fuel", 0.1                // Ural
     ,"UK3CB_TKC_C_V3S_Refuel", 0.1]] call _fnc_saveToTemplate;
 
-//////////////////////////
-///  Identitiy Stuff   ///
-//////////////////////////
+/////////////////////
+///  Identities   ///
+/////////////////////
 
 ["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
 

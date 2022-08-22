@@ -33,10 +33,6 @@
 ["vehiclesTanks", ["UK3CB_ADA_I_T72A", "UK3CB_ADA_I_T72B", "UK3CB_ADA_I_T72BM", "UK3CB_ADA_I_T55"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_ADA_I_ZsuTank", "UK3CB_ADA_I_Ural_Zu23"]] call _fnc_saveToTemplate;
 
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs
-
-
 ["vehiclesTransportBoats", ["UK3CB_TKA_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_ADA_I_BTR80a", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR70"]] call _fnc_saveToTemplate;
@@ -261,8 +257,8 @@ _sfLoadoutData set ["marksmanRifles", [
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_m8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_leupoldmk4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"]
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["rhs_weap_m40a5", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541", ["rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
@@ -353,8 +349,8 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_m8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_leupoldmk4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_PSG1A1_RIS", "", "", "rhsusf_acc_LEUPOLDMK4_2", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"]
 ]];
 
@@ -372,7 +368,7 @@ _policeLoadoutData set ["shotGuns", [
 ]];
 _policeLoadoutData set ["SMGs", [
 ["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
-["UK3CB_HK33KA2_RIS", "", "rhsusf_acc_m952v", "", [], [], ""],
+["UK3CB_HK33KA2_RIS", "", "rhsusf_acc_M952V", "", [], [], ""],
 ["rhs_weap_ak74n", "", "rhs_acc_2dpzenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [

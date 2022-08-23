@@ -13,10 +13,10 @@
  */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-
 params ["_file", "_side"];
 
 Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
+setStartTime;
 
 private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","CivilianDefaults"] #([west, east, independent, civilian] find _side);
 _factionDefaultFile = QPATHTOFOLDER(Templates\Templates\FactionDefaults) + "\" + _factionDefaultFile + ".sqf";
@@ -55,7 +55,10 @@ private _unitClassMap = if (_side isNotEqualTo independent) then { createHashMap
 //validate loadouts
 private _loadoutsPrefix = format ["loadouts_%1_", _factionPrefix];
 private _allDefinitions = _faction get "loadouts";
-[_faction, _file] call A3A_fnc_TV_verifyLoadoutsData;
+
+#if __A3_DEBUG__
+    [_faction, _file] call A3A_fnc_TV_verifyLoadoutsData;
+#endif
 
 //Register loadouts globally.
 {
@@ -64,7 +67,9 @@ private _allDefinitions = _faction get "loadouts";
     [_loadoutsPrefix + _loadoutName, _y + [_unitClass]] call A3A_fnc_registerUnitType;
 } forEach _allDefinitions;
 
-[_faction, _side, _file] call A3A_fnc_TV_verifyAssets;
+#if __A3_DEBUG__
+    [_faction, _side, _file] call A3A_fnc_TV_verifyAssets;
+#endif
 
 //compile collection list of vehicles for occ and inv
 if (_side in [Occupants, Invaders]) then {

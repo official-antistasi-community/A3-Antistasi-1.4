@@ -194,7 +194,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
-private _sfLoadoutData = call _fnc_createLoadoutData;
+private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", ["U_I_CombatUniform", "U_I_CombatUniform_shortsleeve"]];
 _sfLoadoutData set ["vests", ["V_TacVest_oli", "V_PlateCarrierIA2_dgtl", "V_PlateCarrierIA1_dgtl"]];
@@ -374,4 +374,3 @@ _pilotLoadoutData merge _loadoutData;
 _pilotLoadoutData set ["uniforms", ["U_I_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_oli"]];
 _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I"]];
-

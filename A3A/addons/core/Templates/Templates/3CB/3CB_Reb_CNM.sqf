@@ -102,7 +102,7 @@ private _rebUniforms = [
 //       Loadouts       //
 //////////////////////////
 
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
@@ -114,51 +114,3 @@ _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalS
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
-
-////////////////////////
-//  Rebel Unit Types  //
-///////////////////////.
-
-private _squadLeaderTemplate = {
-    ["uniforms"] call _fnc_setUniform;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-    ["items_miscEssentials"] call _fnc_addItemSet;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-    ["binoculars"] call _fnc_addBinoculars;
-};
-
-private _riflemanTemplate = {
-    ["uniforms"] call _fnc_setUniform;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-    ["items_miscEssentials"] call _fnc_addItemSet;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-};
-
-private _prefix = "militia";
-private _unitTypes = [
-    ["Petros", _squadLeaderTemplate],
-    ["SquadLeader", _squadLeaderTemplate],
-    ["Rifleman", _riflemanTemplate],
-    ["staticCrew", _riflemanTemplate],
-    ["Medic", _riflemanTemplate, [["medic", true]]],
-    ["Engineer", _riflemanTemplate, [["engineer", true]]],
-    ["ExplosivesExpert", _riflemanTemplate, [["explosiveSpecialist", true]]],
-    ["Grenadier", _riflemanTemplate],
-    ["LAT", _riflemanTemplate],
-    ["AT", _riflemanTemplate],
-    ["AA", _riflemanTemplate],
-    ["MachineGunner", _riflemanTemplate],
-    ["Marksman", _riflemanTemplate],
-    ["Sniper", _riflemanTemplate],
-    ["Unarmed", _riflemanTemplate]
-];
-
-[_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;

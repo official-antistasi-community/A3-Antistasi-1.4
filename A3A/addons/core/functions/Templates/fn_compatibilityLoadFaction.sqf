@@ -20,8 +20,8 @@ Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
 private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","CivilianDefaults"] #([west, east, independent, civilian] find _side);
 _factionDefaultFile = QPATHTOFOLDER(Templates\Templates\FactionDefaults) + "\" + _factionDefaultFile + ".sqf";
 
-private _faction = [[_factionDefaultFile,_file]] call A3A_fnc_loadFaction;
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
+private _faction = [[_factionDefaultFile,_file], _factionPrefix] call A3A_fnc_loadFaction;
 missionNamespace setVariable ["A3A_faction_" + _factionPrefix, _faction];
 [_faction, _factionPrefix] call A3A_fnc_compileGroups;
 

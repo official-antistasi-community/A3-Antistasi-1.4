@@ -116,7 +116,7 @@ _civhats = ["H_Cap_tan", "CUP_H_TKI_SkullCap_01", "CUP_H_TKI_SkullCap_02"];
 
 ["headgear", _civHats] call _fnc_saveToTemplate;            //Headgear given to Normal Civs, Workers, Undercover Rebels.
 
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 
 _loadoutData set ["uniforms", _civUniforms];
 _loadoutData set ["pressUniforms", _pressUniforms];
@@ -130,42 +130,3 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 
 
-private _manTemplate = {
-    ["helmets"] call _fnc_setHelmet;
-    ["uniforms"] call _fnc_setUniform;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-};
-private _workerTemplate = {
-    ["helmets"] call _fnc_setHelmet;
-    ["workerUniforms"] call _fnc_setUniform;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-};
-private _pressTemplate = {
-    ["pressHelmets"] call _fnc_setHelmet;
-    ["pressVests"] call _fnc_setVest;
-    ["pressUniforms"] call _fnc_setUniform;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-};
-private _prefix = "militia";
-private _unitTypes = [
-    ["Press", _pressTemplate],
-    ["Worker", _workerTemplate],
-    ["Man", _manTemplate]
-];
-
-[_prefix, _unitTypes, _loadoutData] call _fnc_generateAndSaveUnitsToTemplate;

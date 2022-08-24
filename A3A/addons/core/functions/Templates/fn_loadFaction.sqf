@@ -4,15 +4,14 @@
 * Description:
 *    Loads a faction definition file
 * Params:
-*    _filepaths - Single or array of faction definition filepath
+*   _filepaths - Single or array of faction definition filepath
+    _factionPrefix - string of the faction role
 * Returns:
 *    Namespace containing faction information
 * Example Usage:
 */
 
 #include "..\..\script_component.hpp"
-A3A_staticCounter = 0;
-A3A_staticArray = [];
 params [
     ["_filepaths",[],["",[]]],
     ["_factionPrefix", "", [""]]
@@ -40,10 +39,13 @@ private _loadoutNamespaces = createHashMap;
 private _fnc_createLoadoutData = {
     params ["_key"];
     private _namespace = createHashMap;
+    
+    // intermediate hashmap for holding the namespaces for loudout building
     _loadoutNamespaces set [_key, _namespace];
     _namespace
 };
  
+// deep copy if needed, it is recommanded that you use createLoadoutData, then merge
 private _fnc_copyLoadoutData = {
     params ["_sourceNamespace"];
     + _sourceNamespace //hashmaps deepcopy with +
@@ -70,7 +72,6 @@ private _fnc_generateAndSaveUnitToTemplate = {
 private _fnc_generateAndSaveUnitsToTemplate = {
     params ["_prefix", "_unitTemplates", "_loadoutData"];
     {
-        A3A_staticArray pushback [_prefix, _unitTemplates, _loadoutData];
         _x params ["_name", "_template", ["_traits", []]];
         private _finalName = format ["%1_%2", _prefix, _name];
         [_finalName, _template, _loadoutData, _traits] call _fnc_generateAndSaveUnitToTemplate;
@@ -78,6 +79,9 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 };
 
 
+
+// these private functions are empty for reassignment later depending on what faction was passed
+// ie occ, reb, civ
 private _manTemplate = {};
 private _workerTemplate = {};
 private _pressTemplate = {};
@@ -694,8 +698,6 @@ if (_factionPrefix isEqualTo "civ") then
     call compile preprocessFileLineNumbers _x;
 } forEach _filepaths;
  
-copyToClipboard str _loadoutNamespaces;
-
 {   //prefix, unitType, loadoutdata
     [_x#0, _x#1, (_loadoutNamespaces get _x#2)] call _fnc_generateAndSaveUnitsToTemplate;
 } forEach _templatesToGenerate;

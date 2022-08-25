@@ -115,7 +115,8 @@ private _templatesToGenerate = [];
 //However, these exist in case you really do want to do a lot of custom alterations.
 
 _squadLeaderTemplate = {
-    ["slHat"] call _fnc_setHelmet;
+    [["slHat", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["slVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     [["slUniforms", "uniforms"] call _fnc_fallback] call _fnc_setUniform;
     [["slBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
@@ -146,6 +147,7 @@ _squadLeaderTemplate = {
  
 _riflemanTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
  
@@ -172,9 +174,10 @@ _riflemanTemplate = {
  
 _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["medVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
+    [["medBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
  
     ["carbines"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -196,7 +199,8 @@ _medicTemplate = {
 };
  
 _grenadierTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    [["glHelmets", "helmets"]call _fnc_fallback] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["glVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -224,6 +228,7 @@ _grenadierTemplate = {
  
 _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["engVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -256,6 +261,7 @@ _explosivesExpertTemplate = {
  
 _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["engVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -284,6 +290,7 @@ _engineerTemplate = {
  
 _latTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
  
@@ -312,6 +319,7 @@ _latTemplate = {
  
 _atTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     [["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
@@ -341,6 +349,7 @@ _atTemplate = {
  
 _aaTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     [["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
@@ -368,10 +377,11 @@ _aaTemplate = {
 };
  
 _machineGunnerTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    [["mgHelmets", "helmets"]call _fnc_fallback] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["mgVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
+    [["mgBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
  
     ["machineGuns"] call _fnc_setPrimary;
     ["primary", 4] call _fnc_addMagazines;
@@ -394,6 +404,7 @@ _machineGunnerTemplate = {
  
 _marksmanTemplate = {
     ["sniHats"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["sniVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
  
@@ -420,6 +431,7 @@ _marksmanTemplate = {
  
 _sniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["sniVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -469,6 +481,7 @@ _policeTemplate = {
  
 _crewTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
  
@@ -613,6 +626,7 @@ if (_factionPrefix isEqualTo "reb") then
 {
     _squadLeaderTemplate = {
         ["uniforms"] call _fnc_setUniform;
+        [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
     
         ["maps"] call _fnc_addMap;
         ["watches"] call _fnc_addWatch;
@@ -622,6 +636,7 @@ if (_factionPrefix isEqualTo "reb") then
     
     _riflemanTemplate = {
         ["uniforms"] call _fnc_setUniform;
+        [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
     
         ["maps"] call _fnc_addMap;
         ["watches"] call _fnc_addWatch;

@@ -1,17 +1,26 @@
 /*
- * File: fn_loadout_addMedicalSupplies.sqf
- * Author: Spoffy
- * Description:
- *    Description goes here
- * Params:
- *    _level - Level of supplies to give - 'Minimal', 'Standard' or 'Medic'
- *    _side - side of unit. Must not be provide in faction template. Must be provided after faction templates.
- * Returns:
- *    Modified loadout
- * Dependencies
- *    <NAMESPACE> _dataStore is defined in compatibilityLoadFaction. Medical equipment is set in XXXDefaults or the template if overridden. "mediKits" and "firstAidKits" are required.
- * Example Usage:
- *    Example usage goes here
+  Function: A3A_fnc_itemset_medicalSupplies
+ 
+  Author: 
+  		- Spoffy
+
+  Description:
+	    gives medical items depending on load mods, i.e. gives ACE when ACE is on
+
+  Params:
+      	_level - Level of supplies to give - 'Minimal', 'Standard' or 'Medic'    	
+		_side - side of unit. Must not be provide in faction template. Must be provided after faction templates.
+
+  Returns:
+    	Array of medical items
+
+  Dependencies:
+     	[NAMESPACE] _dataStore is defined in loadFaction. Medical equipment is set in XXXDefaults or the template if overridden. "mediKits" and "firstAidKits" are required.
+  
+   Examples:
+	    - _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
+		- _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
+		- _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalSupplies];
  */
 
 params ["_level",["_side",sideUnknown]];

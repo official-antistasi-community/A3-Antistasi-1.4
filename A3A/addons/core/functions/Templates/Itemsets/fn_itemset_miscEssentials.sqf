@@ -1,15 +1,21 @@
 /*
- * File: fn_loadout_itemList_miscEssentials.sqf
- * Author: Spoffy
- * Description:
- *    Generates list of miscellaneous essential items needed by each soldier
- * Params:
- *    None
- * Returns:
- *    None
- * Example Usage:
- *    Example usage goes here
- */
+  Function: A3A_fnc_itemset_miscEssentials
+
+  Author: 
+  		- Spoffy
+
+  Description:
+     Generates list of miscellaneous essential items needed by each soldier
+
+  Params:
+     	None
+
+  Returns:
+     	None
+  
+ Example Usage:
+     	- _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
+*/
 
 private _items = [];
 

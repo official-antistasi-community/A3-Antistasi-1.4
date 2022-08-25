@@ -1,16 +1,25 @@
 /*
 
- * File: fn_compatabilityLoadFaction.sqf
- * Author: Spoffy
- * Description:
- *    Loads a faction definition file, and transforms it into the old global variable system for sides.
- * Params:
- *    _file - Faction definition file path
- *    _side - Side to load them in as
- * Returns:
- *    Namespace containing faction information
- * Example Usage:
- */
+  Function: A3A_fnc_compatabilityLoadFaction
+  Author: 
+        - Spoffy
+        
+  Description:
+     Loads a faction definition file, and transforms it into the old global variable system for sides.
+
+  Params:
+        _file - Faction definition file path
+        _side - Side to load them in as
+
+  Returns:
+        Namespace containing faction information
+
+  Examples:
+        ["\x\A3A\addons\core\Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+
+    topics: Debuging
+        compatabilityLoadFaction will bypass template verification if you haven't defined __A3_DEBUG__ or run in debug mode.
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_file", "_side"];

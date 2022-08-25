@@ -1,14 +1,21 @@
 /*
-* File: fn_loadFaction.sqf
-* Author: Spoffy
-* Description:
-*    Loads a faction definition file
-* Params:
-*   _filepaths - Single or array of faction definition filepath
-    _factionPrefix - string of the faction role
-* Returns:
-*    Namespace containing faction information
-* Example Usage:
+  Function: A3A_fnc_loadFaction
+  Loads a faction definition file.
+
+  Params:
+        _filepaths - Single or array of faction definition filepath
+        _factionPrefix - string of the faction role
+
+   Returns:
+        Namespace containing faction information
+
+  Examples:
+        - [_factionDefaultFile,_file], _factionPrefix] call A3A_fnc_loadFaction;
+        - [["\x\A3A\Addons\Core\Templates\Templates\FactionDefaults\EnemyDefaults.sqf", "\x\A3A\addons\core\Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf"], "occ"] call A3A_fnc_loadFaction;
+
+
+    Topic: Author
+        - Spoffy
 */
 
 #include "..\..\script_component.hpp"
@@ -20,22 +27,63 @@ params [
 if (_filepaths isEqualType "") then {_filepaths = [_filepaths]};
 if (count _filepaths == 0) then {Error("No filepaths provided.")};
  
+/* var: _dataStore
+* Hashmap of faction data
+*/
 private _dataStore = createHashMap;
- 
+
+/* var: _loadoutNamespaces
+* Hashmap of all loadouts in the template.
+* Keeps track of loadout namespaces so we can delete them when we're done.
+*/
+private _loadoutNamespaces = createHashMap;
+
+/* var: _allLoadouts
+ * Hashmap of all selected unit loadouts
+ */
+private _allLoadouts = createHashMap;
+
+_dataStore set ["loadouts", _allLoadouts];
+
+/* var: _templatesToGenerate
+ * array of templates that will be generated
+ */
+private _templatesToGenerate = [];
+
+/* 
+  Functions: _fnc_saveToTemplate
+  saves data to the faction data hashmap <_dataStore>
+
+  Params:
+        _name - [ANY] key for hashmap
+        _data - [ANY] data set 
+*/ 
 private _fnc_saveToTemplate = {
     params ["_name", "_data"];
  
     _dataStore set [_name, _data];
-};
- 
+}
+
+/* 
+  Functions: _fnc_getFromTemplate
+  gets data to the faction data hashmap <_dataStore>
+
+  Params:
+        _name - [ANY] key for hashmap 
+*/ 
 private _fnc_getFromTemplate = {
     params ["_name"];
  
     _dataStore get _name;
 };
- 
- //Keep track of loadout namespaces so we can delete them when we're done.
-private _loadoutNamespaces = createHashMap;
+
+/* 
+  Functions: _fnc_createLoadoutData
+  creates a new hashmap and sets the key to the loadout hashmap data hashmap <_loadoutNamespaces>
+
+  Params:
+        _key - [ANY] key for hashmap 
+*/ 
 private _fnc_createLoadoutData = {
     params ["_key"];
     private _namespace = createHashMap;
@@ -44,22 +92,44 @@ private _fnc_createLoadoutData = {
     _loadoutNamespaces set [_key, _namespace];
     _namespace
 };
- 
-// deep copy if needed, it is recommanded that you use createLoadoutData, then merge
+
+/* 
+  Functions: _fnc_copyLoadoutData
+  deep copys a hashmap, it is recommanded that you use createLoadoutData, then merge
+
+  Params:
+        _sourceNamespace - [NAMESPACE] hashmap to copy from
+*/ 
 private _fnc_copyLoadoutData = {
     params ["_sourceNamespace"];
     + _sourceNamespace //hashmaps deepcopy with +
 };
  
-private _allLoadouts = createHashMap;
-_dataStore set ["loadouts", _allLoadouts];
- 
+/* 
+  Functions: _fnc_saveUnitToTemplate
+  saves a unit loadout to the unit loadout hashmap
+
+  Params:
+        _typeName - [ANY] key for <_allLoadouts>
+        _loadouts - [ARRAY] Loadout array to set to <_allLoadouts>
+        _traits - [ARRAY][optional]  unit traits for specific units, Engineers, Medic... etc
+*/ 
 private _fnc_saveUnitToTemplate = {
     params ["_typeName", "_loadouts", ["_traits", []]];
     private _unitDefinition = [_loadouts, _traits];
     _allLoadouts set [_typeName, _unitDefinition];
 };
  
+/* 
+  Functions: _fnc_generateAndSaveUnitToTemplate
+  generators a unit loadout by calling A3A_fnc_loadout_builder, then calls <_fnc_saveUnitToTemplate> to save loadout
+
+  Params:
+        _name - [STRING] unit named type, ie SQUADLEADER
+        _template - [CODE] unit loadout generator code 
+        _loadoutData - [ARRAY] loadout hashmap
+        _traits - [ARRAY][optional] unit traits for specific units, Engineers, Medic... etc
+*/ 
 private _fnc_generateAndSaveUnitToTemplate = {
     params ["_name", "_template", "_loadoutData", ["_traits", []]];
     private _loadouts = [];
@@ -69,6 +139,15 @@ private _fnc_generateAndSaveUnitToTemplate = {
     [_name, _loadouts, _traits] call _fnc_saveUnitToTemplate;
 };
  
+/* 
+  Functions: _fnc_generateAndSaveUnitsToTemplate
+  generator, makes final prefix, helps <_fnc_generateAndSaveUnitToTemplate> by breaking down components, calls <_fnc_generateAndSaveUnitToTemplate>
+
+  Params:
+        _prefix - [STRING] template prefix for certain loadout generation
+        _unitTemplates - [CODE] unit loadout generator code 
+        _loadoutData - [ARRAY] template faction gear hashmap
+*/ 
 private _fnc_generateAndSaveUnitsToTemplate = {
     params ["_prefix", "_unitTemplates", "_loadoutData"];
     {
@@ -82,6 +161,7 @@ private _fnc_generateAndSaveUnitsToTemplate = {
 
 // these private functions are empty for reassignment later depending on what faction was passed
 // ie occ, reb, civ
+
 private _manTemplate = {};
 private _workerTemplate = {};
 private _pressTemplate = {};
@@ -102,8 +182,7 @@ private _grenadierTemplate = {};
 private _medicTemplate = {};
 private _riflemanTemplate = {};
 private _squadLeaderTemplate = {};
- 
-private _templatesToGenerate = [];
+
  
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -114,6 +193,11 @@ private _templatesToGenerate = [];
 //Almost all factions can be set up just by modifying the loadout data above.
 //However, these exist in case you really do want to do a lot of custom alterations.
 
+
+/* 
+  Functions: _squadLeaderTemplate
+  Squadleader loadout generator code
+*/ 
 _squadLeaderTemplate = {
     [["slHat", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -145,6 +229,10 @@ _squadLeaderTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _riflemanTemplate
+  Rifleman loadout generator code
+*/ 
 _riflemanTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -172,6 +260,10 @@ _riflemanTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _medicTemplate
+  Medic loadout generator code
+*/ 
 _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -198,6 +290,10 @@ _medicTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _grenadierTemplate
+  Grenadier loadout generator code
+*/
 _grenadierTemplate = {
     [["glHelmets", "helmets"]call _fnc_fallback] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -226,6 +322,10 @@ _grenadierTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _explosivesExpertTemplate
+  Explosives Expert loadout generator code
+*/
 _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -259,6 +359,10 @@ _explosivesExpertTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _engineerTemplate
+  Engineer loadout generator code
+*/
 _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -288,6 +392,10 @@ _engineerTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _latTemplate
+  Light Anti-tank loadout generator code
+*/
 _latTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -317,6 +425,10 @@ _latTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _atTemplate
+  Anti-tank loadout generator code
+*/
 _atTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -347,6 +459,10 @@ _atTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _aaTemplate
+  Anti-Air loadout generator code
+*/
 _aaTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -376,6 +492,10 @@ _aaTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _machineGunnerTemplate
+  Machine Gunner loadout generator code
+*/
 _machineGunnerTemplate = {
     [["mgHelmets", "helmets"]call _fnc_fallback] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -402,6 +522,10 @@ _machineGunnerTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _marksmanTemplate
+  Marksman loadout generator code
+*/
 _marksmanTemplate = {
     ["sniHats"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -429,6 +553,10 @@ _marksmanTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _sniperTemplate
+  Sniper loadout generator code
+*/
 _sniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -455,7 +583,11 @@ _sniperTemplate = {
     ["rangefinders"] call _fnc_addBinoculars;
     ["NVGs"] call _fnc_addNVGs;
 };
- 
+
+/* 
+  Functions: _policeTemplate
+  Police loadout generator code
+*/
 _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
@@ -478,7 +610,11 @@ _policeTemplate = {
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
 };
- 
+
+/* 
+  Functions: _crewTemplate
+  Crew loadout generator code
+*/
 _crewTemplate = {
     ["helmets"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
@@ -504,6 +640,10 @@ _crewTemplate = {
     ["NVGs"] call _fnc_addNVGs;
 };
  
+/* 
+  Functions: _unarmedTemplate
+  Unarmed loadout generator code
+*/
 _unarmedTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
@@ -518,6 +658,10 @@ _unarmedTemplate = {
     ["radios"] call _fnc_addRadio;
 };
  
+/* 
+  Functions: _traitorTemplate
+  Traitor loadout generator code
+*/
 _traitorTemplate = {
     call _unarmedTemplate;
     ["sidearms"] call _fnc_setHandgun;
@@ -624,6 +768,10 @@ if (_factionPrefix in ["occ", "inv"] ) then
  
 if (_factionPrefix isEqualTo "reb") then 
 {
+    /* 
+      Functions: _squadLeaderTemplate
+      Squadleader loadout generator code for rebs
+    */
     _squadLeaderTemplate = {
         ["uniforms"] call _fnc_setUniform;
         [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
@@ -633,7 +781,10 @@ if (_factionPrefix isEqualTo "reb") then
         ["compasses"] call _fnc_addCompass;
         ["binoculars"] call _fnc_addBinoculars;
     };
-    
+    /* 
+      Functions: _riflemanTemplate
+      Rifleman loadout generator code for rebs
+    */
     _riflemanTemplate = {
         ["uniforms"] call _fnc_setUniform;
         [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
@@ -667,6 +818,10 @@ if (_factionPrefix isEqualTo "reb") then
  
 if (_factionPrefix isEqualTo "civ") then 
 {
+    /* 
+      Functions: _manTemplate
+      Man loadout generator code for civs
+    */
     _manTemplate = {
         ["helmets"] call _fnc_setHelmet;
         ["uniforms"] call _fnc_setUniform;
@@ -677,6 +832,11 @@ if (_factionPrefix isEqualTo "civ") then
         ["watches"] call _fnc_addWatch;
         ["compasses"] call _fnc_addCompass;
     };
+
+    /* 
+      Functions: _workerTemplate
+      Worker loadout generator code for civs
+    */
     _workerTemplate = {
         ["helmets"] call _fnc_setHelmet;
         ["workerUniforms"] call _fnc_setUniform;
@@ -687,6 +847,11 @@ if (_factionPrefix isEqualTo "civ") then
         ["watches"] call _fnc_addWatch;
         ["compasses"] call _fnc_addCompass;
     };
+
+    /* 
+      Functions: _pressTemplate
+      Press loadout generator code for civ
+    */
     _pressTemplate = {
         ["pressHelmets"] call _fnc_setHelmet;
         ["pressVests"] call _fnc_setVest;
@@ -698,6 +863,7 @@ if (_factionPrefix isEqualTo "civ") then
         ["watches"] call _fnc_addWatch;
         ["compasses"] call _fnc_addCompass;
     };
+
     private _prefix = "militia";
     private _unitTypes = [
         ["Press", _pressTemplate],

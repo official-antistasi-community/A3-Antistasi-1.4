@@ -1,3 +1,41 @@
+/*
+    Function: A3A_fn_TV_verifyAssets
+
+    Author: 
+        - Håkon
+
+    Description:
+        Verifies the template assets
+
+    Params:
+        _faction - hashmap containing faction information
+        _side - Side to of faction
+        _templatePath - path to the template
+
+    Return Value: 
+        Failed Loadouts (key 'valid' contains the faction valid state)
+
+    Scope: 
+        Server,Server/HC,Clients,Any
+
+    Environment: 
+        Scheduled/unscheduled/Any
+
+    Public: 
+        Yes/No
+
+    Dependencies:
+
+    Example:
+        [_faction, _side, _file] call A3A_fnc_TV_verifyAssets;
+
+    License: 
+        MIT License
+
+    TODO:
+        add other functions
+*/
+
 #include "..\..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_faction", "_side", "_templatePath"];

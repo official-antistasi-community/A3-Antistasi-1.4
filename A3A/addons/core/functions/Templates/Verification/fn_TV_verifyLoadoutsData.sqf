@@ -1,21 +1,39 @@
 /*
-Author: Håkon
-Description:
-    Verifies the loadout data of a faction
+    Function: A3A_fnc_TV_verifyLoadoutsData
 
-Arguments:
-0. <HM> Faction data hashmap
+    Author: 
+        - Håkon
 
-Return Value: <HM> Failed Loadouts (key 'valid' contains the faction valid state)
+    Description:
+        Verifies the loadout data of a faction
 
-Scope: Server,Server/HC,Clients,Any
-Environment: Scheduled/unscheduled/Any
-Public: Yes/No
-Dependencies:
+    Arguments:
+        _faction - Faction data hashmap
+        _templatePath - template path
 
-Example:
+    Return Value: 
+        Failed Loadouts (key 'valid' contains the faction valid state)
 
-License: MIT License
+    Scope: 
+        Server,Server/HC,Clients,Any
+
+    Environment: 
+        Scheduled/unscheduled/Any
+
+    Public: 
+        Yes/No
+
+    Dependencies:
+        NONE
+
+    Example:
+        [_faction, _file] call A3A_fnc_TV_verifyLoadoutsData;
+
+    License: 
+        MIT License
+        
+    TODO:
+        add other functions
 */
 #include "..\..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

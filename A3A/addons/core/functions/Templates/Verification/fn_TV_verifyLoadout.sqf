@@ -1,32 +1,47 @@
 /*
-Author: Håkon
-Description:
-    Verifies a single loadout data in the format setUnitLoadout expects.
+    Function: A3A_fnc_TV_verifyLoadout
 
-Arguments: <Struct> Loadout
-0. <Struct> Primary weapon array
-1. <Struct> Launcher weapon array
-2. <Struct> Hangun weapon array
-3. <Struct> Uniform array
-4. <Struct> Vest array
-5. <Struct> Backpack array
-6. <String> Helmet
-7. <String> Facewear (empty string)
-8. <Struct> Binocular "weapon" array
-9. <Array>  Linked items
+    Author: 
+        - Håkon
 
-Return Value:
-0. <Bool> Loadout valid
-1. <Array> Invalid reasons
+    Description:
+        Verifies a single loadout data in the format setUnitLoadout expects.
 
-Scope: Any
-Environment: Any
-Public: Yes
-Dependencies:
+    Params: 
+        _primary - Primary weapon array
+        _launcher - Launcher weapon array
+        _handgun - Handgun weapon array
+        _uniform - Uniform array
+        _vest - Vest array
+        _backpack - Backpack array
+        _helmet - Helmet
+        _facewear - Facewear (empty string)
+        _binocular - Binocular "weapon" array
+        _linkedItems - Linked items
 
-Example: _loadout call A3A_fnc_TV_verifyLoadout;
+    Return Value:
+        Loadout valid
+        Invalid reasons
 
-License: MIT License
+    Scope: 
+        Any
+
+    Environment: 
+        Any
+
+    Public: Yes
+
+    Dependencies:
+        NONE
+
+    Example: 
+    _loadout call A3A_fnc_TV_verifyLoadout;
+
+    License: 
+        MIT License
+
+    TODO:
+        add other functions
 */
 params [
     "_primary"

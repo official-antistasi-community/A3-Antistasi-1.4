@@ -1,17 +1,23 @@
 /*
- * File: fn_loadout_setWeapon.sqf
- * Author: Spoffy
- * Description:
- *    Adds a weapon to a unit loadout
- * Params:
- *    _loadout - Loadout to add backpack to
- *    _slot - "PRIMARY", "LAUNCHER" or "HANDGUN"
- *    _weapon - Weapon to add. Either a class "arifle_MXC_F" or an array ["arifle_MXC_F", "muzzle", "pointer", "optic", "bipod"]
- * Returns:
- *    Modified loadout array
- * Example Usage:
- *    [_loadout, "PRIMARY", "arifle_MXC_F"] call A3A_fnc_addWeapon
- *    [_loadout, "PRIMARY", ["arifle_MXC_F", "", "", ""], "30Rnd_65x39_caseless_mag"] call A3A_fnc_addWeapon
+  	Function: A3A_fnc_loadout_setWeapon
+
+  	Author: 
+		- Spoffy
+  	
+	Description:
+     	Adds a weapon to a unit loadout
+
+  	Params:
+     	_loadout - Loadout to add backpack to
+     	_slot - "PRIMARY", "LAUNCHER" or "HANDGUN"
+     	_weapon - Weapon to add. Either a class "arifle_MXC_F" or an array ["arifle_MXC_F", "muzzle", "pointer", "optic", "bipod"]
+
+  	Returns:
+     	Modified loadout array
+
+  	Example:
+     	[_loadout, "PRIMARY", "arifle_MXC_F"] call A3A_fnc_addWeapon
+    	[_loadout, "PRIMARY", ["arifle_MXC_F", "", "", ""], "30Rnd_65x39_caseless_mag"] call A3A_fnc_addWeapon
  */
 
 params ["_loadout", "_slot", "_weapon"];

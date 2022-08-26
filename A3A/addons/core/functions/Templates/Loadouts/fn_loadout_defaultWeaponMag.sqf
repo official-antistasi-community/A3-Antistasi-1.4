@@ -1,14 +1,20 @@
 /*
- * File: fn_loadout_defaultWeaponMag.sqf
- * Author: Spoffy
- * Description:
- *    Gets the default weapons magazine for a given weapon class
- * Params:
- *    _class - Weapon class
- * Returns:
- *    Magazine class string
- * Example Usage:
- *    ["my_weapon_class"] call A3A_fnc_loadout_defaultWeaponMag
+ 	Function: A3A_fnc_loadout_defaultWeaponMag
+
+  	Author: 
+		- Spoffy
+
+  	Description:
+     	Gets the default weapons magazine for a given weapon class
+
+  	Params:
+     	_class - Weapon class
+
+  	Returns:
+     	Magazine class string
+
+  	Example:
+     	["my_weapon_class"] call A3A_fnc_loadout_defaultWeaponMag
  */
 
 params ["_class"];

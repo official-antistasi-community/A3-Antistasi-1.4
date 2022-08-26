@@ -1,18 +1,23 @@
 /*
- * File: fn_loadout_addItems.sqf
- * Author: Spoffy
- * Description:
- *    Adds batches of items to a unit incrementally until we run out of space.
- *    The idea is to be able to prioritise items. So batch 1 is more than important than batch 2, etc.
- *    This way, if the last batch doesn't fit, it's not the end of the world.
- * Params:
- *    _loadout - Loadout to add items to
- *    _rawItemBatches - Batches of items, in format [[["class1", 1], ["class2", 1]], [["class 3", 1]]]
- * Returns:
- *    Loadout
- * Example Usage:
- *    Example usage goes here
- */
+  Function: A3A_fnc_loadout_addItems
+  Author: 
+  		- Spoffy
+  
+  Description:
+    	Adds batches of items to a unit incrementally until we run out of space.
+     	The idea is to be able to prioritise items. So batch 1 is more than important than batch 2, etc.
+     	This way, if the last batch doesn't fit, it's not the end of the world.
+  
+ Params:
+     	_loadout - Loadout to add items to
+     	_rawItemBatches - Batches of items, in format [[["class1", 1], ["class2", 1]], [["class 3", 1]]]
+  
+ Returns:
+     	Loadout
+
+  Example Usage:
+ 		[_finalLoadout, _itemBatches] call A3A_fnc_loadout_addItems;
+*/
 
 
 params ["_loadout", "_rawItemBatches"];

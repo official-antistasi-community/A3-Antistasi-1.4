@@ -1,14 +1,20 @@
 /*
- * File: fn_loadout_itemLoad.sqf
- * Author: Spoffy
- * Description:
- *    Calculates the load for item from one of the uniform/vest/backpack content arrays.
- * Params:
- *    _item
- * Returns:
- *    Total load (or 0)
- * Example Usage:
- *    Example usage goes here
+  	Function: A3A_fnc_loadout_itemLoad
+
+  	Author: 
+  		- Spoffy
+
+  	Description:
+     	Calculates the load for item from one of the uniform/vest/backpack content arrays.
+
+  	Params:
+     	_item
+
+  	Returns:
+     	Total load (or 0)
+
+  	Example:
+     	_item pushBack ([_item select 0 select 0] call A3A_fnc_loadout_itemLoad);
  */
 
 params ["_item"];

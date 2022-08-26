@@ -1,16 +1,22 @@
 /*
- * File: fn_loadout_addEquipment.sqf
- * Author: Spoffy
- * Description:
- *    Adds equipment to the loadout, using either defaults or specifically chosen items for each slot.
- * Params:
- *    _loadout - Loadout to modify
- *    _equipment - Array of equipment, where each entry is either a type string ("RADIO") or array with a type and class ["RADIO", "ItemRadio"]
- * Returns:
- *    Modified loadout
- * Example Usage:
- *    [_loadout, ["RADIO", "GPS", "Map", "WATCH", ["Compass", "ItemCompass"], "NVG"]] call A3A_fnc_loadout_addEquipment
- */
+  Function: A3A_fnc_loadout_addEquipment
+
+  Author: 
+ 		- Spoffy
+
+  Description:
+     	Adds equipment to the loadout, using either defaults or specifically chosen items for each slot.
+  
+   Params:
+     	_loadout - Loadout to modify
+     	_equipment - Array of equipment, where each entry is either a type string ("RADIO") or array with a type and class ["RADIO", "ItemRadio"]
+  
+  Returns:
+     	Modified loadout
+  
+  Example Usage:
+     	- [_loadout, ["RADIO", "GPS", "Map", "WATCH", ["Compass", "ItemCompass"], "NVG"]] call A3A_fnc_loadout_addEquipment
+*/
 
 params ["_loadout", "_equipment"];
 

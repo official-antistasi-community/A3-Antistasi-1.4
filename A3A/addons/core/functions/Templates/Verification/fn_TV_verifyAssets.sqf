@@ -43,12 +43,12 @@ params ["_faction", "_side", "_templatePath"];
 //===========|
 // Functions |
 //===========|
-private _printInvalidReasons = {
+private _fnc_printInvalidReasons = {
     if (_invalidReasons isEqualTo []) exitWith {};
     Error(_templatePath+" Template validation failed for:" + endl + _LOG_newLineIndicator + (_invalidReasons joinString (endl + _LOG_newLineIndicator)));
 };
 
-private _validClassCaseSensitive = {
+private _fnc_validClassCaseSensitive = {
     params ["_cfg", "_class", ["_entry", ""]];
     if !(_class isEqualType "") exitWith {
         _invalidReasons pushBack ("Entry: "+ (str _entry)  + " | Invalid data type: "+ (str _class) + " | Data type: "+ (typeName _class) + " | Expected: String");
@@ -66,54 +66,54 @@ private _validClassCaseSensitive = {
 };
 
 //these functions hack the parent scope for the variables; _y, _entry
-private _validateArrayOfClasses = {
+private _fnc_validateArrayOfClasses = {
     if (_y isEqualTo []) exitWith {};
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an array of vehicle class names.") };
-    { ["CfgVehicles", _x, _entry] call _validClassCaseSensitive } forEach _y;
+    { ["CfgVehicles", _x, _entry] call _fnc_validClassCaseSensitive } forEach _y;
 };
 
-private _validateSingleClass = {
+private _fnc_validateSingleClass = {
     if (_y isEqualTo "") exitWith {};
     if !(_y isEqualType "") exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string, This entry should be a vehicle class name.") };
-    ["CfgVehicles", _y, _entry] call _validClassCaseSensitive;
+    ["CfgVehicles", _y, _entry] call _fnc_validClassCaseSensitive;
 };
 
-private _validateString = {
+private _fnc_validateString = {
     if !(_y isEqualType "") then { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string.") };
 };
 
-private _validateMagazine = {
+private _fnc_validateMagazine = {
     if (_y isEqualTo "") exitWith {};
     if !(_y isEqualType "") exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string, This entry should be a magazine class name.") };
-    ["CfgMagazines", _y, _entry] call _validClassCaseSensitive;
+    ["CfgMagazines", _y, _entry] call _fnc_validClassCaseSensitive;
 };
 
-private _validateArrayMagazines = {
+private _fnc_validateArrayMagazines = {
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an array of magazine class names.")};
-    { ["CfgMagazines", _x, _entry] call _validClassCaseSensitive } forEach _y;
+    { ["CfgMagazines", _x, _entry] call _fnc_validClassCaseSensitive } forEach _y;
 };
 
-private _validateMagazinesHM = {
+private _fnc_validateMagazinesHM = {
     //hm of key: Vehicle class, Value: Array of magazine classes
     if !(_y isEqualType createHashmap) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a hashmap, This entry should be a hashmap of vehicles and there corresponding magazine classes.") };
     {
-        ["CfgVehicles", _x, _entry] call _validClassCaseSensitive;
-        call _validateArrayMagazines;
+        ["CfgVehicles", _x, _entry] call _fnc_validClassCaseSensitive;
+        call _fnc_validateArrayMagazines;
     } forEach _y;
 };
 
-private _validateWeightedArray = {
+private _fnc_validateWeightedArray = {
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an weighted array.") };
     for "_i" from 0 to count _y-2 step 2 do {
         if !(
             (_y#_i) isEqualType ""
             && (_y#(_i+1)) isEqualType 0
         ) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not in propper weighted array format, expected an array in format [<String> Class, <Scalar> Weight, ...]") };
-        ["CfgVehicles", _y#_i, _entry] call _validClassCaseSensitive;
+        ["CfgVehicles", _y#_i, _entry] call _fnc_validClassCaseSensitive;
     };
 };
 
-private _genericClassExists = {
+private _fnc_genericClassExists = {
     params ["_class"];
     if !(_class isEqualType "") exitWith {
         _invalidReasons pushBack ("Entry: "+ (str _entry) + " | Invalid data type: "+ str _class + " | Data type: "+ typeName _class + " | Expected: String");
@@ -137,31 +137,31 @@ private _genericClassExists = {
     true;
 };
 
-private _handleUniqueCases = { //handles unique name cases that the stored value is...
+private _fnc_handleUniqueCases = { //handles unique name cases that the stored value is...
     switch _entry do {
         //string
         case "name";
         case "spawnMarkerName";
         case "flag";
         case "flagTexture";
-        case "flagMarkerType": _validateString;
+        case "flagMarkerType": _fnc_validateString;
 
         //vehicle class name
         case "ammobox";
         case "surrenderCrate";
-        case "equipmentBox": _validateSingleClass;
+        case "equipmentBox": _fnc_validateSingleClass;
 
         //array of vehicle class names
         case "minefieldAT";
         case "minefieldAPERS";
         case "uavsAttack";
-        case "uavsPortable": _validateArrayOfClasses;
+        case "uavsPortable": _fnc_validateArrayOfClasses;
 
         //magazine class
         case "mineAT";
         case "mineAPERS";
         case "mortarMagazineHE";
-        case "mortarMagazineSmoke": _validateMagazine;
+        case "mortarMagazineSmoke": _fnc_validateMagazine;
 
         //array of magazine class names
 
@@ -171,29 +171,29 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
         case "toolKits";
         case "itemMaps";
         case "firstAidKits";
-        case "mediKits": { { ["CfgWeapons",_x,_entry] call _validClassCaseSensitive } forEach _y };
+        case "mediKits": { { ["CfgWeapons",_x,_entry] call _fnc_validClassCaseSensitive } forEach _y };
 
         //generic class
-        case "initialRebelEquipment": { { [_x] call _genericClassExists } forEach _y };
+        case "initialRebelEquipment": { { [_x] call _fnc_genericClassExists } forEach _y };
 
         //bool
 
         //truly unique cases
-        case "magazines": _validateMagazinesHM;
+        case "magazines": _fnc_validateMagazinesHM;
         case "placeIntel_itemMedium";
         case "placeIntel_itemLarge": {
             if !(_y isEqualTypeArray ["", 0, true]) exitWith {_invalidReasons pushBack ("Entry: "+(str _entry)+" has the wrong data type(s). Expected [<String>Class, <Scalar>Angle, <Bool>isComputer]")};
-            ["CfgVehicles",_y#0,_entry] call _validClassCaseSensitive;
+            ["CfgVehicles",_y#0,_entry] call _fnc_validClassCaseSensitive;
         };
         case "placeIntel_desk": {
             if !(_y isEqualTypeArray ["",0]) exitWith {_invalidReasons pushBack ("Entry: "+(str _entry)+" has the wrong data type(s). Expected [<String>Class, <Scalar>Angle]")};
-            ["CfgVehicles",_y#0,_entry] call _validClassCaseSensitive;
+            ["CfgVehicles",_y#0,_entry] call _fnc_validClassCaseSensitive;
         };
         case "breachingExplosivesAPC";
         case "breachingExplosivesTank": {
             {
                 if !(_x isEqualTypeArray ["", 0]) then {_invalidReasons pushBack ("Entry: "+(str _entry)+" -> "+(str _x)+" has the wrong data type(s). Expected [<String>Magazine, <Scalar>quantity]")};
-                ["CfgMagazines",(_x#0),_entry] call _validClassCaseSensitive;
+                ["CfgMagazines",(_x#0),_entry] call _fnc_validClassCaseSensitive;
             } forEach _y;
         };
         case "diveGear"; //Mixed CFGVehicles and CFGGlasses
@@ -221,14 +221,14 @@ private _invalidReasons = [];
     if (_entry find "group" == 0 or _entry find "unit" == 0) then {continue};       // Could cross-check these later if set in templates
 
     switch true do {
-        case ("Mag" in _entry): _validateMagazine;
-        case ("vehiclesCiv" in _entry): _validateWeightedArray;
-        case ("vehicles" in _entry): _validateArrayOfClasses;
-        case ("vehicle" in _entry): _validateSingleClass;
+        case ("Mag" in _entry): _fnc_validateMagazine;
+        case ("vehiclesCiv" in _entry): _fnc_validateWeightedArray;
+        case ("vehicles" in _entry): _fnc_validateArrayOfClasses;
+        case ("vehicle" in _entry): _fnc_validateSingleClass;
         case ("static" in _entry): {
-            if (_side in [west, east]) then _validateArrayOfClasses else _validateSingleClass;
+            if (_side in [west, east]) then _fnc_validateArrayOfClasses else _fnc_validateSingleClass;
         };
-        default _handleUniqueCases;
+        default _fnc_handleUniqueCases;
     };
 } forEach _faction;
-call _printInvalidReasons;
+call _fnc_printInvalidReasons;

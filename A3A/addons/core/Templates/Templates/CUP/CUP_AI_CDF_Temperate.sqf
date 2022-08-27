@@ -246,7 +246,7 @@ _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_SVD", "CUP_muzzle_snds_KZRZP_SVD", "CUP_SVD_camo_g", "CUP_optic_PSO_3", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
 _sfLoadoutData set ["lightATLaunchers", [
-    ["CUP_launch_M72A6", "", "", "", ["CUP_RPG18_M"], [], ""],
+    ["CUP_launch_M72A6", "", "", "", [""], [], ""],
     ["CUP_launch_M136", "", "", "", [""], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [

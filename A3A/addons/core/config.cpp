@@ -16,8 +16,6 @@ class CfgPatches {
 
 #include "CfgSounds.hpp"
 class A3A {
-    #include "Templates.hpp"
-
 #if __A3_DEBUG__
     #include "CfgFunctions.hpp"
 #endif

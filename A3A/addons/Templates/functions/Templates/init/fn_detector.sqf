@@ -1,28 +1,81 @@
 /*
-Author: Meerkat
+  Function: A3A_fnc_detector
   This file handles the detection of mods.
-  Best practice is to detect the presence of a CfgPatches entry, but there are alternatives.
-  To add a new mod, give it a hadMod variable with the rest, then add an if (isClass) entry like the FFAA one. (You could even copy/paste the FFAA one and replace its calls with the ones you need.)
 
-Scope: All
-Environment: Any (Scheduled Inherited from fn_initVarCommon.sqf)
-Public: No
+  Author: 
+    - Meerkat
+
+  Info:
+    Best practice is to detect the presence of a CfgPatches entry, but there are alternatives.
+    To add a new mod, give it a hadMod variable with the rest, then add an if (isClass) entry like the FFAA one. (You could even copy/paste the FFAA one and replace its calls with the ones you need.)
+
+  Scope: 
+    All
+
+  Environment: 
+    Any (Scheduled Inherited from fn_initVarCommon.sqf)
+
+  Public: 
+    No
+
+  Example:
+    call A3A_fnc_detector;
 */
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-//Var initialisation
+
+//initialisation
+
+/* var: A3A_hasRHS
+*/
 A3A_hasRHS = false;
+
+/* var: A3A_hasFFAA
+*/
 A3A_hasFFAA = false;
+
+/* var: A3A_hasIFA
+*/
 A3A_hasIFA = false;
+
+/* var: A3A_has3CBFactions
+*/
 A3A_has3CBFactions = false;
+
+/* var: A3A_has3CBBAF
+*/
 A3A_has3CBBAF = false;
+
+/* var: A3A_hasVN
+*/
 A3A_hasVN = false;
+
+/* var: A3A_hasIvory
+*/
 A3A_hasIvory = false;
+
+/* var: A3A_hasTCGM
+*/
 A3A_hasTCGM = false;
+
+/* var: A3A_hasADV
+*/
 A3A_hasADV = false;
+
+/* var: A3A_hasD3S
+*/
 A3A_hasD3S = false;
+
+/* var: A3A_hasRDS
+*/
 A3A_hasRDS = false;
+
+/* var: A3A_hasKAT
+*/
 A3A_hasKAT = false;
+
+/* var: A3A_hasCUP
+*/
 A3A_hasCUP = false;
 
 //Actual Detection

@@ -17,7 +17,7 @@ class CfgFunctions
         };
 
         class InitTemplates {
-            file = QPATHTOFOLDER(Templates);
+            file = QPATHTOFOLDER(functions\init);
             class detector {};
             class selector {};
         };

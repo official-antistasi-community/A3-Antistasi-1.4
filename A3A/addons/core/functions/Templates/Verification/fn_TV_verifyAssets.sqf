@@ -12,7 +12,7 @@
         _side - Side to of faction
         _templatePath - path to the template
 
-    Return Value: 
+    Return: 
         Failed Loadouts (key 'valid' contains the faction valid state)
 
     Scope: 
@@ -25,6 +25,7 @@
         Yes/No
 
     Dependencies:
+        NONE
 
     Example:
         [_faction, _side, _file] call A3A_fnc_TV_verifyAssets;
@@ -32,8 +33,6 @@
     License: 
         MIT License
 
-    TODO:
-        add other functions
 */
 
 #include "..\..\..\script_component.hpp"
@@ -43,11 +42,26 @@ params ["_faction", "_side", "_templatePath"];
 //===========|
 // Functions |
 //===========|
+
+/* 
+  Functions: _fnc_printInvalidReasons
+  prints invalid templates issues
+
+*/ 
 private _fnc_printInvalidReasons = {
     if (_invalidReasons isEqualTo []) exitWith {};
     Error(_templatePath+" Template validation failed for:" + endl + _LOG_newLineIndicator + (_invalidReasons joinString (endl + _LOG_newLineIndicator)));
 };
 
+/* 
+  Functions: _fnc_validClassCaseSensitive
+  checks for valid case sensitive of classnames
+
+  Params:
+        _cfg - configFile
+        _class - classname of object
+        _entry - template entry
+*/
 private _fnc_validClassCaseSensitive = {
     params ["_cfg", "_class", ["_entry", ""]];
     if !(_class isEqualType "") exitWith {
@@ -65,34 +79,75 @@ private _fnc_validClassCaseSensitive = {
     true;
 };
 
-//these functions hack the parent scope for the variables; _y, _entry
+/* 
+  Functions: _fnc_validateArrayOfClasses
+  runs through array to validate each item
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateArrayOfClasses = {
     if (_y isEqualTo []) exitWith {};
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an array of vehicle class names.") };
     { ["CfgVehicles", _x, _entry] call _fnc_validClassCaseSensitive } forEach _y;
 };
 
+/* 
+  Functions: _fnc_validateSingleClass
+  runs through single class to validate
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateSingleClass = {
     if (_y isEqualTo "") exitWith {};
     if !(_y isEqualType "") exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string, This entry should be a vehicle class name.") };
     ["CfgVehicles", _y, _entry] call _fnc_validClassCaseSensitive;
 };
 
+/* 
+  Functions: _fnc_validateString
+  validates a string
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateString = {
     if !(_y isEqualType "") then { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string.") };
 };
 
+/* 
+  Functions: _fnc_validateMagazine
+  validates the magazine
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateMagazine = {
     if (_y isEqualTo "") exitWith {};
     if !(_y isEqualType "") exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a string, This entry should be a magazine class name.") };
     ["CfgMagazines", _y, _entry] call _fnc_validClassCaseSensitive;
 };
 
+/* 
+  Functions: _fnc_validateArrayMagazines
+  validates an array of magazines
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateArrayMagazines = {
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an array of magazine class names.")};
     { ["CfgMagazines", _x, _entry] call _fnc_validClassCaseSensitive } forEach _y;
 };
 
+/* 
+  Functions: _fnc_validateMagazinesHM
+  validates a hashmap of magazines
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateMagazinesHM = {
     //hm of key: Vehicle class, Value: Array of magazine classes
     if !(_y isEqualType createHashmap) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not a hashmap, This entry should be a hashmap of vehicles and there corresponding magazine classes.") };
@@ -102,6 +157,13 @@ private _fnc_validateMagazinesHM = {
     } forEach _y;
 };
 
+/* 
+  Functions: _fnc_validateWeightedArray
+  validates a weighted array
+  
+  Info:
+    this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_validateWeightedArray = {
     if !(_y isEqualType []) exitWith { _invalidReasons pushBack ("Entry "+(str _entry)+" is not an array, This entry should be an weighted array.") };
     for "_i" from 0 to count _y-2 step 2 do {
@@ -113,6 +175,16 @@ private _fnc_validateWeightedArray = {
     };
 };
 
+/* 
+  Functions: _fnc_genericClassExists
+  validates generic classes, looks for the base
+  
+  Parmas:
+        _class - classname of object
+
+  Info:
+        this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_genericClassExists = {
     params ["_class"];
     if !(_class isEqualType "") exitWith {
@@ -137,6 +209,16 @@ private _fnc_genericClassExists = {
     true;
 };
 
+/* 
+  Functions: _fnc_handleUniqueCases
+  handles uniques class / hashmap keys / template "objects"
+  
+  Parmas:
+        _class - classname of object
+
+  Info:
+        this functions hacks the parent scope for the variables; _y, _entry
+*/
 private _fnc_handleUniqueCases = { //handles unique name cases that the stored value is...
     switch _entry do {
         //string

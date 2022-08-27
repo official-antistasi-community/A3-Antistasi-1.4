@@ -32,8 +32,6 @@
     License: 
         MIT License
         
-    TODO:
-        add other functions
 */
 #include "..\..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

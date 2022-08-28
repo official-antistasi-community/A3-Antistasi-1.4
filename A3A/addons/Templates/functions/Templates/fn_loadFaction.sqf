@@ -190,6 +190,9 @@ private _squadLeaderTemplate = {};
     call compile preprocessFileLineNumbers _x;
 } forEach _filepaths;
  
+// we want to help with 3rd party mods
+["factionTemplateLoaded", [_loadoutNamespaces, _dataStore]] call A3A_Events_fnc_triggerEvent;
+
 {   //prefix, unitType, loadoutdata
     [_x#0, _x#1, (_loadoutNamespaces get _x#2)] call _fnc_generateAndSaveUnitsToTemplate;
 } forEach _templatesToGenerate;

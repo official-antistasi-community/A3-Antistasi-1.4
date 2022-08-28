@@ -86,4 +86,4 @@ if (_side in [Occupants, Invaders]) then {
     _faction set ["vehiclesBoats", (_faction get "vehiclesGunBoats") + (_faction get "vehiclesTransportBoats")];
 };
 
-_faction;
+_faction

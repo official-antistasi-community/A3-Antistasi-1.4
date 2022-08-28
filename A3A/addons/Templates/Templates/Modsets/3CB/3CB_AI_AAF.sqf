@@ -132,8 +132,8 @@ _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["UK3CB_AAF_B_H_Beret_Army"]];
 _loadoutData set ["sniHats", []];
 
-_loadoutData set ["glasses", ["G_Tactical_Clear", "G_Tactical_Black", "G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted"]];
-_loadoutData set ["goggles", ["G_Combat", "G_Lowprofile"]];
+_loadoutData set ["glasses", ["rhs_googles_black", "rhs_googles_clear", "G_Tactical_Clear", "G_Tactical_Black", "G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted"]];
+_loadoutData set ["goggles", ["rhsusf_oakley_goggles_ylw", "rhsusf_oakley_goggles_clr", "rhsusf_oakley_goggles_blk"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -176,6 +176,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData;
+_sfLoadoutData set ["goggles", ["rhsusf_shemagh_gogg_tan", "rhsusf_shemagh_gogg_od", "rhsusf_shemagh_gogg_grn", "rhsusf_shemagh_gogg_white"]];
 _sfLoadoutData set ["uniforms", ["UK3CB_AAF_B_U_CombatUniform_DIGI_GRN", "UK3CB_AAF_B_U_CombatUniform_Shortsleeve_DIGI_GRN"]];
 _sfLoadoutData set ["vests", ["rhsusf_mbav_rifleman"]];
 _sfLoadoutData set ["mgVests", ["rhsusf_mbav_mg"]];

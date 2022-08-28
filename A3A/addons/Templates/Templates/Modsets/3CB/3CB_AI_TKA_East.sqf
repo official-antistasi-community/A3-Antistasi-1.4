@@ -183,6 +183,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData;
+_sfLoadoutData set ["goggles", ["rhs_facewear_6m2", "rhs_facewear_6m2_1", "rhs_balaclava"]];
 _sfLoadoutData set ["uniforms", ["UK3CB_TKA_O_U_CombatUniform_01_Des_TKA_Brush", "UK3CB_TKA_O_U_CombatUniform_02_Des_TKA_Brush",
 "UK3CB_TKA_O_U_CombatUniform_03_Des_TKA_Brush"]];
 _sfLoadoutData set ["helmets", ["UK3CB_TKA_O_H_6b27m_Surpat", "UK3CB_TKA_O_H_6b27m_ESS_Surpat", "UK3CB_TKA_O_H_6b7_1m_bala2_Surpat"]];

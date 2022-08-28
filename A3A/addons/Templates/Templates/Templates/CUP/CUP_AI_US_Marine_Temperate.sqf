@@ -192,6 +192,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData;
+_sfLoadoutData set ["goggles", ["CUP_G_ESS_BLK_Facewrap_Black", "CUP_G_ESS_RGR_Facewrap_Ranger", "CUP_G_ESS_KHK_Facewrap_White", "CUP_G_ESS_BLK_Scarf_Face_Blk", "CUP_G_ESS_KHK_Scarf_Tan_GPS_Beard", "CUP_G_ESS_BLK_Scarf_White_GPS_Beard", "CUP_G_ESS_BLK_Scarf_White_GPS_Beard_Blonde", "CUP_G_Tan_Scarf_GPS_Beard_Blonde","CUP_G_ESS_KHK_Scarf_Tan_Beard"]];
 _sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_U_B_USMC_FROG1_WMARPAT", "CUP_U_B_USMC_FROG2_WMARPAT", "CUP_U_B_USMC_FROG3_WMARPAT", "CUP_U_B_USMC_FROG4_WMARPAT"]];

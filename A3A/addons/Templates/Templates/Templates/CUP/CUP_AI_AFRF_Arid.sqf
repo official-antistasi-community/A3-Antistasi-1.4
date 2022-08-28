@@ -190,6 +190,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData;
+_sfLoadoutData set ["goggles", ["CUP_G_ESS_BLK_Facewrap_Black", "CUP_G_ESS_RGR_Facewrap_Ranger", "CUP_G_ESS_KHK_Facewrap_White", "CUP_G_ESS_BLK_Scarf_Face_Blk", "CUP_G_ESS_KHK_Scarf_Tan_GPS_Beard", "CUP_G_ESS_BLK_Scarf_White_GPS_Beard", "CUP_G_ESS_BLK_Scarf_White_GPS_Beard_Blonde", "CUP_G_Tan_Scarf_GPS_Beard_Blonde","CUP_G_ESS_KHK_Scarf_Tan_Beard"]];
 _sfLoadoutData set ["uniforms", [ "CUP_U_O_RUS_BeigeDigital_VDV", "CUP_U_O_RUS_BeigeDigital_VDV_gloves_pads", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up", "CUP_U_O_RUS_BeigeDigital_VDV_rolled_up_gloves_pads"]];
 _sfLoadoutData set ["vests", ["CUP_V_B_Ciras_MCam"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_mc"]];

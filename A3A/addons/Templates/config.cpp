@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3A_core"};
+        requiredAddons[] = {"A3A_core", "A3A_Events"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

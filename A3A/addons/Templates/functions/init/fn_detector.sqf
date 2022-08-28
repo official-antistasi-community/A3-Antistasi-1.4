@@ -21,7 +21,7 @@
   Example:
     call A3A_fnc_detector;
 */
-#include "..\script_component.hpp"
+#include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
 //initialisation

@@ -156,8 +156,8 @@ _loadoutData set ["helmets", []];
 _loadoutData set ["glHelmets", []];
 _loadoutData set ["mgHelmets", []];
 
-_loadoutData set ["glasses", ["G_Tactical_Clear", "G_Tactical_Black", "G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted"]];
-_loadoutData set ["goggles", ["G_Combat", "G_Lowprofile"]];
+_loadoutData set ["glasses", ["vn_b_spectacles", "vn_b_squares", "vn_b_spectacles_tinted", "vn_b_squares_tinted"]];
+_loadoutData set ["goggles", ["vn_b_acc_goggles_01"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -441,6 +441,7 @@ _crewLoadoutData set ["helmets", ["vn_b_helmet_t56_02_02", "vn_b_helmet_t56_02_0
 
 private _pilotLoadoutData = ["pilotLoadoutData"] call _fnc_createLoadoutData;
 _pilotLoadoutData merge _loadoutData;
+_loadoutData set ["glasses", ["vn_b_aviator", "vn_g_glasses_01"]];
 _pilotLoadoutData set ["uniforms", ["vn_b_uniform_heli_01_01"]];
 _pilotLoadoutData set ["vests", ["vn_b_vest_aircrew_05"]];
 _pilotLoadoutData set ["helmets", ["vn_b_helmet_svh4_02_06", "vn_b_helmet_svh4_02_03", "vn_b_helmet_svh4_02_04"]];

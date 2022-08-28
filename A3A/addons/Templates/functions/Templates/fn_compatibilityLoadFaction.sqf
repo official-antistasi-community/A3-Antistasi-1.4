@@ -15,7 +15,7 @@
         Namespace containing faction information
 
   Examples:
-        ["\x\A3A\addons\core\Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
+        ["\x\A3A\addons\core\Templates\Modsets\Vanilla\Vanilla_AI_CSAT_Arid.sqf", west] call A3A_fnc_compatabilityLoadFaction;
 
     topics: Debuging
         compatabilityLoadFaction will bypass template verification if you haven't defined __A3_DEBUG__ or run in debug mode.
@@ -27,7 +27,7 @@ params ["_file", "_side"];
 Info_2("Compatibility loading template: '%1' as side %2", _file, _side);
 
 private _factionDefaultFile = ["EnemyDefaults","EnemyDefaults","RebelDefaults","CivilianDefaults"] #([west, east, independent, civilian] find _side);
-_factionDefaultFile = QPATHTOFOLDER(Templates\Templates\FactionDefaults) + "\" + _factionDefaultFile + ".sqf";
+_factionDefaultFile = QPATHTOFOLDER(Templates\Modsets\FactionDefaults) + "\" + _factionDefaultFile + ".sqf";
 
 private _factionPrefix = ["occ", "inv", "reb", "civ"] #([west, east, independent, civilian] find _side);
 private _faction = [[_factionDefaultFile,_file], _factionPrefix] call A3A_fnc_loadFaction;

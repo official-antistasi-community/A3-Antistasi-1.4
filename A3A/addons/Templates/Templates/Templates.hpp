@@ -8,7 +8,7 @@ class Templates
         priorityCiv = 1; //highest is favored when auto picking
 
         requiredAddons[] = {}; //the cfgPatches class of the mod these templates are depending on
-        path = QPATHTOFOLDER(Templates\Templates\Vanilla); //the path to the template folder
+        path = QPATHTOFOLDER(Templates\Modsets\Vanilla); //the path to the template folder
 
         //Type class: AI, Reb, Civ
         class AI
@@ -104,7 +104,7 @@ class Templates
         priorityCiv = 2;
 
         requiredAddons[] = {"vn_weapons"};
-        path = QPATHTOFOLDER(Templates\Templates\VN);
+        path = QPATHTOFOLDER(Templates\Modsets\VN);
 
         class AI
         {
@@ -140,7 +140,7 @@ class Templates
         priorityCiv = 3;
 
         requiredAddons[] = {"rhsgref_main"};// this requires usaf and afrf internaly so coveres all 3
-        path = QPATHTOFOLDER(Templates\Templates\RHS);
+        path = QPATHTOFOLDER(Templates\Modsets\RHS);
 
         class AI
         {
@@ -211,7 +211,7 @@ class Templates
         priorityCiv = 4;
 
         requiredAddons[] = {"UK3CB_Factions_Vehicles_SUV"};
-        path = QPATHTOFOLDER(Templates\Templates\3CB);
+        path = QPATHTOFOLDER(Templates\Modsets\3CB);
 
         class AI
         {
@@ -314,7 +314,7 @@ class Templates
             ,"UK3CB_BAF_Units_Common"
             ,"UK3CB_BAF_Equipment"
         };
-        path = QPATHTOFOLDER(Templates\Templates\3CB);
+        path = QPATHTOFOLDER(Templates\Modsets\3CB);
 
         class AI
         {
@@ -338,6 +338,7 @@ class Templates
 
         Nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
     };
+    
     class CUP
     {
         priorityOcc = 6;
@@ -346,7 +347,7 @@ class Templates
         priorityCiv = 6;
 
         requiredAddons[] = {"CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};        // units, weapons, vehicles
-        path = QPATHTOFOLDER(Templates\Templates\CUP);
+        path = QPATHTOFOLDER(Templates\Modsets\CUP);
 
         class AI
         {

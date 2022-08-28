@@ -311,7 +311,7 @@ _aaTemplate = {
   Machine Gunner loadout generator code
 */
 _machineGunnerTemplate = {
-    [["mgHelmets", "helmets"]call _fnc_fallback] call _fnc_setHelmet;
+    [["mgHelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     [["mgVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;

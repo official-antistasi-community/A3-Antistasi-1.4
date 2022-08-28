@@ -464,7 +464,8 @@ _militiaLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _crewLoadoutData = ["crewLoadoutData"] call _fnc_createLoadoutData; // touch and shit breaks
+_crewLoadoutData merge _loadoutData;
 _crewLoadoutData set ["uniforms", ["rhs_uniform_FROG01_d"]];
 _crewLoadoutData set ["vests", ["rhsusf_spc_crewman"]];
 _crewLoadoutData set ["helmets", ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_alt_helmet", "rhsusf_cvc_helmet", "rhsusf_cvc_alt_helmet"]];

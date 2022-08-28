@@ -184,6 +184,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
 _sfLoadoutData merge _loadoutData; // touch and shit breaks
+_sfLoadoutData set ["goggles", ["rhs_facewear_6m2", "rhs_facewear_6m2_1", "rhs_balaclava"]];
 _sfLoadoutData set ["uniforms", ["rhs_uniform_6sh122_gloves_v2"]];
 _sfLoadoutData set ["vests", ["rhs_6b23_digi_6sh92_Spetsnaz", "rhs_6b23_digi_6sh92_spetsnaz2"]];
 _sfLoadoutData set ["slVests", ["rhs_6b23_digi_6sh92_headset_spetsnaz", "rhs_6b23_digi_6sh92_Vog_Radio_Spetsnaz"]];

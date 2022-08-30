@@ -55,7 +55,7 @@ private _Civ = [];
 private _nodes = [];
 
 private _prioritisations = [[0,"",""],[0,"",""],[0,"",""],[0,"",""]];
-private _updatePreferedFaction = {
+private _fnc_updatePreferedFaction = {
     private _entryName = ["priorityOcc","priorityInv","priorityReb","priorityCiv"] # _this;
     private _side = ["Occ","Inv","Reb","Civ"] # _this;
     if (getNumber (_x/_entryName) > (_prioritisations#_this#0)) then {
@@ -92,7 +92,7 @@ private _templates = configFile/"A3A"/"Templates";
     ["Civ", _Civ] call _fnc_gatherTemplates;
 
     //template default selection
-    for "_i" from 0 to 3 do { _i call _updatePreferedFaction };
+    for "_i" from 0 to 3 do { _i call _fnc_updatePreferedFaction };
 
     _nodes append (getArray (_x/"Nodes") apply {_rootPath + _X});
 

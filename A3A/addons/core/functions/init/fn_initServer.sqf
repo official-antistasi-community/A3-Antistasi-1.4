@@ -87,8 +87,9 @@ savingServer = true;
 #define MODE_ARRAY ["SP","MP"]
 Info_2("%1 server version: %2", MODE_ARRAY select isMultiplayer, QUOTE(VERSION));
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
+call A3A_fnc_loadNavGrid;
+call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];

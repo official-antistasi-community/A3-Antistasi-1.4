@@ -483,17 +483,19 @@ class CfgFunctions
 
         class Pathfinding {
             file = QPATHTOFOLDER(functions\Pathfinding);
+            class addToNavCells {};
+            class addNodesNearMarkers {};
             class areNodesConnected {};
             class calculateH {};
             class convoyTest {};
             class drawGrid {};
             class drawLine {};
             class drawPath {};
+            class findNavDistance {};
             class findNodesInDistance {};
             class findPath {};
             class findPathPrecheck {};
             class findPosOnRoute {};
-            class getMainPositions {};
             class getMarkerNavPoint {};
             class getNearestNavPoint {};
             class listInsert {};
@@ -501,7 +503,6 @@ class CfgFunctions
             class markNode {};
             class roadAStar {};
             class roadConnPoint {};
-            class setNavData {};
             class trimPath {};
         };
 

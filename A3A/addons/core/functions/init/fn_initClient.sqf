@@ -27,6 +27,8 @@ if (!hasInterface) exitWith {
 	call A3A_fnc_initVar;
 	call A3A_fnc_initFuncs;
 	call A3A_fnc_loadNavGrid;
+	waitUntil {(!isNil "serverInitDone")};
+	call A3A_fnc_addNodesNearMarkers;			// Needs marker lists from server
     Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };

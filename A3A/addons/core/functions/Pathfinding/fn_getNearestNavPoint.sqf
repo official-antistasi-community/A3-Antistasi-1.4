@@ -1,6 +1,6 @@
 /*
-Author: Wurzel0701
-    Returns the index of the nearest nav node to a given position
+Maintainer: John Jordan
+    Returns the index of the nearest nav node within 300m of a given position
 
 Arguments:
     <POSITION> The start position from which should be searched
@@ -8,7 +8,7 @@ Arguments:
 Return Value:
     <NUMBER> Index of the nearest nav node (-1 if none found)
 
-Scope: Server
+Scope: Server or HC
 Environment: Any
 Public: Yes
 Dependencies:
@@ -18,35 +18,30 @@ Example:
     [getPos player] call A3A_fnc_getNearestNavPoint;
 */
 
-params
-[
-    ["_pos", [-1,-1,-1], [[]]]
-];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-if(isNil "roadDataDone") exitWith
-{
-    Error("Road database not loaded yet, cannot get nodes");
-	-1;
+params ["_pos"];
+
+private _navCell = format ["%1/%2", floor ((_pos#0)/1000), floor ((_pos#1)/1000)];
+private _navPoints =  A3A_navCellHM getOrDefault [_navCell, []];
+
+private _nearPoints = _navPoints inAreaArray [_pos, 75, 75];
+if (_nearPoints isEqualTo []) then {
+    _nearPoints = _navPoints inAreaArray [_pos, 150, 150];
+    if (_nearPoints isEqualTo []) then {
+        _nearPoints = _navPoints inAreaArray [_pos, 300, 300];
+    };
 };
 
-private _mainMarker = format ["%1/%2", floor ((_pos#0)/1000), floor ((_pos#1)/1000)];
-private _navPoints =  missionNamespace getVariable [(format ["%1_navData", _mainMarker]), []];
-
-private _currentNearest = -1;
-private _currentDistance = 0;
-
+private _nearIndex = -1;
+private _nearDist = 1e6;
 {
-    private _data = navGrid select _x;
-    private _navPos = _data select 0;
-
-    private _distance = _navPos distance _pos;
-    if((_distance <= 300) && ((_currentNearest == -1) || {_currentDistance > _distance})) then
-    {
-        _currentNearest = _x;
-        _currentDistance = _distance;
+    private _dist = _x distance2d _pos;
+    if (_nearDistance > _dist) then {
+        _nearIndex = _x#2;
+        _nearDist = _dist;
     };
-} forEach _navPoints;
+} forEach _nearPoints;
 
-_currentNearest;
+_nearIndex;

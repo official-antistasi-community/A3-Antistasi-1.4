@@ -156,6 +156,8 @@ for "_i" from 0 to (count _groups) - 1 do
 		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
 	};
 };
+["locationSpawned", [_markerX, "RebelOutpost", true]] call EFUNC(Events,triggerEvent);
+
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
@@ -166,3 +168,4 @@ deleteGroup _groupStatics;
 deleteGroup _groupMortars;
 
 {if (!(_x in staticsToSave)) then {deleteVehicle _x}} forEach _vehiclesX;
+["locationSpawned", [_markerX, "RebelOutpost", false]] call EFUNC(Events,triggerEvent);

@@ -49,6 +49,7 @@ if(typeName (_this select 0) isEqualTo "SCALAR")then{//[_index, _item] and [_ind
 				// then update other players. Don't execute on server twice
 				private _playersInArsenal = +(server getVariable ["jna_playersInArsenal",[]]) - [2];
 				if (0 in _playersInArsenal) then { _playersInArsenal = -2 };
+				if (_playersInArsenal isEqualTo []) exitWith {};
 				["UpdateItemAdd",[_index, _item, _amount,true]] remoteExecCall ["jn_fnc_arsenal",_playersInArsenal];
 			};
 		};

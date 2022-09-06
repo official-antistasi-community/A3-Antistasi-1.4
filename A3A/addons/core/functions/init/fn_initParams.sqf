@@ -29,6 +29,7 @@ A3A_paramTable = [
     ["autoSave", "autoSave", [], true],
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
+    ["enemyNearDistance", "enemyNearDistanceLimit", [], 300],
     ["skillMult", "AISkill", [], 2],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
@@ -68,6 +69,7 @@ A3A_paramTable = [
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
     ["logLevel", "LogLevel", ["override"], 3],
+    ["A3A_logDebugConsole", "A3A_logDebugConsole", [], 1],
     ["A3A_GUIDevPreview", "A3A_GUIDevPreview", [], false],
 
     ["bobChaosCrates", "truelyRandomCrates", [], false],

@@ -1,3 +1,4 @@
+#include "..\script_component.hpp"
 //Author: Jeroen Not
 
 if(isnil "CBA_fnc_waitUntilAndExecute")exitWith{};
@@ -156,7 +157,15 @@ fnc_debugv2_overwrite = {
 					};
 
 					_input = (_strings joinString "") + _input;
-
+                    //logging of executed code for security
+                    call {
+                        if (A3A_logDebugConsole isEqualTo -1) exitWith {};
+                        if (
+                            (A3A_logDebugConsole isEqualTo 1) &&
+                            {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
+                        ) exitWith {};
+                        ServerInfo_3("Saved Debug line executed by %1[%2]"+endl+"=============="+endl+"%3"+endl+"==============",name player, clientOwner, _input);
+                    };
 					call compile _input;
 				}
 			],[
@@ -277,8 +286,27 @@ fnc_debugv2_overwrite = {
 		((UiNameSpace getVariable "jn_debugConsole_buttons") # _index) ctrlSetText _name;
 	}];
 
-
-
+    //logging of executed code for security
+    {
+        private _ctrl = _display displayCtrl (_x#0);
+        _ctrl setVariable ["JN_Debug_buttonName", _x#1];
+        _ctrl ctrlAddEventHandler ["ButtonClick", {
+            if (A3A_logDebugConsole isEqualTo -1) exitWith {};
+            if (
+                (A3A_logDebugConsole isEqualTo 1) &&
+                {(getPlayerUID player) in (getArray (missionConfigFile/"enableDebugConsole"))}
+            ) exitWith {};
+            params ["_ctrl"];
+            private _btnName = _ctrl getVariable ["JN_Debug_buttonName", "[ERROR NONAME]"];
+            private _code = ctrlText (findDisplay 49 displayCtrl 12284);
+            ServerInfo_4("Debug line executed as %1 by %2[%3]"+endl+"=============="+endl+"%4"+endl+"==============",_btnName,name player, getPlayerUID player, _code);
+        }];
+    } forEach [
+        [13285, "Global Exec"],
+        [13286, "Server Exec"],
+        [13484, "Local Exec"],
+        [13284, "Performance test"]
+    ];
 
 };
 

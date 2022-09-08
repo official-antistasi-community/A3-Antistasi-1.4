@@ -7,7 +7,7 @@ if (count units _group == 0) exitWith { deleteGroup _group };
 
 // Strip spawner status. If the group is waiting to despawn then it's no longer active
 {
-	if (_x getVariable ["spawner", false]) then { _x setVariable ["spawner", false, true] };
+	if (_x getVariable ["spawner", false]) then { _x setVariable ["spawner", nil, true] };
 } forEach units _group;
 
 private _eny1 = Occupants;

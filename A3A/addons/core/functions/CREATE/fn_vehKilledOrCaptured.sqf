@@ -19,6 +19,18 @@ if (_captured && (_side == _sideEnemy)) exitWith {};
 private _act = if (_captured) then {"captured"} else {"destroyed"};
 ServerDebug_4("%1 of %2 %3 by %4", _type, _side, _act, _sideEnemy);
 
+// Kick units out of vehicles when destroyed & touching ground
+if (!_captured and count crew _veh > 0) then {
+	_veh spawn {
+		private _timeout = time + 30;			// sometimes destroyed vehicles return isTouchingGround false
+		waitUntil { sleep 2; time > _timeout or isTouchingGround _this };
+		while {count crew _this > 0} do {
+			moveOut (crew _this # 0);
+			sleep 0.5;
+		};
+	};
+};
+
 private _vehCost = A3A_vehicleResourceCosts getOrDefault [_type, 0];
 if ((_side == Occupants or _side == Invaders) and _vehCost > 0) then
 {

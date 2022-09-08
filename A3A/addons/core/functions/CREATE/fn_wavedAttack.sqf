@@ -15,17 +15,19 @@ Arguments:
 FIX_LINE_NUMBERS()
 // server guard?
 
+params ["_mrkDest", "_mrkOrigin", "_maxWaves"];
+
+Info_3("Creating waved attack against %1 from %2 with %3 waves", _mrkDest, _mrkOrigin, _maxWaves);
+
 // TODO: move this to chooseAttack?
 bigAttackInProgress = true; publicVariable "bigAttackInProgress";
+forcedSpawn pushBack _mrkDest; publicVariable "forcedSpawn";
 
-params ["_mrkDest", "_mrkOrigin", "_maxWaves"];
 private _targpos = markerPos _mrkDest;
 private _side = sidesX getVariable _mrkOrigin;
 private _targside = sidesX getVariable _mrkDest;
 private _faction = Faction(_side);
-forcedSpawn pushBack _mrkDest; publicVariable "forcedSpawn";
-
-Info_3("Creating waved attack against %1 from %2 with %3 waves", _mrkDest, _mrkOrigin, _maxWaves);
+private _lowAir = _faction getOrDefault ["attributeLowAir", false];
 
 // Create a task for enemy vs rebel, notification only for enemy vs enemy
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
@@ -60,20 +62,8 @@ while {_wave <= _maxWaves and !_victory} do
 {
     // Somewhat flattened because a lot of the work is done by garrisons
     private _vehCount = round (2 + random 1 + 3*A3A_balancePlayerScale);
-    if (_targside != teamPlayer) then { _vehCount = 4 + round (random 2) };
+    if (_targside != teamPlayer) then { _vehCount = 5 + round (random 2) };
     if (_wave == 1) then { _vehCount = _vehCount + 2 };
-
-    private _resourcesSpent = 0;
-    private _vehicles = [];
-    private _crewGroups = [];
-    private _cargoGroups = [];
-
-    private _basesAndWeights = [_side, markerPos _mrkDest, true] call A3A_fnc_availableBasesLand;
-    private _countLandBases = count (_basesAndWeights#0);
-    private _landbase = _basesAndWeights#0 selectRandomWeighted _basesAndWeights#1;
-
-    if (_countLandBases > 0) then { ServerDebug_2("Using land base %1 (%2 available)", _landBase, _countLandBases) };
-
 
     // Check what air supports & attack helis we have left from previous waves
     // Check active air supports for UAV/CAS/ASF
@@ -90,50 +80,26 @@ while {_wave <= _maxWaves and !_victory} do
         _attackHelis = _attackHelis select { canMove _x and canFire _x };
 
         private _remSupports = (count _airSupports + count _attackHelis);
-        private _reqSupports = round (_vehCount * (0.1 + random 0.1 + (5 + tierWar) * 0.025));
+        private _reqSupports = round (_vehCount * (0.1 + random 0.1 + (5 + tierWar) * 0.025) * ([1, 0.4] select _lowAir));
         _countNewSupport = 1 max (_reqSupports - _remSupports);
 
         ServerDebug_3("Remaining air supports %1, plus %2 attack helis. Adding %3 air supports", _airSupports, count _attackHelis, _countNewSupport);
     };
+    _vehCount = _vehCount - _countNewSupport;
 
     // Approx, just to prevent sending QRFs on top
-	A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, (_vehCount-_countNewSupport) * A3A_balanceVehicleCost];
+	A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, _vehCount * A3A_balanceVehicleCost];
 
 
-    // Now send the ground part of the wave, if any
-    if (_countLandBases != 0) then
-    {
-        private _groundVehCount = _vehCount - _countNewSupport;
-        // If we're sending a lot of stuff or there's only one land base, send some air transports anyway
-        if (_groundVehCount >= 4 or _countLandBases == 1) then { _groundVehCount = _groundVehCount * (0.5 + random 0.5) };
-        _groundVehCount = ceil _groundVehCount;
-        private _attackCount = round (_groundVehCount * (0.25 + random 0.2));
-
-        // ["_side", "_originMrk", "_destMrk", "_resPool", "_vehCount", "_attackVehCount", "_tierMod"]
-        private _data = [_side, _landBase, _mrkDest, "attack", _groundVehCount, _attackCount, 2] call A3A_fnc_createAttackForceLand;
-        _resourcesSpent = _resourcesSpent + _data#0;
-        _vehicles = _vehicles + _data#1;
-        _crewGroups = _crewGroups + _data#2;
-        _cargoGroups = _cargoGroups + _data#3;
-
-        [-(_data#0), _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
-
-        ServerInfo_1("Spawn performed: Ground vehicles %1", (_data#1) apply {typeof _x});
-    };
-
-
-    // Now we delay until ground vehicles should have got somewhere near...
-    private _approxTime = 60 + random 120;
-    if (!isNil "_landBase") then { _approxTime = (markerPos _landBase distance _targpos) / 15 };
-
-    [_reveal, _side, "MajorAttack", _targPos, _approxTime] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
-
-    sleep _approxTime;
+    // Send the land units and air transports. Returns once air sent
+    private _minDelay = [0, 300 / A3A_balancePlayerScale] select (_wave == 1 and _targSide == teamPlayer);
+    //params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
+    private _data = [_side, _mrkOrigin, _mrkDest, "attack", _vehCount, _minDelay, ["noairsupport"], "MajorAttack", _reveal] call A3A_fnc_createAttackForceMixed;
+    _data params ["", "_newVehicles", "_crewGroups", "_cargoGroups"];
 
 
     // Now add air supports up to the requirement
     private _newAttackHelis = 0;
-    private _airVehicleCount = _vehCount - count _vehicles;
     for "_i" from 1 to _countNewSupport do 
     {
         private _possibles = ["AH", 1];
@@ -148,23 +114,20 @@ while {_wave <= _maxWaves and !_victory} do
             private _suppName = [_support, _side, "attack", 500, objNull, _targPos, 0, 0] call A3A_fnc_createSupport;
             if (_suppName == "") exitWith { _newAttackHelis = _newAttackHelis + 1 };
             _airSupports pushBack _support;
-            _airVehicleCount = _airVehicleCount - 1;
         };
     };
 
-    // Now spawn the air transports and attack helis
-    if (_airVehicleCount > 0) then {
+    // Spawn the attack helis
+    if (_newAttackHelis > 0) then {
         // ["_side", "_originMrk", "_destMrk", "_resPool", "_vehCount", "_attackVehCount", "_tierMod"]
-        private _data = [_side, _mrkOrigin, _mrkDest, "attack", _airVehicleCount, _newAttackHelis, 2] call A3A_fnc_createAttackForceAir;
-        _resourcesSpent = _resourcesSpent + _data#0;
-        _vehicles = _vehicles + _data#1;
-        _crewGroups = _crewGroups + _data#2;
-        _cargoGroups = _cargoGroups + _data#3;
-        { if (_x in (_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack")) then { _attackHelis pushBack _x } } forEach (_data#1);
+        private _data = [_side, _mrkOrigin, _mrkDest, "attack", _newAttackHelis, _newAttackHelis, 2] call A3A_fnc_createAttackForceAir;
+        _newVehicles append _data#1;
+        _attackHelis append _data#1;
+        _crewGroups append _data#2;
 
         [-(_data#0), _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
-        ServerInfo_1("Spawn performed: Air vehicles %1", (_data#1) apply {typeof _x});
+        ServerInfo_1("Spawn performed: Attack helis %1", (_data#1) apply {typeof _x});
     };
 
     // Request some artillery
@@ -179,14 +142,13 @@ while {_wave <= _maxWaves and !_victory} do
         [_side, _target, "attack", _wave min 4, 0, 0] call A3A_fnc_requestArtillery;
     };
 
-
     private _timeout = time + 900;		// wave timeout, 15 mins after the wave has finished spawning
     private _soldiers = [];
     { _soldiers append units _x } forEach _cargoGroups;     // only new troops count, in case old troops are just stuck somewhere
 
     _allCargoGroups append _cargoGroups;
     _allCrewGroups append _crewGroups;
-    _allVehicles append _vehicles;
+    _allVehicles append _newVehicles;
 
     // Wave termination monitor
     while {true} do
@@ -194,22 +156,24 @@ while {_wave <= _maxWaves and !_victory} do
 //    if (sidesX getVariable [_mrkDestination,sideUnknown] != teamPlayer) then {_soldiers spawn A3A_fnc_remoteBattle};
         private _markerSide = sidesX getVariable _mrkDest;
         if(_markerSide == _side) exitWith {
-            ServerInfo_1("Wave %1 has captured %2", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 has captured %2", _wave, _mrkDest);
             _victory = true;
         };
 
-        private _curSoldiers = { _x call A3A_fnc_canFight } count _soldiers;
+        private _curSoldiers = { !fleeing _x and _x call A3A_fnc_canFight } count _soldiers;
+        Debug_2("%1 soldiers remaining out of %2", _curSoldiers, count _soldiers);
         if (_curSoldiers < count _soldiers * 0.25) exitWith {
-            ServerInfo_1("Wave %1 against %2 has been defeated", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 against %2 has been defeated", _wave, _mrkDest);
         };
         if(_timeout < time) exitWith {
-            ServerInfo_1("Wave %1 against %2 has timed out", _wave, _mrkDest);
+            ServerInfo_2("Wave %1 against %2 has timed out", _wave, _mrkDest);
         };
 
         // Attempt to flip marker
         [_mrkDest, _markerSide] remoteExec ["A3A_fnc_zoneCheck", 2];
         sleep 10;
     };
+    _wave = _wave + 1;
 };
 
 // TODO: Check some of this stuff for locality requirements

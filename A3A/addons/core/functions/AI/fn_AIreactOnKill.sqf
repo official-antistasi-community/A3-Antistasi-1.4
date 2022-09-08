@@ -48,6 +48,12 @@ if(_group getVariable ["A3A_canCallSupportAt", -1] < time) then {
     [_group, _killer] spawn A3A_fnc_callForSupport;
 };
 
+if (!fleeing leader _group and random 1 < 0.5) then
+{
+    private _courage = leader _group skill "courage";
+    _group allowFleeing (2 - _courage - count _activeGroupMembers / count units _group);
+};
+
 {
     if (fleeing _x) then
 	{
@@ -113,13 +119,6 @@ if(_group getVariable ["A3A_canCallSupportAt", -1] < time) then {
 					};
 				};
 			};
-            if (random 1 < 0.5) then
-            {
-                if (count units _group > 0) then            // function is so slow that this isn't guaranteed
-                {
-                    _x allowFleeing (1 -(_x skill "courage") + (count _activeGroupMembers)/(count units _group));
-                };
-            };
 		};
 	};
     sleep (1 + random 1);

@@ -39,7 +39,7 @@ private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehi
 if (_expectedCargo >= 2) then
 {
     // These types won't let the cargo group disembark, so they're a waste of units even if they have spare seats
-    if (_vehicleType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack"));
+    if (_vehicleType in FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesHelisLightAttack")) exitWith {};
 
     //Vehicle is able to transport units
     private _groupType = call {
@@ -59,7 +59,6 @@ if (_expectedCargo >= 2) then
 };
 
 _landPosBlacklist = [_vehicle, _crewGroup, _cargoGroup, _posDestination, _markerOrigin, _landPosBlacklist] call A3A_fnc_createVehicleQRFBehaviour;
-ServerDebug_2("Spawn Performed: Created vehicle %1 with %2 soldiers", typeof _vehicle, count crew _vehicle);
+ServerDebug_5("Spawn Performed: Created vehicle %1 with %2 crew (%3) and %4 cargo (%5)", typeof _vehicle, count units _crewGroup, _crewGroup, count units _cargoGroup, _cargoGroup);
 
-private _vehicleData = [_vehicle, _crewGroup, _cargoGroup, _landPosBlacklist];
-_vehicleData;
+[_vehicle, _crewGroup, _cargoGroup, _landPosBlacklist];

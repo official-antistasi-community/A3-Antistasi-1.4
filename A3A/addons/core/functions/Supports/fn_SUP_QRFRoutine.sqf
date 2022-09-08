@@ -51,7 +51,7 @@ private _soldiers = [];
 
 while {true} do
 {
-    private _curSoldiers = { _x call A3A_fnc_canFight } count _soldiers;
+    private _curSoldiers = { !fleeing _x and _x call A3A_fnc_canFight } count _soldiers;
     if (_curSoldiers <= count _soldiers * 0.25) exitWith {
         ServerInfo_1("QRF %1 has been defeated, starting retreat", _supportName);
     };

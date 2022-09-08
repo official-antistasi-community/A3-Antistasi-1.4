@@ -23,5 +23,5 @@ if (_faction get "staticMortars" isEqualTo []) exitWith { 0 };
 // balance this one against artillery
 if (tierWar < 2) exitWith { 0 };
 private _weight = 1 - (0 max (tierWar - 5) / 10);
-
+if (_faction getOrDefault ["attributeLowAir", false]) exitWith { _weight * 1.8 };         // more arty fewer airstrikes
 _weight;

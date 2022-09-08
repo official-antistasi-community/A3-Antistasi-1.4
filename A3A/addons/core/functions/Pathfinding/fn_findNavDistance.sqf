@@ -1,38 +1,27 @@
 /*
-    Find shortest road path between two roads using simple A*. Not recommended for >1km.
+    A3A_fnc_findNavDistance
+    Find shortest road distance between two positions or nav indices using simple A*
 
 Parameters:
-    <OBJECT> Start road.
-    <OBJECT> End road.
-    <NUMBER> (Optional, default 2) Maximum travel distance, as multiplier of start->end distance.
+    <INTEGER|POS2D> Start position or nav index.
+    <INTEGER|POS2D> End position or nav index.
+    <SCALAR> Optional: Maximum travel distance in metres.
 
 Returns:
-    <ARRAY> Road objects from start to end, inclusive. Empty array if a path wasn't found.
+    <SCALAR> Minimum Road distance from start to end, or -1 if none found or max dist exceeded
 */
 
-/* Navgrid format?
-ARRAY<           navGridDB:
-  <POSATL>          Road pos.
-  <SCALAR>          Island ID.
-  <BOOLEAN>         isJunction.
-  <ARRAY<           Connections:
-    <SCALAR>          Index in navGridDB of connected road.
-    <SCALAR>          Road type Enumeration. {TRACK = 0; ROAD = 1; MAIN ROAD = 2} at time of writing.
-    <SCALAR>          True driving distance to connection, includes distance of roads swallowed in simplification.
-  >>
->
-[[_posATL,_islandID,_isJunction,[_conPos2D,_roadEnum,_distance]]]
-*/
+params ["_start", "_end", ["_maxDist", 1e5]];
 
-params ["_startPos", "_endPos", "_maxDist"];
-
-private _startIndex = [_startPos] call A3A_fnc_getNearestNavPoint;
-private _endIndex = [_endPos] call A3A_fnc_getNearestNavPoint;
-// TODO: subtract start->nav and end->nav from distance? Or fancier?
+private _startIndex = if (_start isEqualType 0) then { _start } else { [_start] call A3A_fnc_getNearestNavPoint };
+private _endIndex = if (_end isEqualType 0) then { _end } else { [_end] call A3A_fnc_getNearestNavPoint };
+if (_startIndex < 0 or _endIndex < 0) exitWith { -1 };
 if (NavGrid#_startIndex#1 != NavGrid#_endIndex#1) exitWith { -1 };          // different islands, no route
 
+// TODO: subtract start->nav and end->nav from distance? Or fancier?
+
 private _endPos = NavGrid#_endIndex#0;
-private _curEntry = [NavGrid#_startIndex#0 distance2d _endNavPos, _startIndex, -1, 0];
+private _curEntry = [0, _startIndex, 0, -1];            // curGH is really (NavGrid#_startIndex#0 distance2d _endPos), but not accessed here
 private _open = [];
 private _touched = createHashMapFromArray [[_startIndex, true]];
 private ["_newIndex", "_newG", "_newGH"];      // optimization
@@ -40,7 +29,7 @@ private ["_newIndex", "_newG", "_newGH"];      // optimization
 scopeName "main";
 while {!isNil "_curEntry"} do
 {
-    _curEntry params ["_curGH", "_curIndex", "_curParent", "_curG"];
+    _curEntry params ["", "_curIndex", "_curG"];        // full is [curGH, curIndex, curG, curParent]
     {
         _newIndex = _x#0;
         if (_newIndex in _touched) then { continue };
@@ -48,7 +37,7 @@ while {!isNil "_curEntry"} do
 
         _newG = _curG + _x#2;
         _newGH = _newG + 1.2*(NavGrid#_newIndex#0 distance _endPos);
-        if (_newGH < _maxDist) then { _open pushBack [_newGH, _newIndex, _curIndex, _newG] };
+        if (_newGH < _maxDist) then { _open pushBack [_newGH, _newIndex, _newG, _curIndex] };
         _touched set [_newIndex, true];
 
     } forEach (NavGrid#_curIndex#3);

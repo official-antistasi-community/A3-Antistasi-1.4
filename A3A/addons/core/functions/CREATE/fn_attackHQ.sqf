@@ -8,7 +8,7 @@ Environment: Scheduled, should be spawned
 Arguments:
     <SIDE> Side from which to send the attack (Occupants or Invaders)
     <STRING> Marker name of airport to send the attack from
-    <SCALAR> Optional: Delay in minutes after creating the task (Default: Auto-calculated from balancePlayerScale)
+    <SCALAR> Optional: Delay in seconds after creating the task (Default: Auto-calculated from balancePlayerScale)
 */
 
 #include "..\..\script_component.hpp"
@@ -16,22 +16,17 @@ FIX_LINE_NUMBERS()
 //Mission: HQ is under attack
 if (!isServer) exitWith { Error("Server-only function miscalled") };
 
-params ["_side", "_airbase", ["_delay", -1]];			// Side is now specified
+params ["_side", "_airbase", "_delay"];			// Side is now specified
 private _targPos = markerPos "Synd_HQ";
 private _faction = Faction(_side);
 
 bigAttackInProgress = true;
 publicVariable "bigAttackInProgress";
 
-
 private _taskId = "DEF_HQ" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format ["The enemy has sent SpecOps to find %1. Stop them, or move the HQ before they get here.",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_targPos,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "DEF_HQ", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// Give smaller player groups a bit more time to respond
-if (_delay < 0) then { _delay = 5 / A3A_balancePlayerScale };
-[_airbase, _delay + 10] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
-sleep (60 * _delay);
 
 // Send in a UAV. Add half a vehicle if they're unavailable
 // ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
@@ -39,17 +34,17 @@ private _uavSupp = ["UAV", _side, "attack", 500, objNull, _targPos, 0, 0] call A
 
 // Create the attacking force
 private _vehCount = round (1 + random 1 + 2 * A3A_balancePlayerScale + ([0, 0.5] select (_uavSupp == "")));
-private _attackRatio = (0.5 + random 1) * (tierWar+5) * 0.025;
-private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
-private _data = [_side, _airbase, _targPos, "attack", _vehCount, _attackCount, nil, "SpecOps"] call A3A_fnc_createAttackForceAir;
+// Give smaller player groups a bit more time to respond
+if (isNil "_delay") then { _delay = 300 / A3A_balancePlayerScale };
+
+//params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
+private _data = [_side, _airbase, _targPos, "attack", _vehCount, _delay, ["airboost", "specops"]] call A3A_fnc_createAttackForceMixed;
 _data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
-[-_resources, _side, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
 // May as well do it properly here
 A3A_supportStrikes pushBack [_side, "TROOPS", _targPos, time + 1800, 1800, _resources];
 
-ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x});
 
 // Call up some artillery
 call {
@@ -72,7 +67,7 @@ private _origPetros = petros;
 
 while {true} do
 {
-    private _curSoldiers = { _x call A3A_fnc_canFight } count _soldiers;
+    private _curSoldiers = { !fleeing _x and _x call A3A_fnc_canFight } count _soldiers;
     if (_curSoldiers < count _soldiers * 0.33) exitWith {
         ServerInfo("HQ attack has been defeated, starting retreat");
     };

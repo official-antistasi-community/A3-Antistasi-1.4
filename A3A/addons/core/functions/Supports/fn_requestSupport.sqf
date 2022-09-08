@@ -33,7 +33,9 @@ A3A_activeSupports = A3A_activeSupports select { _x#4 > 0 };                // r
 // HQ knowledge update
 call {
     private _hqDist = _target distance2d markerPos "Synd_HQ";
-    _hqSpot = (1 + random 1) * linearConversion [0, 500 + random 1000, _hqDist, 1, 0, true]; 
+    private _bunker = markerPos "Synd_HQ" nearObjects ["Land_Bunker_01_tall_F", 50] isNotEqualTo [];
+    private _maxSpot = (500 + random 1000) * ([0.5, 1] select _bunker);
+    _hqSpot = (1 + random 1) * linearConversion [0, _maxSpot, _hqDist, 1, 0, true]; 
     if (_hqSpot <= 0) exitWith {};
 
     if (_side == Invaders) then {
@@ -149,7 +151,7 @@ private _availParams = [_target, _side, _maxSpend];        //, _nearStrikes];
     };
 
     private _finalWeight = _proxWeight * _typeWeight * _targWeight;
-    if (_x in _actSuppHM) then { _finalWeight = _finalWeight * 3 };         // increase chance of re-using active supports
+    if (_x in _actSuppHM) then { _finalWeight = 1 max _finalWeight * 3 };         // increase chance of re-using active supports
     _weightedSupports append [_x, _finalWeight];
 
 } forEach A3A_supportTypesHM;           // Hashmap of support type to [base class, weight]

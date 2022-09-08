@@ -64,17 +64,19 @@ private _maxThreatDist = distanceForAirAttack + 1000;
 } forEach markersX;
 
 
-
 // use these for target value determination
 private _radioTowers = antennas + antennasDead;
 
+private _lowAir = Faction(_side) getOrDefault ["attributeLowAir", false];
+
 // Build list of friendly bases with ground attack capability
 // airportCanAttack state might change during the actual attack, so this is only approximate
-private _landAttackBases = [];
+private _landBases = [];
 {
     if (sidesX getVariable [_x, sideUnknown] != _side) then { continue };
-    if ([_x] call A3A_fnc_airportCanAttack) then { _landAttackBases pushBack _x };
+    if ([_x] call A3A_fnc_airportCanAttack) then { _landBases pushBack _x };
 } forEach (airportsX + outposts);
+
 
 private _rebelPlayers = allPlayers - (entities "HeadlessClient_F");
 private _rebelAISpawners = (units teamPlayer - _rebelPlayers) select { _x getVariable ["spawner", false] };
@@ -137,10 +139,11 @@ private _finalWeights = [];
     };
 
     // Count ground attack bases that are usable against the target
-    private _countLand = {
-        markerPos _x distance2d _targpos < distanceForLandAttack 
-        and {[_x, _target] call A3A_fnc_arePositionsConnected}
-    } count _landAttackBases;
+    private _countLand = call {
+        private _targNavIndex = _target call A3A_fnc_getMarkerNavPoint;
+        private _suppMarkers = [_targNavIndex, _lowAir] call A3A_fnc_findLandSupportMarkers apply { _x#0 };
+        count (_suppMarkers arrayIntersect _landBases);
+    };
 
     // Check distance and add flyover threat for each airport source
     private _weights = [];
@@ -172,8 +175,13 @@ private _finalWeights = [];
         if (_flyoverThreat > 300) then { continue };
         _finalTargets pushBack [_target, _x, _value, _localThreat, _flyoverThreat, _countLand];
 
-        private _distFactor = linearConversion [0, distanceForAirAttack, _dist, 0.65, 1, true];
-        private _difficulty = (_localThreat + 2*_flyoverThreat) * (_distFactor + 2^(-_countLand));
+        private _difficulty = if (_lowAir) then {
+            private _distFactor = linearConversion [0, distanceForAirAttack, _dist, 0.5, 1.5, true];
+            (_localThreat + 2*_flyoverThreat) * (_distFactor + 3^(-_countLand));
+        } else {
+            private _distFactor = linearConversion [0, distanceForAirAttack, _dist, 0.65, 1, true];
+            (_localThreat + 2*_flyoverThreat) * (_distFactor + 2^(-_countLand));
+        };
         private _weight = (_value / _difficulty^0.8) ^ 2;           // prefer high value over low difficulty a bit
         //Debug_5("%1 to %2: Diff: %3, value: %4, weight: %5", _x, _target, _difficulty, _value, _weight);
 

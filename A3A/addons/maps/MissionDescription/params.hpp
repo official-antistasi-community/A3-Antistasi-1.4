@@ -249,11 +249,18 @@ class Params
         texts[] =  {"Load from save (Default: 2x)","No change","2x","3x","5x"};
         default = 9999;
     };
-    class AISkill
+    class enemySkillMul
     {
-        title = "Enemy versus friendly AI skill difficulty";
-        values[] = {9999,1,2,3};
-        texts[] = {"Load from save (Default: Normal)","Enemies weaker","Normal","Enemies harder"};
+        title = "Enemy AI skill (also affected by server skill)";
+        values[] = {9999,0,1,2,3,4};
+        texts[] = {"Load from save (Default: Normal)","Very low","Low","Normal","High","Very high"};
+        default = 9999;
+    };
+    class rebelSkillMul
+    {
+        title = "Friendly AI skill (also affected by server skill)";
+        values[] = {9999,0,1,2,3,4};
+        texts[] = {"Load from save (Default: Normal)","Very low","Low","Normal","High","Very high"};
         default = 9999;
     };
     class napalmEnabled

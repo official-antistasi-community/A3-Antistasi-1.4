@@ -38,7 +38,7 @@ private _nearIndex = -1;
 private _nearDist = 1e6;
 {
     private _dist = _x distance2d _pos;
-    if (_nearDistance > _dist) then {
+    if (_nearDist > _dist) then {
         _nearIndex = _x#2;
         _nearDist = _dist;
     };

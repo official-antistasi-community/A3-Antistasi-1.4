@@ -61,16 +61,14 @@ else
     {
         // Cargo units aren't spawners until they leave the vehicle.
         // Assumes that they'll get out if the crew are murdered.
-        _unit addEventHandler
-        [
-            "GetOutMan",
-            {
-                _unit = _this select 0;
-                if !(_unit getVariable ["surrendered", false]) then {
-                    _unit setVariable ["spawner",true,true];
-                };
-            }
-        ];
+        _unit setVariable ["spawner", false];            // local-only, use to distinguish when spawner status is removed
+        _unit addEventHandler ["GetOutMan", {
+            _unit = _this select 0;
+            if (!isNil {_unit getVariable "spawner"}) then {
+                _unit setVariable ["spawner",true,true];
+            };
+            _unit removeEventHandler [_thisEvent, _thisEventHandler];
+        }];
     };
 
 	// Fixed-wing aircraft spawn far too much with little effect.
@@ -89,7 +87,7 @@ _unit addEventHandler ["Deleted", A3A_fnc_enemyUnitDeletedEH];
 
 //Calculates the skill of the given unit
 //private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
-private _skill = 0.05 + (0.1 * skillMult) + (0.1 * A3A_balancePlayerScale) + (0.01 * tierWar);
+private _skill = 0.05 + (0.1 * A3A_enemySkillMul) + (0.1 * A3A_balancePlayerScale) + (0.01 * tierWar);
 private _regularFaces = (_faction get "faces");
 private _regularVoices = (_faction get "voices");
 private ["_face", "_voice"];

@@ -23,5 +23,5 @@ if (_faction get "vehiclesArtillery" isEqualTo []) exitWith { 0 };      // Artil
 // Weighted against mortars
 if(tierWar < 6) exitWith { 0 };
 private _weight = (tierWar - 5) / 5;
-
+if (_faction getOrDefault ["attributeLowAir", false]) exitWith { _weight * 1.8 };         // more arty fewer airstrikes
 _weight;

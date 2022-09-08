@@ -18,6 +18,5 @@ if !(_target isKindOf "Air") exitWith { 0 };     // can't hit anything except ai
 
 private _faction = Faction(_side);
 if (_faction get "vehiclesPlanesAA" isEqualTo []) exitWith { 0 };      // AA aircraft don't exist in this modset
-// TODO: move these existence checks to initSupports?
-
+if (_faction getOrDefault ["attributeLowAir", false]) exitWith { 0.4 };
 1;          // maybe set higher, especially if it's fixed-wing aircraft?

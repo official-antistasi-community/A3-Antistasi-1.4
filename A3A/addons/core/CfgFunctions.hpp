@@ -233,6 +233,7 @@ class CfgFunctions
             class createAISite {};
             class createAttackForceAir {};
             class createAttackForceLand {};
+            class createAttackForceMixed {};
             class createAttackVehicle {};
             class createCIV {};
             class createFIAOutposts2 {};
@@ -491,6 +492,7 @@ class CfgFunctions
             class drawGrid {};
             class drawLine {};
             class drawPath {};
+            class findLandSupportMarkers {};
             class findNavDistance {};
             class findNodesInDistance {};
             class findPath {};

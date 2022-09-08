@@ -22,5 +22,6 @@ if (_target isKindOf "Air") exitWith { 0 };     // airstrikes can't hit air
 
 // balance against carpetbombs from tier 6+
 if (tierWar < 3) exitWith { 0 };
+if (_faction getOrDefault ["attributeLowAir", false]) exitWith { 0.2 };         // no carpet bombs for low air factions?
 if (tierWar < 6 or !("carpetBombs" in A3A_supportTypesHM) ) exitWith { 1 };
 (tierWar - 5) / 10;       // 90% at tier 6 to 50% at tier 10

@@ -418,7 +418,7 @@ mapX addAction ["Game Options", {
 	[
 		"Game Options",
 		"Version: "+ antistasiVersion +
-		"<br/><br/>Difficulty: "+ ( ["Easy","Normal","Hard"] select ((skillMult-1) min 2) ) +
+		"<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul toFixed 1) + "x" +
 		"<br/>Unlock Weapon Number: "+ str minWeaps +
 		"<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
 		"<br/>Spawn Distance: "+ str distanceSPWN + "m" +

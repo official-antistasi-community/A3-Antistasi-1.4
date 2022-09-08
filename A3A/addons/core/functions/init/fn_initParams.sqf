@@ -40,7 +40,8 @@ A3A_paramTable = [
     ["A3A_enemyAttackMul", "enemyAttackMul", ["server", "div10"], 1.0],
     ["A3A_invaderBalanceMul", "invaderBalanceMul", ["server", "div10"], 1.2],
     ["A3A_attackMissionDistMul", "attackMissionDistMul", ["server"], 2],
-    ["skillMult", "AISkill", [], 2],
+    ["A3A_enemySkillMul", "enemySkillMul", [], 2],
+    ["A3A_rebelSkillMul", "rebelSkillMul", [], 2],
     ["napalmEnabled", "napalmEnabled", [], true],
 
     ["allowDLCKart", "Kart", ["server"], false],
@@ -130,13 +131,13 @@ if (loadLastSave) then
         Info("No params array found in saved game, treating as legacy save");
 
         // Special case for legacy difficultyX + SP, ugh
-        private _difficultyX = ["difficultyX"] call A3A_fnc_returnSavedStat;
+/*        private _difficultyX = ["difficultyX"] call A3A_fnc_returnSavedStat;
         if (!isMultiplayer && !(isNil "_difficultyX")) then {
             skillMult = _difficultyX;
             if (skillMult == 1) then {minWeaps = 15};
             if (skillMult == 3) then {minWeaps = 40};
         };
-
+*/
         // Load the other legacy saved params
         {
             _x params ["_varName", "_paramName", "_options", "_default"];

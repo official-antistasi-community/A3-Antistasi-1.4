@@ -22,6 +22,7 @@ if (_target isKindOf "Air") exitWith { 0 };     // can't hit air. What about isT
 
 // balance this one against airstrikes
 if (tierWar < 6) exitWith { 0 };
+if (_faction getOrDefault ["attributeLowAir", false]) exitWith { 0 };         // no carpet bombs for low air factions?
 private _weight = 1 - (tierWar - 5) / 10;       // 10% at tier 1 to 50% at tier 10
 
 _weight;

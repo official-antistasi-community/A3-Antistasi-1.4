@@ -8,14 +8,14 @@ Environment: Scheduled, should be spawned
 Arguments:
     <STRING> Destination marker (should be town)
     <STRING> Origin marker (should be airbase)
-    <SCALAR> Optional, delay before sending vehicles (Default: Auto-calculated)
+    <SCALAR> Optional, delay in seconds before sending vehicles (Default: Auto-calculated)
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
 if (!isServer) exitWith { Error("Server-only function miscalled") };
 
-params ["_mrkDest", "_mrkOrigin", ["_delay", -1]];
+params ["_mrkDest", "_mrkOrigin", "_delay"];
 
 ServerInfo_2("Launching CSAT Punishment Against %1 from %2", _mrkDest, _mrkOrigin);
 
@@ -31,27 +31,21 @@ private _taskId = "invaderPunish" + str A3A_taskCount;
 [[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDest,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// Give smaller player groups a bit more time to respond
-if (_delay < 0) then { _delay = 5 / A3A_balancePlayerScale };
-[_mrkOrigin, _delay + 5] call A3A_fnc_addTimeForIdle;        // Reserve airbase for this attack
-sleep (60 * _delay);
 
+// Give smaller player groups a bit more time to respond
+if (isNil "_delay") then { _delay = 420 / A3A_balancePlayerScale };
 
 // Create the attacking force
 // probably doesn't make much sense to aggro-scale this one as it's not a response
 private _vehCount = round (2 + random 1 + A3A_balancePlayerScale);
-private _attackRatio = (0.5 + random 1) * (tierWar * 0.03);
-private _attackCount = round (random 0.3 + _vehCount * _attackRatio);
 
-private _data = [Invaders, _mrkOrigin, _mrkDest, "attack", _vehCount, _attackCount] call A3A_fnc_createAttackForceAir;
+//params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
+private _data = [Invaders, _mrkOrigin, _mrkDest, "attack", _vehCount, _delay, ["airboost", "specops"]] call A3A_fnc_createAttackForceMixed;
 _data params ["_resources", "_vehicles", "_crewGroups", "_cargoGroups"];
-
-[-_resources, Invaders, "attack"] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
 // May as well do it properly here
 A3A_supportStrikes pushBack [Invaders, "TROOPS", markerPos _mrkDest, time + 1800, 1800, _resources];
 
-ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x}); 
 
 // Call up some artillery
 private _artyTargPos = _posDest getPos [_size/3, random 360];

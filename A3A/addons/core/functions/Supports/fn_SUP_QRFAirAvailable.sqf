@@ -9,6 +9,9 @@ Return value:
     <SCALAR> Weight value, 0 for unavailable or useless
 */
 
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 // make air a bit more likely with war tier? or not?
 // air QRFs are typically *less* effective at higher tiers, right?
 
@@ -26,7 +29,8 @@ if (typeOf _target in _allAA) exitWith { 0 };
 // Could reduce chance for heli or non-infantry targets in general
 // It can technically hit air/tanks, it's just not great at it
 
-if (_target isKindOf "Air") exitWith { 0.2 };
-if !(_target isKindOf "Man") exitWith { 0.5 };
+private _baseWeight = [1, 0.2] select (Faction(_side) getOrDefault ["attributeLowAir", false]);
 
-1;
+if (_target isKindOf "Air") exitWith { _baseWeight * 0.2 };
+if !(_target isKindOf "Man") exitWith { _baseWeight * 0.5 };
+_baseWeight * 1;

@@ -102,6 +102,13 @@ class Params
         texts[] = {"Load from save (Default: Yes)","Yes","No"};
         default = 9999;
     };
+    class enemyNearDistanceLimit
+    {
+        title = "Distance used to check for enemies near";
+        values[] = {9999,100,200,300,400,500};
+        texts[] = {"Load from save (Default: 300)", "100", "200", "300", "400", "500"};
+        default = 9999;
+    };
     class unlockItem
     {
         title = "Number of the same item required to unlock";

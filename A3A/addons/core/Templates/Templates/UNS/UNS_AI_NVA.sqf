@@ -13,22 +13,26 @@
 //       Vehicles       //
 //////////////////////////
 
+["attributeLowAir", true] call _fnc_saveToTemplate;             // Use fewer air units in general
+
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["uns_willys"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["uns_Type55"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["uns_Type55_LMG", "uns_Type55_MG", "uns_Type55_patrol", "uns_Type55_twinMG", "uns_Type55_RR57", "uns_Type55_RR73", "uns_Type55_M40", "uns_nvatruck_mg"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["uns_Type55_LMG", "uns_Type55_MG", "uns_Type55_patrol", "uns_Type55_twinMG", "uns_Type55_RR57", "uns_Type55_RR73", "uns_Type55_M40", "uns_BTR152_DSHK", "uns_Type55_ZU", "uns_nvatruck_zpu", "uns_nvatruck_zu23", "uns_nvatruck_s60"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["uns_nvatruck_open", "uns_zil157", "uns_nvatruck_camo", "uns_nvatruck"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["uns_nvatruck_open", "uns_zil157"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["uns_nvatruck_reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["uns_nvatruck_repair", "uns_zil157_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["uns_nvatruck_refuel", "uns_Zil157_refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["uns_Type63_amb"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["uns_BTR152_DSHK", "uns_Type63_mg", "uns_pt76", "uns_ot34_85_nva"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["uns_nvatruck_mg", "uns_Type63_mg"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["uns_Type63_mg", "uns_pt76", "uns_ot34_85_nva"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["uns_pt76"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["uns_t54_nva", "uns_t55_nva", "uns_to55_nva"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["uns_ZSU23_NVA", "uns_ZSU57_NVA", "uns_Type55_ZU", "uns_nvatruck_zpu", "uns_nvatruck_zu23", "uns_nvatruck_s60"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["uns_ZSU23_NVA", "uns_ZSU57_NVA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UNS_Zodiac_NVA"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UNS_PATROL_BOAT_NVA", "UNS_ASSAULT_BOAT_NVA"]] call _fnc_saveToTemplate;
@@ -40,6 +44,7 @@
 
 ["vehiclesHelisLight", ["uns_Mi8T_VPAF"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["uns_Mi8TV_VPAF_MG"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", []] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["uns_m110sp", "Uns_D20_artillery", "Uns_D30_artillery"]] call _fnc_saveToTemplate;
@@ -71,6 +76,8 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["uns_mine_t59"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["uns_mine_md82"]] call _fnc_saveToTemplate;
+
+#include "UNS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

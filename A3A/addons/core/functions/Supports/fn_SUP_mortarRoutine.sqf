@@ -95,8 +95,6 @@ while {time < _timeout} do
         _subTargets pushBack (_targetPos getPos [random 50, random 360]);
     };
 
-    // TODO: throw in an extra delay here based on war tier?
-
     // Start shooting
     _mortar setVariable ["FireOrder", _subTargets];
     [_mortar] spawn _fn_executeMortarFire;

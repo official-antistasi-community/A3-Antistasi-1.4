@@ -25,9 +25,6 @@ Return array:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-// TODO: move these to caller
-//private _airbase = [_side, markerPos _mrkDest] call A3A_fnc_availableBasesAir;
-
 params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
 private _targPos = if (_target isEqualType []) then { _target } else { markerPos _target };
 // _modifiers ["tierboost", "specops", "airboost", "noairsupport"]

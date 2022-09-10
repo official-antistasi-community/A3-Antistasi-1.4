@@ -1,4 +1,16 @@
+/*  Helicopter flies a combat landing approach, lands and unloads cargo group before returning to base
 
+Scope: Server or HC
+Environment: Scheduled, spawned
+
+Parameters:
+    <OBJECT> The helicopter to control
+    <GROUP> Crew group for helicopter
+    <GROUP> Cargo group for helicopter
+    <POSATL> Destination position for troops to attack after landing
+    <POSATL> Position for heli to return to after offloading
+    <POSATL> Landing position for heli
+*/
 
 params ["_helicopter", "_crewGroup", "_cargoGroup", "_posDestination", "_originPos", "_landPos"];
 

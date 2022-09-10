@@ -44,9 +44,6 @@ if (_type isEqualTo "legacy") exitWith {
 
 Error_1("Called with unknown type: %1", _type);
 
-// TODO: do we need to publish these?
-// Probably not for decision code (always runs on server), but might be needed for intel?
-
 /*
 private _varName = call {
     if (_type == "defence") exitWith { ["A3A_resourcesDefenceOcc", "A3A_resourcesDefenceInv"] select (_side == Invaders) };

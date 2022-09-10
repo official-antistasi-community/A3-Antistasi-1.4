@@ -13,7 +13,6 @@ Arguments:
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-// server guard?
 
 params ["_mrkDest", "_mrkOrigin", "_maxWaves"];
 
@@ -176,7 +175,6 @@ while {_wave <= _maxWaves and !_victory} do
     _wave = _wave + 1;
 };
 
-// TODO: Check some of this stuff for locality requirements
 if (_victory) then {
     if (_targSide != teamPlayer) exitWith {};
     [_taskId, "rebelAttack", "FAILED"] call A3A_fnc_taskSetState;

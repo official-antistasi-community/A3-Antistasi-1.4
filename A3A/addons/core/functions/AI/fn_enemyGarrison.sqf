@@ -1,11 +1,14 @@
-/*
+/*  
+    Garrison enemy group at marker and patrol or despawn
+
+Scope: Server or HC
+Environment: Scheduled, should be spawned
 
 Parameters:
     <GROUP> Group to order
     <STRING> Nearby friendly marker to garrison
-
-Environment: Any
 */
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -50,10 +53,7 @@ if (leader _group getVariable ["A3A_resPool", "legacy"] == "legacy") then {
     _x setVariable ["spawner", nil, true];
 } forEach units _group;
 
-// Fire off UPSMON patrol, "ORIGINAL" shouldn't change position
-//[leader _group, _marker, "AWARE", "SPAWNED", "ORIGINAL", "NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
-// TODO: err, this sometimes makes the troops walk miles away?
-
+// Shitty but functional patrol routine
 [_group, _marker] spawn {
     params ["_group", "_marker"];
 

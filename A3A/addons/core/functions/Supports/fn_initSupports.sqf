@@ -53,8 +53,6 @@ if (allowFuturisticSupports) then {
 //    A3A_supportTypesHM set ["ORBITALSTRIKE", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
 };
 
-// TODO: Define separate hashmap per side, pre-check for existence of vehicle supports?
-
 
 // Build marker lists for determining importance of target locations
 

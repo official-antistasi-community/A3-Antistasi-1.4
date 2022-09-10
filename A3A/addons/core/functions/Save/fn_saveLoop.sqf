@@ -204,6 +204,7 @@ _arrayOutpostsFIA = [];
 ["outpostsFIA", _arrayOutpostsFIA] call A3A_fnc_setStatVariable;
 
 if (!isDedicated) then {
+	// Not currently used by loadServer due to timing bugs
 	_typesX = [];
 	{
 		private _type = _x;
@@ -211,7 +212,6 @@ if (!isDedicated) then {
 		if (_index != -1) then { _typesX pushBackUnique _type };
 
 	} forEach ["AS","CON","DES","LOG","RES","CONVOY","DEF_HQ","rebelAttack","invaderPunish"];
-	// TODO: The attacks here are accounted for in resources?
 
 	["tasks",_typesX] call A3A_fnc_setStatVariable;
 };

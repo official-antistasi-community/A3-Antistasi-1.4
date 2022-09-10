@@ -1,7 +1,16 @@
+/*
+Maintainer: John Jordan
+    Deleted EH for enemy units. Handles pool resources and garrison updates
 
-// things we need to do here?
-// - if markerX and unconscious then 50/50 delete from garrison?
-// - if resPool is defence or attack then refund if not dead
+Scope: Server or HC
+Environment: Unscheduled
+
+Arguments:
+    <OBJECT> The object being deleted.
+
+Examples:
+    _unit addEventHandler ["Deleted", A3A_fnc_enemyUnitDeletedEH];
+*/
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

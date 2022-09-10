@@ -112,16 +112,6 @@ if((spawner getVariable _targetMrk) != 2 || (sidesX getVariable _targetMrk) == t
 {
     // Sending real attack, execute the fight
     private _waves = round (1 + random 1 + _localThreat / 1000);         // TODO: magic number
-    // do we want any other factors?
-
-    // Pay basic travel + first wave cost immediately?
-    // Just travel, I guess. Well, wavedCA could also do that...
-    private _atkDist = markerPos _originMrk distance2d markerPos _targetMrk;
-    // no reason to charge travel because that's already charged for air units being more expensive?
-    // could just charge balanceResourceRate? * (A + B * waves)
-    // as a kind of preparation cost?
-    // Purpose here is to increase the flat (as against result-dependent) part of the attack cost?
-
     Info_3("Starting waved attack with %1 waves from %2 to %3", _waves, _originMrk, _targetMrk);
     [_targetMrk, _originMrk, _waves] spawn A3A_fnc_wavedAttack;
     true;

@@ -80,7 +80,7 @@ private _fn_sendSupport =
     } forEach allGroups;
 
     //Take actions against the aircraft
-    // Let support system decide whether it's worth reacting to?
+    // Let support system decide whether it's worth reacting to
     private _revealValue = [getMarkerPos _marker, _markerSide] call A3A_fnc_calculateSupportCallReveal;
     [_markerSide, _vehicle, markerPos _marker, 4, _revealValue] remoteExec ["A3A_fnc_requestSupport", 2];
 

@@ -57,7 +57,6 @@ if(_groupLeader call A3A_fnc_canFight) then
 else
 {
     //Support call failed, reset cooldown
-    // TODO: should we try again with the new group leader?
     ServerDebug_1("%1 failed to request support as the leader is dead or down", _group);
     _group setVariable ["A3A_canCallSupportAt", nil];
 };

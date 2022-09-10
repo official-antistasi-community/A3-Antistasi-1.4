@@ -3,7 +3,7 @@ Maintainer: John Jordan
     Returns the index of the nearest nav node within 300m of a given position
 
 Arguments:
-    <POSITION> The start position from which should be searched
+    <POSITION or STRING> The start position or marker from which should be searched
 
 Return Value:
     <NUMBER> Index of the nearest nav node (-1 if none found)
@@ -22,6 +22,7 @@ Example:
 FIX_LINE_NUMBERS()
 
 params ["_pos"];
+if (_pos isEqualType "") exitWith { _this call A3A_fnc_getMarkerNavPoint };
 
 private _navCell = format ["%1/%2", floor ((_pos#0)/1000), floor ((_pos#1)/1000)];
 private _navPoints =  A3A_navCellHM getOrDefault [_navCell, []];

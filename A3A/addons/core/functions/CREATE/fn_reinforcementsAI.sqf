@@ -35,8 +35,7 @@ while {killZoneRemove >= 1} do
 // Handle the old reinforcements
 
 private _fnc_pickSquadType = {
-	params ["_count", "_side"];
-	private _faction = Faction(_side);
+	params ["_count", "_faction"];
 	if (_numTroops == 8) exitWith { selectRandom (_faction get "groupsSquads")};
 	selectRandom (_faction get "groupsMedium");
 };
@@ -44,6 +43,9 @@ private _fnc_pickSquadType = {
 {
 	private _side = _x;
 	if (gamemode == 3 and _side == Invaders) exitWith {};
+
+	private _faction = Faction(_side);
+	private _lowAir = _faction getOrDefault ["attributeLowAir", false];
 	private _defRes = [A3A_resourcesDefenceOcc, A3A_resourcesDefenceInv] select (_side == Invaders);
 	private _totalReinf = 4 * round (0.1 * _defRes / 40);
 	Debug_3("%1 sending %2 total troops to reinforce due to %3 resources", _side, _totalReinf, _defRes);
@@ -66,51 +68,62 @@ private _fnc_pickSquadType = {
 		// Don't reinforce places with significant recent violence (use QRFs instead)
 		if ([_side, markerPos _site, 300] call A3A_fnc_getRecentDamage > 50) then { continue };
 
-		// TODO: redo priority, so easier to reinforce is important?
-		// kinda expensive unless we're storing this info...
 		private _maxTroops = [_site] call A3A_fnc_garrisonSize;
 		private _troopsNeeded = _maxTroops - count (garrison getVariable [_site, []]);
 		if (_troopsNeeded <= 0) then { continue };
 		_reinfTargets pushBack [_troopsNeeded/_maxTroops, _troopsNeeded, _site];
 	} forEach (airportsX + outposts + seaports + resourcesX + factories);
 
-	// prioritize bases with most troops needed
+	// prioritize bases with highest proportion of troops needed
 	_reinfTargets sort false;
 
 	while {_totalReinf > 0} do
 	{
 		if (_sourceAirports isEqualTo [] or _reinfTargets isEqualTo []) exitWith {};
-		private _airport = selectRandom _sourceAirports;
 
 		//Find a suitable site to reinforce
-		private _killZones = killzones getVariable [_airport, []];
-		private _targIndex = _reinfTargets findIf {
-			(markerPos (_x#2) distance2d markerPos _airport < distanceForAirAttack)
-			and !((_x#2) in _killZones)
-		};
-		if (_targIndex == -1) then {
-			// Airport has nothing to do, remove it from the list
-			_sourceAirports deleteAt (_sourceAirports find _airport);
-			continue;
+		private ["_source", "_targIndex"];
+		if (_lowAir) then {
+			// Bias towards the highest-weight target and then find a suitable source base. Might be self.
+			_targIndex = floor (count _reinfTargets * (random 1)^2);
+			_source = [_side, _reinfTargets#_targIndex#2] call A3A_fnc_availableBasesLand;
+			if (isNil "_source") then {
+				// No possible reinforcements for this location, remove it from the list
+				_reinfTargets deleteAt _targIndex;
+				continue;
+			};
+		} else {
+			// Look for best target around a random airfield
+			_source = selectRandom _sourceAirports;
+			private _killZones = killzones getVariable [_source, []];
+			_targIndex = _reinfTargets findIf {
+				(markerPos (_x#2) distance2d markerPos _source < distanceForAirAttack)
+				and !((_x#2) in _killZones)
+			};
+			if (_targIndex == -1) then {
+				// Airport has nothing to do, remove it from the list
+				_sourceAirports deleteAt (_sourceAirports find _source);
+				continue;
+			};
 		};
 
 		(_reinfTargets deleteAt _targIndex) params ["_weight", "_numNeeded", "_target"];
 		private _numTroops = [4, 8] select (_numNeeded > 4 and _totalReinf >= 8 and random 1 > 0.3);
 		_totalReinf = _totalReinf - _numTroops;
 
-		Debug_3("Reinforcing garrison %1 from %2 with %3 troops", _target, _airport, _numTroops);
-		if (_airport == _target) then {
+		Debug_3("Reinforcing garrison %1 from %2 with %3 troops", _target, _source, _numTroops);
+		if (_source == _target) then {
 			// Self-reinforce. Already know that we're not spawned, so this is fine
-			[[_numTroops, _side] call _fnc_pickSquadType, _side, _target, 0] remoteExec ["A3A_fnc_garrisonUpdate",2];
+			[[_numTroops, _faction] call _fnc_pickSquadType, _side, _target, 0] remoteExec ["A3A_fnc_garrisonUpdate",2];
 			continue;
 		};
 		if ([distanceSPWN1, 1, getMarkerPos _target, teamPlayer] call A3A_fnc_distanceUnits) then {
 			// If rebels are near the target, send a real reinforcement
-			[[_target, _airport, _numTroops, _side], "A3A_fnc_patrolReinf"] call A3A_fnc_scheduler;
+			[[_target, _source, _numTroops, _side], "A3A_fnc_patrolReinf"] call A3A_fnc_scheduler;
 			sleep 10;		// Might re-use this marker shortly, avoid collisions
 		} else {
 			// Otherwise just add troops directly
-			[[_numTroops, _side] call _fnc_pickSquadType, _side, _target, 2] remoteExec ["A3A_fnc_garrisonUpdate", 2];
+			[[_numTroops, _faction] call _fnc_pickSquadType, _side, _target, 2] remoteExec ["A3A_fnc_garrisonUpdate", 2];
 		};
 	};
 } forEach [Occupants, Invaders];
@@ -121,13 +134,14 @@ if (AAFpatrols < round (3 * A3A_balancePlayerScale) and (random 4 < A3A_balanceP
 	[] spawn A3A_fnc_AAFroadPatrol;
 };
 
-// Reduce loot crate cooldown if garrison is complete
+// Reduce loot crate cooldown if garrison is reasonably full
 {
 	call {
 		private _lootCD = garrison getVariable [_x + "_lootCD", 0];
 		if (_lootCD == 0) exitWith {};							// don't update unless changed
 		private _realSize = count (garrison getVariable [_x, []]);
-		if (_realSize < [_x, true] call A3A_fnc_garrisonSize) exitWith {};		// use non-frontline size here
+		private _maxSize = [_x, true] call A3A_fnc_garrisonSize;			// use non-frontline size
+		if (_realSize / _maxSize < 0.75) exitWith {};
 		garrison setVariable [_x + "_lootCD", 0 max (_lootCD - 10), true];
 	};
 } forEach (airportsX + outposts + seaports);

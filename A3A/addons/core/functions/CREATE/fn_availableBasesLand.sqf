@@ -3,12 +3,12 @@ Maintainer: John Jordan
     Select from distance-weighted list of available enemy land bases or return full list
     Checks idle, spawner, distance, garrison, spawn places and pathfinding connection
 
-Scope: Anywhere? Only using on server atm
+Scope: Anywhere with navgrid? Only using on server atm
 Environment: Scheduled or unscheduled
 
 Arguments:
     <SIDE> Side of enemy faction
-    <POS2D> Target position to use
+    <POS2D or STRING> Target position or marker name to use
     <BOOL> Optional, true to return all bases & weights (Default: false)
 
 Return value:
@@ -18,12 +18,10 @@ Return value:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_side", "_targPos", ["_returnAll", false]];
+params ["_side", "_target", ["_returnAll", false]];
 
-private _targNavIndex = [_targPos] call A3A_fnc_getNearestNavPoint;
-if (_targNavIndex == -1) exitWith { [] };
 private _lowAir = Faction(_side) getOrDefault ["attributeLowAir", false];
-private _nearMarkers = [_targNavIndex, _lowAir] call A3A_fnc_findLandSupportMarkers;
+private _nearMarkers = [_target, _lowAir] call A3A_fnc_findLandSupportMarkers;
 
 private _freeBases = [];
 private _weights = [];

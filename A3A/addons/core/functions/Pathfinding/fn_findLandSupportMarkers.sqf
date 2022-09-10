@@ -6,7 +6,7 @@ Scope: Server or HC
 Environment: Any
 
 Arguments:
-    <STRING> Marker name of location to support
+    <INTEGER|POSITION|STRING> Nav index, marker or position of location to support
 
 Return Value:
     <ARRAY<
@@ -15,9 +15,11 @@ Return Value:
     >
 */
 
-params ["_navIndex", "_lowAir"];
+params ["_target", "_lowAir"];
 
+private _navIndex = if (_target isEqualType 0) then { _target } else { [_target] call A3A_fnc_getNearestNavPoint };
 if (_navIndex == -1) exitWith { [] };
+
 if (isNil "A3A_landSupportMarkers") then {
     A3A_landSupportMarkers = createHashMap;
     A3A_outpostAirportXYI = [];        // format [x, y, index into markersX]

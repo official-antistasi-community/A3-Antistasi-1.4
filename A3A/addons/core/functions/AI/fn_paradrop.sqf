@@ -102,19 +102,21 @@ if(currentWaypoint _groupPilot > 0) then
   	} forEach units _groupJumper;
 };
 
+while {count waypoints _groupJumper > 0} do { deleteWaypoint [_groupJumper, 0] };
+
+// Waiting here because Arma likes to randomly delete paratrooper waypoints on landing
+waitUntil { sleep 1; isTouchingGround leader _groupJumper };
+
+sleep 10;       // wait until everyone else has landed
+
+_wpMove = _groupJumper addWaypoint [_targetPosition, 0];
+_wpMove setWaypointType "MOVE";
+_wpMove setWaypointBehaviour "AWARE";
+_groupJumper setCurrentWaypoint _wpMove;
+
 if !(_isReinforcement) then
 {
-    while {count waypoints _groupJumper > 0} do { deleteWaypoint [_groupJumper, 0] };
-    // Don't need to regroup, AI does that by itself
-    _groupJumper spawn A3A_fnc_attackDrillAI;
-    private _wpCharge = _groupJumper addWaypoint [_targetPosition, 0];
-    _wpCharge setWaypointType "MOVE";
-    _wpCharge setWaypointBehaviour "AWARE";
     _wpClear = _groupJumper addWaypoint [_targetPosition, 0];
     _wpClear setWaypointType "SAD";
-}
-else
-{
-    // TODO: check this against reinf code
-    _wp4 = _groupJumper addWaypoint [_targetPosition, 0];
+    _groupJumper spawn A3A_fnc_attackDrillAI;
 };

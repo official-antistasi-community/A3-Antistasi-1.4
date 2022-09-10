@@ -3,8 +3,8 @@
     Find shortest road distance between two positions or nav indices using simple A*
 
 Parameters:
-    <INTEGER|POS2D> Start position or nav index.
-    <INTEGER|POS2D> End position or nav index.
+    <INTEGER|POS2D|STRING> Start marker, position or nav index.
+    <INTEGER|POS2D|STRING> End marker, position or nav index.
     <SCALAR> Optional: Maximum travel distance in metres.
 
 Returns:

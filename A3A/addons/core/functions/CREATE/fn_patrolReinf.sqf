@@ -3,14 +3,19 @@ FIX_LINE_NUMBERS()
 
 params ["_mrkDest", "_mrkOrigin", "_numTroops", "_side"];
 private _faction = Faction(_side);
+private _lowAir = _faction getOrDefault ["attributeLowAir", false];
 private _posDest = getMarkerPos _mrkDest;
 private _posOrigin = getMarkerPos _mrkOrigin;
 private _groupType = selectRandom (_faction get (if (_numTroops == 4) then {"groupsMedium"} else {"groupsSquads"}));
 
-ServerInfo_4("Spawning PatrolReinf. Dest:%1, Orig:%2, Size:%3, Side: %4",_mrkDest,_mrkOrigin,_numTroops,_side);
+private _isLand = if (_lowAir) then { true } else {						// land markers guaranteed by reinforcementsAI for low air
+	private _targNavIndex = _mrkDest call A3A_fnc_getMarkerNavPoint;
+	private _suppMarkers = [_targNavIndex, _lowAir] call A3A_fnc_findLandSupportMarkers apply { _x#0 };
+	_mrkOrigin in _suppMarkers;
+};
 
-// TODO: Take killzones into account here?
-private _isLand = (_posOrigin distance2d _posDest < distanceForLandAttack);		// TODO: check path exists
+ServerInfo_5("Spawning PatrolReinf. Dest:%1 Orig:%2 Size:%3 Side:%4 Land:%5",_mrkDest,_mrkOrigin,_numTroops,_side,_isLand);
+
 private _vehicleType = if (_isLand) then {
 	selectRandom (_faction get "vehiclesTrucks");
 } else {
@@ -29,15 +34,15 @@ if (isNull _vehicle) exitWith {
 	Error_2("Failed to spawn vehicle type %1 at %2", _vehicleType, _mrkOrigin);
 };
 private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
-{ [_x, nil, false, "defence"] call A3A_fnc_NATOinit } forEach (units _crewGroup);
-[_vehicle, _side, "legacy"] call A3A_fnc_AIVEHinit;				// don't pay up-front for reinf vehicles, assumed to return
+{ [_x, nil, false, "legacy"] call A3A_fnc_NATOinit } forEach (units _crewGroup);
+[_vehicle, _side, "legacy"] call A3A_fnc_AIVEHinit;				// don't pay up-front for reinf vehicles/crew, assumed to return
 
 private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount);
 if (_expectedCargo < count _groupType) then { _groupType resize _expectedCargo };           // trim to cargo seat count
 private _cargoGroup = [_posOrigin, _side, _groupType, true, false] call A3A_fnc_spawnGroup;         // force spawn, should be pre-checked
 {
     _x assignAsCargo _vehicle;			// unnecessary, done by moveInXXX anyway?
-	_x moveInCargo _vehicle;
+	if (_vehicleType == "uns_an2_transport") then { _x moveInAny _vehicle} else { _x moveInCargo _vehicle };				// moveInCargo busted for unsung an2?
 	[_x, nil, false, "defence"] call A3A_fnc_NATOinit;
 } forEach units _cargoGroup;
 
@@ -96,17 +101,20 @@ ServerInfo_2("Spawn performed: Vehicle type %1 with %2 troops", _vehicleType, co
 
 
 // Allow the convoy a generous time to arrive
-private _dist = _posOrigin distance2d _posDest;
-private _timeout = time + (if (_isLand) then { _dist / 3 + 300 } else { _dist / 15 + 600 });
+private _timeout = if (_isLand) then {
+	time + ([_mrkDest, _mrkOrigin] call A3A_fnc_findNavDistance) / 6 + 300;
+} else {
+	time + (_posOrigin distance2d _posDest) / 30 + 600;
+};
 
 // termination conditions:
 // - everyone dead or timeout exceeded
-// - group leader out of vehicle and within 50m of target
+// - group leader out of vehicle and within 200m of target
 waituntil {
 	sleep 10;
 	private _leader = leader _cargoGroup;
 	{ alive _x } count (units _cargoGroup) == 0 || time > _timeout
-	|| { _leader == vehicle _leader && { _leader distance _posDest < 50 } }
+	|| { _leader == vehicle _leader && { _leader distance _posDest < 200 } }
 };
 
 
@@ -119,6 +127,8 @@ if !(isNull _landpad) then { deleteVehicle _landpad };
 private _units = (units _cargoGroup) select { alive _x };
 if (count _units == 0 || time > _timeout || _side != (sidesX getVariable _mrkDest)) exitWith
 {
+	Debug_2("patrolReinf failure: time %1, units %2", _timeout - time, count _units);
+
 	// Failure case, RTB and add to killzones
 	[_cargoGroup] spawn A3A_fnc_enemyReturnToBase;
 

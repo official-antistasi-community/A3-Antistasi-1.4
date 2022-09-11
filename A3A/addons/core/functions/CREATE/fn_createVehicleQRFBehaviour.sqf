@@ -96,29 +96,51 @@ else            // ground vehicle
         [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };
 
-    if (count units _crewGroup == 1) exitWith
+    if (isNull gunner _vehicle and count units _cargoGroup < 4) exitWith
     {
-        // Vehicle has no weapons, merge cargo group into crew group
-        (units _cargoGroup) joinSilent _crewGroup;
-        deleteGroup _cargoGroup;
-
-        //Unassign driver from being the group leader. Why?
-        if (count units _crewGroup > 1) then {
-            _crewGroup selectLeader (units _crewGroup select 1)
-        };
+        // Vehicle has no weapons(?) and small cargo, merge crew group into cargo group
+        (units _crewGroup) joinSilent _cargoGroup;
+        deleteGroup _crewGroup;
 
         //Create the path waypoints
+        private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;
+        _landPosBlacklist pushBack _landPos;
+        [getPosATL _vehicle, _landPos, _cargoGroup] call A3A_fnc_WPCreate;
+
+        //Turn final waypoint into disembark. Should still be behaviour SAFE...
+        private _dismountWP = [_cargoGroup, count waypoints _cargoGroup - 1];
+        //_dismountWP setWaypointType "GETOUT";         // better to leave it as move? GETOUT is pretty busted
+        _dismountWP setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
+
+        private _attackWP = _cargoGroup addWaypoint [_posDestination, 0];
+        _attackWP setWaypointBehaviour "AWARE";
+
+        [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
+    };
+
+    if (count units _crewGroup == 1) exitWith
+    {
+        // driver + large cargo. Unload and RTB
+
+        //Set up vehicle waypoints
         private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;
         _landPosBlacklist pushBack _landPos;
         [getPosATL _vehicle, _landPos, _crewGroup] call A3A_fnc_WPCreate;
 
         //Turn final waypoint into disembark. Should still be behaviour SAFE...
-        private _dismountWP = [_crewGroup, count waypoints _crewGroup - 1];
-        //_dismountWP setWaypointType "GETOUT";         // better to leave it as move? GETOUT is pretty busted
-        _dismountWP setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
+        private _vehWP0 = [_crewGroup, count waypoints _crewGroup - 1];
+        _vehWP0 setWaypointType "TR UNLOAD";
+        _vehWP0 setWaypointBehaviour "AWARE";
+        _vehWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; [group this] spawn A3A_fnc_enemyReturnToBase"];
 
-        private _attackWP = _crewGroup addWaypoint [_posDestination, 0];
-        _attackWP setWaypointBehaviour "AWARE";
+        //Set the waypoints for cargoGroup
+        private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
+        _cargoWP0 setWaypointType "GETOUT";
+        _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
+        private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 0];
+        _cargoWP1 setWaypointBehaviour "AWARE";
+        //Link the dismount waypoints
+        _vehWP0 synchronizeWaypoint [_cargoWP0];
 
         [_vehicle, _typeName] spawn A3A_fnc_inmuneConvoy;
     };

@@ -47,13 +47,8 @@ for "_i" from 1 to _vehCount do {
     if !(_vehData isEqualType []) exitWith {};          // couldn't create for some reason, assume we're out of spawn places?
 
     _vehicles pushBack (_vehData#0);
-    if (isNull (_vehData#2)) then {
-        // transport vehicles might have merged crew/cargo group
-        if (_isTransport) then { _cargoGroups pushBack (_vehData#1) } else { _crewGroups pushBack (_vehData#1) };
-    } else {
-        _crewGroups pushBack (_vehData#1);
-        _cargoGroups pushBack (_vehData#2);
-    };
+    if (!isNull (_vehData#1)) then { _crewGroups pushBack (_vehData#1) };
+    if (!isNull (_vehData#2)) then { _cargoGroups pushBack (_vehData#2) };
     _landPosBlacklist = (_vehData#3);
 
     private _vehCost = A3A_vehicleResourceCosts getOrDefault [_vehType, 0];
@@ -63,7 +58,7 @@ for "_i" from 1 to _vehCount do {
     if (_isTransport) then { _numTransports = _numTransports + 1 };
     _isTransport = _vehAttackCount == 0 or (_numTransports / _i) < _transportRatio;
 
-    sleep 5;
+    sleep 10;
 };
 
 

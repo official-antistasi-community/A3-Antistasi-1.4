@@ -138,7 +138,8 @@ while {alive _veh} do
 	_Vwp0 setWaypointSpeed "LIMITED";
 	_veh setFuel 1;
 
-	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
+	private _timeout = time + (_veh distance2d _posDestination) / 6 + 300;			// stuck detection
+	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or (_timeout > time) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
 	if !(_veh distance _posDestination < _distanceX) exitWith {};
 	if (_typePatrol == "AIR") then
 		{
@@ -158,13 +159,7 @@ while {alive _veh} do
 		};
 	};
 
-{
-	private _wp = _x addWaypoint [getMarkerPos _base, 50];
-	_wp setWaypointType "MOVE";
-	_x setCurrentWaypoint _wp;
-	[_x] spawn A3A_fnc_groupDespawner;		// this one did care about enemies. Not sure why.
-} forEach _groups;
-
-{ [_x] spawn A3A_fnc_vehDespawner } forEach _vehiclesX;
+{ [_x] spawn A3A_fnc_VEHDespawner } forEach _vehiclesX;
+{ [_x] spawn A3A_fnc_enemyReturnToBase } forEach _groups;
 
 AAFpatrols = AAFpatrols - 1;

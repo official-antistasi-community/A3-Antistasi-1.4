@@ -4,6 +4,7 @@ Arguments:
     <OBJECT> Target object
     <SIDE> Side to send support from
     <SCALAR> Max resource spend (not currently used)
+    <ARRAY> Array of strings of available types for this faction
 
 Return value:
     <SCALAR> Weight value, 0 for unavailable or useless
@@ -12,16 +13,11 @@ Return value:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_target", "_side"];
+params ["_target", "_side", "_maxSpend", "_availTypes"];
 
 if (_target isKindOf "Air") exitWith { 0 };     // can't hit air
 
-// Mortars don't exist in this modset
-private _faction = Faction(_side);
-if (_faction get "staticMortars" isEqualTo []) exitWith { 0 };
-
 // balance this one against artillery
 if (tierWar < 2) exitWith { 0 };
-private _weight = 1 - (0 max (tierWar - 5) / 10);
-if (_faction getOrDefault ["attributeLowAir", false]) exitWith { _weight * 1.8 };         // more arty fewer airstrikes
-_weight;
+if (tierWar < 5 or !("ARTILLERY" in _availTypes)) exitWith { 1 };
+1 - (tierWar - 4) / 8;       // // 87.5% at tier 5, 25% at tier 10

@@ -53,7 +53,8 @@ Debug_1("Relevant active supports found: %1", _actSuppHM);
 
 // Now determine the weight of each support type
 private _weightedSupports = [];            // [type, weight, type, weight, ...]
-private _availParams = [_target, _side, 200];
+private _supportTypesHM = [A3A_supportTypesOcc, A3A_supportTypesInv] select (_side == Invaders);
+private _availParams = [_target, _side, 200, keys _supportTypesHM];
 {
     _y params ["_class", "_typeWeight", "_effRadius"];
     if (_class != "AREA") then { continue };            // only care about area-effect for requestArtillery
@@ -67,7 +68,7 @@ private _availParams = [_target, _side, 200];
     if (_x in _actSuppHM) then { _finalWeight = _finalWeight * 3 };         // increase chance of re-using active supports
     _weightedSupports append [_x, _finalWeight];
 
-} forEach A3A_supportTypesHM;           // Hashmap of support type to [baseClass, typeWeight, effectRadius]
+} forEach _supportTypesHM;           // Hashmap of support type to [baseClass, typeWeight, effectRadius]
 Debug_1("Weighted supports: %1", _weightedSupports);
 
 A3A_supportCallInProgress = nil;

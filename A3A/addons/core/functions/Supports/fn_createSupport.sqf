@@ -21,6 +21,10 @@ FIX_LINE_NUMBERS()
 params ["_type", "_side", "_caller", "_maxSpend", "_target", "_targPos", "_reveal", ["_delay", -1]];
 private _resPool = ["defence", _caller] select (_caller isEqualType "");
 
+// Check if the support type exists for this faction. Ok to fail silently, just asking the question
+private _suppTypeHM = [A3A_supportTypesOcc, A3A_supportTypesInv] select (_side == Invaders);
+if !(_type in _suppTypeHM) exitWith { "" };
+
 waitUntil { isNil "A3A_supportCallInProgress" };
 A3A_supportCallInProgress = true;
 

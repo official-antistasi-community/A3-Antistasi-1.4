@@ -3,7 +3,7 @@
 Arguments:
     <OBJECT> Target object
     <SIDE> Side to send support from
-    <SCALAR> Max resource spend (not currently used)
+    <ARRAY> Array of strings of available types for this faction
 
 Return value:
     <SCALAR> Weight value, 0 for unavailable or useless
@@ -12,10 +12,10 @@ Return value:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
+params ["_target", "_side", "_maxSpend", "_availTypes"];
+
 // make air a bit more likely with war tier? or not?
 // air QRFs are typically *less* effective at higher tiers, right?
-
-params ["_target", "_side"];
 
 // specifically don't use it to attack:
 // - Fixed wing aircraft
@@ -29,8 +29,6 @@ if (typeOf _target in _allAA) exitWith { 0 };
 // Could reduce chance for heli or non-infantry targets in general
 // It can technically hit air/tanks, it's just not great at it
 
-private _baseWeight = [1, 0.2] select (Faction(_side) getOrDefault ["attributeLowAir", false]);
-
-if (_target isKindOf "Air") exitWith { _baseWeight * 0.2 };
-if !(_target isKindOf "Man") exitWith { _baseWeight * 0.5 };
-_baseWeight * 1;
+if (_target isKindOf "Air") exitWith { 0.2 };
+if !(_target isKindOf "Man") exitWith { 0.5 };
+1;

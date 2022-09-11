@@ -26,7 +26,6 @@ if (isNil "_airport") exitWith { Debug_1("No airport found for %1 support", _sup
 
 private _faction = Faction(_side);
 private _vehType = selectRandom (_faction get "vehiclesPlanesCAS");
-if (isNil "_vehType") exitWith { Error("Modset has no CAS planes defined"); -1; };
 
 private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
 if (_delay < 0) then { _delay = (0.5 + random 1) * (300 - 15*tierWar - 1*_aggro) };

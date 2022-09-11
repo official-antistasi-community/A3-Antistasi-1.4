@@ -128,7 +128,8 @@ Debug_1("Relevant active supports found: %1", _actSuppHM);
 
 // Now determine the weight of each support type
 private _weightedSupports = [];            // [type, weight, type, weight, ...]
-private _availParams = [_target, _side, _maxSpend];        //, _nearStrikes];
+private _supportTypesHM = [A3A_supportTypesOcc, A3A_supportTypesInv] select (_side == Invaders);
+private _availParams = [_target, _side, _maxSpend, keys _supportTypesHM];
 {
     if (_maxSpend <= 0 and !(_x in _actSuppHM)) then { continue };          // Skip if we have no money and support type isn't active
     _y params ["_class", "_typeWeight", "_effRadius"];
@@ -154,7 +155,7 @@ private _availParams = [_target, _side, _maxSpend];        //, _nearStrikes];
     if (_x in _actSuppHM) then { _finalWeight = 1 max _finalWeight * 3 };         // increase chance of re-using active supports
     _weightedSupports append [_x, _finalWeight];
 
-} forEach A3A_supportTypesHM;           // Hashmap of support type to [base class, weight]
+} forEach _supportTypesHM;           // Hashmap of support type to [base class, weight, effradius]
 Debug_1("Weighted supports: %1", _weightedSupports);
 
 // drop the lock now, createSupport doesn't rely on data consistency

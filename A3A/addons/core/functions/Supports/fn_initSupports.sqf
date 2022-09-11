@@ -27,33 +27,45 @@ A3A_activeSupports = [];
 // Avail func: _weight = [_target, _side, _maxSpend?] call _availFunc;
 // Create func:  _resCost = [_suppname, _side, _resPool, _maxSpend, _target, _targpos, _reveal, _delay] call _createFunc;
 
-// Support types to use, base types and relative weights
-A3A_supportTypesHM = createHashMapFromArray [
-    // [supptype, [basetype, baseweight, effradius, strikepower]],
-    // baseweight: Relative weighting for selection. May be adjusted by availability functions.
+
+private _initData = [
+    // [supptype, basetype, weight, lowair, effradius, strikepower, unfair, reqtype]
+    // weight/lowair: Relative weighting for selection. May be adjusted by availability functions.
     // effradius: Strike radius, used for detecting friendly fire
     // strikepower: Approx resource value per strike for multi-target supports
-    // can we remove this now that it's single-target? Add strikes in support instead?
-    ["AIRSTRIKE",  ["AREA",   0.5, 150,   0]],              // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
-    ["ARTILLERY",  ["AREA",   0.5, 150,  85]],              // balanced against mortars, total will be 0.5
-    ["MORTAR",     ["AREA",   0.5, 100,  50]],
-    ["ASF",        ["TARGET", 1.0,   0, 100]],              // balanced against SAMs (if available), 66/33 weighting
-    ["CAS",        ["TARGET", 1.0,   0, 100]],
-    ["QRFLAND",    ["TROOPS", 1.0,   0,   0]],
-    ["QRFAIR",     ["TROOPS", 0.5,   0,   0]]
+    ["AIRSTRIKE",   "AREA", 0.5, 0.1, 150,   0,  "", "vehiclesPlanesCAS"],           // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
+    ["ARTILLERY",   "AREA", 0.5, 0.9, 150,  85,  "", "vehiclesArtillery"],           // balanced against mortars (50/50 at tier 10), total will be 0.5/0.9
+    ["MORTAR",      "AREA", 0.5, 0.9, 100,  50,  "", "staticMortars"],
+    ["ASF",       "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesAA"],            // balanced against SAMs (if available), 66/33 weighting
+    ["CAS",       "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesCAS"],
+    ["QRFLAND",   "TROOPS", 1.0, 1.4,   0,   0,  "", ""],
+    ["QRFAIR",    "TROOPS", 0.5, 0.1,   0,   0,  "", ""],
+    ["CARPETBOMBS", "AREA", 0.5, 0.1, 200,   0, "u", ""],                            // balanced against airstrikes
+    ["SAM",       "TARGET", 1.0, 1.0,   0, 100, "u", ""]                             // balanced against ASF
+//    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
+//    ["ORBITALSTRIKE", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
 ];
 
-if (allowUnfairSupports) then {
-// well, everyone thinks gunships are unfair...
-//    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
-    A3A_supportTypesHM set ["CARPETBOMBS",  ["AREA", 0.5, 200,   0]];     // balanced against airstrikes
-    A3A_supportTypesHM set ["SAM",          ["TARGET", 1.0, 0, 100]];   // balanced against ASF
-};
-if (allowFuturisticSupports) then {
-//    A3A_supportTypesHM set ["ORBITALSTRIKE", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
+// Generate support type hashmap for a faction, suppType -> [baseType, weight, effRadius, strikepower]
+private _fnc_buildSupportHM = 
+{
+    params ["_faction"];
+    private _lowAir = _faction getOrDefault ["attributeLowAir", false];
+    private _suppHM = createHashMap;
+    {
+        _x params ["_suppType", "_baseType", "_weight", "_lowAirWeight", "_effRadius", "_strikepower", "_flags", "_reqType"];
+        if (_faction get _reqType isEqualTo []) then { continue };
+        if ("u" in _flags and !allowUnfairSupports) then { continue };
+        if ("f" in _flags and !allowFuturisticSupports) then { continue };
+
+        private _weight = [_weight, _lowAirWeight] select _lowAir;
+        _suppHM set [_suppType, [_baseType, _weight, _effRadius, _strikepower]];
+    } forEach _initData;
+    _suppHM;
 };
 
-// TODO: Define separate hashmap per side, pre-check for existence of vehicle supports?
+A3A_supportTypesOcc = A3A_faction_occ call _fnc_buildSupportHM;
+A3A_supportTypesInv = A3A_faction_inv call _fnc_buildSupportHM;
 
 
 // Build marker lists for determining importance of target locations

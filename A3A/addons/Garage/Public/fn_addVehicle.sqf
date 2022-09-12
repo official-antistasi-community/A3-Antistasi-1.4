@@ -51,7 +51,7 @@ if ([getPosATL _player] call A3A_fnc_enemyNearCheck) exitWith {
 //LTC refund
 private _ltcRefund = {
     params ["_box", ["_instantRefund", true]];
-    [_box,boxX,true] call A3A_fnc_ammunitionTransfer;
+    [_box, boxX, true] call A3A_fnc_ammunitionTransfer;
 
     if (_instantRefund) then {
         [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];

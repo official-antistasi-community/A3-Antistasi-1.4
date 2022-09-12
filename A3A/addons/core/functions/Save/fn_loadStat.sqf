@@ -44,7 +44,7 @@ private _fnc_remoteExecObjectJIPSafe = {
         ,["_function", "", [""]]
     ];
 
-    private _jipKey = _function+"_"+((str _object splitString ":") joinString "");
+    private _jipKey = _function + "_" + ((str _object splitString ":") joinString "");
     _arguments remoteExecCall [_function, 0, _jipKey];
 };
 

@@ -87,7 +87,7 @@ _unit addEventHandler ["Deleted", A3A_fnc_enemyUnitDeletedEH];
 
 //Calculates the skill of the given unit
 //private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
-private _skill = 0.05 + (0.1 * A3A_enemySkillMul) + (0.1 * A3A_balancePlayerScale) + (0.01 * tierWar);
+private _skill = (0.1 * A3A_enemySkillMul) + (0.15 * A3A_balancePlayerScale) + (0.01 * tierWar);
 private _regularFaces = (_faction get "faces");
 private _regularVoices = (_faction get "voices");
 private ["_face", "_voice"];

@@ -33,17 +33,17 @@ private _initData = [
     // weight/lowair: Relative weighting for selection. May be adjusted by availability functions.
     // effradius: Strike radius, used for detecting friendly fire
     // strikepower: Approx resource value per strike for multi-target supports
-    ["AIRSTRIKE",   "AREA", 0.5, 0.1, 150,   0,  "", "vehiclesPlanesCAS"],           // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
-    ["ARTILLERY",   "AREA", 0.5, 0.9, 150,  85,  "", "vehiclesArtillery"],           // balanced against mortars (50/50 at tier 10), total will be 0.5/0.9
-    ["MORTAR",      "AREA", 0.5, 0.9, 100,  50,  "", "staticMortars"],
-    ["ASF",       "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesAA"],            // balanced against SAMs (if available), 66/33 weighting
-    ["CAS",       "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesCAS"],
-    ["QRFLAND",   "TROOPS", 1.0, 1.4,   0,   0,  "", ""],
-    ["QRFAIR",    "TROOPS", 0.5, 0.1,   0,   0,  "", ""],
-    ["CARPETBOMBS", "AREA", 0.5, 0.1, 200,   0, "u", ""],                            // balanced against airstrikes
-    ["SAM",       "TARGET", 1.0, 1.0,   0, 100, "u", ""]                             // balanced against ASF
+    ["AIRSTRIKE",       "AREA", 0.5, 0.1, 150,   0,  "", "vehiclesPlanesCAS"],           // balanced against carpetBombs (50/50 at tier 10), total will be 0.5
+    ["ARTILLERY",       "AREA", 0.5, 0.9, 150,  85,  "", "vehiclesArtillery"],           // balanced against mortars (50/50 at tier 10), total will be 0.5/0.9
+    ["MORTAR",          "AREA", 0.5, 0.9, 100,  50,  "", "staticMortars"],
+    ["ASF",           "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesAA"],            // balanced against SAMs (if available), 66/33 weighting
+    ["CAS",           "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesCAS"],
+    ["QRFLAND",       "TROOPS", 1.0, 1.4,   0,   0,  "", ""],
+    ["QRFAIR",        "TROOPS", 0.5, 0.1,   0,   0,  "", ""],
+    ["CARPETBOMBS",     "AREA", 0.5, 0.1, 200,   0, "u", ""],                            // balanced against airstrikes
+    ["SAM",           "TARGET", 1.0, 1.0,   0, 100, "u", ""],                             // balanced against ASF
+    ["ORBITALSTRIKE",   "AREA", 0.2, 0.0, 300,   0, "f", ""]
 //    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
-//    ["ORBITALSTRIKE", ["AREA", 0.1, 300, 0]];   // balanced against airstrikes?
 ];
 
 // Generate support type hashmap for a faction, suppType -> [baseType, weight, effRadius, strikepower]

@@ -449,7 +449,6 @@ class Templates
                 Occ = "CDF";
                 Inv = "AFRF";
             };
-            class chernarus_winter : chernarus_summer {};
             class chernarus : chernarus_summer {};
             class vt7
             {

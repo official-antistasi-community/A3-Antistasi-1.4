@@ -8,7 +8,7 @@ class EditorData
 	toggles=1026;
 	class ItemIDProvider
 	{
-		nextID=1483;
+		nextID=1485;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=164;
+		nextID=175;
 	};
 	class Camera
 	{
-		pos[]={4318.4292,46.755871,3241.6042};
-		dir[]={-0.87269485,-0.47859845,0.096681274};
-		up[]={-0.47568828,0.87803394,0.052699};
-		aside[]={0.1101111,3.7252903e-009,0.99391937};
+		pos[]={2597.1169,61.991425,2032.6672};
+		dir[]={0.61738372,-0.46923521,0.63147956};
+		up[]={0.32804391,0.88306248,0.33553353};
+		aside[]={0.71507442,-4.4936314e-007,-0.69911122};
 	};
 };
 binarizationWanted=0;
@@ -203,7 +203,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=467;
+		items=468;
 		class Item0
 		{
 			dataType="Object";
@@ -8855,7 +8855,7 @@ class Mission
 					position[]={3854.791,20.436001,4481.6221};
 					name="spawnpoint";
 					type="hd_start";
-					angle=28.146969;
+					angle=28.146967;
 					id=211;
 					atlOffset=12.870616;
 				};
@@ -10637,7 +10637,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={3965.0354,28.49218,4639.6484};
-				angles[]={0,4.2881317,-0};
+				angles[]={0,4.2881317,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10653,24 +10653,8 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={2091.6179,54.294502,3085.2556};
-			};
-			side="Empty";
-			flags=5;
-			class Attributes
-			{
-			};
-			id=1468;
-			type="Land_Communication_F";
-			atlOffset=5.7220459e-005;
-		};
-		class Item458
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={1393.7999,30.489466,2698.8225};
-				angles[]={0,1.407339,-0};
+				angles[]={0,1.407339,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10680,13 +10664,13 @@ class Mission
 			id=1469;
 			type="Land_FuelStation_Build_F";
 		};
-		class Item459
+		class Item458
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={1386.1776,30.135584,2699.3828};
-				angles[]={0,4.5908828,-0};
+				angles[]={0,4.5908828,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10696,13 +10680,13 @@ class Mission
 			id=1470;
 			type="Land_FuelStation_Feed_F";
 		};
-		class Item460
+		class Item459
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={1386.6915,30.075024,2696.5505};
-				angles[]={0,4.5908828,-0};
+				angles[]={0,4.5908828,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10713,13 +10697,13 @@ class Mission
 			type="Land_FuelStation_Feed_F";
 			atlOffset=5.7220459e-006;
 		};
-		class Item461
+		class Item460
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={4252.7817,12.550038,3232.854};
-				angles[]={0,2.5642626,-0};
+				angles[]={0,2.5642626,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10730,13 +10714,13 @@ class Mission
 			type="Land_FuelStation_Build_F";
 			atlOffset=-0.064180374;
 		};
-		class Item462
+		class Item461
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={4249.1128,12.174829,3237.5786};
-				angles[]={0,5.7649918,-0};
+				angles[]={0,5.7649918,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10747,13 +10731,13 @@ class Mission
 			type="Land_FuelStation_Feed_F";
 			atlOffset=0.23068714;
 		};
-		class Item463
+		class Item462
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={4245.7642,12.15954,3243.5803};
-				angles[]={0,5.7858133,-0};
+				angles[]={0,5.7858133,0};
 			};
 			side="Empty";
 			flags=1;
@@ -10764,13 +10748,13 @@ class Mission
 			type="Land_FuelStation_Feed_F";
 			atlOffset=0.25322723;
 		};
-		class Item464
+		class Item463
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={4245.7573,14.189325,3243.6372};
-				angles[]={0,1.0444112,-0};
+				angles[]={0,1.0444112,0};
 			};
 			side="Empty";
 			flags=5;
@@ -10780,13 +10764,13 @@ class Mission
 			id=1480;
 			type="Land_FuelStation_Shed_F";
 		};
-		class Item465
+		class Item464
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={4241.9492,12.172347,3249.542};
-				angles[]={0,5.7562995,-0};
+				angles[]={0,5.7562995,0};
 			};
 			side="Empty";
 			flags=1;
@@ -10797,7 +10781,7 @@ class Mission
 			type="Land_FuelStation_Feed_F";
 			atlOffset=0.27876854;
 		};
-		class Item466
+		class Item465
 		{
 			dataType="Logic";
 			class PositionInfo
@@ -10841,6 +10825,38 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item466
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={1413.9204,59.199249,3697.9136};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1483;
+			type="Land_Communication_F";
+			atlOffset=-7.6293945e-006;
+		};
+		class Item467
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={2663.7664,27.367313,2081.0916};
+			};
+			side="Empty";
+			flags=5;
+			class Attributes
+			{
+			};
+			id=1484;
+			type="Land_Communication_F";
+			atlOffset=-2.5749207e-005;
 		};
 	};
 	class Connections

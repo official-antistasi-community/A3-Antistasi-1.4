@@ -11,7 +11,7 @@
     4. <Array>  Pylons (optional)
     5. <Struct/nil> Vehicle state (optional)
     6. <Bool>   use garage vehicle pool for placement (optional: default false)
-    7. <String> extra text which will be shown together with the vehicle placement controls (optional)
+    7. <String> extra text which will be shown together with the vehicle placement hint (optional)
 
     Return Value:
     <nil>

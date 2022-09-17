@@ -17,9 +17,9 @@ class vn_khe_sanh {
 		"Xombolou", "Xomcon", "Pakpong", "XiMi", "Xeku", "Xombong", "Phailom", "Pasom"
 	};
 	antennas[] = {
-		{9048.66,6549.03,-0.258987}, {9387.63,10437.2,0.00366211}, {5117.96,11335,-110.99}, {2792.38,8592.84,0.140808},
+		{9048.66,6549.03,-0.258987}, {9387.63,10437.2,0.00366211}, {5117.91,11335.2,0}, {2792.38,8592.84,0.140808},
 		{10692.6,3183.53,-0.000190735}, {11182.8,1808.63,0.138306}, {4562.41,866.129,0.49115}, {748.892,11575.5,0.138336},
-		{11235.1,14857.8,0.000335693}, {412.002,509.969,0.00694847}
+		{11235.1,14857.8,0.000335693}, {412.002,509.969,0.00694847}, {6019.46,4247.75,0.429047}, {2565.96,3428.66,0.506516}
 	};
 	antennasBlacklistIndex[] = {};
 	banks[] = {};
@@ -34,7 +34,7 @@ class vn_khe_sanh {
 		}
 	};
 	fuelStationTypes[] = {
-		"Land_vn_fuelstation_01_pump_f", "Land_vn_fuelstation_02_pump_f", "Land_vn_fuelstation_feed_f", "Land_vn_usaf_fueltank_75_01"
+		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F","Land_vn_b_prop_fueldrum_01","Land_vn_usaf_fueltank_75_01","Land_vn_fuelstation_feed_f","Land_vn_fuelstation_01_pump_f","Land_vn_fuelstation_02_pump_f"
 	};
 	climate = "tropical";
 };

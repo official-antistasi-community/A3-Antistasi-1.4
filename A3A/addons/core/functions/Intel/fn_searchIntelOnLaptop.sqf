@@ -91,7 +91,7 @@ private _attack = selectRandomWeighted ["No", _noAttackChance, "Small", 0.6, "La
 private _isLargeAttack = (_attack == "Large");
 if(!(_attack == "No")) then
 {
-    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
+//    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
 };
 
 _intel setVariable ["ActionNeeded", false, true];
@@ -239,8 +239,7 @@ _intel setVariable ["ActionNeeded", nil, true];
 if(_pointSum >= _neededPoints) then
 {
     _intel setObjectTextureGlobal [0, "Pictures\Intel\laptop_complete.paa"];
-    private _intelText = ["Large", _side] call A3A_fnc_selectIntel;
-    [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
+    ["Large", _side] remoteExec ["A3A_fnc_selectIntel", 2];
     {
         [petros,"hint","You managed to download the intel!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];
         [10,_x] call A3A_fnc_playerScoreAdd;

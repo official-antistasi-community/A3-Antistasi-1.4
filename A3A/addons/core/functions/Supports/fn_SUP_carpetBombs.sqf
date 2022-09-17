@@ -1,50 +1,35 @@
-params ["_side", "_timerIndex", "_supportPos", "_supportName"];
+/*  Sets up a carpet bombing support
 
-/*  Sets up the data for the airstrike support
+Environment: Server, scheduled, internal
 
-    Execution on: Server
+Arguments:
+    <STRING> The (unique) name of the support, mostly for logging
+    <SIDE> The side from which the support should be sent (occupants or invaders)
+    <STRING> Resource pool used for this support. Should be "attack" or "defence"
+    <SCALAR> Maximum resources to spend. Not used here
+    <OBJECT|BOOL> Target of the support. False for none
+    <POSITION> Target position for airstrike
+    <SCALAR> Reveal value 0-1, higher values mean more information provided about support
+    <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
 
-    Scope: Internal
-
-    Params:
-        _side: SIDE : The side of which the airstrike should be send
-        _timerIndex: NUMBER :  The number of the support timer
-        _supportPos: POSITION : The position to which the airstrike should be carried out
-        _supportName: STRING : The callsign of the support
-
-    Returns:
-        The name of the target marker, empty string if not created
+Returns:
+    <SCALAR> Resource cost of support call, or -1 for failure
 */
 
-private _fileName = "SUP_carpetBombs";
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
-private _targetMarker = createMarker [format ["%1_coverage", _supportName], _supportPos];
-_targetMarker setMarkerShape "ELLIPSE";
-_targetMarker setMarkerBrush "Grid";
-_targetMarker setMarkerSize [100, 200];
-if(_side == Occupants) then
-{
-    _targetMarker setMarkerColor colorOccupants;
-};
-if(_side == Invaders) then
-{
-    _targetMarker setMarkerColor colorInvaders;
-};
-_targetMarker setMarkerAlpha 0;
+params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
 
-private _timerArray = if(_side == Occupants) then {occupantsCarpetBombTimer} else {invadersCarpetBombTimer};
-_timerArray set [_timerIndex, time + 10800];
+private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_delay < 0) then { _delay = (0.5 + random 1) * (350 - 15*tierWar - 1*_aggroValue) };
 
-private _carrierMarker = if (_side == Occupants) then {"NATOCarrier"} else {"CSATCarrier"};
-private _markerDir = getMarkerPos _carrierMarker getDir _supportPos;
-_targetMarker setMarkerDir _markerDir;
+// ["_side", "_basetype", "_target", "_endtime", "_duration", "_power"]
+A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 300];
 
-private _setupTime = 1000 - ((tierWar - 1) * 90);
-private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
-private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
+[_supportName, _side, _delay, _targPos, _reveal] spawn A3A_fnc_SUP_carpetBombsRoutine;
 
+[_reveal, _side, "CARPETBOMBS", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
-[_side, _sleepTime, _supportPos, _supportName] spawn A3A_fnc_SUP_carpetBombsRoutine;
-
-private _result = [_targetMarker, _minSleepTime, _setupTime];
-_result;
+// Return resource cost of support
+200;

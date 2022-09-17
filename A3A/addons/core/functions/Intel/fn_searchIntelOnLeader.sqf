@@ -77,11 +77,8 @@ if(_caller getVariable ["intelFound", false]) then
     if(_hasIntel) then
     {
         ["Intel", "Search completed, intel found!"] call A3A_fnc_customHint;
-        private _intelText = ["Small", _side] call A3A_fnc_selectIntel;
-        [_intelText] remoteExec ["A3A_fnc_showIntel", [teamPlayer, civilian]];
-        {
-            [5,_x] call A3A_fnc_playerScoreAdd;
-        } forEach ([50,0,_caller,teamPlayer] call A3A_fnc_distanceUnits);
+        ["Small", _side] remoteExec ["A3A_fnc_selectIntel", 2];
+        [5, _caller] call A3A_fnc_playerScoreAdd;
     }
     else
     {

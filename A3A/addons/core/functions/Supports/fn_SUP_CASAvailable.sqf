@@ -1,58 +1,24 @@
-params ["_side"];
+/*  Get CAS support selection weight against target
+
+Arguments:
+    <OBJECT> Target object
+    <SIDE> Side to send support from
+    <SCALAR> Max resource spend (not currently used)
+    <ARRAY> Array of strings of available types for this faction
+
+Return value:
+    <SCALAR> Weight value, 0 for unavailable or useless
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _faction = Faction(_side);
-if(tierWar < 5) exitWith {-1};
 
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "CAS" && {(_lastSupport select 1) > time}) exitWith {-1};
+params ["_target", "_side", "_maxSpend", "_availTypes"];
 
-//Make sure the vehicle are available
-if (_faction get "vehiclesPlanesCAS" isEqualTo []) exitWith {-1};
+if (_target isKindOf "Air") exitWith { 0 };         // can't hit air
 
+if (_target isKindOf "Man") exitWith { 0.001 };       // Don't spawn to attack meatsacks, but re-use active supports
 
-//Select a timer index and the max number of timers available
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/4)) + 1;
-
-//Search for a timer which allows the support to be fired
-if(_side == Occupants) then
-{
-    if(count occupantsCASTimer < _playerAdjustment) then
-    {
-        _timerIndex = count occupantsCASTimer;
-        for "_i" from ((count occupantsCASTimer) + 1) to _playerAdjustment do
-        {
-            occupantsCASTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = occupantsCASTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-if(_side == Invaders) then
-{
-    if(count invadersCASTimer < _playerAdjustment) then
-    {
-        _timerIndex = count invadersCASTimer;
-        for "_i" from ((count invadersCASTimer) + 1) to _playerAdjustment do
-        {
-            invadersCASTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = invadersCASTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-
-_timerIndex;
+// Against vehicles and statics, use more frequently against more dangerous stuff
+private _threat = A3A_groundVehicleThreat getOrDefault [typeOf _target, 0];
+0.001 + _threat / 80;

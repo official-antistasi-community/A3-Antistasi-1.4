@@ -28,7 +28,7 @@ while {true} do {
 		_civs = _civs - _abuse;
 	};
 	_allCivs = allUnits select {(alive _x) and (side _x == civilian)};
-	if ((count _allCivs < civPerc) and ({(local _x) and (simulationEnabled _x) and (alive _x)} count allUnits < maxUnits)) then {
+	if (count _allCivs < civPerc) then {
 		if (_reset) then {_houses = (nearestTerrainObjects [player, ["House"], 300]) select {(count (_x buildingPos -1) > 0)}};
 		_houses = _houses select {!((typeOf _x) in listMilBld)};
 		_numhouses = count _houses;

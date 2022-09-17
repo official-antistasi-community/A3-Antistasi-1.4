@@ -268,6 +268,11 @@ class Templates
             {
                 Occ = "LDF";
             };
+            class vt7
+            {
+                Occ = "LDF";
+                Inv = "HIDF";
+            };
             class tem_anizay : kunduz {};
             class altis
             {
@@ -490,5 +495,41 @@ class Templates
 
 
         Nodes[] = {"CUP_Logistics_Nodes.sqf"};
+    };
+
+    class UNS
+    {
+        priorityOcc = 7;
+        priorityInv = 7;
+        priorityReb = 7;
+        priorityCiv = 7;
+
+        requiredAddons[] = {
+            "uns_weap_w"
+        };
+        path = QPATHTOFOLDER(Templates\Templates\UNS);
+
+        class AI
+        {
+            class NVA {};
+            class US {};
+        };
+        class Reb
+        {
+            class VC {};
+        };
+
+        class Civ {};
+        
+        class worldDefaults
+        {
+            class Default {
+                Occ = "NVA";
+                Inv = "US";
+                Reb = "VC";
+            };
+        };
+
+        Nodes[] = {"UNS_Logistics_Nodes.sqf"};
     };
 };

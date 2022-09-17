@@ -26,7 +26,9 @@
 ["vehiclesRepairTrucks", ["CUP_B_T810_Repair_CZ_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_T810_Refuel_CZ_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_LR_Ambulance_CZ_W", "CUP_B_BMP2_AMB_CZ"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_BRDM2_HQ_CZ", "CUP_B_BRDM2_CZ", "CUP_B_BMP2_CZ"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_B_BRDM2_HQ_CZ", "CUP_B_BRDM2_CZ", "CUP_B_BRDM2_CZ"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_BMP2_CZ"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_nM1097_AVENGER_USA_WDL"]] call _fnc_saveToTemplate;
 
@@ -40,6 +42,7 @@
 
 ["vehiclesHelisLight", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_B_Mi171Sh_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_Mi35_Dynamic_CZ", "CUP_B_Mi35_Dynamic_CZ_Dark"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_RM70_CZ"]] call _fnc_saveToTemplate;
@@ -63,6 +66,8 @@
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

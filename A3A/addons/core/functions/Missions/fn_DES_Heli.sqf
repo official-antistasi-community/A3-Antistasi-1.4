@@ -30,12 +30,13 @@ while {true} do {
 };
 
 // selecting Aircraft
-private _heliPool = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") + (_faction get "vehiclesHelisAttack");
+private _heliPool = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") + (_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack");
 private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
     ["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
     Error("No aircrafts in arrays vehiclesHelisLight, vehiclesHelisTransport or vehiclesHelisAttack. Reselecting DES mission");
 };
+private _isAttackHeli = _typeVehH in ((_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack"));
 
 //refining crash spawn position, to avoid exploding on spawn or "Armaing" during mission
 private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePos;
@@ -181,7 +182,7 @@ if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
     _guardWP = [_guard, _posCrash, 10] call BIS_fnc_taskPatrol;
 
     Debug_1("Location: %1, Guard Squad spawned", _posCrash);
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {
+    if (_isAttackHeli) then {
         //if attack helicopter
         //creating transport vehicle
         _typeVeh = selectRandom (_faction get "vehiclesTrucks");
@@ -329,13 +330,13 @@ if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100)
     [1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     {if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
     [5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (_isAttackHeli) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 } else {
     Debug_2("%1 was successfully recovered by %2, mission failed", _heli, _sideX);
     [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
     [-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     [-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (_isAttackHeli) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 };
 Info("Downed Heli mission completed");
 ////////////

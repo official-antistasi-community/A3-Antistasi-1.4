@@ -158,6 +158,17 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
                 ["CfgMagazines",(_x#0),_entry] call _validClassCaseSensitive;
             } forEach _y;
         };
+        case "attributesVehicles": {
+            if !(_y isEqualType []) exitWith {_invalidReasons pushBack ("Entry "+(str _entry)+" is not an array.")};
+            {
+                if !(_x isEqualTypeParams ["", []]) then {_invalidReasons pushBack ("Entry: "+(str _entry)+" -> "+(str _x)+" has the wrong data type(s). Expected [<String>Class, <Array>Attribute]"); continue};
+                private _veh = _x#0;
+                {
+                    if (_forEachIndex == 0) then {["CfgVehicles",_x,_entry] call _validClassCaseSensitive; continue};
+                    if !(_x isEqualTypeArray ["", 0]) then {_invalidReasons pushBack ("Vehicle attribute "+(str _x)+" for "+_veh+" has the wrong data types(s). Expected [<String>Attribute, <Scalar>Value]")};
+                } forEach _x;
+            } forEach _y;
+        };
         case "diveGear"; //Mixed CFGVehicles and CFGGlasses
         case "flyGear";
         case "voices"; //CfgVoice maybe later

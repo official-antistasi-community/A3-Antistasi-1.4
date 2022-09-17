@@ -3,7 +3,6 @@ private ["_roads","_pos","_positionX","_groupX"];
 _markersX = markersX + [respawnTeamPlayer];
 
 _esHC = false;
-if !((vehicle player getVariable "SA_Tow_Ropes") isEqualTo objNull) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached."] call A3A_fnc_customHint;};
 if (count hcSelected player > 1) exitWith {["Fast Travel", "You can select one group only to Fast Travel"] call A3A_fnc_customHint;};
 if (count hcSelected player == 1) then {_groupX = hcSelected player select 0; _esHC = true} else {_groupX = group player};
 _checkForPlayer = false;
@@ -15,6 +14,8 @@ if ((_boss != player) and (!_esHC)) then {_groupX = player};
 if (({isPlayer _x} count units _groupX > 1) and (_esHC)) exitWith {["Fast Travel", "You cannot Fast Travel groups commanded by players."] call A3A_fnc_customHint;};
 
 if (player != player getVariable ["owner",player]) exitWith {["Fast Travel", "You cannot Fast Travel while you are controlling AI."] call A3A_fnc_customHint;};
+
+if (!_esHC and !isNil {vehicle player getVariable "SA_Tow_Ropes"}) exitWith {["Fast Travel", "You cannot Fast Travel with your Tow Rope out or a Vehicle attached."] call A3A_fnc_customHint;};
 
 if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "You cannot fast travel while being FF Punished."] call A3A_fnc_customHint;};
 
@@ -35,10 +36,11 @@ if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel if you don't have
 
 positionTel = [];
 
-if (_esHC) then {hcShowBar false};
+//if (_esHC) then {hcShowBar false};
 ["Fast Travel", "Click on the zone you want to travel."] call A3A_fnc_customHint;
 if (!visibleMap) then {openMap true};
-onMapSingleClick "positionTel = _pos;";
+showCommandingMenu "";
+onMapSingleClick "positionTel = _pos; true";
 
 waitUntil {sleep 1; (count positionTel > 0) or (not visiblemap)};
 onMapSingleClick "";
@@ -63,7 +65,7 @@ if (count _positionTel > 0) then
 		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _distanceX;};
 		_forcedX = false;
 		if (!isMultiplayer) then {if (not(_base in forcedSpawn)) then {_forcedX = true; forcedSpawn = forcedSpawn + [_base]}};
-		if (!_esHC) then {disableUserInput true; cutText [format ["Fast traveling, travel time: %1s , please wait", _distanceX],"BLACK",1]; sleep 1;} else {hcShowBar false;hcShowBar true;["Fast Travel", format ["Moving group %1 to destination",groupID _groupX]] call A3A_fnc_customHint; sleep _distanceX;};
+		if (!_esHC) then {disableUserInput true; cutText [format ["Fast traveling, travel time: %1s , please wait", _distanceX],"BLACK",1]; sleep 1;} else {["Fast Travel", format ["Moving group %1 to destination",groupID _groupX]] call A3A_fnc_customHint; sleep _distanceX;};
  		if (!_esHC) then
  			{
  			_timePassed = 0;
@@ -141,4 +143,5 @@ if (count _positionTel > 0) then
 		["Fast Travel", "You must click near a marker under your control."] call A3A_fnc_customHint;
 		};
 	};
-openMap false;
+
+if (!_esHC) then { openMap false };

@@ -15,6 +15,7 @@ _numCiv = _dataX select 0;
 _numVeh = _dataX select 1;
 
 private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
+_roads = _roads select { !(getRoadInfo _x # 8) and (count roadsConnectedTo [_x, true] <= 2) and (count (_x nearRoads 10) < 2)};		// no bridges or junctions
 if (count _roads == 0) exitWith
 {
     Error_1("Roads not found for marker %1", _markerX);
@@ -42,7 +43,8 @@ _area = [_markerX] call A3A_fnc_sizeMarker;
 _roads = _roads call BIS_fnc_arrayShuffle;
 private _maxRoads = count _roads;
 
-private _numParked = _numCiv * (1/60) * civTraffic;		// civTraffic is 0,1,2(default),4
+_numCiv = 15 * sqrt _numCiv * (1 - tierWar / 20); 			// reduce civ activity with war level
+private _numParked = _numCiv * (1/60) * civTraffic;			// civTraffic is 0,1,2(default),4
 private _numTraffic = _numCiv * (1/300) * civTraffic;
 
 if ((daytime < 8) or (daytime > 21)) then {_numParked = _numParked * 1.5; _numTraffic = _numTraffic / 4 };
@@ -69,7 +71,8 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 				_dirveh = _p1 getDir _p2;
 			};
 
-			_pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
+			private _width = 3 max (getRoadInfo _road # 1 / 2 - 1);
+			_pos = [_p1, _width, _dirveh + 90] call BIS_Fnc_relPos;
 			_typeVehX = selectRandomWeighted civVehiclesWeighted;
 			/*
 			_mrk = createmarker [format ["%1", count vehicles], _p1];
@@ -79,7 +82,8 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 		    _mrk setMarkerColor colorTeamPlayer;
 		    //_mrk setMarkerText _nameX;
 		    */
-			_veh = _typeVehX createVehicle _pos;
+			_veh = createVehicle [_typeVehX, _pos, [], 0, "CAN_COLLIDE"];
+			_veh setVariable ["originalPos", _pos];
 			_veh setDir _dirveh;
             _veh setFuel random [0.10, 0.30, 0.50];
 			clearMagazineCargoGlobal _veh;
@@ -87,11 +91,10 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do
 			clearItemCargoGlobal _veh;
 			clearBackpackCargoGlobal _veh;
 			_vehiclesX pushBack _veh;
-			[_veh, civilian] spawn A3A_fnc_AIVEHinit;
-			_veh setVariable ["originalPos", getPos _veh];
+			[_veh, civilian] spawn A3A_fnc_AIVEHinit;		// should cleanup if destroyed...
+			sleep 0.5;
 			};
 		};
-	sleep 0.5;
 	_countParked = _countParked + 1;
 	};
 

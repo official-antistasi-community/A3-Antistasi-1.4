@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["I_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["I_MRAP_03_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F"]] call _fnc_saveToTemplate;
+private _lightArmed = ["I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F"];
 ["vehiclesTrucks", ["I_Truck_02_transport_F", "I_Truck_02_covered_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
 ["vehiclesAmmoTrucks", ["I_Truck_02_ammo_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["I_Truck_02_box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_Truck_02_medical_F"]] call _fnc_saveToTemplate;
-private _APCs = ["I_APC_tracked_03_cannon_F", "I_APC_Wheeled_03_cannon_F"];
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["I_APC_tracked_03_cannon_F", "I_APC_Wheeled_03_cannon_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["I_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 private _AA = ["I_LT_01_AA_F"];
 
@@ -39,8 +41,9 @@ private _AA = ["I_LT_01_AA_F"];
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["I_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["I_Heli_light_03_unarmed_F", "I_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["I_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["I_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["I_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["I_Truck_02_MRL_F", "B_MBT_01_arty_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -72,7 +75,8 @@ private _AA = ["I_LT_01_AA_F"];
 
 //If Tank DLC
 if (allowDLCTanks) then {
-    _APCs append ["I_LT_01_AT_F", "I_LT_01_cannon_F"];
+    // No seats so can't be APC
+    _lightArmed append ["I_LT_01_AT_F", "I_LT_01_cannon_F"];
 };
 //If Western Sahara DLC
 if (allowDLCWS && A3A_hasWS) then {
@@ -80,8 +84,10 @@ if (allowDLCWS && A3A_hasWS) then {
     _AA append ["I_A_Truck_02_aa_lxWS"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
-["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _lightArmed] call _fnc_saveToTemplate;
 ["vehiclesAA", _AA] call _fnc_saveToTemplate;
+
+#include "Vanilla_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

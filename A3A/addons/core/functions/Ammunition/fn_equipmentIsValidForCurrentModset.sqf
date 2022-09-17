@@ -107,7 +107,32 @@ if (A3A_hasVN && {(_itemIsVanilla || _itemMod in _acemods || _itemMod in _TFARmo
 		default { true };
 	};
 };
-
+if (A3A_hasUNS && {(_itemIsVanilla || _itemMod in _acemods || _itemMod in _TFARmods)}) exitWith {
+	switch (_categories select 0) do {
+		case "Item": {
+			switch (_categories select 1) do {
+				case "AccessoryMuzzle";
+				case "AccessoryPointer";
+				case "AccessorySights";
+				case "AccessoryBipod";
+				case "Binocular";
+				case "GPS";
+				case "LaserDesignator";
+				case "MineDetector";
+				case "NVGoggles";
+				case "Radio";
+				case "UAVTerminal";
+				case "Unknown": { false };
+				default { true };
+			};
+		};
+		case "Weapon";
+		case "Equipment";
+		case "Magazine";
+		case "Mine": { false };
+		default { true };
+	};
+};
 //no other CDLC content when using VN
 if (A3A_hasVN && {toLower _itemMod isNotEqualTo "vn"} && {toLower _itemMod in (allCDLC apply {toLower (_x#1)})}) exitWith {false};
 

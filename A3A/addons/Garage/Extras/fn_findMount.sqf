@@ -37,8 +37,8 @@ private _CheckedUID = ["",_UID] select (_newIconIndex isEqualTo 1);
 
 //block checkout condition
 if (
-    !((_mount#2) in ["",_UID])                          //locked by someone else
-    && !(_player isEqualTo (_player call HR_GRG_cmdClient))       //cmd overwrite
+    !((_mount#2) in ["",_UID])                   //locked by someone else
+    && !(_player call HR_GRG_isCmdClient)        //cmd overwrite
 ) exitWith _failed;
 if !((_mount#3) in ["", _UID]) exitWith _failed; //Checked out by someone else
 

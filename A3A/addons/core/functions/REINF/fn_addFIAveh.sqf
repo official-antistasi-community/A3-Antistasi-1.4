@@ -27,6 +27,6 @@ if (_resourcesFIA < vehiclePurchase_cost) exitWith {["Add Vehicle", format ["You
 vehiclePurchase_nearestMarker = [markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer},player] call BIS_fnc_nearestPosition;
 if !(player inArea vehiclePurchase_nearestMarker) exitWith {["Add Vehicle", "You need to be close to the flag to be able to purchase a vehicle."] call A3A_fnc_customHint;};
 
-private _extraMessage =	format ["Buying vehicle for $%1.<br/>", vehiclePurchase_cost];
+private _extraMessage =	format ["Buying vehicle for $%1.", vehiclePurchase_cost];
 
 [_typeVehX, "BUYFIA", [], nil, nil, nil, false, _extraMessage] call HR_GRG_fnc_confirmPlacement;

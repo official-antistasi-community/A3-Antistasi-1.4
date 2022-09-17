@@ -41,6 +41,7 @@ params [
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
 if (isNil "HR_GRG_curTexture") then {HR_GRG_curTexture = []};
 if (isNil "HR_GRG_curAnims") then {HR_GRG_curAnims = []};
+if (!isNil "HR_GRG_placing" && {HR_GRG_placing}) exitWith {Error_1("already placing, params: %1", _this)};
 HR_GRG_placing = true;
 
 //define global variables
@@ -388,7 +389,7 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         case 0: {
             [
                 localize "STR_HR_GRG_Feedback_CP_Rotation",
-                format ["%1%2", HR_GRG_CP_extraText, localize "STR_HR_GRG_Feedback_CP_Rotation"]
+                format ["%1<br/>%2", HR_GRG_CP_extraText, localize "STR_HR_GRG_Feedback_CP_Rotation"]
             ] select (HR_GRG_CP_extraText isNotEqualTo "");
         };
         case 1: {localize "STR_HR_GRG_Feedback_CP_TooFar"};

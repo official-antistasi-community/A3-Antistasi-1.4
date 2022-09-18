@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_nM1025_Unarmed_USMC_WDL", "CUP_B_nM1025_Unarmed_DF_USMC_WDL", "CUP_B_nM1038_USMC_WDL", "CUP_B_nM1038_DF_USMC_WDL", "CUP_B_nM1038_4s_USMC_WDL", "CUP_B_nM1038_4s_DF_USMC_WDL", "CUP_B_M1151_USMC", "CUP_B_M1152_USMC"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_B_nM1025_M2_USMC_WDL", "CUP_B_nM1025_M2_DF_USMC_WDL", "CUP_B_nM1025_M240_USMC_WDL", "CUP_B_nM1025_M240_DF_USMC_WDL", "CUP_B_nM1025_Mk19_USMC_WDL", "CUP_B_nM1025_Mk19_DF_USMC_WDL", "CUP_B_nM1025_SOV_M2_USMC_WDL", "CUP_B_nM1025_SOV_Mk19_USMC_WDL", "CUP_B_nM1036_TOW_USMC_WDL", "CUP_B_nM1036_TOW_DF_USMC_WDL", "CUP_B_M1151_M2_USMC", "CUP_B_M1151_Deploy_USMC", "CUP_B_M1151_Mk19_USMC", "CUP_B_M1165_GMV_USMC", "CUP_B_M1167_USMC", "CUP_B_RG31_Mk19_OD_USMC", "CUP_B_RG31E_M2_OD_USMC", "CUP_B_RG31_M2_OD_USMC", "CUP_B_RG31_M2_OD_GC_USMC"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["CUP_B_nM1025_M2_USMC_WDL", "CUP_B_nM1025_M2_DF_USMC_WDL", "CUP_B_nM1025_M240_USMC_WDL", "CUP_B_nM1025_M240_DF_USMC_WDL", "CUP_B_nM1025_Mk19_USMC_WDL", "CUP_B_nM1025_Mk19_DF_USMC_WDL", "CUP_B_nM1025_SOV_M2_USMC_WDL", "CUP_B_nM1025_SOV_Mk19_USMC_WDL", "CUP_B_nM1036_TOW_USMC_WDL", "CUP_B_nM1036_TOW_DF_USMC_WDL", "CUP_B_M1151_M2_USMC", "CUP_B_M1151_Deploy_USMC", "CUP_B_M1151_Mk19_USMC", "CUP_B_M1165_GMV_USMC", "CUP_B_M1167_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_B_MTVR_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_USMC", "CUP_B_nM1038_Ammo_USMC_WDL", "CUP_B_nM1038_Ammo_DF_USMC_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_B_MTVR_Repair_USMC", "CUP_B_nM1038_Repair_USMC_WDL", "CUP_B_nM1038_Repair_DF_USMC_WDL"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_AAV_Unarmed_USMC", "CUP_B_AAV_USMC", "CUP_B_AAV_USMC_TTS", "CUP_B_LAV25_USMC", "CUP_B_LAV25M240_USMC", "CUP_B_LAV25_HQ_green"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_B_M113A3_olive_USA", "CUP_B_M113A3_olive_USA", "CUP_B_RG31E_M2_OD_USMC", "CUP_B_RG31_Mk19_OD_USMC", "CUP_B_RG31_M2_OD_USMC", "CUP_B_RG31_M2_OD_GC_USMC"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_AAV_USMC", "CUP_B_AAV_USMC_TTS", "CUP_B_LAV25_USMC", "CUP_B_LAV25M240_USMC"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_M1A1FEP_Woodland_USMC", "CUP_B_M1A1EP_TUSK_Woodland_USMC", "CUP_B_M60A3_USMC", "CUP_B_M60A3_TTS_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_nM1097_AVENGER_USMC_WDL"]] call _fnc_saveToTemplate;
 
@@ -34,13 +36,14 @@
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["CUP_B_AAV_USMC", "CUP_B_AAV_USMC_TTS", "CUP_B_LAV25_USMC", "CUP_B_LAV25M240_USMC"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["CUP_B_A10_AT_USA"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["CUP_B_A10_DYN_USA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["CUP_B_AV8B_DYN_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_C130J_USMC", "CUP_B_MV22_USMC_RAMPGUN"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["CUP_B_MH6M_USA", "CUP_B_MH6J_USA", "CUP_B_UH1Y_UNA_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_MH60S_Unarmed_USN", "CUP_MH60S_Unarmed_FFV_USN", "CUP_B_MH60S_USMC", "CUP_B_UH60S_USN", "CUP_B_CH53E_USMC", "CUP_B_MH60L_DAP_2x_USN"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["CUP_B_AH1Z_Dynamic_USMC", "CUP_B_MH60L_DAP_4x_USN", "CUP_B_UH1Y_Gunship_Dynamic_USMC"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_B_MH60L_DAP_4x_USN", "CUP_B_UH1Y_Gunship_Dynamic_USMC"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["CUP_B_AH1Z_Dynamic_USMC"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_M270_HE_USMC","CUP_B_M270_DPICM_USMC"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -66,6 +69,8 @@
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

@@ -21,6 +21,7 @@ Info("Initializing global params");
 // - "server" means that the var won't be broadcast to clients & HCs
 // - "override" means that the var's value will be overwritten by the default even if it already exists
 // - "oldsave" means that the var was saved separately with the same name in older versions
+// - "div10" means that the value from config parameters will be divided by 10
 // default can be either a number or bool. If bool, values from config params will be converted
 // params.hpp should be updated to match this table
 
@@ -29,13 +30,20 @@ A3A_paramTable = [
     ["autoSave", "autoSave", [], true],
     ["autoSaveInterval", "autoSaveInterval", [], 3600],
     ["distanceMission", "mRadius", [], 4000],
-    ["skillMult", "AISkill", [], 2],
+    ["enemyNearDistance", "enemyNearDistanceLimit", [], 300],
     ["civTraffic", "civTraffic", [], 2],
     ["limitedFT", "allowFT", [], true],									// backwards naming...
-    ["napalmEnabled", "napalmEnabled", [], false],
     ["playerMarkersEnabled", "pMarkers", [], true],
-    ["allowUnfairSupports", "allowUnfairSupports", [], false],
-    ["allowFuturisticSupports", "allowFuturisticSupports", [], false],
+
+    ["allowUnfairSupports", "allowUnfairSupports", ["server"], false],
+    ["allowFuturisticSupports", "allowFuturisticSupports", ["server"], false],
+    ["A3A_enemybalanceMul", "enemyBalanceMul", ["server", "div10"], 1.0],
+    ["A3A_enemyAttackMul", "enemyAttackMul", ["server", "div10"], 1.0],
+    ["A3A_invaderBalanceMul", "invaderBalanceMul", ["server", "div10"], 1.2],
+    ["A3A_attackMissionDistMul", "attackMissionDistMul", ["server"], 2],
+    ["A3A_enemySkillMul", "enemySkillMul", [], 2],
+    ["A3A_rebelSkillMul", "rebelSkillMul", [], 2],
+    ["napalmEnabled", "napalmEnabled", [], true],
 
     ["allowDLCKart", "Kart", ["server"], false],
     ["allowDLCMark", "Mark", ["server"], false],
@@ -68,6 +76,7 @@ A3A_paramTable = [
     ["LTCLootUnlocked", "LTCLootUnlocked", [], false],
 
     ["logLevel", "LogLevel", ["override"], 3],
+    ["A3A_logDebugConsole", "A3A_logDebugConsole", [], 1],
     ["A3A_GUIDevPreview", "A3A_GUIDevPreview", [], false],
 
     ["bobChaosCrates", "truelyRandomCrates", [], false],
@@ -95,7 +104,7 @@ A3A_paramTable = [
     // Not visible parameters yet, but otherwise handled the same way
     ["distanceSPWN", "", ["oldsave"], 1000],
     ["civPerc", "", ["oldsave"], 5],
-    ["maxUnits", "", ["oldsave"], 140],
+    ["maxUnits", "", ["oldsave"], 140],         // hopefully dead
     ["minPlayersRequiredForPVP", "", [], 2]
 
     // beware of the comma
@@ -123,13 +132,13 @@ if (loadLastSave) then
         Info("No params array found in saved game, treating as legacy save");
 
         // Special case for legacy difficultyX + SP, ugh
-        private _difficultyX = ["difficultyX"] call A3A_fnc_returnSavedStat;
+/*        private _difficultyX = ["difficultyX"] call A3A_fnc_returnSavedStat;
         if (!isMultiplayer && !(isNil "_difficultyX")) then {
             skillMult = _difficultyX;
             if (skillMult == 1) then {minWeaps = 15};
             if (skillMult == 3) then {minWeaps = 40};
         };
-
+*/
         // Load the other legacy saved params
         {
             _x params ["_varName", "_paramName", "_options", "_default"];
@@ -173,8 +182,8 @@ if (isMultiplayer) then {
             };
             if (_val == 9999) exitWith {};			// "Default (xxx)" option, do nothing here
 
-            // conversion to bool
-            if (_default isEqualType true) then { _val = _val isEqualTo 1 };
+            if (_default isEqualType true) then { _val = _val isEqualTo 1 };        // conversion to bool
+            if ("div10" in _options) then { _val = _val / 10 };
             missionNamespace setVariable [_varName, _val];
         };
         if !("server" in _options)	then { publicVariable _varName };

@@ -45,8 +45,7 @@ theBoss hcSetGroup [_groupX];
 
 waitUntil {sleep 1; ({alive _x} count units _groupX == 0) or ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) or (dateToNumber date > _dateLimitNum)};
 
-if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) then
-	{
+if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) then {
 	if (isPlayer leader _groupX) then
 		{
 		_owner = (leader _groupX) getVariable ["owner",leader _groupX];
@@ -67,19 +66,17 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 	_mrk setMarkerType "loc_bunker";
 	_mrk setMarkerColor colorTeamPlayer;
 	_mrk setMarkerText _textX;
-	if (_isRoad) then
-		{
+	if (_isRoad) then {
 		_garrison = FactionGet(reb,"groupAT");
 		_garrison pushBack FactionGet(reb,"unitCrew");
 		garrison setVariable [_mrk,_garrison,true];
-		};
-	}
-else
-	{
+	};
+    ["RebelControlCreated", [_mrk, _isRoad]] call EFUNC(Events,triggerEvent);
+} else {
 	[_taskId, "outpostsFIA", "FAILED"] call A3A_fnc_taskSetState;
 	sleep 3;
 	deleteMarker _mrk;
-	};
+};
 
 theBoss hcRemoveGroup _groupX;
 {deleteVehicle _x} forEach units _groupX;

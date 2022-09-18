@@ -74,9 +74,9 @@ private _offsetAndDir = [_cargo] call A3A_fnc_logistics_getCargoOffsetAndDir;
 private _location = _offsetAndDir#0;
 private _location = _location vectorAdd _nodeOffset;
 
-private _bbVehicle = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
-private _bbCargo = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
-private _yStart = _bbVehicle + _bbCargo - 0.1;
+private _bbVehicle = (boundingBoxReal _vehicle select 0 select 1);
+private _bbCargo = (boundingBoxReal _cargo select 0 select 1);
+private _yStart = _bbVehicle + _bbCargo;
 private _yEnd = _location#1;
 _cargo setVariable ["AttachmentOffset", _location];
 
@@ -104,10 +104,12 @@ if (_instant) then {
     _location set [1, _yEnd+0.1];
     _cargo attachto [_vehicle,_location];
 } else {
+    private _prevTime = time;
     while {(_location#1) < _yEnd} do {
         uiSleep 0.1;
-        _location = _location vectorAdd [0,0.1,0];
+        _location = _location vectorAdd [0,time-_prevTime,0];
         _cargo attachto [_vehicle,_location];
+        _prevTime = time;
     };
 };
 

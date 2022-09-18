@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["UK3CB_MDF_B_Quadbike"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_MDF_B_M1151", "UK3CB_MDF_B_M998_2DR", "UK3CB_MDF_B_M998_4DR"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_MDF_B_M1025_M2", "UK3CB_MDF_B_M1025_TOW", "UK3CB_MDF_B_M1151_GPK_M2", "UK3CB_MDF_B_M1151_GPK_M240", "UK3CB_MDF_B_M1151_GPK_MK19", "UK3CB_MDF_B_M1151_OGPK_M2", "UK3CB_MDF_B_M1151_OGPK_M240", "UK3CB_MDF_B_Offroad_HMG"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_MDF_B_M1025_M2", "UK3CB_MDF_B_M1025_TOW", "UK3CB_MDF_B_M1151_GPK_M2", "UK3CB_MDF_B_M1151_GPK_M240", "UK3CB_MDF_B_M1151_GPK_MK19", "UK3CB_MDF_B_M1151_OGPK_M2", "UK3CB_MDF_B_M1151_OGPK_M240", "UK3CB_MDF_B_Offroad_HMG", "UK3CB_MDF_B_LSV_02_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_MDF_B_MTVR_Closed", "UK3CB_MDF_B_MTVR_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_MDF_B_MTVR_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_MDF_B_MTVR_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_MDF_B_MTVR_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_MDF_B_MTVR_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_MDF_B_M113_Medical"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Cage_Camo", "UK3CB_MDF_B_Warrior_Camo", "UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Camo"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_MDF_B_Warrior_Cage"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_MDF_B_M60A3"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_MDF_B_UH1H", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_MDF_B_UH1H_M240", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_Bell412_Armed_NAVY", "UK3CB_MDF_B_Bell412_Armed_AT_NAVY"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_Bell412_Armed_NAVY", "UK3CB_MDF_B_Bell412_Armed_AT_NAVY"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -69,6 +72,8 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

@@ -19,6 +19,9 @@ Example:
 
 License: MIT License
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 if ((serverTime - (boxX getVariable ["lastUsed", -30])) < 30) exitWith {
     if (hasInterface) then {
         [localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_UsedRecently"] call A3A_fnc_customHint;
@@ -45,19 +48,12 @@ private _posHQ = getMarkerPos respawnTeamPlayer;
     };
 } forEach allUnits;
 
-//clear report from vehicles that are alive, at HQ, and reported
-private _reportCleared = false;
+//clear report from vehicles that are at HQ and reported
 {
-    if (
-        alive _x
-        && {_x distance _posHQ < 150}
-        && {_x in reportedVehs}
-    ) then {
-        reportedVehs deleteAt (reportedVehs find _x);
-        _reportCleared = true;
-    };
-} forEach vehicles;
-if (_reportCleared) then { publicVariable "reportedVehs" };//spare publicVariable for every vehicle at hq
+    if (isNil {_x getVariable "A3A_reported"}) then { continue };
+    _x setVariable ["A3A_reported", nil, true];
+} forEach (vehicles inAreaArray [_posHQ, 150, 150]);
 
+["vehicleBoxHeal", [_posHQ]] call EFUNC(Events,triggerEvent);
 [localize "STR_antistasi_singleWord_Heal", localize "STR_antistasi_Base_vehicleBoxHeal_Healed"] call A3A_fnc_customHint;
 nil

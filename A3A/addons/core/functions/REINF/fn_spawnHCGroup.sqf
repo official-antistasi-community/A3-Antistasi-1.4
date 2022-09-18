@@ -63,7 +63,6 @@ private _initInfVeh = {
 
 private _initVeh = {
     [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;
-    [_vehicle] spawn A3A_fnc_vehDespawner;
     _group addVehicle _vehicle;
     _vehicle setVariable ["owner",_group,true];
     driver _vehicle action ["engineOn", _vehicle];
@@ -92,13 +91,14 @@ switch _special do {
         (_units # (_countUnits -1)) moveInDriver _vehicle;
         (_units # _countUnits) moveInGunner _static;
         call _initVeh;
+        _vehicle allowCrewInImmobile true;
         _cost = _cost + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice);
-
     };
     case "VehicleSquad": {
         (_units # (_countUnits -1)) moveInDriver _vehicle;
         (_units # _countUnits) moveInGunner _vehicle;
         call _initVeh;
+        _vehicle allowCrewInImmobile true;
     };
 
     //inf squad

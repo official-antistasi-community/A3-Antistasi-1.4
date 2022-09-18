@@ -28,6 +28,26 @@ Example:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
+/*
+    Function: _fnc_remoteExecObjectJIPSafe
+    remote executes a function with a safe object JIP, The JIP key will be "FunctionName_ObjID"
+
+    Params:
+        _object - [Object] the object the JIP is tied to
+        _arguments - [ARRAY] An array of arguments for the function
+        _function - [String] the function name to be remote executed (needs to be available in the global namespace of the targets)
+*/
+private _fnc_remoteExecObjectJIPSafe = {
+    params [
+         ["_object", objNull, [objNull]]
+        ,["_arguments", [], [[]]]
+        ,["_function", "", [""]]
+    ];
+
+    private _jipKey = _function + "_" + ((str _object splitString ":") joinString "");
+    _arguments remoteExecCall [_function, 0, _jipKey];
+};
+
 private _translateMarker = {
     params ["_mrk"];
     if (_mrk find "puesto" == 0) exitWith { "outpost" + (_mrk select [6]) };
@@ -36,13 +56,13 @@ private _translateMarker = {
 };
 
 private _specialVarLoads = [
-    "outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+    "outpostsFIA","minesX","staticsX","antennas","mrkNATO","mrkSDK","prestigeNATO",
     "prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
     "prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
-    "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
-    "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray", QEGVAR(Tasks,ActiveTasks)
+    "garrison","tasks","membersX","vehInGarage","destroyedBuildings","idlebases",
+    "chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
+    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "enemyResources", "HQKnowledge",
+    "testingTimerIsActive", "version", "HR_Garage", "A3A_fuelAmountleftArray", QEGVAR(Tasks,ActiveTasks)
 ];
 
 private _varName = _this select 0;
@@ -57,14 +77,9 @@ if (_varName in _specialVarLoads) then {
         };
         A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
     };
-    if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-    //Keep this for backwards compatiblity
-    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
     if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
     if (_varName == 'nextTick') then {nextTick = time + _varValue};
     if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
-    if (_varName == 'smallCAmrk') then {};      // Ignore. These are not persistent.
     if (_varName == 'mrkNATO') then {{sidesX setVariable [[_x] call _translateMarker,Occupants,true]} forEach _varValue;};
     if (_varName == 'mrkCSAT') then {{sidesX setVariable [[_x] call _translateMarker,Invaders,true]} forEach _varValue;};
     if (_varName == 'mrkSDK') then {{sidesX setVariable [[_x] call _translateMarker,teamPlayer,true]} forEach _varValue;};
@@ -262,14 +277,21 @@ if (_varName in _specialVarLoads) then {
             server setVariable [_city,_dataX,true];
         };
     };
+    if (_varname == 'enemyResources') then {
+        A3A_resourcesDefenceOcc = _varValue#0;
+        A3A_resourcesDefenceInv = _varValue#1;
+        A3A_resourcesAttackOcc = _varValue#2;
+        A3A_resourcesAttackInv = _varValue#3;
+    };
+    if (_varname == 'HQKnowledge') then {
+        A3A_curHQInfoOcc = _varValue#0;
+        A3A_curHQInfoInv = _varValue#1;
+        A3A_oldHQInfoOcc = _varValue#2;
+        A3A_oldHQInfoInv = _varValue#3;
+    };
     if (_varname == 'idlebases') then {
         {
             server setVariable [(_x select 0),(_x select 1),true];
-        } forEach _varValue;
-    };
-    if (_varname == 'idleassets') then {
-        {
-            timer setVariable [(_x select 0),(_x select 1),true];
         } forEach _varValue;
     };
     if (_varname == 'killZones') then {
@@ -328,10 +350,36 @@ if (_varName in _specialVarLoads) then {
                 };
                 [_veh] spawn A3A_fnc_vehDespawner;
             };
+
+        //this is less flexible than buyItem is but is fine for the specific use case of fuel drums and light sources
+        //future objects that needs initialising needs another unique handler here which might eventually become troublessome
+            //handle buyable fuel containers
+            if (typeOf _veh in [FactionGet(reb,"vehicleFuelDrum")#0,FactionGet(reb,"vehicleFuelTank")#0]) then {
+                [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
+                [_veh,[_veh],"A3A_fnc_logistics_addLoadAction"] call _fnc_remoteExecObjectJIPSafe;
+                _veh allowDamage false;
+                _veh setVariable ["A3A_canGarage", true, true];
+                private _cat = if (typeOf _veh isEqualTo "vehicleFuelDrum") then {"vehicleFuelDrum"} else {"vehicleFuelTank"};
+                _veh setVariable ["A3A_itemPrice",
+                    FactionGet(reb,_cat)#1
+                , true];
+            };
+        /* we currently dont save the light sources (guessing because its a "building")
+            //handle buyable light sources
+            if (typeOf _veh isEqualTo FactionGet(reb,"vehicleLightSource")) then {
+                [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
+                _veh allowDamage false;
+                _veh setVariable ["A3A_canGarage", true, true];
+                _veh setVariable ["A3A_itemPrice", 25, true];
+            };
+         */
         };
         publicVariable "staticsToSave";
     };
     if (_varname == 'tasks') then {
+/*
+    // These are really dangerous. Disable for now.
+    // Should be done after all the other init is completed if we really want it
         {
             if (_x == "rebelAttack") then {
                 if(attackCountdownInvaders > attackCountdownOccupants) then
@@ -350,6 +398,7 @@ if (_varName in _specialVarLoads) then {
                 };
             };
         } forEach _varvalue;
+*/
     };
 
     if(_varname == 'A3A_fuelAmountleftArray') then {

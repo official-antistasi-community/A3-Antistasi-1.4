@@ -61,7 +61,8 @@ private _costs = call {
         or (_typeX in [FactionGet(reb,"vehicleCivBoat"),FactionGet(reb,"vehicleCivCar"),FactionGet(reb,"vehicleCivTruck")])
     ) exitWith {25};
     if (
-        _typeX in (OccAndInv("vehiclesLight")
+        _typeX in (FactionGet(all,"vehiclesLight")
+            + FactionGet(all,"vehiclesLightAPCs")
             + OccAndInv("vehiclesTrucks")
             + OccAndInv("vehiclesCargoTrucks")
             + OccAndInv("vehiclesAmmoTrucks")
@@ -71,9 +72,11 @@ private _costs = call {
         )
         or (_typeX in FactionGet(all,"vehiclesBoats"))
     ) exitWith {100};
-    if (_typeX in (OccAndInv("vehiclesHelisLight") + [FactionGet(reb,"vehicleCivHeli")])) exitWith {500};
+    if (_typeX in (FactionGet(all,"vehiclesHelisLight") + [FactionGet(reb,"vehicleCivHeli")])) exitWith {500};
     if (
         (_typeX in FactionGet(all,"vehiclesAPCs"))
+        || (_typeX in FactionGet(all,"vehiclesIFVs"))
+        || (_typeX in FactionGet(all,"vehiclesHelisLightAttack"))
         || (_typeX in FactionGet(all,"vehiclesTransportAir"))
         || (_typeX in FactionGet(all,"vehiclesUAVs"))
     ) exitWith {1000};
@@ -83,7 +86,7 @@ private _costs = call {
         or (_typeX in FactionGet(all,"vehiclesAA"))
         or (_typeX in FactionGet(all,"vehiclesArtillery"))
     ) exitWith {3000};
-    if (_typeX in (OccAndInv("vehiclesPlanesCAS") + OccAndInv("vehiclesPlanesAA"))) exitWith {4000};
+    if (_typeX in (FactionGet(all,"vehiclesPlanesCAS") + FactionGet(all,"vehiclesPlanesAA"))) exitWith {4000};
     0;
 };
 
@@ -97,7 +100,6 @@ _costs = round (_costs * (1-damage _veh));
 [0,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_veh in staticsToSave) then {staticsToSave = staticsToSave - [_veh]; publicVariable "staticsToSave"};
-if (_veh in reportedVehs) then {reportedVehs = reportedVehs - [_veh]; publicVariable "reportedVehs"};
 
 [_veh,true] call A3A_fnc_empty;
 

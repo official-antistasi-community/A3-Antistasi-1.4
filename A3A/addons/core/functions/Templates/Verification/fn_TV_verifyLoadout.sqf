@@ -36,7 +36,7 @@ params [
     ,"_vest"
     ,"_backpack"
     ,"_helmet"
-    ,"_faceWear"
+    ,"_facewear"
     ,"_binocular"
     ,"_linkedItems"
 ];
@@ -242,8 +242,7 @@ private _validLinkedItems = true;
     };
 } forEach _linkedItems;
 
-//this is unused, but lets check its empty as intended
-private _validFaceWear = _faceWear isEqualTo "";
+private _validFacewear = _facewear isEqualTo "" || {["CfgGlasses", _facewear] call _validClassCaseSensitive};
 
 //================|
 // Return results |
@@ -253,7 +252,7 @@ private _validFaceWear = _faceWear isEqualTo "";
 [
     _validPrimary && _validLauncher && _validHandgun && _validBinocular
     && _validUniform && _validVest && _validBackpack
-    && _validFaceWear && _validLinkedItems
+    && _validFacewear && _validLinkedItems
 
     , _invalidReasons
 ];

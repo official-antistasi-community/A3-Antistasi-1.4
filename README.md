@@ -20,7 +20,7 @@
 
 
 <p align="center">
-    <a href="https://discord.gg/TYDwCRKnKX">Discord</a> | <a href="https://antistasi.net/">Forums</a> | <a href="https://docs.google.com/document/d/1cCptf8Uo-mBHRhIqx1BPznECzgRqwJuj70AGjiI6KOI/">Guide (outdated)</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial (outdated)</a>
+    <a href="https://discord.gg/TYDwCRKnKX">Discord</a> | <a href="https://official-antistasi-community.github.io/A3-Antistasi-Docs/index.html">Guide (up to date)</a> | <a href="https://www.youtube.com/watch?v=nebLG3Jhrbk">Video Tutorial (outdated)</a>
 </p>
 </div>
 

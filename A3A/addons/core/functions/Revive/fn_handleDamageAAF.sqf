@@ -63,15 +63,16 @@ private _makeUnconscious =
 	if (isPlayer _unit) then {_unit allowDamage false};
 	
 	 //Make sure to pass group lead if unit is the leader
-    	if (_unit == leader (group _unit)) then
-    	{
+	if (_unit == leader (group _unit)) then
+	{
 		private _index = (units (group _unit)) findIf {[_x] call A3A_fnc_canFight};
-		if(_index != -1) then
-       		{
-        		(group _unit) selectLeader ((units (group _unit)) select _index);
-        	}
+		if(_index != -1) then {
+			(group _unit) selectLeader ((units (group _unit)) select _index);
+		};
 	};
 	
+	[_unit, group _unit, _injurer] spawn A3A_fnc_AIreactOnKill;
+
 	[_unit,_injurer] spawn A3A_fnc_unconsciousAAF;
 };
 
@@ -105,7 +106,7 @@ if (side _injurer == teamPlayer) then
 		else
 		{
 
-            //Abort helping if hit too hard
+			//Abort helping if hit too hard
 			if (_damage > 0.25) then
 			{
 				if (_unit getVariable ["helping",false]) then

@@ -1,4 +1,4 @@
-name = "A3 Antistasi";
+name = QUOTE(Antistasi - Community VERSION);
 author = "Antistasi Dev Team";
 logo = "";
 logoOver = "";

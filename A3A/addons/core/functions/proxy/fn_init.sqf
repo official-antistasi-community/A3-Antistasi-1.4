@@ -16,9 +16,9 @@ if (!isMultiplayer) then {
 
 enableSaving [false,false];
 
-switch (true) do {
-	case (toLower worldName == "cam_lao_nam"): {};
-	case (toLower worldName == "vn_khe_sanh"): {mapX setObjectTexture [0,"Pictures\Mission\whiteboard.paa"];};
+switch (toLower worldname) do {
+	case "cam_lao_nam": {};
+	case "vn_khe_sanh": {mapX setObjectTexture [0,"Pictures\Mission\whiteboard.paa"];};
 	default {mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"];};
 };
 

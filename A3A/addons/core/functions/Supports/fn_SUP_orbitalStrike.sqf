@@ -1,52 +1,35 @@
-params ["_side", "_timerIndex", "_supportPos", "_supportName"];
+/*  Sets up an orbital strike support
 
-/*  Prepares the orbital strike marker
+Environment: Server, scheduled, internal
 
-    Execution on: Server
+Arguments:
+    <STRING> The (unique) name of the support, mostly for logging
+    <SIDE> The side from which the support should be sent (occupants or invaders)
+    <STRING> Resource pool used for this support. Should be "attack" or "defence"
+    <SCALAR> Maximum resources to spend. Not used here
+    <OBJECT|BOOL> Target of the support. False for none
+    <POSITION> Target position for orbital strike
+    <SCALAR> Reveal value 0-1, higher values mean more information provided about support
+    <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
 
-    Scope: Internal
-
-    Params:
-        _side: SIDE : The side for which the support should be called in
-        _timerIndex: NUMBER
-        _supportPos: POSITION : The position where the strike should hit
-        _supportName: STRING : The call name of the support
-
-    Returns:
-        The name of the marker, covering the whole support area
+Returns:
+    <SCALAR> Resource cost of support call, or -1 for failure
 */
 
-private _fileName = "SUP_orbitalStrike";
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
+params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
 
-private _coverageMarker = createMarker [format ["%1_coverage", _supportName], _supportPos];
-_coverageMarker setMarkerShape "ELLIPSE";
-_coverageMarker setMarkerBrush "Grid";
-if(_side == Occupants) then
-{
-    _coverageMarker setMarkerColor colorOccupants;
-}
-else
-{
-    _coverageMarker setMarkerColor colorInvaders;
-};
-_coverageMarker setMarkerSize [500, 500];
-_coverageMarker setMarkerAlpha 0;
+private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_delay < 0) then { _delay = (0.5 + random 1) * (350 - 15*tierWar - 1*_aggroValue) };
 
-if(_side == Occupants) then
-{
-    occupantsOrbitalStrikeTimer set [0, time + (3600 * 12)];
-}
-else
-{
-    invadersOrbitalStrikeTimer set [0, time + (3600 * 12)];
-};
+// ["_side", "_basetype", "_target", "_endtime", "_duration", "_power"]
+A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 500];
 
-private _setupTime = 1200 - ((tierWar - 1) * 100);
-private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
-private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
+[_supportName, _side, _delay, ATLtoASL _targPos, _reveal] spawn A3A_fnc_SUP_orbitalStrikeRoutine;
 
-[ATLtoASL _supportPos, _sleepTime, _supportName, _side] spawn A3A_fnc_SUP_orbitalStrikeRoutine;
+[_reveal, _side, "ORBITALSTRIKE", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
-private _result = [_coverageMarker, _minSleepTime, _setupTime];
-_result;
+// Return resource cost of support
+500;

@@ -38,7 +38,7 @@ if (not(sidesX getVariable [_nearX,sideUnknown] == teamPlayer)) exitWith {
 	_nul=CreateDialog "build_menu";
 #endif
 };
-if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {
+if ([_positionX] call A3A_fnc_enemyNearCheck) exitWith {
 	["Garrison", "You cannot manage this garrison while there are enemies nearby."] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
 	ERROR("Disabled due to UseDoomGUI Switch.")
@@ -46,6 +46,16 @@ if ([_positionX,500] call A3A_fnc_enemyNearCheck) exitWith {
 _nul=CreateDialog "build_menu";
 #endif
 };
+
+if (_nearX in forcedSpawn) exitWith {
+	["Garrison", "You cannot manage this garrison when there's a major attack incoming."] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+_nul=CreateDialog "build_menu";
+#endif
+};
+
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
 _outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
 _wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};

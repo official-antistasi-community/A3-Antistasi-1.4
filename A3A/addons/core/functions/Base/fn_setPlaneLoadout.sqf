@@ -37,7 +37,11 @@ if (_type == "CAS") then
         //Vanilla IND CAS
         case "I_Plane_Fighter_03_dynamicLoadout_F":
         {
-            _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
+//            _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
+            _loadout = ["PylonRack_7Rnd_Rocket_04_AP_F","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_Missile_AGM_02_F","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_AP_F"];
+            _plane setVariable ["mainGun", "Twin_Cannon_20mm"];
+            _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F", "missiles_SCALPEL"]];
         };
         //RHS US CAS (A-10)
         case "RHS_A10";
@@ -96,6 +100,7 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher", "RHS_weap_AGM114N_Launcher"]];
         };
+        case "UK3CB_B_Mystere_HIDF_CAS1";
         case "UK3CB_MDF_B_Mystere_CAS1":
         {
             _loadout = ["PylonRack_3Rnd_Missile_AGM_02_F","PylonRack_12Rnd_missiles","PylonRack_12Rnd_missiles","PylonRack_3Rnd_Missile_AGM_02_F"];
@@ -158,6 +163,38 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_CRV7_veh"]];
             _plane setVariable ["missileLauncher", ["CUP_Vmlauncher_AGM65pod_veh"]];
         };
+        //Unsung
+        case "uns_Mig21_CAS":
+        {
+            _loadout = ["","","uns_pylonRack_32Rnd_Rocket_57_HE","uns_pylonRack_32Rnd_Rocket_57_HE","uns_pylonRack_1Rnd_Bomb_kab500","uns_pylonRack_1Rnd_Bomb_kab500","uns_pylonRack_96Rnd_Rocket_57_HE"];
+            _plane setVariable ["mainGun", "uns_NR30"];
+            _plane setVariable ["rocketLauncher", ["uns_57mmLauncher_dl"]];
+        };
+        case "uns_A1J_CAS":
+        {
+            _loadout = ["uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_1Rnd_Rocket_HVAR_AT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_1Rnd_fuel_A1"];
+            _plane setVariable ["mainGun", "uns_Uns_M2_4x20mm"];
+            _plane setVariable ["rocketLauncher", ["Uns_FFAR_HEAT_Launcher_dl", "Uns_HVARLauncher_dl"]];
+        };
+        case "uns_A7_CAS":
+        {
+            _loadout = ["uns_pylonRack_19Rnd_Rocket_FFAR_WP","uns_pylonRack_19Rnd_Rocket_FFAR_WP","uns_pylonRack_1Rnd_AGM12","uns_pylonRack_1Rnd_AGM12","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_19Rnd_Rocket_FFAR_HEAT","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E"];
+            _plane setVariable ["mainGun", "uns_M61A1"];
+            _plane setVariable ["rocketLauncher", ["Uns_FFAR_WP_Launcher_dl", "Uns_FFAR_HEAT_Launcher_dl"]];
+            _plane setVariable ["missileLauncher", ["uns_AGM12_Launcher_dl"]];
+        };
+        case "uns_A6_Intruder_CAS":
+        {
+            _loadout = ["uns_pylonRack_12Rnd_Rocket_Zuni_AT","uns_pylonRack_12Rnd_Rocket_Zuni_AT","uns_pylonRack_1Rnd_AGM12","uns_pylonRack_1Rnd_AGM12","uns_pylonRack_1Rnd_AGM12"];
+            _plane setVariable ["rocketLauncher", ["Uns_ZuniLauncher_dl", "Uns_HVARLauncher_dl"]];
+            _plane setVariable ["missileLauncher", ["uns_AGM12_Launcher_dl"]];
+        };
+        case "uns_F4J_CAS":
+        {
+            _loadout = ["uns_pylonRack_1Rnd_AGM12","uns_pylonRack_1Rnd_AGM12","uns_pylonRack_f4_38Rnd_Rocket_FFAR_HEAT","uns_pylonRack_f4_38Rnd_Rocket_FFAR_HEAT","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AGM12"];
+            _plane setVariable ["rocketLauncher", ["Uns_FFAR_HEAT_Launcher_dl"]];
+            _plane setVariable ["missileLauncher", ["uns_AGM12_Launcher_dl"]];
+        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);
@@ -212,7 +249,7 @@ if (_type == "AA") then
         case "UK3CB_KRG_B_L39_PYLON";
         case "UK3CB_LDF_B_L39_PYLON":
         {
-            _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
+            _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
         };
         case "UK3CB_LDF_B_MIG21_AA";
         case "UK3CB_TKA_B_MIG21_AA":
@@ -270,6 +307,20 @@ if (_type == "AA") then
         case "CUP_I_JAS39_RACS":
         {
             _loadout = ["CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_1Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_2Rnd_AIM_120_AMRAAM_M","CUP_PylonPod_2Rnd_AIM_120_AMRAAM_M"];
+        };
+        //Unsung
+        case "uns_f100b_CAP":
+        {
+            _loadout = ["uns_pylonRack_1Rnd_AIM9D","uns_pylonRack_1Rnd_AIM9D","uns_pylonRack_1Rnd_fuel_f100","uns_pylonRack_1Rnd_fuel_f100","uns_pylonRack_1Rnd_AIM9D","uns_pylonRack_1Rnd_AIM9D","uns_pylonRack_1Rnd_fuel_f100"];
+        };
+        case "uns_F4E_CAP":
+        {
+            _loadout = ["uns_pylonRack_1Rnd_fuel_f4","uns_pylonRack_1Rnd_fuel_f4","","","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM9E","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_AIM7","uns_pylonRack_1Rnd_fuel_f4"];
+        };
+        case "uns_Mig21_CAP":
+        {
+            _loadout = ["uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1rnd_fuel_mig21","uns_pylonRack_1rnd_fuel_mig21","uns_pylonRack_1rnd_fuel_mig21"];
+
         };
         default
         {

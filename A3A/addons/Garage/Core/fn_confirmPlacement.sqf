@@ -11,6 +11,7 @@
     4. <Array>  Pylons (optional)
     5. <Struct/nil> Vehicle state (optional)
     6. <Bool>   use garage vehicle pool for placement (optional: default false)
+    7. <String> extra text which will be shown together with the vehicle placement hint (optional)
 
     Return Value:
     <nil>
@@ -20,7 +21,7 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [_class, [], [], nil, false] call HR_GRG_fnc_confirmPlacement;
+    Example: [_class, "BUYFIA", [], nil, nil, nil, false, _extraText] call HR_GRG_fnc_confirmPlacement;
 
     License: APL-ND
 */
@@ -34,6 +35,7 @@ params [
     , ["_pylons", [], [[]]]
     , "_state"
     , ["_useGRGPool", false, [false]]
+    , ["_extraText", "", [""]]
 ];
 
 if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {HR_GRG_placing = false};
@@ -52,6 +54,7 @@ HR_GRG_CP_mounts = _mounts;
 HR_GRG_CP_pylons = _pylons;
 HR_GRG_usePool = _useGRGPool;
 HR_GRG_CP_callBack = [_callBack, _callBackArgs];
+HR_GRG_CP_extraText = _extraText;
 HR_GRG_callBackFeedback = "";
 HR_GRG_EH_EF = -1;
 HR_GRG_EH_keyDown = -1;
@@ -383,7 +386,12 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
 
     //render keybind hint
     private _text = switch HR_GRG_validPlacement do {
-        case 0: {localize "STR_HR_GRG_Feedback_CP_Rotation"};
+        case 0: {
+            [
+                localize "STR_HR_GRG_Feedback_CP_Rotation",
+                format ["%1<br/>%2", HR_GRG_CP_extraText, localize "STR_HR_GRG_Feedback_CP_Rotation"]
+            ] select (HR_GRG_CP_extraText isNotEqualTo "");
+        };
         case 1: {localize "STR_HR_GRG_Feedback_CP_TooFar"};
         case 2: {localize "STR_HR_GRG_Feedback_CP_Blocked"};
         case 3: { HR_GRG_callBackFeedback };

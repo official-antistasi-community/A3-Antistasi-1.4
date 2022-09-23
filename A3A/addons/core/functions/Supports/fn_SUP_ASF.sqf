@@ -1,54 +1,48 @@
-params ["_side", "_timerIndex", "_supportObj", "_supportName"];
+/*  Sets up an ASF (air support fighter?) support
 
-/*  Sets up the ASF support
+Environment: Server, scheduled, internal
 
-    Execution: HC or Server
+Arguments:
+    <STRING> The (unique) name of the support, mostly for logging
+    <SIDE> The side from which the support should be sent (occupants or invaders)
+    <STRING> Resource pool used for this support. Should be "attack" or "defence"
+    <SCALAR> Maximum resources to spend. Not used here.
+    <OBJECT> or <BOOL> Initial target for the ASF, or "false" for no initial target
+    <POSITION> Esimated position of target, or center of patrol zone
+    <SCALAR> Reveal value 0-1, higher values mean more information provided about support
+    <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
 
-    Scope: Internal
-
-    Params:
-        _side: SIDE : The side of which the ASF should be send
-        _timerIndex: NUMBER :  The number of the support timer
-        _supportObj: OBJ : The position to which the airstrike should be carried out
-        _supportName: STRING : The callsign of the support
-
-    Returns:
-        The name of the target marker, empty string if not created
+Returns:
+    <SCALAR> Resource cost of support call, or -1 for failure
 */
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _airport = [_supportObj, _side] call A3A_fnc_findAirportForAirstrike;
 
-if(_airport == "") exitWith
-{
-    Info_1("No airport found for %1 support", _supportName);
-    ""
+params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
+
+private _airport = [_side, _targPos] call A3A_fnc_availableBasesAir;
+if (isNil "_airport") exitWith { Debug_1("No airport found for %1 support", _supportName); -1; };
+
+private _faction = Faction(_side);
+private _vehType = selectRandom (_faction get "vehiclesPlanesAA");
+
+private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_delay < 0) then { _delay = (0.5 + random 1) * (300 - 15*tierWar - 1*_aggro) };
+
+private _targArray = [];
+if (_target isEqualType objNull and {!isNull _target}) then {
+    A3A_supportStrikes pushBack [_side, "TARGET", _target, time + 1200, 1200, 200];
+    _targArray = [_target, _targPos];
 };
 
-private _targetMarker = createMarker [format ["%1_coverage", _supportName], getPos _supportObj];
-_targetMarker setMarkerShape "ELLIPSE";
-_targetMarker setMarkerBrush "Grid";
-_targetMarker setMarkerSize [8000, 8000];
+// name, side, suppType, center, radius, [target, targpos]
+private _suppData = [_supportName, _side, "ASF", _targPos, 10000, _targArray];       // should radius be larger?
+A3A_activeSupports pushBack _suppData;
 
-if(_side == Occupants) then
-{
-    _targetMarker setMarkerColor colorOccupants;
-};
-if(_side == Invaders) then
-{
-    _targetMarker setMarkerColor colorInvaders;
-};
-_targetMarker setMarkerAlpha 0;
+[_suppData, _resPool, _airport, _vehType, _delay, _reveal] spawn A3A_fnc_SUP_ASFRoutine;
 
-private _timerArray = if(_side == Occupants) then {occupantsASFTimer} else {invadersASFTimer};
-_timerArray set [_timerIndex, time + 5400];
+[_reveal, _side, "ASF", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
-private _setupTime = 1800 - ((tierWar - 1) * 170);
-private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
-private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
-
-[_side, _timerIndex, _sleepTime, _airport, _supportName, getPos _supportObj] spawn A3A_fnc_SUP_ASFRoutine;
-
-private _result = [_targetMarker, _minSleepTime, _setupTime];
-_result;
+// Vehicle cost + extra support cost for balance
+(A3A_vehicleResourceCosts get _vehType) + 0;

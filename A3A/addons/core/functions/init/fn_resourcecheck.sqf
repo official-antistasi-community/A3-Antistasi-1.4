@@ -6,10 +6,11 @@ if (!isServer) exitWith {
 
 while {true} do
 {
+	// what's wrong with sleep 600, really?
 	//sleep 600;//600
 	nextTick = time + 600;
 	waitUntil {sleep 15; time >= nextTick};
-	if (isMultiplayer) then {waitUntil {sleep 10; isPlayer theBoss}};
+    waitUntil {sleep 10; A3A_activePlayerCount > 0};
 
 	private _resAdd = 25;//0
 	private _hrAdd = 0;//0
@@ -67,14 +68,6 @@ while {true} do
 			garrison setVariable [_city,[],true];
 			sleep 5;
 			{_nul = [_city,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
-			if (!("CONVOY" in A3A_activeTasks) and (!bigAttackInProgress)) then
-			{
-				_base = [_city] call A3A_fnc_findBasesForConvoy;
-				if (_base != "") then
-				{
-					[[_city,_base],"A3A_fnc_convoy"] call A3A_fnc_scheduler;
-				};
-			};
 			[] call A3A_fnc_tierCheck;
 		};
 		if ((_supportGov > _supportReb) and (sidesX getVariable [_city,sideUnknown] == teamPlayer)) then
@@ -116,18 +109,28 @@ while {true} do
 	[] call A3A_fnc_generateRebelGear;
 
 	[] call A3A_fnc_FIAradio;
-	[] call A3A_fnc_economicsAI;
     [] call A3A_fnc_cleanConvoyMarker;
 
+    // Random-walk the defence multipliers for markers to add some persistent variation
+    // Maybe add some logic to this later
+/*    {
+        private _r = _x#4 - 0.1 + random 0.2;
+        _x set [4, 0.5 max _r min 1.0];
+    } forEach A3A_supportMarkerTypes;
+*/
 	if (isMultiplayer) then
 	{
 		[] spawn A3A_fnc_promotePlayer;
 		[] call A3A_fnc_assignBossIfNone;
-		difficultyCoef = floor ((({side group _x == teamPlayer} count (call A3A_fnc_playableUnits)) - ({side group _x != teamPlayer} count (call A3A_fnc_playableUnits))) / 5);
-		publicVariable "difficultyCoef";
 	};
 
-	private _missionChance = 5 * count (allPlayers - (entities "HeadlessClient_F"));
+	// Decrease HQ knowledge values, old ones faster than current
+	if (A3A_curHQInfoOcc < 1) then { A3A_curHQInfoOcc = 0 max (A3A_curHQInfoOcc - 0.01) };
+	if (A3A_curHQInfoInv < 1) then { A3A_curHQInfoInv = 0 max (A3A_curHQInfoInv - 0.01) };
+ 	A3A_oldHQInfoOcc = A3A_oldHQInfoOcc select { _x set [2, _x#2 - 0.1]; _x#2 > 0 };			// arrays of [xpos, ypos, knowledge]
+	A3A_oldHQInfoInv = A3A_oldHQInfoInv select { _x set [2, _x#2 - 0.1]; _x#2 > 0 };
+
+	private _missionChance = 5 * A3A_activePlayerCount;
 	if ((!bigAttackInProgress) and (random 100 < _missionChance)) then {[] spawn A3A_fnc_missionRequest};
 	//Removed from scheduler for now, as it errors on Headless Clients.
 	//[[],"A3A_fnc_reinforcementsAI"] call A3A_fnc_scheduler;

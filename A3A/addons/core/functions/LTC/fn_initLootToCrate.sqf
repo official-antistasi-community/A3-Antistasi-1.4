@@ -30,7 +30,7 @@ if ((actionIDs Player) findIf {
 player addAction [
     "Load loot to crate",
     {
-        [_this#3, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
+        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
     },
     nil,
     1.5,
@@ -38,16 +38,16 @@ player addAction [
     true,
     "",
     "(
-        ((typeof _target) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and (_target distance _this < 3)
-        and (attachedTo _target isEqualTo objNull)
+        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
+        and (cursorObject distance _this < 3)
+        and (attachedTo cursorObject isEqualTo objNull)
     )"
 ];
 
 player addAction [
     "Load loot from crate to vehicle",
     {
-        [_this#3, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
+        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
     },
     nil,
     1.5,
@@ -55,9 +55,9 @@ player addAction [
     true,
     "",
     "(
-        ((typeof _target) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and (_target distance _this < 3)
-        and (attachedTo _target isEqualTo objNull)
+        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
+        and (cursorObject distance _this < 3)
+        and (attachedTo cursorObject isEqualTo objNull)
     )"
 ];
 
@@ -65,7 +65,7 @@ player addAction [
 player addAction [
     "Carry Crate",
     {
-        [_this#3, true] call A3A_fnc_carryCrate;
+        [cursorObject, true] call A3A_fnc_carryCrate;
     },
     nil,
     1.5,
@@ -73,10 +73,10 @@ player addAction [
     true,
     "",
     "(
-        ((typeof _target) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and (_target distance _this < 3)
+        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
+        and (cursorObject distance _this < 3)
         and (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
-        and (attachedTo _target isEqualTo objNull)
+        and (attachedTo cursorObject isEqualTo objNull)
     )"
 ];
 

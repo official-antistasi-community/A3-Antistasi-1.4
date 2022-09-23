@@ -77,12 +77,12 @@
         <Korean>HQ 이사하기</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
-        <Original>Maru will join your group. Ammobox must be empty. To rebuild, select the Build action near Maru</Original>
+        <Original>Petros will join your group. Ammobox must be empty. To rebuild, select the Build action near Petros</Original>
         <French>Petros va rejoindre votre groupe. L'Arsenal doit être vide. Pour reconstruire, sélectionnez l'action "Construire" à côté de Petros.</French>
         <Russian>Петрос присоединится к вашей группе. Чтобы построить Штаб, выберите на нём пункт "Построить Штаб". Арсенал должен быть пуст.</Russian>
-        <German>Maru/Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Maru/Petros auswählen.</German>
+        <German>Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Petros auswählen.</German>
         <Czech>Petros se připojí k vaší skupině. Chcete-li vytvořit velitelství, vyberte možnost u Petrose „Zřídit velitelství“. Arzenál musí být prázdný.</Czech>
-        <Chinesesimp>Maru将会加入您的小队。弹药箱必须为空。在Maru附近选择"建造"选项来重建总部。</Chinesesimp>
+        <Chinesesimp>Petros将会加入您的小队。弹药箱必须为空。在Petros附近选择"建造"选项来重建总部。</Chinesesimp>
         <Korean>페트로스가 당신의 그룹에 참가할 것입니다. 탄약상자는 비워져 있어야합니다. 재건축하려면 페트로스 근처에서 건축하기를 선택하시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_members_list_text">
@@ -873,7 +873,7 @@
       <Key ID="STR_antistasi_journal_entry_text_tutorial_6">
         <Original>Find a good spot to begin the mission. Your experience is very different from one start spot to another. Study the surrounding markers and roads between them well. If you start near a road between enemy zones, a patrol may appear and kill Petros.</Original>
         <French>Trouvez un bon endroit pour commencer la mission. Votre expérience est très différente d'un point de départ à un autre. Étudiez bien les balises et les routes environnantes. Si vous commencez près d'une route entre des zones ennemies, une patrouille peut apparaître et tuer Petros.</French>
-        <German>Wähle einen vielversprechenden Ort, um deine Mission zu beginnen. Die Spielerfahrung ist je nach Startpunkt sehr unterschiedlich. Betrachte genau die umgebenen Zonen und die dazwischenliegenden Straßenverbindungen. Startest du an einer Straße zwischen zwei feindlichen Zonen, könnte eine Patrouille auf das Lager stoßen und Maru/Petros töten.</German>
+        <German>Wähle einen vielversprechenden Ort, um deine Mission zu beginnen. Die Spielerfahrung ist je nach Startpunkt sehr unterschiedlich. Betrachte genau die umgebenen Zonen und die dazwischenliegenden Straßenverbindungen. Startest du an einer Straße zwischen zwei feindlichen Zonen, könnte eine Patrouille auf das Lager stoßen und Petros töten.</German>
         <Czech>Najděte dobré místo pro zahájení mise. Vaše zkušenost je velmi odlišná od jednoho startovního bodu k druhému. Dobře si prostudujte okolní značky a silnice. Pokud začnete poblíž silnice mezi nepřátelskými zónami, může se objevit hlídka a zabijou Petrose.</Czech>
         <Chinesesimp>找个好地方开始任务。起点不同, 你的体验也会大不相同。仔细研究周围的标志物和它们之间的道路。如果你在敌占区之间的道路附近开始任务, 敌军巡逻队很有可能出现并杀掉Pertos。</Chinesesimp>
         <Korean>임무 시작 전 좋은 장소를 찾으십시오. 시작 지역마다 매우 다른 경험을 할것입니다. 주변 마커 표시와 지형지물을 잘 살펴보십시오. 적진과 가까운 도로에서 시작한다면 순찰 병력이 페트로스를 죽일 것입니다.</Korean>
@@ -962,7 +962,7 @@
       <Key ID="STR_antistasi_journal_entry_text_commander_4">
         <Original>Ask Petros for any type of mission you want. Mission availability is subject to HQ positioning, current allocated tasks and ownership of the surrounding areas.</Original>
         <French>Demandez à Petros tout type de mission que vous souhaitez. La disponibilité de la mission dépend du positionnement du QG, des tâches actuellement attribuées et de la propriété des zones environnantes.</French>
-        <German>Befrage Maru/Petros nach einer gewünschten Mission. Die Verfügbarkeit der Missionen ist abhängig von der Position des HQs, der momentan zugewiesenen Aufgaben und der Zugehörigkeit der umgebenen Bereiche.</German>
+        <German>Befrage Petros nach einer gewünschten Mission. Die Verfügbarkeit der Missionen ist abhängig von der Position des HQs, der momentan zugewiesenen Aufgaben und der Zugehörigkeit der umgebenen Bereiche.</German>
         <Czech>Zeptejte se Petrose na jakýkoli typ mise, kterou chcete. Dostupnost mise závisí na umístění velitelství, aktuálně přidělených úkolech a vlastnictví okolních oblastí.</Czech>
         <Chinesesimp>向Petros申请任何你想要的任务。任务的可用性取决于总部的位置、当前已分配的任务和周围地区的所有权。</Chinesesimp>
         <Korean>원하는 타입의 사이드 미션을 페트로에게 문의하십시오. HQ의 위치, 현재 할당된 임무, 주변지역의 소유에 따라 결정됩니다.</Korean>
@@ -1938,11 +1938,11 @@
         <Russian>Штаб - Основы</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_6">
-        <Original>Flag: Vehicle and Squad Unit Recruitment. Commander Options.&lt;br/&gt;Maru: Side-missions (Commander Only).&lt;br/&gt;Map: Game Options.&lt;br/&gt;Camp-fire: Rest for 8 hours and Clear Forest (Commander Only).</Original>
-        <French>Drapeau: Achat de véhicule et d'escouade. Options Commandant.&lt;br/&gt;Petros/Maru: Missions secondaires (Commandant uniquement).&lt;br/&gt;Carte: Options de la partie.&lt;br/&gt;Feu de camp: Se reposer pendant 8 heures et nettoyer la forêt (Commandant uniquement).</French>
-        <German>Flaggenmast: Fahrzeug und Gruppen kaufen/rekrutieren, Kommandantenoptionen.&lt;br/&gt;Maru/Petros: Sekundärmissionen (nur Kommandant).&lt;br/&gt;Karte: Spieloptionen.&lt;br/&gt;Lagerfeuer: 8 Stunden ausruhen und Wald abholzen (nur Kommandant).</German>
-        <Czech>Vlajka: Nábor vozidel a jednotek. Možnosti velitele.&lt;br/&gt;Maru: Postranní mise (pouze velitel).&lt;br/&gt;Mapa: Možnosti hry.&lt;br/&gt;Táborový oheň: Odpočinek po dobu 8 hodin a Vyklidit les (Pouze velitel).</Czech>
-        <Chinesesimp>旗帜: 载具和班组招募, 指挥官选项。&lt;br/&gt;Maru: 支线任务(仅限指挥官使用)。&lt;br/&gt;地图: 游戏选项。&lt;br/&gt;营火: 休息8小时并清理森林(仅限指挥官使用)。</Chinesesimp>
+        <Original>Flag: Vehicle and Squad Unit Recruitment. Commander Options.&lt;br/&gt;Petros: Side-missions (Commander Only).&lt;br/&gt;Map: Game Options.&lt;br/&gt;Camp-fire: Rest for 8 hours and Clear Forest (Commander Only).</Original>
+        <French>Drapeau: Achat de véhicule et d'escouade. Options Commandant.&lt;br/&gt;Petros: Missions secondaires (Commandant uniquement).&lt;br/&gt;Carte: Options de la partie.&lt;br/&gt;Feu de camp: Se reposer pendant 8 heures et nettoyer la forêt (Commandant uniquement).</French>
+        <German>Flaggenmast: Fahrzeug und Gruppen kaufen/rekrutieren, Kommandantenoptionen.&lt;br/&gt;Petros: Sekundärmissionen (nur Kommandant).&lt;br/&gt;Karte: Spieloptionen.&lt;br/&gt;Lagerfeuer: 8 Stunden ausruhen und Wald abholzen (nur Kommandant).</German>
+        <Czech>Vlajka: Nábor vozidel a jednotek. Možnosti velitele.&lt;br/&gt;Petros: Postranní mise (pouze velitel).&lt;br/&gt;Mapa: Možnosti hry.&lt;br/&gt;Táborový oheň: Odpočinek po dobu 8 hodin a Vyklidit les (Pouze velitel).</Czech>
+        <Chinesesimp>旗帜: 载具和班组招募, 指挥官选项。&lt;br/&gt;Petros: 支线任务(仅限指挥官使用)。&lt;br/&gt;地图: 游戏选项。&lt;br/&gt;营火: 休息8小时并清理森林(仅限指挥官使用)。</Chinesesimp>
         <Korean>깃발 : 스쿼드, 차량 구입, 커맨더 옵션&lt;br/&gt; 페트로스 : 사이드 옵션.&lt;br/&gt;지도 : 게임 옵션.&lt;br/&gt;캠프 파이어 : 8시간 휴식, 주변 숲 정리 (지휘관만 사용 가능)</Korean>
         <Russian>Флаг: Найм ИИ. &lt;br/&gt; Пестрос: Побочные задания (только для командира). &lt;br/&gt; Карта: параметры игры. &lt;br/&gt; Палатка: отдых в течение 8 часов.</Russian>
       </Key>

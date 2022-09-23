@@ -42,8 +42,6 @@ Debug_1("Saving params: %1", _savedParams);
 
 private ["_garrison"];
 ["version", antistasiVersion] call A3A_fnc_setStatVariable;
-["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
-["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;				// backwards compatibiiity
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
@@ -206,6 +204,7 @@ _arrayOutpostsFIA = [];
 ["outpostsFIA", _arrayOutpostsFIA] call A3A_fnc_setStatVariable;
 
 if (!isDedicated) then {
+	// Not currently used by loadServer due to timing bugs
 	_typesX = [];
 	{
 		private _type = _x;
@@ -217,6 +216,80 @@ if (!isDedicated) then {
 	["tasks",_typesX] call A3A_fnc_setStatVariable;
 };
 
+
+// Add resources spent on active enemy units & vehicles before saving
+private _resAttOcc = A3A_resourcesAttackOcc;
+private _resDefOcc = A3A_resourcesDefenceOcc;
+private _resAttInv = A3A_resourcesAttackInv;
+private _resDefInv = A3A_resourcesDefenceInv;
+
+// Heavily based on deleted handler in AIVehInit
+{
+	private _veh = _x;
+	private _side = _veh getVariable ["ownerSide", teamPlayer];
+	private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
+	if (!alive _veh || (_side != Occupants && _side != Invaders) || _vehCost == 0) exitWith {};
+
+	private _vehDamage = damage _veh;
+	if (getAllHitPointsDamage _veh isNotEqualTo []) then {
+		private _allHP = getAllHitPointsDamage _veh select 2;
+		private _total = 0; { _total = _total + _x } forEach _allHP;
+		_vehDamage = _vehDamage max (_total / count _allHP);
+	};
+
+	private _pool = _veh getVariable ["A3A_resPool", "legacy"];
+//	Debug_5("Vehicle type %1 deleted with side %2, pool %3, cost %4, damage %5", typeof _veh, _side, _pool, _vehCost, _vehDamage);
+
+	if (_pool == "legacy") then {
+		// If vehicle isn't prepaid, remove partial cost now if damaged
+		if (_side == Occupants) then {
+			_resAttOcc = _resAttOcc - _vehDamage*_vehCost/2;
+			_resDefOcc = _resDefOcc - _vehDamage*_vehCost/2;
+		} else {
+			_resAttInv = _resAttInv - _vehDamage*_vehCost/2;
+			_resDefInv = _resDefInv - _vehDamage*_vehCost/2;
+		};
+	} else {
+		// If vehicle is prepaid, refund if not crippled
+		// Note full refund, to reduce exploiting save-on-attack
+		if (_side == Occupants) then {
+			if (_pool == "attack") then { _resAttOcc = _resAttOcc + (1-_vehDamage)*_vehCost };
+			if (_pool == "defence") then { _resDefOcc = _resDefOcc + (1-_vehDamage)*_vehCost };
+		} else {
+			if (_pool == "attack") then { _resAttInv = _resAttInv + (1-_vehDamage)*_vehCost };
+			if (_pool == "defence") then { _resDefInv = _resDefInv + (1-_vehDamage)*_vehCost };
+		};
+	};
+} forEach vehicles;
+
+{
+	if !(_x call A3A_fnc_canFight) then { continue };
+	private _resPool = _x getVariable ["A3A_resPool", ""];
+	// TODO: potentially different values for different unit types?
+	if (_resPool == "defence") then { _resDefOcc = _resDefOcc + 10; continue };
+	if (_resPool == "attack") then { _resAttOcc = _resAttOcc + 10 };
+} forEach units Occupants;
+
+{
+	if !(_x call A3A_fnc_canFight) then { continue };
+	private _resPool = _x getVariable ["A3A_resPool", ""];
+	// TODO: potentially different values for different unit types?
+	if (_resPool == "defence") then { _resDefInv = _resDefInv + 10; continue };
+	if (_resPool == "attack") then { _resAttInv = _resAttInv + 10 };
+} forEach units Invaders;
+
+// Adjust defence resources to playerScale 1 so that it doesn't get mangled on save/load
+_resDefOcc = _resDefOcc / A3A_balancePlayerScale;
+_resDefInv = _resDefInv / A3A_balancePlayerScale;
+
+// Enemy resources. Could hashmap this instead...
+["enemyResources", [_resDefOcc, _resDefInv, _resAttOcc, _resAttInv]] call A3A_fnc_setStatVariable;
+
+// HQ knowledge
+["HQKnowledge", [A3A_curHQInfoOcc, A3A_curHQInfoInv, A3A_oldHQInfoOcc, A3A_oldHQInfoInv]] call A3A_fnc_setStatVariable;
+
+// these are obsolete? idlebases is only used short-term now, idleassets is dead
+/*
 _dataX = [];
 {
 	_dataX pushBack [_x,server getVariable _x];
@@ -230,6 +303,7 @@ _dataX = [];
 } forEach (FactionGet(all,"vehiclesArmor") + FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisAttack") + FactionGet(occ,"staticAT") + FactionGet(occ,"staticAA") + FactionGet(inv,"staticAT") + FactionGet(inv,"staticAA") + FactionGet(occ,"vehiclesGunBoats") + FactionGet(inv,"vehiclesGunBoats"));
 
 ["idleassets",_dataX] call A3A_fnc_setStatVariable;
+*/
 
 _dataX = [];
 {

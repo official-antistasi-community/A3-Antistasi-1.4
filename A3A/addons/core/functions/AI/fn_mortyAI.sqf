@@ -11,7 +11,8 @@ _morty0 setVariable ["typeOfSoldier", if (_typeX == FactionGet(reb,"staticMG")) 
 while {(alive _morty0) and (alive _morty1)} do
 	{
 	waitUntil {sleep 1; {((unitReady _x) and (alive _x))} count units _groupX == count units _groupX};
-	_pos = position _morty0 findEmptyPosition [1,30,_typeX];
+	_pos = getPosATL _morty0 findEmptyPosition [1,30,_typeX];
+	if (_pos isEqualTo []) then { sleep 10; continue };
 	_mortarX = _typeX createVehicle _pos;
 	removeBackpackGlobal _morty0;
 	removeBackpackGlobal _morty1;

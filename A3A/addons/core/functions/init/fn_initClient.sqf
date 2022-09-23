@@ -92,7 +92,7 @@ player setVariable ["rankX",rank player];
 
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
-player setVariable ["playerUID",getPlayerUID player,true];
+player setVariable ["A3A_playerUID",getPlayerUID player,true];			// Mark so that commander routines know for remote-controlling
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;

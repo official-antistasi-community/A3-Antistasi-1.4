@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_TKA_O_SUV_Armoured", "UK3CB_TKA_O_Tigr_FFV", "UK3CB_TKA_O_BRDM2_UM", "UK3CB_TKA_O_UAZ_Closed", "UK3CB_TKA_O_UAZ_Open", "UK3CB_TKA_O_BTR40"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_TKA_O_SUV_Armed", "UK3CB_TKA_O_LR_SF_M2", "UK3CB_TKA_O_Hilux_Dshkm", "UK3CB_TKA_O_Hilux_GMG", "UK3CB_TKA_O_GAZ_Vodnik_PKT", "UK3CB_TKA_O_BTR40_MG", "UK3CB_TKA_O_Tigr_STS", "UK3CB_TKA_O_BRDM2_HQ", "UK3CB_TKA_O_BRDM2"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_TKA_O_Hilux_Dshkm", "UK3CB_TKA_O_Hilux_GMG", "UK3CB_TKA_O_LR_SF_M2", "UK3CB_TKA_O_LR_SF_M2", "UK3CB_TKA_O_GAZ_Vodnik_Cannon", "UK3CB_TKA_O_Tigr_STS", "UK3CB_TKA_B_Ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_TKA_B_Ural_Open", "UK3CB_TKA_B_Ural"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_TKA_B_Ural_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_TKA_B_Ural_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_TKA_B_Ural_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_TKA_B_Ural_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_TKA_O_GAZ_Vodnik_MedEvac"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_TKA_O_BMP1", "UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K", "UK3CB_TKA_O_BTR60", "UK3CB_TKA_O_BTR70", "UK3CB_TKA_O_BTR80", "UK3CB_TKA_O_BTR80a"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_TKA_O_BRDM2_HQ", "UK3CB_TKA_O_BRDM2", "UK3CB_TKA_O_GAZ_Vodnik_PKT", "UK3CB_TKA_O_GAZ_Vodnik_KVPT", "UK3CB_TKA_O_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_TKA_O_BMP1", "UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K", "UK3CB_TKA_O_BTR60", "UK3CB_TKA_O_BTR70", "UK3CB_TKA_O_BTR80", "UK3CB_TKA_O_BTR80a", "UK3CB_TKA_O_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_TKA_B_T72BM", "UK3CB_TKA_B_T72A", "UK3CB_TKA_B_T72B", "UK3CB_TKA_B_T55"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_TKA_B_ZsuTank", "UK3CB_TKA_B_Ural_Zu23", "UK3CB_TKA_O_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_TKA_B_ZsuTank"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UK3CB_TKA_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -38,9 +40,10 @@
 ["vehiclesPlanesAA", ["UK3CB_TKA_O_MIG29SM", "UK3CB_TKA_B_MIG21_AA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_TKA_B_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H", "UK3CB_TKA_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_TKA_B_Mi8AMT", "UK3CB_TKA_B_Mi8"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh", "UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_TKA_B_UH1H_M240", "UK3CB_TKA_B_Mi8AMT", "UK3CB_TKA_B_Mi8"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_TKA_B_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -51,7 +54,7 @@
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["UK3CB_TKA_O_UAZ_MG", "UK3CB_TKA_O_Hilux_Dshkm", "UK3CB_TKA_O_UAZ_SPG9"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["UK3CB_TKA_O_Hilux_Dshkm", "UK3CB_TKA_O_Hilux_Dshkm", "UK3CB_TKA_O_SUV_Armed"]] call _fnc_saveToTemplate;     // Armed UAZs have bridge problems
 ["vehiclesMilitiaTrucks", ["UK3CB_TKM_O_V3S_Open", "UK3CB_TKM_O_V3S_Closed"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_TKM_O_Hilux_Open", "UK3CB_TKM_O_UAZ_Open", "UK3CB_TKM_O_UAZ_Closed", "UK3CB_TKM_O_LR_Open"]] call _fnc_saveToTemplate;
 
@@ -69,6 +72,8 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

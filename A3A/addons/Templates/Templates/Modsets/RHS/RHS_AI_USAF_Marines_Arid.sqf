@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsusf_M1239_socom_d", "rhsusf_M1238A1_socom_d", "rhsusf_m1025_d_s", "rhsusf_m1043_d_s", "rhsusf_m998_d_s_2dr_fulltop", "rhsusf_m998_d_s_2dr_halftop", "rhsusf_m998_d_s_2dr", "rhsusf_m998_d_s_4dr_fulltop", "rhsusf_m998_d_s_4dr_halftop", "rhsusf_m998_d_s_4dr", "rhsusf_m1151_usmc_d", "rhsusf_m1165_usmc_d", "rhsusf_m1240a1_usmc_d"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["rhsusf_m1245_m2crows_socom_d", "rhsusf_M1078A1R_SOV_M2_D_fmtv_socom", "rhsusf_m1025_d_s_m2", "rhsusf_m1043_d_s_m2", "rhsusf_m1045_d", "rhsusf_m1151_m2crows_usmc_d", "rhsusf_m1151_m2_v3_usmc_d", "rhsusf_m1151_m240_v3_usmc_d", "rhsusf_m1151_m2_v3_usmc_d", "rhsusf_m1151_m240_v3_usmc_d", "rhsusf_M1232_MC_M2_usmc_d", "rhsusf_m1240a1_m2_usmc_d", "rhsusf_m1240a1_m240_usmc_d", "rhsusf_m1240a1_mk19_usmc_d", "rhsusf_m1240a1_m2crows_usmc_d"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["rhsusf_M1078A1P2_D_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_D_fmtv_usarmy", "rhsusf_M1083A1P2_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["rhsusf_m1245_m2crows_socom_d", "rhsusf_M1078A1R_SOV_M2_D_fmtv_socom", "rhsusf_m1025_d_s_m2", "rhsusf_m1043_d_s_m2", "rhsusf_m1045_d", "rhsusf_m1151_m2crows_usmc_d", "rhsusf_m1151_m2_v3_usmc_d", "rhsusf_m1151_m240_v3_usmc_d", "rhsusf_m1151_m2_v3_usmc_d", "rhsusf_m1151_m240_v3_usmc_d", "rhsusf_m1240a1_m2_usmc_d", "rhsusf_m1240a1_m240_usmc_d", "rhsusf_m1240a1_mk19_usmc_d", "rhsusf_m1240a1_m2crows_usmc_d"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["rhsusf_M1078A1P2_D_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_fmtv_usarmy", "rhsusf_M1083A1P2_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom", "rhsusf_M1078A1P2_D_flatbed_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_flatbed_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_B_M2_D_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_D_fmtv_usarmy", "rhsusf_M1084A1P2_B_D_fmtv_usarmy", "rhsusf_M1084A1P2_B_M2_D_fmtv_usarmy", "rhsusf_M977A4_usarmy_d", "rhsusf_M977A4_BKIT_usarmy_d", "rhsusf_M977A4_BKIT_M2_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M977A4_AMMO_BKIT_usarmy_d", "rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsusf_M977A4_REPAIR_usarmy_d", "rhsusf_M977A4_REPAIR_BKIT_M2_usarmy_d", "rhsusf_M977A4_REPAIR_BKIT_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["rhsusf_M978A4_usarmy_d", "rhsusf_M978A4_BKIT_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhsusf_m113d_usarmy_medical", "rhsusf_M1230a1_usarmy_d"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["rhsusf_M1117_D", "rhsusf_stryker_m1126_m2_d", "rhsusf_stryker_m1126_mk19_d", "rhsusf_stryker_m1127_m2_d", "rhsusf_stryker_m1132_m2_np_d", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240", "rhsusf_m113d_usarmy_MK19", "RHS_M2A2", "RHS_M2A2_BUSKI", "RHS_M2A3", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsusf_M1117_D", "rhsusf_m113d_usarmy", "rhsusf_m113d_usarmy_M240", "rhsusf_m113d_usarmy_MK19", "rhsusf_M1232_MC_M2_usmc_d", "rhsusf_M1232_MC_M2_usmc_d", "rhsusf_M1232_MC_MK19_usmc_d", "rhsusf_M1078A1P2_B_M2_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhsusf_stryker_m1126_m2_d", "rhsusf_stryker_m1126_mk19_d", "rhsusf_stryker_m1127_m2_d", "rhsusf_stryker_m1132_m2_np_d", "RHS_M2A2", "RHS_M2A3"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["RHS_M2A2_BUSKI", "RHS_M2A3_BUSKI", "RHS_M2A3_BUSKIII"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhsusf_m1a1fep_d","rhsusf_m1a2sep1d_usarmy","rhsusf_m1a2sep1tuskiid_usarmy","rhsusf_m1a2sep2d_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6"]] call _fnc_saveToTemplate;
 
@@ -39,8 +41,9 @@
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["RHS_UH1Y_UNARMED_d"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_UH1Y_UNARMED_d", "RHS_CH_47F_light", "rhsusf_CH53E_USMC_GAU21_D", "rhsusf_CH53E_USMC_D"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS", "RHS_UH1Y_d", "RHS_UH1Y_FFAR_d", "RHS_UH1Y_d_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["RHS_CH_47F_light", "rhsusf_CH53E_USMC_GAU21_D", "rhsusf_CH53E_USMC_D"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["RHS_UH1Y_d", "RHS_UH1Y_d_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS"]] call _fnc_saveToTemplate;            //  "RHS_UH1Y_FFAR_d"
 
 ["vehiclesArtillery", ["rhsusf_m109_usarmy", "rhsusf_M142_usarmy_D", "RHS_M119_D"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -70,6 +73,8 @@
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "RHS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

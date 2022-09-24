@@ -21,17 +21,18 @@
 ["vehiclesLightUnarmed", ["UK3CB_ADA_I_SUV_Armoured", "UK3CB_ADA_I_Van_Transport", "UK3CB_ADA_I_Offroad", "UK3CB_ADA_I_LR_Open",
 "UK3CB_ADA_I_LR_Closed", "UK3CB_ADA_I_Hilux_Open", "UK3CB_ADA_I_Hilux_Closed", "UK3CB_ADA_I_Datsun_Pickup", "UK3CB_ADA_I_BTR40"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["UK3CB_ADA_I_LR_SF_M2", "UK3CB_ADA_I_LR_SF_AGS30", "UK3CB_ADA_I_LR_M2", "UK3CB_ADA_I_Hilux_Pkm",
-"UK3CB_ADA_I_Hilux_Dshkm", "UK3CB_ADA_I_Datsun_Pickup_PKM", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_I_BTR40_MG"]] call _fnc_saveToTemplate;
+"UK3CB_ADA_I_Hilux_Dshkm", "UK3CB_ADA_I_Datsun_Pickup_PKM", "UK3CB_ADA_I_Ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_ADA_I_Ural_Open", "UK3CB_ADA_I_Ural"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_ADA_I_Ural_Recovery", "UK3CB_ADA_I_V3S_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_ADA_I_Ural_Ammo", "UK3CB_ADA_I_V3S_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_ADA_I_Ural_Repair", "UK3CB_ADA_I_V3S_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_ADA_I_Ural_Fuel", "UK3CB_ADA_I_Van_Fuel", "UK3CB_ADA_I_V3S_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_ADA_I_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_ADA_I_BMP1", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR60", "UK3CB_ADA_I_BTR70", "UK3CB_ADA_I_BTR80", "UK3CB_ADA_I_BTR80a",
-"UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_O_BRDM2", "UK3CB_ADA_I_BTR40_MG", "UK3CB_ADA_O_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_ADA_I_BMP1", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR60", "UK3CB_ADA_I_BTR70", "UK3CB_ADA_I_BTR80", "UK3CB_ADA_I_BTR80a"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_ADA_I_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_ADA_I_T72A", "UK3CB_ADA_I_T72B", "UK3CB_ADA_I_T72BM", "UK3CB_ADA_I_T55"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_ADA_I_ZsuTank", "UK3CB_ADA_I_Ural_Zu23"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_ADA_I_ZsuTank"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UK3CB_TKA_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -41,9 +42,10 @@
 ["vehiclesPlanesAA", ["UK3CB_ADA_I_L39_PYLON"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_ADA_I_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_ADA_I_UH1H", "UK3CB_ADA_I_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_ADA_I_UH1H", "UK3CB_ADA_I_UH1H_M240", "UK3CB_ADA_I_Mi8AMT", "UK3CB_ADA_I_Mi8"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_ADA_I_UH1H_GUNSHIP", "UK3CB_ADA_I_Mi8AMTSh", "UK3CB_ADA_I_Mi_24P", "UK3CB_ADA_I_Mi_24V"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_ADA_I_UH1H"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_ADA_I_UH1H_M240", "UK3CB_ADA_I_Mi8AMT", "UK3CB_ADA_I_Mi8"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_ADA_I_UH1H_GUNSHIP", "UK3CB_ADA_I_Mi8AMTSh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_ADA_I_Mi_24P", "UK3CB_ADA_I_Mi_24V"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_ADA_I_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -70,6 +72,8 @@
 
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

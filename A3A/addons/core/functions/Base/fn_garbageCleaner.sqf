@@ -5,22 +5,28 @@ private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_s
 ["Garbage Cleaner","Please wait for GC to finish.<br/>Last GC was " + _timeSinceLastGC + " ago."] remoteExec ["A3A_fnc_customHint", 0];
 Info("Cleaning garbage...");
 
-private _rebelSpawners = allUnits select { side group _x == teamPlayer && {_x getVariable ["spawner",false]} };
+private _rebelSpawners = units teamPlayer select { _x getVariable ["spawner",false] };
+_rebelSpawners pushBack petros;
 
 private _fnc_distCheck = {
 	params["_object", "_dist"];
-	private _inRange = { if (_x distance _object <= _dist) exitWith {1}; false } count _rebelSpawners;
-	if (_inRange == 0) then { deleteVehicle _object };
+	if (_rebelSpawners inAreaArray [getPosATL _object, _dist, _dist] isEqualTo []) then { deleteVehicle _object };
 };
 
 
 { deleteVehicle _x } forEach allDead;
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolder");
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolderSimulated");
-{ if (isNull attachedTo _x) then { [_x, distanceSPWN1] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(occ,"surrenderCrate"));// Surrender boxes NATO
-{ if (isNull attachedTo _x) then { [_x, distanceSPWN1] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(inv,"surrenderCrate"));// Surrender boxes CSAT
+{ if (isNull attachedTo _x) then { [_x, 500] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(occ,"surrenderCrate"));// Surrender boxes NATO
+{ if (isNull attachedTo _x) then { [_x, 500] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(inv,"surrenderCrate"));// Surrender boxes CSAT
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
+
+// Cleanup rebel vehicles
+{
+	// Locked check is a hack for roadblock vehicles
+	if !(_x isKindOf "StaticWeapon" or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
+} forEach (vehicles select {_x getVariable ["ownerSide", sideUnknown] == teamPlayer});
 
 if (A3A_hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");

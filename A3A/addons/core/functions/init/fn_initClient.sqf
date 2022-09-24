@@ -24,9 +24,11 @@ if (!isServer) then {
 
 // Headless clients install some support functions, register with the server and bail out
 if (!hasInterface) exitWith {
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
 	call A3A_fnc_loadNavGrid;
+	waitUntil {(!isNil "serverInitDone")};
+	call A3A_fnc_addNodesNearMarkers;			// Needs marker lists from server
     Info_1("Headless client version: %1",QUOTE(VERSION));
 	[clientOwner] remoteExec ["A3A_fnc_addHC",2];
 };
@@ -40,8 +42,8 @@ player setVariable ["canSave", false, true];
 
 if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
-	call A3A_fnc_initFuncs;
 	call A3A_fnc_initVar;
+	call A3A_fnc_initFuncs;
     Info_1("MP client version: %1",QUOTE(VERSION));
 }
 else {
@@ -82,6 +84,7 @@ if (isMultiplayer && {playerMarkersEnabled}) then {
 [player] spawn A3A_fnc_initRevive;		// with ACE medical, only used for helmet popping & TK checks
 [] spawn A3A_fnc_outOfBounds;
 [] spawn A3A_fnc_darkMapFix;
+[] spawn A3A_fnc_clientIdleChecker;
 
 if (!A3A_hasACE) then {
 	[] spawn A3A_fnc_tags;
@@ -246,7 +249,7 @@ player addEventHandler ["GetInMan", {
 	};
 	if (!_exit) then {
 		if ((typeOf _veh) in undercoverVehicles) then {
-			if (!(_veh in reportedVehs)) then {
+			if !(_veh getVariable ["A3A_reported", false]) then {
 				[] spawn A3A_fnc_goUndercover;
 			};
 		};
@@ -415,10 +418,9 @@ mapX addAction ["Game Options", {
 	[
 		"Game Options",
 		"Version: "+ antistasiVersion +
-		"<br/><br/>Difficulty: "+ ( ["Easy","Normal","Hard"] select ((skillMult-1) min 2) ) +
+		"<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul toFixed 1) + "x" +
 		"<br/>Unlock Weapon Number: "+ str minWeaps +
 		"<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
-		"<br/>AI Limit: "+ str maxUnits +
 		"<br/>Spawn Distance: "+ str distanceSPWN + "m" +
 		"<br/>Civilian Limit: "+ str civPerc +
 		"<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)

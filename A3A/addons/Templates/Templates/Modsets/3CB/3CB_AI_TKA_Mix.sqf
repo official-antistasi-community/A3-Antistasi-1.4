@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_TKA_B_Hilux_Closed", "UK3CB_TKA_O_SUV_Armoured", "UK3CB_TKA_B_Hilux_Open", "UK3CB_TKA_B_M1025", "UK3CB_TKA_B_M998_2DR", "rhsusf_m1151_usarmy_d", "UK3CB_TKA_O_BTR40"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["UK3CB_TKA_B_Hilux_Pkm", "UK3CB_TKA_O_SUV_Armed", "UK3CB_TKA_B_Hilux_Dshkm", "UK3CB_TKA_B_M1025_M2", "UK3CB_TKA_B_M1025_MK19", "UK3CB_TKA_B_Hilux_GMG", "rhsusf_m1151_m2_v1_usarmy_d", "rhsusf_m1151_m240_v1_usarmy_d", "rhsusf_m1151_mk19_v1_usarmy_d", "UK3CB_TKA_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["UK3CB_TKA_B_Hilux_Pkm", "UK3CB_TKA_O_SUV_Armed", "UK3CB_TKA_B_Hilux_Dshkm", "UK3CB_TKA_B_M1025_M2", "UK3CB_TKA_B_M1025_MK19", "UK3CB_TKA_B_Hilux_GMG", "rhsusf_m1151_m2_v1_usarmy_d", "rhsusf_m1151_m240_v1_usarmy_d", "rhsusf_m1151_mk19_v1_usarmy_d", "UK3CB_TKA_B_Ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_TKA_B_Ural_Open", "UK3CB_TKA_B_Ural", "rhsusf_M1078A1P2_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_M2_D_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_TKA_B_Ural_Recovery", "rhsusf_M977A4_usarmy_d", "rhsusf_M1084A1P2_B_D_fmtv_usarmy", "rhsusf_M1084A1P2_B_M2_D_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_TKA_B_Ural_Ammo", "rhsusf_M977A4_AMMO_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_TKA_B_Ural_Repair", "rhsusf_M977A4_REPAIR_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_TKA_B_Ural_Fuel", "rhsusf_M978A4_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_TKA_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_TKA_B_M113_M240", "UK3CB_TKA_B_M113_M2", "UK3CB_TKA_B_M113_MK19", "UK3CB_TKA_B_M1117", "UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BMP1", "UK3CB_TKA_B_BMP2", "UK3CB_TKA_B_MTLB_PKT", "UK3CB_TKA_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_TKA_B_M113_M240", "UK3CB_TKA_B_M113_M2", "UK3CB_TKA_B_M113_MK19", "UK3CB_TKA_B_MTLB_PKT", "UK3CB_TKA_B_M1117", "UK3CB_TKA_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BMP1", "UK3CB_TKA_B_BMP2", "UK3CB_TKA_B_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_TKA_B_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_TKA_B_T72A", "UK3CB_TKA_B_T72B", "UK3CB_TKA_B_T72BM", "UK3CB_TKA_B_T55", "rhsusf_m1a1aimd_usarmy"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_TKA_B_ZsuTank", "RHS_M6", "UK3CB_TKA_B_Ural_Zu23", "UK3CB_TKA_B_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_TKA_B_ZsuTank", "RHS_M6"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UK3CB_TKA_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_TKA_B_UH1H", "UK3CB_TKA_B_UH1H_M240", "UK3CB_TKA_B_Bell412_Utility"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_TKA_B_Mi8AMT", "UK3CB_TKA_B_Mi8", "UK3CB_TKA_B_Bell412_Utility"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh", "UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V", "RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS", "UK3CB_TKA_B_Bell412_Armed", "UK3CB_TKA_B_Bell412_Armed_AT"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_TKA_O_UH1H_GUNSHIP", "UK3CB_TKA_B_Mi8AMTSh", "UK3CB_TKA_B_Bell412_Armed", "UK3CB_TKA_B_Bell412_Armed_AT"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_TKA_B_Mi_24P", "UK3CB_TKA_B_Mi_24V", "RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsusf_m109_usarmy", "UK3CB_TKA_B_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -70,6 +73,8 @@
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

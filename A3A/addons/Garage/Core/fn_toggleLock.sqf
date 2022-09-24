@@ -35,7 +35,7 @@ private _owner = _veh#5;
 _succes = call {
     if ( _lock isEqualTo "" ) exitWith { true };
     if ( _lock isEqualTo _UID) exitWith { _UID = ""; true };
-    if (_player isEqualTo (_player call HR_GRG_cmdClient)) exitWith { _UID = ""; Info_5("Commander unlock | Vehicle ID: %1 | Owner: %2 [%3] | Commander: %4 [%5]", _vehUID, _owner, _lock, name _player, _UID); true };
+    if (_player call HR_GRG_isCmdClient) exitWith { _UID = ""; Info_5("Commander unlock | Vehicle ID: %1 | Owner: %2 [%3] | Commander: %4 [%5]", _vehUID, _owner, _lock, name _player, _UID); true };
     false
 };
 

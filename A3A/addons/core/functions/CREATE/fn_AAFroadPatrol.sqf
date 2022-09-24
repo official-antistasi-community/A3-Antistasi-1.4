@@ -11,45 +11,44 @@ _groups = [];
 _base = "";
 _roads = [];
 
-_arrayAirports = if (A3A_hasIFA) then {(airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}} else {(seaports + airportsX + outposts) select {((spawner getVariable _x != 0)) and (sidesX getVariable [_x,sideUnknown] != teamPlayer)}};
-_arrayAirports1 = [];
-
-private _isValidPatrolOrigin = if (isMultiplayer) then {
-	{playableUnits findIf {(side (group _x) == teamPlayer) and (_x distance2d _this < distanceForLandAttack)} != -1};
-} else {
-	{[distanceForLandAttack,1,_this,teamPlayer] call A3A_fnc_distanceUnits};
+private _players = allPlayers - entities "HeadlessClient_F";
+private _bases = (seaports + airportsX + outposts) select {
+	call {
+		if (_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo []) exitWith {false};
+		private _side = sidesX getVariable [_x, sideUnknown];
+		if (_side == teamPlayer) exitWith {false};
+		if (_x in seaports and Faction(_side) get "vehiclesGunBoats" isEqualTo []) exitWith {false};
+		if (_x call A3A_fnc_getMarkerNavPoint == -1) exitWith {false};
+		true;
+	};
 };
+if (_bases isEqualTo []) exitWith {};
 
-{
-	_airportX = _x;
-	_pos = getMarkerPos _airportX;
-	if (_pos call _isValidPatrolOrigin) then {_arrayAirports1 pushBack _airportX};
-} forEach _arrayAirports;
+Debug_1("Possible patrol bases %1", _bases);
 
-if (_arrayAirports1 isEqualTo []) exitWith {};
-
-_base = selectRandom _arrayAirports1;
+_base = selectRandom _bases;
 _sideX = sidesX getVariable [_base,sideUnknown];
 private _faction = Faction(_sideX);
 
 _typeCar = "";
 _typePatrol = "LAND";
-private _boats = (_faction get "vehiclesGunBoats") select {[_x] call A3A_fnc_vehAvailable};
-if ((_base in seaports) && {count _boats > 0}) then {
-    _typeCar = selectRandom _boats;
-    _typePatrol = "SEA";
+if (_base in seaports) then {
+	_typeCar = selectRandom (_faction get "vehiclesGunBoats");
+	_typePatrol = "SEA";
 } else {
-    if ( _sideX isEqualTo Invaders || random 100 < aggressionOccupants ) then {
-        _typeCar = selectRandom (
-            if (_base in airportsX) then {
-                (_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed") + (_faction get "vehiclesHelisLight")
-            } else {_faction get "vehiclesHelisLight"}
-        );
-        if (_typeCar in (_faction get "vehiclesHelisLight")) then {_typePatrol = "AIR"};
-    } else {
-        _typeCar = selectRandom ( (_faction get "vehiclesPolice") + (_faction get "vehiclesMilitiaLightArmed") );
-    };
+	if ( _sideX isEqualTo Invaders || random 10 < tierWar + aggressionOccupants/10) then {
+		private _lowAir = _faction getOrDefault ["attributeLowAir", false];
+		if (!_lowAir and (_base in airportsX) and (random 1 < 0.5)) exitWith {
+			_typeCar = selectRandom (_faction get "vehiclesHelisLight");
+			_typePatrol = "AIR";
+		};
+		_typeCar = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed"));
+	} else {
+		_typeCar = selectRandom ((_faction get "vehiclesPolice") + (_faction get "vehiclesMilitiaLightArmed"));
+	};
 };
+
+Info_3("Sending patrol of type %1 vehicle %2 from %3", _typePatrol, _typeCar, _base);
 
 _posbase = getMarkerPos _base;
 
@@ -139,7 +138,8 @@ while {alive _veh} do
 	_Vwp0 setWaypointSpeed "LIMITED";
 	_veh setFuel 1;
 
-	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
+	private _timeout = time + (_veh distance2d _posDestination) / 6 + 300;			// stuck detection
+	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or (_timeout > time) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
 	if !(_veh distance _posDestination < _distanceX) exitWith {};
 	if (_typePatrol == "AIR") then
 		{
@@ -159,13 +159,7 @@ while {alive _veh} do
 		};
 	};
 
-{
-	private _wp = _x addWaypoint [getMarkerPos _base, 50];
-	_wp setWaypointType "MOVE";
-	_x setCurrentWaypoint _wp;
-	[_x] spawn A3A_fnc_groupDespawner;		// this one did care about enemies. Not sure why.
-} forEach _groups;
-
-{ [_x] spawn A3A_fnc_vehDespawner } forEach _vehiclesX;
+{ [_x] spawn A3A_fnc_VEHDespawner } forEach _vehiclesX;
+{ [_x] spawn A3A_fnc_enemyReturnToBase } forEach _groups;
 
 AAFpatrols = AAFpatrols - 1;

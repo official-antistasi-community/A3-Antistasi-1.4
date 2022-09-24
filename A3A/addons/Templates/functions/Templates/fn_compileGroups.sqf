@@ -67,11 +67,11 @@ for "_i" from 1 to 5 do {
     _squads pushBack [
         unit(military, "SquadLeader"),
         selectRandomWeighted [unit(military, "LAT"), 2, unit(military, "MachineGunner"), 1],
-        selectRandomWeighted [unit(military, "Rifleman"), 2, unit(military, "Grenadier"), 1],
+        selectRandomWeighted [unit(military, "Rifleman"), 1, unit(military, "Grenadier"), 2],
         selectRandomWeighted [unit(military, "MachineGunner"), 2, unit(military, "Marksman"), 1],
-        selectRandomWeighted [unit(military, "Rifleman"), 4, unit(military, "AT"), 1],
-        selectRandomWeighted [unit(military, "AA"), 1, unit(military, "Engineer"), 4],
-        unit(military, "Rifleman"),
+        selectRandomWeighted [unit(military, "Engineer"), 3, unit(military, "AT"), 1],
+        selectRandomWeighted [unit(military, "AA"), 1, unit(military, "Rifleman"), 3],
+        selectRandomWeighted [unit(military, "Rifleman"), 2, unit(military, "Marksman"), 1],
         unit(military, "Medic")
     ];
 };

@@ -63,16 +63,24 @@ setVar("vehiclesPolice", OccAndInv("vehiclesPolice"));
 setVar("vehiclesAttack", OccAndInv("vehiclesAttack") );
 setVar("vehiclesUAVs", OccAndInv("uavsAttack")+ OccAndInv("uavsPortable") );
 setVar("vehiclesAmmoTrucks", OccAndInv("vehiclesAmmoTrucks") );
+setVar("vehiclesLightAPCs", OccAndInv("vehiclesLightAPCs"));
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
+setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
-setVar("vehiclesAA", OccAndInv("vehiclesAA") );
+setVar("vehiclesAA", OccAndInv("vehiclesAA") + [Reb("vehicleAA")] - [""]);
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
 setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight"));
+setVar("vehiclesHelisLightAttack", OccAndInv("vehiclesHelisLightAttack"));
 setVar("vehiclesHelisAttack", OccAndInv("vehiclesHelisAttack"));
 setVar("vehiclesHelisTransport", OccAndInv("vehiclesHelisTransport"));
+setVar("vehiclesPlanesAA", OccAndInv("vehiclesPlanesAA"));
+setVar("vehiclesPlanesCAS", OccAndInv("vehiclesPlanesCAS"));
 setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
 setVar("staticMortars", OccAndInv("staticMortars") + [Reb("staticMortar")]);
+setVar("staticAA", OccAndInv("staticAA") + [Reb("staticAA")]);
+setVar("staticAT", OccAndInv("staticAT") + [Reb("staticAT")]);
+setVar("staticMG", OccAndInv("staticMG") + [Reb("staticMG")]);
 
 private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesMilitiaTrucks")
@@ -86,6 +94,7 @@ setVar("vehiclesBoats", _vehBoats);
 //Occ&Inv helicopters
 private _vehHelis =
 OccAndInv("vehiclesHelisTransport")
++ OccAndInv("vehiclesHelisLightAttack")
 + OccAndInv("vehiclesHelisAttack")
 + OccAndInv("vehiclesHelisLight");
 setVar("vehiclesHelis", _vehHelis);
@@ -105,29 +114,30 @@ OccAndInv("vehiclesTrucks")
 + [Reb("vehicleTruck")];
 setVar("vehiclesTrucks", _vehTrucks);
 
+//Armed cars
+private _carsArmed =
+OccAndInv("vehiclesLightArmed")
++ OccAndInv("vehiclesMilitiaLightArmed")
++ [Reb("vehicleLightArmed")];
+setVar("vehiclesLightArmed", _carsArmed);
+
+//Unarmed cars
+private _carsUnarmed =
+OccAndInv("vehiclesLightUnarmed")      // anything else?
++ OccAndInv("vehiclesMilitiaCars")
++ OccAndInv("vehiclesPolice")
++ [Reb("vehicleLightUnarmed")];
+setVar("vehiclesLightUnarmed", _carsUnarmed);
+setVar("vehiclesLight", _carsArmed + _carsUnarmed);
+
 //all Occ&Inv armor
 private _vehArmor =
 getVar("vehiclesTanks")
 + getVar("vehiclesAA")
 + getVar("vehiclesArtillery")
 + getVar("vehiclesAPCs");
++ getVar("vehiclesIFVs");
 setVar("vehiclesArmor", _vehArmor);
-
-//vehicles that the AI have "unlimited" of
-private _vehUnlimited =
-OccAndInv("vehiclesLight")
-+ OccAndInv("vehiclesTrucks")
-+ OccAndInv("vehiclesAmmoTrucks")
-+ OccAndInv("vehiclesRepairTrucks")
-+ OccAndInv("vehiclesFuelTrucks")
-+ OccAndInv("vehiclesMedical")
-+ OccAndInv("vehiclesTransportBoats")
-+ OccAndInv("vehiclesHelisLight")
-+ OccAndInv("uavsAttack")
-+ OccAndInv("uavsPortable")
-+ OccAndInv("staticMGs")
-+ OccAndInv("staticMortars");
-setVar("vehiclesUnlimited", _vehUnlimited);
 
 //rebel vehicles
 private _vehReb = [

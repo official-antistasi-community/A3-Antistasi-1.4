@@ -1,3 +1,4 @@
+#if __has_include("\x\A3A\addons\core\script_component.hpp")
 #include "\x\A3A\addons\core\script_component.hpp"
 name = QUOTE(Antistasi - Community VERSION);
 author = "Antistasi Dev Team";
@@ -14,3 +15,4 @@ action = "https://github.com/official-antistasi-community/A3-Antistasi";
 hideName = 0;
 hidePicture = 0;
 dlcColor[] = {0.1765, 0.6392, 0.6235, 1};
+#endif

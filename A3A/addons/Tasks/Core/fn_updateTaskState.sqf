@@ -3,8 +3,8 @@ FIX_LINE_NUMBERS()
 params ["_taskHM"];
 
 //get task state from hm
-private _taskID = _taskHM get "TaskID";
-if (isNil "_taskID") then { _taskID = call FUNC(genTaskUID); _taskHM set ["TaskID", _taskID]; };
+private _taskID = _taskHM get "taskID";
+if (isNil "_taskID") then { _taskID = call FUNC(genTaskUID); _taskHM set ["taskID", _taskID]; };
 if (_taskID isEqualType []) then {_taskID = _taskID#0};
 
 private _description = [
@@ -12,7 +12,7 @@ private _description = [
     _taskHM get "title",
     _taskHM getOrDefault ["marker", ""]
 ];
-if (isNil {_description#1}) exitWith { Error_1("No title set for task %1", configName (_taskHM get "Cfg")) };
+if (isNil {_description#1}) exitWith { Error_1("No title set for task %1", configName (_taskHM get "cfg")) };
 
 private _destination = _taskHM getOrDefault ["destination",objNull];
 private _state = _taskHM getOrDefault ["state","CREATED"];
@@ -23,9 +23,9 @@ private _visibleIn3D = _taskHM getOrDefault ["visibleIn3D",false];
 
 //update task state
 if !([_taskID] call BIS_fnc_taskExists) then {
-    Debug_1("Task created | ID: %1", _taskHM get "TaskID");
+    Debug_1("Task created | ID: %1", _taskHM get "taskID");
     [
-        true, _taskHM get "TaskID", _description, _destination, _state, _priority, _showNotification, _type, _visibleIn3D
+        true, _taskHM get "taskID", _description, _destination, _state, _priority, _showNotification, _type, _visibleIn3D
     ] call BIS_fnc_taskCreate;
 };
 
@@ -60,7 +60,7 @@ if (_taskID call BIS_fnc_taskAlwaysVisible isNotEqualTo _visibleIn3D) then {
 //task removal
 if (_state in ["SUCCEEDED","FAILED","CANCELED"]) then {
     _taskID spawn {
-        sleep (GVAR(Settings) get "TaskLingerTime");
+        sleep (GVAR(settings) get "taskLingerTime");
         [_this, true, true] call BIS_fnc_deleteTask;
     };
 };

@@ -15,11 +15,11 @@ _this set ["title", "Test task"];
 _this set ["description", "Test task description"];
 _this set ["destination", [allPlayers#0, true]];
 
-_this set ["Constructor", { // Type: code | Required | Constructor to run at start of task
+_this set ["constructor", { // Type: code | Required | Constructor to run at start of task
     Info("Constructor called");
 }];
 
-_this set ["Destructor", { // Type: code | Optional | Destructor to run at end of task
+_this set ["destructor", { // Type: code | Optional | Destructor to run at end of task
     Info("Destructor called");
 }];
 
@@ -28,21 +28,21 @@ _stages = [
         ["Init", { //Type: code | Optional | only stage 2 and beyond can use a stage init function
             Info("Stage 1 init called");
         }],
-        ["Action", { //Type: code | Required | Action to be done in that stage
+        ["action", { //Type: code | Required | Action to be done in that stage
             Info("Stage 1 action called");
         }],
-        ["Condition", { //Type: code | Required | Return type: bool | Condition to compleate the stage
+        ["condition", { //Type: code | Required | Return type: bool | Condition to compleate the stage
             false;
         }],
-        ["Required", true], //Type: bool | Optional | if the task needs the stage to succeed
-        ["Reward", { //Type: code | Optional | the reward given for completing the stage
+        ["required", true], //Type: bool | Optional | if the task needs the stage to succeed
+        ["reward", { //Type: code | Optional | the reward given for completing the stage
             Info("Stage 1 reward called");
         }],
-        ["Reward-Instant", false], //Type: bool | Optional | if the reward should be given instantly on compleation of stage
-        ["Timeout", 10] //Type: number | Optional | Time limit for the stage before auto fail
+        ["rewardInstant", false], //Type: bool | Optional | if the reward should be given instantly on compleation of stage
+        ["timeout", 10] //Type: number | Optional | Time limit for the stage before auto fail
     ]
 ];
-_this set ["Stages", _stages];
+_this set ["stages", _stages];
 
 /*
     to add sub tasks -> add them to the Children entry in the task hm
@@ -51,13 +51,13 @@ _this set ["Stages", _stages];
 
     example:
     private _subTaskA = createHashMap;
-    _subTaskA set ["TaskID", ["A", _this get "TaskID"]];
+    _subTaskA set ["taskID", ["A", _this get "taskID"]];
     _subTaskA set ["title", "Test sub task A"];
     _subTaskA set ["description", "Test sub task A description"];
     _this set ["Children", [_subTaskA]];
 */
 private _subTaskA = createHashMap;
-_subTaskA set ["TaskID", [call FUNC(genTaskUID), _this get "TaskID"]];
+_subTaskA set ["taskID", [call FUNC(genTaskUID), _this get "taskID"]];
 _subTaskA set ["title", "Test sub task A"];
 _subTaskA set ["description", "Test sub task A description"];
 _this set ["Children", [_subTaskA]]; // Type: Array of hashMaps | Optional | sub tasks of the main task

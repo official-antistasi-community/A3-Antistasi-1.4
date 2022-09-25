@@ -2,5 +2,5 @@
 FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
 
-GVAR(TaskUID) = GVAR(TaskUID) + 1;
-str GVAR(TaskUID);
+GVAR(taskUID) = GVAR(taskUID) + 1;
+str GVAR(taskUID);

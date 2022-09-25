@@ -1,10 +1,10 @@
 #include "\x\A3A\addons\core\script_component.hpp"
 name = QUOTE(Antistasi - Community VERSION);
 author = "Antistasi Dev Team";
-logo = "antistasi_logo_sw.paa";
-logoOver = "antistasi_logo.paa";
-logoSmall = "antistasi_logo_small.paa";
-picture = "antistasi_overview.paa";
+logo = QPATHTOFOLDER(Pictures\antistasi_logo_sw.paa);
+logoOver = QPATHTOFOLDER(Pictures\antistasi_logo.paa);
+logoSmall = QPATHTOFOLDER(Pictures\antistasi_logo_small.paa);
+picture = QPATHTOFOLDER(Pictures\antistasi_overview.paa);
 description = "";
 tooltip = "Antistasi";
 tooltipOwned = "Antistasi";

@@ -12,4 +12,4 @@ private _nearbyFriendlyMarkers = call FUNC(nearFriendlyMarkers);
 }forEach _controlsX;
 
 if (_possibleMarkers isEqualTo []) exitWith {false};
-_possibleMarkers;
+selectRandom _possibleMarkers;

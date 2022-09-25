@@ -5,4 +5,4 @@ private _roadblocks = controlsX select { isOnRoad getMarkerPos _x };
 private _possibleMarkers = [outposts + resourcesX + factories + seaports + _roadblocks] call FUNC(nearHostileMarkers);
 
 if (_possibleMarkers isEqualTo []) exitWith {false};
-_possibleMarkers;
+selectRandom _possibleMarkers;

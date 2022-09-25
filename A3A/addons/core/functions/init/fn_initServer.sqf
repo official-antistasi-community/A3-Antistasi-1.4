@@ -203,6 +203,8 @@ Info("Setting serverInitDone as true");
 
 Info("Waiting for HQ placement");
 waitUntil {sleep 1;!(isNil "placementDone")};
+
+
 Info("HQ Placed, continuing init");
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;

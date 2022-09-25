@@ -34,11 +34,7 @@ if (!hasInterface) exitWith {
 };
 
 
-waitUntil {!isNull player};
-waitUntil {player == player};
-
-//Disable player saving until they're fully ready, and have chosen whether to load their save.
-player setVariable ["canSave", false, true];
+waitUntil {local player};
 
 if (!isServer) then {
 	waitUntil {!isNil "initParamsDone"};
@@ -75,7 +71,6 @@ if (isMultiplayer) then {
 [] spawn A3A_fnc_ambientCivs;
 
 disableUserInput false;
-player setVariable ["spawner",true,true];
 
 if (isMultiplayer && {playerMarkersEnabled}) then {
 	[] spawn A3A_fnc_playerMarkers;
@@ -97,6 +92,7 @@ player setVariable ["rankX",rank player];
 
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
+player setVariable ["A3A_playerUID",getPlayerUID player,true];			// Mark so that commander routines know for remote-controlling
 
 stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
@@ -479,6 +475,7 @@ else
 
 //Move the player to HQ now they're initialised.
 player setPos (getMarkerPos respawnTeamPlayer);
+player setVariable ["spawner",true,true];
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
 //Can re-enable them if we find the source of the bug.

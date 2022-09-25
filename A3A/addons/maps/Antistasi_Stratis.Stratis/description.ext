@@ -24,9 +24,9 @@ class CfgDebriefing {
 	};
     class petrosDead
     {
-        title = "Maru is Dead";
-        subtitle = "Maru is Dead";
-        description = "Congratulations!: Maru is Dead. Now with Syndikat without a leader, you may think about joining them, and free Malden";
+        title = "Petros is Dead";
+        subtitle = "Petros is Dead";
+        description = "Congratulations!: Petros is Dead. Now with Syndikat without a leader, you may think about joining them, and free Malden";
         picture = "b_unknown";
         pictureColor[] = {0.5,0.0,0.0,1};
     };

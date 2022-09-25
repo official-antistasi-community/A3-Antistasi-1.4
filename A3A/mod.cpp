@@ -1,10 +1,14 @@
+#if __has_include("\x\A3A\addons\core\script_component.hpp")
 #include "\x\A3A\addons\core\script_component.hpp"
 name = QUOTE(Antistasi - Community VERSION);
-author = "Antistasi Dev Team";
 logo = QPATHTOFOLDER(Pictures\antistasi_logo_sw.paa);
 logoOver = QPATHTOFOLDER(Pictures\antistasi_logo.paa);
 logoSmall = QPATHTOFOLDER(Pictures\antistasi_logo_small.paa);
 picture = QPATHTOFOLDER(Pictures\antistasi_overview.paa);
+#else
+name = "Antistasi - Community version";
+#endif
+author = "Antistasi Dev Team";
 description = "";
 tooltip = "Antistasi";
 tooltipOwned = "Antistasi";

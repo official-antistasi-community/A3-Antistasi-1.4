@@ -167,7 +167,7 @@ class Templates
             };
             class USAF_Marines
             {
-                displayName = "US Marines";
+                displayName = "USMC";
                 class camo
                 {
                     arid = "Arid";

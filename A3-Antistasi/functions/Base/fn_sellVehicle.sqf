@@ -50,6 +50,11 @@ if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {["Sell Vehi
 _veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
 
 private _typeX = typeOf _veh;
+
+if (_typeX == "vn_o_vc_spiderhole_01" or _typeX == "vn_o_vc_spiderhole_02" or _typeX == "vn_o_vc_spiderhole_03") exitWith {  // Spiderhole cannot be sold as they can be built by players using GRAD.
+    ["Sell Vehicle", "This object cannot be sold."] remoteExecCall ["A3A_fnc_customHint",_player];
+};
+
 private _costs = call {
     if (_veh isKindOf "StaticWeapon") exitWith {100};			// in case rebel static is same as enemy statics
     if (_typeX in vehFIA) exitWith { ([_typeX] call A3A_fnc_vehiclePrice) / 2 };

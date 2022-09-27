@@ -44,7 +44,7 @@ private _bossRank = 0;
 
 if (!isNull _nextBoss) then
 {
-    Info_1("Player chosen for Boss: %1", _nextBoss);
+    Info_1("Player chosen for Boss: %1", name _nextBoss);
     if (theBoss != _nextBoss) then { [_nextBoss] call A3A_fnc_theBossTransfer };
 }
 else

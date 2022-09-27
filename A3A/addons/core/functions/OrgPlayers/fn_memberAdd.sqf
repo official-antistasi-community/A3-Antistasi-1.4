@@ -14,6 +14,7 @@ if ((_this select 0 == "remove") and  !([_target] call A3A_fnc_isMember)) exitWi
 if (_this select 0 == "add") then
 	{
 	membersX pushBackUnique _uid;
+	_target setVariable ["eligible", true, true];
 	["Membership", format ["%1 has been added to the Server Members List.",name _target]] call A3A_fnc_customHint;
 	["Membership", "You have been added to the Server Members list."] remoteExec ["A3A_fnc_customHint", _target];
 	}

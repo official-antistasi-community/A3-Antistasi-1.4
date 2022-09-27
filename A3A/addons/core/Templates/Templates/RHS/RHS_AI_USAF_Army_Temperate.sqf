@@ -87,7 +87,7 @@
 //       Loadouts       //
 //////////////////////////
 //     "Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 _loadoutData set ["slRifles", []];
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
@@ -171,7 +171,8 @@ _loadoutData set ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
+_sfLoadoutData merge _loadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", ["rhs_uniform_g3_m81"]];
 _sfLoadoutData set ["vests", ["rhsusf_mbav_rifleman"]];
 _sfLoadoutData set ["mgVests", ["rhsusf_mbav_mg"]];    
@@ -300,7 +301,8 @@ _sfLoadoutData set ["glSidearms", [
 //    Military Loadout Data    //
 /////////////////////////////////
 
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _militaryLoadoutData = ["militaryLoadoutData"] call _fnc_createLoadoutData;
+_militaryLoadoutData merge _loadoutData; // touch and shit breaks
 _militaryLoadoutData set ["uniforms", ["rhs_uniform_acu_oefcp"]];
 _militaryLoadoutData set ["vests", ["rhsusf_spcs_ocp_rifleman_alt", "rhsusf_spcs_ocp_rifleman"]];
 _militaryLoadoutData set ["mgVests", ["rhsusf_spcs_ocp_saw", "rhsusf_spcs_ocp_machinegunner"]];    
@@ -383,7 +385,8 @@ _militaryLoadoutData set ["sidearms", [
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _policeLoadoutData = ["policeLoadoutData"] call _fnc_createLoadoutData;
+_policeLoadoutData merge _loadoutData; // touch and shit breaks
 _policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police"]];
@@ -404,7 +407,8 @@ _policeLoadoutData set ["sidearms", [
 //    Militia Loadout Data    //
 ////////////////////////////////
 
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _militiaLoadoutData = ["militiaLoadoutData"] call _fnc_createLoadoutData;
+_militiaLoadoutData merge _loadoutData; // touch and shit breaks
 _militiaLoadoutData set ["uniforms", ["rhs_uniform_bdu_erdl"]];
 _militiaLoadoutData set ["vests", ["V_TacVest_camo", "V_Chestrig_rgr"]];
 _militiaLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_AssaultPack_rgr"]];
@@ -447,7 +451,8 @@ _militiaLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _crewLoadoutData = ["crewLoadoutData"] call _fnc_createLoadoutData; // touch and shit breaks
+_crewLoadoutData merge _militaryLoadoutData; // touch and shit breaks
 _crewLoadoutData set ["uniforms", ["rhs_uniform_cu_ocp_1stcav"]];
 _crewLoadoutData set ["vests", ["rhsusf_spcs_ocp_crewman"]];
 _crewLoadoutData set ["helmets", ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_alt_helmet", "rhsusf_cvc_helmet", "rhsusf_cvc_alt_helmet"]];
@@ -457,7 +462,8 @@ _crewLoadoutData set ["carbines", [
 ["rhs_weap_m4a1_carryhandle", "rhsusf_acc_SF3P556", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_xps3", ["rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red"], [], "rhsusf_acc_rvg_blk"]
 ]];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _pilotLoadoutData = ["pilotLoadoutData"] call _fnc_createLoadoutData;
+_pilotLoadoutData merge _militaryLoadoutData;
 _pilotLoadoutData set ["vests", ["rhsusf_spcs_ocp"]];
 _pilotLoadoutData set ["helmets", ["rhsusf_hgu56p_black", "rhsusf_hgu56p_mask_black", "rhsusf_hgu56p_visor_black", "rhsusf_hgu56p_visor_mask_black"]];
 

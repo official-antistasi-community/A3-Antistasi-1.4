@@ -78,7 +78,7 @@
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 _loadoutData set ["slRifles", []];
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
@@ -183,7 +183,8 @@ _loadoutData set ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
+_sfLoadoutData merge _loadoutData;
 _sfLoadoutData set ["uniforms", ["CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green"]];
 _sfLoadoutData set ["vests", ["CUP_V_B_Ciras_Olive"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_CPC_weaponsbelt_rngr"]];
@@ -264,7 +265,8 @@ _sfLoadoutData set ["sidearms", [
 //    Military Loadout Data    //
 /////////////////////////////////
 
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militaryLoadoutData = ["militaryLoadoutData"] call _fnc_createLoadoutData;
+_militaryLoadoutData merge _loadoutData;
 _militaryLoadoutData set ["uniforms", ["CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green"]];
 _militaryLoadoutData set ["vests", ["CUP_V_B_Ciras_Khaki2"]];
 _militaryLoadoutData set ["mgVests", ["CUP_V_B_Ciras_Khaki"]];
@@ -340,7 +342,8 @@ _militaryLoadoutData set ["sidearms", [
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _policeLoadoutData = ["policeLoadoutData"] call _fnc_createLoadoutData;
+_policeLoadoutData merge _loadoutData;
 
 _policeLoadoutData set ["uniforms", ["CUP_U_C_Policeman_01"]];
 _policeLoadoutData set ["vests", ["CUP_V_C_Police_Holster"]];
@@ -357,7 +360,8 @@ _policeLoadoutData set ["sidearms", [
 //    Militia Loadout Data    //
 ////////////////////////////////
 
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militiaLoadoutData = ["militiaLoadoutData"] call _fnc_createLoadoutData;
+_militiaLoadoutData merge _loadoutData;
 _militiaLoadoutData set ["uniforms", ["CUP_U_O_TK_MixedCamo", "CUP_U_O_TK_Green"]];
 _militiaLoadoutData set ["vests", ["CUP_V_O_SLA_6B3_1_WDL"]];
 _militiaLoadoutData set ["sniVests", ["CUP_V_O_SLA_Carrier_Belt02"]];
@@ -400,12 +404,14 @@ _militiaLoadoutData set ["sidearms", [
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _crewLoadoutData = ["crewLoadoutData"] call _fnc_createLoadoutData; // touch and shit breaks
+_crewLoadoutData merge _militaryLoadoutData;
 _crewLoadoutData set ["uniforms", ["CUP_U_O_TK_Green"]];
 _crewLoadoutData set ["vests", ["CUP_V_O_TK_CrewBelt"]];
 _crewLoadoutData set ["helmets", ["CUP_H_TK_TankerHelmet"]];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _pilotLoadoutData = ["pilotLoadoutData"] call _fnc_createLoadoutData;
+_pilotLoadoutData merge _militaryLoadoutData;
 _pilotLoadoutData set ["uniforms", ["CUP_U_B_USMC_PilotOverall"]];
 _pilotLoadoutData set ["vests", ["CUP_V_O_TK_CrewBelt"]];
 _pilotLoadoutData set ["helmets", ["CUP_H_RUS_ZSH_Shield_Down"]];

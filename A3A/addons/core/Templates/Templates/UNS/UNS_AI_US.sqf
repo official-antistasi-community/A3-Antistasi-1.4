@@ -94,7 +94,7 @@
 //       Loadouts       //
 //////////////////////////
 
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
@@ -177,7 +177,8 @@ _loadoutData set ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
+_sfLoadoutData merge _loadoutData;
 _sfLoadoutData set ["uniforms", ["UNS_SAS_BDU_E"]];
 _sfLoadoutData set ["vests", ["uns_sas_web_3", "uns_sas_web_1", "uns_sas_web_2"]];
 _sfLoadoutData set ["glVests", ["uns_sas_web_1_gl", "uns_sas_web_2_gl", "uns_sas_web_3_ugl"]];
@@ -221,7 +222,8 @@ _sfLoadoutData set ["sidearms", [
 //    Military Loadout Data    //
 /////////////////////////////////
 
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militaryLoadoutData = ["militaryLoadoutData"] call _fnc_createLoadoutData;
+_militaryLoadoutData merge _loadoutData;
 _militaryLoadoutData set ["uniforms", ["UNS_USMC_BDU_65"]];
 _militaryLoadoutData set ["vests", ["uns_simc_flak_55", "uns_simc_flak_55_M61_79_belt", "uns_simc_flak_55_bandoleer", "uns_Simc_flak_55_M61_med", "uns_simc_flak_55_M61", "uns_simc_flak_55_mk2_belt_open", "uns_simc_flak_55_mk2_bandoleer_belt"]];
 _militaryLoadoutData set ["backpacks", ["UNS_Alice_F1", "UNS_Alice_FR",  "UNS_USMC_MED", "UNS_USMC_R1", "uns_simc_MC_packboard_flak_3"]];
@@ -246,7 +248,8 @@ _militaryLoadoutData set ["sidearms", [["uns_m1911", "", "", "", ["uns_m1911mag"
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _policeLoadoutData = ["policeLoadoutData"] call _fnc_createLoadoutData;
+_policeLoadoutData merge _loadoutData;
 
 _policeLoadoutData set ["uniforms", ["UNS_ARMY_BDU_716thMPBnpv1"]];
 _policeLoadoutData set ["vests", ["uns_simc_56_ligt"]];
@@ -262,7 +265,8 @@ _policeLoadoutData set ["sidearms", [
 //    Militia Loadout Data    //
 ////////////////////////////////
 
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militiaLoadoutData = ["militiaLoadoutData"] call _fnc_createLoadoutData;
+_militiaLoadoutData merge _loadoutData;
 _militiaLoadoutData set ["uniforms", ["UNS_ARMY_BDU_65"]];
 _militiaLoadoutData set ["vests", ["uns_simc_56", "uns_simc_56_bandoleer", "uns_simc_56_frag", "uns_simc_56_M43", "uns_v_simc_67_ass", "uns_v_simc_67_frag_ass", "uns_v_simc_67_45", "uns_Simc_56_med"]];
 _militiaLoadoutData set ["backpacks", ["uns_simc_pack_trop_1_alt", "uns_simc_pack_trop_4_alt", "uns_simc_pack_med_m5_flak", "uns_simc_packboard_MG_2", "uns_simc_packboard_mortar_1"]];
@@ -288,12 +292,14 @@ _militiaLoadoutData set ["sidearms", [["uns_m1911", "", "", "", ["uns_m1911mag"]
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _crewLoadoutData = ["crewLoadoutData"] call _fnc_createLoadoutData; // touch and shit breaks
+_crewLoadoutData merge _militaryLoadoutData;
 _crewLoadoutData set ["uniforms", ["UNS_ARMY_BDU_S", "UNS_ARMY_BDU_F"]];
 _crewLoadoutData set ["vests", ["uns_simc_56_45_ligt_zusp"]];
 _crewLoadoutData set ["helmets", ["UNS_TC_1", "UNS_TC_2"]];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _pilotLoadoutData = ["pilotLoadoutData"] call _fnc_createLoadoutData;
+_pilotLoadoutData merge _militaryLoadoutData;
 _pilotLoadoutData set ["uniforms", ["UNS_JPilot_BDU", "UNS_Pilot_BDU"]];
 _pilotLoadoutData set ["vests", ["UNS_JP_Vest"]];
 _pilotLoadoutData set ["helmets", ["UNS_JP_Helmet_352TFS", "UNS_JP_Helmet_366TFW", "UNS_JP_Helmet_389TFS", "UNS_HP_Helmet_R33", "UNS_HP_Helmet_R8", "UNS_HP_Helmet_USA"]];

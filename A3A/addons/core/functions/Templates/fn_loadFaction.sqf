@@ -5,18 +5,16 @@
         - Spoffy
   Params:
         _filepaths - Single or array of faction definition filepath
-        _factionPrefix - string of the faction role
   Returns:
         Namespace containing faction information
   Examples:
-        - [_factionDefaultFile,_file], _factionPrefix] call A3A_fnc_loadFaction;
-        - [["\x\A3A\Addons\Core\Templates\Templates\FactionDefaults\EnemyDefaults.sqf", "\x\A3A\addons\core\Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf"], "occ"] call A3A_fnc_loadFaction;
+        - [_factionDefaultFile,_file] call A3A_fnc_loadFaction;
+        - ["\x\A3A\Addons\Core\Templates\Templates\FactionDefaults\EnemyDefaults.sqf", "\x\A3A\addons\core\Templates\Templates\Vanilla\Vanilla_AI_CSAT_Arid.sqf"] call A3A_fnc_loadFaction;
 */
 
 #include "..\..\script_component.hpp"
 params [
-    ["_filepaths",[],["",[]]],
-    ["_factionPrefix", "", [""]]
+    ["_filepaths",[],["",[]]]
 ];
 
 if (_filepaths isEqualType "") then {_filepaths = [_filepaths]};

@@ -287,9 +287,9 @@ _militaryLoadoutData set ["slRifles", [
     ["CUP_arifle_L85A2", "", "", "CUP_optic_Elcan_SpecterDR", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
     ["CUP_arifle_L85A2_NG", "", "", "CUP_optic_Elcan_SpecterDR", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
     ["CUP_arifle_L85A2_G", "", "", "CUP_optic_Elcan_SpecterDR", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
-    ["CUP_arifle_L85A2", "", "", "CUP_optic_ACOG_TA01NSN", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
-    ["CUP_arifle_L85A2_NG", "", "", "CUP_optic_ACOG_TA01NSN", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
-    ["CUP_arifle_L85A2_G", "", "", "CUP_optic_ACOG_TA01NSN", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""]
+    ["CUP_arifle_L85A2", "", "", "CUP_optic_ACOG", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
+    ["CUP_arifle_L85A2_NG", "", "", "CUP_optic_ACOG", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],
+    ["CUP_arifle_L85A2_G", "", "", "CUP_optic_ACOG", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
     ["CUP_arifle_L85A2", "", "", "CUP_optic_Aimpoint_5000", ["CUP_30Rnd_556x45_Stanag_L85"], [], ""],

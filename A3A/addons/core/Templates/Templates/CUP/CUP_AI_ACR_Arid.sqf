@@ -256,7 +256,7 @@ _sfLoadoutData set ["marksmanRifles", [
 _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_AWM", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_86x70_L115A1"], [], "bipod_01_F_blk"],
     ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_10Rnd_127x99_M107"], [], ""],
-    ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "cup_optic_an_pas_13c2", ["CUP_10Rnd_127x99_M107"], [], ""]
+    ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "CUP_optic_AN_PAS_13c2", ["CUP_10Rnd_127x99_M107"], [], ""]
 ]];
 _sfLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG18", "", "", "", [""], [], ""],

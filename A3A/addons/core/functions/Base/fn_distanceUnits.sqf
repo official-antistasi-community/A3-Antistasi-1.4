@@ -15,8 +15,9 @@
 
 params ["_distanceX","_modeX","_center","_targetSide"];
 
-if (_center isEqualType objNull) then { _center = getpos _center };
+if (_center isEqualType objNull) then { _center = getPosATL _center };
 private _allSideClose = units _targetSide inAreaArray [_center, _distanceX, _distanceX];
+_allSideClose = _allSideClose select { behaviour _x == "COMBAT" and _x call A3A_fnc_canFight };
 
 if (_modeX == 0) exitWith { _allSideClose select {_x getVariable ["spawner",false]} };
 _allSideClose findIf { _x getVariable ["spawner",false] } != -1;

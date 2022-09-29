@@ -4,7 +4,7 @@ _presente = false;
 {
 if ((side _x == Occupants) or (side _x == Invaders)) then
 	{
-	if ([500,1,_x,teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
+	if ([500, 1 , _x, teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
 	};
 } forEach allUnits;
 if (_presente) exitWith {["Skip Time / Rest", "You cannot rest while enemies are near our units."] call A3A_fnc_customHint;};

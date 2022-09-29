@@ -68,6 +68,7 @@ params [
 // Formating and logging is handled by parent function
 
 private _invalidReasons = [];
+private _compatibleItemsWeapon = [];
 private _fnc_validClassCaseSensitive = {
     params ["_cfg", "_class"];
     if (_class isEqualTo "") exitWith { true };
@@ -107,7 +108,8 @@ private _fnc_validMuzzle = { //valid class and muzzle compatible with weapon
     };
 
 
-    if !(_muzzle in (compatibleItems  _weapon)) exitWith {
+    if !(_muzzle in _compatibleItemsWeapon) exitWith {
+        private _compatibleMuzzles = _compatibleItemsWeapon select { MUZZLE_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
         _invalidReasons pushBack ("Muzzle: "+_muzzle+" is incompatible with "+_weapon+" | Comaptible muzzles: "+ str _compatibleMuzzles);
         false;
     };
@@ -124,7 +126,8 @@ private _fnc_validRail = { //valid class and rail compatible with weapon
         false;
     };
 
-    if !(_rail in (compatibleItems  _weapon)) exitWith {
+    if !(_rail in _compatibleItemsWeapon) exitWith {
+        private _compatibleRails = _compatibleItemsWeapon select { POINTER_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
         _invalidReasons pushBack ("Rail: "+_rail+" is incompatible with "+_weapon+" | Comaptible rails: "+ str _compatibleRails);
         false;
     };
@@ -141,7 +144,9 @@ private _fnc_validOptic = { //valid class and optic compatible with weapon
         false;
     };
 
-    if !(_optic in (compatibleItems _weapon)) exitWith {
+    if !(_optic in _compatibleItemsWeapon) exitWith {
+        // print out list of compatibleItems
+        private _compatibleOptics = _compatibleItemsWeapon select { OPTIC_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
         _invalidReasons pushBack ("Optic: "+_optic+" is incompatible with "+_weapon+" | Comaptible optics: "+ str _compatibleOptics);
         false;
     };
@@ -178,7 +183,9 @@ private _fnc_validBipod = { //valid class and bipod compatible with weapon
         false;
     };
 
-    if !(_bipod in (compatibleItems  _weapon)) exitWith {
+    if !(_bipod in _compatibleItemsWeapon) exitWith {
+        // print out list of compatibleItems
+        private _compatibleBipods = _compatibleItemsWeapon select { BIPOD_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
         _invalidReasons pushBack ("Bipod: "+_bipod+" is incompatible with "+_weapon+" | Comaptible bipods: "+ str _compatibleBipods);
         false;
     };
@@ -188,7 +195,7 @@ private _fnc_validBipod = { //valid class and bipod compatible with weapon
 private _fnc_validateWeapon = { // weapon and all its attachments including magazines are valid
     params [["_baseWeapon",""], "_muzzle", "_rail", "_optic", "_priMag", "_secMag", "_bipod"];
     if (_baseWeapon isEqualTo "") exitWith {true};
-
+    _compatibleItemsWeapon = (compatibleItems _baseWeapon);
     ["CfgWeapons",_baseWeapon] call _fnc_validClassCaseSensitive
     && { [_baseWeapon, _muzzle] call _fnc_validMuzzle }
     && { [_baseWeapon, _rail] call _fnc_validRail }

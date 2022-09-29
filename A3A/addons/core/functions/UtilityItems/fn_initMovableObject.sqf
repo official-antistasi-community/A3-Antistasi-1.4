@@ -38,20 +38,5 @@ _object addAction [
     4
 ];
 
-_object addAction [
-    "Rotate object",
-    {
-        [_this#3] call A3A_fnc_rotateItem;
-    },
-    _object,
-    1.5,
-    true,
-    true,
-    "",
-    "(
-        !(_this getVariable ['A3A_rotatingObject',false])
-    )",
-    4
-];
 
 nil;

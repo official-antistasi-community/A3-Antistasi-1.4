@@ -785,7 +785,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\UtilityItems);
             class carryItem {};
             class initMovableObject {};
-            class rotateItem {};
             class buyItem {};
             class attachedObjects {};
             class dropObject {};

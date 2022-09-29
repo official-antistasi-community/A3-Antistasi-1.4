@@ -776,8 +776,7 @@ switch _mode do {
 		{
 			_usableMagazines = [];
 			{
-				private _mags = compatibleMagazines _x;
-				{ _usableMagazines pushBackUnique _x } forEach _mags;
+				_usableMagazines append (compatibleMagazines _x);
 			} foreach (weapons player - ["Throw","Put"]);
 
 			//loop all magazines and find usable

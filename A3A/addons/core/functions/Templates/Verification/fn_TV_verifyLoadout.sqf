@@ -101,14 +101,14 @@ private _fnc_validMuzzle = { //valid class and muzzle compatible with weapon
     if (_muzzle isEqualTo "") exitWith {true};
     if !(["CfgWeapons",_muzzle] call _fnc_validClassCaseSensitive) exitWith {false};
 
-    private _compatibleMuzzles = (compatibleItems  _weapon) select { MUZZLE_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
+    if (MUZZLE_TYPE != getNumber ( configFile >> "CfgWeapons" >> _muzzle >> "itemInfo" >> "type" )) exitWith {
+        _invalidReasons pushBack ("Muzzle: trying to add "+_muzzle+" | It is not an muzzle, verify if its in right slot");
+        false;
+    };
 
-    if !(_muzzle in _compatibleMuzzles) exitWith {
+
+    if !(_muzzle in (compatibleItems  _weapon)) exitWith {
         _invalidReasons pushBack ("Muzzle: "+_muzzle+" is incompatible with "+_weapon+" | Comaptible muzzles: "+ str _compatibleMuzzles);
-
-        if (MUZZLE_TYPE != getNumber ( configFile >> "CfgWeapons" >> _muzzle >> "itemInfo" >> "type" )) then {
-            _invalidReasons pushBack ("Optic: trying to add "+_muzzle+" | It is not an muzzle, verify if its in right slot");
-        };
         false;
     };
     true;
@@ -119,14 +119,13 @@ private _fnc_validRail = { //valid class and rail compatible with weapon
     if (_rail isEqualTo "") exitWith {true};
     if !(["CfgWeapons",_rail] call _fnc_validClassCaseSensitive) exitWith {false};
 
-    private _compatibleRails = (compatibleItems  _weapon) select { POINTER_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
+    if (POINTER_TYPE != getNumber ( configFile >> "CfgWeapons" >> _rail >> "itemInfo" >> "type" )) exitWith {
+        _invalidReasons pushBack ("Rail: trying to add "+_rail+" | It is not an rail, verify if its in right slot");
+        false;
+    };
 
-    if !(_rail in _compatibleRails) exitWith {
+    if !(_rail in (compatibleItems  _weapon)) exitWith {
         _invalidReasons pushBack ("Rail: "+_rail+" is incompatible with "+_weapon+" | Comaptible rails: "+ str _compatibleRails);
-
-        if (POINTER_TYPE != getNumber ( configFile >> "CfgWeapons" >> _rail >> "itemInfo" >> "type" )) then {
-            _invalidReasons pushBack ("Optic: trying to add "+_rail+" | It is not an rail, verify if its in right slot");
-        };
         false;
     };
     true;
@@ -137,14 +136,13 @@ private _fnc_validOptic = { //valid class and optic compatible with weapon
     if (_optic isEqualTo "") exitWith {true};
     if !(["CfgWeapons",_optic] call _fnc_validClassCaseSensitive) exitWith {false};
 
-    private _compatibleOptics = (compatibleItems  _weapon) select { OPTIC_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
+    if (OPTIC_TYPE != getNumber ( configFile >> "CfgWeapons" >> _optic >> "itemInfo" >> "type" )) exitWith {
+        _invalidReasons pushBack ("Optic: trying to add "+_optic+" | It is not an optic, verify if its in right slot");
+        false;
+    };
 
-    if !(_optic in _compatibleOptics) exitWith {
+    if !(_optic in (compatibleItems _weapon)) exitWith {
         _invalidReasons pushBack ("Optic: "+_optic+" is incompatible with "+_weapon+" | Comaptible optics: "+ str _compatibleOptics);
-
-        if (OPTIC_TYPE != getNumber ( configFile >> "CfgWeapons" >> _optic >> "itemInfo" >> "type" )) then {
-            _invalidReasons pushBack ("Optic: trying to add "+_optic+" | It is not an optic, verify if its in right slot");
-        };
         false;
     };
     true;
@@ -175,14 +173,13 @@ private _fnc_validBipod = { //valid class and bipod compatible with weapon
     if (_bipod isEqualTo "") exitWith {true};
     if !(["CfgWeapons",_bipod] call _fnc_validClassCaseSensitive) exitWith {false};
 
-    private _compatibleBipods = (compatibleItems  _weapon) select { BIPOD_TYPE == getNumber ( configFile >> "CfgWeapons" >> _x >> "itemInfo" >> "type" ) };
+    if (BIPOD_TYPE != getNumber ( configFile >> "CfgWeapons" >> _bipod >> "itemInfo" >> "type" )) exitWith {
+        _invalidReasons pushBack ("Bipod: trying to add "+_bipod+" | It is not an bipod, verify if its in right slot");
+        false;
+    };
 
-    if !(_bipod in _compatibleBipods) exitWith {
+    if !(_bipod in (compatibleItems  _weapon)) exitWith {
         _invalidReasons pushBack ("Bipod: "+_bipod+" is incompatible with "+_weapon+" | Comaptible bipods: "+ str _compatibleBipods);
-
-        if (BIPOD_TYPE != getNumber ( configFile >> "CfgWeapons" >> _bipod >> "itemInfo" >> "type" )) then {
-            _invalidReasons pushBack ("Optic: trying to add "+_bipod+" | It is not an bipod, verify if its in right slot");
-        };
         false;
     };
     true;

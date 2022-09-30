@@ -36,7 +36,7 @@ if (memberDistance <= 0 || !membershipEnabled) exitWith {true};
 
 private _leashCentres = [];
 _leashCentres pushBack getMarkerPos respawnTeamPlayer;
-private _memberPositions = (call A3A_fnc_playableUnits select {[_x] call A3A_fnc_isMember}) apply {getPos _x};
+private _memberPositions = (call A3A_fnc_playableUnits select {_x call A3A_fnc_isMember or _x == theBoss}) apply {getPosATL _x};
 _leashCentres append _memberPositions;
 
 _nearestLeashCentre = [_leashCentres,_targetPos] call BIS_fnc_nearestPosition;

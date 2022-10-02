@@ -20,8 +20,8 @@ params ["_side", "_airbase", "_delay"];			// Side is now specified
 private _targPos = markerPos "Synd_HQ";
 private _faction = Faction(_side);
 
-bigAttackInProgress = true;
-publicVariable "bigAttackInProgress";
+bigAttackInProgress = true; publicVariable "bigAttackInProgress";
+forcedSpawn pushBack "Synd_HQ"; publicVariable "forcedSpawn";
 
 private _taskId = "DEF_HQ" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format ["The enemy has sent SpecOps to find %1. Stop them, or move the HQ before they get here.",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_targPos,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
@@ -97,7 +97,7 @@ if (!alive _origPetros) then {
     };
 };
 
-bigAttackInProgress = false;
-publicVariable "bigAttackInProgress";
+bigAttackInProgress = false; publicVariable "bigAttackInProgress";
+forcedSpawn = forcedSpawn - ["Synd_HQ"]; publicVariable "forcedSpawn";
 
 [_taskId, "DEF_HQ", 1200] spawn A3A_fnc_taskDelete;

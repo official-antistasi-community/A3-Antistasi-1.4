@@ -91,7 +91,7 @@ while {_wave <= _maxWaves and !_victory} do
 
 
     // Send the land units and air transports. Returns once air sent
-    private _minDelay = [0, 300 / A3A_balancePlayerScale] select (_wave == 1 and _targSide == teamPlayer);
+    private _minDelay = [0, 300] select (_wave == 1 and _targSide == teamPlayer);
     //params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
     private _data = [_side, _mrkOrigin, _mrkDest, "attack", _vehCount, _minDelay, ["noairsupport"], "MajorAttack", _reveal] call A3A_fnc_createAttackForceMixed;
     _data params ["", "_newVehicles", "_crewGroups", "_cargoGroups"];
@@ -192,7 +192,7 @@ if (_victory) then {
 };
 
 ServerInfo("Reached end of winning conditions. Starting despawn");
-sleep 30;
+sleep 60;
 
 bigAttackInProgress = false; publicVariable "bigAttackInProgress";
 forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";

@@ -49,7 +49,7 @@ if (count _positionTel > 0) then
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ or Airbases."] call A3A_fnc_customHint;};
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone."] call A3A_fnc_customHint; openMap [false,false]};
-	if (_base in forcedSpawn) exitWith {["Fast Travel", "You cannot Fast Travel to location that's under attack."] call A3A_fnc_customHint; openMap [false,false]};
+	if (_base in forcedSpawn) exitWith {["Fast Travel", "You cannot Fast Travel to a location that is under attack."] call A3A_fnc_customHint; openMap [false,false]};
 
 	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 

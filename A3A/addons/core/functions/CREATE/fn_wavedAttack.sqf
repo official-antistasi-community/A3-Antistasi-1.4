@@ -178,25 +178,19 @@ while {_wave <= _maxWaves and !_victory} do
 if (_victory) then {
     if (_targSide != teamPlayer) exitWith {};
     [_taskId, "rebelAttack", "FAILED"] call A3A_fnc_taskSetState;
-    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
     if (_targside == teamPlayer) then { [-10,theBoss] call A3A_fnc_playerScoreAdd };
 } else {
     [_mrkDest, _mrkOrigin] call A3A_fnc_minefieldAAF;
 
     if (_targSide != teamPlayer) exitWith {};
     [_taskId, "rebelAttack", "SUCCEEDED"] call A3A_fnc_taskSetState;
-    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
     private _nearRebels = [500, 0, markerPos _mrkDest, teamPlayer] call A3A_fnc_distanceUnits;
     { if (isPlayer _x) then { [10, _x] call A3A_fnc_playerScoreAdd } } forEach _nearRebels;
     [10, theBoss] call A3A_fnc_playerScoreAdd;
 };
+[_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
 
 ServerInfo("Reached end of winning conditions. Starting despawn");
-sleep 60;
-
-bigAttackInProgress = false; publicVariable "bigAttackInProgress";
-forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";
-
 
 { [_x] spawn A3A_fnc_VEHDespawner } forEach _allVehicles;
 { [_x] spawn A3A_fnc_enemyReturnToBase } forEach _allCrewGroups;
@@ -204,3 +198,8 @@ forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";
     [_x, [nil, _mrkDest] select _victory] spawn A3A_fnc_enemyReturnToBase;
     sleep 10;
 } forEach _allCargoGroups;
+
+sleep 60;
+
+bigAttackInProgress = false; publicVariable "bigAttackInProgress";
+forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";

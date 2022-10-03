@@ -284,6 +284,20 @@
         <French>%1 Sièges FFV</French>
       </Key>
     </Container>
+    <Container name="dialog_buy_Item">
+      <Key ID="STR_antistasi_dialogs_buy_item_titlebar">
+        <Original>BUY ITEM</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
+        <Original>Buy %1 for %2 %3</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_header">
+        <Original>Purchase Item</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
+        <Original>The Commander may only buy this item.</Original>
+      </Key>
+    </Container>
     <Container name="dialog_main_player">
       <Key ID="STR_antistasi_dialogs_main_fast_travel">
         <Original>Fast Travel</Original>

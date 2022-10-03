@@ -368,7 +368,7 @@ switch _mode do {
 				private _weapons = jnva_loadout select _x;
 				
 				{
-					_usableMagazines append (compatibleMagazines _x select 0);
+					_usableMagazines append (compatibleMagazines (_x select 0));
 				} forEach _weapons;
 			}forEach [
 				IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,

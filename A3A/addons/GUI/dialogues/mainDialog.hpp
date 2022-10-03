@@ -1966,7 +1966,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = A3A_IDC_DONATEPLAYERBUTTON;
                     text = $STR_antistasi_dialogs_main_donate_player;
-                    onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO UI-update: Replace placeholder when merging
+                    onButtonClick = "[""donatePlayerConfirmed""] spawn A3A_GUI_fnc_donateTab";
                     x = 74 * GRID_W;
                     y = 63 * GRID_H;
                     w = 36 * GRID_W;
@@ -1977,7 +1977,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = A3A_IDC_DONATEFACTIONBUTTON;
                     text = $STR_antistasi_dialogs_main_donate_faction;
-                    onButtonClick = "hint ""Placeholder\nWill use A3A_fnc_donateMoney when merged"""; // TODO UI-update: Replace placeholder when merging
+                    onButtonClick = "[""donateFactionConfirmed""] spawn A3A_GUI_fnc_donateTab";
                     x = 116 * GRID_W;
                     y = 63 * GRID_H;
                     w = 36 * GRID_W;

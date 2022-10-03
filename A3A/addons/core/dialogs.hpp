@@ -2271,7 +2271,7 @@ class player_money 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[true] call A3A_fnc_donateMoney;";
+			action = "[player, cursorObject, 100] call A3A_fnc_donateMoney;";
 		};
 		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
@@ -2282,7 +2282,7 @@ class player_money 			{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_player_money_donate_faction_tooltip;
-			action = "[] call A3A_fnc_donateMoney;";
+			action = "[player, 'faction', 100] call A3A_fnc_donateMoney;";
 		};
 	};
 };

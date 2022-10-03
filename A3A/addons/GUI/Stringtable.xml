@@ -282,12 +282,7 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
         <Original>%1 FFV seats</Original>
         <French>%1 Sièges FFV</French>
-      </Key>
-    </Container>
-    <Container name="dialog_buy_Item">
-      <Key ID="STR_antistasi_dialogs_buy_item_titlebar">
-        <Original>BUY ITEM</Original>
-      </Key>
+      </Key>  
       <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
         <Original>Buy %1 for %2 %3</Original>
       </Key>
@@ -296,6 +291,30 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
         <Original>The Commander may only buy this item.</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_vehicles">
+        <Original>Vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_logi">
+        <Original>Logistics</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_lootbox">
+        <Original>Loot Boxes</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
+        <Original>Other</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
+        <Original>This item can refuel others</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
+        <Original>This item can loot items</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_maxLoad_tooltip">
+        <Original>%1 max load is %2</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_maxFuel_tooltip">
+        <Original>%1 max fuel is %2</Original>
       </Key>
     </Container>
     <Container name="dialog_main_player">

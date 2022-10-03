@@ -7,8 +7,8 @@ class CfgFunctions {
             class aiManagementTab {};
             class airSupportTab {};
             class arsenalLimitsDialog {};
-            class buyItemDialog {};
             class buyVehicleDialog {};
+            class buyVehicleTabs {};
             class commanderTab {};
             class configColorToArray {};
             class constructTab {};

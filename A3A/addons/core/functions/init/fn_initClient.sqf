@@ -392,6 +392,11 @@ if (A3A_GUIDevPreview) then {
 	vehicleBox addAction ["Buy Utility Items", {
 		createDialog "A3A_BuyItemDialog";
 	},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+	call A3A_fnc_dropObject;
+	
+	if (LootToCrateEnabled) then {
+		call A3A_fnc_initLootToCrate;
+	};
 
 } else {
 	vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];

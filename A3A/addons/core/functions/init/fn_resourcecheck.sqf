@@ -105,10 +105,11 @@ while {true} do
 	private _equipMul = A3A_balancePlayerScale / 30;		// difficulty scaled. Hmm.
 	{
 		if (_x isEqualType "") then { continue };
-		private _count = _x#1 * _equipMul;
+		_x params ["_class", "_initCount"];
+		private _count = _initCount * _equipMul;
 		_count = if (_count % 1 > random 1) then { ceil _count } else { floor _count };
-		private _arsenalTab = _x#0 call jn_fnc_arsenal_itemType;
-		[_arsenalTab, _x#0, _count] call jn_fnc_arsenal_addItem;
+		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
 	} forEach (A3A_faction_reb get "initialRebelEquipment");
 
 	private _textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €", _hrAdd, _resAdd];

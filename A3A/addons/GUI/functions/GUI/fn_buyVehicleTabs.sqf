@@ -181,7 +181,7 @@ if (_tab isEqualTo "vehicles") then
                 _editorPreviewPicture ctrlShow true;
                 _editorPreviewPicture ctrlCommit 1;
 
-                objPreview ctrlShow false;
+                _objPreview ctrlShow false;
             } else {
                 _control call Dev_GUI_prevInjectExit;
             };

@@ -19,18 +19,18 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_LR_Transport_GB_W"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_B_BAF_Coyote_GMG_W", "CUP_B_BAF_Coyote_L2A1_W", "CUP_B_Jackal2_L2A1_GB_W", "CUP_B_LR_Special_M2_GB_W", "CUP_B_LR_MG_GB_W", "CUP_B_Mastiff_HMG_GB_W", "CUP_B_Mastiff_LMG_GB_W", "CUP_B_Ridgback_GMG_GB_W", "CUP_B_Ridgback_HMG_GB_W", "CUP_B_Ridgback_LMG_GB_W", "CUP_B_Wolfhound_GMG_GB_W", "CUP_B_Wolfhound_HMG_GB_W", "CUP_B_Wolfhound_LMG_GB_W"]] call _fnc_saveToTemplate;
-
+["vehiclesLightArmed", ["CUP_B_BAF_Coyote_GMG_W", "CUP_B_BAF_Coyote_L2A1_W", "CUP_B_Jackal2_L2A1_GB_W", "CUP_B_LR_Special_M2_GB_W", "CUP_B_LR_MG_GB_W", "CUP_B_Ridgback_GMG_GB_W", "CUP_B_Ridgback_HMG_GB_W", "CUP_B_Ridgback_LMG_GB_W", "CUP_B_Wolfhound_GMG_GB_W", "CUP_B_Wolfhound_HMG_GB_W", "CUP_B_Wolfhound_LMG_GB_W"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_B_MTVR_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
-
 ["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_B_MTVR_Repair_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_BAF_WOOD"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_LR_Ambulance_GB_W"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_FV432_Bulldog_GB_W_RWS", "CUP_B_FV432_Bulldog_GB_W", "CUP_B_FV510_GB_W_SLAT", "CUP_B_FV510_GB_W", "CUP_B_MCV80_GB_W_SLAT", "CUP_B_MCV80_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_B_Mastiff_HMG_GB_W", "CUP_B_Mastiff_LMG_GB_W", "CUP_B_Mastiff_GMG_GB_W""CUP_B_FV432_Bulldog_GB_W", "CUP_B_FV432_Bulldog_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_FV432_Bulldog_GB_W_RWS", "CUP_B_FV432_Bulldog_GB_W_RWS", "CUP_B_FV510_GB_W", "CUP_B_MCV80_GB_W"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["CUP_B_FV510_GB_W", "CUP_B_MCV80_GB_W", "CUP_B_FV510_GB_W_SLAT", "CUP_B_MCV80_GB_W_SLAT"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_Challenger2_Woodland_BAF"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_B_M6LineBacker_USA_W", "CUP_B_nM1097_AVENGER_USA_WDL", "CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_B_M6LineBacker_USA_W", "CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -42,6 +42,7 @@
 
 ["vehiclesHelisLight", ["CUP_B_AW159_Unarmed_RN_Blackcat", "CUP_B_AW159_Unarmed_GB", "CUP_B_AW159_Unarmed_RN_Grey"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_CH47F_GB", "CUP_B_MH47E_GB", "CUP_B_Merlin_HC3_GB", "CUP_B_Merlin_HC3_Armed_GB", "CUP_B_Merlin_HC3A_GB", "CUP_B_Merlin_HC4_GB", "CUP_B_SA330_Puma_HC1_BAF", "CUP_B_SA330_Puma_HC2_BAF"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_B_AW159_GB"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_M270_HE_BAF_WOOD"]] call _fnc_saveToTemplate;
@@ -65,6 +66,8 @@
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -152,7 +155,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
-private _sfmmItems = ["cup_optic_an_pvs_10_black"];
+private _sfmmItems = ["CUP_optic_AN_PVS_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];

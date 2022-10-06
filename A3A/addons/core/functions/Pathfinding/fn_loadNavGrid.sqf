@@ -50,16 +50,33 @@ if (NavGrid isEqualTo []) exitWith {
     Error("Nav Grid with the name format navGrid<WorldName> are no longer compatible! DO NOT LOAD THEM!");
 };
 
+A3A_navCellHM = createHashMap;
+
 {
 	private _index = _forEachIndex;
 	private _position = _x select 0;
-	if (count _position < 3) then { _position set [2, 0] };				// expand to ATL with global effect
-	private _mainMarkers = [_position] call A3A_fnc_getMainPositions;
-	{
-		[_index, _x] call A3A_fnc_setNavData;
-	} forEach _mainMarkers;
+	if (count _position < 3) then { _position set [2, 0] };
+/*
+        // Only need this if we have waypoints on bridges, which I'm not sure we do
+        private _road = roadAt _position;
+        if (isNull _road or {!(getRoadInfo _road # 8)}) exitWith { _position set [2, 0] };
+
+        // do we need to use lineIntersectsSurfaces? Sadly yes.
+        private _highpos = getPosASL _road vectorAdd [0,0,100];
+        _li = lineIntersectsSurfaces [_highpos, _highpos [0,0,-200], objNull, objNull, true, 1, "ROADWAY", "VIEW"];
+        if (_li isNotEqualTo []) then { _position = (_li#0#0) };
+    };
+*/
+    _index call A3A_fnc_addToNavCells;
 } forEach navGrid;
 
 roadDataDone = true;
 
 Info("Finished loading nav grid");
+
+// ok, seriously consider marking every connected road instead?
+// solves the nearest-node problem in the general case
+// well, kinda...
+// helps a lot if there's a second hashmap for second connected point
+// but junction coalescing means that doesn't really work
+// method: fat-ass hashmap of road->navIndex

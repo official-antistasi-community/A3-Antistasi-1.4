@@ -101,6 +101,9 @@ If (A3A_hasTFAR || A3A_hasTFARBeta) then {
 	} forEach allBackpacksEmpty;
 	{ allBackpacksEmpty deleteAt _x } forEach _backpacksToDelete;  // Removes Radios from allBackpacksEmpty
 };
+//Autodetection fails on Unsung Radio Backpacks
+if (A3A_hasUNS) then {allBackpacksRadio = ["UNS_NVA_RTO", "UNS_ARMY_RTO", "UNS_ARMY_RTO2", "UNS_SF_RTO", "UNS_SF_RTO2", "uns_sas_alicepack_RTO", "uns_sas_alicepack_RTO", "UNS_Alice_FR", "UNS_USMC_RTO", "UNS_USMC_RTO2"]};
+
 /////////////////
 // UAVTerminal //
 /////////////////

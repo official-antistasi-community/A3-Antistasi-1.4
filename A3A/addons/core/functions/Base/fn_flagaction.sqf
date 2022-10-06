@@ -17,11 +17,11 @@ switch _typeX do
     };
     case "unit":
     {
-        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
+        _flag addAction ["Unit Recruitment", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "vehicle":
     {
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+        _flag addAction ["Buy Vehicle", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
             if (A3A_GUIDevPreview) then {
@@ -39,7 +39,7 @@ switch _typeX do
 #else
             CreateDialog "mission_menu";
 #endif
-        },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and ([_this] call A3A_fnc_isMember) and (petros == leader group petros)",4];
+        },nil,0,false,true,"","([_this] call A3A_fnc_isMember or _this == theBoss) and (petros == leader group petros)",4];
         petros addAction ["HQ Management", A3A_fnc_dialogHQ,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)", 4];
         petros addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];
     };
@@ -147,9 +147,9 @@ switch _typeX do
         if (true) exitWith { ERROR("Disabled due to UseDoomGUI Switch.") };
 #endif
         removeAllActions _flag;
-        _flag addAction ["Unit Recruitment", {if ([player,300] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
+        _flag addAction ["Unit Recruitment", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
-        _flag addAction ["Buy Vehicle", {if ([player,300] call A3A_fnc_enemyNearCheck) then {
+        _flag addAction ["Buy Vehicle", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
             if (A3A_GUIDevPreview) then {
@@ -178,7 +178,7 @@ switch _typeX do
     };
     case "static":
     {
-        private _cond = "(_target getVariable ['ownerSide', teamPlayer] == teamPlayer) and (isNull attachedTo _target) and ([_this] call A3A_fnc_isMember) and ";
+        private _cond = "(_target getVariable ['ownerSide', teamPlayer] == teamPlayer) and (isNull attachedTo _target) and ";
         _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, false, false, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
         _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, false, false, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
     //    _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", _cond+"isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];

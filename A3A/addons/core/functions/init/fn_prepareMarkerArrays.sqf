@@ -103,8 +103,17 @@ fnc_sortPlacementMarker =
 //DebugArray("Marker setup done, placement marker are", _placementMarker);
 
 {
-    [_x select 0, _x select 1] spawn A3A_fnc_initSpawnPlaces;
+    [_x select 0, _x select 1] call A3A_fnc_initSpawnPlaces;
 } forEach _placementMarker;
+
+// Autogenerate stuff like helipad placements for markers that don't have any defined spawn places
+{
+    private _spawnStr = format ["%1_spawns", _x];
+    if (isNil { spawner getVariable _spawnStr }) then {
+        Debug_1("Generating additional spawn places for %1", _x);
+        [_x, []] call A3A_fnc_initSpawnPlaces;
+    };
+} forEach (airportsX + resourcesX + factories + outposts + seaports);
 
 //TEMPORARY FIX TO DETECT SPAWN MARKERS
 {

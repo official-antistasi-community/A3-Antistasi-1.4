@@ -42,40 +42,54 @@ private _inArea = _friendlyMarkers findIf { count ([_player, _vehicle] inAreaArr
 if !(_inArea > -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_badLocation",[FactionGet(reb,"name")]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //No hostiles near
-private _units = (_player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
-if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (_player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {
+
+if ([getPosATL _player] call A3A_fnc_enemyNearCheck) exitWith {
     ["STR_HR_GRG_Feedback_addVehicle_enemiesEngaging"] remoteExec ["HR_GRG_fnc_Hint", _client];
     false;
 };
-if (_units findIf{_player distance _x < 100} != -1) exitWith {["STR_HR_GRG_Feedback_addVehicle_enemiesNear"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
 //LTC refund
-if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) exitWith {
-    [_vehicle,boxX,true] call A3A_fnc_ammunitionTransfer;
-    [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-    ["STR_HR_GRG_Feedback_addVehicle_LTC"] remoteExec ["HR_GRG_fnc_Hint", _client];
-    true
+private _ltcRefund = {
+    params ["_box", ["_instantRefund", true]];
+    [_box, boxX, true] call A3A_fnc_ammunitionTransfer;
+
+    if (_instantRefund) then {
+        [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+        ["STR_HR_GRG_Feedback_addVehicle_LTC"] remoteExec ["HR_GRG_fnc_Hint", _client];
+        true
+    } else {10};
 };
+if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) exitWith {[_vehicle] call _ltcRefund};
 
 //Utility refund
-if (_vehicle getVariable ['A3A_canGarage', false]) exitwith{
-    if (_class in [FactionGet(reb,"vehicleFuelDrum") # 0, FactionGet(reb,"vehicleFuelTank") # 0]) then {
-        if (_player isEqualTo theBoss) then {
-            [floor (
-                ([_vehicle] call A3A_fnc_remainingFuel) * (_vehicle getVariable ['A3A_itemPrice', 0])
-            )] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-            ["STR_HR_GRG_Feedback_addVehicle_Fuel_sold"] remoteExec ["HR_GRG_fnc_Hint", _client];
-            deleteVehicle _vehicle;
-        } else {
-            ["STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only"] remoteExec ["HR_GRG_fnc_Hint", _client];
+private _utilityRefund = {
+    params ["_object", ["_instantRefund", true]];
+
+    private _toRefund = 0;
+    private _feedBack = "STR_HR_GRG_Feedback_addVehicle_Item_Stored";
+    if (typeOf _object in [FactionGet(reb,"vehicleFuelDrum")#0 , FactionGet(reb,"vehicleFuelTank")#0]) then {
+        if (_player isNotEqualTo theBoss && _instantRefund) exitWith {
+            _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only";
         };
+
+        _toRefund = floor (([_object] call A3A_fnc_remainingFuel) * (_object getVariable ['A3A_itemPrice', 0]));
+        _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_sold";
     } else {
-        [_vehicle getVariable ['A3A_itemPrice', 0]] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-        ["STR_HR_GRG_Feedback_addVehicle_Item_Stored"] remoteExec ["HR_GRG_fnc_Hint", _client];
-        deleteVehicle _vehicle;
+        _toRefund = _object getVariable ['A3A_itemPrice', 0];
     };
-    true
+
+    deleteVehicle _object;
+    if (_instantRefund) exitWith {
+        if (_toRefund > 0) then {
+            [_toRefund] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+        };
+        [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
+        true;
+    };
+
+    _toRefund
 };
+if (_vehicle getVariable ['A3A_canGarage', false]) exitwith { [_vehicle] call _utilityRefund };
 
     //Towing
 if !((_vehicle getVariable ["SA_Tow_Ropes",objNull]) isEqualTo objNull) exitWith {["STR_HR_GRG_Feedback_addVehicle_SATow"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
@@ -106,16 +120,31 @@ if (
 //here to allow adaption of external antistasi system without needing to addapt code under APL-ND
 private _broadcastReportedVehsAndStaticsToSave = {
     publicVariable "staticsToSave";
-    publicVariable "reportedVehs";
 };
 //_this is vehicle
 private _deleteFromReportedVehsAndStaticsToSave = {
-    reportedVehs deleteAt (reportedVehs find _this);
     staticsToSave deleteAt (staticsToSave find _this);
 };
 //_this is vehicle
 private _transferToArsenal = {
     [_this,boxX] call A3A_fnc_ammunitionTransfer;
+};
+
+//_this is vehicle
+private _unloadAceCargo = {
+    private _toRefund = 0;
+    {
+        if !(_x isEqualType objNull) then { continue };
+        if (typeOf _x in ["ACE_Wheel", "ACE_Track"]) then { continue };
+        [_x, _this] call ace_cargo_fnc_unloadItem;
+
+        if (typeOf _x in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) then { _toRefund = _toRefund + ([_x, false] call _ltcRefund) };
+        if (_x getVariable ['A3A_canGarage', false]) then { _toRefund = _toRefund + ([_x, false] call _utilityRefund) };
+    } forEach (_this getVariable ["ace_cargo_loaded", []]);
+
+    if (_toRefund > 0) then {
+        [_toRefund] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+    };
 };
 
 //---------------------------------------------------------|
@@ -147,6 +176,7 @@ private _addVehicle = {
     //Antistasi adaptions
     _this call _transferToArsenal;
     _this call _deleteFromReportedVehsAndStaticsToSave;
+    _this call _unloadAceCargo;
 
     deleteVehicle _this;
 

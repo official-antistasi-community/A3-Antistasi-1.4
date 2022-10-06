@@ -76,20 +76,20 @@ publicVariable "campaignID";
 // Now load all other parameters, loading from save if available
 call A3A_fnc_initParams;
 
-//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
-call A3A_fnc_initFuncs;
-
 //Initialise variables needed by the mission.
 _nul = call A3A_fnc_initVar;
 call A3A_fnc_logistics_initNodes;
+
+//JNA, JNL and UPSMON. Shouldn't have any Antistasi dependencies except on parameters.
+call A3A_fnc_initFuncs;
 
 savingServer = true;
 #define MODE_ARRAY ["SP","MP"]
 Info_2("%1 server version: %2", MODE_ARRAY select isMultiplayer, QUOTE(VERSION));
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
-if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
-call A3A_fnc_loadNavGrid;
 call A3A_fnc_initZones;
+call A3A_fnc_loadNavGrid;
+call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 if (gameMode != 1) then {			// probably shouldn't be here...
 	Occupants setFriend [Invaders,1];
 	Invaders setFriend [Occupants,1];
@@ -104,6 +104,7 @@ waitUntil {({(isPlayer _x) and (!isNull _x) and (_x == _x)} count allUnits) == (
 [] spawn A3A_fnc_modBlacklist;
 
 call A3A_fnc_initGarrisons;
+call A3A_fnc_initSupports;
 
 if (loadLastSave) then {
 	[] call A3A_fnc_loadServer;
@@ -156,9 +157,13 @@ else {
 Info("Accepting players");
 if !(loadLastSave) then {
 	{
-		_x call A3A_fnc_unlockEquipment;
+		if (_x isEqualType "") then { _x call A3A_fnc_unlockEquipment; continue };
+		_x params ["_class", "_count"];
+		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
 	} foreach FactionGet(reb,"initialRebelEquipment");
     Info("Initial arsenal unlocks completed");
+	call A3A_fnc_checkRadiosUnlocked;
 };
 call A3A_fnc_generateRebelGear;
 call A3A_fnc_createPetros;
@@ -201,11 +206,12 @@ Info("Setting serverInitDone as true");
 
 Info("Waiting for HQ placement");
 waitUntil {sleep 1;!(isNil "placementDone")};
+
+
 Info("HQ Placed, continuing init");
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;
 [] spawn A3A_fnc_aggressionUpdateLoop;
-[] spawn A3A_fnc_initSupportCooldowns;
 [] execVM QPATHTOFOLDER(Scripts\fn_advancedTowingInit.sqf);
 savingServer = false;
 

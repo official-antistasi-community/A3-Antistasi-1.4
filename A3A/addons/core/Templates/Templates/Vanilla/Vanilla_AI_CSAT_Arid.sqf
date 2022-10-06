@@ -26,7 +26,9 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Tru
 ["vehiclesRepairTrucks", ["O_Truck_02_box_F", "O_Truck_03_repair_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["O_Truck_03_fuel_F", "O_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["O_Truck_02_medical_F", "O_Truck_03_medical_F"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_v2_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["O_MBT_02_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["O_APC_Tracked_02_AA_F"]] call _fnc_saveToTemplate;
 
@@ -39,8 +41,9 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Tru
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["O_Heli_Light_02_unarmed_F", "O_Heli_Transport_04_covered_F", "O_Heli_Transport_04_bench_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_F", "O_Heli_Light_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["O_Heli_Transport_04_covered_F", "O_Heli_Transport_04_bench_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["O_Heli_Light_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["O_MBT_02_arty_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -73,6 +76,8 @@ if (allowDLCWS && A3A_hasWS) then {
     _cargoTrucks = ["O_Truck_02_cargo_lxWS","O_Truck_02_flatbed_lxWS"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+
+#include "Vanilla_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -229,8 +234,8 @@ _sfLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "muzzle_snds_B", "", "optic_SOS", [], [], "bipod_02_F_hex"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
-["srifle_GM6_F", "", "optic_LRPS", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_GM6_F", "", "optic_SOS", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
+["srifle_GM6_F", "", "", "optic_LRPS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
+["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
 ["hgun_Pistol_heavy_02_F", "", "acc_flashlight_pistol", "optic_Yorris", [], [], ""],
@@ -287,8 +292,8 @@ _militaryLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "", "", "optic_SOS", [], [], "bipod_02_F_hex"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
-["srifle_GM6_F", "", "optic_LRPS", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_GM6_F", "", "optic_SOS", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
+["srifle_GM6_F", "", "", "optic_LRPS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
+["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 ///////////////////////////////
@@ -344,8 +349,8 @@ _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "", "", "optic_Arco_blk_F", [], [], "bipod_02_F_hex"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["srifle_GM6_F", "", "optic_Arco", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_GM6_F", "", "optic_Arco_blk_F", "", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
+["srifle_GM6_F", "", "", "optic_Arco", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
+["srifle_GM6_F", "", "", "optic_Arco_blk_F", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 //////////////////////////

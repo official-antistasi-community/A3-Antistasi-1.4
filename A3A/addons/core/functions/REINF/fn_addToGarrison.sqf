@@ -5,7 +5,8 @@ if (!visibleMap) then {openMap true};
 positionTel = [];
 _thingX = _this select 0;
 
-onMapSingleClick "positionTel = _pos";
+showCommandingMenu "";
+onMapSingleClick "positionTel = _pos; true";
 
 ["Garrison", "Select the zone on which sending the selected troops as garrison."] call A3A_fnc_customHint;
 

@@ -409,25 +409,25 @@ do
     {
         _counter = 0;
 
-        _occupants = [];
-        _invaders = [];
-        _teamplayer = [];
+        // only count one spawner per vehicle
+        _occupants = units Occupants select { _x getVariable ["spawner", false] and _x == effectiveCommander vehicle _x };
+        _invaders = units Invaders select { _x getVariable ["spawner", false] and _x == effectiveCommander vehicle _x };
 
-        _spawners = allunits select { _x getVariable ["spawner", false]; };
+        // Exclude players in fast-moving fixed-wing aircraft
+        _teamplayer = units teamPlayer select {
+            private _veh = vehicle _x;
+            _x getVariable ["spawner", false] and _x == effectiveCommander _veh
+            and (_veh == _x or {!(_veh isKindOf "Plane" and speed _veh > 250)})
+        };
+        // Add in rebel-controlled UAVs
+        _teamplayer append (allUnitsUAV select { side group _x == teamPlayer });
 
-        {
-            switch (side (group _x))
-            do
-            {
-                case Occupants: { _occupants pushBack _x; };
-                case Invaders: { _invaders pushBack _x; };
-                case teamPlayer: { _teamplayer pushBack _x; };
-            };
-        } forEach _spawners;
-
-        // This array is used to spawn civilians in cities and rebel garrisons, so ignore remote controlled units
-        _players = allPlayers - entities "HeadlessClient_F";
-        _players = _players select { _x getVariable ["owner",objNull] == _x };
+        // Players array is used to spawn civilians in cities and rebel garrisons, so ignore remote controlled and airborne units
+        _players = (allPlayers - entities "HeadlessClient_F") select {
+            private _veh = vehicle _x;
+            _x getVariable ["owner",objNull] == _x and _x == effectiveCommander _veh
+            and (_veh == _x or {!(_veh isKindOf "Air" and speed _veh > 50)})
+        };
     };
 
     {

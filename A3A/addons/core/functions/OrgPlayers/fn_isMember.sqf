@@ -1,5 +1,6 @@
+params ["_player"];
+// Remote-controlled AI unit is not a member
+if (_player getVariable ["owner", _player] != _player) exitWith {false}; 
 if !(membershipEnabled) exitWith {true};
-_obj = (_this select 0) getVariable ["owner",_this select 0];
-if (isNil "membersX") then {waitUntil {sleep 0.5; !(isNil "membersX")}};
-if !((getPlayerUID _obj) in membersX) exitWith {false};
-true
+// Original player unit can be a member
+_player getVariable ["A3A_playerUID", getPlayerUID _player] in membersX;

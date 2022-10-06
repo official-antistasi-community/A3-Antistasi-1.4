@@ -11,7 +11,7 @@ if (_marker in airportsX) then {
     _mrkD setMarkerTypeLocal (_faction get "flagMarkerType");
     _mrkD setMarkerColorLocal "Default";
 } else {
-    if (_marker in destroyedSites) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
+    if (_marker in destroyedSites and _marker in citiesX) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
     if (_mrkSide == teamPlayer) exitWith { _mrkD setMarkerColorLocal colorTeamPlayer };
     _mrkD setMarkerColorLocal ([colorOccupants, colorInvaders] select (_mrkSide == Invaders));
 };

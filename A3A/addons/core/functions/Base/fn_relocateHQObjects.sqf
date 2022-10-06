@@ -1,4 +1,25 @@
-params ["_newPosition"];
+params ["_newPosition", "_isNewGame"];
+
+// Update cur/old HQ knowledge. Shouldn't be interrupted
+isNil {
+	if (_isNewGame) exitWith {};
+	private _oldPos = markerPos "Synd_HQ";
+	_oldPos set [2, A3A_curHQInfoOcc];
+	A3A_oldHQInfoOcc pushBack +_oldPos;
+	A3A_curHQInfoOcc = 0;
+	{
+		private _dist = _x distance2d _newPosition;
+		A3A_curHQInfoOcc = A3A_curHQInfoOcc max linearConversion [0, 1000, _dist, _x#2, 0, true];
+	} forEach A3A_oldHQInfoOcc;
+
+	_oldPos set [2, A3A_curHQInfoInv];
+	A3A_oldHQInfoInv pushBack +_oldPos;
+	A3A_curHQInfoInv = 0;
+	{
+		private _dist = _x distance2d _newPosition;
+		A3A_curHQInfoInv = A3A_curHQInfoInv max linearConversion [0, 1000, _dist, _x#2, 0, true];
+	} forEach A3A_oldHQInfoInv;
+};
 
 respawnTeamPlayer setMarkerPos _newPosition;
 posHQ = _newPosition; publicVariable "posHQ";
@@ -39,5 +60,16 @@ mapX hideObjectGlobal false;
 fireX hideObjectGlobal false;
 flagX hideObjectGlobal false;
 
+
 "Synd_HQ" setMarkerPos _newPosition;
 chopForest = false; publicVariable "chopForest";
+
+//If it's a new game, we teleport everyone to new HQ, yay!
+if (_isNewGame) then {
+	{
+		if ((side _x == teamPlayer) or (side _x == civilian)) then {
+			_x setPosATL _newPosition;
+		};
+	} forEach (call A3A_fnc_playableUnits);
+};
+

@@ -38,7 +38,7 @@ jobs:
       uses: arma-actions/workshop-upload@v1
       with:
         appId: '107410'      # default
-        itemId: '2729074499' # https://steamcommunity.com/sharedfiles/filedetails/?id=2729074499
+        itemId: ${{ secrets.WORKSHOPID_DEV }} # https://steamcommunity.com/sharedfiles/filedetails/?id=2729074499
         contentPath: 'A3A'
         changelog: '[url=https://github.com/official-antistasi-community/A3-Antistasi/commit/${{github.sha}}]Update from branch: ${{github.REF_NAME}}[/url].'
       env:

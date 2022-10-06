@@ -1,11 +1,13 @@
-_filename = "fn_groupDespawner";
 params ["_group", ["_checkNonRebel", false]];
+
+if (!isNil { _group getVariable "A3A_despawnerHandle" }) exitWith {};
+_group setVariable ["A3A_despawnerHandle", _thisScript];			// only meaningful locally
 
 if (count units _group == 0) exitWith { deleteGroup _group };
 
 // Strip spawner status. If the group is waiting to despawn then it's no longer active
 {
-	if (_x getVariable ["spawner", false]) then { _x setVariable ["spawner", false, true] };
+	if (_x getVariable ["spawner", false]) then { _x setVariable ["spawner", nil, true] };
 } forEach units _group;
 
 private _eny1 = Occupants;

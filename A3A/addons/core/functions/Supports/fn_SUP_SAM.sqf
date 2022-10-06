@@ -1,146 +1,74 @@
-params ["_side", "_timerIndex", "_supportObj", "_supportName"];
+/*  Sets up a SAM support
 
-/*  Prepares the SAM launcher and marker
+Environment: Server, scheduled, internal
 
-    Execution on: Server
+Arguments:
+    <STRING> The (unique) name of the support, mostly for logging
+    <SIDE> The side from which the support should be sent (occupants or invaders)
+    <STRING> Resource pool used for this support. Should be "attack" or "defence"
+    <SCALAR> Maximum resources to spend. Not used here.
+    <OBJECT|BOOL> Target of the support. "false" creates with no initial target
+    <POSITION> Target position for support.
+    <SCALAR> Reveal value 0-1, higher values mean more information provided about support
+    <SCALAR> Optional setup delay time in seconds, otherwise will calculate based on war tier
 
-    Scope: Internal
-
-    Params:
-        _side: SIDE : The side for which the support should be called in
-        _timerIndex: NUMBER
-        _supportPos: POS
-        _supportName: STRING : The call name of the support
-
-    Returns:
-        The name of the marker, covering the whole support area
+Returns:
+    <SCALAR> Resource cost of support call, or -1 for failure
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private _supportPos = getPos _supportObj;
-private _spawnPos = [];
-private _availableAirports = airportsX select
-{
-    (getMarkerPos _x distance2D _supportPos <= 8000) &&
-    (getMarkerPos _x distance2D _supportPos > 1500) &&
-    (sidesX getVariable [_x, sideUnknown] == _side) &&
-    (spawner getVariable _x == 2)
-};
+params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
 
-if(count _availableAirports == 0) exitWith
+private _airports = [];
+private _weights = [];
 {
-    Info("No airport suitable to place SAM on it");
-    "";
-};
+    private _pos = markerPos _x;
+    private _dist = _pos distance2D _targPos;
+    if (_dist > 8000 or _dist < 1500) then {continue};
+    if (sidesX getVariable [_x,sideUnknown] != _side) then {continue};
+    if (spawner getVariable _x == 0) then {continue};              // don't need spawn places, so this is fine
 
-//Check which airports are able to fire at the given position
-private _finalAirports = [];
-{
-    private _airportPos = getMarkerPos _x;
-    private _dir = _airportPos getDir _supportPos;
-    private _intercectPoint = _airportPos getPos [250, _dir];
-    _intercectPoint = _intercectPoint vectorAdd [0, 0, 300];
-    if !(terrainIntersect [_intercectPoint, _supportPos]) then
-    {
-        _finalAirports pushBack _x;
+    if (_target isEqualType objNull and {!isNull _target}) then {
+        private _targDir = _pos getDir _targPos;
+        private _intersectPoint = (ATLtoASL _pos) getPos [250, _targDir] vectorAdd [0,0,300];
+        if (terrainIntersectASL [_intersectPoint, getPosASL _target]) then {continue};
     };
-} forEach _availableAirports;
 
-private _spawnMarker = "";
+    _airports pushBack _x;
+    _weights pushBack (1 / _dist^2);
+} forEach airportsX;
 
-if(count _finalAirports == 0) then
-{
-    _spawnMarker = [_availableAirports, _supportPos] call BIS_fnc_nearestPosition;
-}
-else
-{
-    if(count _finalAirports == 1) then
-    {
-        _spawnMarker = _finalAirports select 0;
-    }
-    else
-    {
-        _spawnMarker = [_finalAirports, _supportPos] call BIS_fnc_nearestPosition;
-    };
+if (_airports isEqualTo []) exitWith {
+    Error_1("No suitable airport found for %1", _supportName); -1;
 };
 
-private _coverageMarker = createMarker [format ["%1_coverage", _supportName], _supportPos];
-_coverageMarker setMarkerShape "ELLIPSE";
-_coverageMarker setMarkerBrush "Grid";
-if(_side == Occupants) then
-{
-    _coverageMarker setMarkerColor colorOccupants;
-}
-else
-{
-    _coverageMarker setMarkerColor colorInvaders;
-};
-_coverageMarker setMarkerSize [8000, 8000];
-_coverageMarker setMarkerAlpha 0;
+private _airport = _airports selectRandomWeighted _weights;
+private _launcherType = ["B_SAM_System_03_F", "O_SAM_System_04_F"] select (_side == Invaders);
+private _launcher = [_launcherType, markerPos _airport, 50, 5, true] call A3A_fnc_safeVehicleSpawn;
 
-if(_side == Occupants) then
-{
-    occupantsSAMTimer set [0, time + (3600 * 2)];
-}
-else
-{
-    invadersSAMTimer set [0, time + (3600 * 2)];
+private _group = [_side, _launcher] call A3A_fnc_createVehicleCrew;
+[_launcher, _side, _resPool] call A3A_fnc_AIVEHInit;
+_group deleteGroupWhenEmpty true;
+{ [_x, nil, false, _resPool] call A3A_fnc_NATOinit } forEach units _group;
+
+
+private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_delay < 0) then { _delay = (0.5 + random 1) * (350 - 15*tierWar - 1*_aggro) };
+
+private _targArray = [];
+if (_target isEqualType objNull and {!isNull _target}) then {
+    A3A_supportStrikes pushBack [_side, "TARGET", _target, time + 1200, 1200, 200];
+    _targArray = [_target, _targPos];
 };
 
-private _spawnPos = getMarkerPos _spawnMarker;
+// name, side, suppType, center, radius, [target, targpos]
+private _suppData = [_supportName, _side, "SAM", _targPos, 8000, _targArray];
+A3A_activeSupports pushBack _suppData;
+[_suppData, _launcher, _group, _delay, _reveal] spawn A3A_fnc_SUP_SAMRoutine;
 
-private _launcher = objNull;
-if(_side == Occupants) then
-{
-    _launcher = ["B_SAM_System_03_F", _spawnPos, 50, 5, true] call A3A_fnc_safeVehicleSpawn;
-}
-else
-{
-    _launcher = ["O_SAM_System_04_F", _spawnPos, 50, 5, true] call A3A_fnc_safeVehicleSpawn;
-};
-[_side, _launcher] call A3A_fnc_createVehicleCrew;
-_launcher setVariable ["side", _side];
+[_reveal, _side, "SAM", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
-_launcher addEventHandler ["Fired",
-{
-    params ["_unit", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
-    [_unit, _projectile] spawn
-    {
-        params ["_unit", "_projectile"];
-        private _target = _unit getVariable ["currentTarget", objNull];
-        if (isNull _target) exitWith {};
-
-        private _textMarker = createMarker [format ["%1_text_%2", _supportName, _rounds], getPos _target];
-        _textMarker setMarkerShape "ICON";
-        _textMarker setMarkerType "mil_objective";
-        _textMarker setMarkerText "SAM Target";
-
-        if(_unit getVariable "side" == Occupants) then
-        {
-            _textMarker setMarkerColor colorOccupants;
-        }
-        else
-        {
-            _textMarker setMarkerColor colorInvaders;
-        };
-        _textMarker setMarkerAlpha 0;
-
-        _unit setVariable ["currentTextmarker", _textMarker];
-        [_projectile, _textMarker] spawn
-        {
-            params ["_projectile", "_textMarker"];
-            waitUntil {sleep 1; (isNull _projectile) || !{alive _projectile}};
-            deleteMarker _textMarker;
-        };
-    };
-}];
-
-private _setupTime = 1368 - ((tierWar - 1) * 102);
-private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
-private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
-
-[_sleepTime, _launcher, _side, _supportName] spawn A3A_fnc_SUP_SAMRoutine;
-
-private _result = [_coverageMarker, _minSleepTime, _setupTime];
-_result;
+// Vehicle cost + extra support cost for balance
+//(A3A_vehicleResourceCosts get _launcherType) + 100;
+200;

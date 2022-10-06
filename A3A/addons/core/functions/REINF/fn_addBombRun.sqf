@@ -44,7 +44,7 @@ if (_exit) exitWith {["Airstrike", "Backpack drones can't be used to increase Ai
 
 _pointsX = 2;
 
-if (_typeX in FactionGet(all,"vehiclesHelisAttack")) then {_pointsX = 5};
+if (_typeX in (FactionGet(all,"vehiclesHelisAttack") + FactionGet(all,"vehiclesHelisLightAttack"))) then {_pointsX = 5};
 if (_typeX in (OccAndInv("vehiclesPlanesCAS") + OccAndInv("vehiclesPlanesAA"))) then {_pointsX = 10};
 deleteVehicle _veh;
 ["Airstrike", format ["Air Support increased in %1 points.",_pointsX]] call A3A_fnc_customHint;

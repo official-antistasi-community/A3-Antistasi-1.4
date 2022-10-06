@@ -42,3 +42,13 @@ class A3A {
 #endif
 
 #include "keybinds.hpp"
+
+class CfgMPGameTypes {
+    class ANTI {
+        name = "Antistasi";
+        shortcut = "ANTI";
+        id = 30;
+        picture = QPATHTOFOLDER(Pictures\antistasi_logo_small.paa);
+        description = "";
+    };
+};

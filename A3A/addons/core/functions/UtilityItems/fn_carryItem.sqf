@@ -56,7 +56,9 @@ if (_pickUp) then {
 
     // prevent killing players with item
     [_item, false] remoteExec ["enableSimulationGlobal", 2];
-    _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
+    private _bbDimensions = _item call BIS_fnc_boundingBoxDimensions;
+    private _positionAttached = [0, (_bbDimensions # 1) * 0.65, (_bbDimensions # 2) / 2];
+    _item attachTo [_player, _positionAttached, "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
         params ["_player", "_item"];

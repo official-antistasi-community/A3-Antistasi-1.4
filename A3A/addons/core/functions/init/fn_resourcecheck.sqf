@@ -136,6 +136,7 @@ while {true} do
 		[] call A3A_fnc_assignBossIfNone;
 	};
 
+
 	if (!isNil "A3A_notBuiltObjectList") then {
 
 		//A3A_notBuiltObjectList was defined but it was an empty array -> exit out of scope
@@ -158,35 +159,9 @@ while {true} do
 		
 	} forEach A3A_notBuiltObjectList;
 
-	sleep 60;
+	sleep 15;
 
 	};
-
-	if (!isNil "A3A_notBuiltObjectList") then {
-
-		//A3A_notBuiltObjectList was defined but it was an empty array -> exit out of scope
-		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
-
-	{
-		private _object = _x # 0;
-		private _objectTimeout = _x # 1;
-
-		if (_time > _objectTimeout) then {
-
-			// remove the object from the list
-			A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_object, _objectTimeout]);
-			publicVariable "A3A_notBuiltObjectList";
-
-			private _eachFrameEH = _object getVariable "eachFrameEH";
-			["EachFrame", _eachFrameEH] remoteExec ["removeMissionEventHandler", 0];
-			deleteVehicle _object;
-		};
-		
-	} forEach A3A_notBuiltObjectList;
-
-	sleep 60;
-
-};
 
 	// Decrease HQ knowledge values, old ones faster than current
 	if (A3A_curHQInfoOcc < 1) then { A3A_curHQInfoOcc = 0 max (A3A_curHQInfoOcc - 0.01) };

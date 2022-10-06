@@ -56,8 +56,9 @@ if (_pickUp) then {
 
     // prevent killing players with item
     [_item, false] remoteExec ["enableSimulationGlobal", 2];
-    private _bbDimensions = _item call BIS_fnc_boundingBoxDimensions;
-    private _positionAttached = [0, (_bbDimensions # 1) * 0.65, (_bbDimensions # 2) / 2];
+    private _bbReal = boundingBoxReal _item;
+    private _diff = (_bbReal select 1) vectorDiff (_bbReal select 0);
+    private _positionAttached = [0, (_diff vectorDotProduct [0,.65,0]) + 1.0, (_diff vectorDotProduct [0,0,0.5]) + 0.5];
     _item attachTo [_player, _positionAttached, "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {

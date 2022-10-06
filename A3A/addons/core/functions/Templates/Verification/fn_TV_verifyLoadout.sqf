@@ -97,6 +97,7 @@ private _fnc_getCompatibleAttachements = {
 };
 
 //Weapon validators
+//dependency on _compatibleItemsWeapon
 private _fnc_validMuzzle = { //valid class and muzzle compatible with weapon
     params ["_weapon", "_muzzle"];
     if (_muzzle isEqualTo "") exitWith {true};
@@ -116,6 +117,7 @@ private _fnc_validMuzzle = { //valid class and muzzle compatible with weapon
     true;
 };
 
+// dependency on _compatibleItemsWeapon
 private _fnc_validRail = { //valid class and rail compatible with weapon
     params ["_weapon", "_rail"];
     if (_rail isEqualTo "") exitWith {true};
@@ -134,6 +136,7 @@ private _fnc_validRail = { //valid class and rail compatible with weapon
     true;
 };
 
+// dependency on _compatibleItemsWeapon
 private _fnc_validOptic = { //valid class and optic compatible with weapon
     params ["_weapon", "_optic"];
     if (_optic isEqualTo "") exitWith {true};
@@ -173,6 +176,7 @@ private _fnc_validateWeaponMagazine = { //valid class and compatible with weapon
     true;
 };
 
+// dependency on _compatibleItemsWeapon
 private _fnc_validBipod = { //valid class and bipod compatible with weapon
     params ["_weapon", "_bipod"];
     if (_bipod isEqualTo "") exitWith {true};

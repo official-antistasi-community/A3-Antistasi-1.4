@@ -1043,5 +1043,16 @@
                 <French>RÉINITIALISER</French>
             </Key>
         </Container>
+        <Container name="dialog_teamleader_placer_dialog">
+            <Key ID="STR_antistasi_teamleader_placer_title">
+                <Original>Teamleader Builder</Original>
+            </Key>
+            <Key ID="STR_antistasi_teamleader_placer_holdtime">
+                <Original>%1 can be built in %2 seconds</Original>
+            </Key>
+            <Key ID="STR_antistasi_teamleader_placer_holdtime_text">
+                <Original>%1 secs</Original>
+            </Key>
+        </Container>
     </Package>
 </Project>

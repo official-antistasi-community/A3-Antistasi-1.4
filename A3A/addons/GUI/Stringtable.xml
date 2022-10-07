@@ -1053,6 +1053,9 @@
             <Key ID="STR_antistasi_teamleader_placer_holdtime_text">
                 <Original>%1 secs</Original>
             </Key>
+            <Key ID="STR_antistasi_teamleader_placer_insufficient_funds">
+                <Original>You can't afford this Item.</Original>
+            </Key>
         </Container>
     </Package>
 </Project>

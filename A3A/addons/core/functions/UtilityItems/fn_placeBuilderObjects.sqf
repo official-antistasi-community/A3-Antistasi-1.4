@@ -32,9 +32,8 @@ if (isNil "A3A_notBuiltObjectList") then {
 	private _className = _x # 0;
 	private _position = _x # 1;
 	private _direction = _x # 2;
-	private _vectorDirAndUp = _x # 3;
-	// private _holdTime = _x # 4;
-	// private _buildTimeOut = time + 1200;
+	private _holdTime = _x # 3;
+	private _buildTimeOut = time + 1200;
 	
 	private _constructionName = selectRandom _constructionObjects;
 	
@@ -42,12 +41,11 @@ if (isNil "A3A_notBuiltObjectList") then {
 	_vehicle setPosATL _position; // place on the ground
 	_vehicle setDir _direction;
 	_vehicle setVariable ["position", _position, true];
+	_vehicle setVariable ["direction", _direction, true];
 	_vehicle setVariable ["className", _className, true];
-	_vehicle setVariable ["vectorDirAndUp", _vectorDirAndUp, true];
-	//_vehicle setVariable ["holdTimeOut", _buildTimeOut]
+	_vehicle setVariable ["holdTimeOut", _buildTimeOut];
 
 	A3A_notBuiltObjectList pushBack [_vehicle, _buildTimeOut];
-	publicVariable "A3A_notBuiltObjectList"; //TODO check to see if the clients use this, maybe I can use publicVariableServer
 
 	private _jipKey = "A3A_utilityItems_teamPlacer_" + ((str _vehicle splitString ":") joinString "");
 
@@ -72,31 +70,35 @@ if (isNil "A3A_notBuiltObjectList") then {
 
 		private _className = _target getVariable ["className", [0,0,0]];
 		private _position = _target getVariable ["position", [0,0,0]];
-		private _vectorDirAndUp = _target getVariable ["vectorDirAndUp", [[0,1,0],[0,0,1]]];
-		//private _objectTimeout = _target getVariable ["holdTimeOut", 10];
+		private _direction  = _target getVariable ["direction", [0,0,0]];
+		private _objectTimeout = _target getVariable ["holdTimeOut", 10];
 
 		private _vehicle = createVehicle [_className, [0,0,0], [], 0, "CAN_COLLIDE"];
 		_vehicle setPos _position;
-		_vehicle setVectorDirAndUp _vectorDirAndUp;
+		_vehicle setDir _direction;
 		deleteVehicle _target;
 
 		//remove from list
-		//A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
-		//publicVariable "A3A_notBuiltObjectList";
+		A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
+		publicVariable "A3A_notBuiltObjectList";
 		
 		//save
 		staticsToSave pushBackUnique _vehicle;
 		publicVariable "staticsToSave"
 
-	}] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipKey];
+	},
+	{},
+	[],
+	_holdTime] remoteExec ["BIS_fnc_holdActionAdd", 0, _jipKey];
 
 	_vehicle addAction ["cancel",
 	{
 		params ["_target", "_caller", "_actionId", "_arguments"];
 
-		//private _objectTimeout = _target getVariable ["holdTimeOut", 10];
-		//A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
-		//publicVariable "A3A_notBuiltObjectList";
+		//remove from list
+		private _objectTimeout = _target getVariable ["holdTimeOut", 10];
+		A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
+		publicVariable "A3A_notBuiltObjectList";
 
 		private _eachFrameEH = _target getVariable "eachFrameEH";
 		["EachFrame", _eachFrameEH] remoteExec ["removeMissionEventHandler", 0];
@@ -115,3 +117,4 @@ if (isNil "A3A_notBuiltObjectList") then {
 	
 } forEach _objects;
 
+publicVariable "A3A_notBuiltObjectList"; 

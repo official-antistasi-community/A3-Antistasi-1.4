@@ -78,6 +78,9 @@ if (isNil "A3A_notBuiltObjectList") then {
 		_vehicle setDir _direction;
 		deleteVehicle _target;
 
+		if (_className isEqualTo "Flag_AAF_F") then {
+			[_vehicle, (A3A_faction_reb get "flagTexture")] remoteExec ["setFlagTexture", _vehicle];
+		};
 		//remove from list
 		A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
 		publicVariable "A3A_notBuiltObjectList";

@@ -401,6 +401,8 @@ if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
 };
 call A3A_fnc_dropObject;
 
+vehicleBox addAction ["Buy Teamleader Box" , {[player, "Land_PaperBox_01_open_boxes_F", 5, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_initTeamLeaderBox', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","((typeOf _this) isEqualTo 'I_G_Soldier_TL_F') or (_this == theBoss)",4];
+
 if (LootToCrateEnabled) then {
 	vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
 	call A3A_fnc_initLootToCrate;

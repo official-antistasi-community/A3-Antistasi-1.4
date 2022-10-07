@@ -793,6 +793,7 @@ class CfgFunctions
             class remainingFuel {}
             class teamLeaderRTSPlacer {};
             class initBuildingDB {};
+            class initTeamLeaderBox {};
             class placeBuilderObjects {};
             class eachFrameEventHanderPlacer {};
         };

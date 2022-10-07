@@ -52,7 +52,12 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	if (_key isEqualTo DIK_SPACE && !(A3A_building_EHDB # SPACE_PRESSED)) then {
 		if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 		if ((A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING) isEqualTo "Land_Can_V2_F") exitwith {};	// temp objects not built.
-
+		
+		private _mousePosition = getMousePosition;
+		private _vehiclePos = screenToWorld[_mousePosition # 0, _mousePosition # 1];
+		if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
+		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
+		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
 		//try to take money away 😞
 		private _insufficientFunds = isNil {
@@ -69,9 +74,6 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 
 		if (_insufficientFunds) exitwith {[localize "STR_antistasi_teamleader_placer_title", localize "STR_antistasi_teamleader_placer_insufficient_funds"] call A3A_fnc_customHint};
 
-		private _mousePosition = getMousePosition;
-		private _vehiclePos = screenToWorld[_mousePosition # 0, _mousePosition # 1];
-		if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
 	
 	
 		private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);

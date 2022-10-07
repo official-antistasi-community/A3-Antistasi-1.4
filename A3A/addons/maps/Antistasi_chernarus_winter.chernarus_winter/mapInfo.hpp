@@ -11,7 +11,4 @@ class chernarus_winter {
 	garrison[] = {{},{"outpost_21","control_30"},{},{"control_30"}};
 	fuelStationTypes[] = {"Land_A_FuelStation_Feed"};
 	climate = "arctic";
-	buildObjects[] = {
-		"Land_fort_bagfence_long", "Land_fort_bagfence_corner", "Land_fort_bagfence_round", "Land_fortified_nest_small", "Land_fort_artillery_nest", "FenceWood", "CUP_Winter_obj_fort_rampart_ep1", "CUP_Winter_obj_fortified_nest_big", "CUP_Winter_obj_snowman"
-	};
 };

@@ -11,7 +11,4 @@ class chernarus_summer {
 	garrison[] = {{},{"outpost_21"},{},{}};
 	fuelStationTypes[] = {"Land_A_FuelStation_Feed"};
 	climate = "temperate";
-	buildObjects[] = {
-		"Land_fort_bagfence_long", "Land_fort_bagfence_corner", "Land_fort_bagfence_round", "Land_fortified_nest_big", "Land_fortified_nest_small", "Land_fort_artillery_nest", "Land_fort_rampart", "FenceWood"
-	};
 };

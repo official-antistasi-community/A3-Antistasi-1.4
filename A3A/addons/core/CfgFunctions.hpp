@@ -354,6 +354,7 @@ class CfgFunctions
             class initParams {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
+            class initTeamLeaderObjects {};
 
             class initVar {};
             class initVarClient {};

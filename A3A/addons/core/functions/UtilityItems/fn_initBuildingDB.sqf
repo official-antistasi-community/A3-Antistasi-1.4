@@ -27,8 +27,6 @@ A3A_building_EHDB = [
 	false,
 	false,
 	false,
-	false,
-	false,
 	[],
 	"Land_Can_V2_F",
 	"Land_Can_V2_F" createVehicleLocal [0,0,0],
@@ -126,6 +124,6 @@ A3A_building_EHDB = [
 	},
 	_buildCenter,
 	_buildRadius,
-	0,
-	[[0,1,0],[0,0,1]]
+	15,
+	0
 ]; 

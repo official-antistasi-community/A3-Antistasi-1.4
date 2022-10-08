@@ -1873,6 +1873,7 @@
         <Czech>Pracovní síla</Czech>
         <Chinesesimp>人力资源</Chinesesimp>
         <Korean>인력</Korean>
+        <Russian>ЧР</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_2">
         <Original>HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Point = 1 Soldier)</Original>
@@ -1881,7 +1882,7 @@
         <Czech>Pracovní síla nebo Lidská sila pochází z občanské podpory v každém městě. Pro nábor více jednotek je zapotřebí pracovní síly (1 HR bod = 1 voják)</Czech>
         <Chinesesimp>人力资源或人力源自每个城市公民的支持。需要更多的人力才能招募更多的单位(1个人力资源点数 = 1名士兵)。</Chinesesimp>
         <Korean>인력은 각 도시의 지지율에 따라 제공됩니다. 병사 한명당 1 인력이 소모됩니다.</Korean>
-        <Russian>HR прибывают из поддержки граждан в каждом городе. Для набора большего количества юнитов требуется рабочая сила (1 очко HR = 1 солдат).</Russian>
+        <Russian>ЧР прибывают из поддержки граждан в каждом городе. Для набора большего количества юнитов требуется рабочая сила (1 очко ЧР = 1 солдат).</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Diary_3">
         <Original>Money - MP</Original>
@@ -1962,6 +1963,7 @@
         <Czech>Nastavení boje</Czech>
         <Chinesesimp>AI交战规则</Chinesesimp>
         <Korean>AI 교전 규칙</Korean>
+        <Russian>Правила боя ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_1">
         <Original>%2 vs %1 war.</Original>

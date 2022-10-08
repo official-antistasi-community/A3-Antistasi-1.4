@@ -32,7 +32,7 @@
       <Key ID="STR_HR_GRG_Generic_Cars">
         <Original>Cars</Original>
         <French>Voitures</French>
-        <Russian>Машины:</Russian>
+        <Russian>Машины</Russian>
         <Korean>차량</Korean>
       </Key>
       <Key ID="STR_HR_Garage_Generic_capacity">
@@ -182,13 +182,13 @@
       <Key ID="STR_HR_GRG_InfoPanel_isFuelSource">
         <Original>Vehicle is a fuel source</Original>
         <French>Le véhicule est une source de carburant</French>
-        <Russian>Эта техника - источник топлива.</Russian>
+        <Russian>Эта техника - источник топлива</Russian>
         <Korean>차량은 유류 차량임</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_isRepairSource">
         <Original>Vehicle is a repair source</Original>
         <French>Le véhicule est une source de réparation</French>
-        <Russian>Эта техника является ремонтной.</Russian>
+        <Russian>Эта техника является ремонтной</Russian>
         <Korean>차량은 수리 차량임</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_isNotSource">
@@ -212,13 +212,13 @@
       <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
         <Original>Ace Cargo:</Original>
         <French>Cargo d'Ace:</French>
-        <Russian>Грузовой отсек ACE</Russian>
+        <Russian>Грузовой отсек ACE:</Russian>
         <Korean>에이스 화물:</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_Capacity">
         <Original>Capacity:</Original>
         <French>Capacité:</French>
-        <Russian>Вместимость</Russian>
+        <Russian>Вместимость:</Russian>
         <Korean>용량:</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_Available">
@@ -230,13 +230,13 @@
       <Key ID="STR_HR_GRG_InfoPanel_Speed">
         <Original>Top speed:</Original>
         <French>Vitesse de pointe:</French>
-        <Russian>Максимальная скорость</Russian>
+        <Russian>Максимальная скорость:</Russian>
         <Korean>최고속도:</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_HP">
         <Original>Horse power:</Original>
         <French>Puissance:</French>
-        <Russian>Лошадиные силы</Russian>
+        <Russian>Лошадиные силы:</Russian>
         <Korean>마력:</Korean>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_Mass">
@@ -477,7 +477,7 @@
       <!--%1 is pylon number-->
       <Key ID="STR_HR_GRG_Pylons_PylonText">
         <Original>Pylon %1</Original>
-        <Russian>Пилон %1</Russian>
+        <Russian>Пилон</Russian>
         <Korean>파일런 %1</Korean>
       </Key>
       <Key ID="STR_HR_GRG_Pylons_Empty">

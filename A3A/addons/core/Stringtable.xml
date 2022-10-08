@@ -556,7 +556,7 @@
       <Key ID="STR_antistasi_credits_generic_missiondesc_text">
         <Original>Be a Resistance leader, be a hero.</Original>
         <French>Devenez un chef de la résistance, soyez un héros.</French>
-        <Russian>Быть Лидером Сопротивления значит быть героем. </Russian>
+        <Russian>Быть Лидером Сопротивления значит быть героем.</Russian>
         <German>Sei ein Anführer des Widerstands, sei ein Held.</German>
         <Czech>Staňte se vůdcem odboje, buďte hrdinou.</Czech>
         <Chinesesimp>成为抵抗军领袖, 成为英雄。</Chinesesimp>
@@ -892,6 +892,7 @@
         <Czech>V Utajení</Czech>
         <Chinesesimp>伪装</Chinesesimp>
         <Korean>잠복</Korean>
+        <Russian>Под прикрытием</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_7">
         <Original>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</Original>
@@ -3355,11 +3356,13 @@
         <Original>Q/E to rotate - Space/Enter to stop.</Original>
         <French>Q/E pour tourner - Espace/Entrée pour arrêter.</French>
         <Korean>Q/E를 이용해서 회전 - 스페이스 / 엔터로 멈추기</Korean>
+        <Russian>Q/E - вращать - Space/Enter - закончить</Russian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Far">
-        <Original>You're too far</Original>
-        <French>Tu es trop loin</French>
+        <Original>You're too far.</Original>
+        <French>Tu es trop loin.</French>
         <Korean>너무 멀리있습니다.</Korean>
+        <Russian>Вы слишком далеко.</Russian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Title">
         <Original>Utility items</Original>
@@ -3370,6 +3373,7 @@
         <Original>You are already carrying something.</Original>
         <French>Vous portez déjà quelque chose.</French>
         <Korean>이미 다른 것을 들고 있습니다.</Korean>
+        <Russian>Вы уже что-то несете.</Russian>
       </Key>
     </Container>
     <Container name="time_units">
@@ -3441,31 +3445,38 @@
       <Key ID="STR_antistasi_timeSpan_days_abbr">
         <Original>d</Original>
         <Korean>일</Korean>
+        <Russian>д</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_hours_abbr">
         <Original>h</Original>
         <Korean>시간</Korean>
+        <Russian>ч</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_minutes_abbr">
         <Original>m</Original>
         <Korean>분</Korean>
+        <Russian>м</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_seconds_abbr">
         <Original>s</Original>
         <Korean>초</Korean>
+        <Russian>с</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_milliseconds_abbr">
         <Original>ms</Original>
         <Korean>밀리초</Korean>
+        <Russian>мс</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
         <Original>µs</Original>
         <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
         <Korean>마이크로초</Korean>
+        <Russian>мкс</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_nanoseconds_abbr">
         <Original>ns</Original>
         <Korean>나노초</Korean>
+        <Russian>нс</Russian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_now">
         <Original>(Now)</Original>
@@ -3482,11 +3493,13 @@
         <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt; Nearby vehicles are no longer reported.</Original>
         <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau incognito.&lt;br/&gt;&lt;br/&gt; Les véhicules à proximité ne sont plus signalés.</French>
         <Korean>근처 유닛은 회복,세탁되어 다시 위장할 수 있습니다. 인근 차량은 더 이상 신고당하지 않습니다.</Korean>
+        <Russian>Ближайшие бойцы были вылечены и могут снова работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Ближайшие машины больше не в розыске.</Russian>
       </Key>
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
         <Original>The box has been used in the last 30 seconds! Please wait for a bit.</Original>
         <French>La boîte a été utilisée dans les 30 dernières secondes ! Veuillez patienter un peu.</French>
         <Korean>박스를 지난 30초 안에 사용하셨습니다. 잠시만 기다려주세요.</Korean>
+        <Russian>Коробка была использована в течении последних 30 секунд. Пожалуйста подождите.</Russian>
       </Key>
     </Container>
     <Container name="singleWord">
@@ -3494,6 +3507,7 @@
         <Original>Heal</Original>
         <French>Soigner</French>
         <Korean>치료</Korean>
+        <Russian>Вылечить</Russian>
       </Key>
     </Container>
   </Package>

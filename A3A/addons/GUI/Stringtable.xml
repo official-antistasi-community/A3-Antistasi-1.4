@@ -10,7 +10,7 @@
         <Italian>Placeholder</Italian>
         <Polish>Placeholder</Polish>
         <Portuguese>Placeholder</Portuguese>
-        <Russian>Placeholder</Russian>
+        <Russian>НАЙМ БОЙЦОВ</Russian>
         <German>Placeholder</German>
         <Chinesesimp>Placeholder</Chinesesimp>
         <Korean>유닛 모집</Korean>
@@ -21,41 +21,49 @@
         <Original>Militiaman</Original>
         <French>Milicien</French>
         <Korean>민병대</Korean>
+        <Russian>Стрелок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
         <Original>Autorifleman</Original>
         <French>Fusilieur mitrailleur</French>
         <Korean>자동소총수</Korean>
+        <Russian>Пулеметчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_medic">
         <Original>Medic</Original>
         <French>Médecin</French>
         <Korean>의무병</Korean>
+        <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_engineer">
         <Original>Engineer</Original>
         <French>Ingénieur</French>
         <Korean>공병</Korean>
+        <Russian>Инженер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_bomb_specialist">
         <Original>Bomb Specialist</Original>
         <French>Spécialiste des bombes</French>
         <Korean>폭발물전문가</Korean>
+        <Russian>Сапер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_grenadier">
         <Original>Grenadier</Original>
         <French>Grenadier</French>
         <Korean>유탄수</Korean>
+        <Russian>Гренадер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_marksman">
         <Original>Marksman</Original>
         <French>Tireur d'élite</French>
         <Korean>지정사수</Korean>
+        <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
         <Original>Antitank</Original>
         <French>Anti-char</French>
         <Korean>대전차보병</Korean>
+        <Russian>Гранатометчик</Russian>
       </Key>
     </Container>
     <Container name="dialog_main">
@@ -68,21 +76,25 @@
         <Original>Player</Original>
         <French>Joueur</French>
         <Korean>플레이어</Korean>
+        <Russian>Игрок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_tab_button">
         <Original>Commander</Original>
         <French>Commandant</French>
         <Korean>사령관</Korean>
+        <Russian>Командир</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tab_button">
         <Original>Admin</Original>
         <French>Admin</French>
         <Korean>관리자</Korean>
+        <Russian>Админ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_tab_disabled_tooltip">
         <Original>Only the commander can access the commander tab</Original>
         <French>Seul le commandant peut accéder à l'onglet commandant</French>
         <Korean>사령관만 사령관 메뉴에 접근할 수 있습니다.</Korean>
+        <Russian>Только у Командира есть доступ к командирскому меню</Russian>
       </Key>
     </Container>
     <Container name="dialog_recruit_squad">
@@ -90,51 +102,61 @@
         <Original>RECRUIT SQUAD</Original>
         <French>RECRUTER ESCOUADE</French>
         <Korean>분대 모집</Korean>
+        <Russian>НАНЯТЬ ОТРЯД</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_inf_squad">
         <Original>Inf. Squad</Original>
         <French>Escouade Inf.</French>
         <Korean>보병 분대</Korean>
+        <Russian>Отряд пехоты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_inf_team">
         <Original>Inf. Team</Original>
         <French>Équipe Inf.</French>
         <Korean>보병 팀</Korean>
+        <Russian>Группа пехоты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_at_team">
         <Original>AT Team</Original>
         <French>Équipe AT</French>
         <Korean>대전차반</Korean>
+        <Russian>Противотанковый расчет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_mg_team">
         <Original>MG Team</Original>
         <French>Équipe MG</French>
         <Korean>자동소총반</Korean>
+        <Russian>Пулеметный расчет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_mortar_team">
         <Original>Mortar Team</Original>
         <French>Équipe Mortier</French>
         <Korean>박격포반</Korean>
+        <Russian>Минометный расчет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_sniper_team">
         <Original>Sniper Team</Original>
         <French>Équipe Sniper</French>
         <Korean>저격수반</Korean>
+        <Russian>Снайперская пара</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_at_car">
         <Original>AT Car</Original>
         <French>Voiture AT</French>
         <Korean>대전차 차량</Korean>
+        <Russian>Машина ПТ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_aa_truck">
         <Original>AA Truck</Original>
         <French>Camion AA</French>
         <Korean>대공 트럭</Korean>
+        <Russian>Машина ПВО</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_squad_include_vehicle_label">
         <Original>Include vehicle</Original>
         <French>Inclure le véhicule</French>
         <Korean>차량 포함</Korean>
+        <Russian>Купить машину</Russian>
       </Key>
     </Container>
     <Container name="dialogs_generic">
@@ -142,76 +164,91 @@
         <Original>Yes</Original>
         <French>Oui</French>
         <Korean>예</Korean>
+        <Russian>Да</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_no">
         <Original>No</Original>
         <French>Non</French>
         <Korean>아니오</Korean>
+        <Russian>Нет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_days">
         <Original>days</Original>
         <French>jours</French>
         <Korean>일</Korean>
+        <Russian>дней</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hours">
         <Original>hours</Original>
         <French>heures</French>
         <Korean>시간</Korean>
+        <Russian>часов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minutes">
         <Original>minutes</Original>
         <French>minutes</French>
         <Korean>분</Korean>
+        <Russian>минут</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_seconds">
         <Original>seconds</Original>
         <French>secondes</French>
         <Korean>초</Korean>
+        <Russian>секунд</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_day">
         <Original>day</Original>
         <French>jour</French>
         <Korean>일</Korean>
+        <Russian>день</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hour">
         <Original>hour</Original>
         <French>heure</French>
         <Korean>시간</Korean>
+        <Russian>час</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minute">
         <Original>minute</Original>
         <French>minute</French>
         <Korean>분</Korean>
+        <Russian>минуту</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_second">
         <Original>second</Original>
         <French>seconde</French>
         <Korean>초</Korean>
+        <Russian>секунду</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_days_short">
         <Original>d</Original>
         <French>j</French>
         <Korean>일</Korean>
+        <Russian>д</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_hours_short">
         <Original>h</Original>
         <French>h</French>
         <Korean>시간</Korean>
+        <Russian>ч</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_minutes_short">
         <Original>m</Original>
         <French>m</French>
         <Korean>분</Korean>
+        <Russian>м</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_seconds_short">
         <Original>s</Original>
         <French>s</French>
         <Korean>초</Korean>
+        <Russian>с</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_aggression">
         <Original>aggression</Original>
         <French>agression</French>
         <Korean>공격성</Korean>
+        <Russian>враждебность</Russian>
       </Key>
     </Container>
     <Container name="dialog_load_last_save">
@@ -219,6 +256,7 @@
         <Original>LOAD LAST SAVE?</Original>
         <French>CHARGER LA DERNIÈRE SAUVEGARDE ?</French>
         <Korean>마지막 세이브를 불러옵니까?</Korean>
+        <Russian>ЗАГРУЗИТЬ ПОСЛЕДНЕЕ СОХРАНЕНИЕ?</Russian>
       </Key>
     </Container>
     <Container name="dialog_buy_vehicle">
@@ -226,61 +264,73 @@
         <Original>BUY VEHICLE</Original>
         <French>ACHETER UN VÉHICULE</French>
         <Korean>차량 구매</Korean>
+        <Russian>КУПИТЬ МАШИНУ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
         <Original>Buy %1 for %2 %3</Original>
         <French>Acheter %1 pour %2 %3</French>
         <Korean>%1를 %2 %3에게 구매</Korean>
+        <Russian>Купить %1 за %2 %3</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
         <Original>This vehicle can go undercover</Original>
         <French>Ce véhicule peut passer incognito</French>
         <Korean>위장 가능 차량입니다.</Korean>
+        <Russian>В этой машине можно двигаться под прикрытием</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_driver_tooltip">
         <Original>Driver / Pilot</Original>
         <French>Chauffeur / Pilote</French>
         <Korean>운전수/ 조종사</Korean>
+        <Russian>Водитель / Пилот</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_copilot_tooltip">
         <Original>Co-Pilot</Original>
         <French>Copilote</French>
         <Korean>부조종사</Korean>
+        <Russian>Второй Пилот</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_commander_tooltip">
         <Original>Commander</Original>
         <French>Commandant</French>
         <Korean>사령관</Korean>
+        <Russian>Командир</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_tooltip">
         <Original>Gunner</Original>
         <French>Tireur</French>
         <Korean>사수석</Korean>
+        <Russian>Стрелок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
         <Original>Passenger seat</Original>
         <French>Siège passager</French>
         <Korean>조수석</Korean>
+        <Russian>Пассажирской сиденье</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
         <Original>FFV seat</Original>
         <French>Siège FFV</French>
         <Korean>사격가능좌석</Korean>
+        <Russian>FFV сиденье</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
         <Original>%1 Gunners</Original>
         <French>%1 Artilleurs</French>
         <Korean>%1 사수석</Korean>
+        <Russian>%1 стрелков</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
         <Original>%1 Passenger seats</Original>
         <French>%1 Sièges passagers</French>
         <Korean>%1 조수석</Korean>
+        <Russian>%1 пассажирских сидений</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
         <Original>%1 FFV seats</Original>
         <French>%1 Sièges FFV</French>
         <Korean>%1 사격가능좌석</Korean>
+        <Russian>%1 FFV сидений</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_player">
@@ -288,6 +338,7 @@
         <Original>Fast Travel</Original>
         <French>Voyage rapide</French>
         <Korean>빠른 이동</Korean>
+        <Russian>Быстрое перемещение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
         <Original>This is a placeholder</Original>
@@ -297,121 +348,145 @@
         <Original>Go Undercover</Original>
         <French>Passer incognito</French>
         <Korean>위장하기</Korean>
+        <Russian>Уйти под прикрытие</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_construct">
         <Original>Construct</Original>
         <French>Construction</French>
         <Korean>건설하기</Korean>
+        <Russian>Строительство</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management">
         <Original>AI Management</Original>
         <French>Gestion de l'IA</French>
         <Korean>AI 관리</Korean>
+        <Russian>Управление ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_text_commander">
         <Original>Commander</Original>
         <French>Commandant</French>
         <Korean>사령관</Korean>
+        <Russian>Командир</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_text_eligible">
         <Original>Eligible</Original>
         <French>Éligible</French>
         <Korean>자격있음</Korean>
+        <Russian>Разрешено</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_text_ineligible">
         <Original>Ineligible</Original>
         <French>Inéligible</French>
         <Korean>자격없음</Korean>
+        <Russian>Запрещено</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_button_resign">
         <Original>Resign</Original>
         <French>Démissionner</French>
         <Korean>사임</Korean>
+        <Russian>Уйти в отставку</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_button_set_eligible">
         <Original>Set Eligible</Original>
         <French>Devenir Eligible</French>
         <Korean>자격부여</Korean>
+        <Russian>Разрешить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_button_set_ineligible">
         <Original>Set Ineligible</Original>
         <French>Devenir Inéligible</French>
         <Korean>자격박탈</Korean>
+        <Russian>Запретить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_donate">
         <Original>Donate Money</Original>
         <French>Donner de l'argent</French>
         <Korean>돈 기부</Korean>
+        <Russian>Пожертвовать деньги</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hide_top_bar">
         <Original>Hide top bar</Original>
         <French>Masquer la barre supérieure</French>
         <Korean>상단 바 감추기</Korean>
+        <Russian>Спрятать верхнюю полосу</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_vehicles">
         <Original>Vehicles</Original>
         <French>Véhicules</French>
         <Korean>차량</Korean>
+        <Russian>Машины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_garage_vehicle">
         <Original>Garage</Original>
         <French>Ranger</French>
         <Korean>차고</Korean>
+        <Russian>В гараж</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_unlock_vehicle">
         <Original>Unlock</Original>
         <French>Déverrouiller</French>
         <Korean>잠금</Korean>
+        <Russian>Открыть</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_lock_vehicle">
         <Original>Lock</Original>
         <French>Verrouiller</French>
         <Korean>해제</Korean>
+        <Russian>Закрыть</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
         <Original>Sell</Original>
         <French>Vendre</French>
         <Korean>판매</Korean>
+        <Russian>Продать</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_add_to_air_support">
         <Original>Add to air support</Original>
         <French>Ajouter au soutien aérien</French>
         <Korean>공중지원에 추가</Korean>
+        <Russian>Добавить к поддержке с воздуха</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_no_vehicle">
         <Original>No vehicle detected</Original>
         <French>Aucun véhicule détecté</French>
         <Korean>발견된 차량 없음</Korean>
+        <Russian>Машина не найдена</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_not_eligible_vehicle_tooltip">
         <Original>Not eligible vehicle</Original>
         <French>Véhicule non éligible</French>
         <Korean>자격없는 차량</Korean>
+        <Russian>Машина не подходит</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_only_tooltip">
         <Original>Commander only</Original>
         <French>Commandant uniquement</French>
         <Korean>사령관 전용</Korean>
+        <Russian>Только для командира</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_members_only">
         <Original>Members only function</Original>
         <French>Fonction réservée aux membres</French>
         <Korean>멤버 전용 기능</Korean>
+        <Russian>Только для членов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_player_money_text">
         <Original>Current money:\n€ %1</Original>
         <French>Monnaie actuelle:\n€ %1</French>
         <Korean>현재 잔고:\n€ %1</Korean>
+        <Russian>Текущий баланс:\n€ %1</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
         <Original>Only available to squad leaders</Original>
         <French>Uniquement disponible pour les chefs d'escouade</French>
         <Korean>분대장 전용</Korean>
+        <Russian>Доступно только командирам отряда</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
         <Original>Needs AI group members\nYou can recruit them at the flag</Original>
         <French>Nécessite des membres du groupe AI\nVous pouvez les recruter au drapeau</French>
         <Korean>AI 분대원 필요 \n 깃발에서 AI 소집 가능</Korean>
+        <Russian>Нужны бойцы ИИ.\nВы можете нанять их у флага.</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_donate">
@@ -419,21 +494,25 @@
         <Original>Current money</Original>
         <French>Monnaie actuelle</French>
         <Korean>현재 잔고</Korean>
+        <Russian>Текущий баланс</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_donate_label">
         <Original>Donate</Original>
         <French>Donner</French>
         <Korean>기부하기</Korean>
+        <Russian>Можертвовать деньги</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_donate_player">
         <Original>Donate to Player</Original>
         <French>Faire un don au joueur</French>
         <Korean>플레이어에게 기부하기</Korean>
+        <Russian>Можертвовать деньги игроку</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_donate_faction">
         <Original>Donate to Faction</Original>
         <French>Faire un don à la faction</French>
         <Korean>진영에 기부하기</Korean>
+        <Russian>Можертвовать деньги фракции</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_commander">
@@ -441,224 +520,270 @@
         <Original>High Command Groups</Original>
         <French>Groupes de haut commandement</French>
         <Korean>상위 지휘 그룹</Korean>
+        <Russian>Группы Главнокомандующего</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_remote_control_tooltip">
         <Original>Remote control group leader</Original>
         <Korean>그룹 리더 원격 제어</Korean>
+        <Russian>Взять контроль над командиром круппы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
         <Original>Number of units in the group\nAble to combat / Total number of units</Original>
         <Korean>그룹 내 유닛 수\n전투 가능 / 전체 유닛 수</Korean>
+        <Russian>Количество бойцов в группе\nБоеспособных / Общее число</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_combat_mode">
         <Original>Combat mode</Original>
         <French>Mode combat</French>
         <Korean>전투 모드</Korean>
+        <Russian>Боевой режим</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
         <Original>Vehicle</Original>
         <French>Véhicule</French>
         <Korean>차량</Korean>
+        <Russian>Машина</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_button">
         <Original>Fire Mission</Original>
         <French>Fire Mission</French>
         <Korean>화력임무</Korean>
+        <Russian>Артобстрел</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_mount">
         <Original>Mount</Original>
         <French>Monter</French>
         <Korean>탑승</Korean>
+        <Russian>Сесть в машину</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_dismount">
         <Original>Dismount</Original>
         <French>Démonter</French>
         <Korean>하차</Korean>
+        <Russian>Выйти из машины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_add_vehicle">
         <Original>Add Vehicle</Original>
         <French>Ajouter un véhicule</French>
         <Korean>차량 추가</Korean>
+        <Russian>Добавить машину</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_garrison">
         <Original>Garrison</Original>
         <French>Garnison</French>
         <Korean>주둔지</Korean>
+        <Russian>Добавить в гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_dismiss">
         <Original>Dismiss</Original>
         <French>Congédier</French>
         <Korean>해산</Korean>
+        <Russian>Распустить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_label">
         <Original>Fire mission</Original>
         <Korean>화력임무</Korean>
+        <Russian>Артобстрел</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo">
         <Original>Ammo</Original>
         <French>Munitions</French>
         <Korean>탄약</Korean>
+        <Russian>Снаряды</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_he">
         <Original>HE</Original>
         <French>HE</French>
         <Korean>고폭</Korean>
+        <Russian>ОФ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_smoke">
         <Original>Smoke</Original>
         <French>Fumée</French>
         <Korean>연막</Korean>
+        <Russian>Дымовые</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_label">
         <Original>Shell type</Original>
         <French>Type d'obus</French>
         <Korean>탄 종류</Korean>
+        <Russian>Тип снарядов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_he">
         <Original>HE</Original>
         <French>HE</French>
         <Korean>고폭</Korean>
+        <Russian>ОФ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_smoke">
         <Original>Smoke</Original>
         <French>Fumée</French>
         <Korean>연막</Korean>
+        <Russian>Дымовые</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_label">
         <Original>Mission type</Original>
         <French>Type de mission</French>
         <Korean>임무 유형</Korean>
+        <Russian>Тип артобстрела</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_point">
         <Original>Point</Original>
         <Korean>포인트</Korean>
+        <Russian>Точечный</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_barrage">
         <Original>Barrage</Original>
         <Korean>탄막</Korean>
+        <Russian>Заградительный огонь</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_label">
         <Original>Rounds</Original>
         <Korean>장탄수</Korean>
+        <Russian>Снаряды</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_label">
         <Original>Position</Original>
         <Korean>위치</Korean>
+        <Russian>Позиция</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
         <Original>SET</Original>
         <French>DÉFINIR</French>
         <Korean>설정</Korean>
+        <Russian>ПОДТВЕРДИТЬ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
         <Original>Start</Original>
         <French>Démarrer</French>
         <Korean>시작</Korean>
+        <Russian>Начало</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_end_label">
         <Original>End</Original>
         <French>Finir</French>
         <Korean>끝</Korean>
+        <Russian>Конец</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_fire_button">
         <Original>Fire</Original>
         <French>Tirer</French>
         <Korean>사격</Korean>
+        <Russian>Огонь</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_button">
         <Original>Air Support</Original>
         <French>Appui aérien</French>
         <Korean>항공지원</Korean>
+        <Russian>Поддержка с воздуха</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_garbage_clean_button">
         <Original>Garbage Clean</Original>
         <French>Nettoyer les ordures</French>
         <Korean>쓰레기 치우기</Korean>
+        <Russian>Уборка мусора</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_garbage_clean_all">
         <Original>Garbage Clean All</Original>
         <French>Nettoyer toutes les ordures</French>
         <Korean>쓰레기 전부 치우기</Korean>
+        <Russian>Очистить все</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_garbage_clean_hq">
         <Original>Garbage Clean HQ</Original>
         <French>Nettoyer les ordures du QG</French>
         <Korean>쓰레기 치우기 (HQ)</Korean>
+        <Russian>Очистить штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_deployed_tooltip">
         <Original>Unable to fire. Mortar is not deployed.</Original>
         <French>Impossible de tirer. Le mortier n'est pas déployé.</French>
         <Korean>사격할 수 없습니다. 박격포가 배치되지 않았습니다.</Korean>
+        <Russian>Невозможно стрелять. Миномет не развернут.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_medic">
         <Original>Has operative medic</Original>
         <French>A un médecin disponible</French>
         <Korean>의무 능력이 있습니다</Korean>
+        <Russian>Есть медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_at">
         <Original>Has AT capability</Original>
         <French>Possède une capacité AT</French>
         <Korean>대전차 능력이 있습니다</Korean>
+        <Russian>Есть ПТ оружие</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_aa">
         <Original>Has AA capability</Original>
         <French>A une capacité AA</French>
         <Korean>대공 능력이 있습니다</Korean>
+        <Russian>Есть оружие ПВО</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_deployed">
         <Original>Mortar is deployed</Original>
         <French>Le mortier est déployé</French>
         <Korean>박격포가 배치되었습니다</Korean>
+        <Russian>Миномет развернут</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_not_deployed">
         <Original>Mortar is not deployed</Original>
         <French>Le mortier n'est pas déployé</French>
         <Korean>박격포가 배치되지 않았습니다</Korean>
+        <Russian>Миномет не развернут</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_deployed">
         <Original>Static weapon is deployed</Original>
         <French>L'arme statique est déployée</French>
         <Korean>고정화기가 배치되었습니다</Korean>
+        <Russian>Оружие развернуто</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed">
         <Original>Static weapon is not deployed</Original>
         <French>L'arme statique n'est pas déployée</French>
         <Korean>고정화기가 배치되지 않았습니다</Korean>
+        <Russian>Оружие не развернуто</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
         <Original>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</Original>
         <French>&lt;t align='center'&gt;Vous n'avez pas de groupes de haut commandement.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Vous pouvez les recruter au drapeau.&lt;/t&gt;</French>
         <Korean>&lt;t align='center'&gt;당신은 상위 지휘 그룹이 없습니다.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;깃발에서 그들을 모집할 수 있습니다.&lt;/t&gt;</Korean>
+        <Russian>&lt;t align='center'&gt;У вас нет групп Главнокоандующего.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Вы можете нанять их у флага.&lt;/t&gt;</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
         <Original>Number of rounds set by barrage length</Original>
         <French>Nombre d'obus défini par la longueur du barrage</French>
         <Korean>탄 수는 탄막길이에 의해 설정됩니다</Korean>
+        <Russian>Количество снарядов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
         <Original>CLICK MAP</Original>
         <French>CLIQUEZ SUR LA CARTE</French>
         <Korean>맵 클릭</Korean>
+        <Russian>НАЖМИТЕ НА КАРТЕ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_set">
         <Original>NOT SET</Original>
         <French>PAS ENCORE DÉFINI</French>
         <Korean>미설정</Korean>
+        <Russian>НЕ ПОДТВЕРЖДЕНО</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
         <Original>Strike position not set</Original>
         <French>Position de frappe non définie</French>
         <Korean>타격 지점 미설정</Korean>
+        <Russian>Позиция удара не выбрана</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_misison_no_ammo_tooltip">
         <Original>Not enough ammo</Original>
         <French>Pas assez de munitions</French>
         <Korean>탄약 부족</Korean>
+        <Russian>Недостаточно снарядов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_no_radio">
         <Original>No radio</Original>
         <French>Pas de radio</French>
         <Korean>라디오 없음</Korean>
+        <Russian>Нет радио</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_air_support">
@@ -666,36 +791,43 @@
         <Original>Air Support points:</Original>
         <French>Points d'appui aérien:</French>
         <Korean>공중지원 지점:</Korean>
+        <Russian>Очки авиаподдержки:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_aircraft_used">
         <Original>Aircraft used:</Original>
         <French>Avion utilisé:</French>
         <Korean>사용 항공기:</Korean>
+        <Russian>Использованная авиация:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_info">
         <Original>Get more air support points using the 'Add to Air Support' button in the vehicle section on the player tab.</Original>
         <French>Obtenez plus de points d'appui aérien en utilisant le bouton "Ajouter au support aérien" dans la section véhicule de l'onglet joueur.</French>
         <Korean>플레이어 탭의 '항공지원에 추가' 버튼을 사용하여 더 많은 공중지원 포인트를 확보하세요</Korean>
+        <Russian>Очки можно получить используя кнопку 'Добавить к авиаподдержке'</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_he_bombs">
         <Original>HE Bombs</Original>
         <French>Bombes HE</French>
         <Korean>고폭탄</Korean>
+        <Russian>ОФ бомбы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_carpet_bombing">
         <Original>Carpet Bombing</Original>
         <French>Carpet Bombing</French>
         <Korean>융단폭격</Korean>
+        <Russian>Ковровая бомбардировка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_napalm">
         <Original>Napalm Bomb</Original>
         <French>Bombe au napalm</French>
         <Korean>네이팜탄</Korean>
+        <Russian>Бомба с напалмом</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_air_support_no_points_tooltip">
         <Original>You have no air support points</Original>
         <French>Vous n'avez aucun point d'appui aérien</French>
         <Korean>항공지원 포인트가 없습니다</Korean>
+        <Russian>У вас не хватает очков авиаподдержки</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_fast_travel">
@@ -703,31 +835,37 @@
         <Original>Click the map to select the location you want to fast travel to.</Original>
         <French>Cliquez sur la carte pour sélectionner l'endroit où vous souhaitez vous rendre rapidement.</French>
         <Korean>빠른 여행을 사용하고 싶은 지점을 맵에서 클릭하세요</Korean>
+        <Russian>Нажмите на карте чтобы выбрать место куда вы хотите переместиться</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_group_select_location">
         <Original>Click the map to select the location you want %1 to fast travel to.</Original>
         <French>Cliquez sur la carte pour sélectionner l'emplacement vers lequel vous voulez %1 se rende rapidement.</French>
         <Korean>%1을 빠른 여행시키고 싶은 지점을 맵에서 클릭하세요</Korean>
+        <Russian>Нажмите на карте чтобы выбрать место куда вы хотите переместиться с %1</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_group_will_travel_to">
         <Original>will travel to</Original>
         <French>se rendra à</French>
         <Korean>로 여행할 예정</Korean>
+        <Russian>переместиться в</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_you_will_travel_to">
         <Original>You will travel to</Original>
         <French>Vous voyagerez à</French>
         <Korean>당신은 여행할 것입니다</Korean>
+        <Russian>Вы переместитесь в</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_time">
         <Original>This will take</Original>
         <French>Cela prendra</French>
         <Korean>이것은 소요될 것입니다</Korean>
+        <Russian>Это займет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_fast_travel_vehicle">
         <Original>You will bring your vehicle along as well as any cargo and passengers along with you.</Original>
         <French>Vous apporterez votre véhicule ainsi que toute cargaison et passagers avec vous.</French>
         <Korean>당신은 차량과 화물, 승객을 함께 이동시킬 것입니다</Korean>
+        <Russian>Вы также переместите свою машину вместе с грузом и пассажирами.</Russian>
       </Key>
     </Container>
     <Container name="dialog_mission_request">
@@ -735,41 +873,49 @@
         <Original>Conquest</Original>
         <French>Conquête</French>
         <Korean>정복</Korean>
+        <Russian>Захват</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_destroy">
         <Original>Destroy</Original>
         <French>Détruire</French>
         <Korean>폭파</Korean>
+        <Russian>Уничтожение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_assassination">
         <Original>Assassination</Original>
         <French>Assassinat</French>
         <Korean>암살</Korean>
+        <Russian>Убийство</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_convoy">
         <Original>Convoy Ambush</Original>
         <French>Embuscade de convoi</French>
         <Korean>호송대 습격</Korean>
+        <Russian>Засада</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_rescue">
         <Original>Rescue</Original>
         <French>Sauvetage</French>
         <Korean>구출</Korean>
+        <Russian>Спасение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_logistics">
         <Original>Logistics</Original>
         <French>Logistique</French>
         <Korean>물류</Korean>
+        <Russian>Логистика</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_support">
         <Original>Support</Original>
         <French>Soutien</French>
         <Korean>지원</Korean>
+        <Russian>Поддержка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_request_titlebar">
         <Original>REQUEST MISSION</Original>
         <French>DEMANDE DE MISSION</French>
         <Korean>임무 요청</Korean>
+        <Russian>ЗАПРОСИТЬ ЗАДАНИЕ</Russian>
       </Key>
     </Container>
     <Container name="dialog_hq">
@@ -777,141 +923,169 @@
         <Original>HQ MANAGEMENT</Original>
         <French>GESTION DU QG</French>
         <Korean>HQ 관리</Korean>
+        <Russian>УПРАВЛЕНИЕ ШТАБОМ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_button">
         <Original>Garrisons</Original>
         <French>Garnisons</French>
         <Korean>주둔지</Korean>
+        <Russian>Гарнизоны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_button">
         <Original>Minefields</Original>
         <French>Champs de mines</French>
         <Korean>지뢰지대</Korean>
+        <Russian>Минные поля</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_move_hq_button">
         <Original>Move HQ</Original>
         <French>Déplacer le QG</French>
         <Korean>HQ 이사</Korean>
+        <Russian>Переместить штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_clear_trees_button">
         <Original>Clear Trees</Original>
         <French>Effacer les arbres</French>
         <Korean>나무 제거</Korean>
+        <Russian>Срубить деревья</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_campaign_status">
         <Original>Campaign Status</Original>
         <French>État de la campagne</French>
         <Korean>캠페인 현황</Korean>
+        <Russian>Статус кампании</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_war_level">
         <Original>War level:</Original>
         <French>Niveau de guerre :</French>
         <Korean>전쟁 단계:</Korean>
+        <Russian>Уровень войны:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_aggression">
         <Original>Aggression:</Original>
         <French>Agression:</French>
         <Korean>공격성:</Korean>
+        <Russian>Враждебность:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_occupants_aggression">
         <Original>Occupants aggression</Original>
         <French>Agressivité des occupants</French>
         <Korean>수비자 공격성</Korean>
+        <Russian>Враждебность оккупантов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_invader_aggression">
         <Original>Invader aggression</Original>
         <French>Agression de l'envahisseur</French>
         <Korean>침략자 공격성</Korean>
+        <Russian>Враждебность захватчиков</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_cities">
         <Original>Controlled cities</Original>
         <French>Villes contrôlées</French>
         <Korean>통제된 도시</Korean>
+        <Russian>Подконтрольные города</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_outposts">
         <Original>Controlled outposts</Original>
         <French>Avant-postes contrôlés</French>
         <Korean>통제된 전초기지</Korean>
+        <Russian>Подконтрольные аванпосты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_airbases">
         <Original>Controlled airbases</Original>
         <French>Bases aériennes contrôlées</French>
         <Korean>통제된 비행장</Korean>
+        <Russian>Подконтрольные авиабазы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_resources">
         <Original>Controlled resources</Original>
         <French>Ressources contrôlées</French>
         <Korean>통제된 자원</Korean>
+        <Russian>Подконтрольные ресурсы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_factories">
         <Original>Controlled factories</Original>
         <French>Usines contrôlées</French>
         <Korean>통제된 공장</Korean>
+        <Russian>Подконтрольные заводы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_controlled_seaports">
         <Original>Controlled seaports</Original>
         <French>Ports maritimes contrôlés</French>
         <Korean>통제된 항구</Korean>
+        <Russian>Подконтрольные порты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
         <Original>Popular support\nYou need 50% to win</Original>
         <French>Support populaire\nVous avez besoin de 50% pour gagner</French>
         <Korean>지지도\n50%가 넘으면 승리합니다</Korean>
+        <Russian>Поддержка населения.\nВам нужно 50% для победы.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
         <Original>Dead population\nYou lose when this hits 33%</Original>
         <French>Population morte\nVous perdez quand cela atteint 33%</French>
         <Korean>인구 사망률\n33%가 넘으면 패배합니다</Korean>
+        <Russian>Смерть населения.\nВы проиграете если число достигнет 33%.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_faction_resources">
         <Original>Faction Resources</Original>
         <French>Ressources de faction</French>
         <Korean>세력 자원</Korean>
+        <Russian>Ресурсы фракции</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_hr_label">
         <Original>HR:</Original>
         <French>RH:</French>
         <Korean>인력:</Korean>
+        <Russian>Люди:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_training_level_label">
         <Original>Training level:</Original>
         <French>Niveau de formation:</French>
         <Korean>훈련 레벨:</Korean>
+        <Russian>Уровень подготовки:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_train_button">
         <Original>Train</Original>
         <French>Entrainer</French>
         <Korean>훈련</Korean>
+        <Russian>Тренировать</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
         <Original>Faction money:</Original>
         <French>Argent de la faction</French>
         <Korean>세력 자금:</Korean>
+        <Russian>Деньги фракции:</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_take_money_button">
         <Original>Take</Original>
         <French>Prendre</French>
         <Korean>인출</Korean>
+        <Russian>Взять</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_environment">
         <Original>Rest &amp; Environment</Original>
         <French>Se reposer &amp; Environnement</French>
         <Korean>휴식 &amp; 환경</Korean>
+        <Russian>Отдых и окружение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_button">
         <Original>Rest</Original>
         <French>Se repose</French>
         <Korean>휴식</Korean>
+        <Russian>Отдохнуть</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_clear_fog_button">
         <Original>Clear Fog</Original>
         <French>Enlever brouillard</French>
         <Korean>안개 제거</Korean>
+        <Russian>Рассеять туман</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_stop_rain_button">
         <Original>Stop Rain</Original>
         <French>Arrêter la pluie</French>
         <Korean>비 멈추기</Korean>
+        <Russian>Остановить дождь</Russian>
       </Key>
     </Container>
     <Container name="dialog_hq_garrisons">
@@ -919,86 +1093,103 @@
         <Original>GARRISONS</Original>
         <French>GARNISONS</French>
         <Korean>주둔지</Korean>
+        <Russian>ГАРНИЗОНЫ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_rifleman">
         <Original>Rifleman</Original>
         <French>Fusilier</French>
         <Korean>소총수</Korean>
+        <Russian>Стрелок</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_squad_leader">
         <Original>Squad Leader</Original>
         <French>Meneur d'escouade</French>
         <Korean>분대장</Korean>
+        <Russian>Командир</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_autorifleman">
         <Original>Autorifleman</Original>
         <French>Mitrailleur</French>
         <Korean>기관총사수</Korean>
+        <Russian>Пулеметчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_grenadier">
         <Original>Grenadier</Original>
         <French>Grenadier</French>
         <Korean>유탄수</Korean>
+        <Russian>Гренадер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_medic">
         <Original>Medic</Original>
         <French>Médecin</French>
         <Korean>의무병</Korean>
+        <Russian>Медик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_mortar">
         <Original>Mortar</Original>
         <French>Mortier</French>
         <Korean>박격포</Korean>
+        <Russian>Миномет</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_marksman">
         <Original>Marksman</Original>
         <French>Tireur d'elite</French>
         <Korean>지정사수</Korean>
+        <Russian>Снайпер</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_at">
         <Original>AT</Original>
         <French>AT</French>
         <Korean>대전차</Korean>
+        <Russian>Гранатометчик</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_insufficient_resources">
         <Original>Not enough money/HR</Original>
         <French>Pas assez d'argent/RH</French>
         <Korean>돈/인력이 충분하지 않음</Korean>
+        <Russian>Не хватает ресурсов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_under_attack">
         <Original>Can't manage garrisons when outpost is under attack.</Original>
         <French>Impossible de gérer les garnisons lorsque l'avant-poste est attaqué.</French>
         <Korean>전초기지가 공격받고 있을때는 주둔지를 관리할 수 없습니다</Korean>
+        <Russian>Нельзя управлять гарнизоном пока он под атакой.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
         <Original>Rebuild Assets</Original>
         <French>Reconstruire les actifs</French>
         <Korean>자산 재건설</Korean>
+        <Russian>Восстановить здания</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_dismiss_garrison_button">
         <Original>Dismiss Garrison</Original>
         <French>Renvoyer la garnison</French>
         <Korean>주둔지 해산</Korean>
+        <Russian>Распустить гарнизон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_build_watchpost_button">
         <Original>Build Watchpost</Original>
         <French>Construire un poste de surveillance</French>
         <Korean>감시초소 설치</Korean>
+        <Russian>Построить сторожевой пост</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_remove_watchpost_button">
         <Original>Remove Watchpost</Original>
         <French>Supprimer le poste de surveillance</French>
         <Korean>감시초소 제거</Korean>
+        <Russian>Распустить сторожевой пост</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_text">
         <Original>Rest for %1.</Original>
         <French>Repos pour %1.</French>
         <Korean>%1을 위해 휴식</Korean>
+        <Russian>Отдохнуть %1.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_wakeup_text">
         <Original>Time will be %2 when you wake up.</Original>
         <French>L'heure sera %2 lorsque vous vous réveillerez.</French>
         <Korean>일어난 후에는 %2시가 되있을 겁니다.</Korean>
+        <Russian>Вы проснетесь в %2.</Russian>
       </Key>
     </Container>
     <Container name="dialog_hq_minefields">
@@ -1006,26 +1197,31 @@
         <Original>MINEFIELDS</Original>
         <French>CHAMPS DE MINES</French>
         <Korean>지뢰지대</Korean>
+        <Russian>МИННЫЕ ПОЛЯ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_deploy_minefields_label">
         <Original>Deploy Minefield:</Original>
         <French>Déployez le champ de mines:</French>
         <Korean>지뢰지대 설치:</Korean>
+        <Russian>Создать минное поле</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_apers_mines_button">
         <Original>APERS Mines</Original>
         <French>Mines APERS</French>
         <Korean>APERS 지뢰</Korean>
+        <Russian>ПП мины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_at_mines_button">
         <Original>AT Mines</Original>
         <French>Mines AT</French>
         <Korean>대전차지뢰</Korean>
+        <Russian>ПТ мины</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_minefields_remove_minefield_button">
         <Original>Remove Minefield</Original>
         <French>Supprimer le champ de mines</French>
         <Korean>지뢰지대 제거</Korean>
+        <Russian>Убрать минное поле</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_admin">
@@ -1033,136 +1229,163 @@
         <Original>Debug info</Original>
         <French>Debug info</French>
         <Korean>디버그 정보</Korean>
+        <Russian>Информация отладки</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_reset_hq_button">
         <Original>Reset HQ</Original>
         <French>Réinitialiser le QG</French>
         <Korean>HQ 초기화</Korean>
+        <Russian>Сбросить штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_options_label">
         <Original>AI Options</Original>
         <French>Options d'IA</French>
         <Korean>AI 옵션</Korean>
+        <Russian>Опции ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_civ_limit_label">
         <Original>Civ Limit</Original>
         <French>Limite civile</French>
         <Korean>시민 제한</Korean>
+        <Russian>Лимит гражданских</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_spawn_distance_label">
         <Original>Spawn Distance</Original>
         <French>Distance d'apparition</French>
         <Korean>소환거리</Korean>
+        <Russian>Дистанция спавна</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_limiter_label">
         <Original>AI Limiter</Original>
         <French>Limite d'IA</French>
         <Korean>AI 제한기</Korean>
+        <Russian>Лимитер ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_section_warning">
         <Original>BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.</Original>
         <French>SOYEZ PRUDENT LORS DE LA MODIFICATION DE CES PARAMÈTRES. LES RÉGLER TROP HAUT *VA* BRISER LE JEU.</French>
         <Korean>이 설정들을 조정할땐 조심하세요, 이 설정은 게임을 *파괴할* 수 있습니다.</Korean>
+        <Russian>БУДЬТЕ ОСТОРОЖНЫ ПРИ РЕДАКТИРОВАНИИ ДАННЫХ НАСТРОЕК. НЕПРАВИЛЬНАЯ УСТАНОВКА МОЖЕТ СЛОМАТЬ ВАШУ ИГРУ.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_commit_button">
         <Original>Commit</Original>
         <French>Commettre</French>
         <Korean>확인</Korean>
+        <Russian>Принять</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_petros_button">
         <Original>Petros</Original>
         <French>Petros</French>
         <Korean>페트로스</Korean>
+        <Russian>Петрос</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_arsenal_box_button">
         <Original>Arsenal Box</Original>
         <French>Boîte d'arsenal</French>
         <Korean>무기고 상자</Korean>
+        <Russian>Арсенал</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_vehicle_box_button">
         <Original>Vehicle Box</Original>
         <French>Boîte de véhicule</French>
         <Korean>차량 상자</Korean>
+        <Russian>Гараж</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_flag_button">
         <Original>Flag</Original>
         <French>Drapeau</French>
         <Korean>깃발</Korean>
+        <Russian>Флаг</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_tent_button">
         <Original>Tent</Original>
         <French>Tente</French>
         <Korean>텐트</Korean>
+        <Russian>Палатка</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_map_button">
         <Original>Map</Original>
         <French>Carte</French>
         <Korean>맵</Korean>
+        <Russian>Карта</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_player_management_button">
         <Original>Player Management</Original>
         <French>Gestion des joueurs</French>
         <Korean>플레이어 관리</Korean>
+        <Russian>Управление игроком</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_confirm_button">
         <Original>Confirm</Original>
         <French>Confirmer</French>
         <Korean>확인</Korean>
+        <Russian>Подтвердить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_label">
         <Original>Teleport HQ assets to your position</Original>
         <French>Téléporter les actifs du QG à votre position</French>
         <Korean>HQ 자산을 당신의 위치로 이동</Korean>
+        <Russian>Переместить предметы штаба к вам</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_player_name_label">
         <Original>Name</Original>
         <French>Nom</French>
         <Korean>이름</Korean>
+        <Russian>Имя</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_player_distance_label">
         <Original>Distance</Original>
         <French>Distance</French>
         <Korean>거리</Korean>
+        <Russian>Расстояние</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_player_uid_label">
         <Original>PlayerUID</Original>
         <French>JoueurUID</French>
         <Korean>PlayerUID</Korean>
+        <Russian>PlayerUID</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_add_member_button">
         <Original>Add Member</Original>
         <French>Ajouter membre</French>
         <Korean>멤버 권한 추가</Korean>
+        <Russian>Добавить члена</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_remove_member_button">
         <Original>Remove Member</Original>
         <French>Enlever membre</French>
         <Korean>멤버 권한 제거</Korean>
+        <Russian>Удалить члена</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_to_player_button">
         <Original>Teleport to Player</Original>
         <French>Téléportation vers le joueur</French>
         <Korean>플레이어에게 순간이동</Korean>
+        <Russian>Переместить к игроку</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_tp_player_to_me_button">
         <Original>Teleport Player to Me</Original>
         <French>Téléporter le joueur vers moi</French>
         <Korean>플레이어를 나에게로 순간이동</Korean>
+        <Russian>Переместить игрока к вам</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_kick_player_button">
         <Original>Kick Player</Original>
         <French>Éjecter Joueur</French>
         <Korean>플레이어 킥</Korean>
+        <Russian>Выгнать игрока</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ban_player_button">
         <Original>Ban Player</Original>
         <French>Bannir Joueur</French>
         <Korean>플레이어 밴</Korean>
+        <Russian>Заблокировать игрока</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_copy_uid_button">
         <Original>Copy UID to Clipboard</Original>
         <French>Copier l'UID dans le presse-papiers</French>
         <Korean>클립보드로 UID 복사</Korean>
+        <Russian>Скопировать UID в буфер обмена</Russian>
       </Key>
     </Container>
     <Container name="dialog_main_ai_management">
@@ -1170,46 +1393,55 @@
         <Original>AI Group members</Original>
         <French>Membres du groupe AI</French>
         <Korean>AI 분대원</Korean>
+        <Russian>ИИ члены группы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_clear_button">
         <Original>Clear</Original>
         <French>Effacer</French>
         <Korean>제거</Korean>
+        <Russian>Очитстить</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_clear_tooltip">
         <Original>Clears list selection</Original>
         <French>Effacer la sélection de la liste</French>
         <Korean>선택한 목록 제거</Korean>
+        <Russian>Очитстить выделение в списке</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_temp_ai_control_button">
         <Original>Temp. AI Control</Original>
         <French>Contrôle temporaire de l'IA</French>
         <Korean>임시 AI 조종</Korean>
+        <Russian>Временный контроль ИИ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_dismiss_button">
         <Original>Dismiss Unit(s)</Original>
         <French>Renvoyer l'unité(s)</French>
         <Korean>유닛(들) 해산</Korean>
+        <Russian>Распустить бойцов</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
         <Original>Auto Rearm / Loot</Original>
         <French>Réarmement automatique / butin</French>
         <Korean>자동 재보급/노획</Korean>
+        <Russian>Автоматическое вооружение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_auto_heal_button">
         <Original>Auto Heal</Original>
         <French>Soin automatique</French>
         <Korean>자동 치료</Korean>
+        <Russian>Автоматическое лечение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
         <Original>You can only remote control single units\nSelect exactly one AI in the list</Original>
         <French>Vous ne pouvez contrôler à distance que des unités individuelles\nSélectionnez exactement une IA dans la liste</French>
         <Korean>오직 한개의 유닛만 조종할 수 있습니다.\n목록에서 정확하게 한명만 고르세요</Korean>
+        <Russian>Вы можете управлять только одним бойцом.\nВыберете ровно одного ИИ.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
         <Original>Select AI in the list</Original>
         <French>Sélectionnez IA dans la liste</French>
         <Korean>목록에서 AI 선택</Korean>
+        <Russian>Выберете ИИ</Russian>
       </Key>
     </Container>
     <Container name="recruit_squad">
@@ -1217,61 +1449,73 @@
         <Original>Recruit Squad</Original>
         <French>Recruter une escouade</French>
         <Korean>분대 모집</Korean>
+        <Russian>Нанять отряд</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_commander_only">
         <Original>Only the Commander has access to this function</Original>
         <French>Seul le commandant a accès à cette fonction</French>
         <Korean>이 기능은 지휘관만 사용할 수 있습니다</Korean>
+        <Russian>Только Командир может воспользоваться данной функцией</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_moving_hq">
         <Original>You cannot recruit a new squad while you are moving your HQ</Original>
         <French>Vous ne pouvez pas recruter une nouvelle escouade pendant que vous déplacez votre QG</French>
         <Korean>HQ를 이동하는 동안 새 분대를 모집할 수 없습니다.</Korean>
+        <Russian>Вы не можете нанять новый отряд пока перемещаете свой штаб</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
         <French>Vous avez besoin d'une radio dans votre inventaire pour pouvoir donner des ordres à d'autres escouades</French>
         <Korean>다른 분대에게 명령하려면 무전기가 필요합니다.</Korean>
+        <Russian>Вам нужно радио чтобы отдавать приказы другим отрядам</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_no_radio_man">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
         <French>Vous avez besoin d'un opérateur radio dans votre groupe pour pouvoir donner des ordres à d'autres escouades</French>
         <Korean>다른 분대에게 명령하려면 무전병이 필요합니다.</Korean>
+        <Russian>Вам нужен радист чтобы отдавать приказы другим отрядам</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_enemies_near">
         <Original>You cannot recruit squads with enemies near your HQ</Original>
         <French>Vous ne pouvez pas recruter d'escouades avec des ennemis à proximité de votre QG</French>
         <Korean>당신의 HQ 주변에 적군이 있는 동안은 분대를 모집할 수 없습니다.</Korean>
+        <Russian>Вы не можете нанять новый отряд пока рядом со штабом есть враги</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_unsupported_modset">
         <Original>The group or vehicle type you requested is not supported in your modset</Original>
         <French>Le groupe ou le type de véhicule que vous avez demandé n'est pas pris en charge dans votre modset</French>
         <Korean>당신이 요청한 차량이나 분대는 현재 사용하고 있는 모드셋에서 지원하지 않습니다.</Korean>
+        <Russian>Отряд или машина что вы вызвали недоступны с вашими модами</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_at_disabled_rhsgref">
         <Original>AT Trucks are disabled in RHS - GREF</Original>
         <French>Les camions AT sont désactivés dans RHS - GREF</French>
         <Korean>AT 트럭은 RHS - GREF에서 작동하지 않습니다.</Korean>
+        <Russian>ПТ машины недоступны с RHS GREF</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_insufficient_hr">
         <Original>You do not have enough HR for this request (%1 required)</Original>
         <French>Vous n'avez pas assez de RH pour cette demande (%1 requis)</French>
         <Korean>이 요청을 위한 충분한 인력이 없습니다. (%1 요구됨)</Korean>
+        <Russian>Не хватает людских ресурсов (требуется %1)</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_insufficient_money">
         <Original>You do not have enough money for this request (%1 € required)</Original>
         <French>Vous n'avez pas assez d'argent pour cette demande (%1 € requis)</French>
         <Korean>이 요청을 위한 충분한 돈이 없습니다. (%1 € 요구됨)</Korean>
+        <Russian>Не хватает денег (требуется %1 €)</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_hint_vehicle_purchased">
         <Original>Vehicle Purchased</Original>
         <French>Véhicule acheté</French>
         <Korean>차량 구매됨</Korean>
+        <Russian>Машина куплена</Russian>
       </Key>
       <Key ID="STR_antistasi_recruit_squad_spawn_message">
         <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
         <French>Groupe %1 à votre commande.&lt;br/&gt;&lt;br/&gt;Les groupes sont gérés depuis la barre de commande supérieure (par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe se coince, utilisez la fonction contrôle temporaire de l'IA pour les déplacer. Les équipes statiques montées ont tendance à rester bloquées (résoudre cela est WiP)&lt;br/&gt;&lt;br/&gt;Pour attribuer un véhicule à ce groupe, regardez un véhicule et utilisez l'option Vehicle Squad Mngmt dans le menu Y</French>
         <Korean>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;분대는 HC 바에서 조종할 수 있습니다. (기본: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;만약 분대에 문제가 생긴다면, AI 통제 시스템을 이용해 분대원을 움직이게 해보세요. 거치화기팀은 문제가 생길 가능성이 높습니다. (작업중)&lt;br/&gt;&lt;br/&gt;차량을 분대에게 할당하려면, 차량을 보고, Y 메뉴에서 분대 차량 관리 기능을 사용하세요.</Korean>
+        <Russian>%1 ожидает ваших приказов.&lt;br/&gt;&lt;br/&gt;Управлять группами можно в режиме Главнокомандующего (По умолчанию: Ctrl+Space)&lt;br/&gt;&lt;br/&gt;Если группа застряла вы можете врменно взять контроль над их командиром. Расчеты со станковым вооружением часто застревают (решение в процессе).&lt;br/&gt;&lt;br/&gt;Вы также можете назначить группе машину в меню игрока.</Russian>
       </Key>
     </Container>
     <Container name="arsenal_limits_dialog">
@@ -1279,31 +1523,37 @@
         <Original>ARSENAL GUEST LIMITS</Original>
         <French>LIMITES D'INVITÉS D'ARSENAL</French>
         <Korean>게스트 무기고 제한</Korean>
+        <Russian>ГОСТЕВОЙ ЛИМИТ В АРСЕНАЛЕ</Russian>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_limit">
         <Original>Limit</Original>
         <French>Limite</French>
         <Korean>제한</Korean>
+        <Russian>Лимит</Russian>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_current">
         <Original>Current</Original>
         <French>Courant</French>
         <Korean>현재</Korean>
+        <Russian>Текущий</Russian>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_close">
         <Original>CLOSE</Original>
         <French>FERMER</French>
         <Korean>닫기</Korean>
+        <Russian>ЗАКРЫТЬ</Russian>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_step">
         <Original>STEP</Original>
         <French>ÉTAPE</French>
         <Korean>단계</Korean>
+        <Russian>ШАГ</Russian>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_reset">
         <Original>RESET</Original>
         <French>RÉINITIALISER</French>
         <Korean>초기화</Korean>
+        <Russian>СБРОСИТЬ</Russian>
       </Key>
     </Container>
   </Package>

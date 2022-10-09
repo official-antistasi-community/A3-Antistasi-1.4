@@ -91,10 +91,10 @@ if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS
 
 
 // maps detection
-if (isClass (configfile >> "CfgPatches" >> "CUP_CA_Data")) then {A3A_hasCUPTCore = true; Info("Cup Terrains Detected.") };
+if (isClass (configfile >> "CfgPatches" >> "CUP_CA_Data")) then {A3A_hasCUPCoreMap = true; Info("Cup Terrains Detected.") };
 
 
 //No Mods found logging
 if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF && !A3A_hasUNS) then { Info("No Side Replacement Mods Detected.") };
 if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV && !A3A_hasKAT) then { Info("No Addon Mods Detected.") };
-if (!A3A_hasCUPTCore) then {Info("No Map Mods Detected, assuming Vanilla.")};
+if (!A3A_hasCUPCoreMap) then {Info("No Map Mods Detected, assuming Vanilla.")};

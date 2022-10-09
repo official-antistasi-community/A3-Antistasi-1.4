@@ -2659,7 +2659,7 @@
         <Russian>Неудача</Russian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_3">
-        <Original>You will loose the game if %1 has murdered 1/3 of the total population.</Original>
+        <Original>You will lose the game if %1 has murdered 1/3 of the total population.</Original>
         <French>Vous perdrez la partie si %1 a tué 1/3 de la population totale.</French>
         <German>Du verlierst das Spiel, wenn %1 1/3 der gesamten Bevölkerung ermordet hat.</German>
         <Czech>Ztratíte hru, pokud %1 zavraždí 1/3 celkové populace.</Czech>

@@ -59,7 +59,7 @@ Info_2("Side Attacker:%1, Side Defender: %2",_sideX,_isSDK);
 _nameDest = [_mrkDestination] call A3A_fnc_localizar;
 
 private _taskId = "rebelAttack" + str A3A_taskCount;
-[_sideTsk,_taskId,[format ["%2 Is attacking from the %1. Intercept them or we may loose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[_sideTsk,_taskId,[format ["%2 Is attacking from the %1. Intercept them or we may lose a sector",_nameOrigin,_nameENY],format ["%1 Attack",_nameENY],_mrkOrigin],getMarkerPos _mrkOrigin,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_sideTsk1,_taskId+"B",[format ["We are attacking %2 from the %1. Help the operation if you can",_nameOrigin,_nameDest],format ["%1 Attack",_nameENY],_mrkDestination],getMarkerPos _mrkDestination,false,0,true,"Attack",true] call BIS_fnc_taskCreate;
 [_taskId, "rebelAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 

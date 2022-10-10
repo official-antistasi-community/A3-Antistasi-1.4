@@ -7,7 +7,7 @@ Arguments:
     None
 */
 
-#define TIMEOUT_AFK 120
+#define TIMEOUT_AFK 300
 
 A3A_lastActiveTime = time;
 A3A_lastPlayerDir = getDir player;
@@ -32,5 +32,8 @@ while {true} do {
 
     if (time - A3A_lastActiveTime > TIMEOUT_AFK and !(player getVariable ["isAFK", false])) then { 
         player setVariable ["isAFK", true, [2, clientOwner]];
+        if (player == theBoss) then {
+            ["Client idle checker", "You are now considered AFK. You may lose commander if an election is triggered"] call A3A_fnc_customHint;
+        };
     };
 };

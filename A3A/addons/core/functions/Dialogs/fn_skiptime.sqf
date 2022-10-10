@@ -1,12 +1,8 @@
 if (player!= theBoss) exitWith {["Skip Time / Rest", "Only the Commander can order to rest."] call A3A_fnc_customHint;};
 _presente = false;
 
-{
-if ((side _x == Occupants) or (side _x == Invaders)) then
-	{
-	if ([500,1,_x,teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
-	};
-} forEach allUnits;
+private _rebelSpawners = units teamPlayer select { _x getVariable ["spawner",false] };
+private _presente = (-1 != (_rebelSpawners findIf { [getPosATL _x] call A3A_fnc_enemyNearCheck }));
 if (_presente) exitWith {["Skip Time / Rest", "You cannot rest while enemies are near our units."] call A3A_fnc_customHint;};
 if ("rebelAttack" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while the enemy is counterattacking."] call A3A_fnc_customHint;};
 if ("invaderPunish" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while citizens are under attack."] call A3A_fnc_customHint;};

@@ -255,9 +255,11 @@ private _fnc_handleUniqueCases = { //handles unique name cases that the stored v
         case "firstAidKits";
         case "mediKits": { { ["CfgWeapons",_x,_entry] call _fnc_validClassCaseSensitive } forEach _y };
 
-        //generic class
-        case "initialRebelEquipment": { { [_x] call _fnc_genericClassExists } forEach _y };
-
+        //array of generic classnames, or [class, ...]
+        case "initialRebelEquipment": {
+            private _classes = _y apply { if (_x isEqualType []) then {_x#0} else {_x} };
+            { [_x] call _genericClassExists } forEach _classes;
+        };
         //bool
 
         //truly unique cases

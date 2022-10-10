@@ -68,3 +68,6 @@ Pop-Location
 Pop-Location
 
 Pop-Location
+
+$displayTime = Get-Date -DisplayHint DateTime
+"Antistasi builder ran at: " + $displayTime

@@ -14,8 +14,8 @@ class AddonVics
 */
     class D3S
     {
-        path = QPATHTOFOLDER(Templates\AddonVics);
-        requiredAddons[] = {"ToDo: Find patches entry"};
+        path = QPATHTOFOLDER(Templates\AddonVics\);
+        requiredAddons[] = {"d3s_cars_core"};
         //format {side, file relative to path}
         files[] = { {"Civ", "d3s_Civ.sqf"} };
         Nodes[] = {"d3s_Logi_Nodes.sqf"};
@@ -26,7 +26,7 @@ class AddonVics
 
     class Ivory
     {
-        path = QPATHTOFOLDER(Templates\AddonVics);
+        path = QPATHTOFOLDER(Templates\AddonVics\);
         requiredAddons[] = {"Ivory_Data"};
         files[] = { {"Civ", "ivory_Civ.sqf"} };
         Nodes[] = {};
@@ -37,7 +37,7 @@ class AddonVics
 
     class RDS
     {
-        path = QPATHTOFOLDER(Templates\AddonVics);
+        path = QPATHTOFOLDER(Templates\AddonVics\);
         requiredAddons[] = {"rds_A2_Civilians"};
         files[] = { {"Civ", "rds_Civ.sqf"} };
         Nodes[] = {"rds_Logi_Nodes.sqf"};
@@ -48,7 +48,7 @@ class AddonVics
 
     class TCGM
     {
-        path = QPATHTOFOLDER(Templates\AddonVics);
+        path = QPATHTOFOLDER(Templates\AddonVics\);
         requiredAddons[] = {"TCGM_BikeBackpack"};
         files[] = { {"Civ", "tcgm_Civ.sqf"} };
         Nodes[] = {};

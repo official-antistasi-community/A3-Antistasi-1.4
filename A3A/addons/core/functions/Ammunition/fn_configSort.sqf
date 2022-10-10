@@ -39,7 +39,7 @@ private _allConfigs = _allWeaponConfigs + _allMagazineConfigs + _allBackpackConf
 ////////////////////////////////////////////////////
 //    Filter out content from disabled mods.     ///
 ////////////////////////////////////////////////////
-_allConfigs = _allConfigs select {!(_x call A3A_fnc_getModOfConfigClass in disabledMods)};
+_allConfigs = _allConfigs select {!(_x call A3A_fnc_getModOfConfigClass in A3A_disabledMods)};
 
 //////////////////////////////
 //    Sorting Function     ///

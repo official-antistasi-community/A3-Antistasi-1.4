@@ -8,6 +8,7 @@ scriptName "initVarServer.sqf";
 FIX_LINE_NUMBERS()
 Info("initVarServer started");
 
+params ["_saveData"];
 
 //Little bit meta.
 serverInitialisedVariables = ["serverInitialisedVariables"];
@@ -46,12 +47,12 @@ DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
-DECLARE_SERVER_VAR(distanceForLandAttack, if (A3A_hasIFA) then {5000} else {3000});
+DECLARE_SERVER_VAR(distanceForLandAttack, 3000);			// now faction-adjusted  - if (A3A_hasIFA) then {5000} else {3000});
 //Max units we aim to spawn in. Still declared in initParams and modifiable in game options, but unused
 //DECLARE_SERVER_VAR(maxUnits, 140);
 
 //Disabled DLC according to server parameters
-DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
+//DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
 
 //Legacy tool for scaling AI difficulty. Should die.
 DECLARE_SERVER_VAR(difficultyCoef, 0);
@@ -127,9 +128,9 @@ A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
 
 // Current resources, overwritten by saved game
 A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max
-A3A_resourcesDefenceInv = A3A_balanceResourceRate * A3A_invaderBalanceMul * 6;							// 60% of max
-A3A_resourcesAttackOcc = -10 * A3A_balanceResourceRate * A3A_enemyattackMul;								// ~100 min to attack
-A3A_resourcesAttackInv = -10 * A3A_balanceResourceRate * A3A_enemyattackMul * A3A_invaderbalanceMul * 0.5;	// ~50 min to attack
+A3A_resourcesDefenceInv = A3A_balanceResourceRate * (A3A_invaderBalanceMul / 10) * 6;							// 60% of max
+A3A_resourcesAttackOcc = -10 * A3A_balanceResourceRate * (A3A_enemyAttackMul / 10);								// ~100 min to attack
+A3A_resourcesAttackInv = -10 * A3A_balanceResourceRate * (A3A_enemyAttackMul / 10) * (A3A_invaderBalanceMul / 10) * 0.5;	// ~50 min to attack
 
 // HQ knowledge values
 A3A_curHQInfoOcc = 0;			// 0-1 ranges for current HQ
@@ -143,7 +144,7 @@ attackMrk = [];
 // These are silly, should be nil/true and local-defined only
 cityIsSupportChanging = false;
 resourcesIsChanging = false;
-savingServer = false;
+savingServer = true;					// lock out saves until this is changed
 
 prestigeIsChanging = false;
 
@@ -154,12 +155,17 @@ markersChanging = [];
 
 playerHasBeenPvP = [];
 
-savedPlayers = [];
+A3A_playerSaveData = createHashMap;
 destroyedBuildings = [];		// synced only on join, to avoid spam on change
 
 testingTimerIsActive = false;
 
 A3A_tasksData = [];
+
+hcArray = [];					// array of headless client IDs
+
+membersX = [];					// These two published later by startGame
+theBoss = objNull;
 
 ///////////////////////////////////////////
 //     INITIALISING ITEM CATEGORIES     ///
@@ -244,17 +250,104 @@ FIX_LINE_NUMBERS()
 };
 
 //////////////////////////////////////
-//         TEMPLATE SELECTION      ///
+//   SETUP FACTION AND DLC FLAGS   ///
+//////////////////////////////////////
+Info("Setting up faction and DLC equipment flags");
+
+// Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
+private _loadedDLC = getLoadedModsInfo select {_x#3 and !(_x#1 in ["A3","curator","argo","tacops"])} apply {tolower (_x#1)};
+A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
+{
+	A3A_enabledDLC insert [0, getArray (configFile/"A3A"/"Templates"/_x/"forceDLC"), true];		// add unique elements only
+} forEach (_saveData get "factions");
+A3A_disabledDLC = _loadedDLC - A3A_enabledDLC;
+A3A_disabledMods = A3A_disabledDLC;                 // Split to allow CUP civilians with GM
+
+// Everything that counts as vanilla: Official DLC plus various junk tags
+A3A_vanillaMods = (getLoadedModsInfo select {_x#2 and _x#3} apply {tolower (_x#1)}) + ["", "officialmod"];
+
+Debug_3("DLC enabled: %1 Disabled: %2 Vanilla: %3", A3A_enabledDLC, A3A_disabledDLC, A3A_vanillaMods);
+
+// TODO: fix all allowDLCxxx and A3A_hasxxx references in templates
+// for the moment just fudge the ones that we're using
+A3A_hasWS = "ws" in A3A_enabledDLC; allowDLCWS = A3A_hasWS;
+allowDLCEnoch = "enoch" in A3A_enabledDLC;
+allowDLCTanks = "tanks" in A3A_enabledDLC;
+allowDLCOrange = "orange" in A3A_enabledDLC;
+allowDLCExpansion = "expansion" in A3A_enabledDLC;
+
+// Set faction equipment flags by lowest common denominator
+private _factions = _saveData get "factions";
+private _occEquipFlags = getArray (configFile/"A3A"/"Templates"/(_factions#0)/"equipFlags");
+private _invEquipFlags = getArray (configFile/"A3A"/"Templates"/(_factions#1)/"equipFlags");
+A3A_factionEquipFlags = _occEquipFlags arrayIntersect _invEquipFlags;
+
+Debug_1("Faction equip flags: %1", A3A_factionEquipFlags);
+
+// Add CUP to disabledMods if we need to filter out its equipment
+if ("blockCUP" in A3A_factionEquipFlags) then {
+    private _modpath = (configFile/"CfgPatches"/"CUP_BaseConfigs") call A3A_fnc_getModOfConfigClass;
+    if (_modpath != "") then { A3A_disabledMods pushBack _modpath };
+};
+
+// Build list of extra equipment mods so we can filter out the modern stuff as necessary
+// Might not work for everything because of configSourceMod inconsistency (eg. "rhs_weap_fnfal50_61_base")
+A3A_extraEquipMods = [];
+{
+    private _modpath = (configFile/"CfgPatches"/_x) call A3A_fnc_getModOfConfigClass;
+    if (_modpath != "") then { A3A_extraEquipMods pushBackUnique _modpath };
+} forEach ["task_force_radio", "acre_main", "tfar_static_radios", "ace_main"];
+
+Debug_1("Extra equip mod paths: %1", A3A_extraEquipMods);
+
+//////////////////////////////////////
+//         TEMPLATE LOADING        ///
 //////////////////////////////////////
 Info("Reading templates");
 
-call A3A_fnc_selector;
+// Hack: Need vanilla nodes to define logistics arrays apparently
+private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Logistics_Nodes.sqf)];
+
+{
+    private _side = [west, east, resistance, civilian] # _forEachIndex;
+    Info_2("Loading template %1 for side %2", _x, _side);
+
+	private _cfg = configFile/"A3A"/"Templates"/_x;
+	private _basepath = getText (_cfg/"basepath");
+	private _file = getText (_cfg/"file") + ".sqf";
+    [_basepath + _file, _side] call A3A_fnc_compatibilityLoadFaction;
+
+    private _type = ["Occ", "Inv", "Reb", "Civ"] # _forEachIndex;
+    missionNamespace setVariable ["A3A_"+_type+"_template", _x];			// don't actually need this atm, but whatever
+
+	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray(_cfg/"nodes");
+} forEach (_saveData get "factions");
+
+{
+	private _cfg = configFile/"A3A"/"Templates"/_x;
+	private _basepath = getText (_cfg/"path");
+	{
+		Info_2("Loading addon file %1 for side %2", _x#1, _x#0);
+		[_x#0, _basepath + _x#1] call A3A_fnc_loadAddon;
+	} forEach getArray (_cfg/"files");
+
+	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray (_cfg/"nodes");
+} forEach (_saveData get "addonVics");
+
+{
+    Info_1("Loading logistic nodes: %1", _x);
+    call compile preprocessFileLineNumbers _x;
+} forEach _logisticsFiles;
+
+call A3A_fnc_compileMissionAssets;
+
 { //broadcast the templates to the clients
     publicVariable ("A3A_faction_"+_x);
 } forEach ["occ", "inv", "reb", "civ", "all"]; // ["A3A_faction_occ", "A3A_faction_inv", "A3A_faction_reb", "A3A_faction_civ", "A3A_faction_all"]
 
-//Set SDKFlagTexture on FlagX
-if (local flagX) then { flagX setFlagTexture FactionGet(reb,"flagTexture") } else { [flagX, FactionGet(reb,"flagTexture")] remoteExec ["setFlagTexture", owner flagX] };
+// Set template-dependent map stuff
+
+flagX setFlagTexture FactionGet(reb,"flagTexture");                 // HQ flag, should be local here
 "NATO_carrier" setMarkerText FactionGet(occ,"spawnMarkerName");
 "CSAT_carrier" setMarkerText FactionGet(inv,"spawnMarkerName");
 "NATO_carrier" setMarkertype FactionGet(occ,"flagMarkerType");
@@ -267,12 +360,9 @@ Info("Creating civilian vehicles lists");
 
 private _fnc_vehicleIsValid = {
 	params ["_type"];
-	private _configClass = configFile >> "CfgVehicles" >> _type;
-	if !(isClass _configClass) exitWith {
-        Error_1("Vehicle class %1 not found", _type);
-		false;
-	};
-	if (_configClass call A3A_fnc_getModOfConfigClass in disabledMods) then {false} else {true};
+	private _cfg = configFile >> "CfgVehicles" >> _type;
+	if !(isClass _cfg) exitWith { Error_1("Vehicle class %1 not found", _type); false };
+	if (_cfg call A3A_fnc_getModOfConfigClass in A3A_disabledDLC) then {false} else {true};
 };
 
 private _fnc_filterAndWeightArray = {
@@ -422,12 +512,13 @@ DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
 if (A3A_hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
-if (A3A_hasRHS) then {
-	[] call A3A_fnc_rhsModCompat;
-};
-if (A3A_hasIFA) then {
-	[] call A3A_fnc_ifaModCompat;
-};
+
+//if (A3A_hasRHS) then {
+//	[] call A3A_fnc_rhsModCompat;
+//};
+//if (A3A_hasIFA) then {
+//	[] call A3A_fnc_ifaModCompat;
+//};
 
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///

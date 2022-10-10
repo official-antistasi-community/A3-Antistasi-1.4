@@ -32,7 +32,7 @@ _mainMarker = getMarkerPos _marker;
 {
   _first = (_x splitString "_") select 0;
   _fullName = format ["%1%2", _markerPrefix, _x];
-  if(debug && {_mainMarker distance (getMarkerPos _fullName) > 500}) then
+  if(_mainMarker distance (getMarkerPos _fullName) > 500) then
   {
     Error_2("Placementmarker %1 is more than 500 meter away from its mainMarker %2. You may want to check that!", _fullName, _marker);
   };

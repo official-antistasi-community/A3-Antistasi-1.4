@@ -1,3 +1,6 @@
+// dead function. Was only useful for SP support
+if (true) exitWith {};
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 Info("Init Started");

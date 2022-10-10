@@ -23,16 +23,4 @@ publicVariable "petros";
 
 deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group
 
-[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros", "Petros"] call BIS_fnc_setIdentity;
-
-if (petros == leader _groupPetros) then {
-	_groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
-	petros disableAI "MOVE";
-	petros disableAI "AUTOTARGET";
-	petros setBehaviour "SAFE";
-	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian]]
-} else {
-	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian]]
-};
-
 call A3A_fnc_initPetros;

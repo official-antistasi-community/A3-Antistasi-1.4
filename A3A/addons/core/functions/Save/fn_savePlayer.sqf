@@ -32,11 +32,7 @@ if (isNil { _playerUnit getVariable "moneyX" }) exitWith {
 
 Info_2("Saving player %1 on side %2", _playerId, side group _playerUnit);
 
-// Add player to saved list so that we can find the data for deletion
-if !(_playerId in savedPlayers) then {
-	savedPlayers pushBack _playerId;
-	["savedPlayers", savedPlayers] call A3A_fnc_setStatVariable;
-};
+private _playerHM = A3A_playerSaveData getOrDefault [_playerID, createHashMap, true];			// ugh, switch to getOrDefaultCall after 2.12
 
 private _shouldStripLoadout = false;
 if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) then
@@ -45,47 +41,40 @@ if (!(alive _playerUnit) || (_playerUnit getVariable ["incapacitated", false])) 
     Info_1("Stripping saved loadout of player %1 due to saving while dead or unconcious", _playerId);
 };
 
-if (_shouldStripLoadout) then {
-	[_playerId, "loadoutPlayer", (getUnitLoadout _playerUnit) call A3A_fnc_stripGearFromLoadout] call A3A_fnc_savePlayerStat;
-} else {
-	[_playerId, "loadoutPlayer", getUnitLoadout _playerUnit] call A3A_fnc_savePlayerStat;
-};
+private _loadout = getUnitLoadout _playerUnit;
+if (_shouldStripLoadout) then { _loadout = _loadout call A3A_fnc_stripGearFromLoadout };
+_playerHM set ["loadoutPlayer", _loadout];
 
-if (isMultiplayer) then
+_playerHM set ["scorePlayer", _playerUnit getVariable "score"];
+_playerHM set ["rankPlayer", rank _playerUnit];
+_playerHM set ["personalGarage", []];
+
+_totalMoney = _playerUnit getVariable ["moneyX", 0];
+if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
+
+if (_globalSave) then
 {
-	[_playerId, "scorePlayer", _playerUnit getVariable "score"] call A3A_fnc_savePlayerStat;
-	[_playerId, "rankPlayer", rank _playerUnit] call A3A_fnc_savePlayerStat;
-	[_playerId, "personalGarage", []] call A3A_fnc_savePlayerStat;
-
-	_totalMoney = _playerUnit getVariable ["moneyX", 0];
-	if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
-
-	if (_globalSave) then
+	// Add value of live AIs owned by player
+	// plus cost of vehicles driven by player-owned units, including self
+	// plus cost of unsaved static weapons aimed by player-owned units, including self
 	{
-		// Add value of live AIs owned by player
-		// plus cost of vehicles driven by player-owned units, including self
-		// plus cost of unsaved static weapons aimed by player-owned units, including self
+		if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
 		{
-			if (alive _x && (_x getVariable ["owner", objNull] == _playerUnit)) then
-			{
-				if (_x != _playerUnit) then {
-					private _unitPrice = server getVariable [_x getVariable "unitType", 0];
-					_totalMoney = _totalMoney + _unitPrice;
-				};
-				private _veh = vehicle _x;
-				if (_veh == _x || {_veh in staticsToSave}) exitWith {};
-				if (_x == driver _veh || {_x == gunner _veh && _veh isKindOf "StaticWeapon"}) then {
-					private _vehPrice = [typeof _veh] call A3A_fnc_vehiclePrice;
-					_totalMoney = _totalMoney + _vehPrice;
-				};
+			if (_x != _playerUnit) then {
+				private _unitPrice = server getVariable [_x getVariable "unitType", 0];
+				_totalMoney = _totalMoney + _unitPrice;
 			};
-
-		} forEach (units group _playerUnit);
-	};
-	[_playerId, "moneyX", _totalMoney] call A3A_fnc_savePlayerStat;
-
-    Info_3("Saved player %1: %2 rank, %3 money", _playerId, rank _playerUnit, _totalMoney toFixed 0);
+			private _veh = vehicle _x;
+			if (_veh == _x || {_veh in staticsToSave}) exitWith {};
+			if (_x == driver _veh || {_x == gunner _veh && _veh isKindOf "StaticWeapon"}) then {
+				private _vehPrice = [typeof _veh] call A3A_fnc_vehiclePrice;
+				_totalMoney = _totalMoney + _vehPrice;
+			};
+		};
+	} forEach (units group _playerUnit);
 };
+_playerHM set ["moneyX", _totalMoney];
 
-if (!_globalSave) then { saveProfileNamespace };
+Info_3("Saved player %1: %2 rank, %3 money", _playerId, rank _playerUnit, _totalMoney toFixed 0);
+
 true;

@@ -19,3 +19,5 @@ if (_bad) then
 
 	};
 };
+
+_bad;

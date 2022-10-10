@@ -1106,5 +1106,94 @@
         <French>RÉINITIALISER</French>
       </Key>
     </Container>
+    <Container name="setup_dialog">
+      <Key ID="STR_antistasi_dialogs_setup_titlebar">
+        <Original>ANTISTASI SETUP</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
+        <Original>Load Game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
+        <Original>Factions</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
+        <Original>Params</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_saved_games">
+        <Original>Saved Games</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_start_game">
+        <Original>Start game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_create_new_game">
+        <Original>Create new game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
+        <Original>Copy old game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_load_old_params">
+        <Original>Load old params</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
+        <Original>Use New Namespace</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
+        <Original>Set HQ Position</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_new_save_name">
+        <Original>New save name</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_rename_game">
+        <Original>Rename game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_delete_game">
+        <Original>Delete game</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_rebels">
+        <Original>Rebels</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_civilians">
+        <Original>Civilians</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_occupants">
+        <Original>Occupants</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_invaders">
+        <Original>Invaders</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_addonvics">
+        <Original>Addon vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_dlc">
+        <Original>DLC</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
+        <Original>Override map limits</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
+        <Original>Override camo limits</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
+        <Original>Show missing mods</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
+        <Original>Override side limits</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
+        <Original>Switch enemy sides</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_title">
+        <Original>CONFIRM ACTION</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
+        <Original>YES</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
+        <Original>CANCEL</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_hqpos_close">
+        <Original>Close</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

@@ -5,7 +5,7 @@
 		_config: Config class - The config class to look up.
 		
 	Returns:
-		Name of the mod, as a string.
+		Name of the mod, as a string. DLC will be lowercased because of inconsistency
 **/
 
 params ["_config"];
@@ -21,7 +21,7 @@ if (count _addons > 0) then {
 };
 
 if (_return == "") then {
-	_return = toLower getText (_config >> "DLC");
+	_return = tolower getText (_config >> "DLC");
 };
 
 _return;

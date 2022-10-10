@@ -211,7 +211,7 @@
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_AceCargo">
         <Original>Ace Cargo:</Original>
-        <French>Cargo d'Ace:</French>
+        <French>Cargo Ace:</French>
         <Russian>Грузовой отсек ACE:</Russian>
         <Korean>에이스 화물:</Korean>
       </Key>
@@ -479,6 +479,7 @@
         <Original>Pylon %1</Original>
         <Russian>Пилон</Russian>
         <Korean>파일런 %1</Korean>
+        <French>Pylône 1%</French>
       </Key>
       <Key ID="STR_HR_GRG_Pylons_Empty">
         <Original>[Empty]</Original>

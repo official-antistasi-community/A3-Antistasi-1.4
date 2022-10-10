@@ -57,7 +57,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_text">
         <Original>Manage Garrisons</Original>
-        <French>Gérer Garnisons</French>
+        <French>Gérer les garnisons</French>
         <Russian>Управление гарнизоном</Russian>
         <German>Garnisonsverwaltung</German>
         <Czech>Spravovat posádku</Czech>
@@ -111,7 +111,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
-        <French>Reconstruire les (biens)</French>
+        <French>Reconstruire les biens</French>
         <Russian>Восстановление объектов</Russian>
         <German>Anlagen wiederherstellen</German>
         <Czech>Znovu vybudovat objekt</Czech>
@@ -593,7 +593,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
         <Original>Civilian vehicles will allow you to travel in Undercover mode, while you stay close to roads and not entering bases, outposts and roadblocks.</Original>
-        <French>Les véhicules civils vous permettent de vous déplacer "Sous-couverture", tant que vous restez près des routes et ne pénétrez pas les bases, avant-postes et barrages routiers.</French>
+        <French>Les véhicules civils vous permettent de vous déplacer "Incognito", tant que vous restez près des routes et ne pénétrez pas les bases, avant-postes et barrages routiers.</French>
         <Russian>Гражданская техника позволяет Вам передвигаться как гражданскому лицу, пока Вы движетесь по дорогам вдалеке от баз, опорных пунктов и блокпостов.</Russian>
         <German>Zivilfahrzeuge erlaube dir unentdeckt zu reisen, sofern du nahe der Straßen bleibst und in keine Basen, Außenposten oder Straßensperren einfährst.</German>
         <Czech>Civilní vozidla vám umožní cestovat v režimu "utajení", zatímco zůstanete v blízkosti silnic a ne v blízkosti základen a zátarasů.</Czech>
@@ -887,7 +887,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_7">
         <Original>Undercover</Original>
-        <French>Sous-couverture</French>
+        <French>Incognito</French>
         <German>Verdecktes Vorgehen</German>
         <Czech>V Utajení</Czech>
         <Chinesesimp>伪装</Chinesesimp>
@@ -896,7 +896,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_7">
         <Original>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</Original>
-        <French>Dans les premiers stades, en particulier lors de l'accomplissement de certaines missions, être sous-couverture peut être extrêmement utile. Tout comme pour les vrais combattants de la résistance, votre capacité à disparaître est quelque chose que l'ennemi ne peut pas contrer. Voir la section Fonctionnalités pour une explication approfondie du mode Sous-couverture.</French>
+        <French>Dans les premiers stades, en particulier lors de l'accomplissement de certaines missions, être incognito peut être extrêmement utile. Tout comme pour les vrais combattants de la résistance, votre capacité à disparaître est quelque chose que l'ennemi ne peut pas contrer. Voir la section Fonctionnalités pour une explication approfondie du mode Incognito.</French>
         <German>In der Anfangsphase, vor allem bei der Erfülling bestimmter Missionen, kann ein verdecktes Vorgehen sehr hilfreich sein. Genau wie für reale Widerstandskämpfer ist deine Fähigkeit zu verschwinden etwas, dem der Feind nahezu nichts entgegenbringen kann. Weitere Informationen zum verdeckten Vorgehen findest du in dem Features Bereich.</German>
         <Czech>V počáteční fázi, zejména při plnění některých misí, může být skrytý přístup velmi užitečný. Stejně jako skuteční bojovníci odporu, vaše schopnost zmizet je něco, s čím nepřítel nemůže dělat téměř nic. Další informace o skrytém postupu naleznete v části Funkce.</Czech>
         <Chinesesimp>在早期阶段, 特别是执行某些特定任务时, 伪装模式会带来极大帮助。就像真正的反抗军战士一样, 你的消失是敌军无法预料的。有关伪装模式的详细说明, 请参阅功能部分。</Chinesesimp>
@@ -1311,7 +1311,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_3">
         <Original>Undercover</Original>
-        <French>Sous-couverture</French>
+        <French>Incognito</French>
         <German>Verdecktes Vorgehen</German>
         <Czech>V utajení</Czech>
         <Chinesesimp>伪装</Chinesesimp>
@@ -1320,7 +1320,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_3">
         <Original>Click on this button to go undercover. If you meet the requirements, the enemy won't attack you on sight. On foot, to go undercover you must have no weapons or military equipment visible.&lt;br/&gt;You will lose undercover status when you change load-out, get spotted by enemy guard-dogs, plant mines, and can also be reported by some civilians to the enemy. If you are discovered you won't be able to go undercover on foot again for 30 minutes. You can also go undercover by getting into any civilian vehicle. You will lose undercover status by firing any weapon or being spotted far from a road. If you are discovered you won't be able to go undercover in that vehicle again. Getting close to enemy Airbases, outposts and roadblocks will also make you lose undercover status.</Original>
-        <French>Cliquez sur ce bouton pour aller sous-couverture. Si vous remplissez les conditions, l'ennemi ne vous attaquera pas à vue. À pied, pour aller sous-couverture, vous ne devez avoir ni armes ni équipement militaire visible.&lt;br/&gt;Vous perdrez le statut d'infiltration lorsque vous changerez de chargement, serez repéré par des chiens de garde ennemis, planterez des mines et certains civils pourront également signaler à l'ennemi. Si vous êtes découvert, vous ne pourrez plus vous infiltrer à pied pendant 30 minutes. Vous pouvez également vous infiltrer en montant dans n'importe quel véhicule civil. Vous perdrez le statut d'infiltration en tirant avec n'importe quelle arme ou en étant repéré loin d'une route. Si vous êtes découvert, vous ne pourrez plus vous infiltrer dans ce véhicule. Se rapprocher des bases aériennes, des avant-postes et des barrages routiers ennemis vous fera également perdre le statut d'infiltration.</French>
+        <French>Cliquez sur ce bouton pour passer incognito. Si vous remplissez les conditions, l'ennemi ne vous attaquera pas à vue. À pied, pour devenir incognito, vous ne devez avoir ni armes ni équipement militaire visible.&lt;br/&gt;Vous perdrez le statut d'infiltration lorsque vous changerez de chargement, serez repéré par des chiens de garde ennemis, planterez des mines et certains civils pourront également signaler à l'ennemi. Si vous êtes découvert, vous ne pourrez plus vous infiltrer à pied pendant 30 minutes. Vous pouvez également vous infiltrer en montant dans n'importe quel véhicule civil. Vous perdrez le statut d'infiltration en tirant avec n'importe quelle arme ou en étant repéré loin d'une route. Si vous êtes découvert, vous ne pourrez plus vous infiltrer dans ce véhicule. Se rapprocher des bases aériennes, des avant-postes et des barrages routiers ennemis vous fera également perdre le statut d'infiltration.</French>
         <German>Drücke diese Schaltfläche, um verdeckt zu agieren. Wenn du die Anforderungen hierfür erfüllst, werden Feinde dich nicht mehr bei Kontakt angreifen. Während du zu Fuß unterwegs bist, darfst du keine Waffen oder andere militärische Ausrüstung sichtbar tragen.&lt;br/&gt;Du wirst aufgedeckt, wenn du deine Ausrüstung änderst, von feindlichen Wachhunden enteckt wirst, Minen platzierst oder ein Zivilist dich möglicherweise dem Feind meldet. Einmal aufgedeckt, kannst du für 30 Minuten nicht mehr verdeckt agieren. Eine weitere Möglichkeit diesen Modus zu aktivieren ist die Nutzung eines Zivilfahrzeugs. Hierbei wirst du aufgedeckt, sobald du eine Waffe abfeuerst oder dabei gesehen wirst, wenn du zu weit von einer Straße entfernt bist. Wirst du mit einem Zivilfahrzeug aufgedeckt, ist es dir nicht mehr möglich, dieses Fahrzeug für verdecktes Vorgehen zu nutzen. Näherst du dich einem feindlichen Flugplatz, Außenposten oder einer feindlichen Straßensperre, wirst du ebenso aufgedeckt.</German>
         <Czech>Kliknutím na toto tlačítko přejdete do utajení. Pokud splníte požadavky, nepřítel na vás nezaútočí na první pohled. Abyste mohli jít pěšky v utajení, nesmíte mít žádné zbraně nebo vojenské vybavení viditelné.&lt;br/&gt;Ztratíte tajný status, když změníte vybavení, dostanete spatřen nepřátelskými hlídacími psy, pokládáním min, též můžete být nahlášen místníma civilistama. Pokud vás objeví, nebudete moci jít v utajení znovu  po dobu 30 minut. Můžete také jít v utajení tím, že se dostane do jakéhokoli civilního vozidla. Ztratíte tajný status tím, že vystřelíte jakoukoliv zbraň nebo budete spatřeni daleko od silnice. Pokud vás odhalí, nebudete moci znovu v tom vozidle. Když se přiblížíte k nepřátelským leteckým základnám, základnám a zátarasům, ztratíte také status v utajení.</Czech>
         <Chinesesimp>点击此按钮进入伪装状态。如果你满足伪装条件, 敌军在目视到你时就不会攻击你。想要在步行状态下进入伪装模式, 你不能携带任何可见的武器或军用装备。&lt;br/&gt;当你更换装备, 被敌方警卫犬发现, 埋设地雷, 或被平民报告给敌军时, 伪装将会失效。如果你被识破, 在30分钟内将无法再次进入步行伪装状态。你也可以通过进入民用车辆来启用伪装。使用任何武器开火, 或在远离道路的敌方被发现, 均会使伪装失效。如果你被识破, 你将无法在该载具内再次进入伪装状态。靠近敌方空军基地、观察哨和路障也会使伪装状态失效。</Chinesesimp>
@@ -1859,7 +1859,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_1">
         <Original>There is an All vs All war in %4. %1 and %2 are constantly attacking each other, but that does not mean they don't shoot at %3 on first sight.&lt;br/&gt;&lt;br/&gt;%1 and %2 Aggro points represent how much threat they see in %3 faction.&lt;br/&gt;&lt;br/&gt;Generally speaking those points will low or raise depending on your actions against them and civilians.</Original>
-        <French>Il y a une guerre tous contre tous dans %4. %1 et %2 s'attaquent constamment, mais cela ne signifie pas qu'ils ne tirent pas sur %3 à première vue.&lt;br/&gt;&lt;br/&gt; Les points %1 et %2 Aggro représentent la menace qu'ils voient dans la faction  %3.&lt;br/&gt;&lt;br/&gt;De manière générale, cette valeur augmentera et baissera en fonction de vos actions contre eux et les civils.</French>
+        <French>Il y a une guerre tous contre tous dans %4. %1 et %2 s'attaquent constamment, mais cela ne signifie pas qu'ils ne tirent pas sur %3 à première vue.&lt;br/&gt;&lt;br/&gt; Les points %1 et %2 Aggro représentent la menace qu'ils voient dans la faction %3.&lt;br/&gt;&lt;br/&gt;De manière générale, cette valeur augmentera et baissera en fonction de vos actions contre eux et les civils.</French>
         <German>Es ist ein Jeder gegen Jeden Krieg in %4. %1 und %2 greifen sind ununterbrochen gegenseitig an. Dies bedeutet aber nicht, dass sie nicht bei Kontakt direkt %3 angreifen.&lt;br/&gt;&lt;br/&gt;%1 und %2 Aggressivitätspunkte zeigen an, wie hoch diese die Bedrohung der %3 Fraktion einschätzen.&lt;br/&gt;&lt;br/&gt;Grundsätzlich erhöhen und verringern sich diese Werte gemäß deinen Unternehmungen gegen die jeweilige Fraktion oder die Zivilbevölkerung.</German>
         <Czech>V %4 je válka Všichni proti Všem. %1 a %2 neustále útočí na sebe, ale to neznamená, že na první pohled nestřílejí na %3.&lt;br/&gt;&lt;br/&gt;%1 a %2 Aggro body představují to, jak velkou hrozbu představují vidět ve frakci %3.&lt;br/&gt;&lt;br/&gt;Obecně řečeno, tyto body se budou snižovat nebo zvyšovat v závislosti na vašem jednání proti nim a civilistům.</Czech>
         <Chinesesimp>%4 发生了全面战争。%1 和 %2 在持续地互相攻击, 但这并不意味着他们在见到 %3 时不会开火。&lt;br/&gt;&lt;br/&gt;%1 和 %2 点侵略性表示他们认为 %3 的威胁程度有多大。&lt;br/&gt;&lt;br/&gt;通常而言, 取决于你对他们和平民的行动, 这一点数将会提升或降低。</Chinesesimp>
@@ -2249,7 +2249,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_assassination_missions">
         <Original>Assassination Mission</Original>
-        <French>Mission d'assassinat</French>
+        <French>Missions d'assassinats</French>
         <Chinesesimp>刺杀任务</Chinesesimp>
         <Russian>Миссия на убийство</Russian>
         <Korean>암살 임무</Korean>
@@ -2263,7 +2263,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_destroy_missions">
         <Original>Destroy Missions</Original>
-        <French>Mission de destruction</French>
+        <French>Missions de destruction</French>
         <Chinesesimp>摧毁任务</Chinesesimp>
         <Russian>Миссия на уничтожение</Russian>
         <Korean>파괴 임무</Korean>
@@ -2328,7 +2328,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel_tooltip">
         <Original>Teleport your squad or a HC selected squad to a friendly zone depending on several factors</Original>
-        <French>Téléportez votre équipe ou une équipe sélectionnée avec HC dans une zone amie en fonction de plusieurs facteurs</French>
+        <French>Téléportez votre équipe ou une équipe sélectionnée avec HC dans une zone amicale en fonction de plusieurs facteurs</French>
         <Chinesesimp>满足条件时, 将您的班组或指挥部小队传送至友军占领区</Chinesesimp>
         <Russian>Телепортируйте свой отряд или отряд, выбранный HC, в дружественную зону в зависимости от нескольких факторов</Russian>
         <Korean>당신의 분대 혹은 HC로 선택한 분대를 여러요소에 따라 아군 지역으로 이동시킬 수 있습니다</Korean>
@@ -2363,7 +2363,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage">
         <Original>Garage Vehicle</Original>
-        <French>Ranger Véhicule</French>
+        <French>Ranger le véhicule</French>
         <Chinesesimp>载具仓库</Chinesesimp>
         <Russian>Гараж</Russian>
         <Korean>차고에 보관하기</Korean>
@@ -2391,7 +2391,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
-        <French>Déverrouiller véhicule</French>
+        <French>Dévérrouiller le véhicule</French>
         <Chinesesimp>解锁载具</Chinesesimp>
         <Russian>Разблокировать технику</Russian>
         <Korean>차량 잠금풀기</Korean>
@@ -2442,7 +2442,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
         <Original>Garage\Sell Vehicle</Original>
-        <French>Ranger\Vendre Véhicule</French>
+        <French>Ranger\Vendre le véhicule</French>
         <Chinesesimp>存储\出售载具</Chinesesimp>
         <Russian>Гараж\Продать технику</Russian>
         <Korean>차량 보관/판매</Korean>
@@ -2507,7 +2507,7 @@
     <Container name="squad_manager">
       <Key ID="STR_antistasi_dialogs_squad_manager">
         <Original>HC Squad Options</Original>
-        <French>Options de l'équipe HC</French>
+        <French>Options de l'escouade HC</French>
         <Chinesesimp>指挥部班组选项</Chinesesimp>
         <Russian>Управление отрядами</Russian>
         <Korean>HC 분대 옵션</Korean>
@@ -2521,7 +2521,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
-        <French>Regardez un véhicule et attribuez-le à l'équipe sélectionnée pour son utilisation</French>
+        <French>Regardez un véhicule et attribuez-le à l'escouade sélectionnée pour son utilisation</French>
         <Chinesesimp>将面前的载具分配给选定的班组使用</Chinesesimp>
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
         <Korean>보고 있는 차량을 선택된 분대가 사용하게 만듭니다.</Korean>
@@ -2628,14 +2628,14 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Recover info about a HC squad status</Original>
-        <French>Récupérer des informations sur le statut d'une équipe HC</French>
+        <French>Récupérer des informations sur le statut d'une escouade HC</French>
         <Chinesesimp>回报指挥部班组的状态</Chinesesimp>
         <Russian>Доложить информацию о статусе отряда</Russian>
         <Korean>HC 분대 정보를 획득합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison">
         <Original>Garrison Units / Squads</Original>
-        <French>Unités de garnison / escouades</French>
+        <French>Unités de garnison / Escouades</French>
         <Chinesesimp>驻军单位/班组</Chinesesimp>
         <Russian>Добавить в гарнизон</Russian>
         <Korean>유닛/분대 주둔</Korean>
@@ -2656,14 +2656,14 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
-        <French>Regardez un véhicule et attribuez-le à l'équipe sélectionnée pour son utilisation</French>
+        <French>Regardez un véhicule et attribuez-le à l'escouade sélectionnée pour son utilisation</French>
         <Chinesesimp>将面前的载具分配给选定的班组使用</Chinesesimp>
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
         <Korean>보고 있는 차량을 선택된 분대가 사용하게 만듭니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
-        <French>Renvoyer des unités / escouade</French>
+        <French>Renvoyer des unités / Escouades</French>
         <Chinesesimp>解散单位/班组</Chinesesimp>
         <Russian>В запас</Russian>
         <Korean>유닛 및 분대 해산</Korean>
@@ -2707,7 +2707,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit_tooltip">
         <Original>Recruit new squads and manage them with the HC Module (CTRL + SPACE)</Original>
-        <French>Recrutez de nouvelles équipes et gérez-les avec le module HC (CTRL + ESPACE)</French>
+        <French>Recrutez de nouvelles escouades et gérez-les avec le module HC (CTRL + ESPACE)</French>
         <Chinesesimp>招募新的班组, 并使用指挥部模块(CTRL + SPACE)进行管理</Chinesesimp>
         <Russian>Набирайте новые отряды и управляйте ими с помощью модуля HC (CTRL + SPACE)</Russian>
         <Korean>새 분대를 모집하고 HC 모듈(컨트롤+스페이스)로 관리할 수 있습니다.</Korean>
@@ -2742,7 +2742,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean">
         <Original>Garbage Clean</Original>
-        <French>Nettoyer débris</French>
+        <French>Nettoyer les débris</French>
         <Chinesesimp>清理垃圾</Chinesesimp>
         <Russian>Очистка мусора</Russian>
         <Korean>쓰레기 청소</Korean>
@@ -2798,7 +2798,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell">
         <Original>Sell Vehicle</Original>
-        <French>Vendre Véhicule</French>
+        <French>Vendre le véhicule</French>
         <Chinesesimp>出售载具</Chinesesimp>
         <Russian>Продать технику</Russian>
         <Korean>차량 판매</Korean>
@@ -2814,7 +2814,7 @@
     <Container name="carpet_bombing">
       <Key ID="STR_antistasi_dialogs_carpet_bombing">
         <Original>Carpet Bombing Strike</Original>
-        <French>Frappe à la bombe en tapis</French>
+        <French>Tapis de bombes</French>
         <Chinesesimp>地毯式轰炸</Chinesesimp>
         <Russian>Ковровая бомбардировка</Russian>
         <Korean>융단폭격</Korean>
@@ -2865,14 +2865,14 @@
     <Container name="dismiss_menu">
       <Key ID="STR_antistasi_dialogs_dismiss_menu">
         <Original>Dismiss Options</Original>
-        <French>Enlever Options</French>
+        <French>Enlever les options</French>
         <Chinesesimp>解散选项</Chinesesimp>
         <Russian>Меню роспуска</Russian>
         <Korean>해산 메뉴</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_dismiss">
         <Original>Dismiss Units / Squad</Original>
-        <French>Renvoyer des unités / escouade</French>
+        <French>Renvoyer des unités / escouades</French>
         <Chinesesimp>解散单位/班组</Chinesesimp>
         <Russian>Распустить</Russian>
         <Korean>유닛 및 분대 해산</Korean>
@@ -2902,7 +2902,7 @@
     <Container name="construction_menu">
       <Key ID="STR_antistasi_dialogs_construction_menu">
         <Original>Construction Menu</Original>
-        <French>Menu Construction</French>
+        <French>Menu de construction</French>
         <Chinesesimp>建造菜单</Chinesesimp>
         <Russian>Меню строительства</Russian>
         <Korean>건설 메뉴</Korean>
@@ -2995,7 +2995,7 @@
     <Container name="squad_recruit">
       <Key ID="STR_antistasi_dialogs_squad_recruit">
         <Original>Squad Recruitment Options</Original>
-        <French>Options de recrutement d'équipe</French>
+        <French>Options de recrutement d'escouade</French>
         <Chinesesimp>小队招募选项</Chinesesimp>
         <Russian>Меню найма отряда</Russian>
         <Korean>분대 모집 옵션</Korean>
@@ -3051,7 +3051,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_mortar">
         <Original>Recruit Mortar Team</Original>
-        <French>Recruter Équipe de mortier</French>
+        <French>Recruter une équipe d'artillerie (Mortier)</French>
         <Chinesesimp>招募迫击炮小组</Chinesesimp>
         <Russian>Артилерия</Russian>
         <Korean>박격포반 모집</Korean>
@@ -3143,14 +3143,14 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_add">
         <Original>Garage Vehicle</Original>
-        <French>Ranger Véhicule</French>
+        <French>Ranger le véhicule</French>
         <Chinesesimp>存储车辆</Chinesesimp>
         <Russian>В гараж</Russian>
         <Korean>차고에 보관</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_sell">
         <Original>Sell Vehicle</Original>
-        <French>Vendre Véhicule</French>
+        <French>Vendre le véhicule</French>
         <Chinesesimp>出售车辆</Chinesesimp>
         <Russian>Продать</Russian>
         <Korean>차량을 판매</Korean>
@@ -3229,14 +3229,14 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_single">
         <Original>Single Point Strike</Original>
-        <French>Frappe à point unique</French>
+        <French>Frappe sur un point unique</French>
         <Chinesesimp>单点打击</Chinesesimp>
         <Russian>Одноточечный удар</Russian>
         <Korean>정밀포격</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_barrage">
         <Original>Barrage Strike</Original>
-        <French>Frappe de barrage</French>
+        <French>Barrage d'artillerie</French>
         <Chinesesimp>弹幕打击</Chinesesimp>
         <Russian>Заградительный удар</Russian>
         <Korean>탄막포격</Korean>
@@ -3259,7 +3259,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_normal">
         <Original>Normal Squad</Original>
-        <French>Équipe normale</French>
+        <French>Escouade normale</French>
         <Chinesesimp>普通班组</Chinesesimp>
         <Russian>Стандарт</Russian>
         <Korean>일반 분대</Korean>
@@ -3356,13 +3356,13 @@
     <Container name="Utility_Items">
       <Key ID="STR_A3A_Utility_Items_Feedback_Normal">
         <Original>Q/E to rotate - Space/Enter to stop.</Original>
-        <French>Q/E pour tourner - Espace/Entrée pour arrêter.</French>
+        <French>A/E pour tourner- Espace/Entrée pour arrêter.</French>
         <Korean>Q/E를 이용해서 회전 - 스페이스 / 엔터로 멈추기</Korean>
         <Russian>Q/E - вращать - Space/Enter - закончить</Russian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Far">
         <Original>You're too far.</Original>
-        <French>Tu es trop loin.</French>
+        <French>Tu es trop loin</French>
         <Korean>너무 멀리있습니다.</Korean>
         <Russian>Вы слишком далеко.</Russian>
       </Key>
@@ -3484,7 +3484,7 @@
         <Original>(Now)</Original>
         <German>(Gegenwart)</German>
         <Russian>(настоящее время)</Russian>
-        <French>(actuel maintenant)</French>
+        <French>(Maintenant)</French>
         <Czech>(nyní)</Czech>
         <Chinesesimp>(现在)</Chinesesimp>
         <Korean>(현재)</Korean>
@@ -3493,7 +3493,7 @@
     <Container name="Base">
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_Healed">
         <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt; Nearby vehicles are no longer reported.</Original>
-        <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau incognito.&lt;br/&gt;&lt;br/&gt; Les véhicules à proximité ne sont plus signalés.</French>
+        <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau être incognito.&lt;br/&gt;&lt;br/&gt; Les véhicules à proximité ne sont plus signalés.</French>
         <Korean>근처 유닛은 회복,세탁되어 다시 위장할 수 있습니다. 인근 차량은 더 이상 신고당하지 않습니다.</Korean>
         <Russian>Ближайшие бойцы были вылечены и могут снова работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Ближайшие машины больше не в розыске.</Russian>
       </Key>

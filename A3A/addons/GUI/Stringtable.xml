@@ -5,7 +5,7 @@
       <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
         <Original>RECRUIT UNITS</Original>
         <Czech>Placeholder</Czech>
-        <French>RECRUTER UNITÉS</French>
+        <French>RECRUTER DES UNITÉS</French>
         <Spanish>Placeholder</Spanish>
         <Italian>Placeholder</Italian>
         <Polish>Placeholder</Polish>
@@ -25,7 +25,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
         <Original>Autorifleman</Original>
-        <French>Fusilieur mitrailleur</French>
+        <French>Fusilier mitrailleur</French>
         <Korean>자동소총수</Korean>
         <Russian>Пулеметчик</Russian>
       </Key>
@@ -101,7 +101,7 @@
     <Container name="dialog_recruit_squad">
       <Key ID="STR_antistasi_dialogs_recruit_squad_titlebar_text">
         <Original>RECRUIT SQUAD</Original>
-        <French>RECRUTER ESCOUADE</French>
+        <French>RECRUTER UNE ESCOUADE</French>
         <Korean>분대 모집</Korean>
         <Russian>НАНЯТЬ ОТРЯД</Russian>
       </Key>
@@ -345,10 +345,11 @@
         <Original>This is a placeholder</Original>
         <Korean>이것은 자리표시자입니다</Korean>
         <russian>/</russian>
+        <French>Ceci est un espace réservé</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_undercover">
         <Original>Go Undercover</Original>
-        <French>Passer incognito</French>
+        <French>Devenir incognito</French>
         <Korean>위장하기</Korean>
         <Russian>Перейти под прикрытие</Russian>
       </Key>
@@ -390,7 +391,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_commander_button_set_eligible">
         <Original>Set Eligible</Original>
-        <French>Devenir Eligible</French>
+        <French>Devenir Éligible</French>
         <Korean>자격부여</Korean>
         <Russian>Включить возможность встать на дожность Командира</Russian>
       </Key>
@@ -633,21 +634,25 @@
         <Original>Point</Original>
         <Korean>포인트</Korean>
         <Russian>Точечный</Russian>
+        <French>Point</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_barrage">
         <Original>Barrage</Original>
         <Korean>탄막</Korean>
         <Russian>Заградительный</Russian>
+        <French>Barrage</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_label">
         <Original>Rounds</Original>
         <Korean>장탄수</Korean>
         <Russian>Количество выстрелов</Russian>
+        <French>Munitions</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_label">
         <Original>Position</Original>
         <Korean>위치</Korean>
         <Russian>Местоположение цели</Russian>
+        <French>Position</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
         <Original>SET</Original>

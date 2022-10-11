@@ -7,28 +7,28 @@ Info("InitGarrisons started");
 
 _fnc_initGarrison =
 {
-	params ["_marker", "_occGroups", "_invGroups"];
-	private _garrNum = [_marker] call A3A_fnc_garrisonSize;
-	private _side = sidesX getVariable _marker;
-	private _groupsRandom = [_occGroups, _invGroups] select (_side == Invaders);
+    params ["_marker", "_occGroups", "_invGroups"];
+    private _garrNum = [_marker] call A3A_fnc_garrisonSize;
+    private _side = sidesX getVariable _marker;
+    private _groupsRandom = [_occGroups, _invGroups] select (_side == Invaders);
 
-	private _garrison = [];
-	while {count _garrison < _garrNum} do {
-		_garrison append (selectRandom _groupsRandom);
-	};
-	_garrison resize _garrNum;
-	garrison setVariable [_marker, _garrison, true];
+    private _garrison = [];
+    while {count _garrison < _garrNum} do {
+        _garrison append (selectRandom _groupsRandom);
+    };
+    _garrison resize _garrNum;
+    garrison setVariable [_marker, _garrison, true];
 };
 
 private _updateMarkers = outposts + airportsX;			// To sort out the faction names & flags
 if (gameMode >= 3) then
 {
-	// Set everything to government control if we have no invaders
-	{
-		if (sidesX getVariable _x == Occupants) then { continue };
-		sidesX setVariable [_x, Occupants, true];
-		_updateMarkers pushBackUnique _x;
-	} forEach (markersX - ["Synd_HQ"]);
+    // Set everything to government control if we have no invaders
+    {
+        if (sidesX getVariable _x == Occupants) then { continue };
+        sidesX setVariable [_x, Occupants, true];
+        _updateMarkers pushBackUnique _x;
+    } forEach (markersX - ["Synd_HQ"]);
 };
 { _x call A3A_fnc_mrkUpdate } forEach _updateMarkers;
 

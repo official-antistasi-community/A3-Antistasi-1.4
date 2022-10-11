@@ -25,12 +25,12 @@ if !(isServer) then {
     Info("Running client JNA preload");
     ["Preload"] call jn_fnc_arsenal;
 
-    Info("Running client UPSMON init");
-    [] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
-    Info("Client UPSMON init completed");
-
     // Headless client navgrid init
     if (!hasInterface) then {
+        Info("Headless client UPSMON init started");
+        [] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
+        Info("Headless client UPSMON init completed");
+
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;

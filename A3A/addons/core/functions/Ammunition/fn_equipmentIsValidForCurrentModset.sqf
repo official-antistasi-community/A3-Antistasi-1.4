@@ -32,8 +32,8 @@ if ("lowTech" in A3A_factionEquipFlags) exitWith {
 				case "Radio";
 				case "UAVTerminal";
 				case "Unknown": { false };
-				case "Compass": { "replaceCompass" in A3A_factionEquipFlags };
-				case "Watch": { "replaceWatch" in A3A_factionEquipFlags };
+				case "Compass": { !("replaceCompass" in A3A_factionEquipFlags) };
+				case "Watch": { !("replaceWatch" in A3A_factionEquipFlags) };
 				default { true };
 			};
 		};

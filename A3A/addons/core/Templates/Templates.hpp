@@ -593,4 +593,52 @@ class Templates
         name = "CUP civs";
         file = "CUP_Civ";
     };
+
+    // ************************************* Unsung *******************************************************
+
+    class UNS_Base
+    {
+        requiredAddons[] = {"uns_weap_w"};
+        basepath = QPATHTOFOLDER(Templates\Templates\UNS\);
+        logo = "\uns_main\data\unsung_logo.paa";
+        priority = 70;
+        equipFlags[] = {"lowTech"};
+        nodes[] = {"UNS_Logistics_Nodes.sqf"};
+    };
+
+    class UNS_US : UNS_Base
+    {
+        side = "Inv";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "Unsung US";
+        file = "UNS_AI_US";
+        camo[] = {"tropical"};
+    };
+
+    class UNS_NVA : UNS_Base
+    {
+        side = "Occ";
+        flagTexture = "\uns_flags\flag_pavn_co.paa";
+        name = "Unsung NVA";
+        file = "UNS_AI_NVA";
+        camo[] = {"tropical"};
+    };
+
+    class UNS_VC : UNS_Base
+    {
+        side = "Reb";
+        flagTexture = "\uns_flags\flag_vc_co.paa";
+        name = "Unsung VC";
+        file = "UNS_Reb_VC";
+        camo[] = {"tropical"};
+    };
+
+    class UNS_Civ : UNS_Base
+    {
+        side = "Civ";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "Unsung civs";
+        file = "UNS_Civ";
+    };
+
 };

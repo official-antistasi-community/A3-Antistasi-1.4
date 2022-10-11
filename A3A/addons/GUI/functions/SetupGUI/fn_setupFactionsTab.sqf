@@ -14,7 +14,7 @@ Debug_1("setupFactionsTab called with mode %1", _mode);
 
 private _display = findDisplay A3A_IDD_SETUPDIALOG;
 private _worldName = toLower worldName;
-private _worldCamo = "arid";
+private _worldCamo = A3A_climate;
 
 if (isNil "A3A_setup_loadedPatches") exitWith { Error("No patch data. Load order fuckup?") };
 

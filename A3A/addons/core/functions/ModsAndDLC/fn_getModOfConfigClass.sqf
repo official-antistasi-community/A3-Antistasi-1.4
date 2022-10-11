@@ -21,7 +21,7 @@ if (count _addons > 0) then {
 };
 
 if (_return == "") then {
-	_return = tolower getText (_config >> "DLC");
+	_return = toLower getText (_config >> "DLC");
 };
 
 _return;

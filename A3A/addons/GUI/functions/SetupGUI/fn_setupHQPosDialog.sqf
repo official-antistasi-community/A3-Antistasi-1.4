@@ -29,7 +29,7 @@ switch (_mode) do
     case ("onLoad"):
     {
         // Draw hatched danger zones
-        private _mainMarkers = (markersX - controlsX);
+        private _mainMarkers = (markersX - controlsX - ["Synd_HQ"]);
         private _mrkDangerZone = [];
         {
             _mrk = createMarkerLocal [format ["dangerzone%1", count _mrkDangerZone], markerPos _x];
@@ -57,7 +57,7 @@ switch (_mode) do
         private _posClicked = _mapCtrl posScreenToWorld [_xPos, _yPos];
         private _posInvalid = true;
 
-        private _nearMarker = [markersX - controlsX, _posClicked] call BIS_fnc_nearestPosition;
+        private _nearMarker = [_display getVariable "dangerZones", _posClicked] call BIS_fnc_nearestPosition;
         if (markerPos _nearMarker distance2d _posClicked < 500) exitWith {
             ["HQ Position", "Selected position cannot be near enemy zones."] call A3A_fnc_customHint;
         };
@@ -66,7 +66,7 @@ switch (_mode) do
             ["HQ Position", "Selected position cannot be in water."] call A3A_fnc_customHint;
         };
 
-        if (_posClicked findIf { (_x < 0) || (_x > worldSize) } != -1) then {
+        if (_posClicked findIf { (_x < 0) || (_x > worldSize) } != -1) exitWith {
             ["HQ Position", "Selected position cannot be outside the map."] call A3A_fnc_customHint;
         };
 

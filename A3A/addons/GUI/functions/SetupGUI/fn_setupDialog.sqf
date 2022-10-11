@@ -79,25 +79,17 @@ switch (_mode) do
 
         Debug_1("SetupDialog switching tab to %1.", _selectedTab);
 
-        private _selectedTabIDC = switch (_selectedTab) do {
+        private _selectedTabIDC = switch (_selectedTab) do
+        {
             case ("loadgame"): { A3A_IDC_SETUP_LOADGAMETAB };
             case ("factions"): { A3A_IDC_SETUP_FACTIONSTAB };
             case ("params"): { A3A_IDC_SETUP_PARAMSTAB };
         };
 
-        Debug_1("selected tab IDC = %1.", _selectedTabIDC);
-
-        // Array of IDCs for all the tabs, including subtabs (like AI & player management)
-        // Commander and fast travel maps are also hidden here, and shown again in updateCommanderTab
-        private _allTabs = [
-            A3A_IDC_SETUP_LOADGAMETAB,
-            A3A_IDC_SETUP_FACTIONSTAB,
-            A3A_IDC_SETUP_PARAMSTAB
-        ];
         {
             private _ctrl = _display displayCtrl _x;
             _ctrl ctrlShow (_x == _selectedTabIDC);
-        } forEach _allTabs;
+        } forEach [A3A_IDC_SETUP_LOADGAMETAB, A3A_IDC_SETUP_FACTIONSTAB, A3A_IDC_SETUP_PARAMSTAB];
 
         switch (_selectedTab) do
         {
@@ -122,7 +114,8 @@ switch (_mode) do
             ,["tem_anizay", "Anizay"]
         ];
         {
-            _x set ["mapStr", _prettyMapHM getOrDefault [_x get "map", _x get "map"]];
+            private _realMap = _x get "map";
+            _x set ["mapStr", _prettyMapHM getOrDefault [_realMap, _realMap]];
             _x set ["fileStr", ["Old", "New"] select ((_x get "serverID") isEqualType false)];
             if (!isNil {_x get "ended"}) then { _x set ["timeStr", "Ended"]; continue };
             if (!isNil {_x get "saveTime"}) then {

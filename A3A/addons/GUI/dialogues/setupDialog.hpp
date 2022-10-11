@@ -103,6 +103,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
         {
             idc = A3A_IDC_SETUP_LOADGAMETAB;
             onLoad = "['onLoad'] spawn A3A_fnc_setupLoadgameTab";
+            show = false;
 
             class Controls
             {
@@ -275,6 +276,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
         {
             idc = A3A_IDC_SETUP_FACTIONSTAB;
             //onLoad = "['onLoad'] spawn A3A_fnc_setupFactionsTab";
+            show = false;
 
             class Controls
             {
@@ -463,6 +465,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
         {
             idc = A3A_IDC_SETUP_PARAMSTAB;
             onLoad = "['onLoad'] spawn A3A_fnc_setupParamsTab";
+            show = false;
 
             class Controls
             {

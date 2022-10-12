@@ -19,17 +19,25 @@ class Templates
         file = "Vanilla_AI_CSAT_Arid";
         camo[] = {"arid", "arctic"};
     };
-    class Vanilla_CSAT_Tropical : Vanilla_CSAT_Arid
-    {
-        name = "A3 CSAT Tropical";
-        file = "Vanilla_AI_CSAT_Tropical";
-        camo[] = {"tropical"};
-    };
     class Vanilla_CSAT_Temperate : Vanilla_CSAT_Arid
     {
         name = "A3 CSAT Temperate";
         file = "Vanilla_AI_CSAT_Enoch";
+        camo[] = {"temperate","tropical"};
+    };
+    class Vanilla_CSAT_Apex : Vanilla_CSAT_Arid
+    {
+        name = "A3 CSAT Apex";
+        file = "Vanilla_AI_CSAT_Apex";
+        camo[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
+    class Vanilla_CSAT_Enoch : Vanilla_CSAT_Arid
+    {
+        name = "A3 CSAT Enoch";
+        file = "Vanilla_AI_CSAT_Enoch";
         camo[] = {"temperate"};
+        forceDLC[] = {"enoch"};
     };
 
     class Vanilla_NATO_Arid : Vanilla_Base
@@ -52,6 +60,13 @@ class Templates
         file = "Vanilla_AI_NATO_Temperate";
         camo[] = {"temperate", "arctic"};
     };
+    class Vanilla_NATO_Apex : Vanilla_NATO_Arid
+    {
+        name = "A3 NATO Apex";
+        file = "Vanilla_AI_NATO_Apex";
+        camo[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
 
     class Vanilla_LDF : Vanilla_Base
     {
@@ -61,6 +76,7 @@ class Templates
         file = "Vanilla_AI_LDF";
         maps[] = {"enoch","vt7"};
         camo[] = {"temperate"};
+        forceDLC[] = {"enoch"};
     };
 
     class Vanilla_AAF : Vanilla_Base
@@ -89,6 +105,7 @@ class Templates
         file = "Vanilla_Reb_SDK";
         maps[] = {"Tanoa"};
         camo[] = {"tropical"};
+        forceDLC[] = {"expansion"};
     };
     
     class Vanilla_Civ : Vanilla_Base

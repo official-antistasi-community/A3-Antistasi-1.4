@@ -5,14 +5,14 @@ class EditorData
 	angleGridStep=0.2617994;
 	scaleGridStep=1;
 	autoGroupingDist=10;
-	toggles=514;
+	toggles=1538;
 	class ItemIDProvider
 	{
-		nextID=2488;
+		nextID=2489;
 	};
 	class MarkerIDProvider
 	{
-		nextID=204;
+		nextID=205;
 	};
 	class LayerIndexProvider
 	{
@@ -9045,11 +9045,11 @@ class Mission
 				class Item1
 				{
 					dataType="Marker";
-					position[]={15627.364,-185.97,7870.3506};
+					position[]={15928.248,-185.97,6055.019};
 					name="NATO_carrier";
 					type="flag_UN";
 					id=23;
-					atlOffset=-22.401855;
+					atlOffset=35.405807;
 				};
 				class Item2
 				{
@@ -11736,7 +11736,7 @@ class Mission
 				};
 			};
 			id=2421;
-			atlOffset=-39.663525;
+			atlOffset=-39.664608;
 		};
 		class Item6
 		{

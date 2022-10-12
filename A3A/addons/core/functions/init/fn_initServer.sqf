@@ -113,9 +113,14 @@ else
     // Fill out garrisons, set sides/names as appropriate
     call A3A_fnc_initGarrisons;
 
+    // Do initial arsenal filling
     {
-        _x call A3A_fnc_unlockEquipment;
+		if (_x isEqualType "") then { _x call A3A_fnc_unlockEquipment; continue };
+		_x params ["_class", "_count"];
+		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
     } foreach FactionGet(reb,"initialRebelEquipment");
+
     Info("Initial arsenal unlocks completed");
     call A3A_fnc_checkRadiosUnlocked;
 

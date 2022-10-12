@@ -67,7 +67,7 @@ private _utilityRefund = {
 
     private _toRefund = 0;
     private _feedBack = "STR_HR_GRG_Feedback_addVehicle_Item_Stored";
-    if (typeOf _object in [FactionGet(reb,"vehicleFuelDrum")#0 + FactionGet(reb,"vehicleFuelTank")#0]) then {
+    if (typeOf _object in [FactionGet(reb,"vehicleFuelDrum")#0 , FactionGet(reb,"vehicleFuelTank")#0]) then {
         if (_player isNotEqualTo theBoss && _instantRefund) exitWith {
             _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only";
         };

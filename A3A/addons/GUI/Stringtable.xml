@@ -1,1199 +1,1136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission GUI">
-    <Container name="dialog_recruit_units">
-      <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
-        <Original>RECRUIT UNITS</Original>
-        <Czech />
-        <French>RECRUTER UNITÉS</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_militiaman">
-        <Original>Militiaman</Original>
-        <Czech />
-        <French>Milicien</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
-        <Original>Autorifleman</Original>
-        <Czech />
-        <French>Fusilieur mitrailleur</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_medic">
-        <Original>Medic</Original>
-        <Czech />
-        <French>Médecin</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_engineer">
-        <Original>Engineer</Original>
-        <Czech />
-        <French>Ingénieur</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_bomb_specialist">
-        <Original>Bomb Specialist</Original>
-        <Czech />
-        <French>Spécialiste des bombes</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_grenadier">
-        <Original>Grenadier</Original>
-        <Czech />
-        <French>Grenadier</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_marksman">
-        <Original>Marksman</Original>
-        <Czech />
-        <French>Tireur d'élite</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
-        <Original>Antitank</Original>
-        <Czech />
-        <French>Anti-char</French>
-        <Spanish />
-        <Italian />
-        <Polish />
-        <Portuguese />
-        <Russian />
-        <German />
-      </Key>
-    </Container>
-    <Container name="dialog_main">
-      <Key ID="STR_antistasi_dialogs_main_titlebar">
-        <Original>BATTLE OPTIONS</Original>
-        <French>OPTIONS DE COMBAT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_player_tab_button">
-        <Original>Player</Original>
-        <French>Joueur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_tab_button">
-        <Original>Commander</Original>
-        <French>Commandant</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tab_button">
-        <Original>Admin</Original>
-        <French>Admin</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_tab_disabled_tooltip">
-        <Original>Only the commander can access the commander tab</Original>
-        <French>Seul le commandant peut accéder à l'onglet commandant</French>
-      </Key>
-    </Container>
-    <Container name="dialog_recruit_squad">
-      <Key ID="STR_antistasi_dialogs_recruit_squad_titlebar_text">
-        <Original>RECRUIT SQUAD</Original>
-        <French>RECRUTER ESCOUADE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_inf_squad">
-        <Original>Inf. Squad</Original>
-        <French>Escouade Inf.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_inf_team">
-        <Original>Inf. Team</Original>
-        <French>Équipe Inf.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_at_team">
-        <Original>AT Team</Original>
-        <French>Équipe AT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_mg_team">
-        <Original>MG Team</Original>
-        <French>Équipe MG</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_mortar_team">
-        <Original>Mortar Team</Original>
-        <French>Équipe Mortier</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_sniper_team">
-        <Original>Sniper Team</Original>
-        <French>Équipe Sniper</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_at_car">
-        <Original>AT Car</Original>
-        <French>Voiture AT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_aa_truck">
-        <Original>AA Truck</Original>
-        <French>Camion AA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_recruit_squad_include_vehicle_label">
-        <Original>Include vehicle</Original>
-        <French>Inclure le véhicule</French>
-      </Key>
-    </Container>
-    <Container name="dialogs_generic">
-      <Key ID="STR_antistasi_dialogs_generic_yes">
-        <Original>Yes</Original>
-        <French>Oui</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_no">
-        <Original>No</Original>
-        <French>Non</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_days">
-        <Original>days</Original>
-        <French>jours</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_hours">
-        <Original>hours</Original>
-        <French>heures</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_minutes">
-        <Original>minutes</Original>
-        <French>minutes</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_seconds">
-        <Original>seconds</Original>
-        <French>secondes</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_day">
-        <Original>day</Original>
-        <French>jour</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_hour">
-        <Original>hour</Original>
-        <French>heure</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_minute">
-        <Original>minute</Original>
-        <French>minute</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_second">
-        <Original>second</Original>
-        <French>seconde</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_days_short">
-        <Original>d</Original>
-        <French>j</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_hours_short">
-        <Original>h</Original>
-        <French>h</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_minutes_short">
-        <Original>m</Original>
-        <French>m</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_seconds_short">
-        <Original>s</Original>
-        <French>s</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_generic_aggression">
-        <Original>aggression</Original>
-        <French>agression</French>
-      </Key>
-    </Container>
-    <Container name="dialog_load_last_save">
-      <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">
-        <Original>LOAD LAST SAVE?</Original>
-        <French>CHARGER LA DERNIÈRE SAUVEGARDE ?</French>
-      </Key>
-    </Container>
-    <Container name="dialog_buy_vehicle">
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
-        <Original>BUY VEHICLE</Original>
-        <French>ACHETER UN VÉHICULE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
-        <Original>Buy %1 for %2 %3</Original>
-        <French>Acheter %1 pour %2 %3</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
-        <Original>This vehicle can go undercover</Original>
-        <French>Ce véhicule peut passer incognito</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_driver_tooltip">
-        <Original>Driver / Pilot</Original>
-        <French>Chauffeur / Pilote</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_copilot_tooltip">
-        <Original>Co-Pilot</Original>
-        <French>Copilote</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_commander_tooltip">
-        <Original>Commander</Original>
-        <French>Commandant</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_tooltip">
-        <Original>Gunner</Original>
-        <French>Tireur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
-        <Original>Passenger seat</Original>
-        <French>Siège passager</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
-        <Original>FFV seat</Original>
-        <French>Siège FFV</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
-        <Original>%1 Gunners</Original>
-        <French>%1 Artilleurs</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
-        <Original>%1 Passenger seats</Original>
-        <French>%1 Sièges passagers</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
-        <Original>%1 FFV seats</Original>
-        <French>%1 Sièges FFV</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_player">
-      <Key ID="STR_antistasi_dialogs_main_fast_travel">
-        <Original>Fast Travel</Original>
-        <French>Voyage rapide</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
-        <Original>This is a placeholder</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_undercover">
-        <Original>Go Undercover</Original>
-        <French>Passer incognito</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_construct">
-        <Original>Construct</Original>
-        <French>Construction</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management">
-        <Original>AI Management</Original>
-        <French>Gestion de l'IA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_text_commander">
-        <Original>Commander</Original>
-        <French>Commandant</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_text_eligible">
-        <Original>Eligible</Original>
-        <French>Éligible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_text_ineligible">
-        <Original>Ineligible</Original>
-        <French>Inéligible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_button_resign">
-        <Original>Resign</Original>
-        <French>Démissionner</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_button_set_eligible">
-        <Original>Set Eligible</Original>
-        <French>Devenir Eligible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_button_set_ineligible">
-        <Original>Set Ineligible</Original>
-        <French>Devenir Inéligible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_donate">
-        <Original>Donate Money</Original>
-        <French>Donner de l'argent</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hide_top_bar">
-        <Original>Hide top bar</Original>
-        <French>Masquer la barre supérieure</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_vehicles">
-        <Original>Vehicles</Original>
-        <French>Véhicules</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_garage_vehicle">
-        <Original>Garage</Original>
-        <French>Ranger</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_unlock_vehicle">
-        <Original>Unlock</Original>
-        <French>Déverrouiller</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_lock_vehicle">
-        <Original>Lock</Original>
-        <French>Verrouiller</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
-        <Original>Sell</Original>
-        <French>Vendre</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_add_to_air_support">
-        <Original>Add to air support</Original>
-        <French>Ajouter au soutien aérien</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_no_vehicle">
-        <Original>No vehicle detected</Original>
-        <French>Aucun véhicule détecté</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_not_eligible_vehicle_tooltip">
-        <Original>Not eligible vehicle</Original>
-        <French>Véhicule non éligible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_only_tooltip">
-        <Original>Commander only</Original>
-        <French>Commandant uniquement</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_members_only">
-        <Original>Members only function</Original>
-        <French>Fonction réservée aux membres</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_player_money_text">
-        <Original>Current money:\n€ %1</Original>
-        <French>Monnaie actuelle:\n€ %1</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
-        <Original>Only available to squad leaders</Original>
-        <French>Uniquement disponible pour les chefs d'escouade</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
-        <Original>Needs AI group members\nYou can recruit them at the flag</Original>
-        <French>Nécessite des membres du groupe AI\nVous pouvez les recruter au drapeau</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_donate">
-      <Key ID="STR_antistasi_dialogs_main_current_money">
-        <Original>Current money</Original>
-        <French>Monnaie actuelle</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_donate_label">
-        <Original>Donate</Original>
-        <French>Donner</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_donate_player">
-        <Original>Donate to Player</Original>
-        <French>Faire un don au joueur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_donate_faction">
-        <Original>Donate to Faction</Original>
-        <French>Faire un don à la faction</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_commander">
-      <Key ID="STR_antistasi_dialogs_main_hc_groups_label">
-        <Original>High Command Groups</Original>
-        <French>Groupes de haut commandement</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_remote_control_tooltip">
-        <Original>Remote control group leader</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
-        <Original>Number of units in the group\nAble to combat / Total number of units</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_combat_mode">
-        <Original>Combat mode</Original>
-        <French>Mode combat</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
-        <Original>Vehicle</Original>
-        <French>Véhicule</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_button">
-        <Original>Fire Mission</Original>
-        <French>Fire Mission</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_mount">
-        <Original>Mount</Original>
-        <French>Monter</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_dismount">
-        <Original>Dismount</Original>
-        <French>Démonter</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_add_vehicle">
-        <Original>Add Vehicle</Original>
-        <French>Ajouter un véhicule</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_garrison">
-        <Original>Garrison</Original>
-        <French>Garnison</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_dismiss">
-        <Original>Dismiss</Original>
-        <French>Congédier</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_label">
-        <Original>Fire mission</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo">
-        <Original>Ammo</Original>
-        <French>Munitions</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_he">
-        <Original>HE</Original>
-        <French>HE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_smoke">
-        <Original>Smoke</Original>
-        <French>Fumée</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_label">
-        <Original>Shell type</Original>
-        <French>Type d'obus</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_he">
-        <Original>HE</Original>
-        <French>HE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_smoke">
-        <Original>Smoke</Original>
-        <French>Fumée</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_label">
-        <Original>Mission type</Original>
-        <French>Type de mission</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_point">
-        <Original>Point</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_barrage">
-        <Original>Barrage</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_label">
-        <Original>Rounds</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_label">
-        <Original>Position</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
-        <Original>SET</Original>
-        <French>DÉFINIR</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
-        <Original>Start</Original>
-        <French>Démarrer</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_end_label">
-        <Original>End</Original>
-        <French>Finir</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_fire_button">
-        <Original>Fire</Original>
-        <French>Tirer</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_button">
-        <Original>Air Support</Original>
-        <French>Appui aérien</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_garbage_clean_button">
-        <Original>Garbage Clean</Original>
-        <French>Nettoyer les ordures</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_garbage_clean_all">
-        <Original>Garbage Clean All</Original>
-        <French>Nettoyer toutes les ordures</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_garbage_clean_hq">
-        <Original>Garbage Clean HQ</Original>
-        <French>Nettoyer les ordures du QG</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_deployed_tooltip">
-        <Original>Unable to fire. Mortar is not deployed.</Original>
-        <French>Impossible de tirer. Le mortier n'est pas déployé.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_medic">
-        <Original>Has operative medic</Original>
-        <French>A un médecin disponible</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_at">
-        <Original>Has AT capability</Original>
-        <French>Possède une capacité AT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_aa">
-        <Original>Has AA capability</Original>
-        <French>A une capacité AA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_deployed">
-        <Original>Mortar is deployed</Original>
-        <French>Le mortier est déployé</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_not_deployed">
-        <Original>Mortar is not deployed</Original>
-        <French>Le mortier n'est pas déployé</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_deployed">
-        <Original>Static weapon is deployed</Original>
-        <French>L'arme statique est déployée</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed">
-        <Original>Static weapon is not deployed</Original>
-        <French>L'arme statique n'est pas déployée</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
-        <Original>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</Original>
-        <French>&lt;t align='center'&gt;Vous n'avez pas de groupes de haut commandement.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Vous pouvez les recruter au drapeau.&lt;/t&gt;</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
-        <Original>Number of rounds set by barrage length</Original>
-        <French>Nombre d'obus défini par la longueur du barrage</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
-        <Original>CLICK MAP</Original>
-        <French>CLIQUEZ SUR LA CARTE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_set">
-        <Original>NOT SET</Original>
-        <French>PAS ENCORE DÉFINI</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
-        <Original>Strike position not set</Original>
-        <French>Position de frappe non définie</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_hc_fire_misison_no_ammo_tooltip">
-        <Original>Not enough ammo</Original>
-        <French>Pas assez de munitions</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_commander_no_radio">
-        <Original>No radio</Original>
-        <French>Pas de radio</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_air_support">
-      <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">
-        <Original>Air Support points:</Original>
-        <French>Points d'appui aérien:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_aircraft_used">
-        <Original>Aircraft used:</Original>
-        <French>Avion utilisé:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_info">
-        <Original>Get more air support points using the 'Add to Air Support' button in the vehicle section on the player tab.</Original>
-        <French>Obtenez plus de points d'appui aérien en utilisant le bouton "Ajouter au support aérien" dans la section véhicule de l'onglet joueur.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_he_bombs">
-        <Original>HE Bombs</Original>
-        <French>Bombes HE</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_carpet_bombing">
-        <Original>Carpet Bombing</Original>
-        <French>Carpet Bombing</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_napalm">
-        <Original>Napalm Bomb</Original>
-        <French>Bombe au napalm</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_air_support_no_points_tooltip">
-        <Original>You have no air support points</Original>
-        <French>Vous n'avez aucun point d'appui aérien</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_fast_travel">
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_select_location">
-        <Original>Click the map to select the location you want to fast travel to.</Original>
-        <French>Cliquez sur la carte pour sélectionner l'endroit où vous souhaitez vous rendre rapidement.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_group_select_location">
-        <Original>Click the map to select the location you want %1 to fast travel to.</Original>
-        <French>Cliquez sur la carte pour sélectionner l'emplacement vers lequel vous voulez %1 se rende rapidement.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_group_will_travel_to">
-        <Original>will travel to</Original>
-        <French>se rendra à</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_you_will_travel_to">
-        <Original>You will travel to</Original>
-        <French>Vous voyagerez à</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_time">
-        <Original>This will take</Original>
-        <French>Cela prendra</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_fast_travel_vehicle">
-        <Original>You will bring your vehicle along as well as any cargo and passengers along with you.</Original>
-        <French>Vous apporterez votre véhicule ainsi que toute cargaison et passagers avec vous.</French>
-      </Key>
-    </Container>
-    <Container name="dialog_mission_request">
-      <Key ID="STR_antistasi_dialogs_mission_request_conquest">
-        <Original>Conquest</Original>
-        <French>Conquête</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_destroy">
-        <Original>Destroy</Original>
-        <French>Détruire</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_assassination">
-        <Original>Assassination</Original>
-        <French>Assassinat</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_convoy">
-        <Original>Convoy Ambush</Original>
-        <French>Embuscade de convoi</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_rescue">
-        <Original>Rescue</Original>
-        <French>Sauvetage</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_logistics">
-        <Original>Logistics</Original>
-        <French>Logistique</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_support">
-        <Original>Support</Original>
-        <French>Soutien</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_mission_request_titlebar">
-        <Original>REQUEST MISSION</Original>
-        <French>DEMANDE DE MISSION</French>
-      </Key>
-    </Container>
-    <Container name="dialog_hq">
-      <Key ID="STR_antistasi_dialogs_hq_titlebar">
-        <Original>HQ MANAGEMENT</Original>
-        <French>GESTION DU QG</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_button">
-        <Original>Garrisons</Original>
-        <French>Garnisons</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_minefields_button">
-        <Original>Minefields</Original>
-        <French>Champs de mines</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_move_hq_button">
-        <Original>Move HQ</Original>
-        <French>Déplacer le QG</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_clear_trees_button">
-        <Original>Clear Trees</Original>
-        <French>Effacer les arbres</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_campaign_status">
-        <Original>Campaign Status</Original>
-        <French>État de la campagne</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_war_level">
-        <Original>War level:</Original>
-        <French>Niveau de guerre :</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_aggression">
-        <Original>Aggression:</Original>
-        <French>Agression:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_occupants_aggression">
-        <Original>Occupants aggression</Original>
-        <French>Agressivité des occupants</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_invader_aggression">
-        <Original>Invader aggression</Original>
-        <French>Agression de l'envahisseur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_cities">
-        <Original>Controlled cities</Original>
-        <French>Villes contrôlées</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_outposts">
-        <Original>Controlled outposts</Original>
-        <French>Avant-postes contrôlés</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_airbases">
-        <Original>Controlled airbases</Original>
-        <French>Bases aériennes contrôlées</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_resources">
-        <Original>Controlled resources</Original>
-        <French>Ressources contrôlées</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_factories">
-        <Original>Controlled factories</Original>
-        <French>Usines contrôlées</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_controlled_seaports">
-        <Original>Controlled seaports</Original>
-        <French>Ports maritimes contrôlés</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
-        <Original>Popular support\nYou need 50% to win</Original>
-        <French>Support populaire\nVous avez besoin de 50% pour gagner</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
-        <Original>Dead population\nYou lose when this hits 33%</Original>
-        <French>Population morte\nVous perdez quand cela atteint 33%</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_faction_resources">
-        <Original>Faction Resources</Original>
-        <French>Ressources de faction</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_hr_label">
-        <Original>HR:</Original>
-        <French>RH:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_training_level_label">
-        <Original>Training level:</Original>
-        <French>Niveau de formation:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_train_button">
-        <Original>Train</Original>
-        <French>Entrainer</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
-        <Original>Faction money:</Original>
-        <French>Argent de la faction</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_take_money_button">
-        <Original>Take</Original>
-        <French>Prendre</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_rest_environment">
-        <Original>Rest &amp; Environment</Original>
-        <French>Se reposer &amp; Environnement</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_rest_button">
-        <Original>Rest</Original>
-        <French>Se repose</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_clear_fog_button">
-        <Original>Clear Fog</Original>
-        <French>Enlever brouillard</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_stop_rain_button">
-        <Original>Stop Rain</Original>
-        <French>Arrêter la pluie</French>
-      </Key>
-    </Container>
-    <Container name="dialog_hq_garrisons">
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_titlebar">
-        <Original>GARRISONS</Original>
-        <French>GARNISONS</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_rifleman">
-        <Original>Rifleman</Original>
-        <French>Fusilier</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_squad_leader">
-        <Original>Squad Leader</Original>
-        <French>Meneur d'escouade</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_autorifleman">
-        <Original>Autorifleman</Original>
-        <French>Mitrailleur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_grenadier">
-        <Original>Grenadier</Original>
-        <French>Grenadier</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_medic">
-        <Original>Medic</Original>
-        <French>Médecin</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_mortar">
-        <Original>Mortar</Original>
-        <French>Mortier</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_marksman">
-        <Original>Marksman</Original>
-        <French>Tireur d'elite</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_at">
-        <Original>AT</Original>
-        <French>AT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_insufficient_resources">
-        <Original>Not enough money/HR</Original>
-        <French>Pas assez d'argent/RH</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_under_attack">
-        <Original>Can't manage garrisons when outpost is under attack.</Original>
-        <French>Impossible de gérer les garnisons lorsque l'avant-poste est attaqué.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
-        <Original>Rebuild Assets</Original>
-        <French>Reconstruire les actifs</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_dismiss_garrison_button">
-        <Original>Dismiss Garrison</Original>
-        <French>Renvoyer la garnison</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_build_watchpost_button">
-        <Original>Build Watchpost</Original>
-        <French>Construire un poste de surveillance</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_garrisons_remove_watchpost_button">
-        <Original>Remove Watchpost</Original>
-        <French>Supprimer le poste de surveillance</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_rest_text">
-        <Original>Rest for %1.</Original>
-        <French>Repos pour %1.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_wakeup_text">
-        <Original>Time will be %2 when you wake up.</Original>
-        <French>L'heure sera %2 lorsque vous vous réveillerez.</French>
-      </Key>
-    </Container>
-    <Container name="dialog_hq_minefields">
-      <Key ID="STR_antistasi_dialogs_hq_minefields_titlebar">
-        <Original>MINEFIELDS</Original>
-        <French>CHAMPS DE MINES</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_minefields_deploy_minefields_label">
-        <Original>Deploy Minefield:</Original>
-        <French>Déployez le champ de mines:</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_minefields_apers_mines_button">
-        <Original>APERS Mines</Original>
-        <French>Mines APERS</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_minefields_at_mines_button">
-        <Original>AT Mines</Original>
-        <French>Mines AT</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_hq_minefields_remove_minefield_button">
-        <Original>Remove Minefield</Original>
-        <French>Supprimer le champ de mines</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_admin">
-      <Key ID="STR_antistasi_dialogs_main_admin_debug_info_label">
-        <Original>Debug info</Original>
-        <French>Debug info</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_reset_hq_button">
-        <Original>Reset HQ</Original>
-        <French>Réinitialiser le QG</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ai_options_label">
-        <Original>AI Options</Original>
-        <French>Options d'IA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_civ_limit_label">
-        <Original>Civ Limit</Original>
-        <French>Limite civile</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_spawn_distance_label">
-        <Original>Spawn Distance</Original>
-        <French>Distance d'apparition</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ai_limiter_label">
-        <Original>AI Limiter</Original>
-        <French>Limite d'IA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ai_section_warning">
-        <Original>BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.</Original>
-        <French>SOYEZ PRUDENT LORS DE LA MODIFICATION DE CES PARAMÈTRES. LES RÉGLER TROP HAUT *VA* BRISER LE JEU.</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ai_commit_button">
-        <Original>Commit</Original>
-        <French>Commettre</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_petros_button">
-        <Original>Petros</Original>
-        <French>Petros</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_arsenal_box_button">
-        <Original>Arsenal Box</Original>
-        <French>Boîte d'arsenal</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_vehicle_box_button">
-        <Original>Vehicle Box</Original>
-        <French>Boîte de véhicule</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_flag_button">
-        <Original>Flag</Original>
-        <French>Drapeau</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_tent_button">
-        <Original>Tent</Original>
-        <French>Tente</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_map_button">
-        <Original>Map</Original>
-        <French>Carte</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_player_management_button">
-        <Original>Player Management</Original>
-        <French>Gestion des joueurs</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ai_confirm_button">
-        <Original>Confirm</Original>
-        <French>Confirmer</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_label">
-        <Original>Teleport HQ assets to your position</Original>
-        <French>Téléporter les actifs du QG à votre position</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_player_name_label">
-        <Original>Name</Original>
-        <French>Nom</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_player_distance_label">
-        <Original>Distance</Original>
-        <French>Distance</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_player_uid_label">
-        <Original>PlayerUID</Original>
-        <French>JoueurUID</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_add_member_button">
-        <Original>Add Member</Original>
-        <French>Ajouter membre</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_remove_member_button">
-        <Original>Remove Member</Original>
-        <French>Enlever membre</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_to_player_button">
-        <Original>Teleport to Player</Original>
-        <French>Téléportation vers le joueur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_tp_player_to_me_button">
-        <Original>Teleport Player to Me</Original>
-        <French>Téléporter le joueur vers moi</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_kick_player_button">
-        <Original>Kick Player</Original>
-        <French>Éjecter Joueur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_ban_player_button">
-        <Original>Ban Player</Original>
-        <French>Bannir Joueur</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_admin_copy_uid_button">
-        <Original>Copy UID to Clipboard</Original>
-        <French>Copier l'UID dans le presse-papiers</French>
-      </Key>
-    </Container>
-    <Container name="dialog_main_ai_management">
-      <Key ID="STR_antistasi_dialogs_main_ai_management_ai_list_label">
-        <Original>AI Group members</Original>
-        <French>Membres du groupe AI</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_clear_button">
-        <Original>Clear</Original>
-        <French>Effacer</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_clear_tooltip">
-        <Original>Clears list selection</Original>
-        <French>Effacer la sélection de la liste</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_temp_ai_control_button">
-        <Original>Temp. AI Control</Original>
-        <French>Contrôle temporaire de l'IA</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_dismiss_button">
-        <Original>Dismiss Unit(s)</Original>
-        <French>Renvoyer l'unité(s)</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
-        <Original>Auto Rearm / Loot</Original>
-        <French>Réarmement automatique / butin</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_auto_heal_button">
-        <Original>Auto Heal</Original>
-        <French>Soin automatique</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
-        <Original>You can only remote control single units\nSelect exactly one AI in the list</Original>
-        <French>Vous ne pouvez contrôler à distance que des unités individuelles\nSélectionnez exactement une IA dans la liste</French>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
-        <Original>Select AI in the list</Original>
-        <French>Sélectionnez IA dans la liste</French>
-      </Key>
-    </Container>
-    <Container name="recruit_squad">
-      <Key ID="STR_antistasi_recruit_squad_hint_title">
-        <Original>Recruit Squad</Original>
-        <French>Recruter une escouade</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_commander_only">
-        <Original>Only the Commander has access to this function</Original>
-        <French>Seul le commandant a accès à cette fonction</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_moving_hq">
-        <Original>You cannot recruit a new squad while you are moving your HQ</Original>
-        <French>Vous ne pouvez pas recruter une nouvelle escouade pendant que vous déplacez votre QG</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_no_radio">
-        <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
-        <French>Vous avez besoin d'une radio dans votre inventaire pour pouvoir donner des ordres à d'autres escouades</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_no_radio_man">
-        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
-        <French>Vous avez besoin d'un opérateur radio dans votre groupe pour pouvoir donner des ordres à d'autres escouades</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_enemies_near">
-        <Original>You cannot recruit squads with enemies near your HQ</Original>
-        <French>Vous ne pouvez pas recruter d'escouades avec des ennemis à proximité de votre QG</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_unsupported_modset">
-        <Original>The group or vehicle type you requested is not supported in your modset</Original>
-        <French>Le groupe ou le type de véhicule que vous avez demandé n'est pas pris en charge dans votre modset</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_at_disabled_rhsgref">
-        <Original>AT Trucks are disabled in RHS - GREF</Original>
-        <French>Les camions AT sont désactivés dans RHS - GREF</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_insufficient_hr">
-        <Original>You do not have enough HR for this request (%1 required)</Original>
-        <French>Vous n'avez pas assez de RH pour cette demande (%1 requis)</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_insufficient_money">
-        <Original>You do not have enough money for this request (%1 € required)</Original>
-        <French>Vous n'avez pas assez d'argent pour cette demande (%1 € requis)</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_hint_vehicle_purchased">
-        <Original>Vehicle Purchased</Original>
-        <French>Véhicule acheté</French>
-      </Key>
-      <Key ID="STR_antistasi_recruit_squad_spawn_message">
-        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
-        <French>Groupe %1 à votre commande.&lt;br/&gt;&lt;br/&gt;Les groupes sont gérés depuis la barre de commande supérieure (par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe se coince, utilisez la fonction contrôle temporaire de l'IA pour les déplacer. Les équipes statiques montées ont tendance à rester bloquées (résoudre cela est WiP)&lt;br/&gt;&lt;br/&gt;Pour attribuer un véhicule à ce groupe, regardez un véhicule et utilisez l'option Vehicle Squad Mngmt dans le menu Y</French>
-      </Key>
-    </Container>
-    <Container name="arsenal_limits_dialog">
-      <Key ID="STR_antistasi_arsenal_limits_dialog_title">
-        <Original>ARSENAL GUEST LIMITS</Original>
-        <French>LIMITES D'INVITÉS D'ARSENAL</French>
-      </Key>
-      <Key ID="STR_antistasi_arsenal_limits_dialog_limit">
-        <Original>Limit</Original>
-        <French>Limite</French>
-      </Key>
-      <Key ID="STR_antistasi_arsenal_limits_dialog_current">
-        <Original>Current</Original>
-        <French>Courant</French>
-      </Key>
-      <Key ID="STR_antistasi_arsenal_limits_dialog_close">
-        <Original>CLOSE</Original>
-        <French>FERMER</French>
-      </Key>
-      <Key ID="STR_antistasi_arsenal_limits_dialog_step">
-        <Original>STEP</Original>
-        <French>ÉTAPE</French>
-      </Key>
-      <Key ID="STR_antistasi_arsenal_limits_dialog_reset">
-        <Original>RESET</Original>
-        <French>RÉINITIALISER</French>
-      </Key>
-    </Container>
-    <Container name="setup_dialog">
-      <Key ID="STR_antistasi_dialogs_setup_titlebar">
-        <Original>ANTISTASI SETUP</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
-        <Original>Load Game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
-        <Original>Factions</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
-        <Original>Params</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_saved_games">
-        <Original>Saved Games</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_start_game">
-        <Original>Start game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_create_new_game">
-        <Original>Create new game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
-        <Original>Copy old game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_load_old_params">
-        <Original>Load old params</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
-        <Original>Use New Namespace</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
-        <Original>Set HQ Position</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_new_save_name">
-        <Original>New save name</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_rename_game">
-        <Original>Rename game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_delete_game">
-        <Original>Delete game</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_rebels">
-        <Original>Rebels</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_civilians">
-        <Original>Civilians</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_occupants">
-        <Original>Occupants</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_invaders">
-        <Original>Invaders</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_addonvics">
-        <Original>Addon vehicles</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_dlc">
-        <Original>DLC</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
-        <Original>Override map limits</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
-        <Original>Override camo limits</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
-        <Original>Show missing mods</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
-        <Original>Override side limits</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
-        <Original>Switch enemy sides</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_confirm_title">
-        <Original>CONFIRM ACTION</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
-        <Original>YES</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
-        <Original>CANCEL</Original>
-      </Key>
-      <Key ID="STR_antistasi_dialogs_setup_hqpos_close">
-        <Original>Close</Original>
-      </Key>
-    </Container>
-  </Package>
+    <Package name="A3-Antistasi Mission GUI">
+        <Container name="dialog_recruit_units">
+            <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
+                <Original>RECRUIT UNITS</Original>
+                <French>RECRUTER UNITÉS</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_militiaman">
+                <Original>Militiaman</Original>
+                <French>Milicien</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
+                <Original>Autorifleman</Original>
+                <French>Fusilieur mitrailleur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_medic">
+                <Original>Medic</Original>
+                <French>Médecin</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_engineer">
+                <Original>Engineer</Original>
+                <French>Ingénieur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_bomb_specialist">
+                <Original>Bomb Specialist</Original>
+                <French>Spécialiste des bombes</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_grenadier">
+                <Original>Grenadier</Original>
+                <French>Grenadier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_marksman">
+                <Original>Marksman</Original>
+                <French>Tireur d'élite</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
+                <Original>Antitank</Original>
+                <French>Anti-char</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main">
+            <Key ID="STR_antistasi_dialogs_main_titlebar">
+                <Original>BATTLE OPTIONS</Original>
+                <French>OPTIONS DE COMBAT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_player_tab_button">
+                <Original>Player</Original>
+                <French>Joueur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_tab_button">
+                <Original>Commander</Original>
+                <French>Commandant</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tab_button">
+                <Original>Admin</Original>
+                <French>Admin</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_tab_disabled_tooltip">
+                <Original>Only the commander can access the commander tab</Original>
+                <French>Seul le commandant peut accéder à l'onglet commandant</French>
+            </Key>
+        </Container>
+        <Container name="dialog_recruit_squad">
+            <Key ID="STR_antistasi_dialogs_recruit_squad_titlebar_text">
+                <Original>RECRUIT SQUAD</Original>
+                <French>RECRUTER ESCOUADE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_inf_squad">
+                <Original>Inf. Squad</Original>
+                <French>Escouade Inf.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_inf_team">
+                <Original>Inf. Team</Original>
+                <French>Équipe Inf.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_at_team">
+                <Original>AT Team</Original>
+                <French>Équipe AT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_mg_team">
+                <Original>MG Team</Original>
+                <French>Équipe MG</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_mortar_team">
+                <Original>Mortar Team</Original>
+                <French>Équipe Mortier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_sniper_team">
+                <Original>Sniper Team</Original>
+                <French>Équipe Sniper</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_at_car">
+                <Original>AT Car</Original>
+                <French>Voiture AT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_aa_truck">
+                <Original>AA Truck</Original>
+                <French>Camion AA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_recruit_squad_include_vehicle_label">
+                <Original>Include vehicle</Original>
+                <French>Inclure le véhicule</French>
+            </Key>
+        </Container>
+        <Container name="dialogs_generic">
+            <Key ID="STR_antistasi_dialogs_generic_yes">
+                <Original>Yes</Original>
+                <French>Oui</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_no">
+                <Original>No</Original>
+                <French>Non</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_days">
+                <Original>days</Original>
+                <French>jours</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_hours">
+                <Original>hours</Original>
+                <French>heures</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_minutes">
+                <Original>minutes</Original>
+                <French>minutes</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_seconds">
+                <Original>seconds</Original>
+                <French>secondes</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_day">
+                <Original>day</Original>
+                <French>jour</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_hour">
+                <Original>hour</Original>
+                <French>heure</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_minute">
+                <Original>minute</Original>
+                <French>minute</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_second">
+                <Original>second</Original>
+                <French>seconde</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_days_short">
+                <Original>d</Original>
+                <French>j</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_hours_short">
+                <Original>h</Original>
+                <French>h</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_minutes_short">
+                <Original>m</Original>
+                <French>m</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_seconds_short">
+                <Original>s</Original>
+                <French>s</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_generic_aggression">
+                <Original>aggression</Original>
+                <French>agression</French>
+            </Key>
+        </Container>
+        <Container name="dialog_load_last_save">
+            <Key ID="STR_antistasi_dialogs_load_last_save_titlebar">
+                <Original>LOAD LAST SAVE?</Original>
+                <French>CHARGER LA DERNIÈRE SAUVEGARDE ?</French>
+            </Key>
+        </Container>
+        <Container name="dialog_buy_vehicle">
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
+                <Original>BUY VEHICLE</Original>
+                <French>ACHETER UN VÉHICULE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
+                <Original>Buy %1 for %2 %3</Original>
+                <French>Acheter %1 pour %2 %3</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_undercover_tooltip">
+                <Original>This vehicle can go undercover</Original>
+                <French>Ce véhicule peut passer incognito</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_driver_tooltip">
+                <Original>Driver / Pilot</Original>
+                <French>Chauffeur / Pilote</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_copilot_tooltip">
+                <Original>Co-Pilot</Original>
+                <French>Copilote</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_commander_tooltip">
+                <Original>Commander</Original>
+                <French>Commandant</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_tooltip">
+                <Original>Gunner</Original>
+                <French>Tireur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_tooltip">
+                <Original>Passenger seat</Original>
+                <French>Siège passager</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_tooltip">
+                <Original>FFV seat</Original>
+                <French>Siège FFV</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip">
+                <Original>%1 Gunners</Original>
+                <French>%1 Artilleurs</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
+                <Original>%1 Passenger seats</Original>
+                <French>%1 Sièges passagers</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_buy_vehicle_ffv_amount_tooltip">
+                <Original>%1 FFV seats</Original>
+                <French>%1 Sièges FFV</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_player">
+            <Key ID="STR_antistasi_dialogs_main_fast_travel">
+                <Original>Fast Travel</Original>
+                <French>Voyage rapide</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
+                <Original>This is a placeholder</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_undercover">
+                <Original>Go Undercover</Original>
+                <French>Passer incognito</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_construct">
+                <Original>Construct</Original>
+                <French>Construction</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management">
+                <Original>AI Management</Original>
+                <French>Gestion de l'IA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_text_commander">
+                <Original>Commander</Original>
+                <French>Commandant</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_text_eligible">
+                <Original>Eligible</Original>
+                <French>Éligible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_text_ineligible">
+                <Original>Ineligible</Original>
+                <French>Inéligible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_button_resign">
+                <Original>Resign</Original>
+                <French>Démissionner</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_button_set_eligible">
+                <Original>Set Eligible</Original>
+                <French>Devenir Eligible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_button_set_ineligible">
+                <Original>Set Ineligible</Original>
+                <French>Devenir Inéligible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_donate">
+                <Original>Donate Money</Original>
+                <French>Donner de l'argent</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hide_top_bar">
+                <Original>Hide top bar</Original>
+                <French>Masquer la barre supérieure</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_vehicles">
+                <Original>Vehicles</Original>
+                <French>Véhicules</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_garage_vehicle">
+                <Original>Garage</Original>
+                <French>Ranger</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_unlock_vehicle">
+                <Original>Unlock</Original>
+                <French>Déverrouiller</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_lock_vehicle">
+                <Original>Lock</Original>
+                <French>Verrouiller</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
+                <Original>Sell</Original>
+                <French>Vendre</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_add_to_air_support">
+                <Original>Add to air support</Original>
+                <French>Ajouter au soutien aérien</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_no_vehicle">
+                <Original>No vehicle detected</Original>
+                <French>Aucun véhicule détecté</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_not_eligible_vehicle_tooltip">
+                <Original>Not eligible vehicle</Original>
+                <French>Véhicule non éligible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_only_tooltip">
+                <Original>Commander only</Original>
+                <French>Commandant uniquement</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_members_only">
+                <Original>Members only function</Original>
+                <French>Fonction réservée aux membres</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_player_money_text">
+                <Original>Current money:\n€ %1</Original>
+                <French>Monnaie actuelle:\n€ %1</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
+                <Original>Only available to squad leaders</Original>
+                <French>Uniquement disponible pour les chefs d'escouade</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
+                <Original>Needs AI group members\nYou can recruit them at the flag</Original>
+                <French>Nécessite des membres du groupe AI\nVous pouvez les recruter au drapeau</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_donate">
+            <Key ID="STR_antistasi_dialogs_main_current_money">
+                <Original>Current money</Original>
+                <French>Monnaie actuelle</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_donate_label">
+                <Original>Donate</Original>
+                <French>Donner</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_donate_player">
+                <Original>Donate to Player</Original>
+                <French>Faire un don au joueur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_donate_faction">
+                <Original>Donate to Faction</Original>
+                <French>Faire un don à la faction</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_commander">
+            <Key ID="STR_antistasi_dialogs_main_hc_groups_label">
+                <Original>High Command Groups</Original>
+                <French>Groupes de haut commandement</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_remote_control_tooltip">
+                <Original>Remote control group leader</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
+                <Original>Number of units in the group\nAble to combat / Total number of units</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_combat_mode">
+                <Original>Combat mode</Original>
+                <French>Mode combat</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
+                <Original>Vehicle</Original>
+                <French>Véhicule</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_button">
+                <Original>Fire Mission</Original>
+                <French>Fire Mission</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_mount">
+                <Original>Mount</Original>
+                <French>Monter</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_dismount">
+                <Original>Dismount</Original>
+                <French>Démonter</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_add_vehicle">
+                <Original>Add Vehicle</Original>
+                <French>Ajouter un véhicule</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_garrison">
+                <Original>Garrison</Original>
+                <French>Garnison</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_dismiss">
+                <Original>Dismiss</Original>
+                <French>Congédier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_label">
+                <Original>Fire mission</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo">
+                <Original>Ammo</Original>
+                <French>Munitions</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_he">
+                <Original>HE</Original>
+                <French>HE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_ammo_smoke">
+                <Original>Smoke</Original>
+                <French>Fumée</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_label">
+                <Original>Shell type</Original>
+                <French>Type d'obus</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_he">
+                <Original>HE</Original>
+                <French>HE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_shell_type_smoke">
+                <Original>Smoke</Original>
+                <French>Fumée</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_label">
+                <Original>Mission type</Original>
+                <French>Type de mission</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_point">
+                <Original>Point</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_type_barrage">
+                <Original>Barrage</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_label">
+                <Original>Rounds</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_label">
+                <Original>Position</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_set">
+                <Original>SET</Original>
+                <French>DÉFINIR</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_start_label">
+                <Original>Start</Original>
+                <French>Démarrer</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_end_label">
+                <Original>End</Original>
+                <French>Finir</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_fire_button">
+                <Original>Fire</Original>
+                <French>Tirer</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_button">
+                <Original>Air Support</Original>
+                <French>Appui aérien</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_garbage_clean_button">
+                <Original>Garbage Clean</Original>
+                <French>Nettoyer les ordures</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_garbage_clean_all">
+                <Original>Garbage Clean All</Original>
+                <French>Nettoyer toutes les ordures</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_garbage_clean_hq">
+                <Original>Garbage Clean HQ</Original>
+                <French>Nettoyer les ordures du QG</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_deployed_tooltip">
+                <Original>Unable to fire. Mortar is not deployed.</Original>
+                <French>Impossible de tirer. Le mortier n'est pas déployé.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_medic">
+                <Original>Has operative medic</Original>
+                <French>A un médecin disponible</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_at">
+                <Original>Has AT capability</Original>
+                <French>Possède une capacité AT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_aa">
+                <Original>Has AA capability</Original>
+                <French>A une capacité AA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_deployed">
+                <Original>Mortar is deployed</Original>
+                <French>Le mortier est déployé</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_mortar_not_deployed">
+                <Original>Mortar is not deployed</Original>
+                <French>Le mortier n'est pas déployé</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_deployed">
+                <Original>Static weapon is deployed</Original>
+                <French>L'arme statique est déployée</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_has_static_weapon_not_deployed">
+                <Original>Static weapon is not deployed</Original>
+                <French>L'arme statique n'est pas déployée</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
+                <Original>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</Original>
+                <French>&lt;t align='center'&gt;Vous n'avez pas de groupes de haut commandement.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Vous pouvez les recruter au drapeau.&lt;/t&gt;</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_rounds_barrage_tooltip">
+                <Original>Number of rounds set by barrage length</Original>
+                <French>Nombre d'obus défini par la longueur du barrage</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_click_map">
+                <Original>CLICK MAP</Original>
+                <French>CLIQUEZ SUR LA CARTE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_not_set">
+                <Original>NOT SET</Original>
+                <French>PAS ENCORE DÉFINI</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
+                <Original>Strike position not set</Original>
+                <French>Position de frappe non définie</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_hc_fire_misison_no_ammo_tooltip">
+                <Original>Not enough ammo</Original>
+                <French>Pas assez de munitions</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_commander_no_radio">
+                <Original>No radio</Original>
+                <French>Pas de radio</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_air_support">
+            <Key ID="STR_antistasi_dialogs_main_air_support_remaining_points">
+                <Original>Air Support points:</Original>
+                <French>Points d'appui aérien:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_aircraft_used">
+                <Original>Aircraft used:</Original>
+                <French>Avion utilisé:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_info">
+                <Original>Get more air support points using the 'Add to Air Support' button in the vehicle section on the player tab.</Original>
+                <French>Obtenez plus de points d'appui aérien en utilisant le bouton "Ajouter au support aérien" dans la section véhicule de l'onglet joueur.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_he_bombs">
+                <Original>HE Bombs</Original>
+                <French>Bombes HE</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_carpet_bombing">
+                <Original>Carpet Bombing</Original>
+                <French>Carpet Bombing</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_napalm">
+                <Original>Napalm Bomb</Original>
+                <French>Bombe au napalm</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_air_support_no_points_tooltip">
+                <Original>You have no air support points</Original>
+                <French>Vous n'avez aucun point d'appui aérien</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_fast_travel">
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_select_location">
+                <Original>Click the map to select the location you want to fast travel to.</Original>
+                <French>Cliquez sur la carte pour sélectionner l'endroit où vous souhaitez vous rendre rapidement.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_group_select_location">
+                <Original>Click the map to select the location you want %1 to fast travel to.</Original>
+                <French>Cliquez sur la carte pour sélectionner l'emplacement vers lequel vous voulez %1 se rende rapidement.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_group_will_travel_to">
+                <Original>will travel to</Original>
+                <French>se rendra à</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_you_will_travel_to">
+                <Original>You will travel to</Original>
+                <French>Vous voyagerez à</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_time">
+                <Original>This will take</Original>
+                <French>Cela prendra</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_fast_travel_vehicle">
+                <Original>You will bring your vehicle along as well as any cargo and passengers along with you.</Original>
+                <French>Vous apporterez votre véhicule ainsi que toute cargaison et passagers avec vous.</French>
+            </Key>
+        </Container>
+        <Container name="dialog_mission_request">
+            <Key ID="STR_antistasi_dialogs_mission_request_conquest">
+                <Original>Conquest</Original>
+                <French>Conquête</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_destroy">
+                <Original>Destroy</Original>
+                <French>Détruire</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_assassination">
+                <Original>Assassination</Original>
+                <French>Assassinat</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_convoy">
+                <Original>Convoy Ambush</Original>
+                <French>Embuscade de convoi</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_rescue">
+                <Original>Rescue</Original>
+                <French>Sauvetage</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_logistics">
+                <Original>Logistics</Original>
+                <French>Logistique</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_support">
+                <Original>Support</Original>
+                <French>Soutien</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_mission_request_titlebar">
+                <Original>REQUEST MISSION</Original>
+                <French>DEMANDE DE MISSION</French>
+            </Key>
+        </Container>
+        <Container name="dialog_hq">
+            <Key ID="STR_antistasi_dialogs_hq_titlebar">
+                <Original>HQ MANAGEMENT</Original>
+                <French>GESTION DU QG</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_button">
+                <Original>Garrisons</Original>
+                <French>Garnisons</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_minefields_button">
+                <Original>Minefields</Original>
+                <French>Champs de mines</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_move_hq_button">
+                <Original>Move HQ</Original>
+                <French>Déplacer le QG</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_clear_trees_button">
+                <Original>Clear Trees</Original>
+                <French>Effacer les arbres</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_campaign_status">
+                <Original>Campaign Status</Original>
+                <French>État de la campagne</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_war_level">
+                <Original>War level:</Original>
+                <French>Niveau de guerre :</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_aggression">
+                <Original>Aggression:</Original>
+                <French>Agression:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_occupants_aggression">
+                <Original>Occupants aggression</Original>
+                <French>Agressivité des occupants</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_invader_aggression">
+                <Original>Invader aggression</Original>
+                <French>Agression de l'envahisseur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_cities">
+                <Original>Controlled cities</Original>
+                <French>Villes contrôlées</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_outposts">
+                <Original>Controlled outposts</Original>
+                <French>Avant-postes contrôlés</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_airbases">
+                <Original>Controlled airbases</Original>
+                <French>Bases aériennes contrôlées</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_resources">
+                <Original>Controlled resources</Original>
+                <French>Ressources contrôlées</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_factories">
+                <Original>Controlled factories</Original>
+                <French>Usines contrôlées</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_controlled_seaports">
+                <Original>Controlled seaports</Original>
+                <French>Ports maritimes contrôlés</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
+                <Original>Popular support\nYou need 50% to win</Original>
+                <French>Support populaire\nVous avez besoin de 50% pour gagner</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
+                <Original>Dead population\nYou lose when this hits 33%</Original>
+                <French>Population morte\nVous perdez quand cela atteint 33%</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_faction_resources">
+                <Original>Faction Resources</Original>
+                <French>Ressources de faction</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_hr_label">
+                <Original>HR:</Original>
+                <French>RH:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_training_level_label">
+                <Original>Training level:</Original>
+                <French>Niveau de formation:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_train_button">
+                <Original>Train</Original>
+                <French>Entrainer</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
+                <Original>Faction money:</Original>
+                <French>Argent de la faction</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_take_money_button">
+                <Original>Take</Original>
+                <French>Prendre</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_rest_environment">
+                <Original>Rest &amp; Environment</Original>
+                <French>Se reposer &amp; Environnement</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_rest_button">
+                <Original>Rest</Original>
+                <French>Se repose</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_clear_fog_button">
+                <Original>Clear Fog</Original>
+                <French>Enlever brouillard</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_stop_rain_button">
+                <Original>Stop Rain</Original>
+                <French>Arrêter la pluie</French>
+            </Key>
+        </Container>
+        <Container name="dialog_hq_garrisons">
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_titlebar">
+                <Original>GARRISONS</Original>
+                <French>GARNISONS</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_rifleman">
+                <Original>Rifleman</Original>
+                <French>Fusilier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_squad_leader">
+                <Original>Squad Leader</Original>
+                <French>Meneur d'escouade</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_autorifleman">
+                <Original>Autorifleman</Original>
+                <French>Mitrailleur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_grenadier">
+                <Original>Grenadier</Original>
+                <French>Grenadier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_medic">
+                <Original>Medic</Original>
+                <French>Médecin</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_mortar">
+                <Original>Mortar</Original>
+                <French>Mortier</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_marksman">
+                <Original>Marksman</Original>
+                <French>Tireur d'elite</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_at">
+                <Original>AT</Original>
+                <French>AT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_insufficient_resources">
+                <Original>Not enough money/HR</Original>
+                <French>Pas assez d'argent/RH</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_under_attack">
+                <Original>Can't manage garrisons when outpost is under attack.</Original>
+                <French>Impossible de gérer les garnisons lorsque l'avant-poste est attaqué.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
+                <Original>Rebuild Assets</Original>
+                <French>Reconstruire les actifs</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_dismiss_garrison_button">
+                <Original>Dismiss Garrison</Original>
+                <French>Renvoyer la garnison</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_build_watchpost_button">
+                <Original>Build Watchpost</Original>
+                <French>Construire un poste de surveillance</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_garrisons_remove_watchpost_button">
+                <Original>Remove Watchpost</Original>
+                <French>Supprimer le poste de surveillance</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_rest_text">
+                <Original>Rest for %1.</Original>
+                <French>Repos pour %1.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_wakeup_text">
+                <Original>Time will be %2 when you wake up.</Original>
+                <French>L'heure sera %2 lorsque vous vous réveillerez.</French>
+            </Key>
+        </Container>
+        <Container name="dialog_hq_minefields">
+            <Key ID="STR_antistasi_dialogs_hq_minefields_titlebar">
+                <Original>MINEFIELDS</Original>
+                <French>CHAMPS DE MINES</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_minefields_deploy_minefields_label">
+                <Original>Deploy Minefield:</Original>
+                <French>Déployez le champ de mines:</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_minefields_apers_mines_button">
+                <Original>APERS Mines</Original>
+                <French>Mines APERS</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_minefields_at_mines_button">
+                <Original>AT Mines</Original>
+                <French>Mines AT</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hq_minefields_remove_minefield_button">
+                <Original>Remove Minefield</Original>
+                <French>Supprimer le champ de mines</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_admin">
+            <Key ID="STR_antistasi_dialogs_main_admin_debug_info_label">
+                <Original>Debug info</Original>
+                <French>Debug info</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_reset_hq_button">
+                <Original>Reset HQ</Original>
+                <French>Réinitialiser le QG</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ai_options_label">
+                <Original>AI Options</Original>
+                <French>Options d'IA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_civ_limit_label">
+                <Original>Civ Limit</Original>
+                <French>Limite civile</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_spawn_distance_label">
+                <Original>Spawn Distance</Original>
+                <French>Distance d'apparition</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ai_limiter_label">
+                <Original>AI Limiter</Original>
+                <French>Limite d'IA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ai_section_warning">
+                <Original>BE CAREFUL WHEN EDITING THESE SETTINGS. SETTING THEM TOO HIGH *WILL* BREAK THE GAME.</Original>
+                <French>SOYEZ PRUDENT LORS DE LA MODIFICATION DE CES PARAMÈTRES. LES RÉGLER TROP HAUT *VA* BRISER LE JEU.</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ai_commit_button">
+                <Original>Commit</Original>
+                <French>Commettre</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_petros_button">
+                <Original>Petros</Original>
+                <French>Petros</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_arsenal_box_button">
+                <Original>Arsenal Box</Original>
+                <French>Boîte d'arsenal</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_vehicle_box_button">
+                <Original>Vehicle Box</Original>
+                <French>Boîte de véhicule</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_flag_button">
+                <Original>Flag</Original>
+                <French>Drapeau</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_tent_button">
+                <Original>Tent</Original>
+                <French>Tente</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_map_button">
+                <Original>Map</Original>
+                <French>Carte</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_player_management_button">
+                <Original>Player Management</Original>
+                <French>Gestion des joueurs</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ai_confirm_button">
+                <Original>Confirm</Original>
+                <French>Confirmer</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_label">
+                <Original>Teleport HQ assets to your position</Original>
+                <French>Téléporter les actifs du QG à votre position</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_player_name_label">
+                <Original>Name</Original>
+                <French>Nom</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_player_distance_label">
+                <Original>Distance</Original>
+                <French>Distance</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_player_uid_label">
+                <Original>PlayerUID</Original>
+                <French>JoueurUID</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_add_member_button">
+                <Original>Add Member</Original>
+                <French>Ajouter membre</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_remove_member_button">
+                <Original>Remove Member</Original>
+                <French>Enlever membre</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_to_player_button">
+                <Original>Teleport to Player</Original>
+                <French>Téléportation vers le joueur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_tp_player_to_me_button">
+                <Original>Teleport Player to Me</Original>
+                <French>Téléporter le joueur vers moi</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_kick_player_button">
+                <Original>Kick Player</Original>
+                <French>Éjecter Joueur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_ban_player_button">
+                <Original>Ban Player</Original>
+                <French>Bannir Joueur</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_admin_copy_uid_button">
+                <Original>Copy UID to Clipboard</Original>
+                <French>Copier l'UID dans le presse-papiers</French>
+            </Key>
+        </Container>
+        <Container name="dialog_main_ai_management">
+            <Key ID="STR_antistasi_dialogs_main_ai_management_ai_list_label">
+                <Original>AI Group members</Original>
+                <French>Membres du groupe AI</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_clear_button">
+                <Original>Clear</Original>
+                <French>Effacer</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_clear_tooltip">
+                <Original>Clears list selection</Original>
+                <French>Effacer la sélection de la liste</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_temp_ai_control_button">
+                <Original>Temp. AI Control</Original>
+                <French>Contrôle temporaire de l'IA</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_dismiss_button">
+                <Original>Dismiss Unit(s)</Original>
+                <French>Renvoyer l'unité(s)</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
+                <Original>Auto Rearm / Loot</Original>
+                <French>Réarmement automatique / butin</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_auto_heal_button">
+                <Original>Auto Heal</Original>
+                <French>Soin automatique</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
+                <Original>You can only remote control single units\nSelect exactly one AI in the list</Original>
+                <French>Vous ne pouvez contrôler à distance que des unités individuelles\nSélectionnez exactement une IA dans la liste</French>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
+                <Original>Select AI in the list</Original>
+                <French>Sélectionnez IA dans la liste</French>
+            </Key>
+        </Container>
+        <Container name="recruit_squad">
+            <Key ID="STR_antistasi_recruit_squad_hint_title">
+                <Original>Recruit Squad</Original>
+                <French>Recruter une escouade</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_commander_only">
+                <Original>Only the Commander has access to this function</Original>
+                <French>Seul le commandant a accès à cette fonction</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_moving_hq">
+                <Original>You cannot recruit a new squad while you are moving your HQ</Original>
+                <French>Vous ne pouvez pas recruter une nouvelle escouade pendant que vous déplacez votre QG</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_no_radio">
+                <Original>You need a radio in your inventory to be able to give orders to other squads</Original>
+                <French>Vous avez besoin d'une radio dans votre inventaire pour pouvoir donner des ordres à d'autres escouades</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_no_radio_man">
+                <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+                <French>Vous avez besoin d'un opérateur radio dans votre groupe pour pouvoir donner des ordres à d'autres escouades</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_enemies_near">
+                <Original>You cannot recruit squads with enemies near your HQ</Original>
+                <French>Vous ne pouvez pas recruter d'escouades avec des ennemis à proximité de votre QG</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_unsupported_modset">
+                <Original>The group or vehicle type you requested is not supported in your modset</Original>
+                <French>Le groupe ou le type de véhicule que vous avez demandé n'est pas pris en charge dans votre modset</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_at_disabled_rhsgref">
+                <Original>AT Trucks are disabled in RHS - GREF</Original>
+                <French>Les camions AT sont désactivés dans RHS - GREF</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_insufficient_hr">
+                <Original>You do not have enough HR for this request (%1 required)</Original>
+                <French>Vous n'avez pas assez de RH pour cette demande (%1 requis)</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_insufficient_money">
+                <Original>You do not have enough money for this request (%1 € required)</Original>
+                <French>Vous n'avez pas assez d'argent pour cette demande (%1 € requis)</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_hint_vehicle_purchased">
+                <Original>Vehicle Purchased</Original>
+                <French>Véhicule acheté</French>
+            </Key>
+            <Key ID="STR_antistasi_recruit_squad_spawn_message">
+                <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
+                <French>Groupe %1 à votre commande.&lt;br/&gt;&lt;br/&gt;Les groupes sont gérés depuis la barre de commande supérieure (par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe se coince, utilisez la fonction contrôle temporaire de l'IA pour les déplacer. Les équipes statiques montées ont tendance à rester bloquées (résoudre cela est WiP)&lt;br/&gt;&lt;br/&gt;Pour attribuer un véhicule à ce groupe, regardez un véhicule et utilisez l'option Vehicle Squad Mngmt dans le menu Y</French>
+            </Key>
+        </Container>
+        <Container name="arsenal_limits_dialog">
+            <Key ID="STR_antistasi_arsenal_limits_dialog_title">
+                <Original>ARSENAL GUEST LIMITS</Original>
+                <French>LIMITES D'INVITÉS D'ARSENAL</French>
+            </Key>
+            <Key ID="STR_antistasi_arsenal_limits_dialog_limit">
+                <Original>Limit</Original>
+                <French>Limite</French>
+            </Key>
+            <Key ID="STR_antistasi_arsenal_limits_dialog_current">
+                <Original>Current</Original>
+                <French>Courant</French>
+            </Key>
+            <Key ID="STR_antistasi_arsenal_limits_dialog_close">
+                <Original>CLOSE</Original>
+                <French>FERMER</French>
+            </Key>
+            <Key ID="STR_antistasi_arsenal_limits_dialog_step">
+                <Original>STEP</Original>
+                <French>ÉTAPE</French>
+            </Key>
+            <Key ID="STR_antistasi_arsenal_limits_dialog_reset">
+                <Original>RESET</Original>
+                <French>RÉINITIALISER</French>
+            </Key>
+        </Container>
+        <Container name="setup_dialog">
+            <Key ID="STR_antistasi_dialogs_setup_titlebar">
+                <Original>ANTISTASI SETUP</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
+                <Original>Load Game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
+                <Original>Factions</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
+                <Original>Params</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_saved_games">
+                <Original>Saved Games</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_start_game">
+                <Original>Start game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_create_new_game">
+                <Original>Create new game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
+                <Original>Copy old game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_load_old_params">
+                <Original>Load old params</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
+                <Original>Use New Namespace</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
+                <Original>Set HQ Position</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_new_save_name">
+                <Original>New save name</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_rename_game">
+                <Original>Rename game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_delete_game">
+                <Original>Delete game</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_rebels">
+                <Original>Rebels</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_civilians">
+                <Original>Civilians</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_occupants">
+                <Original>Occupants</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_invaders">
+                <Original>Invaders</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_addonvics">
+                <Original>Addon vehicles</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_dlc">
+                <Original>DLC</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
+                <Original>Override map limits</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
+                <Original>Override camo limits</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
+                <Original>Show missing mods</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
+                <Original>Override side limits</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
+                <Original>Switch enemy sides</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_confirm_title">
+                <Original>CONFIRM ACTION</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
+                <Original>YES</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
+                <Original>CANCEL</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_setup_hqpos_close">
+                <Original>Close</Original>
+            </Key>
+        </Container>
+    </Package>
 </Project>

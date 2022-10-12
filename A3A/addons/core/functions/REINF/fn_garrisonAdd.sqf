@@ -4,7 +4,7 @@ private ["_hr","_resourcesFIA","_typeX","_costs","_markerX","_garrison","_positi
 
 _hr = server getVariable "hr";
 
-if (_hr < 1) exitWith {["Garrisons", "You lack of HR to make a new recruitment."] call A3A_fnc_customHint;};
+if (_hr < 1) exitWith {["Garrisons", "You lack HR to make a new recruitment."] call A3A_fnc_customHint;};
 
 _resourcesFIA = server getVariable "resourcesFIA";
 
@@ -26,6 +26,21 @@ _positionX = getMarkerPos _markerX;
 if (surfaceIsWater _positionX) exitWith {["Garrisons", "This Garrison is still updating, please try again in a few seconds."] call A3A_fnc_customHint;};
 
 if ([_positionX] call A3A_fnc_enemyNearCheck) exitWith {["Garrisons", "You cannot Recruit Garrison Units with enemies near the zone."] call A3A_fnc_customHint;};
+
+scopename "main";
+if !(player call A3A_fnc_isMember) then {
+	private _curSize = count (garrison getVariable _markerX);
+	private _maxSize = call {
+		if (_markerX in airportsX) exitWith { 30 };
+		if (_markerX in outposts) exitWith { 20 };
+		15;
+	};
+	if (_curSize >= _maxSize) then {
+		["Garrisons", "You cannot add any more troops to this garrison as a guest"] call A3A_fnc_customHint;
+		breakout "main";
+	};
+};
+
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 /*
 _garrison = [];

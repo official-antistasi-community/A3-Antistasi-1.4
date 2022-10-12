@@ -28,6 +28,7 @@
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["rhsgref_BRDM2_HQ_msv", "rhsgref_BRDM2_msv", "rhs_btr80_msv", "rhs_btr80a_msv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["rhs_bmp3m_msv", "rhs_bmp2d_msv", "rhs_bmp2k_msv"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhs_t90sm_tv", "rhs_t80uk", "rhs_t72be_tv", "rhs_t72bd_tv", "rhs_t72bd_tv", "rhs_t72be_tv", "rhs_t72bc_tv"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate;
 

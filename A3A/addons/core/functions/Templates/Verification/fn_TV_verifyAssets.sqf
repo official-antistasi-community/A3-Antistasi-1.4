@@ -135,9 +135,11 @@ private _handleUniqueCases = { //handles unique name cases that the stored value
         case "firstAidKits";
         case "mediKits": { { ["CfgWeapons",_x,_entry] call _validClassCaseSensitive } forEach _y };
 
-        //generic class
-        case "initialRebelEquipment": { { [_x] call _genericClassExists } forEach _y };
-
+        //array of generic classnames, or [class, ...]
+        case "initialRebelEquipment": {
+            private _classes = _y apply { if (_x isEqualType []) then {_x#0} else {_x} };
+            { [_x] call _genericClassExists } forEach _classes;
+        };
         //bool
 
         //truly unique cases

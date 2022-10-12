@@ -73,7 +73,7 @@ player setVariable ["rankX",rank player];
 player setVariable ["owner",player,true];
 player setVariable ["punish",0,true];
 
-player setVariable ["eligible",true,true];
+player setVariable ["eligible",player call A3A_fnc_isMember,true];
 player setVariable ["A3A_playerUID",getPlayerUID player,true];			// Mark so that commander routines know for remote-controlling
 
 musicON = false;

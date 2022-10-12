@@ -1,3 +1,5 @@
+name: Publish to Main Release on Steam
+
 on:
   workflow_dispatch:
 

@@ -81,16 +81,10 @@ if (_tab isEqualTo "vehicles") then
 
     private _added = 0;
     {
-        private _className = _x select 0;
-        private _price = _x select 1;
-        private _canGoUndercover = _x select 2;
+        _x params ["_className", "_price", "_canGoUndercover"];
         private _crewCount = [_className] call A3A_fnc_getVehicleCrewCount;
-        private _driver = _crewCount select 0;
-        private _coPilot = _crewCount select 1;
-        private _commander = _crewCount select 2;
-        private _gunners = _crewCount select 3;
-        private _passengers = _crewCount select 4;
-        private _passengersFFV = _crewCount select 5;
+        _crewCount params ["_driver", "_coPilot", "_commander", "_gunners", "_passengers", "_passengersFFV"];
+        
         private _configClass = configFile >> "CfgVehicles" >> _className;
         private _displayName = getText (_configClass >> "displayName");
         private _editorPreview = getText (_configClass >> "editorPreview");

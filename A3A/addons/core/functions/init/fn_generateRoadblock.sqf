@@ -20,7 +20,7 @@ while {_roads isNotEqualTo []} do
     private _posroad = getPosATL _road;
     if (_nearRB inAreaArray [_posroad, 1000, 1000] isNotEqualTo []) then { continue };
  
-    private _mrk = createmarkerLocal [format ["control_%1", count controlsX], _posroad];
+    private _mrk = createmarkerLocal [format ["control_%1", 100 + count controlsX], _posroad];
     _mrk setMarkerSizeLocal [30,30];
     _mrk setMarkerShapeLocal "RECTANGLE";
     _mrk setMarkerBrushLocal "SOLID";

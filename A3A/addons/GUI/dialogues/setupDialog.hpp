@@ -513,7 +513,7 @@ class A3A_SetupHQPosDialog
         class CloseButton : A3A_Button
         {
             idc = -1;
-            text = $STR_antistasi_dialogs_setup_hqpos_close
+            text = $STR_antistasi_dialogs_setup_hqpos_close;
             onButtonClick = "closeDialog 0";
             x = safeZoneX;
             y = safeZoneY;
@@ -568,7 +568,7 @@ class A3A_SetupConfirmDialog
         class CancelButton : A3A_Button
         {
             idc = A3A_IDC_SETUP_CONFIRMCANCEL;
-            text = $STR_antistasi_dialogs_setup_confirm_cancel
+            text = $STR_antistasi_dialogs_setup_confirm_cancel;
             onButtonClick = "closeDialog 0";
             x = DIALOG_X + 4 * GRID_W;
             y = DIALOG_Y + 28 * GRID_H;
@@ -578,7 +578,7 @@ class A3A_SetupConfirmDialog
         class YesButton : A3A_Button
         {
             idc = A3A_IDC_SETUP_CONFIRMYES;
-            text = $STR_antistasi_dialogs_setup_confirm_yes
+            text = $STR_antistasi_dialogs_setup_confirm_yes;
             onButtonClick = "['confirm'] call A3A_fnc_setupConfirmDialog";
             x = DIALOG_X + 46 * GRID_W;
             y = DIALOG_Y + 28 * GRID_H;

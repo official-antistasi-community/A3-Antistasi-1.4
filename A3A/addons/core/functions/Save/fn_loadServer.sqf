@@ -35,7 +35,6 @@ if (isServer) then {
 	["bombRuns"] call A3A_fnc_getStatVariable;
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	//===========================================================================
-	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 	//RESTORE THE STATE OF THE 'UNLOCKED' VARIABLES USING JNA_DATALIST
 	{

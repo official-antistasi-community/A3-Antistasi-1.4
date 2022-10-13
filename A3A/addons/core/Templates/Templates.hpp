@@ -360,11 +360,11 @@ class Templates
         camo[] = {"arid"};
     };
 
-    class 3CBF_CNM : 3CBF_Base
+    class 3CBF_CCM : 3CBF_Base
     {
         side = "Reb";
         flagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_CCM\Flag\ccm_i_flag_co.paa";
-        name = "3CB CNM";
+        name = "3CB CCM";
         file = "3CB_Reb_CNM";
     };
 

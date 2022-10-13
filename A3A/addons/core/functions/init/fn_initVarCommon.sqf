@@ -92,9 +92,11 @@ A3A_hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak")
 A3A_hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
 
 //ADV-CPR Pike Edition detection
+A3A_hasADV = false;
 if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; Info("ADV Detected.") };
 
 //KAT medical detection
+A3A_hasKAT = false;
 if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "kat_PainkillerItem")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
 
 // Here because it changes the verification logic apparently

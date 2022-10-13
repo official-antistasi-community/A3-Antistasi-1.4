@@ -1402,14 +1402,14 @@
         <Original>Toggle Info Bar Visibility</Original>
         <Russian>Переключить видимость информ. строки</Russian>
         <Korean>정보바 가시토글</Korean>
-        <chinesesimp>切换信息栏可见性</chinesesimp>
+        <Chinesesimp>切换信息栏可见性</Chinesesimp>
         <Italian>Attiva e disabilita la visibilità della barra informazioni</Italian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
         <Original>Press ALT+HOME to show / hide information bar at the top of the screen.</Original>
         <Russian>Нажмите ALT+HOME, чтобы отобразить/скрыть информационную строку в верхней части экрана.</Russian>
         <Korean>화면 위에 있는 정보바를 숨기거나 표시하려면 Alt + Home 키를 누르세요.</Korean>
-        <chinesesimp>按ALT+HOME来显示/隐藏顶部信息栏。</chinesesimp>
+        <Chinesesimp>按ALT+HOME来显示/隐藏顶部信息栏。</Chinesesimp>
         <Italian>Premi ALT+HOME per visualizzare / nascondere la barra informazioni in alto allo schermo.</Italian>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
@@ -3491,7 +3491,7 @@
         <French>Barre d'informations</French>
         <Russian>Информационная строка</Russian>
         <Korean>정보창</Korean>
-        <chinesesimp>信息栏</chinesesimp>
+        <Chinesesimp>信息栏</Chinesesimp>
         <Italian>Barra Informazioni</Italian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
@@ -3499,7 +3499,7 @@
         <French>Vous avez désactivé la barre d'informations supérieure. Pour l'activer, appuyez sur %1.</French>
         <Russian>Вы выключили отображение информационной строки. Чтобы включить её снова, нажмите %1.</Russian>
         <Korean>화면 상단의 정보창을 닫았습니다. 다시 열려면 %1를 누르세요.</Korean>
-        <chinesesimp>你关闭了顶部信息栏。 要启用它，请按%1。</chinesesimp>
+        <Chinesesimp>你关闭了顶部信息栏。 要启用它，请按%1。</Chinesesimp>
         <Italian>Hai disabilitato la Barra Informazioni. Per abilitarla, premi %1.</Italian>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
@@ -3507,7 +3507,7 @@
         <French>Vous avez activé la barre d'informations supérieure. Pour la désactiver, appuyez sur %1.</French>
         <Russian>Вы включили отображение информационной строки. Чтобы выключить её, нажмите %1.</Russian>
         <Korean>화면 상단의 정보창을 열었습니다. 다시 닫을려면 %1를 누르세요.</Korean>
-        <chinesesimp>你打开了顶部信息栏。 要关闭它，请按%1。</chinesesimp>
+        <Chinesesimp>你打开了顶部信息栏。 要关闭它，请按%1。</Chinesesimp>
         <Italian>Hai abilitato la Barra Informazioni. Per disabilitarla, premi %1.</Italian>
       </Key>
     </Container>
@@ -3767,7 +3767,7 @@
         <French>A/E pour tourner- Espace/Entrée pour arrêter.</French>
         <Korean>Q/E를 이용해서 회전 - 스페이스 / 엔터로 멈추기</Korean>
         <Russian>Q/E - вращать - Space/Enter - закончить</Russian>
-        <chinesesimp>Q/E 旋转-空格/回车 停止</chinesesimp>
+        <Chinesesimp>Q/E 旋转-空格/回车 停止</Chinesesimp>
         <Italian>Q/E per girare - Spazio/Invio per fermare.</Italian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Far">
@@ -3775,14 +3775,14 @@
         <French>Tu es trop loin</French>
         <Korean>너무 멀리있습니다.</Korean>
         <Russian>Вы слишком далеко.</Russian>
-        <chinesesimp>距离太远</chinesesimp>
+        <Chinesesimp>距离太远</Chinesesimp>
         <Italian>Sei troppo lontano</Italian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Title">
         <Original>Utility items</Original>
         <French>Articles utilitaires</French>
         <Korean>다목적 아이템</Korean>
-        <chinesesimp>工具</chinesesimp>
+        <Chinesesimp>工具</Chinesesimp>
         <Italian>Oggetti Utilità</Italian>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Attached_Objects">
@@ -3790,7 +3790,7 @@
         <French>Vous portez déjà quelque chose.</French>
         <Korean>이미 다른 것을 들고 있습니다.</Korean>
         <Russian>Вы уже что-то несете.</Russian>
-        <chinesesimp>你已经拿着一个物品了！</chinesesimp>
+        <Chinesesimp>你已经拿着一个物品了！</Chinesesimp>
         <Italian>Sta già trasportando qualcosa.</Italian>
       </Key>
     </Container>
@@ -3871,35 +3871,35 @@
         <Original>d</Original>
         <Korean>일</Korean>
         <Russian>д</Russian>
-        <chinesesimp>d</chinesesimp>
+        <Chinesesimp>d</Chinesesimp>
         <Italian>g</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_hours_abbr">
         <Original>h</Original>
         <Korean>시간</Korean>
         <Russian>ч</Russian>
-        <chinesesimp>h</chinesesimp>
+        <Chinesesimp>h</Chinesesimp>
         <Italian>o</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_minutes_abbr">
         <Original>m</Original>
         <Korean>분</Korean>
         <Russian>м</Russian>
-        <chinesesimp>m</chinesesimp>
+        <Chinesesimp>m</Chinesesimp>
         <Italian>m</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_seconds_abbr">
         <Original>s</Original>
         <Korean>초</Korean>
         <Russian>с</Russian>
-        <chinesesimp>s</chinesesimp>
+        <Chinesesimp>s</Chinesesimp>
         <Italian>s</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_milliseconds_abbr">
         <Original>ms</Original>
         <Korean>밀리초</Korean>
         <Russian>мс</Russian>
-        <chinesesimp>ms</chinesesimp>
+        <Chinesesimp>ms</Chinesesimp>
         <Italian>ms</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
@@ -3907,14 +3907,14 @@
         <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
         <Korean>마이크로초</Korean>
         <Russian>мкс</Russian>
-        <chinesesimp>µs</chinesesimp>
+        <Chinesesimp>µs</Chinesesimp>
         <Italian>µs</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_nanoseconds_abbr">
         <Original>ns</Original>
         <Korean>나노초</Korean>
         <Russian>нс</Russian>
-        <chinesesimp>ns</chinesesimp>
+        <Chinesesimp>ns</Chinesesimp>
         <Italian>ns</Italian>
       </Key>
       <Key ID="STR_antistasi_timeSpan_now">
@@ -3934,7 +3934,7 @@
         <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau être incognito.&lt;br/&gt;&lt;br/&gt; Les véhicules à proximité ne sont plus signalés.</French>
         <Korean>근처 유닛은 회복,세탁되어 다시 위장할 수 있습니다. 인근 차량은 더 이상 신고당하지 않습니다.</Korean>
         <Russian>Ближайшие бойцы были вылечены и могут снова работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Ближайшие машины больше не в розыске.</Russian>
-        <chinesesimp>附近的单位已被治疗并恢复至最佳状态，可以再次进入伪装模式</chinesesimp>
+        <Chinesesimp>附近的单位已被治疗并恢复至最佳状态，可以再次进入伪装模式</Chinesesimp>
         <Italian>Le unità vicine sono state curate, rinnovate e possono andare nuovamente sotto copertura.&lt;br/&gt;&lt;br/&gt;I veicoli nelle vicinanze non sono più reportati dal nemico.</Italian>
       </Key>
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
@@ -3942,7 +3942,7 @@
         <French>La boîte a été utilisée dans les 30 dernières secondes ! Veuillez patienter un peu.</French>
         <Korean>박스를 지난 30초 안에 사용하셨습니다. 잠시만 기다려주세요.</Korean>
         <Russian>Коробка была использована в течении последних 30 секунд. Пожалуйста подождите.</Russian>
-        <chinesesimp>请稍等，箱子在过去30秒内被使用过!</chinesesimp>
+        <Chinesesimp>请稍等，箱子在过去30秒内被使用过!</Chinesesimp>
         <Italian>La scatola è stata già usata negli ultimi 30 secondi! Attendi</Italian>
       </Key>
     </Container>
@@ -3952,7 +3952,7 @@
         <French>Soigner</French>
         <Korean>치료</Korean>
         <Russian>Вылечить</Russian>
-        <chinesesimp>治疗</chinesesimp>
+        <Chinesesimp>治疗</Chinesesimp>
         <Italian>Cura</Italian>
       </Key>
     </Container>

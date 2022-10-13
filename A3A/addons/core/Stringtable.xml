@@ -1404,6 +1404,7 @@
         <Korean>정보바 가시토글</Korean>
         <Chinesesimp>切换信息栏可见性</Chinesesimp>
         <Italian>Attiva e disabilita la visibilità della barra informazioni</Italian>
+        <Czech>Přepnout viditelnost info lišty</Czech>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_6">
         <Original>Press ALT+HOME to show / hide information bar at the top of the screen.</Original>
@@ -1411,6 +1412,7 @@
         <Korean>화면 위에 있는 정보바를 숨기거나 표시하려면 Alt + Home 키를 누르세요.</Korean>
         <Chinesesimp>按ALT+HOME来显示/隐藏顶部信息栏。</Chinesesimp>
         <Italian>Premi ALT+HOME per visualizzare / nascondere la barra informazioni in alto allo schermo.</Italian>
+        <Czech>Stisknout ALT+HOME k zobrazení / skrytí info lišty v horní části obrazovky</Czech>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_1">
         <Original>Faction Leader</Original>
@@ -1466,7 +1468,7 @@
         <Original>Click on this button to go undercover. If you meet the requirements, the enemy won't attack you on sight. On foot, to go undercover you must have no weapons or military equipment visible.&lt;br/&gt;You will lose undercover status when you change load-out, get spotted by enemy guard-dogs, plant mines, and can also be reported by some civilians to the enemy. If you are discovered you won't be able to go undercover on foot again for 30 minutes. You can also go undercover by getting into any civilian vehicle. You will lose undercover status by firing any weapon or being spotted far from a road. If you are discovered you won't be able to go undercover in that vehicle again. Getting close to enemy Airbases, outposts and roadblocks will also make you lose undercover status.</Original>
         <French>Cliquez sur ce bouton pour passer incognito. Si vous remplissez les conditions, l'ennemi ne vous attaquera pas à vue. À pied, pour devenir incognito, vous ne devez avoir ni armes ni équipement militaire visible.&lt;br/&gt;Vous perdrez le statut d'infiltration lorsque vous changerez de chargement, serez repéré par des chiens de garde ennemis, planterez des mines et certains civils pourront également signaler à l'ennemi. Si vous êtes découvert, vous ne pourrez plus vous infiltrer à pied pendant 30 minutes. Vous pouvez également vous infiltrer en montant dans n'importe quel véhicule civil. Vous perdrez le statut d'infiltration en tirant avec n'importe quelle arme ou en étant repéré loin d'une route. Si vous êtes découvert, vous ne pourrez plus vous infiltrer dans ce véhicule. Se rapprocher des bases aériennes, des avant-postes et des barrages routiers ennemis vous fera également perdre le statut d'infiltration.</French>
         <German>Drücke diese Schaltfläche, um verdeckt zu agieren. Wenn du die Anforderungen hierfür erfüllst, werden Feinde dich nicht mehr bei Kontakt angreifen. Während du zu Fuß unterwegs bist, darfst du keine Waffen oder andere militärische Ausrüstung sichtbar tragen.&lt;br/&gt;Du wirst aufgedeckt, wenn du deine Ausrüstung änderst, von feindlichen Wachhunden enteckt wirst, Minen platzierst oder ein Zivilist dich möglicherweise dem Feind meldet. Einmal aufgedeckt, kannst du für 30 Minuten nicht mehr verdeckt agieren. Eine weitere Möglichkeit diesen Modus zu aktivieren ist die Nutzung eines Zivilfahrzeugs. Hierbei wirst du aufgedeckt, sobald du eine Waffe abfeuerst oder dabei gesehen wirst, wenn du zu weit von einer Straße entfernt bist. Wirst du mit einem Zivilfahrzeug aufgedeckt, ist es dir nicht mehr möglich, dieses Fahrzeug für verdecktes Vorgehen zu nutzen. Näherst du dich einem feindlichen Flugplatz, Außenposten oder einer feindlichen Straßensperre, wirst du ebenso aufgedeckt.</German>
-        <Czech>Kliknutím na toto tlačítko přejdete do utajení. Pokud splníte požadavky, nepřítel na vás nezaútočí na první pohled. Abyste mohli jít pěšky v utajení, nesmíte mít žádné zbraně nebo vojenské vybavení viditelné.&lt;br/&gt;Ztratíte tajný status, když změníte vybavení, dostanete spatřen nepřátelskými hlídacími psy, pokládáním min, též můžete být nahlášen místníma civilistama. Pokud vás objeví, nebudete moci jít v utajení znovu  po dobu 30 minut. Můžete také jít v utajení tím, že se dostane do jakéhokoli civilního vozidla. Ztratíte tajný status tím, že vystřelíte jakoukoliv zbraň nebo budete spatřeni daleko od silnice. Pokud vás odhalí, nebudete moci znovu v tom vozidle. Když se přiblížíte k nepřátelským leteckým základnám, základnám a zátarasům, ztratíte také status v utajení.</Czech>
+        <Czech>Kliknutím na toto tlačítko přejdete do utajení. Pokud splníte požadavky, nepřítel na vás nezaútočí na první pohled. Abyste mohli jít pěšky v utajení, nesmíte mít žádné zbraně nebo vojenské vybavení viditelné.&lt;br/&gt;Ztratíte tajný status, když změníte vybavení, dostanete spatřen nepřátelskými hlídacími psy, pokládáním min, též můžete být nahlášen místníma civilistama. Pokud vás objeví, nebudete moci jít v utajení znovu po dobu 30 minut. Můžete také jít v utajení tím, že se dostane do jakéhokoli civilního vozidla. Ztratíte tajný status tím, že vystřelíte jakoukoliv zbraň nebo budete spatřeni daleko od silnice. Pokud vás odhalí, nebudete moci znovu v tom vozidle. Když se přiblížíte k nepřátelským leteckým základnám, základnám a zátarasům, ztratíte také status v utajení.</Czech>
         <Chinesesimp>点击此按钮进入伪装状态。如果你满足伪装条件, 敌军在目视到你时就不会攻击你。想要在步行状态下进入伪装模式, 你不能携带任何可见的武器或军用装备。&lt;br/&gt;当你更换装备, 被敌方警卫犬发现, 埋设地雷, 或被平民报告给敌军时, 伪装将会失效。如果你被识破, 在30分钟内将无法再次进入步行伪装状态。你也可以通过进入民用车辆来启用伪装。使用任何武器开火, 或在远离道路的敌方被发现, 均会使伪装失效。如果你被识破, 你将无法在该载具内再次进入伪装状态。靠近敌方空军基地、观察哨和路障也会使伪装状态失效。</Chinesesimp>
         <Korean>조건에 맞춰 잠복 버튼을 누르면, 함부로 적에게 공격받지 않습니다. 맨몸으로 잠복하기 위해선 무기 또는 군사장비가 없어야합니다.&lt;br/&gt;장비를 바꾸거나, 경비견에게 들키거나, 지뢰를 심거나 시민이 적에게 신고하면 잠복은 들킵니다. 들킨다면 30분동안은 다시 잠복을 하지 못합니다. 또한 민수차량으로 잠복을 할 수 있습니다. 사격하거나 도로에서 벗어난다면 잠복은 풀립니다. 들키면 그 차량으로는 다시 잠복할 수 없습니다. 적군 공항, 전초기지, 검문소에 가까이 간다면 잠복은 풀립니다.</Korean>
         <Russian>Нажмите на эту кнопку, чтобы перейти под прикрытие. Если вы соответствуете требованиям, противник не нападет на вас сразу же. Пешком, чтобы идти под прикрытием, у вас не должно быть видимого оружия или военной техники. &lt;br/&gt; Вы теряете статус секретного прикрытия, когда меняете расстановку сил, вас заметят вражеские сторожевые собаки, устанавливают мины, а также о вас можно сообщить некоторые мирные жители врагу. Если вас обнаружат, вы не сможете снова ходить под прикрытием в течение 30 минут. Вы также можете под прикрытием сесть в любой гражданский автомобиль. Вы потеряете статус под прикрытием, если выстрелите из любого оружия или вас заметят далеко от дороги. Если вас обнаружат, вы больше не сможете ехать под прикрытием в этом транспортном средстве. Приближение к вражеским авиабазам, заставам и блокпостам также приведет к потере статуса секретного прикрытия.</Russian>
@@ -1605,7 +1607,7 @@
         <Original>When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)</Original>
         <French>Lorsque vous êtes dans un camion, vous pouvez utiliser l'action Transférer dans le menu d'action. Il recherchera les boîtes de munitions à proximité et chargera le contenu de la plus proche dans l'espace de chargement du camion. Vous pouvez ensuite décharger le camion dans votre Arsenal au QG pour une utilisation future. Avant le transfert, assurez-vous de décharger le contenu du sac à dos / gilet dans l'espace de chargement du camion, puis transférez. CONSEIL: Si votre Arsenal au QG est plein, utilisez cette fonctionnalité à partir d'un camion à proximité pour ajouter plus de contenu à la boite car il acceptera alors tout :)</French>
         <German>Befindest du dich in einem LKW, kannst du die Transfer-Aktion im Aktionsmenü nutzen. Dadurch wird der Inhalt der nähsten Munitionskiste in das Inventar deines LKWs transferiert. Anschließend kannst du deinen LKW bei deinem Munitionslager im HQ entladen, um die erbeuteten Gegenstände sicher einzulagern. Bevor du das Inventar des LKWs in dein Munitionslager transferierst, solltest du alle Gegenstände aus dem Inventar von Rucksäcken und Westen in das Grundinventar deines LKWs verschieben. TIPP: Wenn dein Munitionslager im HQ voll ist, kannst du über diese Funktion dennoch Gegenstände aus einem LKW einlagern :)</German>
-        <Czech>Při použití nákladního vozu můžete použít akci „Přenos" v nabídce akcí. Vyhledá v blízkém okolí krabici s municí a vloží ji do nákladního prostoru. Poté můžete nákladní vůz vyložit  na velitelství pro budoucí použití. Před přenosem se ujistěte, že jste obsahy baťohů/vest vyložili do nákladního prostoru nákladního vozu a poté jej přenesli. TIP: Pokud je váš inventář arzenálu plný, použijte tuto funkci z blízkého náklaďáku a přidejte do arzenálu další obsah, protože ten sežere všechno :)</Czech>
+        <Czech>Při použití nákladního vozu můžete použít akci „Přenos" v nabídce akcí. Vyhledá v blízkém okolí krabici s municí a vloží ji do nákladního prostoru. Poté můžete nákladní vůz vyložit na velitelství pro budoucí použití. Před přenosem se ujistěte, že jste obsahy baťohů/vest vyložili do nákladního prostoru nákladního vozu a poté jej přenesli. TIP: Pokud je váš inventář arzenálu plný, použijte tuto funkci z blízkého náklaďáku a přidejte do arzenálu další obsah, protože ten sežere všechno :)</Czech>
         <Chinesesimp>搭乘卡车时, 你可以使用动作选单中的转移动作。该动作会搜索附近的弹药箱, 并将最近的弹药箱中的内容装进卡车的货物空间。你可以在总部的弹药箱处卸货以供将来使用。在转移前, 确保已将背包/背心中的内容卸载至卡车的货物空间在进行转移。提示: 如果总部的弹药箱已满, 可以在附近的卡车上使用此功能向弹药箱中添加更多内容, 这样它就会接受任何东西 :)</Chinesesimp>
         <Korean>트럭에 박스를 올릴때, 작업메뉴에서 전송을 눌러야합니다. 가까운 탄약박스을 찾아 트럭 환물칸에 옮깁니다. 그리고 미래의 HQ로 사용할 장소에 탄약박스를 내릴 수 있습니다. 옮기기전 가방과 조끼 내용물을 트럭 화물칸에 두고 운반해야합니다. 팁: 본부 탄약 상자가 가득 찬 경우 근처트럭에서 이 기능을 사용하여 탄약상자에 더 많은 짐들을 넣을수 있습니다 :)</Korean>
         <Russian>Когда вы садитесь на грузовик, вы можете использовать действие «Переместить» в меню действий. Он будет искать ближайшие боеприпасы и загружать содержимое ближайшего в грузовое пространство грузовика. Затем вы можете разгрузить грузовик в свой боезапас в штаб-квартире для будущего использования. Перед перемещением убедитесь, что содержимое рюкзака / жилета выгружено в грузовое пространство грузовика, а затем перенесите его. СОВЕТ: если ваш штаб-квартира с боеприпасами заполнена, используйте эту функцию из ближайшего грузовика, чтобы добавить больше содержимого в ящик с боеприпасами, поскольку он будет принимать все</Russian>
@@ -1865,7 +1867,7 @@
         <Original>Commander Only. Use this option to assign the vehicle you are looking at to any HC squad. Check vehicle status, order them to mount or disembark, and automate mounted static squads.</Original>
         <French>Commandant seulement. Utilisez cette option pour affecter le véhicule que vous regardez à n'importe quelle escouade HC. Vérifiez l'état du véhicule, ordonnez-leur de monter ou de débarquer et d'automatiser les escouades statiques montées.</French>
         <German>Nur Kommandant. Hiermit kannst du ein Fahrzeug, dass du gerade anschaust, einer Oberbefehl-Gruppe zuweisen. Außerdem kannst du den Status des Fahrzeugs prüfen, der Gruppe befehlen auf- oder abzusitzen oder statische Geschütze bemannen lassen.</German>
-        <Czech>Pouze velitel. Pomocí této možnosti můžete přiřadit vozidlo, na které se díváte, k jakékoli skupině štábu. Zkontrolujte stav vozidla, přikažte jim k nasednutí nebo vystoupení a automatizujte lafetované čety.</Czech>
+        <Czech>&gt;Pouze velitel. Pomocí této možnosti můžete přiřadit vozidlo, na které se díváte, k jakékoli skupině štábu. Zkontrolujte stav vozidla, přikažte jim k nasednutí nebo vystoupení a automatizujte lafetované čety.</Czech>
         <Chinesesimp>仅限指挥官使用。使用该选项将面前的载具分配给任意指挥部班组, 并可检查载具状态, 命令班组搭乘或离开载具, 以及自动搭载固定式武器班组。</Chinesesimp>
         <Korean>지휘관 전용. 이 설정을 사용하면 원하는 차량을 High Command 분대에 할당하게 됩니다. 차량상태를 확인하고 탑승 하차 명령을 내리고, 고정화기를 자동화합니다.</Korean>
         <Russian>Используйте эту опцию, чтобы назначить машину, которую вы смотрите, любому отряду. Проверяйте состояние техники, приказывайте им садиться или выходить из машины и автоматизируйте конные статические отряды.</Russian>
@@ -2124,7 +2126,7 @@
         <Original>Money comes from a combination of citizens support on each city, resources conquered, factories conquered (which boost the economy) and power provided to all of them with a nearby friendly power plant (you may also conquer them to cut off Money supply to the enemy). Money is used to purchase vehicles, units and squads.</Original>
         <French>L'argent provient d'une combinaison du soutien des citoyens dans chaque ville, des ressources conquises, des usines conquises (qui stimulent l'économie) et de l'énergie fournie à tous avec une centrale électrique amie à proximité (vous pouvez également les conquérir pour couper l'approvisionnement en argent à l'ennemi ). L'argent est utilisé pour acheter des véhicules, des unités et des escouades.</French>
         <German>Geld wird verdient durch die Unterstützung der Zivilbevölkerung in jeder Stadt, den eroberten Ressourcen und Fabriken (welche die Wirtschaft ankurbeln) und gelieferten Strom zu allen diesen Zonen von einem nahen eroberten Kraftwerk. Es ist auch möglich durch die Eroberung von Kraftwerken den Geldfluss des Feindes zu beeinflussen. Geld wird für den Kauf von Fahrzeugen, Einheiten und Gruppen genutzt.</German>
-        <Czech>Peníze pocházejí z kombinace podpory občanů pro každé město, dobytých zdrojů, dobytých továren (které podporují ekonomiku) a elektřiny poskytované všem  s blízkou přátelskou elektrárnou (můžete je také dobýt, abyste přerušili dodávky peněz nepříteli). Peníze se používají na nákup vozidel, jednotek a skupin.</Czech>
+        <Czech>Peníze pocházejí z kombinace podpory občanů pro každé město, dobytých zdrojů, dobytých továren (které podporují ekonomiku) a elektřiny poskytované všem s blízkou přátelskou elektrárnou (můžete je také dobýt, abyste přerušili dodávky peněz nepříteli). Peníze se používají na nákup vozidel, jednotek a skupin.</Czech>
         <Chinesesimp>资金来源于每个城市公民的支持, 占领的资源点, 工厂(工厂将会促进经济发展), 以及由附近的友方发电厂提供的电力(你也可以通过占领上述区域来切断敌方的资金供应)。资金可用于购买载具、单位和班组。</Chinesesimp>
         <Korean>자금은 각 도시의 지원, 자원지대 점령, 공장 점령( 경제력 버프 ) , 그리고 파워 플랜트 ( 점거시 상대방의 자원줄 타격을 입힙니다.) 으로 수급됩니다. 자금으로는 차량, 인력 등을 고용할수 있습니다.</Korean>
         <Russian>Деньги поступают из поддержки граждан в каждом городе, завоеванных ресурсов, завоеванных заводов (которые стимулируют экономику) и энергии, предоставляемой всем им с помощью близлежащей дружественной электростанции (вы также можете победить их, чтобы отрезать денежную массу врагу). Деньги идут на покупку техники, юнитов и отрядов.</Russian>
@@ -2343,6 +2345,7 @@
         <Russian>Параметры</Russian>
         <Korean>게임 옵션</Korean>
         <Italian>Opzioni di Gioco</Italian>
+        <Czech>Možnosti hry</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit">
         <Original>Civ Limit</Original>
@@ -2351,6 +2354,7 @@
         <Russian>Лимит гражданских</Russian>
         <Korean>민간인 제한</Korean>
         <Italian>Limite Civ</Italian>
+        <Czech>Limit civilistů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_limit_tooltip">
         <Original>Set the max number of spawned civilians. Affects game performance.</Original>
@@ -2359,6 +2363,7 @@
         <Russian>Установите максимальное количество мирных жителей. Влияет на производительность игры.</Russian>
         <Korean>스폰되는 민간인 숫자를 설정합니다. 게임 성능에 영향이 갑니다.</Korean>
         <Italian>Setta il numero massimo di civili generati. Affligge le prestazioni di gioco</Italian>
+        <Czech>Nastavit maximální počet spawnutých civilistů. Má dopad na výkon hry.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance">
         <Original>Spawn Distance</Original>
@@ -2367,6 +2372,7 @@
         <Russian>Дистанция спавна</Russian>
         <Korean>스폰 거리</Korean>
         <Italian>Distanza di Spawn</Italian>
+        <Czech>Vzdálenost spawnu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
         <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running bad.</Original>
@@ -2375,6 +2381,7 @@
         <Russian>Влияет на производительность. Пожалуйста, используйте это с осторожностью. Установите меньшее расстояние, если чувствуете, что Antistasi работает плохо.</Russian>
         <Korean>게임 성능에 영향이 갑니다. 주의해서 사용하세요. Antistasi가 제대로 작동하지 않으면 거리를 줄이십시요.</Korean>
         <Italian>Affligge le prestazioni. Usare con estrema cautela. Imposta distanze inferiori se ritieni che Antistasi stia girando male.</Italian>
+        <Czech>Má vliv na výkon. Prosím používejte s opatrností. Nastavte na nižší vzdálenosti pokud vaše Antistasi běží špatně.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter">
         <Original>AI Limiter</Original>
@@ -2383,6 +2390,7 @@
         <Russian>Лимит ИИ</Russian>
         <Korean>AI 제한</Korean>
         <Italian>Limitatore IA</Italian>
+        <Czech>AI Limiter</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_ai_limiter_tooltip">
         <Original>Sets how much local and simulated AI can spawn in the map. Affects performance and AI ""intelligence"". Use with caution. This is not an exact number as vehicles and squad leaders will always spawn.</Original>
@@ -2391,6 +2399,7 @@
         <Russian>Устанавливает, сколько локальных и смоделированных ИИ может появиться на карте. Влияет на производительность и «интеллект» ИИ. Используйте с осторожностью. Это не точное число, поскольку всегда будут появляться машины и лидеры отрядов.</Russian>
         <Korean>맵에 스폰되는 AI의 숫자를 지정합니다. 게임 성능과 AI 지능에 영향을 주니 주의해서 설정하세요. 스폰되는 차량과 분대장의 숫자를 정확하게 설정하는 것이 아닙니다.</Korean>
         <Italian>Imposta la quantità di IA locale e simulata che può generarsi nella mappa. Influisce sulle prestazioni e sull'"intelligenza" dell'IA. Usare con cautela. Questo non è un numero esatto poiché i veicoli e i capisquadra si genereranno sempre.</Italian>
+        <Czech>Nastaví kolik lokální a simulovaných AI se může spawnout na mapě. Má dopad na výkon a "inteligenci" AI. Použijte s opatrností. Toto není přesné číslo jelikož vozidla a velitelé družstev se vždy spawnou.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music">
         <Original>Music ON/OFF</Original>
@@ -2399,6 +2408,7 @@
         <Russian>Музыка ВКЛ / ВЫКЛ</Russian>
         <Korean>음악 켜기/끄기</Korean>
         <Italian>Musica ON/OFF</Italian>
+        <Czech>Hudba zapnuto/vypnuto</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_music_tooltip">
         <Original>Disables/Enable situational music.</Original>
@@ -2407,6 +2417,7 @@
         <Russian>Отключение/включение музыки</Russian>
         <Korean>상황별 음악 켜기/끄기</Korean>
         <Italian>Disabilita/Abilita Musica Situazionale.</Italian>
+        <Czech>Zapne/vypne situační hudbu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save">
         <Original>Persistent Save</Original>
@@ -2415,6 +2426,7 @@
         <Russian>Сохранение</Russian>
         <Korean>전용 저장 기능</Korean>
         <Italian>Salvataggio Persistente</Italian>
+        <Czech>Perzistentní ukládání</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_save_tooltip">
         <Original>Use this option to save your current game. It does save the most important data in a ""Grand Theft Auto"" way. This option allows good MP save and independent saves of any version update. Vanilla saves are disabled because of lack of several features.</Original>
@@ -2423,6 +2435,7 @@
         <Russian>Используйте эту опцию, чтобы сохранить вашу текущую игру. Он действительно сохраняет самые важные данные способом "Grand Theft Auto". Этот вариант обеспечивает хорошее сохранение MP и независимое сохранение любого обновления версии. Ванильные сохранения отключены из-за отсутствия некоторых функций.</Russian>
         <Korean>이 옵션으로 게임을 저장할 수 있습니다. 이는 중요한 데이터를 GTA의 방식으로 저장합니다. 이 방법은 MP 저장에 좋고 버젼 업데이트에서 독립되는 저장 방식입니다. 기본 저장 방식은 몇몇 기능의 부족으로 사용할 수 없습니다.</Korean>
         <Italian>Usa questa opzione per salvare la partita attuale. Salva i dati più importanti alla ""Grand Theft Auto"". Questa opzione consente un buon salvataggio MP e salvataggi indipendenti di qualsiasi aggiornamento di versione. I salvataggi Vanilla sono disabilitati a causa della mancanza di diverse funzionalità</Italian>
+        <Czech>Použijte toto nastavení k uložení momentální hry. Uloží to ta nejdůležitější data podobně jako Grand Theft Auto. Tato možnost dovoluje dobré MP ukládání a nezávislé ukládání jakékoliv update verze. Vanilla ukládání jsou vypnuta z důvodu nedostatku několika featur.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_plus">
         <Original>+10 AI Limit</Original>
@@ -2431,6 +2444,7 @@
         <Russian>+10 к лимиту ИИ</Russian>
         <Korean>+10 AI 제한</Korean>
         <Italian>+10 Limite IA</Italian>
+        <Czech>+10 AI Limit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_fps_limiter_minus">
         <Original>-10 AI Limit</Original>
@@ -2439,6 +2453,7 @@
         <Russian>-10 к лимиту ИИ</Russian>
         <Korean>-10 AI 제한</Korean>
         <Italian>-10 Limite IA</Italian>
+        <Czech>-10 AI Limit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config">
         <Original>Spawn Distance Config</Original>
@@ -2447,6 +2462,7 @@
         <Russian>Настройка дистаниции спавна</Russian>
         <Korean>스폰거리 설정</Korean>
         <Italian>Configurazione Distanza di Spawn</Italian>
+        <Czech>Konfigurace vzdálenosti spawnování</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_plus">
         <Original>+100 Spawn Dist.</Original>
@@ -2455,6 +2471,7 @@
         <Russian>+100 метров</Russian>
         <Korean>+100 스폰거리.</Korean>
         <Italian>+100 Dist. Spawn</Italian>
+        <Czech>+100 Spawn vzdálenost.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_config_minus">
         <Original>-100 Spawn Dist.</Original>
@@ -2463,6 +2480,7 @@
         <Russian>-100 метров</Russian>
         <Korean>-100 스폰거리.</Korean>
         <Italian>-100 Dist. Spawn</Italian>
+        <Czech>-100 Spawn vzdálenost.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config">
         <Original>Civ Presence Config</Original>
@@ -2471,6 +2489,7 @@
         <Russian>Настройка гражданского насиления</Russian>
         <Korean>지역내 민간인 설정</Korean>
         <Italian>Configurazione Presenza Civile</Italian>
+        <Czech>Konfigurace přítomnosti civilistů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_plus">
         <Original>+1 Max Civs</Original>
@@ -2479,6 +2498,7 @@
         <Russian>+1 к лимиту</Russian>
         <Korean>+1 민간인 추가</Korean>
         <Italian>+1 Civili Massimi</Italian>
+        <Czech>+1 Max Civilistů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_civ_config_minus">
         <Original>-1 Max Civs</Original>
@@ -2487,6 +2507,7 @@
         <Russian>-1 к лимиту</Russian>
         <Korean>-1 민간인 추가</Korean>
         <Italian>-1 Civili Massimi</Italian>
+        <Czech>-1 Max Civilistů</Czech>
       </Key>
     </Container>
     <Container name="mission_menu">
@@ -2497,6 +2518,7 @@
         <Russian>Доступные миссии</Russian>
         <Korean>수행 가능한 임무들</Korean>
         <Italian>Missioni Disponibili</Italian>
+        <Czech>Dostupné mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_assassination_missions">
         <Original>Assassination Mission</Original>
@@ -2505,6 +2527,7 @@
         <Russian>Миссия на убийство</Russian>
         <Korean>암살 임무</Korean>
         <Italian>Missione di Assassinio</Italian>
+        <Czech>Mise atentát</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_convoy_ambush">
         <Original>Convoy Ambush</Original>
@@ -2513,6 +2536,7 @@
         <Russian>Засада конвоя</Russian>
         <Korean>수송대 매복</Korean>
         <Italian>Imboscata al Convoglio</Italian>
+        <Czech>Přepadení konvoje</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_destroy_missions">
         <Original>Destroy Missions</Original>
@@ -2521,6 +2545,7 @@
         <Russian>Миссия на уничтожение</Russian>
         <Korean>파괴 임무</Korean>
         <Italian>Missioni di Distruzione</Italian>
+        <Czech>Mise zničit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_conquest_missions">
         <Original>Conquest Missions</Original>
@@ -2529,6 +2554,7 @@
         <Russian>Миссия захвата</Russian>
         <Korean>점령 임무</Korean>
         <Italian>Missioni Conquista</Italian>
+        <Czech>Mise zabrat</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions">
         <Original>Logistics Missions</Original>
@@ -2537,6 +2563,7 @@
         <Russian>Миссия перевозки</Russian>
         <Korean>군수지원 임무</Korean>
         <Italian>Missioni Logistiche</Italian>
+        <Czech>Logistická mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip">
         <Original>Missions to acquire money or equipment</Original>
@@ -2545,6 +2572,7 @@
         <Russian>Миссии по добыче денег или оборудования</Russian>
         <Korean>자금 혹은 장비 획득 임무</Korean>
         <Italian>Missioni per acquisire soldi o equipaggiamento</Italian>
+        <Czech>Mise s cílem získat peníze nebo vybavení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions">
         <Original>Support Missions</Original>
@@ -2553,6 +2581,7 @@
         <Russian>Миссия поддержки</Russian>
         <Korean>지원 임무</Korean>
         <Italian>Missioni di Supporto</Italian>
+        <Czech>Podpůrné mise</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions_tooltip">
         <Original>Missions to increase your support within the population</Original>
@@ -2561,6 +2590,7 @@
         <Russian>Миссии по увеличению вашей поддержки среди населения</Russian>
         <Korean>지역내 지원를 얻기 위한 임무</Korean>
         <Italian>Missioni per aumentare il supporto della popolazione nei tuoi riguardi</Italian>
+        <Czech>Mise, které zvýší vaše podporů civilistů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_rescue_missions">
         <Original>Rescue Missions</Original>
@@ -2569,6 +2599,7 @@
         <Russian>Спасательные миссии</Russian>
         <Korean>구조 임무</Korean>
         <Italian>Missione di Recupero</Italian>
+        <Czech>Záchranné mise</Czech>
       </Key>
     </Container>
     <Container name="radio_comm">
@@ -2579,6 +2610,7 @@
         <Russian>Управление</Russian>
         <Korean>전투 옵션</Korean>
         <Italian>Opzioni di Battaglia</Italian>
+        <Czech>Možnosti bitvy</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>
@@ -2587,6 +2619,7 @@
         <Russian>Быстрое Перемещение</Russian>
         <Korean>빠른 이동</Korean>
         <Italian>Viaggio Rapido</Italian>
+        <Czech>Rychlý přesun</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel_tooltip">
         <Original>Teleport your squad or a HC selected squad to a friendly zone depending on several factors</Original>
@@ -2595,6 +2628,7 @@
         <Russian>Телепортируйте свой отряд или отряд, выбранный HC, в дружественную зону в зависимости от нескольких факторов</Russian>
         <Korean>당신의 분대 혹은 HC로 선택한 분대를 여러요소에 따라 아군 지역으로 이동시킬 수 있습니다</Korean>
         <Italian>Teletrasporta te e la tua squadra in una zona alleata a seconda di alcuni fattori</Italian>
+        <Czech>Teleportuje vaše družstvo a nebo HC vybrané družstvo do přátelské zóny závesející na několika faktorech</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money">
         <Original>Player and Money</Original>
@@ -2603,6 +2637,7 @@
         <Russian>Игрок и деньги</Russian>
         <Korean>플레이어 및 자금</Korean>
         <Italian>Giocatori e Soldi</Italian>
+        <Czech>Hráč a Peníze</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_player_money_tooltip">
         <Original>Look at some player and interact with him</Original>
@@ -2611,6 +2646,7 @@
         <Russian>Посмотрите на игрока чтобы взаимодействовать с ним</Russian>
         <Korean>다른 플레이어를 보고 상호작용하십시요.</Korean>
         <Italian>Guarda un giocatore e interagiscici</Italian>
+        <Czech>Podívej se na některé hráče a intereaguj s nimi</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
         <Original>Undercover ON</Original>
@@ -2619,6 +2655,7 @@
         <Russian>Скрытность ВКЛ</Russian>
         <Korean>잠복 중</Korean>
         <Italian>Sotto Copertura ON</Italian>
+        <Czech>V utajení ZAPNUTO</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
         <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
@@ -2627,6 +2664,7 @@
         <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
         <Korean>조건을 충족하여 위장상태가 됩니다. 적 AI에게 발각되지 않는 이상 공격당하지 않습니다.</Korean>
         <Italian>Vai sotto copertura se soddisfi i requisiti. I nemici non ti attaccheranno finché verrai scoperto</Italian>
+        <Czech>Být v utajení pokud jsou splněny podmínky. Nepřítel nebude útočit pokud nebudete odhaleni.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage">
         <Original>Garage Vehicle</Original>
@@ -2635,6 +2673,7 @@
         <Russian>Гараж</Russian>
         <Korean>차고에 보관하기</Korean>
         <Italian>Aggiungi Veicolo al Garage</Italian>
+        <Czech>Garáž vozidel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage_tooltip">
         <Original>Vehicle or Static gun you're looking at will be garaged, interact with Flag to retrieve</Original>
@@ -2643,6 +2682,7 @@
         <Russian>Автомобиль или статическая пушка, на которую вы смотрите, будут помещены в гараж, взаимодействуйте с Флагом, чтобы получить</Russian>
         <Korean>보고 있는 차량 혹은 고정화기는 차고에 보관될 것입니다. 깃발에서 상호작용으로 다시 사용할 수 있습니다.</Korean>
         <Italian>Il veicolo o arma fissa che stai guardando verrà aggiunta al garage, interagisci con la bandiera per recuperarli</Italian>
+        <Czech>Vozidlo nebo statická zbraň na kterou se díváte bude garážována, pro vyzvednutí použijte vlajku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct">
         <Original>Construct Here</Original>
@@ -2651,6 +2691,7 @@
         <Russian>Строительство</Russian>
         <Korean>건설하기</Korean>
         <Italian>Costruisci Qui</Italian>
+        <Czech>Konstruovat zde</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
         <Original>Construct in the spot where you are a selected building facing this direction</Original>
@@ -2659,6 +2700,7 @@
         <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
         <Korean>지금 위치에 선택된 건물이 현재 방향으로 건설될 것입니다.</Korean>
         <Italian>Costruisci nel punto dove hai selezionato una struttura rivolta verso questa direzione</Italian>
+        <Czech>Stavějte na místě, kde jste vybraly budovu otočenou tímto směrem</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
@@ -2667,6 +2709,7 @@
         <Russian>Разблокировать технику</Russian>
         <Korean>차량 잠금풀기</Korean>
         <Italian>Sblocca Veicolo</Italian>
+        <Czech>Odemknout vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
@@ -2675,6 +2718,7 @@
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
         <Korean>다른 그룹의 인원들이 이 차량에 탑승할 수 있습니다.</Korean>
         <Italian>Permetti ad altri gruppi di salire su questo veicolo</Italian>
+        <Czech>Umožněte ostatním skupinám nasednout do tohoto vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management">
         <Original>AI Management</Original>
@@ -2683,6 +2727,7 @@
         <Russian>Управление ИИ</Russian>
         <Korean>AI 관리</Korean>
         <Italian>Gestione IA</Italian>
+        <Czech>AI Management</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_ai_management_tooltip">
         <Original>Several AI options</Original>
@@ -2691,6 +2736,7 @@
         <Russian>Управление ИИ</Russian>
         <Korean>여러가지 AI 옵션입니다.</Korean>
         <Italian>Molteplici opzioni IA</Italian>
+        <Czech>Několik AI možností</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander">
         <Original>Commander</Original>
@@ -2699,6 +2745,7 @@
         <Russian>Командующий</Russian>
         <Korean>지휘관</Korean>
         <Italian>Comandante</Italian>
+        <Czech>Velitel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_commander_tooltip">
         <Original>Open commander options</Original>
@@ -2707,6 +2754,7 @@
         <Russian>Открыть меню командования</Russian>
         <Korean>지휘관 메뉴를 엽니다</Korean>
         <Italian>Apri le opzioni del comandante</Italian>
+        <Czech>Otevřít velitelské možnosti</Czech>
       </Key>
     </Container>
     <Container name="vehicle_manager">
@@ -2717,6 +2765,7 @@
         <Russian>Техника</Russian>
         <Korean>차량 관리</Korean>
         <Italian>Manager Veicoli</Italian>
+        <Czech>Manažer vozidel</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
         <Original>Garage\Sell Vehicle</Original>
@@ -2725,6 +2774,7 @@
         <Russian>Гараж\Продать технику</Russian>
         <Korean>차량 보관/판매</Korean>
         <Italian>Aggiungi al garage\Vendi Veicolo</Italian>
+        <Czech>Garáž\Prodat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle_tooltip">
         <Original>Add to garage / sell the vehicle you are currently looking at</Original>
@@ -2733,6 +2783,7 @@
         <Russian>Добавить в гараж/продать технику, на которую сейчас смотрите</Russian>
         <Korean>현재 보고 있는 차량을 차고에 넣거나 판매합니다.</Korean>
         <Italian>Aggiungi al garage / vendi il veicoli che stai attualmente guardando</Italian>
+        <Czech>Přidejte do garáže / prodávejte vozidlo, na které se v současné době díváte</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads">
         <Original>Vehicles and Squads</Original>
@@ -2741,6 +2792,7 @@
         <Russian>Техника и отряды</Russian>
         <Korean>차량 및 분대</Korean>
         <Italian>Veicoli e Squadre</Italian>
+        <Czech>Vozidla a jednotky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
         <Original>Options related to vehicle management in HC controlled squads</Original>
@@ -2749,6 +2801,7 @@
         <Russian>Варианты, связанные с управлением транспортными средствами в отрядах, контролируемых HC</Russian>
         <Korean>HC로 조작하는 분대의 차량을 관리하는 옵션입니다.</Korean>
         <Italian>Opzioni relative alla gestione del veicoli delle squadre assegnate all' Alto Comando</Italian>
+        <Czech>Možnosti související se správou vozidel v jednotkách kontrolovaných HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support">
         <Original>Add to Air Support</Original>
@@ -2757,6 +2810,7 @@
         <Russian>Добавить в воздушную поддержку</Russian>
         <Korean>항공지원에 추가</Korean>
         <Italian>Aggiungi al Supporto Aereo</Italian>
+        <Czech>Přidat k letecké podpoře</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
         <Original>Gain Airstrike points giving this vehicle to the faction Air pool</Original>
@@ -2765,6 +2819,7 @@
         <Russian>Получите очки авиаудара, отдав этот автомобиль в запас воздуха фракции</Russian>
         <Korean>항공기를 팩션에 기부하여 항공지원 포인트를 얻습니다.</Korean>
         <Italian>Ottieni Punti Supporto Aereo consegnado questo veivolo alla fazione</Italian>
+        <Czech>Získejte body leteckého úderu dáním tohoto vozidla do frakčního leteckého poolu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
@@ -2773,6 +2828,7 @@
         <Russian>Разблокировать технику</Russian>
         <Korean>차량 잠금풀기</Korean>
         <Italian>Sblocca Veicolo</Italian>
+        <Czech>Odemknout vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_unlock_vehicle_tooltip">
         <Original>Allow other groups to mount this vehicle</Original>
@@ -2781,6 +2837,7 @@
         <Russian>Разрешить другим группам садиться на этот автомобиль</Russian>
         <Korean>다른 그룹의 인원들이 이 차량에 탑승하는 것을 허용합니다.</Korean>
         <Italian>Permetti ad altri gruppi di salire su questo veicolo</Italian>
+        <Czech>Umožněte ostatním skupinám nasednout do tohoto vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_veh_query">
         <Original>Add Vehicle to Squad?</Original>
@@ -2789,6 +2846,7 @@
         <Russian>Добавить машину в отряд?</Russian>
         <Korean>분대에 차량 넣기.</Korean>
         <Italian>Aggiungi Veicolo alla Squadra?</Italian>
+        <Czech>Přidat vozidlo do družstva?</Czech>
       </Key>
     </Container>
     <Container name="squad_manager">
@@ -2799,6 +2857,7 @@
         <Russian>Управление отрядами</Russian>
         <Korean>HC 분대 옵션</Korean>
         <Italian>Opzioni di Squadra dell'Alto Comando</Italian>
+        <Czech>Možnosti týmu HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle">
         <Original>Squad Add Vehicle</Original>
@@ -2807,6 +2866,7 @@
         <Russian>Добавить технику в отряд</Russian>
         <Korean>분대에 차량 넣기.</Korean>
         <Italian>Aggiungi Veicolo di Squadra</Italian>
+        <Czech>Družstvo Přidat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
@@ -2815,6 +2875,7 @@
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
         <Korean>보고 있는 차량을 선택된 분대가 사용하게 만듭니다.</Korean>
         <Italian>Guarda qualche veicolo e assegnalo alla squadra selezionata in modo che possano usarlo</Italian>
+        <Czech>Podívejte se na nějaké vozidlo a přiřaďte jej vybranému družstvu pro jeho použití</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep">
         <Original>Squad SITREP</Original>
@@ -2823,6 +2884,7 @@
         <Russian>Статус отряда</Russian>
         <Korean>분대 상황보고</Korean>
         <Italian>SITREP Squadra</Italian>
+        <Czech>SITREP družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_squad_sitrep_tooltip">
         <Original>If the selected squad is using some vehicle, know remotely it's status</Original>
@@ -2831,6 +2893,7 @@
         <Russian>Если выбранный отряд использует какую-либо технику, узнайте ее статус удаленно.</Russian>
         <Korean>선택된 분대가 차량을 사용하고 있으면 상태를 확인할 수 있습니다.</Korean>
         <Italian>Se la squadra sta usando un veicolo, conoscine remotamente lo stato</Italian>
+        <Czech>Pokud vybraná skupina používá nějaké vozidlo, vězte vzdáleně jeho stav</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_mount">
         <Original>Mount / Dismount</Original>
@@ -2839,6 +2902,7 @@
         <Russian>Погрузка / Разгрузка</Russian>
         <Korean>탑승 / 하차</Korean>
         <Italian>Monta / Smonta</Italian>
+        <Czech>Nasednout / Vysednout</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_mount_tooltip">
         <Original>Force squad to mount or dismount their assigned vehicle</Original>
@@ -2847,6 +2911,7 @@
         <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
         <Korean>분대가 지정된 차량에 탑승하거나 하차하게 만듭니다.</Korean>
         <Italian>Forza la squadra a montare o smontare dal loro veicolo assegnato</Italian>
+        <Czech>Přinutit družřstvo k nasednutí nebo sesednutí jejich přiřazeného vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget">
         <Original>Static Autotarget</Original>
@@ -2855,6 +2920,7 @@
         <Russian>Автонаведение установок</Russian>
         <Korean>고정화기 자동 타케팅</Korean>
         <Italian>Autotarget Fisso</Italian>
+        <Czech>Automatické zaměřování pro statické zbraně</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_static_autotarget_tooltip">
         <Original>Use this option on AT / AA mounted squads. The truck driver will try to point his truck's back to any detected enemy</Original>
@@ -2863,6 +2929,7 @@
         <Russian>Используйте эту опцию для ПТ / ПВО отрядов. Отряд попытается направить свое орудие на любого обнаруженного врага.</Russian>
         <Korean>이 기능을 대전차/대공 화기 거치 분대에 사용하시면, 운전수가 무장을 포착된 적을 향하게 합니다.</Korean>
         <Italian>Usa questa opzione su una squadra meccanizata AC / AA, il pilota cercherà di rotare il veicolo verso un nemico avvistato</Italian>
+        <Czech>Tuto možnost použijte na AT / AA jednotkách. Řidič kamionu se pokusí nasměrovat svůj kamion zpět na jakéhokoli detekovaného nepřítele</Czech>
       </Key>
     </Container>
     <Container name="AI_management">
@@ -2873,6 +2940,7 @@
         <Russian>Управление ИИ</Russian>
         <Korean>전투 옵션</Korean>
         <Italian>Opzioni Battaglia</Italian>
+        <Czech>Možnosti bitev</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control">
         <Original>Temp. AI Control</Original>
@@ -2881,6 +2949,7 @@
         <Russian>Временный контроль ИИ</Russian>
         <Korean>일시적인 AI 조작</Korean>
         <Italian>Controllo IA Temp.</Italian>
+        <Czech>Dočasná Kontrola AI</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control_tooltip">
         <Original>Take personal control of the selected squad member or HC squad leader and be able to perform any kind of actions for 60 seconds. Control state will be cancelled if the player or the controlled unit receives any kind of damage</Original>
@@ -2889,6 +2958,7 @@
         <Russian>Возьмите под личный контроль выбранного члена отряда или лидера отряда HC и получите возможность выполнять любые действия в течение 60 секунд. Состояние контроля будет отменено, если игрок или управляемый юнит получит какой-либо урон.</Russian>
         <Korean>60초 동안 선택된 분대원이나 HC분대장를 조작할 수 있습니다. 만약 조작 중에 어떠한 피해를 입는다면 조작 상태는 취소됩니다.</Korean>
         <Italian>Prendi il comando personale di un membro di squadra IA selezionato o un Capo squadra assegnato all'Alto Comando e performa ogni tipo di azione che vuoi per 60 secondi, il controllo verrà annullato se il giocatore o l'IA controllata ricevono ogni tipo di danno</Italian>
+        <Czech>Převezměte osobní kontrolu nad vybraným členem družstva nebo velitelem HC Družstvo a budete moci provádět jakékoli akce po dobu 60 sekund. Stav kontroly bude zrušen, pokud hráč nebo kontrolovaná jednotka dostane jakýkoli druh poškození</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm">
         <Original>Auto Rearm \ Loot</Original>
@@ -2897,6 +2967,7 @@
         <Russian>Автоперезарядка \ Лут</Russian>
         <Korean>자동 재무장 / 노획</Korean>
         <Italian>Auto Riarmo / Saccheggio</Italian>
+        <Czech>Automatické přezbrojování \ kořistění</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm_tooltip">
         <Original>AI will search for better weapons, vests, helmets etc. If they are in a vehicle, they will just store what they scavenge in the vehicle. If not, they will equip them</Original>
@@ -2905,6 +2976,7 @@
         <Russian>ИИ будет искать лучшее оружие, жилетки, шлемы и т. Д. Если они находятся в транспортном средстве, они просто сохранят то, что они собирают, в транспортном средстве. Если нет, они их оснастят</Russian>
         <Korean>AI가 더 좋은 무기, 방탄복, 헬멧 등을 찾아다닙니다. 만약 차량에 탑승하고 있다면 AI는 차량에 획득한 장비를 보관합니다. 아니라면, AI 스스로가 무장합니다.</Korean>
         <Italian>L' IA cercherà migliori armi, vesti, elmetti ecc... Se si trovano in un veicolo, lo useranno per conservare quello che hanno trovato, se ciò non è possibile equipaggeranno quello che trovano</Italian>
+        <Czech>AI bude hledat lepší zbraně, vesty, přilby atd. Pokud jsou ve vozidle, budou jen ukládat to, co ve vozidle uchovávají. Pokud ne, vybaví je</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal">
         <Original>Auto Heal</Original>
@@ -2913,6 +2985,7 @@
         <Russian>Авто-лечение</Russian>
         <Korean>자동 치료</Korean>
         <Italian>Auto Cura</Italian>
+        <Czech>Automatické uzdravení</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal_tooltip">
         <Original>AI squad mates will heal proactively each other</Original>
@@ -2921,6 +2994,7 @@
         <Russian>Соратники ИИ будут активно лечить друг друга</Russian>
         <Korean>AI 동료들이 서로를 더 적극적으로 치료합니다.</Korean>
         <Italian>I compagni di squadra IA si cureranno attivamente tra di loro</Italian>
+        <Czech>Členové družstev AI se navzájem aktivně uzdraví</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP">
         <Original>Squad SITREP</Original>
@@ -2929,6 +3003,7 @@
         <Russian>Статус отряда</Russian>
         <Korean>분대 상황보고</Korean>
         <Italian>SITREP Squadra</Italian>
+        <Czech>SITREP družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Recover info about a HC squad status</Original>
@@ -2937,6 +3012,7 @@
         <Russian>Доложить информацию о статусе отряда</Russian>
         <Korean>HC 분대 정보를 획득합니다.</Korean>
         <Italian>Recupera info approposito lo stato di una squadra Alto Comando</Italian>
+        <Czech>Obnovte informace o stavu týmu HC</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison">
         <Original>Garrison Units / Squads</Original>
@@ -2945,6 +3021,7 @@
         <Russian>Добавить в гарнизон</Russian>
         <Korean>유닛/분대 주둔</Korean>
         <Italian>Guarnisci Unità / Squadre</Italian>
+        <Czech>Posádkové jednotky / družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_garrison_tooltip">
         <Original>Adds selected units or squads to a map selected garrison</Original>
@@ -2953,6 +3030,7 @@
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
         <Korean>선택한 유닛과 분대를 선택된 주둔지에 추가합니다.</Korean>
         <Italian>Aggiunge unità o squadre selezionate alla guarnigione selezionata sulla mappa</Italian>
+        <Czech>Přidá vybrané jednotky nebo jednotky na mapu vybranou posádku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle">
         <Original>Squad Add Vehicle</Original>
@@ -2961,6 +3039,7 @@
         <Russian>Добавить технику отряду</Russian>
         <Korean>분대에 차량 넣기.</Korean>
         <Italian>Aggiungi Veicolo alla Squadra</Italian>
+        <Czech>Družstvo Přidat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for it's use</Original>
@@ -2969,6 +3048,7 @@
         <Russian>Посмотрите на какую-нибудь технику и назначьте ее выбранному отряду для использования</Russian>
         <Korean>보고 있는 차량을 선택된 분대가 사용하게 만듭니다.</Korean>
         <Italian>Guarda qualche veicolo e assegnalo alla squadra selezionata in modo che possano usarlo</Italian>
+        <Czech>Podívejte se na nějaké vozidlo a přiřaďte jej vybranému družstvu pro jeho použití</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units">
         <Original>Dismiss Units / Squad</Original>
@@ -2977,6 +3057,7 @@
         <Russian>В запас</Russian>
         <Korean>유닛 및 분대 해산</Korean>
         <Italian>Congeda Unità / Squadre</Italian>
+        <Czech>Odmítnutí jednotek / družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_dismiss_units_tooltip">
         <Original>Dismiss selected units or squads, recovering it's cost to the proper resource pool</Original>
@@ -2985,6 +3066,7 @@
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
         <Korean>선택된 유닛이나 분대를 해산시킵니다. 적절한 자원으로 환원됩니다.</Korean>
         <Italian>Congeda le unità / squadre selezionate recuperandone il costo</Italian>
+        <Czech>Rozpustit vybrané jednotky nebo družstva a obnovit své náklady na daný pool</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount">
         <Original>Mount / Dismount</Original>
@@ -2993,6 +3075,7 @@
         <Russian>Погрузка / Разгрузка</Russian>
         <Korean>탑승 / 하차</Korean>
         <Italian>Monta / Smonta</Italian>
+        <Czech>Nasednout / Vysednout</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount_tooltips">
         <Original>Force squad to mount or dismount their assigned vehicle</Original>
@@ -3001,6 +3084,7 @@
         <Russian>Заставить отряд сесть или слезть с назначенной машины</Russian>
         <Korean>분대가 지정된 차량에 탑승하거나 하차하게 만듭니다.</Korean>
         <Italian>Forza la squadra a montare o smontare dal loro veicolo assegnato</Italian>
+        <Czech>Přinutit družřstvo k nasednutí nebo sesednutí jejich přiřazeného vozidla</Czech>
       </Key>
     </Container>
     <Container name="commander_comm">
@@ -3011,6 +3095,7 @@
         <Russian>Меню командущего</Russian>
         <Korean>지휘관 전투 옵션</Korean>
         <Italian>Opzioni di Battaglia del Comandante</Italian>
+        <Czech>Možnosti bitvy velitele</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit">
         <Original>Recruit Squad</Original>
@@ -3019,6 +3104,7 @@
         <Russian>Набрать отряд</Russian>
         <Korean>분대 모집</Korean>
         <Italian>Recluta Squadra</Italian>
+        <Czech>Náborové družstvo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_recruit_tooltip">
         <Original>Recruit new squads and manage them with the HC Module (CTRL + SPACE)</Original>
@@ -3027,6 +3113,7 @@
         <Russian>Набирайте новые отряды и управляйте ими с помощью модуля HC (CTRL + SPACE)</Russian>
         <Korean>새 분대를 모집하고 HC 모듈(컨트롤+스페이스)로 관리할 수 있습니다.</Korean>
         <Italian>Recluta nuove squadre e gestiscile usando il modulo del Alto Comando (CTRL + SPAZIO)</Italian>
+        <Czech>Nábor nových družstev a spravujte je pomocí modulu HC (Ctrl + Space)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support">
         <Original>Air Support</Original>
@@ -3035,6 +3122,7 @@
         <Russian>Авиаподдержка</Russian>
         <Korean>항공지원</Korean>
         <Italian>Supporto Aereo</Italian>
+        <Czech>Letecká podpora</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_air_support_tooltip">
         <Original>Ask for Air Support (uses Airstrike points)</Original>
@@ -3043,6 +3131,7 @@
         <Russian>Запросить авиаподдержку (использует очки авиаподдержки)</Russian>
         <Korean>항공지원 요청(항공지원 포인트 사용)</Korean>
         <Italian>Richiedi Supporto Aereo (userà Punti Supporto Aereo)</Italian>
+        <Czech>Požádejte o leteckou podporu (používá body Airstrike)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock">
         <Original>O.Post - Roadblock</Original>
@@ -3051,6 +3140,7 @@
         <Russian>Добавить БП / НП</Russian>
         <Korean>감시 초소 - 검문소</Korean>
         <Italian>Posto di O. - Posto di Blocco</Italian>
+        <Czech>O.Post - zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select</Original>
@@ -3059,6 +3149,7 @@
         <Russian>Установите новый наблюдательный пост или блокпост в зависимости от выбранного типа местности.</Russian>
         <Korean>당신이 선택한 지형에 따라 새로운 감시 초소 혹은 검문소를 건설합니다.</Korean>
         <Italian>Stabilisci un nuovo punto di vedetta o posto di blocco a seconda del tipo di terreno selezionato</Italian>
+        <Czech>Vytvořit nový pozorovací bod nebo zátaras v závislosti na typu terénu, který vyberete</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean">
         <Original>Garbage Clean</Original>
@@ -3067,6 +3158,7 @@
         <Russian>Очистка мусора</Russian>
         <Korean>쓰레기 청소</Korean>
         <Italian>Pulizia Spazzatura</Italian>
+        <Czech>Čištění odpadků</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
         <Original>Cleans several things in game. Use with caution as it freezes the mission</Original>
@@ -3075,6 +3167,7 @@
         <Russian>Очищает несколько вещей в игре. Используйте с осторожностью, так как это замораживает миссию</Russian>
         <Korean>게임 속의 몇몇 물건을 청소합니다. 프리징이 발생하니 주의해서 사용하세요.</Korean>
         <Italian>Ripulisce molteplici oggetti in gioco. Attenzione può causare lag</Italian>
+        <Czech>Čistí několik věcí ve hře. Používejte s opatrností, protože mise zamrzne</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
         <Original>O.Post-Roadblock Delete</Original>
@@ -3083,6 +3176,7 @@
         <Russian>Удалить БП / НП</Russian>
         <Korean>감시 초소 - 검문소 삭제</Korean>
         <Italian>Elimina Punto di osservazione - Posti di Blocco</Italian>
+        <Czech>O.Post-Roadblock Odstranit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
         <Original>Remove selected observation post or roadblock, money will be refunded</Original>
@@ -3091,6 +3185,7 @@
         <Russian>Удалите выбранный наблюдательный пункт или блокпост, деньги будут возвращены</Russian>
         <Korean>선택된 감시 초소나 검문소를 삭제합니다. 자금은 환불됩니다.</Korean>
         <Italian>Rimuovi il posto di osservazione o il posto di blocco selezionato, i soldi verranno rimborsati</Italian>
+        <Czech>Odstraňte vybraný pozorovací bod nebo zátaras, peníze budou vráceny</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage">
         <Original>Faction Garage</Original>
@@ -3099,6 +3194,7 @@
         <Russian>Гараж фракции</Russian>
         <Korean>팩션 차고</Korean>
         <Italian>Garage della Fazione</Italian>
+        <Czech>Garáž frakce</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage_tooltip">
         <Original>Look at a vehicle and garage it into faction garage (shared among commanders)</Original>
@@ -3107,6 +3203,7 @@
         <Russian>Посмотрите на машину и поставьте ее в гараж фракции (общий для командиров)</Russian>
         <Korean>보고 있는 차량을 팩션 차고에 보관합니다.(팩션 차고는 다른 지휘관들과 공유합니다)</Korean>
         <Italian>Guarda il veicolo e mettilo nel garage della fazione (sarà condiviso tra i comandanti della fazione)</Italian>
+        <Czech>Podívejte se na vozidlo a garáže do frakční garáže (sdílené mezi veliteli)</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign">
         <Original>Resign / Eligible</Original>
@@ -3115,6 +3212,7 @@
         <Russian>Отставка</Russian>
         <Korean>사임 / 진급</Korean>
         <Italian>Dimettiti / Eleggiti</Italian>
+        <Czech>Rezignace / způsobilý</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_resign_tooltip">
         <Original>Step down from commander or toggle eligibility</Original>
@@ -3123,6 +3221,7 @@
         <Russian>Уйти от командира или изменить право на участие</Russian>
         <Korean>지휘관에서 사임하거나 지휘관 지원을 토글하세요.</Korean>
         <Italian>Lascia il ruolo di comandante o aggiungiti/rimuoviti dall'elegibilità comandante</Italian>
+        <Czech>Odstupte z velitele nebo přepínat mezi způsobilostí</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell">
         <Original>Sell Vehicle</Original>
@@ -3131,6 +3230,7 @@
         <Russian>Продать технику</Russian>
         <Korean>차량 판매</Korean>
         <Italian>Vendi Veicolo</Italian>
+        <Czech>Prodat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_sell_tooltip">
         <Original>Look at a vehicle and sell it for money</Original>
@@ -3139,6 +3239,7 @@
         <Russian>Посмотрите на автомобиль и продайте его за деньги</Russian>
         <Korean>현재 보고 있는 차량을 판매합니다.</Korean>
         <Italian>Guarda il veicolo e vendilo per ricavare dei soldi</Italian>
+        <Czech>Podívejte se na vozidlo a prodejte jej za peníze</Czech>
       </Key>
     </Container>
     <Container name="carpet_bombing">
@@ -3149,6 +3250,7 @@
         <Russian>Ковровая бомбардировка</Russian>
         <Korean>융단폭격</Korean>
         <Italian>Bombardamento a Tappeto</Italian>
+        <Czech>Úder kobercového bombardování</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he">
         <Original>HE Bombs</Original>
@@ -3157,6 +3259,7 @@
         <Russian>ОФ бомбы</Russian>
         <Korean>고폭탄</Korean>
         <Italian>Bombe AE</Italian>
+        <Czech>Bomby</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_cluster">
         <Original>Cluster Bombs</Original>
@@ -3165,6 +3268,7 @@
         <Russian>Кассетные бомбы</Russian>
         <Korean>집속탄</Korean>
         <Italian>Bombe a Grappolo</Italian>
+        <Czech>Cluster bomby</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_napalm">
         <Original>NAPALM Bombs</Original>
@@ -3173,6 +3277,7 @@
         <Russian>Напалм</Russian>
         <Korean>네이팜 탄</Korean>
         <Italian>Bombe NAPALM</Italian>
+        <Czech>Napalm Bomby</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_tooltip">
         <Original>Cost: 1 point</Original>
@@ -3181,6 +3286,7 @@
         <Russian>Цена: 1 очко</Russian>
         <Korean>가격 : 1포인트</Korean>
         <Italian>Costo: 1 punto</Italian>
+        <Czech>Cena: 1 bod</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add">
         <Original>Add to Air Support</Original>
@@ -3189,6 +3295,7 @@
         <Russian>Добавить в воздушную поддержку</Russian>
         <Korean>항공지원으로 넣기</Korean>
         <Italian>Aggiungi al Supporto Aereo</Italian>
+        <Czech>Přidat k letecké podpoře</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add_tooltip">
         <Original>Gain Airstrike points giving this aircraft to the faction Air pool</Original>
@@ -3197,6 +3304,7 @@
         <Russian>Получайте очки за авиаудар, отдавая этот самолет в воздушный пул фракции.</Russian>
         <Korean>항공기를 팩션에 기부하여 항공지원 포인트를 얻습니다.</Korean>
         <Italian>Ottieni Punti Supporto Aereo consegnado questo veivolo alla fazione</Italian>
+        <Czech>Získejte body leteckého úderu dáním tohoto vozidla do frakčního leteckého poolu</Czech>
       </Key>
     </Container>
     <Container name="dismiss_menu">
@@ -3207,6 +3315,7 @@
         <Russian>Меню роспуска</Russian>
         <Korean>해산 메뉴</Korean>
         <Italian>Opzioni Congedamento</Italian>
+        <Czech>Možnosti rozpuštění</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_dismiss">
         <Original>Dismiss Units / Squad</Original>
@@ -3215,6 +3324,7 @@
         <Russian>Распустить</Russian>
         <Korean>유닛 및 분대 해산</Korean>
         <Italian>Congeda Unità / Squadra</Italian>
+        <Czech>Rozpuštění jednotek / Družstev</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_dismiss_tooltip">
         <Original>Dismiss selected units or squads, recovering it's cost to the proper resource pool</Original>
@@ -3223,6 +3333,7 @@
         <Russian>Распустить выбранные отряды или отряды, вернув их стоимость в соответствующий пул ресурсов.</Russian>
         <Korean>선택된 유닛이나 분대를 해산시킵니다. 적절한 자원으로 환원됩니다.</Korean>
         <Italian>Congeda le unità / squadre selezionate recuperandone il costo</Italian>
+        <Czech>Rozpustit vybrané jednotky nebo jednotky a obnovit své náklady na správný fond zdrojů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_garrison">
         <Original>Garrison Units / Squads</Original>
@@ -3231,6 +3342,7 @@
         <Russian>Добавить в гарнизон</Russian>
         <Korean>유닛/분대 주둔</Korean>
         <Italian>Guarnisci Unità / Squadre</Italian>
+        <Czech>Posádkové jednotky / družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_dismiss_menu_garrison_tooltip">
         <Original>Adds selected units or squads to a map selected garrison</Original>
@@ -3239,6 +3351,7 @@
         <Russian>Добавляет выбранные юниты или отряды в выбранный на карте гарнизон</Russian>
         <Korean>선택한 유닛과 분대를 선택된 주둔지에 추가합니다.</Korean>
         <Italian>Aggiunge unità o squadre selezionate alla guarnigione selezionata sulla mappa</Italian>
+        <Czech>Přidá vybrané jednotky nebo jednotky na mapu vybranou posádku</Czech>
       </Key>
     </Container>
     <Container name="construction_menu">
@@ -3249,6 +3362,7 @@
         <Russian>Меню строительства</Russian>
         <Korean>건설 메뉴</Korean>
         <Italian>Menu di Costruzione</Italian>
+        <Czech>Menu konstrukce</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_small_trench">
         <Original>Small Trench</Original>
@@ -3257,6 +3371,7 @@
         <Russian>Малая траншея</Russian>
         <Korean>소형 참호</Korean>
         <Italian>Piccola Trincea</Italian>
+        <Czech>Malý zákop</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_small_trench_tooltip">
         <Original>Make a quick small trench for one man</Original>
@@ -3265,6 +3380,7 @@
         <Russian>Сделайте быстрый небольшой окоп для одного человека</Russian>
         <Korean>빠르게 1인용 소형 참호를 팝니다</Korean>
         <Italian>Costruisci una piccola trincea per una persona</Italian>
+        <Czech>Udělejte rychlý malý zákop pro jednoho muže</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench">
         <Original>Medium Trench</Original>
@@ -3273,6 +3389,7 @@
         <Russian>Средняя траншея</Russian>
         <Korean>중형 참호</Korean>
         <Italian>Trincea Media</Italian>
+        <Czech>Střední zákop</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_medium_trench_tooltip">
         <Original>A mid sized trench with capabilities for more than one soldier</Original>
@@ -3281,6 +3398,7 @@
         <Russian>Окоп среднего размера, вмещающий более одного солдата</Russian>
         <Korean>중간 크기의 참호로 1명 이상이 사용할 수 있습니다.</Korean>
         <Italian>Una trincea di medie proporzioni con capacità di più di un soldato</Italian>
+        <Czech>Středně velký zákop se schopnostmi pro více než jednoho vojáka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles">
         <Original>Vehicle obstacles</Original>
@@ -3289,6 +3407,7 @@
         <Russian>Транспортные препятствия</Russian>
         <Korean>차량 장애물</Korean>
         <Italian>Ostacoli per Veicoli</Italian>
+        <Czech>Překážky vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_vehicle_obstacles_tooltip">
         <Original>Build some obstacles for vehicles</Original>
@@ -3297,6 +3416,7 @@
         <Russian>Постройте препятствия для транспортных средств</Russian>
         <Korean>차량을 방해하는 장애물을 세웁니다.</Korean>
         <Italian>Costruisci alcuni ostacoli per veicoli</Italian>
+        <Czech>Vytvářejte některé překážky pro vozidla</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options">
         <Original>Bunker Options</Original>
@@ -3305,6 +3425,7 @@
         <Russian>Бункер</Russian>
         <Korean>벙커 옵션</Korean>
         <Italian>Opzioni Bunker</Italian>
+        <Czech>Možnosti bunkru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_options_tooltip">
         <Original>Need to be built in garrison controlled zones and cost money</Original>
@@ -3313,6 +3434,7 @@
         <Russian>Должен быть построен в зонах, контролируемых гарнизоном, и стоит денег.</Russian>
         <Korean>주둔지 통제 구역에 건설해야 하고 비용이 듭니다.</Korean>
         <Italian>Deve essere costruito vicino una guarnigione e costerà soldi</Italian>
+        <Czech>Je třeba postavit v zónách ovládaných posádkami a náklady na peníze</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_type">
         <Original>Select Bunker Type</Original>
@@ -3321,6 +3443,7 @@
         <Russian>Выберите тип бункера</Russian>
         <Korean>벙커 타입 선택</Korean>
         <Italian>Tipo di Bunker</Italian>
+        <Czech>Vyberte typ bunkru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_sandbag">
         <Original>Sandbag Bunker</Original>
@@ -3329,6 +3452,7 @@
         <Russian>Мешки с песком</Russian>
         <Korean>모래벽 벙커</Korean>
         <Italian>Bunker di sacchi di sabbia</Italian>
+        <Czech>Bunker z pytlů písku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_concrete">
         <Original>Concrete Bunker</Original>
@@ -3337,6 +3461,7 @@
         <Russian>Бетонный бункер</Russian>
         <Korean>콘크리트 벙커</Korean>
         <Italian>Bunker di cemento</Italian>
+        <Czech>Betonový bunkr</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_construction_menu_bunker_tooltip">
         <Original>Requires to be in a garrisoned zone. It will be permanent</Original>
@@ -3345,6 +3470,7 @@
         <Russian>Требуется находиться в гарнизонной зоне. Это будет навсегда</Russian>
         <Korean>주둔지 구역에 있어야 합니다. 영구적으로 설치됩니다.</Korean>
         <Italian>Richiede di essere vicino ad una guarnigione. Sarà permanente.</Italian>
+        <Czech>Vyžaduje, aby byl v posádné zóně. Bude to trvalé</Czech>
       </Key>
     </Container>
     <Container name="squad_recruit">
@@ -3355,6 +3481,7 @@
         <Russian>Меню найма отряда</Russian>
         <Korean>분대 모집 옵션</Korean>
         <Italian>Opzioni Reclutamento Squadra</Italian>
+        <Czech>Možnosti náboru družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_inf">
         <Original>Recruit Inf. Squad</Original>
@@ -3363,6 +3490,7 @@
         <Russian>Отряд</Russian>
         <Korean>보병분대 모집</Korean>
         <Italian>Recluta Squadra di fanteria</Italian>
+        <Czech>Nábor pěšího družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_inf_team">
         <Original>Recruit Inf. Team</Original>
@@ -3371,6 +3499,7 @@
         <Russian>Группа</Russian>
         <Korean>보병조 모집</Korean>
         <Italian>Recluta Team di fanteria</Italian>
+        <Czech>Nábor pěšího týmu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_at">
         <Original>Recruit AT Team</Original>
@@ -3379,6 +3508,7 @@
         <Russian>Группа ПТ</Russian>
         <Korean>대전차조 모집</Korean>
         <Italian>Recluta Team AC</Italian>
+        <Czech>Nábor AT týmu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_sniper">
         <Original>Recruit Sniper Team</Original>
@@ -3387,6 +3517,7 @@
         <Russian>Группа снайперов</Russian>
         <Korean>저격조 모집</Korean>
         <Italian>Recluta Team di Cecchini</Italian>
+        <Czech>Nábor odstřelovacího týmu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_mg">
         <Original>Recruit MG Team</Original>
@@ -3395,6 +3526,7 @@
         <Russian>Группа пулеметчиков</Russian>
         <Korean>기관총조 모집</Korean>
         <Italian>Recluta Team Mitragliatrici</Italian>
+        <Czech>Nábor MG týmu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_at_car">
         <Original>Recruit AT Car</Original>
@@ -3403,6 +3535,7 @@
         <Russian>ПТ Техника</Russian>
         <Korean>대전차 차량 모집</Korean>
         <Italian>Recluta Auto AC</Italian>
+        <Czech>Nábor AT auto</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_aa_car">
         <Original>Recruit AA Truck</Original>
@@ -3411,6 +3544,7 @@
         <Russian>ПВО Техника</Russian>
         <Korean>대공 차량 모집</Korean>
         <Italian>Recluta Camion AA</Italian>
+        <Czech>Nábor AA náklaďáku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_recruit_mortar">
         <Original>Recruit Mortar Team</Original>
@@ -3419,6 +3553,7 @@
         <Russian>Артилерия</Russian>
         <Korean>박격포반 모집</Korean>
         <Italian>Recluta Team con Mortaio</Italian>
+        <Czech>Nábor minometného týmu</Czech>
       </Key>
     </Container>
     <Container name="player_money">
@@ -3429,6 +3564,7 @@
         <Russian>Меню Игроков и Снабжения</Russian>
         <Korean>플레이어 및 자금 상호작용</Korean>
         <Italian>Interazione Giocatori e Soldi</Italian>
+        <Czech>Interakce hráče a peněz</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_add_member">
         <Original>Add Server Member</Original>
@@ -3437,6 +3573,7 @@
         <Russian>Добавить участника сервера</Russian>
         <Korean>서버 멤버 추가</Korean>
         <Italian>Aggiungi Membro del Server</Italian>
+        <Czech>Přidat člena serveru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_add_member_tooltip">
         <Original>Use this option to add the player which you are currently looking to the member's list</Original>
@@ -3445,6 +3582,7 @@
         <Russian>Используйте эту опцию, чтобы добавить игрока, которого вы сейчас ищете, в список участников.</Russian>
         <Korean>이 옵션을 사용하여 현재 당신이 보고있는 플레이어를 멤버리스트에 추가하세요.</Korean>
         <Italian>Usa questa opzione per aggiungere il giocatore che stai guardando alla lista dei Membri</Italian>
+        <Czech>Pomocí této možnosti přidejte hráče, který v současné době hledáte do seznamu členů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_remove_member">
         <Original>Remove Server Member</Original>
@@ -3453,6 +3591,7 @@
         <Russian>Удалить участника сервера</Russian>
         <Korean>서버 멤버 삭제</Korean>
         <Italian>Membro del Server</Italian>
+        <Czech>Odebrat člena serveru</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_remove_member_tooltip">
         <Original>Use this option to remove the player which you are currently looking to the member's list</Original>
@@ -3461,6 +3600,7 @@
         <Russian>Используйте эту опцию, чтобы удалить игрока, которого вы сейчас ищете, из списка участников.</Russian>
         <Korean>이 옵션을 사용하여 현재 당신이 보고있는 플레이어를 멤버리스트에서 삭제하세요.</Korean>
         <Italian>Usa questa opzione per rimuovere il giocatore che stai guardando dalla lista dei Membri</Italian>
+        <Czech>Tuto možnost použijte k odstranění hráče, který v současné době hledáte do seznamu členů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_player">
         <Original>Donate 100 € to player</Original>
@@ -3469,6 +3609,7 @@
         <Russian>Пожертвуйте 100 € игроку</Russian>
         <Korean>플레이어에게 100€를 기부</Korean>
         <Italian>Dona 100€ al giocatore</Italian>
+        <Czech>Darujte 100 € hráči</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_faction">
         <Original>Donate 100 € to Faction</Original>
@@ -3477,6 +3618,7 @@
         <Russian>Пожертвовать 100 € фракции</Russian>
         <Korean>팩션에게 100€를 기부</Korean>
         <Italian>Dona 100€ alla Fazione</Italian>
+        <Czech>Darujte 100 € frakci</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_donate_faction_tooltip">
         <Original>It will increase your prestige among your faction</Original>
@@ -3485,6 +3627,7 @@
         <Russian>Это повысит ваш престиж среди вашей фракции</Russian>
         <Korean>팩션에서의 지지도가 상승할 것 입니다.</Korean>
         <Italian>Alzerà il tuo prestigio nella tua fazione</Italian>
+        <Czech>Zvýší to vaši prestiž mezi vaši frakcí</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
         <Original>Information Bar</Original>
@@ -3493,6 +3636,7 @@
         <Korean>정보창</Korean>
         <Chinesesimp>信息栏</Chinesesimp>
         <Italian>Barra Informazioni</Italian>
+        <Czech>Informační lišta</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off top information bar. To enable it, press %1.</Original>
@@ -3501,6 +3645,7 @@
         <Korean>화면 상단의 정보창을 닫았습니다. 다시 열려면 %1를 누르세요.</Korean>
         <Chinesesimp>你关闭了顶部信息栏。 要启用它，请按%1。</Chinesesimp>
         <Italian>Hai disabilitato la Barra Informazioni. Per abilitarla, premi %1.</Italian>
+        <Czech>Vypnuli jste horní informační lištu. Chcete-li ji povolit, stiskněte %1.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on top information bar. To disable it, press %1.</Original>
@@ -3509,6 +3654,7 @@
         <Korean>화면 상단의 정보창을 열었습니다. 다시 닫을려면 %1를 누르세요.</Korean>
         <Chinesesimp>你打开了顶部信息栏。 要关闭它，请按%1。</Chinesesimp>
         <Italian>Hai abilitato la Barra Informazioni. Per disabilitarla, premi %1.</Italian>
+        <Czech>Zapnuli jste horní informační lištu. Chcete-li ji deaktivovat, stiskněte %1.</Czech>
       </Key>
     </Container>
     <Container name="garage_sell">
@@ -3519,6 +3665,7 @@
         <Russian>Продать или поставить в гараж?</Russian>
         <Korean>차량을 판매하거나 아니면 차고에 보관하시겠습니까?</Korean>
         <Italian>Vendere o Inserire il veicolo nel garage?</Italian>
+        <Czech>Prodat nebo garážovat vozidlo?</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_add">
         <Original>Garage Vehicle</Original>
@@ -3527,6 +3674,7 @@
         <Russian>В гараж</Russian>
         <Korean>차고에 보관</Korean>
         <Italian>Inserisci il Veicolo nel Garage</Italian>
+        <Czech>Garážové vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_sell_sell">
         <Original>Sell Vehicle</Original>
@@ -3535,6 +3683,7 @@
         <Russian>Продать</Russian>
         <Korean>차량을 판매</Korean>
         <Italian>Vendi Veicolo</Italian>
+        <Czech>Prodat vozidlo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_check">
         <Original>Personal or Faction Garage?</Original>
@@ -3543,6 +3692,7 @@
         <Russian>Личный гараж или гараж фракции?</Russian>
         <Korean>개인 차고 혹은 팩션 차고 중에 선택하세요.</Korean>
         <Italian>Garage Personale o Garage della Fazione?</Italian>
+        <Czech>Osobní nebo frakční garáž?</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_personal">
         <Original>Personal Garage</Original>
@@ -3551,6 +3701,7 @@
         <Russian>Личный</Russian>
         <Korean>개인 차고</Korean>
         <Italian>Garage Personale</Italian>
+        <Czech>Osobní garáž</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_faction">
         <Original>Faction Garage</Original>
@@ -3559,6 +3710,7 @@
         <Russian>Фракции</Russian>
         <Korean>팩션 차고</Korean>
         <Italian>Garage Fazione</Italian>
+        <Czech>Frakční garáž</Czech>
       </Key>
     </Container>
     <Container name="mortar_type">
@@ -3569,6 +3721,7 @@
         <Russian>Выберите боеприпасы для минометов</Russian>
         <Korean>박격포탄 종류 선택</Korean>
         <Italian>Seleziona Munizioni del Mortaio</Italian>
+        <Czech>Vyberte munici minometu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_he">
         <Original>HE</Original>
@@ -3577,6 +3730,7 @@
         <Russian>ОФ</Russian>
         <Korean>고폭탄</Korean>
         <Italian>AE</Italian>
+        <Czech>HE</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he_tooltip">
         <Original>Cost: 10 points</Original>
@@ -3585,6 +3739,7 @@
         <Russian>Цена: 10 Очков</Russian>
         <Korean>가격 : 10포인트</Korean>
         <Italian>Costo: 10 punti</Italian>
+        <Czech>Cena: 10 bodů</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_smoke">
         <Original>Smoke</Original>
@@ -3593,6 +3748,7 @@
         <Russian>Дым</Russian>
         <Korean>연막탄</Korean>
         <Italian>Fumogeno</Italian>
+        <Czech>Kouř</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mortar_type_laser">
         <Original>Laser Guided</Original>
@@ -3601,6 +3757,7 @@
         <Russian>С лазерным наведением</Russian>
         <Korean>레이저 유도탄</Korean>
         <Italian>Laser Guidato</Italian>
+        <Czech>Laserem naváděný</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_rounds_number">
         <Original>Select No. Rounds to be fired</Original>
@@ -3609,6 +3766,7 @@
         <Russian>Выберите кол-во снарядов</Russian>
         <Korean>발사 횟수 지정</Korean>
         <Italian>Numero di Colpi da sparare</Italian>
+        <Czech>Vyberte počet ran, která chcete vystřelit</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type">
         <Original>Select type of strike</Original>
@@ -3617,6 +3775,7 @@
         <Russian>Выберите тип удара</Russian>
         <Korean>포격 종류 설정</Korean>
         <Italian>Seleziona tipo di supporto</Italian>
+        <Czech>Vyberte typ úderu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_single">
         <Original>Single Point Strike</Original>
@@ -3625,6 +3784,7 @@
         <Russian>Одноточечный удар</Russian>
         <Korean>정밀포격</Korean>
         <Italian>Supporto su punto singolo</Italian>
+        <Czech>Jednorázový úder</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_strike_type_barrage">
         <Original>Barrage Strike</Original>
@@ -3633,6 +3793,7 @@
         <Russian>Заградительный удар</Russian>
         <Korean>탄막포격</Korean>
         <Italian>Sbarramento d'artiglieria</Italian>
+        <Czech>Salva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_mbt_type">
         <Original>Select type ammo for the strike</Original>
@@ -3641,6 +3802,7 @@
         <Russian>Выберите тип боеприпасов для удара</Russian>
         <Korean>포탄 종류 선택</Korean>
         <Italian>Seleziona il tipo di munizione per l'attacco</Italian>
+        <Czech>Vyberte typ munice pro úder</Czech>
       </Key>
     </Container>
     <Container name="squad_options">
@@ -3651,6 +3813,7 @@
         <Russian>Назначение отряда</Russian>
         <Korean>분대 옵션</Korean>
         <Italian>Opzioni Squadra</Italian>
+        <Czech>Možnosti družstva</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_normal">
         <Original>Normal Squad</Original>
@@ -3659,6 +3822,7 @@
         <Russian>Стандарт</Russian>
         <Korean>일반 분대</Korean>
         <Italian>Squadra Normale</Italian>
+        <Czech>Normální družstvo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_engineer">
         <Original>Engineer Squad</Original>
@@ -3667,6 +3831,7 @@
         <Russian>Инженеры</Russian>
         <Korean>공병 분대</Korean>
         <Italian>Squadra Ingegneri</Italian>
+        <Czech>Inženýrská družstvo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_mg">
         <Original>MG Squad</Original>
@@ -3675,6 +3840,7 @@
         <Russian>Пулеметчики</Russian>
         <Korean>기관총 분대</Korean>
         <Italian>Squadra MG</Italian>
+        <Czech>MG družstvo</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_mortar">
         <Original>Mortar Squad</Original>
@@ -3683,6 +3849,7 @@
         <Russian>Минометчики</Russian>
         <Korean>박격포 분대</Korean>
         <Italian>Squadra Mortaio</Italian>
+        <Czech>Minometné družstvo</Czech>
       </Key>
     </Container>
     <Container name="diff_menu">
@@ -3693,6 +3860,7 @@
         <Russian>Выберите сложность</Russian>
         <Korean>난이도 설정</Korean>
         <Italian>Scegli difficoltà</Italian>
+        <Czech>Vybrat obtížnost</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_easy">
         <Original>Easy</Original>
@@ -3701,6 +3869,7 @@
         <Russian>Легко</Russian>
         <Korean>쉬움</Korean>
         <Italian>Facile</Italian>
+        <Czech>Snadný</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_normal">
         <Original>Normal</Original>
@@ -3709,6 +3878,7 @@
         <Russian>Обычный</Russian>
         <Korean>보통</Korean>
         <Italian>Normale</Italian>
+        <Czech>Normální</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_diff_menu_hard">
         <Original>Hard</Original>
@@ -3717,6 +3887,7 @@
         <Russian>Жесткий</Russian>
         <Korean>어려움</Korean>
         <Italian>Difficile</Italian>
+        <Czech>Obtížný</Czech>
       </Key>
     </Container>
     <Container name="gameMode_menu">
@@ -3727,6 +3898,7 @@
         <Russian>Выберите свой игровой режим</Russian>
         <Korean>게임 모드 설정</Korean>
         <Italian>Seleziona la tua modalità di gioco</Italian>
+        <Czech>Vyberte svůj herní režim</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_vs_Inv">
         <Original>Reb vs Gov vs Inv</Original>
@@ -3735,6 +3907,7 @@
         <Russian>Зеленые vs Синие vs Красные</Russian>
         <Korean>반군 Vs 정부 Vs 무소속군</Korean>
         <Italian>Reb vs Gov vs Inv</Italian>
+        <Czech>Reb vs Vlá vs Inv</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov_and_Inv">
         <Original>Reb vs Gov &amp; Inv</Original>
@@ -3743,6 +3916,7 @@
         <Russian>Зеленые vs Синие и Красные</Russian>
         <Korean>반군 Vs 정부 &amp; 무소속군</Korean>
         <Italian>Reb vs Gov &amp; Inv</Italian>
+        <Czech>Reb vs Vlá &amp; Inv</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Gov">
         <Original>Reb vs Gov</Original>
@@ -3751,6 +3925,7 @@
         <Russian>Зеленые vs Синие</Russian>
         <Korean>반군 Vs 정부</Korean>
         <Italian>Reb vs Gov</Italian>
+        <Czech>Reb vs Vlá</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_gameMode_menu_Reb_vs_Inv">
         <Original>Reb vs Inv</Original>
@@ -3759,6 +3934,7 @@
         <Russian>Зеленые vs Красные</Russian>
         <Korean>반군 Vs 무소속군</Korean>
         <Italian>Rev vs Inv</Italian>
+        <Czech>Reb vs Inv</Czech>
       </Key>
     </Container>
     <Container name="Utility_Items">
@@ -3769,6 +3945,7 @@
         <Russian>Q/E - вращать - Space/Enter - закончить</Russian>
         <Chinesesimp>Q/E 旋转-空格/回车 停止</Chinesesimp>
         <Italian>Q/E per girare - Spazio/Invio per fermare.</Italian>
+        <Czech>Q/E pro otáčení - Space/Enter to Stop.</Czech>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Far">
         <Original>You're too far.</Original>
@@ -3777,6 +3954,7 @@
         <Russian>Вы слишком далеко.</Russian>
         <Chinesesimp>距离太远</Chinesesimp>
         <Italian>Sei troppo lontano</Italian>
+        <Czech>Jsi příliš daleko</Czech>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Title">
         <Original>Utility items</Original>
@@ -3784,6 +3962,7 @@
         <Korean>다목적 아이템</Korean>
         <Chinesesimp>工具</Chinesesimp>
         <Italian>Oggetti Utilità</Italian>
+        <Czech>Položky</Czech>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Feedback_Attached_Objects">
         <Original>You are already carrying something.</Original>
@@ -3792,6 +3971,7 @@
         <Russian>Вы уже что-то несете.</Russian>
         <Chinesesimp>你已经拿着一个物品了！</Chinesesimp>
         <Italian>Sta già trasportando qualcosa.</Italian>
+        <Czech>Už něco nesete.</Czech>
       </Key>
     </Container>
     <Container name="time_units">
@@ -3873,6 +4053,7 @@
         <Russian>д</Russian>
         <Chinesesimp>d</Chinesesimp>
         <Italian>g</Italian>
+        <Czech>d</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_hours_abbr">
         <Original>h</Original>
@@ -3880,6 +4061,7 @@
         <Russian>ч</Russian>
         <Chinesesimp>h</Chinesesimp>
         <Italian>o</Italian>
+        <Czech>h</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_minutes_abbr">
         <Original>m</Original>
@@ -3887,6 +4069,7 @@
         <Russian>м</Russian>
         <Chinesesimp>m</Chinesesimp>
         <Italian>m</Italian>
+        <Czech>m</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_seconds_abbr">
         <Original>s</Original>
@@ -3894,6 +4077,7 @@
         <Russian>с</Russian>
         <Chinesesimp>s</Chinesesimp>
         <Italian>s</Italian>
+        <Czech>s</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_milliseconds_abbr">
         <Original>ms</Original>
@@ -3901,6 +4085,7 @@
         <Russian>мс</Russian>
         <Chinesesimp>ms</Chinesesimp>
         <Italian>ms</Italian>
+        <Czech>ms</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
         <Original>µs</Original>
@@ -3909,6 +4094,7 @@
         <Russian>мкс</Russian>
         <Chinesesimp>µs</Chinesesimp>
         <Italian>µs</Italian>
+        <Czech>µs</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_nanoseconds_abbr">
         <Original>ns</Original>
@@ -3916,6 +4102,7 @@
         <Russian>нс</Russian>
         <Chinesesimp>ns</Chinesesimp>
         <Italian>ns</Italian>
+        <Czech>ns</Czech>
       </Key>
       <Key ID="STR_antistasi_timeSpan_now">
         <Original>(Now)</Original>
@@ -3936,6 +4123,7 @@
         <Russian>Ближайшие бойцы были вылечены и могут снова работать под прикрытием.&lt;br/&gt;&lt;br/&gt;Ближайшие машины больше не в розыске.</Russian>
         <Chinesesimp>附近的单位已被治疗并恢复至最佳状态，可以再次进入伪装模式</Chinesesimp>
         <Italian>Le unità vicine sono state curate, rinnovate e possono andare nuovamente sotto copertura.&lt;br/&gt;&lt;br/&gt;I veicoli nelle vicinanze non sono più reportati dal nemico.</Italian>
+        <Czech>Nedaleké jednotky byly uzdraveny, osvěženy a mohou se znovu utajit. &lt;br/&gt; &lt;br/&gt; Nedaleká vozidla již nejsou hlášena.</Czech>
       </Key>
       <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
         <Original>The box has been used in the last 30 seconds! Please wait for a bit.</Original>
@@ -3944,6 +4132,7 @@
         <Russian>Коробка была использована в течении последних 30 секунд. Пожалуйста подождите.</Russian>
         <Chinesesimp>请稍等，箱子在过去30秒内被使用过!</Chinesesimp>
         <Italian>La scatola è stata già usata negli ultimi 30 secondi! Attendi</Italian>
+        <Czech>Krabice byla použita za posledních 30 sekund! Počkejte chvíli prosím.</Czech>
       </Key>
     </Container>
     <Container name="singleWord">
@@ -3954,6 +4143,7 @@
         <Russian>Вылечить</Russian>
         <Chinesesimp>治疗</Chinesesimp>
         <Italian>Cura</Italian>
+        <Czech>Vyléčit</Czech>
       </Key>
     </Container>
   </Package>

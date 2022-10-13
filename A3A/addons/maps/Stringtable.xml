@@ -52,6 +52,7 @@
         <Chinesesimp>Antistasi Altis</Chinesesimp>
         <Korean>Antistasi Altis</Korean>
         <French>Antistasi Altis</French>
+        <Czech>Antistasi Altis</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_Altis_mapname_text">
         <Original>Antistasi - Liberation of Altis</Original>
@@ -59,6 +60,7 @@
         <Korean>Antistasi - Altis 해방</Korean>
         <Chinesesimp>Antistasi - 解放 Altis</Chinesesimp>
         <Russian>Antistasi - Освобождение Алтиса</Russian>
+        <Czech>Antistasi - osvobození Altisu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_Altis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -84,6 +86,7 @@
         <Russian>Antistasi Стратис</Russian>
         <Chinesesimp>Antistasi Stratis</Chinesesimp>
         <Korean>Antistasi Stratis</Korean>
+        <Czech>Antistasi Stratis</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_Stratis_mapname_text">
         <Original>Antistasi - Liberation of Stratis</Original>
@@ -91,6 +94,7 @@
         <Korean>Antistasi - Stratis 해방</Korean>
         <Chinesesimp>Antistasi - 解放 Stratis</Chinesesimp>
         <Russian>Antistasi - Освобождение Стратиса</Russian>
+        <Czech>Antistasi - osvobození Stratisu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_Stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -152,6 +156,7 @@
         <Russian>Antistasi Таноа</Russian>
         <Chinesesimp>Antistasi Tanoa</Chinesesimp>
         <Korean>Antistasi Tanoa</Korean>
+        <Czech>Antistasi Tanoa</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_Tanoa_mapname_text">
         <Original>Antistasi - Warlords of the Pacific</Original>
@@ -222,6 +227,7 @@
         <Russian>Antistasi Виролахти</Russian>
         <Chinesesimp>Antistasi Virolahti</Chinesesimp>
         <Korean>Antistasi Virolahti</Korean>
+        <Czech>Antistasi Virolahti</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_vt7_mapname_text">
         <Original>Antistasi - Liberation of Virolahti</Original>
@@ -229,6 +235,7 @@
         <Korean>Antistasi - Virolahti 해방</Korean>
         <Chinesesimp>Antistasi - 解放 Virolahti</Chinesesimp>
         <Russian>Antistasi - Освобождение Виролахти</Russian>
+        <Czech>Antistasi - osvobození Virolahti</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_vt7_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -253,6 +260,7 @@
         <Russian>Antistasi Чернорусь</Russian>
         <Chinesesimp>Antistasi Chernarus</Chinesesimp>
         <Korean>Antistasi Chernarus</Korean>
+        <Czech>Antistasi Černarus</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_summer_mapname_text">
         <Original>Antistasi - Kolkhoz in revolt</Original>
@@ -260,6 +268,7 @@
         <Russian>Antistasi - Революция колхоза</Russian>
         <Chinesesimp>Antistasi - Kolkhoz 起义</Chinesesimp>
         <Korean>Antistasi - Kolkhoz in revolt</Korean>
+        <Czech>Antistasi - Kolchoz ve vzpouře</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_summer_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -285,6 +294,7 @@
         <Russian>Antistasi Чернорусь Зима</Russian>
         <Chinesesimp>Antistasi Chernarus Winter</Chinesesimp>
         <Korean>Antistasi Chernarus Winter</Korean>
+        <Czech>Antistasi Zimní Černarus</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_winter_mapname_text">
         <Original>Antistasi - Chilled revolt</Original>
@@ -292,6 +302,7 @@
         <Russian>Antistasi - Зимнее восстание</Russian>
         <Chinesesimp>Antistasi - 冰冷的反抗</Chinesesimp>
         <Korean>Antistasi - Chilled revolt</Korean>
+        <Czech>Antistasi - Chladná vzpoura</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_winter_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -425,6 +436,7 @@
         <Chinesesimp>Antistasi Cam Lao Nam</Chinesesimp>
         <Russian>Антистази Кам Нао Лам</Russian>
         <Korean>Antistasi Cam Lao Nam</Korean>
+        <Czech>Antistasi Cam Lao Nam</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_cam_lao_nam_mapname_text">
         <Original>Antistasi - Liberation of Cam Lao Nam</Original>
@@ -432,6 +444,7 @@
         <Chinesesimp>Antistasi - 解放柬老南</Chinesesimp>
         <Russian>Антистази - Освобождение Кам Нао Лам</Russian>
         <Korean>Antistasi - Cam Lao Nam 해방</Korean>
+        <Czech>Antistasi - osvobození Cam Lao Namu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_cam_lao_nam_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -448,6 +461,7 @@
         <Chinesesimp>树? 哪棵树?!?</Chinesesimp>
         <Russian>Дерево? Какое дерево?!?</Russian>
         <Korean>나무? 뭔 나무?!?</Korean>
+        <Czech>Strom? Který strom?!?</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_sara_mapname_short_text">
         <Original>Antistasi Sahrani</Original>
@@ -455,6 +469,7 @@
         <Chinesesimp>Antistasi Sahrani</Chinesesimp>
         <Russian>Антистази Сахрани</Russian>
         <Korean>Antistasi Sahrani</Korean>
+        <Czech>Antistasi Sahrani</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_sara_mapname_text">
         <Original>Antistasi - Liberation of Sahrani</Original>
@@ -462,6 +477,7 @@
         <Chinesesimp>Antistasi - 解放 Sahrani</Chinesesimp>
         <Russian>Антистази - Освобождение Сахрани</Russian>
         <Korean>Antistasi - Sahrani 해방</Korean>
+        <Czech>Antistasi - osvobození Sahrani</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_sara_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -478,6 +494,7 @@
         <Chinesesimp>Sahrani 的统一</Chinesesimp>
         <Russian>Воссоединение Сахрани</Russian>
         <Korean>Sahrani의 재통일</Korean>
+        <Czech>Sjednocení Sahrani</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
         <Original>Antistasi Takistan</Original>
@@ -485,6 +502,7 @@
         <Russian>Antistasi Такистан</Russian>
         <Chinesesimp>Antistasi Takistan</Chinesesimp>
         <Korean>Antistasi Takistan</Korean>
+        <Czech>Antistasi Takistan</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_text">
         <Original>Antistasi - Liberation of Takistan</Original>
@@ -492,6 +510,7 @@
         <Chinesesimp>Antistasi - 解放 Takistan</Chinesesimp>
         <Russian>Освобождение Такистана</Russian>
         <Korean>Antistasi - Takistan 해방</Korean>
+        <Czech>Antistasi - osvobození Tákistanu</Czech>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -508,6 +527,7 @@
         <Chinesesimp>在 Takistan 沙漠的热浪中</Chinesesimp>
         <Russian>В жаре Такистанской пустыни</Russian>
         <Korean>타키스타니 사막의 열기 속에서</Korean>
+        <Czech>V žáru takstánské pouště</Czech>
       </Key>
     </Container>
   </Package>

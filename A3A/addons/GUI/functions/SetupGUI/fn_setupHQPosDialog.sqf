@@ -1,12 +1,20 @@
 /*
+function: A3A_fnc_setupHQPosDialog
     Handles the initialization and tab switching on the setup dialog.
     This function should only be called from setupDialog onLoad and control activation EHs.
+
+Author: John Jordan (jaj22)
 
 Environment: Scheduled for onLoad mode / Unscheduled for everything else unless specified
 
 Arguments:
     <STRING> Mode, e.g. "onLoad", "switchTab"
     <ARRAY<ANY>> Array of params for the mode when applicable. Params for specific modes are documented in the modes.
+
+Modes:
+    - onload called on creation to setup dialog
+    - onUnload called on deletion to handle deletion of dialog
+    - mouseUp called on mouseUp event from the dialog, handles pos not allowed
 
 Return Value:
     Nothing

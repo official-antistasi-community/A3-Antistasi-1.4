@@ -778,6 +778,7 @@ switch _mode do {
 			{
 				_usableMagazines append (compatibleMagazines _x);
 			} foreach (weapons player - ["Throw","Put"]);
+			_usableMagazines =_usableMagazines arrayIntersect _usableMagazines;
 
 			//loop all magazines and find usable
 			_magazines = [];

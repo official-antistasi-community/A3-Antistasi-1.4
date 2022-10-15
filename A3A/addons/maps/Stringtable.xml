@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission">
-    <Container name="credits_generic">
-      <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official Antistasi Community and Barbolani</Original>
-        <French>La Communauté Officielle d'Antistasi et Barbolani</French>
-        <Russian>Сообщество Antistasi</Russian>
-        <German>Die offizielle Antistasi Community und Barbolani</German>
-        <Czech>Oficiální komunita Antistasi a Barbolani</Czech>
-        <Chinesesimp>Antistasi 官方社区 和 Barbolani</Chinesesimp>
-        <Korean>공식 Antistasi 커뮤니티와 Barbolani</Korean>
-      </Key>
-    </Container>
-    <Container name="mission_info">
-    <!--> Example of mission info:
+    <Package name="A3-Antistasi Mission">
+        <Container name="credits_generic">
+            <Key ID="STR_antistasi_credits_generic_author_text">
+                <Original>The Official Antistasi Community and Barbolani</Original>
+                <French>La Communauté Officielle d'Antistasi et Barbolani</French>
+                <Russian>Сообщество Antistasi</Russian>
+                <German>Die offizielle Antistasi Community und Barbolani</German>
+                <Czech>Oficiální komunita Antistasi a Barbolani</Czech>
+                <Chinesesimp>Antistasi 官方社区 和 Barbolani</Chinesesimp>
+                <Korean>공식 Antistasi 커뮤니티와 Barbolani</Korean>
+            </Key>
+        </Container>
+        <Container name="mission_info">
+            <!--> Example of mission info:
         String uses in description.exe:
         briefingName = $STR_antistasi_mission_info_${worldname}_mapname_text;
         OnLoadName = $STR_antistasi_mission_info_${worldname}_mapname_short_text;
@@ -26,18 +26,18 @@
             Mission >> Intel >> briefingName
 
     \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
-        <Original>Antistasi Altis</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">
-        <Original>Antistasi - Liberation of Altis</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_blurb_text">
-        <Original>Because nothing is more important than Freedom.</Original>
-      </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
+                <Original>Antistasi Altis</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">
+                <Original>Antistasi - Liberation of Altis</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_description_text">
+                <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_blurb_text">
+                <Original>Because nothing is more important than Freedom.</Original>
+            </Key>
     //////////////////////////////////////////////////////////////////////////////////
     </-->
       <Key ID="STR_antistasi_mission_info_Altis_mapname_short_text">

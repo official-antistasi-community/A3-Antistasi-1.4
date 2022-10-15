@@ -52,7 +52,7 @@ private _side = side group player;
 _isJip = _this select 1;
 if (isMultiplayer) then {
 	if (side player == teamPlayer) then {
-		player setVariable ["eligible",true,true];
+		player setVariable ["eligible",player call A3A_fnc_isMember,true];
 	};
 	musicON = false;
 	disableUserInput true;

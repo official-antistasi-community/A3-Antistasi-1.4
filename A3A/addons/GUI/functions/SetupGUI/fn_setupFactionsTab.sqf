@@ -1,4 +1,24 @@
 /*
+Function: A3A_fnc_setupFactionsTab
+    Handles the initialization and tab switching on the setup dialog.
+    This function should only be called from setupDialog onLoad and control activation EHs.
+Author: John Jordan (jaj22)
+
+Environment: Scheduled for onLoad, sendData and serverClose modes. Unscheduled for everything else.
+
+Arguments:
+    <STRING> Mode, e.g. "onLoad", "switchTab"
+    <ARRAY<ANY>> Array of params for the mode when applicable. Params for specific modes are documented in the modes.
+
+
+Modes:
+    - update does nothing
+    - factionSelected called no new item selectionNames
+    - fillFactions fills faction tab with the factions
+    - getFactions getter for selected items in tab
+
+Return Value:
+    on mode getFactions - returns array of selected items in dialog in form [_factions, _addons, _dlc]
 
 */
 

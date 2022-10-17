@@ -1,4 +1,13 @@
 class A3A {
+    class Model {
+        class NG_navRoad_assert {};
+        class NG_navRoad_connect {};
+        class NG_navRoad_disconnect {};
+        class NG_navRoad_getPeers {};
+        class NG_navRoad_isConnected {};
+        class NG_navRoadHM_assert {};
+        class NG_navRoadHM_remove {};
+    }
     class NavGridDraw {
         class NG_draw_connection {};
         class NG_draw_deleteAll {};
@@ -38,8 +47,10 @@ class A3A {
         class NGSA_hover_modeBrush {};
         class NGSA_hover_modeConnect {};
         class NGSA_import {};
+        class NGSA_importV2 {};
         class NGSA_insertMiddleNode {};
         class NGSA_main {};
+        class NGSA_mainDialog {};
         class NGSA_navGridHM_refresh_islandID {};
         class NGSA_node_disconnect {};
         class NGSA_onKeyDown {};

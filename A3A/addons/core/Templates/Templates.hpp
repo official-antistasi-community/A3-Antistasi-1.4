@@ -196,7 +196,7 @@ class Templates
         flagTexture = "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa";
         name = "RHS CDF";
         file = "RHS_AI_CDF";
-        maps[] = {"chernarus_summer","chernarus_winter"};
+        maps[] = {"chernarus_summer","chernarus_winter","chernarus"};
     };
 
     class RHS_USAF_Army_Arid : RHS_Base
@@ -510,7 +510,7 @@ class Templates
         name = "CUP CDF Temperate";
         file = "CUP_AI_CDF_Temperate";
         climate[] = {"temperate"};
-        maps[] = {"chernarus_summer"};
+        maps[] = {"chernarus_summer","chernarus"};
     };
 
     class CUP_RACS_Arid : CUP_Base

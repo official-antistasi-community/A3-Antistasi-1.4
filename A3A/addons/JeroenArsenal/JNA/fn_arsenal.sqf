@@ -776,10 +776,9 @@ switch _mode do {
 		{
 			_usableMagazines = [];
 			{
-				private _cfgWeapon = configfile >> "cfgweapons" >> _x;
-				private _mags = _cfgWeapon call A3A_fnc_allMagazines;
-				{ _usableMagazines pushBackUnique _x } forEach _mags;
+				_usableMagazines append (compatibleMagazines _x);
 			} foreach (weapons player - ["Throw","Put"]);
+			_usableMagazines =_usableMagazines arrayIntersect _usableMagazines;
 
 			//loop all magazines and find usable
 			_magazines = [];

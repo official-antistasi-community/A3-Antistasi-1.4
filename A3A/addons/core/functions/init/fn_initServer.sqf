@@ -19,7 +19,11 @@ if (call A3A_fnc_modBlacklist) exitWith {};
     _x hideObjectGlobal true;
 } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];
 
-if !(toLower worldName == "cam_lao_nam") then { mapX setObjectTexture [0,"Pictures\Mission\whiteboard.jpg"] };
+switch (toLower worldname) do {
+	case "cam_lao_nam": {};
+	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
+};
 
 enableSaving [false,false];
 

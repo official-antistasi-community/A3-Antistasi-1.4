@@ -12,6 +12,7 @@ if (!(isNull attachedTo _thingX)) exitWith {["Move HQ", "The asset you want to m
 if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle."] call A3A_fnc_customHint;};
 
 if (([_playerX] call A3A_fnc_countAttachedObjects) > 0) exitWith {["Move HQ", "You have other things attached, you cannot move this."] call A3A_fnc_customHint;};
+
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
@@ -22,6 +23,7 @@ if (captive _playerX) then { _playerX setCaptive false };
 
 _thingX setVariable ["objectBeingMoved", true];
 if !(_isStatic) then { _thingX removeAction _id };
+if (_isStatic) then { _thingX lock true };
 
 private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
 private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
@@ -67,6 +69,8 @@ private _fnc_placeObject = {
 
 	// _thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
 
+	if (_thingX isKindOf "StaticWeapon") then { _thingX lock false };
+
 	_thingX setVariable ["objectBeingMoved", false];
 };
 
@@ -74,7 +78,7 @@ private _actionX = _playerX addAction ["Drop Here", {
 	(_this select 3) params ["_thingX", "_fnc_placeObject"];
 
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
-}, [_thingX, _fnc_placeObject],4,true,true,"",""];
+}, [_thingX, _fnc_placeObject],6,true,true,"",""];
 
 waitUntil {sleep 1;
 	(_playerX != attachedTo _thingX)

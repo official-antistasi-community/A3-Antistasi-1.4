@@ -532,4 +532,37 @@ class Templates
 
         Nodes[] = {"UNS_Logistics_Nodes.sqf"};
     };
+
+
+   class GM
+    {
+        priorityOcc = 8;
+        priorityInv = 8;
+        priorityReb = 8;
+        priorityCiv = 8;
+
+        requiredAddons[] = {"gm_weapons_items","CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};
+        path = QPATHTOFOLDER(Templates\Templates\GM);
+
+        class AI
+        {
+            class NVA {};
+            class BW {};
+        };
+
+        class Reb {};
+
+        class Civ {};
+
+        class worldDefaults
+        {
+            class Default
+            {
+                Occ = "BW";
+                Inv = "NVA";
+            };
+        };
+
+        Nodes[] = {"GM_Logistics_Nodes.sqf"};
+    };
 };

@@ -779,6 +779,7 @@ class CfgFunctions
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};
+            class getItemListFromDLC {};
         };
 
         class UtilityItems {

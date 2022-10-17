@@ -108,6 +108,8 @@ switch (_mode) do
             ["vt7", "Virolahti"]
             ,["sara", "Sahrani"]
             ,["Cam_Lao_Nam", "Cam Lao Nam"]
+            ,["vn_khe_sanh", "Khe Sanh"]
+            ,["chernarus_autumn", "Chernarus (A)"]
             ,["chernarus_summer", "Chernarus (S)"]
             ,["chernarus_winter", "Chernarus (W)"]
             ,["Enoch", "Livonia"]

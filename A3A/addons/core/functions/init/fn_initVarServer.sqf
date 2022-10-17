@@ -313,7 +313,7 @@ private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Log
     Info_2("Loading template %1 for side %2", _x, _side);
 
 	private _cfg = configFile/"A3A"/"Templates"/_x;
-	private _basepath = getText (_cfg/"basepath");
+	private _basepath = getText (_cfg/"basepath") + "\";
 	private _file = getText (_cfg/"file") + ".sqf";
     [_basepath + _file, _side] call A3A_fnc_compatibilityLoadFaction;
 
@@ -325,7 +325,7 @@ private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Log
 
 {
 	private _cfg = configFile/"A3A"/"Templates"/_x;
-	private _basepath = getText (_cfg/"path");
+	private _basepath = getText (_cfg/"path") + "\";
 	{
 		Info_2("Loading addon file %1 for side %2", _x#1, _x#0);
 		[_x#0, _basepath + _x#1] call A3A_fnc_loadAddon;

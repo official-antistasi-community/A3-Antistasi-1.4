@@ -1128,8 +1128,22 @@
             <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
                 <Original>CANCEL</Original>
             </Key>
-            <Key ID="STR_antistasi_dialogs_setup_hqpos_close">
+        </Container>
+        <Container name="hqpos_dialog">
+            <Key ID="STR_antistasi_dialogs_hqpos_close">
                 <Original>Close</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hqpos_feedback_title">
+                <Original>HQ Position</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hqpos_feedback_nearenemy">
+                <Original>Selected position cannot be near enemy zones.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hqpos_feedback_inwater">
+                <Original>Selected position cannot be in water.</Original>
+            </Key>
+            <Key ID="STR_antistasi_dialogs_hqpos_feedback_outsidemap">
+                <Original>Selected position cannot be outside the map.</Original>
             </Key>
         </Container>
     </Package>

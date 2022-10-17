@@ -34,7 +34,6 @@ Debug_1("setupFactionsTab called with mode %1", _mode);
 
 private _display = findDisplay A3A_IDD_SETUPDIALOG;
 private _worldName = toLower worldName;
-private _worldCamo = A3A_climate;
 
 if (isNil "A3A_setup_loadedPatches") exitWith { Error("No patch data. Load order fuckup?") };
 
@@ -162,7 +161,7 @@ switch (_mode) do
         // Fetch valid factions and filter based on checkboxes
         private _factions = +(_display getVariable "validFactions");
         if (!cbChecked (_display displayCtrl A3A_IDC_SETUP_IGNORECAMOCHECK)) then {
-            _factions = _factions apply { _x select { getArray (_x/"camo") isEqualTo [] or _worldCamo in getArray (_x/"camo") } };
+            _factions = _factions apply { _x select { getArray (_x/"climate") isEqualTo [] or A3A_climate in getArray (_x/"climate") } };
         };
         private _missingFactions = _factions apply { _x select { !(_x call _fnc_factionLoaded) } };
         _factions = _factions apply { _x select { _x call _fnc_factionLoaded } };

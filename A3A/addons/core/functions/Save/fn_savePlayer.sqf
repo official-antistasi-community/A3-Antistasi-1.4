@@ -45,11 +45,13 @@ private _loadout = getUnitLoadout _playerUnit;
 if (_shouldStripLoadout) then { _loadout = _loadout call A3A_fnc_stripGearFromLoadout };
 _playerHM set ["loadoutPlayer", _loadout];
 
-_playerHM set ["scorePlayer", _playerUnit getVariable "score"];
-_playerHM set ["rankPlayer", rank _playerUnit];
+private _scorePlayer = _playerUnit getVariable ["score", 0];
+private _rankPlayer = _playerUnit getVariable ["rankX", "PRIVATE"];		// rank _unit fails on corpses
+_playerHM set ["scorePlayer", _scorePlayer];
+_playerHM set ["rankPlayer", _rankPlayer];
 _playerHM set ["personalGarage", []];
 
-_totalMoney = _playerUnit getVariable ["moneyX", 0];
+private _totalMoney = _playerUnit getVariable ["moneyX", 0];
 if (_shouldStripLoadout) then { _totalMoney = round (_totalMoney * 0.85) };
 
 if (_globalSave) then
@@ -75,6 +77,6 @@ if (_globalSave) then
 };
 _playerHM set ["moneyX", _totalMoney];
 
-Info_3("Saved player %1: %2 rank, %3 money", _playerId, rank _playerUnit, _totalMoney toFixed 0);
+Info_3("Saved player %1: %2 rank, %3 money", _playerId, _rankPlayer, _totalMoney toFixed 0);
 
 true;

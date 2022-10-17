@@ -45,7 +45,7 @@ if (_autoLoadTime >= 0) then
 
 
 // TODO: move this to initClient?
-["Server Information", "Waiting for an admin to start the game"] remoteExec ["A3A_fnc_customHint", 0];
+[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_adminwait"] remoteExec ["A3A_fnc_customHint", 0];
 
 // startGame function needs to know setupPlayer for sanity-checking
 A3A_setupPlayer = objNull;

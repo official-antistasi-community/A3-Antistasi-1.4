@@ -513,7 +513,7 @@ class A3A_SetupHQPosDialog
         class CloseButton : A3A_Button
         {
             idc = -1;
-            text = $STR_antistasi_dialogs_setup_hqpos_close;
+            text = $STR_antistasi_dialogs_hqpos_close;
             onButtonClick = "closeDialog 0";
             x = safeZoneX;
             y = safeZoneY;

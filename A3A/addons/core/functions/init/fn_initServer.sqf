@@ -66,7 +66,7 @@ A3A_backgroundInitDone = true;
 // Wait until we have selected/created save data  
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 
-["Server Information", "Starting game"] remoteExec ["A3A_fnc_customHint", 0];
+[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
 
 // Set global vars directly from params. Call should guarantee 1:1 validity
 {
@@ -218,7 +218,8 @@ addMissionEventHandler ["EntityKilled", {
 }];
 
 
-["Server Information", "Server load completed"] remoteExec ["A3A_fnc_customHint", 0];
+[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_completed"] remoteExec ["A3A_fnc_customHint", 0];
+
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
 

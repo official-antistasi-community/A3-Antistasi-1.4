@@ -3300,5 +3300,22 @@
                 <French>Soigner</French>
             </Key>
         </Container>
+        <Container name="server_info">
+            <Key ID="STR_A3A_feedback_serverinfo">
+                <Original>Server Information</Original>
+            </Key>
+            <Key ID="STR_A3A_feedback_serverinfo_starting">
+                <Original>Starting game...</Original>
+            </Key>
+            <Key ID="STR_A3A_feedback_serverinfo_completed">
+                <Original>Server load completed.</Original>
+            </Key>
+            <Key ID="STR_A3A_feedback_serverinfo_adminwait">
+                <Original>Waiting for an admin to start the game.</Original>
+            </Key>
+            <Key ID="STR_A3A_feedback_serverinfo_background">
+                <Original>Waiting for background init to complete.</Original>
+            </Key>
+        </Container>
     </Package>
 </Project>

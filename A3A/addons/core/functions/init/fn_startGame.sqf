@@ -18,5 +18,5 @@ A3A_saveData = _saveData;
 // Throw message if background init isn't done
 if (isNil "A3A_backgroundInitDone") then {
     Info("Waiting for background init to complete");
-    ["Server Information", "Waiting for background init to complete"] remoteExec ["A3A_fnc_customHint", 0];
+    [localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_background"] remoteExec ["A3A_fnc_customHint", 0];
 };

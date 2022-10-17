@@ -64,18 +64,19 @@ switch (_mode) do
 
         private _posClicked = _mapCtrl posScreenToWorld [_xPos, _yPos];
         private _posInvalid = true;
+        private _titleStr = localize "STR_antistasi_dialogs_hqpos_feedback_title";
 
         private _nearMarker = [_display getVariable "dangerZones", _posClicked] call BIS_fnc_nearestPosition;
         if (markerPos _nearMarker distance2d _posClicked < 500) exitWith {
-            ["HQ Position", "Selected position cannot be near enemy zones."] call A3A_fnc_customHint;
+            [_titleStr, localize "STR_antistasi_dialogs_hqpos_feedback_nearenemy"] call A3A_fnc_customHint;
         };
 
         if (surfaceIsWater _posClicked) exitWith {
-            ["HQ Position", "Selected position cannot be in water."] call A3A_fnc_customHint;
+            [_titleStr, localize "STR_antistasi_dialogs_hqpos_feedback_inwater"] call A3A_fnc_customHint;
         };
 
         if (_posClicked findIf { (_x < 0) || (_x > worldSize) } != -1) exitWith {
-            ["HQ Position", "Selected position cannot be outside the map."] call A3A_fnc_customHint;
+            [_titleStr, localize "STR_antistasi_dialogs_hqpos_feedback_outsidemap"] call A3A_fnc_customHint;
         };
 
         "Synd_HQ" setMarkerPosLocal _posClicked;

@@ -33,6 +33,11 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_cam_lao_nam_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_cam_lao_nam.cam_lao_nam";
         };
+        class Antistasi_vn_khe_sanh
+        {
+            briefingName = $STR_antistasi_mission_info_vn_khe_sanh_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_vn_khe_sanh.vn_khe_sanh";
+        };
         class Antistasi_chernarus_summer
         {
             briefingName = $STR_antistasi_mission_info_chernarus_summer_mapname_text;
@@ -42,6 +47,11 @@ class CfgMissions
         {
             briefingName = $STR_antistasi_mission_info_chernarus_winter_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_chernarus_winter.chernarus_winter";
+        };
+        class Antistasi_chernarus
+        {
+            briefingName = $STR_antistasi_mission_info_chernarus_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_chernarus.chernarus";
         };
         class Antistasi_Enoch
         {

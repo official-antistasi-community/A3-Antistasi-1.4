@@ -25,14 +25,7 @@ if (_player != theBoss) then
 	}
 else
 	{
-	if ([_player] call A3A_fnc_isMember) then
-		{
-		_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12", (server getVariable "hr") toFixed 0, (server getVariable "resourcesFIA") toFixed 0, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, (_player getVariable "moneyX") toFixed 0,floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt];
-		}
-	else
-		{
-		_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %1 | Your Money: %2 € | %3 Money: %4 € | %5 Aggr: %6 | %7 Aggr: %8 | War Level: %9 | Undercover Mode: %10",rank _player,(_player getVariable "moneyX") toFixed 0,FactionGet(reb,"name"),(server getVariable "resourcesFIA") toFixed 0, FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString, FactionGet(inv,"name"),[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,_ucovertxt];
-		};
+	_textX = format ["<t size='0.67' shadow='2'>" + "Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12", (server getVariable "hr") toFixed 0, (server getVariable "resourcesFIA") toFixed 0, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, (_player getVariable "moneyX") toFixed 0,floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt];
 	};
 
 //if (captive player) then {_textX = format ["%1 ON",_textX]} else {_textX = format ["%1 OFF",_textX]};

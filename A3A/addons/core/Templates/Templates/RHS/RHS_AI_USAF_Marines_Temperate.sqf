@@ -2,7 +2,7 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "US Marines"] call _fnc_saveToTemplate;
+["name", "USMC"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "USMC support corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_US_F"] call _fnc_saveToTemplate;

@@ -17,11 +17,12 @@
     License: MIT
 */
 HR_GRG_Prefix = "Antistasi";
-//Overwrite client
+
+// Condition for whether the player can override garage locks
 HR_GRG_isCmdClient = {
     (isServer && hasInterface && _this isEqualTo player) //Lan host
     || {admin owner _this > 0} //admin
-    || {_this isEqualTo theBoss} //commander
+    || {_this isEqualTo theBoss && _this call A3A_fnc_isMember } //member-commander
 };
 
 //condition to automatically close garage/placement as if canceled

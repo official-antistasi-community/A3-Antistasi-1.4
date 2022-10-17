@@ -157,7 +157,10 @@ else {
 Info("Accepting players");
 if !(loadLastSave) then {
 	{
-		_x call A3A_fnc_unlockEquipment;
+		if (_x isEqualType "") then { _x call A3A_fnc_unlockEquipment; continue };
+		_x params ["_class", "_count"];
+		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
 	} foreach FactionGet(reb,"initialRebelEquipment");
     Info("Initial arsenal unlocks completed");
 	call A3A_fnc_checkRadiosUnlocked;
@@ -203,6 +206,8 @@ Info("Setting serverInitDone as true");
 
 Info("Waiting for HQ placement");
 waitUntil {sleep 1;!(isNil "placementDone")};
+
+
 Info("HQ Placed, continuing init");
 distanceXs = [] spawn A3A_fnc_distance;
 [] spawn A3A_fnc_resourcecheck;

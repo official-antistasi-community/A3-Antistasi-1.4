@@ -17,7 +17,6 @@ New-Item -Path "..\build\A3A" -ItemType Directory -Force > $null
 New-Item -Path "..\build\A3A\addons" -ItemType Directory -Force > $null
 New-Item -Path "..\build\A3A\Keys" -ItemType Directory -Force > $null
 
-$buildLocation = "$PSScriptRoot\..\..\build"
 $addonLocation = "." # We are here already
 $addonOutLocation = "$PSScriptRoot\..\..\build\A3A"
 $addonsOutLocation = "$addonOutLocation\addons"
@@ -69,3 +68,6 @@ Pop-Location
 Pop-Location
 
 Pop-Location
+
+$displayTime = Get-Date -DisplayHint DateTime
+"Antistasi builder ran at: " + $displayTime

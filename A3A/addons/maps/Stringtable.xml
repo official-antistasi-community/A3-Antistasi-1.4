@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission">
-    <Container name="credits_generic">
-      <Key ID="STR_antistasi_credits_generic_author_text">
-        <Original>The Official Antistasi Community and Barbolani</Original>
-        <French>La Communauté Officielle d'Antistasi et Barbolani</French>
-        <Russian>Сообщество Antistasi</Russian>
-        <German>Die offizielle Antistasi Community und Barbolani</German>
-        <Czech>Oficiální komunita Antistasi a Barbolani</Czech>
-        <Chinesesimp>Antistasi 官方社区 和 Barbolani</Chinesesimp>
-        <Korean>공식 Antistasi 커뮤니티와 Barbolani</Korean>
-      </Key>
-    </Container>
-    <Container name="mission_info">
-    <!--> Example of mission info:
+    <Package name="A3-Antistasi Mission">
+        <Container name="credits_generic">
+            <Key ID="STR_antistasi_credits_generic_author_text">
+                <Original>The Official Antistasi Community and Barbolani</Original>
+                <French>La Communauté Officielle d'Antistasi et Barbolani</French>
+                <Russian>Сообщество Antistasi</Russian>
+                <German>Die offizielle Antistasi Community und Barbolani</German>
+                <Czech>Oficiální komunita Antistasi a Barbolani</Czech>
+                <Chinesesimp>Antistasi 官方社区 和 Barbolani</Chinesesimp>
+                <Korean>공식 Antistasi 커뮤니티와 Barbolani</Korean>
+            </Key>
+        </Container>
+        <Container name="mission_info">
+            <!--> Example of mission info:
         String uses in description.exe:
         briefingName = $STR_antistasi_mission_info_${worldname}_mapname_text;
         OnLoadName = $STR_antistasi_mission_info_${worldname}_mapname_short_text;
@@ -26,18 +26,18 @@
             Mission >> Intel >> briefingName
 
     \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-        <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
-        <Original>Antistasi Altis</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">
-        <Original>Antistasi - Liberation of Altis</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_${worldname}_blurb_text">
-        <Original>Because nothing is more important than Freedom.</Original>
-      </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
+                <Original>Antistasi Altis</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">
+                <Original>Antistasi - Liberation of Altis</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_description_text">
+                <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+            </Key>
+            <Key ID="STR_antistasi_mission_info_${worldname}_blurb_text">
+                <Original>Because nothing is more important than Freedom.</Original>
+            </Key>
     //////////////////////////////////////////////////////////////////////////////////
     </-->
       <Key ID="STR_antistasi_mission_info_Altis_mapname_short_text">
@@ -296,6 +296,28 @@
         <Chinesesimp>当心: 圣诞老人在追捕你!</Chinesesimp>
         <Russian>Остерегайтесь: Санта-Клаус охотится на вас!</Russian>
       </Key>
+	  <Key ID="STR_antistasi_mission_info_chernarus_mapname_short_text">
+        <Original>Antistasi Chernarus Autumn</Original>
+        <English>Antistasi Chernarus Autumn</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus_mapname_text">
+        <Original>Antistasi - Autumn of Rebellion</Original>
+        <English>Antistasi - Autumn of Rebellion</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+        <French>Devenez le Chef de la Résistance. Battez-vous contre un ennemi en surnombre et avec un niveau technologique supérieur. Utilisez les tactiques des Guerrillas dans un monde complétement dynamique, avec environ 18 missions. Quand vous voulez, où vous voulez, avec ce que vous voulez...</French>
+        <Russian>Стань лидером сопротивления. Сражайся против врага превосходящего в технологии, количистве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире.</Russian>
+        <German>Sei ein Anführer des Widerstands. Kämpfe gegen einen technologisch und zahlenmäßigen überlegenen Feind. Nutze Guerillataktiken in einer vollständig dynamischen Welt mit 18 möglichen Sekundärmissionen. Es könnte jederzeit und überall alles passieren...</German>
+        <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Korean>반군 지도자가 되십시오. 수적 그리고 질적으로 막강한 적과 싸우십시오. 18개의 서브 미션과 함께 언제 어디든지 게릴라 전술을 사용하십시오.</Korean>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_chernarus_blurb_text">
+        <Original>Revolution in a pile of leafes.</Original>
+        <English>Revolution in a pile of leafes.</English>
+      </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
         <Original>Antistasi Kunduz</Original>
         <French>Antistasi Kanduz</French>
@@ -473,6 +495,22 @@
         <Original>In the Heat of the Takistani Desert</Original>
         <French>Dans la chaleur du désert du Takistan</French>
         <Chinesesimp>在 Takistan 沙漠的热浪中</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_short_text">
+        <Original>Antistasi Khe Sanh</Original>
+        <English>Antistasi Khe Sanh</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_text">
+        <Original>Antistasi - Liberation of Khe Sanh</Original>
+        <English>Antistasi - Liberation of Khe Sanh</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+        <English>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</English>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_vn_khe_sanh_blurb_text">
+        <Original>Another jungle, another fight.</Original>
+        <English>Another jungle, another fight.</English>
       </Key>
     </Container>
   </Package>

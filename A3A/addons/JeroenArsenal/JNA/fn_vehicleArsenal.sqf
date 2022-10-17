@@ -366,16 +366,16 @@ switch _mode do {
 			private _usableMagazines = [];
 			{
 				private _weapons = jnva_loadout select _x;
+				
 				{
-					private _cfgWeapon = configfile >> "cfgweapons" >> (_x select 0);
-					private _mags = _cfgWeapon call A3A_fnc_allMagazines;
-					{ _usableMagazines pushBackUnique toLower _x } forEach _mags;
+					_usableMagazines append ((compatibleMagazines (_x select 0)) apply {toLower _x});
 				} forEach _weapons;
 			}forEach [
 				IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON,
 				IDC_RSCDISPLAYARSENAL_TAB_SECONDARYWEAPON,
 				IDC_RSCDISPLAYARSENAL_TAB_HANDGUN
 			];
+			_usableMagazines =_usableMagazines arrayIntersect _usableMagazines;
 
 			// Add compatible vehicle magazines for 3CB-style ammunition systems
 			private _cfgVehicle = configFile >> "cfgVehicles" >> typeof _veh;

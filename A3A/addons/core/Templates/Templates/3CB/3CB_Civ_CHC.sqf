@@ -67,6 +67,15 @@
     ,"UK3CB_CHC_C_Ural_Fuel", 0.1                // Ural
     ,"UK3CB_CHC_C_V3S_Refuel", 0.1]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["LivonianHead_6","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03",
+"WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08",
+"WhiteHead_09","WhiteHead_11","WhiteHead_12","WhiteHead_14","WhiteHead_15",
+"WhiteHead_16","WhiteHead_17","WhiteHead_18","WhiteHead_19","WhiteHead_20"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
@@ -135,16 +144,16 @@ private _civhats = [
 
 private _loadoutData = call _fnc_createLoadoutData;
 
-_loadoutData setVariable ["uniforms", _civUniforms];
-_loadoutData setVariable ["pressUniforms", _pressUniforms];
-_loadoutData setVariable ["workerUniforms", _workerUniforms];
-_loadoutData setVariable ["pressVests", ["V_Press_F"]];
-_loadoutData setVariable ["helmets", _civHats];
-_loadoutData setVariable ["pressHelmets", ["H_Cap_press"]];
+_loadoutData set ["uniforms", _civUniforms];
+_loadoutData set ["pressUniforms", _pressUniforms];
+_loadoutData set ["workerUniforms", _workerUniforms];
+_loadoutData set ["pressVests", ["V_Press_F"]];
+_loadoutData set ["helmets", _civHats];
+_loadoutData set ["pressHelmets", ["H_Cap_press"]];
 
-_loadoutData setVariable ["maps", ["ItemMap"]];
-_loadoutData setVariable ["watches", ["ItemWatch"]];
-_loadoutData setVariable ["compasses", ["ItemCompass"]];
+_loadoutData set ["maps", ["ItemMap"]];
+_loadoutData set ["watches", ["ItemWatch"]];
+_loadoutData set ["compasses", ["ItemCompass"]];
 
 
 private _manTemplate = {

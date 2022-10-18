@@ -127,7 +127,6 @@ class Templates
         nodes[] = {"VN_Logistics_Nodes.sqf"};
         equipFlags[] = {"lowTech","replaceCompass","replaceWatch"};
         forceDLC[] = {"vn"};
-//        maps = {"cam_lao_nam"};
     };
 
     class VN_MACV : VN_Base
@@ -136,7 +135,6 @@ class Templates
         flagTexture = "vn\objects_f_vietnam\flags\data\vn_flag_01_usa_co.paa";
         name = "VN MACV";
         file = "VN_AI_MACV";
-        climate[] = {"temperate"};
     };
 
     class VN_PAVN : VN_Base
@@ -145,7 +143,6 @@ class Templates
         flagTexture = "vn\objects_f_vietnam\flags\data\vn_flag_01_pavn_co.paa";
         name = "VN PAVN";
         file = "VN_AI_PAVN";
-        climate[] = {"temperate"};
     };
 
     class VN_POF : VN_Base
@@ -629,7 +626,6 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_us_co.paa";
         name = "Unsung US";
         file = "UNS_AI_US";
-        climate[] = {"tropical"};
     };
 
     class UNS_NVA : UNS_Base
@@ -638,7 +634,6 @@ class Templates
         flagTexture = "\uns_flags\flag_pavn_co.paa";
         name = "Unsung NVA";
         file = "UNS_AI_NVA";
-        climate[] = {"tropical"};
     };
 
     class UNS_VC : UNS_Base
@@ -647,7 +642,6 @@ class Templates
         flagTexture = "\uns_flags\flag_vc_co.paa";
         name = "Unsung VC";
         file = "UNS_Reb_VC";
-        climate[] = {"tropical"};
     };
 
     class UNS_Civ : UNS_Base
@@ -656,6 +650,50 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "Unsung civs";
         file = "UNS_Civ";
+    };
+
+    // ********************************** Global Mobilization ************************************************
+
+    class GM_Base
+    {
+        requiredAddons[] = {"gm_weapons_items","CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};
+        basepath = QPATHTOFOLDER(Templates\Templates\GM);
+        logo = "";
+        priority = 80;
+        equipFlags[] = {"specialGM"};
+        Nodes[] = {"GM_Logistics_Nodes.sqf"};
+    };
+
+    class GM_NVA : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_GC_marker_ca";
+        name = "Nationale Volksarmee";
+        file = "GM_AI_NVA";
+    };
+
+    class GM_BW : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\A3\ui_f\data\map\markers\flags\Germany_ca.paa";
+        name = "Bundeswehr";
+        file = "GM_AI_NVA";
+    };
+
+    class GM_Reb : GM_Base
+    {
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "GM FIA";
+        file = "GM_Reb";
+    };
+
+    class GM_Civ : GM_Base
+    {
+        side = "Civ";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "GM civs";
+        file = "GM_Civ";
     };
 
 };

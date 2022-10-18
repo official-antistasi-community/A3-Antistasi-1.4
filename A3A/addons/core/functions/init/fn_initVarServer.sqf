@@ -284,12 +284,6 @@ A3A_factionEquipFlags = _occEquipFlags arrayIntersect _invEquipFlags;
 
 Debug_1("Faction equip flags: %1", A3A_factionEquipFlags);
 
-// Add CUP to disabledMods if we need to filter out its equipment
-if ("blockCUP" in A3A_factionEquipFlags) then {
-    private _modpath = (configFile/"CfgPatches"/"CUP_BaseConfigs") call A3A_fnc_getModOfConfigClass;
-    if (_modpath != "") then { A3A_disabledMods pushBack _modpath };
-};
-
 // Build list of extra equipment mods so we can filter out the modern stuff as necessary
 // Might not work for everything because of configSourceMod inconsistency (eg. "rhs_weap_fnfal50_61_base")
 A3A_extraEquipMods = [];

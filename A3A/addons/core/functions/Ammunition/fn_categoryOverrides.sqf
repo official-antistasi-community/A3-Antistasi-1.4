@@ -287,7 +287,28 @@ private _categoryOverrideTable = [
 ["LIB_GrWr34_Barrel", ["StaticWeaponParts","Items"]],
 ["LIB_GrWr34_Barrel_g", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
-["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]]   ];
+["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]],
+
+
+//GM wrong listed stuff
+["gm_fim43_oli",["MissileLaunchers","Weapons","AA"]],
+["gm_fim43_spent_oli",["MissileLaunchers","Weapons","AA"]],
+["gm_9k32m_oli",["MissileLaunchers","Weapons","AA"]],
+["gm_mp2a1_blk",["SMGs","Weapons"]],
+["gm_rpk_wud",["MachineGuns","Weapons"]],
+["gm_lmgrpk_brn",["MachineGuns","Weapons"]],
+["gm_lmgrpk_prp",["MachineGuns","Weapons"]],
+["gm_lmgrpk74n_brn",["MachineGuns","Weapons"]],
+["gm_lmgrpk74n_prp",["MachineGuns","Weapons"]],
+["gm_g3a4_ebr_oli",["SniperRifles","Weapons"]],
+["gm_g3a4_ebr_blk",["SniperRifles","Weapons"]],
+["gm_g3a4_ebr_des",["SniperRifles","Weapons"]],
+["gm_g3a3_dmr_oli",["SniperRifles","Weapons"]],
+["gm_g3a3_dmr_blk",["SniperRifles","Weapons"]],
+["gm_g3a3_dmr_des",["SniperRifles","Weapons"]],
+["gm_svd_wud",["SniperRifles","Weapons"]],
+["gm_hk69a1_blk", ["GrenadeLaunchers","Weapons"]],
+["gm_pallad_d_brn", ["GrenadeLaunchers","Weapons"]]	];
 
 //Create a local namespace.
 A3A_categoryOverrides = false call A3A_fnc_createNamespace;

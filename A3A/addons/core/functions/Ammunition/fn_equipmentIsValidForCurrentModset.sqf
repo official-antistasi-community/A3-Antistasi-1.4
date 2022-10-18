@@ -1,25 +1,28 @@
-params ["_configClass", "_categories"];
+//params ["_configClass", "_itemMod", "_itemType"];
+
+params ["_configClass", "_itemType"];
 
 private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
-private _itemIsVanilla = _itemMod in A3A_vanillaMods;
 
-//Mod is disabled, remove item.
-// This is pre-checked in configSort, so don't need it here
-//if (toLower _itemMod in A3A_disabledMods) exitWith { false };
+if ("specialGM" in A3A_factionEquipFlags) exitWith {
+	private _cfgName = configName _configClass;
+	if (_cfgName in ["gm_g36a1_blk", "gm_g36a1_des", "gm_g36e_blk", "gm_p2a1_launcher_blk", "gm_itemAttachment_suppressor_base"]) exitWith {false};
+	if (_itemMod == "gm") exitWith {true};
+	if (_cfgName in ["DemoCharge_Remote_Mag", "ItemGPS", "ACE_ATragMX","ACE_Kestrel4500","ACE_DAGR",
+		"ACE_microDAGR","MineDetector","ACE_M26_Clacker","ACE_Clacker", "CUP_srifle_G22_wdl", "CUP_muzzle_snds_AWM",
+		"CUP_optic_LeupoldMk4_10x40_LRT_Woodland_pip", "CUP_5Rnd_762x67_G22", "CUP_bipod_Harris_1A2_L_BLK",
+		"CUP_srifle_Mosin_Nagant", "CUP_optic_PEM", "CUP_5Rnd_762x54_Mosin_M", "CUP_srifle_LeeEnfield", "CUP_10x_303_M",
+		"CUP_srifle_Remington700", "CUP_6Rnd_762x51_R700", "CUP_NVG_PVS7", "CUP_NVG_1PN138"] ) exitWith {true};
+	false;
+};
 
-//We remove anything without a picture, because it's a surprisingly good indicator if whether something
-//is actually a valid item or not.
-//Despite all the filtering, we still get a few RHS guns, etc that are for APCs, but are still classed the item type as normal weapons.
-//This is a pretty hard filter that removes anything that shouldn't be in there - I'm hoping it isn't prone to false negatives!
-if (getText (_configClass >> "picture") == "") exitWith { false };
-
-// Just allow all faction mod & enabled CDLC gear. If CDLC and mods are loaded unnecessarily then assume that's what the user wants.
-if !(_itemIsVanilla or _itemMod in A3A_extraEquipMods) exitWith {true};
+// Allow all faction mod & enabled CDLC gear. If CDLC and mods are loaded unnecessarily then assume that's what the user wants.
+if !(_itemMod in A3A_vanillaMods or _itemMod in A3A_extraEquipMods) exitWith {true};
 
 if ("lowTech" in A3A_factionEquipFlags) exitWith {
-	switch (_categories select 0) do {
+	switch (_itemType select 0) do {
 		case "Item": {
-			switch (_categories select 1) do {
+			switch (_itemType select 1) do {
 				case "AccessoryMuzzle";
 				case "AccessoryPointer";
 				case "AccessorySights";
@@ -47,9 +50,9 @@ if ("lowTech" in A3A_factionEquipFlags) exitWith {
 
 // Remove most vanilla gear if we're not running two vanilla mods
 if !("vanilla" in A3A_factionEquipFlags) exitWith {
-	switch (_categories select 0) do {
+	switch (_itemType select 0) do {
 		case "Item": {
-			switch (_categories select 1) do {
+			switch (_itemType select 1) do {
 				case "AccessoryMuzzle";
 				case "AccessoryPointer";
 				case "AccessorySights";
@@ -60,7 +63,7 @@ if !("vanilla" in A3A_factionEquipFlags) exitWith {
 		};
 		case "Weapon": { false };
 		case "Equipment": {
-			switch (_categories select 1) do {
+			switch (_itemType select 1) do {
 				case "Headgear": {
 					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 0.1) then { true };
 				};

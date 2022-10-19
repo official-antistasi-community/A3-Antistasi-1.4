@@ -597,7 +597,7 @@ class Templates
         side = "Reb";
         flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa";
         name = "CUP NAPA";
-        file = "CUP_Reb_NAPA";
+        file = "CUP_Reb";
     };
     
     class CUP_Civ : CUP_Base
@@ -660,24 +660,25 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\GM);
         logo = "";
         priority = 80;
-        equipFlags[] = {"specialGM"};
         Nodes[] = {"GM_Logistics_Nodes.sqf"};
+        equipFlags[] = {"specialGM"};
+        forceDLC[] = {"gm"};
     };
 
     class GM_NVA : GM_Base
     {
         side = "Inv";
-        flagTexture = "\gm\gm_core\data\flags\gm_flag_GC_marker_ca";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
         name = "Nationale Volksarmee";
         file = "GM_AI_NVA";
     };
 
     class GM_BW : GM_Base
     {
-        side = "Inv";
-        flagTexture = "\A3\ui_f\data\map\markers\flags\Germany_ca.paa";
+        side = "Occ";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
         name = "Bundeswehr";
-        file = "GM_AI_NVA";
+        file = "GM_AI_BW";
     };
 
     class GM_Reb : GM_Base

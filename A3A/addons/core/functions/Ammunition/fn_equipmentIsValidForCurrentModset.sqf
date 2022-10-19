@@ -1,8 +1,5 @@
-//params ["_configClass", "_itemMod", "_itemType"];
+params ["_configClass", "_itemMod", "_itemType"];
 
-params ["_configClass", "_itemType"];
-
-private _itemMod = (_configClass call A3A_fnc_getModOfConfigClass);
 
 if ("specialGM" in A3A_factionEquipFlags) exitWith {
 	private _cfgName = configName _configClass;
@@ -65,10 +62,10 @@ if !("vanilla" in A3A_factionEquipFlags) exitWith {
 		case "Equipment": {
 			switch (_itemType select 1) do {
 				case "Headgear": {
-					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") < 0.1) then { true };
+					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Head" >> "armor") > 0.1) then { false };
 				};
 				case "Vest": {
-					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") < 12.1) then { true };
+					if (getNumber (_configClass >> "ItemInfo" >> "HitpointsProtectionInfo" >> "Chest" >> "armor") > 12.1) then { false };
 				};
 				default { true };
 			};

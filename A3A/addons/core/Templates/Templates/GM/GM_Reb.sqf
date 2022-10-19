@@ -31,8 +31,8 @@
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
-["mineAT", ["gm_mine_at_dm21", "gm_mine_at_dm1233"]] call _fnc_saveToTemplate;
-["mineAPERS", ["gm_mine_ap_dm31"]] call _fnc_saveToTemplate;
+["mineAT", "gm_mine_at_dm21"] call _fnc_saveToTemplate;         // , "gm_mine_at_dm1233"]]
+["mineAPERS", "gm_mine_ap_dm31"] call _fnc_saveToTemplate;
 
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["gm_explosive_petn_charge", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;

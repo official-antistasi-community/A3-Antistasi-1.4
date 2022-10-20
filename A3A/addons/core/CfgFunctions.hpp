@@ -507,7 +507,6 @@ class CfgFunctions
 
         class proxy {
             file = QPATHTOFOLDER(functions\proxy);
-            class init {};
             class onPlayerRespawn {};
         };
 
@@ -692,8 +691,6 @@ class CfgFunctions
 
         class InitTemplates {
             file = QPATHTOFOLDER(Templates);
-            class detector {};
-            class selector {};
         };
 
         class ItemSets {

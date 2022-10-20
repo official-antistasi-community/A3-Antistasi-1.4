@@ -99,10 +99,6 @@ if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) t
 A3A_hasKAT = false;
 if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "kat_PainkillerItem")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
 
-// Here because it changes the verification logic apparently
-// should probably detect CBA instead, or see how well the 2.10 compatibleItems works
-A3A_hasCUP = isClass (configFile >> "cfgPatches" >> "CUP_BaseConfigs");
-
 A3A_hasIFA = false;			// this one is everywhere, just mark it false and remove later
 
 //Content Mods (Units, Vehicles, Weapons, Clothes etc.)

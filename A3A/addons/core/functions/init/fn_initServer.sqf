@@ -211,6 +211,7 @@ addMissionEventHandler ["BuildingChanged", {
 
 addMissionEventHandler ["EntityKilled", {
     params ["_victim", "_killer", "_instigator"];
+    if (typeof _victim == "") exitWith {};
     private _killerSide = side group (if (isNull _instigator) then {_killer} else {_instigator});
     Debug_2("%1 killed by %2", typeof _victim, _killerSide);
 

@@ -98,9 +98,6 @@ if (_tab isEqualTo "vehicles") then
             _hasVehiclePreview = true;
         };
         */
-        if (!_hasVehiclePreview) then {
-            _editorPreview = A3A_PlaceHolder_NoVehiclePreview;
-        };
 
         // Add some extra padding to the top if there are 2 rows or less
         private _topPadding = if (count _buyableVehiclesList < 7) then {5 * GRID_H} else {0};
@@ -130,56 +127,58 @@ if (_tab isEqualTo "vehicles") then
         _button ctrlCommit 0;
 
         // Object Render
-        _button ctrlAddEventHandler ["MouseEnter", {
-            params ["_control"];
-            if (true || isNil "Dev_GUI_prevInjectEnter") then {
+        if (!_hasVehiclePreview) then {
+            _button ctrlAddEventHandler ["MouseEnter", {
                 params ["_control"];
-                private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-
-                private _model = _control getVariable "model";
-                private _className = _control getVariable "className";
-                private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
-                private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-                _objPreview ctrlSetModel _model;
-                private _boundingDiameter = [_className] call FUNC(sizeOf);
-                _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
-                _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-
-                private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-
-                private _mouseAbsolutePos = getMousePosition;
-                private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
-                _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
-
-
-                private _yAdjustment = 0.25 * _UIScaleAdjustment;
-                _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
-                _editorPreviewPicture ctrlShow false;
-                _editorPreviewPicture ctrlCommit 1;
-
-                _objPreview ctrlShow true;
-                _objPreview ctrlEnable false;  // Prevent the user dragging it.
-            } else {
-                _control call Dev_GUI_prevInjectEnter;
-            };
-        }];
-        _button ctrlAddEventHandler ["MouseExit", {
-            params ["_control"];
-            if (true || isNil "Dev_GUI_prevInjectExit") then {
+                if (true || isNil "Dev_GUI_prevInjectEnter") then {
+                    params ["_control"];
+                    private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
+    
+                    private _model = _control getVariable "model";
+                    private _className = _control getVariable "className";
+                    private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
+                    private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
+                    _objPreview ctrlSetModel _model;
+                    private _boundingDiameter = [_className] call FUNC(sizeOf);
+                    _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
+                    _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
+    
+                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
+    
+                    private _mouseAbsolutePos = getMousePosition;
+                    private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
+                    _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
+    
+    
+                    private _yAdjustment = 0.25 * _UIScaleAdjustment;
+                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
+                    _editorPreviewPicture ctrlShow false;
+                    _editorPreviewPicture ctrlCommit 1;
+    
+                    _objPreview ctrlShow true;
+                    _objPreview ctrlEnable false;  // Prevent the user dragging it.
+                } else {
+                    _control call Dev_GUI_prevInjectEnter;
+                };
+            }];
+            _button ctrlAddEventHandler ["MouseExit", {
                 params ["_control"];
-                private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
-                private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-
-                private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-
-                _editorPreviewPicture ctrlShow true;
-                _editorPreviewPicture ctrlCommit 1;
-
-                _objPreview ctrlShow false;
-            } else {
-                _control call Dev_GUI_prevInjectExit;
-            };
-        }];
+                if (true || isNil "Dev_GUI_prevInjectExit") then {
+                    params ["_control"];
+                    private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
+                    private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
+    
+                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
+    
+                    _editorPreviewPicture ctrlShow true;
+                    _editorPreviewPicture ctrlCommit 1;
+    
+                    _objPreview ctrlShow false;
+                } else {
+                    _control call Dev_GUI_prevInjectExit;
+                };
+            }];
+        };
 
         private _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];
         _priceText ctrlSetPosition[23 * GRID_W, 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
@@ -212,7 +211,7 @@ if (_tab isEqualTo "vehicles") then
         if (_driver > 0) then
         {
             private _driverIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _driverIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _driverIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _driverIcon ctrlSetText A3A_Icon_Driver;
             _driverIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_driver_tooltip";
             _driverIcon ctrlCommit 0;
@@ -221,7 +220,7 @@ if (_tab isEqualTo "vehicles") then
         if (_coPilot > 0) then
         {
             private _coPilotIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _coPilotIcon ctrlSetPosition [5 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _coPilotIcon ctrlSetPosition [5 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _coPilotIcon ctrlSetText A3A_Icon_Driver;
             _coPilotIcon ctrlSetTextColor [0.8,0.8,0.8,1];
             _coPilotIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_copilot_tooltip";
@@ -236,7 +235,7 @@ if (_tab isEqualTo "vehicles") then
         if (_commander > 0) then
         {
             private _commanderIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _commanderIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _commanderIcon ctrlSetText A3A_Icon_Commander;
             _commanderIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_commander_tooltip";
             _commanderIcon ctrlCommit 0;
@@ -247,7 +246,7 @@ if (_tab isEqualTo "vehicles") then
         if (_gunners > 0) then
         {
             private _gunnerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _gunnerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _gunnerIcon ctrlSetText A3A_Icon_Gunner;
             _gunnerIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_gunner_tooltip";
             _gunnerIcon ctrlCommit 0;
@@ -255,7 +254,7 @@ if (_tab isEqualTo "vehicles") then
             if (_gunners > 1) then
             {
                 private _gunnersText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _crewControlsGroup];
-                _gunnersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+                _gunnersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
                 _gunnersText ctrlSetText str _gunners;
                 _gunnersText ctrlCommit 0;
                 _gunnerIcon ctrlSetTooltip format[localize "STR_antistasi_dialogs_buy_vehicle_gunner_amount_tooltip", _gunners];
@@ -267,7 +266,7 @@ if (_tab isEqualTo "vehicles") then
         if (_passengers > 0) then
         {
             private _passengerIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _passengerIcon ctrlSetPosition [0, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _passengerIcon ctrlSetText A3A_Icon_Cargo;
             _passengerIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_passenger_tooltip";
             _passengerIcon ctrlCommit 0;
@@ -275,7 +274,7 @@ if (_tab isEqualTo "vehicles") then
             if (_passengers > 1) then
             {
                 private _passengersText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _crewControlsGroup];
-                _passengersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+                _passengersText ctrlSetPosition [3 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
                 _passengersText ctrlSetText str _passengers;
                 _passengersText ctrlCommit 0;
                 _passengerIcon ctrlSetTooltip format[localize "STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip", _passengers];
@@ -287,7 +286,7 @@ if (_tab isEqualTo "vehicles") then
         if (_passengersFFV > 0) then
         {
             private _ffvIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _crewControlsGroup];
-            _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _ffvIcon ctrlSetPosition [7 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _ffvIcon ctrlSetText A3A_Icon_FFV;
             _ffvIcon ctrlSetTextColor [0.8,0.8,0.8,1];
             _ffvIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ffv_tooltip";
@@ -296,7 +295,7 @@ if (_tab isEqualTo "vehicles") then
             if (_passengersFFV > 1) then
             {
                 private _ffvText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _crewControlsGroup];
-                _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 4 * GRID_W, 3 * GRID_H];
+                _ffvText ctrlSetPosition [10 * GRID_W, _crewInfoAdded * 4.5 * GRID_H, 3 * GRID_W, 3 * GRID_H];
                 _ffvText ctrlSetText str _passengersFFV;
                 _ffvText ctrlSetTextColor [0.8,0.8,0.8,1];
                 _ffvText ctrlCommit 0;
@@ -321,11 +320,15 @@ if (_tab isEqualTo "vehicles") then
     Debug("BuyVehicleTab complete.");
 };
 
-if  (_tab in ["logistics", "lootboxes", "other"]) then
+if  (_tab in ["other"]) then
 {
     Debug("BuyLogisticsTab starting...");
-
-
+    
+    if(_tab isEqualTo "other") then 
+    {
+        _selectedTab = A3A_IDC_OTHERGROUP;
+    };
+    
     // Setup Object render
     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
     _objPreview ctrlShow false;
@@ -334,8 +337,6 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
     private _buyableItemList = [];
 
 	// Add items
-    if (_tab isEqualTo "logistics") then 
-    {
         private _fuelDrum = (A3A_faction_reb get 'vehicleFuelDrum');
         _buyableItemList pushBack [
             _fuelDrum # 0,
@@ -370,11 +371,6 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
             "Fuel Tank"
         ];
 
-        _selectedTab = A3A_IDC_LOGISTICSGROUP;
-    };
-
-    if(_tab isEqualTo "lootboxes") then 
-    {
         //LTC
         if (LootToCrateEnabled) then {
             _buyableItemList pushBack [
@@ -386,12 +382,7 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
                 "Loot Box"
             ];
         };
-
-        _selectedTab = A3A_IDC_LOOTBOXGROUP;
-    };
-
-    if(_tab isEqualTo "other") then 
-    {
+        
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
             10,
@@ -407,8 +398,7 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
             false,
             "Light"
         ];
-        _selectedTab = A3A_IDC_OTHERGROUP;
-    };
+        
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 
@@ -436,9 +426,6 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
             _hasVehiclePreview = true;
         };
         */
-        if (!_hasVehiclePreview) then {
-            _editorPreview = A3A_PlaceHolder_NoVehiclePreview;
-        };
 
         // Add some extra padding to the top if there are 2 rows or less
         private _topPadding = if (count _buyableItemList < 7) then {5 * GRID_H} else {0};
@@ -465,6 +452,7 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
 		_button setVariable ["function", _func];
 		_button setVariable ["params", _params];
 		_button setVariable ["commanderOnly", _commanderOnly];
+        _button setVariable ["editorPreview", _editorPreview];
         _button ctrlAddEventHandler ["ButtonClick", {
             closeDialog 2;
 			if (((_this # 0) getVariable "commanderOnly") && player isNotEqualTo theBoss) exitwith {
@@ -477,90 +465,81 @@ if  (_tab in ["logistics", "lootboxes", "other"]) then
         _button ctrlCommit 0;
 
         // Object Render
-        _button ctrlAddEventHandler ["MouseEnter", {
-            params ["_control"];
-            if (true || isNil "Dev_GUI_prevInjectEnter") then {
+        if (!_hasVehiclePreview) then {
+            _button ctrlAddEventHandler ["MouseEnter", {
                 params ["_control"];
-                private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-
-                private _model = _control getVariable "model";
-                private _className = _control getVariable "className";
-                private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
-                private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-                _objPreview ctrlSetModel _model;
-                private _boundingDiameter = [_className] call FUNC(sizeOf);
-                _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
-                _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-
-                private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-                private _mouseAbsolutePos = getMousePosition;
-                private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
-                _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
-
-
-                private _yAdjustment = 0.25 * _UIScaleAdjustment;
-                _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
-                _editorPreviewPicture ctrlShow false;
-                _editorPreviewPicture ctrlCommit 1;
-
-                _objPreview ctrlShow true;
-                _objPreview ctrlEnable false;  // Prevent the user dragging it.
-            } else {
-                _control call Dev_GUI_prevInjectEnter;
-            };
-        }];
-        _button ctrlAddEventHandler ["MouseExit", {
-            params ["_control"];
-            if (true || isNil "Dev_GUI_prevInjectExit") then {
+                
+                if (true || isNil "Dev_GUI_prevInjectEnter") then {
+                    params ["_control"];
+                    private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
+    
+                    private _model = _control getVariable "model";
+                    private _className = _control getVariable "className";
+                    private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
+                    private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
+                    _objPreview ctrlSetModel _model;
+                    private _boundingDiameter = [_className] call FUNC(sizeOf);
+                    _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
+                    _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
+    
+                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
+                    private _mouseAbsolutePos = getMousePosition;
+                    private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
+                    _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
+    
+    
+                    private _yAdjustment = 0.25 * _UIScaleAdjustment;
+                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
+                    _editorPreviewPicture ctrlShow false;
+                    _editorPreviewPicture ctrlCommit 1;
+    
+                    _objPreview ctrlShow true;
+                    _objPreview ctrlEnable false;  // Prevent the user dragging it.
+                } else {
+                    _control call Dev_GUI_prevInjectEnter;
+                };
+            }];
+            _button ctrlAddEventHandler ["MouseExit", {
                 params ["_control"];
-                private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
-                private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-
-                private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-
-                _editorPreviewPicture ctrlShow true;
-                _editorPreviewPicture ctrlCommit 1;
-
-                _objPreview ctrlShow false;
-            } else {
-                _control call Dev_GUI_prevInjectExit;
-            };
-        }];
+                if (true || isNil "Dev_GUI_prevInjectExit") then {
+                    params ["_control"];
+                    private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
+                    private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
+    
+                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
+    
+                    _editorPreviewPicture ctrlShow true;
+                    _editorPreviewPicture ctrlCommit 1;
+    
+                    _objPreview ctrlShow false;
+                } else {
+                    _control call Dev_GUI_prevInjectExit;
+                };
+            }];
+        };
 
         private _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];
         _priceText ctrlSetPosition[23 * GRID_W, 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
         _priceText ctrlSetText format ["%1 €",_price];
         _priceText ctrlCommit 0;
 
-        if (_tab isEqualTo "logistics") then
+        if (_className in [(A3A_faction_reb get 'vehicleFuelTank')#0, (A3A_faction_reb get 'vehicleFuelDrum')#0]) then
         {
             private _refuelIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
-            _refuelIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _refuelIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _refuelIcon ctrlSetText A3A_Icon_Refuel;
-            _refuelIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_refuel_tooltip";
-            _refuelIcon ctrlCommit 0;
-
-            private _refuelAmount = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
-            _refuelAmount ctrlSetPosition [1 * GRID_W,  21 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-            _refuelAmount ctrlSetText A3A_Icon_Refuel;
             private _refuelCount = if (A3A_hasACE) then {getNumber (_configClass >> "ace_refuel_fuelCargo")} else {getNumber (_configClass >> "transportFuel")};
-            _refuelAmount ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_maxFuel_tooltip", _displayName, _refuelCount];
-            _refuelAmount ctrlCommit 0;
+            _refuelIcon ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_refuel_tooltip", _displayName, _refuelCount];
+            _refuelIcon ctrlCommit 0;
         };
 
-        if (_tab isEqualTo "lootboxes") then
+        if (_className isEqualTo (A3A_faction_occ get 'surrenderCrate')) then
         {
             private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
-            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
             _ltcIcon ctrlSetText A3A_Icon_Gear;
-            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_loot_tooltip";
+            _ltcIcon ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_tooltip", _displayName, getNumber(_configClass >> "maximumLoad")];
             _ltcIcon ctrlCommit 0;
-
-            private _maxLoad = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
-            _maxLoad ctrlSetPosition [1 * GRID_W,  21 * GRID_H, 4 * GRID_W, 4 * GRID_H];
-            _maxLoad ctrlSetText A3A_Icon_Gear;
-            _maxLoad ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_maxLoad_tooltip", _displayName, getNumber(_configClass >> "maximumLoad")];
-            _maxLoad ctrlCommit 0;
         };
 
         // Show item

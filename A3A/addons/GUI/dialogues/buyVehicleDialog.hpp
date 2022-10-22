@@ -36,33 +36,12 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
                     h = 5 * GRID_H;
                 };
 
-                class LogiContainerTabButton : A3A_Button
-                {
-                    idc = A3A_IDC_LOGISTICSTABBUTTON;
-                    text = $STR_antistasi_dialogs_vehicle_tab_logi;
-                    onButtonClick = "[""switchTab"", [""logistics""]] call A3A_fnc_buyVehicleDialog";
-                    x = 30 * GRID_W;
-                    y = 0;
-                    w = 30 * GRID_W;
-                    h = 5 * GRID_H;
-                };
-
-                class LootBoxesTabButton : A3A_Button
-                {
-                    idc = A3A_IDC_LOOTBOXESTABBUTTON;
-                    text = $STR_antistasi_dialogs_vehicle_tab_lootbox;
-                    onButtonClick = "[""switchTab"", [""lootboxes""]] call A3A_fnc_buyVehicleDialog";
-                    x = 60 * GRID_W;
-                    y = 0;
-                    w = 30 * GRID_W;
-                    h = 5 * GRID_H;
-                };
                 class OthersTabButton : A3A_Button
                 {
                     idc = A3A_IDC_OTHERTABBUTTON;
                     text = $STR_antistasi_dialogs_vehicle_tab_other;
                     onButtonClick = "[""switchTab"", [""other""]] call A3A_fnc_buyVehicleDialog";
-                    x = 90 * GRID_W;
+                    x = 30 * GRID_W;
                     y = 0;
                     w = 30 * GRID_W;
                     h = 5 * GRID_H;
@@ -81,42 +60,6 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
                 class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
                 {
                     idc = A3A_IDC_VEHICLESGROUP;
-                    x = 0;
-                    y = 4 * GRID_H;
-                    w = PX_W(DIALOG_W);
-                    h = PX_H(DIALOG_H) - 8 * GRID_H;
-                };
-            };
-        };
-
-        class LogisticsTab : A3A_DefaultControlsGroup
-        {
-            idc = A3A_IDC_BUYLOGISTICSMAIN;
-            show = false;
-
-            class Controls
-            {
-                class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
-                {
-                    idc = A3A_IDC_LOGISTICSGROUP;
-                    x = 0;
-                    y = 4 * GRID_H;
-                    w = PX_W(DIALOG_W);
-                    h = PX_H(DIALOG_H) - 8 * GRID_H;
-                };
-            };
-        };
-
-        class LootBoxesTab : A3A_DefaultControlsGroup
-        {
-            idc = A3A_IDC_BUYLOOTBOXMAIN;
-            show = false;
-
-            class Controls
-            {
-                class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
-                {
-                    idc = A3A_IDC_LOOTBOXGROUP;
                     x = 0;
                     y = 4 * GRID_H;
                     w = PX_W(DIALOG_W);

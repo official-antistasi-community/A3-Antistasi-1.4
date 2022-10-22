@@ -42,10 +42,6 @@ switch (_mode) do
         {
             case ("vehicles"):
             {_selectedTabIDC = A3A_IDC_BUYVEHICLEMAIN;};
-            case("logistics"):
-            {_selectedTabIDC = A3A_IDC_BUYLOGISTICSMAIN;};
-            case("lootboxes"):
-            {_selectedTabIDC = A3A_IDC_BUYLOOTBOXMAIN;};
             case("other"):
             {_selectedTabIDC = A3A_IDC_BUYOTHERMAIN;};
         };
@@ -56,8 +52,6 @@ switch (_mode) do
 
         private _allTabs = [
             A3A_IDC_BUYVEHICLEMAIN,
-            A3A_IDC_BUYLOGISTICSMAIN,
-            A3A_IDC_BUYLOOTBOXMAIN,
             A3A_IDC_BUYOTHERMAIN,
             A3A_IDC_BUYVEHICLEPREVIEW
         ];
@@ -79,8 +73,6 @@ switch (_mode) do
     case ("onLoad"):
     {
         ["vehicles"] call A3A_fnc_buyVehicleTabs;
-        ["logistics"] call A3A_fnc_buyVehicleTabs;
-        ["lootboxes"] call A3A_fnc_buyVehicleTabs;
         ["other"] call A3A_fnc_buyVehicleTabs;
     };
 

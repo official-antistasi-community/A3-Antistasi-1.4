@@ -227,7 +227,7 @@
                 <Original>Purchase Item</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
-                <Original>The Commander may only buy this item.</Original>
+                <Original>Only the Commander may buy this item.</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_vehicle_tab_vehicles">
                 <Original>Vehicles</Original>

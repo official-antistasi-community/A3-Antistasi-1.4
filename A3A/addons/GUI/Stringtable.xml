@@ -537,6 +537,27 @@
         <Italian>Sedile FFV</Italian>
         <Spanish>%1 asientos de tiradores</Spanish>
       </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
+        <Original>Buy %1 for %2 %3</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_header">
+        <Original>Purchase Item</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
+        <Original>Only the Commander may buy this item.</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_vehicles">
+        <Original>Vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
+        <Original>Other</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
+        <Original>This item can refuel others\n%1 max fuel is %2</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
+        <Original>This item can collect loot\n%1 max load is %2</Original>
+      </Key>
     </Container>
     <Container name="dialog_main_player">
       <Key ID="STR_antistasi_dialogs_main_fast_travel">

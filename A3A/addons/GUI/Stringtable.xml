@@ -245,7 +245,7 @@
                 <Original>This item can refuel others</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
-                <Original>This item can loot items</Original>
+                <Original>This item can collect loot</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_maxLoad_tooltip">
                 <Original>%1 max load is %2</Original>

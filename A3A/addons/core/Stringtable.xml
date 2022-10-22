@@ -4572,5 +4572,37 @@
         <Spanish>Curar</Spanish>
       </Key>
     </Container>
+    <Container name="server_info">
+      <Key ID="STR_A3A_feedback_serverinfo">
+        <Original>Server Information</Original>
+        <Czech>Informace serveru</Czech>
+        <French>Informations sur le serveur</French>
+        <Italian>Informazioni del Server</Italian>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_starting">
+        <Original>Starting game...</Original>
+        <Czech>Spouštím hru...</Czech>
+        <French>Démarrage de la partie...</French>
+        <Italian>Avviando la partita...</Italian>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_completed">
+        <Original>Server load completed.</Original>
+        <Czech>Načtení serveru dokončeno.</Czech>
+        <French>Chargement du serveur terminé.</French>
+        <Italian>Caricamento del server completato.</Italian>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_adminwait">
+        <Original>Waiting for an admin to start the game.</Original>
+        <Czech>Čekání na odstartování hry adminem.</Czech>
+        <French>En attente d'un admin pour démarrer la partie.</French>
+        <Italian>Aspettando che un admin faccia iniziare la partita</Italian>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_background">
+        <Original>Waiting for background init to complete.</Original>
+        <Czech>Čekání na dokončení inicializace na pozadí</Czech>
+        <French>En attente de la fin de l'initialisation.</French>
+        <Italian>Aspettando che l'inizializzazione di background sia completata.</Italian>
+      </Key>
+    </Container>
   </Package>
 </Project>

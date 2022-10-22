@@ -2574,5 +2574,207 @@
         <Spanish>REINICIAR</Spanish>
       </Key>
     </Container>
+    <Container name="setup_dialog">
+      <Key ID="STR_antistasi_dialogs_setup_titlebar">
+        <Original>ANTISTASI SETUP</Original>
+        <Czech>NASTAVENÍ ANTISTASI</Czech>
+        <French>CONFIGURATION D'ANTISTASI</French>
+        <Italian>CONFIGURAZIONE ANTISTASI</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
+        <Original>Load Game</Original>
+        <Czech>Načíst hru</Czech>
+        <French>Charger la partie</French>
+        <Italian>Carica Partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
+        <Original>Factions</Original>
+        <Czech>Frakce</Czech>
+        <French>Factions</French>
+        <Italian>Fazioni</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
+        <Original>Params</Original>
+        <Czech>Parametry</Czech>
+        <French>Paramètres</French>
+        <Italian>Parametri</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_saved_games">
+        <Original>Saved Games</Original>
+        <Czech>Uložené hry</Czech>
+        <French>Parties sauvegardées</French>
+        <Italian>Partite Salvate</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_start_game">
+        <Original>Start game</Original>
+        <Czech>Začít hru</Czech>
+        <French>Commencer une partie</French>
+        <Italian>Inizia Partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_create_new_game">
+        <Original>Create new game</Original>
+        <Czech>Vytvořit novou hru</Czech>
+        <French>Créer une nouvelle partie</French>
+        <Italian>Crea nuova partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
+        <Original>Copy old game</Original>
+        <Czech>Zkopírovat starou hru</Czech>
+        <French>Copier une partie</French>
+        <Italian>Copia vecchia partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_load_old_params">
+        <Original>Load old params</Original>
+        <Czech>Načíst staré parametry</Czech>
+        <French>Charger d'anciens paramètres</French>
+        <Italian>Carica i vecchi parametri</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
+        <Original>Use New Namespace</Original>
+        <Czech>Použít nový uložený soubor</Czech>
+        <French>Utiliser un nouveau fichier</French>
+        <Italian>Usa Nuovo File di Salvataggio</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
+        <Original>Set HQ Position</Original>
+        <Czech>Nastavít pozici velitelství</Czech>
+        <French>Définir la position du QG</French>
+        <Italian>Imposta Posizione HQ</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_new_save_name">
+        <Original>New save name</Original>
+        <Czech>Nový název uložení</Czech>
+        <French>Nom de la partie</French>
+        <Italian>Nuovo Nome del Salvataggio</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_rename_game">
+        <Original>Rename game</Original>
+        <Czech>Přejmenovat hru</Czech>
+        <French>Renommer la partie</French>
+        <Italian>Rinomina Partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_delete_game">
+        <Original>Delete game</Original>
+        <Czech>Odstranit hru</Czech>
+        <French>Supprimer la partie</French>
+        <Italian>Elimina Partita</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_rebels">
+        <Original>Rebels</Original>
+        <Czech>Rebelové</Czech>
+        <French>Rebelles</French>
+        <Italian>Ribelli</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_civilians">
+        <Original>Civilians</Original>
+        <Czech>Civilisté</Czech>
+        <French>Civils</French>
+        <Italian>Civili</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_occupants">
+        <Original>Occupants</Original>
+        <Czech>Okupanti</Czech>
+        <French>Occupants</French>
+        <Italian>Occupanti</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_invaders">
+        <Original>Invaders</Original>
+        <Czech>Nájezdníci</Czech>
+        <French>Envahisseurs</French>
+        <Italian>Invasori</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_addonvics">
+        <Original>Addon vehicles</Original>
+        <Czech>Addonová vozidla</Czech>
+        <French>Véhicules moddés</French>
+        <Italian>Veicoli Addon</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_dlc">
+        <Original>DLC</Original>
+        <Czech>DLC</Czech>
+        <French>DLC</French>
+        <Italian>DLC</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
+        <Original>Override map limits</Original>
+        <Czech>Přepsat limity map</Czech>
+        <French>Outrepasser les limites de la carte</French>
+        <Italian>Sovrascrivi limiti mappa</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
+        <Original>Override camo limits</Original>
+        <Czech>Přepsat limity kamufláží</Czech>
+        <French>Outrepasser les limites de camouflage</French>
+        <Italian>Sovrascrivi limiti camo</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
+        <Original>Show missing mods</Original>
+        <Czech>Zobrazit chybějící módy</Czech>
+        <French>Montrer les mods manquants</French>
+        <Italian>Mostra mod mancanti</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
+        <Original>Override side limits</Original>
+        <Czech>Přepsat limity stran</Czech>
+        <French>Outrepasser les limites de camps</French>
+        <Italian>Sovrascrivi limiti dei gruppi</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
+        <Original>Switch enemy sides</Original>
+        <Czech>Přepnout nepřátelské strany</Czech>
+        <French>Changer de camp</French>
+        <Italian>Scambia gruppi nemici</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_title">
+        <Original>CONFIRM ACTION</Original>
+        <Czech>POTVRDIT AKCI</Czech>
+        <French>CONFIRMER L'ACTION</French>
+        <Italian>CONFERMA AZIONE</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
+        <Original>YES</Original>
+        <Czech>ANO</Czech>
+        <French>OUI</French>
+        <Italian>Sì</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
+        <Original>CANCEL</Original>
+        <Czech>ZRUŠIT</Czech>
+        <French>ANNULER</French>
+        <Italian>CANCELLA</Italian>
+      </Key>
+    </Container>
+    <Container name="hqpos_dialog">
+      <Key ID="STR_antistasi_dialogs_hqpos_close">
+        <Original>Close</Original>
+        <Czech>Zavřít</Czech>
+        <French>Fermer</French>
+        <Italian>Chiudi</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hqpos_feedback_title">
+        <Original>HQ Position</Original>
+        <Czech>Pozice velitelství</Czech>
+        <French>Position du QG</French>
+        <Italian>Posizione HQ</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hqpos_feedback_nearenemy">
+        <Original>Selected position cannot be near enemy zones.</Original>
+        <Czech>Vybraná pozice nemůže být blízko nepřátelské zóny</Czech>
+        <French>La position ne peut pas être proche d'ennemis.</French>
+        <Italian>La posizione selezionata non può essere vicino ad una postazione nemica.</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hqpos_feedback_inwater">
+        <Original>Selected position cannot be in water.</Original>
+        <Czech>Vybraná pozice nemůže být ve vodě</Czech>
+        <French>La position ne peut pas être dans l'eau.</French>
+        <Italian>La posizione selezionata non può essere in acqua.</Italian>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_hqpos_feedback_outsidemap">
+        <Original>Selected position cannot be outside the map.</Original>
+        <Czech>Vybraná pozice nemůže být mimo mapu</Czech>
+        <French>La position ne peut pas être en dehors de la map.</French>
+        <Italian>La posizione selezionata non può essere fuori dalla mappa</Italian>
+      </Key>
+    </Container>
   </Package>
 </Project>

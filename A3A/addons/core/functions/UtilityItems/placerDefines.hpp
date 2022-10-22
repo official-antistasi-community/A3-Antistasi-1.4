@@ -17,3 +17,4 @@
 #define	BUILD_RADIUS	16
 #define	HOLD_TIME	17
 #define	OBJECT_PRICE	18
+#define BUILD_OBJECT_TEMP_DIR 19

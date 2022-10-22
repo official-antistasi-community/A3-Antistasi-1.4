@@ -38,8 +38,8 @@ A3A_building_EHDB = [
 		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["KeyUp", (A3A_building_EHDB # KEY_UP_EH)];
 		removeMissionEventHandler ["EachFrame", (A3A_building_EHDB # EACH_FRAME_EH)];
 		(A3A_building_EHDB # BUILD_DISPLAY) closeDisplay 1;
-		cam cameraEffect ["terminate", "back"];
-		camDestroy cam;
+		A3A_cam cameraEffect ["terminate", "back"];
+		camDestroy A3A_cam;
 		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
 		private _params = (A3A_building_EHDB # BUILD_OBJECTS_ARRAY);
 		A3A_buildingRays = nil;
@@ -125,5 +125,6 @@ A3A_building_EHDB = [
 	_buildCenter,
 	_buildRadius,
 	15,
+	0,
 	0
 ]; 

@@ -21,6 +21,7 @@ Example:
 #include "..\..\dialogues\textures.inc"
 #include "..\..\script_component.hpp"
 #include "\x\A3A\addons\core\functions\UtilityItems\placerDefines.hpp"
+#define BOTTOM safeZoneH + safeZoneY
 FIX_LINE_NUMBERS()
 
 params[["_mode","onLoad"], ["_params",[]]];
@@ -89,16 +90,20 @@ switch (_mode) do
 				private _price = _control getVariable ["price", 0];
 				private _holdTime = _control getVariable ["holdTime", 15];
 
+				private _object = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+				private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
+
 				A3A_building_EHDB set [BUILD_OBJECT_SELECTED_STRING, _className];
 				A3A_building_EHDB set [HOLD_TIME, _holdTime];
 				A3A_building_EHDB set [OBJECT_PRICE, _price];
 
-				private _vehPos =  getPos (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-				deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+				private _vehPos =  getPos _object;
+				deleteVehicle _object;
 
 				A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, _className createVehicleLocal [0,0,0]];
-				(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) enableSimulationGlobal false;
-				(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT) setPos _vehPos; 
+				_object enableSimulationGlobal false;
+				_object setPos _vehPos; 
+				_object setDir _direction;
 				call (A3A_building_EHDB # UPDATE_BB);
 			}];
 
@@ -169,6 +174,31 @@ switch (_mode) do
             _itemControlsGroup ctrlCommit 0.1;
 
 		} forEach _buildableObjects;
+
+		_display setVariable ["displayCordinates", [CENTER_X(160), BOTTOM - PX_H(36), (PX_W(160)) / 2, (PX_H(36)) / 2]];
+
+		_display displayAddEventHandler ["MouseMoving", {
+
+			params[ "_display" ];
+
+			private _paramsArray = _display getVariable ["displayCordinates", [1,1,1,1]];
+			_paramsArray params ["_xPos", "_yPos", "_wPos", "_hPos"];
+			
+
+			private _isMouseInArea = getMousePosition inArea[[ _xPos + _wPos, _yPos + _hPos ], _wPos, _hPos, 0, true];
+
+			if (_isMouseInArea) then {
+				A3A_cam camCommand "manual off";
+			} else {
+				A3A_cam camCommand "manual on";
+			};
+			
+		}];
+
+		_txt = _display ctrlCreate[ "A3A_StructuredText", -1];
+		_txt ctrlSetPosition[ (1.4 * safeZoneX) + safeZoneW, -0.65 * safeZoneY, 0.5, 0.3];			// funkiness because I don't want to deal with dialogs anymore tonight
+		_txt ctrlCommit 0;
+		_txt ctrlSetStructuredText parseText localize "STR_antistasi_teamleader_placer_placer_info";
 	};
 
 	default

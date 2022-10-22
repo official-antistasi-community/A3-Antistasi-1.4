@@ -26,8 +26,8 @@ if(!isNil "A3A_building_EHDB") exitwith {};
 
 
 [_centerObject, _buildingRadius] call A3A_fnc_initBuildingDB;
-cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
-cam cameraEffect ["Internal", "top"];
+A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
+A3A_cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
 
 A3A_boundingCircle = [];
@@ -77,7 +77,7 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	
 	
 		private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
-		private _direction = getDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+		private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
 		private _holdTime = (A3A_building_EHDB # HOLD_TIME);
 
 
@@ -148,12 +148,16 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	
 
 	if (A3A_building_EHDB # ROTATION_MODE_E) then {
-		_object setDir ((getDir _object) + diag_deltaTime * 120);
+		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) + diag_deltaTime * 120);
+		A3A_building_EHDB set [BUILD_OBJECT_TEMP_DIR, _direction];
+		_object setDir _direction;
 		_stateChange = true;
 	};
 
 	if (A3A_building_EHDB # ROTATION_MODE_R) then {
-		_object setDir ((getDir _object) - diag_deltaTime * 120);
+		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) - diag_deltaTime * 120);
+		A3A_building_EHDB set [BUILD_OBJECT_TEMP_DIR, _direction];
+		_object setDir _direction;
 		_stateChange = true;
 	};
 
@@ -194,9 +198,9 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	private _objectCenterY = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 1);
 	private _objectCenterZ = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 2);
 	
-	private _cameraX = (position cam # 0);
-	private _cameraY = (position cam # 1);
-	private _cameraZ = (position cam # 2);
+	private _cameraX = (position A3A_cam # 0);
+	private _cameraY = (position A3A_cam # 1);
+	private _cameraZ = (position A3A_cam # 2);
 		
 	_camClampPosition set  [0 ,[_cameraX, _objectCenterX - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterX + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
 	_camClampPosition set  [1, [_cameraY, _objectCenterY - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterY + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
@@ -205,9 +209,10 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	
 	if (_stateChange) then {
 		_object setPos _vehiclePostion;
+		_object setDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
 	};
 
-	cam setPos _camClampPosition;
+	A3A_cam setPos _camClampPosition;
 }];
 
 A3A_building_EHDB set [EACH_FRAME_EH, _eventHanderEachFrame];

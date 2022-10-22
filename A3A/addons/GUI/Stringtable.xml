@@ -232,26 +232,14 @@
             <Key ID="STR_antistasi_dialogs_vehicle_tab_vehicles">
                 <Original>Vehicles</Original>
             </Key>
-            <Key ID="STR_antistasi_dialogs_vehicle_tab_logi">
-                <Original>Logistics</Original>
-            </Key>
-            <Key ID="STR_antistasi_dialogs_vehicle_tab_lootbox">
-                <Original>Loot Boxes</Original>
-            </Key>
             <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
                 <Original>Other</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
-                <Original>This item can refuel others</Original>
+                <Original>This item can refuel others\n%1 max fuel is %2</Original>
             </Key>
             <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
-                <Original>This item can collect loot</Original>
-            </Key>
-            <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_maxLoad_tooltip">
-                <Original>%1 max load is %2</Original>
-            </Key>
-            <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_maxFuel_tooltip">
-                <Original>%1 max fuel is %2</Original>
+                <Original>This item can collect loot\n%1 max load is %2</Original>
             </Key>
         </Container>
         <Container name="dialog_main_player">

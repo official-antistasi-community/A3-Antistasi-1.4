@@ -1,6 +1,6 @@
 /*
 Author: [Killerswin2]
-	create builds objects from array in the format, [classname, position, direction].
+	create builds objects from array in the format, ["_className", "_position", "_direction", "_holdTime", "_price"].
 	hold actions are created for building. Cancel addActions allow for building cancellation. 
 Arguments:
 1. <array> array of objects, position, and direction for placement
@@ -29,10 +29,7 @@ if (isNil "A3A_notBuiltObjectList") then {
 };
 	
 {
-	private _className = _x # 0;
-	private _position = _x # 1;
-	private _direction = _x # 2;
-	private _holdTime = _x # 3;
+	_x params["_className", "_position", "_direction", "_holdTime", "_price"];
 	private _buildTimeOut = time + 1200;
 	
 	private _constructionName = selectRandom _constructionObjects;
@@ -43,7 +40,8 @@ if (isNil "A3A_notBuiltObjectList") then {
 	_vehicle setVariable ["position", _position, true];
 	_vehicle setVariable ["direction", _direction, true];
 	_vehicle setVariable ["className", _className, true];
-	_vehicle setVariable ["holdTimeOut", _buildTimeOut];
+	_vehicle setVariable ["holdTimeOut", _buildTimeOut, true];
+	_vehicle setVariable ["price", _price, true];
 
 	A3A_notBuiltObjectList pushBack [_vehicle, _buildTimeOut];
 
@@ -100,6 +98,21 @@ if (isNil "A3A_notBuiltObjectList") then {
 
 		//remove from list
 		private _objectTimeout = _target getVariable ["holdTimeOut", 10];
+		private _price = _target getVariable ["price", 0];
+
+		// refund
+		if (_price isNotEqualTo 0) then {
+			private _insufficientFunds = isNil {
+    			if (player == theBoss) then {
+        			[0,(_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
+        			true;
+    			} else {
+            		[_price] call A3A_fnc_resourcesPlayer;
+            		true;
+        		};
+    		};
+		};
+
 		A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_target, _objectTimeout]);
 		publicVariable "A3A_notBuiltObjectList";
 

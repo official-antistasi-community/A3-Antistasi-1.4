@@ -13,6 +13,7 @@ Example:
 call A3A_fnc_initTeamLeaderObjects;
 */
 
+// classname, price, holdtime
 A3A_buildableObjects = [
 	["Land_BagBunker_Large_F", 50, 15],
 	["Land_BagBunker_Small_F", 0, 12],

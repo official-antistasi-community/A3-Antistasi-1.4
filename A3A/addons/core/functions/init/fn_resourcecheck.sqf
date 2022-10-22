@@ -143,14 +143,17 @@ while {true} do
 		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
 
 	{
-		private _object = _x # 0;
-		private _objectTimeout = _x # 1;
+		_x params["_object", "_objectTimeout"];
 
 		if (_time > _objectTimeout) then {
 
 			// remove the object from the list
 			A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_object, _objectTimeout]);
 			publicVariable "A3A_notBuiltObjectList";
+
+			// refund 
+			private _price = _object getVariable ["price", 0];
+			if (_price isNotEqualTo 0) then { [0,(_price)] remoteExec ["A3A_fnc_resourcesFIA",2]; };
 
 			private _eachFrameEH = _object getVariable "eachFrameEH";
 			["EachFrame", _eachFrameEH] remoteExec ["removeMissionEventHandler", 0];

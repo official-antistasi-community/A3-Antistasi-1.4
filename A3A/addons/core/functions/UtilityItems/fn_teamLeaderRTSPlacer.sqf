@@ -82,7 +82,7 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 
 
 	
-		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction, _holdTime];
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction, _holdTime, _price];
 		
 		
 

@@ -1,48 +1,20 @@
+name: Publish to Dev2 on Steam
+
 on:
-  push:
-    branches:
-    - unstable
-    paths:
-    - 'A3A/**'
+  workflow_dispatch:
 
 jobs:
-  merge-branch:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-
-      - name: Merge unstable -> steam-staging-2
-        uses: devmasx/merge-branch@master
-        with:
-          type: now
-          target_branch: steam-staging-2
-          github_token: ${{ github.token }}
-
-  version:
-    runs-on: windows-latest
-    timeout-minutes: 2
-    needs: [merge-branch]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-        with:
-          ref: steam-staging-2
-
-      - run: chmod +x ./tools/incrementVersion.js
-      - run: node ./tools/incrementVersion.js -b ${{github.sha}}
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "Automated version bump to: ${{github.sha}}"
 
   build:
     runs-on: windows-latest
     timeout-minutes: 5
-    needs: [version]
     steps:
     - name: Checkout the code
       uses: actions/checkout@v2
-      with:
-        ref: 'steam-staging-2'
+
+    - name: Increment version locally
+      run: chmod +x ./tools/incrementVersion.js &&
+        node ./tools/incrementVersion.js -b ${{github.sha}}
 
     - name: Build addons
       run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp'
@@ -68,7 +40,7 @@ jobs:
       uses: arma-actions/workshop-upload@v1
       with:
         appId: '107410'      # default
-        itemId: '2729074499' # https://steamcommunity.com/sharedfiles/filedetails/?id=2729074499
+        itemId: ${{ secrets.WORKSHOPID_DEV2 }} # https://steamcommunity.com/sharedfiles/filedetails/?id=[...]]
         contentPath: 'A3A'
         changelog: '[url=https://github.com/official-antistasi-community/A3-Antistasi/commit/${{github.sha}}]Update from branch: ${{github.REF_NAME}}[/url].'
       env:

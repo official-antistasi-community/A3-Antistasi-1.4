@@ -121,7 +121,7 @@ if (aceFood) then {
 	FactionGet(reb,"initialRebelEquipment") append aceFoodItems;
 };
 
-if !(A3A_hasVN) then {
+if !("lowTech" in A3A_factionEquipFlags) then {
 	lootItem append ["ACE_acc_pointer_green_IR","ACE_Chemlight_Shield","ACE_VMH3","ACE_VMM3"];
 };
 lootMagazine deleteAt (lootMagazine find "ACE_PreloadedMissileDummy");

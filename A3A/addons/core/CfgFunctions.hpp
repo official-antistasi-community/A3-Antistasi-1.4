@@ -116,7 +116,6 @@ class CfgFunctions
             class citySupportChange {};
             class commsMP {};
             class createBreachChargeText {};
-            class createControls {};
             class createOutpostsFIA {};
             class createPetros {};
             class deleteControls {};
@@ -342,6 +341,8 @@ class CfgFunctions
             //Main initialisation functions.
             class initServer {};
             class initClient {};
+            class setupMonitor {};
+            class startGame {};
 
             //Other initialisation functions (generally called by the above)
             class briefing {};
@@ -349,14 +350,12 @@ class CfgFunctions
             class clientIdleChecker {};
             class credits {};
             class initACEUnconsciousHandler {};
-            class initFuncs {};
+            class initBases {};
             class initGarrisons {};
-            class initParams {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
+            class generateRoadblock {};
 
-            class initVar {};
-            class initVarClient {};
             class initVarCommon {};
             class initVarServer {};
 
@@ -454,8 +453,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\ModsAndDLC);
             class darkMapFix {};
             class getModOfConfigClass {};
-            class initDisabledMods {};
-            class isModNameVanilla {};
         };
 
         class OrgPlayers {
@@ -510,7 +507,6 @@ class CfgFunctions
 
         class proxy {
             file = QPATHTOFOLDER(functions\proxy);
-            class init {};
             class onPlayerRespawn {};
         };
 
@@ -594,10 +590,10 @@ class CfgFunctions
 
         class Save {
             file = QPATHTOFOLDER(functions\Save);
+            class collectSaveData {};
             class deleteSave {};
             class loadPlayer {};
             class loadServer {};
-            class playerHasSave {};
             class savePlayer {};
             class getStatVariable {};
             class loadStat {};
@@ -606,8 +602,8 @@ class CfgFunctions
             class returnSavedStat {};
             class savePlayerStat {};
             class setStatVariable {};
-            class varNameToSaveName {};
             class saveLoop {};
+            class writebackSaveVar {};
         };
 
         class String {
@@ -695,8 +691,6 @@ class CfgFunctions
 
         class InitTemplates {
             file = QPATHTOFOLDER(Templates);
-            class detector {};
-            class selector {};
         };
 
         class ItemSets {
@@ -779,6 +773,7 @@ class CfgFunctions
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};
+            class getItemListFromDLC {};
         };
 
         class UtilityItems {

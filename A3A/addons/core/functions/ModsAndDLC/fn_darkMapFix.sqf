@@ -20,7 +20,7 @@
 FIX_LINE_NUMBERS()
 if (!canSuspend) exitWith {Error("executed in non-suspendable environment")};
 
-_darkMaps = ["cam_lao_nam"];
+_darkMaps = ["cam_lao_nam", "vn_khe_sanh"];
 if !(toLower worldName in _darkMaps) exitWith {};
 if (!isNil "A3A_darkMapFixRunning" && {A3A_darkMapFixRunning}) exitWith {Error("Dark map fix is already running")};
 A3A_darkMapFixRunning = true;

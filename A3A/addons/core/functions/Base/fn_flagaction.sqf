@@ -31,7 +31,7 @@ switch _typeX do
             };
         }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
-    case "mission":
+    case "petros":
     {
         petros addAction ["Mission Request", {
 #ifdef UseDoomGUI
@@ -41,7 +41,9 @@ switch _typeX do
 #endif
         },nil,0,false,true,"","([_this] call A3A_fnc_isMember or _this == theBoss) and (petros == leader group petros)",4];
         petros addAction ["HQ Management", A3A_fnc_dialogHQ,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)", 4];
-        petros addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"];
+        petros addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)"];
+
+        petros addAction ["Build HQ here", A3A_fnc_buildHQ,nil,0,false,true,"","(_this == theBoss) and (petros != leader group petros)",4];
     };
     case "truckX":
     {
@@ -121,10 +123,6 @@ switch _typeX do
         _flag addAction ["Recruit", { _this spawn A3A_fnc_captureX; },true,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         _flag addAction ["Interrogate", A3A_fnc_interrogate,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
     };
-    case "buildHQ":
-    {
-        _flag addAction ["Build HQ here", A3A_fnc_buildHQ,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
-    };
     case "seaport":
     {
         // No additional actions assigned.
@@ -179,9 +177,9 @@ switch _typeX do
     case "static":
     {
         private _cond = "(_target getVariable ['ownerSide', teamPlayer] == teamPlayer) and (isNull attachedTo _target) and ";
-        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, false, false, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
-        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, false, false, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
+        _flag addAction ["Allow AIs to use this weapon", A3A_fnc_unlockStatic, nil, 1, false, true, "", _cond+"!isNil {_target getVariable 'lockedForAI'}", 4];
+        _flag addAction ["Prevent AIs using this weapon", A3A_fnc_lockStatic, nil, 1, false, true, "", _cond+"isNil {_target getVariable 'lockedForAI'}", 4];
     //    _flag addAction ["Kick AI off this weapon", A3A_fnc_lockStatic, nil, 1, true, false, "", _cond+"isNil {_target getVariable 'lockedForAI'} and !(isNull gunner _target) and !(isPlayer gunner _target)}", 4];
-        _flag addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 1.5, false, false, "",  _cond+"(count crew _target == 0)", 4];
+        _flag addAction ["Move this asset", A3A_fnc_moveHQObject, nil, 1.5, false, true, "",  _cond+"(count crew _target == 0)", 4];
     };
 };

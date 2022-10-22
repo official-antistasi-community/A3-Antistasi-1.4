@@ -25,7 +25,7 @@ params ["_side", "_target", "_callPos", ["_maxResMod", 1]];
 private _targetSide = if (_target isEqualType objNull) then { side group _target } else { _target };
 
 private _curResources = [A3A_resourcesDefenceInv, A3A_resourcesDefenceOcc] select (_side == Occupants);
-private _maxResources = A3A_balanceResourceRate * 10 * ([1, A3A_invaderBalanceMul] select (_side == Invaders));
+private _maxResources = A3A_balanceResourceRate * 10 * ([1, A3A_invaderBalanceMul / 10] select (_side == Invaders));
 if (gameMode == 1) then {
     // Other enemy can use 30-55% of max, rebels 60-85%, depending on aggro. Resource rate/max are also increased by aggro in initSupports
     private _aggro = [aggressionInvaders, aggressionOccupants] select (_side == Occupants);

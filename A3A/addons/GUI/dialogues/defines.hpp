@@ -165,6 +165,7 @@ Maintainer: DoomMetal
 
 // Darker text
 #define A3A_COLOR_TEXT_DARKER {0.7,0.7,0.7,1}
+#define A3A_COLOR_TEXT_DARKER_SQF [0.7,0.7,0.7,1]
 
 // Active elements ("selection color")
 #define A3A_COLOR_ACTIVE {0.95,0.95,0.95,1}

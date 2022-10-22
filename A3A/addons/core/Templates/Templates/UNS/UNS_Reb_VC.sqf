@@ -53,6 +53,7 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "UNS_ItemR
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "UNS_ItemRadio_PRC_90_TFAR"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
+["attributeTFARCodes", ["tf_west_radio_code"]] call _fnc_saveToTemplate;
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

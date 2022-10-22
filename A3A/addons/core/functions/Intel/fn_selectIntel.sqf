@@ -57,8 +57,8 @@ if (_intelType == "Small") then
         case (TIME_LEFT):
         {
             private _atkRes = [A3A_resourcesAttackOcc, A3A_resourcesAttackInv] select (_side == Invaders);
-            private _atkResRate = A3A_balanceResourceRate * A3A_enemyAttackMul / 10;           // per minute
-            if (_side == Invaders) then { _atkResRate = _atkResRate * A3A_invaderBalanceMul };
+            private _atkResRate = A3A_balanceResourceRate * (A3A_enemyAttackMul / 10) / 10;           // per minute
+            if (_side == Invaders) then { _atkResRate = _atkResRate * (A3A_invaderBalanceMul / 10) };
 
             private _nextAttack = (0.7 + random 0.6) * (-_atkRes / _atkResRate);
             if(_nextAttack < 5) then
@@ -73,7 +73,7 @@ if (_intelType == "Small") then
         case (DEF_RESOURCES):
         {
             private _defRes = [A3A_resourcesDefenceOcc, A3A_resourcesDefenceInv] select (_side == Invaders);
-            private _defResCap = A3A_balanceResourceRate * 10 * ([1, A3A_invaderBalanceMul] select (_side == Invaders));
+            private _defResCap = A3A_balanceResourceRate * 10 * ([1, A3A_invaderBalanceMul / 10] select (_side == Invaders));
 
             private _fraction = _defRes / _defResCap;
             private _fmt = call {

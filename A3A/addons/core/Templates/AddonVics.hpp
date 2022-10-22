@@ -15,7 +15,7 @@ class AddonVics
     class D3S
     {
         path = QPATHTOFOLDER(Templates\AddonVics);
-        requiredAddons[] = {"ToDo: Find patches entry"};
+        requiredAddons[] = {"d3s_cars_core"};
         //format {side, file relative to path}
         files[] = { {"Civ", "d3s_Civ.sqf"} };
         Nodes[] = {"d3s_Logi_Nodes.sqf"};

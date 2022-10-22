@@ -111,6 +111,9 @@ A3A_hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3"
 //Content Mods (Units, Vehicles, Weapons, Clothes etc.)
 //These are handled by a script in the Templates folder to keep integrators away from critical code.
 call A3A_fnc_detector;
+
+A3A_hasCUPCoreMap = false;
+if (isClass (configfile >> "CfgPatches" >> "CUP_CA_Data")) then {A3A_hasCUPCoreMap = true; Info("Cup Terrains Detected.") };
 call A3A_fnc_initTeamLeaderObjects;
 
 ////////////////////////////////////

@@ -25,7 +25,6 @@ A3A_hasRDS = false;
 A3A_hasKAT = false;
 A3A_hasCUP = false;
 A3A_hasUNS = false;
-A3A_hasCUPCoreMap = false;
 
 //Actual Detection
 //IFA Detection
@@ -89,12 +88,6 @@ if (isClass (configfile >> "CfgVehicles" >> "d3s_baumaschinen")) then {A3A_hasD3
 //RDS Car Pack Detection
 if (isClass (configfile >> "CfgPatches" >> "rds_A2_Civilians")) then {A3A_hasRDS = true; Info("RDS Cars Detected.") };
 
-
-// maps detection
-if (isClass (configfile >> "CfgPatches" >> "CUP_CA_Data")) then {A3A_hasCUPCoreMap = true; Info("Cup Terrains Detected.") };
-
-
 //No Mods found logging
 if (!A3A_hasRHS && !A3A_hasFFAA && !A3A_hasIFA && !A3A_has3CBBAF && !A3A_hasUNS) then { Info("No Side Replacement Mods Detected.") };
 if (!A3A_hasIvory && !A3A_hasTCGM && !A3A_hasADV && !A3A_hasKAT) then { Info("No Addon Mods Detected.") };
-if (!A3A_hasCUPCoreMap) then {Info("No Map Mods Detected, assuming Vanilla.")};

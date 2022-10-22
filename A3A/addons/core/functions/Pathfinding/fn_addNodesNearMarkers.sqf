@@ -24,8 +24,8 @@ _straddlePoints = [];
     private _navCell = format ["%1/%2", floor ((_mpos#0)/1000), floor ((_mpos#1)/1000)];
     private _navPoints =  A3A_navCellHM getOrDefault [_navCell, []];
     private _navPoints = _navPoints inAreaArray [_mpos, 300, 300];
-    if (_navPoints isEqualTo []) then { Debug_1("%1 has no navpoints within 300m", _x); continue };
-    if (_navPoints inAreaArray [_mpos, 50, 50] isNotEqualTo []) then { Debug_1("%1 already has nearby navpoints", _x); continue };     // close enough already
+    if (_navPoints isEqualTo []) then { Trace_1("%1 has no navpoints within 300m", _x); continue };
+    if (_navPoints inAreaArray [_mpos, 50, 50] isNotEqualTo []) then { Trace_1("%1 already has nearby navpoints", _x); continue };     // close enough already
     // if there are no navpoints then we should just mark this as unconnected somehow?
 
     // find nearest nav point in case that's actually the closest point
@@ -35,7 +35,7 @@ _straddlePoints = [];
         if (_nearDist > _distance) then { _nearDist = _distance };
     } forEach _navPoints;
 
-    Debug_2("Checking %1 navPoints near %2", count _navPoints, _x);
+    Trace_2("Checking %1 navPoints near %2", count _navPoints, _x);
     private _nearData = false;
     {
         private _index = _x#2;
@@ -58,12 +58,12 @@ _straddlePoints = [];
         } forEach _node#3;      // connected nodes [index, type, roaddist]
     } forEach _navPoints;
 
-    if (_nearData isEqualType false) then { Debug_1("No suitable pairs found near %1", _x); continue };     // no suitable pairs
+    if (_nearData isEqualType false) then { Trace_1("No suitable pairs found near %1", _x); continue };     // no suitable pairs
     if (NavGrid#(_nearData#0)#0 distance2d _nearData#2 < 30 or NavGrid#(_nearData#1)#0 distance2d _nearData#2 < 30) then {
-        Debug_1("New nav point near %1 would be too close", _x); continue;
+        Trace_1("New nav point near %1 would be too close", _x); continue;
     };
 
-    Debug_3("Found straddle point for %1 at distance %2 (check %3)", _x, _nearDist, _nearData#2 distance2d _mpos);
+    Trace_3("Found straddle point for %1 at distance %2 (check %3)", _x, _nearDist, _nearData#2 distance2d _mpos);
 
     // first find nearest road segment to position
     private _nearRoad = objNull;
@@ -74,7 +74,7 @@ _straddlePoints = [];
     } forEach (_nearData#2 nearRoads 50);       // is this enough? allegedly
 
     if (isNull _nearRoad) then { Error_2("No road on path near %1 at %2", _x, _nearData#2); continue }; 
-    Debug_2("Road found for %1 at distance %2 from point", _x, _nearRoad distance2d _nearData#2);
+    Trace_2("Road found for %1 at distance %2 from point", _x, _nearRoad distance2d _nearData#2);
 
     // Build a new node between the pair
     private _node1 = NavGrid#(_nearData#0);

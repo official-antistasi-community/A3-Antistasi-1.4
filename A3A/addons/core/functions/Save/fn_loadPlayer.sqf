@@ -3,33 +3,33 @@ FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
-waitUntil {(!isNil "initVar")};		// hmm...
 
 params ["_playerId", "_unit"];
 
-if !([_playerId] call A3A_fnc_playerHasSave) exitWith {
+if !(_playerId in A3A_playerSaveData) then {
     Info_1("No save found for player ID %1", _playerId);
 	[_playerId, _unit] call A3A_fnc_resetPlayer;
 };
 
 Info_2("Loading player data for ID %1 into unit %2", _playerId, _unit);
 
-private _loadout = [_playerId, "loadoutPlayer"] call A3A_fnc_retrievePlayerStat;
+private _playerHM = A3A_playerSaveData get _playerID;
+private _loadout = _playerHM get "loadoutPlayer";
 if (!isNil "_loadout") then { _unit setUnitLoadout _loadout };
 
 private _score = 0;
 private _rank = "PRIVATE";
 
-private _saveScore = [_playerId, "scorePlayer"] call A3A_fnc_retrievePlayerStat;
+private _saveScore = _playerHM get "scorePlayer";
 if (!isNil "_saveScore" && { _saveScore isEqualType 0 }) then {_score = _saveScore};
 
-private _saveRank = [_playerId, "rankPlayer"] call A3A_fnc_retrievePlayerStat;
+private _saveRank = _playerHM get "rankPlayer";
 if (!isNil "_saveRank" && { _saveRank isEqualType "" }) then {_rank = _saveRank};
 
-private _money = [_playerId, "moneyX"] call A3A_fnc_retrievePlayerStat;
+private _money = _playerHM get "moneyX";
 if (isNil "_money" || {!(_money isEqualType 0)}) then {_money = playerStartingMoney};
 
-private _garage = [_playerId, "personalGarage"] call A3A_fnc_retrievePlayerStat;
+private _garage = _playerHM get "personalGarage";
 if (isNil "_garage" || {!(_garage isEqualType [])}) then {_garage = []};
 [_garage, _playerId] call HR_GRG_fnc_addVehiclesByClass;
 

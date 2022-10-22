@@ -11,13 +11,13 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_className"];
+params ["_className", "_itemType"];
 
 // First check if the item has hardcoded categories
 private _categories = A3A_categoryOverrides getVariable [_className, []];
 if (count _categories > 0) exitWith { _categories };
 
-private _itemType = [_className] call A3A_fnc_itemType;
+if (isNil "_itemType") then { _itemType = _className call A3A_fnc_itemType };
 
 private _baseCategory = switch (_itemType select 1) do
     {

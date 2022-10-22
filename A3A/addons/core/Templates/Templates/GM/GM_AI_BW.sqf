@@ -6,7 +6,7 @@
 ["spawnMarkerName", "BW support corridor"] call _fnc_saveToTemplate;
 
 ["flag", "gm_flag_GE"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\ui_f\data\map\markers\flags\Germany_ca.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\gm\gm_core\data\flags\gm_flag_ge_co"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_germany"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -119,13 +119,14 @@ _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
     ["gm_m72a3_oli", "", "", "", ["gm_1Rnd_66mm_heat_m72a3"], [], ""]
 ]];
-_loadoutData set ["ATLaunchers", [["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
+_loadoutData set ["ATLaunchers", [
+    ["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
     ["gm_pzf44_2_des", "", "", "gm_feroz2x17_pzf44_2_des", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
     ["gm_pzf44_2_win", "", "", "gm_feroz2x17_pzf44_2_win", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
     ["gm_pzf84_oli", "", "", "gm_feroz2x17_pzf84_blk", ["gm_1Rnd_84x245mm_heat_t_DM32_carlgustaf", "gm_1Rnd_84x245mm_heat_t_DM22_carlgustaf", "gm_1Rnd_84x245mm_heat_t_DM12_carlgustaf"], [], ""],
-    ["gm_pzf3_blk", "", "", ["gm_1Rnd_60mm_heat_dm22_pzf3", "gm_1Rnd_60mm_heat_dm32_pzf3", "gm_1Rnd_60mm_heat_dm12_pzf3"], [], ""]
+    ["gm_pzf3_blk", "", "", "", ["gm_1Rnd_60mm_heat_dm22_pzf3", "gm_1Rnd_60mm_heat_dm32_pzf3", "gm_1Rnd_60mm_heat_dm12_pzf3"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
     ["gm_fim43_oli", "", "", "", ["gm_1Rnd_70mm_he_m585_fim43"], [], ""]

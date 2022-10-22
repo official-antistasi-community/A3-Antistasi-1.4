@@ -64,12 +64,3 @@ flagX hideObjectGlobal false;
 "Synd_HQ" setMarkerPos _newPosition;
 chopForest = false; publicVariable "chopForest";
 
-//If it's a new game, we teleport everyone to new HQ, yay!
-if (_isNewGame) then {
-	{
-		if ((side _x == teamPlayer) or (side _x == civilian)) then {
-			_x setPosATL _newPosition;
-		};
-	} forEach (call A3A_fnc_playableUnits);
-};
-

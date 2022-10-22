@@ -31,7 +31,6 @@ FIX_LINE_NUMBERS()
 private _possible = [] call A3A_fnc_canMoveHQ;
 if !(_possible#0) exitWith {};
 
-[petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
 private _groupPetros = group petros;
 [petros] join theBoss;
 deleteGroup _groupPetros;
@@ -99,5 +98,3 @@ if (count _garrison > 0) then
 };
 
 sleep 5;
-
-petros addAction ["Build HQ here", A3A_fnc_buildHQ, nil, 0, false, true];

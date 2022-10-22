@@ -6,10 +6,10 @@ on:
       workshopid:
         type: choice
         description: 'Options: Dev 1, Dev 2'
-        options: 
+        options:
         - 2729074499 #dev 1
         - 2873632521 #dev 2
-        
+
 jobs:
 
   build:
@@ -24,7 +24,7 @@ jobs:
         node ./tools/incrementVersion.js -b ${{github.sha}}
 
     - name: Build addons
-      run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp'
+      run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp -modFileName mod_dev.cpp'
 
     - name: Upload build addon artifact
       uses: actions/upload-artifact@v2

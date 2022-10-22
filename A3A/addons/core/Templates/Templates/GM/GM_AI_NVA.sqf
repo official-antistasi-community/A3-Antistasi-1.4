@@ -6,7 +6,7 @@
 ["spawnMarkerName", "NVA support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "gm_flag_GC"] call _fnc_saveToTemplate;
-["flagTexture", "\gm\gm_core\data\flags\gm_flag_GC_marker_ca"] call _fnc_saveToTemplate;
+["flagTexture", "\gm\gm_core\data\flags\gm_flag_gc_co"] call _fnc_saveToTemplate;
 ["flagMarkerType", "gm_marker_flag_GC"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -74,8 +74,8 @@
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
-["minefieldAT", ["gm_mine_at_tm46"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["gm_mine_ap_pfm1"]] call _fnc_saveToTemplate;
+["minefieldAT", ["gm_minestatic_at_tm46"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["gm_minestatic_ap_pfm1"]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///
@@ -118,7 +118,7 @@ _loadoutData set ["missileATLaunchers", [
     ["gm_rpg7_prp", "", "", "gm_pgo7v_blk", ["gm_1Rnd_40mm_heat_pg7vl_rpg7"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
-["gm_9k32m_oli", "", "", "", ["gm_1Rnd_72mm_he_9m32m"], [], ""]
+    ["gm_9k32m_oli", "", "", "", ["gm_1Rnd_72mm_he_9m32m"], [], ""]
 ]];
 _loadoutData set ["sidearms", []];
 
@@ -244,10 +244,10 @@ _sfLoadoutData set ["marksmanRifles", [
 ]];
 
 _sfLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_Mosin_Nagant", "", "CUP_optic_PEM", "", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
+    ["CUP_srifle_Mosin_Nagant", "", "", "CUP_optic_PEM", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
-    ["gm_pm_blk", "", "muzzle_snds_L", "", ["gm_8Rnd_9x18mm_B_pst_pm_blk"], [], ""]
+    ["gm_pm_blk", "muzzle_snds_L", "", "", ["gm_8Rnd_9x18mm_B_pst_pm_blk"], [], ""]
 ]];
 /////////////////////////////////
 //    Military Loadout Data    //
@@ -295,7 +295,7 @@ _militaryLoadoutData set ["marksmanRifles", [
     ["gm_akmn_wud", "gm_bayonet_6x3_blk", "", "gm_zfk4x25_blk", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_Mosin_Nagant", "", "CUP_optic_PEM", "", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
+    ["CUP_srifle_Mosin_Nagant", "", "", "CUP_optic_PEM", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
 ]];
 
 ///////////////////////////////
@@ -350,10 +350,11 @@ _militiaLoadoutData set ["marksmanRifles", [
     ["gm_akmn_wud", "gm_bayonet_6x3_blk", "", "gm_zfk4x25_blk", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-    ["CUP_srifle_Mosin_Nagant", "", "CUP_optic_PEM", "", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
+    ["CUP_srifle_Mosin_Nagant", "", "", "CUP_optic_PEM", ["CUP_5Rnd_762x54_Mosin_M"], [], ""]
 ]];
-_militiaLoadoutData set ["sidearms", 
-    ["gm_pm_blk", "", "", "", ["gm_8Rnd_9x18mm_B_pst_pm_blk"], [], ""]];
+_militiaLoadoutData set ["sidearms", [
+    ["gm_pm_blk", "", "", "", ["gm_8Rnd_9x18mm_B_pst_pm_blk"], [], ""]
+]];
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////

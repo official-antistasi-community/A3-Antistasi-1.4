@@ -70,12 +70,15 @@ if (isNil "A3A_notBuiltObjectList") then {
 		private _position = _target getVariable ["position", [0,0,0]];
 		private _direction  = _target getVariable ["direction", [0,0,0]];
 		private _objectTimeout = _target getVariable ["holdTimeOut", 10];
+		private _price = _target getVariable ["price", 10];
 
 		private _vehicle = createVehicle [_className, [0,0,0], [], 0, "CAN_COLLIDE"];
 		_vehicle setPos _position;
 		_vehicle setDir _direction;
+		_vehicle setVariable ["price", _price, true];
 		deleteVehicle _target;
 
+		[_vehicle] call A3A_fnc_initRemoveStructure;
 		if (_className isEqualTo "Flag_AAF_F") then {
 			[_vehicle, (A3A_faction_reb get "flagTexture")] remoteExec ["setFlagTexture", _vehicle];
 		};

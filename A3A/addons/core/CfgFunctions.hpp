@@ -558,6 +558,7 @@ class CfgFunctions
             class FIAskillAdd {};
             class garrisonAdd {};
             class garrisonDialog {};
+            class initRemoveStructure {};
             class NATObomb {};
             class postmortem {};
             class reDress {};

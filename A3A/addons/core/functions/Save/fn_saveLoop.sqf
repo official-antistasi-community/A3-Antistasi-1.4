@@ -129,7 +129,8 @@ _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {
 	_positionX = position _x;
 	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
-		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
+		private _price = _x getVariable ["price", 0];
+		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x, _price];
 	};
 } forEach staticsToSave;
 

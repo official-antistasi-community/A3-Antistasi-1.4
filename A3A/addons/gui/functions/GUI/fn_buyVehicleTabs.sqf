@@ -135,7 +135,6 @@ if (_tab isEqualTo "vehicles") then
                 if (true || isNil "Dev_GUI_prevInjectEnter") then {
                     params ["_control"];
                     private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-
                     private _model = _control getVariable "model";
                     private _className = _control getVariable "className";
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
@@ -156,7 +155,6 @@ if (_tab isEqualTo "vehicles") then
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {
@@ -384,7 +382,6 @@ if  (_tab in ["other"]) then
                 "Loot Box"
             ];
         };
-
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
             25,
@@ -400,7 +397,6 @@ if  (_tab in ["other"]) then
             false,
             "Light"
         ];
-
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 
@@ -484,7 +480,6 @@ if  (_tab in ["other"]) then
                     private _boundingDiameter = [_className] call FUNC(sizeOf);
                     _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
                     _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
                     private _mouseAbsolutePos = getMousePosition;
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
@@ -495,7 +490,6 @@ if  (_tab in ["other"]) then
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {

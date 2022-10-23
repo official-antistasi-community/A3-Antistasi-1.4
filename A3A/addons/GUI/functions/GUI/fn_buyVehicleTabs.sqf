@@ -336,7 +336,7 @@ if  (_tab in ["other"]) then
     // className, price, function, params, commaderOnly?
     private _buyableItemList = [];
 
-	// Add items
+    // Add items
         private _fuelDrum = (A3A_faction_reb get 'vehicleFuelDrum');
         _buyableItemList pushBack [
             _fuelDrum # 0,
@@ -449,18 +449,18 @@ if  (_tab in ["other"]) then
         _button ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_item_tooltip", _displayName, _price, "€"];
         _button setVariable ["className", _className];
         _button setVariable ["model", _model];
-		_button setVariable ["function", _func];
-		_button setVariable ["params", _params];
-		_button setVariable ["commanderOnly", _commanderOnly];
+        _button setVariable ["function", _func];
+        _button setVariable ["params", _params];
+        _button setVariable ["commanderOnly", _commanderOnly];
         _button setVariable ["editorPreview", _editorPreview];
         _button ctrlAddEventHandler ["ButtonClick", {
             closeDialog 2;
-			if (((_this # 0) getVariable "commanderOnly") && player isNotEqualTo theBoss) exitwith {
-				[localize "STR_antistasi_dialogs_buy_item_custom_hint_header", localize "STR_antistasi_dialogs_buy_item_custom_hint_commander_only"] call A3A_fnc_customHint;
-			};
-			private _func_name = (_this # 0) getVariable "function";
-			private _params = (_this # 0) getVariable "params";
-			_params spawn (missionNamespace getVariable _func_name);
+            if (((_this # 0) getVariable "commanderOnly") && player isNotEqualTo theBoss) exitwith {
+                [localize "STR_antistasi_dialogs_buy_item_custom_hint_header", localize "STR_antistasi_dialogs_buy_item_custom_hint_commander_only"] call A3A_fnc_customHint;
+            };
+            private _func_name = (_this # 0) getVariable "function";
+            private _params = (_this # 0) getVariable "params";
+            _params spawn (missionNamespace getVariable _func_name);
         }];
         _button ctrlCommit 0;
 

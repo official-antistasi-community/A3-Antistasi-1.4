@@ -507,13 +507,6 @@ if (A3A_hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
 
-//if (A3A_hasRHS) then {
-//	[] call A3A_fnc_rhsModCompat;
-//};
-//if (A3A_hasIFA) then {
-//	[] call A3A_fnc_ifaModCompat;
-//};
-
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///
 ////////////////////////////////////

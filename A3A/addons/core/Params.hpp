@@ -77,7 +77,7 @@ class Params
         texts[] = {"0","100","250","500","1000","2500"};
         default = 100;
     };
-    class rebelStartingMoney
+    class rebelFactionStartingMoney
     {
         title = "Rebel Faction Starting Money";
         values[] = {0,1000,2500,5000,10000};

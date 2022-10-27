@@ -70,6 +70,21 @@ class Params
         texts[] = {"0","2","5","10","15"};
         default = 5;
     };
+    class playerStartingMoney
+    {
+        title = "Player Starting Money";
+        values[] = {0, 100, 250, 500, 1000, 2500};
+        texts[] = {"0","100","250","500","1000","2500"};
+        default = 100;
+    };
+    class rebelStartingMoney
+    {
+        title = "Rebel Faction Starting Money";
+        values[] = {0,1000,2500,5000,10000};
+        texts[] = {"0","1000","2500","5000","10000"};
+        default = 1000;
+    };
+
 
     class SpacerMembership
     {

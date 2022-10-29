@@ -59,7 +59,7 @@ class Events {
             };
         };
     };
-    class vehicleBoxHeal {
+    class vehicleBoxRestore {
         isLocal = 1;
         class params {
             class _0 {

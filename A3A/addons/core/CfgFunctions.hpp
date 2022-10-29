@@ -135,7 +135,7 @@ class CfgFunctions
             class getVehiclesAirSupport {};
             class getVehiclesGroundSupport {};
             class getVehiclesGroundTransport {};
-            class vehicleBoxHeal {};
+            class vehicleBoxRestore {};
             class initPetros {};
             class isFrontline {};
             class arePositionsConnected {};

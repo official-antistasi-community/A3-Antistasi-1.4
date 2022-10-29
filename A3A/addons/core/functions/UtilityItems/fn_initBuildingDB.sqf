@@ -45,7 +45,7 @@ A3A_building_EHDB = [
 		A3A_buildingRays = nil;
 		A3A_building_EHDB = nil;
 		player enableSimulation true;
-		[_params] call A3A_fnc_placeBuilderObjects;
+		[_params] spawn A3A_fnc_placeBuilderObjects;
 
 	},
 	-1,

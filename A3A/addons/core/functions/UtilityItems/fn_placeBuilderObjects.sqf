@@ -132,7 +132,7 @@ if (isNil "A3A_notBuiltObjectList") then {
 	10
 	]; 
 
-
+	sleep 0.2; 			// increase network sync performance
 	
 } forEach _objects;
 

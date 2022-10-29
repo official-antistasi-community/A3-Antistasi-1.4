@@ -1391,7 +1391,7 @@
         <Spanish>Retirar fondos de facción</Spanish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_14">
-        <Original>Use this option to grab money from the Faction pool to your personal account. Please note this will have an impact on your score and future promotion chances. Corrupt Commanders may find themselves loosing their command.</Original>
+        <Original>Use this option to grab money from the Faction pool to your personal account. Please note this will have an impact on your score and future promotion chances. Corrupt Commanders may find themselves losing their command.</Original>
         <French>Utilisez cette option pour récupérer de l'argent de la cagnotte de la Faction vers votre compte personnel. Veuillez noter que cela aura un impact sur votre score et vos chances de promotion futures. Les commandants corrompus peuvent perdre leur commandement.</French>
         <German>Benutze diese Option, um Gelder aus der Fraktionskasse zu entnehmen. Beachte dabei, dass dies Auswirkungen auf deine Reputation und zukünftige Beförderungschancen hat. Korrupte Kommandanten könnten plötzlich ihr Kommando verlieren.</German>
         <Czech>Tuto možnost použijte, chcete-li peníze z frakčního fondu vzít na svůj osobní účet. Upozorňujeme, že to bude mít vliv na vaše skóre a na budoucí šanci k povýšení. Zkorumpovaní velitelé se mohou ocitnout v té situaci, že ztratí velení.</Czech>
@@ -2496,7 +2496,7 @@
         <Spanish>Derrota</Spanish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_3">
-        <Original>You will loose the game if %1 has murdered 1/3 of the total population.</Original>
+        <Original>You will lose the game if %1 has murdered 1/3 of the total population.</Original>
         <French>Vous perdrez la partie si %1 a tué 1/3 de la population totale.</French>
         <German>Du verlierst das Spiel, wenn %1 1/3 der gesamten Bevölkerung ermordet hat.</German>
         <Czech>Ztratíte hru, pokud %1 zavraždí 1/3 celkové populace.</Czech>

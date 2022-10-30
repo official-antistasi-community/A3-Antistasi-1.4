@@ -30,10 +30,14 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {["Can't unload a static that's mounted"] remoteExec ["hint", remoteExecutedOwner]};
+) exitWith {["Logistics", "Can't unload a static that's mounted."] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Cargo is already being unloaded from the vehicle"] remoteExec ["hint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {["Logistics","Cargo is already being unloaded from the vehicle"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
+
+//object string for jip
+private _objStringCargo = str _cargo splitString ":" joinString "";
+private _objStringVehicle = str _vehicle splitString ":" joinString "";
 
 //update list of nodes on vehicle
 _updateList = {
@@ -86,7 +90,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     private _weapon = 1 == getnumber (_cargoConfig/"isWeapon");
 
     if (_weapon) then {
-        [_vehicle, _cargo] remoteExecCall ["A3A_Logistics_fnc_removeWeaponAction",0];
+        [_vehicle, _cargo, "A3A_Logistics_weaponAction_" + _objStringCargo] remoteExecCall ["A3A_Logistics_fnc_removeWeaponAction",0];
         player setCaptive false; //break undercover for unloading weapon
     };
     _cargo setVariable ["AttachmentOffset", nil, true];
@@ -104,20 +108,24 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
     } else {
         while {(_location#1) > _yEnd} do {
             uiSleep 0.1;
-            _location = _location vectorAdd [0,-0.1,0];
+            if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
+            _location = _location vectorAdd [0,_prevTime-time,0];
             _cargo attachto [_vehicle,_location];
+            _prevTime = time;
         };
     };
+    if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
     detach _cargo;
 
     [_cargo] call A3A_Logistics_fnc_toggleAceActions;
     [_vehicle, _cargo, true, _instant] call A3A_Logistics_fnc_addOrRemoveObjectMass;
     _cargo lockDriver false;
 } else {_keepUnloading = true};
+if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted
 
 //unlock seats
-[_cargo, false] remoteExec ["A3A_Logistics_fnc_toggleLock", 0, _cargo];
-[_vehicle, false, _seats] remoteExec ["A3A_Logistics_fnc_toggleLock", 0, _vehicle];
+[_cargo, false] remoteExec ["A3A_Logistics_fnc_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringCargo];
+[_vehicle, false, _seats] remoteExec ["A3A_Logistics_fnc_toggleLock", 0, "A3A_Logistics_toggleLock" + _objStringVehicle];
 
 //update list
 _loaded deleteAt 0;

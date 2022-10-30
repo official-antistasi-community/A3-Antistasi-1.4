@@ -17,8 +17,11 @@
 
     Example: [_object , _action] remoteExec ["A3A_Logistics_fnc_addAction", 0, _object];
 */
-params [["_object", objNull, [objNull]], "_action"];
-if (isNull _object) exitWith {};
+params [["_object", objNull, [objNull]], "_action", ["_jipKey", "", [""]]];
+if (isNull _object) exitWith {
+    remoteExec ["", _jipKey]; //clear custom JIP
+};
+
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
 private _loadText = format ["Load %1 into nearest vehicle", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
 

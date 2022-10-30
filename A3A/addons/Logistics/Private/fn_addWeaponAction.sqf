@@ -17,7 +17,11 @@
 
     Example: [_cargo, _vehicle] remoteExec ["A3A_Logistics_fnc_addWeaponAction", 0, _cargo];
 */
-params ["_cargo", "_vehicle"];
+params [["_cargo", objNull, [objNull]], ["_vehicle", objNull, [objNull]], ["_jipKey", "", [""]]];
+
+if (isNull _cargo || isNull _vehicle) exitWith {
+    remoteExec ["", _jipKey]; //clear custom JIP
+};
 
 //action to get into static
 private _name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");

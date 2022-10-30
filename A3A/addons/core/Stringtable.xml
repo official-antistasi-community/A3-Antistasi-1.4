@@ -4578,30 +4578,45 @@
         <Czech>Informace serveru</Czech>
         <French>Informations sur le serveur</French>
         <Italian>Informazioni del Server</Italian>
+        <Chinesesimp>服务器信息</Chinesesimp>
+        <Korean>서버정보</Korean>
+        <Russian>Информация сервера</Russian>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_starting">
         <Original>Starting game...</Original>
         <Czech>Spouštím hru...</Czech>
         <French>Démarrage de la partie...</French>
         <Italian>Avviando la partita...</Italian>
+        <Chinesesimp>正在启动游戏...</Chinesesimp>
+        <Korean>게임 시작 중..</Korean>
+        <Russian>Начинаем игру...</Russian>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_completed">
         <Original>Server load completed.</Original>
         <Czech>Načtení serveru dokončeno.</Czech>
         <French>Chargement du serveur terminé.</French>
         <Italian>Caricamento del server completato.</Italian>
+        <Chinesesimp>服务器加载完毕</Chinesesimp>
+        <Korean>서버 불러오기 완료</Korean>
+        <Russian>Загрузка сервера завершена.</Russian>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminwait">
         <Original>Waiting for an admin to start the game.</Original>
         <Czech>Čekání na odstartování hry adminem.</Czech>
         <French>En attente d'un admin pour démarrer la partie.</French>
         <Italian>Aspettando che un admin faccia iniziare la partita</Italian>
+        <Chinesesimp>等待管理员启动游戏</Chinesesimp>
+        <Korean>관리자가 게임을 시작하기를 기다리는 중</Korean>
+        <Russian>Ожидание начала игры администратором.</Russian>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_background">
         <Original>Waiting for background init to complete.</Original>
         <Czech>Čekání na dokončení inicializace na pozadí</Czech>
         <French>En attente de la fin de l'initialisation.</French>
         <Italian>Aspettando che l'inizializzazione di background sia completata.</Italian>
+        <Chinesesimp>等待后台初始化完成</Chinesesimp>
+        <Korean>게임 설정이 완료되기를 기다리는 중</Korean>
+        <Russian>Ожидание завершения инициализации.</Russian>
       </Key>
     </Container>
   </Package>

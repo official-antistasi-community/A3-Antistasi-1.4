@@ -103,7 +103,7 @@
         <Original>BATTLE OPTIONS</Original>
         <French>OPTIONS DE COMBAT</French>
         <Korean>전투 옵션</Korean>
-        <russian>НАСТРОЙКИ БОЯ</russian>
+        <Russian>НАСТРОЙКИ БОЯ</Russian>
         <Chinesesimp>战斗选项</Chinesesimp>
         <Czech>MOŽNOSTI BTIVY</Czech>
         <Italian>OPZIONI DI BATTAGLIA</Italian>
@@ -573,7 +573,7 @@
       <Key ID="STR_antistasi_dialogs_main_fast_travel_tooltip">
         <Original>This is a placeholder</Original>
         <Korean>이것은 자리표시자입니다</Korean>
-        <russian>/</russian>
+        <Russian>/</Russian>
         <French>Ceci est un espace réservé</French>
         <Chinesesimp>这是一个占位符</Chinesesimp>
         <Czech>Toto je zástupný symbol</Czech>
@@ -2601,168 +2601,224 @@
         <Czech>NASTAVENÍ ANTISTASI</Czech>
         <French>CONFIGURATION D'ANTISTASI</French>
         <Italian>CONFIGURAZIONE ANTISTASI</Italian>
+        <Korean>ANTISTASI 설정</Korean>
+        <Russian>НАСТРОЙКА ANTISTASI</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
         <Original>Load Game</Original>
         <Czech>Načíst hru</Czech>
         <French>Charger la partie</French>
         <Italian>Carica Partita</Italian>
+        <Korean>게임 불러오기</Korean>
+        <Russian>Загрузить сохранение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
         <Original>Factions</Original>
         <Czech>Frakce</Czech>
         <French>Factions</French>
         <Italian>Fazioni</Italian>
+        <Korean>진영</Korean>
+        <Russian>Фракции</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
         <Original>Params</Original>
         <Czech>Parametry</Czech>
         <French>Paramètres</French>
         <Italian>Parametri</Italian>
+        <Korean>매개변수 (로비 설정값)</Korean>
+        <Russian>Параметры</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_saved_games">
         <Original>Saved Games</Original>
         <Czech>Uložené hry</Czech>
         <French>Parties sauvegardées</French>
         <Italian>Partite Salvate</Italian>
+        <Korean>게임 세이브들</Korean>
+        <Russian>Сохранения</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_start_game">
         <Original>Start game</Original>
         <Czech>Začít hru</Czech>
         <French>Commencer une partie</French>
         <Italian>Inizia Partita</Italian>
+        <Korean>게임 시작</Korean>
+        <Russian>Начать игру</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_create_new_game">
         <Original>Create new game</Original>
         <Czech>Vytvořit novou hru</Czech>
         <French>Créer une nouvelle partie</French>
         <Italian>Crea nuova partita</Italian>
+        <Korean>새 게임</Korean>
+        <Russian>Новая игра</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
         <Original>Copy old game</Original>
         <Czech>Zkopírovat starou hru</Czech>
         <French>Copier une partie</French>
         <Italian>Copia vecchia partita</Italian>
+        <Korean>예전 게임 복사하기</Korean>
+        <Russian>Скопировать старое сохранение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_load_old_params">
         <Original>Load old params</Original>
         <Czech>Načíst staré parametry</Czech>
         <French>Charger d'anciens paramètres</French>
         <Italian>Carica i vecchi parametri</Italian>
+        <Korean>예전 게임 매개변수(로비 설정값) 불러오기</Korean>
+        <Russian>Загрузить старые параметры</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
         <Original>Use New Save file</Original>
         <Czech>Použít nový uložený soubor</Czech>
         <French>Utiliser un nouveau fichier</French>
         <Italian>Usa Nuovo File di Salvataggio</Italian>
+        <Korean>새로운 세이프파일 불러오기</Korean>
+        <Russian>Использовать новый файл сохранений</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
         <Original>Set HQ Position</Original>
         <Czech>Nastavít pozici velitelství</Czech>
         <French>Définir la position du QG</French>
         <Italian>Imposta Posizione HQ</Italian>
+        <Korean>HQ 위치 설정</Korean>
+        <Russian>Выбрать место для штаба</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_new_save_name">
         <Original>New save name</Original>
         <Czech>Nový název uložení</Czech>
         <French>Nom de la partie</French>
         <Italian>Nuovo Nome del Salvataggio</Italian>
+        <Korean>새로 세이브파일 저장하기</Korean>
+        <Russian>Имя нового сохранения</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_rename_game">
         <Original>Rename game</Original>
         <Czech>Přejmenovat hru</Czech>
         <French>Renommer la partie</French>
         <Italian>Rinomina Partita</Italian>
+        <Korean>게임 세이브파일 이름바꾸기</Korean>
+        <Russian>Переименовать сохранение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_delete_game">
         <Original>Delete game</Original>
         <Czech>Odstranit hru</Czech>
         <French>Supprimer la partie</French>
         <Italian>Elimina Partita</Italian>
+        <Korean>세이브파일 삭제하기</Korean>
+        <Russian>Удалить сохранение</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_rebels">
         <Original>Rebels</Original>
         <Czech>Rebelové</Czech>
         <French>Rebelles</French>
         <Italian>Ribelli</Italian>
+        <Korean>혁명군</Korean>
+        <Russian>Повстанцы</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_civilians">
         <Original>Civilians</Original>
         <Czech>Civilisté</Czech>
         <French>Civils</French>
         <Italian>Civili</Italian>
+        <Korean>시민</Korean>
+        <Russian>Гражданские</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_occupants">
         <Original>Occupants</Original>
         <Czech>Okupanti</Czech>
         <French>Occupants</French>
         <Italian>Occupanti</Italian>
+        <Korean>점령군</Korean>
+        <Russian>Правительство</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_invaders">
         <Original>Invaders</Original>
         <Czech>Nájezdníci</Czech>
         <French>Envahisseurs</French>
         <Italian>Invasori</Italian>
+        <Korean>침략군</Korean>
+        <Russian>Оккупанты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_addonvics">
         <Original>Addon vehicles</Original>
         <Czech>Addonová vozidla</Czech>
         <French>Véhicules moddés</French>
         <Italian>Veicoli Addon</Italian>
+        <Korean>에드온 차량</Korean>
+        <Russian>Моды на технику</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_dlc">
         <Original>DLC</Original>
         <Czech>DLC</Czech>
         <French>DLC</French>
         <Italian>DLC</Italian>
+        <Korean>DLC</Korean>
+        <Russian>DLC</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
         <Original>Override map limits</Original>
         <Czech>Přepsat limity map</Czech>
         <French>Outrepasser les limites de la carte</French>
         <Italian>Sovrascrivi limiti mappa</Italian>
+        <Korean>맵 제한 덮어씌우기 (주의)</Korean>
+        <Russian>Отключить ограничения карты</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
         <Original>Override camo limits</Original>
         <Czech>Přepsat limity kamufláží</Czech>
         <French>Outrepasser les limites de camouflage</French>
         <Italian>Sovrascrivi limiti camo</Italian>
+        <Korean>위장 패턴 덮어씌우기 (주의)</Korean>
+        <Russian>Отключить ограничения камуфляжа</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
         <Original>Show missing mods</Original>
         <Czech>Zobrazit chybějící módy</Czech>
         <French>Montrer les mods manquants</French>
         <Italian>Mostra mod mancanti</Italian>
+        <Korean>누락된 모드 표시 (주의)</Korean>
+        <Russian>Показать недостающие моды</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
         <Original>Override side limits</Original>
         <Czech>Přepsat limity stran</Czech>
         <French>Outrepasser les limites de camps</French>
         <Italian>Sovrascrivi limiti dei gruppi</Italian>
+        <Korean>진영 제한 덮어씌우기 (주의)</Korean>
+        <Russian>Отключить ограничения сторон</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
         <Original>Switch enemy sides</Original>
         <Czech>Přepnout nepřátelské strany</Czech>
         <French>Changer de camp</French>
         <Italian>Scambia gruppi nemici</Italian>
+        <Korean>적 진영 변경하기 (주의)</Korean>
+        <Russian>Поменять вражеские стороны</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_title">
         <Original>CONFIRM ACTION</Original>
         <Czech>POTVRDIT AKCI</Czech>
         <French>CONFIRMER L'ACTION</French>
         <Italian>CONFERMA AZIONE</Italian>
+        <Korean>확인 - 정말 실행하시겠습니까?</Korean>
+        <Russian>ПОДТВЕРДИТЕ ДЕЙСТВИЕ</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
         <Original>YES</Original>
         <Czech>ANO</Czech>
         <French>OUI</French>
         <Italian>Sì</Italian>
+        <Korean>예</Korean>
+        <Russian>ДА</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
         <Original>CANCEL</Original>
         <Czech>ZRUŠIT</Czech>
         <French>ANNULER</French>
         <Italian>CANCELLA</Italian>
+        <Korean>취소</Korean>
+        <Russian>ОТМЕНА</Russian>
       </Key>
     </Container>
     <Container name="hqpos_dialog">
@@ -2771,30 +2827,40 @@
         <Czech>Zavřít</Czech>
         <French>Fermer</French>
         <Italian>Chiudi</Italian>
+        <Korean>닫기</Korean>
+        <Russian>Закрыть</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_title">
         <Original>HQ Position</Original>
         <Czech>Pozice velitelství</Czech>
         <French>Position du QG</French>
         <Italian>Posizione HQ</Italian>
+        <Korean>HQ 위치</Korean>
+        <Russian>Позиция штаба</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_nearenemy">
         <Original>Selected position cannot be near enemy zones.</Original>
         <Czech>Vybraná pozice nemůže být blízko nepřátelské zóny</Czech>
         <French>La position ne peut pas être proche d'ennemis.</French>
         <Italian>La posizione selezionata non può essere vicino ad una postazione nemica.</Italian>
+        <Korean>적 진영 근처에는 설치할 수 없습니다.</Korean>
+        <Russian>Выбранное место не должно находиться рядом с вражеской территорией.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_inwater">
         <Original>Selected position cannot be in water.</Original>
         <Czech>Vybraná pozice nemůže být ve vodě</Czech>
         <French>La position ne peut pas être dans l'eau.</French>
         <Italian>La posizione selezionata non può essere in acqua.</Italian>
+        <Korean>물 안에는 설치할 수 없습니다.</Korean>
+        <Russian>Выбранное место не может быть в воде.</Russian>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_outsidemap">
         <Original>Selected position cannot be outside the map.</Original>
         <Czech>Vybraná pozice nemůže být mimo mapu</Czech>
         <French>La position ne peut pas être en dehors de la map.</French>
         <Italian>La posizione selezionata non può essere fuori dalla mappa</Italian>
+        <Korean>맵 밖에는 설치할 수 없습니다.</Korean>
+        <Russian>Выбранное место не может находиться вне карты.</Russian>
       </Key>
     </Container>
   </Package>

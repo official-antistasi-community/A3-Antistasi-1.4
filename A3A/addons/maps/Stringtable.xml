@@ -53,6 +53,7 @@
         <Czech>Antistasi Altis</Czech>
         <Italian>Antistasi Altis</Italian>
         <Spanish>Antistasi Altis</Spanish>
+        <German>Antistasi Altis</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_Altis_mapname_text">
         <Original>Antistasi - Liberation of Altis</Original>
@@ -63,6 +64,7 @@
         <Czech>Antistasi - osvobození Altisu</Czech>
         <Italian>Antistasi - Liberazione di Altis</Italian>
         <Spanish>Antistasi - Liberación de Altis</Spanish>
+        <German>Antistasi - Befreiung von Altis</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_Altis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -105,6 +107,7 @@
         <Czech>Antistasi - osvobození Stratisu</Czech>
         <Italian>Antistasi - Liberazione di Stratis</Italian>
         <Spanish>Antistasi - Liberación de Stratis</Spanish>
+        <German>Antistasi - Befreiung von Stratis</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_Stratis_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -278,6 +281,7 @@
         <Czech>Antistasi - osvobození Virolahti</Czech>
         <Italian>Antistasi - Liberazione di Virolahti</Italian>
         <Spanish>Antistasi - Liberación de Virolahti</Spanish>
+        <German>Antistasi - Befreiung von Virolahti</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_vt7_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -535,6 +539,7 @@
         <Czech>Antistasi - osvobození Cam Lao Namu</Czech>
         <Italian>Antistasi - Liberazione di Cam Lao Nam</Italian>
         <Spanish>Antistasi - Liberación de Cam Lao Nam</Spanish>
+        <German>Antistasi - Befreiung von Cam Lao Nam</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_cam_lao_nam_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -576,6 +581,7 @@
         <Czech>Antistasi - osvobození Sahrani</Czech>
         <Italian>Antistasi - Liberazione di Sahrani</Italian>
         <Spanish>Antistasi - Liberación de Sahrani</Spanish>
+        <German>Antistasi - Befreiung von Sahrani</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_sara_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -617,6 +623,7 @@
         <Czech>Antistasi - osvobození Tákistanu</Czech>
         <Italian>Antistasi - Liberazione del Takistan</Italian>
         <Spanish>Antistasi - Liberación de Takistán</Spanish>
+        <German>Antistasi - Befreiung von Takistan</German>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -641,9 +648,21 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_short_text">
         <Original>Antistasi Khe Sanh</Original>
+        <Czech>Antistasi Khe Sanh</Czech>
+        <French>Antistasi Khe Sanh</French>
+        <German>Antistasi Khe Sanh</German>
+        <Italian>Antistasi Khe Sanh</Italian>
+        <Korean>Antistasi 케산</Korean>
+        <Russian>Antistasi Кхешань</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_text">
         <Original>Antistasi - Liberation of Khe Sanh</Original>
+        <Czech>Antistasi - Osvobození Khe Sanh</Czech>
+        <French>Antistasi - Libération de Khe Sanh</French>
+        <German>Antistasi - Befreiung von Khe Sanh</German>
+        <Italian>Antistasi - Liberazione di Khe Sanh</Italian>
+        <Korean>Antistasi - 케산 해방</Korean>
+        <Russian>Antistasi - Освобождение Кхешани</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -658,12 +677,30 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_blurb_text">
         <Original>Another jungle, another fight.</Original>
+        <Czech>Další džungle, další boj.</Czech>
+        <French>Une autre jungle, un autre combat.</French>
+        <German>Ein anderer Dschungel, ein anderer Kampf.</German>
+        <Italian>Un'altra giungla, un'altra lotta.</Italian>
+        <Korean>또 다른 정글, 또 다른 싸움</Korean>
+        <Russian>Новые джунгли, новая битва.</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_mapname_short_text">
         <Original>Antistasi Chernarus Autumn</Original>
+        <Czech>Antistasi Černaruský podzim.</Czech>
+        <French>Antistasi Chernarus (Automne)</French>
+        <German>Antistasi Chernarus Autumn</German>
+        <Italian>Antistasi Chernarus Autunno</Italian>
+        <Korean>Antistasi 체르나러스(가을)</Korean>
+        <Russian>Antistasi Черноруссия (Осень)</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_mapname_text">
         <Original>Antistasi - Autumn of Rebellion</Original>
+        <Czech>Antistasi - Podzimní vzpoura</Czech>
+        <French>Antistasi - L'Automne de la Rébellion</French>
+        <German>Antistasi - Herbst der Rebellion</German>
+        <Italian>Antistasi - Autunno della Ribellione</Italian>
+        <Korean>Antistasi - 혁명의 가을</Korean>
+        <Russian>Antistasi - Осень восстания</Russian>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -678,6 +715,12 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_blurb_text">
         <Original>Revolution in a pile of leafes.</Original>
+        <Czech>Revoluce v hromadě listí.</Czech>
+        <French>La révolution au milieu des feuilles.</French>
+        <German>Revolution im Blätterhaufen</German>
+        <Italian>Rivoluzione in una pila di foglie.</Italian>
+        <Korean>나뭇잎 더미 속의 혁명</Korean>
+        <Russian>Восстание из кучи листьев.</Russian>
       </Key>
     </Container>
   </Package>

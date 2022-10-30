@@ -7,7 +7,6 @@ class Templates
         logo = "a3\ui_f\data\logos\arma3_white_ca.paa";
         basepath = QPATHTOFOLDER(Templates\Templates\Vanilla); //the path to the template folder
         priority = 10;
-        nodes[] = {"Vanilla_Logistics_Nodes.sqf"};
         equipFlags[] = {"vanilla"};
     };
 
@@ -107,7 +106,7 @@ class Templates
         climate[] = {"tropical"};
         forceDLC[] = {"expansion"};
     };
-    
+
     class Vanilla_Civ : Vanilla_Base
     {
         side = "Civ";
@@ -124,7 +123,6 @@ class Templates
         logo = "\vn\data_f_vietnam\logos\vn_sml_ca.paa";
         basepath = QPATHTOFOLDER(Templates\Templates\VN);
         priority = 20;
-        nodes[] = {"VN_Logistics_Nodes.sqf"};
         equipFlags[] = {"lowTech","replaceCompass","replaceWatch"};
         forceDLC[] = {"vn"};
     };
@@ -169,7 +167,6 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\RHS);
         logo = "\rhsusf\addons\rhsusf_main\data\rhs_logo_ca.paa";
         priority = 30;
-        nodes[] = {"RHS_Logistics_Nodes.sqf"};
     };
 
     class RHS_AFRF_Arid : RHS_Base
@@ -245,7 +242,6 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\3CB);
         //logo = "";            // unknown, may need rethink
         priority = 40;
-        nodes[] = {"3CBFactions_Logistics_Nodes.sqf"};
     };
 
     class 3CBF_ADA : 3CBF_Base
@@ -400,7 +396,6 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\3CB);
         logo = "\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_Ammo\data\ui\logo_small_3cb_ca.paa";
         priority = 50;
-        nodes[] = {"3CBBAF_Logistics_Nodes.sqf"};
     };
 
     class 3CBBAF_Arid : 3CBBAF_Base
@@ -439,7 +434,6 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\CUP);
         logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
         priority = 60;
-        nodes[] = {"CUP_Logistics_Nodes.sqf"};
     };
 
     class CUP_ACR_Arid : CUP_Base
@@ -599,7 +593,7 @@ class Templates
         name = "CUP NAPA";
         file = "CUP_Reb";
     };
-    
+
     class CUP_Civ : CUP_Base
     {
         side = "Civ";
@@ -617,7 +611,6 @@ class Templates
         logo = "\uns_main\data\unsung_logo.paa";
         priority = 70;
         equipFlags[] = {"lowTech"};
-        nodes[] = {"UNS_Logistics_Nodes.sqf"};
     };
 
     class UNS_US : UNS_Base
@@ -660,7 +653,6 @@ class Templates
         basepath = QPATHTOFOLDER(Templates\Templates\GM);
         logo = "\gm\gm_core\data\logos\gm_logo_ca.paa";
         priority = 80;
-        Nodes[] = {"GM_Logistics_Nodes.sqf"};
         equipFlags[] = {"specialGM"};
         forceDLC[] = {"gm"};
     };

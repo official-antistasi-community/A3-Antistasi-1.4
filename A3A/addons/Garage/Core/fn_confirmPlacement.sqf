@@ -104,12 +104,12 @@ HR_GRG_dispMounts = [];
     _static enableSimulation false;
     _static allowDamage false;
 
-    private _nodes = [HR_GRG_dispVehicle, _static] call A3A_fnc_logistics_canLoad;
+    private _nodes = [HR_GRG_dispVehicle, _static] call A3A_Logistics_fnc_canLoad;
     if (_nodes isEqualType 0) exitWith {};
-    (_nodes + [true]) call A3A_fnc_logistics_load; //we know we can load it, just need the nodes from can load
+    (_nodes + [true]) call A3A_Logistics_fnc_load; //we know we can load it, just need the nodes from can load
     hintSilent ""; //clear load hint
 
-    private _offsetAndDir = [_static] call A3A_fnc_logistics_getCargoOffsetAndDir;
+    private _offsetAndDir = [_static] call A3A_Logistics_fnc_getCargoOffsetAndDir;
     private _node = _nodes#2;
     private _nodeOffset = if ((_node#0) isEqualType []) then {
         private _lastNode = (count _node) -1;
@@ -284,9 +284,9 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
                 private _static = (_x#0) createVehicle _pos;
                 [_static, _x#2] call HR_GRG_fnc_setState;
                 _static allowDamage false;
-                private _nodes = [_veh, _static] call A3A_fnc_logistics_canLoad;
+                private _nodes = [_veh, _static] call A3A_Logistics_fnc_canLoad;
                 if (_nodes isEqualType 0) exitWith {};
-                (_nodes + [true]) call A3A_fnc_logistics_load;
+                (_nodes + [true]) call A3A_Logistics_fnc_load;
                 _static call HR_GRG_fnc_vehInit;
             } forEach HR_GRG_CP_mounts;
 

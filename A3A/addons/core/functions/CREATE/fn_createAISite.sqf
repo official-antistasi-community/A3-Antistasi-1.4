@@ -77,7 +77,7 @@ if(_marker in airportsX || {_marker in seaports || {_marker in outposts}}) then
 {
     _box = [_faction get "ammobox", _markerPos, 15, 5, true] call A3A_fnc_safeVehicleSpawn;
     [_box] spawn A3A_fnc_fillLootCrate;
-    [_box] call A3A_fnc_logistics_addLoadAction;
+    [_box] call A3A_Logistics_fnc_addLoadAction;
 };
 
 [_marker, _patrolMarker, _flag, _box] call A3A_fnc_cycleSpawn;

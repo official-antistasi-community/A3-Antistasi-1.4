@@ -99,9 +99,9 @@ private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance pl
 
         if (_mounts isNotEqualTo []) then {
             private _static = staticAAteamPlayer createVehicle _spawnPos;
-            private _nodes = [_vehicle, _static] call A3A_fnc_logistics_canLoad;
+            private _nodes = [_vehicle, _static] call A3A_Logistics_fnc_canLoad;
             if (_nodes isEqualType 0) exitWith {};
-            (_nodes + [true]) call A3A_fnc_logistics_load;
+            (_nodes + [true]) call A3A_Logistics_fnc_load;
             _static call HR_GRG_fnc_vehInit;
         };
 

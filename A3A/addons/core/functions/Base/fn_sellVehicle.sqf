@@ -46,7 +46,7 @@ Reason for this is that those items are one or more of the following:
 - something else
 */
 _blacklistedAssets = [
-"ACE_I_SpottingScope","ACE_O_SpottingScope","ACE_O_T_SpottingScope","ACE_B_SpottingScope","ACE_B_T_SpottingScope","ACE_SpottingScopeObject"
+"ACE_I_SpottingScope","ACE_O_SpottingScope","ACE_O_T_SpottingScope","ACE_B_SpottingScope","ACE_B_T_SpottingScope","ACE_SpottingScopeObject",
 "O_Static_Designator_02_F","B_Static_Designator_01_F","B_W_Static_Designator_01_F",
 "vn_o_nva_spiderhole_01","vn_o_nva_spiderhole_02","vn_o_nva_spiderhole_03",
 "vn_o_pl_spiderhole_01","vn_o_pl_spiderhole_02","vn_o_pl_spiderhole_03",
@@ -126,5 +126,3 @@ if (_veh isKindOf "StaticWeapon") then {deleteVehicle _veh};
 
 ["Sell Vehicle", "Vehicle Sold."] remoteExecCall ["A3A_fnc_customHint",_player];
 nil;
-
-

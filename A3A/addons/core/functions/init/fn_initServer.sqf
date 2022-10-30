@@ -36,7 +36,7 @@ if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) th
 call A3A_fnc_initVarCommon;
 call A3A_fnc_initZones;					// needed here because new-game setup needs to know where the markers are
 
-// Start up the monitor to handle the setup UI 
+// Start up the monitor to handle the setup UI
 [] spawn A3A_fnc_setupMonitor;
 
 // ************************ Background init ***********************************************
@@ -67,7 +67,7 @@ A3A_backgroundInitDone = true;
 
 // **************** Starting game, param-dependent init *******************************
 
-// Wait until we have selected/created save data  
+// Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 
 [localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
@@ -86,9 +86,6 @@ boxX call jn_fnc_arsenal_init;
 
 // This does the actual template loading in the middle somewhere
 [A3A_saveData] call A3A_fnc_initVarServer;
-
-// Init that needs factions loaded
-call A3A_fnc_logistics_initNodes;
 
 // Parameter-dependent vars. Could be moved to initVarServer...
 if (gameMode != 1) then {
@@ -161,11 +158,11 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 
     // Load data from the array
     private _memberUIDsFromConfig = getArray (configFile >> "AntistasiServerMembers" >> "MembersArray" >> "uidArray");
-    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig; 
+    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig;
 
     // Load data from the classes
     private _memberClasses = "true" configClasses (configFile >> "AntistasiServerMembers" >> "MembersClasses");
-    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses; 
+    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses;
 };
 
 // TODO: Do we need this? maybe...

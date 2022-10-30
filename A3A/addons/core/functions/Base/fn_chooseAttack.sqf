@@ -28,11 +28,12 @@ private _rebWeightMul = call {
     private _hqPos = markerPos "Synd_HQ";
     {
         _totalW = _totalW + _x; 
-        if (markerPos (_targets#_forEachIndex#0) distance2d _hqPos > distanceMission) then { continue };
-        _distW = _distW + _x;
-        _weights set [_forEachIndex, _x * A3A_attackMissionDistMul];
+        private _dist = markerPos (_targets#_forEachIndex#0) distance2d _hqPos;
+        private _weightMul = linearConversion [3000, 8000, _dist, A3A_attackHQProximityMul, 1, true];
+        _distW = _distW + _x * _weightMul;
+        _weights set [_forEachIndex, _x * _weightMul];
     } forEach _weights;
-    1 + _distW * (A3A_attackMissionDistMul - 1) / _totalW;
+    _distW / _totalW;
 };
 
 // Add in the targets for the other enemy side

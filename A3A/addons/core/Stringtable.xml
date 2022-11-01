@@ -4539,7 +4539,18 @@
       </Key>
     </Container>
     <Container name="Base">
-      <Key ID="STR_antistasi_Base_vehicleBoxHeal_Healed">
+      <Key ID="STR_A3A_base_vehicleBoxRestore_restoration_title">
+        <Original>Restoration</Original>
+        <German>Wiederherstellung</German>
+        <French>Restauration</French>
+        <Korean>복구</Korean>
+        <Russian>Восстановление</Russian>
+        <Chinesesimp>恢复</Chinesesimp>
+        <Italian>Restauro</Italian>
+        <Czech>Obnovení</Czech>
+        <Spanish>Restauracion</Spanish>
+      </Key>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_healed">
         <Original>Nearby units have been healed, refreshed, and can go undercover again.&lt;br/&gt;&lt;br/&gt; Nearby vehicles are no longer reported.</Original>
         <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau être incognito.&lt;br/&gt;&lt;br/&gt; Les véhicules à proximité ne sont plus signalés.</French>
         <Korean>근처 유닛은 회복,세탁되어 다시 위장할 수 있습니다. 인근 차량은 더 이상 신고당하지 않습니다.</Korean>
@@ -4549,7 +4560,7 @@
         <Czech>Nedaleké jednotky byly uzdraveny, osvěženy a mohou se znovu utajit. &lt;br/&gt; &lt;br/&gt; Nedaleká vozidla již nejsou hlášena.</Czech>
         <Spanish>Unidades cercacnas han sido sanadas, revigorizadas y pueden volver a estar de encubierto.&lt;br/&gt;&lt;br/&gt;Los vehículos cercanos ya no son buscados</Spanish>
       </Key>
-      <Key ID="STR_antistasi_Base_vehicleBoxHeal_UsedRecently">
+      <Key ID="STR_A3A_base_vehicleBoxRestore_usedRecently">
         <Original>The box has been used in the last 30 seconds! Please wait for a bit.</Original>
         <French>La boîte a été utilisée dans les 30 dernières secondes ! Veuillez patienter un peu.</French>
         <Korean>박스를 지난 30초 안에 사용하셨습니다. 잠시만 기다려주세요.</Korean>
@@ -4559,17 +4570,41 @@
         <Czech>Krabice byla použita za posledních 30 sekund! Počkejte chvíli prosím.</Czech>
         <Spanish>¡La caja ha sido usada en los últimos 30 segundos! Por favor, espera un poco.</Spanish>
       </Key>
-    </Container>
-    <Container name="singleWord">
-      <Key ID="STR_antistasi_singleWord_Heal">
-        <Original>Heal</Original>
-        <French>Soigner</French>
-        <Korean>치료</Korean>
-        <Russian>Вылечить</Russian>
-        <Chinesesimp>治疗</Chinesesimp>
-        <Italian>Cura</Italian>
-        <Czech>Vyléčit</Czech>
-        <Spanish>Curar</Spanish>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_restored_additive">
+        <Original>Nearby units have been healed, refreshed and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles are no longer reported, %1.</Original>
+        <German>Einheiten in der Nähe wurden geheilt, aufgefrischt und können wieder Undercover gehen.&lt;br/&gt;&lt;br/&gt;Fahrzeuge in der Nähe werden nicht mehr gemeldet, %1.</German>
+        <Russian>Соседние юниты были вылечены, восстановлены и теперь могут снова уходить в гражданскую маскировку.&lt;br/&gt;&lt;br/&gt;Техника рядом больше не разыскивается, %1.</Russian>
+        <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau s'infiltrer.&lt;br/&gt;&lt;br/&gt;Les véhicules à proximité ne sont plus signalés, %1.</French>
+        <Italian>Le unità vicine sono state curate, rinfrescate e possono tornare sotto copertura.&lt;br/&gt;&lt;br/&gt;I veicoli vicini non vengono più segnalati, %1.</Italian>
+        <Czech>Okolní jednotky byly vyléčeny, osvěženy a mohou se znovu skrývat.&lt;br/&gt;&lt;br/&gt;Blízká vozidla již nejsou hlášena, %1.</Czech>
+        <Spanish>Las unidades cercanas han sido curadas, renovadas y pueden volver a estar encubiertas.&lt;br/&gt;&lt;br/&gt;Los vehículos cercanos ya no se informan, %1.</Spanish>
+      </Key>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_rearmed">
+        <Original>rearmed</Original>
+        <German>aufgerüstet</German>
+        <Russian>перезаряжена</Russian>
+        <French>réarmés</French>
+        <Italian>riarmati</Italian>
+        <Czech>přezbrojena</Czech>
+        <Spanish>rearman</Spanish>
+      </Key>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_repaired">
+        <Original>repaired</Original>
+        <German>repariert</German>
+        <Russian>отремонтирована</Russian>
+        <French>réparés</French>
+        <Italian>riparati</Italian>
+        <Czech>opravena</Czech>
+        <Spanish>reparan</Spanish>
+      </Key>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_refueled">
+        <Original>refueled</Original>
+        <German>aufgetankt</German>
+        <Russian>заправлена</Russian>
+        <French>ravitaillés</French>
+        <Italian>riforniti di carburante</Italian>
+        <Czech>natankována</Czech>
+        <Spanish>rearman</Spanish>
       </Key>
     </Container>
     <Container name="server_info">

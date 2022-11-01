@@ -75,7 +75,8 @@ if (HR_GRG_hasRepairSource) then {
 
 if (HR_GRG_hasFuelSource) then {
     {
-        _x setFuel 1;
+        [_x] call HR_GRG_fnc_refuelVehicleFromSources;
+        sleep 0.5; // delay to reduce broadcast spam
     } forEach _hqVehicles;
 };
 
@@ -101,7 +102,7 @@ private _finalStringVariant = [
 private _finalString = format [_finalStringVariant, _finalAdditiveString];
 
 ["vehicleBoxRestore", [_posHQ]] call EFUNC(Events,triggerEvent);
-[localize "STR_antistasi_singleWord_Restore", _finalString] call A3A_fnc_customHint;
+[localize "STR_A3A_base_vehicleBoxRestore_restoration_title", _finalString] call A3A_fnc_customHint;
 
 
 nil

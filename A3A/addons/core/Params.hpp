@@ -158,13 +158,13 @@ class Params
         texts[] =  {"1.0x","1.1x","1.2x","1.3x","1.4x","1.5x"};
         default = 12;
     };
-    class A3A_attackMissionDistMul
+    class A3A_attackHQProximityMul
     {
         attr[] = {"server"};
-        title = "Enemy preference for attacking rebel targets within mission distance";
-        values[] = {1,2,3,5};
-        texts[] =  {"No change","2x","3x","5x"};
-        default = 2;
+        title = "Enemy preference for attacking rebel targets closer to HQ";
+        values[] = {1,2,3,5,8};
+        texts[] =  {"No change","2x","3x","5x","8x"};
+        default = 3;
     };
     class A3A_enemySkillMul
     {

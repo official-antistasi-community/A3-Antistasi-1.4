@@ -2,7 +2,7 @@ if (!isServer) exitWith {};
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private ["_winner","_markerX","_looser","_positionX","_other","_flagX","_flagsX","_dist","_textX","_sides"];
+private ["_winner","_markerX","_loser","_positionX","_other","_flagX","_flagsX","_dist","_textX","_sides"];
 _winner = _this select 0;
 _markerX = _this select 1;
 
@@ -14,7 +14,7 @@ if ((_winner == Invaders) and (sidesX getVariable [_markerX,sideUnknown] == Inva
 if (_markerX in markersChanging) exitWith {};
 markersChanging pushBackUnique _markerX;
 _positionX = getMarkerPos _markerX;
-_looser = sidesX getVariable [_markerX,sideUnknown];
+_loser = sidesX getVariable [_markerX,sideUnknown];
 _sides = [teamPlayer,Occupants,Invaders];
 _other = "";
 _textX = "";
@@ -31,14 +31,14 @@ if ((!(_markerX in citiesX)) and (spawner getVariable _markerX != 2)) then
 if (isNil "_flagX") then {_flagX = objNull};
 //[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 
-if (_looser == teamPlayer) then
+if (_loser == teamPlayer) then
 	{
 	_textX = format ["%1 ",FactionGet(reb,"name")];
 	[] call A3A_fnc_tierCheck;
 	}
 else
 	{
-	if (_looser == Occupants) then
+	if (_loser == Occupants) then
 		{
 		_textX = format ["%1 ",FactionGet(occ,"name")];
 		}
@@ -63,11 +63,11 @@ garrison setVariable [format ["%1_requested", _markerX], [], true];
 if (_winner == teamPlayer) then
 {
 	// Old garrison surrender
-	private _oldGarrison = units _looser select { _x getVariable ["markerX", ""] == _markerX };
+	private _oldGarrison = units _loser select { _x getVariable ["markerX", ""] == _markerX };
 	{ _x spawn A3A_fnc_surrenderAction } forEach _oldGarrison;
 
 	// Cap to 0.6 max to reward captures without previous support calls
-	private _resources = [_looser, teamPlayer, _markerX, 0.6] call A3A_fnc_maxDefenceSpend;
+	private _resources = [_loser, teamPlayer, _markerX, 0.6] call A3A_fnc_maxDefenceSpend;
 
 	// Don't send anything if it'd be too small
 	private _minAttack = (1 + random 0.5) * A3A_balanceResourceRate;
@@ -77,13 +77,13 @@ if (_winner == teamPlayer) then
 
 	private _vehCount = round (random 0.5 + _resources / A3A_balanceVehicleCost);
 	private _reveal = [markerPos _markerX] call A3A_fnc_calculateSupportCallReveal;
-	_reveal = [_looser, markerPos _markerX, _reveal] call A3A_fnc_useRadioKey;
+	_reveal = [_loser, markerPos _markerX, _reveal] call A3A_fnc_useRadioKey;
 
-	[[_markerX, _looser, _vehCount, _reveal], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
+	[[_markerX, _loser, _vehCount, _reveal], "A3A_fnc_singleAttack"] call A3A_fnc_scheduler;
 
 	// just estimates here. 
-	A3A_supportStrikes pushBack [_looser, "TROOPS", markerPos _markerX, time + 2700, 2700, _resources];
-    A3A_supportSpends pushBack [_looser, markerPos _markerX, markerPos _markerX, _resources, time];
+	A3A_supportStrikes pushBack [_loser, "TROOPS", markerPos _markerX, time + 2700, 2700, _resources];
+    A3A_supportSpends pushBack [_loser, markerPos _markerX, markerPos _markerX, _resources, time];
 }
 else
 {
@@ -115,7 +115,7 @@ else
 	//End ========================================================================
 };
 
-[_markerX, [_looser, _winner]] call A3A_fnc_updateReinfState;
+[_markerX, [_loser, _winner]] call A3A_fnc_updateReinfState;
 Debug_1("Garrison set for %1", _markerX);
 
 if !(_markerX in airportsX) then
@@ -132,7 +132,7 @@ if !(_markerX in airportsX) then
 };
 
 _nul = [_markerX] call A3A_fnc_mrkUpdate;
-_sides = _sides - [_winner,_looser];
+_sides = _sides - [_winner,_loser];
 _other = _sides select 0;
 
 if (_markerX in airportsX) then
@@ -141,7 +141,7 @@ if (_markerX in airportsX) then
 	{
 		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
         Debug("aggroEvent | Rebels took an airport");
-		if (_looser == Occupants) then
+		if (_loser == Occupants) then
 		{
 			_prestigeOccupants = [50, 150];
 			_prestigeInvaders = [-25, 90];
@@ -164,7 +164,7 @@ if (_markerX in airportsX) then
 		{
 			[-10,-10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
 		};
-		if (_looser == teamPlayer) then
+		if (_loser == teamPlayer) then
 		{
             Debug("aggroEvent | Rebels lost an airport");
             if(_winner == Occupants) then
@@ -180,7 +180,7 @@ if (_markerX in airportsX) then
 		};
 	};
 	["TaskSucceeded", ["", "Airbase Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Airbase Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
+	["TaskFailed", ["", "Airbase Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
 	["TaskUpdated",["",format ["%1 lost an Airbase",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
 };
@@ -189,7 +189,7 @@ if (_markerX in outposts) then
 	if (_winner != teamPlayer) then
 	{
 		server setVariable [_markerX,dateToNumber date,true];
-		if (_looser == teamPlayer) then
+		if (_loser == teamPlayer) then
 		{
             Debug("aggroEvent | Rebels lost an outpost");
 			if (_winner == Occupants) then
@@ -205,7 +205,7 @@ if (_markerX in outposts) then
 	else
 	{
         Debug("aggroEvent | Rebels took an outpost");
-		if (_looser == Occupants) then
+		if (_loser == Occupants) then
         {
             _prestigeOccupants = [30, 150];
             _prestigeInvaders = [-15, 90];
@@ -217,7 +217,7 @@ if (_markerX in outposts) then
         };
 	};
 	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Outpost Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
+	["TaskFailed", ["", "Outpost Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
 	["TaskUpdated",["",format ["%1 lost an Outpost",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
 	};
@@ -226,7 +226,7 @@ if (_markerX in seaports) then
 	if (_winner == teamPlayer) then
 	{
         Debug("aggroEvent | Rebels took a seaport");
-		if (_looser == Occupants) then
+		if (_loser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
         }
@@ -236,7 +236,7 @@ if (_markerX in seaports) then
         };
 	};
 	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Seaport Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
+	["TaskFailed", ["", "Seaport Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
 	["TaskUpdated",["",format ["%1 lost a Seaport",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	};
 if (_markerX in factories) then
@@ -244,7 +244,7 @@ if (_markerX in factories) then
     if (_winner == teamPlayer) then
 	{
         Debug("aggroEvent | Rebels took a factory");
-		if (_looser == Occupants) then
+		if (_loser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
         }
@@ -254,7 +254,7 @@ if (_markerX in factories) then
         };
 	};
 	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Factory Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
+	["TaskFailed", ["", "Factory Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
 	["TaskUpdated",["",format ["%1 lost a Factory",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 };
 if (_markerX in resourcesX) then
@@ -262,7 +262,7 @@ if (_markerX in resourcesX) then
     if (_winner == teamPlayer) then
 	{
         Debug("aggroEvent | Rebels took a resource");
-		if (_looser == Occupants) then
+		if (_loser == Occupants) then
         {
             _prestigeOccupants = [20, 120];
         }
@@ -272,7 +272,7 @@ if (_markerX in resourcesX) then
         };
 	};
 	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Resource Lost"]] remoteExec ["BIS_fnc_showNotification",_looser];
+	["TaskFailed", ["", "Resource Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
 	["TaskUpdated",["",format ["%1 lost a Resource",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 };
 
@@ -329,7 +329,7 @@ else
 	if (!isNull _flagX) then
 	{
 		//_flagX setVariable ["isGettingCaptured", nil, true];
-		if (_looser == teamPlayer) then
+		if (_loser == teamPlayer) then
 		{
 			[_flagX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_flagX];
 			sleep 2;
@@ -344,7 +344,7 @@ else
 			[_flagX,FactionGet(inv,"flagTexture")] remoteExec ["setFlagTexture",_flagX];
 		};
 	};
-	if (_looser == teamPlayer) then
+	if (_loser == teamPlayer) then
 		{
         [Occupants, _prestigeOccupants#0, _prestigeOccupants#1, true] spawn A3A_fnc_addAggression;
         [Invaders, _prestigeInvaders#0, _prestigeInvaders#1, true] spawn A3A_fnc_addAggression;

@@ -75,7 +75,7 @@ if (HR_GRG_hasRepairSource) then {
 
 if (HR_GRG_hasFuelSource) then {
     {
-        [_x] call HR_GRG_fnc_refuelVehicleFromSources;
+        [_x] remoteExecCall ["HR_GRG_fnc_refuelVehicleFromSources", 2];
         sleep 0.5; // delay to reduce broadcast spam
     } forEach _hqVehicles;
 };

@@ -1,4 +1,5 @@
 if (!hasInterface) exitWith {};
+if (isNil "teamPlayer") exitWith {};
 if ((side player != teamPlayer) and (side player != civilian)) exitWith {};
 private ["_unit","_typeX","_textX","_display","_setText"];
 

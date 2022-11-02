@@ -186,7 +186,7 @@ call A3A_fnc_initSupports;
 call A3A_fnc_generateRebelGear;
 
 // Needs A3A_rebelGear for equipping
-call A3A_fnc_initPetros;
+call A3A_fnc_createPetros;
 
 // Some of these may already be unhidden but we make sure
 { _x hideObjectGlobal false } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];

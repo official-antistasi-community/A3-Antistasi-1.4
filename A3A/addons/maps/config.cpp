@@ -68,6 +68,11 @@ class CfgMissions
             briefingName = $STR_antistasi_mission_info_Malden_mapname_text;
             directory = "x\A3A\addons\maps\Antistasi_Malden.Malden";
         };
+        class Antistasi_regero
+        {
+            briefingName = $STR_antistasi_mission_info_regero_mapname_text;
+            directory = "x\A3A\addons\maps\Antistasi_Regero.regero";
+        };
         class Antistasi_sara
         {
             briefingName = $STR_antistasi_mission_info_sara_mapname_text;

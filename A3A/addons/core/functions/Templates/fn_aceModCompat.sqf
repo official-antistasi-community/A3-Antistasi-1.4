@@ -30,9 +30,6 @@ aceMedItems = [
 	"ACE_elasticBandage",
 	"ACE_packingBandage",
 	"ACE_quikclot",
-	"ACE_bloodIV",
-	"ACE_bloodIV_250",
-	"ACE_bloodIV_500",
 	"ACE_plasmaIV",
 	"ACE_plasmaIV_500",
 	"ACE_plasmaIV_250",
@@ -47,6 +44,12 @@ aceMedItems = [
 	"ACE_splint",
 	"ACE_bodyBag",
 	"ACE_personalAidKit"
+];
+
+aceMedItemsBlood = [
+	"ACE_bloodIV",
+	"ACE_bloodIV_250",
+	"ACE_bloodIV_500"
 ];
 
 advItems = [
@@ -153,6 +156,7 @@ aceFoodItems = [
 
 publicVariable "aceItems";
 publicVariable "aceMedItems";
+publicVariable "aceMedItemsBlood";
 publicVariable "advItems";
 publicVariable "katMedItems";
 publicVariable "aceCoolingItems";
@@ -165,15 +169,17 @@ FactionGet(reb,"initialRebelEquipment") append aceItems;
 
 
 //ACE medical starting items
-if (A3A_hasACEMedical) then {
+if (A3A_hasACEMedical && !A3A_hasKAT) then {
 	FactionGet(reb,"initialRebelEquipment") append aceMedItems;
+	FactionGet(reb,"initialRebelEquipment") append aceMedItemsBlood;
 };
 
 if (A3A_hasADV) then {
 	FactionGet(reb,"initialRebelEquipment") append advItems;
 };
 
-if (A3A_hasKAT) then {
+if (A3A_hasKAT && A3A_hasACEMedical) then {
+	FactionGet(reb,"initialRebelEquipment") append aceMedItems;
 	FactionGet(reb,"initialRebelEquipment") append katMedItems;
 };
 

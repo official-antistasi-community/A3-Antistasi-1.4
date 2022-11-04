@@ -122,6 +122,7 @@ class rhsafrf_addons_rhs_heavyweapons_ZU23_rhs_zu23 : TRIPLES(ADDON,Cargo,Base)
     size = 7;
     recoil = 250;
     isWeapon = 1;
+    blackList[] = {"\rhsusf\addons\rhsusf_HEMTT_A4\M977A4_wd","\rhsusf\addons\rhsusf_hemtt_a4\M977A4_WD_APK","\rhsusf\addons\rhsusf_hemtt_a4\M977A4_WD_APK_M2"}
 };
 
 class rhsafrf_addons_rhs_heavyweapons_podnos_2b14_82mm_podnos_2b14_82mm : TRIPLES(ADDON,Cargo,Base)
@@ -131,6 +132,7 @@ class rhsafrf_addons_rhs_heavyweapons_podnos_2b14_82mm_podnos_2b14_82mm : TRIPLE
     size = 2;
     recoil = 2000;
     isWeapon = 1;
+    blackList[] = {"\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F","\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d","\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d"}
 };
 
 class rhsusf_addons_rhsusf_m252_rhs_mortar_m252_p3d : TRIPLES(ADDON,Cargo,Base)
@@ -140,4 +142,5 @@ class rhsusf_addons_rhsusf_m252_rhs_mortar_m252_p3d : TRIPLES(ADDON,Cargo,Base)
     size = 2;
     recoil = 2000;
     isWeapon = 1;
+    blackList[] = {"\A3\boat_f_gamma\Boat_Civil_01\Boat_Civil_01_F","\A3\boat_f\Boat_Transport_01\Boat_Transport_01_F.p3d","\A3\Boat_F_Exp\Boat_Transport_02\Boat_Transport_02_F.p3d"}
 };

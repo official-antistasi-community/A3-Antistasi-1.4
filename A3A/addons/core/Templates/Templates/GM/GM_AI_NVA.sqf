@@ -19,19 +19,16 @@
 
 ["vehiclesBasic", ["gm_gc_army_p601"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["gm_gc_army_uaz469_cargo"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["gm_gc_army_uaz469_dshkm"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["gm_gc_army_ural4320_cargo", "gm_gc_army_ural375d_cargo"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["gm_gc_army_uaz469_dshkm", "gm_gc_army_brdm2", "gm_gc_army_uaz469_dshkm", "gm_gc_army_brdm2", "CUP_O_GAZ_Vodnik_BPPU_RU", "CUP_O_GAZ_Vodnik_KPVT_RU"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["gm_gc_army_ural4320_cargo", "gm_gc_army_ural375d_cargo", "gm_gc_army_btr60pa"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["gm_gc_army_ural4320_cargo", "gm_gc_army_ural44202", "gm_gc_army_ural375d_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["gm_gc_army_ural4320_reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["gm_gc_army_ural4320_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["gm_gc_army_ural375d_refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["gm_gc_army_ural375d_medic"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["gm_pl_army_ot64a", "gm_gc_army_brdm2", "gm_gc_army_btr60pb", "CUP_O_BTR80_CAMO_RU", "CUP_O_GAZ_Vodnik_BPPU_RU", "CUP_O_GAZ_Vodnik_KPVT_RU"]] call _fnc_saveToTemplate;
-
-["vehiclesLightAPCs", ["gm_gc_army_brdm2um", "gm_gc_army_btr60pa", "gm_gc_army_btr60pu12", 
-    "CUP_O_GAZ_Vodnik_Unarmed_RU", "CUP_O_GAZ_Vodnik_PK_RU", "CUP_O_GAZ_Vodnik_AGS_RU"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["gm_gc_army_bmp1sp2", "CUP_O_BMP2_RU", "CUP_O_BMP3_RU", "CUP_O_BTR80A_CAMO_RU"]] call _fnc_saveToTemplate;
-
+["vehiclesLightAPCs", ["gm_gc_army_btr60pb", "gm_gc_army_btr60pb", "CUP_O_GAZ_Vodnik_Unarmed_RU", "CUP_O_GAZ_Vodnik_PK_RU", "CUP_O_GAZ_Vodnik_AGS_RU"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["gm_pl_army_ot64a", "CUP_O_BTR80_CAMO_RU", "gm_gc_army_bmp1sp2"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["gm_gc_army_bmp1sp2", "CUP_O_BMP2_RU", "CUP_O_BMP3_RU"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["gm_gc_army_pt76b", "gm_gc_army_t55", "gm_gc_army_t55a", "gm_gc_army_t55ak", "gm_gc_army_t55am2", "gm_gc_army_t55am2b"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["gm_gc_army_zsu234v1"]] call _fnc_saveToTemplate;
 
@@ -76,6 +73,8 @@
 //Minefield definition
 ["minefieldAT", ["gm_minestatic_at_tm46"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["gm_minestatic_ap_pfm1"]] call _fnc_saveToTemplate;
+
+#include "GM_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

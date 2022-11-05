@@ -97,10 +97,10 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
 
     private _location = ([_cargo] call A3A_Logistics_fnc_getCargoOffsetAndDir)#0;
     private _location = _location vectorAdd _nodeOffset;
-
-    private _bbv = (boundingBoxReal _vehicle select 0 select 1) + ((boundingCenter _vehicle) select 1);
-    private _bbc = (boundingBoxReal _cargo select 0 select 1) + ((boundingCenter _cargo) select 1);
+    private _bbv = boundingBoxReal _vehicle select 0 select 1;
+    private _bbc = boundingBoxReal _cargo select 0 select 1;
     private _yEnd = _bbv + _bbc - 0.1;
+
 
     if (_instant) then {
         _location set [1, _yEnd-0.1];

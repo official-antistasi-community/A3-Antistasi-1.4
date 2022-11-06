@@ -9,7 +9,7 @@ private _uid = _player getVariable ["A3A_playerUID", getPlayerUID _player]
 private _isMember = _uid in membersX;
 
 //if admin and not member, add as temp member
-if !(_isMember && {call A3A_fnc_getAdmin isEqualTo _player}) then {
+if (!_isMember && {call A3A_fnc_getAdmin isEqualTo _player}) then {
     membersX pushBackUnique _uid;
     _player setVariable ["eligible", true, true];
     publicVariable "membersX";

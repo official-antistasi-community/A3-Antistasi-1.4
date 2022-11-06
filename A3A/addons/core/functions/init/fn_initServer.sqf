@@ -36,7 +36,7 @@ if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) th
 call A3A_fnc_initVarCommon;
 call A3A_fnc_initZones;					// needed here because new-game setup needs to know where the markers are
 
-// Start up the monitor to handle the setup UI 
+// Start up the monitor to handle the setup UI
 [] spawn A3A_fnc_setupMonitor;
 
 // ************************ Background init ***********************************************
@@ -67,7 +67,7 @@ A3A_backgroundInitDone = true;
 
 // **************** Starting game, param-dependent init *******************************
 
-// Wait until we have selected/created save data  
+// Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 
 [localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
@@ -163,11 +163,11 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 
     // Load data from the array
     private _memberUIDsFromConfig = getArray (configFile >> "AntistasiServerMembers" >> "MembersArray" >> "uidArray");
-    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig; 
+    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig;
 
     // Load data from the classes
     private _memberClasses = "true" configClasses (configFile >> "AntistasiServerMembers" >> "MembersClasses");
-    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses; 
+    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses;
 };
 
 // TODO: Do we need this? maybe...
@@ -176,6 +176,17 @@ if (isPlayer A3A_setupPlayer) then {
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
     theBoss = A3A_setupPlayer; publicVariable "theBoss";
 };
+
+//add admin as member if not on loggin
+addMissionEventHandler ["OnUserAdminStateChanged", {
+    params ["_networkId", "_loggedIn", "_votedIn"];
+    private _uid = (getUserInfo _networkId)#2;
+    if !(_uid in membersX) then {
+        membersX pushBackUnique (getUserInfo _networkId)#2;
+        publicVariable "membersX";
+    };
+}];
+
 publicVariable "membersX";
 
 

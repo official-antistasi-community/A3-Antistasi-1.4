@@ -34,7 +34,7 @@ private _actionID = _vehicle addAction [
         if !(attachedTo _static isEqualTo _vehicle) exitWith {[_vehicle, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
         if (!alive gunner _static) then {
             _caller moveInGunner _static;
-        } else {hint "Someone is already in the static"};
+        } else {["Logistics", "Someone is already in the static."] call A3A_fnc_customHint};
     },
     _cargo,
     5.5,

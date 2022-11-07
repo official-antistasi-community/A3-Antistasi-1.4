@@ -93,7 +93,7 @@ private _text = format [
 ];
 _text = _text + _msg;
 
-[parseText _text] remoteExec ["hint", remoteExecutedOwner];
-[parseText _text] remoteExec ["hint", crew _vehicle];
+["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
+["LogisticsInfo", parseText _text] remoteExec ["A3A_fnc_customHint", crew _vehicle];
 
 nil;

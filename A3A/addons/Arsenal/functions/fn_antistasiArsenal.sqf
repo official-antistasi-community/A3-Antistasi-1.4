@@ -25,6 +25,9 @@ switch (_mode) do
         ["Communication"] call A3A_fnc_createArsenalTab;
         ["Navigation"] call A3A_fnc_createArsenalTab;
         ["Watch"] call A3A_fnc_createArsenalTab;
+
+        //combo box stuff
+        call A3A_fnc_setUpComboBoxSort;
     };
 
     case ("switchTab"):
@@ -99,7 +102,7 @@ switch (_mode) do
         Debug("Showing selected tab!");
         private _selectedTabCtrl = _display displayCtrl _selectedTabIDC;
         _selectedTabCtrl ctrlShow true;
+
+        A3A_selectedTab = _selectedTabIDC;
     };
-
-
 };

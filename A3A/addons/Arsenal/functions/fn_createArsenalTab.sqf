@@ -139,8 +139,7 @@ if (_selectedTabCtrl == -1) ExitWith {
 	Error("Tried to assign a ctrl group, might not exist: %1",_selectedTab);
 };
 
-private _parent = _display displayCtrl _selectedTabIDC;
-private _controlsGroup = _parent controlsGroupCtrl  _selectedTabCtrl;
+private _controlsGroup = _display displayCtrl _selectedTabCtrl;
 
 
 // the ArsenalData doesn't exist
@@ -149,6 +148,7 @@ if(isNil "A3A_ArsenalData") ExitWith {Debug("Arsenal data does not exist")};
 // get the items to create
 private _arsenalData = A3A_ArsenalData getOrDefault [_selectedTab, []];
 if (_arsenalData isEqualTo []) ExitWith { Debug_1("Data array is empty for: %1",_selectedTab)};
+private _createdCtrls = [];
 
 {
 	_x params ["_className", "_amount"];
@@ -162,7 +162,7 @@ if (_arsenalData isEqualTo []) ExitWith { Debug_1("Data array is empty for: %1",
 	private _itemYPos =  _forEachIndex * (40 * GRID_H);
 
 	
-	private _itemControlsGroup = _display ctrlCreate ["A3A_ControlsGroupNoScrollbars", _selectedTabCtrl, _controlsGroup];
+	private _itemControlsGroup = _display ctrlCreate ["A3A_ControlsGroupNoScrollbars", -100, _controlsGroup];
 	_itemControlsGroup ctrlSetPosition[0, _itemYpos, 40 * GRID_W, 40 * GRID_H];
 	_itemControlsGroup ctrlSetFade 1;
 	_itemControlsGroup ctrlCommit 0;
@@ -186,10 +186,16 @@ if (_arsenalData isEqualTo []) ExitWith { Debug_1("Data array is empty for: %1",
 
 	Debug_4("Control Created: Classname %1, Control position %2, Picture position %3, Button position %4",_className,str(ctrlPosition _itemControlsGroup),str(ctrlPosition _previewPicture),str(ctrlPosition _button));
 
+	_itemControlsGroup setVariable ["className", _className];
+	_itemControlsGroup setVariable ["displayName", _displayName];
+
 	_itemControlsGroup ctrlSetFade 0;
     _itemControlsGroup ctrlCommit 0.1;
 
-	
+	_createdCtrls pushBack _itemControlsGroup;
 
 
 } forEach _arsenalData;
+
+//copyToClipboard str _createdCtrls;
+_display setVariable [(_selectedTab + "Ctrls"), _createdCtrls];

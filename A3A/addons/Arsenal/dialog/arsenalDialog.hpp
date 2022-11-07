@@ -7,6 +7,21 @@
 
 #include "ids.inc"
 
+class A3A_ComboBox : A3A_ListBox
+{
+    type = CT_COMBO;
+    class ComboScrollBar: ScrollBar {};
+    style = ST_MULTI;   // + ST_NO_RECT;          // ?
+
+    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
+    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
+    soundExpand[] = { "\A3\ui_f\data\sound\RscCombo\soundExpand", 0.1, 1 };
+    soundCollapse[] = { "\A3\ui_f\data\sound\RscCombo\soundCollapse", 0.1, 1 };
+    wholeHeight = 1; // ??
+    maxHistoryDelay = 0.2;      // Do values <1 actually work? pretty annoying if you can't quick open-close these
+};
+
+
 class A3A_Antistasi_Arsenal
 {
     idd = A3A_IDD_ANTISTASI_ARSENAL_DIALOG;
@@ -444,7 +459,7 @@ class A3A_Antistasi_Arsenal
         // this is the helper stuff
 
         class SearchField: A3A_Edit {
-            idc = -1;
+            idc = A3A_IDC_ARSENAL_SEARCH_FIELD;
             x = LEFT + GRID_W * 9;
             y = TOP + GRID_H * 2;
             w = 35 * GRID_W;
@@ -452,8 +467,9 @@ class A3A_Antistasi_Arsenal
         };
 
         class SearchFieldButton: A3A_ActivePicture {
-            idc = -1;
+            idc = A3A_IDC_ARSENAL_SEARCH_FIELD_BUTTON;
             text = "\a3\3DEN\Data\Displays\Display3DEN\search_start_ca.paa";
+            onButtonClick = "call A3A_fnc_searchTab";
             x = LEFT + GRID_W * 44;
             y = TOP + GRID_H * 2;
             w = 5 * GRID_W;
@@ -461,9 +477,9 @@ class A3A_Antistasi_Arsenal
         };
 
         class SortTabCombo: A3A_ComboBox {
-            idc = -1;
+            idc = A3A_IDC_ARSENAL_SORT_COMBO;
             x = LEFT + GRID_W * 9;
-            y = TOP + GRID_H * 2;
+            y = TOP + GRID_H * 7;
             w = 40 * GRID_W;
             h = 5 * GRID_H;
         };

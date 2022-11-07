@@ -4,6 +4,8 @@ class CfgFunctions {
 			file = QPATHTOFOLDER(functions);
 			class antistasiArsenal {};
 			class createArsenalTab {};
+			class searchTab {};
+			class setUpComboBoxSort {};
 		};
 	};
 };

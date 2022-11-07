@@ -3,6 +3,7 @@ class CfgFunctions {
 		class Arsenal {
 			file = QPATHTOFOLDER(functions);
 			class antistasiArsenal {};
+			class createArsenalTab {};
 		};
 	};
 };

@@ -3,14 +3,28 @@
 #include "..\script_component.hpp"
 
 
-
 params[["_mode","onLoad"], ["_params",[]]];
 
 switch (_mode) do
 {
     case ("onLoad"):
     {
-
+        // we need to create the tabs all of them
+        ["Rifle"] call A3A_fnc_createArsenalTab;
+        ["Launcher"] call A3A_fnc_createArsenalTab;
+        ["Handgun"] call A3A_fnc_createArsenalTab;
+        ["Uniform"] call A3A_fnc_createArsenalTab;
+        ["Vest"] call A3A_fnc_createArsenalTab;
+        ["Backpack"] call A3A_fnc_createArsenalTab;
+        ["Headgear"] call A3A_fnc_createArsenalTab;
+        ["Facewear"] call A3A_fnc_createArsenalTab;
+        ["NVG"] call A3A_fnc_createArsenalTab;
+        ["Binocular"] call A3A_fnc_createArsenalTab;
+        ["Map"] call A3A_fnc_createArsenalTab;
+        ["Terminal"] call A3A_fnc_createArsenalTab;
+        ["Communication"] call A3A_fnc_createArsenalTab;
+        ["Navigation"] call A3A_fnc_createArsenalTab;
+        ["Watch"] call A3A_fnc_createArsenalTab;
     };
 
     case ("switchTab"):
@@ -74,7 +88,7 @@ switch (_mode) do
             A3A_IDC_ARSENAL_WATCH_TAB
         ];
 
-        Debug("Hiding all logs");
+        Debug("Hiding all tabs");
 
         {
             private _ctrl = _display displayCtrl _x;
@@ -86,4 +100,6 @@ switch (_mode) do
         private _selectedTabCtrl = _display displayCtrl _selectedTabIDC;
         _selectedTabCtrl ctrlShow true;
     };
+
+
 };

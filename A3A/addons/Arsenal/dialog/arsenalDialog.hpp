@@ -222,25 +222,79 @@ class A3A_Antistasi_Arsenal
     // main tabs that show on the left
     class RifleTab: A3A_DefaultControlsGroup
     {
-
+        idc = A3A_IDC_ARSENAL_RIFLE_TAB;
+        show = false;
     };
     class LauncherTab: A3A_DefaultControlsGroup
     {
-        
+        idc = A3A_IDC_ARSENAL_LAUNCHER_TAB;
+        show = false;
     };
-    class HandgunTab {};
-    class UniformTab {};
-    class VestTab {};
-    class BackpackTab {};
-    class HeadgearTab {};
-    class FacewearTab {};
-    class NVGTab {};
-    class BinocularTab {};
-    class MapTab {};
-    class TerminalTab {};
-    class CommunicationTab {};
-    class NavigationTab {};
-    class WatchTab {};
+    class HandgunTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_HANDGUN_TAB;
+        show = false;
+    };
+    class UniformTab: A3A_DefaultControlsGroup
+    {
+        idc = A3A_IDC_ARSENAL_UNIFORM_TAB;
+        show = false;
+    };
+    class VestTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_VEST_TAB;
+        show = false;
+    };
+    class BackpackTab: A3A_DefaultControlsGroup
+    {
+        idc = A3A_IDC_ARSENAL_BACKPACK_TAB;
+        show = false;
+    };
+    class HeadgearTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_HEADGEAR_TAB;
+        show = false;
+    };
+    class FacewearTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_FACEWEAR_TAB;
+        show = false;
+    };
+    class NVGTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_NVG_TAB;
+        show = false;
+    };
+    class BinocularTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_BINOCULAR_TAB;
+        show = false;
+    };
+    class MapTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_MAP_TAB;
+        show = false;
+    };
+    class TerminalTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_TERMINAL_TAB;
+        show = false;
+    };
+    class CommunicationTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_COMMUNICATION_TAB;
+        show = false;
+    };
+    class NavigationTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_NAVIGATION_TAB;
+        show = false;
+    };
+    class WatchTab: A3A_DefaultControlsGroup 
+    {
+        idc = A3A_IDC_ARSENAL_WATCH_TAB;
+        show = false;
+    };
 
     // Sub tabs that show on the right, context pending
 

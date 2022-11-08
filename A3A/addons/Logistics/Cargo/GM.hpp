@@ -23,7 +23,7 @@ class gm_gm_weapons_gm_launchers_gm_milan_gm_milan_launcher_tripod : TRIPLES(ADD
     size = 4;
     recoil = 200;
     isWeapon = 1;
-    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"}
+    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"};
 };
 
 class gm_gm_weapons_gm_launchers_gm_spg9_gm_spg9_tripod : TRIPLES(ADDON,Cargo,Base)
@@ -33,7 +33,7 @@ class gm_gm_weapons_gm_launchers_gm_spg9_gm_spg9_tripod : TRIPLES(ADDON,Cargo,Ba
     size = 4;
     recoil = 200;
     isWeapon = 1;
-    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"}
+    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"};
 };
 
 class gm_gm_weapons_gm_launchers_gm_fagot_gm_fagot_launcher_tripod : TRIPLES(ADDON,Cargo,Base)
@@ -43,5 +43,5 @@ class gm_gm_weapons_gm_launchers_gm_fagot_gm_fagot_launcher_tripod : TRIPLES(ADD
     size = 4;
     recoil = 200;
     isWeapon = 1;
-    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"}
+    blackList[] = {"\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_452_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_451_container","\gm\gm_vehicles\gm_land\gm_wheeled\gm_kat1\gm_kat1_454_cargo"};
 };

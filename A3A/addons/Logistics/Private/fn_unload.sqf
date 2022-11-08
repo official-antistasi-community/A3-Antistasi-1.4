@@ -106,6 +106,7 @@ if !(_cargo isEqualTo objNull) then {//cargo not deleted
         _location set [1, _yEnd-0.1];
         _cargo attachto [_vehicle,_location];
     } else {
+        private _prevTime = time;
         while {(_location#1) > _yEnd} do {
             uiSleep 0.1;
             if (isNull _cargo || isNull _vehicle) exitWith {};//vehicle or cargo deleted

@@ -17,7 +17,7 @@ private _entries = [];
         "    rotation[] = {" + (_rotation select [1, count _rotation - 2]) + "};" + endl,
         "    size = "+ str (_x#3) + ";",
         ["", endl + "    recoil = " + str (_x#4) + ";"] select (count _x > 4),
-        ["", endl + "    isWeapon = 1;" + endl + "    blackList[] = {" + _blackListText + "}"] select (-1 != _weaponsIndex),
+        ["", endl + "    isWeapon = 1;" + endl + "    blackList[] = {" + _blackListText + "};"] select (-1 != _weaponsIndex),
         endl
     ]);
 } forEach A3A_Logistics_attachmentOffset;

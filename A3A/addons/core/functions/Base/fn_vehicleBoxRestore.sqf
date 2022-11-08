@@ -55,7 +55,7 @@ private _rebelPlayers = allUnits select {side _x in [teamPlayer, civilian] && {_
 private _hqVehicles = (vehicles inAreaArray [_posHQ, 150, 150]) select {
     alive _x && 
     {(side group _x) in [sideUnknown, teamPlayer] && 
-    {(typeof _x isEqualTo "Air" && !(isEngineOn _x) || !(typeof _x isEqualTo "Air"))
+    {((typeof _x isEqualTo "Air" && !(isEngineOn _x)) || !(typeof _x isEqualTo "Air"))
 }}};
 
 //clear report from vehicles that are at HQ and reported

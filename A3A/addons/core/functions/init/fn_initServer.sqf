@@ -72,11 +72,13 @@ waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 
 [localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
 
-// Set global vars directly from params. Call should guarantee 1:1 validity
+// Use true params list in case we're loading an autosave from a different version
+private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
-    _x params ["_name", "_val"];
-    missionNamespace setVariable [_name, _val, true];           // just publish them all, doesn't really hurt
-} forEach (A3A_saveData get "params");
+    if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
+    private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
+} forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
 // Might have params dependency at some point
 if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
@@ -171,6 +173,17 @@ if (isPlayer A3A_setupPlayer) then {
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
     theBoss = A3A_setupPlayer; publicVariable "theBoss";
 };
+
+//add admin as member if not on loggin
+addMissionEventHandler ["OnUserAdminStateChanged", {
+    params ["_networkId", "_loggedIn", "_votedIn"];
+    private _uid = (getUserInfo _networkId)#2;
+    if !(_uid in membersX) then {
+        membersX pushBackUnique (getUserInfo _networkId)#2;
+        publicVariable "membersX";
+    };
+}];
+
 publicVariable "membersX";
 
 
@@ -181,7 +194,7 @@ call A3A_fnc_initSupports;
 call A3A_fnc_generateRebelGear;
 
 // Needs A3A_rebelGear for equipping
-call A3A_fnc_initPetros;
+call A3A_fnc_createPetros;
 
 // Some of these may already be unhidden but we make sure
 { _x hideObjectGlobal false } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];

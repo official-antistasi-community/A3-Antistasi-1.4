@@ -17,7 +17,7 @@ if (isNil "_veh") exitWith {};
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
 	// vehicle already initialized, just swap side and exit
-	[_veh, _side] call A3A_fnc_vehKilledOrCaptured;
+	[_veh, _side, true] call A3A_fnc_vehKilledOrCaptured;
 };
 
 _veh setVariable ["originalSide", _side, true];
@@ -41,6 +41,7 @@ if (_side == teamPlayer) then
 
 // Sync the vehicle textures if necessary
 _veh call A3A_fnc_vehicleTextureSync;
+
 
 private _typeX = typeOf _veh;
 if (_veh isKindOf "Car" or _veh isKindOf "Tank") then

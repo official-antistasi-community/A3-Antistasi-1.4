@@ -99,6 +99,7 @@ while {time < _timeout} do
     _mortar setVariable ["FireOrder", _subTargets];
     [_mortar] spawn _fn_executeMortarFire;
     _numberOfRounds = _numberOfRounds - _shotsPerVolley;
+    _timeout = _timeout max (time + 60);                // don't cleanup until the volley is done
 
     //Makes sure that all units escape before attacking
     // [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;

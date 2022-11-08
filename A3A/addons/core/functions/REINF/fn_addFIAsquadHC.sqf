@@ -98,7 +98,7 @@ private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance pl
         private _vehicle = _vehType createVehicle _spawnPos;
 
         if (_mounts isNotEqualTo []) then {
-            private _static = staticAAteamPlayer createVehicle _spawnPos;
+            private _static = FactionGet(reb,"staticAA") createVehicle _spawnPos;
             private _nodes = [_vehicle, _static] call A3A_Logistics_fnc_canLoad;
             if (_nodes isEqualType 0) exitWith {};
             (_nodes + [true]) call A3A_Logistics_fnc_load;

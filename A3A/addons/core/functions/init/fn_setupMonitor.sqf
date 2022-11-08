@@ -6,19 +6,17 @@ Info("Setup monitor started");
 
 // Collect all CfgPatches dependencies so that client knows what's available on server
 private _loadedPatches = [];
-call {
-    private _templates = "true" configClasses (configFile/"A3A"/"Templates");
-    private _addonVics = "true" configClasses (configFile/"A3A"/"AddonVics");
+private _factions = "true" configClasses (configFile/"A3A"/"Templates");
+private _addonVics = "true" configClasses (configFile/"A3A"/"AddonVics");
+{
     {
-        {
-            if (isClass (configFile/"CfgPatches"/_x)) then { _loadedPatches pushBackUnique _x };
-        } forEach getArray (_x/"requiredAddons");
-    } forEach (_templates + _addonVics);
-};
+        if (isClass (configFile/"CfgPatches"/_x)) then { _loadedPatches pushBackUnique _x };
+    } forEach getArray (_x/"requiredAddons");
+} forEach (_factions + _addonVics);
 
 // Ignore DLC without equipment and vehicles
 // Need the true names from here, so pass it all in
-private _loadedDLC = getLoadedModsInfo select {_x#3 and !(_x#1 in ["A3","curator","argo","tacops"])};
+private _loadedDLC = getLoadedModsInfo select {(_x#3 or {_x#1 isEqualTo "ws"}) and {!(_x#1 in ["A3","curator","argo","tacops"])}};
 
 
 private _autoLoadTime = "autoLoadLastGame" call BIS_fnc_getParamValue;
@@ -27,12 +25,22 @@ if (_autoLoadTime >= 0) then
 {
     Info("Searching for suitable saves for automatic loading");
 
-    private _saveData = call A3A_fnc_collectSaveData;
-    private _index = _saveData findIf {
-        isNil {_x get "ended"}
-        and _x get "map" == worldName 
-        and !isNil {_x get "factions"}
+    private _validFactions = _factions select { getArray (_x/"requiredAddons") findIf { !(_x in _loadedPatches) } == -1 } apply { configName _x };
+    private _validAddons = _addonVics select { getArray (_x/"requiredAddons") findIf { !(_x in _loadedPatches) } == -1 } apply { configName _x };
+    private _validDLC = _loadedDLC apply {_x#1};
+
+    private _fnc_isValidSave = {
+        if (_this get "map" != worldName) exitWith {false};
+        if (!isNil {_this get "ended"}) exitWith {false};
+        if (isNil {_this get "factions"}) exitWith {false};
+        if (_this get "factions" findIf { !(_x in _validFactions) } != -1) exitWith {false};
+        if (_this get "addonVics" findIf { !(_x in _validAddons) } != -1) exitWith {false};
+        if (_this get "DLC" findIf { !(_x in _validDLC) } != -1) exitWith {false};             // casing should be correct here
+        true;
     };
+
+    private _saveData = call A3A_fnc_collectSaveData;
+    private _index = _saveData findIf { _x call _fnc_isValidSave };
     if (_index == -1) exitWith {
         Info("No usable saves found for automatic loading");
         _autoLoadTime = -1;

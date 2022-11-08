@@ -621,12 +621,12 @@ class Templates
         file = "UNS_AI_US";
     };
 
-    class UNS_NVA : UNS_Base
+    class UNS_PAVN : UNS_Base
     {
         side = "Occ";
         flagTexture = "\uns_flags\flag_pavn_co.paa";
-        name = "Unsung NVA";
-        file = "UNS_AI_NVA";
+        name = "Unsung PAVN";
+        file = "UNS_AI_PAVN";
     };
 
     class UNS_VC : UNS_Base

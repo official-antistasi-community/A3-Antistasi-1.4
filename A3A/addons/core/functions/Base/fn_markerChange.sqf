@@ -64,7 +64,7 @@ if (_winner == teamPlayer) then
 {
 	// Old garrison surrender
 	private _oldGarrison = units _loser select { _x getVariable ["markerX", ""] == _markerX };
-	{ _x spawn A3A_fnc_surrenderAction } forEach _oldGarrison;
+	{ [_x] remoteExec ["A3A_fnc_surrenderAction", _x] } forEach _oldGarrison;
 
 	// Cap to 0.6 max to reward captures without previous support calls
 	private _resources = [_loser, teamPlayer, _markerX, 0.6] call A3A_fnc_maxDefenceSpend;

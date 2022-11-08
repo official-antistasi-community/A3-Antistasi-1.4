@@ -150,7 +150,7 @@ private _fnc_spawnConvoyVehicle = {
     _veh allowDamage false;
 
     private _group = [_sideX, _veh] call A3A_fnc_createVehicleCrew;
-    { [_x, nil, nil, _resPool] call A3A_fnc_NATOinit; _x allowDamage false; } forEach (units _group);
+    { [_x, nil, nil, _resPool] call A3A_fnc_NATOinit; _x allowDamage false; _x disableAI "MINEDETECTION" } forEach (units _group);
     _soldiers append (units _group);
     (driver _veh) stop true;
     deleteWaypoint [_group, 0];													// groups often start with a bogus waypoint

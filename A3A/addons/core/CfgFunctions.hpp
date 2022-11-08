@@ -123,7 +123,7 @@ class CfgFunctions
             class distance {};
             class distanceUnits {};
             class FIAradio {};
-            class findAttackTargets {}
+            class findAttackTargets {};
             class findBasesForConvoy {};
             class findNearestGoodRoad {};
             class flagaction {};

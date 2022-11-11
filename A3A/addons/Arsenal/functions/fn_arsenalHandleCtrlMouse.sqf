@@ -82,18 +82,3 @@ switch (_event) do {
 	default { };
 };
 
-
-// _ctrlMouseArea ctrladdeventhandler ["mousemoving", {
-// 	params ["_control", "_xPos", "_yPos", "_mouseOver"];
-// }];
-// _ctrlMouseArea ctrladdeventhandler ["mouseholding", {
-// 	params ["_control", "_xPos", "_yPos", "_mouseOver"];
-// }];
-// _ctrlMouseArea ctrladdeventhandler ["mousebuttonclick", {
-// 	params ["_control", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
-// 	systemChat "MouseArea Clicked";
-// }];
-// _ctrlMouseArea ctrladdeventhandler ["mousezchanged", {
-// 	params ["_displayOrControl", "_scroll"];
-// 	systemChat format ["Scroll speed: %1", _scroll];
-// }];

@@ -57,7 +57,7 @@ class A3A_Antistasi_Arsenal
         {
             idc = A3A_IDC_ANTISTASI_ARSENAL_MOUSE_AREA;
             style = ST_MULTI;
-            x = LEFT;
+            x = LEFT + 7 * GRID_W;
             y = TOP;
             w="safezoneW";
 			h="safezoneH";
@@ -69,10 +69,10 @@ class A3A_Antistasi_Arsenal
         class TabButtons: A3A_ControlsGroupNoScrollbars 
         {
             idc = A3A_IDC_ARSENAL_DIALOG_TAB_BUTTONS;
-            x = LEFT;
+            x = LEFT + GRID_W * 2;
             y = TOP + GRID_H * 2;
-            w = 7 * GRID_W;
-            h = 5 * GRID_H;
+            w = 5 * GRID_W;
+            h = 75 * GRID_H;
 
             class Controls 
             {
@@ -82,7 +82,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_RIFLE_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Rifle""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\PrimaryWeapon_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 0 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -92,7 +92,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_LAUNCHER_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Launcher""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\SecondaryWeapon_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 5 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -102,7 +102,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_HANDGUN_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Handgun""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\handgun_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 10 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -112,7 +112,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_UNIFORM_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Uniform""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\uniform_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 15 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -122,7 +122,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_VEST_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Vest""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\vest_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 20 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -132,7 +132,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_BACKPACK_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Backpack""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\backpack_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 25 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -142,7 +142,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_HEADGEAR_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Headgear""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\headgear_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 30 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -152,7 +152,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_FACEWEAR_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Facewear""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\goggles_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 35 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -162,7 +162,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_NVG_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""NVG""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\nvgs_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 40 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -172,7 +172,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_BINOCULAR_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Binocular""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\binoculars_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 45 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -182,7 +182,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_MAP_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Map""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\map_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 50 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -192,7 +192,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_TERMINAL_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Terminal""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\gps_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 55 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -202,17 +202,17 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_COMMUNICATION_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Communication""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\radio_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 60 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
                 };
                 class NavigationabButton: A3A_ActivePicture 
                 {
-                    idc = A3A_IDC_NAGIVATION_TAB_BUTTON;
+                    idc = A3A_IDC_NAVIGATION_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Navigation""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\compass_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 65 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -222,7 +222,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_WATCH_TAB_BUTTON;
                     onButtonClick = "[""switchTab"", [""Watch""]] call A3A_fnc_antistasiArsenal";
                     text = "\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\watch_ca.paa";
-                    x = GRID_W * 2;
+                    x = 0;
                     y = 70 * GRID_H;
                     w = 5 * GRID_W;
                     h = 5 * GRID_H;
@@ -565,18 +565,18 @@ class A3A_Antistasi_Arsenal
 
         //Sub tabs that show on the right, context pending
 
-        // weapon context
-        class OpticSubTab {};
-        class RailSubTab {};
-        class MuzzleSubTab {};
-        class BipodSubTab {};
+        // // weapon context
+        // class OpticSubTab {};
+        // class RailSubTab {};
+        // class MuzzleSubTab {};
+        // class BipodSubTab {};
 
-        // container context
-        class CompatWeaponMagSubTab {};
-        class MagSubTab {};
-        class GrenadeSubTab {};
-        class ExplosivesSubTab {};
-        class MiscSubTab {};
+        // // container context
+        // class CompatWeaponMagSubTab {};
+        // class MagSubTab {};
+        // class GrenadeSubTab {};
+        // class ExplosivesSubTab {};
+        // class MiscSubTab {};
 
         // this is the helper stuff
 

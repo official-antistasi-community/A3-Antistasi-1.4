@@ -52,6 +52,16 @@ class A3A_Antistasi_Arsenal
             h = 75 * GRID_H;
             colorBackground[] = A3A_COLOR_TITLEBAR_BACKGROUND;
         }
+
+        class MouseArea: A3A_Text
+        {
+            idc = A3A_IDC_ANTISTASI_ARSENAL_MOUSE_AREA;
+            style = ST_MULTI;
+            x = LEFT;
+            y = TOP;
+            w="safezoneW";
+			h="safezoneH";
+        };
     };
 
     class Controls 

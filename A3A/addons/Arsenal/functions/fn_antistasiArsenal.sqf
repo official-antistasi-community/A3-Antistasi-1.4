@@ -1,7 +1,7 @@
 
 #include "..\dialog\ids.inc"
 #include "..\script_component.hpp"
-
+#include "\x\A3A\addons\GUI\dialogues\defines.hpp"
 
 params[["_mode","onLoad"], ["_params",[]]];
 
@@ -28,6 +28,7 @@ switch (_mode) do
 
         //combo box stuff
         call A3A_fnc_setUpComboBoxSort;
+        ["initCamera", [""]] call A3A_fnc_antistasiArsenal;
     };
 
     case ("switchTab"):
@@ -99,10 +100,26 @@ switch (_mode) do
         } forEach _allTabs;
 
         // Show the tab!
+        private _controls = (_display getVariable ((_selectedTab) + "Ctrls"));
+        {
+            _x ctrlSetPositionY _forEachIndex * (40 * GRID_H);
+            _x ctrlCommit .5;
+        } forEach _controls;
+
         Debug("Showing selected tab!");
         private _selectedTabCtrl = _display displayCtrl _selectedTabIDC;
         _selectedTabCtrl ctrlShow true;
 
-        A3A_selectedTab = _selectedTabIDC;
+        A3A_selectedTab = [_selectedTabIDC, _selectedTab];
+
     };
+
+    case("initCamera"):
+    {
+        // create cam 
+        call A3A_fnc_createArsenalCam;
+    };
+
+    case("changeArsenalTarget"):
+    {};
 };

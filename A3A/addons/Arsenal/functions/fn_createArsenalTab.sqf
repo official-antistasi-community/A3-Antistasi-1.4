@@ -167,24 +167,24 @@ private _createdCtrls = [];
 	_itemControlsGroup ctrlSetFade 1;
 	_itemControlsGroup ctrlCommit 0;
 
-	private _previewPicture = _display ctrlCreate ["A3A_Picture", A3A_IDC_ARSENAL_ITEM_PREVIEW, _itemControlsGroup];
-	_previewPicture ctrlSetPosition [0, 0, 40 * GRID_W, 20 * GRID_H];
-	_previewPicture ctrlSetText _picturePreview;
-	_previewPicture ctrlCommit 0;
+	private _previewButton = _display ctrlCreate ["A3A_ActivePicture", A3A_IDC_ARSENAL_ITEM_PREVIEW, _itemControlsGroup];
+	_previewButton ctrlSetPosition [0, 0, 40 * GRID_W, 20 * GRID_H];
+	_previewButton ctrlSetText _picturePreview;
+	_previewButton ctrlCommit 0;
 
 
 	private _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
 	_button ctrlSetPosition [0, 20 * GRID_H, 40 * GRID_W, 10 * GRID_H];
 	_button ctrlSetText _displayName;
+	_button ctrlSetTooltip _className;
 	_button ctrlCommit 0;
 
 	private _amountText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _itemControlsGroup];
-	_amountText ctrlSetPosition [0, 0 * GRID_H, 40 * GRID_W, 5 * GRID_H];
+	_amountText ctrlSetPosition [0, 0, 40 * GRID_W, 5 * GRID_H];
 	_amountText ctrlSetText format["Amount %1", _amount];
 	_button ctrlCommit 0;
 
 
-	Debug_4("Control Created: Classname %1, Control position %2, Picture position %3, Button position %4",_className,str(ctrlPosition _itemControlsGroup),str(ctrlPosition _previewPicture),str(ctrlPosition _button));
 
 	_itemControlsGroup setVariable ["className", _className];
 	_itemControlsGroup setVariable ["displayName", _displayName];

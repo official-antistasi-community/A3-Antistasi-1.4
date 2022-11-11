@@ -253,7 +253,7 @@ class A3A_Antistasi_Arsenal
             show = false;
             x = LEFT + GRID_W * 9;
             y = TOP + GRID_H * 12;
-            w = RIGHT - GRID_W * 9;
+            w = 40 * GRID_W;
             h = BOTTOM;
 
             class Controls 
@@ -263,7 +263,7 @@ class A3A_Antistasi_Arsenal
                     idc = A3A_IDC_ARSENAL_RIFLE_TAB_CONTROL_GROUP;
                     x = 0;
                     y = 0;
-                    w = RIGHT;
+                    w = 42 * GRID_W;
                     h = BOTTOM;
                 };
             };

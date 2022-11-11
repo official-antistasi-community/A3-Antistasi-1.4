@@ -174,7 +174,7 @@ private _createdCtrls = [];
 
 
 	private _button = _display ctrlCreate ["A3A_ShortcutButton", -1, _itemControlsGroup];
-	_button ctrlSetPosition [0, 20 * GRID_H, 40 * GRID_W, 10 * GRID_H];
+	_button ctrlSetPosition [0, 20 * GRID_H, 40 * GRID_W, 12 * GRID_H];
 	_button ctrlSetText _displayName;
 	_button ctrlSetTooltip _className;
 	_button ctrlCommit 0;

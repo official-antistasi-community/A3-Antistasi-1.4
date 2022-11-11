@@ -4,6 +4,7 @@
 #include "\x\A3A\addons\GUI\dialogues\defines.hpp"
 
 params[["_mode","onLoad"], ["_params",[]]];
+private _display = findDisplay A3A_IDD_ANTISTASI_ARSENAL_DIALOG;
 
 switch (_mode) do
 {
@@ -28,12 +29,11 @@ switch (_mode) do
 
         //combo box stuff
         call A3A_fnc_setUpComboBoxSort;
-        ["initCamera", [""]] call A3A_fnc_antistasiArsenal;
+        ["initEvents", [""]] call A3A_fnc_antistasiArsenal;
     };
 
     case ("switchTab"):
     {
-        private _display = findDisplay A3A_IDD_ANTISTASI_ARSENAL_DIALOG;
         private _selectedTab = _params select 0;
 
         Debug_1("Arsenal switiching tab to %1",_selectedTab);
@@ -114,10 +114,10 @@ switch (_mode) do
 
     };
 
-    case("initCamera"):
+    case("initEvents"):
     {
         // create cam 
-        call A3A_fnc_createArsenalCam;
+        [_display] call A3A_fnc_initArsenalEvents;
     };
 
     case("changeArsenalTarget"):

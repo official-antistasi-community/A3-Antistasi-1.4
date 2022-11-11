@@ -121,5 +121,7 @@ switch (_mode) do
     };
 
     case("changeArsenalTarget"):
-    {};
+    {
+        [_display, _params] call A3A_fnc_changeArsenalTarget;
+    };
 };

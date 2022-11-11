@@ -7,7 +7,10 @@ params ["_displayOrControl", "_key", "_shift", "_ctrl", "_alt"];
 private _centerObject = missionnamespace getvariable ["BIS_fnc_arsenal_center",player];
 
 switch true do {
-	case(_key isEqualTo DIK_ESCAPE): {};
+	case(_key isEqualTo DIK_ESCAPE): {
+		call A3A_fnc_arsenalHandleExit;
+		_displayOrControl closeDisplay 1;
+	};
 
 	case(_key in [DIK_RETURN,DIK_NUMPADENTER]): {};
 

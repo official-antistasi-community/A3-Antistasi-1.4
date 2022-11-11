@@ -27,13 +27,13 @@ private _display = findDisplay A3A_IDD_ANTISTASI_ARSENAL_DIALOG;
 private _ctrlMouseArea = _display displayctrl A3A_IDC_ANTISTASI_ARSENAL_MOUSE_AREA;
 
 _display displayAddEventHandler ["mousebuttondown", {
-	["down", _this] call A3A_fnc_arsenalHandleMouseButton;	// TODO: handle mousebuttondown
+	["down", _this] call A3A_fnc_arsenalHandleMouseButton;	
 }];
 _display displayAddEventHandler ["mousebuttonup", {
-	["up", _this] call A3A_fnc_arsenalHandleMouseButton;		// TODO: handle mousebuttonup
+	["up", _this] call A3A_fnc_arsenalHandleMouseButton;		
 }];
 _display displayAddEventHandler ["keydown", {
-	call A3A_fnc_arsenalHandleKeyDown;			// TODO: handle downkeys
+	call A3A_fnc_arsenalHandleKeyDown;			
 }];
 
 _ctrlMouseArea ctrladdeventhandler ["mousemoving", {
@@ -41,9 +41,6 @@ _ctrlMouseArea ctrladdeventhandler ["mousemoving", {
 }];
 _ctrlMouseArea ctrladdeventhandler ["mouseholding", {
 	["mouse", _this] call A3A_fnc_arsenalHandleCtrlMouse;
-}];
-_ctrlMouseArea ctrladdeventhandler ["mousebuttonclick", {
-	["mousebuttonclick", _this] call A3A_fnc_arsenalHandleCtrlMouse;
 }];
 _ctrlMouseArea ctrladdeventhandler ["mousezchanged", {
 	["mousezchanged", _this] call A3A_fnc_arsenalHandleCtrlMouse;

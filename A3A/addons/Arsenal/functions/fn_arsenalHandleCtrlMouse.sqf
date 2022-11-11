@@ -66,9 +66,6 @@ switch (_event) do {
 		};
 
 	};
-	case "mousebuttonclick": {
-		_params params ["_control", "_button", "_xPos", "_yPos", "_shift", "_ctrl", "_alt"];
-	};
 	case "mousezchanged": {
 		_params params ["_displayOrControl", "_scroll"];
 

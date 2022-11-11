@@ -7,13 +7,13 @@ private _camPos = [10,-45,15,[0,0,-1]];
 
 if (isNil { missionnamespace getvariable "A3A_ArsenalCamPos_Init" }) then
 {
-	missionnamespace setvariable ["A3A_ArsenalCamPos_Init", _camPos];
+    missionnamespace setvariable ["A3A_ArsenalCamPos_Init", _camPos];
 };
 
 if (!isNil { missionnamespace getvariable "A3A_Arsenal_target" }) then
 {
-	private _target = missionnamespace getvariable "A3A_Arsenal_target";
-	if (_target isNotEqualTo player) then {deleteVehicle _target};
+    private _target = missionnamespace getvariable "A3A_Arsenal_target";
+    if (_target isNotEqualTo player) then {deleteVehicle _target};
 };
 
 A3A_ArsenalCamPos = +(missionnamespace getvariable "A3A_ArsenalCamPos_Init");

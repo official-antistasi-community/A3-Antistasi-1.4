@@ -15,7 +15,7 @@ _cam setdir 0;
 //--- Make sure the camera is not underground
 if ((getPosASLVisual _cam select 2) < (getPosASLVisual _centerObject select 2)) then 
 {
-	//_cam setPosASL (_target modeltoworldvisualworld [0, -_dis * (((getPosASLVisual _target select 2) - (getPosASLVisual _center select 2)) / ((getPosASLVisual _target select 2) - (getPosASLVisual _cam select 2) + 0.001)), 0]);
-	_cam attachto [_target,[0, -_dis * (((getPosASLVisual _target select 2) - (getPosASLVisual _centerObject select 2)) / ((getPosASLVisual _target select 2) - (getPosASLVisual _cam select 2) + 0.001)), 0],""];
-	_cam setdir 0;
+    //_cam setPosASL (_target modeltoworldvisualworld [0, -_dis * (((getPosASLVisual _target select 2) - (getPosASLVisual _center select 2)) / ((getPosASLVisual _target select 2) - (getPosASLVisual _cam select 2) + 0.001)), 0]);
+    _cam attachto [_target,[0, -_dis * (((getPosASLVisual _target select 2) - (getPosASLVisual _centerObject select 2)) / ((getPosASLVisual _target select 2) - (getPosASLVisual _cam select 2) + 0.001)), 0],""];
+    _cam setdir 0;
 };

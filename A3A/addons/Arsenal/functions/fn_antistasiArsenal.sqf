@@ -124,4 +124,14 @@ switch (_mode) do
     {
         [_display, _params] call A3A_fnc_changeArsenalTarget;
     };
+
+    case("addItem"):
+    {
+
+    };
+
+    case("addWeapon"):
+    {
+        
+    };
 };

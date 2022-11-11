@@ -27,23 +27,23 @@ private _display = findDisplay A3A_IDD_ANTISTASI_ARSENAL_DIALOG;
 private _ctrlMouseArea = _display displayctrl A3A_IDC_ANTISTASI_ARSENAL_MOUSE_AREA;
 
 _display displayAddEventHandler ["mousebuttondown", {
-	["down", _this] call A3A_fnc_arsenalHandleMouseButton;	
+    ["down", _this] call A3A_fnc_arsenalHandleMouseButton;	
 }];
 _display displayAddEventHandler ["mousebuttonup", {
-	["up", _this] call A3A_fnc_arsenalHandleMouseButton;		
+    ["up", _this] call A3A_fnc_arsenalHandleMouseButton;		
 }];
 _display displayAddEventHandler ["keydown", {
-	call A3A_fnc_arsenalHandleKeyDown;			
+    call A3A_fnc_arsenalHandleKeyDown;			
 }];
 
 _ctrlMouseArea ctrladdeventhandler ["mousemoving", {
-	["mouse", _this] call A3A_fnc_arsenalHandleCtrlMouse;
+    ["mouse", _this] call A3A_fnc_arsenalHandleCtrlMouse;
 }];
 _ctrlMouseArea ctrladdeventhandler ["mouseholding", {
-	["mouse", _this] call A3A_fnc_arsenalHandleCtrlMouse;
+    ["mouse", _this] call A3A_fnc_arsenalHandleCtrlMouse;
 }];
 _ctrlMouseArea ctrladdeventhandler ["mousezchanged", {
-	["mousezchanged", _this] call A3A_fnc_arsenalHandleCtrlMouse;
+    ["mousezchanged", _this] call A3A_fnc_arsenalHandleCtrlMouse;
 }];
 ctrlsetfocus _ctrlMouseArea;
 
@@ -51,7 +51,7 @@ private _camPos = [10,-45,15,[0,0,-1]];
 
 if (isNil { missionnamespace getvariable "A3A_ArsenalCamPos_Init" }) then
 {
-	missionnamespace setvariable ["A3A_ArsenalCamPos_Init", _camPos];
+    missionnamespace setvariable ["A3A_ArsenalCamPos_Init", _camPos];
 };
 
 A3A_ArsenalCamPos = +(missionnamespace getvariable "A3A_ArsenalCamPos_Init");

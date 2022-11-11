@@ -17,9 +17,9 @@ A3A_Arsenal_Cam = nil;
 
 if (!isNil { missionnamespace getvariable "A3A_Arsenal_target" }) then
 {
-	// there might be a edge case, where the target is the player. 
-	private _target = missionnamespace getvariable "A3A_Arsenal_target";
-	if (_target isNotEqualTo player) then {deleteVehicle _target};
+    // there might be a edge case, where the target is the player. 
+    private _target = missionnamespace getvariable "A3A_Arsenal_target";
+    if (_target isNotEqualTo player) then {deleteVehicle _target};
 };
 
 missionnamespace setvariable ["A3A_Arsenal_target", nil];

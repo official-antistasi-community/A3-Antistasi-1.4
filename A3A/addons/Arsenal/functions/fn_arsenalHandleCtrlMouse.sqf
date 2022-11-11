@@ -30,13 +30,7 @@ switch (_event) do {
 			_z = (_z - (_cY - _yPos) * _centerSize) max _centerSizeBottom min _centerSizeUp;
 			_targetPos = [0,0,0] getPos [([0,0,0] distance2D _targetPos) min _centerSize, [0,0,0] getDir _targetPos];
 			_targetPos set [2, _z max ((_minBox select 2) + 0.2)];			
-			//_targetPos set [2,(_targetPos select 2) max 0.1];
-		
-			//--- Do not let target go below ground
-			//_posZmin = 0.1;
-			//_targetWorldPosZ = (_centerObject modelToWorldVisualWorld _targetPos) select 2;
-			//if (_targetWorldPosZ < _posZmin) then { _targetPos set [2, (_targetPos select 2) - _targetWorldPosZ + _posZmin] };
-
+			
 			A3A_ArsenalCamPos set [3, _targetPos];
 		};
 

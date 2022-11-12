@@ -179,15 +179,26 @@ private _createdCtrls = [];
     _button ctrlSetTooltip _className;
     _button ctrlCommit 0;
 
+
     private _amountText = _display ctrlCreate ["A3A_InfoTextLeft", -1, _itemControlsGroup];
     _amountText ctrlSetPosition [0, 0, 40 * GRID_W, 5 * GRID_H];
     _amountText ctrlSetText format["Amount %1", _amount];
-    _button ctrlCommit 0;
-
+    _amountText ctrlCommit 0;
 
 
     _itemControlsGroup setVariable ["className", _className];
     _itemControlsGroup setVariable ["displayName", _displayName];
+    _button setVariable ["className", _className];
+    _button setVariable ["selectedTab", _selectedTab];
+
+    _button ctrladdeventhandler ["ButtonClick", {
+        params ["_control"];
+        systemChat "Clicked";
+        private _className = _control getVariable ["className", ""];
+        private _selectedTab = _control getVariable ["selectedTab", ""];
+        if(_className isEqualTo "" || _selectedTab isEqualTo "") exitwith {};
+        [_selectedTab, _className] call A3A_fnc_addItems;
+    }];
 
     _itemControlsGroup ctrlSetFade 0;
     _itemControlsGroup ctrlCommit 0.1;

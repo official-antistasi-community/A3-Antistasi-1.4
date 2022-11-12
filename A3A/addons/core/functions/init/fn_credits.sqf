@@ -8,7 +8,7 @@ _title = if (worldName == "Tanoa") then {
 	};
 };
 
-_credits = [ [_title, [antistasiVersion]], [ "Authors:", ["Barbolani","Official AntiStasi Community"] ] ];
+_credits = [ [_title, [QUOTE(VERSION)]], [ "Authors:", ["Barbolani","Official AntiStasi Community"] ] ];
 _layer = "credits1" call bis_fnc_rscLayer;
 _delay = 5;
 _duration = 5;
@@ -39,11 +39,11 @@ _duration = 5;
 		//_width = (abs safeZoneX) max (0.5);
 		//_height = ctrltextheight _ctrlText;
 		//_pos = [safezoneX + _offsetX, safezoneY + _offsetY,_width,_height];
-		
+
 		_width = safeZoneW;
 		_height = ctrltextheight _ctrlText;
 		_pos = [safezoneX, safeZoneY + _offsetY,_width,_height];
-		
+
 		//_pos = [safezoneX + safezoneW - _width - _offsetX,safezoneY + safezoneH - _height,_width,_height]
 		_ctrlText ctrlsetposition _pos;
 		_ctrlText ctrlsetfade 1;

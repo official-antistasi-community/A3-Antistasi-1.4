@@ -7,7 +7,7 @@ A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVa
 
 
 Info("Server init started");
-Info_1("Server version: %1", QUOTE(VERSION));
+Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
 

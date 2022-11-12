@@ -21,92 +21,29 @@ class A3A {
 
 
 #define A3A_BriefingName QUOTE(Antistasi Community - VERSION)
+#define A3A_Mission(MAPNAME) class Antistasi_##MAPNAME { briefingName = A3A_BriefingName; directory = x\A3A\addons\maps\Antistasi_##MAPNAME##.##MAPNAME; };
 
 class CfgMissions
 {
     class MPMissions
-    {
-        class Antistasi_Altis
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Altis.Altis";
-        };
-        class Antistasi_cam_lao_nam
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_cam_lao_nam.cam_lao_nam";
-        };
-        class Antistasi_vn_khe_sanh
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_vn_khe_sanh.vn_khe_sanh";
-        };
-        class Antistasi_chernarus_summer
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_chernarus_summer.chernarus_summer";
-        };
-        class Antistasi_chernarus_winter
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_chernarus_winter.chernarus_winter";
-        };
-        class Antistasi_chernarus
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_chernarus.chernarus";
-        };
-        class Antistasi_Enoch
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Enoch.Enoch";
-        };
-        class Antistasi_Kunduz
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Kunduz.Kunduz";
-        };
-        class Antistasi_Malden
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Malden.Malden";
-        };
-        class Antistasi_sara
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_sara.sara";
-        };
+    { // mission folder names need to be `Antistasi_{Map name}.{Map name}`
+        A3A_Mission(Altis)
+        A3A_Mission(cam_lao_nam)
+        A3A_Mission(vn_khe_sanh)
+        A3A_Mission(chernarus_summer)
+        A3A_Mission(chernarus_winter)
+        A3A_Mission(chernarus)
+        A3A_Mission(Enoch)
+        A3A_Mission(Kunduz)
+        A3A_Mission(Malden)
+        A3A_Mission(sara)
 #if __A3_DEBUG__
-        class Antistasi_Stratis
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Stratis.Stratis";
-        };
+        A3A_Mission(Stratis)
 #endif
-        class Antistasi_takistan
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_takistan.takistan";
-        };
-        class Antistasi_Tanoa
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Tanoa.Tanoa";
-        };
-        class Antistasi_tem_anizay
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_tem_anizay.tem_anizay";
-        };
-        class Antistasi_Tembelan
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_Tembelan.Tembelan";
-        };
-        class Antistasi_vt7
-        {
-            briefingName = A3A_BriefingName;
-            directory = "x\A3A\addons\maps\Antistasi_vt7.vt7";
-        };
+        A3A_Mission(takistan)
+        A3A_Mission(Tanoa)
+        A3A_Mission(tem_anizay)
+        A3A_Mission(Tembelan)
+        A3A_Mission(vt7)
     };
 };

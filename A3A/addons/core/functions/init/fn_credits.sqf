@@ -1,3 +1,5 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 _title = if (worldName == "Tanoa") then {
 	"Warlords of the Pacific"
 } else {

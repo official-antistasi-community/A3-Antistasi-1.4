@@ -56,7 +56,7 @@ if (_insufficientFunds) exitwith {["Item Purchase", "You can't afford this Item.
 _unit setVariable ["A3A_spawnItem_cooldown", time + 15];
 
 //spawn the Item
-private _position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,10,_spawnItem];
+private _position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,50,_spawnItem];
 if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnItem createVehicle _position;
 _item allowDamage false;

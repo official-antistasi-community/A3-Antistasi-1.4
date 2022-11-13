@@ -371,6 +371,67 @@ if  (_tab in ["other"]) then
             "Fuel Tank"
         ];
 
+        private _medCrate = FactionGet(reb,"vehicleMedicalBox");
+        _buyableItemList pushBack [
+            _medCrate # 0, 
+            _medCrate # 1,
+            "A3A_fnc_medicalBox", 
+            [], 
+            false,
+            "Medical Box"
+        ];
+
+        private _medTent  = FactionGet(reb,"vehicleHealthStation");
+        _buyableItemList pushBack [
+            _medTent  # 0, 
+            _medTent  # 1,
+            "A3A_fnc_buyItem", 
+            [
+                player,
+                _medTent  # 0,  
+                _medTent  # 1, 
+                [
+                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                ]
+            ], 
+            false,
+            "Medical Tent"
+        ];
+
+        private _ammoStation = FactionGet(reb,"vehicleAmmoStation");
+        _buyableItemList pushBack [
+            _ammoStation # 0, 
+            _ammoStation # 1,
+            "A3A_fnc_buyItem", 
+            [
+                player,
+                _ammoStation # 0,  
+                _ammoStation # 1, 
+                [
+                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                ]
+            ], 
+            false,
+            "Ammo Station"
+        ];
+
+        private _repairStation = FactionGet(reb,"vehicleRepairStation");
+        _buyableItemList pushBack [
+            _repairStation # 0, 
+            _repairStation # 1,
+            "A3A_fnc_buyItem", 
+            [
+                player,
+                _repairStation # 0,  
+                _repairStation # 1, 
+                [
+                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', false]
+                ]
+            ], 
+            false,
+            "Repair Station"
+        ];
+
         //LTC
         if (LootToCrateEnabled) then {
             _buyableItemList pushBack [
@@ -541,6 +602,34 @@ if  (_tab in ["other"]) then
             _ltcIcon ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_tooltip", _displayName, getNumber(_configClass >> "maximumLoad")];
             _ltcIcon ctrlCommit 0;
         };
+
+        if (_className in [(A3A_faction_reb get 'vehicleMedicalBox')#0, (A3A_faction_reb get 'vehicleHealthStation')#0]) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Heal;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_med_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
+        if (_className isEqualTo (FactionGet(reb,"vehicleAmmoStation")#0)) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Rearm;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ammo_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
+        if (_className isEqualTo (FactionGet(reb,"vehicleRepairStation")#0)) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Repair;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_repair_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
 
         // Show item
         _itemControlsGroup ctrlSetFade 0;

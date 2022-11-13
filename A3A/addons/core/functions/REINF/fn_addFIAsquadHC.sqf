@@ -62,7 +62,7 @@ private _vehType = switch true do {
         FactionGet(reb,"vehicleAA")
     };
     case (!_isInfantry): {_typeGroup};
-    case (count _formatX isEqualTo 2): {FactionGet(reb,"vehicleBasic")};
+    case (count _formatX isEqualTo 2): {selectRandom (FactionGet(reb,"vehicleBasic"))};
     case (count _formatX > 4): {FactionGet(reb,"vehicleTruck")};
     default {FactionGet(reb,"vehicleLightUnarmed")};
 };

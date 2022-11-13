@@ -13,7 +13,7 @@ _isRoad = isOnRoad _positionTel;
 
 _textX = format ["%1 Observation Post",FactionGet(reb,"name")];
 _typeGroup = FactionGet(reb,"groupSniper");
-_typeVehX = FactionGet(reb,"vehicleBasic");
+_typeVehX = selectRandom (FactionGet(reb,"vehicleBasic"));
 private _tsk = "";
 if (_isRoad) then
 	{

@@ -48,12 +48,12 @@ if (_tab isEqualTo "vehicles") then
     private _buyableVehiclesList = [];
 
     // Add civ vehicles to the list
-    private _civilianVehicles = [
-        A3A_faction_reb get 'vehicleCivCar',
-        A3A_faction_reb get 'vehicleCivTruck',
-        A3A_faction_reb get 'vehicleCivHeli',
-        A3A_faction_reb get 'vehicleCivBoat'
-    ];
+    private _civilianVehicles = 
+        (A3A_faction_reb get 'vehicleCivCar') +
+        (A3A_faction_reb get 'vehicleCivTruck') +
+        (A3A_faction_reb get 'vehicleCivHeli') +
+        (A3A_faction_reb get 'vehicleCivPlane') +
+        (A3A_faction_reb get 'vehicleCivBoat');
 
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
@@ -61,16 +61,15 @@ if (_tab isEqualTo "vehicles") then
     } forEach _civilianVehicles;
 
     // Add military vehicles to the list
-    private _militaryVehicles = [
-        A3A_faction_reb get 'vehicleBasic',
-        A3A_faction_reb get 'vehicleLightUnarmed',
-        A3A_faction_reb get 'vehicleTruck',
-        A3A_faction_reb get 'vehicleLightArmed',
-        A3A_faction_reb get 'staticMG',
-        A3A_faction_reb get 'staticMortar',
-        A3A_faction_reb get 'staticAT',
-        A3A_faction_reb get 'staticAA'
-    ];
+    private _militaryVehicles = 
+        (A3A_faction_reb get 'vehicleBasic') +
+        (A3A_faction_reb get 'vehicleLightUnarmed') +
+        (A3A_faction_reb get 'vehicleTruck') +
+        (A3A_faction_reb get 'vehicleLightArmed') +
+        (A3A_faction_reb get 'staticMG') +
+        (A3A_faction_reb get 'staticMortar') +
+        (A3A_faction_reb get 'staticAT') +
+        (A3A_faction_reb get 'staticAA');
 
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;

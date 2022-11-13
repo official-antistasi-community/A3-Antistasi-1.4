@@ -15,8 +15,8 @@ _display = findDisplay 100;
 if (str (_display) != "no display") then
 {
 	_ChildControl = _display displayCtrl 104;
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[FactionGet(reb,"vehicleBasic")] call A3A_fnc_vehiclePrice];
-	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> FactionGet(reb,"vehicleBasic") >> "displayName")];
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[selectRandom (FactionGet(reb,"vehicleBasic"))] call A3A_fnc_vehiclePrice];
+	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> selectRandom (FactionGet(reb,"vehicleBasic")) >> "displayName")];
 	_ChildControl = _display displayCtrl 105;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[FactionGet(reb,"vehicleLightUnarmed")] call A3A_fnc_vehiclePrice];
 	_childControl ctrlSetText format ["%1",getText (configFile >> "CfgVehicles" >> FactionGet(reb,"vehicleLightUnarmed") >> "displayName")];

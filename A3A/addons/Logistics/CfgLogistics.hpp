@@ -39,3 +39,12 @@ class DOUBLES(ADDON,Cargo)
     #include "Cargo\ACE.hpp"
 
 };
+
+class DOUBLES(ADDON,Packable) {
+    class TRIPLES(ADDON,Packable,Base)
+    {
+        packObject = "CargoNet_01_box_F";
+    };
+
+    #include "Packable\Vanilla.hpp"
+};

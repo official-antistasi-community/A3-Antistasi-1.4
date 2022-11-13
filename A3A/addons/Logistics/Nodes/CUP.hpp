@@ -333,11 +333,12 @@ class CUP_WheeledVehicles_CUP_WheeledVehicles_Datsun_CUP_datsun_civil_p3d : TRIP
 
 class CUP_WheeledVehicles_CUP_WheeledVehicles_LR_model_LeftHand_CUP_LR_p3d: TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
+    canLoadWeapon = 0;
+    class Nodes
     {
         class Node1
         {
-            offset[] = {0,-0.3,-0.5};
+            offset[] = {0,-0.35,-0.5};
             seats[] = {3,4};
         };
         class Node2
@@ -347,7 +348,7 @@ class CUP_WheeledVehicles_CUP_WheeledVehicles_LR_model_LeftHand_CUP_LR_p3d: TRIP
         };
         class Node3
         {
-            offset[] = {0,-1.9,-0.5};
+            offset[] = {0,-1.8,-0.5};
             seats[] = {0,1};
         };
     };

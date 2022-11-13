@@ -8,28 +8,28 @@
 ["flagTexture", ""] call _fnc_saveToTemplate;
 ["flagMarkerType", ""] call _fnc_saveToTemplate;
 
-["vehicleBasic", ""] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", ""] call _fnc_saveToTemplate;
-["vehicleLightArmed", ""] call _fnc_saveToTemplate;
-["vehicleTruck", ""] call _fnc_saveToTemplate;
-["vehicleAT", ""] call _fnc_saveToTemplate;
-["vehicleAA", ""] call _fnc_saveToTemplate;
+["vehicleBasic", [""]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", [""]] call _fnc_saveToTemplate;
+["vehicleLightArmed", [""]] call _fnc_saveToTemplate;
+["vehicleTruck", [""]] call _fnc_saveToTemplate;
+["vehicleAT", [""]] call _fnc_saveToTemplate;
+["vehicleAA", [""]] call _fnc_saveToTemplate;
 
-["vehicleBoat", ""] call _fnc_saveToTemplate;
-["vehicleRepair", ""] call _fnc_saveToTemplate;
+["vehicleBoat", [""]] call _fnc_saveToTemplate;
+["vehicleRepair", [""]] call _fnc_saveToTemplate;
 
-["vehiclePlane", ""] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
+["vehiclePlane", [""]] call _fnc_saveToTemplate;
+["vehicleHeli", [""]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", ""] call _fnc_saveToTemplate;
-["vehicleCivTruck", ""] call _fnc_saveToTemplate;
-["vehicleCivHeli", ""] call _fnc_saveToTemplate;
-["vehicleCivBoat", ""] call _fnc_saveToTemplate;
+["vehicleCivCar", [""]] call _fnc_saveToTemplate;
+["vehicleCivTruck", [""]] call _fnc_saveToTemplate;
+["vehicleCivHeli", [""]] call _fnc_saveToTemplate;
+["vehicleCivBoat", [""]] call _fnc_saveToTemplate;
 
-["staticMG", ""] call _fnc_saveToTemplate;
-["staticAT", ""] call _fnc_saveToTemplate;
-["staticAA", ""] call _fnc_saveToTemplate;
-["staticMortar", ""] call _fnc_saveToTemplate;
+["staticMG", [""]] call _fnc_saveToTemplate;
+["staticAT", [""]] call _fnc_saveToTemplate;
+["staticAA", [""]] call _fnc_saveToTemplate;
+["staticMortar", [""]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", ""] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;
 

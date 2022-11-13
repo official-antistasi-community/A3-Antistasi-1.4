@@ -8,27 +8,27 @@
 ["flagTexture", "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "I_G_Offroad_01_F"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "I_G_Offroad_01_armed_F"] call _fnc_saveToTemplate;
-["vehicleTruck", "I_C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleAT", "I_C_Offroad_02_AT_F"] call _fnc_saveToTemplate;
-private _vehicleAA = "";
+["vehicleBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ["I_G_Offroad_01_F"]] call _fnc_saveToTemplate;
+["vehicleLightArmed", ["I_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+["vehicleTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+["vehicleAT", ["I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
+private _vehicleAA = [""];
 
-["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "B_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
+["vehicleBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehicleRepair", ["B_G_Offroad_01_repair_F"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
+["vehiclePlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "C_Heli_Light_01_civil_F"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivCar", ["C_Offroad_01_F"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+["vehicleCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
+["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
-["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-private _staticAA = "I_static_AA_F";
-["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
+["staticMG", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
+["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
+private _staticAA = ["I_static_AA_F"];
+["staticMortar", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
@@ -39,8 +39,8 @@ private _staticAA = "I_static_AA_F";
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
 if (allowDLCWS && A3A_hasWS) then {
-  _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
-  _staticAA = "I_Tura_ZU23_lxWS";
+  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
+  _staticAA = ["I_Tura_ZU23_lxWS"];
 };
 ["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;

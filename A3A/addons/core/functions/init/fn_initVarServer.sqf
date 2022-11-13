@@ -516,10 +516,10 @@ Info("Creating pricelist");
 
 {server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivCar"));
 {server setVariable [_x,600,true]} forEach (FactionGet(reb,"vehicleCivTruck"));
-if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo []) then {
+if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo [""]) then {
 	{server setVariable [_x,5000,true]} forEach (FactionGet(reb,"vehicleCivHeli"));
 };
-if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo []) then {
+if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo [""]) then {
 	{server setVariable [_x,10000,true]} forEach (FactionGet(reb,"vehicleCivPlane"));
 };
 {server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivBoat"));
@@ -529,8 +529,11 @@ if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo []) then {
 {server setVariable [_x,700,true]} forEach [FactionGet(reb,"vehicleLightArmed"),FactionGet(reb,"vehicleAT")];
 {server setVariable [_x,400,true]} forEach [FactionGet(reb,"staticMG"),FactionGet(reb,"vehicleBoat"),FactionGet(reb,"vehicleRepair")];
 {server setVariable [_x,800,true]} forEach [FactionGet(reb,"staticMortar"),FactionGet(reb,"staticAT"),FactionGet(reb,"staticAA")];
-if (FactionGet(reb,"vehicleAA") isNotEqualTo "") then {
+if (FactionGet(reb,"vehicleAA") isNotEqualTo [""]) then {
     server setVariable [FactionGet(reb,"vehicleAA"), 1100, true]; // should be vehSDKTruck + staticAAteamPlayer otherwise things will break
+};
+if (FactionGet(reb,"vehicleHeli") isNotEqualTo [""]) then {
+	{server setVariable [_x,6000,true]} forEach (FactionGet(reb,"vehicleHeli"));
 };
 ///////////////////////
 //     GARRISONS    ///

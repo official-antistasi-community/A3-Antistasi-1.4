@@ -8,27 +8,27 @@
 ["flagTexture", "\uns_flags\flag_vc_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "Faction_UNS_VC"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "uns_m274"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "uns_Type55"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "uns_Type55_LMG"] call _fnc_saveToTemplate;
-["vehicleTruck", "uns_nvatruck_open"] call _fnc_saveToTemplate;
-["vehicleAT", "uns_Type55_RR57"] call _fnc_saveToTemplate;
-["vehicleAA", "uns_nvatruck_zpu"] call _fnc_saveToTemplate;
+["vehicleBasic", []"uns_m274"]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ["uns_Type55"]] call _fnc_saveToTemplate;
+["vehicleLightArmed", ["uns_Type55_LMG"]] call _fnc_saveToTemplate;
+["vehicleTruck",["uns_nvatruck_open"]] call _fnc_saveToTemplate;
+["vehicleAT", ["uns_Type55_RR57"]] call _fnc_saveToTemplate;
+["vehicleAA", ["uns_nvatruck_zpu"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", "UNS_VC_Sampan_Transport"] call _fnc_saveToTemplate;
-["vehicleRepair", "uns_zil157_repair"] call _fnc_saveToTemplate;
+["vehicleBoat", ["UNS_VC_Sampan_Transport"]] call _fnc_saveToTemplate;
+["vehicleRepair", ["uns_zil157_repair"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "uns_an2"] call _fnc_saveToTemplate;
+["vehiclePlane", ["uns_an2"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "uns_willys"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "uns_zil157"] call _fnc_saveToTemplate;
-["vehicleCivHeli", ""] call _fnc_saveToTemplate;
-["vehicleCivBoat", "UNS_skiff2_C"] call _fnc_saveToTemplate;
+["vehicleCivCar", ["uns_willys"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["uns_zil157"]] call _fnc_saveToTemplate;
+["vehicleCivHeli", [""]] call _fnc_saveToTemplate;
+["vehicleCivBoat", ["UNS_skiff2_C"]] call _fnc_saveToTemplate;
 
-["staticMG", "uns_pk_high_VC"] call _fnc_saveToTemplate;
-["staticAT", "uns_Type36_57mm_VC"] call _fnc_saveToTemplate;
-["staticAA", "uns_ZPU2_VC"] call _fnc_saveToTemplate;
-["staticMortar", "uns_m1941_82mm_mortarVC"] call _fnc_saveToTemplate;
+["staticMG", ["uns_pk_high_VC"]] call _fnc_saveToTemplate;
+["staticAT", ["uns_Type36_57mm_VC"]] call _fnc_saveToTemplate;
+["staticAA", ["uns_ZPU2_VC"]] call _fnc_saveToTemplate;
+["staticMortar", ["uns_m1941_82mm_mortarVC"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "uns_8Rnd_82mmHE_M1941"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "uns_8Rnd_82mmSMOKE_M1941"] call _fnc_saveToTemplate;
 

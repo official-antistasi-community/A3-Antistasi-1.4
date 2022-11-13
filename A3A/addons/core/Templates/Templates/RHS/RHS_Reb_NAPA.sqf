@@ -8,27 +8,27 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "rhsgref_cdf_reg_uaz_open"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "rhsgref_nat_uaz_dshkm"] call _fnc_saveToTemplate;
-["vehicleTruck", "rhsgref_cdf_zil131"] call _fnc_saveToTemplate;
-["vehicleAT", "rhsgref_nat_uaz_spg9"] call _fnc_saveToTemplate;
-["vehicleAA", "rhsgref_nat_ural_Zu23"] call _fnc_saveToTemplate;
+["vehicleBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ["rhsgref_cdf_reg_uaz_open"]] call _fnc_saveToTemplate;
+["vehicleLightArmed", ["rhsgref_nat_uaz_dshkm"]] call _fnc_saveToTemplate;
+["vehicleTruck", ["rhsgref_cdf_zil131"]] call _fnc_saveToTemplate;
+["vehicleAT", ["rhsgref_nat_uaz_spg9"]] call _fnc_saveToTemplate;
+["vehicleAA", ["rhsgref_nat_ural_Zu23"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "rhsgref_cdf_gaz66_repair"] call _fnc_saveToTemplate;
+["vehicleBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehicleRepair", ["rhsgref_cdf_gaz66_repair"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "RHS_AN2"] call _fnc_saveToTemplate;
+["vehiclePlane", ["RHS_AN2"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "RHS_Ural_Open_Civ_03"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "RHS_Mi8t_civilian"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivCar", ["C_Offroad_01_F"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["RHS_Ural_Open_Civ_03"]] call _fnc_saveToTemplate;
+["vehicleCivHeli", ["RHS_Mi8t_civilian"]] call _fnc_saveToTemplate;
+["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", "rhsgref_ins_DSHKM"] call _fnc_saveToTemplate;
-["staticAT", "rhsgref_nat_SPG9"] call _fnc_saveToTemplate;
-["staticAA", "rhsgref_nat_ZU23"] call _fnc_saveToTemplate;
-["staticMortar", "rhsgref_nat_2b14"] call _fnc_saveToTemplate;
+["staticMG", ["rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
+["staticAT", ["rhsgref_nat_SPG9"]] call _fnc_saveToTemplate;
+["staticAA", ["rhsgref_nat_ZU23"]] call _fnc_saveToTemplate;
+["staticMortar", ["rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 

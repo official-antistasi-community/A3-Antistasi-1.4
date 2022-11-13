@@ -11,6 +11,8 @@
 ["diveGear", ["U_I_Wetsuit", "V_RebreatherIA", "G_Diving"]] call _fnc_saveToTemplate;
 
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
+["vehicleCivPlane", ["C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
+
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
 ["vehicleFuelDrum", ["FlexibleTank_01_forest_F", 50]] call _fnc_saveToTemplate;

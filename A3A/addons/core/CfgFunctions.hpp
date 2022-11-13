@@ -756,6 +756,9 @@ class CfgFunctions
             class buyItem {};
             class attachedObjects {};
             class dropObject {};
+            class medicalBox {};
+            class medicalBoxFill {};
+            class openDoorsTent {};
             class remainingFuel {};
         };
     };

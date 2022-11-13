@@ -140,11 +140,10 @@ getVar("vehiclesTanks")
 setVar("vehiclesArmor", _vehArmor);
 
 //rebel vehicles
-private _vehReb = [
-    Reb("vehicleBasic"), Reb("vehicleTruck"), Reb("vehicleRepair"), Reb("vehicleBoat")
-    , Reb("vehicleAT"), Reb("vehicleLightArmed"), Reb("vehicleLightUnarmed")
-    , Reb("staticMG"), Reb("staticAT"), Reb("staticAA"), Reb("staticMortar")
-];
+private _vehReb = 
+    Reb("vehicleBasic") + Reb("vehicleTruck") + Reb("vehicleRepair") + Reb("vehicleBoat")
+    + Reb("vehicleAT") + Reb("vehicleLightArmed") + Reb("vehicleLightUnarmed")
+    + Reb("staticMG") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortar");
 setVar("vehiclesReb", _vehReb);
 
 //trucks that can cary logistics cargo

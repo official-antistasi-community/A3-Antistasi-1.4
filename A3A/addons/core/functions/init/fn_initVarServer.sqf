@@ -54,6 +54,9 @@ DECLARE_SERVER_VAR(distanceForLandAttack, 3000);			// now faction-adjusted  - if
 //Disabled DLC according to server parameters
 //DECLARE_SERVER_VAR(disabledMods, call A3A_fnc_initDisabledMods);
 
+// Used by headless clients for crate scaling
+DECLARE_SERVER_VAR(A3A_activePlayerCount, 1);
+
 //Legacy tool for scaling AI difficulty. Should die.
 DECLARE_SERVER_VAR(difficultyCoef, 0);
 
@@ -94,7 +97,7 @@ DECLARE_SERVER_VAR(haveRadio, false);
 //Initial HR
 server setVariable ["hr",8,true];
 //Initial faction money pool
-server setVariable ["resourcesFIA",1000,true];
+server setVariable ["resourcesFIA",rebelFactionStartingMoney,true];
 // Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 // Hash map of custom non-member/AI item thresholds
@@ -105,8 +108,6 @@ DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
 ////////////////////////////////////
 //We shouldn't need to sync these.
 Info("Setting server only variables");
-
-playerStartingMoney = 100;			// should probably be a parameter
 
 // horrible naming
 prestigeOPFOR = [75, 50] select cadetMode;												//Initial % support for NATO on each city
@@ -121,7 +122,6 @@ A3A_recentDamageOcc = [];
 A3A_recentDamageInv = [];
 
 // Balance params updated by aggressionUpdateLoop
-A3A_activePlayerCount = 1;
 A3A_balancePlayerScale = 1;					// Important due to load/save scaling to 1 playerScale
 A3A_balanceVehicleCost = 110;
 A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
@@ -255,7 +255,9 @@ FIX_LINE_NUMBERS()
 Info("Setting up faction and DLC equipment flags");
 
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
-private _loadedDLC = getLoadedModsInfo select {_x#3 and !(_x#1 in ["A3","curator","argo","tacops"])} apply {tolower (_x#1)};
+private _loadedDLC = getLoadedModsInfo select {
+	(_x#3 or {_x#1 isEqualTo "ws"}) and {!(_x#1 in ["A3","curator","argo","tacops"])}} apply {tolower (_x#1)
+};
 A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
 {
 	A3A_enabledDLC insert [0, getArray (configFile/"A3A"/"Templates"/_x/"forceDLC"), true];		// add unique elements only
@@ -298,10 +300,6 @@ Debug_1("Extra equip mod paths: %1", A3A_extraEquipMods);
 //         TEMPLATE LOADING        ///
 //////////////////////////////////////
 Info("Reading templates");
-
-// Hack: Need vanilla nodes to define logistics arrays apparently
-private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Logistics_Nodes.sqf)];
-
 {
     private _side = [west, east, resistance, civilian] # _forEachIndex;
     Info_2("Loading template %1 for side %2", _x, _side);
@@ -314,24 +312,17 @@ private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Log
     private _type = ["Occ", "Inv", "Reb", "Civ"] # _forEachIndex;
     missionNamespace setVariable ["A3A_"+_type+"_template", _x];			// don't actually need this atm, but whatever
 
-	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray(_cfg/"nodes");
 } forEach (_saveData get "factions");
 
 {
-	private _cfg = configFile/"A3A"/"Templates"/_x;
+	private _cfg = configFile/"A3A"/"AddonVics"/_x;
 	private _basepath = getText (_cfg/"path") + "\";
 	{
 		Info_2("Loading addon file %1 for side %2", _x#1, _x#0);
 		[_x#0, _basepath + _x#1] call A3A_fnc_loadAddon;
 	} forEach getArray (_cfg/"files");
 
-	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray (_cfg/"nodes");
 } forEach (_saveData get "addonVics");
-
-{
-    Info_1("Loading logistic nodes: %1", _x);
-    call compile preprocessFileLineNumbers _x;
-} forEach _logisticsFiles;
 
 call A3A_fnc_compileMissionAssets;
 
@@ -506,13 +497,6 @@ DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
 if (A3A_hasACE) then {
 	[] call A3A_fnc_aceModCompat;
 };
-
-//if (A3A_hasRHS) then {
-//	[] call A3A_fnc_rhsModCompat;
-//};
-//if (A3A_hasIFA) then {
-//	[] call A3A_fnc_ifaModCompat;
-//};
 
 ////////////////////////////////////
 //     ACRE ITEM MODIFICATIONS   ///

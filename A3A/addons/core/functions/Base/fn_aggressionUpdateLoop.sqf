@@ -10,6 +10,7 @@ FIX_LINE_NUMBERS()
 while {true} do
 {
     A3A_activePlayerCount = count ((allPlayers - entities "HeadlessClient_F") select { !(_x getVariable ["isAFK", false]) });
+    publicVariable "A3A_activePlayerCount";
 
     //Sleep if no player is online
     if (A3A_activePlayerCount == 0) then { sleep 60; continue };

@@ -318,7 +318,9 @@ private _categoryOverrideTable = [
 ["uns_type99_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
 ["uns_mas4956", ["Rifles","Weapons"]],
 ["uns_mas4956_gl", ["Rifles","Weapons","GrenadeLaunchers"]],
-["uns_m72used", ["Unknown","Weapons"]],
+["uns_m72", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["uns_m72used", ["UsedLaunchers","Weapons"]],
+
 //ACRE Radios
 //Using Gadgets instead of Radios to prevent future issues as they don't use the Radio Slot
 ["ACRE_PRC148", ["Gadgets","items"]],
@@ -343,11 +345,14 @@ private _categoryOverrideTable = [
 ["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]],
 
-
 //GM wrong listed stuff
-["gm_fim43_oli",["MissileLaunchers","Weapons","AA"]],
-["gm_fim43_spent_oli",["MissileLaunchers","Weapons","AA"]],
-["gm_9k32m_oli",["MissileLaunchers","Weapons","AA"]],
+["gm_m72a3_oli", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["gm_m72a3_spent_oli", ["UsedLaunchers","Weapons"]],
+["gm_fim43_oli",["MissileLaunchers","Weapons","AA","Disposable"]],
+["gm_fim43_spent_oli", ["UsedLaunchers","Weapons"]],
+["gm_9k32m_oli", ["MissileLaunchers","Weapons","AA","Disposable"]],
+["gm_9k32m_spent_oli", ["UsedLaunchers","Weapons"]],
+
 ["gm_mp2a1_blk",["SMGs","Weapons"]],
 ["gm_rpk_wud",["MachineGuns","Weapons"]],
 ["gm_lmgrpk_brn",["MachineGuns","Weapons"]],

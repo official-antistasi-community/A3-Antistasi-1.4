@@ -50,7 +50,7 @@ else
 		{
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//[_unit,"carry"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-		//_unit call A3A_fnc_logistics_addLoadAction;
+		//_unit call A3A_Logistics_fnc_addLoadAction;
 		if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 		}
 	else

@@ -38,7 +38,7 @@ class Params
     class civTraffic
     {
         title = "Quantity of civilan traffic and parked vehicles";
-        values[] = {0,1,2,4,};
+        values[] = {0,1,2,4};
         texts[] = {"None","Low","Medium","High"};
         default = 2;
     };
@@ -69,6 +69,27 @@ class Params
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
         default = 5;
+    };
+    class playerStartingMoney
+    {
+        title = "Player Starting Money";
+        values[] = {0, 100, 250, 500, 1000, 2500};
+        texts[] = {"0","100","250","500","1000","2500"};
+        default = 100;
+    };
+    class rebelFactionStartingMoney
+    {
+        title = "Rebel Faction Starting Money";
+        values[] = {0,1000,2500,5000,10000};
+        texts[] = {"0","1000","2500","5000","10000"};
+        default = 1000;
+    };
+    class A3A_idleTimeout
+    {
+        title = "Time before a player is considered AFK";
+        values[] = {0,180,300,900,1800};
+        texts[] = {"disabled","2min","5min","15min","30min"};
+        default = 300;
     };
 
     class SpacerMembership
@@ -158,13 +179,13 @@ class Params
         texts[] =  {"1.0x","1.1x","1.2x","1.3x","1.4x","1.5x"};
         default = 12;
     };
-    class A3A_attackMissionDistMul
+    class A3A_attackHQProximityMul
     {
         attr[] = {"server"};
-        title = "Enemy preference for attacking rebel targets within mission distance";
-        values[] = {1,2,3,5};
-        texts[] =  {"No change","2x","3x","5x"};
-        default = 2;
+        title = "Enemy preference for attacking rebel targets closer to HQ";
+        values[] = {1,2,3,5,8};
+        texts[] =  {"No change","2x","3x","5x","8x"};
+        default = 3;
     };
     class A3A_enemySkillMul
     {

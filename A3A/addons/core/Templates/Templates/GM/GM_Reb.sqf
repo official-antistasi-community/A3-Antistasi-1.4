@@ -49,6 +49,8 @@ private _initialRebelEquipment = [
 "gm_p1_blk","gm_pm_blk","gm_p2a1_blk",
 "CUP_srifle_Mosin_Nagant","CUP_srifle_LeeEnfield", "CUP_srifle_Remington700",
 "CUP_5Rnd_762x54_Mosin_M","CUP_10x_303_M","CUP_6Rnd_762x51_R700",
+["gm_m72a3_oli", 20], "gm_1Rnd_66mm_heat_m72a3",
+["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
 "gm_8Rnd_9x18mm_B_pst_pm_blk", "gm_8Rnd_9x19mm_B_DM11_p1_blk",
 "gm_1Rnd_265mm_flare_single_red_gc", "gm_1Rnd_265mm_flare_single_wht_gc", "gm_1Rnd_265mm_flare_single_grn_DM11", 
 "gm_1Rnd_265mm_flare_single_wht_DM15", "gm_1Rnd_265mm_flare_multi_wht_DM25",

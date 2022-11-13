@@ -32,7 +32,7 @@ _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"
 _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
-[_truckX] call A3A_fnc_logistics_addLoadAction;
+[_truckX] call A3A_Logistics_fnc_addLoadAction;
 _truckX addAction ["Delivery infos",
 	{
 		_text = format ["Deliver this box to %1, unload it to start distributing to people",(_this select 0) getVariable "destinationX"]; //This need a rework

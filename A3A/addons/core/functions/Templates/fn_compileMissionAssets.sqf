@@ -148,7 +148,7 @@ private _vehReb = [
 setVar("vehiclesReb", _vehReb);
 
 //trucks that can cary logistics cargo
-private _vehCargoTrucks = (_vehTrucks + OccAndInv("vehiclesCargoTrucks")) select { [_x] call A3A_fnc_logistics_getVehCapacity > 1 };
+private _vehCargoTrucks = (_vehTrucks + OccAndInv("vehiclesCargoTrucks")) select { [_x] call A3A_Logistics_fnc_getVehCapacity > 1 };
 setVar("vehiclesCargoTrucks", _vehCargoTrucks);
 
 missionNamespace setVariable ["A3A_faction_all", A3A_faction_all, true];

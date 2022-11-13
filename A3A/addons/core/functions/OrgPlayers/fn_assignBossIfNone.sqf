@@ -16,10 +16,10 @@ private _electionReason = call {
     if (theBoss getVariable ["isAFK", false]) exitWith { "the boss is AFK" };
 };
 if (isNil "_electionReason") exitWith {
-    Debug_1("Not attempting to assign new boss - player %1 is the boss", theBoss);
+    Debug_1("Not attempting to assign new boss - player %1 is the boss", name theBoss);
     A3A_electionInProgress = nil;
 };
-Info_2("Election triggered because %1. Previous boss was %2", _electionReason, theBoss);
+Info_2("Election triggered because %1. Previous boss was %2", _electionReason, name theBoss);
 
 
 // Note: allPlayers doesn't work for a while after server startup, so this function isn't used for picking the initial commander

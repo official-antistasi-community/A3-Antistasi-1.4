@@ -55,7 +55,8 @@ if(!(_result select 0)) exitWith
     };
 };
 
-["Undercover ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+["Undercover ON", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 
 [player, true] remoteExec["setCaptive", 0, player];
 player setCaptive true;
@@ -217,7 +218,8 @@ if !(isNull (objectParent player)) then
     } forEach((assignedCargo(vehicle player)) + (crew(vehicle player)) - [player]);
 };
 
-["Undercover OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+["Undercover OFF", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 [] spawn A3A_fnc_statistics;
 
 switch (_reason) do

@@ -347,7 +347,7 @@ if  (_tab in ["other"]) then
                 _fuelDrum # 0,  
                 _fuelDrum # 1, 
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_fnc_logistics_addLoadAction', false]
+                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
             ], 
             false,
@@ -364,7 +364,7 @@ if  (_tab in ["other"]) then
                 _fuelTank # 0,  
                 _fuelTank # 1, 
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_fnc_logistics_addLoadAction', false]
+                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
             ], 
             true,

@@ -15,7 +15,7 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [_object] call A3A_fnc_logistics_addLoadAction;
+    Example: [_object] call A3A_Logistics_fnc_addLoadAction;
 */
 params [["_object", objNull, [objNull]], ["_action", "load", [""]]];
 #include "..\..\script_component.hpp"

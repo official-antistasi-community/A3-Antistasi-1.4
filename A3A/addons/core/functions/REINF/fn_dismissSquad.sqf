@@ -52,12 +52,12 @@ private _assignedVehicles =	[];
 			if (_backpck != "") then
 			{
                 private _assemblesTo = getText (configFile/"CfgVehicles"/_backpck/"assembleInfo"/"assembleTo");
-				switch (_assemblesTo) do
+				switch (true) do
 				{
-					case FactionGet(reb,"staticMortar"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticMG"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAT")] call A3A_fnc_vehiclePrice)/2};
+					case _assemblesTo in FactionGet(reb,"staticMortar"): {_resourcesFIA = _resourcesFIA + ([selectRandom (FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)/2};
+					case _assemblesTo in FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticAA"))] call A3A_fnc_vehiclePrice)/2};
+					case _assemblesTo in FactionGet(reb,"staticMG"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticMG"))] call A3A_fnc_vehiclePrice)/2};
+					case _assemblesTo in FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticAT"))] call A3A_fnc_vehiclePrice)/2};
 				};
 			};
 		};

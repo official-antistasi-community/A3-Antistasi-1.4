@@ -5,7 +5,7 @@ if (!isServer and hasInterface) exitWith {};
 private ["_costs","_groupX","_unit","_minesX","_radiusX","_roads","_truckX","_mineX","_countX"];
 
 private _typeExp = FactionGet(reb,"unitExp");
-private _typeVeh = FactionGet(reb,"vehicleLightUnarmed");
+private _typeVeh = selectRandom (FactionGet(reb,"vehicleLightUnarmed"));
 _costs = (server getVariable _typeExp) + ([_typeVeh] call A3A_fnc_vehiclePrice);
 
 [-1,-1*_costs] remoteExec ["A3A_fnc_resourcesFIA",2];

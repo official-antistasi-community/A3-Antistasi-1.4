@@ -36,7 +36,7 @@ if (_typeX != "delete") then
 	if (_isRoad) then
 		{
 		_typeGroup = FactionGet(reb,"groupAT");
-		_costs = _costs + ([FactionGet(reb,"vehicleLightArmed")] call A3A_fnc_vehiclePrice) + (server getVariable FactionGet(reb,"unitCrew"));
+		_costs = _costs + ([selectRandom(FactionGet(reb,"vehicleLightArmed"))] call A3A_fnc_vehiclePrice) + (server getVariable FactionGet(reb,"unitCrew"));
 		_hr = _hr + 1;
 		};
 

@@ -19,7 +19,7 @@ if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
 	_typeGroup = FactionGet(reb,"groupAT");
-	_typeVehX = FactionGet(reb,"vehicleTruck");
+	_typeVehX = (selectRandom (FactionGet(reb,"vehicleTruck")));
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];

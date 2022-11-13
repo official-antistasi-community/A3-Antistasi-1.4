@@ -8,7 +8,7 @@ if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Minefi
 
 _typeX = _this select 0;
 
-_costs = 2*(server getVariable FactionGet(reb,"unitExp")) + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice);
+_costs = 2*(server getVariable FactionGet(reb,"unitExp")) + ([selectRandom (FactionGet(reb,"vehicleTruck"))] call A3A_fnc_vehiclePrice);
 _hr = 2;
 if (_typeX == "delete") then
 	{

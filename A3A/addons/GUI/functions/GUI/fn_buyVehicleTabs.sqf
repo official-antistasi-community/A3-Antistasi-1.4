@@ -60,18 +60,24 @@ if (_tab isEqualTo "vehicles") then
         _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
     } forEach _civilianVehicles;
 
+    private _vehicleAA = (A3A_faction_reb get 'vehicleAA');
+    copyToClipboard str _vehicleAA;
+
     // Add military vehicles to the list
     private _militaryVehicles = 
         (A3A_faction_reb get 'vehicleBasic') +
         (A3A_faction_reb get 'vehicleLightUnarmed') +
         (A3A_faction_reb get 'vehicleTruck') +
         (A3A_faction_reb get 'vehicleLightArmed') +
-        (A3A_faction_reb get 'vehicleAA') +
         (A3A_faction_reb get 'staticMG') +
         (A3A_faction_reb get 'staticMortar') +
         (A3A_faction_reb get 'staticAT') +
         (A3A_faction_reb get 'staticAA');
 
+    if (_vehicleAA isNotEqualTo [""]) then {
+        _militaryVehicles append _vehicleAA;
+    };
+    
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
         _buyableVehiclesList pushBack [_x, _vehiclePrice, false];

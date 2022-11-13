@@ -87,7 +87,7 @@ else
 	_dirVeh = getDir _road;
 	};
 _posVeh = [_posroad, 3, _dirveh + 90] call BIS_Fnc_relPos;
-_veh = FactionGet(reb,"vehicleLightUnarmed") createVehicle _posVeh;
+_veh = (selectRandom (FactionGet(reb,"vehicleLightUnarmed"))) createVehicle _posVeh;
 _veh allowDamage false;
 _veh setDir _dirVeh;
 sleep 15;

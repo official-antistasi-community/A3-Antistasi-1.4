@@ -82,7 +82,7 @@ if (_typeCrew in _garrison) then
 	{
 		private _unit = [_groupMortars, _typeCrew, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
-		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
+		private _veh = selectRandom(FactionGet(reb,"staticMortar")) createVehicle _pos;
 		_vehiclesX pushBack _veh;
 		_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
 		_unit assignAsGunner _veh;

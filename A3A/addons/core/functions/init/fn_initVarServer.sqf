@@ -387,7 +387,8 @@ for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append [FactionGet(reb,"vehicleCivCar"), FactionGet(reb,"vehicleCivTruck")];			// Civ car/truck from rebel template, in case they're different
+_civVehicles append FactionGet(reb,"vehicleCivCar"); 
+_civVehicles append FactionGet(reb,"vehicleCivTruck");			// Civ car/truck from rebel template, in case they're different
 _civVehicles pushBackUnique "C_Van_01_box_F";		// Box van from bank mission. TODO: Define in rebel template
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
@@ -411,7 +412,7 @@ for "_i" from 0 to (count _civBoatData - 2) step 2 do {
 DECLARE_SERVER_VAR(civBoats, _civBoats);
 DECLARE_SERVER_VAR(civBoatsWeighted, _civBoatsWeighted);
 
-private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + [FactionGet(reb,"vehicleCivBoat"), FactionGet(reb,"vehicleCivHeli")];
+private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehicleCivBoat") + FactionGet(reb,"vehicleCivHeli");
 DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 
 //////////////////////////////////////
@@ -464,7 +465,7 @@ private _groundVehicleThreat = createHashMap;
 
 { _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMG");
 { _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + [FactionGet(Reb, "vehicleAT")];
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + FactionGet(Reb, "vehicleAT");
 
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
@@ -526,11 +527,11 @@ if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo [""]) then {
 {server setVariable [_x,50,true]} forEach (FactionGet(reb,"vehicleBasic"));
 {server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleLightUnarmed"));
 {server setVariable [_x,300,true]} forEach (FactionGet(reb,"vehicleTruck"));
-{server setVariable [_x,700,true]} forEach [FactionGet(reb,"vehicleLightArmed"),FactionGet(reb,"vehicleAT")];
-{server setVariable [_x,400,true]} forEach [FactionGet(reb,"staticMG"),FactionGet(reb,"vehicleBoat"),FactionGet(reb,"vehicleRepair")];
-{server setVariable [_x,800,true]} forEach [FactionGet(reb,"staticMortar"),FactionGet(reb,"staticAT"),FactionGet(reb,"staticAA")];
+{server setVariable [_x,700,true]} forEach FactionGet(reb,"vehicleLightArmed") + FactionGet(reb,"vehicleAT");
+{server setVariable [_x,400,true]} forEach FactionGet(reb,"staticMG") + FactionGet(reb,"vehicleBoat") + FactionGet(reb,"vehicleRepair");
+{server setVariable [_x,800,true]} forEach FactionGet(reb,"staticMortar") + FactionGet(reb,"staticAT") + FactionGet(reb,"staticAA");
 if (FactionGet(reb,"vehicleAA") isNotEqualTo [""]) then {
-    server setVariable [FactionGet(reb,"vehicleAA"), 1100, true]; // should be vehSDKTruck + staticAAteamPlayer otherwise things will break
+    {server setVariable [_x,1100,true]} forEach (FactionGet(reb,"vehicleAA")); // should be vehSDKTruck + staticAAteamPlayer otherwise things will break
 };
 if (FactionGet(reb,"vehicleHeli") isNotEqualTo [""]) then {
 	{server setVariable [_x,6000,true]} forEach (FactionGet(reb,"vehicleHeli"));

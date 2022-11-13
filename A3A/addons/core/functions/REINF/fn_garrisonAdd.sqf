@@ -13,7 +13,7 @@ _typeX = _this select 0;
 _costs = 0;
 
 _costs = server getVariable _typeX;
-if (_typeX == FactionGet(reb,"unitCrew")) then {_costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)};
+if (_typeX == FactionGet(reb,"unitCrew")) then {_costs = _costs + ([selectRandom (FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)};
 
 if (_costs > _resourcesFIA) exitWith {["Garrisons", format ["You do not have enough money for this kind of unit (%1 € needed).",_costs]] call A3A_fnc_customHint;};
 

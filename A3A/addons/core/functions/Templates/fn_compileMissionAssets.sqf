@@ -67,7 +67,7 @@ setVar("vehiclesLightAPCs", OccAndInv("vehiclesLightAPCs"));
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
 setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
-setVar("vehiclesAA", OccAndInv("vehiclesAA") + [Reb("vehicleAA")] - [""]);
+setVar("vehiclesAA", OccAndInv("vehiclesAA") + Reb("vehicleAA") - [""]);
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
 setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight"));
@@ -77,10 +77,10 @@ setVar("vehiclesHelisTransport", OccAndInv("vehiclesHelisTransport"));
 setVar("vehiclesPlanesAA", OccAndInv("vehiclesPlanesAA"));
 setVar("vehiclesPlanesCAS", OccAndInv("vehiclesPlanesCAS"));
 setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
-setVar("staticMortars", OccAndInv("staticMortars") + [Reb("staticMortar")]);
-setVar("staticAA", OccAndInv("staticAA") + [Reb("staticAA")]);
-setVar("staticAT", OccAndInv("staticAT") + [Reb("staticAT")]);
-setVar("staticMG", OccAndInv("staticMG") + [Reb("staticMG")]);
+setVar("staticMortars", OccAndInv("staticMortars") + Reb("staticMortar"));
+setVar("staticAA", OccAndInv("staticAA") + Reb("staticAA"));
+setVar("staticAT", OccAndInv("staticAT") + Reb("staticAT"));
+setVar("staticMG", OccAndInv("staticMGs") + Reb("staticMG"));
 
 private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesMilitiaTrucks")
@@ -88,7 +88,7 @@ private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 setVar("vehiclesMilitia", _vehMilitia);
 
 //boats
-private _vehBoats = OccAndInv("vehiclesTransportBoats") + OccAndInv("vehiclesGunBoats") + [Reb("vehicleBoat")];
+private _vehBoats = OccAndInv("vehiclesTransportBoats") + OccAndInv("vehiclesGunBoats") + Reb("vehicleBoat");
 setVar("vehiclesBoats", _vehBoats);
 
 //Occ&Inv helicopters
@@ -104,21 +104,21 @@ private _vehFixedWing =
 OccAndInv("vehiclesPlanesCAS")
 + OccAndInv("vehiclesPlanesAA")
 + OccAndInv("vehiclesPlanesTransport")
-+ [Reb("vehiclePlane")];
++ Reb("vehiclePlane");
 setVar("vehiclesFixedWing", _vehFixedWing);
 
 //trucks to carry infantry
 private _vehTrucks =
 OccAndInv("vehiclesTrucks")
 + OccAndInv("vehiclesMilitiaTrucks")
-+ [Reb("vehicleTruck")];
++ Reb("vehicleTruck");
 setVar("vehiclesTrucks", _vehTrucks);
 
 //Armed cars
 private _carsArmed =
 OccAndInv("vehiclesLightArmed")
 + OccAndInv("vehiclesMilitiaLightArmed")
-+ [Reb("vehicleLightArmed")];
++ Reb("vehicleLightArmed");
 setVar("vehiclesLightArmed", _carsArmed);
 
 //Unarmed cars
@@ -126,7 +126,7 @@ private _carsUnarmed =
 OccAndInv("vehiclesLightUnarmed")      // anything else?
 + OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesPolice")
-+ [Reb("vehicleLightUnarmed")];
++ Reb("vehicleLightUnarmed");
 setVar("vehiclesLightUnarmed", _carsUnarmed);
 setVar("vehiclesLight", _carsArmed + _carsUnarmed);
 

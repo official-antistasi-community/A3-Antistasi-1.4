@@ -111,6 +111,7 @@ Maintainer: DoomMetal
 #define A3A_Icon_Refuel             "\a3\ui_f\data\igui\cfg\actions\refuel_ca.paa"
 #define A3A_Icon_Light              "\a3\ui_f\data\igui\cfg\actions\ico_cpt_land_on_ca.paa"
 #define A3A_Icon_Gear               "\a3\ui_f\data\igui\cfg\actions\gear_ca.paa"
+#define A3A_Icon_Repair             "\a3\ui_f\data\igui\cfg\actions\repair_ca.paa"
 
 // Commander picture
 #define A3A_Icon_PlayerCommander    "\A3\Ui_f\data\GUI\Cfg\Ranks\colonel_gs.paa"

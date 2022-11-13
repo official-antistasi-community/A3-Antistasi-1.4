@@ -1,5 +1,5 @@
 /*
-Function: A3A_fnc_initPackableObjects
+Function: A3A_Logistics_fnc_initPackableObjects
 Author: Killerswin2
 	handles adding an addaction for packing objects into a different object for transporting
 Arguments:
@@ -12,7 +12,7 @@ Environment: Unscheduled
 Public: No
 Dependencies: 
 Example:
-	[] call A3A_fnc_initPackableObjects; 
+	[] call A3A_Logistics_fnc_initPackableObjects; 
 */
 params  [
 	["_object", objNull, [objNull]],
@@ -24,7 +24,7 @@ if (isNull _object) exitwith {remoteExec ["", _jipKey]};
 _object addAction [
 	"Pack object",
 	{
-		[_this#3] call A3A_fnc_packObject;
+		[_this#3] call A3A_Logistics_fnc_packObject;
 	},
 	_object,
 	1.5,

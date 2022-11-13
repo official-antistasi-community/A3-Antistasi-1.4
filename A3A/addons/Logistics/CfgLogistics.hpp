@@ -36,5 +36,6 @@ class DOUBLES(ADDON,Cargo)
     #include "Cargo\UNS.hpp"
     #include "Cargo\Vanilla.hpp"
     #include "Cargo\VN.hpp"
+    #include "Cargo\ACE.hpp"
 
 };

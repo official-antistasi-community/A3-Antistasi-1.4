@@ -514,15 +514,15 @@ Info("Creating pricelist");
 {server setVariable [_x,100,true]} forEach [FactionGet(reb,"unitMedic"), FactionGet(reb,"unitExp"), FactionGet(reb,"unitEng")];
 {server setVariable [_x,150,true]} forEach [FactionGet(reb,"unitSL"), FactionGet(reb,"unitSniper")];
 
-server setVariable [FactionGet(reb,"vehicleCivCar"),200,true];
-server setVariable [FactionGet(reb,"vehicleCivTruck"),600,true];
-if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo "") then {
-    server setVariable [FactionGet(reb,"vehicleCivHeli"),5000,true];
+{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivCar"));
+{server setVariable [_x,600,true]} forEach (FactionGet(reb,"vehicleCivTruck"));
+if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo []) then {
+	{server setVariable [_x,5000,true]} forEach (FactionGet(reb,"vehicleCivHeli"));
 };
-server setVariable [FactionGet(reb,"vehicleCivBoat"),200,true];
-server setVariable [FactionGet(reb,"vehicleBasic") ,50,true];
-server setVariable [FactionGet(reb,"vehicleLightUnarmed"),200,true];
-server setVariable [FactionGet(reb,"vehicleTruck"),300,true];
+{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivBoat"));
+{server setVariable [_x,50,true]} forEach (FactionGet(reb,"vehicleBasic"));
+{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleLightUnarmed"));
+{server setVariable [_x,300,true]} forEach (FactionGet(reb,"vehicleTruck"));
 {server setVariable [_x,700,true]} forEach [FactionGet(reb,"vehicleLightArmed"),FactionGet(reb,"vehicleAT")];
 {server setVariable [_x,400,true]} forEach [FactionGet(reb,"staticMG"),FactionGet(reb,"vehicleBoat"),FactionGet(reb,"vehicleRepair")];
 {server setVariable [_x,800,true]} forEach [FactionGet(reb,"staticMortar"),FactionGet(reb,"staticAT"),FactionGet(reb,"staticAA")];

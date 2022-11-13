@@ -13,12 +13,15 @@
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
-["vehicleFuelDrum", ["FlexibleTank_01_forest_F", 160]] call _fnc_saveToTemplate;
-["vehicleFuelTank", ["B_Slingload_01_Fuel_F", 1000]] call _fnc_saveToTemplate;
+["vehicleFuelDrum", ["FlexibleTank_01_forest_F", 50]] call _fnc_saveToTemplate;
+["vehicleFuelTank", ["B_Slingload_01_Fuel_F", 500]] call _fnc_saveToTemplate;
+["vehicleRepairStation", ["Land_RepairDepot_01_green_F", 500]] call _fnc_saveToTemplate;
+["vehicleAmmoStation", ["Box_IND_AmmoVeh_F", 500]] call _fnc_saveToTemplate;
+["vehicleHealthStation", ["Land_MedicalTent_01_MTP_closed_F", 50]] call _fnc_saveToTemplate;
 
-private _medBox = ["Box_AAF_Equip_F", 10];
+private _medBox = ["Box_AAF_Equip_F", 5];
 if(A3A_hasACE) then {
-	_medBox = ["ACE_medicalSupplyCrate_advanced", 10];
+	_medBox = ["ACE_medicalSupplyCrate_advanced", 5];
 };
 
 ["vehicleMedicalBox", _medBox] call _fnc_saveToTemplate;

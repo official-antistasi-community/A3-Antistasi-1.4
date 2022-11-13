@@ -163,3 +163,24 @@ class A3_Supplies_F_Heli_Slingload_Slingload_01_Fuel_F_p3d : TRIPLES(ADDON,Cargo
     rotation[] = {0,1,0};
     size = 7;
 };
+
+class A3_Supplies_F_Heli_CargoNets_CargoNet_01_box_F_p3d: TRIPLES(ADDON,Cargo,Base)
+{
+    offset[] = {0,0,0.65};
+    rotation[] = {0,1,0};
+    size = 2;
+};
+
+class A3_Structures_F_Heli_Ind_Cargo_Cargo10_military_green_F_p3d: TRIPLES(ADDON,Cargo,Base)
+{
+    offset[] = {0,0.1,1.35};
+    rotation[] = {1,0,0};
+    size = 4;
+};
+
+class A3_Structures_F_Heli_Ind_Cargo_Cargo10_red_F_p3d: TRIPLES(ADDON,Cargo,Base)
+{
+    offset[] = {0,0.1,1.35};
+    rotation[] = {1,0,0};
+    size = 4;
+};

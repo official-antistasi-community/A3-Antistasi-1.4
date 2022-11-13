@@ -519,6 +519,9 @@ Info("Creating pricelist");
 if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo []) then {
 	{server setVariable [_x,5000,true]} forEach (FactionGet(reb,"vehicleCivHeli"));
 };
+if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo []) then {
+	{server setVariable [_x,10000,true]} forEach (FactionGet(reb,"vehicleCivPlane"));
+};
 {server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivBoat"));
 {server setVariable [_x,50,true]} forEach (FactionGet(reb,"vehicleBasic"));
 {server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleLightUnarmed"));

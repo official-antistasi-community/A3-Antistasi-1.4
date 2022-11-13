@@ -642,7 +642,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closedialog 0; nul = [A3A_faction_reb get 'vehicleBasic'] spawn A3A_fnc_addFIAveh";
+			action = "closedialog 0; nul = [selectRandom (A3A_faction_reb get 'vehicleBasic')] spawn A3A_fnc_addFIAveh";
 		};
 		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{

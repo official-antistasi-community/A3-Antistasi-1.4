@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetAmbush.sqf
+File: UPSMON_fnc_SetAmbush.sqf
 Author: Azroul13
 
 Description:
@@ -33,7 +33,7 @@ if (_terrainscan select 0 == "inhabited" && _terrainscan select 1 > 300) then
 }
 else
 {
-	_AmbushPosition = [_npc,_diramb,_positiontoambush,_ambushdist] call UPSMON_FindAmbushPos;
+	_AmbushPosition = [_npc,_diramb,_positiontoambush,_ambushdist] call UPSMON_fnc_FindAmbushPos;
 };		
 	
 if (UPSMON_Debug>0) then {[_AmbushPosition,"Icon","hd_ambush","Colorred"] spawn UPSMON_createmarker};	

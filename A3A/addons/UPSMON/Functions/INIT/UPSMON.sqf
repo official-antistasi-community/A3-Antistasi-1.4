@@ -327,7 +327,7 @@ If (_ambush) then
 	{
 		If !(isNil "bdetect_enable") then {_x setVariable ["bcombat_task", [ "", "mydummytask", 100, [] ] ];};
 	} foreach units _npc;
-	_positiontoambush = [_grp,_Ucthis,_currpos] call UPSMON_getAmbushpos;
+	_positiontoambush = [_grp,_Ucthis,_currpos] call UPSMON_fnc_getAmbushpos;
 	_grpmission = "AMBUSH";
 	_grp setvariable ["UPSMON_Positiontoambush",_positiontoambush];
 	_wait = ["AMBUSHWAIT:",500,_UCthis] call UPSMON_getArg;

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getAmbushpos.sqf
+File: UPSMON_fnc_getAmbushpos.sqf
 Author: Azroul13
 
 Description:
@@ -96,7 +96,7 @@ if ( UPSMON_useMines && _ambushType == 1 ) then
 				
 };
 	
-[_npc,_diramb,_positiontoambush,_ambushdist] spawn UPSMON_SetAmbush;
+[_npc,_diramb,_positiontoambush,_ambushdist] spawn UPSMON_fnc_SetAmbush;
 sleep 1;	
 	
 _positiontoambush

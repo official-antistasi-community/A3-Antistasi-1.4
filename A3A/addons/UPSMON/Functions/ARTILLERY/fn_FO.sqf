@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_FO.sqf
+File: UPSMON_fnc_FO.sqf
 Author: Azroul13
 
 Description:
@@ -31,7 +31,7 @@ _artillerysideunits = (call (compile format ["UPSMON_ARTILLERY_%1_UNITS",side _g
 If (_mission == "ILLUM") then
 {
 
-	[_artillerysideunits,"ILLUM",_RadioRange,_currpos,3,_attackpos,50] spawn UPSMON_selectartillery;
+	[_artillerysideunits,"ILLUM",_RadioRange,_currpos,3,_attackpos,50] spawn UPSMON_fnc_selectartillery;
 	_time = time + 10;
 	_grp setvariable ["UPSMON_Articalltime",_time];
 }
@@ -46,12 +46,12 @@ else
 			_vcttarget = [_currpos, _attackpos] call BIS_fnc_dirTo;
 			_dist = (_currpos vectorDistance _attackpos)/2;
 			_attackpos = [_currpos,_vcttarget, _dist] call UPSMON_GetPos2D;
-			[_artillerysideunits,"SMOKE",_RadioRange,_currpos,4,_attackpos,50] spawn UPSMON_selectartillery;
+			[_artillerysideunits,"SMOKE",_RadioRange,_currpos,4,_attackpos,50] spawn UPSMON_fnc_selectartillery;
 		};
 	}
 	else 
 	{
-		_artitarget = [_enies,_currpos] call UPSMON_GetArtiTarget;
+		_artitarget = [_enies,_currpos] call UPSMON_fnc_GetArtiTarget;
 		_area = 30;
 		If (!IsNull _artitarget) then
 		{
@@ -76,7 +76,7 @@ else
 			};
 			_time = time + 10;
 			_grp setvariable ["UPSMON_Articalltime",_time];
-			[_artillerysideunits,_muntype,_RadioRange,_currpos,_nbr,_artitarget,_area] spawn UPSMON_selectartillery;
+			[_artillerysideunits,_muntype,_RadioRange,_currpos,_nbr,_artitarget,_area] spawn UPSMON_fnc_selectartillery;
 		};
 	};
 };

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_artilleryBatteryout.sqf
+File: UPSMON_fnc_artilleryBatteryout.sqf
 Author: Azroul13
 
 Description:

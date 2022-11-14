@@ -134,10 +134,10 @@ while {true} do
 				If (_grp getvariable ["UPSMON_Grpmission",""] == "SURRENDER") exitwith {[_grp] call UPSMON_surrended;};
 
 				// Artillery Support
-				_artillery = [_grp] call UPSMON_ArtiChk;
+				_artillery = [_grp] call UPSMON_fnc_ArtiChk;
 				If (_artillery) then
 				{
-					[_grp,_currpos,_attackpos,_dist,_enies] call UPSMON_FO;
+					[_grp,_currpos,_attackpos,_dist,_enies] call UPSMON_fnc_FO;
 				};
 
 				// Reinforcement Support
@@ -285,10 +285,10 @@ while {true} do
 
 							If (count _artipos > 0) then
 							{
-								_artillery = [_grp] call UPSMON_ArtiChk;
+								_artillery = [_grp] call UPSMON_fnc_ArtiChk;
 								If (_artillery) then
 								{
-									[_grp,_currpos,_artipos,_dist,_enies,"ILLUM"] call UPSMON_FO;
+									[_grp,_currpos,_artipos,_dist,_enies,"ILLUM"] call UPSMON_fnc_FO;
 								}
 								else
 								{
@@ -335,7 +335,7 @@ while {true} do
 						{
 							_artitarget = _attackpos;
 							If (count (_grp getvariable ["UPSMON_Artifiremission",[]]) > 0) then {_artitarget = (_grp getvariable ["UPSMON_Artifiremission",[]]) select 0;};
-							[_grp,_typeofgrp,_nowp,_artitarget] spawn UPSMON_artillerysetbattery;
+							[_grp,_typeofgrp,_nowp,_artitarget] spawn UPSMON_fnc_artillerysetBattery;
 							if (_grp getvariable ["UPSMON_Grpmission",""] != "FIREMISSION") then
 							{
 								_grp setvariable ["UPSMON_Grpmission","FIREMISSION"];
@@ -866,7 +866,7 @@ while {true} do
 								_area = (_grp getvariable ["UPSMON_Artifiremission",[]]) select 2;
 							};
 
-							[_grp,_artitarget,_area,_roundsask,_firemission] spawn UPSMON_artillerydofire;
+							[_grp,_artitarget,_area,_roundsask,_firemission] spawn UPSMON_fnc_artillerydofire;
 						}
 						else
 						{

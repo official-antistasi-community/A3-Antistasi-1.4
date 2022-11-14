@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_artillerydofire.sqf
+File: UPSMON_fnc_artillerydofire.sqf
 Author: Azroul13
 
 Description:
@@ -37,18 +37,18 @@ If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 {	
 	If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 	{
-		_result = [_askmission,typeof (vehicle ((_batteryunits select 0) select 0))] call UPSMON_getmuninfosbackpack;
+		_result = [_askmission,typeof (vehicle ((_batteryunits select 0) select 0))] call UPSMON_fnc_getmuninfosbackpack;
 		_batteryunits = [];
 		_batteryunits pushback ((_batteryunits select 0) select 0);
 	}
 	else
 	{
-		_result = [_askmission,typeof (vehicle (_batteryunits select 0))] call UPSMON_getmuninfosbackpack;
+		_result = [_askmission,typeof (vehicle (_batteryunits select 0))] call UPSMON_fnc_getmuninfosbackpack;
 	};
 }
 else
 {
-	_result = [_askmission,_batteryunits] call UPSMON_getmuninfos;
+	_result = [_askmission,_batteryunits] call UPSMON_fnc_getmuninfos;
 };
 
 _roundclass = _result select 1;
@@ -81,7 +81,7 @@ If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) > 0) then
 	};
 };
 		
-If (_askmission == "ILLUM") then {[] spawn UPSMON_Flaretime;};
+If (_askmission == "ILLUM") then {[] spawn UPSMON_fnc_Flaretime;};
 		
 _area3 = _area * (_area2 + random 0.4);
 		
@@ -116,7 +116,7 @@ while {_i<_roundsask && count _batteryunits > 0 && time < _timeout} do
 	sleep _sleep;
 };
 
-[_batteryunits] call UPSMON_artillerybatteryout;
+[_batteryunits] call UPSMON_fnc_artilleryBatteryout;
 
 _grp setvariable ["UPSMON_Batteryfire",false];
 _grp setvariable ["UPSMON_Artifiremission",[]];

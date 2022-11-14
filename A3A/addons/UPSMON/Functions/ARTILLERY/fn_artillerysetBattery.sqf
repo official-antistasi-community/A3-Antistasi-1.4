@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_artillerysetBattery.sqf
+File: UPSMON_fnc_artillerysetBattery.sqf
 Author: Azroul13
 
 Description:

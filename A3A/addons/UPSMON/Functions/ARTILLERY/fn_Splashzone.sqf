@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Splashzone.sqf
+File: UPSMON_fnc_Splashzone.sqf
 Author: Azroul13
 
 Description:

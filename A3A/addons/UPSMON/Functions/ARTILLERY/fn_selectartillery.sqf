@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_selectartillery.sqf
+File: UPSMON_fnc_selectartillery.sqf
 Author: Azroul13
 
 Description:
@@ -46,16 +46,16 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 						{
 							_backpack = backpack (_vehicledemo select 0);
 							_vehicledemo = ([_backpack] call UPSMON_checkbackpack) select 0;
-							_result = [_askMission,_vehicledemo] call UPSMON_getmuninfos;
+							_result = [_askMission,_vehicledemo] call UPSMON_fnc_getmuninfos;
 						}
 						else
 						{
-							_result = [_askmission,typeof _vehicledemo] call UPSMON_getmuninfosbackpack;
+							_result = [_askmission,typeof _vehicledemo] call UPSMON_fnc_getmuninfosbackpack;
 						};
 					}
 					else
 					{
-						_result = [_askMission,(_grp getvariable ["UPSMON_Battery",[]])] call UPSMON_getmuninfos;
+						_result = [_askMission,(_grp getvariable ["UPSMON_Battery",[]])] call UPSMON_fnc_getmuninfos;
 					};
 				
 					If ((_result select 0) > 0) then
@@ -63,7 +63,7 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 						if ((_targetPos inRangeOfArtillery [_vehicledemo, _result select 1])) then 
 						{
 							_side = side _arti;
-							_alliednear = [_targetpos,_result select 2,_side] call UPSMON_Splashzone;
+							_alliednear = [_targetpos,_result select 2,_side] call UPSMON_fnc_Splashzone;
 						
 							If (!_alliednear) exitwith
 							{

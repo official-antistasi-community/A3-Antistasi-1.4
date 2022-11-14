@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getmuninfos.sqf
+File: UPSMON_fnc_getmuninfos.sqf
 Author: Azroul13
 
 Description:

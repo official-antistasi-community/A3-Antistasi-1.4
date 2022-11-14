@@ -26,7 +26,7 @@ if (alive _unit) then
 	_unit setDir _direction;
 	_unit dotarget _target;
 	sleep 4;
-	[] spawn UPSMON_Flaretime;
+	[] spawn UPSMON_fnc_Flaretime;
 	sleep 1;
 	if (alive _unit) then
 	{

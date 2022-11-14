@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetArtitarget.sqf
+File: UPSMON_fnc_GetArtiTarget.sqf
 Author: Azroul13
 
 Description:

@@ -378,7 +378,7 @@ If (count _staticteam == 2) then
 
 		If (count (_grp getvariable ["UPSMON_Mortarmun",[]]) == 0) then
 		{
-			_rounds = [_checkbag select 1] call UPSMON_GetDefaultmun;
+			_rounds = [_checkbag select 1] call UPSMON_fnc_GetDefaultmun;
 			_grp setvariable ["UPSMON_Mortarmun",_rounds];
 		};
 	};

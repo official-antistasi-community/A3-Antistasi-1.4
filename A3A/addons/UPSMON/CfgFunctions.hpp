@@ -1,0 +1,5 @@
+class CfgFunctions {
+	class UPSMON {
+
+	};
+};

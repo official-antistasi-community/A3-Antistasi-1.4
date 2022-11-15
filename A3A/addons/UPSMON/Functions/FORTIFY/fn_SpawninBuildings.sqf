@@ -72,7 +72,7 @@ _blds2 = [];
 						_id2 = _result select 1;
 						_x setpos _altura;
 						dostop _x;
-						if ((group _x) getvariable ["UPSMON_fnc_Nowp",0] > 2) then {_x disableAI "TARGET"};
+						if ((group _x) getvariable ["UPSMON_NOWP",0] > 2) then {_x disableAI "TARGET"};
 						[_x,getdir _x,_bld] spawn UPSMON_fnc_UnitWatchDir;
 						_bldpos1 set [_id2,"deletethis"];
 						_bldpos1 = _bldpos1 - ["deletethis"];

@@ -218,7 +218,7 @@ If ("LANDDROP" in _UCthis) then {_grp setvariable ["UPSMON_LANDDROP",true];};
 _nowpType = if ("NOWP" in _UCthis) then {1} else {0};
 _nowpType = if ("NOWP2" in _UCthis) then {2} else {_nowpType};
 _nowpType = if ("NOWP3" in _UCthis) then {3} else {_nowpType};
-_grp setvariable ["UPSMON_fnc_Nowp",_nowpType];
+_grp setvariable ["UPSMON_NOWP",_nowpType];
 
 //Ambush squad will no move until in combat or so close enemy
 _ambush= if (("AMBUSH" in _UCthis) || ("AMBUSHDIR:" in _UCthis) || ("AMBUSH2" in _UCthis) || ("AMBUSHDIR2:" in _UCthis)) then {true} else {false};
@@ -377,7 +377,7 @@ _grp setvariable ["UPSMON_GrpStatus","GREEN"];
 _grp setvariable ["UPSMON_GrpMission",_grpmission];
 _grp setvariable ["UPSMON_OrgGrpMission",_grpmission];
 _grp setvariable ["UPSMON_Lastinfos",[[0,0,0],[0,0,0]]];
-_grp setvariable ["UPSMON_fnc_Nowp",_nowpType];
+_grp setvariable ["UPSMON_NOWP",_nowpType];
 _grp setvariable ["UPSMON_Removegroup",false];
 
 //Assign the current group in the array of UPSMON Groups

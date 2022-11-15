@@ -25,7 +25,7 @@ If (alive _npc) then
 	{
 		If (!((vehicle _npc) iskindof "air")) then
 		{
-			If (_grp getvariable ["UPSMON_fnc_Nowp",0] == 0) then
+			If (_grp getvariable ["UPSMON_NOWP",0] == 0) then
 			{
 				If (_lastcurrpos select 0 == _currpos select 0 && _lastcurrpos select 1 == _currpos select 1) then
 				{

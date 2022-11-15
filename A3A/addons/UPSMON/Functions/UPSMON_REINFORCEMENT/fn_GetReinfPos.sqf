@@ -55,7 +55,7 @@ If (UPSMON_reinforcement || _rfidcalled) then
 				{ 
 					_grp setvariable ["UPSMON_ReinforcementSent",true];
 					_grp setvariable ["UPSMON_Grpmission","REINFORCEMENT"];
-					_grp setvariable ["UPSMON_fnc_Nowp",0];
+					_grp setvariable ["UPSMON_NOWP",0];
 					[_grp,_fixedtargetPos,"MOVE","COLUMN","FULL","AWARE","YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 				};
 			};

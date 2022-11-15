@@ -18,7 +18,7 @@ _supstatus = _this select 2;
 
 _nowp = true;
 
-If (_grp getvariable ["UPSMON_fnc_Nowp",0] == 0) then
+If (_grp getvariable ["UPSMON_NOWP",0] == 0) then
 {
 	If (_grp getvariable ["UPSMON_Grpmission",""] != "AMBUSH") then
 	{
@@ -36,7 +36,7 @@ If (_grp getvariable ["UPSMON_fnc_Nowp",0] == 0) then
 }
 else
 {
-	switch (_grp getvariable ["UPSMON_fnc_Nowp",0]) do
+	switch (_grp getvariable ["UPSMON_NOWP",0]) do
 	{
 		case 1:
 		{

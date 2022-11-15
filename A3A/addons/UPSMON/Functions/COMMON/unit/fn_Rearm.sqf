@@ -16,7 +16,7 @@ _unit = _this select 0;
 _magsneeded = _this select 1;
 _supplylist = [];
 
-If (!(_unit getvariable ["UPSMON_fnc_Rearming",false])) then
+If (!(_unit getvariable ["UPSMON_Rearming",false])) then
 {
 	If (canmove _unit) then
 	{

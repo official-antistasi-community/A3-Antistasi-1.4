@@ -19,7 +19,7 @@ _magsneeded = (_this select 1) select 1;
 _position = getposATL _supply;
 
 _supply setvariable ["UPSMON_Supplyuse",true];
-_unit setvariable ["UPSMON_fnc_Rearming",true];
+_unit setvariable ["UPSMON_Rearming",true];
 
 Dostop _unit;
 _unit Domove _position;
@@ -59,7 +59,7 @@ If (!IsNull _unit) then
 {
 	If (alive _unit) then
 	{
-		_unit setvariable ["UPSMON_fnc_Rearming",false];
+		_unit setvariable ["UPSMON_Rearming",false];
 		if (_unit != leader (group _unit)) then
 		{
 			_unit dofollow (leader (group _unit))

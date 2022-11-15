@@ -33,7 +33,7 @@ if ((count _this) > 5) then {_retrytime = _this select 5;};
 if (vehicle _npc != _npc || !alive _npc || !canmove _npc) exitwith{};
 	
 //Si ya est� en un edificio ignoramos la orden
-_inbuilding = _npc getvariable ["UPSMON_fnc_Inbuilding",false];	
+_inbuilding = _npc getvariable ["UPSMON_inbuilding",false];	
 if (_inbuilding || _retrytime >= 3)  exitwith{};
 	
 dostop _npc;
@@ -41,7 +41,7 @@ _npc domove _altura;
 _npc commandMove _altura;
 _npc setDestination [_altura, "LEADER PLANNED", true];
 _npc forcespeed 100;
-_npc setVariable ["UPSMON_fnc_Inbuilding", _inbuilding, false];		
+_npc setVariable ["UPSMON_inbuilding", _inbuilding, false];		
 _npc setvariable ["UPSMON_buildingpos", nil, false];
 	
 _timeout = time + ((_altura vectordistance (getposATL _npc))*1.4);
@@ -60,7 +60,7 @@ if ((getposATL _npc) distance _altura <= 1) then
 		{
 			_npc forcespeed -1;
 			_npc setvariable ["UPSMON_buildingpos",[_bld,_altura], false];
-			_npc setVariable ["UPSMON_fnc_Inbuilding", true, false];
+			_npc setVariable ["UPSMON_inbuilding", true, false];
 			Dostop _npc;
 			If (_wait >= 8999) then {_npc disableAI "TARGET"};
 			sleep 1;
@@ -73,7 +73,7 @@ if ((getposATL _npc) distance _altura <= 1) then
 //_npc distance _altura > 1
 if ((getposATL _npc) vectordistance _altura > 1) then {_retry = true};
 		
-_npc setVariable ["UPSMON_fnc_Inbuilding", false, false];			
+_npc setVariable ["UPSMON_inbuilding", false, false];			
 	
 //hint format ["Unit has moved to %1 %2 %3 Retry: %4",_altura,_npc distance _altura <= 0.5,_timeout < time,_retry];
 //Down one position.

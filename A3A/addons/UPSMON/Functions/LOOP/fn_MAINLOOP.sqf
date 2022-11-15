@@ -596,7 +596,7 @@ while {true} do
 				{
 					If (count (_grp getvariable ["UPSMON_bldposToCheck",[]]) > 0) then
 					{
-						If (!(_grp getvariable ["UPSMON_fnc_Inbuilding",false])) then
+						If (!(_grp getvariable ["UPSMON_inbuilding",false])) then
 						{
 							_units = [units _grp] call UPSMON_fnc_getunits;
 							[_units,_grp getvariable ["UPSMON_bldposToCheck",[]],_grp,55] spawn UPSMON_fnc_patrolBuilding;

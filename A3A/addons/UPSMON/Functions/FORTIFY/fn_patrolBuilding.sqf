@@ -20,7 +20,7 @@ _bldpos = _this select 1;
 _grp = _this select 2;
 _time = _this select 3;
 
-_grp setVariable ["UPSMON_fnc_Inbuilding",true];
+_grp setVariable ["UPSMON_inbuilding",true];
 
 _units = [_units] call UPSMON_fnc_getunits;
 _movein = [];
@@ -63,12 +63,12 @@ if (count _units > 0) then
 
 	_time = (((_attackpos vectordistance _currpos)*1.2) + 5);
 
-	If (_grp getvariable ["UPSMON_Grpmission",""] != "PATROLINBLD" || _grp getvariable ["UPSMON_Grpmission",""] != "ASSAULT") exitwith {_grp setVariable ["UPSMON_fnc_Inbuilding",false];};
+	If (_grp getvariable ["UPSMON_Grpmission",""] != "PATROLINBLD" || _grp getvariable ["UPSMON_Grpmission",""] != "ASSAULT") exitwith {_grp setVariable ["UPSMON_inbuilding",false];};
 
 	If (count _bldpos > 0 && count _units > 0) then
 	{
 		[_units,_bldpos,_grp,_time] call UPSMON_fnc_patrolBuilding;
 	};
 
-	_grp setVariable ["UPSMON_fnc_Inbuilding",false];
+	_grp setVariable ["UPSMON_inbuilding",false];
 	};

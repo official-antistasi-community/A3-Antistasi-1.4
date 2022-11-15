@@ -59,7 +59,7 @@ Info("Server JNA preload started");
 
 // UPSMON
 Info("UPSMON init started");
-[] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
+[] call UPSMON_fnc_Init_UPSMON;
 
 Info("Background init completed");
 A3A_backgroundInitDone = true;

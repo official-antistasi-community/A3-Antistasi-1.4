@@ -1,9 +1,9 @@
 /****************************************************************
-File: UPSMON_addequipment.sqf
+File: UPSMON_fnc_addequipment.sqf
 Author: Azroul13
 
 Description:
-	Add the equipment collected from UPSMON_getequipment function
+	Add the equipment collected from UPSMON_fnc_getequipment function
 Parameter(s):
 	<--- unit
 Returns:

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Rearm.sqf
+File: UPSMON_fnc_Rearm.sqf
 Author: Azroul13
 
 Description:
@@ -16,7 +16,7 @@ _unit = _this select 0;
 _magsneeded = _this select 1;
 _supplylist = [];
 
-If (!(_unit getvariable ["UPSMON_Rearming",false])) then
+If (!(_unit getvariable ["UPSMON_fnc_Rearming",false])) then
 {
 	If (canmove _unit) then
 	{
@@ -115,7 +115,7 @@ If (!(_unit getvariable ["UPSMON_Rearming",false])) then
 							_list = [_supplylist, [], {_x select 2}, "DESCEND"] call BIS_fnc_sortBy;
 							_array = _list select 0;
 							_array resize 2;
-							[_unit,_array] spawn UPSMON_DoRearm;
+							[_unit,_array] spawn UPSMON_fnc_DoRearm;
 						};
 					};
 				};

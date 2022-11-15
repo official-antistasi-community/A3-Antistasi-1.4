@@ -1,9 +1,9 @@
 /****************************************************************
-File: UPSMON_dowatch.sqf
+File: UPSMON_fnc_dowatch.sqf
 Author: MONSADA
 
 Description:
-	Función para  mirar en una dirección
+	Funciï¿½n para  mirar en una direcciï¿½n
 Parameter(s):
 	<--- Unit
 	<--- Position to watch

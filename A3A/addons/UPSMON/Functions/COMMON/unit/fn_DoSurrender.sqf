@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_surrended.sqf
+File: UPSMON_fnc_Surrended.sqf
 Author: MONSADA
 
 Description:
@@ -37,7 +37,7 @@ if ( _npc != _vehicle || !(_npc iskindof "CAManBase" )) then
 		[_transport,[_npc]] call UPSMON_UnitsGetOut;		
 	};	
 		
-	//Esperamos a que esté parado		
+	//Esperamos a que estï¿½ parado		
 	waituntil {_npc == vehicle _npc || !alive _npc};
 };	
 	

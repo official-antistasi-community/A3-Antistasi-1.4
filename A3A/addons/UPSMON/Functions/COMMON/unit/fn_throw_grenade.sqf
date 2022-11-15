@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_throw_grenade.sqf
+File: UPSMON_fnc_throw_grenade.sqf
 Author: MONSADA
 
 Description:
@@ -22,7 +22,7 @@ _npc disableAI "MOVE";
 _npc disableAI "TARGET";
 _npc disableAI "AUTOTARGET";
 
-[_npc,_target] call UPSMON_dowatch;
+[_npc,_target] call UPSMON_fnc_dowatch;
 sleep 0.7;
 
 _dir = [getposATL _npc,_target] call BIS_fnc_DirTo;

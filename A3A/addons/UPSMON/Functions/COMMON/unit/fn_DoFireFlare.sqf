@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DoFireFlare.sqf
+File: UPSMON_fnc_DoFireFlare.sqf
 Author: Azroul13
 
 Description:
@@ -20,7 +20,7 @@ if (alive _unit) then
 {
 	_target = createVehicle ["UserTexture1m_F",[_targetpos select 0,_targetpos select 1,100], [], 0, "NONE"];
 	_unit selectWeapon _muzzle;
-	[_unit,_targetpos,100] call UPSMON_DOwatch;
+	[_unit,_targetpos,100] call UPSMON_fnc_dowatch;
 	sleep 0.7;
 	_direction = [_unit, _target] call BIS_fnc_dirTo;
 	_unit setDir _direction;

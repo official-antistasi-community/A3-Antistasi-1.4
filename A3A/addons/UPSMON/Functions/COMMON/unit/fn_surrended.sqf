@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_surrended.sqf
+File: UPSMON_fnc_Surrended.sqf
 Author: MONSADA
 
 Description:
@@ -18,6 +18,6 @@ UPSMON_NPCs = UPSMON_NPCs - [_grp];
 {
 	If (alive _x) then
 	{
-		[_x] spawn UPSMON_DoSurrender;
+		[_x] spawn UPSMON_fnc_DoSurrender;
 	};
 } foreach units _grp;

@@ -43,7 +43,7 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 						_haslos = [_unit,_NearestEnemy,300,130] call UPSMON_fnc_Haslos;
 						If (_haslos) then
 						{
-							[_unit,_NearestEnemy] call UPSMON_Dowatch;
+							[_unit,_NearestEnemy] call UPSMON_fnc_dowatch;
 							sleep 0.5;
 							_unit dotarget ObjNull;
 							_unit dotarget _NearestEnemy;

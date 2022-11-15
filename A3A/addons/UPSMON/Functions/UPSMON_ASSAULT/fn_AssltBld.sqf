@@ -28,13 +28,13 @@ if (count _bld > 0) then
 {
 	_bldpos = (_bld select 1) select 0;
 
-	[_grp,_attackpos,_currpos] spawn UPSMON_SetSatchel;
+	[_grp,_attackpos,_currpos] spawn UPSMON_fnc_SetSatchel;
 	sleep 1;
 	If (!(_grp getvariable ["UPSMON_GrpinAction",false])) then
 	{
 		If ("at3" in _capacityofgrp) then
 		{
-			[_grp,_assignedvehicles,_bld select 0] call UPSMON_FireGun;
+			[_grp,_assignedvehicles,_bld select 0] call UPSMON_fnc_FireGun;
 		};
 	};
 

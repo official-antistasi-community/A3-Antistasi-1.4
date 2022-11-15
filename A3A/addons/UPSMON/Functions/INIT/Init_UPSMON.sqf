@@ -74,7 +74,7 @@ UPSMON_closeenoughV = 800;
 UPSMON_closeenough = 300;  // ToDo investigate effect of decrease of this value to e.g. 50 // 300
 
 //Do the unit react to near dead bodies;
-UPSMON_deadBodiesReact = true;
+UPSMON_fnc_deadbodiesReact = true;
 
 //Do unit can lay down mine (ambush and defense module)
 UPSMON_useMines = true;

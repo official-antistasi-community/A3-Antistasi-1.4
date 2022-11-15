@@ -131,7 +131,7 @@ while {true} do
 				//Surrender
 				[_grp,_dist,_ratio,_supstatus,_unitsneedammo,_typeofgrp,_haslos] call UPSMON_fnc_IsSurrending;
 
-				If (_grp getvariable ["UPSMON_Grpmission",""] == "SURRENDER") exitwith {[_grp] call UPSMON_surrended;};
+				If (_grp getvariable ["UPSMON_Grpmission",""] == "SURRENDER") exitwith {[_grp] call UPSMON_fnc_Surrended;};
 
 				// Artillery Support
 				_artillery = [_grp] call UPSMON_fnc_ArtiChk;
@@ -295,7 +295,7 @@ while {true} do
 									If (_supstatus != "SUPRESSED") then
 									{
 										//Fire Flare
-										[_grp,_artipos] call UPSMON_FireFlare;
+										[_grp,_artipos] call UPSMON_fnc_FireFlare;
 									};
 								};
 							};
@@ -314,7 +314,7 @@ while {true} do
 							If (count _smokepos > 0) then
 							{
 								_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
-								If (!_nosmoke) then {[units _grp,_smokepos] spawn UPSMON_CreateSmokeCover;};
+								If (!_nosmoke) then {[units _grp,_smokepos] spawn UPSMON_fnc_CreateSmokeCover;};
 							};
 						};
 					};
@@ -371,14 +371,14 @@ while {true} do
 			{
 				_dead = ObjNull;
 				//If in safe mode if find dead bodies change behaviour
-				if (UPSMON_deadBodiesReact)then
+				if (UPSMON_fnc_deadbodiesReact)then
 				{
 					{
 						if (alive _x) then
 						{
 							if (vehicle _x == _x) then
 							{
-								_dead = [_x,_buildingdist] call UPSMON_deadbodies;
+								_dead = [_x,_buildingdist] call UPSMON_fnc_deadbodies;
 								if (!IsNull _dead) exitwith
 								{
 									_deadbodiesnear = true;
@@ -518,7 +518,7 @@ while {true} do
 							If ("staticbag" in _typeofgrp) then
 							{
 								//Deploy static
-								[_grp,_currpos,_attackpos] call UPSMON_DeployStatic;
+								[_grp,_currpos,_attackpos] call UPSMON_fnc_DeployStatic;
 							};
 						};
 					}
@@ -546,7 +546,7 @@ while {true} do
 										If ("heavy" in _typeofeni || "medium" in _typeofeni) then
 										{
 											//Put minefield
-											[_grp,_attackpos] call UPSMON_SetMinefield;
+											[_grp,_attackpos] call UPSMON_fnc_SetMinefield;
 										};
 									};
 

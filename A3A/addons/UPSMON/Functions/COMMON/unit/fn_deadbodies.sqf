@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_deadbodies.sqf
+File: UPSMON_fnc_deadbodies.sqf
 Author: Monsada
 
 Description:

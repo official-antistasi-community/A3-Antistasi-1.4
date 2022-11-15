@@ -86,7 +86,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 			if (count _targetpos == 0) then {_targetpos = _orgpos};
 			_newunit = _grp createUnit [_unittype, _targetpos, [], 0, "FORM"];
 			_equipment = _x select 1;
-			[_newunit,_equipment] call UPSMON_addequipment;
+			[_newunit,_equipment] call UPSMON_fnc_addequipment;
 
 			if (isMultiplayer) then
 			{

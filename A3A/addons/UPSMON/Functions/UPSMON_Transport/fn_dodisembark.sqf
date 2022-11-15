@@ -68,7 +68,7 @@ if ( count _unitsgetout > 0 ) then
 		If ("SmokeLauncher" in _weapons) then
 		{
 			_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
-			If (!_nosmoke) then {[_transport] spawn UPSMON_DoSmokeScreen;};
+			If (!_nosmoke) then {[_transport] spawn UPSMON_fnc_DoSmokeScreen;};
 		};
 	};
 	[_transport,_unitsgetout] call UPSMON_UnitsGetOut;

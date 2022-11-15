@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_FireGun.sqf
+File: UPSMON_fnc_FireGun.sqf
 Author: Azroul13
 
 Description:
@@ -58,7 +58,7 @@ if (!IsNull _gunner) then
 	_weapon = (weapons (vehicle _gunner)) select 0;
 	_gunner selectWeapon _weapon;
 	_targetpos = getposATL _target;
-	[_gunner,_targetpos,1.5] call UPSMON_DOwatch;
+	[_gunner,_targetpos,1.5] call UPSMON_fnc_dowatch;
 	sleep 2;
 	_gunner doTarget _target;
 	sleep 2;

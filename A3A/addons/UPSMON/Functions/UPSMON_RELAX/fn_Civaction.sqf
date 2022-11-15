@@ -25,7 +25,7 @@ switch (_this select 0) do
 		If (alive (_this select 1)) then
 		{
 			Dostop (_this select 1);
-			[(_this select 1),_position2] call UPSMON_dowatch;
+			[(_this select 1),_position2] call UPSMON_fnc_dowatch;
 			(_this select 1) action ["Talk", _this select 2];
 			sleep 0.8;
 			(_this select 1) disableAI "MOVE";

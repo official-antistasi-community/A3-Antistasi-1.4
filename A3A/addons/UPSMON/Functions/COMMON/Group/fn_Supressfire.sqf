@@ -21,7 +21,7 @@ while {_timeout > time && {alive _x} count _units > 0} do
 
 			If ([_unit,_target,300,130] call UPSMON_fnc_Haslos) then
 			{
-				[_unit,_target,100] call UPSMON_DOwatch;
+				[_unit,_target,100] call UPSMON_fnc_dowatch;
 				sleep 1;
 				_direction = [_unit, _target] call BIS_fnc_dirTo;
 				_unit setDir _direction;

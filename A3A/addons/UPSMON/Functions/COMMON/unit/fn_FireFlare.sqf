@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_FireFlare.sqf
+File: UPSMON_fnc_FireFlare.sqf
 Author: Azroul13
 
 Description:
@@ -70,7 +70,7 @@ _munition = "";
 						
 							If (_continue) exitwith
 							{
-								[_unit,_muzzle,_munition,_targetpos] spawn UPSMON_DoFireFlare;
+								[_unit,_muzzle,_munition,_targetpos] spawn UPSMON_fnc_DoFireFlare;
 							};
 						};
 					};

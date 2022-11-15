@@ -36,7 +36,7 @@ If (!(_grp getvariable ["UPSMON_GrpinAction",false])) then
 				If (alive _x) then
 				{
 					Dostop _x;
-					[_x,_targetpos,2] call UPSMON_DOwatch;
+					[_x,_targetpos,2] call UPSMON_fnc_dowatch;
 					_pos = [_targetpos,_dir] call UPSMON_fnc_overwatch;
 					_x domove _pos;
 					_x suppressfor 100;

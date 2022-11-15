@@ -29,7 +29,7 @@ _units = _units - _unitsin;
 If ( count _units > 0 ) then 
 {
 	_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
-	If (!_nosmoke) then {[units _grp,_attackpos] spawn UPSMON_CreateSmokeCover;};
+	If (!_nosmoke) then {[units _grp,_attackpos] spawn UPSMON_fnc_CreateSmokeCover;};
 	sleep 1;
 	_units = [_npc,_units,70,9999] call UPSMON_moveNearestBuildings;
 	If (count _units > 0) then 

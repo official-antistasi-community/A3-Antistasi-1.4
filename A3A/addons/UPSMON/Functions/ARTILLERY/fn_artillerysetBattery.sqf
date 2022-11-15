@@ -65,7 +65,7 @@ If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
 					_grp call UPSMON_fnc_DeleteWP;
 					_backpack = backpack (_batteryunits select 0);
 					_vehicle = ([_backpack] call UPSMON_fnc_checkbackpack) select 0;
-					[_staticteam select 0,_staticteam select 1,_pos,_target,_vehicle] call UPSMON_Unpackbag;
+					[_staticteam select 0,_staticteam select 1,_pos,_target,_vehicle] call UPSMON_fnc_Unpackbag;
 					_grp setvariable ["UPSMON_OnBattery",true];
 					[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 				};		

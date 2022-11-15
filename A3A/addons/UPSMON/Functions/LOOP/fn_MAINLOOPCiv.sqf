@@ -105,9 +105,9 @@ while {true} do
 					{
 						If ((_x getvariable ["UPSMON_SUPSTATUS",""]) == "") then
 						{
-							If (UPSMON_deadBodiesReact)then 
+							If (UPSMON_fnc_deadbodiesReact)then 
 							{
-								_dead = [_x,_buildingdist] call UPSMON_deadbodies;
+								_dead = [_x,_buildingdist] call UPSMON_fnc_deadbodies;
 								if (!IsNull _dead) exitwith 
 								{
 									["FLEE",_x,Objnull] spawn UPSMON_Civaction;
@@ -207,7 +207,7 @@ while {true} do
 											}
 											else
 											{
-												[_x,_attackpos] spawn UPSMON_throw_stone;
+												[_x,_attackpos] spawn UPSMON_fnc_throw_stone;
 											};
 										};
 									};

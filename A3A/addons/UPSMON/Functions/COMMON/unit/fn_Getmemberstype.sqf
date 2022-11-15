@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Getmemberstype.sqf
+File: UPSMON_fnc_Getmemberstype.sqf
 Author: Azroul13
 
 Description:
@@ -27,7 +27,7 @@ _vehicletypes = [];
 		};
 	};
 	
-	_equipment = _x call UPSMON_getequipment;
+	_equipment = _x call UPSMON_fnc_getequipment;
 	//_membertypes = _membertypes + [[typeof _x,_equipment]];
 	_membertypes pushback [typeof _x,_equipment,assignedVehicleRole _x];
 } foreach _members;

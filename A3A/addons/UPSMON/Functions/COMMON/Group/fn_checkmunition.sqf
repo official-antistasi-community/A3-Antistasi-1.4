@@ -67,7 +67,7 @@ _minmag = 2;
 				{
 					if (UPSMON_AllowRearm) then
 					{
-						[_unit,_magsneeded] spawn UPSMON_Rearm;
+						[_unit,_magsneeded] spawn UPSMON_fnc_Rearm;
 					};
 				};
 			};

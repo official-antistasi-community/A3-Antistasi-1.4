@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_throw_grenade.sqf
+File: UPSMON_fnc_throw_grenade.sqf
 Author: MONSADA
 
 Description:
@@ -15,7 +15,7 @@ _npc = _this select 0;
 _target = _this select 1;	
 	
 if (!alive _npc || (vehicle _npc) != _npc || !canmove _npc) exitwith{};	
-[_npc,_target] call UPSMON_dowatch;
+[_npc,_target] call UPSMON_fnc_dowatch;
 sleep 0.5;
 
 hint "THROW";

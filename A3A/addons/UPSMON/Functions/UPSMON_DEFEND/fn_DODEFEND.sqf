@@ -41,7 +41,7 @@ if ((_terrainscan select 0) == "meadow" && (_terrainscan select 1) < 100 && _sup
 {
 	_targetPos = [_targetPos,[0,360],100] call UPSMON_SrchGuardPos;
 	_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
-	If (!_nosmoke) then {[units _grp,getposATL _target] spawn UPSMON_CreateSmokeCover;};
+	If (!_nosmoke) then {[units _grp,getposATL _target] spawn UPSMON_fnc_CreateSmokeCover;};
 	[_grp,_targetPos,"MOVE","STAG COLUMN","FULL","COMBAT",_CombatMode,1] call UPSMON_fnc_DocreateWP;
 	[_grp,_targetPos,_wptype,_wpformation,_speedmode,_Behaviour,_CombatMode,1] call UPSMON_fnc_DoaddWP;
 }

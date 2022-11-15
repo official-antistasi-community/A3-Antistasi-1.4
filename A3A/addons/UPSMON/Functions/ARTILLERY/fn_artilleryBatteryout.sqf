@@ -22,7 +22,7 @@ If ((_batteryunits select 0) isEqualType []) then
 				
 	If (count _batteryunits > 0) then
 	{
-		[_staticteam select 0,_staticteam select 1] call UPSMON_Packbag;
+		[_staticteam select 0,_staticteam select 1] call UPSMON_fnc_Packbag;
 	};
 		
 };

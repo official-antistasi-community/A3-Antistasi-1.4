@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_throw_grenade.sqf
+File: UPSMON_fnc_throw_grenade.sqf
 Author: MONSADA
 
 Description:

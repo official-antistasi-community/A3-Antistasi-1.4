@@ -54,7 +54,7 @@ for "_grpcnt" from 1 to _copies do
 		_newunit setBehaviour _behaviour;
 		_newunit setSpeedMode _speedmode;	
 		_equipment = _x select 1;
-		[_newunit,_equipment] call UPSMON_addequipment;
+		[_newunit,_equipment] call UPSMON_fnc_addequipment;
 					
 		if (isMultiplayer) then 
 		{

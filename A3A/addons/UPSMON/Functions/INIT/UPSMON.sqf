@@ -129,7 +129,7 @@ If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_fnc_TRACKed
 		if (side _grp != civilian) then {call (compile format ["UPSMON_%1_Total = UPSMON_%1_Total + count (units _npc)",side _npc]);};
 	};
 	//
-	_unitstypes = [_members] call UPSMON_Getmemberstype;
+	_unitstypes = [_members] call UPSMON_fnc_Getmemberstype;
 	_grp setvariable ["UPSMON_RESPAWNUNITS",_unitstypes];
 
 	//Respawn

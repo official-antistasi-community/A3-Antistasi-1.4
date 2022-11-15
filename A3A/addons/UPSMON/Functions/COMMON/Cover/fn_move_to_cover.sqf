@@ -32,7 +32,7 @@ if (_spawn) then
 			
 	if (_unit == leader (group _unit) || random 100 < 50) then 
 	{
-		[_unit,_lookpos] call UPSMON_dowatch;
+		[_unit,_lookpos] call UPSMON_fnc_dowatch;
 	};	
 }
 else

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetMinefield.sqf
+File: UPSMON_fnc_SetMinefield.sqf
 Author: MONSADA
 
 Description:
@@ -54,7 +54,7 @@ If (UPSMON_useMines) then
 			_mineposition = [_currPos,_dir1, 30] call UPSMON_fnc_GetPos2D;	
 			_roads = _mineposition nearroads 25;
 			if (count _roads > 0) then {_mineposition = getposATL (_roads select 0);};
-			[_unit,_grp,_mineposition,_currPos,_ATmag] spawn UPSMON_PutMine;													
+			[_unit,_grp,_mineposition,_currPos,_ATmag] spawn UPSMON_fnc_PutMine;													
 		};											
 	};
 };

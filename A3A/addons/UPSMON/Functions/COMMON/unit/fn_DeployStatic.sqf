@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DeployStatic.sqf
+File: UPSMON_fnc_DeployStatic.sqf
 Author: Azroul13
 
 Description:
@@ -37,6 +37,6 @@ if (count _staticteam == 2) then
 	
 	If (!_insideveh) then
 	{
-		[_staticteam select 0,_staticteam select 1,_currpos,_attackpos,_weapon] spawn UPSMON_Unpackbag;
+		[_staticteam select 0,_staticteam select 1,_currpos,_attackpos,_weapon] spawn UPSMON_fnc_Unpackbag;
 	};
 };

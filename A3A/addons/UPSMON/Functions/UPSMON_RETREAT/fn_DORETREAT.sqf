@@ -32,7 +32,7 @@ If ("car" in _typeofgrp || "ship" in _typeofgrp || "air" in _typeofgrp) then
 
 If ("arti" in _typeofgrp) then
 {
-	[_grp,_assignedvehicles,_grp getvariable ["UPSMON_GrpTarget",ObjNull]] call UPSMON_FireGun;
+	[_grp,_assignedvehicles,_grp getvariable ["UPSMON_GrpTarget",ObjNull]] call UPSMON_fnc_FireGun;
 };
 
 

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getequipment.sqf
+File: UPSMON_fnc_getequipment.sqf
 Author: Azroul13
 
 Description:

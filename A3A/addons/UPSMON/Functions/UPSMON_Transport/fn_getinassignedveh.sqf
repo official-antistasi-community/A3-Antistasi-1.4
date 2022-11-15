@@ -42,7 +42,7 @@ _unitsIn = _validunits;
 If (count _validunits > 0 && count _vehicles > 0) then
 {
 	_grp setbehaviour "SAFE";
-	_validunits = [_validunits, _vehicles, true] call UPSMON_selectvehicles;
+	_validunits = [_validunits, _vehicles, true] call UPSMON_fnc_selectvehicles;
 	_unitsIn = _unitsIn - _validunits;
 	_timeout = time + 50;
 

@@ -20,7 +20,7 @@ _grp = _this select 0;
 _unitsIn = [];
 _npc = leader _grp;
 _grp setvariable ["UPSMON_embarking",true];
-_unitsIn = [_npc,["air","land","sea","gun"],200] call UPSMON_GetIn_NearestVehicles;	
+_unitsIn = [_npc,["air","land","sea","gun"],200] call UPSMON_fnc_GetIn_NearestVehicles;	
 _timeout = time + 30;
 				
 	if ( count _unitsIn == 0) then 

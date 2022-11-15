@@ -71,7 +71,7 @@ if ( count _unitsgetout > 0 ) then
 			If (!_nosmoke) then {[_transport] spawn UPSMON_fnc_DoSmokeScreen;};
 		};
 	};
-	[_transport,_unitsgetout] call UPSMON_UnitsGetOut;
+	[_transport,_unitsgetout] call UPSMON_fnc_UnitsGetout;
 	_driver enableAI "MOVE";
 		
 	_transport setVariable ["UPSMON_cargo", [], false];	

@@ -303,7 +303,7 @@ if (_initpos!="ORIGINAL") then
 		_grpmission = "STATIC";
 		If (_nowpType == 3) then
 		{
-			_unitsin = [_npc,["static"],_range,true,_areamarker] call UPSMON_GetIn_NearestVehicles;
+			_unitsin = [_npc,["static"],_range,true,_areamarker] call UPSMON_fnc_GetIn_NearestVehicles;
 			_units = _units - _unitsin;
 			_grpmission = "FORTIFY";
 			[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_fnc_DocreateWP;
@@ -343,7 +343,7 @@ If (_ambush) then
 if (_fortify) then
 {
 	[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_fnc_DocreateWP;
-	_unitsin = [_npc,["static"],50,false,""] call UPSMON_GetIn_NearestVehicles;
+	_unitsin = [_npc,["static"],50,false,""] call UPSMON_fnc_GetIn_NearestVehicles;
 	_units = (units _grp) - _unitsin;
 	if ( count _units > 0 ) then
 	{

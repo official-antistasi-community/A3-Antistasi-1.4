@@ -28,7 +28,7 @@ If (({alive _x} count units _grp) == 0) exitwith {};
 
 _grpid = _grp getvariable ["UPSMON_Grpid",0];
 _npc = leader _grp;
-_unitsIn = [_npc,["air","land","sea","transport"],200] call UPSMON_GetIn_NearestVehicles;						
+_unitsIn = [_npc,["air","land","sea","transport"],200] call UPSMON_fnc_GetIn_NearestVehicles;						
 	
 if (UPSMON_Debug > 0) then {diag_log format ["Grp%1 unitsin:%2",_grp getvariable ["UPSMON_grpid",0],_unitsIn];};
 
@@ -107,7 +107,7 @@ if (count _unitsIn > 0) then
 					(group _npc) selectLeader ((units _npc) select 1);
 				};
 				[_driver] join GrpNull;
-				_gunnerscrew = [_x] call UPSMON_Fn_Gunnercrew;
+				_gunnerscrew = [_x] call UPSMON_fnc_Gunnercrew;
 				_gunnerscrew join _driver;
 			};
 			_targetpos = [_npc,_targetpos,["air"]] call UPSMON_SrchTrpPos;

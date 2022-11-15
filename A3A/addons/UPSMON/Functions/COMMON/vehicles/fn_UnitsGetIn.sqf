@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_UnitsGetIn.sqf
+File: UPSMON_fnc_UnitsGetIn.sqf
 Author: Azroul13
 
 Description:
@@ -54,7 +54,7 @@ _vehicle setVariable ["UPSMON_cargo", _cargo, false];
 	};			
 
 	unassignVehicle _x;				
-	_x spawn UPSMON_Allowgetin;						
+	_x spawn UPSMON_fnc_Allowgetin;						
 } foreach _units;				
 	
 //Assigned to the leader as commander or cargo		
@@ -63,13 +63,13 @@ _vehicle setVariable ["UPSMON_cargo", _cargo, false];
 	{
 		_Commandercount = 0;
 		_commander = _x;
-		[_commander,"COMMANDER",_vehicle,0] spawn UPSMON_assignasrole;		
+		[_commander,"COMMANDER",_vehicle,0] spawn UPSMON_fnc_assignasrole;		
 		_units = _units - [_x];
 	};
 
 	if ( _x == leader _x && _Cargocount > 0 ) exitwith
 	{
-		[_x,"CARGO",_vehicle,0] spawn UPSMON_assignasrole;
+		[_x,"CARGO",_vehicle,0] spawn UPSMON_fnc_assignasrole;
 		_units = _units - [_x];
 		_Cargocount = _Cargocount - 1;
 	};
@@ -87,7 +87,7 @@ if ( _vehgrpid == _grpid ) then
 		If (count (_units) > 0) then
 		{
 			_driver =  _units  select (count _units - 1);									
-			[_driver,"DRIVER",_vehicle,0] spawn UPSMON_assignasrole;	
+			[_driver,"DRIVER",_vehicle,0] spawn UPSMON_fnc_assignasrole;	
 			_units = _units - [_driver];
 		};
 	};
@@ -104,7 +104,7 @@ if ( _vehgrpid == _grpid ) then
 				If (_i > (count _Gunnerturrets - 1)) exitwith {_gunners};
 				_gunners pushback _x;
 				_turret = _Gunnerturrets select _i;
-				[_x,"GUNNER",_vehicle,0,_turret,_spawninveh] spawn UPSMON_assignasrole;					
+				[_x,"GUNNER",_vehicle,0,_turret,_spawninveh] spawn UPSMON_fnc_assignasrole;					
 			} foreach _units;
 			_units = _units - _gunners;
 		};
@@ -118,11 +118,11 @@ if ( _Cargocount > 0) then
 	If (count (_units) > 0) then
 	{
 		{	
-			[_x,"CARGO",_vehicle,0] spawn UPSMON_assignasrole;					
+			[_x,"CARGO",_vehicle,0] spawn UPSMON_fnc_assignasrole;					
 		} forEach _units;
 	};
 };	
 	
 {						
-	[_x] spawn UPSMON_avoidDissembark;				
+	[_x] spawn UPSMON_fnc_avoidDissembark;				
 } forEach _unitsin - [_driver] - [_gunner] -[_commander]; 

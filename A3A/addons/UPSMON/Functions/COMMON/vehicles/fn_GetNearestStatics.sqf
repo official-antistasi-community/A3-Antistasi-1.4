@@ -33,7 +33,7 @@ _OcloseX = _npc nearentities [["StaticWeapon"], _distance];
 	if (_isuav != 1) then
 	{
 		_inzone = true;
-		_emptypositions = _x call UPSMON_Emptyturret;  
+		_emptypositions = _x call UPSMON_fnc_Emptyturret;  
 		
 		If (_marker != "") then
 		{

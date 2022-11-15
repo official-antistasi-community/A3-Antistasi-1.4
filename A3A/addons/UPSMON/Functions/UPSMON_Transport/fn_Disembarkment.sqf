@@ -10,7 +10,7 @@ _safemode = ["CARELESS","SAFE"];
 
 {
 	_vehicle = vehicle _x;
-	_unitsincargo = [_vehicle] call UPSMON_FN_unitsInCargo;
+	_unitsincargo = [_vehicle] call UPSMON_fnc_unitsInCargo;
 	
 
 	if (!(_vehicle iskindof "AIR") && !(_vehicle iskindof "StaticWeapon") && !(_vehicle iskindof "MAN")) then

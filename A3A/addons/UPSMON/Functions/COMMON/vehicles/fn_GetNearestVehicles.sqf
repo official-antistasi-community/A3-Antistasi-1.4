@@ -37,7 +37,7 @@ _OcloseX = _npc nearentities [["CAR","TANK","SHIP","HELICOPTER"], _distance];
 		_inzone = true;
 		_Cargocount = (_x) emptyPositions "Cargo";
 		
-		_Gunnercount = _x call UPSMON_Emptyturret; 
+		_Gunnercount = _x call UPSMON_fnc_Emptyturret; 
 		_Drivercount = (_x) emptyPositions "Driver"; 
 		_Commandercount = (_x) emptyPositions "Commander"; 
 		

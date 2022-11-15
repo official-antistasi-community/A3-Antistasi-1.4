@@ -34,7 +34,7 @@ if ( _npc != _vehicle || !(_npc iskindof "CAManBase" )) then
 			[_vehicle,getpos _vehicle] call UPSMON_MoveHeliback;							
 		};				
 	} else {			
-		[_transport,[_npc]] call UPSMON_UnitsGetOut;		
+		[_transport,[_npc]] call UPSMON_fnc_UnitsGetout;		
 	};	
 		
 	//Esperamos a que est� parado		

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_avoidDissembark.sqf
+File: UPSMON_fnc_avoidDissembark.sqf
 Author: MONSADA
 
 Description:

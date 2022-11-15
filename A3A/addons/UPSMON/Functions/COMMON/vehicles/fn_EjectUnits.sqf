@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_EjectUnits.sqf
+File: UPSMON_fnc_EjectUnits.sqf
 Author: Azroul13
 
 Description:

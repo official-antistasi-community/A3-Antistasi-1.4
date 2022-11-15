@@ -36,7 +36,7 @@ if (!alive _transport) exitwith{};
 } foreach _grps;
 
 //dogetout each of _jumpers
-[_transport,_unitsout] call UPSMON_EjectUnits;
+[_transport,_unitsout] call UPSMON_fnc_EjectUnits;
 
 sleep 3;
 

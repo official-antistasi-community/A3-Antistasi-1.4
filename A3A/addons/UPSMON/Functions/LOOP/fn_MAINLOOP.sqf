@@ -84,7 +84,7 @@ while {true} do
 
 			_terrainscan = _currpos call UPSMON_fnc_sample_terrain;
 			_unitsneedammo = [_npc] call UPSMON_fnc_checkmunition;
-			_vehiclesneedsupply = [_assignedvehicle] call UPSMON_Checkvehiclesstatus;
+			_vehiclesneedsupply = [_assignedvehicle] call UPSMON_fnc_Checkvehiclesstatus;
 
 //*********************************************************************************************************************
 // 											Acquisition of the target

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_assignasrole.sqf
+File: UPSMON_fnc_assignasrole.sqf
 Author: MONSADA
 
 Description:

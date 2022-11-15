@@ -23,7 +23,7 @@ _dir = getdir _npc;
 
 _grp  setvariable ["UPSMON_GrpinAction",true];
 
-_unitsin = [_npc,["static"],50,false,""] call UPSMON_GetIn_NearestVehicles;
+_unitsin = [_npc,["static"],50,false,""] call UPSMON_fnc_GetIn_NearestVehicles;
 _units = _units - _unitsin;
 
 If ( count _units > 0 ) then 

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetIn_NearestVehicles.sqf
+File: UPSMON_fnc_GetIn_NearestVehicles.sqf
 Author: Azroul13
 
 Description:
@@ -33,16 +33,16 @@ if ( (count _validunits) > 0) then
 	_vehicles = [];
 	if ("static" in _types) then
 	{
-		_vehicles = [_npc,_area,_marker] call UPSMON_GetNeareststatics;
+		_vehicles = [_npc,_area,_marker] call UPSMON_fnc_GetNeareststatics;
 		If (_npc in _validunits) then
 		{
 			_validunits = _validunits - [_npc];
 			_validunits pushback _npc;
 		};
 	};
-	If !("static" in _types) then {_vehicles = [_npc,_types,_area,_marker] call UPSMON_GetNearestvehicles;};
+	If !("static" in _types) then {_vehicles = [_npc,_types,_area,_marker] call UPSMON_fnc_GetNearestVehicles;};
 
-	_unitsIn = [_validunits,_vehicles,_spawn] call UPSMON_selectvehicles;
+	_unitsIn = [_validunits,_vehicles,_spawn] call UPSMON_fnc_selectvehicles;
 };
 sleep 0.01;
 

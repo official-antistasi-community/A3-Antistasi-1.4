@@ -2,7 +2,7 @@
 Author: [Killerswin2, Håkon]
     trys to purchase a item and places it near the player. Damage for the object is disabled.
 Arguments:
-0.  <object>    Unit that will be buying a light
+0.  <object>    Unit that will be buying the item
 1.  <string>    Item classname
 2.  <number>    price of item
 3.  <array>     callback functions, [[name, isGlobal - > true if need exec]]

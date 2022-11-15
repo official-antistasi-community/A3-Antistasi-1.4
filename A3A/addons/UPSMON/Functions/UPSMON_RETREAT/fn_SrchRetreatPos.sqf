@@ -36,7 +36,7 @@ _scan = true;
 while {_scan} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_currpos,[_dist,_dist + 100],_direction,_water,[0,50],_distmin] call UPSMON_pos;
+	_targetPosTemp = [_currpos,[_dist,_dist + 100],_direction,_water,[0,50],_distmin] call UPSMON_fnc_pos;
 	If ("ship" in _typeofgrp) then
 	{
 		If (surfaceIsWater _targetPosTemp) then

@@ -58,7 +58,7 @@ If (_grp getvariable ["UPSMON_GrpHostility",0] > UPSMON_GUER_HM) then {_enemysid
 			{
 				if (vehicle _unit == _unit) then
 				{
-					If ([_position,_areamarker] call UPSMON_pos_fnc_isBlacklisted) then
+					If ([_position,_areamarker] call UPSMON_fnc_isBlacklisted) then
 					{
 						if (_accuracy < 20) then
 						{

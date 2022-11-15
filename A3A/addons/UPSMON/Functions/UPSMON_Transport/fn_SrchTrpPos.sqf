@@ -62,7 +62,7 @@ _i = 0;
 while {count _targetPos == 0 && _i < 40} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_position,[0,200],_dir,_water,_road,_dist] call UPSMON_pos;
+	_targetPosTemp = [_position,[0,200],_dir,_water,_road,_dist] call UPSMON_fnc_pos;
 	If (count _targetPos == 0) then 
 	{
 		If (("car" in _typeofgrp) || ("tank" in _typeofgrp) || ((group _npc) getvariable ["UPSMON_LANDDROP",false])) then

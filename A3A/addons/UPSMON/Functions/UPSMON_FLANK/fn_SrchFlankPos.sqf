@@ -56,7 +56,7 @@ _scan = true;
 while {_scan} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_npcpos,[_dist,_flankdist],[_dir2 +100,_dir2+200],0,_roadchk,_distmin] call UPSMON_pos;
+	_targetPosTemp = [_npcpos,[_dist,_flankdist],[_dir2 +100,_dir2+200],0,_roadchk,_distmin] call UPSMON_fnc_pos;
 	If (!surfaceIsWater _targetPosTemp) then
 	{
 		_targetPosTemp = [_targetPosTemp select 0,_targetPosTemp select 1,0];

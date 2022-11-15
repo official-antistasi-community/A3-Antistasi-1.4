@@ -73,7 +73,7 @@ _scan = true;
 while {_scan} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_areamarker,_water,[],_dist] call UPSMON_pos;
+	_targetPosTemp = [_areamarker,_water,[],_dist] call UPSMON_fnc_pos;
 	if ((group _npc) getvariable ["UPSMON_ONROAD",false] || ("car" in _typeofgrp)) then
 	{
 		If (!("ship" in _typeofgrp)) then
@@ -85,7 +85,7 @@ while {_scan} do
 				{
 					_nearRoads = _nearRoads call UPSMON_fnc_arrayShufflePlus;
 					{
-						If ([getposATL _x,_areamarker] call UPSMON_pos_fnc_isBlacklisted) then 
+						If ([getposATL _x,_areamarker] call UPSMON_fnc_isBlacklisted) then 
 						{
 							if ((([_currpos,getposATL _x] call UPSMON_fnc_distancePosSqr) > _mindist)) exitwith
 							{

@@ -183,7 +183,7 @@ while {true} do
 					{
 						If (_ratio < 1.2 && (_supstatus != "SUPRESSED")) then
 						{
-							_inmarker =  [_attackpos,_areamarker] call UPSMON_pos_fnc_isBlacklisted;
+							_inmarker =  [_attackpos,_areamarker] call UPSMON_fnc_isBlacklisted;
 							// Offensive Behaviour
 							If (_dist <= 300 && ({alive _x && !(captive _x)} count units _grp) >= 4 && !("arti" in _typeofgrp)  && (!(_grp getvariable ["UPSMON_NOFOLLOW",false]) || !_inmarker)) then
 							{
@@ -280,7 +280,7 @@ while {true} do
 
 							If (count _artipos == 0) then
 							{
-								_artipos = [_currpos,[100,200],[0,360],0,[0,100],0] call UPSMON_pos;
+								_artipos = [_currpos,[100,200],[0,360],0,[0,100],0] call UPSMON_fnc_pos;
 							};
 
 							If (count _artipos > 0) then
@@ -308,7 +308,7 @@ while {true} do
 							_smokepos = _grp getvariable ["UPSMON_SuspectPos",[]];
 							If (count _smokepos == 0) then
 							{
-								_smokepos = [_currpos,[30,100],[0,360],0,[0,100],0] call UPSMON_pos;
+								_smokepos = [_currpos,[30,100],[0,360],0,[0,100],0] call UPSMON_fnc_pos;
 							};
 
 							If (count _smokepos > 0) then
@@ -818,7 +818,7 @@ while {true} do
 							{
 								If (!(_grp getvariable ["UPSMON_Disembarking",false])) then
 								{
-									If (!([_targetpos,_areamarker] call UPSMON_pos_fnc_isBlacklisted)
+									If (!([_targetpos,_areamarker] call UPSMON_fnc_isBlacklisted)
 											|| _stuck
 											|| _targetdist <= 5
 											//|| moveToFailed _driver

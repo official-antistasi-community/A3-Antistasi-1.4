@@ -14,7 +14,7 @@ while {_timeout > time && {alive _x} count _units > 0} do
 			_target = _targetpos;
 			If (_targetpos isEqualType []) then
 			{
-				_Pos = [_targetpos,[0,20],[0,360],0,[0,100],0] call UPSMON_pos;
+				_Pos = [_targetpos,[0,20],[0,360],0,[0,100],0] call UPSMON_fnc_pos;
 				_target = createVehicle ["UserTexture1m_F",[_Pos select 0,_Pos select 1,1], [], 0, "NONE"];
 				_delete = true;
 			};

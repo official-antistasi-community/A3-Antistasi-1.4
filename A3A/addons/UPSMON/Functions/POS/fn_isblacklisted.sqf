@@ -18,11 +18,11 @@ _centerX = _center select 0;
 _centerY = _center select 1;
 
 private ["_shape"];
-_shape = _area call UPSMON_pos_fnc_getMarkerShape;
+_shape = _area call UPSMON_fnc_getMarkerShape;
 
 if (_shape == "ICON") then {
   // Icon has only one position, so if it equals to the given position, then it's blacklisted.
-  if ([_pos,_center] call UPSMON_pos_fnc_issameposition) then {
+  if ([_pos,_center] call UPSMON_fnc_isSamePosition) then {
     _return = true;
   };
 
@@ -30,7 +30,7 @@ if (_shape == "ICON") then {
 } else {
   if (_shape in ["RECTANGLE","SQUARE"]) then {
     private ["_corners"];
-    _corners = _area call UPSMON_pos_fnc_getMarkerCorners;
+    _corners = _area call UPSMON_fnc_getMarkerCorners;
 
     // If rectangle is not axis-aligned.
     if (_dir % 90 != 0) then {
@@ -53,7 +53,7 @@ if (_shape == "ICON") then {
         _shiftedY = _orgY - _centerY;
         
         // Axis-aligned corner position
-        _posNew = [[_shiftedX,_shiftedY],_dir] call UPSMON_pos_fnc_rotatePosition;
+        _posNew = [[_shiftedX,_shiftedY],_dir] call UPSMON_fnc_rotatePosition;
         
         // Shift the aligned corner position back near to the original marker location.
         _newX = _posNew select 0;
@@ -71,12 +71,12 @@ if (_shape == "ICON") then {
     };
     
     // Check if the position is within the marker area.
-    _return = [_pos,_corners] call UPSMON_pos_fnc_isInRectangle;
+    _return = [_pos,_corners] call UPSMON_fnc_isInRectangle;
   } else {
     if (_shape == "CIRCLE") then {
-      _return = [_pos,_area] call UPSMON_pos_fnc_isInCircle;
+      _return = [_pos,_area] call UPSMON_fnc_isInCircle;
     } else {
-      _return = [_pos,_area] call UPSMON_pos_fnc_isInEllipse;
+      _return = [_pos,_area] call UPSMON_fnc_isInEllipse;
     };
   };
 };

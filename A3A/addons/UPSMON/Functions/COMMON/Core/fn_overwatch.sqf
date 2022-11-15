@@ -28,7 +28,7 @@ _scan = true;
 while {_scan} do 
 {
 	_i = _i + 1;
-	_targetPosTemp = [_targetPos,[0,50],[_dir +70,_dir +220],0,[0,100],5] call UPSMON_pos;
+	_targetPosTemp = [_targetPos,[0,50],[_dir +70,_dir +220],0,[0,100],5] call UPSMON_fnc_pos;
 	If (!surfaceIsWater _targetPosTemp) then
 	{
 		_points = 0;

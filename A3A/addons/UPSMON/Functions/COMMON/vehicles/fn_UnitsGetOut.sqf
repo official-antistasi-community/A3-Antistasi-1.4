@@ -21,7 +21,7 @@ _units = _this select 1;
 	doGetOut _x;
 	[_x] allowGetIn false;
 	_x leaveVehicle _transport;
-	_Pos = [getposATL _x,[5,20],[0,360]] call UPSMON_pos;
+	_Pos = [getposATL _x,[5,20],[0,360]] call UPSMON_fnc_pos;
 	_x domove _Pos;
 	sleep 0.1;
 } forEach _units;

@@ -46,7 +46,7 @@ If (("ship" in _typeofgrp) || ("air" in _typeofgrp)) then
 	if ("ship" in _typeofgrp) then
 	{
 		_water = 2;
-		_targetPos = [_suspectPos,[50,100],[0,360],2,[0,100],1] call UPSMON_pos;
+		_targetPos = [_suspectPos,[50,100],[0,360],2,[0,100],1] call UPSMON_fnc_pos;
 		If (!surfaceiswater _targetpos) then {_targetpos = _currpos;};
 		_targetPos = [_targetPos select 0,_targetPos select 1,0];
 		_speedmode = "NORMAL";
@@ -54,7 +54,7 @@ If (("ship" in _typeofgrp) || ("air" in _typeofgrp)) then
 	else
 	{
 		_water = 1;
-		//_targetPos = [_attackpos,[200,1000],[0,360],1,[0,100],0] call UPSMON_pos;
+		//_targetPos = [_attackpos,[200,1000],[0,360],1,[0,100],0] call UPSMON_fnc_pos;
 		_targetPos = _suspectPos;
 		_wptype = "LOITER";
 		_radius = 200;
@@ -67,7 +67,7 @@ else
 	{
 		_speedmode = "LIMITED";
 		_Behaviour = "STEALTH";
-		_targetPos = [_suspectPos,[10,50],[_dir2 + 70,_dir2 + 280],0,[0,100],0] call UPSMON_pos;
+		_targetPos = [_suspectPos,[10,50],[_dir2 + 70,_dir2 + 280],0,[0,100],0] call UPSMON_fnc_pos;
 	}
 	else
 	{
@@ -78,7 +78,7 @@ else
 	
 if (_grp getvariable ["UPSMON_NOFOLLOW",false]) then 
 {
-	If !([_targetPos,_areamarker] call UPSMON_pos_fnc_isBlacklisted) then 
+	If !([_targetPos,_areamarker] call UPSMON_fnc_isBlacklisted) then 
 	{
 		_wptype = "HOLD";
 		_speedmode = "FULL";

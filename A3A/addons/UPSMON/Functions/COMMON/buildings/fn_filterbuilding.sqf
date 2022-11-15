@@ -22,7 +22,7 @@ if (!((typeof _bld) in UPSMON_Bld_remove) && !(isObjectHidden _bld)) then
 {
 	If (_marker != "") then
 	{
-		_in = [getposATL _bld,_marker] call UPSMON_pos_fnc_isBlacklisted;
+		_in = [getposATL _bld,_marker] call UPSMON_fnc_isBlacklisted;
 	};
 	if (_in) then
 	{

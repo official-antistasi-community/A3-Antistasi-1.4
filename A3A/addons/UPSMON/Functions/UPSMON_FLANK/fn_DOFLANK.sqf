@@ -130,7 +130,7 @@ _targetPos = [_targetPos select 0,_targetPos select 1,0];
 						
 if (_grp getvariable ["UPSMON_NOFOLLOW",false]) then 
 {
-	If !([_targetPos,_areamarker] call UPSMON_pos_fnc_isBlacklisted) then 
+	If !([_targetPos,_areamarker] call UPSMON_fnc_isBlacklisted) then 
 	{
 		_wptype = "HOLD";
 		_speedmode = "FULL";

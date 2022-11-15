@@ -81,7 +81,7 @@ _areamarker = _this select 1;
 											_position = _bldpos select 0;
 										};
 									};
-									if (count _position == 0) then {_position = [_areamarker,0,[],1] call UPSMON_pos;};
+									if (count _position == 0) then {_position = [_areamarker,0,[],1] call UPSMON_fnc_pos;};
 									If (count _position > 0) then
 									{
 										If (!(IsOnroad _position)) then

@@ -257,11 +257,11 @@ if (_initpos!="ORIGINAL") then
 		{
 			if (_grptype == "Isboat" || _grptype == "Isdiver") then
 			{
-				_currPos = [_areamarker,2,[],1] call UPSMON_pos;
+				_currPos = [_areamarker,2,[],1] call UPSMON_fnc_pos;
 			}
 			else
 			{
-				_currPos=[_areamarker,0,[],1] call UPSMON_pos;
+				_currPos=[_areamarker,0,[],1] call UPSMON_fnc_pos;
 			};
 
 			if (count _currPos > 0) then {_try=99};

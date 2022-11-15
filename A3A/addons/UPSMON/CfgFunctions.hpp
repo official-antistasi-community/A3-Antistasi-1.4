@@ -232,26 +232,25 @@ class CfgFunctions {
 			class fn_SpawninBuildings {};
 			class fn_unitdefend {};
 		};
-		class Get_pos {
-			// TODO: rename these terrible functions
-			file = QPATHTOFOLDER(Functions\Get_pos);
-			class fn_pos_fnc_findclosestposition {};
-			class fn_pos_fnc_getmarkercorners {};
-			class fn_pos_fnc_getmarkershape {};
-			class fn_pos_fnc_getpos {};
-			class fn_pos_fnc_getposfromcircle {};
-			class fn_pos_fnc_getposfromellipse {};
-			class fn_pos_fnc_getposfromrectangle {};
-			class fn_pos_fnc_getposfromsquare {};
-			class fn_pos_fnc_isblacklisted {};
-			class fn_pos_fnc_isincircle {};
-			class fn_pos_fnc_isinellipse {};
-			class fn_pos_fnc_isinrectangle {};
-			class fn_pos_fnc_issameposition {};
-			class fn_pos_fnc_rotateposition {};
-			class fn_pos_getpos {};
-			class fn_pos_getposmarker {};
-			class fn_pos_init {};
+		class POS {
+			file = QPATHTOFOLDER(Functions\POS);
+			class fn_findclosestposition {};
+			class fn_getmarkercorners {};
+			class fn_getmarkershape {};
+			class fn_getpos {};
+			class fn_getposfromcircle {};
+			class fn_getposfromellipse {};
+			class fn_getposfromrectangle {};
+			class fn_getposfromsquare {};
+			class fn_isblacklisted {};
+			class fn_isincircle {};
+			class fn_isinellipse {};
+			class fn_isinrectangle {};
+			class fn_issameposition {};
+			class fn_rotateposition {};
+			class fn_getpos {};
+			class fn_getposmarker {};
+			class fn_pos {};
 		};
 		class GROUP {
 			file = QPATHTOFOLDER(Functions\GROUP);

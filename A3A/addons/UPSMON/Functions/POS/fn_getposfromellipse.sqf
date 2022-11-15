@@ -34,7 +34,7 @@ _posY = (_sizeY * (sin _dir)) * _rand;
 _pos  = [_posX,_posY];
 
 if (_dirMrk != 0) then {
-  _pos = [_pos,_dirMrk] call UPSMON_pos_fnc_rotatePosition;
+  _pos = [_pos,_dirMrk] call UPSMON_fnc_rotatePosition;
 };
 
 _posX = _centerX + (_pos select 0);

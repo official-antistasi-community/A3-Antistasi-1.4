@@ -147,7 +147,7 @@ while {true} do
 
 					If (!(_grp getvariable ["UPSMON_searchingpos",false])) then
 					{
-						If (!([_targetpos,_areamarker] call UPSMON_pos_fnc_isBlacklisted) 
+						If (!([_targetpos,_areamarker] call UPSMON_fnc_isBlacklisted) 
 							|| _stuck
 							|| _targetdist <= 5
 							|| count(waypoints _grp) == 0 

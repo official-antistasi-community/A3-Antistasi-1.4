@@ -47,7 +47,7 @@ _OcloseX = _npc nearentities [["CAR","TANK","SHIP","HELICOPTER"], _distance];
 		
 		If (_marker != "") then
 		{
-			_inzone = [getposATL _x,_marker] call UPSMON_pos_fnc_isBlacklisted;				
+			_inzone = [getposATL _x,_marker] call UPSMON_fnc_isBlacklisted;				
 		};
 		
 		If ("transport" in _types && _Cargocount  == 0) then {_points = _points + 100};

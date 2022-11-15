@@ -37,7 +37,7 @@ _OcloseX = _npc nearentities [["StaticWeapon"], _distance];
 		
 		If (_marker != "") then
 		{
-			_inzone = [getposATL _x,_marker] call UPSMON_pos_fnc_isBlacklisted;				
+			_inzone = [getposATL _x,_marker] call UPSMON_fnc_isBlacklisted;				
 		};
 	
 		//ToDo check impact (locked _x != 2)

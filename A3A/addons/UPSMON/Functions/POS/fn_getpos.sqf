@@ -35,7 +35,7 @@ if (_dir isEqualType []) then {
   _dir = (_min + random _ang);
 };
 
-_pos = [_org,_dst,_dir] call UPSMON_pos_fnc_getPos;
+_pos = [_org,_dst,_dir] call UPSMON_fnc_getPosSub;
 
 // Water position
 if (typeName _water == "SCALAR") then {
@@ -49,7 +49,7 @@ if (typeName _water == "SCALAR") then {
         // then going outwards from it in full circles in 20m steps.
         while {_d = _d + 20; _l && _d < 5000} do {
           for "_i" from 0 to 340 step 20 do {
-            _p = [_pos,_d,_i] call UPSMON_pos_fnc_getpos;
+            _p = [_pos,_d,_i] call UPSMON_fnc_getPosSub;
             if (!surfaceIsWater _p) exitwith {_l = false};
           };
         };
@@ -68,7 +68,7 @@ if (typeName _water == "SCALAR") then {
         // then going outwards from it in full circles in 20m steps.
         while {_d = _d + 20; _l && _d < 5000} do {
           for "_i" from 0 to 340 step 20 do {
-            _p = [_pos,_d,_i] call UPSMON_pos_fnc_getpos;
+            _p = [_pos,_d,_i] call UPSMON_fnc_getPosSub;
             if (surfaceIsWater _p) exitwith {_l = false};
           };
         };
@@ -87,7 +87,7 @@ if (typeName _water == "SCALAR") then {
       // then going outwards from it in full circles in 20m steps.
       while {_d = _d + 20; _l && _d < 5000} do {
         for "_i" from 0 to 340 step 20 do {
-          _p = [_pos,_d,_i] call UPSMON_pos_fnc_getpos;
+          _p = [_pos,_d,_i] call UPSMON_fnc_getPosSub;
           if (!surfaceIsWater _p) exitwith {_l = false};
         };
       };

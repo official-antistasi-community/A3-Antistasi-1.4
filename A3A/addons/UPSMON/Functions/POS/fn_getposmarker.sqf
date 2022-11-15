@@ -12,7 +12,7 @@ _pos = [];
 if (_blist isEqualType "STRING") then {_blist = [_blist]};
 
 private ["_shape"];
-_shape = _area call UPSMON_pos_fnc_getMarkerShape;
+_shape = _area call UPSMON_fnc_getMarkerShape;
 
 // Limited loop so the script won't get stuck
 private ["_i","_exit"];
@@ -21,9 +21,9 @@ for [{_i = 0}, {_i < 1000 && !_exit}, {_i = _i + 1}] do {
 
 	// Rectangle or Ellipse marker given?
 	if (_shape in ["SQUARE","RECTANGLE"]) then {
-	  _pos = _area call UPSMON_pos_fnc_getPosFromRectangle;
+	  _pos = _area call UPSMON_fnc_getPosFromRectangle;
 	} else {
-	  _pos = _area call UPSMON_pos_fnc_getPosFromEllipse;
+	  _pos = _area call UPSMON_fnc_getPosFromEllipse;
 	};
 
   // Find empty position
@@ -90,7 +90,7 @@ for [{_i = 0}, {_i < 1000 && !_exit}, {_i = _i + 1}] do {
 	  // Check each blacklist marker
 	  {
 		// If blacklisted, jump out of blacklist check and continue main loop.
-		if ([_pos,_x] call UPSMON_pos_fnc_isBlacklisted) exitwith {
+		if ([_pos,_x] call UPSMON_fnc_isBlacklisted) exitwith {
 		  _exit = false;
 		};
 	  } foreach _blist;

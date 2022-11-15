@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SrchTrpPos.sqf
+File: UPSMON_fnc_SrchTrpPos.sqf
 Author: Azroul13
 
 Description:

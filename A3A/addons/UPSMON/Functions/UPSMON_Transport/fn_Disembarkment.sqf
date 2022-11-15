@@ -35,7 +35,7 @@ _safemode = ["CARELESS","SAFE"];
 				|| (_supstate != "") 
 				|| _targetdist <= (200 * ((random .4) + 1))) then
 			{
-				[_vehicle,_unitsincargo,_grp,_supstate] spawn UPSMON_dodisembark;
+				[_vehicle,_unitsincargo,_grp,_supstate] spawn UPSMON_fnc_dodisembark;
 			};
 		}
 	};
@@ -56,7 +56,7 @@ _safemode = ["CARELESS","SAFE"];
 						{
 							If (!(_grp getvariable ["UPSMON_ChangingLZ",false])) then
 							{
-								_targetpos = [_vehicle,getposATL _vehicle,["car"]] call UPSMON_SrchTrpPos;
+								_targetpos = [_vehicle,getposATL _vehicle,["car"]] call UPSMON_fnc_SrchTrpPos;
 								_mission = (_grp getvariable ["UPSMON_Transportmission",[]]) select 0;
 								_group = (_grp getvariable ["UPSMON_Transportmission",[]]) select 2;
 								_grp setvariable ["UPSMON_Transportmission",[_mission,_targetpos,_group]];
@@ -66,13 +66,13 @@ _safemode = ["CARELESS","SAFE"];
 						};
 						If ((abs(velocity _vehicle select 2)) <= 1 && ((getposATL _vehicle) select 2) <= 4) then
 						{
-							[_vehicle,_unitsincargo,_grp] spawn UPSMON_dohelidisembark;
+							[_vehicle,_unitsincargo,_grp] spawn UPSMON_fnc_dohelidisembark;
 						};
 					}
 					else
 					{
-						[_vehicle] spawn UPSMON_KeepAltitude;
-						[_vehicle,_unitsincargo,_grp] spawn UPSMON_doparadrop;
+						[_vehicle] spawn UPSMON_fnc_KeepAltitude;
+						[_vehicle,_unitsincargo,_grp] spawn UPSMON_fnc_doparadrop;
 					};
 				};
 			};

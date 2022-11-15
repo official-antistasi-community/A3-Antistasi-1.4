@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_dohelidisembark.sqf
+File: UPSMON_fnc_dohelidisembark.sqf
 Author: Azroul13
 
 Description:
@@ -38,7 +38,7 @@ if (!alive _transport) exitwith{};
 
 sleep 3;
 
-[_transport] call UPSMON_Returnbase;
+[_transport] call UPSMON_fnc_Returnbase;
 
 _timeout = 100 + time;
 	

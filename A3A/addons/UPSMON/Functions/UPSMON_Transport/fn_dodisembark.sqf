@@ -80,7 +80,7 @@ if ( count _unitsgetout > 0 ) then
 If (UPSMON_Debug > 0) then {diag_log format ["transport:%1",_unitsgetout]};
 If (((group _transport) getvariable ["UPSMON_Grpmission",""]) == "TRANSPORT") then
 {
-	[_transport] spawn UPSMON_Returnbase;
+	[_transport] spawn UPSMON_fnc_Returnbase;
 };
 
 _transport setvariable ["UPSMON_disembarking",false];

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_doparadrop.sqf
+File: UPSMON_fnc_doparadrop.sqf
 Author: Azroul13
 
 Description:
@@ -40,7 +40,7 @@ if (!alive _transport) exitwith{};
 
 sleep 3;
 
-[_transport] call UPSMON_Returnbase;
+[_transport] call UPSMON_fnc_Returnbase;
 
 _timeout = 100 + time;
 	

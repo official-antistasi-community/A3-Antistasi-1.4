@@ -715,7 +715,7 @@ while {true} do
 				{
 					If (((_grp getvariable ["UPSMON_Transportmission",[]]) select 0) == "MoveToRP" || ((_grp getvariable ["UPSMON_Transportmission",[]]) select 0) == "LANDRP") then
 					{
-						_grouptransported = [_grp] call UPSMON_CheckTransported;
+						_grouptransported = [_grp] call UPSMON_fnc_CheckTransported;
 
 						If (!IsNull _grouptransported) then
 						{
@@ -727,14 +727,14 @@ while {true} do
 									If (((_grp getvariable ["UPSMON_Transportmission",[]]) select 0) == "MoveToRP") then
 									{
 										//Embark group in transport (LAND)
-										[_grouptransported,_assignedvehicle,_destination] spawn UPSMON_getinassignedveh;
+										[_grouptransported,_assignedvehicle,_destination] spawn UPSMON_fnc_getinassignedveh;
 									};
 									If (((_grp getvariable ["UPSMON_Transportmission",[]]) select 0) == "LANDRP") then
 									{
 										if (_currpos select 2 <= 3) then
 										{
 											//Embark group in transport (HELI)
-											[_grouptransported,_assignedvehicle,_destination] spawn UPSMON_getinassignedveh;
+											[_grouptransported,_assignedvehicle,_destination] spawn UPSMON_fnc_getinassignedveh;
 										};
 									};
 								};
@@ -743,7 +743,7 @@ while {true} do
 						else
 						{
 							//If there are nobody anymore to transport then return to base
-							[_assignedvehicle select 0] call UPSMON_Returnbase;
+							[_assignedvehicle select 0] call UPSMON_fnc_Returnbase;
 						};
 					};
 
@@ -770,7 +770,7 @@ while {true} do
 
 			case "WAITTRANSPORT":
 			{
-				_grouptransported = [_grp] call UPSMON_CheckTransported;
+				_grouptransported = [_grp] call UPSMON_fnc_CheckTransported;
 				If (IsNull _grouptransported) then
 				{
 					[_grp,_grp getvariable ["UPSMON_TransportDest",[]],"MOVE",_formation,_speedmode,_behaviour,"YELLOW",1] spawn UPSMON_fnc_DocreateWP;
@@ -924,7 +924,7 @@ while {true} do
 					{
 						If (count _assignedvehicle > 0) then
 						{
-							[_grp,_assignedvehicle,_dist,_targetdist,_supstatus] call UPSMON_Disembarkment;
+							[_grp,_assignedvehicle,_dist,_targetdist,_supstatus] call UPSMON_fnc_Disembarkment;
 						};
 					};
 				};
@@ -941,7 +941,7 @@ while {true} do
 						{
 							If (!(_grp getVariable ["UPSMON_landing",false])) then
 							{
-								[_grp,_typeofgrp,_targetpos,_dist,_targetdist,_assignedvehicle,_supstatus,_speedmode,_behaviour] call UPSMON_Embarkment;
+								[_grp,_typeofgrp,_targetpos,_dist,_targetdist,_assignedvehicle,_supstatus,_speedmode,_behaviour] call UPSMON_fnc_Embarkment;
 							};
 						};
 					};

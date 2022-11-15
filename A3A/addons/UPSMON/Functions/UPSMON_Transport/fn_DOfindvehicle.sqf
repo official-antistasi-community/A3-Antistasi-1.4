@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DOfindvehicle.sqf
+File: UPSMON_fnc_DOfindvehicle.sqf
 Author: Azroul13
 
 Description:
@@ -34,7 +34,7 @@ if (UPSMON_Debug > 0) then {diag_log format ["Grp%1 unitsin:%2",_grp getvariable
 
 if (count _unitsIn == 0) then 
 {
-	_transportgrp = [_grp] call UPSMON_GetTransport;
+	_transportgrp = [_grp] call UPSMON_fnc_GetTransport;
 	if (!IsNull _transportgrp) then
 	{
 		_grp setvariable ["UPSMON_Grpmission","WAITTransport"];
@@ -53,7 +53,7 @@ if (count _unitsIn == 0) then
 				_mission = "LANDRP";
 			};	
 			
-			_targetpos = [_npc,getposATL _npc,["car"]] call UPSMON_SrchTrpPos;
+			_targetpos = [_npc,getposATL _npc,["car"]] call UPSMON_fnc_SrchTrpPos;
 			[_transportgrp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_fnc_DocreateWP;
 			[_grp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_fnc_DocreateWP;
 		}
@@ -73,7 +73,7 @@ if (count _unitsIn == 0) then
 					};
 				};
 			} foreach units _transportgrp;
-			[_grp,_assignedvehicle,_targetpos] spawn UPSMON_getinassignedveh;
+			[_grp,_assignedvehicle,_targetpos] spawn UPSMON_fnc_getinassignedveh;
 		};
 		
 		_transportgrp setvariable ["UPSMON_Transportmission",[_mission,_targetpos,_grp]];
@@ -110,7 +110,7 @@ if (count _unitsIn > 0) then
 				_gunnerscrew = [_x] call UPSMON_fnc_Gunnercrew;
 				_gunnerscrew join _driver;
 			};
-			_targetpos = [_npc,_targetpos,["air"]] call UPSMON_SrchTrpPos;
+			_targetpos = [_npc,_targetpos,["air"]] call UPSMON_fnc_SrchTrpPos;
 			
 			_mission = "MOVETODEST";
 			if (_grp getvariable ["UPSMON_LANDDROP",false]) then 
@@ -134,12 +134,12 @@ if (count _unitsIn > 0) then
 	
 	if (_grptype == "Iscar") then
 	{
-		_targetpos = [leader _grp,_targetpos,["car"]] call UPSMON_SrchTrpPos;
+		_targetpos = [leader _grp,_targetpos,["car"]] call UPSMON_fnc_SrchTrpPos;
 	};
 		
 	if (_grptype == "Isboat") then
 	{
-		_targetpos = [leader _grp,_targetpos,["ship"]] call UPSMON_SrchTrpPos;
+		_targetpos = [leader _grp,_targetpos,["ship"]] call UPSMON_fnc_SrchTrpPos;
 	};
 	
 	{_x forcespeed -1} foreach units _grp;

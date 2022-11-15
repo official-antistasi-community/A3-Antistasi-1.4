@@ -252,7 +252,7 @@ while {true} do
 							{
 								If (count _assignedvehicle > 0) then
 								{
-									[_grp,_assignedvehicle,_dist,_targetdist,_supstatus] call UPSMON_Disembarkment;
+									[_grp,_assignedvehicle,_dist,_targetdist,_supstatus] call UPSMON_fnc_Disembarkment;
 								};
 							};
 						};
@@ -270,7 +270,7 @@ while {true} do
 						{
 							If (!(_grp getVariable ["UPSMON_landing",false])) then
 							{
-								[_grp,_typeofgrp,_targetpos,_dist,_targetdist,_assignedvehicle,_supstatus,_speedmode,_behaviour] call UPSMON_Embarkment;
+								[_grp,_typeofgrp,_targetpos,_dist,_targetdist,_assignedvehicle,_supstatus,_speedmode,_behaviour] call UPSMON_fnc_Embarkment;
 							};
 						};
 					};

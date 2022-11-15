@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DOfindCombatvehicle.sqf
+File: UPSMON_fnc_DOfindCombatvehicle.sqf
 Author: Azroul13
 
 Description:

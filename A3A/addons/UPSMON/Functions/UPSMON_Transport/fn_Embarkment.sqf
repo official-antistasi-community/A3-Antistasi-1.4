@@ -54,7 +54,7 @@ If (count _unitsout > 0) then
 					{
 						if (!("tank" in _typeofgrp) && !("armed" in _typeofgrp) && !("apc" in _typeofgrp) && !("air" in _typeofgrp)) then
 						{
-							[_grp,_targetpos,_speedmode,_behaviour] spawn UPSMON_DOfindvehicle;
+							[_grp,_targetpos,_speedmode,_behaviour] spawn UPSMON_fnc_DOfindvehicle;
 						};
 					};
 				}
@@ -68,7 +68,7 @@ If (count _unitsout > 0) then
 						};
 						If (count _assignedvehicle > 0) then
 						{
-							[_grp,_assignedvehicle,_targetpos] spawn UPSMON_getinassignedveh;
+							[_grp,_assignedvehicle,_targetpos] spawn UPSMON_fnc_getinassignedveh;
 						};
 					};
 				};
@@ -79,7 +79,7 @@ If (count _unitsout > 0) then
 	{
 		If (_grp getvariable ["UPSMON_NOVEH",0] < 2) then
 		{
-			[_grp] spawn UPSMON_DOfindCombatvehicle;
+			[_grp] spawn UPSMON_fnc_DOfindCombatvehicle;
 		};
 	};
 };

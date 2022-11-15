@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SrchGuardPos.sqf
+File: UPSMON_fnc_SrchGuardPos.sqf
 Author: Azroul13
 
 Description:

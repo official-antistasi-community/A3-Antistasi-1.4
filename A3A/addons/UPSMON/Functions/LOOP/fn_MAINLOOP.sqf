@@ -243,7 +243,7 @@ while {true} do
 							//Defensive Behaviour
 							if (_wptype != "HOLD") then
 							{
-								[_grp,_dist,_target,_supstatus,_terrainscan] spawn UPSMON_DODEFEND;
+								[_grp,_dist,_target,_supstatus,_terrainscan] spawn UPSMON_fnc_DODEFEND;
 								_timeorder = time + 5;
 								_grp setvariable ["UPSMON_TIMEORDER",_timeorder];
 							};

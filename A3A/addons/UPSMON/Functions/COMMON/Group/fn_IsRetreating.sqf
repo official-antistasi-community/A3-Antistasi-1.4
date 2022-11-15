@@ -28,7 +28,7 @@ If (_grp getvariable ["UPSMON_Grpmission",""] != "RETREAT") then
 						//If ((random 100) <= (call (compile format ["UPSMON_%1_RETREAT",(_grp getvariable ["UPSMON_Origin",[]]) select 5]))) then//modified to avoid .rpt bugs
 						If ((random 100) <= 10) then
 						{
-							[_grp,_attackpos,_typeofgrp,_assignedvehicles] spawn UPSMON_DORETREAT;
+							[_grp,_attackpos,_typeofgrp,_assignedvehicles] spawn UPSMON_fnc_DORETREAT;
 							_grp setvariable ["UPSMON_Grpmission","RETREAT"];
 							_grpstatus = "BLUE";
 							If (_AttackPos select 0 != 0 && _AttackPos select 1 != 0) then

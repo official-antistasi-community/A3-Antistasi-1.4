@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DORETREAT.sqf
+File: UPSMON_fnc_DORETREAT.sqf
 Author: Azroul13
 
 Description:
@@ -47,7 +47,7 @@ else
 	_dir = [getposATL _npc,(_grp getvariable "UPSMON_Origin") select 2] call UPSMON_getDirPos;
 };
 
-_retreatPos = [_npc,_AttackPos,_dir,_dist] call UPSMON_SrchRetreatPos;
+_retreatPos = [_npc,_AttackPos,_dir,_dist] call UPSMON_fnc_SrchRetreatPos;
 
 _behaviour = "CARELESS";
 _CombatMode = "BLUE";

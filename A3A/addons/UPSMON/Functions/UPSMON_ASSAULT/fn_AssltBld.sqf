@@ -57,7 +57,7 @@ if (count _bld > 0) then
 				} foreach _teamsupport;
 	
 				_time = ((_attackpos vectordistance _currpos)*1.4);
-				[_teamasslt,_bldpos,_grp,_time] call UPSMON_patrolbuilding;
+				[_teamasslt,_bldpos,_grp,_time] call UPSMON_fnc_patrolBuilding;
 				
 				if (({alive _x} count (units _grp)) > 0) then
 				{

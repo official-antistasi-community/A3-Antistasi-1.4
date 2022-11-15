@@ -550,7 +550,7 @@ while {true} do
 										};
 									};
 
-									[_grp,_attackpos] spawn UPSMON_FORTIFY;
+									[_grp,_attackpos] spawn UPSMON_fnc_Fortify;
 								};
 							};
 						};
@@ -599,7 +599,7 @@ while {true} do
 						If (!(_grp getvariable ["UPSMON_fnc_Inbuilding",false])) then
 						{
 							_units = [units _grp] call UPSMON_fnc_getunits;
-							[_units,_grp getvariable ["UPSMON_bldposToCheck",[]],_grp,55] spawn UPSMON_patrolBuilding;
+							[_units,_grp getvariable ["UPSMON_bldposToCheck",[]],_grp,55] spawn UPSMON_fnc_patrolBuilding;
 						}
 					}
 					else
@@ -677,7 +677,7 @@ while {true} do
 					If (!(_grp getvariable ["UPSMON_Checkbuild",false])) then
 					{
 						if (behaviour _npc != "COMBAT") then {_npc setbehaviour "COMBAT"};
-						[_grp,_dist] call UPSMON_unitdefend;
+						[_grp,_dist] call UPSMON_fnc_unitdefend;
 
 						If (_grp getvariable ["UPSMON_OrgGrpMission",""] != "FORTIFY") then
 						{

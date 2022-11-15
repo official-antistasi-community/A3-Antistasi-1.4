@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_patrolBuilding.sqf
+File: UPSMON_fnc_patrolBuilding.sqf
 Author: Monsada
 
 Description:
@@ -67,7 +67,7 @@ if (count _units > 0) then
 
 	If (count _bldpos > 0 && count _units > 0) then
 	{
-		[_units,_bldpos,_grp,_time] call UPSMON_patrolBuilding;
+		[_units,_bldpos,_grp,_time] call UPSMON_fnc_patrolBuilding;
 	};
 
 	_grp setVariable ["UPSMON_fnc_Inbuilding",false];

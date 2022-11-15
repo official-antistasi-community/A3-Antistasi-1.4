@@ -312,7 +312,7 @@ if (_initpos!="ORIGINAL") then
 		{
 			_nowpType = 1; // don't move if on roof
 		};
-		If (count _units > 0) then {_units = [_units,_bldpositions] call UPSMON_SpawninBuildings;};
+		If (count _units > 0) then {_units = [_units,_bldpositions] call UPSMON_fnc_SpawninBuildings;};
 		_currPos = getPosATL _npc;
 	};
 };
@@ -347,7 +347,7 @@ if (_fortify) then
 	_units = (units _grp) - _unitsin;
 	if ( count _units > 0 ) then
 	{
-		_units = [_npc,_units,70,9999] call UPSMON_moveNearestBuildings;
+		_units = [_npc,_units,70,9999] call UPSMON_fnc_moveNearestBuildings;
 		If (count _units > 0) then
 		{
 			_lookpos = [getposATL _npc,getdir _npc, 20] call UPSMON_fnc_GetPos2D;

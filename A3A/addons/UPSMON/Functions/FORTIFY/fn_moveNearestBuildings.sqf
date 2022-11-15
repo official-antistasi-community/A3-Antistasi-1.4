@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_moveNearestBuildings.sqf
+File: UPSMON_fnc_moveNearestBuildings.sqf
 Author: Monsada
 
 Description:
@@ -27,7 +27,7 @@ _blds = [];
 	
 _units = [_units] call UPSMON_fnc_getunits;
 	
-if (UPSMON_Debug>0) then {diag_log format["UPSMON_moveNearestBuildings _units=%1 _blds=%2",_units,_blds];};
+if (UPSMON_Debug>0) then {diag_log format["UPSMON_fnc_moveNearestBuildings _units=%1 _blds=%2",_units,_blds];};
 if (count _units == 0) exitwith {_units};		
 	
 //Obtenemos los buildingsX closeX al lider
@@ -36,6 +36,6 @@ _blds = [getposATL _npc,"RANDOMA",_distance,"",false] call UPSMON_fnc_GetNearest
 if (count _blds==0) exitwith {_units};
 	
 //Movemos a la unitsX a los buildingsX closeX.
-_units = [_units,_blds,_wait] call UPSMON_moveBuildings;
+_units = [_units,_blds,_wait] call UPSMON_fnc_moveBuildings;
 	
 _units

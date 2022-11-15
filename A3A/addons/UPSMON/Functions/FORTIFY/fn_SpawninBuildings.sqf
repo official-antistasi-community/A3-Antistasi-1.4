@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SpawninBuildings.sqf
+File: UPSMON_fnc_SpawninBuildings.sqf
 Author: Azroul13
 
 Description:
@@ -90,7 +90,7 @@ _blds = _blds2;
 If (count _units > 0) then
 {
 	_i = _i +1;
-	_units = [_units,_blds,_i] call UPSMON_SpawninBuildings;
+	_units = [_units,_blds,_i] call UPSMON_fnc_SpawninBuildings;
 };
 
 _units

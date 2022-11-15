@@ -46,7 +46,7 @@ _bldpositions = [[_AmbushPosition select 0,_AmbushPosition select 1,0],"RANDOMUP
 _units = units _npc;
 If (count _bldpositions > 0) then 
 {
-	_units = [_units,_bldpositions] call UPSMON_SpawninBuildings;
+	_units = [_units,_bldpositions] call UPSMON_fnc_SpawninBuildings;
 }; 
 
 If (count _units > 0) then 

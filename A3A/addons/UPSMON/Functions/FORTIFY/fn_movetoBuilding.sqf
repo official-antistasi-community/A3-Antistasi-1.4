@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_movetoBuilding.sqf
+File: UPSMON_fnc_movetoBuilding.sqf
 Author: Monsada
 
 Description:
@@ -87,7 +87,7 @@ if (_retry) then
 			{
 				_altura = _result select 0;
 				_retrytime = _retrytime + 1;
-				[_npc,_bld,_altura,_wait,_blds,_retrytime] spawn UPSMON_movetoBuilding;	
+				[_npc,_bld,_altura,_wait,_blds,_retrytime] spawn UPSMON_fnc_movetoBuilding;	
 			};			
 		};
 	} foreach (_blds select 1);

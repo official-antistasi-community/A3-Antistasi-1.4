@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_moveBuildings.sqf
+File: UPSMON_fnc_moveBuildings.sqf
 Author: Monsada
 
 Description:
@@ -75,7 +75,7 @@ if (UPSMON_Debug>0) then {diag_log format["MON_moveBuildings _units=%1 _blds=%2"
 					{
 						_altura = _result select 0;
 						_id2 = _result select 1;
-						[_x,_bld,_altura,_wait,_arraybld] spawn UPSMON_movetoBuilding;
+						[_x,_bld,_altura,_wait,_arraybld] spawn UPSMON_fnc_movetoBuilding;
 						_bldpos1 set [_id2,"deletethis"];
 						_bldpos1 = _bldpos1 - ["deletethis"];
 						_units = _units - [_x];
@@ -92,7 +92,7 @@ _blds = _blds2;
 if (count _units > 0) then
 {
 	_i = _i + 1;
-	_units = [_units,_blds,_wait,_i] call UPSMON_moveBuildings;
+	_units = [_units,_blds,_wait,_i] call UPSMON_fnc_moveBuildings;
 };
 
 if (_i <= 1) then

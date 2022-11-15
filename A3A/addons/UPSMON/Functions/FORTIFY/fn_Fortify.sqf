@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_unitdefend.sqf
+File: UPSMON_fnc_unitdefend.sqf
 Author: Azroul13
 
 Description:
@@ -31,7 +31,7 @@ If ( count _units > 0 ) then
 	_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
 	If (!_nosmoke) then {[units _grp,_attackpos] spawn UPSMON_fnc_CreateSmokeCover;};
 	sleep 1;
-	_units = [_npc,_units,70,9999] call UPSMON_moveNearestBuildings;
+	_units = [_npc,_units,70,9999] call UPSMON_fnc_moveNearestBuildings;
 	If (count _units > 0) then 
 	{
 		_lookpos = [_currpos,_dir, 20] call UPSMON_fnc_GetPos2D;

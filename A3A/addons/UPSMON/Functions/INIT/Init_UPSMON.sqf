@@ -160,39 +160,6 @@ UPSMON_Logic_civkill = _group createUnit ["LOGIC", [1,1,1], [], 0, "NONE"];
 _group = nil;
 _center = nil;
 
-UPSMON_fnc_UPSMON = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON.sqf);
-UPSMON_fnc_CreateGroup = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\UPSMON_fnc_CreateGroup.sqf);
-
-//Core
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\Core\init.sqf);
-call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\Get_pos\UPSMON_pos_init.sqf);
-//Params
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\Group\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\target\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\unit\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\Params\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\buildings\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\vehicles\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\cover\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\terrain\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\MP\init.sqf);
-//Modules
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\FORTIFY\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\AMBUSH\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ARTILLERY\init.sqf);
-//Orders
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_PATROL\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_REINFORCEMENT\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_Transport\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_PATROLSRCH\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_FLANK\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_ASSAULT\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_DEFEND\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_RELAX\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_SUPPLY\init.sqf);
-call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_RETREAT\init.sqf);//ADDED BY BARBOLANI
-
 // todo: spawn these
 [] spawn UPSMON_fnc_TRACK;
 [] spawn UPSMON_fnc_MAINLOOP;

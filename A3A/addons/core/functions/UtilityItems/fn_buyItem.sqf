@@ -22,7 +22,7 @@ Example:
 params  [
     ["_unit", objNull, [objNull]],
     ["_spawnItem", "", [""]],
-    ["_price", 0, [0]],
+    ["_price", -1, [0]],
     ["_callbacks", [], [[]]]
 ];
 
@@ -31,26 +31,27 @@ if (!canSuspend) exitwith{};
 if (!hasInterface) exitwith{};
 if (isNull _unit) exitwith {};
 if (!isClass (configFile/"CfgVehicles"/_spawnItem)) exitwith {};
-if (_price == 0) exitwith {};
+if (_price == -1) exitwith {};
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
 if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
-
-//try to take money away 😞
-private _insufficientFunds = isNil {
-    if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
-        [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-        true;
-    } else {
-        if ((_unit getVariable ["moneyX", 0]) >= _price) then {
-            [-_price] call A3A_fnc_resourcesPlayer;
+if (_price != 0) then {
+    //try to take money away 😞
+    private _insufficientFunds = isNil {
+        if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
+            [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
             true;
+        } else {
+            if ((_unit getVariable ["moneyX", 0]) >= _price) then {
+                [-_price] call A3A_fnc_resourcesPlayer;
+                true;
+            };
         };
     };
+    if (_insufficientFunds) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 };
-if (_insufficientFunds) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
 
 //had money for item
 _unit setVariable ["A3A_spawnItem_cooldown", time + 15];

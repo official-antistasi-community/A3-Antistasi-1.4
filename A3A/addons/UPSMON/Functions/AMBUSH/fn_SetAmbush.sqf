@@ -41,7 +41,7 @@ if (UPSMON_Debug>0) then {[_AmbushPosition,"Icon","hd_ambush","Colorred"] spawn 
 if (!alive _npc || !canmove _npc || isplayer _npc ) exitwith {};
 	
 
-_bldpositions = [[_AmbushPosition select 0,_AmbushPosition select 1,0],"RANDOMUP",50,"",true] call UPSMON_GetNearestBuildings;	
+_bldpositions = [[_AmbushPosition select 0,_AmbushPosition select 1,0],"RANDOMUP",50,"",true] call UPSMON_fnc_GetNearestBuildings;	
 
 _units = units _npc;
 If (count _bldpositions > 0) then 

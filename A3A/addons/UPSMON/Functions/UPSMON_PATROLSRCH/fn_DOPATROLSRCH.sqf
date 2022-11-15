@@ -91,7 +91,7 @@ if (_grp getvariable ["UPSMON_NOFOLLOW",false]) then
 _grp setvariable ["UPSMON_targetPos",_targetPos];
 _timeontarget = time + (1.4 *(_currpos vectordistance _targetpos)) + (random 10 + 30);
 _grp setvariable ["UPSMON_TIMEONTARGET",_timeontarget];
-_bldpositions = [_targetPos,"RANDOMA"] call UPSMON_GetNearestBuilding;
+_bldpositions = [_targetPos,"RANDOMA"] call UPSMON_fnc_GetNearestBuilding;
 If (count _bldpositions > 0) then
 {
 	_bldpos = (_bldpositions select 1) select 0;

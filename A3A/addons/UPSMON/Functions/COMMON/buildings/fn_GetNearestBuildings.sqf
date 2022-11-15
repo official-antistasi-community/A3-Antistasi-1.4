@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetNearestBuildings.sqf
+File: UPSMON_fnc_GetNearestBuildings.sqf
 Author: Monsada
 
 Description:
@@ -27,12 +27,12 @@ if ((count _this) > 4) then {_shuffle = _this select 4;};
  
 _bldpositions = [];
 											
-_OcloseX = [ (nearestObjects [_position, ["house","building"], _distance]), { [_x,_marker] call UPSMON_filterbuilding } ] call BIS_fnc_conditionalSelect;
+_OcloseX = [ (nearestObjects [_position, ["house","building"], _distance]), { [_x,_marker] call UPSMON_fnc_filterbuilding } ] call BIS_fnc_conditionalSelect;
 if (_shuffle && count _OcloseX > 1) then {_OcloseX = _OcloseX call UPSMON_arrayShufflePlus;};
 
 {
-	_allpos = [_x,_bldaltura] call UPSMON_SortOutBldpos; 
-	{[_x] call UPSMON_Checkfreebldpos2} foreach _allpos;
+	_allpos = [_x,_bldaltura] call UPSMON_fnc_SortOutBldpos; 
+	{[_x] call UPSMON_fnc_Checkfreebldpos2} foreach _allpos;
 	_nbbldpos = (count (_allpos select 0)) + (count (_allpos select 1));
 	if (damage _x == 0 && _nbbldpos > 0) then {_bldpositions pushback [_x,_allpos];};
 } foreach _OcloseX;

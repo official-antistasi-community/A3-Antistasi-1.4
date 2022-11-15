@@ -40,7 +40,7 @@ switch (_this select 0) do
 		{
 			If ([] call UPSMON_Nighttime) then
 			{
-				If (!([(_this select 1)] call UPSMON_Inbuilding)) then
+				If (!([(_this select 1)] call UPSMON_fnc_Inbuilding)) then
 				{
 					If (count (nearestobjects [getposATL (_this select 1),["FirePlace_burning_F"],50]) == 0) then
 					{
@@ -73,7 +73,7 @@ switch (_this select 0) do
 		
 		If ((IsNull (_this select 2)) || !([(_this select 2),(_this select 1),20,130] call UPSMON_Haslos)) then
 		{
-			_bldpositions = [getposATL (_this select 1),"RANDOMDN",100] call UPSMON_GetNearestBuilding;					
+			_bldpositions = [getposATL (_this select 1),"RANDOMDN",100] call UPSMON_fnc_GetNearestBuilding;					
 			if (count _bldpositions > 0) then
 			{
 				_bldpos = _bldpositions select 1;

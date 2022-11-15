@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_WillSee.sqf
+File: UPSMON_fnc_WillSee.sqf
 Author: Zorilaya
 
 Description:
@@ -48,7 +48,7 @@ If (!_see && _essai < 20) exitwith
 {
 	_essai = _essai + 1;
 	If (_window) then {_angle = _angle + 2} else {_angle = random 360};
-	[_unit,_angle,_window,_essai] call UPSMON_WillSee;
+	[_unit,_angle,_window,_essai] call UPSMON_fnc_WillSee;
 };
 
 If (_see && _essai > 0) then 

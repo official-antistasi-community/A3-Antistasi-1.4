@@ -22,7 +22,7 @@ _i = 0;
 	{
 		If (vehicle _x == _x) then
 		{
-			If (!([_x] call UPSMON_InBuilding)) then
+			If (!([_x] call UPSMON_fnc_Inbuilding)) then
 			{
 				If ("SmokeShell" in (magazines _x)) then
 				{

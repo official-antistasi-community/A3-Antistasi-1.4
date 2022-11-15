@@ -70,7 +70,7 @@ if (UPSMON_Debug>0) then {diag_log format["MON_moveBuildings _units=%1 _blds=%2"
 			{
 				If (count _bldpos1 > 0) then
 				{
-					_result = [_bldpos1] call UPSMON_Checkfreebldpos;
+					_result = [_bldpos1] call UPSMON_fnc_Checkfreebldpos;
 					If (count _result > 0) then
 					{
 						_altura = _result select 0;

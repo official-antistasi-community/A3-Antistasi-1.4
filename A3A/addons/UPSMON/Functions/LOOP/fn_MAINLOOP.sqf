@@ -462,7 +462,7 @@ while {true} do
 							{
 								If (vehicle _target == _target) then
 								{
-									If ([_target] call UPSMON_Inbuilding) then
+									If ([_target] call UPSMON_fnc_Inbuilding) then
 									{
 										If ((_target getvariable "UPSMON_TargetInfos") select 1 <= 10) then
 										{
@@ -596,7 +596,7 @@ while {true} do
 				{
 					If (count (_grp getvariable ["UPSMON_bldposToCheck",[]]) > 0) then
 					{
-						If (!(_grp getvariable ["UPSMON_InBuilding",false])) then
+						If (!(_grp getvariable ["UPSMON_fnc_Inbuilding",false])) then
 						{
 							_units = [units _grp] call UPSMON_Getunits;
 							[_units,_grp getvariable ["UPSMON_bldposToCheck",[]],_grp,55] spawn UPSMON_patrolBuilding;

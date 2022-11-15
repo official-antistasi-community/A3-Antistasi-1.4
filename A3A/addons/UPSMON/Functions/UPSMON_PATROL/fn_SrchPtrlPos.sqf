@@ -58,7 +58,7 @@ if (!_isMan) then
 	
 If ((group _npc) getvariable ["UPSMON_Patrolinbld",false]) then
 {
-	_bldpositions = [_currpos,"RANDOMA",30,_areamarker,true] call UPSMON_GetNearestBuildings;
+	_bldpositions = [_currpos,"RANDOMA",30,_areamarker,true] call UPSMON_fnc_GetNearestBuildings;
 		
 	If (count _bldpositions > 0) then
 	{

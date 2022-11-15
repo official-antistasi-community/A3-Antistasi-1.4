@@ -59,7 +59,7 @@ else
 			_nbr = 4;
 			If (vehicle _artitarget == _artitarget) then
 			{
-				If ([_artitarget] call UPSMON_Inbuilding) then
+				If ([_artitarget] call UPSMON_fnc_Inbuilding) then
 				{
 					_nbr = 2;
 					_area = 5;

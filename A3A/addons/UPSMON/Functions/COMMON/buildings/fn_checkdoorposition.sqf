@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_checkdoorposition.sqf
+File: UPSMON_fnc_checkdoorposition.sqf
 Author: Azroul13
 
 Description:

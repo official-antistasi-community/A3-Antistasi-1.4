@@ -31,7 +31,7 @@ if (UPSMON_Debug>0) then {diag_log format["UPSMON_moveNearestBuildings _units=%1
 if (count _units == 0) exitwith {_units};		
 	
 //Obtenemos los buildingsX closeX al lider
-_blds = [getposATL _npc,"RANDOMA",_distance,"",false] call UPSMON_GetNearestBuildings;		
+_blds = [getposATL _npc,"RANDOMA",_distance,"",false] call UPSMON_fnc_GetNearestBuildings;		
 	
 if (count _blds==0) exitwith {_units};
 	

@@ -23,7 +23,7 @@ _assignedvehicles = _grp getvariable ["UPSMON_Assignedvehicle",[]];
 _capacityofgrp = _grp getvariable ["UPSMON_GroupCapacity",[]];
 _attackpos = getposATL _target;
 
-_bld = [_attackpos,"RANDOMA",20,"",false] call UPSMON_GetNearestBuilding;
+_bld = [_attackpos,"RANDOMA",20,"",false] call UPSMON_fnc_GetNearestBuilding;
 if (count _bld > 0) then
 {
 	_bldpos = (_bld select 1) select 0;

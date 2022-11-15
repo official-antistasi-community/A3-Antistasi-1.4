@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_UnitWatchDir.sqf
+File: UPSMON_fnc_UnitWatchDir.sqf
 Author: Azroul13
 
 Description:
@@ -36,14 +36,14 @@ sleep 0.7;
 	
 _sight = [_unit,getdir _unit, 20] call UPSMON_CanSee; 
 	
-_isroof = [_unit] call UPSMON_Isroof;
+_isroof = [_unit] call UPSMON_fnc_Isroof;
 	
 If (_isroof) then 
 {
 	if (!_sight) then 
 	{
 		// check window
-		_windowpositions = [_bld] call UPSMON_checkwindowposition;
+		_windowpositions = [_bld] call UPSMON_fnc_checkwindowposition;
 		If (count _windowpositions > 0) then 
 		{
 			{
@@ -58,7 +58,7 @@ If (_isroof) then
 		};
  
 		// check for door
-		_doorpositions = [_bld] call UPSMON_checkdoorposition;
+		_doorpositions = [_bld] call UPSMON_fnc_checkdoorposition;
 		
 		if (count _doorpositions == 0) then 
 		{
@@ -114,5 +114,5 @@ Sleep 0.5;
 // Check if window blocking view or search direction for AI if he doesn't watch window or door.
 If (!(_findoor) && !_sight) then 
 {
-	[_unit,getdir _unit,_ouverture] spawn UPSMON_WillSee;
+	[_unit,getdir _unit,_ouverture] spawn UPSMON_fnc_WillSee;
 };	

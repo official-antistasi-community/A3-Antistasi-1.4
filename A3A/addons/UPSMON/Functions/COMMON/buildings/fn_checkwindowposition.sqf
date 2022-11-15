@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_checkwindowposition.sqf
+File: UPSMON_fnc_checkwindowposition.sqf
 Author: Azroul13
 
 Description:

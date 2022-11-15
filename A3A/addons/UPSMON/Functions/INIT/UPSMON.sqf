@@ -272,7 +272,7 @@ if (_initpos!="ORIGINAL") then
 	else
 	{
 		//(_initpos=="RANDOMUP") || (_initpos=="RANDOMDN") || (_initpos=="RANDOMA")
-		_bldpositions = [[_centerX,_centerY,0],_initpos,_range,_areamarker,true] call UPSMON_GetNearestBuildings;
+		_bldpositions = [[_centerX,_centerY,0],_initpos,_range,_areamarker,true] call UPSMON_fnc_GetNearestBuildings;
 	};
 
 	if (count _bldpositions == 0) then

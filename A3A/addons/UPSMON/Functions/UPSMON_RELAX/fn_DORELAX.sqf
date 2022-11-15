@@ -40,7 +40,7 @@ _areamarker = _this select 1;
 							};
 						
 							_position = [];
-							If (random 100 < 25 && !(IsOnroad _currpos) && ((overcast < 0.5 || rain == 0) || ([_unit] call UPSMON_Inbuilding))) then
+							If (random 100 < 25 && !(IsOnroad _currpos) && ((overcast < 0.5 || rain == 0) || ([_unit] call UPSMON_fnc_Inbuilding))) then
 							{
 								_civnear = ObjNull;
 								
@@ -73,7 +73,7 @@ _areamarker = _this select 1;
 								{
 									if (random 100 <= 45) then 
 									{
-										_bldpositions = [_currpos,"RANDOMDN"] call UPSMON_GetNearestBuilding;
+										_bldpositions = [_currpos,"RANDOMDN"] call UPSMON_fnc_GetNearestBuilding;
 							
 										if (count _bldpositions > 0) then
 										{

@@ -27,7 +27,7 @@ _validunits = [];
 				{
 					If (canstand _x) then
 					{
-						If (!([_x] call UPSMON_Inbuilding)) then
+						If (!([_x] call UPSMON_fnc_Inbuilding)) then
 						{
 							_validunits pushback _x;
 						};

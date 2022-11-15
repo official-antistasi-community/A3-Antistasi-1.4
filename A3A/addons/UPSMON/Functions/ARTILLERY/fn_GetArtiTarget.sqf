@@ -65,7 +65,7 @@ _list = [];
 				}
 				else
 				{
-					If ([_x] call UPSMON_Inbuilding) then
+					If ([_x] call UPSMON_fnc_Inbuilding) then
 					{
 						_points = _points + 100;
 					};

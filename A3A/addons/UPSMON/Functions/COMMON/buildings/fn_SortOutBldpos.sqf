@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SortOutBldpos.sqf
+File: UPSMON_fnc_SortOutBldpos.sqf
 Author: Azroul13
 
 Description:
@@ -19,7 +19,7 @@ _initpos = _this select 1;
 _height = 2;
 	
 _bldpos = [_bld, 70] call BIS_fnc_buildingPositions;
-_checkheight = [_bldpos] call UPSMON_gethighestbldpos;
+_checkheight = [_bldpos] call UPSMON_fnc_gethighestbldpos;
 If (_checkheight > _height) then {If (_checkheight >= 4) then {_height = _checkheight - 1.5;} else {_height = _checkheight - 0.5;};};
 
 _downpos = [];

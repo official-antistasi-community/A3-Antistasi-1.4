@@ -23,7 +23,7 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 	{
 		If (vehicle _unit == _unit) then
 		{
-			_inbuilding = [_unit] call UPSMON_Inbuilding;
+			_inbuilding = [_unit] call UPSMON_fnc_Inbuilding;
 			If (_inbuilding) then
 			{
 				_NearestEnemy = _unit findNearestEnemy _unit;
@@ -77,7 +77,7 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 									}
 									else
 									{
-										If (!_cansee) then {[_unit,getdir _unit,false] spawn UPSMON_WillSee;};
+										If (!_cansee) then {[_unit,getdir _unit,false] spawn UPSMON_fnc_WillSee;};
 									};
 								};								
 							}
@@ -87,7 +87,7 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 								If (count _result > 0 && random 100 < 30) then
 								{
 									_bld = _result select 0;
-									_allpos = [_bld,"RANDOMA"] call UPSMON_SortOutBldpos; 
+									_allpos = [_bld,"RANDOMA"] call UPSMON_fnc_SortOutBldpos; 
 									_allpos = _allpos select 0;
 									_bldpos = [];
 									{

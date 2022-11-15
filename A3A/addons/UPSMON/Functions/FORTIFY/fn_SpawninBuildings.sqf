@@ -65,7 +65,7 @@ _blds2 = [];
 			{
 				If (count _bldpos1 > 0) then
 				{
-					_result = [_bldpos1] call UPSMON_Checkfreebldpos;
+					_result = [_bldpos1] call UPSMON_fnc_Checkfreebldpos;
 					If (count _result > 0) then
 					{
 						_altura = _result select 0;
@@ -73,7 +73,7 @@ _blds2 = [];
 						_x setpos _altura;
 						dostop _x;
 						if ((group _x) getvariable ["UPSMON_NOWP",0] > 2) then {_x disableAI "TARGET"};
-						[_x,getdir _x,_bld] spawn UPSMON_UnitWatchDir;
+						[_x,getdir _x,_bld] spawn UPSMON_fnc_UnitWatchDir;
 						_bldpos1 set [_id2,"deletethis"];
 						_bldpos1 = _bldpos1 - ["deletethis"];
 						_units = _units - [_x];

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_TRACK.sqf
+File: UPSMON_fnc_TRACK.sqf
 Author: Azroul13
 
 Description:
@@ -13,7 +13,7 @@ private ["_grp"];
 
 
 _grp = _this select 0;
-If !(_grp in UPSMON_Trackednpcs) then {UPSMON_Trackednpcs set [count UPSMON_Trackednpcs,_grp];};
+If !(_grp in UPSMON_fnc_TRACKednpcs) then {UPSMON_fnc_TRACKednpcs set [count UPSMON_fnc_TRACKednpcs,_grp];};
 _eh = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler 
 ["Draw",
 '
@@ -84,7 +84,7 @@ _eh = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler
 				};	
 			};
 		};
-	} foreach UPSMON_Trackednpcs
+	} foreach UPSMON_fnc_TRACKednpcs
 '
 ];
 

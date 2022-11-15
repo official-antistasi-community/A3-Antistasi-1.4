@@ -42,7 +42,7 @@ else
 	_unit forceSpeed 100;
 	_unit setDestination [_coverPosition, "LEADER PLANNED", true];
 
-	_coverDist = round ([getposATL _unit,_coverPosition] call UPSMON_distancePosSqr);
+	_coverDist = round ([getposATL _unit,_coverPosition] call UPSMON_fnc_distancePosSqr);
 
 	_stopped = true;
 	_continue = true;
@@ -52,7 +52,7 @@ else
 	while { _continue } do 
 	{
 			
-		_dist = ([getposATL _unit,_coverPosition] call UPSMON_distancePosSqr);
+		_dist = ([getposATL _unit,_coverPosition] call UPSMON_fnc_distancePosSqr);
 		
 		if (!(unitReady _unit) && (alive _unit) && (_dist > 1.25) && (_unit getvariable ["UPSMON_SUPSTATUS",""] == "")) then
 		{
@@ -81,7 +81,7 @@ else
 	{			
 		doStop _unit;
 		_unit setBehaviour "STEALTH";
-		_sight = [_unit,getdir _unit, 50] call UPSMON_CanSee; 
+		_sight = [_unit,getdir _unit, 50] call UPSMON_fnc_CanSee; 
 		If (!_sight) then {_unit setUnitPos "MIDDLE";};
 	};	
 };

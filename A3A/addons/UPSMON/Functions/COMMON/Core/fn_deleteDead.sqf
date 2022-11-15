@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_deleteDead.sqf
+File: UPSMON_fnc_deleteDead.sqf
 Author: KRONZKY
 
 Description:

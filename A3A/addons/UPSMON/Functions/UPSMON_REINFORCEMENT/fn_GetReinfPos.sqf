@@ -55,8 +55,8 @@ If (UPSMON_reinforcement || _rfidcalled) then
 				{ 
 					_grp setvariable ["UPSMON_ReinforcementSent",true];
 					_grp setvariable ["UPSMON_Grpmission","REINFORCEMENT"];
-					_grp setvariable ["UPSMON_NOWP",0];
-					[_grp,_fixedtargetPos,"MOVE","COLUMN","FULL","AWARE","YELLOW",1] spawn UPSMON_DocreateWP;
+					_grp setvariable ["UPSMON_fnc_Nowp",0];
+					[_grp,_fixedtargetPos,"MOVE","COLUMN","FULL","AWARE","YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 				};
 			};
 			if (UPSMON_Debug>0) then {player sidechat format["%1 called for reinforcement %2 %3",_grp getvariable ["UPSMON_Grpid",0],_fixedtargetPos,_grp getvariable ["UPSMON_ReinforcementSent",false]]};	

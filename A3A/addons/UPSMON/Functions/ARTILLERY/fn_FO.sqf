@@ -45,7 +45,7 @@ else
 			_grp setvariable ["UPSMON_Articalltime",_time];
 			_vcttarget = [_currpos, _attackpos] call BIS_fnc_dirTo;
 			_dist = (_currpos vectorDistance _attackpos)/2;
-			_attackpos = [_currpos,_vcttarget, _dist] call UPSMON_GetPos2D;
+			_attackpos = [_currpos,_vcttarget, _dist] call UPSMON_fnc_GetPos2D;
 			[_artillerysideunits,"SMOKE",_RadioRange,_currpos,4,_attackpos,50] spawn UPSMON_fnc_selectartillery;
 		};
 	}

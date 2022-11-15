@@ -102,7 +102,7 @@ if (UPSMON_Debug>0 && !alive _npc) then {player sidechat format["%1 There is no 
 
 ///================= Optional parameters ===================================
 //Track Option
-If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_Trackednpcs pushback _grp;};
+If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_fnc_TRACKednpcs pushback _grp;};
 
 	// Spawn part ===================================
 	//spawned for squads created in runtime
@@ -144,7 +144,7 @@ If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_Trackednpcs
 	_grp setvariable ["UPSMON_RESPAWNDELAY",_respawndelay];
 
 	//Template
-	_template = ["TEMPLATE:",0,_UCthis] call UPSMON_getArg;
+	_template = ["TEMPLATE:",0,_UCthis] call UPSMON_fnc_getArg;
 	[_spawned,_template,_side,_unitstypes] spawn UPSMON_SetTemplate;
 
 	//Clones
@@ -157,7 +157,7 @@ _grp setvariable ["UPSMON_NOAI",_isSoldier];
 
 If (_side == CIVILIAN) then
 {
-	_hostility = ["Hostility:",0,_UCthis] call UPSMON_getArg;
+	_hostility = ["Hostility:",0,_UCthis] call UPSMON_fnc_getArg;
 	_grp setvariable ["UPSMON_GrpHostility",_hostility]
 };
 // create _targerpoint on the roads only (by this group)
@@ -218,13 +218,13 @@ If ("LANDDROP" in _UCthis) then {_grp setvariable ["UPSMON_LANDDROP",true];};
 _nowpType = if ("NOWP" in _UCthis) then {1} else {0};
 _nowpType = if ("NOWP2" in _UCthis) then {2} else {_nowpType};
 _nowpType = if ("NOWP3" in _UCthis) then {3} else {_nowpType};
-_grp setvariable ["UPSMON_NOWP",_nowpType];
+_grp setvariable ["UPSMON_fnc_Nowp",_nowpType];
 
 //Ambush squad will no move until in combat or so close enemy
 _ambush= if (("AMBUSH" in _UCthis) || ("AMBUSHDIR:" in _UCthis) || ("AMBUSH2" in _UCthis) || ("AMBUSHDIR2:" in _UCthis)) then {true} else {false};
 
 // Range of AI radio so AI can call Arty or Reinforcement
-_RadioRange = ["RADIORANGE:",8000,_UCthis] call UPSMON_getArg; // ajout
+_RadioRange = ["RADIORANGE:",8000,_UCthis] call UPSMON_fnc_getArg; // ajout
 
 // set drop units at random positions
 _initpos = "ORIGINAL";
@@ -306,7 +306,7 @@ if (_initpos!="ORIGINAL") then
 			_unitsin = [_npc,["static"],_range,true,_areamarker] call UPSMON_GetIn_NearestVehicles;
 			_units = _units - _unitsin;
 			_grpmission = "FORTIFY";
-			[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_DocreateWP;
+			[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_fnc_DocreateWP;
 		}
 		else
 		{
@@ -321,7 +321,7 @@ _combatmode = "YELLOW";
 // AMBUSH
 If (_ambush) then
 {
-	[_grp,[0,0],"HOLD","LINE","LIMITED","STEALTH","BLUE",1] call UPSMON_DocreateWP;
+	[_grp,[0,0],"HOLD","LINE","LIMITED","STEALTH","BLUE",1] call UPSMON_fnc_DocreateWP;
 	_grp setvariable ["UPSMON_AMBUSHFIRE",false];
 
 	{
@@ -330,10 +330,10 @@ If (_ambush) then
 	_positiontoambush = [_grp,_Ucthis,_currpos] call UPSMON_fnc_getAmbushpos;
 	_grpmission = "AMBUSH";
 	_grp setvariable ["UPSMON_Positiontoambush",_positiontoambush];
-	_wait = ["AMBUSHWAIT:",500,_UCthis] call UPSMON_getArg;
+	_wait = ["AMBUSHWAIT:",500,_UCthis] call UPSMON_fnc_getArg;
 	_time = time + _wait;
 	_grp setvariable ["UPSMON_AMBUSHWAIT",_time];
-	_linkdistance = ["LINKED:",0,_UCthis] call UPSMON_getArg;
+	_linkdistance = ["LINKED:",0,_UCthis] call UPSMON_fnc_getArg;
 	_grp setvariable ["UPSMON_LINKED",_linkdistance];
 
 	_Behaviour = "STEALTH";
@@ -342,7 +342,7 @@ If (_ambush) then
 
 if (_fortify) then
 {
-	[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_DocreateWP;
+	[_grp,[0,0],"HOLD","LINE","LIMITED","AWARE","YELLOW",1] call UPSMON_fnc_DocreateWP;
 	_unitsin = [_npc,["static"],50,false,""] call UPSMON_GetIn_NearestVehicles;
 	_units = (units _grp) - _unitsin;
 	if ( count _units > 0 ) then
@@ -350,7 +350,7 @@ if (_fortify) then
 		_units = [_npc,_units,70,9999] call UPSMON_moveNearestBuildings;
 		If (count _units > 0) then
 		{
-			_lookpos = [getposATL _npc,getdir _npc, 20] call UPSMON_GetPos2D;
+			_lookpos = [getposATL _npc,getdir _npc, 20] call UPSMON_fnc_GetPos2D;
 			[getposATL _npc,_lookpos,50,false,_units] call UPSMON_fnc_find_cover;
 		};
 
@@ -377,7 +377,7 @@ _grp setvariable ["UPSMON_GrpStatus","GREEN"];
 _grp setvariable ["UPSMON_GrpMission",_grpmission];
 _grp setvariable ["UPSMON_OrgGrpMission",_grpmission];
 _grp setvariable ["UPSMON_Lastinfos",[[0,0,0],[0,0,0]]];
-_grp setvariable ["UPSMON_NOWP",_nowpType];
+_grp setvariable ["UPSMON_fnc_Nowp",_nowpType];
 _grp setvariable ["UPSMON_Removegroup",false];
 
 //Assign the current group in the array of UPSMON Groups

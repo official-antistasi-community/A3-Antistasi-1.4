@@ -37,14 +37,14 @@ If (!(_grp getvariable ["UPSMON_GrpinAction",false])) then
 				{
 					Dostop _x;
 					[_x,_targetpos,2] call UPSMON_DOwatch;
-					_pos = [_targetpos,_dir] call UPSMON_overwatch;
+					_pos = [_targetpos,_dir] call UPSMON_fnc_overwatch;
 					_x domove _pos;
 					_x suppressfor 100;
 				};
 			} foreach _teamsupport;
 			
 			// angle from unit to target
-			_targetpos = [_targetpos,_dir] call UPSMON_overwatch;
+			_targetpos = [_targetpos,_dir] call UPSMON_fnc_overwatch;
 			_teamasslt domove _targetpos;
 		};
 	};

@@ -22,7 +22,7 @@ _diramb = _this select 1;
 _positiontoambush = _this select 2;
 _ambushdist = _this select 3;
 
-_AmbushPosition = [_positiontoambush,_diramb, _ambushdist] call UPSMON_GetPos2D;
+_AmbushPosition = [_positiontoambush,_diramb, _ambushdist] call UPSMON_fnc_GetPos2D;
 _AmbushPositions = [];
 _i = 0;
 	
@@ -49,7 +49,7 @@ for "_i" from 1 to 50 do
 	{
 		If (count (_obspos1 nearRoads 50) == 0) then 
 		{
-			If ([_obspos1,_positiontoambush] call UPSMON_LOS) then
+			If ([_obspos1,_positiontoambush] call UPSMON_fnc_LOS) then
 			{
 				_AmbushPositions pushback _obspos1;
 			};

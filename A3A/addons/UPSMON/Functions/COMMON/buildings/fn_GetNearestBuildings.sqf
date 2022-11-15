@@ -28,7 +28,7 @@ if ((count _this) > 4) then {_shuffle = _this select 4;};
 _bldpositions = [];
 											
 _OcloseX = [ (nearestObjects [_position, ["house","building"], _distance]), { [_x,_marker] call UPSMON_fnc_filterbuilding } ] call BIS_fnc_conditionalSelect;
-if (_shuffle && count _OcloseX > 1) then {_OcloseX = _OcloseX call UPSMON_arrayShufflePlus;};
+if (_shuffle && count _OcloseX > 1) then {_OcloseX = _OcloseX call UPSMON_fnc_arrayShufflePlus;};
 
 {
 	_allpos = [_x,_bldaltura] call UPSMON_fnc_SortOutBldpos; 

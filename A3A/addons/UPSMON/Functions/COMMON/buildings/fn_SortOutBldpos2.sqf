@@ -22,12 +22,12 @@ _bldpos = [_bld, 70] call BIS_fnc_buildingPositions;
 _allpos = [];
 
 {
-	If ([_x,_targetpos] call UPSMON_LOS) then {_allpos pushback _x;};			
+	If ([_x,_targetpos] call UPSMON_fnc_LOS) then {_allpos pushback _x;};			
 } foreach _bldpos;
 
 If (count _allpos > 1) then
 {
-	_allpos = _roofpos call UPSMON_arrayShufflePlus;
+	_allpos = _roofpos call UPSMON_fnc_arrayShufflePlus;
 };
 
 _allpos;

@@ -88,7 +88,7 @@ _friendlySides = _npc call BIS_fnc_friendlySides;
 			{
 				if (group _unit in UPSMON_NPCs) then
 				{
-					if (round ([getposATL (leader (group _unit)),_npcpos] call UPSMON_distancePosSqr) <= UPSMON_sharedist) then
+					if (round ([getposATL (leader (group _unit)),_npcpos] call UPSMON_fnc_distancePosSqr) <= UPSMON_sharedist) then
 					{
 						if (count crew _unit > 0) then
 						{

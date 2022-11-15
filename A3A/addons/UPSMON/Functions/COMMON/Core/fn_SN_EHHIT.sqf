@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SN_EHHIT.sqf
+File: UPSMON_fnc_SN_EHHIT.sqf
 Author: Rafalsky
 
 Description:

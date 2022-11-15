@@ -54,12 +54,12 @@ if (count _unitsIn == 0) then
 			};	
 			
 			_targetpos = [_npc,getposATL _npc,["car"]] call UPSMON_SrchTrpPos;
-			[_transportgrp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_DocreateWP;
-			[_grp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_DocreateWP;
+			[_transportgrp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_fnc_DocreateWP;
+			[_grp,_targetpos,"MOVE","COLUMN","FULL","SAFE","BLUE",1] spawn UPSMON_fnc_DocreateWP;
 		}
 		else
 		{
-			_transportgrp call UPSMON_DeleteWP;
+			_transportgrp call UPSMON_fnc_DeleteWP;
 			_assignedvehicle = [];
 			{
 				if (alive _x) then
@@ -116,13 +116,13 @@ if (count _unitsIn > 0) then
 			if (_grp getvariable ["UPSMON_LANDDROP",false]) then 
 			{
 				_h2 = createVehicle ["Land_HelipadEmpty_F", _targetpos, [], 0, "NONE"];
-				[(group _driver),_targetpos,"MOVE","COLUMN","FULL","CARELESS","BLUE",1] spawn UPSMON_DocreateWP;
+				[(group _driver),_targetpos,"MOVE","COLUMN","FULL","CARELESS","BLUE",1] spawn UPSMON_fnc_DocreateWP;
 				_mission = "LANDING";
 			} 
 			else 
 			{
-				_targetpos2 = [_targetpos,[_targetpos,getposATL _driver] call BIS_fnc_DirTo,400] call UPSMON_GetPos2D;
-				[(group _driver), [_targetpos select 0,_targetpos select 1,UPSMON_paraflyinheight],"MOVE","COLUMN","FULL","CARELESS","BLUE",1,UPSMON_paraflyinheight,[_targetpos2,"MOVE","COLUMN","FULL","CARELESS","BLUE",1]] spawn UPSMON_DocreateWP;
+				_targetpos2 = [_targetpos,[_targetpos,getposATL _driver] call BIS_fnc_DirTo,400] call UPSMON_fnc_GetPos2D;
+				[(group _driver), [_targetpos select 0,_targetpos select 1,UPSMON_paraflyinheight],"MOVE","COLUMN","FULL","CARELESS","BLUE",1,UPSMON_paraflyinheight,[_targetpos2,"MOVE","COLUMN","FULL","CARELESS","BLUE",1]] spawn UPSMON_fnc_DocreateWP;
 			};
 			(group _driver) setvariable ["UPSMON_Transportmission",[_mission,_targetpos,_grp]];
 			_grp setvariable ["UPSMON_InTransport",true];
@@ -144,7 +144,7 @@ if (count _unitsIn > 0) then
 	
 	{_x forcespeed -1} foreach units _grp;
 	
-	[_grp,_targetpos,"MOVE","COLUMN",_speedmode,_behaviour,"YELLOW",1] call UPSMON_DocreateWP;
+	[_grp,_targetpos,"MOVE","COLUMN",_speedmode,_behaviour,"YELLOW",1] call UPSMON_fnc_DocreateWP;
 	_timeontarget = time + (1.4*((getposATL (leader _grp)) vectordistance _targetpos));
 	_grp setvariable ["UPSMON_Timeontarget",_timeontarget];
 };

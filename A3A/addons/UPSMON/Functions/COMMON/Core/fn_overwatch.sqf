@@ -55,7 +55,7 @@ while {_scan} do
 			_points = _points +_terr + _elev;
 		};
 		
-		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_LOS;
+		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_fnc_LOS;
 		If (_los_ok) then {_points = _points + 200;};
 		_targetpostemp pushback _points;
 		_pool pushback _targetPosTemp;

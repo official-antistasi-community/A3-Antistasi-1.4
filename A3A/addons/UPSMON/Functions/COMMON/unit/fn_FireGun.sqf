@@ -64,7 +64,7 @@ if (!IsNull _gunner) then
 	sleep 2;
 	if (alive _gunner) then
 	{
-		If ([_gunner,_target,1000,270] call UPSMON_HasLos) then
+		If ([_gunner,_target,1000,270] call UPSMON_fnc_Haslos) then
 		{
 			_grp setvariable ["UPSMON_GrpinAction",true];
 			(vehicle _gunner) fire _weapon;

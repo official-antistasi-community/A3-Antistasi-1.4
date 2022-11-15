@@ -64,8 +64,8 @@ If (count _this > 2) then
 	{
 		(group (driver (_assignedvehicle select 0))) setvariable ["UPSMON_embarking",false];
 		(group (driver (_assignedvehicle select 0))) setvariable ["UPSMON_Transportmission",["MOVETODEST",[],_grp]];
-		[group (driver (_assignedvehicle select 0)),_this select 2,"MOVE","COLUMN","NORMAL","SAFE","BLUE",1] spawn UPSMON_DocreateWP;
+		[group (driver (_assignedvehicle select 0)),_this select 2,"MOVE","COLUMN","NORMAL","SAFE","BLUE",1] spawn UPSMON_fnc_DocreateWP;
 	};
-	[_grp,_this select 2,"MOVE",_orgformation,_speedmode,_orgbehaviour,"YELLOW",1] spawn UPSMON_DocreateWP;
+	[_grp,_this select 2,"MOVE",_orgformation,_speedmode,_orgbehaviour,"YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 };
 _grp setvariable ["UPSMON_embarking",false];

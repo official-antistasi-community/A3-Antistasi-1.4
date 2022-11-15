@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_spawnmines.sqf
+File: UPSMON_fnc_spawnmines.sqf
 Author: Azroul13
 
 Description:
@@ -58,8 +58,8 @@ for [{_i=0}, {_i < _minesnbr}, {_i=_i+1}] do
 	_side revealMine _Mine;	
 	if (UPSMON_Debug>0) then 
 	{
-		[_mineposition,"Sign_Arrow_Large_GREEN_F"] spawn UPSMON_createsign;
-		[_mineposition,"Icon","Minefield","Colorred"] spawn UPSMON_createmarker
+		[_mineposition,"Sign_Arrow_Large_GREEN_F"] spawn UPSMON_fnc_createsign;
+		[_mineposition,"Icon","Minefield","Colorred"] spawn UPSMON_fnc_createmarker
 	};
 	sleep 0.01;
 };

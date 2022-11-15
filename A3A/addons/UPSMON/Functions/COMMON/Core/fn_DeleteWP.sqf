@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DeleteWP.sqf
+File: UPSMON_fnc_DeleteWP.sqf
 Author: Azroul13
 
 Description:

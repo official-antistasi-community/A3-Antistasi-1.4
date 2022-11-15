@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetPos2D.sqf
+File: UPSMON_fnc_GetPos2D.sqf
 Author: MONSADA
 
 Description:
@@ -21,7 +21,7 @@ if (isnil "_pos") exitWith {};
 _targetX = _pos select 0; _targetY = _pos select 1; 
 			
 //Calculamos posici�n 	
-_cosU = [_dir] call UPSMON_GetCOS;		_sinU = [_dir] call UPSMON_GetSIN;			
+_cosU = [_dir] call UPSMON_fnc_GetCOS;		_sinU = [_dir] call UPSMON_fnc_GetSIN;			
 _cosT = abs cos(_dir);				_sinT = abs sin(_dir);
 _relTX = _sinT * _dist * _cosU;  	_relTY = _cosT * _dist * _sinU;
 _newPosX = _targetX + _relTX;		_newPosY = _targetY + _relTY;		

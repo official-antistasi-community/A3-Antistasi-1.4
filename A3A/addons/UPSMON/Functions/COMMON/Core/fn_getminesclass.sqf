@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getminesclass.sqf
+File: UPSMON_fnc_getminesclass.sqf
 Author: Azroul13
 
 Description:
@@ -28,7 +28,7 @@ _underwatermines = [];
 	{
 		_mineMagnetic = getnumber (_x >> "mineMagnetic");
 		_array = if (_mineMagnetic > 0) then {_ATMines} else {_APMines};
-		_underwatermine=[tolower configname _x,"underwater"] call UPSMON_StrInStr;
+		_underwatermine=[tolower configname _x,"underwater"] call UPSMON_fnc_StrInStr;
 		if (_underwatermine) then {_array=_underwatermines;};
 		_array set [count _array,tolower configname _x];
 	};

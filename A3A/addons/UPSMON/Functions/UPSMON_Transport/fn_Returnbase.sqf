@@ -24,10 +24,10 @@ If (_transport iskindof "Air") then
 {
 	_grp setvariable ["UPSMON_Transportmission",["LANDBASE",_basepos,ObjNull]];
 	_grp setvariable ["UPSMON_ChangingLZ",false];
-	[_grp,_basepos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_DocreateWP;
+	[_grp,_basepos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_fnc_DocreateWP;
 }
 else
 {
 	_grp setvariable ["UPSMON_Transportmission",["RETURNBASE",_basepos,ObjNull]];
-	[_grp,_basepos,"MOVE","COLUMN","NORMAL","SAFE","YELLOW",1] call UPSMON_DocreateWP;
+	[_grp,_basepos,"MOVE","COLUMN","NORMAL","SAFE","YELLOW",1] call UPSMON_fnc_DocreateWP;
 };

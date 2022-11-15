@@ -55,6 +55,6 @@ if (UPSMON_Debug>0) then {player sidechat format["%1 All Retreat!!!",_npc]};
 _wpformation = "LINE";
 _speedmode = "FULL";
 
-[_grp,_targetpos,_wptype,_wpformation,_speedmode,_behaviour,_CombatMode,1] spawn UPSMON_DocreateWP;
+[_grp,_targetpos,_wptype,_wpformation,_speedmode,_behaviour,_CombatMode,1] spawn UPSMON_fnc_DocreateWP;
 
 _grp setvariable ["UPSMON_searchingpos",false];

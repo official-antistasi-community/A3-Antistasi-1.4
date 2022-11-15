@@ -40,7 +40,7 @@ else
 	};
 };
 
-[_grp,_attackpos,"SAD","LINE",_speed,"COMBAT",_combatmode,_radius] call UPSMON_DocreateWP;
+[_grp,_attackpos,"SAD","LINE",_speed,"COMBAT",_combatmode,_radius] call UPSMON_fnc_DocreateWP;
 _grp setvariable ["UPSMON_targetPos",_attackpos];
 _grp setvariable ["UPSMON_Lastattackpos",_attackpos];
 _grp setvariable ["UPSMON_searchingpos",false];

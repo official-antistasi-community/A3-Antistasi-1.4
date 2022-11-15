@@ -36,7 +36,7 @@ _timeontarget = time + (1.4*(getposATL _npc vectordistance _targetpos));
 If ("arti" in _typeofgrp) then {_timeontarget = _timeontarget + 20};
 _grp setvariable ["UPSMON_Timeontarget",_timeontarget];
 
-[_grp,_targetpos,"MOVE",_wpformation,_speedmode,_Behaviour,_CombatMode,1] call UPSMON_DocreateWP;
+[_grp,_targetpos,"MOVE",_wpformation,_speedmode,_Behaviour,_CombatMode,1] call UPSMON_fnc_DocreateWP;
 _grp setvariable ["UPSMON_targetPos",_targetPos];
 _grp setvariable ["UPSMON_RSTUCKCONTROL",0];
 _grp setvariable ["UPSMON_searchingpos",false];

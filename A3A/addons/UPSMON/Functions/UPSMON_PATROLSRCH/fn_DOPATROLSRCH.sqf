@@ -30,7 +30,7 @@ _water = 0;
 
 _npc = leader _grp;
 _currpos = getposATL _npc;
-_dist = [_suspectPos,_currpos] call UPSMON_distancePosSqr; 
+_dist = [_suspectPos,_currpos] call UPSMON_fnc_distancePosSqr; 
 	
 _targetPos = _suspectPos;
 _wptype = "MOVE";
@@ -98,5 +98,5 @@ If (count _bldpositions > 0) then
 	_grp setvariable ["UPSMON_Grpmission","PATROLINBLD"];
 	_grp setvariable ["UPSMON_bldposToCheck",_bldpos];
 };
-[_grp,_targetpos,_wptype,"COLUMN",_speedmode,_Behaviour,"YELLOW",_radius] call UPSMON_DocreateWP;
+[_grp,_targetpos,_wptype,"COLUMN",_speedmode,_Behaviour,"YELLOW",_radius] call UPSMON_fnc_DocreateWP;
 _grp setvariable ["UPSMON_searchingpos",false];	

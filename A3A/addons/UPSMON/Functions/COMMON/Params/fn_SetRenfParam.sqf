@@ -16,7 +16,7 @@ _grp = _this select 0;
 _Ucthis = _this select 1;
 
 // set If enemy detected reinforcements will be sent REIN1
-_rfid = ["REINFORCEMENT:",0,_UCthis] call UPSMON_getArg; // rein_#
+_rfid = ["REINFORCEMENT:",0,_UCthis] call UPSMON_fnc_getArg; // rein_#
 _reinforcement= if ("REINFORCEMENT" in _UCthis) then {"REINFORCEMENT"} else {"NOREINFORCEMENT"}; //rein_yes
 
 If (_rfid > 0 || "REINFORCEMENT" in _UCthis) then

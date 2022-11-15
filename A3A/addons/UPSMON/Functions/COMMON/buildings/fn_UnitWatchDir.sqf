@@ -34,7 +34,7 @@ _unit setdir 0;
 _unit setdir _watchdir;
 sleep 0.7;
 	
-_sight = [_unit,getdir _unit, 20] call UPSMON_CanSee; 
+_sight = [_unit,getdir _unit, 20] call UPSMON_fnc_CanSee; 
 	
 _isroof = [_unit] call UPSMON_fnc_Isroof;
 	

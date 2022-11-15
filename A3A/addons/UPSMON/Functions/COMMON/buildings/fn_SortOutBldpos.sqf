@@ -37,12 +37,12 @@ _allpos = [];
 
 If (count _downpos > 1) then
 {
-	_downpos = _downpos call UPSMON_arrayShufflePlus;
+	_downpos = _downpos call UPSMON_fnc_arrayShufflePlus;
 };
 
 If (count _roofpos > 1) then
 {
-	_roofpos = _roofpos call UPSMON_arrayShufflePlus;
+	_roofpos = _roofpos call UPSMON_fnc_arrayShufflePlus;
 };
 
 If (_initpos == "RANDOMUP") then {_allpos pushback _roofpos; _allpos pushback _downpos;};
@@ -54,7 +54,7 @@ if (_initpos == "RANDOMA") then
 {
 	If (count (_allpos select 0) > 1) then
 	{
-		_allpostemp = (_allpos select 0) call UPSMON_arrayShufflePlus;
+		_allpostemp = (_allpos select 0) call UPSMON_fnc_arrayShufflePlus;
 		_allpos set [0,_allpostemp];
 	};
 };

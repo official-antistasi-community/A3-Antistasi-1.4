@@ -38,7 +38,7 @@ switch (_this select 0) do
 		(_this select 1) disableAI "MOVE";
 		If (UPSMON_Allowfireplace) then
 		{
-			If ([] call UPSMON_Nighttime) then
+			If ([] call UPSMON_fnc_Nighttime) then
 			{
 				If (!([(_this select 1)] call UPSMON_fnc_Inbuilding)) then
 				{
@@ -46,7 +46,7 @@ switch (_this select 0) do
 					{
 						If (count (nearestobjects [getposATL (_this select 1),["Streetlamp"],100]) == 0) then
 						{
-							_pos = [getposATL (_this select 1),getdir (_this select 1),2] call UPSMON_GetPos2D;
+							_pos = [getposATL (_this select 1),getdir (_this select 1),2] call UPSMON_fnc_GetPos2D;
 							_fireplace = "FirePlace_burning_F" createvehicle _pos;
 							(_this select 1) setvariable ["UPSMON_fireplace",_fireplace]
 						};
@@ -71,7 +71,7 @@ switch (_this select 0) do
 		(_this select 1) setvariable ["UPSMON_Civfleeing",true];
 		_position = [];
 		
-		If ((IsNull (_this select 2)) || !([(_this select 2),(_this select 1),20,130] call UPSMON_Haslos)) then
+		If ((IsNull (_this select 2)) || !([(_this select 2),(_this select 1),20,130] call UPSMON_fnc_Haslos)) then
 		{
 			_bldpositions = [getposATL (_this select 1),"RANDOMDN",100] call UPSMON_fnc_GetNearestBuilding;					
 			if (count _bldpositions > 0) then

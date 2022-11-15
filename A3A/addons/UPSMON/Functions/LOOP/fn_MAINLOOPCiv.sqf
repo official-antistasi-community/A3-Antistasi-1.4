@@ -61,7 +61,7 @@ while {true} do
 				_wppos = waypointPosition [_grp,count(waypoints _grp)-1];
 				_targetpos = _wppos;
 				_wptype = waypointType [_grp,count(waypoints _grp)-1];
-				_targetdist = [_currpos,_targetpos] call UPSMON_distancePosSqr;
+				_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 			};
 		
 			_grpcomposition = [_grp] call UPSMON_analysegrp;
@@ -70,7 +70,7 @@ while {true} do
 			_assignedvehicle = _grpcomposition select 2;
 	
 			_supstatus = [_grp] call UPSMON_supstatestatus;
-			_nowp = [_grp,_target,_supstatus] call UPSMON_NOWP;
+			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 		
 		If (_grp getvariable ["UPSMON_GrpHostility",0] > 0) then
 		{
@@ -187,7 +187,7 @@ while {true} do
 									{
 										If (!IsNull _target) then
 										{
-											If (_dist > 100 && !([_x,_target,100,130] call UPSMON_Haslos)) then
+											If (_dist > 100 && !([_x,_target,100,130] call UPSMON_fnc_Haslos)) then
 											{
 												If (_x getvariable ["UPSMON_Civdisable",false]) then 
 												{
@@ -231,7 +231,7 @@ while {true} do
 			_wppos = waypointPosition [_grp,count(waypoints _grp)-1];
 			_targetpos = _wppos;
 			_wptype = waypointType [_grp,count(waypoints _grp)-1];
-			_targetdist = [_currpos,_targetpos] call UPSMON_distancePosSqr;
+			_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 		};
 		
 		if (!_nowp) then

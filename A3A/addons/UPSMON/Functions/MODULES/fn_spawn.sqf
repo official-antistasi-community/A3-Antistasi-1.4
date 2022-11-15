@@ -45,8 +45,8 @@ _vehicle=[];
 
 //Gets parameters of UPSMON
 for [{_i=0},{_i<count _params},{_i=_i+1}] do {_e=_params select _i; if (_e isEqualType "STRING") then {_e=toUpper(_e)};_UCthis set [_i,_e]};
-_initstr = ["INIT:","",_UCthis] call UPSMON_getArg;
-_initlstr = ["INITL:","",_UCthis] call UPSMON_getArg;
+_initstr = ["INIT:","",_UCthis] call UPSMON_fnc_getArg;
+_initlstr = ["INITL:","",_UCthis] call UPSMON_fnc_getArg;
 _initlstr = _initlstr + _initstr;
 _spawned= if ("SPAWNED" in _UCthis) then {true} else {false};
 if (!_spawned) then {_UCthis = _UCthis + ["SPAWNED"]};
@@ -65,7 +65,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 		if (UPSMON_Debug>0) then {diag_log format["template %1 side %2 membertypes %3",_template,_side,_membertypes]};
 		//if (UPSMON_Debug>0) then {player globalchat format["template %1:%2 ",_template,_membertypes]};
 		// any init strings?
-		_initstr = ["INIT:","",_UCthis] call UPSMON_getArg;
+		_initstr = ["INIT:","",_UCthis] call UPSMON_fnc_getArg;
 
 		for [{_i=1},{_i<=_copies},{_i=_i+1}] do
 		{
@@ -94,7 +94,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 			} else
 			{
 				_unitstr = "_newunit";
-				_index=[_initstr,"this",_unitstr] call UPSMON_Replace;
+				_index=[_initstr,"this",_unitstr] call UPSMON_fnc_Replace;
 				call compile format ["%1",_index];
 			};
 

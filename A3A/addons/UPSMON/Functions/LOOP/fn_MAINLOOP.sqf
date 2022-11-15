@@ -65,7 +65,7 @@ while {true} do
 				_wppos = waypointPosition [_grp,count(waypoints _grp)-1];
 				_targetpos = _wppos;
 				_wptype = waypointType [_grp,count(waypoints _grp)-1];
-				_targetdist = [_currpos,_targetpos] call UPSMON_distancePosSqr;
+				_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 			};
 
 			_grpcomposition = [_grp] call UPSMON_analysegrp;
@@ -75,7 +75,7 @@ while {true} do
 			_weaponrange = _grpcomposition select 3;
 
 			_supstatus = [_grp] call UPSMON_supstatestatus;
-			_nowp = [_grp,_target,_supstatus] call UPSMON_NOWP;
+			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 
 		If (_grp getvariable ["UPSMON_NOAI",false]) then
 		{
@@ -111,13 +111,13 @@ while {true} do
 // 											Reactions
 //*********************************************************************************************************************
 
-			_nowp = [_grp,_target,_supstatus] call UPSMON_NOWP;
+			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 
 			If (!IsNull _target) then
 			{
 				_grp setvariable ["UPSMON_Grpstatus","RED"];
 
-				_haslos = [_npc,_target,_weaponrange,130] call UPSMON_Haslos;
+				_haslos = [_npc,_target,_weaponrange,130] call UPSMON_fnc_Haslos;
 
 				//Analyse Targets && Allies
 				_Situation = [_grp,_Allies,_Enemies] call UPSMON_Checkratio;
@@ -154,7 +154,7 @@ while {true} do
 				_grp setvariable ["UPSMON_TIMEONTARGET",_timeontarget];
 			};
 
-			_nowp = [_grp,_target,_supstatus] call UPSMON_NOWP;
+			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 			_maneuver = [_grp,_nowp,_attackpos,_typeofgrp] call UPSMON_Cangrpmaneuver;
 
 			If (_maneuver) then
@@ -220,7 +220,7 @@ while {true} do
 										{
 											_timeorder = time + 15;
 											_grp setvariable ["UPSMON_TIMEORDER",_timeorder];
-											[_grp,_currpos,"HOLD","LINE","LIMITED","STEALTH","YELLOW",1] call UPSMON_DocreateWP;
+											[_grp,_currpos,"HOLD","LINE","LIMITED","STEALTH","YELLOW",1] call UPSMON_fnc_DocreateWP;
 										};
 										_grp setvariable ["UPSMON_Grpmission","SUPPORT"];
 										_grp setvariable ["UPSMON_Grpstatus","PURPLE"];
@@ -273,7 +273,7 @@ while {true} do
 					{
 						[_grp,(_grp getvariable "UPSMON_SuspectPos"),_currpos] call UPSMON_GETINPATROLSRCH;
 					};
-					If ([] call UPSMON_Nighttime) then
+					If ([] call UPSMON_fnc_Nighttime) then
 					{
 						If (!(UPSMON_FlareInTheAir)) then
 						{
@@ -321,7 +321,7 @@ while {true} do
 				};
 			};
 
-			_targetdist = [_currpos,_targetpos] call UPSMON_distancePosSqr;
+			_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 
 			[_grp,_supstatus,_attackpos,_dist,_terrainscan,_haslos,_typeofgrp] call UPSMON_ChangeFormation;
 
@@ -428,7 +428,7 @@ while {true} do
 							//If ("air" in _typeofgrp) then
 							//{
 								//_basepos = (_grp getvariable "UPSMON_Origin") select 0;
-								//[_grp,_basepos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_DocreateWP;
+								//[_grp,_basepos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_fnc_DocreateWP;
 								//_grp setvariable ["UPSMON_Grpmission","RESSUPLY"];
 							//}
 						//};
@@ -621,12 +621,12 @@ while {true} do
 			case "AMBUSH":
 			{
 				_ambush2 = if ("AMBUSH2:" in _UCthis || "AMBUSH2" in _UCthis || "AMBUSHDIR2:" in _UCthis) then {true} else {false};
-				_ambushdistance = [_currpos,(_grp getvariable "UPSMON_Positiontoambush")] call UPSMON_distancePosSqr;
+				_ambushdistance = [_currpos,(_grp getvariable "UPSMON_Positiontoambush")] call UPSMON_fnc_distancePosSqr;
 				_targetdistance = 1000;
 				_targetknowaboutyou = 0;
 				_linkactivate = false;
 
-				if (!isnull _target) then {_targetdistance = [_currpos,getposATL _target] call UPSMON_distancePosSqr;_targetknowaboutyou = _target knowsabout _npc;};
+				if (!isnull _target) then {_targetdistance = [_currpos,getposATL _target] call UPSMON_fnc_distancePosSqr;_targetknowaboutyou = _target knowsabout _npc;};
 				//Ambush enemy is nearly aproach
 				//_ambushdist = 50;
 				// replaced _target by _NearestEnemy
@@ -636,7 +636,7 @@ while {true} do
 					{
 						If (side _x == _side) then
 						{
-							If (round ([_currpos,getposATL (leader _x)] call UPSMON_distancePosSqr) <= (_grp getvariable ["UPSMON_LINKED",0])) then
+							If (round ([_currpos,getposATL (leader _x)] call UPSMON_fnc_distancePosSqr) <= (_grp getvariable ["UPSMON_LINKED",0])) then
 							{
 								If (_x getvariable "UPSMON_AMBUSHFIRE")
 								exitwith {_linkactivate = true};
@@ -648,7 +648,7 @@ while {true} do
 				If (((_supstatus != "") || _linkactivate || (_grp getvariable ["UPSMON_AMBUSHWAIT",time]) < time)
 					|| ((!isNull _target && "Air" countType [_target] == 0)
 						&& ((_targetdistance <= _ambushdistance)
-						||(round ([getposATL _target,(_grp getvariable "UPSMON_Positiontoambush")] call UPSMON_distancePosSqr) < 10)
+						||(round ([getposATL _target,(_grp getvariable "UPSMON_Positiontoambush")] call UPSMON_fnc_distancePosSqr) < 10)
 						|| (_npc knowsabout _target > 3 && _ambush2)))) then
 				{
 					sleep ((random 0.5) + 1); // let the enemy then get in the area
@@ -773,7 +773,7 @@ while {true} do
 				_grouptransported = [_grp] call UPSMON_CheckTransported;
 				If (IsNull _grouptransported) then
 				{
-					[_grp,_grp getvariable ["UPSMON_TransportDest",[]],"MOVE",_formation,_speedmode,_behaviour,"YELLOW",1] spawn UPSMON_DocreateWP;
+					[_grp,_grp getvariable ["UPSMON_TransportDest",[]],"MOVE",_formation,_speedmode,_behaviour,"YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 				};
 			};
 
@@ -907,7 +907,7 @@ while {true} do
 			_wppos = waypointPosition [_grp,count(waypoints _grp)-1];
 			_targetpos = _wppos;
 			_wptype = waypointType [_grp,count(waypoints _grp)-1];
-			_targetdist = [_currpos,_targetpos] call UPSMON_distancePosSqr;
+			_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 		};
 
 		if (!_nowp) then

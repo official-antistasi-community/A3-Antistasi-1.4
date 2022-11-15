@@ -384,7 +384,7 @@ If (count _staticteam == 2) then
 	};
 };
 
-[_grp,_typeofgrp] call UPSMON_AddtoArray;
+[_grp,_typeofgrp] call UPSMON_fnc_AddtoArray;
 
 _points = _points;
 

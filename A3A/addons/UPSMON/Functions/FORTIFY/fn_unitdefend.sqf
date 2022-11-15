@@ -31,16 +31,16 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 				if (_supstatus != "SUPRESSED") then 
 				{
 					_cansee = true;
-					if (stance _unit in ["CROUCH","PRONE"]) then {_unit setunitpos "MIDDLE";_cansee = [_unit,getdir _unit,10] call UPSMON_CanSee;}; 
+					if (stance _unit in ["CROUCH","PRONE"]) then {_unit setunitpos "MIDDLE";_cansee = [_unit,getdir _unit,10] call UPSMON_fnc_CanSee;}; 
 					if (!_cansee) then {_unit setunitpos "UP";};
 				};
 				if (!IsNull _NearestEnemy && alive _NearestEnemy) then
 				{
 					_poseni = getposATL _NearestEnemy;
-					_distance = [getposATL _unit,_poseni] call UPSMON_distancePosSqr;
+					_distance = [getposATL _unit,_poseni] call UPSMON_fnc_distancePosSqr;
 					If (_distance <= 300) then
 					{
-						_haslos = [_unit,_NearestEnemy,300,130] call UPSMON_Haslos;
+						_haslos = [_unit,_NearestEnemy,300,130] call UPSMON_fnc_Haslos;
 						If (_haslos) then
 						{
 							[_unit,_NearestEnemy] call UPSMON_Dowatch;
@@ -94,7 +94,7 @@ _grp setvariable ["UPSMON_Checkbuild",true];
 										_pos = _x;
 										If (count (_pos nearEntities ["CAManBase",1]) == 0) then 
 										{
-											If ([_pos,_poseni] call UPSMON_los) then
+											If ([_pos,_poseni] call UPSMON_fnc_LOS) then
 											{
 												_bldpos pushback _pos;
 											};

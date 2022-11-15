@@ -60,7 +60,7 @@ _safemode = ["CARELESS","SAFE"];
 								_mission = (_grp getvariable ["UPSMON_Transportmission",[]]) select 0;
 								_group = (_grp getvariable ["UPSMON_Transportmission",[]]) select 2;
 								_grp setvariable ["UPSMON_Transportmission",[_mission,_targetpos,_group]];
-								[_grp,_targetpos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_DocreateWP;
+								[_grp,_targetpos,"MOVE","COLUMN","FULL","CARELESS","YELLOW",1,UPSMON_flyInHeight] call UPSMON_fnc_DocreateWP;
 								_grp getvariable ["UPSMON_ChangingLZ",true];
 							};
 						};

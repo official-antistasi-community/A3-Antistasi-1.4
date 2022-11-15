@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Getnearestplayer.sqf
+File: UPSMON_fnc_Getnearestplayer.sqf
 Author: Azroul13
 
 Description:

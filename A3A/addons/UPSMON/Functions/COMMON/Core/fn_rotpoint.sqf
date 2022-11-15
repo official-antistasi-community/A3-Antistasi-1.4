@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_rotpoint.sqf
+File: UPSMON_fnc_rotpoint.sqf
 Author: KRONZKY
 
 Description:

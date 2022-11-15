@@ -94,8 +94,8 @@ If (count _attackpos == 0) then
 If (count _attackpos > 0) then
 {
 	_grp setvariable ["UPSMON_GrpStatus","YELLOW"];
-	_dist = ([getposATL _npc,_attackPos] call UPSMON_distancePosSqr);
-	if (UPSMON_Debug > 0) then {[_attackPos,"ICON","Hd_dot","ColorRed",format ["Group:%1 Time:%2",_grp getvariable ["UPSMON_Grpid",0],time]] call UPSMON_createmarker;};
+	_dist = ([getposATL _npc,_attackPos] call UPSMON_fnc_distancePosSqr);
+	if (UPSMON_Debug > 0) then {[_attackPos,"ICON","Hd_dot","ColorRed",format ["Group:%1 Time:%2",_grp getvariable ["UPSMON_Grpid",0],time]] call UPSMON_fnc_createmarker;};
 };
 
 If (_dist <= 300) then {_targetsnear = true;};

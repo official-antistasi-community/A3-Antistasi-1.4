@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_TRACK.sqf
+File: UPSMON_fnc_TRACK.sqf
 Author: Azroul13
 
 Description:
@@ -101,7 +101,7 @@ While {true} do
 				};
 			};
 		};
-	} foreach UPSMON_Trackednpcs;
+	} foreach UPSMON_fnc_TRACKednpcs;
 	
 	sleep 0.5;
 };

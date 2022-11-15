@@ -36,7 +36,7 @@ else
 	_AmbushPosition = [_npc,_diramb,_positiontoambush,_ambushdist] call UPSMON_fnc_FindAmbushPos;
 };		
 	
-if (UPSMON_Debug>0) then {[_AmbushPosition,"Icon","hd_ambush","Colorred"] spawn UPSMON_createmarker};	
+if (UPSMON_Debug>0) then {[_AmbushPosition,"Icon","hd_ambush","Colorred"] spawn UPSMON_fnc_createmarker};	
 									
 if (!alive _npc || !canmove _npc || isplayer _npc ) exitwith {};
 	

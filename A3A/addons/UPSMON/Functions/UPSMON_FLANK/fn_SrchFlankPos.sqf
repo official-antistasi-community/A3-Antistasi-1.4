@@ -25,7 +25,7 @@ _targetPos = _this select 2;
 _side = _this select 3;
 _typeofgrp = _this select 4;
 _grpid = _this select 5;
-_distance = round ([_npcpos,_targetpos] call UPSMON_distancePosSqr);
+_distance = round ([_npcpos,_targetpos] call UPSMON_fnc_distancePosSqr);
 //_distance = _npcpos vectordistance _targetpos;
 	
 _flankAngle = 45;
@@ -83,7 +83,7 @@ while {_scan} do
 			_points = _points + _terr + _elev;
 		};
 		
-		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_LOS;
+		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_fnc_LOS;
 		If (_los_ok) then {_points = _points + 100;};
 		
 		{
@@ -99,8 +99,8 @@ while {_scan} do
 						{
 							If (_x getvariable ["UPSMON_Grpid",0] != _grpid) then
 							{
-								_dist1 = [_posgrp,_targetPosTemp] call UPSMON_distancePosSqr;
-								_dist2 = [getposATL (leader _grp),_targetPosTemp] call UPSMON_distancePosSqr;
+								_dist1 = [_posgrp,_targetPosTemp] call UPSMON_fnc_distancePosSqr;
+								_dist2 = [getposATL (leader _grp),_targetPosTemp] call UPSMON_fnc_distancePosSqr;
 								if (_dist1 > 100) then 
 								{					
 									_points = _points + 50;

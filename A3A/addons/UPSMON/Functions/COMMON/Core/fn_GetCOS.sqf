@@ -1,9 +1,9 @@
 /****************************************************************
-File: UPSMON_GetSIN.sqf
+File: UPSMON_fnc_GetSIN.sqf
 Author: MONSADA
 
 Description:
-	Función que devuelve el valor negativo o positivo del coseno en base a un angulo
+	Funciï¿½n que devuelve el valor negativo o positivo del coseno en base a un angulo
 Parameter(s):
 
 Returns:

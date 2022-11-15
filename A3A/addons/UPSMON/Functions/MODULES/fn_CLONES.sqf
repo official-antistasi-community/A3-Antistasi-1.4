@@ -40,7 +40,7 @@ for "_grpcnt" from 1 to _copies do
 	// make the clones civilians
 	// use random Civilian models for single unit groups
 	// any init strings?
-	_initstr = ["INIT:","",_UCthis] call UPSMON_getArg;			
+	_initstr = ["INIT:","",_UCthis] call UPSMON_fnc_getArg;			
 	_lead = ObjNull;
 	// copy team members (skip the leader)
 	_c=0;
@@ -63,7 +63,7 @@ for "_grpcnt" from 1 to _copies do
 		else 
 		{
 			_unitstr = "_newunit";
-			_index=[_initstr,"this",_unitstr] call UPSMON_Replace;
+			_index=[_initstr,"this",_unitstr] call UPSMON_fnc_Replace;
 			call compile format ["%1",_index];
 		};
 				

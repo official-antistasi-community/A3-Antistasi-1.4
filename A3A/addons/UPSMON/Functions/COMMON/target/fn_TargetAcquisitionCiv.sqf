@@ -108,7 +108,7 @@ If (count _attackpos == 0) then
 
 If (count _attackpos > 0) then
 {
-	_dist = ([getposATL _npc,_attackPos] call UPSMON_distancePosSqr);
+	_dist = ([getposATL _npc,_attackPos] call UPSMON_fnc_distancePosSqr);
 };
 		
 _result = [_target,_dist,_attackPos];

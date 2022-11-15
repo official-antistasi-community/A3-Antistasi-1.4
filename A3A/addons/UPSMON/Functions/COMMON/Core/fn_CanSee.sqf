@@ -1,5 +1,5 @@
 //****************************************************************
-//File: UPSMON_CanSee.sqf
+//File: UPSMON_fnc_CanSee.sqf
 //Author: Azroul13
 
 //Description:

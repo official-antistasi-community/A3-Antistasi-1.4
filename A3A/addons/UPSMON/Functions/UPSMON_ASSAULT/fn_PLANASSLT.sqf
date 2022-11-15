@@ -29,7 +29,7 @@ If (!(_grp getvariable ["UPSMON_searchingpos",false])) then
 	_attackdist = 1000;
 	If (count _lastattackpos > 0) then
 	{
-		_attackdist = ([_lastattackpos,_attackpos] call UPSMON_distancePosSqr);
+		_attackdist = ([_lastattackpos,_attackpos] call UPSMON_fnc_distancePosSqr);
 	};
 
 	If (_attackdist > 50 || count(waypoints _grp) == 0 || (_grp getvariable ["UPSMON_LastGrpmission",""] != "ASSAULT")) then

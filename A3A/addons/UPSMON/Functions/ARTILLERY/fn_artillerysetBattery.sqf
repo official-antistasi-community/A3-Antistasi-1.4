@@ -45,7 +45,7 @@ If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
 				_pos = _currpos;
 			};
 	
-			[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_DocreateWP;
+			[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 	
 			If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 			{
@@ -62,12 +62,12 @@ If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
 					
 				If (count _batteryunits > 0) then
 				{
-					_grp call UPSMON_DeleteWP;
+					_grp call UPSMON_fnc_DeleteWP;
 					_backpack = backpack (_batteryunits select 0);
-					_vehicle = ([_backpack] call UPSMON_checkbackpack) select 0;
+					_vehicle = ([_backpack] call UPSMON_fnc_checkbackpack) select 0;
 					[_staticteam select 0,_staticteam select 1,_pos,_target,_vehicle] call UPSMON_Unpackbag;
 					_grp setvariable ["UPSMON_OnBattery",true];
-					[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_DocreateWP;
+					[_grp,_pos,"HOLD","LINE","LIMITED","COMBAT","YELLOW",1] spawn UPSMON_fnc_DocreateWP;
 				};		
 			}
 			else

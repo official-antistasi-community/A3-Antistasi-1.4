@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_arrayShufflePlus.sqf
+File: UPSMON_fnc_arrayShufflePlus.sqf
 Author: KillZoneKid
 
 Description:

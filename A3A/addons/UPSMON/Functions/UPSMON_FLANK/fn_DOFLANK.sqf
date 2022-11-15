@@ -154,7 +154,7 @@ If (UPSMON_Debug > 0) then
 _grp setvariable ["UPSMON_targetPos",_targetPos];
 _grp setvariable ["UPSMON_Lastattackpos",_attackpos];
 
-[_grp,_targetpos,_wptype,_wpformation,_speedmode,_Behaviour,_CombatMode,_radius] call UPSMON_DocreateWP;		
+[_grp,_targetpos,_wptype,_wpformation,_speedmode,_Behaviour,_CombatMode,_radius] call UPSMON_fnc_DocreateWP;		
 
 _timeontarget = time + (1.4 *(_currpos vectordistance _targetpos));
 _grp setvariable ["UPSMON_TIMEONTARGET",_timeontarget];

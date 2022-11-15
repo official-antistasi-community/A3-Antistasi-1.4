@@ -15,10 +15,10 @@ _grp = _this select 0;
 
 _grp setvariable ["UPSMON_Grpstatus","GREEN"];
 
-If (_grp getvariable ["UPSMON_NOWP",0] > 0) then
+If (_grp getvariable ["UPSMON_fnc_Nowp",0] > 0) then
 {
-//	[_grp,((_grp getvariable "UPSMON_Origin") select 0),"MOVE",((_grp getvariable "UPSMON_Origin") select 1),((_grp getvariable "UPSMON_Origin") select 2),((_grp getvariable "UPSMON_Origin") select 3),"YELLOW",1] spawn UPSMON_DocreateWP;
-	[_grp,((_grp getvariable "UPSMON_Origin") select 0),"MOVE",((_grp getvariable "UPSMON_Origin") select 3),((_grp getvariable "UPSMON_Origin") select 2),((_grp getvariable "UPSMON_Origin") select 1),"YELLOW",1] spawn UPSMON_DocreateWP;//corrected by barbolani
+//	[_grp,((_grp getvariable "UPSMON_Origin") select 0),"MOVE",((_grp getvariable "UPSMON_Origin") select 1),((_grp getvariable "UPSMON_Origin") select 2),((_grp getvariable "UPSMON_Origin") select 3),"YELLOW",1] spawn UPSMON_fnc_DocreateWP;
+	[_grp,((_grp getvariable "UPSMON_Origin") select 0),"MOVE",((_grp getvariable "UPSMON_Origin") select 3),((_grp getvariable "UPSMON_Origin") select 2),((_grp getvariable "UPSMON_Origin") select 1),"YELLOW",1] spawn UPSMON_fnc_DocreateWP;//corrected by barbolani
 }
 else
 {

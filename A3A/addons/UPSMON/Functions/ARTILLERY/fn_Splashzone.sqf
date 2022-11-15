@@ -27,7 +27,7 @@ _result = false;
 		{
 			If (_side == side _x) then
 			{
-				if ((round([getposATL (leader _x),_targetPos] call UPSMON_distancePosSqr)) <= (_munradius)) exitwith {_result = true;_result};
+				if ((round([getposATL (leader _x),_targetPos] call UPSMON_fnc_distancePosSqr)) <= (_munradius)) exitwith {_result = true;_result};
 			};
 		};
 	};

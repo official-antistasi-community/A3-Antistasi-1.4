@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_LOS.sqf
+File: UPSMON_fnc_LOS.sqf
 Author: Azroul13
 
 Description:

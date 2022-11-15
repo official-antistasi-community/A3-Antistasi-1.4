@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_StrIndex.sqf
+File: UPSMON_fnc_StrIndex.sqf
 Author: KRONZKY
 
 Description:
@@ -16,10 +16,10 @@ _ndl=_this select 1;
 _out=-1;
 _i=0;
 if (_hay == _ndl) exitWith {0};
-_lh=[_hay] call UPSMON_StrLen;
-_ln=[_ndl] call UPSMON_StrLen;
+_lh=[_hay] call UPSMON_fnc_StrLen;
+_ln=[_ndl] call UPSMON_fnc_StrLen;
 if (_lh < _ln) exitWith {-1};
-_arr=[_hay] call UPSMON_StrToArray;
+_arr=[_hay] call UPSMON_fnc_StrToArray;
 for "_i" from 0 to (_lh-_ln) do 
 {
 	_tmp="";

@@ -35,7 +35,7 @@ private ["_position","_side","_unitsarray","_options1","_size","_ucthis","_lead"
 	If (_min > _max) then {_min = _max};
 	_unitsnbr = _min+random (_max-_min);
 	_unitstypes2 = _unitsarray;
-	_unitstypes2 = _unitstypes2 call UPSMON_arrayShufflePlus;
+	_unitstypes2 = _unitstypes2 call UPSMON_fnc_arrayShufflePlus;
 
 	_grp = createGroup _side;
 

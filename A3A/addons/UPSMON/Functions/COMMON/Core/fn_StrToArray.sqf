@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_StrToArray.sqf
+File: UPSMON_fnc_StrToArray.sqf
 Author: KRONZKY
 
 Description:

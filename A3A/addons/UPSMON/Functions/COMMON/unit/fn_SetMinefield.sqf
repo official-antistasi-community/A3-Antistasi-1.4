@@ -51,7 +51,7 @@ If (UPSMON_useMines) then
 		If ((random 100) < 40) then 
 		{
 			_dir1 = [_currPos,_attackpos] call BIS_fnc_DirTo;;
-			_mineposition = [_currPos,_dir1, 30] call UPSMON_GetPos2D;	
+			_mineposition = [_currPos,_dir1, 30] call UPSMON_fnc_GetPos2D;	
 			_roads = _mineposition nearroads 25;
 			if (count _roads > 0) then {_mineposition = getposATL (_roads select 0);};
 			[_unit,_grp,_mineposition,_currPos,_ATmag] spawn UPSMON_PutMine;													

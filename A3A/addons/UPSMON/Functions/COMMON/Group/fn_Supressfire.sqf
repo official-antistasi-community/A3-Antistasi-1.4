@@ -19,7 +19,7 @@ while {_timeout > time && {alive _x} count _units > 0} do
 				_delete = true;
 			};
 
-			If ([_unit,_target,300,130] call UPSMON_Haslos) then
+			If ([_unit,_target,300,130] call UPSMON_fnc_Haslos) then
 			{
 				[_unit,_target,100] call UPSMON_DOwatch;
 				sleep 1;

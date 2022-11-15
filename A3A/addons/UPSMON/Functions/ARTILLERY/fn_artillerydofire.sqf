@@ -88,7 +88,7 @@ _area3 = _area * (_area2 + random 0.4);
 If (UPSMON_DEBUG > 0) then 
 {
 	player globalchat format["artillery doing fire on %1",_position];
-	[_position,"Icon","mil_arrow","Colorblue",0] spawn UPSMON_createmarker
+	[_position,"Icon","mil_arrow","Colorblue",0] spawn UPSMON_fnc_createmarker
 };
 	
 sleep 1;

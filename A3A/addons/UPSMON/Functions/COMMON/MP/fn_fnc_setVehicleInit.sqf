@@ -19,7 +19,7 @@ _unit = objectFromNetID _netID;
 _unitinit = _this select 1;
 _unitstr = "_unit";
 	
-_index=[_unitinit,"this",_unitstr] call UPSMON_Replace;
+_index=[_unitinit,"this",_unitstr] call UPSMON_fnc_Replace;
 	
 call compile format ["%1",_index];
 	

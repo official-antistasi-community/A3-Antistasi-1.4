@@ -37,7 +37,7 @@ If (!IsNull _npc) then
 					//_colorstatus = ((group _npc) getvariable "UPSMON_Grpstatus") select 1;
 					If (!alive _npc) exitwith {};
 					_dir2 = [(_dir1 + (random 70)),(_dir1 + ((random 100) + 190))] select (floor (random 2));
-					_dirpos = [getposATL _npc,_dir2, 200] call UPSMON_GetPos2D;
+					_dirpos = [getposATL _npc,_dir2, 200] call UPSMON_fnc_GetPos2D;
 					[_npc,_dirpos] call UPSMON_dowatch;
 					sleep 0.7;
 					_unit setDir _dir2;
@@ -58,7 +58,7 @@ If (!IsNull _npc) then
 				//_colorstatus = ((group _npc) getvariable "UPSMON_Grpstatus") select 1;
 				If (!alive _npc) exitwith {};
 				_dir2 = [(_dir1 + (random 70)),(_dir1 + ((random 100) + 190))] select (floor (random 2));
-				_dirpos = [getposATL _npc,_dir2, 200] call UPSMON_GetPos2D;
+				_dirpos = [getposATL _npc,_dir2, 200] call UPSMON_fnc_GetPos2D;
 				[_npc,_dirpos] call UPSMON_dowatch;
 				sleep 1;
 				If (!alive _npc) exitwith {};

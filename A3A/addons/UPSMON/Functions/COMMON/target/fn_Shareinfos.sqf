@@ -31,7 +31,7 @@ _enemies = [];
 				{
 					If (count (_x getvariable ["UPSMON_GrpEnies",[]]) > 0) then
 					{
-						If (round ([_pos,getposATL (leader _x)] call UPSMON_distancePosSqr)  <= UPSMON_sharedist) then 
+						If (round ([_pos,getposATL (leader _x)] call UPSMON_fnc_distancePosSqr)  <= UPSMON_sharedist) then 
 						{
 							_alliednpc pushback _x;
 						};

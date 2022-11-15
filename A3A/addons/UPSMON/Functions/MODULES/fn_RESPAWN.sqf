@@ -89,7 +89,7 @@ If (!_removeunit) then
 		_crews = [];
 
 		// any init strings?
-		_initstr = ["INIT:","",_UCthis] call UPSMON_getArg;
+		_initstr = ["INIT:","",_UCthis] call UPSMON_fnc_getArg;
 
 		// make the clones civilians
 		// use random Civilian models for single unit groups
@@ -115,7 +115,7 @@ If (!_removeunit) then
 			} else
 			{
 				_unitstr = "_newunit";
-				_index=[_initstr,"this",_unitstr] call UPSMON_Replace;
+				_index=[_initstr,"this",_unitstr] call UPSMON_fnc_Replace;
 				call compile format ["%1",_index];
 			};
 
@@ -201,9 +201,9 @@ If (!_removeunit) then
 
 		_UCthis set [0,_lead];
 		_respawnmax = _respawnmax - 1;
-		_UCthis =  ["RESPAWN:",_respawnmax,_UCthis] call UPSMON_setArg;
+		_UCthis =  ["RESPAWN:",_respawnmax,_UCthis] call UPSMON_fnc_setArg;
 		sleep 0.1;
-		_UCthis =  ["VEHTYPE:",_vehicletypes,_UCthis] call UPSMON_setArg;
+		_UCthis =  ["VEHTYPE:",_vehicletypes,_UCthis] call UPSMON_fnc_setArg;
 
 		//Exec UPSMON script
 		_UCthis spawn UPSMON;

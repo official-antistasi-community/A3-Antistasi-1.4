@@ -15,7 +15,7 @@ _Ucthis = _this select 0;
 
 _respawntime = 0;
 if ("RESPAWN" in _UCthis) then {_respawntime = 1;};
-If ("RESPAWN:" in _UCthis) then {_respawntime = ["RESPAWN:",_respawntime,_UCthis] call UPSMON_getArg};
+If ("RESPAWN:" in _UCthis) then {_respawntime = ["RESPAWN:",_respawntime,_UCthis] call UPSMON_fnc_getArg};
 	
 
 _respawntime

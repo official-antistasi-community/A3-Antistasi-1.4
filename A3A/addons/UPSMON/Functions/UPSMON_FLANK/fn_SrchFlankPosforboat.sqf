@@ -24,7 +24,7 @@ _dir2 = _this select 1;
 _targetPos = _this select 2;
 _side = _this select 3;
 _grpid = _this select 4;
-_dist = [_npcpos,_targetpos] call UPSMON_distancePosSqr; 
+_dist = [_npcpos,_targetpos] call UPSMON_fnc_distancePosSqr; 
 	
 _flankAngle = 45;
 //Establecemos una distanceX de flanqueo	
@@ -44,7 +44,7 @@ while {_scan} do
 	{
 		_targetPosTemp = [_targetPosTemp select 0,_targetPosTemp select 1,0];
 		_points = 0;
-		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_LOS;
+		_los_ok = [_targetPos,_targetPosTemp] call UPSMON_fnc_LOS;
 		If (_los_ok) then {_points = _points + 100;};
 		
 		{
@@ -60,8 +60,8 @@ while {_scan} do
 						{
 							If (_x getvariable ["UPSMON_Grpid",0] != _grpid) then
 							{
-								_dist1 = [_posgrp,_targetPosTemp] call UPSMON_distancePosSqr;
-								_dist2 = [getposATL (leader _grp),_targetPosTemp] call UPSMON_distancePosSqr;
+								_dist1 = [_posgrp,_targetPosTemp] call UPSMON_fnc_distancePosSqr;
+								_dist2 = [getposATL (leader _grp),_targetPosTemp] call UPSMON_fnc_distancePosSqr;
 								if (_dist1 > 100) then 
 								{					
 									_points = _points + 50;

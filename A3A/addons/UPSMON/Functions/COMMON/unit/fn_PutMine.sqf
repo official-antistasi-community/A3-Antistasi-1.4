@@ -61,7 +61,7 @@ if (!alive _soldier || !canstand _soldier) exitwith {_grp setvariable ["UPSMON_G
 	
 _dir = getdir _soldier;	
 _minesnbr = {_x == _minemag} count (magazines _soldier);
-[_minesnbr,_minetype,_minetype,_position,_dir,side _soldier] spawn UPSMON_spawnmines;
+[_minesnbr,_minetype,_minetype,_position,_dir,side _soldier] spawn UPSMON_fnc_spawnmines;
 
 //Remove magazines
 for "_x" from 0 to _minesnbr do

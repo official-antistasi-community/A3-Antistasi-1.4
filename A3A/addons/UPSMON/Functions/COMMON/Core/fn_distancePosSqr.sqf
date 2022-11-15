@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_distancePosSqr.sqf
+File: UPSMON_fnc_distancePosSqr.sqf
 Author: KRONZKY
 
 Description:

@@ -34,7 +34,7 @@ If ( count _units > 0 ) then
 	_units = [_npc,_units,70,9999] call UPSMON_moveNearestBuildings;
 	If (count _units > 0) then 
 	{
-		_lookpos = [_currpos,_dir, 20] call UPSMON_GetPos2D;
+		_lookpos = [_currpos,_dir, 20] call UPSMON_fnc_GetPos2D;
 		[_currpos,_lookpos,50,false,_units] call UPSMON_fnc_find_cover;
 	};
 };

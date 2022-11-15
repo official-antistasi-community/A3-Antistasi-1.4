@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SN_EHFIREDNEAR.sqf
+File: UPSMON_fnc_SN_EHFIREDNEAR.sqf
 Author: Rafalsky
 
 Description:

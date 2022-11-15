@@ -128,7 +128,7 @@ UPSMON_SUPPORT_WEST_UNITS = [];
 UPSMON_SUPPORT_EAST_UNITS = [];
 UPSMON_SUPPORT_GUER_UNITS = [];
 //tracked units array
-UPSMON_Trackednpcs = [];
+UPSMON_fnc_TRACKednpcs = [];
 //Targetpos of groups
 UPSMON_targetsPos = [];
 //Units array by sides
@@ -193,12 +193,12 @@ call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDE
 call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_SUPPLY\init.sqf);
 call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_RETREAT\init.sqf);//ADDED BY BARBOLANI
 
-[] execvm QPATHTOFOLDER(Scripts\UPSMON\COMMON\CORE\fnc\UPSMON_TRACK.sqf);
+[] execvm QPATHTOFOLDER(Scripts\UPSMON\COMMON\CORE\fnc\UPSMON_fnc_TRACK.sqf);
 [] execvm QPATHTOFOLDER(Scripts\UPSMON\UPSMON_MAINLOOP.sqf);
 [] execvm QPATHTOFOLDER(Scripts\UPSMON\UPSMON_MAINLOOPCiv.sqf);
 
 //get all mines types
-_UPSMON_Minesclassname = [] call UPSMON_getminesclass;
+_UPSMON_Minesclassname = [] call UPSMON_fnc_getminesclass;
 UPSMON_Minestype1 = _UPSMON_Minesclassname select 0; // ATmines
 UPSMON_Minestype2 = _UPSMON_Minesclassname select 1; // APmines
 

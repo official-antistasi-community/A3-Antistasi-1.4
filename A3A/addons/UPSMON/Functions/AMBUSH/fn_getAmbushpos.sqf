@@ -25,12 +25,12 @@ _ambushdist = UPSMON_ambushdist;
 _Mines = 4;
 _Minestype = 1;
 	
-_ambushdir = ["AMBUSHDIR:",_ambushdir,_UCthis] call UPSMON_getArg;_ambushdir = ["AMBUSHDIR2:",_ambushdir,_UCthis] call UPSMON_getArg;
+_ambushdir = ["AMBUSHDIR:",_ambushdir,_UCthis] call UPSMON_fnc_getArg;_ambushdir = ["AMBUSHDIR2:",_ambushdir,_UCthis] call UPSMON_fnc_getArg;
 _ambushType = if ("AMBUSH2" in _UCthis || "AMBUSHDIR2:" in _UCthis || "AMBUSH2:" in _UCthis) then {2} else {_ambushType};
-if ("AMBUSHDIST:" in _UCthis) then {_ambushdist = ["AMBUSHDIST:",_ambushdist,_UCthis] call UPSMON_getArg;} else {_ambushdist = 100};
+if ("AMBUSHDIST:" in _UCthis) then {_ambushdist = ["AMBUSHDIST:",_ambushdist,_UCthis] call UPSMON_fnc_getArg;} else {_ambushdist = 100};
 // Mine Parameter (for ambush)	
-if ("MINE:" in _UCthis) then {_Mines = ["MINE:",_Mines,_UCthis] call UPSMON_getArg;}; // ajout
-if ("MINEtype:" in _UCthis) then {_Minestype = ["MINEtype:",_Minestype,_UCthis] call UPSMON_getArg;}; // ajout	
+if ("MINE:" in _UCthis) then {_Mines = ["MINE:",_Mines,_UCthis] call UPSMON_fnc_getArg;}; // ajout
+if ("MINEtype:" in _UCthis) then {_Minestype = ["MINEtype:",_Minestype,_UCthis] call UPSMON_fnc_getArg;}; // ajout	
 	
 
 _positiontoambush = _position;
@@ -55,7 +55,7 @@ If (_ambushdir != "") then
 
 _diramb = _npcdir;
 
-_positiontoambush = [_positiontoambush,_diramb, 20] call UPSMON_GetPos2D;
+_positiontoambush = [_positiontoambush,_diramb, 20] call UPSMON_fnc_GetPos2D;
 _positiontoambush set [count _positiontoambush,0];			
 _roads = _positiontoambush nearRoads 100;
 
@@ -92,7 +92,7 @@ if ( UPSMON_useMines && _ambushType == 1 ) then
 		case "3": {_minetype1 = _minetype2;};
 	};
 			
-	[_Mines,_minetype1,_minetype2,_positiontoambush,_diramb,side _npc] spawn UPSMON_spawnmines;				
+	[_Mines,_minetype1,_minetype2,_positiontoambush,_diramb,side _npc] spawn UPSMON_fnc_spawnmines;				
 				
 };
 	

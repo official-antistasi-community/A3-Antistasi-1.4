@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Replace.sqf
+File: UPSMON_fnc_Replace.sqf
 Author: KRONZKY
 
 Description:
@@ -16,9 +16,9 @@ _arr=toArray(_str);
 _la=count _arr;
 _old=_this select 1;
 _new=_this select 2;
-_na=[_new] call UPSMON_StrToArray;
-_lo=[_old] call UPSMON_StrLen;
-_ln=[_new] call UPSMON_StrLen;
+_na=[_new] call UPSMON_fnc_StrToArray;
+_lo=[_old] call UPSMON_fnc_StrLen;
+_ln=[_new] call UPSMON_fnc_StrLen;
 _out="";
 for "_i" from 0 to (count _arr)-1 do {
 	_tmp="";

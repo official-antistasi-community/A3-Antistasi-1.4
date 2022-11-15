@@ -24,7 +24,7 @@ _OcloseX = nearestObjects [_npc,["CAManBase"],_distance];
 {	
 	if (!alive _x) then
 	{
-		if ([_npc,_x,_distance,130] call UPSMON_Haslos) exitwith
+		if ([_npc,_x,_distance,130] call UPSMON_fnc_Haslos) exitwith
 		{
 			_bodies = _x;
 			_bodies

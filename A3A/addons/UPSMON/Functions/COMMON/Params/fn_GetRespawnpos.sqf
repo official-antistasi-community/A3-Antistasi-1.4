@@ -15,7 +15,7 @@ _Ucthis = _this select 0;
 _npc = _this select 1;
 
 _respawnpos = getposATL _npc;
-If ("RESPAWNPOS:" in _Ucthis) then {_respawnpos = ["RESPAWNPOS:",_respawnpos,_UCthis] call UPSMON_getArg};
+If ("RESPAWNPOS:" in _Ucthis) then {_respawnpos = ["RESPAWNPOS:",_respawnpos,_UCthis] call UPSMON_fnc_getArg};
 
 If ((_respawnpos select 0) isEqualType []) then {_respawnpos = _respawnpos select (floor (random (count _respawnpos)))};
 

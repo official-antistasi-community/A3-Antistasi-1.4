@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getArg.sqf
+File: UPSMON_fnc_getArg.sqf
 Author: KRONZKY
 
 Description:

@@ -33,7 +33,7 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 	{
 		If (count (_grp getvariable ["UPSMON_Battery",[]]) > 0) then
 		{
-			If ((round([getposATL (leader _arti),_npcpos] call UPSMON_distancePosSqr)) <= _RadioRange) then
+			If ((round([getposATL (leader _arti),_npcpos] call UPSMON_fnc_distancePosSqr)) <= _RadioRange) then
 			{
 				If (!(_grp getVariable ["UPSMON_ArtiBusy",false])) then
 				{
@@ -45,7 +45,7 @@ _artiarray = [_artillerysidegrps, [], { _npcpos vectorDistance (leader _x) }, "A
 						If (((_grp getvariable ["UPSMON_Battery",[]])select 0) isEqualType []) then
 						{
 							_backpack = backpack (_vehicledemo select 0);
-							_vehicledemo = ([_backpack] call UPSMON_checkbackpack) select 0;
+							_vehicledemo = ([_backpack] call UPSMON_fnc_checkbackpack) select 0;
 							_result = [_askMission,_vehicledemo] call UPSMON_fnc_getmuninfos;
 						}
 						else

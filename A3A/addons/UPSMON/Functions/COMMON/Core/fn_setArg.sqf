@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_setArg.sqf
+File: UPSMON_fnc_setArg.sqf
 Author: KRONZKY
 
 Description:

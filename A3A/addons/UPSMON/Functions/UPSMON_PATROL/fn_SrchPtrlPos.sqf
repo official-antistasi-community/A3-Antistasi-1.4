@@ -83,11 +83,11 @@ while {_scan} do
 				_nearRoads = _centerpos nearRoads _rangeX;
 				If (count _nearRoads > 0) then 
 				{
-					_nearRoads = _nearRoads call UPSMON_arrayShufflePlus;
+					_nearRoads = _nearRoads call UPSMON_fnc_arrayShufflePlus;
 					{
 						If ([getposATL _x,_areamarker] call UPSMON_pos_fnc_isBlacklisted) then 
 						{
-							if ((([_currpos,getposATL _x] call UPSMON_distancePosSqr) > _mindist)) exitwith
+							if ((([_currpos,getposATL _x] call UPSMON_fnc_distancePosSqr) > _mindist)) exitwith
 							{
 								_targetPos = getposATL _x;
 							};
@@ -111,7 +111,7 @@ while {_scan} do
 					{
 						If (count (_targetPosTemp isflatempty [50,1,10,10,0,false,player]) > 0) then
 						{
-							If ((([_currpos,_targetPosTemp] call UPSMON_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
+							If ((([_currpos,_targetPosTemp] call UPSMON_fnc_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
 						};
 					};
 				};
@@ -121,13 +121,13 @@ while {_scan} do
 		{
 			If ("ship" in _typeofgrp && (surfaceIsWater _targetPosTemp)) then
 			{
-				If ((([_currpos,_targetPosTemp] call UPSMON_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
+				If ((([_currpos,_targetPosTemp] call UPSMON_fnc_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
 			} 
 			else
 			{
 				if (!(surfaceIsWater _targetPosTemp) || ("air" in _typeofgrp)) then
 				{
-					If ((([_currpos,_targetPosTemp] call UPSMON_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
+					If ((([_currpos,_targetPosTemp] call UPSMON_fnc_distancePosSqr) >= _mindist)) then {_targetpos = _targetPosTemp;};
 				};
 			};
 		};

@@ -54,7 +54,7 @@ _areamarker = _this select 1;
 								If (random 100 < 12 && !IsNull _civnear) then
 								{
 									_timeontarget = time + 120;
-									If (UPSMON_Debug > 0) then {[_currpos,"ICON","hd_dot","ColorYellow",0] call UPSMON_createmarker;};
+									If (UPSMON_Debug > 0) then {[_currpos,"ICON","hd_dot","ColorYellow",0] call UPSMON_fnc_createmarker;};
 									_unit setvariable ["UPSMON_Civdisable",true];
 									["TALK",_unit,_civnear] spawn UPSMON_Civaction;
 								}
@@ -88,7 +88,7 @@ _areamarker = _this select 1;
 										{
 											_unit setvariable ["UPSMON_destination", _position, false];
 											_unit setvariable ["UPSMON_lastpos",_currpos];
-											If (UPSMON_Debug > 0) then {[_position,"ICON","hd_dot","ColorRed",0] call UPSMON_createmarker;};
+											If (UPSMON_Debug > 0) then {[_position,"ICON","hd_dot","ColorRed",0] call UPSMON_fnc_createmarker;};
 											_timeontarget = time + (1.6*(_currpos vectordistance _position)); 
 											Dostop _unit;
 											_unit domove _position;

@@ -27,7 +27,7 @@ _tripods = [];
 		_backpack = backpack _Unit;
 		If (_backpack != "") then 
 		{
-			_lots = [_backpack] call UPSMON_checkbackpack;
+			_lots = [_backpack] call UPSMON_fnc_checkbackpack;
 			if (count _lots > 0) exitwith {_vehicle = _lots select 0; _tripods = _lots select 1; _staticTeam pushback _x;};
 		};
 	};

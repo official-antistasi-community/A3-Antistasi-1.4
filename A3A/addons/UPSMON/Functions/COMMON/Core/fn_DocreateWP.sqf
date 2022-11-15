@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DocreateWP.sqf
+File: UPSMON_fnc_DocreateWP.sqf
 Author: Azroul13
 
 Description:
@@ -26,7 +26,7 @@ _Behaviour = _this select 5;
 _CombatMode = _this select 6;
 _radius = _this select 7;
 	
-_grp call UPSMON_DeleteWP;
+_grp call UPSMON_fnc_DeleteWP;
 	
 _wp1 = _grp addWaypoint [_targetPos,0];
 _wp1  setWaypointPosition [_targetPos,0];

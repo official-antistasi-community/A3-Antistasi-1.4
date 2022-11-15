@@ -69,7 +69,7 @@ while {count _targetPos == 0 && _i < 40} do
 		{
 			if (!(surfaceIsWater _targetPosTemp)) then
 			{
-				_terrainscan = _targetPosTemp call UPSMON_sample_terrain;
+				_terrainscan = _targetPosTemp call UPSMON_fnc_sample_terrain;
 				If ((_terrainscan select 0) == "meadow" || (_terrainscan select 0) == "forest") then
 				{
 					If ((_terrainscan select 1) < 90) then

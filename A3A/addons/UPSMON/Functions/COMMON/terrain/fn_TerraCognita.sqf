@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_TerraCognita.sqf
+File: UPSMON_fnc_TerraCognita.sqf
 Author: Rydgier
 
 ****************************************************************/	

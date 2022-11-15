@@ -59,7 +59,7 @@ for "_i" from 1 to 50 do
 
 {
 	_obspos = _x;
-	_value = [_obspos,1,1] call UPSMON_TerraCognita;
+	_value = [_obspos,1,1] call UPSMON_fnc_TerraCognita;
 	_urban = _value select 0;
 	_forest = _value select 1;
 	_terr = (_urban + _forest) * 100;

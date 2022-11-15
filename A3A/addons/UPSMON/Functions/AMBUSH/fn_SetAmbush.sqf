@@ -23,7 +23,7 @@ _positiontoambush = _this select 2;
 _ambushdist = _this select 3;
 _AmbushPosition = [];
 
-_terrainscan = _positiontoambush call UPSMON_sample_terrain;
+_terrainscan = _positiontoambush call UPSMON_fnc_sample_terrain;
 if (_terrainscan select 0 == "meadow") then {_ambushdist = 300};
 if (_terrainscan select 0 == "forest") then {_ambushdist = 100};
 

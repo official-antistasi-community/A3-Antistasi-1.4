@@ -33,7 +33,7 @@ while {count _guardPos == 0 && _i < 30} do
 	_targetPosTemp = [_currpos,[_dist,_dist + 100],_direction,0,[0,50],_distmin] call UPSMON_pos;
 	if (!(surfaceIsWater _targetPosTemp)) then
 	{
-		_terrainscan = _targetPosTemp call UPSMON_sample_terrain;
+		_terrainscan = _targetPosTemp call UPSMON_fnc_sample_terrain;
 		If ((_terrainscan select 0) == "inhabited" || (_terrainscan select 0) == "forest") then
 		{
 			_guardPos = _targetPosTemp;

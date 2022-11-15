@@ -67,7 +67,7 @@ while {_scan} do
 			{ 
 				_points = _points +20;
 			};
-			_value = [[_targetPosTemp select 0, _targetPosTemp select 1,0],1,1] call UPSMON_TerraCognita;
+			_value = [[_targetPosTemp select 0, _targetPosTemp select 1,0],1,1] call UPSMON_fnc_TerraCognita;
 			_meadow = _value select 3;
 			_terr = _meadow * 100;
 			_elev = getTerrainHeightASL [_targetPosTemp select 0,_targetPosTemp select 1];
@@ -75,7 +75,7 @@ while {_scan} do
 		}
 		else
 		{
-			_value = [_targetPosTemp,1,1] call UPSMON_TerraCognita;
+			_value = [_targetPosTemp,1,1] call UPSMON_fnc_TerraCognita;
 			_urban = _value select 0;
 			_forest = _value select 1;
 			_terr = (_urban + _forest) * 100;

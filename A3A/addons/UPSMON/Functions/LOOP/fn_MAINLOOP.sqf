@@ -82,7 +82,7 @@ while {true} do
 			_fixedtargetPos = [_grp,_lastpos] call UPSMON_GetReinfPos;
 			if (count _fixedtargetPos > 0) then {_targetpos = _fixedtargetPos;};
 
-			_terrainscan = _currpos call UPSMON_sample_terrain;
+			_terrainscan = _currpos call UPSMON_fnc_sample_terrain;
 			_unitsneedammo = [_npc] call UPSMON_fnc_checkmunition;
 			_vehiclesneedsupply = [_assignedvehicle] call UPSMON_Checkvehiclesstatus;
 
@@ -190,7 +190,7 @@ while {true} do
 								//Assault
 								If ("car" in _typeofgrp && !("infantry" in _typeofgrp)) then
 								{
-									_terrainscantarget = _attackpos call UPSMON_sample_terrain;
+									_terrainscantarget = _attackpos call UPSMON_fnc_sample_terrain;
 
 									If (((_terrainscantarget) select 0 == "inhabited" || (_terrainscantarget) select 0 == "forest") && (_terrainscantarget) select 1 > 100) then
 									{

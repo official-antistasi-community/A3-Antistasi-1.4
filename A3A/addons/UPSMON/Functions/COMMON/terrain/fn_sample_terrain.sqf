@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_sample_terrain.sqf
+File: UPSMON_fnc_sample_terrain.sqf
 Author: Azroul13
 
 Description:

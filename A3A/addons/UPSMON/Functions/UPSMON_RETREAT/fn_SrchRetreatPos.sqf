@@ -48,7 +48,7 @@ while {_scan} do
 	{
 		If (!(surfaceIsWater _targetPosTemp)) then
 		{
-			_terrainscan = _targetPosTemp call UPSMON_sample_terrain;
+			_terrainscan = _targetPosTemp call UPSMON_fnc_sample_terrain;
 			_los_ok = [_targetPos,[_targetPosTemp select 0,_targetPosTemp select 1,0]] call UPSMON_fnc_LOS;
 			If (!_los_ok && ((_terrainscan select 0) == "inhabited" || (_terrainscan select 0) == "forest")) then
 			{

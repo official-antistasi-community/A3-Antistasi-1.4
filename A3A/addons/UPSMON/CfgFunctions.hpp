@@ -10,6 +10,7 @@ class CfgFunctions {
 		class ARTILLERY {
 			file = QPATHTOFOLDER(Functions\ARTILLERY);
 			class fn_ArtiChk {};
+			class fn_artillery_add {};
 			class fn_artilleryBatteryout {};
 			class fn_artillerydofire {};
 			class fn_artillerysetBattery {};
@@ -21,7 +22,6 @@ class CfgFunctions {
 			class fn_getmuninfosbackpack {};
 			class fn_selectartillery {};
 			class fn_Splashzone {};
-			class MON_artillery_add {};
 		};
 
 		class COMMON {

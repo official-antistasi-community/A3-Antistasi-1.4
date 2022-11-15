@@ -84,7 +84,7 @@ if (_typeCrew in _garrison) then
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
 		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
 		_vehiclesX pushBack _veh;
-		_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+		_nul=[_veh] spawn UPSMON_fnc_artillery_add;;//TODO need delete UPSMON link
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -104,7 +104,7 @@ if (_typeCrew in _garrison) then
 		if (isNull _groupMortars) then { _groupMortars = createGroup teamPlayer };
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
-		_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+		_nul=[_x] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
 	}
 	else
 	{

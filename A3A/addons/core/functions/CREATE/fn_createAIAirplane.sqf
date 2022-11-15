@@ -146,7 +146,7 @@ _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	_veh = _typeVehX createVehicle (_spawnParameter select 0);
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
-	_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+	_nul=[_veh] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	[_unit,_markerX] call A3A_fnc_NATOinit;
 	_unit moveInGunner _veh;

@@ -892,7 +892,7 @@ while {true} do
 
 			case "RELAX":
 			{
-				[_grp,_areamarker] call UPSMON_DORELAX;
+				[_grp,_areamarker] call UPSMON_fnc_DORELAX;
 			};
 
 			case "STATIC":

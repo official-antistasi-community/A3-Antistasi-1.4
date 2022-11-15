@@ -56,14 +56,14 @@ _areamarker = _this select 1;
 									_timeontarget = time + 120;
 									If (UPSMON_Debug > 0) then {[_currpos,"ICON","hd_dot","ColorYellow",0] call UPSMON_fnc_createmarker;};
 									_unit setvariable ["UPSMON_Civdisable",true];
-									["TALK",_unit,_civnear] spawn UPSMON_Civaction;
+									["TALK",_unit,_civnear] spawn UPSMON_fnc_Civaction;
 								}
 								else
 								{
 									_timeontarget = time + 70;
 									_unit disableAI "MOVE";
 									_unit setvariable ["UPSMON_Civdisable",true];
-									["SIT",_unit] spawn UPSMON_Civaction;
+									["SIT",_unit] spawn UPSMON_fnc_Civaction;
 								};
 								_unit setvariable ["UPSMON_wait",_timeontarget];
 							}

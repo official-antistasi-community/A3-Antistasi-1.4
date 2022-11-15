@@ -19,6 +19,6 @@ If (alive _unit) then
 {
 	If (!(_unit getvariable ["UPSMON_Civfleeing",false])) then
 	{
-		["FLEE",_unit,_shooter,_dist] spawn UPSMON_Civaction;
+		["FLEE",_unit,_shooter,_dist] spawn UPSMON_fnc_Civaction;
 	};
 };

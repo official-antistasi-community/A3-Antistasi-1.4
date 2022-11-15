@@ -110,13 +110,13 @@ while {true} do
 								_dead = [_x,_buildingdist] call UPSMON_fnc_deadbodies;
 								if (!IsNull _dead) exitwith 
 								{
-									["FLEE",_x,Objnull] spawn UPSMON_Civaction;
+									["FLEE",_x,Objnull] spawn UPSMON_fnc_Civaction;
 								};
 							};	
 						}
 						else
 						{
-							["FLEE",_x,Objnull] spawn UPSMON_Civaction;
+							["FLEE",_x,Objnull] spawn UPSMON_fnc_Civaction;
 						};
 					
 					};
@@ -169,7 +169,7 @@ while {true} do
 		
 			case "RELAX":
 			{
-				[_grp,_areamarker] call UPSMON_DORELAX;
+				[_grp,_areamarker] call UPSMON_fnc_DORELAX;
 			};
 		
 			case "HARASS":

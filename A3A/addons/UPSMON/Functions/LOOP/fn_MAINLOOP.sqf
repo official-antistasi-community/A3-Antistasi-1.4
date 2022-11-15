@@ -79,7 +79,7 @@ while {true} do
 
 		If (_grp getvariable ["UPSMON_NOAI",false]) then
 		{
-			_fixedtargetPos = [_grp,_lastpos] call UPSMON_GetReinfPos;
+			_fixedtargetPos = [_grp,_lastpos] call UPSMON_fnc_GetReinfPos;
 			if (count _fixedtargetPos > 0) then {_targetpos = _fixedtargetPos;};
 
 			_terrainscan = _currpos call UPSMON_fnc_sample_terrain;
@@ -141,10 +141,10 @@ while {true} do
 				};
 
 				// Reinforcement Support
-				_reinf = [_grp,_ratio,_typeofgrp] call UPSMON_ReinfChk;
+				_reinf = [_grp,_ratio,_typeofgrp] call UPSMON_fnc_ReinfChk;
 				If (_reinf) then
 				{
-					[_grp,_currpos,_attackpos,_radiorange,_enicapacity] spawn UPSMON_CallRenf;
+					[_grp,_currpos,_attackpos,_radiorange,_enicapacity] spawn UPSMON_fnc_CallRenf;
 				};
 			};
 

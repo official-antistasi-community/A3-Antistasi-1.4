@@ -90,7 +90,7 @@ while {true} do
 			{
 				If (Isnull _target) then
 				{
-					[_grp] call UPSMON_BackToNormal;
+					[_grp] call UPSMON_fnc_BacktoNormal;
 				};		
 			};
 		};

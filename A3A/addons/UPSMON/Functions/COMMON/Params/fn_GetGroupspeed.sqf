@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetGroupspeed.sqf
+File: UPSMON_fnc_GetGroupspeed.sqf
 Author: Azroul13
 
 Description:

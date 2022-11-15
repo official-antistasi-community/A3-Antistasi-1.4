@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetTemplate.sqf
+File: UPSMON_fnc_Settemplate.sqf
 Author: Azroul13
 
 Description:

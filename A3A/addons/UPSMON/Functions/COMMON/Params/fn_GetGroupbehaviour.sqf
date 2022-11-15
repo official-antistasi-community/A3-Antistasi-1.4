@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetGroupbehaviour.sqf
+File: UPSMON_fnc_GetGroupbehaviour.sqf
 Author: Azroul13
 
 Description:

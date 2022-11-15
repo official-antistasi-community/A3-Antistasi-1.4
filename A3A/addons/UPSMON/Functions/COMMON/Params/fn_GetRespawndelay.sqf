@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetRespawndelay.sqf
+File: UPSMON_fnc_GetRespawndelay.sqf
 Author: Azroul13
 
 Description:

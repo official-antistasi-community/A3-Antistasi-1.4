@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetRespawnpos.sqf
+File: UPSMON_fnc_GetRespawnpos.sqf
 Author: Azroul13
 
 Description:

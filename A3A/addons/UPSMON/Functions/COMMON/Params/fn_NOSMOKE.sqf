@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_BackToNormal.sqf
+File: UPSMON_fnc_BacktoNormal.sqf
 Author: Azroul13
 
 Description:
@@ -18,7 +18,7 @@ If (random 100 > UPSMON_USE_SMOKE) then
 {	
 	If (_grp getvariable ["UPSMON_SmokeTime",0] < time) then
 	{
-		If (!(_grp getvariable ["UPSMON_NOSMOKE",false])) then
+		If (!(_grp getvariable ["UPSMON_fnc_NOSMOKE",false])) then
 		{
 			_nosmoke = false;
 		};

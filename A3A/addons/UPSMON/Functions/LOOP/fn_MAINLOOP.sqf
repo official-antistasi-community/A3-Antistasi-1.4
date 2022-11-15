@@ -313,7 +313,7 @@ while {true} do
 
 							If (count _smokepos > 0) then
 							{
-								_nosmoke = [_grp] call UPSMON_NOSMOKE;
+								_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
 								If (!_nosmoke) then {[units _grp,_smokepos] spawn UPSMON_CreateSmokeCover;};
 							};
 						};
@@ -584,7 +584,7 @@ while {true} do
 					}
 					else
 					{
-						[_grp] spawn UPSMON_BackToNormal;
+						[_grp] spawn UPSMON_fnc_BacktoNormal;
 						_grp setvariable ["UPSMON_Alertpos",[]];
 					};
 				};
@@ -872,7 +872,7 @@ while {true} do
 						{
 							If (_grp getvariable ["UPSMON_RoundsComplete",false]) then
 							{
-								[_grp] call UPSMON_BackToNormal;
+								[_grp] call UPSMON_fnc_BacktoNormal;
 								_grp setvariable ["UPSMON_OnBattery",false];
 								_grp setvariable ["UPSMON_RoundsComplete",false];
 							};
@@ -883,7 +883,7 @@ while {true} do
 				{
 					If (_grp getvariable ["UPSMON_RoundsComplete",false]) then
 					{
-						[_grp] call UPSMON_BackToNormal;
+						[_grp] call UPSMON_fnc_BacktoNormal;
 						_grp setvariable ["UPSMON_OnBattery",false];
 						_grp setvariable ["UPSMON_RoundsComplete",false];
 					};

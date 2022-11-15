@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetClones.sqf
+File: UPSMON_fnc_SetClones.sqf
 Author: Azroul
 
 Description:

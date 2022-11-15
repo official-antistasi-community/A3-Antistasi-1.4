@@ -38,7 +38,7 @@ If (!alive _npc) exitwith
 };
 
 // Get parameters
-_Ucthis = [_this] call UPSMON_GetParams;
+_Ucthis = [_this] call UPSMON_fnc_GetParams;
 
 // give this group a unique index
 UPSMON_Instances = UPSMON_Instances + 1;
@@ -49,16 +49,16 @@ _side = side _npc;
 _grpname = format["%1_%2",_side,_grpid];
 _grp = group _npc;
 _currpos = GetposATL _npc;
-_behaviour = [_npc,_Ucthis] call UPSMON_GetGroupbehaviour;
-_formation = [_npc,_Ucthis] call UPSMON_GetGroupformation;
-_speed = [_npc,_Ucthis] call UPSMON_GetGroupspeed;
+_behaviour = [_npc,_Ucthis] call UPSMON_fnc_GetGroupbehaviour;
+_formation = [_npc,_Ucthis] call UPSMON_fnc_GetGroupformation;
+_speed = [_npc,_Ucthis] call UPSMON_fnc_GetGroupspeed;
 _members = units _grp;
 
 // what type of "vehicle" is _npc ?
 _grptype = [_npc] call UPSMON_fnc_grptype;
 
 //Set EH
-[_members,_Ucthis,_grpid] spawn UPSMON_SetEventhandlers;
+[_members,_Ucthis,_grpid] spawn UPSMON_fnc_SetEventhandlers;
 
 _grp setVariable ["UPSMON_Ucthis", _Ucthis, false];
 _grp setVariable ["UPSMON_grpid", _grpid, false];
@@ -71,7 +71,7 @@ if (!(_areamarker isEqualType "STRING") || isNil ("_areamarker")) exitWith
 	hint "UPSMON: Area marker not defined.<br/>(Typo, or name not enclosed in quotation marks?)";
 };
 
-[_grp,_areamarker,_Ucthis] spawn UPSMON_SetMarkerArea;
+[_grp,_areamarker,_Ucthis] spawn UPSMON_fnc_SetmarkerArea;
 _grp setVariable ["UPSMON_Marker", _areamarker, false];
 
 // remember center position of area marker
@@ -134,9 +134,9 @@ If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_fnc_TRACKed
 
 	//Respawn
 	_respawn = if ("RESPAWN" in _UCthis || "RESPAWN:" in _UCthis) then {true} else {false};
-	_respawnpos = [_Ucthis,_npc] call UPSMON_GetRespawnpos;
-	_respawntime = [_Ucthis] call UPSMON_GetRespawntime;
-	_respawndelay = [_Ucthis] call UPSMON_GetRespawndelay;
+	_respawnpos = [_Ucthis,_npc] call UPSMON_fnc_GetRespawnpos;
+	_respawntime = [_Ucthis] call UPSMON_fnc_GetRespawntime;
+	_respawndelay = [_Ucthis] call UPSMON_fnc_GetRespawndelay;
 
 	_grp setvariable ["UPSMON_RESPAWN",_respawn];
 	_grp setvariable ["UPSMON_RESPAWNPOS",_respawnpos];
@@ -145,10 +145,10 @@ If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_fnc_TRACKed
 
 	//Template
 	_template = ["TEMPLATE:",0,_UCthis] call UPSMON_fnc_getArg;
-	[_spawned,_template,_side,_unitstypes] spawn UPSMON_SetTemplate;
+	[_spawned,_template,_side,_unitstypes] spawn UPSMON_fnc_Settemplate;
 
 	//Clones
-	[_Ucthis,_unitstypes] spawn UPSMON_SetClones;
+	[_Ucthis,_unitstypes] spawn UPSMON_fnc_SetClones;
 	//===================================================
 
 // suppress fight behaviour
@@ -165,7 +165,7 @@ _onroad = if ("ONROAD" in _UCthis) then {true} else {false};
 _grp setvariable ["UPSMON_ONROAD",_onroad];
 
 // Group will not throw smoke
-if ("NOSMOKE" in _UCthis) then {_grp setvariable ["UPSMON_NOSMOKE",true]};
+if ("NOSMOKE" in _UCthis) then {_grp setvariable ["UPSMON_fnc_NOSMOKE",true]};
 
 //Do group share infos ?
 _shareinfos = If ("NOSHARE" in _UCthis) then {false} else {true};
@@ -183,7 +183,7 @@ _noveh = if ("NOVEH" in _UCthis) then {1} else {0};
 _noveh = if ("NOVEH2" in _UCthis) then {2} else {_noveh};	// Ajout
 _grp setvariable ["UPSMON_NOVEH",_noveh];
 
-[_grp,_Ucthis] call UPSMON_SetRenfParam;
+[_grp,_Ucthis] call UPSMON_fnc_SetRenfParam;
 
 //fortify group in near places
 _fortify= if ("FORTIFY" in _UCthis) then {true} else {false};

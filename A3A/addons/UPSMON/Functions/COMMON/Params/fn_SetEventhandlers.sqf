@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetEventhandlers.sqf
+File: UPSMON_fnc_SetEventhandlers.sqf
 Author: Azroul13
 
 Description:

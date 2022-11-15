@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetParams.sqf
+File: UPSMON_fnc_GetParams.sqf
 Author: Azroul13
 
 Description:

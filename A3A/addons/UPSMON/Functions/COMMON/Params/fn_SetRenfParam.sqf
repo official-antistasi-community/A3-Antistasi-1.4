@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetRenfParam.sqf
+File: UPSMON_fnc_SetRenfParam.sqf
 Author: Azroul13
 
 Description:

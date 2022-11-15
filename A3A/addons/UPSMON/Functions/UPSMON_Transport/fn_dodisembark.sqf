@@ -67,7 +67,7 @@ if ( count _unitsgetout > 0 ) then
 		_weapons  = getarray  (configFile >> "CfgVehicles" >> typeof _transport >> "weapons");
 		If ("SmokeLauncher" in _weapons) then
 		{
-			_nosmoke = [_grp] call UPSMON_NOSMOKE;
+			_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
 			If (!_nosmoke) then {[_transport] spawn UPSMON_DoSmokeScreen;};
 		};
 	};

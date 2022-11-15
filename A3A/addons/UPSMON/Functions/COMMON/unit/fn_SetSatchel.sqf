@@ -55,7 +55,7 @@ If (UPSMON_useMines) then
 	{
 		If ((random 100) < 40) then 
 		{
-			_nosmoke = [_grp] call UPSMON_NOSMOKE;
+			_nosmoke = [_grp] call UPSMON_fnc_NOSMOKE;
 			If (!_nosmoke) then {[_units,_attackpos] call UPSMON_CreateSmokeCover;};
 			[_unit,_grp,_attackpos,_currPos,_Satchelmag] call UPSMON_PutSatchel;	
 		};											

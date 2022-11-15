@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetRespawntime.sqf
+File: UPSMON_fnc_GetRespawntime.sqf
 Author: Azroul13
 
 Description:

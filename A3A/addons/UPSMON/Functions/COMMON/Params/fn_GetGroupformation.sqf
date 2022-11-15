@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetGroupformation.sqf
+File: UPSMON_fnc_GetGroupformation.sqf
 Author: Azroul13
 
 Description:

@@ -102,7 +102,7 @@ if (UPSMON_Debug>0 && !alive _npc) then {player sidechat format["%1 There is no 
 
 ///================= Optional parameters ===================================
 //Track Option
-If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_fnc_TRACKednpcs pushback _grp;};
+If (("TRACK" in _UCthis || UPSMON_Debug > 0) and debug) then {UPSMON_Trackednpcs pushback _grp;};
 
 	// Spawn part ===================================
 	//spawned for squads created in runtime

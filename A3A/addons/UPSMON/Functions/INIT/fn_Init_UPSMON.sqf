@@ -127,7 +127,7 @@ UPSMON_SUPPORT_WEST_UNITS = [];
 UPSMON_SUPPORT_EAST_UNITS = [];
 UPSMON_SUPPORT_GUER_UNITS = [];
 //tracked units array
-UPSMON_fnc_TRACKednpcs = [];
+UPSMON_Trackednpcs = [];
 //Targetpos of groups
 UPSMON_targetsPos = [];
 //Units array by sides

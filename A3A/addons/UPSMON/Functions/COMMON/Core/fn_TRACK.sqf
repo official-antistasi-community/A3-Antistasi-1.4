@@ -101,7 +101,7 @@ While {true} do
 				};
 			};
 		};
-	} foreach UPSMON_fnc_TRACKednpcs;
+	} foreach UPSMON_Trackednpcs;
 	
 	sleep 0.5;
 };

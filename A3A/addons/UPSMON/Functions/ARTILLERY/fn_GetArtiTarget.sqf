@@ -70,7 +70,7 @@ _list = [];
 						_points = _points + 100;
 					};
 					
-					_eniesnear = [_x,_enies] call UPSMON_Eniesnear;
+					_eniesnear = [_x,_enies] call UPSMON_fnc_Eniesnear;
 					
 					If (_eniesnear > 4) then
 					{

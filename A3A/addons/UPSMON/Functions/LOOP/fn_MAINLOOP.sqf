@@ -89,7 +89,7 @@ while {true} do
 //*********************************************************************************************************************
 // 											Acquisition of the target
 //*********************************************************************************************************************
-			_TargetSearch 	= [_grp] call UPSMON_TargetAcquisition;
+			_TargetSearch 	= [_grp] call UPSMON_fnc_TargetAcquisition;
 			_Enemies 		= _TargetSearch select 0;
 			_Allies 		= _TargetSearch select 1;
 			_target 		= _TargetSearch select 2;
@@ -120,7 +120,7 @@ while {true} do
 				_haslos = [_npc,_target,_weaponrange,130] call UPSMON_fnc_Haslos;
 
 				//Analyse Targets && Allies
-				_Situation = [_grp,_Allies,_Enemies] call UPSMON_Checkratio;
+				_Situation = [_grp,_Allies,_Enemies] call UPSMON_fnc_Checkratio;
 				_ratio = _Situation select 0;
 				_enicapacity = _Situation select 1;
 				_typeofeni = _Situation select 2;

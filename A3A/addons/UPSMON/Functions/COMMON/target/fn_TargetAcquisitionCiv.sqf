@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_TargetAcquisition.sqf
+File: UPSMON_fnc_TargetAcquisition.sqf
 Author: Azroul13
 
 Description:

@@ -74,7 +74,7 @@ while {true} do
 		
 		If (_grp getvariable ["UPSMON_GrpHostility",0] > 0) then
 		{
-			_TargetSearch 	= [_grp,_areamarker] call UPSMON_TargetAcquisitionCiv;
+			_TargetSearch 	= [_grp,_areamarker] call UPSMON_fnc_TargetAcquisitionCiv;
 			_target = _TargetSearch select 0;
 			_dist = _TargetSearch select 1;
 			_attackpos = _TargetSearch select 2;

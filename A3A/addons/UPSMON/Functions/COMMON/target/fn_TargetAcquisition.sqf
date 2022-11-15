@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_TargetAcquisition.sqf
+File: UPSMON_fnc_TargetAcquisition.sqf
 Author: Azroul13
 
 Description:
@@ -38,7 +38,7 @@ _targetsnear = false;
 _dist = 10000;
 	
 ///       GET ENEMIES AND ALLIES UNITS NEAR THE LEADER 			////		
-_Units = [_npc] call UPSMON_findnearestenemy;
+_Units = [_npc] call UPSMON_fnc_findnearestenemy;
 _Enemies = _Units select 0;
 _Allies = _Units select 1;
 _suspectenies = _Units select 2;
@@ -47,9 +47,9 @@ _grp setvariable ["UPSMON_GrpEnies",_Enemies];
 If (count _Enemies == 0) then
 {
 	// Share the enemies infos we found with our allies
-	If (_grp getvariable ["UPSMON_Shareinfos",false]) then
+	If (_grp getvariable ["UPSMON_fnc_Shareinfos",false]) then
 	{
-		_enemies = [_npc] call UPSMON_Shareinfos;
+		_enemies = [_npc] call UPSMON_fnc_Shareinfos;
 	};
 };
 
@@ -57,7 +57,7 @@ If (count _Enemies == 0) then
 If (count _Enemies > 0) then
 {
 	//Get the most dangerous in the list of enies
-	_Enemies = [_grp,_Enemies] call UPSMON_Classifyenies;
+	_Enemies = [_grp,_Enemies] call UPSMON_fnc_ClassifyEnies;
 	_target = _Enemies select 0;
 
 	If (!IsNull _target) then

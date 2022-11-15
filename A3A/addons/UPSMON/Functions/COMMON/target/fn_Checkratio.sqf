@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Checkratio.sqf
+File: UPSMON_fnc_Checkratio.sqf
 Author: Azroul13
 
 Description:

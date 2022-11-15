@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_findnearestenemy.sqf
+File: UPSMON_fnc_findnearestenemy.sqf
 Author: Azroul13
 
 Description:

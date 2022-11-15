@@ -415,12 +415,12 @@ while {true} do
 				{
 					If (_dist > 800) then
 					{
-						//_supplyunit = [_grp] call UPSMON_getsupply;
+						//_supplyunit = [_grp] call UPSMON_fnc_GetSupply;
 						//If (!IsNull _supplyunit) then
 						//{
 							//_grp setvariable ["UPSMON_Grpmission","RESSUPLY"];
 							//_grp setvariable ["UPSMON_SupplyGrp",_supplyunit];
-							//_supplypos = [_grp] call UPSMON_GetSupplyPos;
+							//_supplypos = [_grp] call UPSMON_fnc_GetSupplyPos;
 							//_supplyunit setvariable ["UPSMON_Supplymission",[_grp,_vehiclesneedsupply,_supplypos]];
 						//}
 						//else

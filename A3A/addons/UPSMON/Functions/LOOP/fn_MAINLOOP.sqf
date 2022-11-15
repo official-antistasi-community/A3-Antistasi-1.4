@@ -176,7 +176,7 @@ while {true} do
 						}
 						else
 						{
-							[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] call UPSMON_PLANFLANK;
+							[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] call UPSMON_fnc_PLANFLANK;
 						};
 					}
 					else
@@ -194,7 +194,7 @@ while {true} do
 
 									If (((_terrainscantarget) select 0 == "inhabited" || (_terrainscantarget) select 0 == "forest") && (_terrainscantarget) select 1 > 100) then
 									{
-										[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] call UPSMON_PLANFLANK;
+										[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] call UPSMON_fnc_PLANFLANK;
 									}
 									else
 									{
@@ -228,13 +228,13 @@ while {true} do
 									else
 									{
 										//FLANK
-										[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos,_targetpos,_currpos] call UPSMON_PLANFLANK;
+										[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos,_targetpos,_currpos] call UPSMON_fnc_PLANFLANK;
 									};
 								}
 								else
 								{
 									//FLANK
-									[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos,_targetpos,_currpos] call UPSMON_PLANFLANK;
+									[_grp,_attackpos,_lastattackpos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos,_targetpos,_currpos] call UPSMON_fnc_PLANFLANK;
 								};
 							};
 						}

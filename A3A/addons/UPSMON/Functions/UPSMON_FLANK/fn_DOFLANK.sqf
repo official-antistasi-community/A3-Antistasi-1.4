@@ -59,7 +59,7 @@ _rnd = random 100;
 If (!("ship" in _typeofgrp)) then
 {
 
-	_targetPos = [_currpos,_dir,_attackPos,_side,_typeofgrp,_grpid] call UPSMON_SrchFlankPos;
+	_targetPos = [_currpos,_dir,_attackPos,_side,_typeofgrp,_grpid] call UPSMON_fnc_SrchFlankPos;
 
 	
 	if ( _dist <= _closeenough ) then 
@@ -122,7 +122,7 @@ else
 	_Behaviour =  "COMBAT";
 	_speedmode = "FULL";
 		
-	_targetPos = [_currpos,_dir,_attackPos,_side,_grpid] call UPSMON_SrchFlankPosforboat;
+	_targetPos = [_currpos,_dir,_attackPos,_side,_grpid] call UPSMON_fnc_SrchFlankPosforboat;
 	If (!surfaceiswater _targetpos) then {_targetpos = _currpos;};			
 };
 	

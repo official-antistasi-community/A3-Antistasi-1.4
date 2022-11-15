@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SrchFlankPosforboat.sqf
+File: UPSMON_fnc_SrchFlankPosforboat.sqf
 Author: Azroul13
 
 Description:

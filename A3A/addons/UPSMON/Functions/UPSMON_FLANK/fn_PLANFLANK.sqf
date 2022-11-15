@@ -37,7 +37,7 @@ If (!(_grp getvariable ["UPSMON_searchingpos",false])) then
 	{
 		If (_grp getvariable ["UPSMON_TIMEORDER",time] <= time) then
 		{
-			[_grp,_attackPos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] spawn UPSMON_DOFLANK;
+			[_grp,_attackPos,_dist,_typeofgrp,_terrainscan,_areamarker,_haslos] spawn UPSMON_fnc_DOFLANK;
 			_timeorder = time + 10;
 			_grp setvariable ["UPSMON_TIMEORDER",_timeorder];
 		};

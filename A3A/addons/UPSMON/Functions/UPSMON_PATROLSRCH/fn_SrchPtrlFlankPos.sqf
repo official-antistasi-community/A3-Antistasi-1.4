@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SrchFlankPos.sqf
+File: UPSMON_fnc_SrchFlankPos.sqf
 Author: Azroul13
 
 Description:

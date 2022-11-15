@@ -45,7 +45,7 @@
 ["vehiclesHelisLightAttack", ["RHS_UH1Y_d", "RHS_UH1Y_d_GS"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z_CS", "RHS_AH1Z_GS"]] call _fnc_saveToTemplate;            //  "RHS_UH1Y_FFAR_d"
 
-["vehiclesArtillery", ["rhsusf_m109_usarmy", "rhsusf_M142_usarmy_D", "RHS_M119_D"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["rhsusf_m109_usarmy", "RHS_M119_D"]] call _fnc_saveToTemplate;        // "rhsusf_M142_usarmy_D" - OP until we can customize magazines
 ["magazines", createHashMapFromArray [
 ["rhsusf_m109_usarmy", ["rhs_mag_155mm_m795_28"]],
 ["rhsusf_M142_usarmy_D", ["rhs_mag_m26a1_6", "rhs_mag_mgm168_block4_1", "rhs_mag_mgm140b_1"]],//Cluster, 500lb HE, 69 Small HE Rockets

@@ -23,7 +23,7 @@ private _fnc_addSecondaryAndMags = {
     params ["_unit", "_weapon", "_totalMagWeight"];
 
     _unit addWeapon _weapon;
-    private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
+    private _magazine = compatibleMagazines _weapon select 0;
     _unit addSecondaryWeaponItem _magazine;
 
     if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};

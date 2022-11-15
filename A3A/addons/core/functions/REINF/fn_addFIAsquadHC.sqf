@@ -5,19 +5,20 @@ params ["_typeGroup", ["_withBackpck", ""]];
 if (player != theBoss) exitWith {["Recruit Squad", "Only the Commander has access to this function."] call A3A_fnc_customHint;};
 if (markerAlpha respawnTeamPlayer == 0) exitWith {["Recruit Squad", "You cannot recruit a new squad while you are moving your HQ."] call A3A_fnc_customHint;};
 if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Recruit Squad", "You need a radio in your inventory to be able to give orders to other squads."] call A3A_fnc_customHint;} else {["Recruit Squad", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
+if ([getPosATL petros] call A3A_fnc_enemyNearCheck) exitWith {["Recruit Squad", "You cannot recruit squads with enemies near your HQ."] call A3A_fnc_customHint;};
+
+private _maxGroups = [6,10] select (player call A3A_fnc_isMember);
+if (count hcAllGroups player >= _maxGroups) exitWith {
+    ["Recruit Squad", "You have too many high command squads active. Disband or garrison some to recruit more."] call A3A_fnc_customHint;
+};
 
 private _exit = false;
-{
-	if (((side _x == Invaders) or (side _x == Occupants)) and (_x distance petros < 500) and ([_x] call A3A_fnc_canFight) and !(isPlayer _x)) exitWith {_exit = true};
-} forEach allUnits;
-if (_exit) exitWith {["Recruit Squad", "You cannot recruit squads with enemies near your HQ."] call A3A_fnc_customHint;};
-
 if (_typeGroup isEqualType "") then {
 	if (_typeGroup == "") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
 	if (A3A_hasIFA and ((_typeGroup == FactionGet(reb,"staticMortar")) or (_typeGroup == FactionGet(reb,"staticMG"))) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
 };
-
 if (_exit) exitWith {};
+
 private _isInfantry = false;
 private _typeVehX = "";
 private _costs = 0;
@@ -97,10 +98,10 @@ private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance pl
         private _vehicle = _vehType createVehicle _spawnPos;
 
         if (_mounts isNotEqualTo []) then {
-            private _static = staticAAteamPlayer createVehicle _spawnPos;
-            private _nodes = [_vehicle, _static] call A3A_fnc_logistics_canLoad;
+            private _static = FactionGet(reb,"staticAA") createVehicle _spawnPos;
+            private _nodes = [_vehicle, _static] call A3A_Logistics_fnc_canLoad;
             if (_nodes isEqualType 0) exitWith {};
-            (_nodes + [true]) call A3A_fnc_logistics_load;
+            (_nodes + [true]) call A3A_Logistics_fnc_load;
             _static call HR_GRG_fnc_vehInit;
         };
 

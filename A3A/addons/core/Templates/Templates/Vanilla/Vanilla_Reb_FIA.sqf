@@ -53,11 +53,18 @@ private _initialRebelEquipment = [
 "hgun_Pistol_heavy_02_F","hgun_P07_F",
 "SMG_01_F","SMG_02_F",
 "6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell",
+["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
 "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
 "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr",
 "V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt",
 "Binocular",
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+
+if (allowDLCExpansion) then {
+    _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
+} else {
+    _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
+};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};

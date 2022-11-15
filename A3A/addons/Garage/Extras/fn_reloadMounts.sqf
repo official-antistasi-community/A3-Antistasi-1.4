@@ -26,7 +26,7 @@ private _ctrl = _disp displayCtrl HR_GRG_IDC_ExtraMounts;
 private _cat = HR_GRG_vehicles#4;
 //remove old statics
 {
-    [HR_GRG_previewVeh, true] call A3A_fnc_logistics_unload;
+    [HR_GRG_previewVeh, true] call A3A_Logistics_fnc_unload;
     deleteVehicle _x;
 } forEach attachedObjects HR_GRG_previewVeh;
 
@@ -62,9 +62,9 @@ private _usedCapacity = 0;
     [_static, _staticData#4] call HR_GRG_fnc_setState;
     _static enableSimulation false;
     _static allowDamage false;
-    _loadInfo = [HR_GRG_previewVeh, _static] call A3A_fnc_logistics_canLoad;
+    _loadInfo = [HR_GRG_previewVeh, _static] call A3A_Logistics_fnc_canLoad;
     if (_loadInfo isEqualType 0) exitWith {};
-    (_loadInfo + [true]) call A3A_fnc_logistics_load;
+    (_loadInfo + [true]) call A3A_Logistics_fnc_load;
 
     //get new load info
     private _nodes = _loadInfo#2;
@@ -72,7 +72,7 @@ private _usedCapacity = 0;
     {_lockedSeats = _lockedSeats + count (_x#2)} forEach _nodes;
 
     //correct rotation bug
-    private _offsetAndDir = [_static] call A3A_fnc_logistics_getCargoOffsetAndDir;
+    private _offsetAndDir = [_static] call A3A_Logistics_fnc_getCargoOffsetAndDir;
     _static setVectorDir (_offsetAndDir#1);
 } forEach HR_GRG_Mounts;
 HR_GRG_usedCapacity = _usedCapacity;

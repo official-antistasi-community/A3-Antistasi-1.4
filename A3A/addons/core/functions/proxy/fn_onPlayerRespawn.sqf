@@ -1,6 +1,5 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 if (isDedicated) exitWith {};
 private ["_newUnit","_oldUnit"];
 _newUnit = _this select 0;
@@ -124,7 +123,7 @@ if (side group player == teamPlayer) then
 			{
 			_containerX = _this select 1;
 			_typeX = typeOf _containerX;
-			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX in OccAndInv("ammobox"))) then
+			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX in [A3A_faction_occ get "ammobox", A3A_faction_inv get "ammobox"])) then
 				{
 				if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
 					{

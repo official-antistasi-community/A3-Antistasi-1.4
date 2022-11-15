@@ -21,9 +21,7 @@ if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) ex
 
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
-
 {if ([getPosATL _x] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
-
 if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group."] call A3A_fnc_customHint;};
 
 {if ((vehicle _x!= _x) and ((isNull (driver vehicle _x)) or (!canMove vehicle _x) or (vehicle _x isKindOf "Boat"))) then
@@ -31,7 +29,6 @@ if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near
 	if (not(vehicle _x isKindOf "StaticWeapon")) then {_checkX = true};
 	}
 } forEach units _groupX;
-
 if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or your group is in a boat."] call A3A_fnc_customHint;};
 
 positionTel = [];
@@ -52,6 +49,7 @@ if (count _positionTel > 0) then
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX))) exitWith {["Fast Travel", "Player groups are only allowed to Fast Travel to HQ or Airbases."] call A3A_fnc_customHint;};
 	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders)) exitWith {["Fast Travel", "You cannot Fast Travel to an enemy controlled zone."] call A3A_fnc_customHint; openMap [false,false]};
+	if (_base in forcedSpawn) exitWith {["Fast Travel", "You cannot Fast Travel to a location that is under attack."] call A3A_fnc_customHint; openMap [false,false]};
 
 	//if (_base in outpostsFIA) exitWith {hint "You cannot Fast Travel to roadblocks and watchposts"; openMap [false,false]};
 

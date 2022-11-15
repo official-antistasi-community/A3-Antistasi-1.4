@@ -83,8 +83,14 @@ while {true} do
 		};
 	} forEach citiesX;
 
-	if (_popKilled > (_popTotal / 3)) then {["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"]};
-	if ((_popReb > _popGov) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0]};
+	if (_popKilled > (_popTotal / 3)) then {
+		isNil { ["ended", true] call A3A_fnc_writebackSaveVar };
+		["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"];
+	};
+	if ((_popReb > _popGov) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {
+		isNil { ["ended", true] call A3A_fnc_writebackSaveVar };
+		["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0];
+	};
 
 	{
 		if ((sidesX getVariable [_x,sideUnknown] == teamPlayer) and !(_x in destroyedSites)) then
@@ -100,6 +106,17 @@ while {true} do
 
 	bombRuns = bombRuns + 0.25 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX);
 	publicVariable "bombRuns";
+
+	// Regular income of finite starting weapons
+	private _equipMul = A3A_balancePlayerScale / 30;		// difficulty scaled. Hmm.
+	{
+		if (_x isEqualType "") then { continue };
+		_x params ["_class", "_initCount"];
+		private _count = _initCount * _equipMul;
+		_count = if (_count % 1 > random 1) then { ceil _count } else { floor _count };
+		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
+	} forEach (A3A_faction_reb get "initialRebelEquipment");
 
 	private _textX = format ["<t size='0.6' color='#C1C0BB'>Taxes Income.<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €", _hrAdd, _resAdd];
 	private _textArsenal = [] call A3A_fnc_arsenalManage;

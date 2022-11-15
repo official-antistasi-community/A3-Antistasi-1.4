@@ -21,7 +21,7 @@ Examples:
     [] call A3A_fnc_customHintInit;
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 
 private _filename = "fn_customHintInit.sqf";

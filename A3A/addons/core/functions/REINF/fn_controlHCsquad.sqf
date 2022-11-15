@@ -51,7 +51,7 @@ _eh2 = _unit addEventHandler ["HandleDamage",
 	}];
 selectPlayer _unit;
 
-_timeX = 60;
+_timeX = 180;
 
 _unit addAction ["Return Control to AI",{selectPlayer (player getVariable ["owner",player])}];
 

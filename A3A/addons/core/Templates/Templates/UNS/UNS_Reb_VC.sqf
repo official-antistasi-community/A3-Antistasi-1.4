@@ -44,6 +44,8 @@
 
 private _initialRebelEquipment = [
 "uns_baikal", "uns_mosin", "uns_kar98k", "uns_mas36", "uns_type99", "uns_nagant_m1895", "uns_m127a1_flare", "uns_1Rnd_M127_mag",
+["uns_rpg2", 15], ["uns_rpg2grenade", 45],
+["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
 "uns_12gaugemag_2", "uns_mosinmag", "uns_kar98kmag", "uns_mas36mag", "uns_type99mag", "uns_nagant_m1895mag", "uns_f1gren", "uns_molotov_mag", "uns_rdg2",
 "uns_men_NVA_65_AS3_Bag", "uns_simc_ARVN_ruck_1", "uns_simc_ARVN_ruck_2", "UNS_VC_R1",
 "uns_vc_chestrig", "UNS_VC_A2",
@@ -53,6 +55,7 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "UNS_ItemR
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "UNS_ItemRadio_PRC_90_TFAR"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
+["attributeTFARCodes", ["tf_west_radio_code"]] call _fnc_saveToTemplate;
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

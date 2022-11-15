@@ -43,19 +43,27 @@ if (_pickUp) then {
 
         _unit setVariable ["A3A_carryingObject", nil];
         _unit setVariable ['A3A_objectCarrying', nil];
+        _unit allowSprint true;
+        
 
     }];
+
+    if (isNil {_item getVariable "A3A_originalMass"}) then { _item setVariable ["A3A_originalMass", getMass _item] };
+    [_item, 1e-12] remoteExecCall ["setMass", 0]; 
 
     _player setVariable ['A3A_eventIDcarry', _eventIDcarry];
     _player setVariable ['A3A_objectCarrying', _item];
 
     // prevent killing players with item
     [_item, false] remoteExec ["enableSimulationGlobal", 2];
-    _item attachTo [_player, [0, 1.5, 0.5], "Chest"];
+    private _bbReal = boundingBoxReal _item;
+    private _diff = (_bbReal select 1) vectorDiff (_bbReal select 0);
+    private _positionAttached = [0, (_diff vectorDotProduct [0,.65,0]) + 1.0, (_diff vectorDotProduct [0,0,0.5]) + 0.5];
+    _item attachTo [_player, _positionAttached, "Chest"];
     _player setVariable ["A3A_carryingObject", true];
     [_player ,_item] spawn {
         params ["_player", "_item"];
-        waitUntil {!alive _item or !(_player getVariable ["A3A_carryingObject", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
+        waitUntil {_player allowSprint false; !alive _item or !(_player getVariable ["A3A_carryingObject", false]) or !(vehicle _player isEqualTo _player) or _player getVariable ["incapacitated",false] or !alive _player or !(isPlayer attachedTo _item) };
         [_item, false, _player] call A3A_fnc_carryItem;
     };
 } else {
@@ -73,6 +81,14 @@ if (_pickUp) then {
         [_item, true] remoteExec ["enableSimulationGlobal", 2];
         _eventIDcarry = _player getVariable 'A3A_eventIDcarry';
         _player removeEventHandler ["GetInMan", _eventIDcarry];
+
+        _item spawn {
+            sleep 1;
+            if (isNull _this) exitWith {};
+            // Restore original _item mass. This one can be slow.
+            [_this, _this getVariable "A3A_originalMass"] remoteExecCall ["setMass", _this];
+        };
     };
     _player setVariable ["A3A_carryingObject", nil];
+    _player allowSprint true;
 };

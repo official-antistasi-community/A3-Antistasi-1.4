@@ -149,7 +149,7 @@ if (UPSMON_Debug>0) then {diag_log format["Spawning %3 copies of template %1 on 
 			_params = [_lead] + _UCthis;
 
 			//Exec UPSMON script
-			_params SPAWN UPSMON;
+			_params SPAWN UPSMON_fnc_UPSMON;
 		};
 	};
 }foreach UPSMON_TEMPLATES;

@@ -160,8 +160,8 @@ UPSMON_Logic_civkill = _group createUnit ["LOGIC", [1,1,1], [], 0, "NONE"];
 _group = nil;
 _center = nil;
 
-UPSMON = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON.sqf);
-UPSMON_CreateGroup = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\UPSMON_CreateGroup.sqf);
+UPSMON_fnc_UPSMON = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON.sqf);
+UPSMON_fnc_CreateGroup = compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\UPSMON_fnc_CreateGroup.sqf);
 
 //Core
 call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\COMMON\Core\init.sqf);
@@ -193,9 +193,10 @@ call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDE
 call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_SUPPLY\init.sqf);
 call compile preProcessFileLineNumbers QPATHTOFOLDER(Scripts\UPSMON\MODULES\ORDERS\UPSMON_RETREAT\init.sqf);//ADDED BY BARBOLANI
 
-[] execvm QPATHTOFOLDER(Scripts\UPSMON\COMMON\CORE\fnc\UPSMON_fnc_TRACK.sqf);
-[] execvm QPATHTOFOLDER(Scripts\UPSMON\UPSMON_MAINLOOP.sqf);
-[] execvm QPATHTOFOLDER(Scripts\UPSMON\UPSMON_MAINLOOPCiv.sqf);
+// todo: spawn these
+[] spawn UPSMON_fnc_TRACK;
+[] spawn UPSMON_fnc_MAINLOOP;
+[] spawn UPSMON_fnc_MAINLOOPCiv;
 
 //get all mines types
 _UPSMON_Minesclassname = [] call UPSMON_fnc_getminesclass;

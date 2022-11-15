@@ -49,8 +49,8 @@ while {true} do {
 					_civ setPosATL _posHouse;
 					[_civ] spawn A3A_fnc_CIVinit;
 					_civs pushBack _civ;
-					if (_civ == leader _civ) then {_nul = [_civ, "ambientCiv", "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf)};
-					//TODO delete UPSMON
+					if (_civ == leader _civ) then {_nul = [_civ, "ambientCiv", "SAFE", "SPAWNED","NOFOLLOW", "NOVEH2","NOSHARE","DoRelax"] spawn UPSMON_fnc_UPSMON};
+					//TODO delete UPSMON_fnc_UPSMON
 				};
 			};
 		};

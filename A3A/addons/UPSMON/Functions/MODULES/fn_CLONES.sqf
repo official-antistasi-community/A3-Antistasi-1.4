@@ -83,7 +83,7 @@ for "_grpcnt" from 1 to _copies do
 	} foreach _members;	
 	
 	_Ucthis set [0,_lead];
-	nul= _Ucthis spawn UPSMON;
+	nul= _Ucthis spawn UPSMON_fnc_UPSMON;
 	//sleep .05;
 };	
 sleep .05;

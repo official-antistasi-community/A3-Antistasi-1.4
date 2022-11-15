@@ -54,4 +54,4 @@ _grp setvariable ["UPSMON_Artilleryarea",_area];
 _grp setvariable ["UPSMON_Artillerymaxcadence",_maxcadence];
 _grp setvariable ["UPSMON_Artillerymincadence",_mincadence];
 
-[_unit,"DummyUPSMONMarker","NOWP3"] spawn UPSMON;
+[_unit,"DummyUPSMONMarker","NOWP3"] spawn UPSMON_fnc_UPSMON;

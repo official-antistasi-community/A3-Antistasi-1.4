@@ -88,7 +88,7 @@ if (_patrol) then
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
-			[leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+			[leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
 			_groups pushBack _groupX;
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 		};
@@ -312,11 +312,11 @@ for "_i" from 0 to (count _array - 1) do
 	if (_i == 0) then
 	{
 		//Can't we just precompile this and call this like every other funtion? Would save some time
-		_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+		_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
 	}
 	else
 	{
-		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
 	};
 };//TODO need delete UPSMON link
 ["locationSpawned", [_markerX, "Outpost", true]] call EFUNC(Events,triggerEvent);

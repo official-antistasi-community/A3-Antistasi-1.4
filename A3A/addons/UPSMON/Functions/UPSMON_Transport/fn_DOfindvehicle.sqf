@@ -126,7 +126,7 @@ if (count _unitsIn > 0) then
 			};
 			(group _driver) setvariable ["UPSMON_Transportmission",[_mission,_targetpos,_grp]];
 			_grp setvariable ["UPSMON_InTransport",true];
-			[_driver,(group _npc) getvariable "UPSMON_Marker","TRANSPORT"] spawn UPSMON;
+			[_driver,(group _npc) getvariable "UPSMON_Marker","TRANSPORT"] spawn UPSMON_fnc_UPSMON;
 		};
 	} foreach _vehicles;
 	

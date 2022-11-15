@@ -1,8 +1,8 @@
 ﻿/*  =====================================================================================================
-	UPSMON_CreateGroup.sqf
+	UPSMON_fnc_CreateGroup.sqf
 	Author: Azroul13
  =====================================================================================================		
-	Parámeters: _grp = [position,side,[unitsarray],[min units,max units per group],3,["markername","SAFE","COLUMN"]] call UPSMON_CreateGroup;	
+	Parámeters: _grp = [position,side,[unitsarray],[min units,max units per group],3,["markername","SAFE","COLUMN"]] call UPSMON_fnc_CreateGroup;	
 		<- _position 		Position where the group will spawn
 		<- side 			Side of the group (EAST,WEST,GUER,CIVILIAN)
 		<- [unitsarray]		Array with classname of unit you want to spawn (classname will be choose randomly)
@@ -89,6 +89,6 @@ for [{_i=0}, {_i<_unitsnbr}, {_i=_i+1}] do
 _grp selectLeader _lead;
 _ucthis = [_lead] + _Ucthis;
 
-_Ucthis spawn UPSMON;
+_Ucthis spawn UPSMON_fnc_UPSMON;
 
 _grp;

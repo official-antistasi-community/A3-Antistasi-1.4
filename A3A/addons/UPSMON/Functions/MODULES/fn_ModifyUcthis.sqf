@@ -12,6 +12,6 @@ If (!IsNull _npc && alive _npc && _grp in UPSMON_NPCs) then
 
 	If (alive _npc) then
 	{
-		_this execVM QPATHTOFOLDER(Scripts\UPSMON.sqf);
+		_this spawn UPSMON_fnc_UPSMON;
 	};
  };

@@ -33,7 +33,7 @@ if (_typeX isEqualType "") then {
     };
 
     if (_groups isEqualTo []) then {
-        _nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+        _nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] spawn UPSMON;//TODO need delete UPSMON link
     };
 
     [_unit,_markerX] spawn {

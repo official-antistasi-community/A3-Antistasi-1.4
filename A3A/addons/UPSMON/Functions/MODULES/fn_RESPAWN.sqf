@@ -206,7 +206,7 @@ If (!_removeunit) then
 		_UCthis =  ["VEHTYPE:",_vehicletypes,_UCthis] call UPSMON_fnc_setArg;
 
 		//Exec UPSMON script
-		_UCthis spawn UPSMON;
+		_UCthis spawn UPSMON_fnc_UPSMON;
 		sleep 0.1;
 	};
 };

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_PLANASSLT.sqf
+File: UPSMON_fnc_PLANASSLT.sqf
 Author: Azroul13
 
 Description:
@@ -36,7 +36,7 @@ If (!(_grp getvariable ["UPSMON_searchingpos",false])) then
 	{
 		If (_grp getvariable ["UPSMON_TIMEORDER",time] <= time) then
 		{
-			[_grp,_attackPos,_typeofgrp,_dist] spawn UPSMON_DOASSAULT;
+			[_grp,_attackPos,_typeofgrp,_dist] spawn UPSMON_fnc_DOASSAULT;
 			_time = time + 10;
 			_grp setvariable ["UPSMON_TIMEORDER",_time];
 		};

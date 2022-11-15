@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DOASSAULT.sqf
+File: UPSMON_fnc_DOASSAULT.sqf
 Author: Azroul13
 
 Description:

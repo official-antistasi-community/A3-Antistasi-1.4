@@ -161,7 +161,7 @@ while {true} do
 			{
 				If ("air" in _typeofgrp) then
 				{
-					[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_PLANASSLT;
+					[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_fnc_PLANASSLT;
 					_grp setvariable ["UPSMON_Grpmission","ASSAULT"];
 					_grpstatus = "PURPLE";
 				}
@@ -171,7 +171,7 @@ while {true} do
 					{
 						If (_dist < 300 && (surfaceIsWater _attackpos)) then
 						{
-							[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_PLANASSLT;
+							[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_fnc_PLANASSLT;
 							_grp setvariable ["UPSMON_Grpstatus","BLACK"];
 						}
 						else
@@ -198,13 +198,13 @@ while {true} do
 									}
 									else
 									{
-										[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_PLANASSLT;
+										[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist] call UPSMON_fnc_PLANASSLT;
 										_grp setvariable ["UPSMON_Grpstatus","BLACK"];
 									};
 								}
 								else
 								{
-									[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist,_targetdist] call UPSMON_PLANASSLT;
+									[_grp,_attackpos,_lastattackpos,_typeofgrp,_dist,_targetdist] call UPSMON_fnc_PLANASSLT;
 									_grp setvariable ["UPSMON_Grpstatus","BLACK"];
 								};
 							}
@@ -469,7 +469,7 @@ while {true} do
 											If (_dist <= 100) then
 											{
 												//The target is in a building, what do we do ?
-												[_grp,_target,_currpos] spawn UPSMON_AssltBld;
+												[_grp,_target,_currpos] spawn UPSMON_fnc_Assltbld;
 											};
 										};
 									}

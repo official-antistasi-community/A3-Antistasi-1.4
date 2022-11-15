@@ -1,4 +1,4 @@
-#include "..\..\..\script_component.hpp"
+
 private ["_npc"];
 
 _npc = _this select 0;

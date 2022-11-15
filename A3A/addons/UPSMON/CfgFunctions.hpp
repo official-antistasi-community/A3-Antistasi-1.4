@@ -109,6 +109,7 @@ class CfgFunctions {
 			class checkmunition {};
 			class checksizetargetgrp {};
 			class composeteam {};
+			class CreateGroup {};
 			class getleader {};
 			class getNearestSoldier {};
 			class GetStaticTeam {};
@@ -248,13 +249,9 @@ class CfgFunctions {
 			class isinrectangle {};
 			class issameposition {};
 			class rotateposition {};
-			class getpos {};
 			class getposmarker {};
+			class getposSub {};
 			class pos {};
-		};
-		class GROUP {
-			file = QPATHTOFOLDER(Functions\GROUP);
-			class CreateGroup {};
 		};
 
 		class INIT {

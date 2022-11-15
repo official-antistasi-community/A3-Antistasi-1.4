@@ -11,7 +11,6 @@ Parameter(s):
 Returns:
 	nothing
 ****************************************************************/
-#include "..\..\..\..\..\script_component.hpp"
 
 private ["_wait","_minpos","_units","_blds","_blds2","_UPSMON_Bld_ruins","_i","_arraybld","_bld","_bldpos1","_bldpos2","_cntobjs1","_movein","_result","_altura","_id2"];
 

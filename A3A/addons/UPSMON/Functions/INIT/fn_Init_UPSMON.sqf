@@ -1,7 +1,6 @@
 // only run on server (including SP, MP, Dedicated) and Headless Client
 if (!isServer && hasInterface ) exitWith {};
 
-#include "..\script_component.hpp"
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 //        These Variables should be checked and set as required, to make the mission runs properly.
 //---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------

@@ -130,7 +130,7 @@ if (count _unitsIn > 0) then
 		};
 	} foreach _vehicles;
 	
-	_grptype = [leader _grp] call UPSMON_grptype;
+	_grptype = [leader _grp] call UPSMON_fnc_grptype;
 	
 	if (_grptype == "Iscar") then
 	{

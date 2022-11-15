@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getNearestSoldier.sqf
+File: UPSMON_fnc_getNearestSoldier.sqf
 Author: Monsada
 
 Description:

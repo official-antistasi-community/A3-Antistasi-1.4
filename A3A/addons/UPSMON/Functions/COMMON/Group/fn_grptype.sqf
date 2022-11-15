@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_grptype.sqf
+File: UPSMON_fnc_grptype.sqf
 Author: Azroul13
 
 Description:

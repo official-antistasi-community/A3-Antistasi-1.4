@@ -15,7 +15,7 @@ _grp = _this select 0;
 _currpos = _this select 1;
 _attackpos = _this select 2;
 
-_checkforstatic = [_grp] call UPSMON_GetStaticTeam; 
+_checkforstatic = [_grp] call UPSMON_fnc_GetStaticTeam; 
 _staticteam = _checkforstatic select 0;
 _weapon = _checkforstatic select 1;
 

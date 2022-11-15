@@ -40,7 +40,7 @@ _eh = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler
 				_align = "right";  
 				_fontsize = 0.04;
 		
-				_grptype = [_leader] call UPSMON_grptype;
+				_grptype = [_leader] call UPSMON_fnc_grptype;
 				_drawicon = configfile >> "CfgMarkers" >> "b_inf" >> "icon";
 				_drawwpicon = configfile >> "CfgMarkers" >> "mil_objective" >> "icon";
 				If (_grptype == "Iscar") then {_drawicon = configfile >> "CfgMarkers" >> "b_motor_inf" >> "icon";};
@@ -110,7 +110,7 @@ _eh = ((findDisplay 12) displayCtrl 51) ctrlAddEventHandler
 	_align = "right";  
 	_fontsize = 0.04;
 		
-	_grptype = [_leader] call UPSMON_grptype;
+	_grptype = [_leader] call UPSMON_fnc_grptype;
 	_drawicon = configfile >> "CfgMarkers" >> "b_inf" >> "icon";
 	If (_grptype == "Iscar") then {_drawicon = configfile >> "CfgMarkers" >> "b_motor_inf" >> "icon";};
 	If (_grptype == "IsAir") then {_drawicon = configfile >> "CfgMarkers" >> "b_plane" >> "icon";};

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SetLeaderGrp.sqf
+File: UPSMON_fnc_SetLeaderGrp.sqf
 Author: Azroul13
 
 Description:

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_GetStaticTeam.sqf
+File: UPSMON_fnc_GetStaticTeam.sqf
 Author: Azroul13
 
 Description:

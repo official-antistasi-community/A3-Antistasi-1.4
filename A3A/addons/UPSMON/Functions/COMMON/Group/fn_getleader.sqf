@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getleader.sqf
+File: UPSMON_fnc_getleader.sqf
 Author: Monsada
 
 Description:
@@ -99,7 +99,7 @@ if (!alive _npc) then
 	//If not alive or already leader or is player exits
 	{
 		{
-			if (alive _x && !isPlayer _x) exitwith {_npc = [_npc,_grp] call UPSMON_getleader;};
+			if (alive _x && !isPlayer _x) exitwith {_npc = [_npc,_grp] call UPSMON_fnc_getleader;};
 		} foreach _members;				
 	};	
 		

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_getunits.sqf
+File: UPSMON_fnc_getunits.sqf
 Author: Azroul13
 
 Description:

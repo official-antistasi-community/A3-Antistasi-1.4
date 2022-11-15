@@ -25,7 +25,7 @@ if ((count _this) > 3) then {_wait = _this select 3;};
 
 _blds = [];
 	
-_units = [_units] call UPSMON_getunits;
+_units = [_units] call UPSMON_fnc_getunits;
 	
 if (UPSMON_Debug>0) then {diag_log format["UPSMON_moveNearestBuildings _units=%1 _blds=%2",_units,_blds];};
 if (count _units == 0) exitwith {_units};		

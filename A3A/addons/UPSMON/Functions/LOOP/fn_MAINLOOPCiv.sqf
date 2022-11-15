@@ -31,7 +31,7 @@ while {true} do
 			_driver = driver (vehicle _npc);
 		
 			// did the leader die?
-			_npc = [_npc,_grp] call UPSMON_getleader;							
+			_npc = [_npc,_grp] call UPSMON_fnc_getleader;							
 			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_Respawngrp;};			
 		
 			_buildingdist = 50;
@@ -64,12 +64,12 @@ while {true} do
 				_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 			};
 		
-			_grpcomposition = [_grp] call UPSMON_analysegrp;
+			_grpcomposition = [_grp] call UPSMON_fnc_analysegrp;
 			_typeofgrp = _grpcomposition select 0;
 			_capacityofgrp = _grpcomposition select 1;
 			_assignedvehicle = _grpcomposition select 2;
 	
-			_supstatus = [_grp] call UPSMON_supstatestatus;
+			_supstatus = [_grp] call UPSMON_fnc_supstatestatus;
 			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 		
 		If (_grp getvariable ["UPSMON_GrpHostility",0] > 0) then
@@ -127,7 +127,7 @@ while {true} do
 		//Stuck control
 		If (!(_npc getvariable ["UPSMON_Civdisable",false])) then
 		{
-			_stuck = [_npc,_lastcurrpos,_currpos] call UPSMON_Isgrpstuck;
+			_stuck = [_npc,_lastcurrpos,_currpos] call UPSMON_fnc_Isgrpstuck;
 		};
 		
 //*********************************************************************************************************************

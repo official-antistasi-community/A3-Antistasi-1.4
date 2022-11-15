@@ -30,7 +30,7 @@ If ((typename _obj != "OBJECT" && typename _obj != "GROUP") || IsNil "_obj" || I
 };
 
 // Get leader
-_npc = [_obj] call UPSMON_SetLeaderGrp;
+_npc = [_obj] call UPSMON_fnc_SetLeaderGrp;
 
 If (!alive _npc) exitwith
 {
@@ -55,7 +55,7 @@ _speed = [_npc,_Ucthis] call UPSMON_GetGroupspeed;
 _members = units _grp;
 
 // what type of "vehicle" is _npc ?
-_grptype = [_npc] call UPSMON_grptype;
+_grptype = [_npc] call UPSMON_fnc_grptype;
 
 //Set EH
 [_members,_Ucthis,_grpid] spawn UPSMON_SetEventhandlers;
@@ -299,7 +299,7 @@ if (_initpos!="ORIGINAL") then
 	else
 	{
 		// put the unit on top of a building
-		_units = [units _npc] call UPSMON_getunits;
+		_units = [units _npc] call UPSMON_fnc_getunits;
 		_grpmission = "STATIC";
 		If (_nowpType == 3) then
 		{
@@ -370,7 +370,7 @@ _grp setformation _formation;
 _grp setcombatmode _combatmode;
 
 // did the leader die?
-_npc = [_npc,_grp] call UPSMON_getleader;
+_npc = [_npc,_grp] call UPSMON_fnc_getleader;
 if (!alive _npc || !canmove _npc || isplayer _npc ) exitwith {};
 
 _grp setvariable ["UPSMON_GrpStatus","GREEN"];

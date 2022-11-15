@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_composeteam.sqf
+File: UPSMON_fnc_composeteam.sqf
 Author: Azroul13
 
 Description:

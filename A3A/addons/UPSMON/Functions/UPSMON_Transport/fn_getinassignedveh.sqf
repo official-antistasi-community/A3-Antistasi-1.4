@@ -26,7 +26,7 @@ _grp setvariable ["UPSMON_embarking",true];
 (group (driver (_assignedvehicle select 0))) setvariable ["UPSMON_embarking",true];
 
 _vehicles = [];
-_validunits = [units _grp] call UPSMON_Getunits;
+_validunits = [units _grp] call UPSMON_fnc_getunits;
 _unitsIn = _validunits;
 {
 	_Cargocount = (_x) emptyPositions "Cargo";

@@ -35,7 +35,7 @@ While {true} do
 					default {"ColorBlack"};
 				};
 				
-				_grptype = [_leader] call UPSMON_grptype;
+				_grptype = [_leader] call UPSMON_fnc_grptype;
 				_drawicon = "b_inf";
 				If (_grptype == "Iscar") then {_drawicon = "b_motor_inf"};
 				If (_grptype == "IsAir") then {_drawicon = "b_plane";};

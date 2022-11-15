@@ -22,7 +22,7 @@ _time = _this select 3;
 
 _grp setVariable ["UPSMON_fnc_Inbuilding",true];
 
-_units = [_units] call UPSMON_Getunits;
+_units = [_units] call UPSMON_fnc_getunits;
 _movein = [];
 if (count _units > 0) then
 	{

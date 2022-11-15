@@ -25,7 +25,7 @@ If (isNil "tpwcas_running") then
 }
 else
 {
-	_Supstate = [_npc] call UPSMON_supstatestatus;
+	_Supstate = [_npc] call UPSMON_fnc_supstatestatus;
 	if (group _npc in UPSMON_GOTHIT_ARRAY || group _npc in UPSMON_GOTKILL_ARRAY || _Supstate >= 2) then
 	{
 		_gothit = true;

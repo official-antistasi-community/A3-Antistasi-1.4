@@ -26,7 +26,7 @@ If (count _this > 4) then {_marker = _this select 4};
 _grpid = (group _npc) getvariable ["UPSMON_grpid",0];
 
 
-_validunits = [units _npc] call UPSMON_Getunits;
+_validunits = [units _npc] call UPSMON_fnc_getunits;
 _unitsIn = _validunits;
 if ( (count _validunits) > 0) then
 {

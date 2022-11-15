@@ -40,7 +40,7 @@ if (count _bld > 0) then
 
 	If (!(_grp getvariable ["UPSMON_GrpinAction",false])) then
 	{
-		_teams = [_grp] call UPSMON_composeteam;
+		_teams = [_grp] call UPSMON_fnc_composeteam;
 		If (count _teams > 0) then
 		{
 			_grp setvariable ["UPSMON_GrpinAction",true];

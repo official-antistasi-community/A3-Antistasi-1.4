@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_supstatestatus.sqf
+File: UPSMON_fnc_supstatestatus.sqf
 Author: Azroul13
 
 Description:

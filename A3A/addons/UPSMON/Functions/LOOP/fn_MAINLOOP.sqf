@@ -30,7 +30,7 @@ while {true} do
 			_driver = driver (vehicle _npc);
 
 			// did the leader die?
-			_npc = [_npc,_grp] call UPSMON_getleader;
+			_npc = [_npc,_grp] call UPSMON_fnc_getleader;
 			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_RESPAWN;};
 
 			_buildingdist = 50;
@@ -68,13 +68,13 @@ while {true} do
 				_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 			};
 
-			_grpcomposition = [_grp] call UPSMON_analysegrp;
+			_grpcomposition = [_grp] call UPSMON_fnc_analysegrp;
 			_typeofgrp = _grpcomposition select 0;
 			_capacityofgrp = _grpcomposition select 1;
 			_assignedvehicle = _grpcomposition select 2;
 			_weaponrange = _grpcomposition select 3;
 
-			_supstatus = [_grp] call UPSMON_supstatestatus;
+			_supstatus = [_grp] call UPSMON_fnc_supstatestatus;
 			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
 
 		If (_grp getvariable ["UPSMON_NOAI",false]) then
@@ -83,7 +83,7 @@ while {true} do
 			if (count _fixedtargetPos > 0) then {_targetpos = _fixedtargetPos;};
 
 			_terrainscan = _currpos call UPSMON_sample_terrain;
-			_unitsneedammo = [_npc] call UPSMON_checkmunition;
+			_unitsneedammo = [_npc] call UPSMON_fnc_checkmunition;
 			_vehiclesneedsupply = [_assignedvehicle] call UPSMON_Checkvehiclesstatus;
 
 //*********************************************************************************************************************
@@ -126,10 +126,10 @@ while {true} do
 				_typeofeni = _Situation select 2;
 
 				//Retreat
-				[_grp,_dist,_ratio,_supstatus,_unitsneedammo,_typeofgrp,_attackpos,_assignedvehicle] call UPSMON_IsRetreating;
+				[_grp,_dist,_ratio,_supstatus,_unitsneedammo,_typeofgrp,_attackpos,_assignedvehicle] call UPSMON_fnc_IsRetreating;
 
 				//Surrender
-				[_grp,_dist,_ratio,_supstatus,_unitsneedammo,_typeofgrp,_haslos] call UPSMON_IsSurrending;
+				[_grp,_dist,_ratio,_supstatus,_unitsneedammo,_typeofgrp,_haslos] call UPSMON_fnc_IsSurrending;
 
 				If (_grp getvariable ["UPSMON_Grpmission",""] == "SURRENDER") exitwith {[_grp] call UPSMON_surrended;};
 
@@ -155,7 +155,7 @@ while {true} do
 			};
 
 			_nowp = [_grp,_target,_supstatus] call UPSMON_fnc_Nowp;
-			_maneuver = [_grp,_nowp,_attackpos,_typeofgrp] call UPSMON_Cangrpmaneuver;
+			_maneuver = [_grp,_nowp,_attackpos,_typeofgrp] call UPSMON_fnc_Cangrpmaneuver;
 
 			If (_maneuver) then
 			{
@@ -323,7 +323,7 @@ while {true} do
 
 			_targetdist = [_currpos,_targetpos] call UPSMON_fnc_distancePosSqr;
 
-			[_grp,_supstatus,_attackpos,_dist,_terrainscan,_haslos,_typeofgrp] call UPSMON_ChangeFormation;
+			[_grp,_supstatus,_attackpos,_dist,_terrainscan,_haslos,_typeofgrp] call UPSMON_fnc_ChangeFormation;
 
 			If ("arti" in _typeofgrp) then
 			{
@@ -395,7 +395,7 @@ while {true} do
 				};
 
 				//Stuck control
-				_stuck = [_npc,_lastcurrpos,_currpos] call UPSMON_Isgrpstuck;
+				_stuck = [_npc,_lastcurrpos,_currpos] call UPSMON_fnc_Isgrpstuck;
 			}
 			else
 			{
@@ -598,7 +598,7 @@ while {true} do
 					{
 						If (!(_grp getvariable ["UPSMON_fnc_Inbuilding",false])) then
 						{
-							_units = [units _grp] call UPSMON_Getunits;
+							_units = [units _grp] call UPSMON_fnc_getunits;
 							[_units,_grp getvariable ["UPSMON_bldposToCheck",[]],_grp,55] spawn UPSMON_patrolBuilding;
 						}
 					}

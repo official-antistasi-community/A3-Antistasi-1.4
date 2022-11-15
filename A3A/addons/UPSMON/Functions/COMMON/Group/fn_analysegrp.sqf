@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_analysegrp.sqf
+File: UPSMON_fnc_analysegrp.sqf
 Author: Azroul13
 
 Description:
@@ -354,7 +354,7 @@ _artibatteryarray = [];
 	
 } foreach units _grp;
 	
-_checkbag = [_grp] call UPSMON_GetStaticTeam;
+_checkbag = [_grp] call UPSMON_fnc_GetStaticTeam;
 _staticteam = _checkbag select 0;
 If (count _staticteam == 2) then
 {

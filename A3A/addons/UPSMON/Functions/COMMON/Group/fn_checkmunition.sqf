@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_checkmunition.sqf
+File: UPSMON_fnc_checkmunition.sqf
 Author: Azroul13
 
 Description:

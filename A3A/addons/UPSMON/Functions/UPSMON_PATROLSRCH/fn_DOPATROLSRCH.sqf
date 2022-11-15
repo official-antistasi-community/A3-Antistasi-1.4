@@ -71,7 +71,7 @@ else
 	}
 	else
 	{
-		_targetPos = [_currpos,_dir1,_suspectPos,_side,_typeofgrp,_grpid] call UPSMON_SrchPtrlFlankPos;
+		_targetPos = [_currpos,_dir1,_suspectPos,_side,_typeofgrp,_grpid] call UPSMON_fnc_SrchPtrlFlankPos;
 	};
 };
 	

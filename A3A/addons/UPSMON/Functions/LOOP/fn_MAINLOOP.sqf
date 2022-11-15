@@ -271,7 +271,7 @@ while {true} do
 
 					If (count _artipos > 0) then
 					{
-						[_grp,(_grp getvariable "UPSMON_SuspectPos"),_currpos] call UPSMON_GETINPATROLSRCH;
+						[_grp,(_grp getvariable "UPSMON_SuspectPos"),_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 					};
 					If ([] call UPSMON_fnc_Nighttime) then
 					{
@@ -390,7 +390,7 @@ while {true} do
 
 					If (_deadbodiesnear) then
 					{
-						[_grp,getposATL _dead,_currpos] call UPSMON_GETINPATROLSRCH;
+						[_grp,getposATL _dead,_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 					};
 				};
 
@@ -455,7 +455,7 @@ while {true} do
 							{
 								If (_targetdist <= 100) then
 								{
-									[_grp,_grp getvariable ["UPSMON_attackpos",[]],_currpos] call UPSMON_GETINPATROLSRCH;
+									[_grp,_grp getvariable ["UPSMON_attackpos",[]],_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 								};
 							}
 							else
@@ -500,7 +500,7 @@ while {true} do
 						{
 							If (IsNull _target) then
 							{
-								[_grp,_grp getvariable ["UPSMON_attackpos",[]],_currpos] call UPSMON_GETINPATROLSRCH;
+								[_grp,_grp getvariable ["UPSMON_attackpos",[]],_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 							};
 						};
 					};
@@ -524,7 +524,7 @@ while {true} do
 					}
 					else
 					{
-						[_grp,(_grp getvariable "UPSMON_Attackpos"),_currpos] call UPSMON_GETINPATROLSRCH;
+						[_grp,(_grp getvariable "UPSMON_Attackpos"),_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 					};
 				};
 			};
@@ -613,7 +613,7 @@ while {true} do
 			{
 				If (_targetdist <= UPSMON_Closeenough) then
 				{
-					[_grp,_targetpos,_currpos] call UPSMON_GETINPATROLSRCH;
+					[_grp,_targetpos,_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 					_grpstatus = "YELLOW"
 				};
 			};
@@ -692,7 +692,7 @@ while {true} do
 				{
 					If (_grp getvariable ["UPSMON_OrgGrpMission",""] != "FORTIFY") then
 					{
-						[_grp,(_grp getvariable "UPSMON_Attackpos"),_currpos] call UPSMON_GETINPATROLSRCH;
+						[_grp,(_grp getvariable "UPSMON_Attackpos"),_currpos] call UPSMON_fnc_GETINPATROLSRCH;
 						_grpstatus = "YELLOW"
 					};
 				};

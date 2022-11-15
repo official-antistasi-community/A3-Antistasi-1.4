@@ -25,7 +25,7 @@ _enemies = [];
 	{
 		If (alive (leader _x)) then
 		{
-			If (_x getvariable ["UPSMON_fnc_Shareinfos",false]) then
+			If (_x getvariable ["UPSMON_Shareinfos",false]) then
 			{
 				If (_side == side _x) then
 				{

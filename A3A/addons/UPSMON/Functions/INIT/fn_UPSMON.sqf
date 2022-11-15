@@ -169,7 +169,7 @@ if ("NOSMOKE" in _UCthis) then {_grp setvariable ["UPSMON_NOSMOKE",true]};
 
 //Do group share infos ?
 _shareinfos = If ("NOSHARE" in _UCthis) then {false} else {true};
-_grp setvariable ["UPSMON_fnc_Shareinfos",_shareinfos];
+_grp setvariable ["UPSMON_Shareinfos",_shareinfos];
 
 // Group will not call artillery support
 if ("NOARTILLERY" in _UCthis) then {_grp setvariable ["UPSMON_NOARTILLERY",true];};

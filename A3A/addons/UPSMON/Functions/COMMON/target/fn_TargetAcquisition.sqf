@@ -47,7 +47,7 @@ _grp setvariable ["UPSMON_GrpEnies",_Enemies];
 If (count _Enemies == 0) then
 {
 	// Share the enemies infos we found with our allies
-	If (_grp getvariable ["UPSMON_fnc_Shareinfos",false]) then
+	If (_grp getvariable ["UPSMON_Shareinfos",false]) then
 	{
 		_enemies = [_npc] call UPSMON_fnc_Shareinfos;
 	};

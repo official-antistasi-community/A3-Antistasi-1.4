@@ -99,7 +99,7 @@ if (_i <= 1) then
 {
 	{
 		_bld = _x select 0;
-		If (!(typeof _bld in _UPSMON_Bld_ruins)) then {[_bld] execvm QPATHTOFOLDER(Scripts\UPSMON\COMMON\UPSMON_CloseDoor.sqf);};
+		If (!(typeof _bld in _UPSMON_Bld_ruins)) then {[_bld] spawn UPSMON_fnc_closedoor;};
 	} foreach _blds;
 };
 

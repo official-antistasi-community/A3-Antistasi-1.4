@@ -32,11 +32,17 @@ if !(_side in ["occ", "inv", "reb", "civ"]) exitWith {
 private _addon = createHashMap;
 call compile preprocessFileLineNumbers _path;
 
+// trigger an event before appending 
+["addonTemplateBeforeAppend", [_addon, ]] call A3A_Events_fnc_triggerEvent;
+
 //add the addon data to the faction data
 private _faction = missionNamespace getVariable ["A3A_faction_"+_side, createHashMap];
 {
     _faction set [_x, (_faction get _x) + _y];
 } forEach _addon;
+
+//trigger an event after the addons have be added
+["addonTemplateLoaded", [_faction]] call A3A_Events_fnc_triggerEvent;
 
 //update the faction data globaly
 _faction

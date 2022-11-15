@@ -24,7 +24,7 @@ while {true} do
 		
 			if (({alive _x && !(captive _x)} count units _grp) == 0 ||  _grp getvariable ["UPSMON_Removegroup",false]) exitwith
 			{
-				[_grp,_UCthis] call UPSMON_RESPAWN;
+				[_grp,_UCthis] call UPSMON_fnc_RESPAWN;
 			}; 	
 		
 			_npc = leader _grp;
@@ -280,7 +280,7 @@ while {true} do
 		
 		if (({alive _x && !(captive _x)} count units _grp) == 0 ||  _grp getvariable ["UPSMON_Removegroup",false]) exitwith
 		{
-			[_grp,_UCthis] call UPSMON_RESPAWN;
+			[_grp,_UCthis] call UPSMON_fnc_RESPAWN;
 		}; 	
 		
 		_grp setvariable ["UPSMON_Grpstatus",_grpstatus];

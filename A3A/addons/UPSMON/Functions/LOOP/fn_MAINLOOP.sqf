@@ -23,7 +23,7 @@ while {true} do
 
 			if (({alive _x && !(captive _x)} count units _grp) == 0 ||  _grp getvariable ["UPSMON_Removegroup",false]) exitwith
 			{
-				[_grp,_UCthis] call UPSMON_RESPAWN;
+				[_grp,_UCthis] call UPSMON_fnc_RESPAWN;
 			};
 
 			_npc = leader _grp;
@@ -31,7 +31,7 @@ while {true} do
 
 			// did the leader die?
 			_npc = [_npc,_grp] call UPSMON_fnc_getleader;
-			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_RESPAWN;};
+			if (!alive _npc || isplayer _npc) exitwith {[_grp,_UCthis] call UPSMON_fnc_RESPAWN;};
 
 			_buildingdist = 50;
 			_deadbodiesnear = false;
@@ -950,7 +950,7 @@ while {true} do
 
 			if (({alive _x && !(captive _x)} count units _grp) == 0 ||  _grp getvariable ["UPSMON_Removegroup",false]) exitwith
 			{
-				[_grp,_UCthis] call UPSMON_RESPAWN;
+				[_grp,_UCthis] call UPSMON_fnc_RESPAWN;
 			};
 
 			_grp setvariable ["UPSMON_Lastinfos",[_currpos,_targetpos]];

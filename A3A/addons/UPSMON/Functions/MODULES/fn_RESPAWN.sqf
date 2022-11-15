@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_RESPAWN.sqf
+File: UPSMON_fnc_RESPAWN.sqf
 Author: Monsada
 
 Description:

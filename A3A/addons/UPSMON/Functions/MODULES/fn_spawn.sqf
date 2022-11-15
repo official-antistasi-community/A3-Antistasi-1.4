@@ -1,12 +1,12 @@
 
 /****************************************************************
-File: UPSMON_spawn.sqf
+File: UPSMON_fnc_SPAWN.sqf
 Author: Monsada
 
 Description:
 	The script will spawn a squad based on a template.
 	Called by the mission creator:
-	nul = [1,[0,0,0],3,[mark, upsmon optional params]] EXECVM QPATHTOFOLDER(Scripts\UPSMON\MODULES\UPSMON_SPAWN.SQF);
+	nul = [1,[0,0,0],3,[mark, upsmon optional params]] EXECVM QPATHTOFOLDER(Scripts\UPSMON\MODULES\UPSMON_fnc_SPAWN.SQF);
 
 Parameter(s):
 	<--- Id of the template to copy.

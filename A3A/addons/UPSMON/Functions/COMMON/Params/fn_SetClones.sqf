@@ -23,5 +23,5 @@ if (_maxcopies>0) then
 {
 	_Ucthis = ["MIN:",0,_UCthis] call UPSMON_fnc_setArg;
 	_Ucthis = ["MAX:",0,_Ucthis] call UPSMON_fnc_setArg;
-	[_Ucthis,_mincopies,_maxcopies,_membertypes] call UPSMON_Clones;
+	[_Ucthis,_mincopies,_maxcopies,_membertypes] call UPSMON_fnc_CLONES;
 };

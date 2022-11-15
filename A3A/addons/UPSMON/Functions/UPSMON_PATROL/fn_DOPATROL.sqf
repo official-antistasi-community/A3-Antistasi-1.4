@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_DOPATROL.sqf
+File: UPSMON_fnc_DOPATROL.sqf
 Author: Azroul13
 
 Description:
@@ -30,7 +30,7 @@ _typeofgrp = _this select 6;
 _grp setvariable ["UPSMON_searchingpos",true];
 _npc = leader _grp;
 
-_targetpos = [_npc,_areamarker,_typeofgrp] call UPSMON_SrchPtrlPos;
+_targetpos = [_npc,_areamarker,_typeofgrp] call UPSMON_fnc_SrchPtrlPos;
 _timeontarget = time + (1.4*(getposATL _npc vectordistance _targetpos));
 
 If ("arti" in _typeofgrp) then {_timeontarget = _timeontarget + 20};

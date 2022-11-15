@@ -577,7 +577,7 @@ while {true} do
 									//|| (("air" in _typeofgrp && !(_grp getVariable ["UPSMON_landing",false])) && (_targetdist <= (30 + (_currpos select 2))))
 									|| ("air" in _typeofgrp && _wptype != "LOITER")) then
 								{
-									[_grp,_grp getvariable "UPSMON_Alertpos",_typeofgrp,_areamarker] spawn UPSMON_DOPATROLSRCH;
+									[_grp,_grp getvariable "UPSMON_Alertpos",_typeofgrp,_areamarker] spawn UPSMON_fnc_DOPATROLSRCH;
 								};
 							};
 						};
@@ -840,7 +840,7 @@ while {true} do
 				if (_makenewtarget) then
 				{
 					if (UPSMON_Debug > 0) then {diag_log format ["Grp%1 search newpos",_grp getvariable ["UPSMON_grpid",0]];};
-					[_grp,_wpformation,_speedmode,_areamarker,_Behaviour,_combatmode,_typeofgrp] spawn UPSMON_DOPATROL;
+					[_grp,_wpformation,_speedmode,_areamarker,_Behaviour,_combatmode,_typeofgrp] spawn UPSMON_fnc_DOPATROL;
 				};
 			};
 

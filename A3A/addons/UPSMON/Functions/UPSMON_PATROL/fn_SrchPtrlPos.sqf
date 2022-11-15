@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_SrchPtrlPos.sqf
+File: UPSMON_fnc_SrchPtrlPos.sqf
 Author: Azroul13
 
 Description:

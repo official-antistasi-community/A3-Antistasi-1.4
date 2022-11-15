@@ -163,7 +163,7 @@ while {true} do
 				if (_makenewtarget) then
 				{
 					if (UPSMON_Debug > 0) then {diag_log format ["Grp%1 search newpos",_grp getvariable ["UPSMON_grpid",0]];};
-					[_grp,_wpformation,_speedmode,_areamarker,_Behaviour,_combatmode,_typeofgrp] spawn UPSMON_DOPATROL;
+					[_grp,_wpformation,_speedmode,_areamarker,_Behaviour,_combatmode,_typeofgrp] spawn UPSMON_fnc_DOPATROL;
 				};					
 			};
 		

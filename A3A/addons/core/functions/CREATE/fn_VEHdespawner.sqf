@@ -1,6 +1,7 @@
 _filename = "fn_VEHdespawner";
 params ["_veh", ["_checkNonRebel", false]];
 
+if (_veh getVariable ["ownerSide", teamPlayer] == teamPlayer) exitWith {};			// don't use this for rebel vehicles
 if (!isNil {_veh getVariable "inDespawner"}) exitWith {};
 _veh setVariable ["inDespawner", true, true];
 _veh setVariable ["A3A_despawnerHandle", _thisScript];

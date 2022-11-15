@@ -241,7 +241,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 	// Otherwise when destroyed, ammoboxes sink 100m underground and are never cleared up
 	_ammoBox addEventHandler ["Killed", { [_this#0] spawn { sleep 10; deleteVehicle (_this#0) } }];
 	[_ammoBox] spawn A3A_fnc_fillLootCrate;
-	[_ammoBox] call A3A_fnc_logistics_addLoadAction;
+	[_ammoBox] call A3A_Logistics_fnc_addLoadAction;
 
 	[_ammoBox] spawn {
 		sleep 1;    //make sure fillLootCrate finished clearing the crate

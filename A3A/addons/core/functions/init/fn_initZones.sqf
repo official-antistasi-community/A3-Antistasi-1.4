@@ -276,8 +276,8 @@ if (count _posBank > 0) then {
 };
 
 // Make list of markers that don't have a proper road nearby
-// Should be obsolete?
-/*
+// TODO: Nearly obsolete. Switch convoy code to road distance checks & markerNavPoint
+
 blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	private _nearRoads = (getMarkerPos _x) nearRoads (([_x] call A3A_fnc_sizeMarker) * 1.5);
 //	_nearRoads = _nearRoads inAreaArray _x;
@@ -285,7 +285,7 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { count roadsConnectedTo _x != 0 } };
 	if (_idx == -1) then {true} else {false};
 };
-*/
+
 
 Info("Setting up fuel stations");
 

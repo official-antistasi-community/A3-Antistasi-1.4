@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "NVA"] call _fnc_saveToTemplate;
-["spawnMarkerName", "NVA Reinforcements"] call _fnc_saveToTemplate;
+["name", "PAVN"] call _fnc_saveToTemplate;
+["spawnMarkerName", "PAVN Reinforcements"] call _fnc_saveToTemplate;
 
 ["flag", "uns_FlagCarrierNVA"] call _fnc_saveToTemplate;
 ["flagTexture", "\uns_flags\flag_pavn_co.paa"] call _fnc_saveToTemplate;
@@ -189,7 +189,7 @@ _sfLoadoutData set ["rifles", [["uns_sa58p", "", "", "", ["uns_sa58mag"], [], ""
     ["uns_sa58p", "", "", "", ["uns_sa58mag"], [], ""]]];
 _sfLoadoutData set ["carbines", [["uns_sa58v", "", "", "", ["uns_sa58mag"], [], ""],
     ["uns_sa58vf", "", "", "", ["uns_sa58mag"], [], ""]]];
-_sfLoadoutData set ["grenadeLaunchers", [["uns_ex41", "", "", "", ["uns_ex41mag"], ["uns_1Rnd_Smoke_40mm"], ""]]];
+_sfLoadoutData set ["grenadeLaunchers", [["uns_type99_gl", "", "", "", ["uns_type99mag"], ["Uns_1Rnd_30mm_FRAG"], ""]]];
 _sfLoadoutData set ["SMGs", [["uns_type50", "", "", "", ["uns_ppshmag_NT"], [], ""],
     ["uns_ppsh41", "", "", "", ["uns_ppshmag_NT"], [], ""],
     ["uns_m2carbine_shorty", "", "", "", ["uns_m2carbinemag_NT"], [], ""]]];
@@ -241,7 +241,7 @@ _militaryLoadoutData set ["carbines", [
     ["uns_akmsf", "", "", "", [], [], ""],
     ["uns_sks", "", "", "", ["uns_sksmag_NT"], [], ""]]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-    ["uns_ex41", "", "", "", ["uns_ex41mag"], ["uns_1Rnd_Smoke_40mm"], ""],
+    ["uns_type99_gl", "", "", "", ["uns_type99mag"], ["Uns_1Rnd_30mm_FRAG"], ""],
     ["uns_mas4956_gl", "", "", "", ["uns_mas4956mag"], ["Uns_1Rnd_22mm_AT", "Uns_1Rnd_22mm_smoke", "Uns_1Rnd_22mm_WP"], ""]]];
 _militaryLoadoutData set ["SMGs", [
     ["uns_sa61", "", "", "", ["uns_20Rnd_sa61"], [], ""],

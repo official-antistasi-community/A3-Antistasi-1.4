@@ -775,7 +775,7 @@ Version 2.4.0
 * autosave now delayes after a manual save
 * loot crate respawns are now limited - no crate farming possible anymore
 * when a commander now buys a vehicle, the faction money is used instead of the personal money
-* influence of loosing radiotowers is minimized
+* influence of losing radiotowers is minimized
 * added radiobagpacks to item sorting
 * optimised mission root path parsing
 * allow commander and admins to edit game options plus logging of changes
@@ -2008,7 +2008,7 @@ Version 1.2.0
 * IMPORTANT: Added enhaced AI features for the HC infantry squads (under testing).
 * IMPORTANT: Added CSAT as PvP faction.
 * IMPORTANT: Added more rebel squad recruitment option types.
-* IMPORTANT: When AI takes an AI airbase, they will auto take all the nearby resources and factories belonging to the looser.
+* IMPORTANT: When AI takes an AI airbase, they will auto take all the nearby resources and factories belonging to the loser.
 * Corrected PvP looting.
 * Re added rebreathers in enemy seaport ammoboxes.
 * Rebels will allways have an update of AI attack destination on major attacks, that update will be quicker if enemy comms are intercepted.
@@ -2046,7 +2046,7 @@ Version 1.2.0
 * Improved infoshare between enhaced AI groups (they will know a bit more if them if some other group has spotted it).
 * Removed the "contact informer" mid step, as it seems not fun at all...
 * Mil buildings are not used to spawn ambient civvies.
-* Aggro implications when conquering / loosing certain territory types.
+* Aggro implications when conquering / losing certain territory types.
 
 
 
@@ -3198,7 +3198,7 @@ Version 0.9.2 ALPHA
 
 * Optimised mortar positioning routines.
 * Optimised fog checks.
-* Corrected: When CSAT unlimiuted attacks reached timout they were constantly spawing and loosing.
+* Corrected: When CSAT unlimiuted attacks reached timout they were constantly spawing and losing.
 * FPS checks won't be done for player recruiting squads
 
 
@@ -4075,7 +4075,7 @@ Version 0.1.2.4
 
 .. rubric:: Changes
 
-* IMPORTANT: Loosing condition: 1/3 of the total population is massacred by CSAT. Number will be shown on "Map Info".
+* IMPORTANT: Losing condition: 1/3 of the total population is massacred by CSAT. Number will be shown on "Map Info".
 * IMPORTANT: R key to respawn.
 * IMPORTANT: Win conditions: more then half of the population supports SDK and SDK owns all the airports.
 * Improved AI vehicle unstuck functions.

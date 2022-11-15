@@ -6,7 +6,7 @@ FIX_LINE_NUMBERS()
 if (isNil "logLevel") then { logLevel = 2; A3A_logDebugConsole = 1 };
 
 Info("initClient started");
-Info_1("Client version: %1", QUOTE(VERSION));
+Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
@@ -224,7 +224,7 @@ player addEventHandler ["WeaponAssembled", {
         };
         _markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
         _pos = position _veh;
-        [_veh] call A3A_fnc_logistics_addLoadAction;
+        [_veh] call A3A_Logistics_fnc_addLoadAction;
         if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns."] call A3A_fnc_customHint;};
     };
 }];
@@ -314,13 +314,6 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
         [A3A_hasACRE,"ACRE","Players will use ACRE radios. Unconscious players' radios will be muted."],
         [A3A_hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
         [A3A_hasACEMedical,"ACE 3 Medical","Default revive system will be disabled."]
-
-/*		[A3A_hasRHS,"RHS","All factions will be replaced by RHS (AFRF &amp; USAF &amp; GREF)."],
-        [A3A_has3CBFactions,"3CB Factions","All Factions will be Replaced by 3CB Factions."],
-        [A3A_has3CBBAF,"3CB BAF","Occupant Faction will be Replaced by British Armed forces."],
-        [A3A_hasFFAA,"FFAA","Occupant faction will be replaced by Spanish Armed Forces."],
-        [A3A_hasIvory,"Ivory Cars","Mod cars will be added to civilian car spawns."]
-*/
     ] select {_x#0};
 
     private _loadedTemplateInfoXML = A3A_loadedTemplateInfoXML apply {[true,_x#0,_x#1]};	// Remove and simplify when the list above is empty and can be deleted.
@@ -394,11 +387,11 @@ private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
 private _fuelTank = FactionGet(reb,"vehicleFuelTank");
 if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
 };
 if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
     private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
+    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
 };
 call A3A_fnc_dropObject;
 
@@ -414,7 +407,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {
     [
         "Game Options",
-        "Version: "+ antistasiVersion +
+        "Version: "+ QUOTE(VERSION_FULL) +
         "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +

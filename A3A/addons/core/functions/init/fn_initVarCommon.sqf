@@ -8,8 +8,6 @@ scriptName "initVarCommon.sqf";
 FIX_LINE_NUMBERS()
 Info("initVarCommon started");
 
-antistasiVersion = QUOTE(VERSION);
-
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
@@ -97,7 +95,7 @@ if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) t
 
 //KAT medical detection
 A3A_hasKAT = false;
-if(A3A_hasACEMedical && isClass (configFile >> "CfgVehicles" >> "kat_PainkillerItem")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
+if(A3A_hasACEMedical && isClass (configFile >> "CfgWeapons" >> "kat_scalpel")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
 
 A3A_hasIFA = false;			// this one is everywhere, just mark it false and remove later
 

@@ -123,7 +123,7 @@ class CfgFunctions
             class distance {};
             class distanceUnits {};
             class FIAradio {};
-            class findAttackTargets {}
+            class findAttackTargets {};
             class findBasesForConvoy {};
             class findNearestGoodRoad {};
             class flagaction {};
@@ -558,7 +558,6 @@ class CfgFunctions
             class reDress {};
             class reinfPlayer {};
             class spawnHCGroup {};
-            class stealStatic {};
             class vehiclePrice {};
             class vehStats {};
         };

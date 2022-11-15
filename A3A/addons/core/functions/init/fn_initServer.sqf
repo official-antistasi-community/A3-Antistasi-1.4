@@ -7,7 +7,7 @@ A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVa
 
 
 Info("Server init started");
-Info_1("Server version: %1", QUOTE(VERSION));
+Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
 
@@ -36,7 +36,7 @@ if (isClass (configFile/"CfgVehicles"/"vn_module_dynamicradiomusic_disable")) th
 call A3A_fnc_initVarCommon;
 call A3A_fnc_initZones;					// needed here because new-game setup needs to know where the markers are
 
-// Start up the monitor to handle the setup UI 
+// Start up the monitor to handle the setup UI
 [] spawn A3A_fnc_setupMonitor;
 
 // ************************ Background init ***********************************************
@@ -67,16 +67,18 @@ A3A_backgroundInitDone = true;
 
 // **************** Starting game, param-dependent init *******************************
 
-// Wait until we have selected/created save data  
+// Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
 
 [localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
 
-// Set global vars directly from params. Call should guarantee 1:1 validity
+// Use true params list in case we're loading an autosave from a different version
+private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
-    _x params ["_name", "_val"];
-    missionNamespace setVariable [_name, _val, true];           // just publish them all, doesn't really hurt
-} forEach (A3A_saveData get "params");
+    if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
+    private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
+} forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
 // Might have params dependency at some point
 if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
@@ -86,9 +88,6 @@ boxX call jn_fnc_arsenal_init;
 
 // This does the actual template loading in the middle somewhere
 [A3A_saveData] call A3A_fnc_initVarServer;
-
-// Init that needs factions loaded
-call A3A_fnc_logistics_initNodes;
 
 // Parameter-dependent vars. Could be moved to initVarServer...
 if (gameMode != 1) then {
@@ -161,11 +160,11 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 
     // Load data from the array
     private _memberUIDsFromConfig = getArray (configFile >> "AntistasiServerMembers" >> "MembersArray" >> "uidArray");
-    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig; 
+    {membersX pushBackUnique _x} forEach _memberUIDsFromConfig;
 
     // Load data from the classes
     private _memberClasses = "true" configClasses (configFile >> "AntistasiServerMembers" >> "MembersClasses");
-    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses; 
+    {membersX pushBackUnique (getText (_x >> "uid"))} forEach _memberClasses;
 };
 
 // TODO: Do we need this? maybe...
@@ -174,6 +173,17 @@ if (isPlayer A3A_setupPlayer) then {
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
     theBoss = A3A_setupPlayer; publicVariable "theBoss";
 };
+
+//add admin as member if not on loggin
+addMissionEventHandler ["OnUserAdminStateChanged", {
+    params ["_networkId", "_loggedIn", "_votedIn"];
+    private _uid = (getUserInfo _networkId)#2;
+    if !(_uid in membersX) then {
+        membersX pushBackUnique (getUserInfo _networkId)#2;
+        publicVariable "membersX";
+    };
+}];
+
 publicVariable "membersX";
 
 
@@ -184,7 +194,7 @@ call A3A_fnc_initSupports;
 call A3A_fnc_generateRebelGear;
 
 // Needs A3A_rebelGear for equipping
-call A3A_fnc_initPetros;
+call A3A_fnc_createPetros;
 
 // Some of these may already be unhidden but we make sure
 { _x hideObjectGlobal false } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];

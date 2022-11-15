@@ -163,17 +163,15 @@ if (not(_markerX in destroyedSites)) then
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
-	_typeVehX = if (_sideX == Occupants) then
-	{
+	private _typeVehX = call {
+		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesRepairTrucks") };
+		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
 		private _types = if (!_isFIA) then {(_faction get "vehiclesTrucks") + (_faction get "vehiclesCargoTrucks")} else {_faction get "vehiclesMilitiaTrucks"};
 		_types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
 		if (count _types == 0) then { (_faction get "vehiclesCargoTrucks") } else { _types };
-	}
-	else
-	{
-		(_faction get "vehiclesTrucks")
+		selectRandom _types;
 	};
-	_veh = createVehicle [selectRandom _typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
+	_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
 	_veh setDir (_spawnParameter select 1);
 	_vehiclesX pushBack _veh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;

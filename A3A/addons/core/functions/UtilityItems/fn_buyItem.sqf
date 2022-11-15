@@ -16,7 +16,7 @@ Public: yes
 Dependencies:
 
 Example:
-    [player, _fuelDrum # 0, _fuelDrum # 1, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem
+    [player, _fuelDrum # 0, _fuelDrum # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem
 */
 #include "..\..\script_component.hpp"
 params  [

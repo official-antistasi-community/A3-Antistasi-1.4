@@ -8,12 +8,20 @@
 
 ["vehiclesCivCar", [
     "gm_gc_civ_p601",  1
-    ,"gm_gc_ff_p601", 0.2
-    ,"gm_gc_dp_p601", 0.2
-    ,"gm_ge_civ_typ1200", 2
-    ,"gm_ge_dbp_typ1200", 0.2
-    ,"gm_ge_ff_typ1200", 0.2
-    ]] call _fnc_saveToTemplate;
+    ,"gm_gc_ff_p601", 0.1
+    ,"gm_gc_dp_p601", 0.1
+    ,"gm_ge_civ_typ1200", 1
+    ,"gm_ge_dbp_typ1200", 0.1
+    ,"gm_ge_ff_typ1200", 0.1
+    ,"CUP_C_Datsun_Covered", 0.5
+    ,"CUP_C_Datsun_Plain", 0.5
+    ,"CUP_C_Volha_CR_CIV", 0.5
+    ,"CUP_C_Lada_CIV", 0.5
+    ,"CUP_C_Skoda_CR_CIV", 0.5
+    ,"CUP_C_S1203_CIV_CR", 0.5
+    ,"CUP_C_Tractor_Old_CIV", 0.2
+    ,"CUP_C_TT650_CIV", 0.2
+]] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [
     "gm_ge_civ_u1300l", 1
@@ -29,14 +37,15 @@
     ,"C_Scooter_Transport_01_F", 0.5]] call _fnc_saveToTemplate;
 
 ["vehiclesCivRepair", [
-    "C_Offroad_01_repair_F", 0.3
-    ,"C_Van_02_service_F", 0.3                // orange
+    //"C_Offroad_01_repair_F", 0.3
+    "C_Van_02_service_F", 0.3                // orange
     ,"C_Truck_02_box_F", 0.1]] call _fnc_saveToTemplate;
 
 ["vehiclesCivMedical", [
-    "C_Van_02_medevac_F", 0.1
-    ,"gm_gc_civ_mi2sr", 0.1
-    ,"gm_ge_adak_bo105m_vbh", 0.1
+    "CUP_B_S1203_Ambulance_CR", 0.1
+    ,"C_Van_02_medevac_F", 0.1
+    //,"gm_gc_civ_mi2sr", 0.1
+    //,"gm_ge_adak_bo105m_vbh", 0.1
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", [

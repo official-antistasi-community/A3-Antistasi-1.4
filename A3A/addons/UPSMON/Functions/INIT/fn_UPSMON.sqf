@@ -165,7 +165,7 @@ _onroad = if ("ONROAD" in _UCthis) then {true} else {false};
 _grp setvariable ["UPSMON_ONROAD",_onroad];
 
 // Group will not throw smoke
-if ("NOSMOKE" in _UCthis) then {_grp setvariable ["UPSMON_fnc_NOSMOKE",true]};
+if ("NOSMOKE" in _UCthis) then {_grp setvariable ["UPSMON_NOSMOKE",true]};
 
 //Do group share infos ?
 _shareinfos = If ("NOSHARE" in _UCthis) then {false} else {true};

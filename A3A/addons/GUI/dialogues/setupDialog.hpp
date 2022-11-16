@@ -134,6 +134,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                 {
                     idc = A3A_IDC_SETUP_SAVESLISTBOX;
                     onMouseButtonUp = "['saveListClick', _this] call A3A_fnc_setupLoadgameTab";
+                    onMouseButtonDblClick = "['saveListDoubleClick', _this] call A3A_fnc_setupLoadgameTab";
                     x = 4 * GRID_W;
                     y = 12 * GRID_H;
                     w = 118 * GRID_W;

@@ -122,8 +122,22 @@ switch (_mode) do
         if (_mpos#0 > (ctrlPosition _listBoxCtrl # 2) - 2*GRID_W) exitWith {};      // ignore scroll-bar region
         private _rowIndex = floor (_mpos#1 / (4*GRID_H));
         if (_rowIndex > count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
-        if (_rowIndex == _listboxCtrl getVariable "rowIndex") exitWith {};          // ignore if already selected 
+        if (_rowIndex == _listboxCtrl getVariable "rowIndex") exitWith {};          // ignore if already selected       
+        private _data = A3A_setup_saveData select _rowIndex;
+        if (isNil "_data") exitWith {};                                             //empty row fix
+
         ["selectSave", [_rowIndex]] call A3A_fnc_setupLoadgameTab;
+    };
+
+    case ("saveListDoubleClick"): 
+    {
+        if (_params#1 != 0) exitWith {};                                            // ignore non-LMB clicks
+        private _mpos = ctrlMousePosition _listBoxCtrl;
+        if (_mpos#0 > (ctrlPosition _listBoxCtrl # 2) - 2*GRID_W) exitWith {};      // ignore scroll-bar region
+        private _rowIndex = floor (_mpos#1 / (4*GRID_H));
+        if (_rowIndex > count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
+        if (cbChecked _newGameCtrl) exitWith {};                                    // ignore new game clicks
+        ["startGame"] call A3A_fnc_setupLoadgameTab;
     };
 
     case ("selectSave"):

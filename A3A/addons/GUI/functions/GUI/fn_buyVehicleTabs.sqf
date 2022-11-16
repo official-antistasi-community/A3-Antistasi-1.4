@@ -364,18 +364,22 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _fuelTank # 0, 
             _fuelTank # 1,
-            "A3A_fnc_buyItem", 
-            [
-                player,
-                _fuelTank # 0,  
-                _fuelTank # 1, 
+            "HR_GRG_fnc_confirmPlacement", [
+                _fuelTank # 0, 
+                "LARGEITEM",
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    player,
+                    _fuelTank # 0,  
+                    _fuelTank # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ]
                 ]
-            ], 
+            ],
             true,
             "Fuel Tank"
         ];
+        
 
         private _medCrate = FactionGet(reb,"vehicleMedicalBox");
         _buyableItemList pushBack [
@@ -391,15 +395,18 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _medTent  # 0, 
             _medTent  # 1,
-            "A3A_fnc_buyItem", 
-            [
-                player,
-                _medTent  # 0,  
-                _medTent  # 1, 
+            "HR_GRG_fnc_confirmPlacement", [
+                _medTent  # 0,
+                "LARGEITEM",
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                    player,
+                    _medTent  # 0,  
+                    _medTent  # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                    ]
                 ]
-            ], 
+            ],
             false,
             "Medical Tent"
         ];
@@ -408,15 +415,18 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _ammoStation # 0, 
             _ammoStation # 1,
-            "A3A_fnc_buyItem", 
-            [
-                player,
-                _ammoStation # 0,  
-                _ammoStation # 1, 
+            "HR_GRG_fnc_confirmPlacement", [
+                _ammoStation  # 0,
+                "LARGEITEM",
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    player,
+                    _ammoStation # 0,  
+                    _ammoStation # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ]
                 ]
-            ], 
+            ],
             false,
             "Ammo Station"
         ];
@@ -425,15 +435,18 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _repairStation # 0, 
             _repairStation # 1,
-            "A3A_fnc_buyItem", 
-            [
-                player,
-                _repairStation # 0,  
-                _repairStation # 1, 
+            "HR_GRG_fnc_confirmPlacement", [
+                _repairStation  # 0,
+                "LARGEITEM",
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', false]
+                    player,
+                    _repairStation # 0,  
+                    _repairStation # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_Logistics_fnc_initPackableObjects', true]
+                    ]
                 ]
-            ], 
+            ],
             false,
             "Repair Station"
         ];

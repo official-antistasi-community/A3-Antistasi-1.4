@@ -6,7 +6,7 @@ FIX_LINE_NUMBERS()
 if (isNil "logLevel") then { logLevel = 2; A3A_logDebugConsole = 1 };
 
 Info("initClient started");
-Info_1("Client version: %1", QUOTE(VERSION));
+Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
@@ -407,7 +407,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {
     [
         "Game Options",
-        "Version: "+ antistasiVersion +
+        "Version: "+ QUOTE(VERSION_FULL) +
         "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +

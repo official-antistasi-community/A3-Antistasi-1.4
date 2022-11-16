@@ -87,8 +87,8 @@ class Params
     class A3A_idleTimeout
     {
         title = "Time before a player is considered AFK";
-        values[] = {0,180,300,900,1800};
-        texts[] = {"disabled","2min","5min","15min","30min"};
+        values[] = {120,300,900,1800,9999999};
+        texts[] = {"2min","5min","15min","30min","disabled"};
         default = 300;
     };
 

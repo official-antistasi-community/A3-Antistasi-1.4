@@ -34,7 +34,7 @@ Examples ACE:
 	["ace_explosives_place", _EH_ace_explosives_place] call CBA_fnc_addEventHandler;
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_unit","_weapon","_projectile"];
 private _fileName = "fn_punishment_FF_checkNearHQ";

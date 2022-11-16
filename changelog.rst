@@ -716,7 +716,7 @@ Version 2.4.0
       Watch them bring tank killer planes against your vehicles, air superiority fighter against your helicopters and heavy gunships against infantry positions. If you hear the brrrt, it is already too late.
 
 * New navGrid system
-   * Completely redid the antistasi internal pathfinding mechanics, enabling us to utilize roads more and better, as we can ensure that the AI does not decide to drive the tank through half a kilometer of wood any more. At least in most cases.
+   * Completely redid the Antistasi internal pathfinding mechanics, enabling us to utilize roads more and better, as we can ensure that the AI does not decide to drive the tank through half a kilometer of wood any more. At least in most cases.
 
 * New template system
    * The new template system allows modders to quickly and easily set up new, highly customized factions by listing the vehicles and equipment available. These new templates introduce enemies which wield a larger variety of weapons and gear, providing more diverse opponents and a greater variety of tools to fight back against the oppressors.

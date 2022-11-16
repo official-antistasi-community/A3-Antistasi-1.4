@@ -21,7 +21,7 @@ Examples:
     69 call A3A_fnc_customHintDrop;
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params [["_notificationID",-1]];
 

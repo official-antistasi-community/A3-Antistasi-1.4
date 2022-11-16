@@ -19,6 +19,7 @@ _caller setVariable ["intelSearchTime",time + _timeForSearch];
 _caller setVariable ["intelAnimsDone",false];
 _caller setVariable ["intelFound",false];
 _caller setVariable ["cancelIntelSearch",false];
+_caller setVariable ["intelSearchDone", false];
 
 _caller playMoveNow selectRandom medicAnims;
 private _cancelAction = _caller addAction ["Cancel Search", {(_this select 1) setVariable ["cancelIntelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
@@ -68,6 +69,7 @@ if(_wasCancelled) exitWith
 {
     ["Intel", "Search cancelled."] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
+    _caller setVariable ["intelSearchDone", nil];
     [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
 };
 
@@ -84,6 +86,8 @@ if(_caller getVariable ["intelFound", false]) then
     {
         ["Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
+
+    _squadLeader setVariable ["intelSearchDone", true];
 }
 else
 {

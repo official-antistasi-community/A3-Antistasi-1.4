@@ -5090,5 +5090,12 @@
         <Portuguese>A epera de inicio de segundo plano para completar</Portuguese>
       </Key>
     </Container>
+    <Container name="A3A_actions">
+      <Key ID="STR_A3A_actions_restore_units">
+        <Original>Restore nearby units</Original>
+        <German>Stelle Einheiten in der Nähe wieder her</German>
+        <Russian>Восстановить союзников поблизости</Russian>
+      </Key>
+    </Container>
   </Package>
 </Project>

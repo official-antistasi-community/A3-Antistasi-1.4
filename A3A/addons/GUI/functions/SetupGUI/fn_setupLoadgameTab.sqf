@@ -124,7 +124,7 @@ switch (_mode) do
         if (_rowIndex > count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
         if (_rowIndex == _listboxCtrl getVariable "rowIndex") exitWith {};          // ignore if already selected       
         private _data = A3A_setup_saveData select _rowIndex;
-        if (isNil "_data") exitWith {};                                             //empty row fix
+        if (isNil "_data") exitWith {};                                             // ignore if there is no actual data
 
         ["selectSave", [_rowIndex]] call A3A_fnc_setupLoadgameTab;
     };

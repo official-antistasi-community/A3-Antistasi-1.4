@@ -87,7 +87,7 @@ if(_caller getVariable ["intelFound", false]) then
         ["Intel", "Search completed, but you found nothing!"] call A3A_fnc_customHint;
     };
 
-    _squadLeader setVariable ["intelSearchDone", true];
+    _squadLeader setVariable ["intelSearchDone", true, true];
 }
 else
 {

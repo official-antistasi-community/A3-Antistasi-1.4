@@ -123,6 +123,9 @@ switch (_mode) do
             if (!isNil {_x get "saveTime"}) then {
                 _x set ["timeStr", [_x get "saveTime", systemTimeUTC] call _fnc_getTimeDiffString];
             };
+            if (!isNil {_x get "version"}) then {
+                _x set ["verStr", (_x get "version") splitString "." select [0, 3] joinString "."];        // cap to a.b.c
+            };
         } forEach _saveData;
 
         A3A_setup_saveData = _saveData;

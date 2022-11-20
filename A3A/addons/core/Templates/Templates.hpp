@@ -240,7 +240,7 @@ class Templates
     {
         requiredAddons[] = {"UK3CB_Factions_Vehicles_SUV"};
         basepath = QPATHTOFOLDER(Templates\Templates\3CB);
-        //logo = "";            // unknown, may need rethink
+        logo = QPATHTOFOLDER(Templates\Templates\3CB\logo_small_3cb_ca.paa);            // unknown, may need rethink
         priority = 40;
     };
 

@@ -126,7 +126,7 @@ A3A_postInitFuncs = [];
 } forEach ("true" configClasses (configFile/"A3A"/"CfgFunctions"));
 
 if (_skipPreInit) exitWith { true };
-if !( isClass (missionConfigFile/"A3A") ) exitWith { false }; //dont run code unless we are in a A3A mission
+//if !( isClass (missionConfigFile/"A3A") ) exitWith { false }; //dont run code unless we are in a A3A mission
 
 {
     call (missionNamespace getVariable _x);

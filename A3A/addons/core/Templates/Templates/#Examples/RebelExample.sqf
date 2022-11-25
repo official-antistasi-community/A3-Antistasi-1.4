@@ -25,6 +25,8 @@
 ["vehicleCivTruck", ""] call _fnc_saveToTemplate;
 ["vehicleCivHeli", ""] call _fnc_saveToTemplate;
 ["vehicleCivBoat", ""] call _fnc_saveToTemplate;
+["vehicleCivSupply", ""] call _fnc_saveToTemplate;
+
 
 ["staticMG", ""] call _fnc_saveToTemplate;
 ["staticAT", ""] call _fnc_saveToTemplate;

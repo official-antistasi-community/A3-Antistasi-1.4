@@ -96,14 +96,14 @@ switch (tolower _convoyType) do
         _textX = format ["A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Money Convoy";
         _taskIcon = "move";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = FactionGet(reb, "vehicleCivSupply");
     };
     case "supplies":
     {
         _textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = "Supply Convoy";
         _taskIcon = "heal";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = FactionGet(reb, "vehicleCivSupply");
     };
 };
 

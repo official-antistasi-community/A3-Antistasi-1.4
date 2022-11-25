@@ -31,9 +31,11 @@ _mrkFinal setMarkerShape "ICON";
 //_mrkFinal setMarkerColor "ColorBlue";
 //_mrkFinal setMarkerText "Bank";
 
-_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
+private _bankVehicleClass = A3A_faction_reb get "vehicleCivSupply";
 
-_truckX = "C_Van_01_box_F" createVehicle _pos;
+_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,_bankVehicleClass];
+
+_truckX = _bankVehicleClass createVehicle _pos;
 {_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
 [_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 _truckX setVariable ["destinationX",_nameDest,true];

@@ -387,8 +387,7 @@ for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append [FactionGet(reb,"vehicleCivCar"), FactionGet(reb,"vehicleCivTruck")];			// Civ car/truck from rebel template, in case they're different
-_civVehicles pushBackUnique "C_Van_01_box_F";		// Box van from bank mission. TODO: Define in rebel template
+_civVehicles append [FactionGet(reb,"vehicleCivCar"), FactionGet(reb,"vehicleCivTruck"), FactionGet(civ, "vehicleCivSupply")];			// Civ car/truck from rebel template, in case they're different
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
 DECLARE_SERVER_VAR(civVehiclesWeighted, _civVehiclesWeighted);

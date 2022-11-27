@@ -17,6 +17,7 @@ class CfgPatches {
 #include "CfgSounds.hpp"
 class A3A {
     #include "Templates.hpp"
+    #include "Params.hpp"
 
 #if __A3_DEBUG__
     #include "CfgFunctions.hpp"
@@ -34,6 +35,11 @@ class A3A {
     };
 #else
     #include "CfgFunctions.hpp"
+#endif
+
+// Load external member list if present
+#if __has_include("\A3AMembers.hpp")
+#include "\A3AMembers.hpp"
 #endif
 
 #ifndef UseDoomGUI

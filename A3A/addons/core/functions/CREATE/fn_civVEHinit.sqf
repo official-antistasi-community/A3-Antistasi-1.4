@@ -14,21 +14,21 @@ if (_veh isKindOf "Car") then
 
 _veh addEventHandler ["Killed",{[_this select 0] spawn A3A_fnc_postmortem}];
 
-if ((count crew _veh == 0) and (!A3A_hasRHS) and !(A3A_hasIFA)) then
+if ((count crew _veh == 0) and ("vanilla" in A3A_factionEquipFlags)) then
 	{
 	sleep 10;
-	if (isMultiplayer) then {[_veh,false] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation false};
-	_veh addEventHandler ["GetIn",
+	[_veh,false] remoteExec ["enableSimulationGlobal",2];
+	_veh addEventHandler ["GetIn",//ToDo: we should clean up the sim eh after as its a one of thing
 		{
 		_veh = _this select 0;
-		if (!simulationEnabled _veh) then {if (isMultiplayer) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation true}};
+		if (!simulationEnabled _veh) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]};
 		[_veh] spawn A3A_fnc_VEHdespawner;
 		}
 		];
 	_veh addEventHandler ["HandleDamage",
 		{
 		_veh = _this select 0;
-		if (!simulationEnabled _veh) then {if (isMultiplayer) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]} else {_veh enableSimulation true}};
+		if (!simulationEnabled _veh) then {[_veh,true] remoteExec ["enableSimulationGlobal",2]};
 		}
 		];
 	};

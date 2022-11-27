@@ -8,39 +8,25 @@ scriptName "initVarCommon.sqf";
 FIX_LINE_NUMBERS()
 Info("initVarCommon started");
 
-antistasiVersion = QUOTE(VERSION);
-
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////
 Info("Setting initial variables");
 debug = false;
-A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
+//A3A_customHintEnable = false; // Disables custom hints for boot duration. Is set to true in initClient.
 
 ////////////////////////////////////
 //     BEGIN SIDES AND COLORS    ///
 ////////////////////////////////////
-Info("Generating sides");
-if (isNil "teamPlayer") then { teamPlayer = side group petros };
-if (teamPlayer == independent) then
-	{
-	Occupants = west;
-	colorTeamPlayer = "colorGUER";
-	colorOccupants = "colorBLUFOR";
-	respawnTeamPlayer = "respawn_guerrila";
-	respawnOccupants = "respawn_west"
-	}
-else
-	{
-	Occupants = independent;
-	colorTeamPlayer = "colorBLUFOR";
-	colorOccupants = "colorGUER";
-	respawnTeamPlayer = "respawn_west";
-	respawnOccupants = "respawn_guerrila";
-	};
-posHQ = getMarkerPos respawnTeamPlayer;
+
+Occupants = west;
 Invaders = east;
+teamPlayer = independent;		// uh, probably don't need this yet unless something is busted?
+colorOccupants = "colorBLUFOR";
 colorInvaders = "colorOPFOR";
+colorTeamPlayer = "colorGUER";
+respawnTeamPlayer = "respawn_guerrila";			// not really sure why we have two markers here (also "Synd_HQ")
+posHQ = getMarkerPos respawnTeamPlayer;
 
 ////////////////////////////////////////
 //     DECLARING ITEM CATEGORIES     ///
@@ -80,10 +66,6 @@ allCategories = allCategoriesExceptSpecial + specialCategories;
 //     BEGIN MOD DETECTION       ///
 ////////////////////////////////////
 Info("Starting mod detection");
-private _modsInfo = getLoadedModsInfo;
-allDLCMods = _modsInfo select {_x#2};
-allCDLC = _modsInfo select { !(_x#2) && _x#3 };
-allmods = _modsInfo - allDLCMods - allCDLC;
 
 // Load the climate here for the moment, because we need it early and globally
 private _worldName = toLower worldName;
@@ -97,8 +79,6 @@ A3A_climate = toLower (if (isText (missionConfigFile/"A3A"/"mapInfo"/_worldName/
 A3A_loadedTemplateInfoXML = [];
 
 //Mod detection is done locally to each client, in case some clients have different modsets for some reason.
-//WS CDLC Detection
-A3A_hasWS = isClass (configfile >> "CfgPatches" >> "Weapons_F_lxWS");
 //Radio Detection
 A3A_hasTFAR = isClass (configFile >> "CfgPatches" >> "task_force_radio");
 A3A_hasACRE = isClass (configFile >> "cfgPatches" >> "acre_main");
@@ -108,9 +88,23 @@ if (A3A_hasTFARBeta) then {A3A_hasTFAR = false};
 A3A_hasACE = (!isNil "ace_common_fnc_isModLoaded");
 A3A_hasACEHearing = isClass (configFile >> "CfgSounds" >> "ACE_EarRinging_Weak");
 A3A_hasACEMedical = isClass (configFile >> "CfgSounds" >> "ACE_heartbeat_fast_3");
+
+//ADV-CPR Pike Edition detection
+A3A_hasADV = false;
+if (A3A_hasACEMedical && isClass (configFile >> "CfgPatches" >> "adv_aceCPR")) then {A3A_hasADV = true; Info("ADV Detected.") };
+
+//KAT medical detection
+A3A_hasKAT = false;
+if(A3A_hasACEMedical && isClass (configFile >> "CfgWeapons" >> "kat_scalpel")) then {A3A_hasKAT = true; Info("KAT MED Detected.") };
+
+A3A_hasIFA = false;			// this one is everywhere, just mark it false and remove later
+
 //Content Mods (Units, Vehicles, Weapons, Clothes etc.)
 //These are handled by a script in the Templates folder to keep integrators away from critical code.
-call A3A_fnc_detector;
+//call A3A_fnc_detector;
+
+//WS CDLC Detection
+//A3A_hasWS = isClass (configfile >> "CfgPatches" >> "Weapons_F_lxWS");
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///

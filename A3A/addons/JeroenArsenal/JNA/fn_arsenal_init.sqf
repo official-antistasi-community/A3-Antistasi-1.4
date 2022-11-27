@@ -49,8 +49,6 @@ jna_minItemMember = [-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1,-1
 jna_minItemMember = jna_minItemMember apply { A3A_guestItemLimit };
 jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, A3A_guestItemLimit*3];
 jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, A3A_guestItemLimit*3];
-//preload the ammobox so you dont need to wait the first time
-["Preload"] call jn_fnc_arsenal;
 
 //server
 if(isServer)then{

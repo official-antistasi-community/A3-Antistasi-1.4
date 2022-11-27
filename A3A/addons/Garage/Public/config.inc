@@ -43,8 +43,8 @@ HR_GRG_dLock = {""};
 HR_GRG_renderPlacementRays = false;
 
 //garage pool cap
-if (isNil "HR_GRG_PoolBase") then { HR_GRG_PoolBase = 10 }; //can be overwritten by CBA settings
-if (isNil "HR_GRG_PoolIncr") then { HR_GRG_PoolIncr = 2 }; //can be overwritten by CBA settings
+if (isNil "HR_GRG_PoolBase") then { HR_GRG_PoolBase = 20 }; //can be overwritten by CBA settings
+if (isNil "HR_GRG_PoolIncr") then { HR_GRG_PoolIncr = 4 }; //can be overwritten by CBA settings
 HR_GRG_VehCap = { HR_GRG_PoolBase + tierWar * HR_GRG_PoolIncr };
 
 //Pylon config

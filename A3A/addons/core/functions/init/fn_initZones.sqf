@@ -54,15 +54,18 @@ outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
 markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
-if (debug) then {
-    Debug_1("Building roads for %1.",worldname);
-};
 markersX apply {
 	_x setMarkerAlpha 0;
 	spawner setVariable [_x, 2, true];
-};	//apply faster then forEach and look better
+};
 
-    //Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
+// Set up dummy markers + autogen roadblocks
+call A3A_fnc_initBases;
+
+
+Info("Setting up towns");
+
+//Disables Towns/Villages, Names can be found in configFile >> "CfgWorlds" >> "WORLDNAME" >> "Names"
 private ["_nameX", "_roads", "_numCiv", "_roadsProv", "_roadcon", "_dmrk", "_info"];
 
 private _townPopulations = getArray (_mapInfo/"population");
@@ -103,33 +106,34 @@ configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
 	};
 	_numVeh = (count _roads) min (_numCiv / 3);
 
-	_mrk = createmarker [format ["%1", _nameX], _pos];
-	_mrk setMarkerSize [_size, _size];
-	_mrk setMarkerShape "RECTANGLE";
-	_mrk setMarkerBrush "SOLID";
-	_mrk setMarkerColor colorOccupants;
-	_mrk setMarkerText _nameX;
+	_mrk = createmarkerLocal [format ["%1", _nameX], _pos];
+	_mrk setMarkerSizeLocal [_size, _size];
+	_mrk setMarkerShapeLocal "RECTANGLE";
+	_mrk setMarkerBrushLocal "SOLID";
+	_mrk setMarkerColorLocal colorOccupants;
+	_mrk setMarkerTextLocal _nameX;
 	_mrk setMarkerAlpha 0;
 	citiesX pushBack _nameX;
 	spawner setVariable [_nameX, 2, true];
-	_dmrk = createMarker [format ["Dum%1", _nameX], _pos];
-	_dmrk setMarkerShape "ICON";
-	_dmrk setMarkerType "loc_Ruin";
+
+	_dmrk = createMarkerLocal [format ["Dum%1", _nameX], _pos];
+	_dmrk setMarkerShapeLocal "ICON";
+	_dmrk setMarkerTypeLocal "loc_Ruin";
 	_dmrk setMarkerColor colorOccupants;
 
 	sidesX setVariable [_mrk, Occupants, true];
-	_info = [_numCiv, _numVeh, prestigeOPFOR, prestigeBLUFOR];
+	_info = [_numCiv, _numVeh, 75, 0];				// initial 75% gov, 0% rebel support
 	server setVariable [_nameX, _info, true];
 };	//find in congigs faster then find location in 25000 radius
-if (debug) then {
-    Debug_1("Roads built in %1.", worldName);
-};
 
 
 markersX = markersX + citiesX;
 sidesX setVariable ["Synd_HQ", teamPlayer, true];
 sidesX setVariable ["NATO_carrier", Occupants, true];
 sidesX setVariable ["CSAT_carrier", Invaders, true];
+
+
+Info("Setting up antennas");
 
 antennasDead = [];
 banks = [];
@@ -272,6 +276,8 @@ if (count _posBank > 0) then {
 };
 
 // Make list of markers that don't have a proper road nearby
+// TODO: Nearly obsolete. Switch convoy code to road distance checks & markerNavPoint
+
 blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	private _nearRoads = (getMarkerPos _x) nearRoads (([_x] call A3A_fnc_sizeMarker) * 1.5);
 //	_nearRoads = _nearRoads inAreaArray _x;
@@ -279,6 +285,9 @@ blackListDest = (markersX - controlsX - ["Synd_HQ"] - citiesX) select {
 	private _idx = _nearRoads findIf { !(surfaceType (position _x) in _badSurfaces) && { count roadsConnectedTo _x != 0 } };
 	if (_idx == -1) then {true} else {false};
 };
+
+
+Info("Setting up fuel stations");
 
 // fuel rework
 private _fuelStationTypes = getArray (_mapInfo/"fuelStationTypes");
@@ -296,6 +305,8 @@ A3A_fuelStations apply {
 		[_x, 250] call ace_refuel_fnc_setFuel; // only call on fuels that are not blacklisted and first zone init.
 	};
 };
+
+
 
 publicVariable "blackListDest";
 publicVariable "markersX";
@@ -322,8 +333,7 @@ publicVariable "detectionAreas";
 publicvariable "A3A_fuelStations";
 publicvariable "A3A_fuelStationTypes";
 
-if (isMultiplayer) then {
-	[petros, "hint","Zones Init Completed"] remoteExec ["A3A_fnc_commsMP", -2]
-};
+initZonesDone = true;				// signal headless clients that they can start nav init
+publicVariable "initZonesDone";
 
 Info("initZones completed");

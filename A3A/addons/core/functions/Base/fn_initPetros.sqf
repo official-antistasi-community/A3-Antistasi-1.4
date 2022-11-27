@@ -2,17 +2,34 @@
 FIX_LINE_NUMBERS()
 Info("initPetros started");
 scriptName "fn_initPetros";
-removeHeadgear petros;
-removeGoggles petros;
+
 petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
+
+[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros"] call BIS_fnc_setIdentity;
+[petros, ["Petros", "", ""]] remoteExec ["setName", 0, petros];         // because BIS_fnc_setIdentity doesn't override full name
+
+removeHeadgear petros;
+removeGoggles petros;
 private _vest = selectRandomWeighted (A3A_rebelGear get "ArmoredVests");
 if (_vest == "") then { _vest = selectRandomWeighted (A3A_rebelGear get "CivilianVests") };
 petros addVest _vest;
 [petros, "Rifles"] call A3A_fnc_randomRifle;
 petros selectWeapon (primaryWeapon petros);
+
+if (petros == leader group petros) then {
+	group petros setGroupIdGlobal ["Petros","GroupColor4"];
+	petros disableAI "MOVE";
+	petros disableAI "AUTOTARGET";
+	petros setBehaviour "SAFE";
+};
+
+// Install both moving and static actions
+[petros,"petros"] remoteExec ["A3A_fnc_flagaction", 0, petros];
+
 [petros,true] call A3A_fnc_punishment_FF_addEH;
+
 petros addEventHandler
 [
     "HandleDamage",
@@ -94,21 +111,5 @@ petros addMPEventHandler ["mpkilled",
 	};
 }];
 [] spawn {sleep 120; petros allowDamage true;};
-
-private _removeProblematicAceInteractions = {
-    _this spawn {
-        //Wait until we've got A3A_hasACE initialised fully
-        waitUntil {!isNil "initVar"};
-        //Disable ACE Interactions
-        if (hasInterface && A3A_hasACE) then {
-            [typeOf _this, 0,["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
-            [typeOf _this, 0,["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-        };
-    };
-};
-
-//We're doing it per-init of petros, because the type of petros on respawn might be different to initial type.
-//This'll prevent it breaking in the future.
-[petros, _removeProblematicAceInteractions] remoteExec ["call", 0, petros];
 
 Info("initPetros completed");

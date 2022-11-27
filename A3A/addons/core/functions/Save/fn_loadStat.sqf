@@ -14,17 +14,6 @@ Example:
     [_varName,_varValue] call A3A_fnc_loadStat;
 */
 
-//===========================================================================
-//ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
-/*specialVarLoads =
-[
-    "weaponsPlayer",
-    "magazinesPlayer",
-    "backpackPlayer",
-    "mrkNATO",
-    "mrkSDK",
-    "prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
-*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -55,6 +44,8 @@ private _translateMarker = {
     _mrk;
 };
 
+//===========================================================================
+//ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
 private _specialVarLoads = [
     "outpostsFIA","minesX","staticsX","antennas","mrkNATO","mrkSDK","prestigeNATO",
     "prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
@@ -226,6 +217,7 @@ if (_varName in _specialVarLoads) then {
                 outpostsFIA pushBack _mrk;
                 sidesX setVariable [_mrk,teamPlayer,true];
             } forEach _varvalue;
+            publicVariable "outpostsFIA";
         };
     };
     if (_varName == 'antennas') then {
@@ -254,6 +246,7 @@ if (_varName in _specialVarLoads) then {
         publicVariable "antennasDead";
     };
     if (_varname == 'prestigeOPFOR') then {
+        if (count citiesX != count _varValue) exitWith {};          // it'll be the same in the next one
         for "_i" from 0 to (count citiesX) - 1 do {
             _city = citiesX select _i;
             _dataX = server getVariable _city;
@@ -266,6 +259,14 @@ if (_varName in _specialVarLoads) then {
         };
     };
     if (_varname == 'prestigeBLUFOR') then {
+        if (count citiesX != count _varValue) exitWith {
+            Error("City count changed, setting approx support");
+            {
+                if (sidesX getVariable _x != teamPlayer) then { continue };                // sides should be loaded first
+                private _dataX = (server getVariable _x select [0,2]) + [0,75];             // 75% rebel support
+                server setVariable [_x, _dataX, true];
+            } forEach citiesX;
+        };
         for "_i" from 0 to (count citiesX) - 1 do {
             _city = citiesX select _i;
             _dataX = server getVariable _city;
@@ -356,7 +357,7 @@ if (_varName in _specialVarLoads) then {
             //handle buyable fuel containers
             if (typeOf _veh in [FactionGet(reb,"vehicleFuelDrum")#0,FactionGet(reb,"vehicleFuelTank")#0]) then {
                 [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
-                [_veh,[_veh],"A3A_fnc_logistics_addLoadAction"] call _fnc_remoteExecObjectJIPSafe;
+                [_veh,[_veh],"A3A_Logistics_fnc_addLoadAction"] call _fnc_remoteExecObjectJIPSafe;
                 _veh allowDamage false;
                 _veh setVariable ["A3A_canGarage", true, true];
                 private _cat = if (typeOf _veh isEqualTo "vehicleFuelDrum") then {"vehicleFuelDrum"} else {"vehicleFuelTank"};

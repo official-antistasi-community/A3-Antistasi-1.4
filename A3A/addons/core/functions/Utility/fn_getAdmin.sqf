@@ -19,7 +19,7 @@ Examples:
     [] call A3A_fnc_getAdmin;
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 
 if (isServer && hasInterface) then { A3A_admin = player; };

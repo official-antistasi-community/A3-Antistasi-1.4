@@ -160,7 +160,17 @@ switch _typeX do
     };
     case "Intel_Small":
     {
-        _flag addAction ["Search for Intel", A3A_fnc_searchIntelOnLeader, nil, 4, true, false, "", "isPlayer _this", 4];
+        _flag addAction [
+            "Search for Intel", 
+            A3A_fnc_searchIntelOnLeader, 
+            nil, 
+            4, 
+            true, 
+            false, 
+            "", 
+            "!([_target] call A3A_fnc_canFight) && !(_target getVariable ['intelSearchDone', false]) && isPlayer _this", 
+            4
+        ];
     };
     case "Intel_Medium":
     {

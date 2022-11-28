@@ -95,9 +95,9 @@ DECLARE_SERVER_VAR(haveRadio, false);
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
-server setVariable ["hr",8,true];
+server setVariable ["hr",initialHr,true];
 //Initial faction money pool
-server setVariable ["resourcesFIA",rebelFactionStartingMoney,true];
+server setVariable ["resourcesFIA",initialFactionMoney,true];
 // Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 // Hash map of custom non-member/AI item thresholds

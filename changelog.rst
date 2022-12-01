@@ -238,6 +238,7 @@ Version 3.0.0
    * :issue:`2564` Fixed whiteout after alt-tab on maps using darkMapFix
 
 .. admonition:: Refactor
+   
    * :issue:`2182` Refactored initZones to move relevant hardcoded map information to the map relevant files
    * :issue:`2238` Refactored BattleMenue to prevent conflicts with base game UIs
 

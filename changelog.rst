@@ -34,9 +34,30 @@ Version 3.0.0
    * 
 
 .. rubric:: Complete rework of the attack & support system
-   * 
-   * 
-   * 
+   * Enemy factions are now resource-limited:
+      - Each faction has separate pools for attack and defence resources.
+      - Any vehicle or unit spawned and/or destroyed has a cost related to their capability.
+      - Resource income is dependent on war tier, aggro, active player count and difficulty.
+      - Attack vs defence and occupant vs invader resource balances can be adjusted separately. 
+      - Support system makes decisions based on available resources and location value.
+      - Flag capture counterattacks are no longer automatic, instead depending on location and resources.
+   * Vehicle selection improvements:
+      - More gradual scaling of vehicle quality.
+      - More ground and fewer air vehicles used, especially for factions with weak air options.
+      - Proportions of transport and support vehicles are more controlled.
+      - Punishments and HQ attacks may now include some ground vehicles.
+   * Attack/support behaviour improvements:
+      - Paratroopers (usually) drop further away and pull their chutes higher.
+      - Transport helis land further from the target area.
+      - Attack helis are less inclined to suicide into zu-23s.
+      - Ground vehicle travel times reduced and infantry offload reliability improved.
+      - CAS rewritten for reliability and fairness.
+   * Attack target selection rewritten:
+      - Enemies can now attack rebel targets outside mission distance at reduced probability.
+   * Enemy HQ knowledge is now persistent:
+      - Enemies may gain knowledge of HQ when supports are called nearby, or from traitor missions.
+      - Once enemies are aware of the HQ, an HQ attack may be launched instead of a normal major attack.
+      - Moving HQ more than 1km away will reset the HQ knowledge. 
 	
 .. rubric:: Fuel economy overhaul
    * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.

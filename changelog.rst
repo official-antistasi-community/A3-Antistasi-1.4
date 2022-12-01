@@ -3,236 +3,6 @@ Changelog
 
 |
 
------
-
-|
-
-
-Version 3.0.0
-===============
-
-.. note::
-   xxth Xxxxx 2022
-
-.. admonition:: Major
-
-  .. rubric:: Conversion to Mod
-  * The mission has been converted to a full-blown mod to allow for access to new functionality and the ability for maps and templates to be created as addon mods instead of editing the mod itself. It also means that all officially integrated maps will be present with one mod, rather than across many separate mission files.
-  * Antistasi related keys can now properly be set within the settings
-  * Added 3rd party supports
-  * 
-  * 
-
-  .. rubric:: Added Campaign StartUp UI and safe functionality :issue:`2488`
-  * Allows to select factions for the campaign from all available templates based on mods loaded
-  * Allows to have multiple safegames at the same time
-  * Allows to set and change parameters for the campaign
-  * Allows to set the initial HQ position before starting the campaign
-  * Allows to save outside of the vars-file
-  * Shows warning when loading a mismatched or outdated mission
-  * 
-  * 
-
-  .. rubric:: Complete rework of the attack & support system
-  * 
-  * 
-  * 
-	
-  .. rubric:: Fuel economy overhaul
-  * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.
-  * 
-  * 
-	
-  .. rubric:: New Buy Vehicle UI - :issue:`2259`
-  * A new UI for buying vehicles has been developed which includes far more information than the current one.
-  * 
-  * 
-	
-  .. rubric:: Added Guest Commander functionality :issue:`2428`
-  * this allows servers to be functional when the member system is enabled and no member is on the servers
-  * 
-  * 
-	
-  .. rubric:: New mod compatibilities
-  * Added CUP templates - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
-  * Added Global Mobilisation templates - includes the factions ...
-  * Added Unsung templates - includes the factions ...
-	
-  .. rubric:: New maps ports
-  * Khe Sanh
-  * Chernarus Autumn
-	
-  .. rubric:: Translated Antistasi additional languages
-  * Czech
-  * French
-  * Italian
-  * Korean
-  * Polish
-  * Russian
-  * Simplified Chinese
-  * Spanish
-
-.. admonition:: Minor
-  * :issue:`2114` implemented system that gets compatible magazines for a weapon
-  * :issue:`2178` Added ACE food and drink to the arsenal. (Food only with parameter)
-  * :issue:`2181` Civilians are now created in the same way as soldiers allowing for greater customisation/themeing. The configuration for which is found in the civ template files.
-  * :issue:`2214` Garage system got improved with QoL changes, sorting and adjustments for the fuel system
-  * :issue:`2217` capturing a flag can be cancelled and logging for capturing got improved
-  * :issue:`2249` Seaports and Airbases can now own radio towers and thus jam radios.
-  * :issue:`2280` You can now take 5, 10, or 25 items at a time from the vehicle arsenal.
-  * :issue:`2305` Rebel AI can now be equipped when arsenal unlocks are disabled.
-  * :issue:`2306` The non-member limit for items in the arsenal is now configurable by the commander.
-  * :issue:`2318` Vehicle locking system overhauled, vehicles start unlocked by default.
-  * :issue:`2329` Added additional spec-ops groups for current and future use.
-  * :issue:`2356` Added buy menu vehicle render 
-  * :issue:`2381` Added parameters for enemyNearCheck
-  * :issue:`2393` Disabled rating changes to stop rebel AI turning on players for unreasonable actions.
-  * :issue:`2394` Garage placement has been changed so that rotating vehicles is smoother.
-  * :issue:`2395` Added facewear support for AI loadouts
-  * :issue:`2418` Implemented QoL looting & logistic tweaks
-    * Switched loot crate carrying from forceWalk true to allowSprint false (about 2x faster movement)
-    - Enabled buying loot crates from any rebel flag
-    - Fixed incorrect bounding box calc for load/unload
-    - Changed load/unload speed to be independent of script load
-  * :issue:`2453` Adds additional visible information during vehicle/asset placement
-  * :issue:`2454` Maru was removed. Petros is now called Petros on all maps, including Tanoa.
-  * :issue:`2469` Skip time now checks for active enemy AI instead of any enemy AI
-  * :issue:`2472` Tweaked ability of rebels to respond to punishments and major attacks
-  * :issue:`2477` Added finite rebel launchers and explosives
-  * :issue:`2503` Added parameters for initial player and rebel faction  money
-  * :issue:`2510` Improved attack selection dependency on rebel HQ position
-  * :issue:`2521` Implemented AFK timeout parameter & status bar indicator to prevent AFK commanders blocking the progress
-  * :issue:`2523` KAT Medical implementation got updated to most current Kat - Advanced Medical REWRITE
-  * :issue:`2531` Adds logged in admins as members
-  * :issue:`2532` Balance utility trucks in cases where the civ factions lack them
-  * :issue:`2535` Increased default garage cap to 20 base + 4 per warlevel
-  * :issue:`2563` Added parameter for initial HR
-
-.. admonition:: Template updates
-  * Basically every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`     
-    * Removed unused loadout creation stuff as its all handled by EquipRebell
-    * Removed comments as they can be found in Example Templates
-    * Updated format of the Rebel Example Template
-    * Added If cases for DLC uniforms for Vanilla and RHS
-    * Added a check in initVarServer for an empty civ helicopter as it will error with VN rebels
-    * Fixed a syntax error in the MACV template
-    * Fixed miscased classnames in Vanilla Ai templates
-    * Added faces and voices (speaker) for the AI in the templates
-
-
-.. admonition:: Map oupdates
-  * Altis
-    - updated population data, added fuel stations, added seaAttackSpawner, moved support corridors
-  * Malden
-    - updated antennas
-  * Tanoa
-    - added new outpost on NNE island
-  * Livonia
-    - added fuel stations, moved support corridors
-  * Cam Lao Nam
-    - added fuel stations, added vehicle spawn points
-  * Chernarus_summer
-    - towns updated, added fuel stations, added new resource point
-  * Chernarus_winter
-    - towns updated, added fuel stations, added new resource point
-  * Takistan
-    - updated population data, added 2 additional radio towers
-  * Sahrani
-    - updated population data, added fuel stations, added 3 additional radio towers
-  * Anizay
-    - updated antennas, added fuel stations
-  * Kunduz
-    - updated population data, updated antennas, added fuel stations
-  * Tembelan Island
-    - moved markers
-  * Virolahti
-    - towns updated, added fuel stations, added bank locations, updated folder structure within sqm, updated vehicle markers, fixed broken marker names, removed edit-terrain-object-modules
-  * Chernarus_autumn
-    - added fresh map port
-  * Khe Sanh
-    - added fresh map port
-
-
-.. admonition:: Groundwork
-  * :issue:`2047` Moved templates into a separate addon
-  * :issue:`2153` Added functionality that formats a scalar as the specified length hexidecimal string
-  * :issue:`2168` Added a shortID generator
-  * :issue:`2174` & :issue:`2245` Improvements and fixes for the StreetArtist tool
-  * :issue:`2186` Added Garbage Collection Component of KeyCache.
-  * :issue:`2206` Removed the legacy KeyCache files
-  * :issue:`2229` Added feature toggle and assets for UI rework
-  * :issue:`2230` Added a build tool for the antistasi mod.
-  * :issue:`2270` Moved garage initServer to postInit
-  * :issue:`2297` Set Temperate as default for template auto selection 
-  * :issue:`2339` Added additional FF-punishment logging
-  * :issue:`2352` Moved A3A_climate init to initVarCommon for sanity and HC-functionality
-  * :issue:`2365` Added Western Sahara parameter
-  * :issue:`2387` Added GUI helper functions
-  * :issue:`2403` Added debug code execution logging with name and UID
-  * :issue:`2439` Added template verification to ensure quality and prevent errors
-  * :issue:`2450` Changed spawning rules for airborne players and rebel UAVs
-  * :issue:`2459` Added game type definition
-  * :issue:`2460` Added safeguard to mod.cpp
-  * :issue:`2511` Switched over to config based logistic nodes
-  * :issue:`2534` Move the controls defined in setupDialog.hpp to control.hpp
-  * Removed a metric ton of old code
-  * Added assets and background functions for the UI rework.
-  * Set up a new build and publish pipeline on GitHub
-
-
-
-.. admonition:: Bugfixes
-  * :issue:`2185` Fixed mixed vehicle pool of Occ and Inv for AI airport creation
-  * :issue:`2205` Fixed various incorrect usages of defined macros
-  * :issue:`2257` Fixed issues with AI/HC commands 
-  * :issue:`2260` Fixed patrol dogs not despawning
-  * :issue:`2263` Fixed issues with compatible magazine/ammunition detection
-  * :issue:`2281` Fixed issues with RHS asset stacking in the arsenal
-  * :issue:`2284` Fixed players being able to carry objects into vehicles
-  * :issue:`2290` Fixed roadblock vehicles despawning after stealing 
-  * :issue:`2292` Fixed cargo trucks not being sellable 
-  * :issue:`2296` Fixed town names in tasks and city info
-  * :issue:`2307` Fixed issue of garage code breaking pylons
-  * :issue:`2321` Fixed money displays breaking
-  * :issue:`2323` Fixed broken flag textures on AI resources and outposts
-  * :issue:`2326` Fixed players not being silent with ACE
-  * :issue:`2328` Fixed categoryOverrides not being created on clients
-  * :issue:`2340` Fixed multiple EHs being added in confirmPlacement
-  * :issue:`2344` Fixed incorrect variables used in flight height restrictions
-  * :issue:`2390` Fixed behaviour and remoteExec bugs in undercover AI
-  * :issue:`2392` Fixed bad JIP marker colours
-  * :issue:`2397` Fixed Petros face being used by other AI
-  * :issue:`2411` Fixed rebel static mounting on DS
-  * :issue:`2423` Fixed errors with event triggers
-  * :issue:`2430` Fixed issue with everyone being considered admin on  lh (garage)
-  * :issue:`2434` Fixed issues high command fast travel and garrison functionality
-  * :issue:`2436` Fixed arsenal weapon switch duping magazines
-  * :issue:`2449` Fixed issue with ACE cargo unloading of loot crates
-  * :issue:`2470` Fixed being able to kill players while carrying items
-  * :issue:`2472` Fixed JNA not using the compatibleMagazines command
-  * :issue:`2480` Fixed players getting stuck on large objects when carrying something
-  * :issue:`2490` Fixed enemy militia trucks not being sellable
-  * :issue:`2498` Fixed players being able to mount a static that is being carried
-  * :issue:`2508` Fixed an infinite money exploit
-  * :issue:`2517` Fixed being able to load game saves with missing mods
-  * :issue:`2537` Fixed Antistasi UI layer numbers fighting with other mods
-  * :issue:`2551` Fixed being able to search alive teamleaders for intel
-  * :issue:`2556` Fixed broken mortars at airports
-  * :issue:`2561` Fixed fn_createAction using the incorrect hashmap key
-
-
-
-
-.. rubric:: Refactor
-  * :issue:`2182` Refactored initZones to move relevant hardcoded map information to the map relevant files
-  * :issue:`2238` Refactored BattleMenue to prevent conflicts with base game UIs
-
-
-.. warning::
-
-   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-|
 
 -----
 
@@ -268,10 +38,10 @@ Version 2.5.4
 
 .. admonition:: Template updates
 
-  * :issue:`2302` Vanilla templates overhaul
-  * :issue:`2333` RHS templates overhaul
-  * :issue:`2009` & :issue:`2333` 3CB Factions templates overhaul and changes faction selection to spice up and increase use of unique weapons and vehicles
-  * SOG Prairie Fire templates overhaul (including assets from new SOG PF 1.2 update)
+   * :issue:`2302` Vanilla templates overhaul
+   * :issue:`2333` RHS templates overhaul
+   * :issue:`2009` & :issue:`2333` 3CB Factions templates overhaul and changes faction selection to spice up and increase use of unique weapons and vehicles
+   * SOG Prairie Fire templates overhaul (including assets from new SOG PF 1.2 update)
 
 .. admonition:: Other
 
@@ -338,34 +108,34 @@ Version 2.5.3
 
 .. admonition:: Bugfixes
 
-  * :issue:`2100` Fixed inability to garage vehicles when player host was inside a vehicle
-  * :issue:`2102` Moved singleAttack and patrolReinf logging to server
-  * :issue:`2103` Fixed fastrope spawning corpses underground after being hit whilst fastroping
-  * :issue:`2105` Fixed allowCrewInImmobile not being applied to convoy vehicles
-  * :issue:`2106` Fixed vehicle pools not being properly saved
-  * :issue:`2107` Vehicles near HQ now also have state preservation
-  * :issue:`2109` Made HC squad vehicle placement use the garage placing code
-  * :issue:`2109` Fixed broken object carrying
-  * :issue:`2110` Fixed scaling and bugs plus added logging on economicsAI
-  * :issue:`2111` Fixed Petros having no ammunition by giving him a vest
-  * :issue:`2113` Fixed QRFs and singleAttacks being limited by incorrect maxUnits check
-  * :issue:`2116` Fixed simulated attacks massively overfilling garrisons
-  * :issue:`2120` Added more explanations to parameters
-  * :issue:`2125` Fixed multiple issues regarding mortar type checking and locality
-  * :issue:`2131` Fixed typos and punctuations in customHints
-  * :issue:`2135` Fixed incorrect attack countdown incrementing
-  * :issue:`2136` Fixed imbalance between the difficulty settings
-  * :issue:`2141` Fixed bad exitWith in resourceCheck causing incorrect losses
-  * :issue:`2144` Fixed degenerate behaviour in rebelAttack
-  * :issue:`2147` Reduced capture response delay time
-  * :issue:`2148` Fixed airborne troops being able to flip flags
-  * :issue:`2149` Fixed exploit where commander could become permanently undercover
-  * :issue:`2151` Fixed multiple bugs with squad/vehicle pricing
-  * :issue:`2156` Fixed garage feedback displaying on wrong clients
-  * :issue:`2157` Added setOvercast functionality on rain-removal
-  * :issue:`2157` Fixed lamp drop action not being added after respawn
-  * :issue:`2158` Fixed not removing undercover status when placing ACE explosives
-  * :issue:`2160` Fixed Nato gunship support
+   * :issue:`2100` Fixed inability to garage vehicles when player host was inside a vehicle
+   * :issue:`2102` Moved singleAttack and patrolReinf logging to server
+   * :issue:`2103` Fixed fastrope spawning corpses underground after being hit whilst fastroping
+   * :issue:`2105` Fixed allowCrewInImmobile not being applied to convoy vehicles
+   * :issue:`2106` Fixed vehicle pools not being properly saved
+   * :issue:`2107` Vehicles near HQ now also have state preservation
+   * :issue:`2109` Made HC squad vehicle placement use the garage placing code
+   * :issue:`2109` Fixed broken object carrying
+   * :issue:`2110` Fixed scaling and bugs plus added logging on economicsAI
+   * :issue:`2111` Fixed Petros having no ammunition by giving him a vest
+   * :issue:`2113` Fixed QRFs and singleAttacks being limited by incorrect maxUnits check
+   * :issue:`2116` Fixed simulated attacks massively overfilling garrisons
+   * :issue:`2120` Added more explanations to parameters
+   * :issue:`2125` Fixed multiple issues regarding mortar type checking and locality
+   * :issue:`2131` Fixed typos and punctuations in customHints
+   * :issue:`2135` Fixed incorrect attack countdown incrementing
+   * :issue:`2136` Fixed imbalance between the difficulty settings
+   * :issue:`2141` Fixed bad exitWith in resourceCheck causing incorrect losses
+   * :issue:`2144` Fixed degenerate behaviour in rebelAttack
+   * :issue:`2147` Reduced capture response delay time
+   * :issue:`2148` Fixed airborne troops being able to flip flags
+   * :issue:`2149` Fixed exploit where commander could become permanently undercover
+   * :issue:`2151` Fixed multiple bugs with squad/vehicle pricing
+   * :issue:`2156` Fixed garage feedback displaying on wrong clients
+   * :issue:`2157` Added setOvercast functionality on rain-removal
+   * :issue:`2157` Fixed lamp drop action not being added after respawn
+   * :issue:`2158` Fixed not removing undercover status when placing ACE explosives
+   * :issue:`2160` Fixed Nato gunship support
 
 .. warning::
 

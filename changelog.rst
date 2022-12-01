@@ -3,56 +3,6 @@ Changelog
 
 |
 
-
------
-
-|
-
-
-Version 2.5.5
-===============
-
-.. note::
-   18th September 2022
-
-.. admonition:: Template updates
-
-   * fixed wrong AFRF template path in selector fallback for 3CB Factions
-
-.. warning::
-
-   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-|
-
------
-
-|
-
-
-Version 2.5.4
-===============
-
-.. note::
-   12th July 2022
-
-.. admonition:: Template updates
-
-   * :issue:`2302` Vanilla templates overhaul
-   * :issue:`2333` RHS templates overhaul
-   * :issue:`2009` & :issue:`2333` 3CB Factions templates overhaul and changes faction selection to spice up and increase use of unique weapons and vehicles
-   * SOG Prairie Fire templates overhaul (including assets from new SOG PF 1.2 update)
-
-.. admonition:: Other
-
-   - redid Western Sahara parameter
-
-.. warning::
-
-   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-|
-
 -----
 
 |

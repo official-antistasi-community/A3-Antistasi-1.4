@@ -14,7 +14,7 @@ Version 3.0.0
    .. rubric:: Conversion to Mod
       * The mission has been converted to a full-blown mod to allow for access to new functionality and the ability for maps and templates to be created as addon mods instead of editing the mod itself. It also means that all officially integrated maps will be present with one mod, rather than across many separate mission files.
       * Antistasi related keys can now properly be set within the settings
-      * Added 3rd party supports
+      * Added support for 3rd party mods to extend Antistasi
       * 
       * 
 

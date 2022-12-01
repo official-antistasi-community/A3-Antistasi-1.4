@@ -89,6 +89,7 @@ Version 3.0.0
       * Spanish
 
 .. admonition:: Minor
+
    * :issue:`2114` implemented system that gets compatible magazines for a weapon
    * :issue:`2178` Added ACE food and drink to the arsenal. (Food only with parameter)
    * :issue:`2181` Civilians are now created in the same way as soldiers allowing for greater customisation/themeing. The configuration for which is found in the civ template files.
@@ -100,7 +101,6 @@ Version 3.0.0
    * :issue:`2306` The non-member limit for items in the arsenal is now configurable by the commander.
    * :issue:`2318` Vehicle locking system overhauled, vehicles start unlocked by default.
    * :issue:`2329` Added additional spec-ops groups for current and future use.
-   * :issue:`2356` Added buy menu vehicle render 
    * :issue:`2381` Added parameters for enemyNearCheck
    * :issue:`2393` Disabled rating changes to stop rebel AI turning on players for unreasonable actions.
    * :issue:`2394` Garage placement has been changed so that rotating vehicles is smoother.
@@ -125,7 +125,8 @@ Version 3.0.0
    * :issue:`2563` Added parameter for initial HR
 
 .. admonition:: Template updates
-   * Basically every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`     
+
+   * Every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`     
       * Removed unused loadout creation stuff as its all handled by EquipRebell
       * Removed comments as they can be found in Example Templates
       * Updated format of the Rebel Example Template
@@ -136,6 +137,7 @@ Version 3.0.0
       * Added faces and voices (speaker) for the AI in the templates
 
 .. admonition:: Map oupdates
+
    * Altis
       - updated population data, added fuel stations, added seaAttackSpawner, moved support corridors
    * Malden
@@ -168,7 +170,8 @@ Version 3.0.0
       - added fresh map port
 
 .. admonition:: Groundwork
-   * :issue:`2047` Moved templates into a separate addon
+
+   * :issue:`2047` Switched over to new template system
    * :issue:`2153` Added functionality that formats a scalar as the specified length hexidecimal string
    * :issue:`2168` Added a shortID generator
    * :issue:`2174` & :issue:`2245` Improvements and fixes for the StreetArtist tool
@@ -194,6 +197,7 @@ Version 3.0.0
    * Set up a new build and publish pipeline on GitHub
 
 .. admonition:: Bugfixes
+
    * :issue:`2185` Fixed mixed vehicle pool of Occ and Inv for AI airport creation
    * :issue:`2205` Fixed various incorrect usages of defined macros
    * :issue:`2257` Fixed issues with AI/HC commands 

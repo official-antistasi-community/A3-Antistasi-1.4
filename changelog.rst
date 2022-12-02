@@ -56,7 +56,7 @@ Version 3.0.0
       
    .. rubric:: Fuel economy overhaul
       * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.
-      * 
+      * Fuel Stations also contain a limited amount of fuel to encourage players to use fuel wisely.
       * 
       
    .. rubric:: New Buy Vehicle UI - :issue:`2259`

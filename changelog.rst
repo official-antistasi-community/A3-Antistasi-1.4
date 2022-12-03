@@ -12,98 +12,88 @@ Version 3.0.0
 .. admonition:: Major
 
    .. rubric:: Conversion to Mod
-      * The mission has been converted to a full-blown mod to allow for access to new functionality and the ability for maps and templates to be created as addon mods instead of editing the mod itself. It also means that all officially integrated maps will be present with one mod, rather than across many separate mission files.
-      * Antistasi related keys can now properly be set within the settings
-      * Added support for 3rd party mods to extend Antistasi
-      * 
-      * 
+   * The mission has been converted to a full-blown mod to allow for access to new functionality and the ability for maps and templates to be created as addon mods instead of editing the mod itself. It also means that all officially integrated maps will be present with one mod, rather than across many separate mission files.
+   * Antistasi related keys can now properly be set within the settings
+   * Added support for 3rd party mods to extend Antistasi
 
    .. rubric:: Added Campaign StartUp UI and safe functionality :issue:`2488`
-      * Allows to select factions for the campaign from all available templates based on mods loaded
-      * Allows to have multiple safegames at the same time
-      * Allows to set and change parameters for the campaign
-      * Allows to set the initial HQ position before starting the campaign
-      * Allows to save outside of the vars-file
-      * Shows warning when loading a mismatched or outdated mission
-      * 
-      * 
+   * Allows to select factions for the campaign from all available templates based on mods loaded
+   * Allows to have multiple safegames at the same time
+   * Allows to set and change parameters for the campaign
+   * Allows to set the initial HQ position before starting the campaign
+   * Allows to save outside of the vars-file
+   * Shows warning when loading a mismatched or outdated mission
 
    .. rubric:: Complete rework of the attack & support system
-      * Enemy factions are now resource-limited:
-         - Each faction has separate pools for attack and defence resources.
-         - Any vehicle or unit spawned and/or destroyed has a cost related to their capability.
-         - Resource income is dependent on war tier, aggro, active player count and difficulty.
-         - Attack vs defence and occupant vs invader resource balances can be adjusted separately. 
-         - Support system makes decisions based on available resources and location value.
-         - Flag capture counterattacks are no longer automatic, instead depending on location and resources.
-      * Vehicle selection improvements:
-         - More gradual scaling of vehicle quality.
-         - More ground and fewer air vehicles used, especially for factions with weak air options.
-         - Proportions of transport and support vehicles are more controlled.
-         - Punishments and HQ attacks may now include some ground vehicles.
-      * Attack/support behaviour improvements:
-         - Paratroopers (usually) drop further away and pull their chutes higher.
-         - Transport helis land further from the target area.
-         - Attack helis are less inclined to suicide into zu-23s.
-         - Ground vehicle travel times reduced and infantry offload reliability improved.
-         - CAS rewritten for reliability and fairness.
-      * Attack target selection rewritten:
-         - Enemies can now attack rebel targets outside mission distance at reduced probability.
-      * Enemy HQ knowledge is now persistent:
-         - Enemies may gain knowledge of HQ when supports are called nearby, or from traitor missions.
-         - Once enemies are aware of the HQ, an HQ attack may be launched instead of a normal major attack.
-         - Moving HQ more than 1km away will reset the HQ knowledge. 
-      
+   * Enemy factions are now resource-limited:
+      - Each faction has separate pools for attack and defence resources.
+      - Any vehicle or unit spawned and/or destroyed has a cost related to their capability.
+      - Resource income is dependent on war tier, aggro, active player count and difficulty.
+      - Attack vs defence and occupant vs invader resource balances can be adjusted separately. 
+      - Support system makes decisions based on available resources and location value.
+      - Flag capture counterattacks are no longer automatic, instead depending on location and resources.
+   * Vehicle selection improvements:
+      - More gradual scaling of vehicle quality.
+      - More ground and fewer air vehicles used, especially for factions with weak air options.
+      - Proportions of transport and support vehicles are more controlled.
+      - Punishments and HQ attacks may now include some ground vehicles.
+   * Attack/support behaviour improvements:
+      - Paratroopers (usually) drop further away and pull their chutes higher.
+      - Transport helis land further from the target area.
+      - Attack helis are less inclined to suicide into zu-23s.
+      - Ground vehicle travel times reduced and infantry offload reliability improved.
+      - CAS rewritten for reliability and fairness.
+   * Attack target selection rewritten:
+      - Enemies can now attack rebel targets outside mission distance at reduced probability.
+   * Enemy HQ knowledge is now persistent:
+      - Enemies may gain knowledge of HQ when supports are called nearby, or from traitor missions.
+      - Once enemies are aware of the HQ, an HQ attack may be launched instead of a normal major attack.
+      - Moving HQ more than 1km away will reset the HQ knowledge. 
+
    .. rubric:: Fuel economy overhaul
-      * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.
-      * Fuel Stations also contain a limited amount of fuel to encourage players to use fuel wisely.
-      * 
+   * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.
+   * Fuel Stations also contain a limited amount of fuel to encourage players to use fuel wisely.
       
    .. rubric:: New Buy Vehicle UI - :issue:`2259`
-      * A new UI for buying vehicles has been developed which includes far more information than the current one.
-      * 
-      * 
+   * A new UI for buying vehicles has been developed which includes far more information than the current one.
       
    .. rubric:: Added Guest Commander functionality :issue:`2428`
-      * this allows servers to be functional when the member system is enabled and no member is on the servers
-      * 
-      * 
+   * this allows servers to be functional when the member system is enabled and no member is on the servers
       
    .. rubric:: New mod compatibilities
-      * Added CUP templates - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
-      * Added Global Mobilisation templates - includes the factions ...
-      * Added Unsung templates - includes the factions ...
+   * Added CUP templates - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
+   * Added Global Mobilisation templates - includes the factions ...
+   * Added Unsung templates - includes the factions ...
       
    .. rubric:: New maps ports
-      * Khe Sanh
-      * Chernarus Autumn
+   * Khe Sanh
+   * Chernarus Autumn
       
    .. rubric:: Translated Antistasi additional languages
-      * Czech
-      * French
-      * Italian
-      * Korean
-      * Polish
-      * Russian
-      * Simplified Chinese
-      * Spanish
+   * Czech
+   * French
+   * Italian
+   * Korean
+   * Polish
+   * Russian
+   * Simplified Chinese
+   * Spanish
 
 .. admonition:: Minor
 
-   * :issue:`2114` implemented system that gets compatible magazines for a weapon
    * :issue:`2178` Added ACE food and drink to the arsenal. (Food only with parameter)
    * :issue:`2181` Civilians are now created in the same way as soldiers allowing for greater customisation/themeing. The configuration for which is found in the civ template files.
    * :issue:`2214` Garage system got improved with QoL changes, sorting and adjustments for the fuel system
    * :issue:`2217` capturing a flag can be cancelled and logging for capturing got improved
-   * :issue:`2249` Seaports and Airbases can now own radio towers and thus jam radios.
-   * :issue:`2280` You can now take 5, 10, or 25 items at a time from the vehicle arsenal.
-   * :issue:`2305` Rebel AI can now be equipped when arsenal unlocks are disabled.
-   * :issue:`2306` The non-member limit for items in the arsenal is now configurable by the commander.
-   * :issue:`2318` Vehicle locking system overhauled, vehicles start unlocked by default.
-   * :issue:`2329` Added additional spec-ops groups for current and future use.
-   * :issue:`2381` Added parameters for enemyNearCheck
-   * :issue:`2393` Disabled rating changes to stop rebel AI turning on players for unreasonable actions.
-   * :issue:`2394` Garage placement has been changed so that rotating vehicles is smoother.
+   * :issue:`2249` Seaports and Airbases can now own radio towers and thus jam radios
+   * :issue:`2280` You can now take 5, 10, or 25 items at a time from the vehicle arsenal
+   * :issue:`2305` Rebel AI can now be equipped when arsenal unlocks are disabled
+   * :issue:`2306` The non-member limit for items in the arsenal is now configurable by the commander
+   * :issue:`2318` Vehicle locking system overhauled, vehicles start unlocked by default
+   * :issue:`2329` Added additional spec-ops groups for current and future use
+   * :issue:`2381` Added parameters for enemyNearCheck which now only considers enemies in combat mode - (nearly?) every enemy proximity check now uses the same rules.
+   * :issue:`2393` Disabled rating changes to stop rebel AI turning on players for unreasonable actions
+   * :issue:`2394` Garage placement has been changed so that rotating vehicles is smoother
    * :issue:`2395` Added facewear support for AI loadouts
    * :issue:`2418` Implemented QoL looting & logistic tweaks
    * Switched loot crate carrying from forceWalk true to allowSprint false (about 2x faster movement)
@@ -111,12 +101,10 @@ Version 3.0.0
       - Fixed incorrect bounding box calc for load/unload
       - Changed load/unload speed to be independent of script load
    * :issue:`2453` Adds additional visible information during vehicle/asset placement
-   * :issue:`2454` Maru was removed. Petros is now called Petros on all maps, including Tanoa.
+   * :issue:`2454` Maru was removed. Petros is now called Petros on all maps, including Tanoa
    * :issue:`2469` Skip time now checks for active enemy AI instead of any enemy AI
-   * :issue:`2472` Tweaked ability of rebels to respond to punishments and major attacks
    * :issue:`2477` Added finite rebel launchers and explosives
    * :issue:`2503` Added parameters for initial player and rebel faction  money
-   * :issue:`2510` Improved attack selection dependency on rebel HQ position
    * :issue:`2521` Implemented AFK timeout parameter & status bar indicator to prevent AFK commanders blocking the progress
    * :issue:`2523` KAT Medical implementation got updated to most current Kat - Advanced Medical REWRITE
    * :issue:`2531` Adds logged in admins as members
@@ -172,6 +160,7 @@ Version 3.0.0
 .. admonition:: Groundwork
 
    * :issue:`2047` Switched over to new template system
+   * :issue:`2114` implemented system that gets compatible magazines for a weapon
    * :issue:`2153` Added functionality that formats a scalar as the specified length hexidecimal string
    * :issue:`2168` Added a shortID generator
    * :issue:`2174` & :issue:`2245` Improvements and fixes for the StreetArtist tool
@@ -180,7 +169,6 @@ Version 3.0.0
    * :issue:`2229` Added feature toggle and assets for UI rework
    * :issue:`2230` Added a build tool for the antistasi mod.
    * :issue:`2270` Moved garage initServer to postInit
-   * :issue:`2297` Set Temperate as default for template auto selection 
    * :issue:`2339` Added additional FF-punishment logging
    * :issue:`2352` Moved A3A_climate init to initVarCommon for sanity and HC-functionality
    * :issue:`2365` Added Western Sahara parameter
@@ -211,7 +199,6 @@ Version 3.0.0
    * :issue:`2307` Fixed issue of garage code breaking pylons
    * :issue:`2321` Fixed money displays breaking
    * :issue:`2323` Fixed broken flag textures on AI resources and outposts
-   * :issue:`2326` Fixed players not being silent with ACE
    * :issue:`2328` Fixed categoryOverrides not being created on clients
    * :issue:`2340` Fixed multiple EHs being added in confirmPlacement
    * :issue:`2344` Fixed incorrect variables used in flight height restrictions
@@ -219,7 +206,6 @@ Version 3.0.0
    * :issue:`2392` Fixed bad JIP marker colours
    * :issue:`2397` Fixed Petros face being used by other AI
    * :issue:`2411` Fixed rebel static mounting on DS
-   * :issue:`2423` Fixed errors with event triggers
    * :issue:`2430` Fixed issue with everyone being considered admin on  lh (garage)
    * :issue:`2434` Fixed issues high command fast travel and garrison functionality
    * :issue:`2436` Fixed arsenal weapon switch duping magazines
@@ -230,10 +216,8 @@ Version 3.0.0
    * :issue:`2490` Fixed enemy militia trucks not being sellable
    * :issue:`2498` Fixed players being able to mount a static that is being carried
    * :issue:`2508` Fixed an infinite money exploit
-   * :issue:`2517` Fixed being able to load game saves with missing mods
    * :issue:`2537` Fixed Antistasi UI layer numbers fighting with other mods
    * :issue:`2551` Fixed being able to search alive teamleaders for intel
-   * :issue:`2556` Fixed broken mortars at airports
    * :issue:`2561` Fixed fn_createAction using the incorrect hashmap key
    * :issue:`2564` Fixed whiteout after alt-tab on maps using darkMapFix
 

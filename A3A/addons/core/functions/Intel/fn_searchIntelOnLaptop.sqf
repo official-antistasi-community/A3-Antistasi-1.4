@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private _intel = _this select 0;
 private _searchAction = _this select 2;
 

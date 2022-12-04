@@ -22,12 +22,8 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 
 switch (toLower worldname) do {
 	case "cam_lao_nam": {};
-	case "vn_khe_sanh": {
-        mapX setObjectTextureGlobal [0, "x\A3A\addons\core\Pictures\Mission\whiteboard.paa"];
-    };
-	default {
-        mapX setObjectTextureGlobal [0, "x\A3A\addons\core\Pictures\Mission\whiteboard.jpg"];
-    };
+	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
 };
 
 enableSaving [false,false];

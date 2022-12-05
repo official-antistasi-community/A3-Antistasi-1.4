@@ -91,6 +91,18 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
 [[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
+// Remove undercover from players near the crash site
+[_heli] spawn {
+	params ["_heli"];
+
+	while {alive _heli} do {
+		sleep 5;
+		private _nearbyPlayers = allPlayers inAreaArray [getPos _heli, 150, 150];
+		{ [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
+	};
+};
+
+
 ////////////////
 //convoy spawn//
 ////////////////

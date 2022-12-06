@@ -10,7 +10,7 @@ _title = if (worldName == "Tanoa") then {
 	};
 };
 
-_credits = [ [_title, [QUOTE(VERSION)]], [ "Authors:", ["Barbolani","Official AntiStasi Community"] ] ];
+_credits = [ [_title, [QUOTE(VERSION)]], [ "Authors:", ["Barbolani","Official Antistasi Community"] ] ];
 _layer = "credits1" call bis_fnc_rscLayer;
 _delay = 5;
 _duration = 5;

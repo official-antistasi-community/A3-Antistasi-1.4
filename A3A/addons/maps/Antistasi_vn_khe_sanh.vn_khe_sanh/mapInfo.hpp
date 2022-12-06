@@ -8,7 +8,10 @@ class vn_khe_sanh {
 		{"Xok",25}, {"Soy",200}, {"SonXuan",25}, {"Nabo",200}, {"Tuan",193}, {"Naxok",114}, {"Koanphan",117}, {"Phonsang",25},
 		{"Louang",25}, {"Phonsi",73}, {"Pomkhoun",38}, {"Doy",57}, {"Nase",53}, {"Nadou",33}, {"Cukty",25}, {"HoaThanh",25},
 		{"CuYang",63}, {"Ploy",25}, {"Thongxa",25}, {"Kang",25}, {"Pasom",25}, {"Donxat",200}, {"Vangkoy",37}, {"Nalao",44},
-		{"Kouthi",143}, {"Nasano",40}, {"Naxuak",200}, {"Dantete",25}, {"Nonghano",25}, {"Saoven",25}, {"Prao",62}, {"Talu",25}
+		{"Kouthi",143}, {"Nasano",40}, {"Naxuak",200}, {"Dantete",25}, {"Nonghano",25}, {"Saoven",25}, {"Prao",62}, {"Talu",25},
+		{"Langvei",50}, {"Langcon",50}, {"Langhuoha",50}, {"Langvoi",51}, {"Thuongvan",25}, {"Arieng",25}, {"Chanulangchanh",25},
+		{"Tumlang",25}, {"LangBu",100}, {"Xomtacan",100}, {"Langtatuc",100}, {"Langhoantap",100}, {"Langruhon",100}, {"Xiomlaho",100},
+		{"Langtamve",75}, {"Aplavien",100}, {"Langgiao",50}, {"Langouhi",25}, {"Langtemp",50}, {"Xaheng",50}, {"ABung",25}
 	};
 	disabledTowns[] = {
 		"Paca", "Kate", "Hinlap", "XomBau", "XingEa", "AnMy", "That", "Tanloan", "Avian", "Kengkep", "MuTa",

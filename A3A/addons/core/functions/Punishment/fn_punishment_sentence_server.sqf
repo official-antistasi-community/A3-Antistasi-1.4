@@ -24,7 +24,7 @@ Examples:
     [_UID,_timeTotal] remoteExecCall ["A3A_fnc_punishment_sentence_server",2,false];
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_UID","_timeTotal"];
 #include "..\..\script_component.hpp"

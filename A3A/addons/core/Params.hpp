@@ -70,19 +70,26 @@ class Params
         texts[] = {"0","2","5","10","15"};
         default = 5;
     };
-    class playerStartingMoney
+    class initialPlayerMoney
     {
-        title = "Player Starting Money";
+        title = "Initial Player Money";
         values[] = {0, 100, 250, 500, 1000, 2500};
         texts[] = {"0","100","250","500","1000","2500"};
         default = 100;
     };
-    class rebelFactionStartingMoney
+    class initialFactionMoney
     {
-        title = "Rebel Faction Starting Money";
+        title = "Initial Rebel Faction Money";
         values[] = {0,1000,2500,5000,10000};
         texts[] = {"0","1000","2500","5000","10000"};
         default = 1000;
+    };
+    class initialHr
+    {
+        title = "Initial Rebel Faction Manpower";
+        values[] = {0, 8, 16, 24, 32, 50};
+        texts[] = {"0","8","16","24","32","50"};
+        default = 8;
     };
     class A3A_idleTimeout
     {

@@ -27,7 +27,7 @@ Examples:
     [cursorObject,true] remoteExecCall ["A3A_fnc_punishment_FF_addEH",cursorObject,false];
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
 #include "..\..\script_component.hpp"

@@ -1,36 +1,4 @@
 
-
-class A3A_Text_Small : A3A_text
-{
-    sizeEx = GUI_TEXT_SIZE_SMALL;
-};
-
-class A3A_Listbox_Small : A3A_Listbox
-{
-    rowHeight = GUI_TEXT_SIZE_SMALL;
-    sizeEx = GUI_TEXT_SIZE_SMALL;
-};
-
-class A3A_ComboBox : A3A_ListBox
-{
-    type = CT_COMBO;
-    class ComboScrollBar: ScrollBar {};
-    style = ST_MULTI;   // + ST_NO_RECT;          // ?
-
-    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
-    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
-    soundExpand[] = { "\A3\ui_f\data\sound\RscCombo\soundExpand", 0.1, 1 };
-    soundCollapse[] = { "\A3\ui_f\data\sound\RscCombo\soundCollapse", 0.1, 1 };
-    wholeHeight = 1; // ??
-    maxHistoryDelay = 0.2;      // Do values <1 actually work? pretty annoying if you can't quick open-close these
-};
-
-class A3A_ComboBox_Small : A3A_ComboBox
-{
-    sizeEx = GUI_TEXT_SIZE_SMALL;
-    rowHeight = GUI_TEXT_SIZE_SMALL;
-};
-
 class A3A_SetupDialog : A3A_TabbedDialog
 {
     idd = A3A_IDD_SETUPDIALOG;

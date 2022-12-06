@@ -5055,5 +5055,19 @@
         <Portuguese>A epera de inicio de segundo plano para completar</Portuguese>
       </Key>
     </Container>
+    <Container name="mission_check">
+      <Key ID="STR_A3A_missioncheck_nonmodmission_title">
+        <Original>Deprecated Mission</Original>
+      </Key>
+      <Key ID="STR_A3A_missioncheck_nonmodmission">
+        <Original>An incompatible pre-mod Antistasi mission has been started. To play this mission, unload the Antistasi mod. If you intended to load a mission from the Antistasi mod, select the correct mission.</Original>
+      </Key>
+      <Key ID="STR_A3A_missioncheck_oldmission_title">
+        <Original>Outdated Mission</Original>
+      </Key>
+      <Key ID="STR_A3A_missioncheck_oldmission">
+        <Original>"This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version."</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

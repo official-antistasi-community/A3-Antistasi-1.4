@@ -1,10 +1,6 @@
 Changelog
 **************
 
-
-
-
-
 |
 
 -----
@@ -15,123 +11,85 @@ Changelog
 Version 2.5.3
 ===============
 
-
-
 .. note::
    10th October 2021
 
-
-
 .. admonition:: Major
 
+   * :issue:`2119` Rework of punishment attacks
+      - Punishment attacks no longer sent against occupant-controlled towns.
+      - Player scaling added to delay time and attacker vehicle count.
+      - Improved vehicle choice and maxUnits control, ensure 2+ transports.
+      - Defender ("civilian") count non-linearised, splits to groups of 4.
+      - Removed civInit from defenders, so that they shoot and don't affect aggro.
+      - Use combat landing in preference to fastrope, remove slow landing.
+      - Simplified termination conditions.
+      - Results now only adjust support of nearby cities.
+      - Destroyed cities are now coloured black on the map.
+      - Destroyed cities are now invader-side, to prevent some weird spawning.
+      - Destroyed cities no longer switch side, provide rebel HR or resources.
 
+   * :issue:`2121` Rebalanced reinforcements
+      - Balance reinforcement system for player count.
+      - Enable reinforcing from "carriers".
+      - Separate road patrol generation from reinforcements and rebalance.
+      - Sanitize garrison sizes (fewer giant and tiny garrisons, units of 4 rather than 8).
+      - Use more 4-man teams in garrisons for both init and reinf.
+      - Prevent new reinf convoys spamming after a recapture.
+      - Fill out the AA & AT squads with a fourth soldier, cap militia squads to 8.
 
-
-   .. rubric:: :issue:`2119` Rework of punishment attacks
-
-   - Punishment attacks no longer sent against occupant-controlled towns.
-   - Player scaling added to delay time and attacker vehicle count.
-   - Improved vehicle choice and maxUnits control, ensure 2+ transports.
-   - Defender ("civilian") count non-linearised, splits to groups of 4.
-   - Removed civInit from defenders, so that they shoot and don't affect aggro.
-   - Use combat landing in preference to fastrope, remove slow landing.
-   - Simplified termination conditions.
-   - Results now only adjust support of nearby cities.
-   - Destroyed cities are now coloured black on the map.
-   - Destroyed cities are now invader-side, to prevent some weird spawning.
-   - Destroyed cities no longer switch side, provide rebel HR or resources.
-
-
-
-   .. rubric:: :issue:`2121` Rebalanced reinforcements
-
-   - Balance reinforcement system for player count.
-   - Enable reinforcing from "carriers".
-   - Separate road patrol generation from reinforcements and rebalance.
-   - Sanitize garrison sizes (fewer giant and tiny garrisons, units of 4 rather than 8).
-   - Use more 4-man teams in garrisons for both init and reinf.
-   - Prevent new reinf convoys spamming after a recapture.
-   - Fill out the AA & AT squads with a fourth soldier, cap militia squads to 8.
-
-
-
-   .. rubric:: :issue:`2124` Added player-count based balance for QRFs / singleAttack / wavedCA
-
-
-
+   * :issue:`2124` Added player-count based balance for QRFs / singleAttack / wavedCA
 
 .. admonition:: Minor
 
-
-   .. rubric:: :issue:`2107` Garaging now only is possible at locations with flipable flags and at HQ
-
-   - Airports, outposts, Seaports, Factories, Resources
-
-
-
-   .. rubric:: :issue:`2126` Updated the VN templates based on the SOG Prairie Fire update 1.1
-
-
+   * :issue:`2107` Garaging now only is possible at locations with flipable flags and at HQ
+      - Airports, outposts, Seaports, Factories, Resources
+   * :issue:`2126` Updated the VN templates based on the SOG Prairie Fire update 1.1
 
 .. admonition:: Groundwork
 
-
-   .. rubric:: :issue:`2081` - :issue:`2137` Implements logging of logs over the char limit and arrays
-
-
-
-   .. rubric:: :issue:`2112` Changed Civ detection for support-choosing to city+house detection
-
-   - Occupants are not bombing as much cities anymore
-
-
+   * :issue:`2081` & :issue:`2137` Implements logging of logs over the char limit and arrays
+   * :issue:`2112` Changed Civ detection for support-choosing to city+house detection
+      - Occupants are not bombing as much cities anymore
 
 .. admonition:: Refactor
 
-
-   .. rubric:: Converted functions.hpp tabs to spaces
-
-
+   * Converted functions.hpp tabs to spaces
 
 .. admonition:: Bugfixes
 
-
-  * :issue:`2100` Fixed inability to garage vehicles when player host was inside a vehicle
-  * :issue:`2102` Moved singleAttack and patrolReinf logging to server
-  * :issue:`2103` Fixed fastrope spawning corpses underground after being hit whilst fastroping
-  * :issue:`2105` Fixed allowCrewInImmobile not being applied to convoy vehicles
-  * :issue:`2106` Fixed vehicle pools not being properly saved
-  * :issue:`2107` Vehicles near HQ now also have state preservation
-  * :issue:`2109` Made HC squad vehicle placement use the garage placing code
-  * :issue:`2109` Fixed broken object carrying
-  * :issue:`2110` Fixed scaling and bugs plus added logging on economicsAI
-  * :issue:`2111` Fixed Petros having no ammunition by giving him a vest
-  * :issue:`2113` Fixed QRFs and singleAttacks being limited by incorrect maxUnits check
-  * :issue:`2116` Fixed simulated attacks massively overfilling garrisons
-  * :issue:`2120` Added more explanations to parameters
-  * :issue:`2125` Fixed multiple issues regarding mortar type checking and locality
-  * :issue:`2131` Fixed typos and punctuations in customHints
-  * :issue:`2135` Fixed incorrect attack countdown incrementing
-  * :issue:`2136` Fixed imbalance between the difficulty settings
-  * :issue:`2141` Fixed bad exitWith in resourceCheck causing incorrect losses
-  * :issue:`2144` Fixed degenerate behaviour in rebelAttack
-  * :issue:`2147` Reduced capture response delay time
-  * :issue:`2148` Fixed airborne troops being able to flip flags
-  * :issue:`2149` Fixed exploit where commander could become permanently undercover
-  * :issue:`2151` Fixed multiple bugs with squad/vehicle pricing
-  * :issue:`2156` Fixed garage feedback displaying on wrong clients
-  * :issue:`2157` Added setOvercast functionality on rain-removal
-  * :issue:`2157` Fixed lamp drop action not being added after respawn
-  * :issue:`2158` Fixed not removing undercover status when placing ACE explosives
-  * :issue:`2160` Fixed Nato gunship support
+   * :issue:`2100` Fixed inability to garage vehicles when player host was inside a vehicle
+   * :issue:`2102` Moved singleAttack and patrolReinf logging to server
+   * :issue:`2103` Fixed fastrope spawning corpses underground after being hit whilst fastroping
+   * :issue:`2105` Fixed allowCrewInImmobile not being applied to convoy vehicles
+   * :issue:`2106` Fixed vehicle pools not being properly saved
+   * :issue:`2107` Vehicles near HQ now also have state preservation
+   * :issue:`2109` Made HC squad vehicle placement use the garage placing code
+   * :issue:`2109` Fixed broken object carrying
+   * :issue:`2110` Fixed scaling and bugs plus added logging on economicsAI
+   * :issue:`2111` Fixed Petros having no ammunition by giving him a vest
+   * :issue:`2113` Fixed QRFs and singleAttacks being limited by incorrect maxUnits check
+   * :issue:`2116` Fixed simulated attacks massively overfilling garrisons
+   * :issue:`2120` Added more explanations to parameters
+   * :issue:`2125` Fixed multiple issues regarding mortar type checking and locality
+   * :issue:`2131` Fixed typos and punctuations in customHints
+   * :issue:`2135` Fixed incorrect attack countdown incrementing
+   * :issue:`2136` Fixed imbalance between the difficulty settings
+   * :issue:`2141` Fixed bad exitWith in resourceCheck causing incorrect losses
+   * :issue:`2144` Fixed degenerate behaviour in rebelAttack
+   * :issue:`2147` Reduced capture response delay time
+   * :issue:`2148` Fixed airborne troops being able to flip flags
+   * :issue:`2149` Fixed exploit where commander could become permanently undercover
+   * :issue:`2151` Fixed multiple bugs with squad/vehicle pricing
+   * :issue:`2156` Fixed garage feedback displaying on wrong clients
+   * :issue:`2157` Added setOvercast functionality on rain-removal
+   * :issue:`2157` Fixed lamp drop action not being added after respawn
+   * :issue:`2158` Fixed not removing undercover status when placing ACE explosives
+   * :issue:`2160` Fixed Nato gunship support
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -146,83 +104,43 @@ Version 2.5.2
 .. note::
    27th August 2021
 
-
-
 .. admonition:: Major
-
 
    * none
 
 .. admonition:: Minor
 
-
    * none
 
 .. admonition:: Groundwork
-
 
    * none
 
 .. admonition:: Refactor
 
-
    * none
 
 .. admonition:: Bugfixes
 
-
-   .. rubric:: :issue:`2067` Prevent bad unit types being added to garrisons, repairs corrupted saves
-
-   - childproofs the system and fixes loading issues on saves with problematic garrisons
-
-
-
-   .. rubric:: :issue:`2078` :issue:`2085` Resolved JIP conflict between logistics and garrison static actions
-
-
-
-   .. rubric:: :issue:`2077` Changed zoneCheck to use marker size based capture radius
-
-   - radius is decreased and distance to marker is taken into account
-   - people close to the marker can outnumber more people further away from the marker
-
-
-
-   .. rubric:: :issue:`2075` Fixed missing return value on actionRevive
-
-
-
-   .. rubric:: :issue:`2066` Fixed issues with the buyable light
-
-
-
-   .. rubric:: :issue:`2068` Changed garage addVehicle checks order
-
-   - also fixes the issue that vehicles could be garaged everywhere with enemies nearby
-
-
-
-   .. rubric:: :issue:`2084` Fix vehicle kill event handler
-
-   - vehicle kill handler got broken in an Arma update, so vehicle kills were not being registered for any purpose
-
-
-
-   .. rubric:: pressing Y (opening the battle menu) during placing cancels the placement
-
-
-
-   .. rubric:: Improved garaging consistency and reliability
-
-   - prevents cases of items from vehicle arsenal getting lost when garaging
+   * :issue:`2067` Prevent bad unit types being added to garrisons, repairs corrupted saves
+      - childproofs the system and fixes loading issues on saves with problematic garrisons
+   * :issue:`2078` & :issue:`2085` Resolved JIP conflict between logistics and garrison static actions
+   * :issue:`2077` Changed zoneCheck to use marker size based capture radius
+      - radius is decreased and distance to marker is taken into account
+      - people close to the marker can outnumber more people further away from the marker
+   * :issue:`2075` Fixed missing return value on actionRevive
+   * :issue:`2066` Fixed issues with the buyable light
+   * :issue:`2068` Changed garage addVehicle checks order
+      - also fixes the issue that vehicles could be garaged everywhere with enemies nearby
+   * :issue:`2084` Fix vehicle kill event handler
+      - vehicle kill handler got broken in an Arma update, so vehicle kills were not being registered for any purpose
+   * pressing Y (opening the battle menu) during placing cancels the placement
+   * Improved garaging consistency and reliability
+      - prevents cases of items from vehicle arsenal getting lost when garaging
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -237,15 +155,11 @@ Version 2.5.1
 .. note::
    12th August 2021
 
-
-
 .. rubric:: Major
-
 
 * none
 
 .. rubric:: Minor
-
 
 * blocked rebel auto capture - player needs to take the flag manually
 * ability to toggle on/off the the top bar by using ALT + Home plus disabling the top bar in the garage
@@ -254,16 +168,13 @@ Version 2.5.1
 
 .. rubric:: Groundwork
 
-
 * none
 
 .. rubric:: Refactor
 
-
 * none
 
 .. rubric:: Bugfixes
-
 
 * fixed addVehicleClass lacking source detection
 * fixed missing remoteExec target causing RPT span in task delete
@@ -274,11 +185,7 @@ Version 2.5.1
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -293,10 +200,7 @@ Version 2.5.0
 .. note::
    10th August 2021
 
-
-
 .. rubric:: Major
-
 
 * singleplayer is disabled for all the missions - please switch to local hosted multiplayer to continue your savegame
 * implemented new Garage (under APL-ND license, not MIT) - The new garage is a shared garage that replaces both the personal and faction garage.
@@ -313,7 +217,6 @@ Version 2.5.0
 * adapted main license - please read when planning to rework and publish this mission
 
 .. rubric:: Minor
-
 
 * added ACRE2 items to be given/distributed correctly
 * added dynamic crewing for rebel garrison statics
@@ -335,7 +238,6 @@ Version 2.5.0
 
 .. rubric:: Groundwork
 
-
 * updated AI minefield stuff
 * improved performance of distanceUnits
 * added SignalSmokeGrenates and FlagMarkerType to templates
@@ -348,13 +250,11 @@ Version 2.5.0
 
 .. rubric:: Refactor
 
-
 * refactors as preparation of the new UI
 * adjusted healAndRepair for new garage system
 * generalised hasVN to template variables
 
 .. rubric:: Bugfixes
-
 
 * fixed punishment missions spawning more than 40 civs
 * adjusted spawn vehicle velocity for spawnVehicle
@@ -392,11 +292,7 @@ Version 2.5.0
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -411,40 +307,29 @@ Version 2.4.1.VN.03
 .. note::
    29th June 2021
 
-
-
 .. rubric:: Major
-
 
 * none
 
 .. rubric:: Minor
 
-
 * none
 
 .. rubric:: Groundwork
-
 
 * none
 
 .. rubric:: Refactor
 
-
 * none
 
 .. rubric:: Bugfixes
-
 
 * fixed punishment missions spawning more than 40 civs
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -459,12 +344,7 @@ Version 2.4.1.VN.02
 .. note::
    15th May 2021
 
-
-
-
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * none
@@ -480,21 +360,17 @@ Version 2.4.1.VN.02
 
 .. rubric:: Minor
 
-
 * expanded starting gear with VN modset
 
 .. rubric:: Groundwork
-
 
 * none
 
 .. rubric:: Refactor
 
-
 * none
 
 .. rubric:: Bugfixes
-
 
 * fixed FirstAidKits not available
 * adapted DLC filtering
@@ -507,16 +383,11 @@ Version 2.4.1.VN.02
 
 .. rubric:: Code
 
-
 * none
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -531,12 +402,7 @@ Version 2.4.1.VN.01
 .. note::
    06th May 2021
 
-
-
-
 .. rubric:: Most significant changes with description
-
-
 
 * S.O.G. Prairie Fire compatibility
    * adaptation of the CDLC map Cam Lao Nam
@@ -546,8 +412,6 @@ Version 2.4.1.VN.01
    * adaptation for intel system
 
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * none
@@ -563,7 +427,6 @@ Version 2.4.1.VN.01
 
 .. rubric:: Minor
 
-
 * disabled VN dynamic radio music at bases and such
 * disabled flyGear and diveGear when VN active
 * helicopters can now perform airstrikes
@@ -571,31 +434,23 @@ Version 2.4.1.VN.01
 
 .. rubric:: Groundwork
 
-
 * adaptation of FSMs from 3D to 2D nav grids.
 
 .. rubric:: Refactor
-
 
 * improved mod autodetection item sorting for VN
 
 .. rubric:: Bugfixes
 
-
 * fix for tree-hugging helis
 
 .. rubric:: Code
-
 
 * implemented script that changes the aperture to make the map more playable at night
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -610,11 +465,7 @@ Version 2.4.1
 .. note::
    30th April 2021
 
-
-
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * removed PvP
@@ -630,21 +481,17 @@ Version 2.4.1
 
 .. rubric:: Minor
 
-
 * added smoke trails to artillery/mortar and enhanced impact radius
 
 .. rubric:: Groundwork
-
 
 * none
 
 .. rubric:: Refactor
 
-
 * none
 
 .. rubric:: Bugfixes
-
 
 * fixed being able to add Petros to garrison
 * fixed town markers not being placed on roads and therefore fixing related issues
@@ -671,7 +518,6 @@ Version 2.4.1
 
 .. rubric:: Code
 
-
 * logs are now being created with logMacros
 * updated mod detection
 * prestige was renamed to aggro as the naming was incorrect and confusing
@@ -680,11 +526,7 @@ Version 2.4.1
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -699,11 +541,7 @@ Version 2.4.0
 .. note::
    21st March 2021
 
-
-
 .. rubric:: Most significant changes with description
-
-
 
 * LTC
    * The Loot to crate system is a new system implemented to allow for faster and less bothersome looting experience while still keeping balance with the new support system.
@@ -716,7 +554,7 @@ Version 2.4.0
       Watch them bring tank killer planes against your vehicles, air superiority fighter against your helicopters and heavy gunships against infantry positions. If you hear the brrrt, it is already too late.
 
 * New navGrid system
-   * Completely redid the antistasi internal pathfinding mechanics, enabling us to utilize roads more and better, as we can ensure that the AI does not decide to drive the tank through half a kilometer of wood any more. At least in most cases.
+   * Completely redid the Antistasi internal pathfinding mechanics, enabling us to utilize roads more and better, as we can ensure that the AI does not decide to drive the tank through half a kilometer of wood any more. At least in most cases.
 
 * New template system
    * The new template system allows modders to quickly and easily set up new, highly customized factions by listing the vehicles and equipment available. These new templates introduce enemies which wield a larger variety of weapons and gear, providing more diverse opponents and a greater variety of tools to fight back against the oppressors.
@@ -727,8 +565,6 @@ Version 2.4.0
       There are, however, some sections that have yet to be centralised however, such as loot and supports, but most of the important sections, such as mod detection, templates and template selection, and logistic nodes have all been covered by the MIE project.
 
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
     * BLUFOR is discontinued as it will be obsolete with the new template system
@@ -762,7 +598,6 @@ Version 2.4.0
 
 .. rubric:: Minor
 
-
 * replaced heightmaps on whiteboards with satellite pics
 * added templated surrender and salvage crates
 * added buyable AA vehicles to all templates
@@ -783,7 +618,6 @@ Version 2.4.0
 
 .. rubric:: Groundwork
 
-
 * moved non-map-specific items from description.ext to MissionDescription to decrease mission-size and loading-time
 * overhauled hint system with easier dismissable hints
 * added logging for unlocks
@@ -795,14 +629,12 @@ Version 2.4.0
 
 .. rubric:: Refactor
 
-
 * fn_typeOfSoldier
 * fn_distance
 * mod detection system
 * initVarCommon to get rid of obsolete content
 
 .. rubric:: Bugfixes
-
 
 * towing of logistics cargo is now blocked
 * dead units no longer blocking statics which are mounted
@@ -830,16 +662,11 @@ Version 2.4.0
 
 .. rubric:: Code
 
-
 * introduced log level integration with logMacros
 
 .. warning::
 
-
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -854,23 +681,15 @@ Version 2.3.2
 .. note::
    05th December 2020
 
-
-
 .. rubric:: Bugfixes
-
-
 
 * Fixed the rope issue in the salvage mission
 * Disabled two towns (Kuusela and Niemela) on the Virolahti map
 
 .. warning::
 
-
    * Significant template changes are still underway. You might want to avoid making custom templates for a while!
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -885,11 +704,7 @@ Version 2.3.1
 .. note::
    16th October 2020
 
-
-
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * Implemented new hint system with dismissable hints
@@ -906,7 +721,6 @@ Version 2.3.1
 
 .. rubric:: Minor
 
-
 * FF-system changes and improvements
 * Some assets changed for 3CB modset
 * added new asset for citysupply mission
@@ -916,16 +730,13 @@ Version 2.3.1
 
 .. rubric:: Groundwork
 
-
 -
 
 .. rubric:: Refactor
 
-
 * missionRequest refactor
 
 .. rubric:: Bugfixes
-
 
 * Taken assassination missions from the RNG array
 * Added failsafe for artillery spawn breaking
@@ -945,7 +756,6 @@ Version 2.3.1
 
 .. rubric:: Code
 
-
 * Added bugfix branch to Travis
 
 .. warning::
@@ -953,9 +763,6 @@ Version 2.3.1
 
    * Significant template changes are still underway. You might want to avoid making custom templates for a while!
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -970,11 +777,7 @@ Version 2.3.0
 .. note::
    26th July 2020
 
-
-
 .. rubric:: Most significant changes with description
-
-
 
 Overhauled airstrikes to keep the sanity:
 * Halved the number of bombs in any given airstrike, Made the bombs used more sensible. (MK82 for HE, CBU for cluster, Glide bomb for napalm.
@@ -1001,8 +804,6 @@ Implemented Jeroen Nots Enhanced Debug Console
 
 .. rubric:: Major
 
-
-
 * GAMEPLAY CHANGES
 * New salvage mission integrated
 * Reintroduced fuel trucks as spawning civ vehicles
@@ -1026,7 +827,6 @@ Implemented Jeroen Nots Enhanced Debug Console
 * Added French translation
 
 .. rubric:: Minor
-
 
 * Deactivated forced TFAR default radioVolume
 * Added PvP role descriptions
@@ -1055,7 +855,6 @@ Implemented Jeroen Nots Enhanced Debug Console
 
 .. rubric:: Groundwork
 
-
 * Updated ACRE compatibility
 * Updated performance logging in the RPTs
 * Changed folder structure so all map related assets are in the map template folders
@@ -1067,7 +866,6 @@ Implemented Jeroen Nots Enhanced Debug Console
 
 .. rubric:: Refactor
 
-
 * Refactor of Antenna stuff in initZones
 * Refactor of fn_rebelAttack
 * Refactor of the hint system
@@ -1076,7 +874,6 @@ Implemented Jeroen Nots Enhanced Debug Console
 * Refactor/rewrite of wavedCA
 
 .. rubric:: Bugfixes
-
 
 * Money exploit regarding AI refunds
 * Contact report issue with ACE
@@ -1157,17 +954,12 @@ Implemented Jeroen Nots Enhanced Debug Console
 
 .. rubric:: Code
 
-
 * Enhanced Travis for build checking
 
 .. warning::
 
-
    * Significant template changes are still underway. You might want to avoid making custom templates for a while!
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
-
-
-
 
 |
 
@@ -1182,11 +974,7 @@ Version 2.2.1
 .. note::
    07th February 2020
 
-
-
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * Re-enabled unit traits.
@@ -1201,7 +989,6 @@ Version 2.2.1
 
 .. rubric:: Minor
 
-
 * Disabled unlocked IEDs in Vanilla arsenal.
 * Changed playable Officer roles to TeamLead roles.
 * Enabled further vehicles to be utilized for JNL loading.
@@ -1209,11 +996,9 @@ Version 2.2.1
 
 .. rubric:: Groundwork
 
-
 * Added building from CUP to be recognized as military buildings (also concerning 50. cal placements).
 
 .. rubric:: Bugfixes
-
 
 * Fixed an exploit where guests could grab certain gear using a loadout.
 * Fixed added aggro for hostages/surrenderes.
@@ -1232,13 +1017,8 @@ Version 2.2.1
 
 .. rubric:: Code
 
-
-
 *DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while!
 * CSAT outposts and airfields are set in fn_initGarrison.sqf now.
-
-
-
 
 |
 
@@ -1253,11 +1033,7 @@ Version 2.2.0
 .. note::
    04th January 2020
 
-
-
 .. rubric:: Major
-
-
 
 * GAMEPLAY CHANGES
 * Changed vehicle spawn mechanic. Vehicles now spawn in suitable positions and without the unwanted explosion.
@@ -1289,8 +1065,6 @@ Version 2.2.0
 
 .. rubric:: Minor
 
-
-
 * Undercover medics can now heal civilians/undercover players without becoming overt. You never know, when you need it. Also check the known errors.
 * Made punishment missions a bit less punishing. They are won easier now. Did someone said casuals?
 * Updated stringtable. French is now partly available.
@@ -1310,8 +1084,6 @@ Version 2.2.0
 
 .. rubric:: Groundwork
 
-
-
 * Reworked the garrison system to build a new reinforcement system on top of it. Believe us, you will know once we got this running.
 * Added a system to simulate convoys of all types. Convoys 12 kilometer away will no longer kill your server performance. Even if there are many.
 * Created a template naming convention and precursory files. New names for better understanding. But also alot more files.
@@ -1321,8 +1093,6 @@ Version 2.2.0
 * Created a new Parameter for truly random Crates, if wanted. Look for the [Experimental] option in parameter selection.
 
 .. rubric:: Bugfixes
-
-
 
 * Fixed schrodingers' buildings - they should no longer be both destroyed and not. Maybe. We won't know until we check!
 * Fixed convoys not moving or stopping moving when attacked (i.e - Convoy missions work again!)
@@ -1357,8 +1127,6 @@ Version 2.2.0
 
 .. rubric:: Code
 
-
-
 * Arsenal can now be setup in multiple objects.
 * Rebuilt items detection system completely.
 * Items system now scans config for defines instead of relying on manual input.
@@ -1385,14 +1153,9 @@ Version 2.2.0
 
 .. rubric:: Known issues
 
-
-
 *DISCLAIMER* - Significant template changes are still underway. You might want to avoid making custom templates for a while!
 * (Destroy Heli Mission) If you manage to steal the truck while it is trying to transport the heli back, the mission will fail (The fix for this is WIP)
 * The updated ACE version 3.13.0 maybe has introduced new issues with ACRE. We are investigating and thankful for input.
-
-
-
 
 |
 
@@ -1407,10 +1170,7 @@ Version 2.1.2
 .. note::
    06 September 2019
 
-
-
 .. rubric:: Improvements
-
 
 • Clean up README on GitHub
 • Implementation of Malden and Livonia to stringtable
@@ -1418,7 +1178,6 @@ Version 2.1.2
 • Update of different mission.sqm’s
 
 .. rubric:: Fixes
-
 
 • Garage wipes
 • Lost gear when hit “heal, repair and rearm” whilst being in vehicle
@@ -1429,9 +1188,6 @@ Version 2.1.2
 • Error on loot crates
 • Start-up error regarding HC
 • InitVar for Malden and Livonia
-
-
-
 
 |
 
@@ -1468,7 +1224,6 @@ Version 2.1.1
 
 .. rubric:: Fixes
 
-
 • Fixed boat spawning on Malden
 • Changed the object of fireX into a tent got rid of clipping through the floor
 • Misc items are now unlocking
@@ -1482,12 +1237,20 @@ Version 2.1.1
 • Static weapons at airfields can be stolen
 • Russian aircraft spawning in Armia Krajowa fixed
 
+|
 
-Version 1.4c1.01 through to 1.4c2.0 - 10th August 2019
+-----
+
+|
+
+
+Version 1.4c2.0
+===============
+
+.. note::
+   10st August 2019
 
 .. rubric:: All Improvements
-
-
 
 * Support for 3CB - You can now play as the British Armed Forces
 * ADV - ACE Medical support
@@ -1561,16 +1324,11 @@ Version 1.4c1.01 through to 1.4c2.0 - 10th August 2019
 * Probably more fixes we've missed.
 * meter veh civiles IFA y rehacer lo relativo a JNL <-- I don't know where that comes from and where that belongs [Bob Murphy - 04.01.2020]
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.4.0
@@ -1580,7 +1338,6 @@ Version 1.4.0
    25th October 0018
 
 .. rubric:: Changes
-
 
 * Rework of the spawning scripts, less CPU and bandwith compsuming.
 * Liberated prisoners will be deleted after 100 seconds to save performance (those units have no combat capabilities at all).
@@ -1603,16 +1360,11 @@ Version 1.4.0
 * Solved bug in Destroy Heli missions.
 * Added RHS SPG9 as AT gun for rebel RHSGREF config, thanks to Mocksybren!!
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.5
@@ -1622,7 +1374,6 @@ Version 1.3.5
    14th October 0018
 
 .. rubric:: Changes
-
 
 * NEW FEATURE: SP init options ported from MP: Difficulty settings affect several params, and Game Mode behaves the same. Want to fight only Redfor? Now you can!
 * Garrison mortars will be manned again.
@@ -1640,16 +1391,11 @@ Version 1.3.5
 * Fixed bug on AI building assault.
 * Fixed error on qrf when the AI sends more than 1 vehicle and there are no more vehicles to send.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.4
@@ -1659,7 +1405,6 @@ Version 1.3.4
    21st September 0018
 
 .. rubric:: Changes
-
 
 * Corrected reinf bug when the AI lacks of air transports to send big groups.
 * Convoy delay re enabled.
@@ -1674,16 +1419,11 @@ Version 1.3.4
 * Corrected garrison bug when the garrison lacked of SL or Medic classnames.
 * Solved bug on basic mandatory vehicle availability check.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.3
@@ -1693,7 +1433,6 @@ Version 1.3.3
    5th September 0018
 
 .. rubric:: Changes
-
 
 * IMPORTANT: Removed and unauthorised ACE medical in SP to avoid the "I cannot respawn" false bug report flood.
 * Vehicles can be garaged in any rebel garrison.
@@ -1709,16 +1448,11 @@ Version 1.3.3
 * Fire of built roadblocks delayed so the builder doesent get hurt.
 * Fixed major bug which stopped economics and major attacks on some templates (specially IFA)
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.2
@@ -1728,7 +1462,6 @@ Version 1.3.2
    4th September 0018
 
 .. rubric:: Changes
-
 
 * NEW FEATURE: Total rework of economics for AI so there are now real economics (like old 1.8) but instead of money they will need time to replentish and maximum assets will depend on zone ownership. Example: Max Tanks for a faction is 1xAirbases belonging to them + you will never see more than that in the field.
 * Convoys wont spawn having a distance minor than the spawn distance setting from origin to destination.
@@ -1740,16 +1473,11 @@ Version 1.3.2
 * Static weapons placed in building roofs wont spawn if the building is destroyed.
 * Fixed relentless major attacks in some cases.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.1
@@ -1759,7 +1487,6 @@ Version 1.3.1
    2nd September 0018
 
 .. rubric:: Changes
-
 
 * IFA: Replaced winter wehrmacht by Afrikakorps for Tier 2 troops. Requires mission restart to see them.
 * IFA: Disabled mortar squad recruitment until I find a solution.
@@ -1776,16 +1503,11 @@ Version 1.3.1
 * Fixed bug on CSAT punishments, all cities were targets instead of those who have high support levels.
 * CSAT wont punish cities influenced by them.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.3.0
@@ -1795,7 +1517,6 @@ Version 1.3.0
    16th August 2018
 
 .. rubric:: Changes
-
 
 * NEW IMPORTANT FEATURE IN MP: GAME MODE. In the lobby you may set 4 options: All vs All, Rebels vs All and other two on which rebels only fight one chosen faction (invaders or government).
 * NEW VERSION: WWII Has arrived to Antistasi. In Armja Krajova polish resistance fight against Germans and Soviets. Required mods are CUP Maps and IFA.
@@ -1848,16 +1569,11 @@ Version 1.3.0
 * NAPALM damage loop a bit more spaced in time (more chances of survive if you move quickly)
 * Slight less chance for a mortar to get zeroed.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.5 Holliday update!
@@ -1871,16 +1587,11 @@ Version 1.2.5 Holliday update!
 * Seaport boat garrisons and patrols are subject to boat availability.
 * Fixed teammate disband.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.4
@@ -1900,16 +1611,11 @@ Version 1.2.4
 * Reduced a lot the max distance between departure and targets for both land and air attacks (10Kmts and 3 Kmts).
 * Changed the position of the NATO Carrier in Altis.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.3
@@ -1934,16 +1640,11 @@ Version 1.2.3
 * Re enabled supply box spawn in high war level.
 * When a headless clint disconnects, an alarm will appear constantly instead of finishing the mission.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.2
@@ -1960,16 +1661,11 @@ Version 1.2.2
 * Changed major attack AI decisions according to the new mechanic of auto conquer resources and factories when capturing an airbase. Also CSAT will prioritise more enemy outpost assault.
 * Reduced spawning requisites for a wave to be counted in major attacks.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.1
@@ -1985,16 +1681,11 @@ Version 1.2.1
 * Solved init bug on new dedis when the admin does not touch the parameters.
 * Solved statics not saving in MP dedi.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.2.0
@@ -2048,16 +1739,11 @@ Version 1.2.0
 * Mil buildings are not used to spawn ambient civvies.
 * Aggro implications when conquering / losing certain territory types.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.5
@@ -2093,16 +1779,11 @@ Version 1.1.5
 * Reverted error which made tier 1 and 2 NATO have Rambo skills.
 * Tier 2 NATO (if exist) instead of lowering the aggro when releasing prisoners, they will join you like CSAT.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.4
@@ -2127,16 +1808,11 @@ Version 1.1.4
 * Enemy city patrols and surrounding patrols wont spawn if the city has an enemy zone inside the city or patrol zone.
 * Workarounded some weird bug on task updating in JIP MP.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.3
@@ -2158,16 +1834,11 @@ Version 1.1.3
 * When AI takes an AI zone, the nearby controls will belong to the conqueror.
 * Land vehicles wont be constantly teleporting to roads when no player is near.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.2
@@ -2183,16 +1854,11 @@ Version 1.1.2
 * Bugfix and rework of the vehicle markers script.
 * No loss of advanced towing when the removeAllActions command has been used on the player.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.1
@@ -2207,16 +1873,11 @@ Version 1.1.1
 * Re enabled civilians being of the side which owns the city because setFriend command is not reliable during mission.
 * Re enabled vehicle markers report as the watchpost became uselees without them.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.1.0
@@ -2258,16 +1919,11 @@ Version 1.1.0
 * Informers wont spawn in blacklisted buildings.
 * Bank robbery hint spam removed.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.8
@@ -2284,16 +1940,11 @@ Version 1.0.8
 * Conquering by kills is easier.
 * Bunkers shouldnt move on persistent save.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.7
@@ -2312,16 +1963,11 @@ Version 1.0.7
 * Solved when an AI is ordered with Action menu 6 to revive and gets unresponsive for revive.
 * Hopefully solved some MP animation fails.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.6
@@ -2340,16 +1986,11 @@ Version 1.0.6
 * Fixed: when player respawns player is flagged as unconscious.
 * Re enabled AI teleport to player when they cannot reach the player while unconscious because of AI pathfinding.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.5
@@ -2386,16 +2027,11 @@ Version 1.0.5
 * Supply missions are lost when the box is lost.
 * Bulletproofed "transfer to ammobox" script to avoid some errors.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.4
@@ -2420,16 +2056,11 @@ Version 1.0.4
 * CAS Air is back on major attacks to airports.
 * Friendly AAF spawned during daytime wont have NV
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.3
@@ -2461,16 +2092,11 @@ Version 1.0.3
 * PvP players will be able to Fast Travel to their respawn point.
 * Last? Attempt to fix broken BIS task functions with JiP players.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.2
@@ -2501,16 +2127,11 @@ Version 1.0.2
 * Reworked "being carried" and "carried" status to avoid some bugs.
 * Lowered a bit NATO skill.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.1
@@ -2545,16 +2166,11 @@ Version 1.0.1
 * Checks for enemy presence will ignore dead, captured, uncosncious etc. enemies.
 * ACE assets added to PvP player loadouts depending on ACE config.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 1.0.0
@@ -2622,16 +2238,11 @@ Version 1.0.0
 * ACE eraplugs for ACE PvP players.
 * Skip Time works again with PvP players present.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.12.2 ALPHA
@@ -2651,16 +2262,11 @@ Version 0.12.2 ALPHA
 * NATO wont attack cities under SDK influence.
 * SDK wont gain influence when the RT is on CSAT hands.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.12.1 ALPHA
@@ -2681,16 +2287,11 @@ Version 0.12.1 ALPHA
 * Added LoW DLC civ van as possible spawn.
 * Stronger Radio Tower effect on Civ Support on each tick.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.12.0 ALPHA
@@ -2716,16 +2317,11 @@ Version 0.12.0 ALPHA
 * Paratroopers shouldnt paradrop in water.
 * No more QRF paratroopers without parachute :)
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.11.3 ALPHA
@@ -2744,16 +2340,11 @@ Version 0.11.3 ALPHA
 * Reduced a bit number of driving civilians.
 * Garrison states on zones under attack now get saved.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.11.2 ALPHA
@@ -2782,16 +2373,11 @@ Version 0.11.2 ALPHA
 * Faster reinforcements.
 * Removed thermal googles of the NV unlocking scripts. SDK AI will spawn with random googles when unlocked.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.11.1 ALPHA
@@ -2813,16 +2399,11 @@ Version 0.11.1 ALPHA
 * Corrected some small UPSMon bug.
 * AI will be more aggressive when attacking and assaulting garrisons.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.11.0 ALPHA
@@ -2856,16 +2437,11 @@ Version 0.11.0 ALPHA
 * Heavy economic (only) penalties on Maru's death.
 * HC groups get removed from the HC bar when they are assigned to a garrison.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.10.4 ALPHA
@@ -2893,16 +2469,11 @@ Version 0.10.4 ALPHA
 * Brute coded Informer and Traitor spawning to avoid some bug.
 * Lower cost for ARs, GLs and AT soldiers. Higher for Militia.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.10.3 ALPHA
@@ -2924,16 +2495,11 @@ Version 0.10.3 ALPHA
 * Big increase of distance to consider a convoy reached.
 * Corrected small bug in money convoys when destination was not a city.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.10.2 ALPHA
@@ -2949,21 +2515,15 @@ Version 0.10.2 ALPHA
 * Cars and Trucks driven by AI will tend to stick on roads much more often.
 * Surrendered troops ammoboxes shouldnt explode / burn.
 
-
 Version 0.10.1 HOTFIX 11/02/2018 ALPHA
 
 * Changes on attack waypoints werent applied by a mistake.
-
-
-
 
 |
 
 -----
 
 |
-
-
 
 
 Version 0.10.1 ALPHA
@@ -2980,16 +2540,11 @@ Version 0.10.1 ALPHA
 * Corrected small bug on airbase / outpost garrison change when an attack is sent.
 * Increased ACE integration: city support and QRFs related to AI kills will be included.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.10.0 ALPHA
@@ -3014,16 +2569,11 @@ Version 0.10.0 ALPHA
 * Corrected bug in unlcocked assets for AI dress.
 * Map Info now shows if Outposts are Idle or Busy.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.8 ALPHA
@@ -3041,16 +2591,11 @@ Version 0.9.8 ALPHA
 * ACE: Added a few items.
 * ACE: Solved ACE BUG, NOT MINE so medical items werent appearing in the proper section.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.7 ALPHA
@@ -3063,16 +2608,11 @@ Version 0.9.7 ALPHA
 
 * HOTFIX: Jeroen Arsenal now working as host MP.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.6 ALPHA
@@ -3092,16 +2632,11 @@ Version 0.9.6 ALPHA
 * Unconscious enemies should die easier.
 * Civilian cars shouldnt kill your teammates.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.5 ALPHA
@@ -3121,16 +2656,11 @@ Version 0.9.5 ALPHA
 * When a human tries to revive, FA kits of the healed unit are takin in count.
 * Shortened a lot distances for AI to decide to send a LAND QRF
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.4 ALPHA
@@ -3152,16 +2682,11 @@ Version 0.9.4 ALPHA
 * Unconscious units in vehicles should disembark.
 * Refugees, traitors etc. shouldnt spawn in some blacklisted buildings (containers)
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.3 ALPHA
@@ -3176,16 +2701,11 @@ Version 0.9.3 ALPHA
 * While BIS does not fix HC Bar squad order options, squads will spawn in Aware stance.
 * changeX a inArea el undercover y revisar a qu� bando van los controlsX conquereds
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.2 ALPHA
@@ -3201,16 +2721,11 @@ Version 0.9.2 ALPHA
 * Corrected: When CSAT unlimiuted attacks reached timout they were constantly spawing and losing.
 * FPS checks won't be done for player recruiting squads
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.1 ALPHA
@@ -3230,16 +2745,11 @@ Version 0.9.1 ALPHA
 * Fixed wrong message when player was unconscious.
 * Fixed error on road finding function.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.9.0 ALPHA
@@ -3286,16 +2796,11 @@ Version 0.9.0 ALPHA
 * Unconscious units in water die very fast.
 * With one HC, AI load will be shared with the server, instead of everything going to the HC.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.8.2 ALPHA
@@ -3314,16 +2819,11 @@ Version 0.8.2 ALPHA
 * Spawn distances corrected when FPS monitor changes them automatically.
 * RHS: Enabled Build Minefield function
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.8.1 ALPHA
@@ -3337,16 +2837,11 @@ Version 0.8.1 ALPHA
 * Fixed bug on dedi server when buying a civilian truck.
 * Spawn distance parameters correctly updated on persistent save.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.8.0 ALPHA
@@ -3380,16 +2875,11 @@ Version 0.8.0 ALPHA
 * Corrected small bugs on NV Goggles unlock.
 * More carried units on big transport vehicles .
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.7.2 ALPHA
@@ -3405,16 +2895,11 @@ Version 0.7.2 ALPHA
 * No more need to kill the driver to steal a civilian transport, now a few shots to the vehicle will scare him and make him dismount.
 * Tanoaised breifing thanks part to those who helped on this edition.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.7.1 ALPHA
@@ -3430,16 +2915,11 @@ Version 0.7.1 ALPHA
 * Corrected a few bugs on AI attacking procedures.
 * AI should get less stuck unloading weapons on AutoLoot.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.7.0 ALPHA
@@ -3486,16 +2966,11 @@ Version 0.7.0 ALPHA
 * SDK AT men may spawn with other unlocked launchers.
 * More aggressive NATO if they are corenered with one Airport.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.6.3 ALPHA
@@ -3504,9 +2979,7 @@ Version 0.6.3 ALPHA
 .. note::
    5th May 2017
 
-
 .. rubric:: Changes
-
 
 * NEW FEATURE: Autoloot. If you order Auto Rearm a man inside a vehicle, instead of picking new weapons he will scavenge corpses for weapons and place them in his vehicle until he finds nothing more. After that he will pick his old weapon.
 * NEW FEATURE: Fatal Wounds. Wounds in the head can be only healed by medics. Helmets prevent those, until you lose them..
@@ -3525,16 +2998,11 @@ Version 0.6.3 ALPHA
 * Fog affects Fast Travel enemy distance checks.
 * SDK will know after some time where the attack is going if they are targeted.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.6.2 ALPHA
@@ -3553,16 +3021,11 @@ Version 0.6.2 ALPHA
 * Land AI Road patrols will have allways a good road segment as destination.
 * Added negative bonuses for time to recover NATO vehicles when they are destroyed.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.6.1 ALPHA
@@ -3576,16 +3039,11 @@ Version 0.6.1 ALPHA
 * HOTFIX: SDK Garrisonws were not spawning.
 * Civ "patrol" cars won't go allways to city centres.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.6.0 ALPHA
@@ -3605,16 +3063,11 @@ Version 0.6.0 ALPHA
 * CSAT wont send supply convoys to cities.
 * Increased skill on Gendarmes and FIA
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.5.2 BETA
@@ -3635,16 +3088,11 @@ Version 0.5.2 BETA
 * Tailored briefing for non Syndikat players.
 * When CSAT attacks, timer for next counterattack will be much lower.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.5.1 BETA
@@ -3676,16 +3124,11 @@ Version 0.5.1 BETA
 * Convoys behave much better (not thanks to BIS latest update)
 * Optimised ammobox loadouts to spawn only locked assets and more weapon numbers.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.5.0 BETA
@@ -3698,16 +3141,11 @@ Version 0.5.0 BETA
 
 * NEW FEATURE: Tiered missions. As you progress in game some missions will require a contact in some city which will provide relevant info. Tier 2 missions will be harder and with some additional difficulties. Bonuses and penalties will be higher too. Those informants are treacherous, they may report you too...
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.6 BETA
@@ -3730,16 +3168,11 @@ Version 0.4.6 BETA
 * Maru's reinforcements will be on foot to avoid issues with Tanoa roads.
 * Faster Convoys.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.5 BETA
@@ -3763,16 +3196,11 @@ Version 0.4.5 BETA
 * Made NV use depend on game progress, only specops and squad leaders will have mandatory NV. More flashlights, darker nights, more fun!
 * AI will consider hot zone any with relevant enemie zones around
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.4 BETA
@@ -3792,16 +3220,11 @@ Version 0.4.4 BETA
 * Added other types of possible AI squads to spawn.
 * Added some texture to the map board.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.3 BETA
@@ -3814,16 +3237,11 @@ Version 0.4.3 BETA
 
 * Killed a few more suspects of the lockup server bug.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.2 BETA
@@ -3853,16 +3271,11 @@ Version 0.4.2 BETA
 * Corrected vehicle availability check procedures.
 * Less chance for NATO to build a major attack on airports.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.1 BETA
@@ -3885,16 +3298,11 @@ Version 0.4.1 BETA
 * Corrected server init bug which made initialisation 2 minutes longer in MP
 * Disabled introshot as it is causing some issues.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.4.0 BETA
@@ -3925,16 +3333,11 @@ Version 0.4.0 BETA
 * Expanded zone type destination on convoys.
 * Added a lot of vehicles to sell.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.3.3
@@ -3966,16 +3369,11 @@ Version 0.3.3
 * Corrected name of SDK Outposts / Roadblocks on Load.
 * Outposts can be FIA now.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.3.2
@@ -4002,16 +3400,11 @@ Version 0.3.2
 * Parked helis won't pop smoke when AI embarks/disembarks.
 * Airbase vehicles won't despawn when AI board them.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.3.1
@@ -4033,16 +3426,11 @@ Version 0.3.1
 * More reliable convoys.
 * More consistent convoys.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.3.0
@@ -4065,6 +3453,12 @@ Version 0.3.0
 * Fixed delay when Petros was killed.
 * Few pesky "FIA" here and there.
 * Some anti lag measures when AI attacks an Airbase.
+
+|
+
+-----
+
+|
 
 
 Version 0.1.2.4
@@ -4095,6 +3489,12 @@ Version 0.1.2.4
 * AIs from sidemissions won't make anything spawn.
 * Fixed when commander disconnects and despawns his AI + vehicles despite he's got players in his group.
 
+|
+
+-----
+
+|
+
 
 Version 0.1.2.3 BETA
 ======================
@@ -4116,16 +3516,11 @@ Version 0.1.2.3 BETA
 * Deads by NAPALM burn a bit like campfires for some time.
 * NATO WONT send a QRF to defend a city under attack if it's SDK.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.1.2 BETA
@@ -4156,16 +3551,11 @@ Version 0.1.2 BETA
 * Corrected RT Rebuild bug.
 * Prestige values saved correctly.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.1.1 BETA
@@ -4207,16 +3597,11 @@ Version 0.1.1 BETA
 * Halved Quadbike cost.
 * Gendarmes and FIA will use flashlights.
 
-
-
-
 |
 
 -----
 
 |
-
-
 
 
 Version 0.1.0 BETA

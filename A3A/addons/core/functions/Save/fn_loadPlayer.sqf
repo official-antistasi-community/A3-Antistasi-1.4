@@ -27,7 +27,7 @@ private _saveRank = _playerHM get "rankPlayer";
 if (!isNil "_saveRank" && { _saveRank isEqualType "" }) then {_rank = _saveRank};
 
 private _money = _playerHM get "moneyX";
-if (isNil "_money" || {!(_money isEqualType 0)}) then {_money = playerStartingMoney};
+if (isNil "_money" || {!(_money isEqualType 0)}) then {_money = initialPlayerMoney};
 
 private _garage = _playerHM get "personalGarage";
 if (isNil "_garage" || {!(_garage isEqualType [])}) then {_garage = []};

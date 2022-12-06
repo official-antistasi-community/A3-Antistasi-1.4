@@ -29,7 +29,7 @@
         <Korean>HQ 옵션: 지휘관 전용</Korean>
         <Italian>Opzioni HQ: Solo per il Comandante</Italian>
         <Spanish>Opciones CG: Solo el Comandante</Spanish>
-        <Polish>Opcje Dowódcy: Tylko Dowódca</Polish>
+        <Polish>Opcje Kwatery Dowodzenia: Tylko Dowódca</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_close_text">
         <Original>Close</Original>
@@ -77,7 +77,7 @@
         <Korean>주둔지 관리</Korean>
         <Italian>Gestisci Guarnigioni</Italian>
         <Spanish>Gestionar guarnición</Spanish>
-        <Polish>Zarządzaj Garnizonem</Polish>
+        <Polish>Zarządzaj Garnizonami</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_garrisons_tooltip">
         <Original>Add or remove units to garrisons</Original>
@@ -89,7 +89,7 @@
         <Korean>주둔지에 병력을 추가하거나 줄입니다.</Korean>
         <Italian>Aggiungi o rimuovi unità alle guarnigioni</Italian>
         <Spanish>Añadir o quitar unidades a la guarnición</Spanish>
-        <Polish>Dodaj lub usuń jednostki z garnizonu</Polish>
+        <Polish>Dodaj lub usuń jednostki z garnizonów</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_text">
         <Original>Move HQ to another Zone</Original>
@@ -223,7 +223,7 @@
         <Korean>건축 - 주둔지 설정</Korean>
         <Italian>Costruzioni - Opzioni Guarnigione</Italian>
         <Spanish>Construcción - Opciones de Guarnición</Spanish>
-        <Polish>Budynek - Opcje Garnizonu</Polish>
+        <Polish>Budowanie - Opcje Garnizonu</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_build_button_no_text">
         <Original>Back</Original>
@@ -503,7 +503,7 @@
         <Korean>주변 지뢰지대를 제거할 AI 공병을 소환합니다.</Korean>
         <Italian>Spawna un Ingegnere IA che rimuoverà ogni mina nelle sue vicinanze</Italian>
         <Spanish>Aparecerá un ingeniero de la IA que limpiará todas las minas de sus alrededores</Spanish>
-        <Polish>Stworzy Inżyniera AI, który rozbroi wszystkie miny w jego otoczeniu</Polish>
+        <Polish>Stwórz Inżyniera AI, który rozbroi wszystkie miny w jego otoczeniu</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_minefield_button_anti_tank_text">
         <Original>AT Mines</Original>
@@ -553,7 +553,7 @@
         <Korean>민병대원 모집</Korean>
         <Italian>Recluta Miliziano</Italian>
         <Spanish>Reclutar Miliciano</Spanish>
-        <Polish>Rekrutuj Rebelianta</Polish>
+        <Polish>Rekrutuj Milicję</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_mg_text">
         <Original>Recruit Autorifleman</Original>
@@ -784,7 +784,7 @@
         <Korean>민간 차량은 군사기지, 전초기지, 검문소를 접근하지 않는다면 잠복모드가 가능합니다.</Korean>
         <Italian>I veicoli civili ti permetteranno di viaggiare in modalità Sotto copertura ma solo rimanendo vicino alle strade e non entrando in basi, avamposti e posti di blocco.</Italian>
         <Spanish>Los vehículos civiles te permiten viajar en modo encubierto mientras estés cerca de caminos y no entres a bases, bloqueos militares ni zonas de vigilancia</Spanish>
-        <Polish>Pojazdy cywilne pozwolą ci podróżować w trybie Utajnionym, kiedy zostajesz blisko dróg i nie wjeżdżasz na teren baz wojskowych, posterunków i blokad drogowych.</Polish>
+        <Polish>Pojazdy cywilne pozwolą ci podróżować w trybie incognito, jedynie kiedy zostajesz blisko dróg i nie wjeżdżasz na teren baz wojskowych, posterunków i blokad drogowych.</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
         <Original>Military Vehicle</Original>
@@ -846,7 +846,7 @@
         <Korean>고정형 중기관총 구입</Korean>
         <Italian>Acquista postazione mitragliatrice fissa</Italian>
         <Spanish>Comprar Ametralladora Emplazada</Spanish>
-        <Polish>Kup Statyczny Karabin Maszynowy</Polish>
+        <Polish>Kup Stanowisko Karabinu Maszynowego</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_mortar_text">
         <Original>Mortar</Original>
@@ -870,7 +870,7 @@
         <Korean>고정형 박격포 구입</Korean>
         <Italian>Acquista postazione mortaio fissa</Italian>
         <Spanish>Comprar Emplazamiento Estático de Morteros</Spanish>
-        <Polish>Kup Statyczny Moździerz</Polish>
+        <Polish>Kup Stanowisko Moździerzowe</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_s_aa_text">
         <Original>Static AA</Original>
@@ -930,7 +930,7 @@
         <Korean>픽업트럭</Korean>
         <Italian>Pickup</Italian>
         <Spanish>Camioneta</Spanish>
-        <Polish>Pickup</Polish>
+        <Polish>Pick-up</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_military_offroad_text">
         <Original>Offroad Truck</Original>
@@ -980,7 +980,7 @@
         <Korean>오프로드</Korean>
         <Italian>Fuori Strada</Italian>
         <Spanish>Todoterreno</Spanish>
-        <Polish>Terenówka</Polish>
+        <Polish>Samochód Terenowy</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_dialog_vehicle_purchase_civ_truck_text">
         <Original>Truck</Original>
@@ -1042,7 +1042,7 @@
         <Russian>Не ожидайте, что сможете что-либо победить на ранних стадиях. Сначала вам нужно собрать достаточно ресурсов (HR и Деньги), чтобы иметь возможность завоевать и удерживать свои позиции. Эта миссия пытается смоделировать реальные партизанские ситуации. Если сомневаетесь, спросите себя, что бы вы делали в реальной жизни. Не надейтесь на победу каждый раз. Hit and Run - основной маневр здесь. Зарабатывайте все ресурсы, оружие и боеприпасы, чтобы собрать достаточно активов, чтобы стать настоящим испытанием для врага. А пока помешайте его работе и заручитесь поддержкой населения.</Russian>
         <Italian>Non aspettarti di essere in grado di conquistare molto durante le prime fasi. Per prima cosa dovresti raccogliere abbastanza risorse (Risorse umane e Denaro) per poter conquistare e mantenere le tue posizioni. Questa missione cerca di simulare situazioni di guerriglia reali. In caso di dubbi, chiediti cosa faresti nella vita reale. Non aspettarti di vincere ogni volta. Hit and Run è la manovra di base qui. Guadagna risorse, armi e munizioni in modo tale da ammassare forze sufficienti per essere una vera sfida per il nemico. E nel frattempo, disturbare le sue operazioni e ottenere il sostegno della popolazione.</Italian>
         <Spanish>No esperes ser capaz de conquistar nada en las etapas iniciales. Primero debes juntar suficientes recursos (HR y Dinero) para ser capaz de conquistar y mantener tus posiciones. Esta misión trata de simular situaciones de la Guerrilla real. En caso de duda, pregúntate a ti mismo que harías en la vida real. No esperes ganar cada vez. Golpear e huir es la maniobra básica aquí. Gana cada recurso, arma y bala para suponer un reto real al enemigo. Mientras tanto, estorba las operaciones enemigas y/o ganate el apoyo de la población.</Spanish>
-        <Polish>Nie oczekuj, że we wczesnych etapach będziesz w stanie podbić cokolwiek. Najpierw musisz zebrać wystarczającą ilość zasobów (Rekruci i Pieniądze), aby móc podbić i utrzymać swoje pozycje. Ta misja próbuje symulować rzeczywistą wojnę partyzancką. Jeśli masz wątpliwości, zadaj sobie pytanie, co byś zrobił w prawdziwym życiu. Nie oczekuj, że wygrasz za każdym razem. Szybie Ataki Nękające jest tutaj podstawową taktyką. Zdobądź wszystkie zasoby, broń i amunicję, aby zebrać wystarczającą ilość zasobów, aby stać się prawdziwym wyzwaniem dla wroga. W międzyczasie zakłócić jego działalność i uzyskać wsparcie ludności.</Polish>
+        <Polish>Nie oczekuj, że we wczesnych etapach będziesz w stanie podbić cokolwiek. Najpierw musisz zebrać wystarczającą ilość zasobów (Rekruci i Pieniądze), aby móc podbić i utrzymać swoje pozycje. Ta misja próbuje symulować rzeczywistą wojnę partyzancką. Jeśli masz wątpliwości, zadaj sobie pytanie, co byś zrobił w prawdziwym życiu. Nie oczekuj, że wygrasz za każdym razem. Ataki typu Uderz i Uciekaj są tutaj podstawową taktyką. Zdobądź wszystkie zasoby, broń i amunicję aby stać się prawdziwym wyzwaniem dla wroga. W międzyczasie zakłócaj jego działalność i zyskaj wsparcie ludności.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_2">
         <Original>Aggro Effects</Original>
@@ -1078,7 +1078,7 @@
         <Russian>Стратегия</Russian>
         <Italian>Strategia</Italian>
         <Spanish>Estratégia</Spanish>
-        <Polish>Strategia</Polish>
+        <Polish>Strategie</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
         <Original>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</Original>
@@ -1090,7 +1090,7 @@
         <Russian>Как только у вас будет достаточно ресурсов, сосредоточьтесь на коммуникациях с противником. Если вы их достаточно потревожите, вам не придется сталкиваться с большими контратаками.</Russian>
         <Italian>Una volta che hai una buona quantità di risorse, concentrati sulle comunicazioni nemiche. Se le disturbi abbastanza, non dovrai affrontare grandi contrattacchi.</Italian>
         <Spanish>Una vez tengas una buena cantidad de recursos, enfócate en las comunicaciones enemigas. Si las dañas lo suficiente, no te enfrentarás a grandes contraataques</Spanish>
-        <Polish>Gdy zdobędziesz odpowiednią ilość zasobów, skup się na komunikacji wroga. Jeśli wystarczająco im przeszkadzasz, nie będziesz musiał stawiać czoła dużym kontratakom.</Polish>
+        <Polish>Gdy zdobędziesz odpowiednią ilość zasobów, skup się na komunikacji wroga. Jeśli wystarczająco im przeszkodzisz, nie będziesz musiał stawiać czoła dużym kontratakom.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_4">
         <Original>Conquer and Hold</Original>
@@ -1114,7 +1114,7 @@
         <Russian>Не ожидайте легкой контратаки при захвате стратегических зон, таких как ресурсы или аэропорты. Враг пошлет все, что сможет, если возможно. Если вы захватываете зону и ожидаете контратаки, бегство - хороший вариант.</Russian>
         <Italian>Non aspettarti un leggero contrattacco quando conquisti zone strategiche come risorse o aeroporti. Il nemico invierà tutto ciò che può, se disponibile. Se conquisti una zona e ti aspetti un contrattacco, fuggire è una buona opzione.</Italian>
         <Spanish>No esperes un leve contraataque cuando conquistes zonas estratégicas como aeropuertos o recursos. El enemigo enviará todo lo que tenga, si puede. Si conquistas una zona y esperas un contraataque, retirarse es una buena opción.</Spanish>
-        <Polish>Nie spodziewaj się lekkiego kontrataku, gdy podbijasz strategiczne ważne strefy, takie jak zasoby czy lotniska. Wróg wyśle wszystko, co może, żeby tobie przeszkodzić. Jeśli podbijesz strefę i spodziewasz się kontrataku, ucieczka jest dobrą opcją.</Polish>
+        <Polish>Nie spodziewaj się lekkiego kontrataku, gdy podbijasz strategiczne ważne strefy, takie jak zasoby czy lotniska. Wróg wyśle wszystko, co może, żeby tobie przeszkodzić. Gdy podbijesz którąś strefę i spodziewasz się kontrataku, ucieczka jest dobrą opcją.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_tutorial_5">
         <Original>Resources</Original>
@@ -1174,7 +1174,7 @@
         <Russian>Под прикрытием</Russian>
         <Italian>Sotto Copertura</Italian>
         <Spanish>Encubierto</Spanish>
-        <Polish>Utajniony</Polish>
+        <Polish>Incognito</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_7">
         <Original>In the early stages, especially when accomplishing certain missions, being undercover can be extremely helpful. Just as for real resistance fighters, your ability to disappear is something the enemy cannot counter. See Features section for a deep explanation of Undercover Mode.</Original>
@@ -1210,7 +1210,7 @@
         <Russian>Наличие командира необходимо, потому что он является командующим Фракцией, атакующей наземные силы. Многие параметры доступны только командиру, и, в зависимости от ваших настроек, если вы играете в MP, наиболее опытный игрок обычно занимает эту позицию.</Russian>
         <Italian>Avere un comandante è necessario perché è il comandante delle forze offensive di terra della fazione. Molte opzioni sono disponibili solo per il comandante e, a seconda delle tue impostazioni, se giochi in multigiocatore, il giocatore più esperto di solito occuperà questa posizione.</Italian>
         <Spanish>Tener un comandante es necesario ya que es el comandante de las fuerzas terrestres de la Facción. El comandante tiene muchas opciones únicas y, dependiendo de tus ajustes, si juegas online, el jugador más experto suele ocpuar el puesto.</Spanish>
-        <Polish>Posiadanie dowódcy jest konieczne, ponieważ dowodzi on całą rebelią. Wiele opcji jest dostępnych tylko dla dowódcy i, w zależności od ustawień, jeśli grasz w trybie wieloosobowym, zazwyczaj tę pozycję zajmie najbardziej doświadczony gracz.</Polish>
+        <Polish>Posiadanie dowódcy jest konieczne, ponieważ dowodzi on całą rebelią. Wiele opcji jest dostępnych tylko dla dowódcy, jeśli grasz w trybie wieloosobowym, i w zależności od ustawień, tę pozycję zazwyczaj zajmie najbardziej doświadczony gracz.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_2">
         <Original>Garrisons</Original>
@@ -1282,7 +1282,7 @@
         <Russian>Спрашивайте у Петроса любую миссию, какую захотите. Доступность миссии зависит от расположения штаб-квартиры, текущих назначенных задач и владения прилегающими территориями.</Russian>
         <Italian>Chiedi a Petros qualsiasi tipo di missione desideri. La disponibilità della missione è soggetta al posizionamento del quartier generale, ai compiti attualmente assegnati e a chi controlla le aree circostanti.</Italian>
         <Spanish>Pide a Petros por cualquier tipo de misión que quieras. La disponibilidad de las misiones estás sujetas al posicionamiento del CG, las tareas ya asignadas y del control de las zonas colindantes.</Spanish>
-        <Polish>Zapytaj Petrosa o dowolny rodzaj misji. Dostępność misji zależy od lokalizacji twojej kryjówki, aktualnie przydzielonych zadań i posiadanych okolicznych obszarów.</Polish>
+        <Polish>Zapytaj Petrosa o dowolny rodzaj misji. Dostępność misji zależy od lokalizacji twojej kwatery dowodzenia, aktualnie przydzielonych zadań i posiadanych okolicznych obszarów.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_5">
         <Original>Move HQ</Original>
@@ -1390,7 +1390,7 @@
         <Russian>Найм отряда</Russian>
         <Italian>Recluta Squadra</Italian>
         <Spanish>Reclutar Escuadra</Spanish>
-        <Polish>Zwerbuj Oddział</Polish>
+        <Polish>Rekrutuj Oddział</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_9">
         <Original>The Commander may recruit an AI manned squad at base camp flags. Use the High Command module (CTRL + SPACE) to give orders to your squads. Also you may temporally control and dismiss the squad leader in the same way you do with squad-mates.</Original>
@@ -1474,7 +1474,7 @@
         <Russian>Используйте радио и выберите на карте место с хорошим обзором. К вам присоединится группа снайперов. Отправьте их в выбранное место, и они заметят вас, стараясь оставаться скрытыми и не вступая в бой с врагами при контакте.</Russian>
         <Italian>Usa la radio e seleziona un punto sulla mappa con un buon campo visivo. Un gruppo di cecchini si unirà a te. Inviali nel luogo selezionato e individueranno i nemici per te, cercando di rimanere nascosti e non ingaggieranno al contatto.</Italian>
         <Spanish>Usa la radio y selecciona un punto en el mapa con buena visión del horizonte. Un grupo de tiradores se unirá. Mándalos al sitio seleccionado y observarán por ti, intentando mantenerse ocultos y evitando el combate hasta que sea inevitable.</Spanish>
-        <Polish>Skorzystaj z radia i wybierz miejsce na mapie z dobrym polem widzenia. Dołączy do ciebie grupa snajperów. Wyślij je w wybrane miejsce, a będą wykrywać wrogów, starając się pozostać w ukryciu i nie angażując się w kontakcie.</Polish>
+        <Polish>Skorzystaj z radia i wybierz miejsce na mapie z dobrym polem widzenia. Dołączy do ciebie grupa snajperów. Wyślij je w wybrane miejsce, a będą wykrywać wrogów, starając się pozostać w ukryciu. W przypadku kontaktu z wrogami, nie będą od razu atakować</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_commander_13">
         <Original>Roadblocks</Original>
@@ -1546,7 +1546,7 @@
         <Russian>В флаге HQ, если функция «Участник сервера» включена, вы можете проверить, кто из участников сервера находится в игре.</Russian>
         <Italian>Nella bandiera del Quartier Generale, se la funzione Server Member è abilitata, puoi controllare quali dei Server Member sono in gioco e il numero totale dei non membri.</Italian>
         <Spanish>En la bandera del CG, si la opción de Miembro del Servidorestá habilitada, podrás chequear qué Miembros están ahora jugando y el numero total de no Miembros.</Spanish>
-        <Polish>Na fladze w siedzibie, jeśli włączona jest funkcja Członków Serwera, możesz sprawdzić, którzy z Członków Serwera są w grze i całkowitą liczbę nie członków.</Polish>
+        <Polish>Na fladze w kwaterze dowodzenia, jeśli włączona jest funkcja Członków Serwera, możesz sprawdzić, którzy z Członków Serwera są w grze i całkowitą liczbę pozostałych osób.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
         <Original>Battle Options</Original>
@@ -1594,7 +1594,7 @@
         <Russian>Когда вы являетесь командиром, нажмите CTRL + ПРОБЕЛ, чтобы отдать команды вашим отрядам ИИ, используя режим HC. Некомандующие могут использовать его для проверки контактов с противником, сообщаемых сетью связи фракции.</Russian>
         <Italian>Usa il menu e seleziona un punto sulla mappa. Fai clic su una strada. Un gruppo di soldati AT si unirà a te. Inviali nel luogo selezionato e lì stabiliranno un posto di blocco.</Italian>
         <Spanish>Cuando eres el comandante, presiona CTRL + ESPACIO para dar puntos de reunión y otras ordenes a las escuadras controladas por IA usando el modo HC. Los no comandantes pueden usarlo para visualizar las unidades enemigas reportadas por la red de comunicaciones de la Facción.</Spanish>
-        <Polish>Kiedy jesteś dowódcą, naciśnij CTRL + SPACJA, aby dać punkty nawigacyjne i inne rozkazy swoim oddziałom AI za pomocą trybu HC. Nie dowódcy mogą go używać do sprawdzania kontaktów wroga zgłoszonych przez sieć komunikacyjną frakcji.</Polish>
+        <Polish>Kiedy jesteś dowódcą, naciśnij CTRL + SPACJA, aby dać punkty nawigacyjne i inne rozkazy swoim oddziałom AI za pomocą trybu HC. Pozostali gracze mogą go używać do sprawdzania kontaktów wroga zgłoszonych przez sieć komunikacyjną frakcji.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_3">
         <Original>Artillery</Original>
@@ -1666,7 +1666,7 @@
         <Russian>Нажмите END, чтобы включить/отключить беруши. Отключено при использовании ACE.</Russian>
         <Italian>Premi FINE per abilitare / disabilitare i tappi per le orecchie. Disabilitato con ACE.</Italian>
         <Spanish>Presiona FIN para habilitar / deshabilitar los tapones de oídos. Deshabilitado con ACE.</Spanish>
-        <Polish>Naciśnij przycisk END, aby włączyć/wyłączyć zatyczki do uszu. Wyłączone z ACE.</Polish>
+        <Polish>Naciśnij przycisk END, aby włączyć/wyłączyć zatyczki do uszu. Wyłączone, gdy serwer korzysta z moda ACE.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_SpecialK_6">
         <Original>Toggle Info Bar Visibility</Original>
@@ -1734,7 +1734,7 @@
         <Russian>Добавьте любую технику рядом с вашим личным виртуальным гаражом (или гаражом фракций, если вы командир) и сохраните его для будущего использования. Опция добавления транспортного средства находится в меню Y. Возможности восстановления гаража могут зависеть от того, где вы находитесь: авиационные юниты могут быть восстановлены только возле авиабаз, лодок у берега и т.д.</Russian>
         <Italian>Aggiungi qualsiasi veicolo vicino al tuo garage virtuale personale (o il garage della fazione se sei il comandante) e tienilo al sicuro per un uso futuro. L'opzione per aggiungere un veicolo è nel menu Y. La gestione del garage è nelle opzioni del HQ (la bandiera). Le capacità dei garage possono dipendere da dove ti trovi: le unità aeree possono essere recuperate solo vicino a basi aeree, barche, vicino alla riva, ecc.</Italian>
         <Spanish>Añade cualquier vehículo cercano a tu garaje virtual personal. (o al garaje de facción si eres el comandante) y mantenlo seguro para su futuro uso. La opción de añadir vehículo está a bajo en el menu de Y. La opcion de Ver Garaje esta en las opciones del CG (bandera). La capacidad de recuperar vehículos del garaje depende de donde te encuentres: Las unidades aeresas solo pueden recuperarse en una base aéresa, botes solo en la costa, etc.</Spanish>
-        <Polish>Dodaj dowolny pojazd w pobliżu swojego osobistego wirtualnego garażu (lub garażu frakcji, jeśli jesteś dowódcą) i zachowaj go do wykorzystania w przyszłości. Opcja dodawania pojazdu znajduje się w menu Y. Zarządzanie garażem znajduje się w opcjach centrali (flaga). Możliwości wyciągania z garażu mogą zależeć od tego, gdzie się znajdujesz: jednostki powietrzne można odzyskać tylko w pobliżu baz lotniczych, łodzie w pobliżu brzegu itp.</Polish>
+        <Polish>Dodaj dowolny pojazd w pobliżu swojego osobistego wirtualnego garażu (lub garażu frakcji, jeśli jesteś dowódcą) i zachowaj go do wykorzystania w przyszłości. Opcja dodawania pojazdu znajduje się w menu Y. Zarządzanie garażem znajduje się w opcjach kwatery głównej (flaga). Możliwości wyciągania z garażu mogą zależeć od tego, gdzie się znajdujesz: jednostki powietrzne można odzyskać tylko w pobliżu baz lotniczych, łodzie w pobliżu brzegów itp.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_3">
         <Original>Undercover</Original>
@@ -1746,7 +1746,7 @@
         <Russian>Скрытность</Russian>
         <Italian>Sotto copertura</Italian>
         <Spanish>Encubierto</Spanish>
-        <Polish>Utajniony</Polish>
+        <Polish>Incognito</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_3">
         <Original>Click on this button to go undercover. If you meet the requirements, the enemy won't attack you on sight. On foot, to go undercover you must have no weapons or military equipment visible.&lt;br/&gt;You will lose undercover status when you change load-out, get spotted by enemy guard-dogs, plant mines, and can also be reported by some civilians to the enemy. If you are discovered you won't be able to go undercover on foot again for 30 minutes. You can also go undercover by getting into any civilian vehicle. You will lose undercover status by firing any weapon or being spotted far from a road. If you are discovered you won't be able to go undercover in that vehicle again. Getting close to enemy Airbases, outposts and roadblocks will also make you lose undercover status.</Original>
@@ -1757,7 +1757,7 @@
         <Korean>조건에 맞춰 잠복 버튼을 누르면, 함부로 적에게 공격받지 않습니다. 맨몸으로 잠복하기 위해선 무기 또는 군사장비가 없어야합니다.&lt;br/&gt;장비를 바꾸거나, 경비견에게 들키거나, 지뢰를 심거나 시민이 적에게 신고하면 잠복은 들킵니다. 들킨다면 30분동안은 다시 잠복을 하지 못합니다. 또한 민수차량으로 잠복을 할 수 있습니다. 사격하거나 도로에서 벗어난다면 잠복은 풀립니다. 들키면 그 차량으로는 다시 잠복할 수 없습니다. 적군 공항, 전초기지, 검문소에 가까이 간다면 잠복은 풀립니다.</Korean>
         <Russian>Нажмите на эту кнопку, чтобы перейти под прикрытие. Если вы соответствуете требованиям, противник не нападет на вас сразу же. Пешком, чтобы идти под прикрытием, у вас не должно быть видимого оружия или военной техники. &lt;br/&gt; Вы теряете статус секретного прикрытия, когда меняете расстановку сил, вас заметят вражеские сторожевые собаки, устанавливают мины, а также о вас можно сообщить некоторые мирные жители врагу. Если вас обнаружат, вы не сможете снова ходить под прикрытием в течение 30 минут. Вы также можете под прикрытием сесть в любой гражданский автомобиль. Вы потеряете статус под прикрытием, если выстрелите из любого оружия или вас заметят далеко от дороги. Если вас обнаружат, вы больше не сможете ехать под прикрытием в этом транспортном средстве. Приближение к вражеским авиабазам, заставам и блокпостам также приведет к потере статуса секретного прикрытия.</Russian>
         <Spanish>Selecciona este botón para estar encubierto. Si cumples los requisitos, el eneimgo no te atacará de inmediato. A pie, para estar encubierto necesitas no tener armas ni equipamieno militar visible.&lt;br/&gt;Perderás el estado de encubierto cuando cambies de equipo, seas visto por perros guardianes enemigos, por plantar minas y también puedes ser reportado por algunos civiles. Si eres descubierto, no podrás volver a pasar desapercivido otra vez hasta pasados 30 minutos. También puedes estar de encubierto en vehículos civile. Perderás el estado de encubierto disparando armas o siendo visto circulando lejos de una carretera o camino. Si eres descubierto no podrás volver a pasar desapercibido en ese vehículo. Acercarte a bases militares, bloqueos de carretera y puntos de control también te hará perder tu estatus de oculto.</Spanish>
-        <Polish>Kliknij ten przycisk, aby stać się utajniony. Jeśli spełnisz wymagania, wróg nie zaatakuje cię od razu. Aby stać się utajniony pieszo, nie możesz mieć widocznej broni ani sprzętu wojskowego.&lt;br/&gt;Stracisz status tajniaka, gdy zmienisz wyposażenie, zostaniesz zauważony przez wrogie psy stróżujące, podłożysz miny, a także możesz zostać zgłoszony przez niektórych cywili do wroga. Jeśli zostaniesz wykryty, przez 30 minut nie będziesz mógł ponownie się stać tajniakiem na piechotę. Możesz też działać tajnie, wsiadając do dowolnego cywilnego pojazdu. Wtedy stracisz status tajniaka, gdy strzelisz z dowolnej broni lub będziesz zauważonym z dala od drogi. Jeśli zostaniesz wykryty, nie będziesz mógł ponownie jechać pod przykrywką w tym pojeździe. Zbliżanie się do wrogich baz lotniczych, posterunków i blokad drogowych również spowoduje utratę statusu tajniaka.</Polish>
+        <Polish>Kliknij ten przycisk, aby być incognito. Jeśli spełnisz wymagania, wróg nie zaatakuje cię od razu. Aby być się incognito pieszo, nie możesz mieć widocznej broni ani sprzętu wojskowego.&lt;br/&gt;Stracisz status incognito, gdy zmienisz wyposażenie, zostaniesz zauważony przez wrogie psy stróżujące, podłożysz miny, lub zostać zgłoszony przez niektórych cywili do wroga. Jeśli zostaniesz wykryty, przez 30 minut nie będziesz mógł ponownie się stać się incognito na piechotę. Możesz też działać tajnie, wsiadając do dowolnego cywilnego pojazdu. Status incognito stracisz, gdy strzelisz z dowolnej broni lub będziesz zauważonym z dala od drogi. Jeśli zostaniesz wykryty, nie będziesz mógł ponownie jechać pod przykrywką w tym pojeździe. Zbliżanie się do wrogich baz lotniczych, posterunków i blokad drogowych również spowoduje utratę statusu incognito.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_4">
         <Original>Arsenal</Original>
@@ -1781,7 +1781,7 @@
         <Russian>Найдите предметы, оружие и журналы и положите их в ящик для боеприпасов в штаб-квартире. Как только у вас будет определенное количество их, они будут разблокированы и добавлены в Арсенал для личного использования (и для ваших отрядов фракции). &lt;br/&gt; Количество, необходимое для разблокировки, зависит от того, сколько активов разблокировала фракция. и количество принадлежащих фабрик. Разблокированное оружие, оптика и очки ночного видения также могут изменить загрузку ИИ. Это особенно касается обычных ополченцев: их снаряжение начнется с небольших пистолетов-пулеметов и перейдет к дополнительным зенитным / противотанковым гранатометам. Обратите внимание, это не повлияет на их одежду, которая будет зависеть от текущего уровня навыков фракции (шлемы и униформа). Арсенал - это стандартный арсенал BIS, проверьте его документацию для взаимодействия и использования. &lt;br/&gt;&lt;br/&gt; Чтобы увидеть суммы, необходимые для разблокировки каждой группы предметов, откройте HQ Ammobox, и вы получите подробный отчет справа</Russian>
         <Italian>Cerca armi, caricatori e oggetti e mettili nella tua scatola di munizioni al Quartier Generale. Una volta che ne avrai una quantità specifica, verranno sbloccati e aggiunti all'Arsenale per uso personale (e per le squadre della tua fazione).&lt;br/&gt;L'importo richiesto per sbloccarli dipende da quante risorse la fazione ha sbloccato la fazione e dal numero di fabbriche conquistate. Le armi, mirini e visori notturni sbloccati possono essere usati dell'IA. I miliziani di base ne usufruiranno maggiormente: il loro equipaggiamento partirà da SMG di piccolo calibro e progredirà fino ad avere lanciatori AA / AT. Tieni presente che la disponibilità di caschi e uniformi non influirà sul loro abbigliamento poichè dipenderà dall'attuale livello di abilità della fazione.L'arsenale è quello standard di BIS, controlla la loro documentazione saperne di più sull'uso.&lt;br/&gt;&lt;br/&gt;Per vedere gli importi necessari per sbloccare ciascun gruppo di oggetti, apri l'Arsenale e riceverai un rapporto dettagliato sulla destra dell'interfaccia.</Italian>
         <Spanish>Encuentra equipo, armas y cargadores y ponlos en tu caja de munición del CG. Una vez tengas un número específico de cierto objeto, lo desbloquearás y será añadido a tu Arsenal para uso personal. (y para tu Facción).&lt;brs/&gt;La cantidad requerida depende en cuantos objetos de Facción han sido desbloqueados y el número de fábricas en poder. Las armas desbloqueadas, miras y gafas de visión nocturna también pueden cambiar el equipamiento de la IA. Los Guerrilleros estan especialmente expuestos a esto: su equipo empezará por pequeñas SMGs y progresarán a tener una arma AA / AT extra. Ten en cuenta que no cambiará su uniforme, el cual depende del Nivel de Habilidad de la Facción (cascos y vestimenta). Arsenal es el estándar Arsenal BIS, comprueba la documentación para uso e interacción.&lt;br/&gt;&lt;br/&gt; Para ver la cantidad necesaria para ser debloqueados, abre la caja de munición del CG y aparecerá un detallado reporte a la derecha.</Spanish>
-        <Polish>Zbieraj przedmioty, broń i magazyny i umieszczaj je w swojej skrzynce w kryjówce. Gdy zdobędziesz określoną ilość przedmiotów, zostaną one odblokowane i dodane do Arsenału do użytku osobistego (i dla oddziałów frakcji).&lt;br/&gt;Ilość przedmiotów wymagana do odblokowania zależy od tego, ile odblokowała cała frakcja i od liczby posiadanych fabryk. Odblokowane bronie, optyka i noktowizory mogą również zmienić wyposażenie AI. Szczególnie dotyczy się to podstawowych rebeliantów: ich wyposażenie zacznie się od małych pistoletów maszynowych i przejdzie do posiadania dodatkowej wyrzutni przeciwlotniczej / przeciwpancernej. Pamiętaj, że nie wpłynie to na ich ubiór, który będzie zależał od aktualnego poziomu umiejętności frakcji (hełmy i mundury). Arsenał to standardowy Arsenał BIS, sprawdź ich dokumentację pod kątem interakcji i użycia.&lt;br/&gt;&lt;br/&gt;Aby zobaczyć kwoty wymagane do odblokowania każdej grupy przedmiotów, otwórz skrzynkę w sztabie, a otrzymasz szczegółowy raport.</Polish>
+        <Polish>Zbieraj przedmioty, broń i magazyny i umieszczaj je w arsenale. Gdy zdobędziesz określoną ilość przedmiotów, zostaną one odblokowane i dodane do arsenału do użytku osobistego (i dla oddziałów AI frakcji).&lt;br/&gt;Ilość przedmiotów wymagana do odblokowania zależy od tego, ile odblokowała cała frakcja i od liczby posiadanych fabryk. Odblokowane bronie, optyka i noktowizory mogą również zmienić wyposażenie AI. Szczególnie dotyczy się to oddziałów milicji: ich wyposażenie zacznie się od małych pistoletów maszynowych i przejdzie do posiadania dodatkowej wyrzutni przeciwlotniczej / przeciwpancernej. Pamiętaj, że nie wpłynie to na ich ubiór, który będzie zależał od aktualnego poziomu umiejętności frakcji (hełmy i mundury). Arsenał to standardowy Arsenał BIS, sprawdź ich dokumentację pod kątem interakcji i użycia.&lt;br/&gt;&lt;br/&gt;Aby zobaczyć kwoty wymagane do odblokowania każdej grupy przedmiotów, otwórz skrzynkę w sztabie, a otrzymasz szczegółowy raport.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_5">
         <Original>Politics</Original>
@@ -1865,7 +1865,7 @@
         <Russian>Станковое орудие</Russian>
         <Italian>Armi Fisse</Italian>
         <Spanish>Armas Estáticas</Spanish>
-        <Polish>Broń Statyczna</Polish>
+        <Polish>Stanowiska bojowe</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_8">
         <Original>You may steal static weapons found in enemy airports. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!</Original>
@@ -1877,7 +1877,7 @@
         <Russian>Вы можете украсть статическое оружие, найденное во вражеских аэропортах. Для этого вы должны использовать действие «Steal Static». ЗАПРЕЩАЕТСЯ разбирать их, прежде чем использовать действие «Кража статики».</Russian>
         <Italian>Puoi rubare armi fisse trovate negli aeroporti nemici. È necessario utilizzare l'azione "Ruba arma fissa" per farlo. Se smonterai l'arma fissa prima di usare l'azione non funzionerà!</Italian>
         <Spanish>Puedes robar armas estáticas que se encuentran en aeropuertos enemigos. Debes usar la acción de "Robar Estática" para ello. ¡NO las desmanteles antes de usar la acción "Robar Estática"!</Spanish>
-        <Polish>Możesz ukraść broń statyczną znalezioną na lotniskach wroga. Aby to zrobić, musisz użyć akcji „Ukradnij Broń Statyczną”. NIE demontuj ich na części przed użyciem akcji „Ukradnij Broń Statyczną”!</Polish>
+        <Polish>Możesz ukraść stanowiska boje znalezioną na lotniskach wroga. Aby to zrobić, musisz użyć akcji „Ukradnij Stanowisko Bojowe”. NIE demontuj ich na części przed użyciem akcji „Ukradnij Stanowisko Bojowe”!</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_9">
         <Original>Conquer</Original>
@@ -1889,7 +1889,7 @@
         <Russian>Захват</Russian>
         <Italian>Conquistare</Italian>
         <Spanish>Conquista</Spanish>
-        <Polish>Podbijanie</Polish>
+        <Polish>Podbój</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_9">
         <Original>Some zones, like airports require you to use the ""Take the Flag"" action on their respective flags in order to conquer them. Some others, like roadblocks and some outposts, simply require you to defeat the garrison.</Original>
@@ -1913,7 +1913,7 @@
         <Russian>Погрузка боеприпасов</Russian>
         <Italian>Trasferimento Cassa di Munizioni</Italian>
         <Spanish>Transferir Caja de Munición</Spanish>
-        <Polish>Przenoszenie Skrzyni</Polish>
+        <Polish>Transfer zawartości Arsenału</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_10">
         <Original>When you mount a truck, you may use the Transfer action in the action menu. It will search for nearby ammoboxes and load the contents of the nearest one into the truck's cargo space. You may then unload the truck in your ammobox at HQ for future use. Before transferring, make sure to unload backpack/vest contents into the Truck cargo space and then transfer. TIP: If your HQ Ammobox is full, use this functionality from a nearby truck to add more content to the ammobox as it will then accept everything :)</Original>
@@ -1961,7 +1961,7 @@
         <Russian>Станковое орудие в штабе</Russian>
         <Italian>Posizione Fissa di Base</Italian>
         <Spanish>Emplacamientos Estáticos de la Base</Spanish>
-        <Polish>Rozmieszczanie Broni Statycznej w Bazie</Polish>
+        <Polish>Rozmieszczanie Stanowisk Bojowych w Bazie</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_12">
         <Original>Purchased static weapons won't despawn if you leave them in a base or zone, AI garrison will man them. Reinforce places as you desire.</Original>
@@ -1973,7 +1973,7 @@
         <Russian>Купленное статическое оружие не исчезнет, если вы оставите его на базе или в зоне, им будет управлять гарнизон ИИ. Укрепляйте места по своему желанию</Russian>
         <Italian>Le armi fisse acquistate non scompariranno se le lasci in una base o vicino a zone alleante, verranno utilizzate dall'IA, Rinforza come desideri.</Italian>
         <Spanish>Las armas estáticas compradas no desaparecerán si las dejas en una base o zona, la guarnición de la IA las manejarán. Refuerza posiciones a tu gusto.</Spanish>
-        <Polish>Zakupiona broń statyczna nie zniknie, jeśli zostawisz ją w bazie lub strefie, obsadzi ją garnizon AI.</Polish>
+        <Polish>Zakupione stanowiska bojowe nie znikną, jeśli zostawisz je w bazie lub strefie, obsadzi ją garnizon AI.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_13">
         <Original>Group Selection</Original>
@@ -2021,7 +2021,7 @@
         <Russian>Если эта функция включена, все не-члены будут исключены из использования HQ Ammobox и станут командиром. Эта функция предназначена для того, чтобы ваша игра не испортилась случайным троллем в среде открытого сервера. Командиры могут добавлять или удалять игроков из списка участников сервера, если эта функция включена.</Russian>
         <Italian>Se abilitata, questa funzione escluderà tutti i non-membri dall'uso della cassa di munizioni al quartier generale e toglierà a loro la possibilità di diventare Comandante. Questa funzione ha lo scopo di evitare che la tua partita venga rovinata da troll in server pubblici. I comandanti possono aggiungere o rimuovere giocatori dall'elenco dei membri se la funzione è abilitata.</Italian>
         <Spanish>Si esta habilitado, esta opción excluirá a los No Miembros de usar la caja de munición del CG y de convertirse en comandante. Esta opción esta pensada para evitar que tu juego se arruine por trolls casuales en servidores con entornos abiertos. Los comandantes podrán añadir y quitar a jugadores de la lista de Miembros del Servidor si la opción está habilitada.</Spanish>
-        <Polish>Jeśli jest włączona, ta funkcja wykluczy wszystkie osoby, które nie są członkami, z korzystania ze skrzyni z amunicją w głównej siedzibie i zostania dowódcą. Ta funkcja ma na celu uniknięcie zrujnowania gry przez przypadkowego trolla na serwerze publicznym. Dowódcy mogą dodawać lub usuwać graczy z listy członków serwera, jeśli ta funkcja jest włączona.</Polish>
+        <Polish>Jeśli jest włączona, ta funkcja wykluczy wszystkie osoby, które nie są członkami serwera, z korzystania ze skrzyni z amunicją w głównej siedzibie i zostania dowódcą. Ta funkcja ma na celu uniknięcie zrujnowania gry przez przypadkowego trolla na serwerze publicznym. Dowódcy mogą dodawać lub usuwać graczy z listy członków serwera, jeśli ta funkcja jest włączona.</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_15">
         <Original>Player and Money</Original>
@@ -2081,7 +2081,7 @@
         <Russian>Пробитие</Russian>
         <Italian>Cariche da irruzione</Italian>
         <Spanish>Cargas de Apertura</Spanish>
-        <Polish>Ładunki Wyburzeniowe</Polish>
+        <Polish>Ładunki Wyważające</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_17">
         <Original>To breach an APC you need %1 %2To breach a tank you need %3</Original>
@@ -2201,7 +2201,7 @@
         <Russian>Автоснаряжение \ Лут</Russian>
         <Italian>Riarmo automatico \ Bottino</Italian>
         <Spanish>Auto Rearme / Botín</Spanish>
-        <Polish>Automatyczne Uzbrajanie \ Zbieranie</Polish>
+        <Polish>Automatyczne Dozbrajanie \ Zbieranie</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_5">
         <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles and ammoboxes if needed. Also they will try to renew their weapons with more powerful ones. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>
@@ -2225,7 +2225,7 @@
         <Russian>Техника отряда</Russian>
         <Italian>Squadra Meccanizzata</Italian>
         <Spanish>Vehículo de Escuadra</Spanish>
-        <Polish>Przydziel Pojazd</Polish>
+        <Polish>Pojazd oddziału</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_6">
         <Original>Commander Only. Use this option to assign the vehicle you are looking at to any HC squad. Check vehicle status, order them to mount or disembark, and automate mounted static squads.</Original>
@@ -2309,7 +2309,7 @@
         <Russian>Устанавливает максимальное количество AI на карте на сервер или HC. До 200 ИИ могут вести себя прилично</Russian>
         <Italian>Solo comandante. Imposta la quantità massima di IA nella mappa per server o HC. Fino a 200 IA possono comportarsi in modo decente.</Italian>
         <Spanish>Solo para el Comandante. Limita la cantidad máxima de IA en el mapa en el servidor o en el CG. Por encima del valor 200 la IA se comporta de forma aceptable</Spanish>
-        <Polish>Tylko dowódca może tego używać. Ustawia maksymalną ilość AI na mapie na serwer lub HC.</Polish>
+        <Polish>Tylko dowódca może tego używać. Ustawia maksymalną ilość AI na mapie na serwer lub Headless Client. Do 200 AI serwer działa w miarę w porządku</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Options_3">
         <Original>Persistent Save-game</Original>
@@ -2321,7 +2321,7 @@
         <Russian>Сохранение</Russian>
         <Italian>Salvataggio persistente</Italian>
         <Spanish>Guardado Persistente</Spanish>
-        <Polish>Trwały Zapis</Polish>
+        <Polish>Trwały Zapis stanu gry</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_3">
         <Original>Commander Only. You may save the game at your HQ Map. This will allow you to continue playing upon mission update or server restart, preserving stats, player's equipment, conquered zones, enemy asset availability and many more things. WARNING: Normal save and load runs badly in this mission. This system is your only guarantee of saving the game properly</Original>
@@ -2440,7 +2440,7 @@
         <Russian>Рестарт интерфейса</Russian>
         <Italian>Reinizializza l'UI</Italian>
         <Spanish>Reiniciar UI</Spanish>
-        <Polish>Restar UI</Polish>
+        <Polish>Restart UI</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Options_8">
         <Original>Select this option when the Y key or Statistics bar are not working.</Original>
@@ -2488,7 +2488,7 @@
         <Russian>ЧР</Russian>
         <Italian>RU</Italian>
         <Spanish>RH</Spanish>
-        <Polish>HR</Polish>
+        <Polish>Zasoby ludzkie</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_2">
         <Original>HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Point = 1 Soldier)</Original>
@@ -2560,7 +2560,7 @@
         <Russian>Ресурсы</Russian>
         <Italian>Risorse</Italian>
         <Spanish>Recursos</Spanish>
-        <Polish>Zasoby</Polish>
+        <Polish>Strefa zasobów</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_5">
         <Original>Every 10 minutes each faction receives Money and Manpower according to the zones they own, and the state they are in. Having a good amount of resource zones and some factories is the way of getting enough resources to win this war.</Original>
@@ -2584,7 +2584,7 @@
         <Russian>Штаб - Основы</Russian>
         <Italian>QG - Basi</Italian>
         <Spanish>CG - Cosas Básicas</Spanish>
-        <Polish>Sztab - Podstawy</Polish>
+        <Polish>Kwatera dowodzenia - Podstawy</Polish>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_6">
         <Original>Flag: Vehicle and Squad Unit Recruitment. Commander Options.&lt;br/&gt;Petros: Side-missions (Commander Only).&lt;br/&gt;Map: Game Options.&lt;br/&gt;Camp-fire: Rest for 8 hours and Clear Forest (Commander Only).</Original>
@@ -3029,7 +3029,7 @@
         <Italian>Missione di Assassinio</Italian>
         <Czech>Mise atentát</Czech>
         <Spanish>Misiones de Asesinato</Spanish>
-        <Polish>Misja Zabójstwo</Polish>
+        <Polish>Misje Zamachu</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_convoy_ambush">
         <Original>Convoy Ambush</Original>
@@ -3040,7 +3040,7 @@
         <Italian>Imboscata al Convoglio</Italian>
         <Czech>Přepadení konvoje</Czech>
         <Spanish>Emboscada de Convoy</Spanish>
-        <Polish>Misja Zasadzka na Konwój</Polish>
+        <Polish>Misje Zasadzka na Konwój</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_destroy_missions">
         <Original>Destroy Missions</Original>
@@ -3051,7 +3051,7 @@
         <Italian>Missioni di Distruzione</Italian>
         <Czech>Mise zničit</Czech>
         <Spanish>Misiones de Destrucción</Spanish>
-        <Polish>Misja Zniszcz</Polish>
+        <Polish>Misje Zniszcz Cel</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_conquest_missions">
         <Original>Conquest Missions</Original>
@@ -3062,7 +3062,7 @@
         <Italian>Missioni Conquista</Italian>
         <Czech>Mise zabrat</Czech>
         <Spanish>Misiones de Conquista</Spanish>
-        <Polish>Misja Podbój</Polish>
+        <Polish>Misje Podbóju</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions">
         <Original>Logistics Missions</Original>
@@ -3073,7 +3073,7 @@
         <Italian>Missioni Logistiche</Italian>
         <Czech>Logistická mise</Czech>
         <Spanish>Misiones Logísticas</Spanish>
-        <Polish>Misja Logistyczna</Polish>
+        <Polish>Misje Logistyczne</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_logistics_missions_tooltip">
         <Original>Missions to acquire money or equipment</Original>
@@ -3084,7 +3084,7 @@
         <Italian>Missioni per acquisire soldi o equipaggiamento</Italian>
         <Czech>Mise s cílem získat peníze nebo vybavení</Czech>
         <Spanish>Misiones para conseguir Dinero o Equipo</Spanish>
-        <Polish>Misja Zdobycia Pieniędzy lub Sprzętu</Polish>
+        <Polish>Misje Zdobycia Pieniędzy lub Sprzętu</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions">
         <Original>Support Missions</Original>
@@ -3095,7 +3095,7 @@
         <Italian>Missioni di Supporto</Italian>
         <Czech>Podpůrné mise</Czech>
         <Spanish>Misiones de Apoyo</Spanish>
-        <Polish>Misja Wsparcia</Polish>
+        <Polish>Misje Wsparcia</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_support_missions_tooltip">
         <Original>Missions to increase your support within the population</Original>
@@ -3106,7 +3106,7 @@
         <Italian>Missioni per aumentare il supporto della popolazione nei tuoi riguardi</Italian>
         <Czech>Mise, které zvýší vaše podporů civilistů</Czech>
         <Spanish>Misiones para aumentrar tu apoyo entre la población</Spanish>
-        <Polish>Misja, aby Zwiększyć Wsparcie w Populacji</Polish>
+        <Polish>Misje, aby Zwiększyć Wsparcie w Populacji</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_mission_menu_rescue_missions">
         <Original>Rescue Missions</Original>
@@ -3117,7 +3117,7 @@
         <Italian>Missione di Recupero</Italian>
         <Czech>Záchranné mise</Czech>
         <Spanish>Misiones de Rescate</Spanish>
-        <Polish>Misja Ratunkowa</Polish>
+        <Polish>Misje Ratunkowe</Polish>
       </Key>
     </Container>
     <Container name="radio_comm">
@@ -3185,7 +3185,7 @@
         <Italian>Sotto Copertura ON</Italian>
         <Czech>V utajení ZAPNUTO</Czech>
         <Spanish>Encubierto ON</Spanish>
-        <Polish>Tryb Utajniony WŁ</Polish>
+        <Polish>Tryb Incognito WŁ</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
         <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
@@ -3196,7 +3196,7 @@
         <Italian>Vai sotto copertura se soddisfi i requisiti. I nemici non ti attaccheranno finché verrai scoperto</Italian>
         <Czech>Být v utajení pokud jsou splněny podmínky. Nepřítel nebude útočit pokud nebudete odhaleni.</Czech>
         <Spanish>Pasa a Encubierto si cumples los requisitos. La IA enemiga no te atacará hasta que te descubra.</Spanish>
-        <Polish>Zostań Utajniony, jeśli spełniasz wymagania. Wrogowie nie zaatakuje cię, dopóki cię nie odkryją</Polish>
+        <Polish>Stań się Incognito, jeśli spełniasz wymagania. Wrogowie nie zaatakuje cię, dopóki cię nie odkryją</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_garage">
         <Original>Garage Vehicle</Original>
@@ -3240,7 +3240,7 @@
         <Italian>Costruisci nel punto dove hai selezionato una struttura rivolta verso questa direzione</Italian>
         <Czech>Stavějte na místě, kde jste vybraly budovu otočenou tímto směrem</Czech>
         <Spanish>Construye en el sitio el edificio seleccionado mirando hacia esta dirección</Spanish>
-        <Polish>Zbuduj w miejscu, w którym jesteś wybranym budynkiem zwróconym w tym kierunku</Polish>
+        <Polish>Zbuduj, w miejscu w którym jesteś, wybrany budynek zwrócony w tym kierunku</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
@@ -3319,7 +3319,7 @@
         <Italian>Manager Veicoli</Italian>
         <Czech>Manažer vozidel</Czech>
         <Spanish>Gestionar vehículo</Spanish>
-        <Polish>Zarządzanie Pojazdem</Polish>
+        <Polish>Zarządzanie pojazdami</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">
         <Original>Garage\Sell Vehicle</Original>
@@ -3475,7 +3475,7 @@
         <Italian>Se la squadra sta usando un veicolo, conoscine remotamente lo stato</Italian>
         <Czech>Pokud vybraná skupina používá nějaké vozidlo, vězte vzdáleně jeho stav</Czech>
         <Spanish>Si la escuadra seleccionada está usando algún vehículo, conoce de forma remota su situación.</Spanish>
-        <Polish>Jeśli wybrany oddział korzysta z jakiegoś pojazdu, sprawdź zdalnie jego status</Polish>
+        <Polish>Sprawdź zdalnie status pojazu z którego krorzysta oddział</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_manager_mount">
         <Original>Mount / Dismount</Original>
@@ -3519,7 +3519,7 @@
         <Italian>Usa questa opzione su una squadra meccanizata AC / AA, il pilota cercherà di rotare il veicolo verso un nemico avvistato</Italian>
         <Czech>Tuto možnost použijte na AT / AA jednotkách. Řidič kamionu se pokusí nasměrovat svůj kamion zpět na jakéhokoli detekovaného nepřítele</Czech>
         <Spanish>Usa esta opción en escuadras montadas de AT / AA. El conductor del camión intentará apuntar el reverso del vehículo hacia cualquier enemigo detectado.</Spanish>
-        <Polish>Użyj tej opcji na zmotoryzowanych oddziałach PPANC/PLOT. Kierowca pojazdu będzie próbował skierować swój cpojazd tyłem do każdego wykrytego wroga</Polish>
+        <Polish>Użyj tej opcji na zmotoryzowanych oddziałach PPANC/PLOT. Kierowca pojazdu będzie próbował skierować swój pojazd tyłem do każdego wykrytego wroga</Polish>
       </Key>
     </Container>
     <Container name="AI_management">
@@ -3565,7 +3565,7 @@
         <Italian>Auto Riarmo / Saccheggio</Italian>
         <Czech>Automatické přezbrojování \ kořistění</Czech>
         <Spanish>Auto Rearme / Botín</Spanish>
-        <Polish>Automatyczne Uzbrajanie \ Zbieranie</Polish>
+        <Polish>Automatyczne Dozbrajanie \ Zbieranie</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm_tooltip">
         <Original>AI will search for better weapons, vests, helmets etc. If they are in a vehicle, they will just store what they scavenge in the vehicle. If not, they will equip them</Original>
@@ -3910,7 +3910,7 @@
         <Italian>Bombardamento a Tappeto</Italian>
         <Czech>Úder kobercového bombardování</Czech>
         <Spanish>Bombardeo de alfombra</Spanish>
-        <Polish>Nalot Kasetowy</Polish>
+        <Polish>Zmasowane bombardowanie</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_he">
         <Original>HE Bombs</Original>
@@ -4459,7 +4459,7 @@
         <Italian>Garage Personale</Italian>
         <Czech>Osobní garáž</Czech>
         <Spanish>Garaje Personal</Spanish>
-        <Polish>Garaż Osobisty czy Frakcji?</Polish>
+        <Polish>Garaż Osobisty</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_garage_faction">
         <Original>Faction Garage</Original>
@@ -4617,7 +4617,7 @@
         <Italian>Squadra Ingegneri</Italian>
         <Czech>Inženýrská družstvo</Czech>
         <Spanish>Escuadra de Ingenieros</Spanish>
-        <Polish>Drużyna Inżynieryjna</Polish>
+        <Polish>Drużyna Inżynierów</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_squad_options_mg">
         <Original>MG Squad</Original>

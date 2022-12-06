@@ -418,7 +418,7 @@
         <Russian>Остерегайтесь: Санта-Клаус охотится на вас!</Russian>
         <Italian>Attenzione: Santa Claus ti da la caccia!</Italian>
         <Spanish>¡Cuidado: Santa Claus te está cazando!</Spanish>
-        <Polish>Uwaga: Wujek Stalin cie szuka!</Polish>
+        <Polish>Uwaga: Święty Mikołaj Cię szuka!</Polish>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_mapname_short_text">
         <Original>Antistasi Kunduz</Original>
@@ -654,7 +654,7 @@
         <Czech>Sjednocení Sahrani</Czech>
         <Italian>La riunificazione di Sahrani</Italian>
         <Spanish>La Reunificación de Sahrani</Spanish>
-        <Polish>Czas na ponowne zjednoczenia Sahrani.</Polish>
+        <Polish>Czas na ponowne zjednoczenie Sahrani.</Polish>
       </Key>
       <Key ID="STR_antistasi_mission_info_takistan_mapname_short_text">
         <Original>Antistasi Takistan</Original>
@@ -700,7 +700,7 @@
         <Czech>V žáru takstánské pouště</Czech>
         <Italian>Nel calore del deserto Takistano</Italian>
         <Spanish>En el Calor del Desierto Takistaní</Spanish>
-        <Polish>W upale pustyni takistańskiej...</Polish>
+        <Polish>W upale takistańskiej pustyni ...</Polish>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_short_text">
         <Original>Antistasi Khe Sanh</Original>

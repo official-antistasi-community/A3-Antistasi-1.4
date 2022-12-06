@@ -70,7 +70,7 @@
         <Chinesesimp>装甲车辆</Chinesesimp>
         <Czech>Pancíř</Czech>
         <Italian>Armatura</Italian>
-        <Polish>Opancerzone</Polish>
+        <Polish>Pojazdy Opancerzone</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Generic_Air">
         <Original>Aircraft</Original>
@@ -103,7 +103,7 @@
         <Chinesesimp>船只</Chinesesimp>
         <Czech>Lodě</Czech>
         <Italian>Barche</Italian>
-        <Polish>Morskie</Polish>
+        <Polish>Statki</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Generic_Static">
         <Original>Statics</Original>
@@ -114,7 +114,7 @@
         <Chinesesimp>固定武器</Chinesesimp>
         <Czech>Statické zbraně</Czech>
         <Italian>Armi Fisse</Italian>
-        <Polish>Broń Statyczna</Polish>
+        <Polish>Stanowiska bojowe</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Generic_Mounts">
         <Original>Mounts</Original>
@@ -169,7 +169,7 @@
         <Chinesesimp>编辑挂架需要可用弹药来源</Chinesesimp>
         <Czech>Pylony vyžadují úpravu zdroje munice</Czech>
         <Italian>Per editare gli equipaggiamenti dinamici hai bisogno di una fonte di munizioni</Italian>
-        <Polish>Pylony wymagają źródła amunicji do edycj</Polish>
+        <Polish>Pylony wymagają źródła amunicji do edycji</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Generic_full">
         <Original>full</Original>
@@ -213,7 +213,7 @@
         <Chinesesimp>从车库中被取出的载具会被重新武装</Chinesesimp>
         <Czech>Vozidla budou přezbrojena když budou vyndána z garáže</Czech>
         <Italian>I veicoli saranno riarmati quando lasceranno il garage</Italian>
-        <Polish>Pojazdy zostaną przezbrojone, gdy zostaną wyciągnięte z garażu</Polish>
+        <Polish>Pojazdy zostaną dozbrojone, gdy zostaną wyciągnięte z garażu</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable">
         <Original>Vehicles won't be rearmed when ungaraged as the garage lacks an ammo source</Original>
@@ -224,7 +224,7 @@
         <Chinesesimp>缺乏弹药来源时从车库中被取出的载具不会被重新武装</Chinesesimp>
         <Czech>Vozidla nebudou přezbrojena když budou vyndána z garáže jelikož garáž nemá dostatek muničních zdrojů</Czech>
         <Italian>I veicoli non saranno riarmati quando lasceranno il garage poichè non è presente una fonte di munizioni</Italian>
-        <Polish>Pojazdy nie zostaną przezbrojone, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje źródła amunicji</Polish>
+        <Polish>Pojazdy nie zostaną dobrojone, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje źródła amunicji</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled">
         <Original>Rearm disabled by server</Original>
@@ -235,7 +235,7 @@
         <Chinesesimp>服务器设置禁用了重新武装</Chinesesimp>
         <Czech>Přezbrojení deaktivováno podle serveru</Czech>
         <Italian>Riarmo disabilitato dal server</Italian>
-        <Polish>Przezbrajanie wyłączone przez ustawienia serwer</Polish>
+        <Polish>Dozbrajanie wyłączone w ustawieniach serwera</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Available">
         <Original>Vehicles will be refueled when ungaraged</Original>
@@ -257,7 +257,7 @@
         <Chinesesimp>缺乏油料来源时从车库中被取出的载具不会被重新加油</Chinesesimp>
         <Czech>Vozidla nebudou dotankována když budou vyndána z garáže jelikož garáž nemá dostatek palivových zdrojů</Czech>
         <Italian>I veicoli non saranno riforniti quando lasceranno il garage poichè non è presente una fonte di carburante</Italian>
-        <Polish>Pojazdy nie zostaną zatankowane, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje źródła amunicji</Polish>
+        <Polish>Pojazdy nie zostaną zatankowane, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje źródła paliwa</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled">
         <Original>Refuel disabled by server settings</Original>
@@ -268,7 +268,7 @@
         <Chinesesimp>服务器设置禁用了燃料补充</Chinesesimp>
         <Czech>Dotankování vypnuto v nastavení serveru</Czech>
         <Italian>Rifornimenti disabilitato dal server</Italian>
-        <Polish>Tankowanie wyłączone przez ustawienia serwer</Polish>
+        <Polish>Tankowanie wyłączone w ustawieniach serwera</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Available">
         <Original>Vehicles will be repaired when ungaraged</Original>
@@ -290,7 +290,7 @@
         <Chinesesimp>缺乏维修来源时从车库中被取出的载具不会被重新维修</Chinesesimp>
         <Czech>Vozidla nebudou opravena když budou vyndána z garáže jelikož garáž nemá dostatek opravných zdrojů</Czech>
         <Italian>I veicoli non saranno riparati quando lasceranno il garage poichè non è presente una fonte di pezzi di ricambio</Italian>
-        <Polish>Pojazdy nie zostaną naprawione, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje źródła amunicji</Polish>
+        <Polish>Pojazdy nie zostaną naprawione, gdy zostaną wyciągnięte z garażu, ponieważ w garażu brakuje zasobów naprawczych</Polish>
       </Key>
       <Key ID="STR_HR_GRG_SourcePanel_toolTip_Repair_Disabled">
         <Original>Repair disabled by server settings</Original>
@@ -301,7 +301,7 @@
         <Chinesesimp>服务器设置禁用了载具维修</Chinesesimp>
         <Czech>Opravování vypnuto v nastavení serveru</Czech>
         <Italian>Riparazioni disabilitate dalle impostazioni del server</Italian>
-        <Polish>Naprawianie wyłączone przez ustawienia serwer</Polish>
+        <Polish>Naprawianie wyłączone w ustawieniach serwera</Polish>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_isAmmoSource">
         <Original>Vehicle is an ammo source</Original>
@@ -836,7 +836,7 @@
         <Chinesesimp>镜像</Chinesesimp>
         <Czech>Zrcadlo</Czech>
         <Italian>Specchio</Italian>
-        <Polish>Odbicie</Polish>
+        <Polish>Symetria</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Pylons_CustomPreset">
         <Original>[Custom preset]</Original>

@@ -1,4 +1,13 @@
-//Mission: Destroy the helicopter
+/*
+    Creates a "Destroy the helicopter" type mission near input marker.
+
+    Arguments:
+        <STRING> Marker
+
+	Public: Yes
+    Example:
+        ["airport"] call A3A_fnc_DES_Heli;
+*/
 if (!isServer and hasInterface) exitWith{};
 
 private _missionOrigin = _this select 0;
@@ -49,7 +58,7 @@ Debug_2("Crash Location: %1, Aircraft: %2", _posCrash, _typeVehH);
 private _vehicles = [];
 private _groups = [];
 
-//createing crashed helicopter
+//creating crashed helicopter
 private _crater = "CraterLong" createVehicle _posCrash;
 private _heli = createVehicle [_typeVehH, [_posCrash select 0, _posCrash select 1, 0.9], [], 0, "CAN_COLLIDE"];
 private _smoke = "test_EmptyObjectForSmoke" createVehicle _posCrash; _smoke attachTo [_heli,[0,1.5,-1]];
@@ -87,7 +96,7 @@ private _dateLimitNum = dateToNumber _dateLimit;
 Info("Creating Helicopter Down mission");
 private _location = [_missionOrigin] call A3A_fnc_localizar;
 private _taskId = "DES" + str A3A_taskCount;
-private _text = format ["We have downed a helicopter. There is a good chance to destroy it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY",_location];
+private _text = format ["We have downed a helicopter. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY",_location];
 [[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 

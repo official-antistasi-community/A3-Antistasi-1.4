@@ -82,7 +82,7 @@ if (HR_GRG_hasFuelSource) then {
     } forEach _hqVehicles;
 };
 
-private _additiveTexts = []; 
+private _additiveTexts = [localize "STR_A3A_base_vehicleBoxRestore_noreported"]; 
  
 if (HR_GRG_hasRepairSource) then { 
 	_additiveTexts pushBack (localize "STR_A3A_base_vehicleBoxRestore_repaired"); 
@@ -94,12 +94,12 @@ if (HR_GRG_hasFuelSource) then {
 	_additiveTexts pushBack (localize "STR_A3A_base_vehicleBoxRestore_refueled"); 
 }; 
  
-private _finalAdditiveString = _additiveTexts joinString ", "; 
+private _finalAdditiveString = _additiveTexts joinString ""; 
  
 private _finalStringVariant = [
     localize "STR_A3A_base_vehicleBoxRestore_healed",
     localize "STR_A3A_base_vehicleBoxRestore_restored_additive"
-] select (count _additiveTexts > 0);
+] select (count _additiveTexts > 1);
 
 private _finalString = format [_finalStringVariant, _finalAdditiveString];
 

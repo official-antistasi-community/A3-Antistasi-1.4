@@ -4996,41 +4996,24 @@
         <Polish>Skrzynia została użyta w ciągu ostatnich 30 sekund! Proszę chwilę poczekać.</Polish>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_restored_additive">
-        <Original>Nearby units have been healed, refreshed and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles are no longer reported, %1.</Original>
-        <German>Einheiten in der Nähe wurden geheilt, aufgefrischt und können wieder Undercover gehen.&lt;br/&gt;&lt;br/&gt;Fahrzeuge in der Nähe werden nicht mehr gemeldet, %1.</German>
-        <Russian>Соседние юниты были вылечены, восстановлены и теперь могут снова уходить в гражданскую маскировку.&lt;br/&gt;&lt;br/&gt;Техника рядом больше не разыскивается, %1.</Russian>
-        <French>Les unités à proximité ont été soignées, rafraîchies et peuvent à nouveau s'infiltrer.&lt;br/&gt;&lt;br/&gt;Les véhicules à proximité ne sont plus signalés, %1.</French>
-        <Italian>Le unità vicine sono state curate, rinfrescate e possono tornare sotto copertura.&lt;br/&gt;&lt;br/&gt;I veicoli vicini non vengono più segnalati, %1.</Italian>
-        <Czech>Okolní jednotky byly vyléčeny, osvěženy a mohou se znovu skrývat.&lt;br/&gt;&lt;br/&gt;Blízká vozidla již nejsou hlášena, %1.</Czech>
-        <Spanish>Las unidades cercanas han sido curadas, renovadas y pueden volver a estar encubiertas.&lt;br/&gt;&lt;br/&gt;Los vehículos cercanos ya no se informan, %1.</Spanish>
+        <Original>Nearby units have been healed, refreshed and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles are:%1</Original>
+        <Russian>Соседние юниты были вылечены, восстановлены и теперь могут снова уходить в гражданскую маскировку.&lt;br/&gt;&lt;br/&gt;Техника рядом:%1</Russian>
+      </Key>
+      <Key ID="STR_A3A_base_vehicleBoxRestore_noreported">
+        <Original>&lt;br/&gt; - no longer reported</Original>
+        <Russian>&lt;br/&gt; - более не разыскивается</Russian>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_rearmed">
-        <Original>rearmed</Original>
-        <German>aufgerüstet</German>
-        <Russian>перезаряжена</Russian>
-        <French>réarmés</French>
-        <Italian>riarmati</Italian>
-        <Czech>přezbrojena</Czech>
-        <Spanish>rearman</Spanish>
+        <Original>&lt;br/&gt; - rearmed</Original>
+        <Russian>&lt;br/&gt; - перезаряжена</Russian>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_repaired">
-        <Original>repaired</Original>
-        <German>repariert</German>
-        <Russian>отремонтирована</Russian>
-        <French>réparés</French>
-        <Italian>riparati</Italian>
-        <Czech>opravena</Czech>
-        <Spanish>reparan</Spanish>
+        <Original>&lt;br/&gt; - repaired</Original>
+        <Russian>&lt;br/&gt; - отремонтирована</Russian>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_refueled">
-        <Original>refueled</Original>
-        <German>aufgetankt</German>
-        <Russian>заправлена</Russian>
-        <French>ravitaillés</French>
-        <Italian>riforniti di carburante</Italian>
-        <Czech>natankována</Czech>
-        <Spanish>rearman</Spanish>
-        <Polish>Ulecz</Polish>
+        <Original>&lt;br/&gt; - refueled</Original>
+        <Russian>&lt;br/&gt; - заправлена</Russian>
       </Key>
     </Container>
     <Container name="server_info">

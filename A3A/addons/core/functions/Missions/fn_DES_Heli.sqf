@@ -1,5 +1,6 @@
 /*
-    Creates a "Destroy the helicopter" type mission near input marker.
+    Maintainer: Bob Murphy
+    Creates a "Destroy the helicopter" type mission in a random location near input marker.
 
     Arguments:
         <STRING> Marker
@@ -100,14 +101,16 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
 [[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// Remove undercover from players near the crash site
+// Remove undercover from players that approach the crash site
 [_heli] spawn {
 	params ["_heli"];
 
-	while {alive _heli} do {
-		sleep 5;
-		private _nearbyPlayers = allPlayers inAreaArray [getPos _heli, 150, 150];
-		{ [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
+    private _undercoverBreakDistance = 50;
+    private _initialHeliPosition = getPos _heli;
+
+	while {alive _heli && !isPlayer driver _heli} do {
+        private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
+        { [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
 	};
 };
 

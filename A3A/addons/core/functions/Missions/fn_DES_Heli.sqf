@@ -103,15 +103,15 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
 
 // Remove undercover from players that approach the crash site
 [_heli] spawn {
-	params ["_heli"];
+    params ["_heli"];
 
     private _undercoverBreakDistance = 50;
     private _initialHeliPosition = getPos _heli;
 
-	while {alive _heli && !isPlayer driver _heli} do {
+    while {alive _heli && !isPlayer driver _heli} do {
         private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
         { [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
-	};
+    };
 };
 
 

@@ -112,7 +112,7 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
         private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
         { if (captive _x) then [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
         sleep 5;
-	};
+    };
 };
 
 

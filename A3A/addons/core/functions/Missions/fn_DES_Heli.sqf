@@ -106,12 +106,13 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
     params ["_heli"];
 
     private _undercoverBreakDistance = 50;
-    private _initialHeliPosition = getPos _heli;
+    private _initialHeliPosition = getPosATL _heli;
 
-    while {alive _heli && !isPlayer driver _heli} do {
+    while {alive _heli && _heli getVariable "ownerSide" != teamPlayer} do {
         private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
-        { [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
-    };
+        { if (captive _x) then [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
+        sleep 5;
+	};
 };
 
 

@@ -12,11 +12,15 @@ Version 3.0.0
 .. admonition:: Major
 
    .. rubric:: Conversion to Mod
+
+
    * The mission has been converted to a full-blown mod to allow for access to new functionality and the ability for maps and templates to be created as addon mods instead of editing the mod itself. It also means that all officially integrated maps will be present with one mod, rather than across many separate mission files.
    * Antistasi related keys can now properly be set within the settings
    * Added support for 3rd party mods to extend Antistasi
 
    .. rubric:: Added Campaign StartUp UI and safe functionality :issue:`2488`
+
+
    * Allows to select factions for the campaign from all available templates based on mods loaded
    * Allows to have multiple safegames at the same time
    * Allows to set and change parameters for the campaign
@@ -25,11 +29,13 @@ Version 3.0.0
    * Shows warning when loading a mismatched or outdated mission
 
    .. rubric:: Complete rework of the attack & support system
+
+
    * Enemy factions are now resource-limited:
       - Each faction has separate pools for attack and defence resources.
       - Any vehicle or unit spawned and/or destroyed has a cost related to their capability.
       - Resource income is dependent on war tier, aggro, active player count and difficulty.
-      - Attack vs defence and occupant vs invader resource balances can be adjusted separately. 
+      - Attack vs defence and occupant vs invader resource balances can be adjusted separately.
       - Support system makes decisions based on available resources and location value.
       - Flag capture counterattacks are no longer automatic, instead depending on location and resources.
    * Vehicle selection improvements:
@@ -48,28 +54,40 @@ Version 3.0.0
    * Enemy HQ knowledge is now persistent:
       - Enemies may gain knowledge of HQ when supports are called nearby, or from traitor missions.
       - Once enemies are aware of the HQ, an HQ attack may be launched instead of a normal major attack.
-      - Moving HQ more than 1km away will reset the HQ knowledge. 
+      - Moving HQ more than 1km away will reset the HQ knowledge.
 
    .. rubric:: Fuel economy overhaul
+
+
    * Vehicles now spawn with a random amount of fuel in the tank and fuel stations are now present and usable on all maps. Containers can be bought to transport additional fuel.
    * Fuel Stations also contain a limited amount of fuel to encourage players to use fuel wisely.
-      
+
    .. rubric:: New Buy Vehicle UI - :issue:`2259`
+
+
    * A new UI for buying vehicles has been developed which includes far more information than the current one.
-      
+
    .. rubric:: Added Guest Commander functionality :issue:`2428`
+
+
    * this allows servers to be functional when the member system is enabled and no member is on the servers
-      
+
    .. rubric:: New mod compatibilities
+
+
    * Added CUP templates - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
    * Added Global Mobilisation templates - includes the factions ...
    * Added Unsung templates - includes the factions ...
-      
+
    .. rubric:: New maps ports
+
+
    * Khe Sanh
    * Chernarus Autumn
-      
+
    .. rubric:: Translated Antistasi additional languages
+
+
    * Czech
    * French
    * Italian
@@ -114,7 +132,7 @@ Version 3.0.0
 
 .. admonition:: Template updates
 
-   * Every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`     
+   * Every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`
       * Removed unused loadout creation stuff as its all handled by EquipRebell
       * Removed comments as they can be found in Example Templates
       * Updated format of the Rebel Example Template
@@ -188,13 +206,13 @@ Version 3.0.0
 
    * :issue:`2185` Fixed mixed vehicle pool of Occ and Inv for AI airport creation
    * :issue:`2205` Fixed various incorrect usages of defined macros
-   * :issue:`2257` Fixed issues with AI/HC commands 
+   * :issue:`2257` Fixed issues with AI/HC commands
    * :issue:`2260` Fixed patrol dogs not despawning
    * :issue:`2263` Fixed issues with compatible magazine/ammunition detection
    * :issue:`2281` Fixed issues with RHS asset stacking in the arsenal
    * :issue:`2284` Fixed players being able to carry objects into vehicles
-   * :issue:`2290` Fixed roadblock vehicles despawning after stealing 
-   * :issue:`2292` Fixed cargo trucks not being sellable 
+   * :issue:`2290` Fixed roadblock vehicles despawning after stealing
+   * :issue:`2292` Fixed cargo trucks not being sellable
    * :issue:`2296` Fixed town names in tasks and city info
    * :issue:`2307` Fixed issue of garage code breaking pylons
    * :issue:`2321` Fixed money displays breaking
@@ -222,7 +240,7 @@ Version 3.0.0
    * :issue:`2564` Fixed whiteout after alt-tab on maps using darkMapFix
 
 .. admonition:: Refactor
-   
+
    * :issue:`2182` Refactored initZones to move relevant hardcoded map information to the map relevant files
    * :issue:`2238` Refactored BattleMenue to prevent conflicts with base game UIs
 

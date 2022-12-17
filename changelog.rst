@@ -7,7 +7,7 @@ Version 3.0.0
 ===============
 
 .. note::
-   xxth Xxxxx 2022
+   17th December 2022
 
 .. admonition:: Major
 

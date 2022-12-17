@@ -122,7 +122,8 @@ Version 3.0.0
    * :issue:`2454` Maru was removed. Petros is now called Petros on all maps, including Tanoa
    * :issue:`2469` Skip time now checks for active enemy AI instead of any enemy AI
    * :issue:`2477` Added finite rebel launchers and explosives
-   * :issue:`2503` Added parameters for initial player and rebel faction  money
+   * :issue:`2503` Added parameters for initial player and rebel faction money
+   * :issue:`2505` Vehicle box now repairs/rearms/refuels vehicles around it when the matching source vehicle is in the garage
    * :issue:`2521` Implemented AFK timeout parameter & status bar indicator to prevent AFK commanders blocking the progress
    * :issue:`2523` KAT Medical implementation got updated to most current Kat - Advanced Medical REWRITE
    * :issue:`2531` Adds logged in admins as members

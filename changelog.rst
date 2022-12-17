@@ -75,9 +75,9 @@ Version 3.0.0
    .. rubric:: New mod compatibilities
 
 
-   * Added CUP templates - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
-   * Added Global Mobilisation templates - includes the factions ...
-   * Added Unsung templates - includes the factions ...
+   * Added CUP templates - :issue:`2239` - includes many factions like ACR, AFRF, BAF, CDF, ION, RACS, SLA, TKA, and US Army and US Marines.
+   * Added Global Mobilisation templates - :issue:`2427` - includes the factions Bundeswehr and NVA (National People's Army)
+   * Added Unsung templates - :issue:`2379` - includes the factions PAVN and US
 
    .. rubric:: New maps ports
 
@@ -104,10 +104,10 @@ Version 3.0.0
    * :issue:`2214` Garage system got improved with QoL changes, sorting and adjustments for the fuel system
    * :issue:`2217` capturing a flag can be cancelled and logging for capturing got improved
    * :issue:`2249` Seaports and Airbases can now own radio towers and thus jam radios
-   * :issue:`2280` You can now take 5, 10, or 25 items at a time from the vehicle arsenal
-   * :issue:`2305` Rebel AI can now be equipped when arsenal unlocks are disabled
+   * :issue:`2280` You can now take 5, 10, or 25 items at a time from the vehicle arsenal - Shift-Click takes 5, CTRL-Click takes 10, SHIFT-CTRL-Click takes 25
+   * :issue:`2305` Rebel AI can now equip Items that are not Unlocked as soon as there is a sufficient amount and try to use optics that are logical for the weapon. The more you have of an item the more likely they are to equip it.
    * :issue:`2306` The non-member limit for items in the arsenal is now configurable by the commander
-   * :issue:`2318` Vehicle locking system overhauled, vehicles start unlocked by default
+   * :issue:`2318` Vehicle locking system overhauled. In the past player vehicles where by default locked for everybody outside of the players group. This has been changed so by default everybody can enter every vehicle and when the member system is enabled, members ignore vehicle locks. This is more a feature for servers with large populations.
    * :issue:`2329` Added additional spec-ops groups for current and future use
    * :issue:`2381` Added parameters for enemyNearCheck which now only considers enemies in combat mode - (nearly?) every enemy proximity check now uses the same rules.
    * :issue:`2393` Disabled rating changes to stop rebel AI turning on players for unreasonable actions
@@ -133,13 +133,12 @@ Version 3.0.0
 
 .. admonition:: Template updates
 
-   * Every template was touched up or overhauled :issue:`2181`, :issue:`2276`, :issue:`2277`, :issue:`2278`, :issue:`2302`, :issue:`2316`, :issue:`2333`, :issue:`2467`, :issue:`2475`
+   * Every template was touched up or overhauled :issue:`2181`, :issue:`2316`, :issue:`2467`
       * Removed unused loadout creation stuff as its all handled by EquipRebell
       * Removed comments as they can be found in Example Templates
       * Updated format of the Rebel Example Template
       * Added If cases for DLC uniforms for Vanilla and RHS
       * Added a check in initVarServer for an empty civ helicopter as it will error with VN rebels
-      * Fixed a syntax error in the MACV template
       * Fixed miscased classnames in Vanilla Ai templates
       * Added faces and voices (speaker) for the AI in the templates
 

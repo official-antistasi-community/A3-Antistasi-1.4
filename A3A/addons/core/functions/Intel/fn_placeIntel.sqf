@@ -158,7 +158,7 @@ private _ehId = _building addEventHandler ["Killed", {
 	_building removeEventHandler ["Killed",_thisEventHandler];
 }];
 
-[_marker, _desk, _intel, _building, _ehId] spawn {
+_nil = [_marker, _desk, _intel, _building, _ehId] spawn {
 	params ["_marker", "_desk", "_intel", "_building", "_ehId"];
 	waitUntil{sleep 10; (spawner getVariable _marker == 2)};
 	deleteVehicle _desk;
@@ -166,6 +166,7 @@ private _ehId = _building addEventHandler ["Killed", {
 		_bomb = _intel getVariable ["trapBomb", objNull];
 		deleteVehicle _bomb;
 		deleteVehicle _intel;
+		terminate _thisScript;
 	};
 
 	_building removeEventHandler ["Killed",_ehId];

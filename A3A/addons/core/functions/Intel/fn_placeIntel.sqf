@@ -166,8 +166,8 @@ _nil = [_marker, _desk, _intel, _building, _ehId] spawn {
 		_bomb = _intel getVariable ["trapBomb", objNull];
 		deleteVehicle _bomb;
 		deleteVehicle _intel;
-		terminate _thisScript;
 	};
 
 	_building removeEventHandler ["Killed",_ehId];
+	terminate _thisScript;
 };

@@ -47,11 +47,17 @@
 ["vehiclesHelisLightAttack", ["gm_ge_army_bo105p_pah1", "gm_ge_army_bo105p_pah1a1", "CUP_B_MH60L_DAP_2x_US", "CUP_B_MH60L_DAP_4x_US", "CUP_B_AH6J_USA", "CUP_B_AH6M_USA",
     "CUP_B_UH1D_armed_GER_KSK", "CUP_B_UH1D_gunship_GER_KSK", "CUP_B_AW159_GER"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["gm_ge_army_m109g_wiw", "gm_ge_army_kat1_463_mlrs_wiw", "gm_ge_army_m109g_win", "gm_ge_army_kat1_463_mlrs_win", "gm_ge_army_m109g_un", "gm_ge_army_kat1_463_mlrs_un", "gm_dk_army_m109_win", "gm_dk_army_m109_un"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["gm_ge_army_m109g_wiw", "gm_ge_army_kat1_463_mlrs_wiw", "gm_ge_army_m109g_win", "gm_ge_army_kat1_463_mlrs_win", 
+    "gm_ge_army_m109g_un", "gm_ge_army_kat1_463_mlrs_un", "gm_dk_army_m109_win", "gm_dk_army_m109_un"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-    ["gm_ge_army_kat1_463_mlrs",["gm_36Rnd_mlrs_110mm_he_dm21","gm_36Rnd_mlrs_110mm_icm_dm602","gm_36Rnd_mlrs_110mm_mine_dm711"]],
-    ["gm_ge_army_m109g",["gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602","gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795"]],
-    ["gm_dk_army_m109",["gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795","gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602"]]
+    ["gm_ge_army_kat1_463_mlrs_wiw",["gm_36Rnd_mlrs_110mm_he_dm21","gm_36Rnd_mlrs_110mm_icm_dm602","gm_36Rnd_mlrs_110mm_mine_dm711"]],
+    ["gm_ge_army_kat1_463_mlrs_win",["gm_36Rnd_mlrs_110mm_he_dm21","gm_36Rnd_mlrs_110mm_icm_dm602","gm_36Rnd_mlrs_110mm_mine_dm711"]],
+    ["gm_ge_army_kat1_463_mlrs_un",["gm_36Rnd_mlrs_110mm_he_dm21","gm_36Rnd_mlrs_110mm_icm_dm602","gm_36Rnd_mlrs_110mm_mine_dm711"]],
+    ["gm_ge_army_m109g_wiw",["gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602","gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795"]],
+    ["gm_ge_army_m109g_win",["gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602","gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795"]],
+    ["gm_ge_army_m109g_un",["gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602","gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795"]],
+    ["gm_dk_army_m109_win",["gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795","gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602"]],
+    ["gm_dk_army_m109_un",["gm_20Rnd_155mm_he_m107","gm_20Rnd_155mm_he_m795","gm_20Rnd_155mm_he_dm21","gm_20Rnd_155mm_he_dm111","gm_20Rnd_155mm_icm_dm602"]]
 ]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;

@@ -671,6 +671,16 @@ class Templates
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
         name = "Bundeswehr";
         file = "GM_AI_BW";
+        climate[] = {"temperate","tropical"};
+    };
+
+    class GM_BW_Arctic : GM_Base
+    {
+        side = "Occ";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
+        name = "Bundeswehr";
+        file = "GM_AI_BW_arctic";
+        climate[] = {"arctic"};
     };
 
     class GM_Reb : GM_Base

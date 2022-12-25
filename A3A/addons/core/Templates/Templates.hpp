@@ -663,6 +663,16 @@ class Templates
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
         name = "Nationale Volksarmee";
         file = "GM_AI_NVA";
+        climate[] = {"temperate","tropical"};
+    };
+
+    class GM_NVA_Arctic : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
+        name = "Nationale Volksarmee Winter";
+        file = "GM_AI_NVA_arctic";
+        climate[] = {"arctic"};
     };
 
     class GM_BW : GM_Base
@@ -678,7 +688,7 @@ class Templates
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "Bundeswehr";
+        name = "Bundeswehr Winter";
         file = "GM_AI_BW_arctic";
         climate[] = {"arctic"};
     };

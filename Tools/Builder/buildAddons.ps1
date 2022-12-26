@@ -8,6 +8,16 @@ Push-Location
 
 Set-Location "$PSScriptRoot\..\..\A3A"
 
+"`nGet version number"
+$versionFile = (Get-Content addons\core\Includes\script_version.hpp)
+$version = ""
+ForEach($line in $versionFile) {
+    if (($line) -match "(?<= )([\w\d]*)(?![ \w\d])") {
+        $version += $Matches[0] + "."
+    }
+}
+$version = $version.Substring(0, $version.Length -1)
+
 "Setup temporary directories..."
 if (Test-Path "..\build") {
     Remove-Item -Path "..\build" -Recurse -Force
@@ -48,8 +58,8 @@ Pop-Location
 Push-Location
 Set-Location "$PSScriptRoot\..\..\build"
 
-.$PSScriptRoot\..\DSSignFile\DSCreateKey "Antistasi"
-Copy-Item "Antistasi.bikey" "$addonOutLocation\Keys\Antistasi.bikey" -Force
+.$PSScriptRoot\..\DSSignFile\DSCreateKey "Antistasi $version"
+Copy-Item "Antistasi $version.bikey" "$addonOutLocation\Keys\Antistasi $version.bikey" -Force
 
 "`nSign PBO files..."
 Push-Location
@@ -57,11 +67,11 @@ Set-Location $addonsOutLocation
 $pboFiles = Get-ChildItem -Path $addonsOutLocation -Name "*.pbo"
 forEach ($file in $pboFiles) {
     "Signing file $file ..."
-    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\Antistasi.biprivatekey" $file
+    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\Antistasi $version.biprivatekey" $file
 }
 
-Remove-Item "..\..\Antistasi.biprivatekey"
-Remove-Item "..\..\Antistasi.bikey"
+Remove-Item "..\..\Antistasi $version.biprivatekey"
+Remove-Item "..\..\Antistasi $version.bikey"
 
 Pop-Location
 
@@ -70,4 +80,5 @@ Pop-Location
 Pop-Location
 
 $displayTime = Get-Date -DisplayHint DateTime
-"Antistasi builder ran at: " + $displayTime
+"Antistasi builder ran at: $displayTime"
+"Antistasi version: $version build complete"

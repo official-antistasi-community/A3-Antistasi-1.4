@@ -587,7 +587,7 @@ switch (_mode) do
 
             // If mission type is barrage and both positions are set, calculate number of rounds
             // One round per 10m
-            // _rounds = round (_positionTel distance _positionTel2) / 10; // <- from antistasi
+            // _rounds = round (_positionTel distance _positionTel2) / 10; // <- from Antistasi
             if (!isNil "_startPos" && !isNil "_endPos") then
             {
                 _roundsCount = round ((_startPos distance _endPos) / 10);

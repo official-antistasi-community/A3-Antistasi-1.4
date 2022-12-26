@@ -81,7 +81,7 @@ private _utilityRefund = {
     deleteVehicle _object;
     if (_instantRefund) exitWith {
         if (_toRefund > 0) then {
-            [_toRefund] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+            [0,_toRefund] spawn A3A_fnc_resourcesFIA;
         };
         [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
         true;
@@ -117,7 +117,7 @@ if (
     && {count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (_player inArea _x)}) < 1} //no airports
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [FactionGet(reb,"name")]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
-//here to allow adaption of external antistasi system without needing to addapt code under APL-ND
+//here to allow adaption of external Antistasi system without needing to addapt code under APL-ND
 private _broadcastReportedVehsAndStaticsToSave = {
     publicVariable "staticsToSave";
 };

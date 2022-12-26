@@ -10,7 +10,6 @@ params ["_squadLeader", "_caller", "_searchAction"];
 *       Nothing
 */
 
-[_squadLeader, _searchAction] remoteExec ["removeAction", [teamPlayer, civilian], _squadLeader];
 
 private _timeForSearch = 10 + random 15;
 private _side = _squadLeader getVariable "side";
@@ -19,6 +18,8 @@ _caller setVariable ["intelSearchTime",time + _timeForSearch];
 _caller setVariable ["intelAnimsDone",false];
 _caller setVariable ["intelFound",false];
 _caller setVariable ["cancelIntelSearch",false];
+
+_squadLeader setVariable ["intelSearchDone", true, true];
 
 _caller playMoveNow selectRandom medicAnims;
 private _cancelAction = _caller addAction ["Cancel Search", {(_this select 1) setVariable ["cancelIntelSearch",true]},nil,6,true,true,"","(isPlayer _this)"];
@@ -68,7 +69,7 @@ if(_wasCancelled) exitWith
 {
     ["Intel", "Search cancelled."] call A3A_fnc_customHint;
     _caller setVariable ["intelFound", nil];
-    [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
+    _squadLeader setVariable ["intelSearchDone", nil, true];
 };
 
 if(_caller getVariable ["intelFound", false]) then
@@ -87,6 +88,6 @@ if(_caller getVariable ["intelFound", false]) then
 }
 else
 {
-    [_squadLeader, "Intel_Small"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_squadLeader];
+    _squadLeader setVariable ["intelSearchDone", nil, true];
 };
 _caller setVariable ["intelFound", nil];

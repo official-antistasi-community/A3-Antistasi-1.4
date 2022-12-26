@@ -556,7 +556,7 @@ if(_type == "convoy") then
         {
           for "_i" from 1 to (1 + round (random 11)) do
           {
-            _typeGroup pushBack FactionGet(reb,"Unarmed");
+            _typeGroup pushBack FactionGet(reb,"unitUnarmed");
           };
         };
         _crew = [_typeVehObj, _crewUnits] call A3A_fnc_getVehicleCrew;

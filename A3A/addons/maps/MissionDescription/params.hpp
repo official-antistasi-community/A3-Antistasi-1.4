@@ -13,7 +13,7 @@ class Params
         title = "Logging Level during setup";
         values[] = {1,2,3,4};
         texts[] = {"Error", "Info", "Debug", "Verbose"};
-        default = 3;
+        default = 2;
     };
     class A3A_logDebugConsole
     {

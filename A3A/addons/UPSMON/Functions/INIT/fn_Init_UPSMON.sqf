@@ -165,9 +165,9 @@ _center = nil;
 [] spawn UPSMON_fnc_MAINLOOPCiv;
 
 //get all mines types
-_UPSMON_Minesclassname = [] call UPSMON_fnc_getminesclass;
-UPSMON_Minestype1 = _UPSMON_Minesclassname select 0; // ATmines
-UPSMON_Minestype2 = _UPSMON_Minesclassname select 1; // APmines
+//_UPSMON_Minesclassname = [] call UPSMON_fnc_getminesclass;
+UPSMON_Minestype1 = ["ATMine"];//_UPSMON_Minesclassname select 0; // ATmines
+UPSMON_Minestype2 = ["APERSMine"];//_UPSMON_Minesclassname select 1; // APmines
 
 
 _m = createMarker ["DummyUPSMONMarker",[0,0]];

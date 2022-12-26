@@ -34,7 +34,7 @@ for "_i" from 1 to _max do
 {
 	//_pos = [_positionX, 50, _size, 10, 0, 0.3, 0] call BIS_Fnc_findSafePos;
 	//_pos = _positionX findEmptyPosition [_size - 200,_size+50,_typeVehX];
-	_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
+	private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 
 	if (_spawnParameter isEqualType []) then
 	{
@@ -139,10 +139,16 @@ if (_patrol) then
 };
 _countX = 0;
 
+// Mortar spawning
 _groupX = createGroup _sideX;
 _groups pushBack _groupX;
-_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
-{
+_typeUnit = _faction get "unitStaticCrew";
+while {true} do {
+	private _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
+	if (_spawnParameter isEqualType 0) exitWith {};
+	if ((_spawnParameter select 0) nearObjects ["StaticWeapon", 5] isNotEqualTo []) then { continue };		// hack, already a (support?) mortar on the point
+
+	_typeVehX = selectRandom (_faction get "staticMortars");
 	_veh = _typeVehX createVehicle (_spawnParameter select 0);
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
@@ -153,7 +159,6 @@ _spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	_soldiers pushBack _unit;
 	_vehiclesX pushBack _veh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
-	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	sleep 1;
 };
 

@@ -56,6 +56,7 @@ class A3_soft_f_gamma_van_01_Van_01_transport_F_p3d : TRIPLES(ADDON,Nodes,Base)
 
 class a3_Soft_F_Orange_Van_02_Van_02_transport_F_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
@@ -73,6 +74,7 @@ class a3_Soft_F_Orange_Van_02_Van_02_transport_F_p3d : TRIPLES(ADDON,Nodes,Base)
 
 class a3_Soft_F_Orange_Van_02_Van_02_vehicle_F_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
@@ -142,6 +144,7 @@ class A3_soft_f_beta_Truck_02_Truck_02_transport_F : TRIPLES(ADDON,Nodes,Base)
 
 class A3_soft_f_beta_Truck_02_Truck_02_covered_F_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
@@ -216,6 +219,7 @@ class A3_Soft_F_EPC_Truck_03_Truck_03_transport_F_p3d : TRIPLES(ADDON,Nodes,Base
 
 class A3_Soft_F_EPC_Truck_03_Truck_03_covered_F_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
@@ -290,6 +294,7 @@ class A3_soft_f_beta_Truck_01_Truck_01_transport_F_p3d : TRIPLES(ADDON,Nodes,Bas
 
 class A3_soft_f_beta_Truck_01_Truck_01_covered_F_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1

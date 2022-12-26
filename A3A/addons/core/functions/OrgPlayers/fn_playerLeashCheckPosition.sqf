@@ -44,7 +44,5 @@ _nearestLeashCentre = [_leashCentres,_targetPos] call BIS_fnc_nearestPosition;
 _out_nearestLeashCentre set [0,_nearestLeashCentre #0];
 _out_nearestLeashCentre set [1,_nearestLeashCentre #1];
 
-// If there are no members online, allow unlimited distance.
-if (count _memberPositions == 0 && !_debugMode) exitWith {true};
 // By this point no leash exemptions were found.
 _targetPos distance2D _nearestLeashCentre <= memberDistance;  // Final return of whether the player is within leash

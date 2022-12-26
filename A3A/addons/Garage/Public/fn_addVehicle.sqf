@@ -81,7 +81,7 @@ private _utilityRefund = {
     deleteVehicle _object;
     if (_instantRefund) exitWith {
         if (_toRefund > 0) then {
-            [_toRefund] remoteExec ["A3A_fnc_resourcesPlayer", _client];
+            [0,_toRefund] spawn A3A_fnc_resourcesFIA;
         };
         [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
         true;

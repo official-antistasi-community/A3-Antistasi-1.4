@@ -7,6 +7,7 @@ build
 *.pbo.bak
 *.bat
 AntistasiBuilder.cfg
+temp
 
 #Ignore mission files that have been copied to A3-Antistasi
 A3-Antistasi/description.ext
@@ -30,3 +31,4 @@ __pycache__/
 
 #Ignore Status Quo Function Bytecode files
 *.sqfc
+*.sqfclog

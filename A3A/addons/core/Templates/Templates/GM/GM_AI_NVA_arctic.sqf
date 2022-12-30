@@ -203,7 +203,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData set ["uniforms", ["gm_gc_army_uniform_soldier_80_str", "gm_gc_army_uniform_soldier_gloves_80_str"]];
+_sfLoadoutData set ["uniforms", ["gm_gc_army_uniform_soldier_80_win"]];
 _sfLoadoutData set ["vests", ["gm_gc_army_vest_80_rifleman_str", "gm_gc_vest_combatvest3_str"]];
 _sfLoadoutData set ["glVests", ["gm_gc_army_vest_80_at_str"]];
 _sfLoadoutData set ["mgVests", ["gm_gc_army_vest_80_lmg_str"]];
@@ -257,7 +257,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData set ["uniforms", ["gm_gc_army_uniform_soldier_80_str", "gm_gc_army_uniform_soldier_gloves_80_str"]];
+_militaryLoadoutData set ["uniforms", ["gm_gc_army_uniform_soldier_80_win"]];
 _militaryLoadoutData set ["vests", ["gm_gc_army_vest_80_rifleman_str", "gm_gc_vest_combatvest3_str"]];
 _militaryLoadoutData set ["glVests", ["gm_gc_army_vest_80_at_str"]];
 _militaryLoadoutData set ["mgVests", ["gm_gc_army_vest_80_lmg_str"]];
@@ -321,7 +321,7 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militiaLoadoutData set ["uniforms", ["gm_pl_army_uniform_soldier_80_moro", "gm_pl_army_uniform_soldier_autumn_80_moro", "gm_pl_army_uniform_soldier_rolled_80_moro"]];
+_militiaLoadoutData set ["uniforms", ["gm_pl_army_uniform_soldier_80_win"]];
 _militiaLoadoutData set ["vests", ["gm_pl_army_vest_80_rifleman_gry", "gm_pl_army_vest_80_rifleman_smg_gry"]];
 _militiaLoadoutData set ["glVests", ["gm_pl_army_vest_80_at_gry"]];
 _militiaLoadoutData set ["mgVests", ["gm_pl_army_vest_80_mg_gry"]];

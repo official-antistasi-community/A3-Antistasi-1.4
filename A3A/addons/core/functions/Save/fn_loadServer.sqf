@@ -8,7 +8,7 @@ if (isServer) then {
 	// Set all main markers to occupant control by default, overridden by mrkSDK & mrkCSAT
 	{ 
 		if (sidesX getVariable _x != Occupants) then { sidesX setVariable [_x, Occupants, true] };
-	} forEach (markersX - controlsX);
+	} forEach (airportsX + resourcesX + factories + outposts + seaports);
 
 	A3A_saveVersion = 0;
 	["version"] call A3A_fnc_getStatVariable;

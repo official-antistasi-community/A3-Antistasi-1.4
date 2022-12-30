@@ -1,4 +1,5 @@
 #Requires -RunAsAdministrator
+#Requires -Version 6.0
 param (
     [Switch]$compileTosqfc = $false,
     [string]$modFileName = "mod.cpp",
@@ -27,7 +28,7 @@ if($compileTosqfc)
     New-Item -Type SymbolicLink -Path "P:\x\A3A" -Target "$PSScriptRoot\..\..\temp\A3A" -Force
 
     "Compiling To ByteCode"
-    .\Tools\scriptCompiler\ArmaScriptCompiler.exe > scriptCompiler.sqfclog
+    .$PSScriptRoot\..\scriptCompiler\ArmaScriptCompiler.exe > scriptCompiler.sqfclog
     "Arma Script Compiler redirected to scriptCompiler.sqfclog"
 
     "resetting worklocation"

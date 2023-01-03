@@ -65,6 +65,7 @@ katMedItems = [
 	"kat_chestSeal",     //KAT Breathing
 	"kat_Pulseoximeter",     //KAT Breathing
 	"kat_stethoscope",     //KAT Breathing
+	"kat_ncdKit",     //standalone alternative to AAT Kit - added in V2.10.2
 
 	"kat_bloodIV_A",     //KAT Circulation
 	"kat_bloodIV_A_250",     //KAT Circulation

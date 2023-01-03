@@ -30,9 +30,9 @@ private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [
 private _oldCampaignID = profileNameSpace getVariable ["ss_CampaignID", ""];
 if !(_oldCampaignID in _campaignIDs) then {
     A3A_saveTarget = [_serverID, _oldCampaignID, worldName];                          // Pre 2.3 saves
-    if (call _fnc_gameMissing) then { A3A_saveTarget set [1, ""] };			          // Original saves (no campaign ID)
+    if (call _fnc_gameMissing) then { A3A_saveTarget set [1, ""] };                   // Original saves (no campaign ID)
     if (call _fnc_gameMissing) exitWith {};
-    _saveData pushBack (createHashMapFromArray [["serverID", _serverID], ["gameID", A3A_saveTarget#1], ["map", worldName]]);
+    _saveData pushBack createHashMapFromArray [["serverID", _serverID], ["gameID", A3A_saveTarget#1], ["map", worldName]];
 };
 
 // missionProfileNamespace saves

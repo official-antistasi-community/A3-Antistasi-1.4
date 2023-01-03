@@ -57,7 +57,7 @@ switch (_mode) do
         { _playerListCtrl lbAdd name _x; } forEach A3A_GUI_donateTab_sortedPlayers;
 
         private _cursorObjectIndex = A3A_GUI_donateTab_sortedPlayers find cursorObject;
-        if (_cursorObjectIndex >= 0) {_playerListCtrl lbSetCurSel _cursorObjectIndex}
+        if (_cursorObjectIndex >= 0) then {_playerListCtrl lbSetCurSel _cursorObjectIndex};
     };
 
     // Donation Menu
@@ -100,6 +100,8 @@ switch (_mode) do
 
     case ("donatePlayerConfirmed"):
     {
+        private _display = findDisplay A3A_IDD_MAINDIALOG;
+        private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
         private _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
 
         private _playerListCtrl = _display displayCtrl A3A_IDC_DONATEPLAYERLIST;
@@ -107,16 +109,18 @@ switch (_mode) do
         if (_donateToIndex == -1) exitWith {};
         private _donateTo = A3A_GUI_donateTab_sortedPlayers #_donateToIndex;
 
-        [player, _donateTo, _moneyEditBoxValue] call A3A_fnc_donateMoney
+        [player, _donateTo, _moneyEditBoxValue] call FUNCMAIN(donateMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";
     };
 
     case ("donateFactionConfirmed"):
     {
+        private _display = findDisplay A3A_IDD_MAINDIALOG;
+        private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
         private _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
 
-        [player, "faction", _moneyEditBoxValue] call A3A_fnc_donateMoney
+        [player, "faction", _moneyEditBoxValue] call FUNCMAIN(donateMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";
     };

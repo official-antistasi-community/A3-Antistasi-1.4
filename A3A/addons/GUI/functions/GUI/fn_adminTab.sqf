@@ -66,7 +66,7 @@ switch (_mode) do
         // Get Debug info
         // TODO UI-update: change this to get server values instead when merging
         private _debugText = _display displayCtrl A3A_IDC_DEBUGINFO;
-        private _missionTime = [time] call A3A_fnc_formatTime;
+        private _missionTime = [[serverTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2] call A3A_fnc_timeSpan_format;
         private _serverFps = (round (diag_fps * 10)) / 10; // TODO UI-update: Get actual server FPS, not just client
         private _connectedHCs = 0; // TODO UI-update: get actual number of connected headless clients
         private _players = 0; // TODO UI-update: get actual number of players connected
@@ -197,15 +197,10 @@ switch (_mode) do
             private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
             private _maxUnits = floor parseNumber ctrlText _aiLimiterEditBox;
 
-            // TODO UI-update: Change when merging. Something like this but with "set" instead of "increase"?
-            // [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
-
-            // TODO UI-update: Placeholder routine, don't merge! Has no security checks whatsoever
-            // Trace_3("Changing AI Settings - civPerc:%1, distanceSPWN:%2, maxUnits:%3", _civPerc, _distanceSPWN, _maxUnits);
-            // missionNamespace setVariable ["civPerc", _civPerc];
-            // missionNamespace setVariable ["distanceSPWN", _distanceSPWN];
-            // missionNamespace setVariable ["maxUnits", _maxUnits];
-
+            Trace_3("Changing AI Settings - civPerc:%1, distanceSPWN:%2, maxUnits:%3", _civPerc, _distanceSPWN, _maxUnits);
+            [player,"maxUnits","set",_maxUnits] remoteExecCall ["A3A_fnc_HQGameOptions",2];
+            [player,"civPerc","set",_civPerc] remoteExecCall ["A3A_fnc_HQGameOptions",2];
+            [player,"distanceSPWN","set",_distanceSPWN] remoteExecCall ["A3A_fnc_HQGameOptions",2];
 
             closeDialog 2;
         }];

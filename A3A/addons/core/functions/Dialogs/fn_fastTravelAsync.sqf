@@ -66,7 +66,7 @@ private _taskCompletedEvent = {
     isNil {
         _task params ["_isCompleted","_isCompletedSuccessfully","_exceptions","_eventHandlers"];
         if (_unsubscribe) exitWith { _eventHandlers deleteAt (_eventHandlers find _eventHandler); };
-        if (_eventHandler in _eventHandlers) exitWith {};  // Even if even is complete, event handler will not be double called.
+        if (_eventHandler in _eventHandlers) exitWith {};  // Even if event is complete, event handler will not be double called.
         if (_isCompleted) exitWith {
             [_isCompletedSuccessfully, _exceptions] call _eventHandler;
         };

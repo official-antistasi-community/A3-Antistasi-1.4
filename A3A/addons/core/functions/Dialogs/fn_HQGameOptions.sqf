@@ -6,11 +6,10 @@ Maintainer: Caleb Serafin
     Authenticated caller must be theBoss or an admin.
 
 Arguments:
+    <OBJECT> Player executing the change.
     <STRING> Spawn Option
     <STRING> Action
-
-Return Value:
-    <ANY> nil.
+    <SCALER> Amount to adjust by or set [DEFAULT: nil]
 
 Scope: Server, Global Arguments, Global Effect
 Environment: Any
@@ -23,14 +22,13 @@ Example:
 params [
     ["_player",objNull,[objNull]],
     ["_option","",[""]],
-    ["_action","",[""]]
+    ["_action","",[""]],
+    ["_amount",nil,[nil,0]]
 ];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-////////////////////
-// Authentication //
-////////////////////
+// Authentication
 private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],["AI Limit","Spawn Distance","Civilian Limit"]];
 private _hintTitle = "HQ Spawn Options";
 private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
@@ -51,10 +49,8 @@ if (owner _player != remoteExecutedOwner) exitWith {
     nil;
 };
 
-///////////////////////
-// Increase/Decrease //
-///////////////////////
-private _processAction = {
+// Increase/Decrease/Set
+private _fnc_processAction = {
     params["_option","_action","_upperLimit","_lowerLimit","_adjustmentAmount"];
     private _inRange = 2;   // 2 for in-range, 0 for low, 1 for high.
     private _invalid = false;
@@ -64,6 +60,11 @@ private _processAction = {
     switch (_action) do {
         case "decrease": { if (_originalAmount < _lowerLimit + _adjustmentAmount) then {_inRange = 0}; _adjustmentAmount = -_adjustmentAmount; };
         case "increase": { if (_originalAmount > _upperLimit - _adjustmentAmount) then {_inRange = 1}; };
+        case "set": {
+            if (_adjustmentAmount < _lowerLimit) then {_inRange = 0; };
+            if (_upperLimit < _adjustmentAmount) then {_inRange = 1; };
+            _adjustmentAmount = _adjustmentAmount - _originalAmount;
+        };
         default {
             _invalid = true;
             Error("INVALID METHOD | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] called invalid backing method "+str _this);
@@ -94,14 +95,18 @@ private _processAction = {
     [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];
 };
 
-//////////////////////////
-// ADD NEW OPTIONS HERE //
-//////////////////////////
+private _fnc_valueOrDefault = {
+    params [["_value", _this#1]];
+    _value;
+};
+
+
+// ADD NEW OPTIONS HERE
 switch (_option) do {
-    case "maxUnits": { [_option,_action,200,80,10] call _processAction; };
-    case "civPerc": { [_option,_action,150,0,1] call _processAction; };
+    case "maxUnits": { [_option,_action,200,80,[_amount,10] call _fnc_valueOrDefault] call _fnc_processAction; };
+    case "civPerc": { [_option,_action,150,0,[_amount,1] call _fnc_valueOrDefault] call _fnc_processAction; };
     case "distanceSPWN": {  // So close to generalising all of this away 😥, but then:
-        [_option,_action,2000,600,100] call _processAction;
+        [_option,_action,2000,600,[_amount,100] call _fnc_valueOrDefault] call _fnc_processAction;
         distanceSPWN1 = distanceSPWN * 1.3;
         distanceSPWN2 = distanceSPWN /2;
         publicVariable "distanceSPWN1";

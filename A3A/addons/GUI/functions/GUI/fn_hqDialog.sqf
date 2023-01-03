@@ -336,7 +336,7 @@ switch (_mode) do
 
         // Get the data from the marker
         private _position = getMarkerPos _selectedMarker;
-        private _garrisonName = [_selectedMarker] call A3A_fnc_getLocationMarkerName;
+        private _garrisonName = "Outpost";//[_selectedMarker] call A3A_fnc_getLocationMarkerName;  // ToDo define
         private _garrison = garrison getVariable [_selectedMarker, []];
 
         // Get garrison counts
@@ -518,7 +518,7 @@ switch (_mode) do
         private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
         private _restText = _display displayCtrl A3A_IDC_RESTTEXT;
         private _time = sliderPosition _restSlider;
-        private _restTimeString = [_time, "HM", true] call A3A_fnc_formatTime;
+        private _restTimeString = [[_time] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
         private _postRestTime = daytime + _time;
         if (_postRestTime > 24) then {_postRestTime = _postRestTime - 24};
         private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;

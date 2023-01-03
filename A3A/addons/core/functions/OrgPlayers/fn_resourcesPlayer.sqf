@@ -19,6 +19,9 @@ Example:
     [-100] call A3A_fnc_resourcesPlayer; // Backwards compatible Deduct 100 Euros
     [420, _theAffectedPlayer] call FUNCMAIN(donateMoney); // The server-side call to add money.
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 if (!isServer) exitWith {
     this remoteExecCall ["A3A_fnc_resourcesPlayer", 2];
 };
@@ -28,8 +31,10 @@ params [
     ["_playerObject", player, [objNull]]
 ];
 
-_storedMoney = _playerObject getVariable ["moneyX", 0];
-if (_moneyAdjustment < 0 && -_moneyAdjustment < _storedMoney) exitWith {false};  // Prevent debt, but allow adding money if somehow in debt.
+private _storedMoney = _playerObject getVariable ["moneyX", 0];
+Trace_1("_moneyAdjustment: %1",_moneyAdjustment);
+Trace_1("_storedMoney: %1",_storedMoney);
+if (_moneyAdjustment < 0 && -_moneyAdjustment > _storedMoney) exitWith {false};  // Prevent debt, but allow adding money if somehow in debt.
 _storedMoney = _storedMoney + _moneyAdjustment;
 _playerObject setVariable ["moneyX", _storedMoney, true];
 

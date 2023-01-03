@@ -42,14 +42,15 @@ Example:
     [DEV_timeSpan,2,2,false]            call A3A_fnc_timeSpan_format;  // "0:0:0:0–0:0:0"
     [DEV_timeSpan,2,2,true,nil,true]    call A3A_fnc_timeSpan_format;  // "+00:00:00:00–000:000:000"
 
-    // Field visibility.
+    // Field visibility. (First examples show effects of "show zeros" options, last one exhibits show field amount.)
     DEV_timeSpan = [false,0,3,54,0,152,0];
     [DEV_timeSpan,0]                    call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 152 Milliseconds"
     [DEV_timeSpan,0,1]                  call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds"
     [DEV_timeSpan,0,2]                  call A3A_fnc_timeSpan_format;  // "0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
     [DEV_timeSpan,0,2,true]             call A3A_fnc_timeSpan_format;  // "(+) 0 Days 3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
+    [DEV_timeSpan,0,0,false,2]          call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes"
 
-    // Slicing.
+    // Slicing. (inclusive start index and exclusive end index)
     DEV_timeSpan = [false,0,3,54,0,152,0];
     [DEV_timeSpan,0,1,false,2]          call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes"
     [DEV_timeSpan,0,2,false,[1,1e7]]    call A3A_fnc_timeSpan_format;  // "3 Hours 54 Minutes 0 Seconds 152 Milliseconds 0 Microseconds 0 Nanoseconds"
@@ -63,8 +64,8 @@ Example:
 
     // Localised all places on machine
     DEV_timeSpan = [false,1,2,3,4,5,6,7];
-    [nil,0,0,false,nil,false,true]          call A3A_fnc_timeSpan_format;  // "(Now)"
-    [DEV_timeSpan,0,2,false,nil,false,true] call A3A_fnc_timeSpan_format;  // "1 Days 2 Hours 3 Minutes 4 Seconds 5 Milliseconds 6 Microseconds 7 Nanoseconds"
+    [nil,0,0,false,nil,false,true]          call A3A_fnc_timeSpan_format;  // "(现在)"
+    [DEV_timeSpan,0,2,false,nil,false,true] call A3A_fnc_timeSpan_format;  // "1 天 2 小时 3 分钟 4 秒 5 毫秒 6 微秒 7 纳秒"
     [DEV_timeSpan,1,2,false,nil,false,true] call A3A_fnc_timeSpan_format;  // "1d 2h 3m 4s 5ms 6µs 7ns"
 */
 

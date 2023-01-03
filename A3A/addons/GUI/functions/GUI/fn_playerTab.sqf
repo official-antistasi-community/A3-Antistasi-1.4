@@ -87,7 +87,7 @@ switch (_mode) do
         // Construct
         private _constructButton = _display displayCtrl A3A_IDC_CONSTRUCTBUTTON;
         private _constructIcon = _display displayCtrl A3A_IDC_CONSTRUCTICON;
-        private _canBuild = [] call A3A_fnc_canBuild;
+        private _canBuild = [false,"Walk here"];// [] call A3A_fnc_canBuild;  // ToDo define.
         if (_canBuild # 0) then
         {
             _constructButton ctrlEnable true;
@@ -158,7 +158,7 @@ switch (_mode) do
         _playerRankPicture ctrlSetText ([player, "texture"] call BIS_fnc_rankParams);
 
         private _time = time; // TODO UI-update: get time at session start, not mission start, aka after you've loaded in, and on respawns etc...
-        _aliveText ctrlSetText format [[_time] call A3A_fnc_formatTime];
+        _aliveText ctrlSetText format [[[_time] call A3A_fnc_secondsToTimeSpan,1,0,false,2] call A3A_fnc_timeSpan_format];
 
         // TODO UI-update: Make function for getting num of completed missions
         private _missions = 0;

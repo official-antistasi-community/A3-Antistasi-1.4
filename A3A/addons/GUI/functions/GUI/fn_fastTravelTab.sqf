@@ -28,9 +28,9 @@ FIX_LINE_NUMBERS()
 params[["_mode","update"], ["_params",[]]];
 
 // For now, we will use the old fastTravel until map selection is integrated.
-closeDialog 1;
-[] call A3A_fnc_fastTravelRadio;
-if (true) exitWith {};
+// closeDialog 1;
+// [] call A3A_fnc_fastTravelRadio;
+// if (true) exitWith {};
 
 
 switch (_mode) do
@@ -76,7 +76,7 @@ switch (_mode) do
             private _infoText = "";
 
             // Player/Group name + location name
-            private _locationName = [_selectedMarker] call A3A_fnc_getLocationMarkerName;
+            private _locationName = "Outpost";//[_selectedMarker] call A3A_fnc_getLocationMarkerName;  // ToDo define
 
             // Check if location is valid for fast travel
             private _canFastTravelTuple = [];
@@ -87,9 +87,11 @@ switch (_mode) do
                 _canFastTravelTuple = [player, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
             };
             _canFastTravelTuple params ["_isFastTravelAllowed","_fastTravelBlockers"];
+            Trace_1("_canFastTravelTuple: %1", _canFastTravelTuple);
+
             if !(_isFastTravelAllowed) exitWith {
                 // Not a valid location for fast travel
-
+                Trace_1("_infoText: %1", '"'+_infoText+'"');
                 // Disable commit button and show what's wrong in info text
                 _infoText = _fastTravelBlockers joinString ", ";
                 _fastTravelCommitButton ctrlEnable false;
@@ -102,7 +104,7 @@ switch (_mode) do
                 _fastTravelMap ctrlMapAnimAdd [0.2, ctrlMapScale _fastTravelMap, _position];
                 ctrlMapAnimCommit _fastTravelMap;
             };
-
+            Trace_1("_infoText: %1", '"'+_infoText+'"');
             if (_hcMode) then {
                 // If we're in high command mode
                 private _hcGroup = _fastTravelMap getVariable "hcGroup";
@@ -112,13 +114,15 @@ switch (_mode) do
                 // If we're not in high command mode
                 _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_you_will_travel_to" + ":<br/>" + _locationName + "<br/><br/>";
             };
-
+            Trace_1("_infoText: %1", '"'+_infoText+'"');
             // Time
             // TODO UI-update: Add case for calculating time for HC groups when in hc modelToWorld
-            [player, markerPos _selectedMarker] call A3A_fnc_calculateFastTravelCost params ["_fastTravelCost","_fastTravelTime"];
-            private _timeString = [_fastTravelTime] call A3A_fnc_formatTime;
+            [player, [vehicle player], markerPos _selectedMarker] call FUNCMAIN(calculateFastTravelCost) params ["_fastTravelCost","_fastTravelTime"];
+            private _timeString = [[_fastTravelTime] call FUNCMAIN(secondsToTimeSpan),0,0,false,2] call FUNCMAIN(timeSpan_format);
+            Trace_1("_infoText: %1", '"'+_infoText+'"');
             _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_time" + " " + _timeString + ".<br/><br/>";
 
+            Trace_1("_infoText: %1", '"'+_infoText+'"');
             // Vehicle
             if (!_hcMode && vehicle player != player) then {
                 _infoText = _infoText + localize "STR_antistasi_dialogs_main_fast_travel_vehicle";
@@ -132,6 +136,7 @@ switch (_mode) do
             // Show info text
             _fastTravelInfoText ctrlShow true;
             // Update info text
+            Trace_1("_infoText: %1", '"'+_infoText+'"');
             _fastTravelInfoText ctrlSetStructuredText parseText _infoText;
             // Pan to location
             private _position = (_fastTravelMap getVariable "selectMarkerData") # 0;
@@ -216,10 +221,10 @@ switch (_mode) do
         if (_hcMode) then {
             private _hcGroup = _fastTravelMap getVariable ["hcGroup", grpNull];
             closeDialog 1;
-            [_hcGroup, markerPos _marker] call A3A_fnc_fastTravelAsync;
+            [_hcGroup, markerPos _marker] call FUNCMAIN(fastTravelAsync);
         } else {
             closeDialog 1;
-            [player, markerPos _marker] call A3A_fnc_fastTravelAsync;
+            [player, markerPos _marker] call FUNCMAIN(fastTravelAsync);
         };
     };
 

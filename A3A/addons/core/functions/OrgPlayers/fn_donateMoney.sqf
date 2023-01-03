@@ -28,41 +28,39 @@ FIX_LINE_NUMBERS()
 if (!isServer) exitWith {
     this remoteExecCall ["A3A_fnc_donateMoney", 2];
     false;
-}
+};
 
 params [
     ["_donateFrom", player, [objNull]],
     ["_donateTo", objNull, [objNull,""]],
     ["_donateAmount", 0, [0]]
 ];
-
+Trace_1("_this: %1",_this);
 if (isNull _donateFrom || !isPlayer _donateFrom) exitWith {
-    Error("_donateFrom was null or not player.")
+    Error("_donateFrom was null or not player.");
     false;  // Return
 };
 
-if (_donateAmount < 0) {
+if (_donateAmount < 0) exitWith {
     ["Donate Money", "Donation amount must be positive."] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
     false;
-}
+};
 
-if (typeName _donateTo isEqualTo "STRING") {
-    switch (toLower _donateTo) {
+if (typeName _donateTo isEqualTo "STRING") exitWith {
+    switch (toLower _donateTo) do {
         case ("faction"): {
             if ([-_donateAmount, _donateFrom] call A3A_fnc_resourcesPlayer) exitWith {
                 [0, _donateAmount] call A3A_fnc_resourcesFIA;
                 //player setVariable ["score", (player getVariable ["score", 0]) + 1, true];  // (disabled due to abuse-ability.) Raise player score for donating.
                 ["Donate Money", "You have donated "+str _donateAmount+" € to the faction."] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
                 true;
-            }
+            };
             ["Donate Money", "Insufficient Funds<br/>You're unable to donate "+str _donateAmount+" €."] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
             if (true) exitWith {false};  // Return
         };
-        default {
-            Error("Switch case ("+toLower _donateTo+") does not match any options.")
-            if (true) exitWith {false};  // Return
-        };
     };
+    Error("Switch case ("+toLower _donateTo+") does not match any options.");
+    false;  // false
 };
 
 if (isNull _donateTo || !isPlayer _donateTo) exitWith {
@@ -76,4 +74,5 @@ if ([-_donateAmount, _donateFrom] call A3A_fnc_resourcesPlayer) exitWith {
     ["Donate Money", "You have received "+str _donateAmount+" € donation from "+name _donateFrom] remoteExecCall ["A3A_fnc_customHint", _donateTo];
     true;  // Return
 };
+["Donate Money", "Insufficient Funds<br/>You're unable to donate "+str _donateAmount+" €."] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
 false;  // Return

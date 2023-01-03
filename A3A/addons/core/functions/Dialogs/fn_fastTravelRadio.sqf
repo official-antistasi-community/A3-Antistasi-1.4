@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private ["_roads","_pos","_positionX","_groupX"];
 
 _markersX = markersX + [respawnTeamPlayer];
@@ -20,7 +23,7 @@ if (!_esHC and !isNil {vehicle player getVariable "SA_Tow_Ropes"}) exitWith {["F
 if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) exitWith {["Fast Travel", "You cannot fast travel while being FF Punished."] call A3A_fnc_customHint;};
 
 _checkX = false;
-//_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
+
 {if ([getPosATL _x] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
 if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group."] call A3A_fnc_customHint;};
 
@@ -56,20 +59,31 @@ if (count _positionTel > 0) then
 	if ([getMarkerPos _base] call A3A_fnc_enemyNearCheck) exitWith {["Fast Travel", "You cannot Fast Travel to an area under attack or with enemies in the surrounding."] call A3A_fnc_customHint; openMap [false,false]};
 	if (!(player call A3A_fnc_isMember || player == theBoss) && {!([_positionTel] call A3A_fnc_playerLeashCheckPosition)}) exitWith {["Fast Travel", format ["There are no members near the target location. You need to be within %1 km of HQ, an attack, commander or a member.", ceil (memberDistance/1e3)]] call A3A_fnc_customHint;};
 
+	[_boss, [vehicle _boss], _positionTel] call FUNCMAIN(calculateFastTravelCost) params ["_fastTravelCost","_fastTravelTime"];
+	// Future logic. Must execute this bit on server.
+	//if ([-_fastTravelCost, player] call FUNCMAIN(resourcesPlayer)) exitWith {["Fast Travel", "Insufficient Funds (€ "+str _fastTravelCost+")<br/>Infantry are free, but vehicles cost, and cargo costs more."] call A3A_fnc_customHint;};
+
 	if (_positionTel distance getMarkerPos _base < 50) then
 		{
 		_positionX = [getMarkerPos _base, 10, random 360] call BIS_Fnc_relPos;
-		_distanceX = round (((position _boss) distance _positionX)/200);
-		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _distanceX;};
+		private _travelDuration = _fastTravelTime;
+		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _travelDuration;};
 		_forcedX = false;
 		if (!isMultiplayer) then {if (not(_base in forcedSpawn)) then {_forcedX = true; forcedSpawn = forcedSpawn + [_base]}};
-		if (!_esHC) then {disableUserInput true; cutText [format ["Fast traveling, travel time: %1s , please wait", _distanceX],"BLACK",1]; sleep 1;} else {["Fast Travel", format ["Moving group %1 to destination",groupID _groupX]] call A3A_fnc_customHint; sleep _distanceX;};
+		if (!_esHC) then {
+			disableUserInput true;
+			cutText ["Fast travelling, please wait " + [[_fastTravelTime] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format, "BLACK", 1];
+			sleep 1;
+		} else {
+			["Fast Travel", format ["Moving group %1 to destination",groupID _groupX]] call A3A_fnc_customHint;
+			sleep _travelDuration;
+		};
  		if (!_esHC) then
  			{
  			_timePassed = 0;
- 			while {_timePassed < _distanceX} do
+ 			while {_timePassed < _travelDuration} do
  				{
- 				cutText [format ["Fast traveling, travel time: %1s , please wait", (_distanceX - _timePassed)],"BLACK",0.0001];
+ 				cutText ["Fast travelling, please wait " + [[_travelDuration - _timePassed] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format, "BLACK", 0.0001];
  				sleep 1;
  				_timePassed = _timePassed + 1;
  				}
@@ -129,7 +143,7 @@ if (count _positionTel > 0) then
 			};
 			//_unit hideObject false;
 		} forEach units _groupX;
-		//if (!_esHC) then {sleep _distanceX};
+		//if (!_esHC) then {sleep _travelDuration};
 		if (!_esHC) then {disableUserInput false;cutText ["You arrived at the destination.","BLACK IN",1]} else {["Fast Travel", format ["Group %1 arrived to destination.",groupID _groupX]] call A3A_fnc_customHint;};
 		if (_forcedX) then {forcedSpawn = forcedSpawn - [_base]};
 		[] call A3A_fnc_playerLeashRefresh;

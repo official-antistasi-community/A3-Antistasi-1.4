@@ -79,7 +79,7 @@ while {isNil "A3A_saveData"} do {
 
         Info_1("Player %1 is no longer admin, disabling their setup dialog", name A3A_setupPlayer);
 
-        ["serverClose"] remoteExec ["A3A_fnc_setupDialog", A3A_setupPlayer];
+        ["serverClose"] remoteExec ["A3A_GUI_fnc_setupDialog", A3A_setupPlayer];
         A3A_setupPlayer = objNull;
     };
 
@@ -94,7 +94,7 @@ while {isNil "A3A_saveData"} do {
     // Collect save data. Do this each time so consistency is maintained with deletes
     private _saveData = call A3A_fnc_collectSaveData;
     DebugArray("Save data found:", _saveData);
-    ["sendData", [_saveData, _loadedPatches, _loadedDLC]] remoteExec ["A3A_fnc_setupDialog", A3A_setupPlayer];
+    ["sendData", [_saveData, _loadedPatches, _loadedDLC]] remoteExec ["A3A_GUI_fnc_setupDialog", A3A_setupPlayer];
 };
 
 Info("Setup monitor terminated");

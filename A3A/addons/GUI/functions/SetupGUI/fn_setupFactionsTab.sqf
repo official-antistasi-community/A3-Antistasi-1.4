@@ -1,5 +1,5 @@
 /*
-Function: A3A_fnc_setupFactionsTab
+Function: A3A_GUI_fnc_setupFactionsTab
     Handles the initialization and tab switching on the setup dialog.
     This function should only be called from setupDialog onLoad and control activation EHs.
 Author: John Jordan (jaj22)

@@ -3230,6 +3230,6 @@
       <Key ID="STR_antistasi_teamleader_placer_placer_info">
           <Original>&lt;t size = '0.75'&gt;E/R to rotate&lt;br/&gt;space to Place&lt;br/&gt;hold left alt to place unsafely&lt;/t&gt;</Original>
       </Key>
-        </Container>
+      </Container>
   </Package>
 </Project>

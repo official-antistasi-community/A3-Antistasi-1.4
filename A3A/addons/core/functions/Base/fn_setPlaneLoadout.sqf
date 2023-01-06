@@ -128,7 +128,7 @@ if (_type == "CAS") then
         case "CUP_B_L39_CZ":
         {
             _loadout = ["CUP_PylonPod_20Rnd_S8_plane_M","PylonRack_1Rnd_Missile_AGM_01_F","PylonRack_1Rnd_Missile_AGM_01_F","CUP_PylonPod_20Rnd_S8_plane_M"];
-            _plane setVariable ["mainGun", "CUP_Vaconnon_GSh23L_l39"];
+            _plane setVariable ["mainGun", "CUP_Vacannon_GSh23L_L39"];
             _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_S8_veh"]];
             _plane setVariable ["missileLauncher", ["Missile_AGM_01_Plane_CAS_02_F"]];
         };
@@ -250,6 +250,11 @@ if (_type == "AA") then
         case "UK3CB_LDF_B_L39_PYLON":
         {
             _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
+        };
+        case "UK3CB_LDF_B_MIG21_AA";
+        case "UK3CB_TKA_B_MIG21_AA":
+        {
+            _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73"];
         };
         case "UK3CB_LDF_B_MIG21_AA";
         case "UK3CB_TKA_B_MIG21_AA":

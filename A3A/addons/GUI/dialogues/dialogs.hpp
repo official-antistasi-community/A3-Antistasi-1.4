@@ -10,4 +10,5 @@ Maintainer: DoomMetal
 #include "recruitSquadDialog.hpp"
 #include "buyVehicleDialog.hpp"
 #include "arsenalLimitsDialog.hpp"
+#include "setupDialog.hpp"
 #include "teamLeaderBuilder.hpp"

@@ -25,7 +25,7 @@ private _fnc_distCheck = {
 // Cleanup rebel vehicles
 {
 	// Locked check is a hack for roadblock vehicles
-	if !(_x isKindOf "StaticWeapon" or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
+	if !(_x isKindOf "StaticWeapon" or unitIsUAV _x or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
 } forEach (vehicles select {_x getVariable ["ownerSide", sideUnknown] == teamPlayer});
 
 if (A3A_hasACE) then {
@@ -45,7 +45,7 @@ if (isClass (configFile >> "CfgVehicles" >> "GRAD_envelope_short")) then {
 	{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "GRAD_envelope_long");
 };
 
-if (A3A_hasRHS) then {
+if (isClass (configFile/"CfgPatches"/"rhsgref_main")) then {//ToDo: these should be moved to owner mod detection and not the broad one as we may allow some rhs factions without all of rhs modset loaded
 	{ deleteVehicle _x } forEach (allMissionObjects "rhs_a10_acesII_seat");		// Ejection seat for A-10 and F-22
 	{ deleteVehicle _x } forEach (allMissionObjects "rhs_a10_canopy");			// other canopies delete on ground contact
 	{ deleteVehicle _x } forEach (allMissionObjects "rhs_k36d5_seat");			// AFRF ejection seat

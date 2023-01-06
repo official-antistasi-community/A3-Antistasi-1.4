@@ -34,7 +34,7 @@ Examples <ARRAY<OBJECT,OBJECT>>:
     [[_instigator,_source], 60, 0.4, _unit] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false]; // How it should be called from an EH.
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params [
     ["_instigator",objNull, [objNull,[]], [] ],

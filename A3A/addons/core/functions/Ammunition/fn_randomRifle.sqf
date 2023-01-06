@@ -46,12 +46,12 @@ private _categories = _weapon call A3A_fnc_equipmentClassToCategories;
 if ("GrenadeLaunchers" in _categories && {"Rifles" in _categories} ) then {
     // lookup real underbarrel GL magazine, because not everything is 40mm
     private _config = configFile >> "CfgWeapons" >> _weapon;
-    private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category?
-    private _glmag = getArray (_config >> _glmuzzle >> "magazines") select 0;
+    private _glmuzzle = getArray (_config >> "muzzles") select 1;		// guaranteed by category
+    private _glmag = compatibleMagazines [_weapon, _glmuzzle] select 0;
     _unit addMagazines [_glmag, 5];
 };
 
-private _magazine = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines") select 0;
+private _magazine = compatibleMagazines _weapon select 0;
 private _magweight = 5 max getNumber (configFile >> "CfgMagazines" >> _magazine >> "mass");
 
 _unit addWeapon _weapon;

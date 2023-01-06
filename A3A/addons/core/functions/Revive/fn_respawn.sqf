@@ -7,7 +7,8 @@ if (_unit != _unit getVariable ["owner",_unit]) exitWith {};
 if (!isPlayer _unit) exitWith {};
 _unit setVariable ["respawning",true];
 //_unit enableSimulation true;
-["Respawning",0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+["Respawning",0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
 //titleText ["", "BLACK IN", 0];
 if (!isNil "respawnMenu") then {(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu]};
 if (isMultiplayer) exitWith

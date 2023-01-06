@@ -17,6 +17,7 @@ _setText ctrlSetBackgroundColor [0,0,0,0];
 
 private _player = player getVariable ["owner",player];		// different, if remote-controlling
 private _ucovertxt = ["Off", "<t color='#1DA81D'>On</t>"] select ((captive _player) and !(_player getVariable ["incapacitated",false]));
+if (_player getVariable ["isAFK", false]) then { _ucovertxt = _ucovertxt + " | <t color='#A81D1D'>AFK</t>" };
 
 if (_player != theBoss) then
 	{

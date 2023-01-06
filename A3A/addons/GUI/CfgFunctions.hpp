@@ -30,6 +30,15 @@ class CfgFunctions {
             class requestMissionDialog {};
             class teamLeaderRTSPlacerDialog {};
         };
+        class SetupGUI {
+            file = QPATHTOFOLDER(functions\SetupGUI);
+            class setupDialog {};
+            class setupFactionsTab {};
+            class setupLoadgameTab {};
+            class setupParamsTab {};
+            class setupConfirmDialog {};
+            class setupHQPosDialog {};
+        };
     };
     class ADDON {
         class controlsHelpers {

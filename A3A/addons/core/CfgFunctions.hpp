@@ -116,7 +116,6 @@ class CfgFunctions
             class citySupportChange {};
             class commsMP {};
             class createBreachChargeText {};
-            class createControls {};
             class createOutpostsFIA {};
             class createPetros {};
             class deleteControls {};
@@ -124,7 +123,7 @@ class CfgFunctions
             class distance {};
             class distanceUnits {};
             class FIAradio {};
-            class findAttackTargets {}
+            class findAttackTargets {};
             class findBasesForConvoy {};
             class findNearestGoodRoad {};
             class flagaction {};
@@ -136,7 +135,7 @@ class CfgFunctions
             class getVehiclesAirSupport {};
             class getVehiclesGroundSupport {};
             class getVehiclesGroundTransport {};
-            class vehicleBoxHeal {};
+            class vehicleBoxRestore {};
             class initPetros {};
             class isFrontline {};
             class arePositionsConnected {};
@@ -342,6 +341,8 @@ class CfgFunctions
             //Main initialisation functions.
             class initServer {};
             class initClient {};
+            class setupMonitor {};
+            class startGame {};
 
             //Other initialisation functions (generally called by the above)
             class briefing {};
@@ -349,15 +350,13 @@ class CfgFunctions
             class clientIdleChecker {};
             class credits {};
             class initACEUnconsciousHandler {};
-            class initFuncs {};
+            class initBases {};
             class initGarrisons {};
-            class initParams {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
+            class generateRoadblock {};
             class initTeamLeaderObjects {};
 
-            class initVar {};
-            class initVarClient {};
             class initVarCommon {};
             class initVarServer {};
 
@@ -385,35 +384,6 @@ class CfgFunctions
         class keybinds {
             file = QPATHTOFOLDER(keybinds);
             class keyActions {};
-        };
-
-        class Logistics {
-            file = QPATHTOFOLDER(functions\Logistics);
-            class logistics_addLoadAction {};
-            class logistics_getVehCapacity {};
-            class logistics_initNodes {};
-            class logistics_isLoadable {};
-        };
-
-        class LogisticsFunctions {
-            file = QPATHTOFOLDER(functions\Logistics\functions);
-            class logistics_addAction {};
-            class logistics_addOrRemoveObjectMass {};
-            class logistics_addWeaponAction {};
-            class logistics_attachCargo {};
-            class logistics_canLoad {};
-            class logistics_generateHardPoints {};
-            class logistics_getCargoNodeType {};
-            class logistics_getCargoOffsetAndDir {};
-            class logistics_getVehicleNodes {};
-            class logistics_initMountedWeapon {};
-            class logistics_load {};
-            class logistics_refreshVehicleLoad {};
-            class logistics_removeWeaponAction {};
-            class logistics_toggleAceActions {};
-            class logistics_toggleLock {};
-            class logistics_tryLoad {};
-            class logistics_unload {};
         };
 
         class LTC {
@@ -455,8 +425,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\ModsAndDLC);
             class darkMapFix {};
             class getModOfConfigClass {};
-            class initDisabledMods {};
-            class isModNameVanilla {};
         };
 
         class OrgPlayers {
@@ -511,7 +479,6 @@ class CfgFunctions
 
         class proxy {
             file = QPATHTOFOLDER(functions\proxy);
-            class init {};
             class onPlayerRespawn {};
         };
 
@@ -564,7 +531,6 @@ class CfgFunctions
             class reDress {};
             class reinfPlayer {};
             class spawnHCGroup {};
-            class stealStatic {};
             class vehiclePrice {};
             class vehStats {};
         };
@@ -596,10 +562,10 @@ class CfgFunctions
 
         class Save {
             file = QPATHTOFOLDER(functions\Save);
+            class collectSaveData {};
             class deleteSave {};
             class loadPlayer {};
             class loadServer {};
-            class playerHasSave {};
             class savePlayer {};
             class getStatVariable {};
             class loadStat {};
@@ -608,8 +574,8 @@ class CfgFunctions
             class returnSavedStat {};
             class savePlayerStat {};
             class setStatVariable {};
-            class varNameToSaveName {};
             class saveLoop {};
+            class writebackSaveVar {};
         };
 
         class String {
@@ -697,8 +663,6 @@ class CfgFunctions
 
         class InitTemplates {
             file = QPATHTOFOLDER(Templates);
-            class detector {};
-            class selector {};
         };
 
         class ItemSets {
@@ -781,6 +745,7 @@ class CfgFunctions
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};
+            class getItemListFromDLC {};
         };
 
         class UtilityItems {

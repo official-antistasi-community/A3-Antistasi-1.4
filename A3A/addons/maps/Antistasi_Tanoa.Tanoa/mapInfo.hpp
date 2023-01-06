@@ -11,8 +11,10 @@ class tanoa {
 		{5893.41,10253.1,-0.687263},{9507.5,13572.9,0.133848}
 	};
 	garrison[] = {
-		{},{"airport_1","seaport_5","outpost_10","control_20"},{},{"control_20"}
+		{},{"airport_1","seaport_5","outpost_10"},{},{"control_20"}
 	};
-	fuelStationTypes[] = {"Land_FuelStation_02_pump_F","Land_FuelStation_01_pump_F"};
+	fuelStationTypes[] = {
+		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F"
+	};
 	climate = "tropical";
 };

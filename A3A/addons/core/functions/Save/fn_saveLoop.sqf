@@ -1,6 +1,5 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
@@ -8,40 +7,65 @@ if (!isServer) exitWith {
 if (savingServer) exitWith {["Save Game", "Server data save is still in progress..."] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-["Persistent Save","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save","Starting persistent save..."] remoteExecCall ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
+
+// Select save namespace
+A3A_saveTarget params ["_serverID", "_campaignID"];
+private _saveToNewNamespace = _serverID isEqualType false;
+if (!_saveToNewNamespace) then { profileNamespace setVariable ["ss_serverID", _serverID] };			// backwards compatibility
+private _namespace = [profileNamespace, missionProfileNamespace] select _saveToNewNamespace;
+
 
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
 } forEach (call A3A_fnc_playableUnits);
 
-// Check if this campaign is already in the save list
-private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
-private _saveIndex = -1;
+// Now write back all the player data
 {
-	if (_x select 0 == campaignID) exitWith { _saveIndex = forEachIndex };
-} forEach _saveList;
+	private _uid = _x;
+	private _playerData = _y;
+	{
+		if (isNil {_playerData get _x}) then { continue };				// old game data will have missing entries
+		[_uid, _x, _playerData get _x] call A3A_fnc_savePlayerStat;
+	} forEach ["moneyX", "loadoutPlayer", "scorePlayer", "rankPlayer", "personalGarage"];
+} forEach A3A_playerSaveData;
 
-// If not, append a new entry
-if (_saveIndex == -1) then {
-	private _gametype = if (teamPlayer isEqualTo independent) then {"Greenfor"} else {"Blufor"};
-	_saveList pushBack [campaignID, worldName, _gametype];
-	profileNamespace setVariable ["antistasiSavedGames", _saveList];
-};
+["savedPlayers", keys A3A_playerSaveData] call A3A_fnc_setStatVariable;
 
-// Update the legacy campaign ID store
-profileNamespace setVariable ["ss_campaignID", campaignID];
 
-// Save persistent global variables defined in initParam
-private _savedParams = A3A_paramTable apply { [_x#0, missionNameSpace getVariable _x#0] };
+// Move this campaign to the end of the save list
+private _saveList = [_namespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+_saveList deleteAt (_saveList findIf { _x select 0 == _campaignID });
+_saveList pushBack [_campaignID, worldName, "Greenfor"];
+_namespace setVariable ["antistasiSavedGames", _saveList];
+
+// Update the legacy campaign ID for backwards compatibility
+if (!_saveToNewNamespace) then { _namespace setVariable ["ss_campaignID", _campaignID] };
+
+
+// Save persistent global variables defined in params config
+private _savedParams = [];
+{
+    if (getArray (_x/"texts") isEqualTo [""]) then { continue };       // spacer/title
+	_savedParams pushBack [configName _x, missionNameSpace getVariable configName _x];
+} forEach ("true" configClasses (configFile/"A3A"/"Params"));
 Debug_1("Saving params: %1", _savedParams);
+
 ["params", _savedParams] call A3A_fnc_setStatVariable;
 
+// Save vars from save selector
+["name", A3A_saveData get "name"] call A3A_fnc_setStatVariable;
+["factions", A3A_saveData get "factions"] call A3A_fnc_setStatVariable;
+["DLC", A3A_saveData get "DLC"] call A3A_fnc_setStatVariable;
+["addonVics", A3A_saveData get "addonVics"] call A3A_fnc_setStatVariable;
+
 private ["_garrison"];
-["version", antistasiVersion] call A3A_fnc_setStatVariable;
+["version", QUOTE(VERSION_FULL)] call A3A_fnc_setStatVariable;
+["saveTime", systemTimeUTC] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;				// backwards compatibiiity
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
@@ -60,7 +84,7 @@ private _antennasDeadPositions = [];
 ["distanceSPWN", distanceSPWN] call A3A_fnc_setStatVariable;		// backwards compatibility
 ["civPerc", civPerc] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["chopForest", chopForest] call A3A_fnc_setStatVariable;
-["maxUnits", maxUnits] call A3A_fnc_setStatVariable;				// backwards compatibility
+["maxUnits", 140] call A3A_fnc_setStatVariable;				// backwards compatibility
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
@@ -313,6 +337,7 @@ _dataX = [];
 
 ["killZones",_dataX] call A3A_fnc_setStatVariable;
 
+// Only save state of the hardcoded controls
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
@@ -333,8 +358,9 @@ _fuelAmountleftArray = [];
 //Saving the state of the testing timer
 ["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
 
-saveProfileNamespace;
+if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
+
 savingServer = false;
 _saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
+["Persistent Save",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

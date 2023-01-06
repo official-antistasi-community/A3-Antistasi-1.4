@@ -159,17 +159,14 @@ _itemCounts =+ _availableItems;
 	_index = _foreachindex;
 	_subArray = _x;
 	_isMagArray = (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG) || (_index == IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL);
+	_arrayMin = jna_minItemMember select _index;
 	{
 		_item = _x select 0;
 		_amount = (_x select 1);
 		if (_amount != -1 && !_isMember) then {
-			if !(_isMagArray) then { _amount = _amount - minWeaps }
-			else {
-				// Magazines are counted in bullets
-				_ammoCount = getNumber (configfile >> "CfgMagazines" >> _item >> "count");
-				_amount = _amount - memberOnlyMagLimit * _ammoCount;
-			};
-			_subArray set [_foreachindex, [_item,_amount]];
+			_itemMin = A3A_arsenalLimits getOrDefault [_item, _arrayMin];
+			if (_isMagArray) then { _itemMin = _itemMin * getNumber (configfile >> "CfgMagazines" >> _item >> "count") };
+			_subArray set [_foreachindex, [_item, (_amount - _itemMin) max 0]];
 		};
 	} forEach _subArray;
 	_availableItems set [_index, _subArray];
@@ -265,9 +262,9 @@ _weapons = [_inventory select 6,_inventory select 7,_inventory select 8];
 					_arrayMissing = [_arrayMissing,[_itemMag,_amountMag]] call jn_fnc_arsenal_addToArray;
 					_amountMag = _amountMagAvailable max 0;
 				};
-			[_arrayTaken,_indexMag,_itemMag,_amountMag] call _addToArray;
-			[_availableItems,_indexMag,_itemMag,_amountMag] call _removeFromArray;
-			player addMagazine [_itemMag, _amountMag];
+				[_arrayTaken,_indexMag,_itemMag,_amountMag] call _addToArray;
+				[_availableItems,_indexMag,_itemMag,_amountMag] call _removeFromArray;
+				player addMagazine [_itemMag, _amountMag];
 			} else {
 				_arrayMissing = [_arrayMissing,[_itemMag,_amountMag]] call jn_fnc_arsenal_addToArray;
 			};

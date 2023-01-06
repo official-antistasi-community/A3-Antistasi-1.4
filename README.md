@@ -32,7 +32,7 @@ Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-communi
 Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=unstable)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 
 ## Grab our latest release on Steam!
-### [Mission Files](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/)
+### [Mission Files](https://steamcommunity.com/id/OfficialAntistasiCommunity/myworkshopfiles/)
 - Altis
     - [Steam Workshop: 1832638103](https://steamcommunity.com/sharedfiles/filedetails/?id=1832638103)
 - Tanoa
@@ -62,7 +62,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Altis 1.9 Community Version (discontinued)
     - [Steam Workshop: 1832910657](https://steamcommunity.com/sharedfiles/filedetails/?id=1832910657)
 
-### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntiStasiCommunity/myworkshopfiles/?section=collections)
+### [Suggested Modlists](https://steamcommunity.com/id/OfficialAntistasiCommunity/myworkshopfiles/?section=collections)
 - RHS Base Collection
     - [Steam Workshop: 2498438772](https://steamcommunity.com/sharedfiles/filedetails/?id=2498438772)
 - 3CB BAF Base Collection

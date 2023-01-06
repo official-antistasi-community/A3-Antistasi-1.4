@@ -35,7 +35,7 @@ private _taskId = "wavedAttack" + str A3A_taskCount;
 if (_targside == teamPlayer) then {
     private _taskStr = format ["%1 is attacking our garrison at %2. Stop them if you can, or live to fight another day.", _nameEnemy, _nameDest];
     [true,_taskId,[_taskStr,format ["%1 Attack",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
-    [_taskId, "wavedAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
+    [_taskId, "rebelAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 } else {
     private _text = format ["%1 is attacking the %2 garrison at %3.", _nameEnemy, Faction(_targside) get "name", _nameDest];
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
@@ -91,7 +91,7 @@ while {_wave <= _maxWaves and !_victory} do
 
 
     // Send the land units and air transports. Returns once air sent
-    private _minDelay = [0, 300 / A3A_balancePlayerScale] select (_wave == 1 and _targSide == teamPlayer);
+    private _minDelay = [0, 300] select (_wave == 1 and _targSide == teamPlayer);
     //params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_modifiers", "_attackType", "_reveal"];
     private _data = [_side, _mrkOrigin, _mrkDest, "attack", _vehCount, _minDelay, ["noairsupport"], "MajorAttack", _reveal] call A3A_fnc_createAttackForceMixed;
     _data params ["", "_newVehicles", "_crewGroups", "_cargoGroups"];
@@ -178,25 +178,19 @@ while {_wave <= _maxWaves and !_victory} do
 if (_victory) then {
     if (_targSide != teamPlayer) exitWith {};
     [_taskId, "rebelAttack", "FAILED"] call A3A_fnc_taskSetState;
-    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
     if (_targside == teamPlayer) then { [-10,theBoss] call A3A_fnc_playerScoreAdd };
 } else {
     [_mrkDest, _mrkOrigin] call A3A_fnc_minefieldAAF;
 
     if (_targSide != teamPlayer) exitWith {};
     [_taskId, "rebelAttack", "SUCCEEDED"] call A3A_fnc_taskSetState;
-    [_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
     private _nearRebels = [500, 0, markerPos _mrkDest, teamPlayer] call A3A_fnc_distanceUnits;
     { if (isPlayer _x) then { [10, _x] call A3A_fnc_playerScoreAdd } } forEach _nearRebels;
     [10, theBoss] call A3A_fnc_playerScoreAdd;
 };
+[_taskId, "rebelAttack", 30] spawn A3A_fnc_taskDelete;
 
 ServerInfo("Reached end of winning conditions. Starting despawn");
-sleep 30;
-
-bigAttackInProgress = false; publicVariable "bigAttackInProgress";
-forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";
-
 
 { [_x] spawn A3A_fnc_VEHDespawner } forEach _allVehicles;
 { [_x] spawn A3A_fnc_enemyReturnToBase } forEach _allCrewGroups;
@@ -204,3 +198,8 @@ forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";
     [_x, [nil, _mrkDest] select _victory] spawn A3A_fnc_enemyReturnToBase;
     sleep 10;
 } forEach _allCargoGroups;
+
+sleep 60;
+
+bigAttackInProgress = false; publicVariable "bigAttackInProgress";
+forcedSpawn = forcedSpawn - [_mrkDest]; publicVariable "forcedSpawn";

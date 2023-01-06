@@ -7,8 +7,14 @@
 #include "common.inc"
 
 #include "script_version.hpp"
-#define VERSION MAJOR.MINOR.PATCHLVL.BUILD
-#define VERSION_AR MAJOR,MINOR,PATCHLVL,BUILD
+#define VERSION MAJOR.MINOR.PATCHLVL
+#define VERSION_AR MAJOR,MINOR,PATCHLVL
+
+#define VERSION_FULL MAJOR.MINOR.PATCHLVL.BUILD
+#define VERSION_AR_FULL MAJOR,MINOR,PATCHLVL,BUILD
+
+// probably should move to script_version.hpp?
+#define MINIMUM_MISSION_VERSION_AR 2,6,1
 
 #define REQUIRED_VERSION 2.06
 

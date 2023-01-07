@@ -17,4 +17,5 @@ class cam_lao_nam {
 		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F","Land_vn_b_prop_fueldrum_01","Land_vn_usaf_fueltank_75_01","Land_vn_fuelstation_feed_f","Land_vn_fuelstation_01_pump_f","Land_vn_fuelstation_02_pump_f"
 	};
 	climate = "tropical";
+	buildObjects[] = {{"Land_vn_b_trench_wall_05_02", 10, 10}, {"Land_vn_b_trench_revetment_90_01", 10, 10}, {"Land_vn_b_trench_revetment_tall_03", 10, 10}, {"Land_vn_b_trench_firing_02", 10, 10}, {"Land_vn_bagfence_01_long_green_f", 0, 5}, {"Land_vn_bagfence_01_short_green_f", 0, 5}, {"Land_vn_bagfence_01_round_green_f", 0, 5}, {"Land_vn_bagfence_01_end_green_f", 0, 5}, {"Land_vn_bagfence_01_corner_green_f", 0, 5}};
 };

@@ -13,4 +13,5 @@ class tem_anizay {
 		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F","Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"
 	};
 	climate = "arid";
+	buildObjects[] = {{"Fortress1", 10, 15}, {"Fortress2", 0, 12}, {"Land_fort_artillery_nest_EP1", 10, 15}, {"Land_fort_rampart_EP1", 0, 10}, {"Land_fortified_nest_small_EP1", 5, 12}, {"Land_Fort_Watchtower_EP1", 5, 10}, {"Land_BagFenceLong", 0, 5}, {"Land_BagFenceEnd", 0, 5}, {"Land_BagFenceShort", 0, 5}, {"Land_BagFenceRound", 0, 5}, {"Land_fortified_nest_big_EP1", 50, 15}};
 };

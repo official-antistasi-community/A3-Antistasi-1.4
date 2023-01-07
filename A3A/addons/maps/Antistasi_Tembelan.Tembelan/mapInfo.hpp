@@ -16,4 +16,5 @@ population numbers are reasonable, hence no need to manually adapt them
 	garrison[] = {{},{"airport_2", "airport_4", "outpost_10", "seaport_2"},{},{}};
 	fuelStationTypes[] = {"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F"};
 	climate = "temperate";
+	buildObjects[] = {};
 };

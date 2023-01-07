@@ -40,7 +40,7 @@
 ["vehiclesPlanesAA", ["CUP_B_GR9_DYN_GB"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["CUP_B_C130J_USMC"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["CUP_B_UH1D_GER_KSK", "CUP_B_MH6M_USA"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["CUP_B_UH1D_GER_KSK_Des", "CUP_B_MH6M_USA"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_CH53E_GER", "CUP_B_UH1D_GER_KSK", "CUP_B_AW159_Unarmed_GER"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["CUP_B_UH1D_armed_GER_KSK_Des", "CUP_B_UH1D_gunship_GER_KSK_Des", "CUP_B_AW159_GER"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_AH1Z_Dynamic_USMC"]] call _fnc_saveToTemplate;

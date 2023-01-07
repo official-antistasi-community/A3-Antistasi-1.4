@@ -2,11 +2,11 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "NAPA"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
+["name", "TKM"] call _fnc_saveToTemplate;                         //this line determines the faction name -- Example: ["name", "NATO"] - ENTER ONLY ONE OPTION
 
-["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;                         //this line determines the flag -- Example: ["flag", "Flag_NATO_F"] - ENTER ONLY ONE OPTION
-["flagTexture", "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa"] call _fnc_saveToTemplate;                 //this line determines the flag texture -- Example: ["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] - ENTER ONLY ONE OPTION
-["flagMarkerType", "Faction_CUP_NAPA"] call _fnc_saveToTemplate;             //this line determines the flag marker type -- Example: ["flagMarkerType", "flag_NATO"] - ENTER ONLY ONE OPTION
+["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
+["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 ["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
 ["vehicleLightUnarmed", "CUP_I_Hilux_armored_unarmed_NAPA"] call _fnc_saveToTemplate;
@@ -21,7 +21,7 @@
 
 ["vehicleCivCar", "CUP_O_Hilux_unarmed_CR_CIV"] call _fnc_saveToTemplate;
 ["vehicleCivTruck", "CUP_C_Ural_Civ_03"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "CUP_C_412"] call _fnc_saveToTemplate;
+["vehicleCivHeli", "CUP_C_Mi17_Civilian_RU"] call _fnc_saveToTemplate;
 ["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
 
 ["staticMG", "CUP_I_DSHKM_NAPA"] call _fnc_saveToTemplate;
@@ -90,36 +90,50 @@ private _rebUniforms = [
     "U_I_G_resistanceLeader_F"
 ];          //Uniforms given to Normal Rebels
 
-private _dlcUniforms = [];          //Uniforms given if DLCs are enabled, only given to the Arsenal not Rebels
+private _rebUniformsAI = [
+    "CUP_O_TKI_Khet_Jeans_04",
+    "CUP_O_TKI_Khet_Jeans_02",
+    "CUP_O_TKI_Khet_Jeans_01",
+    "CUP_O_TKI_Khet_Jeans_03",
+    "CUP_O_TKI_Khet_Partug_04",
+    "CUP_O_TKI_Khet_Partug_02",
+    "CUP_O_TKI_Khet_Partug_01",
+    "CUP_O_TKI_Khet_Partug_07",
+    "CUP_O_TKI_Khet_Partug_08",
+    "CUP_O_TKI_Khet_Partug_05",
+    "CUP_O_TKI_Khet_Partug_06",
+    "CUP_O_TKI_Khet_Partug_03"
+];
 
-if (allowDLCEnoch) then {_dlcUniforms append [];
-};
-
-if (allowDLCExpansion) then {_dlcUniforms append [];
-};
-
-["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
+["uniforms", _rebUniforms + _rebUniformsAI] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
 ["headgear", [
-   "CUP_H_NAPA_Fedora",
-   "CUP_H_FR_BandanaGreen",
-   "CUP_H_RUS_Bandana_HS",
-   "CUP_H_C_Beanie_04",
-   "CUP_H_C_Beret_04"
+    "H_ShemagOpen_tan",
+    "H_ShemagOpen_khk",
+    "CUP_H_TKI_SkullCap_01",
+    "CUP_H_TKI_SkullCap_02",
+    "CUP_H_TKI_SkullCap_03",
+    "CUP_H_TKI_SkullCap_04",
+    "CUP_H_TKI_SkullCap_05",
+    "CUP_H_TKI_SkullCap_06",
+    "CUP_H_TKI_Lungee_Open_01",
+    "CUP_H_TKI_Lungee_Open_02",
+    "CUP_H_TKI_Lungee_Open_03",
+    "CUP_H_TKI_Lungee_Open_04",
+    "CUP_H_TKI_Lungee_Open_05",
+    "CUP_H_TKI_Lungee_Open_06",
+    "CUP_H_TKI_Lungee_01",
+    "CUP_H_TKI_Lungee_02",
+    "CUP_H_TKI_Lungee_03",
+    "CUP_H_TKI_Lungee_04"
 ]] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
 /////////////////////
 ///  Identities   ///
 /////////////////////
 
-["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem","GreekHead_A3_05",
-"GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09",
-"Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03","WhiteHead_04",
-"WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_09",
-"WhiteHead_10","WhiteHead_11","WhiteHead_12","WhiteHead_13","WhiteHead_14",
-"WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_19","WhiteHead_20",
-"WhiteHead_21"]] call _fnc_saveToTemplate;
-["voices", ["CUP_D_Male01_CZ_ACR","CUP_D_Male02_CZ_ACR","CUP_D_Male03_CZ_ACR","CUP_D_Male04_CZ_ACR","CUP_D_Male05_CZ_ACR"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+["voices", ["CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -130,7 +144,8 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 
-_loadoutData set ["uniforms", _rebUniforms];
+_loadoutData set ["uniforms", _rebUniformsAI];
+_loadoutData set ["facewear", ["CUP_Beard_Black", "None", "CUP_Beard_Brown", "CUP_TK_NeckScarf"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -143,6 +158,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
+    ["facewear"] call _fnc_setFacewear;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
@@ -152,6 +168,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
+    ["facewear"] call _fnc_setFacewear;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

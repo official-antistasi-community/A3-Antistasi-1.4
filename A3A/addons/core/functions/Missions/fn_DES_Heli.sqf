@@ -101,21 +101,6 @@ private _text = format ["We have downed a helicopter. There is a good chance to 
 [[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-// Remove undercover from players that approach the crash site
-[_heli] spawn {
-    params ["_heli"];
-
-    private _undercoverBreakDistance = 50;
-    private _initialHeliPosition = getPosATL _heli;
-
-    while {alive _heli && _heli getVariable "ownerSide" != teamPlayer} do {
-        private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
-        { if (captive _x) then [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
-        sleep 5;
-    };
-};
-
-
 ////////////////
 //convoy spawn//
 ////////////////
@@ -231,6 +216,20 @@ _groups pushBack _pilots;
 private _pilotsWP = _pilots addWaypoint [_posCrash, 0];
 _pilotsWP setWaypointType "HOLD";
 _pilotsWP setWaypointBehaviour "STEALTH";
+
+// Remove undercover from players that approach the crash site
+[_heli] spawn {
+    params ["_heli"];
+
+    private _undercoverBreakDistance = 50;
+    private _initialHeliPosition = getPosATL _heli;
+
+    while {alive _heli && { _heli getVariable "ownerSide" != teamPlayer } } do {
+        private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
+        { if (captive _x) then [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
+        sleep 5;
+    };
+};
 
 Debug_3("Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1", _heli, _vehR, _dateLimit);
 waitUntil

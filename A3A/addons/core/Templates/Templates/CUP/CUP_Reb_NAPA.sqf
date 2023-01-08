@@ -108,7 +108,6 @@ private _rebUniformsAI = [
 ["uniforms", _rebUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
 ["headgear", [
-    "",
     "CUP_H_C_Beanie_02",
     "CUP_H_C_Beret_03",
     "CUP_H_C_Beret_04",
@@ -143,7 +142,7 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 
 _loadoutData set ["uniforms", _rebUniformsAI];
-_loadoutData set ["facewear", ["","CUP_G_Balaclava_blk","CUP_G_Balaclava_oli","CUP_G_Bandanna_aviator","CUP_G_Bandanna_beast",
+_loadoutData set ["facewear", ["None","CUP_G_Balaclava_blk","CUP_G_Balaclava_oli","CUP_G_Bandanna_aviator","CUP_G_Bandanna_beast",
 "CUP_G_Bandanna_blk","CUP_G_Bandanna_khk","CUP_G_Bandanna_oli","CUP_G_Bandanna_shades","CUP_G_Shades_Black"
 ]];
 

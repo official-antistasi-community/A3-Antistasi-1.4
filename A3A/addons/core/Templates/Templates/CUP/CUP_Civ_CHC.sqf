@@ -119,7 +119,7 @@ private _workerUniforms = ["CUP_U_C_Worker_03", "CUP_U_C_Worker_04", "CUP_U_C_Wo
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms] call _fnc_saveToTemplate;          //Uniforms given to the Arsenal, Allowed for Undercover and given to Rebel Ai that go Undercover
 
-_civHats = [""];
+_civHats = [];
 
 ["headgear", _civHats] call _fnc_saveToTemplate;            //Headgear given to Normal Civs, Workers, Undercover Rebels.
 
@@ -129,9 +129,8 @@ _loadoutData set ["uniforms", _civUniformsAI];
 _loadoutData set ["pressUniforms", _pressUniforms];
 _loadoutData set ["workerUniforms", _workerUniforms];
 _loadoutData set ["pressVests", ["V_Press_F"]];
-_loadoutData set ["helmets", _civHats];
 _loadoutData set ["pressHelmets", ["H_Cap_press"]];
-_loadoutData set ["workerHelmets", ["H_Cap_blk", "CUP_H_PMC_Cap_Tan", ""]];
+_loadoutData set ["workerHelmets", ["H_Cap_blk", "CUP_H_PMC_Cap_Tan"]];
 
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
@@ -139,7 +138,6 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 
 
 private _manTemplate = {
-    ["helmets"] call _fnc_setHelmet;
     ["uniforms"] call _fnc_setUniform;
 
     ["items_medical_standard"] call _fnc_addItemSet;

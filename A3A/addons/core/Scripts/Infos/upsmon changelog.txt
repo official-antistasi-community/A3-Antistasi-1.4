@@ -22,7 +22,7 @@ Corrected:-Variable missed in the Target module (thanks Bardosy).
 Corrected:-Weird defensive behaviour.
 
 === 6.0.9.1 ========================================================================
-added: -You can now use UPSMON_Creategroup to create random group with UPSMON parameters
+added: -You can now use UPSMON_fnc_CreateGroup to create random group with UPSMON parameters
 
 Corrected:-corrections in the UPSMON manual.
 === 6.0.9 ========================================================================

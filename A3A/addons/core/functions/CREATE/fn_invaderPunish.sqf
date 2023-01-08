@@ -81,7 +81,7 @@ while {count _civilians < _numCiv} do
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };
-    [leader _groupCivil, _mrkDest, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+    [leader _groupCivil, _mrkDest, "AWARE","SPAWNED","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
 };
 
 

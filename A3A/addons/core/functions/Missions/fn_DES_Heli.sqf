@@ -226,7 +226,7 @@ _pilotsWP setWaypointBehaviour "STEALTH";
 
     while {alive _heli && { _heli getVariable "ownerSide" != teamPlayer } } do {
         private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
-        { if (captive _x) then [_x, false] remoteExec ["setCaptive", _x] } forEach _nearbyPlayers;
+        { if (captive _x) then { [_x, false] remoteExec ["setCaptive", _x] } } forEach _nearbyPlayers;
         sleep 5;
     };
 };

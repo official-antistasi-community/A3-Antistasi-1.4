@@ -96,7 +96,7 @@ A3A_postInitFuncs = [];
         if (_requiredAddons findIf { !(isClass (configFile/"CfgPatches"/_x)) } > -1) then { continue }; //dependecies missing, skip compilation
 
         private _path = getText (_x/"file");
-        if (_path isEqualTo "") then { _path = "functions\" + configName _x }; //default path resolve, not used in antistasi as addons root is game dir unlike missions which is mission dir + functions
+        if (_path isEqualTo "") then { _path = "functions\" + configName _x }; //default path resolve, not used in Antistasi as addons root is game dir unlike missions which is mission dir + functions
 
         {
             //Function scope
@@ -126,7 +126,7 @@ A3A_postInitFuncs = [];
 } forEach ("true" configClasses (configFile/"A3A"/"CfgFunctions"));
 
 if (_skipPreInit) exitWith { true };
-if !( isClass (missionConfigFile/"A3A") ) exitWith { false }; //dont run code unless we are in a A3A mission
+//if !( isClass (missionConfigFile/"A3A") ) exitWith { false }; //dont run code unless we are in a A3A mission
 
 {
     call (missionNamespace getVariable _x);

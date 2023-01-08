@@ -25,7 +25,7 @@ private _fnc_distCheck = {
 // Cleanup rebel vehicles
 {
 	// Locked check is a hack for roadblock vehicles
-	if !(_x isKindOf "StaticWeapon" or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
+	if !(_x isKindOf "StaticWeapon" or unitIsUAV _x or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
 } forEach (vehicles select {_x getVariable ["ownerSide", sideUnknown] == teamPlayer});
 
 if (A3A_hasACE) then {

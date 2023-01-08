@@ -95,9 +95,9 @@ DECLARE_SERVER_VAR(haveRadio, false);
 //Currently destroyed buildings.
 //DECLARE_SERVER_VAR(destroyedBuildings, []);
 //Initial HR
-server setVariable ["hr",8,true];
+server setVariable ["hr",initialHr,true];
 //Initial faction money pool
-server setVariable ["resourcesFIA",rebelFactionStartingMoney,true];
+server setVariable ["resourcesFIA",initialFactionMoney,true];
 // Time of last garbage clean. Note: serverTime may not reset to zero if server was not restarted. Therefore, it should capture the time at start of mission.
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 // Hash map of custom non-member/AI item thresholds
@@ -300,10 +300,6 @@ Debug_1("Extra equip mod paths: %1", A3A_extraEquipMods);
 //         TEMPLATE LOADING        ///
 //////////////////////////////////////
 Info("Reading templates");
-
-// Hack: Need vanilla nodes to define logistics arrays apparently
-private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Logistics_Nodes.sqf)];
-
 {
     private _side = [west, east, resistance, civilian] # _forEachIndex;
     Info_2("Loading template %1 for side %2", _x, _side);
@@ -316,7 +312,6 @@ private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Log
     private _type = ["Occ", "Inv", "Reb", "Civ"] # _forEachIndex;
     missionNamespace setVariable ["A3A_"+_type+"_template", _x];			// don't actually need this atm, but whatever
 
-	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray(_cfg/"nodes");
 } forEach (_saveData get "factions");
 
 {
@@ -327,13 +322,7 @@ private _logisticsFiles = [QPATHTOFOLDER(Templates\Templates\Vanilla\Vanilla_Log
 		[_x#0, _basepath + _x#1] call A3A_fnc_loadAddon;
 	} forEach getArray (_cfg/"files");
 
-	{ _logisticsFiles pushBackUnique (_basepath + _x) } forEach getArray (_cfg/"nodes");
 } forEach (_saveData get "addonVics");
-
-{
-    Info_1("Loading logistic nodes: %1", _x);
-    call compile preprocessFileLineNumbers _x;
-} forEach _logisticsFiles;
 
 call A3A_fnc_compileMissionAssets;
 

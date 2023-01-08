@@ -6,7 +6,7 @@
 	Params:
 	1. Object: Vehicle object
 	2. Side: Side ownership for vehicle
-	3. String: (Optional) Resource pool for vehicle 
+	3. String: (Optional) Resource pool for vehicle
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
@@ -222,7 +222,7 @@ if (A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0] > 0) then {
 
 
 //add logistics loading to loadable objects
-if([typeOf _veh] call A3A_fnc_logistics_isLoadable) then {[_veh] call A3A_fnc_logistics_addLoadAction;};
+if([typeOf _veh] call A3A_Logistics_fnc_isLoadable) then {[_veh] call A3A_Logistics_fnc_addLoadAction;};
 
 // deletes vehicle if it exploded on spawn...
 [_veh] spawn A3A_fnc_cleanserVeh;

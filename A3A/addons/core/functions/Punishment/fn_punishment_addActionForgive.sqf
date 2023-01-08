@@ -22,7 +22,7 @@ Examples:
 	[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",_admin,false];
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_UID","_offenceTotal","_name"];
 private _filename = "fn_punishment_addActionForgive";

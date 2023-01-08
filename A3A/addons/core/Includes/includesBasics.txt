@@ -16,4 +16,4 @@ FIX_LINE_NUMBERS()
 For general use in Functions/{Folder}/{File}
 using: #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-would include the new logging macros for antistasi
+would include the new logging macros for Antistasi

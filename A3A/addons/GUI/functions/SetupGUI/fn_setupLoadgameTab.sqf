@@ -32,7 +32,7 @@ private _newGameCtrl = _display displayCtrl A3A_IDC_SETUP_NEWGAMECHECKBOX;
 private _copyGameCtrl = _display displayCtrl A3A_IDC_SETUP_COPYGAMECHECKBOX;
 private _oldParamsCtrl = _display displayCtrl A3A_IDC_SETUP_OLDPARAMSCHECKBOX;
 
-private _saveBoxColumns = [["gameID", "ID", 0, 9], ["mapStr", "Map", 9, 25], ["name", "Name", 25, 40], ["version", "Version", 65, 17], ["timeStr", "Time", 82, 15], ["fileStr", "File", 97, 9]];
+private _saveBoxColumns = [["gameID", "ID", 0, 9], ["mapStr", "Map", 9, 25], ["name", "Name", 25, 45], ["verStr", "Version", 70, 12], ["timeStr", "Time", 82, 15], ["fileStr", "File", 97, 9]];
 
 switch (_mode) do
 {
@@ -121,7 +121,7 @@ switch (_mode) do
         private _mpos = ctrlMousePosition _listBoxCtrl;
         if (_mpos#0 > (ctrlPosition _listBoxCtrl # 2) - 2*GRID_W) exitWith {};      // ignore scroll-bar region
         private _rowIndex = floor (_mpos#1 / (4*GRID_H));
-        if (_rowIndex > count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
+        if (_rowIndex >= count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
         if (_rowIndex == _listboxCtrl getVariable "rowIndex") exitWith {};          // ignore if already selected 
         ["selectSave", [_rowIndex]] call A3A_fnc_setupLoadgameTab;
     };

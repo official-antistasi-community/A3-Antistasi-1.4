@@ -126,5 +126,3 @@ if (_veh isKindOf "StaticWeapon") then {deleteVehicle _veh};
 
 ["Sell Vehicle", "Vehicle Sold."] remoteExecCall ["A3A_fnc_customHint",_player];
 nil;
-
-

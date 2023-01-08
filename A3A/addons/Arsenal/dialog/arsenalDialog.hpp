@@ -7,19 +7,19 @@
 
 #include "ids.inc"
 
-class A3A_ComboBox : A3A_ListBox
-{
-    type = CT_COMBO;
-    class ComboScrollBar: ScrollBar {};
-    style = ST_MULTI;   // + ST_NO_RECT;          // ?
+// class A3A_ComboBox : A3A_ListBox
+// {
+//     type = CT_COMBO;
+//     class ComboScrollBar: ScrollBar {};
+//     style = ST_MULTI;   // + ST_NO_RECT;          // ?
 
-    arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
-    arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
-    soundExpand[] = { "\A3\ui_f\data\sound\RscCombo\soundExpand", 0.1, 1 };
-    soundCollapse[] = { "\A3\ui_f\data\sound\RscCombo\soundCollapse", 0.1, 1 };
-    wholeHeight = 1; // ??
-    maxHistoryDelay = 0.2;      // Do values <1 actually work? pretty annoying if you can't quick open-close these
-};
+//     arrowEmpty = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_ca.paa";
+//     arrowFull = "\A3\ui_f\data\GUI\RscCommon\rsccombo\arrow_combo_active_ca.paa";
+//     soundExpand[] = { "\A3\ui_f\data\sound\RscCombo\soundExpand", 0.1, 1 };
+//     soundCollapse[] = { "\A3\ui_f\data\sound\RscCombo\soundCollapse", 0.1, 1 };
+//     wholeHeight = 1; // ??
+//     maxHistoryDelay = 0.2;      // Do values <1 actually work? pretty annoying if you can't quick open-close these
+// };
 
 
 class A3A_Antistasi_Arsenal

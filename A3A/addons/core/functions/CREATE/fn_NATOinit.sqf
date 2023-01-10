@@ -121,7 +121,6 @@ default {
     _voice = selectRandom _regularVoices;
     };
 };
-Debug_3("Selected %1 and %2 for unit %3", _face, _voice, _type);
 [_unit, _face, _voice] call A3A_fnc_setIdentity;
 _unit setSkill _skill;
 

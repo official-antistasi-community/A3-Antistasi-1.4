@@ -121,7 +121,8 @@ default {
     _voice = selectRandom _regularVoices;
     };
 };
-[_unit, _face, _voice] call BIS_fnc_setIdentity;
+Debug_3("Selected %1 and %2 for unit %3", _face, _voice, _type);
+[_unit, _face, _voice] call A3A_fnc_setIdentity;
 _unit setSkill _skill;
 
 //Adjusts squadleaders with improved skill and adds intel action

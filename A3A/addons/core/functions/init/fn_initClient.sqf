@@ -28,7 +28,7 @@ if !(isServer) then {
     // Headless client navgrid init
     if (!hasInterface) then {
         Info("Headless client UPSMON init started");
-        [] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
+        [] call UPSMON_fnc_Init_UPSMON;
         Info("Headless client UPSMON init completed");
 
         call A3A_fnc_loadNavGrid;
@@ -453,6 +453,7 @@ if (isNil "placementDone") then {
     };
 };
 
+initClientDone = true;
 Info("initClient completed");
 
 if(!isMultiplayer) then

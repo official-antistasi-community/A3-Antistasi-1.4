@@ -67,7 +67,7 @@ for "_i" from 1 to 4 do
 	private _groupType = if (_difficultX) then { FactionGet(occ, "groupSentry") } else { FactionGet(occ, "groupPolice") };
 	_groupX = [_positionX,Occupants,_groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] spawn UPSMON_fnc_UPSMON;
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 	_groups pushBack _groupX;
 	};

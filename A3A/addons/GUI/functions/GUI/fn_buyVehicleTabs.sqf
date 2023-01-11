@@ -385,7 +385,7 @@ if  (_tab in ["other"]) then
         
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
-            10,
+            25,
             "A3A_fnc_buyItem",
             [
                 player,

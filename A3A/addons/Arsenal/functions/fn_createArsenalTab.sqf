@@ -151,7 +151,7 @@ if (_arsenalData isEqualTo []) ExitWith { Debug_1("Data array is empty for: %1",
 private _createdCtrls = [];
 
 {
-    _x params ["_className", "_amount"];
+    [_x, _y ] params ["_className", "_amount"];
 
     private _configClass = _config >> _className;
     private _displayName = getText (_configClass >> "displayName");

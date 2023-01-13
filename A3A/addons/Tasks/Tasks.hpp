@@ -38,4 +38,11 @@ class Tasks {
         version = 1; //version number of task, update when compatibility is broken between last version and new update
         weight = 1;
     };
+    class L_LOG_Supplies {
+        category = "LOG";
+        func = QFUNC(LOG_Supplies);
+        params = QFUNC(LOG_Supplies_p);
+        version = 1;
+        weight = 1;
+    };
 };

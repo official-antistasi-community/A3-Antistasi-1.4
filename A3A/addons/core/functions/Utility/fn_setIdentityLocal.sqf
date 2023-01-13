@@ -1,5 +1,5 @@
 /*
-    Set face, voice, pitch and name of unit locally, and clear JIP if no longer present
+    Sets specified identity of unit locally. Clears JIP if unit no longer present
 
 Scope: Any
 Environment: Any

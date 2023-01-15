@@ -5094,5 +5094,16 @@
         <Original>"This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version."</Original>
       </Key>
     </Container>
+    <Container name="A3A_GCTracker">
+    <Key ID="STR_A3A_GCTracker_tracker_title">
+        <Original>Garbage Cleaner Tracker</Original>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_tracker_notification">
+        <Original>Last GC was %1 ago. Keep track of it.</Original>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
+        <Original>"Garbage Cleaner Tracker run a gc because the time passed the threshold. Keep track of GC times."</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

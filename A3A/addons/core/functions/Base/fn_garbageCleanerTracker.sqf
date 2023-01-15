@@ -32,7 +32,7 @@ while {true} do
 	if ((serverTime-A3A_lastGarbageCleanTimeNote) > A3A_GCThresholdNotification) then 
 	{
 		private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-		["Garbage Cleaner Tracker","Last GC was " + _timeSinceLastGC + " ago. Keep track of it."] remoteExec ["A3A_fnc_customHint", 0];
+		[localize "STR_A3A_GCTracker_tracker_title", format [localize "STR_A3A_GCTracker_tracker_notification", _timeSinceLastGC]] remoteExec ["A3A_fnc_customHint", 0];
 		missionNamespace setVariable ["A3A_lastGarbageCleanTimeNote",serverTime,true];
 		Info_1("Garbage Cleaner Tracker has notified players of last gc time %1", _timeSinceLastGC);
 	};
@@ -41,10 +41,10 @@ while {true} do
 	if ((serverTime-A3A_lastGarbageCleanTime) > A3A_GCThreshold) then 
 	{
 		[] call A3A_fnc_garbageCleaner;
-		["Garbage Cleaner Tracker","Garbage Cleaner Tracker run a gc because the time passed the threshold. Keep track of GC times."] remoteExec ["A3A_fnc_customHint", 0];
+		[localize "STR_A3A_GCTracker_tracker_title", localize "STR_A3A_GCTracker_tracker_ran_gc"] remoteExec ["A3A_fnc_customHint", 0];
 		Info("Garbage Cleaner Tracker has ran gc of as players reached threshold");
 	};
 
 	// sleep 5 minutes then check again
-	sleep 15;
+	sleep 300;
 };

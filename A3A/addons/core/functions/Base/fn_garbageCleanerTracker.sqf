@@ -1,3 +1,4 @@
+#include "..\..\script_component.hpp"
 /*
 Author: [Killerswin2]
     Automatic/backup garbage cleaner with fix time slices
@@ -14,21 +15,36 @@ Dependencies:
 	None
 Example:
 */
+#define GC_THRESHOLD_DISABLE 9999999
 
 if(!isServer) exitWith {};
+if(A3A_GCThreshold isEqualTo GC_THRESHOLD_DISABLE) exitWith {};
 
 // prevent weirdness
-if(isNil "A3A_lastGarbageCleanTime") then {
-	waitUntil {sleep 15; !isNil "A3A_lastGarbageCleanTime"};
+if((isNil "A3A_lastGarbageCleanTime") && (isNil "A3A_lastGarbageCleanTimeNote")) then {
+	waitUntil {sleep 15; ((!isNil "A3A_lastGarbageCleanTime") && (!isNil "A3A_lastGarbageCleanTimeNote"))};
 };
+
 
 while {true} do 
 {
+	// notify players of last gc time
+	if ((serverTime-A3A_lastGarbageCleanTimeNote) > A3A_GCThresholdNotification) then 
+	{
+		private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
+		["Garbage Cleaner Tracker","Last GC was " + _timeSinceLastGC + " ago. Keep track of it."] remoteExec ["A3A_fnc_customHint", 0];
+		missionNamespace setVariable ["A3A_lastGarbageCleanTimeNote",serverTime,true];
+		Info_1("Garbage Cleaner Tracker has notified players of last gc time %1", _timeSinceLastGC);
+	};
+
+	// if the gc time goes above the threshold then it's time to gc.
 	if ((serverTime-A3A_lastGarbageCleanTime) > A3A_GCThreshold) then 
 	{
 		[] call A3A_fnc_garbageCleaner;
+		["Garbage Cleaner Tracker","Garbage Cleaner Tracker run a gc because the time passed the threshold. Keep track of GC times."] remoteExec ["A3A_fnc_customHint", 0];
+		Info("Garbage Cleaner Tracker has ran gc of as players reached threshold");
 	};
 
 	// sleep 5 minutes then check again
-	sleep 300;
+	sleep 15;
 };

@@ -98,6 +98,20 @@ class Params
         texts[] = {"2min","5min","15min","30min","disabled"};
         default = 900;
     };
+    class A3A_GCThreshold
+    {
+        title = "Garbage Cleaner Threshold for Automatic gc";
+        values[] = {3600, 7200, 10800, 14400, 9999999};
+        texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
+        Default = 60;
+    }
+    class A3A_GCThresholdNotification
+    {
+        title = "Garbage Cleaner Threshold notification to tell players that a gc hasn't happen in time slice";
+        values[] = {1800, 3600, 5400, 7200};
+        texts[] = {"1/2hr", "1hrs", "1 1/2hrs", "2hrs"};
+        Default = 40;
+    }
 
     class SpacerMembership
     {

@@ -256,6 +256,7 @@ Info("Setting serverInitDone as true");
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop
+[] spawn A3A_fnc_garbageCleanerTracker;             // 5-minute loop
 
 savingServer = false;           // enable saving
 

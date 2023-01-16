@@ -197,33 +197,6 @@ while {true} do
 		} forEach (destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
 		if (_changingX) then {publicVariable "destroyedSites"};
 		};
-	if (isDedicated) then
-		{
-		{
-		if (side _x == civilian) then
-			{
-			_var = _x getVariable "statusAct";
-			if (isNil "_var") then
-				{
-				if (local _x) then
-					{
-					if ((_x getVariable "unitType") in (FactionGet(civ, "unitMan") + FactionGet(civ, "unitPress") + FactionGet(civ, "unitWorker"))) then
-						{
-						if (vehicle _x == _x) then
-							{
-							if (primaryWeapon _x == "") then
-								{
-								_groupX = group _x;
-								deleteVehicle _x;
-								if ({alive _x} count units _groupX == 0) then {deleteGroup _groupX};
-								};
-							};
-						};
-					};
-				};
-			};
-		} forEach allUnits;
-		};
 
 	sleep 4;
 };

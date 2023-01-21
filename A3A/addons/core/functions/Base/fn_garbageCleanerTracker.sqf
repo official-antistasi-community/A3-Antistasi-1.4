@@ -20,16 +20,11 @@ Example:
 if(!isServer) exitWith {};
 if(A3A_GCThreshold isEqualTo GC_THRESHOLD_DISABLE) exitWith {};
 
-// prevent weirdness
-if((isNil "A3A_lastGarbageCleanTime") && (isNil "A3A_lastGarbageCleanTimeNote")) then {
-	waitUntil {sleep 15; ((!isNil "A3A_lastGarbageCleanTime") && (!isNil "A3A_lastGarbageCleanTimeNote"))};
-};
-
 
 while {true} do 
 {
 	// notify players of last gc time
-	if ((serverTime-A3A_lastGarbageCleanTimeNote) > A3A_GCThresholdNotification) then 
+	if ((serverTime-A3A_lastGarbageCleanTimeNote) > (A3A_GCThreshold / 4)) then 
 	{
 		private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
 		[localize "STR_A3A_GCTracker_tracker_title", format [localize "STR_A3A_GCTracker_tracker_notification", _timeSinceLastGC]] remoteExec ["A3A_fnc_customHint", 0];
@@ -42,7 +37,7 @@ while {true} do
 	{
 		[] call A3A_fnc_garbageCleaner;
 		[localize "STR_A3A_GCTracker_tracker_title", localize "STR_A3A_GCTracker_tracker_ran_gc"] remoteExec ["A3A_fnc_customHint", 0];
-		Info("Garbage Cleaner Tracker has ran gc of as players reached threshold");
+		Info("Garbage Cleaner Tracker has ran a gc as players reached threshold");
 	};
 
 	// sleep 5 minutes then check again

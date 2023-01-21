@@ -31,6 +31,6 @@ _object addAction [
 	true,
 	true,
 	"",
-	"true", 
+	"(!(isNull attachedTo _originalTarget))", 
 	10
 ];

@@ -17,6 +17,10 @@ params  [
     ["_object", objNull, [objNull]]
 ];
 
+// don't unpack if attached.
+if(!(isNull attachedTo _object)) exitWith {};
+
+
 //get data 
 private _price = _object getVariable ["A3A_itemPrice", 0];
 private _canOpenDoors = _object getVariable ["A3A_canOpenDoor", false];

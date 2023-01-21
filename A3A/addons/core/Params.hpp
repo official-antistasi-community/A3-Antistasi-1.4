@@ -110,7 +110,7 @@ class Params
         title = "Garbage Cleaner Threshold notification to tell players that a gc hasn't happen in time slice";
         values[] = {1800, 3600, 5400, 7200};
         texts[] = {"1/2hr", "1hrs", "1 1/2hrs", "2hrs"};
-        Default = 40;
+        Default = 1800;
     };
 
     class SpacerMembership

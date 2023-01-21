@@ -39,7 +39,7 @@ if (_taskID call BIS_fnc_taskDescription isNotEqualTo _description) then {
 
 private _destinationCheck = switch (true) do {
     case (_destination isEqualType objNull): { getPos _destination };
-    case (_destination isEqualType ""): { getPos _destination };
+    case (_destination isEqualType ""): { getMarkerPos _destination };
     default { _destination };
 };
 if (_taskId call BIS_fnc_taskDestination isNotEqualTo _destinationCheck) then {

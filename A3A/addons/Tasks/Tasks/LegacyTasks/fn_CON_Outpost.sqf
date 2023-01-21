@@ -12,7 +12,7 @@ private _faction = Faction(_side);
 _this set ["_side", _side];
 _this set ["_faction", _faction];
 _this set ["_isDifficult", (random 10 < tierWar)];
-_this set ["_destination", getMarkerPos _marker];
+_this set ["destination", getMarkerPos _marker];
 _this set ["marker", _marker];
 
 private _nameDest = [_marker] call A3A_fnc_localizar;

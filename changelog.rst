@@ -2,6 +2,61 @@
 Changelog
 ==========
 
+Version 3.1.0
+===============
+
+.. note::
+   22nd January 2023
+
+.. admonition:: Major
+
+   * :issue:`2476` & `2624` Buy Item GUI - moves buyable assets like the light and the looting boxes into an additional tab in the buy vehicle menu
+
+.. admonition:: Minor
+
+   * :issue:`2599` Updated KAT medical compatibility to V2.10.4
+
+.. admonition:: Template updates
+
+   * :issue:`2616` CUP templates overhaul
+
+.. admonition:: Groundwork
+
+   * :issue:`2633` Changed all addons to lowercase only for linux compatibility
+   * :issue:`2631` & `2635` & `2636` Updated build pipeline & keys for different steam workhop items
+
+.. admonition:: Bugfixes
+
+   * :issue:`2591` Fixed typo in CUP templates
+   * :issue:`2592` Fixed exploit where every unit could be set captive using ace hotkeys
+   * :issue:`2594` & `2628` Fixed intel desks floating after building destruction
+   * :issue:`2597` Fixed count attached objects each frame. 
+   * :issue:`2603` Fixed markers loading on incorrect side
+   * :issue:`2604` Fixed playerMarkers
+   * :issue:`2608` Force disabled acex_headless
+   * :issue:`2610` Fixed save detection
+   * :issue:`2611` Fixed HC Mortar squads
+   * :issue:`2615` Fixed 3CB BAF loading to require all necessary mods
+   * :issue:`2618` Fixed being able to open the battle menu before completed initialization
+   * :issue:`2649` Fixed typos in RHS USAF templates
+   * :issue:`2623` Fixed setIdentity not working as expected
+   * :issue:`2637` Fixed BuyVehicle GUI crashing on false vehicle entries
+ 
+.. admonition:: Refactor
+
+   * :issue:`2548` UPSMON refactor - moved files so a separate addon, execvm's removed, loading time decreased
+   * :issue:`2597` Improved
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
 
 Version 3.0.0
 ===============

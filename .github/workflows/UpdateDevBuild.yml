@@ -24,7 +24,7 @@ jobs:
         node ./tools/incrementVersion.js -b ${{github.sha}}
 
     - name: Build addons
-      run: '.\tools\Builder\buildAddons.ps1 -metaFileName ${{github.event.inputs.workshopid}} -modFileName mod_dev.cpp'
+      run: '.\tools\Builder\buildAddons.ps1 -WorkshopID ${{github.event.inputs.workshopid}} -modFileName mod_dev.cpp'
 
     - name: Upload build addon artifact
       uses: actions/upload-artifact@v2

@@ -24,11 +24,7 @@ switch _typeX do
         _flag addAction ["Buy Vehicle", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
-            if (A3A_GUIDevPreview) then {
-                createDialog "A3A_BuyVehicleDialog";
-            } else {
-                createDialog "vehicle_option";
-            };
+            createDialog "A3A_BuyVehicleDialog";
         }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4]
     };
     case "petros":
@@ -150,11 +146,7 @@ switch _typeX do
         _flag addAction ["Buy Vehicle", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {
-            if (A3A_GUIDevPreview) then {
-                createDialog "A3A_BuyVehicleDialog";
-            } else {
-                createDialog "vehicle_option";
-            };
+            createDialog "A3A_BuyVehicleDialog";
         }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
         [_flag] call HR_GRG_fnc_initGarage;
     };

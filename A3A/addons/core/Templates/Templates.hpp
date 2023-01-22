@@ -391,7 +391,7 @@ class Templates
 
     class 3CBBAF_Base
     {
-        requiredAddons[] = {"UK3CB_BAF_Weapons","UK3CB_BAF_Vehicles","UK3CB_BAF_Units_Common","UK3CB_BAF_Equipment"};
+        requiredAddons[] = {"UK3CB_BAF_Weapons","UK3CB_BAF_Vehicles","UK3CB_BAF_Units_Common","UK3CB_BAF_Equipment","rhsgref_main"};
         //requiredAddons[] = {"UK3CB_BAF_Units_Common"};              // has weapons/equipment/vehicles dependencies
         basepath = QPATHTOFOLDER(Templates\Templates\3CB);
         logo = "\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_Ammo\data\ui\logo_small_3cb_ca.paa";
@@ -586,20 +586,55 @@ class Templates
         climate[] = {"arctic"};
     };
 
-    class CUP_NAPA : CUP_Base
+    class CUP_BW_Arid : CUP_Base
+    {
+        side = "Occ";
+        flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_ger_co.paa";
+        name = "CUP BW Arid";
+        file = "CUP_AI_BW_Arid";
+        climate[] = {"arid"};
+    };
+        class CUP_BW_Temperate : CUP_BW_Arid
+    {
+        name = "CUP BW Temperate";
+        file = "CUP_AI_BW_Temperate";
+        climate[] = {"arctic","temperate","tropical"};
+    };
+        class CUP_HIL : CUP_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f_exp\flags\flag_tanoa_co.paa";
+        name = "CUP HIL";
+        file = "CUP_AI_HIL";
+        climate[] = {"temperate","tropical"};
+    };
+    class CUP_TKM : CUP_Base
+    {
+        side = "Reb";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
+        name = "CUP TKM";
+        file = "CUP_Reb_TKM";
+    };
+    class CUP_Reb : CUP_Base
     {
         side = "Reb";
         flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa";
         name = "CUP NAPA";
-        file = "CUP_Reb";
+        file = "CUP_Reb_NAPA";
     };
-
+    class CUP_TKC : CUP_Base
+    {
+        side = "Civ";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
+        name = "CUP TKC";
+        file = "CUP_Civ_TKC";
+    };
     class CUP_Civ : CUP_Base
     {
         side = "Civ";
-        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
-        name = "CUP civs";
-        file = "CUP_Civ";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_chernarus_co.paa";
+        name = "CUP CHC";
+        file = "CUP_Civ_CHC";
     };
 
     // ************************************* Unsung *******************************************************

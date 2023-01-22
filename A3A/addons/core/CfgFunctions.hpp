@@ -135,7 +135,7 @@ class CfgFunctions
             class getVehiclesAirSupport {};
             class getVehiclesGroundSupport {};
             class getVehiclesGroundTransport {};
-            class vehicleBoxHeal {};
+            class vehicleBoxRestore {};
             class initPetros {};
             class isFrontline {};
             class arePositionsConnected {};
@@ -739,6 +739,8 @@ class CfgFunctions
             class getAdmin {};
             class localLog {};
             class log {};
+            class setIdentity {};
+            class setIdentityLocal {};
             class setPos {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};

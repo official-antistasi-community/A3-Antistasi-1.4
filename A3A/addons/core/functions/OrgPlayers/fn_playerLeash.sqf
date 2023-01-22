@@ -1,7 +1,6 @@
 /*
 Maintainer: Caleb Serafin
     If the current player is not a member, it will loop every 60 seconds to check the distance from the player to HQ or any member.
-    However, if there are no members online, it will allow the player unlimited distance from HQ.
     If there is a member online, it will warn the player and begin a 61 second countdown
     See playerLeashRefresh for teleportation compatibility.
 
@@ -39,11 +38,12 @@ if (memberDistance <= 0 || !membershipEnabled) exitWith {};
 
 // Membership is rechecked in the case that a temporary membership is granted.
 while {!([player] call A3A_fnc_isMember) || _debugMode} do {
-    private _nearestLeashCentre = getPos player;  // Only 2D pos is evaluated. Default to player position when no members or ff punishment is the exemption.
+    private _nearestLeashCentre = getPosATL player;  // Only 2D pos is evaluated. Default to player position when no members or ff punishment is the exemption.
     private _withinLeash = switch (true) do {
         case (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}): { true };
+        case (player == theBoss): { true };             // covered in playerLeashCheckPosition, but shortcut
         // Add leash exemptions here.
-        default { [getPos player,_nearestLeashCentre] call A3A_fnc_playerLeashCheckPosition };
+        default { [getPosATL player,_nearestLeashCentre] call A3A_fnc_playerLeashCheckPosition };
     };
 
     if (_withinLeash) then {

@@ -108,7 +108,7 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 
 if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
-    [player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity
+    [player, nil, selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity
 };
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
@@ -383,23 +383,6 @@ if (LootToCrateEnabled) then {
 };
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (!A3A_GUIDevPreview) then {
-    vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
-    private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
-    private _fuelTank = FactionGet(reb,"vehicleFuelTank");
-    if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
-        private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-        vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
-    };
-    if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
-        private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
-        vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
-    };
-    
-    if (LootToCrateEnabled) then {
-        vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
-    };
-};
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;

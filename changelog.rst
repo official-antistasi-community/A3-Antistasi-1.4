@@ -46,6 +46,7 @@ Version 3.1.0
    * :issue:`2548` UPSMON refactor - moved files so a separate addon, execvm's removed, loading time decreased
    * :issue:`2597` Lazy evaluation for LTC
    * :issue:`2604` Full refactor of playerMarkers so it works as intended 
+   * :issue:`2640` Improved setup process feedback hints
 
 .. warning::
 

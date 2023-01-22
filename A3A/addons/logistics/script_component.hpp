@@ -1,4 +1,4 @@
-#define COMPONENT Logistics
+#define COMPONENT logistics
 #include "\x\A3A\addons\core\Includes\script_mod.hpp"
 
 //get and format model path to class friendly name for lookup

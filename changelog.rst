@@ -32,8 +32,7 @@ Version 3.1.0
    * :issue:`2594` & `2628` Fixed intel desks floating after building destruction
    * :issue:`2597` Fixed count attached objects each frame. 
    * :issue:`2603` Fixed markers loading on incorrect side
-   * :issue:`2604` Fixed playerMarkers
-   * :issue:`2608` Force disabled acex_headless
+   * :issue:`2608` Force disabled acex_headless as it conflicts with internal HC scripts
    * :issue:`2610` Fixed save detection
    * :issue:`2611` Fixed HC Mortar squads
    * :issue:`2615` Fixed 3CB BAF loading to require all necessary mods
@@ -45,7 +44,8 @@ Version 3.1.0
 .. admonition:: Refactor
 
    * :issue:`2548` UPSMON refactor - moved files so a separate addon, execvm's removed, loading time decreased
-   * :issue:`2597` Improved
+   * :issue:`2597` Improved performance by adding logical brackets
+   * :issue:`2604` Full refactor of playerMarkers so it works as intended 
 
 .. warning::
 

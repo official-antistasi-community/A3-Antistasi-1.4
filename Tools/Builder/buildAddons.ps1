@@ -1,6 +1,5 @@
 param (
     [string]$modFileName = "mod.cpp",
-    [string]$metaFileName = "meta.cpp",
     [string]$WorkshopID = ""
 )
 

@@ -431,6 +431,17 @@ Info("Sorting grouped class categories");
 Info("Building loot lists");
 [] call A3A_fnc_loot;
 
+// Build smoke grenade magazine->muzzle hashmap
+private _smokeMuzzleHM = createHashMap;
+{
+	private _muzzle = configName _x;
+	{
+		if (_x in allSmokeGrenades) then { _smokeMuzzleHM set [_x, _muzzle] };
+	} forEach compatibleMagazines ["Throw", _muzzle];			// works around casing & missing elements
+} forEach ("true" configClasses (configFile / "CfgWeapons" / "Throw"));
+
+DECLARE_SERVER_VAR(A3A_smokeMuzzleHM, _smokeMuzzleHM);
+
 ////////////////////////////////////
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////

@@ -5,6 +5,7 @@ class CfgFunctions
     {
         class AI {
             file = QPATHTOFOLDER(functions\AI);
+            class AIdrag {};
             class airbomb {};
             class AIreactOnKill {};
             class artySupport {};

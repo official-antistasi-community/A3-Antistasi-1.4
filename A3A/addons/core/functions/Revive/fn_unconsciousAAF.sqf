@@ -69,7 +69,7 @@ if (time >= _bleedOutTime) exitWith
 if (alive _unit) then
 {
 	_unit setUnconscious false;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	_unit playMoveNow "unconsciousoutprone";
 	_unit setVariable ["overallDamage",damage _unit];
 
 	if (_unit getVariable ["surrendering", false]) exitWith {

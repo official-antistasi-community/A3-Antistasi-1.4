@@ -98,6 +98,13 @@ class Params
         texts[] = {"2min","5min","15min","30min","disabled"};
         default = 900;
     };
+    class A3A_reviveTime
+    {
+        title = "Minimum revive time for players";
+        values[] = {5,10,15};
+        texts[] = {"5 seconds","10 seconds","15 seconds"};
+        default = 10;
+    };
 
     class SpacerMembership
     {

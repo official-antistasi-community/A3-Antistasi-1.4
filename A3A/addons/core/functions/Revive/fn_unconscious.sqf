@@ -35,8 +35,7 @@ if (isPlayer _unit) then
 			};
 		_handled;
 		}];
-	//if (side _unit == teamPlayer) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
-	if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
+	if (_injurer != Invaders) then {_unit setCaptive true};
 	openMap false;
 	{
 	if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
@@ -51,7 +50,7 @@ else
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//[_unit,"carry"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//_unit call A3A_Logistics_fnc_addLoadAction;
-		if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
+		if (_injurer != Invaders) then {_unit setCaptive true};
 		}
 	else
 		{
@@ -59,7 +58,7 @@ else
 			{
 			_playersX = true;
 			[_unit,"heal"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-			if (_unit != petros) then {if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true}};
+			if (_unit != petros) then {if (_injurer != Invaders) then {_unit setCaptive true}};
 			};
 		};
 	};
@@ -158,7 +157,7 @@ else
 		};
 	};
 
-if (captive _unit) then {[_unit,false] remoteExec ["setCaptive",0,_unit]; _unit setCaptive false};
+if (captive _unit) then {_unit setCaptive false};
 _unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
@@ -176,6 +175,7 @@ if (time > _bleedOut) exitWith
 if (alive _unit) then
 	{
 	_unit setUnconscious false;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	//_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	_unit playMoveNow "unconsciousoutprone";
 	_unit setBleedingremaining 0;
 	};

@@ -49,7 +49,7 @@ _package addAction [
 	true,
 	true,
 	"",
-	"(!(isNull attachedTo _originalTarget))", 
+	"(isNull attachedTo _originalTarget)", 
 	10
 ];
 

@@ -27,8 +27,7 @@ _unit addEventHandler ["HandleDamage", {
 }];
 
 _unit addEventHandler ["Killed", {
-    private _victim = _this select 0;
-    private _killer = _this select 1;
+    params ["_victim", "_killer"];
 
     if (time - (_victim getVariable ["lastInjuredByPlayer", 0]) < 120) then {
         _killer = _victim getVariable ["injuredByPlayer", _killer];
@@ -38,7 +37,7 @@ _unit addEventHandler ["Killed", {
     };
     
     if (_victim == _killer) then {
-        _nul = [-1,-1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+        _nul = [-1,-1,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
     } else {
         if (isPlayer _killer) then {
             if (_victim getVariable "unitType" == FactionGet(civ, "unitWorker")) then {_killer addRating 1000};
@@ -46,20 +45,19 @@ _unit addEventHandler ["Killed", {
         };
         _multiplier = 1;
         if ((_victim getVariable "unitType") == FactionGet(civ, "unitPress")) then {_multiplier = 3};
-        //Must be group, in case they're undercover.
-        if (side group _killer == teamPlayer) then {
-            Debug("aggroEvent | Rebels killed a civilian");
-            [Occupants, 10 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
-            [1,0,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-        } else {
-            if (side group _killer == Occupants) then {
+        switch (true) do {
+            //Must be group, in case they're undercover.
+            case (side group _killer == teamPlayer): {
+                Debug("aggroEvent | Rebels killed a civilian");
+                [Occupants, 10 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
+                [1,0,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+            };
+            case (side group _killer == Occupants): {
                 [Occupants, -5 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
-                [0,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-            } else {
-                if (side group _killer == Invaders) then
-                {
-                    [-1,1,getPos _victim] remoteExec ["A3A_fnc_citySupportChange",2];
-                };
+                [0,1,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
+            };
+            case (side group _killer == Invaders): {
+                [-1,1,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
             };
         };
     };

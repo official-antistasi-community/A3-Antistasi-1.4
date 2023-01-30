@@ -2,6 +2,21 @@
 <Project name="A3-Antistasi">
     <Package name="A3-Antistasi Mission">
         <Container name="gear">
+            <Key ID="STR_A3A_G_HEADGEAR_BASE_DN">
+                <Original>Antistasi Headgear (WIP)</Original>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_01_DN">
+                <Original>Beret [Antistasi] (Black)</Original>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_02_DN">
+                <Original>Beret [Antistasi] (Red)</Original>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_03_DN">
+                <Original>Beret [Antistasi] (Blue)</Original>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_04_DN">
+                <Original>Beret [Antistasi] (Green)</Original>
+            </Key>
         </Container>
     </Package>
 </Project>

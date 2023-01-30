@@ -22,7 +22,9 @@ if (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}) ex
 _checkX = false;
 //_distanceX = 500 - (([_boss,false] call A3A_fnc_fogCheck) * 450);
 {if ([getPosATL _x] call A3A_fnc_enemyNearCheck) exitWith {_checkX = true}} forEach units _groupX;
-if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group."] call A3A_fnc_customHint;};
+
+//AGN change
+//if (_checkX) exitWith {["Fast Travel", "You cannot Fast Travel with enemies near the group."] call A3A_fnc_customHint;};
 
 {if ((vehicle _x!= _x) and ((isNull (driver vehicle _x)) or (!canMove vehicle _x) or (vehicle _x isKindOf "Boat"))) then
 	{

@@ -14,6 +14,9 @@ if (!isNull theBoss) then
 	HC_commanderX synchronizeObjectsRemove [theBoss];
 };
 
+//AGN change
+[flagX, _newBoss, theBoss] remoteExec ["A3A_fnc_addTeleportToPole", 0];
+
 theBoss = _newBoss;
 publicVariable "theBoss";
 

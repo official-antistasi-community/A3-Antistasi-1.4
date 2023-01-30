@@ -64,3 +64,5 @@ flagX hideObjectGlobal false;
 "Synd_HQ" setMarkerPos _newPosition;
 chopForest = false; publicVariable "chopForest";
 
+//AGN change
+[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];

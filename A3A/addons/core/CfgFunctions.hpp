@@ -103,6 +103,8 @@ class CfgFunctions
             class addEnemyResources {};
             class addHC {};
             class addRecentDamage {};
+            //AGN change
+            class addTeleportToPole{};
             class addTimeForIdle {};
             class aggressionUpdateLoop {};
             class AILoadInfo {};
@@ -429,6 +431,8 @@ class CfgFunctions
         class OrgPlayers {
             file = QPATHTOFOLDER(functions\OrgPlayers);
             class donateMoney {};
+            //AGN change
+            class evaluateIncomeForPlayer{};
             class isMember {};
             class makePlayerBossIfEligible {};
             class memberAdd {};

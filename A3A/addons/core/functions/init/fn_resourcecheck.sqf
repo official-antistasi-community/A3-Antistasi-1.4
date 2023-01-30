@@ -104,6 +104,9 @@ while {true} do
 	server setVariable ["hr", _hrAdd + (server getVariable "hr"), true];
 	server setVariable ["resourcesFIA", _resAdd + (server getVariable "resourcesFIA"), true];
 
+	//AGN change
+	[_resAdd] remoteExec ["A3A_fnc_evaluateIncomeForPlayer", 2];
+
 	bombRuns = bombRuns + 0.25 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX);
 	publicVariable "bombRuns";
 

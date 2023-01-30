@@ -123,6 +123,9 @@ if (_medicX != _unit) then
 					if (_cured) then
 						{
 						if (_medicX != _unit) then {if (_isPlayer) then {_medicX groupChat format ["You are ready %1",name _unit]}};
+
+						//AGN change
+						[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];
 						};
 					sleep 5;
 					_medicX stop false;
@@ -154,6 +157,10 @@ if (_medicX != _unit) then
 				if (_cured) then
 					{
 					if (_medicX != _unit) then {if (_isPlayer) then {_medicX groupChat format ["You are ready %1",name _unit]}};
+
+					//AGN change
+					[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];
+
 					sleep 10;
 					};
 				_medicX stop false;
@@ -172,6 +179,10 @@ if (_medicX != _unit) then
 			if (_cured) then
 				{
 				if (_medicX != _unit) then {if (_isPlayer) then {_medicX groupChat format ["You are ready %1",name _unit]}};
+				
+				//AGN change
+				[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];
+				
 				sleep 10;
 				};
 			_medicX stop false;

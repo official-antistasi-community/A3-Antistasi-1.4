@@ -449,3 +449,6 @@ if(!isMultiplayer) then
 {
     [] spawn A3A_fnc_singlePlayerBlackScreenWarning;
 };
+
+//AGN change
+[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];

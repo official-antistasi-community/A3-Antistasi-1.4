@@ -234,6 +234,10 @@ if (side group player == teamPlayer) then
 	[] spawn A3A_fnc_statistics;
 	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	call A3A_fnc_dropObject;
+		
+	//AGN change
+	[flagX, theBoss, _oldUnit] remoteExec ["A3A_fnc_addTeleportToPole", 0];
+	
 	}
 else
 	{

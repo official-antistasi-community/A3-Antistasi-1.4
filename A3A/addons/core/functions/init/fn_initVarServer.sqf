@@ -514,8 +514,12 @@ Info("Creating pricelist");
 {server setVariable [_x,100,true]} forEach [FactionGet(reb,"unitMedic"), FactionGet(reb,"unitExp"), FactionGet(reb,"unitEng")];
 {server setVariable [_x,150,true]} forEach [FactionGet(reb,"unitSL"), FactionGet(reb,"unitSniper")];
 
-server setVariable [FactionGet(reb,"vehicleCivCar"),200,true];
-server setVariable [FactionGet(reb,"vehicleCivTruck"),600,true];
+//AGN change
+//server setVariable [FactionGet(reb,"vehicleCivCar"),200,true];
+//server setVariable [FactionGet(reb,"vehicleCivTruck"),600,true];
+server setVariable [FactionGet(reb,"vehicleCivCar"),100,true];
+server setVariable [FactionGet(reb,"vehicleCivTruck"),400,true];
+
 if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo "") then {
     server setVariable [FactionGet(reb,"vehicleCivHeli"),5000,true];
 };

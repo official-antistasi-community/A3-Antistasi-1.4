@@ -1,4 +1,0 @@
-class CfgFunctions {
-	class ADDON {
-	};
-};

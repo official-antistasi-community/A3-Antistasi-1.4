@@ -7,7 +7,7 @@ _unit setSkill 0;
 _unit disableAI "TARGET";
 _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.
-[_unit, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call BIS_fnc_setIdentity;
+[_unit, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call A3A_fnc_setIdentity;
 
 _unit addEventHandler ["HandleDamage", {
         private _unit = _this select 0;
@@ -35,7 +35,7 @@ _unit addEventHandler ["Killed", {
     if (isNull _killer) then {
         _killer	= _victim;
     };
-    
+
     if (_victim == _killer) then {
         _nul = [-1,-1,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
     } else {

@@ -17,17 +17,17 @@ jobs:
     timeout-minutes: 5
     steps:
     - name: Checkout the code
-      uses: actions/checkout@v2
+      uses: actions/checkout@v3.3.0
 
     - name: Increment version locally
       run: chmod +x ./tools/incrementVersion.js &&
         node ./tools/incrementVersion.js -b ${{github.sha}}
 
     - name: Build addons
-      run: '.\tools\Builder\buildAddons.ps1 -metaFileName meta_dev.cpp -modFileName mod_dev.cpp'
+      run: '.\tools\Builder\buildAddons.ps1 -WorkshopID ${{github.event.inputs.workshopid}} -modFileName mod_dev.cpp'
 
     - name: Upload build addon artifact
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v3.1.2
       with:
         name: A3A
         path: build\A3A
@@ -38,13 +38,13 @@ jobs:
     needs: [build]
     steps:
     - name: Download addon artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v3.0.2
       with:
         name: A3A
         path: A3A
 
     - name: Publish to Steam Workshop
-      uses: arma-actions/workshop-upload@v1
+      uses: arma-actions/workshop-upload@v1.0.2
       with:
         appId: '107410'      # default
         itemId: ${{github.event.inputs.workshopid}} # https://steamcommunity.com/sharedfiles/filedetails/?id=[...]]

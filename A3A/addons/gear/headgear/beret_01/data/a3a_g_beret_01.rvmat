@@ -15,7 +15,7 @@ PixelShaderID = "Super";
 VertexShaderID = "Super";
 
 class Stage1 {
-	texture = "x\A3A\addons\gear\headgear\a3a_g_beret_nohq.paa";
+	texture = "x\A3A\addons\gear\headgear\beret_01\data\a3a_g_beret_01_nohq.paa";
 	uvSource = "tex";
 	
 	class uvTransform {
@@ -63,7 +63,7 @@ class Stage4 {
 };
 
 class Stage5 {
-	texture = "x\A3A\addons\gear\headgear\a3a_g_beret_smdi.paa";
+	texture = "x\A3A\addons\gear\headgear\beret_01\data\a3a_g_beret_01_smdi.paa";
 	uvSource = "tex";
 	
 	class uvTransform {

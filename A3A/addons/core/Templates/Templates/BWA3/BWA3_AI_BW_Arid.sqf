@@ -44,6 +44,8 @@ private _staticAA = ["B_static_AA_F"];
 if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core") && !isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy")) then {
     _lightUnarmed append ["CUP_B_FENNEK_GER_Des"];
     _lightArmed append ["CUP_B_M1165_GMV_USA", "CUP_B_nM1025_M2_USA_DES", "CUP_B_nM1025_M240_USA_DES", "CUP_B_nM1036_TOW_USA_DES"];
+    _trucks = ["CUP_B_MTVR_USA"];
+    _cargotrucks = _trucks;
     _ammo = ["CUP_B_MTVR_Ammo_USA", "CUP_B_nM1038_Ammo_USA_DES", "CUP_B_nM1038_Ammo_DF_USA_DES"];
     _repair = ["CUP_B_nM1038_Repair_USA_DES", "CUP_B_nM1038_Repair_DF_USA_DES", "CUP_B_MTVR_Repair_USA"];
     _fuel = ["CUP_B_MTVR_Refuel_USA"];
@@ -62,6 +64,7 @@ if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core") && !isClass (
     _miltiaLightArmed = ["CUP_B_nM1025_M2_USMC_DES"];
     _miltiaTrucks = ["CUP_B_MTVR_BAF_DES"];
     _miltiaCars = ["CUP_B_nM1025_Unarmed_USMC_DES"];
+    _staticMG = ["CUP_B_M2StaticMG_US"];
     _staticAA = ["CUP_B_CUP_Stinger_AA_pod_US"];
 };
 
@@ -451,13 +454,13 @@ _militiaLoadoutData set ["slHat", ["BWA3_Beret_Wach_blue"]];
 _militiaLoadoutData set ["facewear", ["G_Spectacles", "None", "BWA3_G_Combat_black", "BWA3_G_Combat_clear", "BWA3_G_Combat_orange"]];
 
 _militiaLoadoutData set ["rifles", [
-["BWA3_G36A2", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], [], ""]
+["BWA3_G36A3", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["BWA3_G36KA2", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], [], ""]
+["BWA3_G36KA3", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["BWA3_G36A2_AG40", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["BWA3_G36A3_AG40", "", "", "", ["BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36", "BWA3_30Rnd_556x45_G36_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
 ["BWA3_MG3", "", "BWA3_acc_LLM01_irlaser", "", ["BWA3_120Rnd_762x51", "BWA3_120Rnd_762x51", "BWA3_120Rnd_762x51_Tracer"], [], "BWA3_bipod_MG3"]

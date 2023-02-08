@@ -35,6 +35,15 @@ if !(isServer) then {
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;
     };
+
+    if (isClass (configfile >> "CfgPatches" >> "lambs_danger")) then {
+        // disable lambs danger fsm entrypoint
+        ["CAManBase", "InitPost", {
+            params ["_unit"];
+            (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+            _unit setVariable ["lambs_danger_disableAI", true];
+        }] call CBA_fnc_addClassEventHandler;
+    };
 };
 
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };

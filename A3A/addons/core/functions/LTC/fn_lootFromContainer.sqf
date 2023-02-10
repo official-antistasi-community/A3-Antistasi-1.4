@@ -115,7 +115,7 @@ _transferCargo = {
         private _type = _weaponTypes#_i;
         private _count = _weaponCounts#_i;
 
-        if ((_container canAdd [_type, _count]) and !(_type in _unlocked)) then {
+        if (!(_type in _unlocked)) then {
             _container addWeaponCargoGlobal [_type, _count];
         } else {
             (_leftover#0) pushBack [_type, _count];
@@ -128,7 +128,7 @@ _transferCargo = {
         private _count = floor (_ammo/_max);
         private _remainder = _ammo%_max;
 
-        if (_container canAdd [_type, _count] and !(_type in _unlocked)) then {
+        if (!(_type in _unlocked)) then {
             _container addMagazineAmmoCargo [_type, _count, _max];
             if !(_remainder isEqualTo 0) then {
                 _container addMagazineAmmoCargo [_type, 1, _remainder];
@@ -143,7 +143,7 @@ _transferCargo = {
         private _type = _itemsTypes#_i;
         private _count = _itemsCounts#_i;
 
-        if ((_container canAdd [_type, _count]) and !(_type in _unlocked)) then {
+        if (!(_type in _unlocked)) then {
             _container addItemCargoGlobal [_type, _count];
         } else {
             (_leftover#2) pushBack [_type, _count];
@@ -155,7 +155,7 @@ _transferCargo = {
         private _type = (_backpackTypes#_i) call BIS_fnc_basicBackpack;
         private _count = _backpackCounts#_i;
 
-        if ((_container canAdd [_type, _count]) and !(_type in _unlocked)) then {
+        if (!(_type in _unlocked)) then {
             _container addBackpackCargoGlobal [_type, _count];
         } else {
             (_leftover#3) pushBack [_type, _count];

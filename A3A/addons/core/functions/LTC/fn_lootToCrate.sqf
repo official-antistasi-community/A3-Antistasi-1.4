@@ -35,8 +35,8 @@ if (LTCLootUnlocked) then {
 };
 
 //AGN change
-_targets = nearestObjects [getposATL _container, ["Man"], 50];
-_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 50];
+_targets = nearestObjects [getposATL _container, ["Man"], 100];
+_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 100];
 
 _container setVariable ["stopPostmortem", true, true]; //block postmortem on surrender crates
 

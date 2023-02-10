@@ -34,8 +34,9 @@ if (LTCLootUnlocked) then {
     _unlocked = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 };
 
-_targets = nearestObjects [getposATL _container, ["Man"], 10];
-_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 10];
+//AGN change
+_targets = nearestObjects [getposATL _container, ["Man"], 50];
+_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 50];
 
 _container setVariable ["stopPostmortem", true, true]; //block postmortem on surrender crates
 
@@ -97,26 +98,30 @@ _lootBodies = {
     //try to add items to container
     _remaining = [[],[],[],[]];
     {
-        if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        // if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        if ((_x in _unlocked)) then {
             _container addWeaponCargoGlobal [_x,1];
         } else {(_remaining#0) pushBack _x};
     } forEach (_gear#0);
 
     {
         _x params ["_magType", "_ammoCount"];
-        if ((_container canAdd _magType) and !(_magType in _unlocked)) then {
+        // if ((_container canAdd _magType) and !(_magType in _unlocked)) then {
+        if (!(_magType in _unlocked)) then {
             _container addMagazineAmmoCargo [_magType, 1, _ammoCount];
         } else {(_remaining#1) pushBack _x};
     } forEach (_gear#1);
 
     {
-        if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        // if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        if (!(_x in _unlocked)) then {
             _container addItemCargoGlobal [_x,1];
         } else {(_remaining#2) pushBack _x};
     } forEach (_gear#2);
 
     {
-        if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        // if ((_container canAdd _x) and !(_x in _unlocked)) then {
+        if (!(_x in _unlocked)) then {
             _container addBackpackCargoGlobal [_x,1];
         } else {(_remaining#3) pushBack _x};
     } forEach (_gear#3);

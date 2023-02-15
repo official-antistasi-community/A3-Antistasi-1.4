@@ -40,6 +40,5 @@ while {true} do
         Info("Garbage Cleaner Tracker has ran a gc as players reached threshold");
     };
 
-    // sleep 5 minutes then check again
-    sleep 300;
+    sleep (A3A_GCThreshold / 4);
 };

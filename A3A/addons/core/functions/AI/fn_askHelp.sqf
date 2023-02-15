@@ -8,7 +8,7 @@ if !(isNull _helped) exitWith { _helped };
 
 // If the target is in a dangerous position and not a player, ignore them for the moment
 private _enemy = _target findNearestEnemy _target;
-if (!isPlayer _target and (([objNull, "VIEW"] checkVisibility [eyePos _enemy, eyePos _target] > 0) or (_target distance _enemy < 100))) exitWith { objNull };
+if (!isPlayer _target and (_target distance _enemy < 100 or {[objNull, "VIEW"] checkVisibility [eyePos _enemy, eyePos _target] > 0})) exitWith { objNull };
 
 private _firstAidKits = ["FirstAidKit","Medikit"] + (A3A_faction_reb get "firstAidKits") + (A3A_faction_reb get "mediKits");
 private _unitNeedsFAK = count (_firstAidKits arrayIntersect items _target) == 0;
@@ -35,7 +35,7 @@ if (_index != -1) exitWith {
     _medics select _index;
 };
 
-// Only medics will deal with fatal wounds and non-incapped
+// Only medics will deal with non-incapped
 if !(_target getVariable ["incapacitated", false]) exitWith { objNull };
 
 private _index = _units findIf { _x call _fnc_canHelp };

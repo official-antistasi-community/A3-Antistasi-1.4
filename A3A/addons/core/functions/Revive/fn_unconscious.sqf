@@ -121,11 +121,12 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 		{
 		if (_inPlayerGroup) then
 			{
-			if (autoheal) then
-				{
-				_helped = _unit getVariable ["helped",objNull];
-				if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
-				};
+			if (!isNull (_unit getVariable ["helped",objNull])) exitWith {};
+
+			// Don't ask for help if there are downed players in the group
+			if (units _unit findIf { isPlayer _x and {_x getVariable ["incapacitated", false]} } != -1) exitWith {};
+
+			[_unit] call A3A_fnc_askHelp;
 			}
 		else
 			{

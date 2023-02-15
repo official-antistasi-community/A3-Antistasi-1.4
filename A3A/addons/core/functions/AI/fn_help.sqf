@@ -44,8 +44,8 @@ private _fnc_doHeal = {
     };
     _medic stop false;
     _target stop false;
-    _target dofollow leader group _target;
-    _medic doFollow leader group _medic;
+    _target doFollow leader _target;
+    _medic doFollow leader _medic;
     _cured;
 };
 
@@ -54,17 +54,19 @@ if (_medicX != _unit) then
     // Is this one even used? Never seen it
     if !(_unit getVariable ["incapacitated",false]) then
     {
-        if (_isPlayerGroup) then {_unit groupChat format ["Comrades, this is %1. I'm hurt!",name _unit]};
+        if (_isPlayerGroup) then {_unit groupChat format ["Comrades, this is %1. I'm hurt!", name _unit]};
         playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];
     };
 
     // Fire helping message if in player group
     if (_isPlayerGroup) then {
-        _medicX groupChat format ["Wait a minute comrade %1, I will patch you up.",name _unit]
+        _medicX groupChat format ["Wait a minute comrade %1, I will patch you up.", name _unit]
     };
 
     // Actual helping hint for player
-    if (hasInterface) then {if (player == _unit) then {["Medical", format ["%1 is on the way to help you.",name _medicX]] call A3A_fnc_customHint;}};
+    if (player == _unit) then {
+        ["Medical", format ["%1 is on the way to help you.", name _medicX]] call A3A_fnc_customHint;
+    };
 
     Debug_2("Medic %1 helping %2", _medicX, _unit);
 
@@ -135,7 +137,7 @@ else
 //if ((animationState _medicX == "amovpknlmstpsraswrfldnon") or (animationState _medicX == "AmovPercMstpSlowWrflDnon_AcinPknlMwlkSlowWrflDb_2") or (animationState _medicX == "AmovPercMstpSnonWnonDnon_AcinPknlMwlkSnonWnonDb_2")) then {_medicX switchMove ""};
 
 _medicX setUnitPos "AUTO";
-_medicX doFollow leader group _unit;
+_medicX doFollow leader _unit;
 
 if (_medicX == _unit getVariable ["helped",objNull]) then { _unit setVariable ["helped",objNull,true] };
 

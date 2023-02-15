@@ -38,8 +38,6 @@ private _lastPos = getPosATL _dummy;
 sleep 1;
 while {true} do
 {
-    hint "main loop";
-
     sleep 1;
     if (!([_medic] call A3A_fnc_canFight) or (!alive _target) or (unitReady _dummy) or (_timeOut < time) or (_medic != vehicle _medic) or (_medic getVariable ["cancelRevive",false])) exitWith {};
     if (_lastPos distance _dummy < 0.1) exitWith {};        // stuck?

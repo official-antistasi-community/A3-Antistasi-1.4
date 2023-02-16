@@ -5160,6 +5160,30 @@
         <Original>%1 group has returned to HC control as the zone which was planned to be garrisoned has been lost.</Original>
         <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
       </Key>
+      <Key ID="STR_A3A_garrison_error_no_hr">
+        <Original>You lack of HR to make a new recruitment.</Original>
+        <Russian>Вам не хватает HR, чтобы добавить новый юнит в гарнизон.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_no_money">
+        <Original>You don't have enough money for adding this kind of unit (%1€ needed).</Original>
+        <Russian>У вас недостаточно денег для добавления такого юнита (необходимо %1€).</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_recruit_success">
+        <Original>Unit has been recruited.%1</Original>
+        <Russian>Юнит нанят в гарнизон.%1</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_enemies_near">
+        <Original>You can't recruit units into garrison when enemies are near the zone.</Original>
+        <Russian>Вы не можете набирать юниты в гарнизон, когда враги находятся рядом с зоной.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_still_updating">
+        <Original>This garrison is still updating, please try again in a few seconds.</Original>
+        <Russian>Этот гарнизон все еще обновляется, повторите попытку через несколько секунд.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_no_mortar">
+        <Original>You can't add mortars to Roadblock or Watchpost garrisons.</Original>
+        <Russian>Вы не можете добавлять минометы в гарнизоны блокпостов и сторожевых постов.</Russian>
+      </Key>
     </Container>
   </Package>
 </Project>

@@ -5161,7 +5161,7 @@
         <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_hr">
-        <Original>You lack of HR to make a new recruitment.</Original>
+        <Original>You lack HR to recruit units.</Original>
         <Russian>Вам не хватает HR, чтобы добавить новый юнит в гарнизон.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_money">

@@ -5109,7 +5109,7 @@
         <Russian>Этот гарнизон полон, выберите другую локацию для того чтобы добавить этот отряд в гарнизон.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_exceed_limit">
-        <Original>Adding this squad to garrison will exceed garrison limit. Some part of them will join garrison, the rest will be dismissed and their cost will be refunded.</Original>
+        <Original>Adding this squad to garrison will exceed garrison limit. Some of them will join garrison, the rest will be dismissed and their cost will be refunded.</Original>
         <Russian>Добавление этого отряда в гарнизон превысит лимит гарнизона. Какая-то их часть присоединится к гарнизону, оставшиеся будут распущены, а их стоимость будет возмещена.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_reached_limit">
@@ -5117,48 +5117,48 @@
         <Russian>Достигнут лимит гарнизона, вы больше не можете добавлять в него новые юниты.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_select_zone">
-          <Original>Select the zone on where you will send the selected troops as garrison.</Original>
-          <Russian>Выберите зону, куда вы отправите выбранные войска в качестве гарнизона.</Russian>
+        <Original>Select the zone on where you will send the selected troops as garrison.</Original>
+        <Russian>Выберите зону, куда вы отправите выбранные войска в качестве гарнизона.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_markerzone">
-          <Original>You must select at any %1 zone with marker.</Original>
-          <Russian>Вы должны выбрать любую зону %1 с маркером.</Russian>
+        <Original>You must select any %1 zone with marker.</Original>
+        <Russian>Вы должны выбрать любую зону %1 с маркером.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_teamplayer">
-          <Original>Selected zone does not belong to %1.</Original>
-          <Russian>Выбранная зона не принадлежит %1.</Russian>
+        <Original>Selected zone does not belong to %1.</Original>
+        <Russian>Выбранная зона не принадлежит %1.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_wrong_type">
-          <Original>You can't manage garrisons on this kind of zone.</Original>
-          <Russian>Вы не можете управлять гарнизонами у зоны этого типа.</Russian>
+        <Original>You can't manage garrisons on this kind of zone.</Original>
+        <Russian>Вы не можете управлять гарнизонами у зоны этого типа.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_already_in_garrison">
-          <Original>Selected units are already in garrison.</Original>
-          <Russian>Выбранные юниты уже в гарнизоне.</Russian>
+        <Original>Selected units are already in garrison.</Original>
+        <Russian>Выбранные юниты уже в гарнизоне.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_no_specific_squads">
-          <Original>You can't add units to player led, Watchpost, Roadblocks or Minefield building squads.</Original>
-          <Russian>Вы не можете добавлять юниты в ведомые игроком отряды, сторожевые посты, блокпосты и отряды строителей минных полей.</Russian>
+        <Original>You can't add units to player led, Watchpost, Roadblocks or Minefield building squads.</Original>
+        <Russian>Вы не можете добавлять юниты в ведомые игроком отряды, сторожевые посты, блокпосты и отряды строителей минных полей.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_dead_units">
-          <Original>Dead or player-controlled units can't be added to garrison.</Original>
-          <Russian>Мертвые или контролируемые игроком юниты не могут быть добавлены в гарнизон.</Russian>
+        <Original>Dead or player-controlled units can't be added to garrison.</Original>
+        <Russian>Мертвые или контролируемые игроком юниты не могут быть добавлены в гарнизон.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_no_specific_units">
-          <Original>Static crewmen, prisoners, refugees, Petros or unknown units cannot be added to garrison.</Original>
-          <Russian>Расчёты стационарных орудий, пленные, беженцы, Петрос или неизвестные юниты не могут быть добавлены в гарнизон.</Russian>
+        <Original>Static crewmen, prisoners, refugees, Petros or unknown units cannot be added to garrison.</Original>
+        <Russian>Расчёты стационарных орудий, пленные, беженцы, Петрос или неизвестные юниты не могут быть добавлены в гарнизон.</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_adding_to_garrison">
-          <Original>Adding units to garrison...</Original>
-          <Russian>Добавление юнитов в гарнизон...</Russian>
+        <Original>Adding units to garrison...</Original>
+        <Russian>Добавление юнитов в гарнизон...</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_adding_to_garrison_hc">
-          <Original>Adding %1 squad to garrison...</Original>
-          <Russian>Добавление отряда %1 в гарнизон...</Russian>
+        <Original>Adding %1 squad to garrison...</Original>
+        <Russian>Добавление отряда %1 в гарнизон...</Russian>
       </Key>
       <Key ID="STR_A3A_garrison_fail_zone_lost">
-          <Original>%1 group is back to HC control because the zone which was pointed to garrison has been lost.</Original>
-          <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
+        <Original>%1 group has returned to HC control as the zone which was planned to be garrisoned has been lost.</Original>
+        <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
       </Key>
     </Container>
   </Package>

@@ -20,7 +20,7 @@ if (side group _injurer == teamPlayer) then
 		if ((behaviour leader _groupX != "COMBAT") and (behaviour leader _groupX != "STEALTH")) then
 		{
 			_groupX setVariable ["movedToCover",time + 120];
-			{[_x,_injurer] call A3A_fnc_unitGetToCover} forEach units _groupX;
+			{[_x,_injurer] spawn A3A_fnc_unitGetToCover} forEach units _groupX;
 		};
 	};
 

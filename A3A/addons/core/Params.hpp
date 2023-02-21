@@ -98,6 +98,13 @@ class Params
         texts[] = {"2min","5min","15min","30min","disabled"};
         default = 900;
     };
+    class A3A_GCThreshold
+    {
+        title = "Garbage Cleaner Threshold for Automatic gc";
+        values[] = {3600, 7200, 10800, 14400, 9999999};
+        texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
+        Default = 9999999;
+    };
 
     class SpacerMembership
     {

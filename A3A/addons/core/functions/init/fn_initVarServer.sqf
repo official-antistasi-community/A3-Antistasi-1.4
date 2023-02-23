@@ -102,6 +102,8 @@ server setVariable ["resourcesFIA",initialFactionMoney,true];
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 // Hash map of custom non-member/AI item thresholds
 DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
+//Time of last garbage clean notification
+DECLARE_SERVER_VAR(A3A_lastGarbageCleanTimeNote, serverTime);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///

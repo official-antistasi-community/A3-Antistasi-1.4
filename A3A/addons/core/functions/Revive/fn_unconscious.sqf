@@ -1,4 +1,4 @@
-private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_helpX","_helped","_textX","_isPlayer","_camTarget","_saveVolumeVoice"];
+private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_isPlayer","_camTarget","_saveVolumeVoice"];
 _unit = _this select 0;
 //if (_unit getVariable "inconsciente") exitWith {};
 //if (damage _unit < 0.9) exitWith {};
@@ -84,59 +84,34 @@ if (_isPlayer) then
 	};
 
 
-while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (alive _unit) and (!(_unit getVariable ["respawning",false]))} do
-	{
-	if (random 10 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];};
-	if (_isPlayer) then
-		{
-		_helped = _unit getVariable ["helped",objNull];
-		if (isNull _helped) then
-			{
-			_helpX = [_unit] call A3A_fnc_askHelp;
-			if (isNull _helpX) then
-				{
-				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit R to Respawn"];
-				}
-			else
-				{
-				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
-				};
-			}
-		else
-			{
-			if (!isNil "_helpX") then
-				{
-				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
-				}
-			else
-				{
-				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn";
-				};
-			};
-		private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
-		[_textX,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
-		if (_unit getVariable "respawning") exitWith {};
-		}
-	else
-		{
-		if (_inPlayerGroup) then
-			{
-			if (!isNull (_unit getVariable ["helped",objNull])) exitWith {};
+private _nextRequest = 0;
+while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (alive _unit)} do
+{
+	// Space out help requests increasingly with failures
+	private _helper = _unit getVariable ["helped", objNull];
+	if (isNull _helper and _nextRequest < time) then {
+		_helper = [_unit] call A3A_fnc_askHelp;
+		private _requestGap = (2 + (_unit getVariable ["helpFailed", 0]))^2;
+		_nextRequest = if (isPlayer _unit) then { time + _requestGap/2 } else { time + _requestGap };
+	};
 
-			// Don't ask for help if there are downed players in the group
-			if (units _unit findIf { isPlayer _x and {_x getVariable ["incapacitated", false]} } != -1) exitWith {};
-
-			[_unit] call A3A_fnc_askHelp;
-			}
-		else
-			{
-			_helped = _unit getVariable ["helped",objNull];
-			if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
+	if (_isPlayer) then	{
+		private _textX = "<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit R to Respawn";
+		if !(isNull _helper) then {
+			if (_helper distance _unit < 3) then {
+				_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn", name _helper];
+			} else {
+				_textX = format ["<t size='0.6'>%1 is helping you.<t size='0.5'><br/>Hit R to Respawn", name _helper];
 			};
 		};
-	sleep 3;
-	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + 4};
+		private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+		[_textX,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
 	};
+
+	sleep 3;
+	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + 3};			// delay bleedout if dragged or loaded into vehicle
+	if (random 20 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50]};
+};
 
 if (_isPlayer) then
 	{

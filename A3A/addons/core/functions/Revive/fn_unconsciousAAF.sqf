@@ -17,24 +17,20 @@ if ({if ((isPlayer _x) and (_x distance _unit < distanceSPWN2)) exitWith {1}} co
 
 _unit setFatigue 1;			// Doesn't do anything since Arma stamina rework?
 
-while
-{
-    (alive _unit) &&
-    {(time < _bleedOutTime) &&
-    {_unit getVariable ["incapacitated",false]}}
-} do
+private _nextRequest = 0;
+while { (alive _unit) && (time < _bleedOutTime) && (_unit getVariable ["incapacitated",false]) } do
 {
     //Plays the injured sound
-	if (random 10 < 1) then
-    {
+	if (random 20 < 1) then {
         playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];
     };
+
     //Ask for help if not already helped
 	private _helped = _unit getVariable ["helped",objNull];
-	if (isNull _helped) then
-    {
-        [_unit] call A3A_fnc_askHelp;
-    };
+	if (isNull _helped and _nextRequest < time) then {
+		[_unit] call A3A_fnc_askHelp;
+		_nextRequest = time + (2 + (_unit getVariable ["helpFailed", 0]))^2;
+	};
 	sleep 3;
 };
 
@@ -78,7 +74,6 @@ if (alive _unit) then
 	};
 
 	if (!(_unit getVariable ["surrendered", false]) and captive _unit) then {
-		[_unit,false] remoteExec ["setCaptive",0,_unit];
 		_unit setCaptive false;
 	};
 };

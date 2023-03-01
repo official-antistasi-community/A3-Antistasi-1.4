@@ -6,6 +6,9 @@ params ["_target"];
 private _helped = _unit getVariable ["helped", objNull];
 if !(isNull _helped) exitWith { _helped };
 
+// AIs don't ask for help if there's a downed player in the group
+if (!isPlayer _target and {units _target findIf { isPlayer _x and {_x getVariable ["incapacitated", false]} } != -1}) exitWith { objNull };
+
 // If the target is in a dangerous position and not a player, ignore them for the moment
 private _enemy = _target findNearestEnemy _target;
 if (!isPlayer _target and (_target distance _enemy < 100 or {[objNull, "VIEW"] checkVisibility [eyePos _enemy, eyePos _target] > 0})) exitWith { objNull };

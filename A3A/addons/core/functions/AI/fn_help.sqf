@@ -72,7 +72,7 @@ if (_medicX != _unit) then
 
     // Smoke target vs nearest enemy
     private _enemy = _medicX findNearestEnemy _unit;
-    if ((_unit getVariable ["incapacitated",false]) and (!isNull _enemy)) then
+    if ((_unit getVariable ["incapacitated", false]) and (!isNull _enemy)) then
     {
         [_medicX,_unit,_enemy] call A3A_fnc_chargeWithSmoke;
 
@@ -101,6 +101,11 @@ if (_medicX != _unit) then
     if (!([_medicX, _unit] call _fnc_canHelp) or (_unit distance _medicX > 3)) exitWith {
         private _canHelp = [_medicX, _unit] call _fnc_canHelp;
         Debug_4("Medic %1 abandoned at distance %2, ready %3, canHelp %4", _medicX, _unit distance _medicX, unitReady _medicX, _canHelp);
+
+        if (_unit getVariable ["incapacitated", false]) then {
+            private _failCount = _unit getVariable ["helpFailed", 0];
+            _unit setVariable ["helpFailed", _failCount + 1];
+        };
     };
 
     // Unit incapped and enemy exists, order suppressing fire and drag to cover if appropriate

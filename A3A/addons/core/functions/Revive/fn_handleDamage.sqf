@@ -47,6 +47,7 @@ private _makeUnconscious =
 {
 	params ["_unit", "_injurer"];
 	_unit setVariable ["incapacitated",true,true];
+	_unit setVariable ["helpFailed", 0];
 	_unit setUnconscious true;
 	if (vehicle _unit != _unit) then
 	{
@@ -110,10 +111,6 @@ if (_part == "") then
 				if (autoheal) then
 				{
 					if (!isNull (_unit getVariable ["helped",objNull])) exitWith {};
-
-					// Don't ask for help if there are downed players in the group
-					if (units _unit findIf { isPlayer _x and {_x getVariable ["incapacitated", false]} } != -1) exitWith {};
-
 					[_unit] call A3A_fnc_askHelp;
 				};
 			};

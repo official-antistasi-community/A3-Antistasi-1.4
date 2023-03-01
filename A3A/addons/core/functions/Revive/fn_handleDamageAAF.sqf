@@ -55,6 +55,7 @@ private _makeUnconscious =
 	params ["_unit", "_injurer"];
    
 	_unit setVariable ["incapacitated",true,true];
+	_unit setVariable ["helpFailed", 0];
 	_unit setUnconscious true;
 	if (vehicle _unit != _unit) then
 	{

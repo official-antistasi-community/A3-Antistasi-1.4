@@ -130,6 +130,7 @@ class CfgFunctions
             class flagaction {};
             class fogCheck {};
             class garbageCleaner {};
+            class garbageCleanerTracker {};
             class garrisonInfo {};
             class getAggroLevelString {};
             class getRecentDamage {};

@@ -274,7 +274,7 @@ Debug_3("DLC enabled: %1 Disabled: %2 Vanilla: %3", A3A_enabledDLC, A3A_disabled
 
 // TODO: fix all allowDLCxxx and A3A_hasxxx references in templates
 // for the moment just fudge the ones that we're using
-A3A_hasWS = "ws" in A3A_enabledDLC; allowDLCWS = A3A_hasWS;
+allowDLCWS = "ws" in A3A_enabledDLC;
 allowDLCEnoch = "enoch" in A3A_enabledDLC;
 allowDLCTanks = "tanks" in A3A_enabledDLC;
 allowDLCOrange = "orange" in A3A_enabledDLC;

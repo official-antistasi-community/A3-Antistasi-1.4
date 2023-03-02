@@ -184,6 +184,15 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
 
+    class RHS_SAF_Temperate : RHS_Base
+    {
+		side = "Inv";
+		flagTexture = "a3\data_f_enoch\flags\flag_enoch_co.paa";
+        name = "RHS SAF Temperate";
+        file = "RHS_AI_SAF_Temperate";
+        climate[] = {"temperate","tropical","arctic","arid"};
+    };
+    
     class RHS_CDF : RHS_Base
     {
         side = "Occ";

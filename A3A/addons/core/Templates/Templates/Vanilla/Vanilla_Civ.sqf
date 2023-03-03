@@ -6,7 +6,7 @@
 //       Vehicles       //
 //////////////////////////
 
-["vehiclesCivCar", [
+private _vehiclesCivCar = [
     "C_Quadbike_01_F", 0.3
     ,"C_Hatchback_01_F", 2.0
     ,"C_Hatchback_01_sport_F", 0.3
@@ -16,7 +16,12 @@
     ,"C_Van_02_transport_F", 0.2            // minibus
     ,"C_Offroad_02_unarmed_F", 0.5            // Apex 4WD
     ,"C_Offroad_01_comms_F", 0.1            // Contact
-    ,"C_Offroad_01_covered_F", 0.1]] call _fnc_saveToTemplate;
+    ,"C_Offroad_01_covered_F", 0.1];
+if (allowDLCWS) then { _vehiclesCivCar append [
+    "C_Offroad_lxWS", 1.0,
+    "C_Truck_02_racing_lxWS", 0.05 // Racing Zamak should be rare
+]};
+["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [
     "C_Van_01_transport_F", 1.0

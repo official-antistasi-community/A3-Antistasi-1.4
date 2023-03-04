@@ -26,9 +26,9 @@
 ["vehiclesRepairTrucks", ["RHS_Ural_Repair_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["rhssaf_army_o_ural_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_BRDM2_HQ", "rhsgref_BRDM2"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["rhsgref_cdf_btr60", "rhsgref_cdf_btr70", "rhsgref_cdf_btr80"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["rhs_bmp1d_vmf", "rhs_bmp1k_vmf", "rhs_bmp1p_vmf", "rhs_bmp2e_vmf"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_cdf_btr60", "rhsgref_cdf_btr70", "rhsgref_cdf_btr80", "rhsgref_BRDM2_HQ", "rhsgref_BRDM2"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhs_bmp1d_vmf", "rhs_bmp1k_vmf", "rhs_bmp1p_vmf", "rhs_bmp2e_vmf"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhssaf_army_o_t72s", "rhssaf_army_o_t72s", "rhs_t72be_tv", "rhs_t72be_tv", "rhs_t72bb_tv", "rhs_t72bb_tv"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate;
 
@@ -37,13 +37,13 @@
 ["vehiclesAmphibious", ["rhsgref_cdf_btr80", "rhs_tigr_sts_vmf", "rhs_bmp2k_vmf"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["rhsgref_cdf_su25"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["rhssaf_airforce_o_l_18_101"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["RHS_TU95MS_vvs_old"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["rhssaf_airforce_o_l_18_101", "rhssaf_airforce_l_18"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["rhssaf_airforce_o_ht40"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhssaf_airforce_o_ht40", "rhssaf_airforce_o_ht48"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvsc", "RHS_Mi8MTV3_heavy_vvsc", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhsgref_cdf_Mi24D", "rhsgref_cdf_Mi35", "rhsgref_mi24g_CAS", "rhsgref_cdf_reg_Mi17Sh"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvsc", "RHS_Mi8MTV3_heavy_vvsc", "RHS_Mi24Vt_vvsc", "rhsgref_cdf_reg_Mi17Sh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["rhsgref_cdf_Mi24D", "rhsgref_cdf_Mi35", "rhsgref_mi24g_CAS"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [

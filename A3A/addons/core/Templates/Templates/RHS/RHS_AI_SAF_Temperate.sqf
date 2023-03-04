@@ -5,9 +5,9 @@
 ["name", "SAF"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "SAF Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_Enoch_F"] call _fnc_saveToTemplate;
-["flagTexture", "a3\data_f_enoch\flags\flag_enoch_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Enoch"] call _fnc_saveToTemplate;
+["flag", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
+["flagTexture", "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

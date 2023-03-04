@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["RHS_Ural_Repair_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["rhssaf_army_o_ural_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_BRDM2_HQ", "rhsgref_BRDM2", "", "", ""]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_BRDM2_HQ", "rhsgref_BRDM2"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["rhsgref_cdf_btr60", "rhsgref_cdf_btr70", "rhsgref_cdf_btr80"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhs_bmp1d_vmf", "rhs_bmp1k_vmf", "rhs_bmp1p_vmf", "rhs_bmp2e_vmf"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhssaf_army_o_t72s", "rhssaf_army_o_t72s", "rhs_t72be_tv", "rhs_t72be_tv", "rhs_t72bb_tv", "rhs_t72bb_tv"]] call _fnc_saveToTemplate;
@@ -139,8 +139,8 @@ _loadoutData set ["medVests", []];
 _loadoutData set ["glVests", []];
 _loadoutData set ["backpacks", []];
 _loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
-_loadoutData set ["atBackpacks", ["rhs_rpg_empty"]];
-_loadoutData set ["aaBackpacks", ["rhs_tortila_olive"]];
+_loadoutData set ["atBackpacks", ["rhs_tortila_olive"]];
+_loadoutData set ["aaBackpacks", ["rhssaf_alice_md2camo"]];
 _loadoutData set ["engBackpacks", ["rhs_rk_sht_30_olive_engineer_empty"]];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["rhs_beret_vdv1", "rhs_beret_vdv2", "rhs_beret_vdv3"]];
@@ -185,7 +185,6 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
-//     "Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", ["rhssaf_uniform_m10_digital"]];
 _sfLoadoutData set ["vests", ["rhs_6b45_rifleman", "rhs_6b45_rifleman_2"]];
@@ -263,7 +262,6 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
-//     "Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData set ["uniforms", ["rhssaf_uniform_m10_digital_summer"]];
 _militaryLoadoutData set ["vests", ["rhs_6b23_6sh92", "rhs_6b23_rifleman"]];
@@ -302,8 +300,8 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_g36kv_ag36", "", "", "rhs_acc_ekp8_18", ["rhssaf_30rnd_556x45_EPR_G36", "rhssaf_30rnd_556x45_Tracers_G36"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_m70b3n_pbg40", "rhs_acc_dtk1l", "", "rhs_acc_1p63", ["rhssaf_30Rnd_762x39mm_M67", "rhssaf_30Rnd_762x39mm_M78_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_m70b3n_pbg40", "rhs_acc_dtk1l", "", "rhs_acc_pkas", ["rhssaf_30Rnd_762x39mm_M67", "rhssaf_30Rnd_762x39mm_M78_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_m21a_pbg40", "rhsusf_acc_SFMB556", "", "rhs_acc_pkas", ["rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_m21a_pbg40", "rhsusf_acc_SFMB556", "", "rhs_acc_1p63", ["rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+["rhs_weap_m21a_pbg40", "rhsusf_acc_SFMB556", "", "rhs_acc_pkas", ["rhsgref_30rnd_556x45_m21", "rhsgref_30rnd_556x45_m21_t"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_m21a_pbg40", "rhsusf_acc_SFMB556", "", "rhs_acc_1p63", ["rhsgref_30rnd_556x45_m21", "rhsgref_30rnd_556x45_m21_t"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["rhs_weap_scorpion"]];
 _militaryLoadoutData set ["machineGuns", [
@@ -325,7 +323,6 @@ _militaryLoadoutData set ["sniperRifles", [
 ///////////////////////////////
 //    Police Loadout Data    //
 ///////////////////////////////
-//     "Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData set ["uniforms", ["rhs_uniform_omon"]];
 _policeLoadoutData set ["vests", ["V_TacVest_oli"]];

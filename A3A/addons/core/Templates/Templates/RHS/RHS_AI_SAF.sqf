@@ -338,12 +338,11 @@ _policeLoadoutData set ["SMGs", ["rhs_weap_pp2000"]];
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
-//     "Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["rhssaf_uniform_m93_oakleaf"]];
-_militiaLoadoutData set ["vests", ["rhs_6b3_AK"]];
-_militiaLoadoutData set ["slVests", ["rhs_6b3_off", "rhs_6b3_R148"]];
-_militiaLoadoutData set ["glVests", ["rhs_6b3_VOG", "rhs_6b3_VOG_2"]];
+_militiaLoadoutData set ["vests", ["V_TacVest_oli"]];
+_militiaLoadoutData set ["slVests", ["V_TacVest_oli", "V_Chestrig_oli"]];
+_militiaLoadoutData set ["glVests", ["V_BandollierB_oli"]];
 _militiaLoadoutData set ["backpacks", ["B_TacticalPack_oli"]];
 _militiaLoadoutData set ["helmets", ["rhs_fieldcap_vsr", "rhssaf_bandana_oakleaf", "rhssaf_helmet_m59_85_nocamo"]];
 _militiaLoadoutData set ["sniHats", ["rhssaf_booniehat_md2camo"]];

@@ -168,6 +168,13 @@ class Templates
         logo = "\rhsusf\addons\rhsusf_main\data\rhs_logo_ca.paa";
         priority = 30;
     };
+    class RHS_SAF_Base
+    {
+    	requiredAddons[] = {"rhssaf_main"};
+	basepath = QPATHTOFOLDER(Templates\Templates\RHS);
+	logo = "\rhsusf\addons\rhsusf_main\data\rhs_logo_ca.paa";
+        priority = 30;
+    };
 
     class RHS_AFRF_Arid : RHS_Base
     {
@@ -183,14 +190,14 @@ class Templates
         file = "RHS_AI_AFRF_Temperate";
         climate[] = {"temperate","tropical","arctic"};
     };
-
-    class RHS_SAF_Temperate : RHS_Base
+    
+    class RHS_SAF : RHS_SAF_Base
     {
-		side = "Inv";
-		flagTexture = "a3\data_f_enoch\flags\flag_enoch_co.paa";
-        name = "RHS SAF Temperate";
-        file = "RHS_AI_SAF_Temperate";
-        climate[] = {"temperate","tropical","arctic","arid"};
+	side = "Inv";
+	flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
+        name = "RHS SAF";
+        file = "RHS_AI_SAF";
+        climate[] = {"temperate","tropical","arctic","arid","arctic"};
     };
 
     class RHS_CDF : RHS_Base

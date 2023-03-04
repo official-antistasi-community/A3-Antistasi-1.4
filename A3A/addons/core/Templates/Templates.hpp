@@ -197,7 +197,7 @@ class Templates
 	flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
         name = "RHS SAF";
         file = "RHS_AI_SAF";
-        climate[] = {"temperate","tropical","arctic","arid","arctic"};
+        climate[] = {"temperate","tropical","arctic","arid"};
     };
 
     class RHS_CDF : RHS_Base

@@ -36,8 +36,8 @@
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["rhsgref_cdf_btr80", "rhs_tigr_sts_vmf", "rhs_bmp2k_vmf"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["rhsgref_cdf_su25"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["rhssaf_airforce_o_l_18_101", "rhssaf_airforce_l_18"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["rhsgref_cdf_su25", "rhssaf_airforce_l_18"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["rhssaf_airforce_o_l_18_101"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["rhssaf_airforce_o_ht40"]] call _fnc_saveToTemplate;

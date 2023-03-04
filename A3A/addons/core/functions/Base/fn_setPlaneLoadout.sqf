@@ -243,6 +243,11 @@ if (_type == "AA") then
         {
             _loadout = ["rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R74M2_int","rhs_mag_R74M2_int","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170"];
         };
+        case "rhssaf_airforce_o_l_18_101";
+        case "rhssaf_airforce_l_18";
+        {
+            _loadout = ["rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
+        };
         case "UK3CB_ANA_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";

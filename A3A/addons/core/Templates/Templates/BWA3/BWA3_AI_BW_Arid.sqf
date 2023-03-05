@@ -70,8 +70,8 @@ if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core") && !isClass (
 
 //RHSUSAF vehicles
 if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && !isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")) then {
-    _lightUnarmed append ["rhsusf_m1025_d", "rhsusf_m1043_d", "rhsusf_m998_d_2dr_fulltop"];
-    _lightArmed append ["rhsusf_m1025_d_m2", "rhsusf_m1043_d_m2", "rhsusf_m1045_d"];
+    _lightUnarmed append ["rhsusf_m1151_usarmy_d", "rhsusf_m1043_d", "rhsusf_m998_d_2dr_fulltop"];
+    _lightArmed append ["rhsusf_m1151_m240_v1_usarmy_d", "rhsusf_m1151_m2_lras3_v1_usarmy_d", "rhsusf_m1151_m2_v1_usarmy_d", "rhsusf_m966_d"];
     _trucks = ["rhsusf_M1078A1P2_D_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_fmtv_usarmy", "rhsusf_M1083A1P2_D_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_fmtv_usarmy"];
     _cargotrucks = ["rhsusf_M1084A1R_SOV_M2_D_fmtv_socom", "rhsusf_M1078A1P2_D_flatbed_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_flatbed_fmtv_usarmy", "rhsusf_M1078A1P2_B_M2_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_B_D_flatbed_fmtv_usarmy", "rhsusf_M1083A1P2_B_M2_D_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_D_fmtv_usarmy", "rhsusf_M1084A1P2_B_D_fmtv_usarmy", "rhsusf_M1084A1P2_B_M2_D_fmtv_usarmy", "rhsusf_M977A4_usarmy_d", "rhsusf_M977A4_BKIT_usarmy_d", "rhsusf_M977A4_BKIT_M2_usarmy_d"];
     _ammo = ["rhsusf_M977A4_AMMO_usarmy_d", "rhsusf_M977A4_AMMO_BKIT_usarmy_d", "rhsusf_M977A4_AMMO_BKIT_M2_usarmy_d"];
@@ -88,9 +88,9 @@ if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && !isCl
     _heliLight append ["RHS_MELB_MH6M"];
     _heliTransport append ["RHS_CH_47F_light", "RHS_UH60M", "rhsusf_CH53E_USMC_GAU21", "rhsusf_CH53E_USMC"];
     _heliLightAttack append ["RHS_MELB_AH6M"];
-    _miltiaLightArmed = ["rhsusf_m1151_m240_v2_usarmy_d", "rhsusf_m1151_m2_v2_usarmy_d", "rhsusf_m1025_w_m2"];
+    _miltiaLightArmed = ["rhsusf_m1151_m240_v2_usarmy_d", "rhsusf_m1151_m2_v2_usarmy_d", "rhsusf_m1025_d_s_m2"];
     _miltiaTrucks = ["rhsusf_M1078A1P2_D_fmtv_usarmy", "rhsusf_M1078A1P2_B_D_fmtv_usarmy"];
-    _miltiaCars = ["rhsusf_m1025_w"];
+    _miltiaCars = ["rhsusf_m1025_d_s", "rhsusf_m1043_d_s"];
     _staticMG = ["RHS_M2StaticMG_WD"];
     _staticAA = ["RHS_Stinger_AA_pod_WD"];
 };

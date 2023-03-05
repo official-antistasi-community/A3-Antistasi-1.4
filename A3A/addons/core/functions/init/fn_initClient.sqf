@@ -37,7 +37,13 @@ if !(isServer) then {
     };
 };
 
-waitUntil { sleep 0.1; !isNil "serverInitDone" };
+if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
+while {true} do {
+    private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
+    isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr] call A3A_fnc_customHint };         // not re-entrant, apparently
+    if (A3A_startupState == "completed") exitWith {};
+    sleep 0.1;
+};
 
 //****************************************************************
 

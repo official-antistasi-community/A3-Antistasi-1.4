@@ -5,7 +5,6 @@ FIX_LINE_NUMBERS()
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
-
 Info("Server init started");
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
@@ -70,8 +69,7 @@ A3A_backgroundInitDone = true;
 
 // Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
-
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
+A3A_startupState = "starting"; publicVariable "A3A_startupState";
 
 // Use true params list in case we're loading an autosave from a different version
 private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
@@ -245,10 +243,9 @@ addMissionEventHandler ["EntityKilled", {
 }];
 
 
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_completed"] remoteExec ["A3A_fnc_customHint", 0];
-
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
+A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 
 // ********************* Initialize loops *******************************************

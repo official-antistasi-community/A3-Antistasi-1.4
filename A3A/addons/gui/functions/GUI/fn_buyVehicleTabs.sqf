@@ -11,7 +11,7 @@ Return Value:
     Nothing
 
 Scope: Clients, Local Arguments, Local Effect
-Environment: Scheduled for onLoad mode 
+Environment: Scheduled for onLoad mode
 Public: No
 Dependencies:
     None
@@ -31,7 +31,7 @@ params[["_tab","_vehicles"], ["_params",[]]];
 private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
 private _selectedTab = -1;
 
-if (_tab isEqualTo "vehicles") then 
+if (_tab isEqualTo "vehicles") then
 {
     _selectedTab = A3A_IDC_VEHICLESGROUP;
     Debug("BuyVehicleTab starting...");
@@ -82,10 +82,12 @@ if (_tab isEqualTo "vehicles") then
     private _added = 0;
     {
         _x params ["_className", "_price", "_canGoUndercover"];
+        private _configClass = configFile >> "CfgVehicles" >> _className;
+        if (!isClass _configClass) then { continue };
+
         private _crewCount = [_className] call A3A_fnc_getVehicleCrewCount;
         _crewCount params ["_driver", "_coPilot", "_commander", "_gunners", "_passengers", "_passengersFFV"];
-        
-        private _configClass = configFile >> "CfgVehicles" >> _className;
+
         private _displayName = getText (_configClass >> "displayName");
         private _editorPreview = getText (_configClass >> "editorPreview");
         //private _vehicleIcon= getText (_configClass >> "Icon");
@@ -133,7 +135,7 @@ if (_tab isEqualTo "vehicles") then
                 if (true || isNil "Dev_GUI_prevInjectEnter") then {
                     params ["_control"];
                     private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-    
+
                     private _model = _control getVariable "model";
                     private _className = _control getVariable "className";
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
@@ -142,19 +144,19 @@ if (_tab isEqualTo "vehicles") then
                     private _boundingDiameter = [_className] call FUNC(sizeOf);
                     _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
                     _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-    
+
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-    
+
                     private _mouseAbsolutePos = getMousePosition;
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
                     _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
-    
-    
+
+
                     private _yAdjustment = 0.25 * _UIScaleAdjustment;
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-    
+
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {
@@ -167,12 +169,12 @@ if (_tab isEqualTo "vehicles") then
                     params ["_control"];
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
                     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-    
+
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-    
+
                     _editorPreviewPicture ctrlShow true;
                     _editorPreviewPicture ctrlCommit 1;
-    
+
                     _objPreview ctrlShow false;
                 } else {
                     _control call Dev_GUI_prevInjectExit;
@@ -323,12 +325,12 @@ if (_tab isEqualTo "vehicles") then
 if  (_tab in ["other"]) then
 {
     Debug("BuyLogisticsTab starting...");
-    
-    if(_tab isEqualTo "other") then 
+
+    if(_tab isEqualTo "other") then
     {
         _selectedTab = A3A_IDC_OTHERGROUP;
     };
-    
+
     // Setup Object render
     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
     _objPreview ctrlShow false;
@@ -341,32 +343,32 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _fuelDrum # 0,
             _fuelDrum # 1,
-            "A3A_fnc_buyItem", 
+            "A3A_fnc_buyItem",
             [
                 player,
-                _fuelDrum # 0,  
-                _fuelDrum # 1, 
+                _fuelDrum # 0,
+                _fuelDrum # 1,
                 [
                     ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
-            ], 
+            ],
             false,
             "Fuel Drum"
         ];
-    
+
         private _fuelTank = (A3A_faction_reb get 'vehicleFuelTank');
         _buyableItemList pushBack [
-            _fuelTank # 0, 
+            _fuelTank # 0,
             _fuelTank # 1,
-            "A3A_fnc_buyItem", 
+            "A3A_fnc_buyItem",
             [
                 player,
-                _fuelTank # 0,  
-                _fuelTank # 1, 
+                _fuelTank # 0,
+                _fuelTank # 1,
                 [
                     ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
-            ], 
+            ],
             true,
             "Fuel Tank"
         ];
@@ -376,13 +378,13 @@ if  (_tab in ["other"]) then
             _buyableItemList pushBack [
                 A3A_faction_occ get 'surrenderCrate',
                 10,
-                "A3A_fnc_spawnCrate", 
+                "A3A_fnc_spawnCrate",
                 [player],
                 false,
                 "Loot Box"
             ];
         };
-        
+
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
             25,
@@ -394,11 +396,11 @@ if  (_tab in ["other"]) then
                 [
                     ['A3A_fnc_initMovableObject', false]
                 ]
-            ], 
+            ],
             false,
             "Light"
         ];
-        
+
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 
@@ -413,7 +415,8 @@ if  (_tab in ["other"]) then
             ["_buttonText", ""]
         ];
         private _configClass = configFile >> "CfgVehicles" >> _className;
-        
+        if (!isClass _configClass) then { continue };
+
         private _displayName = if (_buttonText isNotEqualTo "") then {_buttonText} else {getText (_configClass >> "displayName")};
         private _editorPreview = getText (_configClass >> "editorPreview");
         //private _vehicleIcon= getText (_configClass >> "Icon");
@@ -468,11 +471,11 @@ if  (_tab in ["other"]) then
         if (!_hasVehiclePreview) then {
             _button ctrlAddEventHandler ["MouseEnter", {
                 params ["_control"];
-                
+
                 if (true || isNil "Dev_GUI_prevInjectEnter") then {
                     params ["_control"];
                     private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-    
+
                     private _model = _control getVariable "model";
                     private _className = _control getVariable "className";
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
@@ -481,18 +484,18 @@ if  (_tab in ["other"]) then
                     private _boundingDiameter = [_className] call FUNC(sizeOf);
                     _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
                     _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-    
+
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
                     private _mouseAbsolutePos = getMousePosition;
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
                     _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
-    
-    
+
+
                     private _yAdjustment = 0.25 * _UIScaleAdjustment;
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-    
+
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {
@@ -505,12 +508,12 @@ if  (_tab in ["other"]) then
                     params ["_control"];
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
                     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
-    
+
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
-    
+
                     _editorPreviewPicture ctrlShow true;
                     _editorPreviewPicture ctrlCommit 1;
-    
+
                     _objPreview ctrlShow false;
                 } else {
                     _control call Dev_GUI_prevInjectExit;
@@ -551,5 +554,3 @@ if  (_tab in ["other"]) then
 
     Debug("BuyLogisticsTab complete.");
 };
-
-

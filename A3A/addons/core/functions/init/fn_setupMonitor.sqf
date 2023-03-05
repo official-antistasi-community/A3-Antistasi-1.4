@@ -1,7 +1,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-
 Info("Setup monitor started");
 
 // Collect all CfgPatches dependencies so that client knows what's available on server
@@ -52,9 +51,6 @@ if (_autoLoadTime >= 0) then
 };
 
 
-// TODO: move this to initClient?
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_adminwait"] remoteExec ["A3A_fnc_customHint", 0];
-
 // startGame function needs to know setupPlayer for sanity-checking
 A3A_setupPlayer = objNull;
 
@@ -62,6 +58,9 @@ private _fnc_validAdmin = {
     admin owner _this == 2 or						// non-voted admin on DS
     {_this isEqualTo player and hasInterface}		// localhost. returns admin owner _this = 0 for some reason
 };
+
+private _waitState = ["adminwait", "autostartwait"] select (_autoLoadTime != -1);
+A3A_startupState = _waitState; publicVariable "A3A_startupState";
 
 // Setup monitor loop
 while {isNil "A3A_saveData"} do {
@@ -78,6 +77,7 @@ while {isNil "A3A_saveData"} do {
         if (A3A_setupPlayer call _fnc_validAdmin) then { continue };
 
         Info_1("Player %1 is no longer admin, disabling their setup dialog", name A3A_setupPlayer);
+        A3A_startupState = _waitState; publicVariable "A3A_startupState";
 
         ["serverClose"] remoteExec ["A3A_fnc_setupDialog", A3A_setupPlayer];
         A3A_setupPlayer = objNull;
@@ -90,6 +90,7 @@ while {isNil "A3A_saveData"} do {
 
     A3A_setupPlayer = _players select _adminIndex;
     Info_1("Player %1 is now admin, sending them the save data", name A3A_setupPlayer);
+    A3A_startupState = "adminsetup"; publicVariable "A3A_startupState";
 
     // Collect save data. Do this each time so consistency is maintained with deletes
     private _saveData = call A3A_fnc_collectSaveData;

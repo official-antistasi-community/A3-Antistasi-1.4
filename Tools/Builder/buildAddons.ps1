@@ -68,11 +68,17 @@ Set-Content "meta.cpp" $metaContents
 Pop-Location
 
 "`nCreate key..."
+$keyName = switch ($WorkshopID) {
+    "2867537125" {"antistasi"}
+    "2729074499" {"antistasi_dev1"}
+    "2873632521" {"antistasi_dev2"}
+    Default {"a3a"}
+}
 Push-Location
 Set-Location "$PSScriptRoot\..\..\build"
 
-.$PSScriptRoot\..\DSSignFile\DSCreateKey "Antistasi_$version"
-Copy-Item "Antistasi_$version.bikey" "$addonOutLocation\Keys\Antistasi_$version.bikey" -Force
+.$PSScriptRoot\..\DSSignFile\DSCreateKey "$keyName"
+Copy-Item "$keyName.bikey" "$addonOutLocation\Keys\$keyName.bikey" -Force
 
 "`nSign PBO files..."
 Push-Location
@@ -80,11 +86,11 @@ Set-Location $addonsOutLocation
 $pboFiles = Get-ChildItem -Path $addonsOutLocation -Name "*.pbo"
 forEach ($file in $pboFiles) {
     "Signing file $file ..."
-    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\Antistasi_$version.biprivatekey" $file
+    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\$keyName.biprivatekey" $file
 }
 
-Remove-Item "..\..\Antistasi_$version.biprivatekey"
-Remove-Item "..\..\Antistasi_$version.bikey"
+Remove-Item "..\..\$keyName.biprivatekey"
+Remove-Item "..\..\$keyName.bikey"
 
 Pop-Location
 

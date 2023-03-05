@@ -5050,19 +5050,20 @@
         <Polish>Zakończono ładowanie serwera.</Polish>
         <Portuguese>Carregamento servidor concluida</Portuguese>
       </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_waitserver">
+        <Original>Waiting for server...</Original>
+      </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminwait">
-        <Original>Waiting for an admin to start the game.</Original>
-        <Czech>Čekání na odstartování hry adminem.</Czech>
-        <French>En attente d'un admin pour démarrer la partie.</French>
-        <Italian>Aspettando che un admin faccia iniziare la partita</Italian>
-        <Chinesesimp>等待管理员启动游戏</Chinesesimp>
-        <Korean>관리자가 게임을 시작하기를 기다리는 중</Korean>
-        <Russian>Ожидание начала игры администратором.</Russian>
-        <Polish>Oczekiwanie na rozpoczęcie gry przez administratora.</Polish>
-        <Portuguese>A espera de um admin para iniciar jogo</Portuguese>
+        <Original>Waiting for an admin to log in...</Original>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_autostartwait">
+        <Original>Waiting for an admin to log in, or autostart timeout...</Original>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_adminsetup">
+        <Original>Admin is setting up the game.</Original>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_background">
-        <Original>Waiting for background init to complete.</Original>
+        <Original>Waiting for background init to complete...</Original>
         <Czech>Čekání na dokončení inicializace na pozadí</Czech>
         <French>En attente de la fin de l'initialisation.</French>
         <Italian>Aspettando che l'inizializzazione di background sia completata.</Italian>

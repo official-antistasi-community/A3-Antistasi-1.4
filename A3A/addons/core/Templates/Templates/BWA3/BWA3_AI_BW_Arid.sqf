@@ -171,7 +171,7 @@ if (isClass (configfile >> "CfgPatches" >> "Tornado_AWS")) then {
 ["mortarMagazineSmoke", "BWA3_8Rnd_120mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 		
 
 //Minefield definition
-["minefieldAT", ["BWA3_DM31AT"]] call _fnc_saveToTemplate;
+["minefieldAT", ["BWA3_DM31AT", "BWA3_AT2"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 #include "BWA3_Vehicle_Attributes.sqf"

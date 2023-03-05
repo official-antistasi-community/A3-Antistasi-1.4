@@ -41,7 +41,7 @@ private _staticMG = ["B_G_HMG_02_high_F"];
 private _staticAA = ["B_static_AA_F"];
 
 //CUP vehicles
-if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core") && !isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy")) then {
+if (isClass (configFile >> "CfgPatches" >> "CUP_AirVehicles_Core") && !isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy")) then {
     _lightUnarmed append ["CUP_B_FENNEK_GER_Wdl"];
     _lightArmed append ["CUP_B_M1165_GMV_WDL_USA", "CUP_B_nM1025_M2_USA_WDL", "CUP_B_nM1025_M240_USA_WDL", "CUP_B_nM1036_TOW_USA_WDL"];
     _trucks = ["CUP_B_MTVR_USMC"];
@@ -69,7 +69,7 @@ if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core") && !isClass (
 };
 
 //RHSUSAF vehicles
-if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && !isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")) then {
+if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && !isClass (configFile >> "CfgPatches" >> "CUP_AirVehicles_Core")) then {
     _lightUnarmed append ["rhsusf_m1151_usarmy_wd", "rhsusf_m1043_w", "rhsusf_m998_w_2dr_fulltop"];
     _lightArmed append ["rhsusf_m1151_m240_v1_usarmy_wd", "rhsusf_m1151_m2_lras3_v1_usarmy_wd", "rhsusf_m1151_m2_v1_usarmy_wd", "rhsusf_m966_w"];
     _trucks = ["rhsusf_M1078A1P2_WD_fmtv_usarmy", "rhsusf_M1078A1P2_B_WD_fmtv_usarmy", "rhsusf_M1083A1P2_WD_fmtv_usarmy", "rhsusf_M1083A1P2_B_WD_fmtv_usarmy"];

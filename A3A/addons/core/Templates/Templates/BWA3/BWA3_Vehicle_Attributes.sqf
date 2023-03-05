@@ -15,7 +15,7 @@ _BWA3Vehicles = [
     ["BWA3_Tiger_Gunpod_Heavy", ["cost", 150]], //4 PARS (AT) 0 Stinger (AA) 38 Hydra
     ["BWA3_Tiger_Gunpod_PARS", ["cost", 150]] //4 PARS (AT) 4 Stinger (AA) 19 Hydra
 ];
-if (isClass (configFile >> "cfgPatches" >> "CUP_AirVehicles_Core")) then {
+if (isClass (configFile >> "CfgPatches" >> "CUP_AirVehicles_Core")) then {
 _CUPVehicles = [
     // Weak AA vehicles. Leave threat because they're still dangerous in rebel hands
     //Borrowed CUP Vehicles

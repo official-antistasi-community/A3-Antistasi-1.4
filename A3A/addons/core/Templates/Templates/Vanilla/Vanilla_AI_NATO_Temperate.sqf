@@ -34,7 +34,7 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["B_T_APC_Wheeled_01_cannon_F"]] call _fnc_saveToTemplate;
+private _vehiclesAmphibious = ["B_T_APC_Wheeled_01_cannon_F"];
 
 ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] call _fnc_saveToTemplate;
@@ -45,11 +45,11 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 ["vehiclesHelisLightAttack", ["B_Heli_Light_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["B_T_MBT_01_mlrs_F","B_T_MBT_01_arty_F"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [
-["B_T_MBT_01_mlrs_F", ["12Rnd_230mm_rockets"]],
-["B_T_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]
-]] call _fnc_saveToTemplate;
+private _vehiclesArtillery = ["B_T_MBT_01_mlrs_F", "B_T_MBT_01_arty_F"];
+private _artilleryMagazines = createHashMapFromArray [
+    ["B_T_MBT_01_mlrs_F", ["12Rnd_230mm_rockets"]],
+    ["B_T_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]
+];
 
 ["uavsAttack", ["B_UAV_02_CAS_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
@@ -77,8 +77,14 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 //If Western Sahara DLC
 if (allowDLCWS) then {
     _APCs append ["B_T_APC_Wheeled_01_atgm_lxWS", "B_T_APC_Wheeled_01_command_lxWS"];
+    _vehiclesAmphibious append ["B_T_APC_Wheeled_01_atgm_lxWS", "B_T_APC_Wheeled_01_command_lxWS", "B_T_APC_Wheeled_01_mortar_base_lxWS"];
+    _vehiclesArtillery append ["B_T_APC_Wheeled_01_mortar_base_lxWS"];
+    _artilleryMagazines set ["B_T_APC_Wheeled_01_mortar_base_lxWS",["64Rnd_60mm_Mo_shells_lxSW", "64Rnd_60mm_Mo_guided_lxSW", "64Rnd_60mm_Mo_LG_lxSW"]];
 };
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
+["vehiclesAmphibious", _vehiclesAmphibious] call _fnc_saveToTemplate;
+["vehiclesArtillery", _vehiclesArtillery] call _fnc_saveToTemplate;
+["magazines", _artilleryMagazines] call _fnc_saveToTemplate;
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 

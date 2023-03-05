@@ -1,6 +1,6 @@
-Private _ReddnTanks = [];
-Private _CUPVehicles = [];
-Private _BWA3Vehicles = [];
+private _ReddnTanks = [];
+private _CUPVehicles = [];
+private _BWA3Vehicles = [];
 _BWA3Vehicles = [
     //Puma IFV 30mm with Spike LR ATGMs
     ["BWA3_Puma_Tropen", ["cost", 180], ["threat", 250]],

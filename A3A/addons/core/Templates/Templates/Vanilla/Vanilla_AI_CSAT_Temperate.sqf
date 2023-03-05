@@ -18,7 +18,7 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["O_T_Quadbike_01_ghex_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_T_MRAP_02_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesLightUnarmed = ["O_T_MRAP_02_ghex_F"];
 ["vehiclesLightArmed",["O_T_MRAP_02_gmg_ghex_F","O_T_MRAP_02_hmg_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["O_T_Truck_02_transport_F", "O_T_Truck_02_F", "O_T_Truck_03_transport_ghex_F", "O_T_Truck_03_covered_ghex_F"];
@@ -26,15 +26,15 @@ private _cargoTrucks = ["O_T_Truck_02_transport_F", "O_T_Truck_02_F", "O_T_Truck
 ["vehiclesRepairTrucks", ["O_T_Truck_02_Box_F","O_T_Truck_03_repair_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["O_T_Truck_02_fuel_F","O_T_Truck_03_fuel_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["O_T_Truck_03_medical_ghex_F","O_T_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["O_T_APC_Tracked_02_cannon_ghex_F","O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesLightAPCs = [];
+private _vehiclesAPCs = ["O_T_APC_Tracked_02_cannon_ghex_F","O_T_APC_Wheeled_02_rcws_v2_ghex_F"];
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["O_T_MBT_02_cannon_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["O_T_APC_Tracked_02_AA_ghex_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["O_T_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["O_T_Boat_Armed_01_hmg_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesAmphibious = ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"];
 
 ["vehiclesPlanesCAS", ["O_Plane_CAS_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["O_Plane_Fighter_02_F"]] call _fnc_saveToTemplate;
@@ -76,8 +76,16 @@ private _cargoTrucks = ["O_T_Truck_02_transport_F", "O_T_Truck_02_F", "O_T_Truck
 //If Western Sahara DLC
 if (allowDLCWS) then {
     _cargoTrucks append ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
+    _vehiclesLightUnarmed append ["O_T_APC_Wheeled_02_unarmed_lxWS"];
+    _vehiclesLightAPCs append ["O_T_APC_Wheeled_02_hmg_lxWS"];
+    _vehiclesAPCs append ["O_T_APC_Tracked_02_30mm_lxWS"];
+    _vehiclesAmphibious append ["O_T_APC_Wheeled_02_unarmed_lxWS", "O_T_APC_Wheeled_02_hmg_lxWS"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", _vehiclesLightAPCs] call _fnc_saveToTemplate;
+["vehiclesAPCs", _vehiclesAPCs] call _fnc_saveToTemplate;
+["vehiclesAmphibious", _vehiclesAmphibious] call _fnc_saveToTemplate;
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 

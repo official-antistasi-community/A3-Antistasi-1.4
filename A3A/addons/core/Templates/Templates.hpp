@@ -730,7 +730,7 @@ class Templates
     {
         requiredAddons[] = {"bwa3_common"};
         basepath = QPATHTOFOLDER(Templates\Templates\BWA3);
-        logo = "bwa3_common\data\bwa3_flag_germany_co.paa";
+        logo = QPATHTOFOLDER(Templates\Templates\BWA3\bwa3_logo.paa);
         priority = 65;
     };
 

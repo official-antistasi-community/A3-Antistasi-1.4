@@ -115,6 +115,7 @@ private _categoryOverrideTable = [
 ["uk3cb_auga2_sr_hbar", ["MachineGuns","Weapons"]],
 ["uk3cb_auga2_sr_hbar_blk", ["MachineGuns","Weapons"]],
 ["uk3cb_auga2_sr_hbar_tan", ["MachineGuns","Weapons"]],
+["UK3CB_G36_LSW", ["MachineGuns","Weapons"]],
 
 ["ace_csw_m3CarryTripod", ["StaticWeaponParts","Items"]],
 ["ace_csw_m3CarryTripodLow", ["StaticWeaponParts","Items"]],

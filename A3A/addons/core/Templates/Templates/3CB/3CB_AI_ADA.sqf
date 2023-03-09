@@ -27,8 +27,8 @@
 ["vehiclesAmmoTrucks", ["UK3CB_ADA_I_Ural_Ammo", "UK3CB_ADA_I_V3S_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_ADA_I_Ural_Repair", "UK3CB_ADA_I_V3S_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_ADA_I_Ural_Fuel", "UK3CB_ADA_I_Van_Fuel", "UK3CB_ADA_I_V3S_Refuel"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["UK3CB_ADA_I_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_O_BRDM2", "UK3CB_ADA_I_BTR40_MG", "UK3CB_ADA_O_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["UK3CB_ADA_I_M113_AMB", "UK3CB_ADA_B_MTLB_AMB"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_O_BRDM2", "UK3CB_ADA_I_BTR40_MG", "UK3CB_ADA_B_MTLB_BMP", "UK3CB_ADA_B_MTLB_Cannon", "UK3CB_ADA_B_MTLB_KPVT", "UK3CB_ADA_B_MTLB_PKT"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["UK3CB_ADA_I_BMP1", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR60", "UK3CB_ADA_I_BTR70", "UK3CB_ADA_I_BTR80", "UK3CB_ADA_I_BTR80a"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_ADA_I_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_ADA_I_T72A", "UK3CB_ADA_I_T72B", "UK3CB_ADA_I_T72BM", "UK3CB_ADA_I_T55"]] call _fnc_saveToTemplate;
@@ -79,8 +79,8 @@
 ///  Identities   ///
 /////////////////////
 
-["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem"]] call _fnc_saveToTemplate;
-["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
+["faces", ["AfricanHead_01", "AfricanHead_02", "AfricanHead_03", "Barklem"]] call _fnc_saveToTemplate;
+["voices", ["Male01FRE", "Male02FRE", "Male03FRE"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -254,9 +254,9 @@ _sfLoadoutData set ["machineGuns", [
 ["rhs_weap_fnmag", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ACOG_RMR", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""]
 ]];
 _sfLoadoutData set ["marksmanRifles", [
-["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
-["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_premier_mrds", ["UK3CB_G3_20rnd_762x51"], [], "rhsusf_acc_harris_bipod"],
+["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_M8541", ["UK3CB_G3_20rnd_762x51"], [], ""],
+["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_G3_20rnd_762x51"], [], ""],
+["UK3CB_G3SG1_RIS", "uk3cb_muzzle_snds_g3", "", "rhsusf_acc_premier_mrds", ["UK3CB_G3_20rnd_762x51"], [], ""],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_M8541", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_m14ebrri", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_premier_mrds", ["rhsusf_20Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_bipod"],
@@ -373,7 +373,7 @@ _policeLoadoutData set ["shotGuns", [
 _policeLoadoutData set ["SMGs", [
 ["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
 ["UK3CB_HK33KA2_RIS", "", "rhsusf_acc_M952V", "", [], [], ""],
-["rhs_weap_ak74n", "", "rhs_acc_2dpzenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
 ["UK3CB_BHP", "", "", "", [], [], ""]

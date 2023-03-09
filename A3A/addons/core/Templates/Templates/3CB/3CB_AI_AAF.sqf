@@ -26,9 +26,9 @@
 ["vehiclesAmmoTrucks", ["UK3CB_AAF_B_MTVR_Reammo", "UK3CB_AAF_B_M939_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_AAF_B_M939_Repair", "UK3CB_AAF_B_MTVR_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_AAF_B_MTVR_Refuel", "UK3CB_AAF_B_M939_Fuel"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["UK3CB_AAF_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_AAF_B_LAV25_HQ", "UK3CB_AAF_B_M113_M2", "UK3CB_AAF_B_M113_MK19", "UK3CB_AAF_I_GAZ_Vodnik_PKT", "UK3CB_AAF_I_GAZ_Vodnik_KVPT", "UK3CB_AAF_B_M1117"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_AAV","UK3CB_AAF_B_AAV", "UK3CB_AAF_O_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["UK3CB_AAF_B_M113_AMB", "UK3CB_AAF_O_MTLB_AMB"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_AAF_B_LAV25_HQ", "UK3CB_AAF_B_M113_M2", "UK3CB_AAF_B_M113_MK19", "UK3CB_AAF_I_GAZ_Vodnik_PKT", "UK3CB_AAF_I_GAZ_Vodnik_KVPT", "UK3CB_AAF_B_M1117", "UK3CB_AAF_O_MTLB_BMP", "UK3CB_AAF_O_MTLB_Cannon", "UK3CB_AAF_O_MTLB_KPVT", "UK3CB_AAF_O_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_LAV25", "UK3CB_AAF_B_AAV", "UK3CB_AAF_B_AAV", "UK3CB_AAF_O_MTLB_ZU23"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_AAF_B_M60A3", "UK3CB_AAF_I_T72BC", "UK3CB_AAF_B_FV4201", "UK3CB_AAF_B_M1A1"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_AAF_O_ZsuTank"]] call _fnc_saveToTemplate; //UK3CB_AAF_O_2S6M_Tunguska
@@ -61,7 +61,7 @@
 ["vehiclesMilitiaTrucks", ["UK3CB_AAF_I_Ural_Open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_AAF_I_UAZ_Open", "UK3CB_AAF_I_UAZ_Closed"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["UK3CB_ADP_B_Hilux_Open", "UK3CB_ADP_B_Hilux_Closed", "UK3CB_ADP_B_LandRover_Closed", "UK3CB_ADP_B_LandRover_Open", "UK3CB_ADP_B_Van_Transport", "UK3CB_ADP_B_Offroad"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["UK3CB_APD_B_LandRover_Closed", "UK3CB_APD_B_LandRover_Open", "UK3CB_APD_B_Pickup", "UK3CB_APD_B_SUV_POL", "UK3CB_APD_I_Hilux_Closed", "UK3CB_APD_I_Hilux_Open", "UK3CB_APD_I_Landcruiser_POL"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["RHS_M2StaticMG_D"]] call _fnc_saveToTemplate;
 ["staticAT", ["RHS_TOW_TriPod_D"]] call _fnc_saveToTemplate;
@@ -81,8 +81,8 @@
 ///  Identities   ///
 /////////////////////
 
-["faces", ["GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04","GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08","GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
-["voices", ["Male01GRE","Male02GRE","Male03GRE","Male04GRE","Male05GRE","Male06GRE"]] call _fnc_saveToTemplate;
+["faces", ["GreekHead_A3_02", "GreekHead_A3_03", "GreekHead_A3_04", "GreekHead_A3_05", "GreekHead_A3_06", "GreekHead_A3_07", "GreekHead_A3_08", "GreekHead_A3_09", "Ioannou", "Mavros"]] call _fnc_saveToTemplate;
+["voices", ["Male01GRE", "Male02GRE", "Male03GRE", "Male04GRE", "Male05GRE", "Male06GRE"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -381,22 +381,18 @@ _militaryLoadoutData set ["sidearms", [
 ///////////////////////////////
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
-_policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
-_policeLoadoutData set ["helmets", ["H_Cap_police"]];
+_policeLoadoutData set ["uniforms", ["UK3CB_APD_B_U_CombatUniform_01_BLU","UK3CB_APD_B_U_PoloShirt_Pants_01"]];
+_policeLoadoutData set ["vests", ["UK3CB_APD_B_V_TacVest_01"]];
+_policeLoadoutData set ["helmets", ["UK3CB_H_Cap_APD", "UK3CB_H_Radio_Cap_APD", "UK3CB_H_Cap_Headset_APD", "UK3CB_H_Cap_Earpiece_APD"]];
 _policeLoadoutData set ["shotGuns", [
 ["rhs_weap_M590_8RD", "", "", "", ["rhsusf_8Rnd_00Buck", "rhsusf_8Rnd_Slug"], [], ""],
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
-_policeLoadoutData set ["SMGs", [
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_compm4", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_mrds", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_T1_high", [], [], ""],
-["rhsusf_weap_MP7A2", "", "rhsusf_acc_wmx_bk", "rhsusf_acc_eotech_xps3", [], [], ""]
-]];
+_policeLoadoutData set ["SMGs", ["UK3CB_P90_black","UK3CB_P90C_black", "UK3CB_MP5A4"]];
 _policeLoadoutData set ["sidearms", [
 ["rhsusf_weap_glock17g4", "", "acc_flashlight_pistol", "", ["rhsusf_mag_17Rnd_9x19_JHP"], [], ""]
 ]];
+
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////

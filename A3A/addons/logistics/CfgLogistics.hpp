@@ -14,6 +14,7 @@ class DOUBLES(ADDON,Nodes)
     #include "Nodes\UNS.hpp"
     #include "Nodes\Vanilla.hpp"
     #include "Nodes\VN.hpp"
+    #include "Nodes\WS.hpp"
 
 };
 
@@ -37,6 +38,7 @@ class DOUBLES(ADDON,Cargo)
     #include "Cargo\Vanilla.hpp"
     #include "Cargo\VN.hpp"
     #include "Cargo\ACE.hpp"
+    #include "Cargo\WS.hpp"
 
 };
 

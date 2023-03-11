@@ -102,6 +102,8 @@ server setVariable ["resourcesFIA",initialFactionMoney,true];
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 // Hash map of custom non-member/AI item thresholds
 DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
+//Time of last garbage clean notification
+DECLARE_SERVER_VAR(A3A_lastGarbageCleanTimeNote, serverTime);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -256,8 +258,9 @@ Info("Setting up faction and DLC equipment flags");
 
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
 private _loadedDLC = getLoadedModsInfo select {
-	(_x#3 or {_x#1 isEqualTo "ws"}) and {!(_x#1 in ["A3","curator","argo","tacops"])}} apply {tolower (_x#1)
-};
+	(_x#3 or {_x#0 isEqualTo "Arma 3 Creator DLC: Western Sahara"})
+	and {!(_x#1 in ["A3","curator","argo","tacops"])}
+} apply {tolower (_x#1)};
 A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
 {
 	A3A_enabledDLC insert [0, getArray (configFile/"A3A"/"Templates"/_x/"forceDLC"), true];		// add unique elements only
@@ -272,7 +275,7 @@ Debug_3("DLC enabled: %1 Disabled: %2 Vanilla: %3", A3A_enabledDLC, A3A_disabled
 
 // TODO: fix all allowDLCxxx and A3A_hasxxx references in templates
 // for the moment just fudge the ones that we're using
-A3A_hasWS = "ws" in A3A_enabledDLC; allowDLCWS = A3A_hasWS;
+allowDLCWS = "ws" in A3A_enabledDLC;
 allowDLCEnoch = "enoch" in A3A_enabledDLC;
 allowDLCTanks = "tanks" in A3A_enabledDLC;
 allowDLCOrange = "orange" in A3A_enabledDLC;

@@ -104,7 +104,7 @@ switch _callBackName do {
                 ];
 
                 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
-                if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
+                if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint; deleteVehicle _vehicle;};
 
                 if (_price != 0) then {
                     //try to take money away 😞

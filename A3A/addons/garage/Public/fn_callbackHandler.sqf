@@ -100,7 +100,8 @@ switch _callBackName do {
                     ["_unit", objNull, [objNull]],
                     ["_spawnItem", "", [""]],       // easier to keep the format from the buyitem then writing a new one
                     ["_price", -1, [0]],
-                    ["_callbacks", [], [[]]]
+                    ["_callbacks", [], [[]]],
+                    ["_object", objNull, [objNull]]
                 ];
 
                 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
@@ -127,6 +128,19 @@ switch _callBackName do {
                 //object globals
                 _vehicle setVariable ["A3A_canGarage", true, true];
                 _vehicle setVariable ["A3A_itemPrice", _price, true];
+                
+                if(!isNull _object) then
+                {
+                    private _price = _object getVariable ["A3A_itemPrice", 0];
+                    private _canOpenDoors = _object getVariable ["A3A_canOpenDoor", false];
+                    private _itemClassName = _object getVariable ["A3A_packedObject", ""];
+
+                    _vehicle setVariable ["A3A_canGarage", true, true];
+                    _vehicle setVariable ["A3A_itemPrice", _price, true];
+                    _vehicle setVariable ["A3A_canOpenDoor", _canOpenDoors, true]; 
+                    deleteVehicle _object;
+                };
+                
         
                 // callbacks
                 {

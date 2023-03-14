@@ -31,30 +31,21 @@ if(_itemClassName isEqualTo "") exitwith {
     ["Packing Objects", "refunding money to do error"] call A3A_fnc_customHint;
     [_price] call A3A_fnc_resourcesPlayer;
 };
-private _position = (getPos player vectorAdd [3,0,0]) findEmptyPosition [1, 25, _itemClassName];
-if (_position isEqualTo []) then {_position = getPos player };
-private _item = _itemClassName createVehicle _position;
+private _item = _itemClassName createVehicle [0,0,0];
 _item allowDamage false;
 
 
+_callBacks = [['A3A_fnc_initMovableObject', false],['A3A_Logistics_fnc_initPackableObjects', true]];
 
-_item setVariable ["A3A_canGarage", true, true];
-_item setVariable ["A3A_itemPrice", _price, true];
-_item setVariable ["A3A_canOpenDoor", _canOpenDoors, true]; 
-
-
+if(_canOpenDoors) then {
+    _callBacks pushBack ['A3A_fnc_openDoorsTent', true];
+};
 
 // add logi
 if (_item call A3A_Logistics_fnc_isLoadable) then {
-    [_item] call A3A_Logistics_fnc_addLoadAction;
+    _callBacks pushBack ['A3A_Logistics_fnc_addLoadAction', false];
 };
 
-private _jipKey = "A3A_utilityItems_item_" + "A3A_fnc_initMovableObject" + "_" + ((str _item splitString ":") joinString "");
-[_item, _jipKey] remoteExecCall ["A3A_fnc_initMovableObject", 0, _jipKey];
-[_item, _jipKey] remoteExecCall ["A3A_Logistics_fnc_initPackableObjects", 0, _jipKey];
-if(_canOpenDoors) then {
-    [_item, _jipKey] remoteExecCall ["A3A_fnc_openDoorsTent", 0, _jipKey];
-};
+[ _itemClassName, "LARGEITEM", [player, _itemClassName, 0, _callBacks, _object]] call HR_GRG_fnc_confirmPlacement;
 
-//delete object
-deleteVehicle _object;
+deleteVehicle _item;

@@ -110,21 +110,21 @@ _vehicleSpawns = [];
     _markerX = _x;
     _size = getMarkerSize _x;
     _length = (_size select 0) * 2;
-    _width = (_size select 1) * 2;
+    _height = (_size select 1) * 2;
     if(_length < (4 + 2 * SPACING)) then
     {
       Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING));
     }
     else
     {
-      if(_width < 10) then
+      if(_height < 10) then
       {
         Error_1("InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x);
       }
       else
       {
         //Cleaning area
-        private _radius = [0,0] vectorDistance [_length, _width];
+        private _radius = [0,0] vectorDistance [_length, _height];
         if (!isMultiplayer) then
         {
           {

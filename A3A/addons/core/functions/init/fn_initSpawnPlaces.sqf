@@ -124,7 +124,7 @@ _vehicleSpawns = [];
       else
       {
         //Cleaning area
-        private _radius = sqrt (_length * _length + _width * _width);
+        private _radius = vectorDistance [_length, _width];
         if (!isMultiplayer) then
         {
           {

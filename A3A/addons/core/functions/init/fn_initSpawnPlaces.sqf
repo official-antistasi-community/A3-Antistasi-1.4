@@ -103,7 +103,7 @@ _helipads = [];
 } forEach _hangarMarker;
 //All additional hangar and helipads found
 
-private ["_vehicleSpawns", "_size", "_length", "_width", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
+private ["_vehicleSpawns", "_size", "_length", "_height", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
 
 _vehicleSpawns = [];
 {

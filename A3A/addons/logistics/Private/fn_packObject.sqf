@@ -21,7 +21,7 @@ params  [
 if(!(isNull attachedTo _object)) exitWith {};
 
 //search the object will be the package
-private _packageClassName = getText (configFile >> "A3A" >> "A3A_Logistics_Packable" >> typeOf _object); 
+private _packageClassName = getText (configFile >> "A3A" >> "A3A_Logistics_Packable" >> typeOf _object >> "packObject"); 
 if (_packageClassName isEqualTo "") then {_packageClassName = "CargoNet_01_box_F";};
 
 //create package

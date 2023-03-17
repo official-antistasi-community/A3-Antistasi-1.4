@@ -175,7 +175,7 @@ class A3_Structures_F_Heli_Ind_Cargo_Cargo10_military_green_F_p3d: TRIPLES(ADDON
 {
     offset[] = {0,0.1,1.35};
     rotation[] = {1,0,0};
-    size = 4;
+    size = 5;
 };
 
 class A3_Structures_F_Heli_Ind_Cargo_Cargo10_red_F_p3d: TRIPLES(ADDON,Cargo,Base)

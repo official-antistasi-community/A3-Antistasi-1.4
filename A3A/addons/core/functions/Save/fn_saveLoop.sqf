@@ -134,6 +134,9 @@ _vehInGarage = _vehInGarage + vehInGarage;
 ["vehInGarage", _vehInGarage] call A3A_fnc_setStatVariable;
 ["HR_Garage", [] call HR_GRG_fnc_getSaveData] call A3A_fnc_setStatVariable;
 
+private _saveOverrides = [];
+_saveOverrides pushBackUnique ((A3A_faction_reb get 'vehicleFuelTank')#0);
+
 _arrayEst = [];
 {
 	_veh = _x;
@@ -145,6 +148,12 @@ _arrayEst = [];
 			_xVectorDir = vectorDir _veh;
             private _state = [_veh] call HR_GRG_fnc_getState;
 			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir, _state];
+		};
+		if(_typeVehX in _saveOverrides) then {
+			_posVeh = getPosWorld _veh;
+			_xVectorUp = vectorUp _veh;
+			_xVectorDir = vectorDir _veh;
+			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir];
 		};
 	};
 } forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];

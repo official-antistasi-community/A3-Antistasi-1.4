@@ -56,6 +56,18 @@
       <Key ID="STR_antistasi_LTasks_LOG_Supplies_supplies_delivered">
         <Original>Supplies Delivered.</Original>
       </Key>
+      <Key ID="STR_antistasi_LTasks_LOG_Ammo_title">
+        <Original>Steal or Destroy Ammotruck</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_LOG_Ammo_description">
+        <Original>We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.%2.</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_LOG_Ammo_destroyed">
+        <Original>Ammo Truck Destroyed.</Original>
+      </Key>
+      <Key ID="STR_antistasi_LTasks_LOG_Ammo_captured">
+        <Original>Ammo Truck Captured.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 
 (_this get "params") params [["_marker", "", [""]]];
 if ((getMarkerPos _marker) isEqualTo [0,0,0]) exitWith {
-    Error_1("Conquest mission started with bad marker name | %1", _this);
+    Error_1("Supply mission started with bad marker name | %1", _this);
 };
 
 private _side = sidesX getVariable _marker;
@@ -84,9 +84,8 @@ _stages = [
         }],
         ["required", true], //Type: bool | Optional | if the task needs the stage to succeed
         ["reward", { //Type: code | Optional | the reward given for completing the stage
-            Info("Stage 1 reward called");
             private _bonus = if (_this get "_isDifficult") then {2} else {1};
-            private _markerX =(_this get "destination");
+            private _positionX =(_this get "destination");
             private _markerX =(_this get "marker");
             private _side = _this get "_side";
             private _truckX = (_this get "truckX");
@@ -98,7 +97,7 @@ _stages = [
                 private _playersInRange = (allPlayers - (entities "HeadlessClient_F")) inAreaArray [_markerX, 250, 250];
 			    {[10*_bonus * tierWar,_x] call A3A_fnc_playerScoreAdd} forEach _playersInRange;
 			    [5*_bonus * tierWar,theBoss] call A3A_fnc_playerScoreAdd;
-			    [-15*_bonus,15*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
+			    [-15*_bonus,15*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
                 Debug("aggroEvent | Rebels won a supply mission");
 			    [Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
                 [0,200 * _bonus * tierWar] remoteExec ["A3A_fnc_resourcesFIA",2];

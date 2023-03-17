@@ -31,6 +31,7 @@ class CfgFunctions {
             class AS_specOP_p {};
             class CON_Outpost_p {};
             class LOG_Supplies_p {};
+            class LOG_Ammo_p {};
         };
         class LegacyTasks {
             file = QPATHTOFOLDER(Tasks\LegacyTasks);
@@ -38,6 +39,7 @@ class CfgFunctions {
             class AS_specOP {};
             class CON_Outpost {};
             class LOG_Supplies {};
+            class LOG_Ammo {};
         };
     };
 };

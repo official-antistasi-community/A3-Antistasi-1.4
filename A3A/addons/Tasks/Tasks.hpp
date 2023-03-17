@@ -45,4 +45,11 @@ class Tasks {
         version = 1;
         weight = 1;
     };
+    class L_LOG_Ammo {
+        category = "LOG";
+        func = QFUNC(LOG_Ammo);
+        params = QFUNC(LOG_Ammo_p);
+        version = 1;
+        weight = 1;
+    };
 };

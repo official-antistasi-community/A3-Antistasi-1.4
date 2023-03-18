@@ -9,7 +9,7 @@ private _findIfNearAndHostile = {
 };
 
 //Add unspawned outposts for ammo trucks, and seaports for salvage
-_possibleMarkers = [ outposts] call _findIfNearAndHostile;
+_possibleMarkers = [outposts] call _findIfNearAndHostile;
 _possibleMarkers = _possibleMarkers select {(_x in seaports) or (spawner getVariable _x != 0)};
 
 if ( _possibleMarkers isEqualTo []) exitWith {false};

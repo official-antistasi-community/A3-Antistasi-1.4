@@ -35,7 +35,7 @@ _this set ["_road", _road];
 _this set ["_nameDest", _nameDest];
 /*
 	Note: the task sets all feedback to players automatically based on the info in the task hm passed to the task
-	the modifyable values are:
+	the modifiable values are:
 		description, title, marker, destination, state, priority, showNotification, type, visibleIn3D
 
 	note that TaskID is also available but should only be used when creating sub tasks, and NEVER modified within the task.

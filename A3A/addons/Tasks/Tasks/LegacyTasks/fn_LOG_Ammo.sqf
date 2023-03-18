@@ -156,9 +156,9 @@ _stages = [
 				[5*_bonus * tierWar,theBoss] call A3A_fnc_playerScoreAdd;
 				[0,200 * _bonus * tierWar] remoteExec ["A3A_fnc_resourcesFIA",2];
 			};
-			if((_this get "state") isNotEqualTo "SUCCEEDED") then
+			if ((_this get "state") isNotEqualTo "SUCCEEDED") then
 			{
-				[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+				[-10 * _bonus,theBoss] call A3A_fnc_playerScoreAdd;
 			};
 		}],
 		["rewardInstant", false], //Type: bool | Optional | if the reward should be given instantly on compleation of stage

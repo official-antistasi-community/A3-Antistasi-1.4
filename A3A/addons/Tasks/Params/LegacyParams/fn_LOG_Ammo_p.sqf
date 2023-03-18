@@ -11,6 +11,6 @@ private _findIfNearAndHostile = {
 _possibleMarkers = [outposts] call _findIfNearAndHostile;
 _possibleMarkers = _possibleMarkers select {(_x in seaports) or (spawner getVariable _x != 0)};
 
-if ( _possibleMarkers isEqualTo []) exitWith {false};
+if (_possibleMarkers isEqualTo []) exitWith {false};
 
 selectRandom _possibleMarkers

@@ -4,8 +4,7 @@ private _findIfNearAndHostile = {
 	Returns: array of markers within max mission distance and is not rebel.
 	*/
 	params ["_Markers"];
-	_Markers = _Markers select {(getMarkerPos _x distance2D getMarkerPos respawnTeamPlayer < distanceMission) && (sidesX getVariable [_x,sideUnknown] != teamPlayer)};
-	_Markers
+	_Markers select {(getMarkerPos _x distance2D getMarkerPos respawnTeamPlayer < distanceMission) && (sidesX getVariable [_x,sideUnknown] != teamPlayer)}
 };
 
 //Add unspawned outposts for ammo trucks, and seaports for salvage

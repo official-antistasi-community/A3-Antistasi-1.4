@@ -85,7 +85,7 @@ _stages = [
         ["required", true], //Type: bool | Optional | if the task needs the stage to succeed
         ["reward", { //Type: code | Optional | the reward given for completing the stage
             private _bonus = if (_this get "_isDifficult") then {2} else {1};
-            private _positionX =(_this get "destination");
+            private _positionX = (_this get "destination");
             private _markerX =(_this get "marker");
             private _side = _this get "_side";
             private _truckX = (_this get "truckX");

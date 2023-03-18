@@ -97,7 +97,7 @@ _stages = [
                 private _playersInRange = (allPlayers - (entities "HeadlessClient_F")) inAreaArray [_markerX, 250, 250];
 			    {[10*_bonus * tierWar,_x] call A3A_fnc_playerScoreAdd} forEach _playersInRange;
 			    [5*_bonus * tierWar,theBoss] call A3A_fnc_playerScoreAdd;
-			    [-15*_bonus,15*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+			    [-15 * _bonus,15 * _bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
                 Debug("aggroEvent | Rebels won a supply mission");
 			    [Occupants, -10, 60] remoteExec ["A3A_fnc_addAggression",2];
                 [0,200 * _bonus * tierWar] remoteExec ["A3A_fnc_resourcesFIA",2];

@@ -61,7 +61,7 @@ _stages = [
             _group selectLeader _official;
 
             //patrol behaviour to be replaced by vcom
-            [leader _group, _this get "marker", "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] execVM EQPATHTOFOLDER(core,scripts\UPSMON.sqf);
+            [leader _group, _this get "marker", "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
             {
                 [_x] call A3A_fnc_NATOinit;
                 _x allowFleeing 0;

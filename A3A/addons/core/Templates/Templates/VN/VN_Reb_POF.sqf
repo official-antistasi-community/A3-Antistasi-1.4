@@ -56,6 +56,11 @@
 ["breachingExplosivesAPC", [["vn_mine_m112_remote_mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["vn_mine_satchel_remote_02_mag", 1], ["vn_mine_m112_remote_mag", 2]]] call _fnc_saveToTemplate;
 
+["vehicleFuelDrum", ["Land_vn_usaf_fueltank_75_01", 150]] call _fnc_saveToTemplate;
+//["vehicleFuelTank", ["Land_vn_b_prop_fueldrum_01", 1000]] call _fnc_saveToTemplate;
+//["vehicleAmmoStation", ["Land_vn_wf_vehicle_service_point_east", 5000]] call _fnc_saveToTemplate;
+//["vehicleHealthStation", ["Land_vn_tent_mash_01_01", 75]] call _fnc_saveToTemplate;
+
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////

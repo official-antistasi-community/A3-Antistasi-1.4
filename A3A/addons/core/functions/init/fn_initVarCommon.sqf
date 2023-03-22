@@ -8,8 +8,6 @@ scriptName "initVarCommon.sqf";
 FIX_LINE_NUMBERS()
 Info("initVarCommon started");
 
-antistasiVersion = QUOTE(VERSION);
-
 ////////////////////////////////////
 // INITIAL SETTING AND VARIABLES ///
 ////////////////////////////////////

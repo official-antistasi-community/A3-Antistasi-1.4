@@ -25,7 +25,9 @@ if (_groupX getVariable "staticAutoT") exitWith
 ["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode ON.", groupID _groupX]] call A3A_fnc_customHint;
 _groupX setVariable ["staticAutoT",true,true];
 
-if (typeOf _static in FactionGet(reb,"staticMortar")) exitWith {_nul=[_static] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);};//TODO delete UPSMON link
+
+if (typeOf _static in FactionGet(reb,"staticMortar")) exitWith {[_static] spawn UPSMON_fnc_artillery_add;};//TODO delete UPSMON link
+
 _LeaderX = leader _groupX;
 _truckX = vehicle _LeaderX;
 _boy = gunner _static;

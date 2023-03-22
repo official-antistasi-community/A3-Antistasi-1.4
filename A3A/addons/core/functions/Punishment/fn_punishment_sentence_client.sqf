@@ -22,7 +22,7 @@ Examples:
 	[_UID,_timeLeft] remoteExec ["A3A_fnc_punishment_sentence_client",_detainee,false];
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_detainee","_timeLeft"];
 private _filename = "fn_punishment_sentence_client";

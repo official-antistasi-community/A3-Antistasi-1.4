@@ -6,7 +6,7 @@ FIX_LINE_NUMBERS()
 if (isNil "logLevel") then { logLevel = 2; A3A_logDebugConsole = 1 };
 
 Info("initClient started");
-Info_1("Client version: %1", QUOTE(VERSION));
+Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
@@ -28,7 +28,7 @@ if !(isServer) then {
     // Headless client navgrid init
     if (!hasInterface) then {
         Info("Headless client UPSMON init started");
-        [] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
+        [] call UPSMON_fnc_Init_UPSMON;
         Info("Headless client UPSMON init completed");
 
         call A3A_fnc_loadNavGrid;
@@ -37,7 +37,13 @@ if !(isServer) then {
     };
 };
 
-waitUntil { sleep 0.1; !isNil "serverInitDone" };
+if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
+while {true} do {
+    private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
+    isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr] call A3A_fnc_customHint };         // not re-entrant, apparently
+    if (A3A_startupState == "completed") exitWith {};
+    sleep 0.1;
+};
 
 //****************************************************************
 
@@ -108,7 +114,7 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 
 if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
-    [player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity
+    [player, nil, selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity
 };
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
@@ -364,7 +370,7 @@ _flagLight lightAttachObject [flagX, [0, 0, 4]];
 _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
-vehicleBox addAction ["Heal nearby units", A3A_fnc_vehicleBoxHeal,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
@@ -373,11 +379,7 @@ vehicleBox addAction ["Buy Vehicle", {
     if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
         ["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
     } else {
-        if (A3A_GUIDevPreview) then {
-            createDialog "A3A_BuyVehicleDialog";
-        } else {
-            createDialog "vehicle_option";
-        };
+        createDialog "A3A_BuyVehicleDialog";
     }
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
@@ -387,23 +389,6 @@ if (LootToCrateEnabled) then {
 };
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (!A3A_GUIDevPreview) then {
-    vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
-    private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
-    private _fuelTank = FactionGet(reb,"vehicleFuelTank");
-    if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
-        private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-        vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
-    };
-    if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
-        private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
-        vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
-    };
-    
-    if (LootToCrateEnabled) then {
-        vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
-    };
-};
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
@@ -412,7 +397,7 @@ mapX allowDamage false;
 mapX addAction ["Game Options", {
     [
         "Game Options",
-        "Version: "+ antistasiVersion +
+        "Version: "+ QUOTE(VERSION_FULL) +
         "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
@@ -457,6 +442,7 @@ if (isNil "placementDone") then {
     };
 };
 
+initClientDone = true;
 Info("initClient completed");
 
 if(!isMultiplayer) then

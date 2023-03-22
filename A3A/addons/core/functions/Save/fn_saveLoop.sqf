@@ -64,7 +64,7 @@ Debug_1("Saving params: %1", _savedParams);
 ["addonVics", A3A_saveData get "addonVics"] call A3A_fnc_setStatVariable;
 
 private ["_garrison"];
-["version", antistasiVersion] call A3A_fnc_setStatVariable;
+["version", QUOTE(VERSION_FULL)] call A3A_fnc_setStatVariable;
 ["saveTime", systemTimeUTC] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;				// backwards compatibiiity

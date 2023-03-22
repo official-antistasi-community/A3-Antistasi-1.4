@@ -112,7 +112,7 @@ if (random 10 < 2.5) then
 	_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 	[_dog] spawn A3A_fnc_guardDog;
 	};
-_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
 {[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 
 waitUntil {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)}}}};

@@ -1,3 +1,14 @@
+/*  CAS routine to perform a dive bombing attack run
+
+Environment: Server, scheduled, internal
+
+Arguments:
+    <OBJECT> Aircraft object to use
+    <OBJECT> Target object for attack run
+    <STRING> Name of support (for debug logging)
+    <ARRAY> Waypoint to use for approach
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

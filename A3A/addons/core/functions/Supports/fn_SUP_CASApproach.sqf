@@ -1,3 +1,14 @@
+/*  CAS routine to acquire targets and set up low-level attack runs
+
+Environment: Server, scheduled, internal
+
+Arguments:
+    <ARRAY> Active support data, see initSupports
+    <OBJECT> Aircraft object to use
+    <GROUP> Group containing aircraft pilot
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+
+*/
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

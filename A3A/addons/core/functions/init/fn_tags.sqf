@@ -9,6 +9,8 @@ if (isDedicated) exitWith {};
 #define _refresh 0.34
 #define _distance 300
 
+private _layer = ["A3A_tags"] call BIS_fnc_rscLayer;
+
 while{true}do{
         #ifdef _debug
                 _initTime = diag_tickTime;
@@ -41,7 +43,7 @@ while{true}do{
 						{
 						_nameString = format ["<t size='0.5' color='#f0e68c'>%2. </t><t size='0.5' color='#f0e68c'>%1</t>",_name,_rank];
 						};
-					[_nameString,0.5,0.9,_refresh,0,0,3] spawn bis_fnc_dynamicText;
+					[_nameString,0.5,0.9,_refresh,0,0,_layer] spawn bis_fnc_dynamicText;
                 };
         };
 /*

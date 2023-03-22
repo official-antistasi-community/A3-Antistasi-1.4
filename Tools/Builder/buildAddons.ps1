@@ -1,12 +1,22 @@
 param (
     [string]$modFileName = "mod.cpp",
-    [string]$metaFileName = "meta.cpp"
+    [string]$WorkshopID = ""
 )
 
-"Meta file name: $metaFileName`n`n"
+"Workshop ID: $WorkshopID`n`n"
 Push-Location
 
 Set-Location "$PSScriptRoot\..\..\A3A"
+
+"`nGet version number"
+$versionFile = (Get-Content addons\core\Includes\script_version.hpp)
+$version = ""
+ForEach($line in $versionFile) {
+    if (($line) -match "(?<= )([\w\d]*)(?![ \w\d])") {
+        $version += $Matches[0] + "-"
+    }
+}
+$version = $version.Substring(0, $version.Length -1)
 
 "Setup temporary directories..."
 if (Test-Path "..\build") {
@@ -37,19 +47,38 @@ Set-Location $addonOutLocation
 Rename-Item $modFileName "mod.cpp"
 Pop-Location
 
-"`nCopy meta.cpp..."
-Copy-Item "meta\$metaFileName" $addonOutLocation
-Push-Location
+"`nCreating meta string..."
+$modName = switch ($WorkshopID) {
+    "2867537125" {"`nname = ""Antistasi - The Mod"";"}
+    "2729074499" {"`nname = ""[Dev1] Antistasi Dev Build"";"}
+    "2873632521" {"`nname = ""[Dev2] Antistasi Dev Build"";"}
+    Default {""}
+}
+
+$metaContents = if ([String]::IsNullOrEmpty($WorkshopID)) {
+    "protocol = 1;$modName"
+} else {
+    "protocol = 1;`npublishedid = $WorkshopID;$modName"
+}
+
+"`nCreating meta.cpp..."
 Set-Location $addonOutLocation
-Rename-Item $metaFileName "meta.cpp"
+New-Item "meta.cpp"
+Set-Content "meta.cpp" $metaContents
 Pop-Location
 
 "`nCreate key..."
+$keyName = switch ($WorkshopID) {
+    "2867537125" {"antistasi"}
+    "2729074499" {"antistasi_dev1"}
+    "2873632521" {"antistasi_dev2"}
+    Default {"a3a"}
+}
 Push-Location
 Set-Location "$PSScriptRoot\..\..\build"
 
-.$PSScriptRoot\..\DSSignFile\DSCreateKey "Antistasi"
-Copy-Item "Antistasi.bikey" "$addonOutLocation\Keys\Antistasi.bikey" -Force
+.$PSScriptRoot\..\DSSignFile\DSCreateKey "$keyName"
+Copy-Item "$keyName.bikey" "$addonOutLocation\Keys\$keyName.bikey" -Force
 
 "`nSign PBO files..."
 Push-Location
@@ -57,11 +86,11 @@ Set-Location $addonsOutLocation
 $pboFiles = Get-ChildItem -Path $addonsOutLocation -Name "*.pbo"
 forEach ($file in $pboFiles) {
     "Signing file $file ..."
-    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\Antistasi.biprivatekey" $file
+    .$PSScriptRoot\..\DSSignFile\DSSignFile "..\..\$keyName.biprivatekey" $file
 }
 
-Remove-Item "..\..\Antistasi.biprivatekey"
-Remove-Item "..\..\Antistasi.bikey"
+Remove-Item "..\..\$keyName.biprivatekey"
+Remove-Item "..\..\$keyName.bikey"
 
 Pop-Location
 
@@ -70,4 +99,5 @@ Pop-Location
 Pop-Location
 
 $displayTime = Get-Date -DisplayHint DateTime
-"Antistasi builder ran at: " + $displayTime
+"Antistasi builder ran at: $displayTime"
+"Antistasi version: $version build complete"

@@ -1,4 +1,5 @@
 if (!hasInterface) exitWith {};
+if (isNil "teamPlayer") exitWith {};
 if ((side player != teamPlayer) and (side player != civilian)) exitWith {};
 private ["_unit","_typeX","_textX","_display","_setText"];
 
@@ -16,7 +17,13 @@ if (_typeX == "globalChat") then
 	{
 	_unit globalChat format ["%1", _textX];
 	};
+if (_typeX == "countdown") then
+	{
+	_textX = format ["Time Remaining: %1 secs",_textX];
+	["Countdown", format ["%1",_textX]] call A3A_fnc_customHint;
+	};
 
+private _layer = ["A3A_infoRight"] call BIS_fnc_rscLayer;
 if (_typeX == "income") then
 	{
 	waitUntil {sleep 0.2; !incomeRep};
@@ -24,16 +31,11 @@ if (_typeX == "income") then
 	//playSound3D ["a3\sounds_f\sfx\beep_target.wss", player];
 	playSound "3DEN_notificationDefault";
 	//[_textX,0.8,0.5,5,0,0,2] spawn bis_fnc_dynamicText;
-	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
+	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, _layer] spawn bis_fnc_dynamicText;
 	incomeRep = false;
 	[] spawn A3A_fnc_statistics;
 	};
 
-if (_typeX == "countdown") then
-	{
-	_textX = format ["Time Remaining: %1 secs",_textX];
-	["Countdown", format ["%1",_textX]] call A3A_fnc_customHint;
-	};
 
 if (_typeX == "taxRep") then
 	{
@@ -41,7 +43,7 @@ if (_typeX == "taxRep") then
 	playSound "3DEN_notificationDefault";
 	//playSound3D ["a3\sounds_f\sfx\beep_target.wss", player];
 	//[_textX,0.8,0.5,5,0,0,2] spawn bis_fnc_dynamicText;
-	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
+	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, _layer] spawn bis_fnc_dynamicText;
 	sleep 10;
 	incomeRep = false;
 	[] spawn A3A_fnc_statistics;
@@ -54,7 +56,7 @@ if (_typeX == "tier") then
 	playSound "3DEN_notificationDefault";
 	//[_textX,0.8,0.5,5,0,0,2] spawn bis_fnc_dynamicText;
 	_textX = format ["War Level Changed<br/><br/>Current Level: %1",tierWar];
-	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, 2] spawn bis_fnc_dynamicText;
+	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, _layer] spawn bis_fnc_dynamicText;
 	incomeRep = false;
 	[] spawn A3A_fnc_statistics;
 	};

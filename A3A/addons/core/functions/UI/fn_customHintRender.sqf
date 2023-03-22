@@ -20,7 +20,7 @@ Examples:
     call A3A_fnc_customHintRender;
 
 Authors: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

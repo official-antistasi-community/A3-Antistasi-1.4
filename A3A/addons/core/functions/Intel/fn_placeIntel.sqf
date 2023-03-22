@@ -42,15 +42,17 @@ if(count _allBuildings == 0) exitWith
 
 private _building = selectRandom _allBuildings;
 
+private _buildingType = typeOf _building;
+
 //Placing the intel desk
 private _spawnParameters = switch (true) do {
-	case ((typeOf _building) in _listStaticTower): {[_building buildingPos 9, -90]};
-	case ((typeof _building) in _listStaticHQ): {[_building buildingPos 1, -180]};
-	case ((typeof _building) in _listEnochRadar): {[_building buildingPos 24, -90]};
-	case ((typeof _building) in _listvnbarracks06f): {[_building buildingPos 7, 0]};
-	case ((typeof _building) in _listvncontroltower01F): {[_building buildingPos 13, -0.5]};
-	case ((typeof _building) in _listControlTower02F): {[_building buildingPos 6, -0.3]};
-	case ((typeof _building) in _listvnslum): {
+	case (_buildingType in _listStaticTower): {[_building buildingPos 9, -90]};
+	case (_buildingType in _listStaticHQ): {[_building buildingPos 1, -180]};
+	case (_buildingType in _listEnochRadar): {[_building buildingPos 24, -90]};
+	case (_buildingType in _listvnbarracks06f): {[_building buildingPos 7, 0]};
+	case (_buildingType in _listvncontroltower01F): {[_building buildingPos 13, -0.5]};
+	case (_buildingType in _listControlTower02F): {[_building buildingPos 6, -0.3]};
+	case (_buildingType in _listvnslum): {
 		private _zpos = _building buildingPos 21;
 		private _pos = _zpos getPos [0.5, (getDir _building) + 110]; //first 0 added distance, secodn 0 moving direction
 		_pos set[2, _zpos #2];
@@ -130,14 +132,42 @@ if (_isLarge && _isComputer) then {
 	};
 };
 
-[_marker, _desk, _intel] spawn
-{
-	waitUntil{sleep 10; (spawner getVariable (_this select 0) == 2)};
-	deleteVehicle (_this select 1);
-	if(!isNil {_this select 2}) then
-	{
-		_bomb = (_this select 2) getVariable ["trapBomb", objNull];
-		deleteVehicle _bomb;
-		deleteVehicle (_this select 2)
+_building setVariable ["A3A_buildingIntel", _intel];
+_building setVariable ["A3A_buildingDesk", _desk];
+
+//prevent desks from hanging in the air (affects mostly multistory buildings)
+private _ehId = _building addEventHandler ["Killed", {
+	params ["_building"];
+	private _intel = _building getVariable ["A3A_buildingIntel", objNull];
+	private _desk = _building getVariable ["A3A_buildingDesk", objNull];
+
+	if (!isNull _intel) then {
+		private _bomb = _intel getVariable ["trapBomb", objNull];
+
+		if (!isNull _bomb) then {
+			deleteVehicle _bomb;
+		};
+
+		deleteVehicle _intel;
 	};
+
+	if (!isNull _desk && {!simulationEnabled _desk}) then {
+		[_desk, true] remoteExec ["enableSimulationGlobal",2];
+	};
+
+	_building removeEventHandler ["Killed",_thisEventHandler];
+}];
+
+_nil = [_marker, _desk, _intel, _building, _ehId] spawn {
+	params ["_marker", "_desk", "_intel", "_building", "_ehId"];
+	waitUntil{sleep 10; (spawner getVariable _marker == 2)};
+	deleteVehicle _desk;
+	if(!isNil "_intel") then {
+		_bomb = _intel getVariable ["trapBomb", objNull];
+		deleteVehicle _bomb;
+		deleteVehicle _intel;
+	};
+
+	_building removeEventHandler ["Killed",_ehId];
+	terminate _thisScript;
 };

@@ -26,7 +26,7 @@ class Params
         title = "Enable Friendly Player Markers";
         values[] = {0,1};
         texts[] = {"No","Yes"};
-        default = 1;
+        default = 0;
     };
     class limitedFT
     {
@@ -38,7 +38,7 @@ class Params
     class civTraffic
     {
         title = "Quantity of civilan traffic and parked vehicles";
-        values[] = {0,1,2,4,};
+        values[] = {0,1,2,4};
         texts[] = {"None","Low","Medium","High"};
         default = 2;
     };
@@ -70,21 +70,34 @@ class Params
         texts[] = {"0","2","5","10","15"};
         default = 5;
     };
-    class playerStartingMoney
+    class initialPlayerMoney
     {
-        title = "Player Starting Money";
+        title = "Initial Player Money";
         values[] = {0, 100, 250, 500, 1000, 2500};
         texts[] = {"0","100","250","500","1000","2500"};
         default = 100;
     };
-    class rebelFactionStartingMoney
+    class initialFactionMoney
     {
-        title = "Rebel Faction Starting Money";
+        title = "Initial Rebel Faction Money";
         values[] = {0,1000,2500,5000,10000};
         texts[] = {"0","1000","2500","5000","10000"};
         default = 1000;
     };
-
+    class initialHr
+    {
+        title = "Initial Rebel Faction Manpower";
+        values[] = {0, 8, 16, 24, 32, 50};
+        texts[] = {"0","8","16","24","32","50"};
+        default = 8;
+    };
+    class A3A_idleTimeout
+    {
+        title = "Time before a player is considered AFK";
+        values[] = {120,300,900,1800,9999999};
+        texts[] = {"2min","5min","15min","30min","disabled"};
+        default = 900;
+    };
 
     class SpacerMembership
     {
@@ -309,42 +322,6 @@ class Params
         default = 0;
     };
 
-    class SpacerDevelopment
-    {
-        title = "";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
-    class TitleDevelopment
-    {
-        title = "DEVELOPMENT OPTIONS";
-        values[] = {""};
-        texts[] = {""};
-        default = "";
-    };
-    class LogLevel
-    {
-        title = "Logging Level (Amount of detail in .rpt file)";
-        values[] = {1,2,3,4};
-        texts[] = {"Error", "Info", "Debug", "Verbose"};
-        default = 3;
-    };
-    class A3A_logDebugConsole
-    {
-        title = "Log debug console use";
-        values[] = {-1,1,2};
-        texts[] = {"None", "All non-dev", "All"};
-        default = 1;
-    };
-    class A3A_GUIDevPreview
-    {
-        title = "Use In-Development UI Preview.";
-        values[] = {0,1};
-        texts[] = {"No", "Yes"};
-        default = 0;
-    };
-
     class SpacerLoot
     {
         title = "";
@@ -498,5 +475,41 @@ class Params
         values[] = {0,1,3,5,10,15};
         texts[] = {"None","1","3","5","10","15"};
         default = 3;
+    };
+
+    class SpacerDevelopment
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class TitleDevelopment
+    {
+        title = "DEVELOPMENT OPTIONS";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class LogLevel
+    {
+        title = "Logging Level (Amount of detail in .rpt file)";
+        values[] = {1,2,3,4};
+        texts[] = {"Error", "Info", "Debug", "Verbose"};
+        default = 2;
+    };
+    class A3A_logDebugConsole
+    {
+        title = "Log debug console use";
+        values[] = {-1,1,2};
+        texts[] = {"None", "All non-dev", "All"};
+        default = 1;
+    };
+    class A3A_GUIDevPreview
+    {
+        title = "Use In-Development UI Preview.";
+        values[] = {0,1};
+        texts[] = {"No", "Yes"};
+        default = 0;
     };
 };

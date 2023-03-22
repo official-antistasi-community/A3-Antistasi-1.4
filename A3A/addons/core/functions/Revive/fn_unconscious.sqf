@@ -50,7 +50,7 @@ else
 		{
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//[_unit,"carry"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-		//_unit call A3A_fnc_logistics_addLoadAction;
+		//_unit call A3A_Logistics_fnc_addLoadAction;
 		if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
 		}
 	else
@@ -114,7 +114,8 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn";
 				};
 			};
-		[_textX,0,0,3,0,0,4] spawn bis_fnc_dynamicText;
+		private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+		[_textX,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
 		if (_unit getVariable "respawning") exitWith {};
 		}
 	else

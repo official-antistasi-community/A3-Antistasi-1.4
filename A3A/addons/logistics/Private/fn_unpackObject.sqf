@@ -28,7 +28,7 @@ private _itemClassName = _object getVariable ["A3A_packedObject", ""];
 
 // refund if error
 if(_itemClassName isEqualTo "") exitwith {
-    ["Packing Objects", "refunding money to do error"] call A3A_fnc_customHint;
+    [localize "STR_A3A_Packable_Objects_Title", localize "STR_A3A_Packable_Objects_refunding_error"] call A3A_fnc_customHint;
     [_price] call A3A_fnc_resourcesPlayer;
 };
 private _item = _itemClassName createVehicle [0,0,0];

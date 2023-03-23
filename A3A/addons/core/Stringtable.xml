@@ -4789,6 +4789,21 @@
         <Spanish>Ya estas llevando algo</Spanish>
         <Polish>Już coś nosisz.</Polish>
       </Key>
+      <Key ID="STR_A3A_Utility_Items_Last_Time_Purchase">
+        <Original>You already bought one, wait %1 seconds before you can buy another.</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Insufficient_Funds">
+        <Original>You can't afford this Item.</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Purchase_Title">
+        <Original>Item Purchase</Original>
+      </Key>
+      <Key ID="STR_A3A_Packable_Objects_Title">
+        <Original>Packing Objects</Original>
+      </Key>
+      <Key ID="STR_A3A_Packable_Objects_refunding_error">
+        <Original>refunding money due to error</Original>
+      </Key>
     </Container>
     <Container name="time_units">
       <!--Note the lack of front spacing on abbreviations.-->

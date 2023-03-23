@@ -8,27 +8,27 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "CUP_I_Hilux_armored_unarmed_NAPA"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "CUP_I_Hilux_DSHKM_NAPA"] call _fnc_saveToTemplate;
-["vehicleTruck", "CUP_V3S_Open_NAPA"] call _fnc_saveToTemplate;
-["vehicleAT", "CUP_I_Hilux_SPG9_NAPA"] call _fnc_saveToTemplate;
-["vehicleAA", "CUP_I_Ural_ZU23_NAPA"] call _fnc_saveToTemplate;             // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
-["vehicleBoat", "I_G_Boat_Transport_01_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "CUP_I_V3S_Repair_TKG"] call _fnc_saveToTemplate;
-["vehiclePlane", "CUP_C_DC3_CIV"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
+["vehicleBasic", ["I_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ["CUP_I_Hilux_armored_unarmed_NAPA"]] call _fnc_saveToTemplate;
+["vehicleLightArmed", ["CUP_I_Hilux_DSHKM_NAPA"]] call _fnc_saveToTemplate;
+["vehicleTruck", ["CUP_V3S_Open_NAPA"]] call _fnc_saveToTemplate;
+["vehicleAT", ["CUP_I_Hilux_SPG9_NAPA"]] call _fnc_saveToTemplate;
+["vehicleAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;             // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
+["vehicleBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
+["vehicleRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
+["vehiclePlane", ["CUP_C_DC3_CIV"]] call _fnc_saveToTemplate;
+["vehicleHeli", [""]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "CUP_O_Hilux_unarmed_CR_CIV"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "CUP_C_Ural_Civ_03"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "CUP_C_Mi17_Civilian_RU"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehicleCivCar", ["CUP_O_Hilux_unarmed_CR_CIV"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["CUP_C_Ural_Civ_03"]] call _fnc_saveToTemplate;
+["vehicleCivHeli", ["CUP_C_Mi17_Civilian_RU"]] call _fnc_saveToTemplate;
+["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", "CUP_I_DSHKM_NAPA"] call _fnc_saveToTemplate;
-["staticAT", "CUP_I_SPG9_NAPA"] call _fnc_saveToTemplate;
-["staticAA", "CUP_I_ZU23_NAPA"] call _fnc_saveToTemplate;
+["staticMG", ["CUP_I_DSHKM_NAPA"]] call _fnc_saveToTemplate;
+["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;
+["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["staticMortar", "CUP_I_2b14_82mm_NAPA"] call _fnc_saveToTemplate;
+["staticMortar", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 

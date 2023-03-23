@@ -42,8 +42,8 @@ private _fnc_spawnStatic = {
     private _veh = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
     if (!isNil "_dir") then { _veh setDir _dir };
     private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-    [_unit,_markerX] call A3A_fnc_NATOinit;
     _unit moveInGunner _veh;
+    [_unit,_markerX] call A3A_fnc_NATOinit;
     _soldiers pushBack _unit;
     _vehiclesX pushBack _veh;
     _veh;

@@ -107,8 +107,8 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
 		_nul=[_veh] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_unit moveInGunner _veh;
+		[_unit,_markerX] call A3A_fnc_NATOinit;
 		_groups pushBack _groupX;
 		_soldiers pushBack _unit;
 		_vehiclesX pushBack _veh;
@@ -226,9 +226,9 @@ else
 			_veh setDir _dirVeh + 180;
 			_typeUnit = _faction get "unitStaticCrew";
 			_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+			_unit moveInGunner _veh;
 			[_unit,_markerX] call A3A_fnc_NATOinit;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
-			_unit moveInGunner _veh;
 			_soldiers pushBack _unit;
 		};
 	};

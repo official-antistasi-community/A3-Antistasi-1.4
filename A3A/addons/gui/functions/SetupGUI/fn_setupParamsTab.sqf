@@ -30,6 +30,11 @@ switch (_mode) do
             _textCtrl ctrlCommit 0;                 // needed?
             _textCtrl ctrlSetText getText (_x/"title");
 
+            private _tooltip = getText (_x/"tooltip");
+            if (_tooltip isNotEqualTo "") then {
+                _textCtrl ctrlSetTooltip _tooltip;
+            };
+
             private _texts = getArray (_x/"texts");
             private _vals = getArray (_x/"values");
             if (_texts isEqualTo [""]) then { continue };       // spacer

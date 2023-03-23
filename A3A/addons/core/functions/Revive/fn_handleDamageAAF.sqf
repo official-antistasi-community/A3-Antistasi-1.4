@@ -20,7 +20,7 @@ if (side group _injurer == teamPlayer) then
 		if ((behaviour leader _groupX != "COMBAT") and (behaviour leader _groupX != "STEALTH")) then
 		{
 			_groupX setVariable ["movedToCover",time + 120];
-			{[_x,_injurer] call A3A_fnc_unitGetToCover} forEach units _groupX;
+			{[_x,_injurer] spawn A3A_fnc_unitGetToCover} forEach units _groupX;
 		};
 	};
 
@@ -55,6 +55,7 @@ private _makeUnconscious =
 	params ["_unit", "_injurer"];
    
 	_unit setVariable ["incapacitated",true,true];
+	_unit setVariable ["helpFailed", 0];
 	_unit setUnconscious true;
 	if (vehicle _unit != _unit) then
 	{

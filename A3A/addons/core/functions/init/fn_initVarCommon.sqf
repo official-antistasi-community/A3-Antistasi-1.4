@@ -103,9 +103,6 @@ A3A_hasIFA = false;			// this one is everywhere, just mark it false and remove l
 //These are handled by a script in the Templates folder to keep integrators away from critical code.
 //call A3A_fnc_detector;
 
-//WS CDLC Detection
-//A3A_hasWS = isClass (configfile >> "CfgPatches" >> "Weapons_F_lxWS");
-
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///
 ////////////////////////////////////

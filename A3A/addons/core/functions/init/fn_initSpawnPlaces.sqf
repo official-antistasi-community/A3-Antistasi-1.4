@@ -103,28 +103,28 @@ _helipads = [];
 } forEach _hangarMarker;
 //All additional hangar and helipads found
 
-private ["_vehicleSpawns", "_size", "_length", "_width", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
+private ["_vehicleSpawns", "_size", "_width", "_height", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
 
 _vehicleSpawns = [];
 {
     _markerX = _x;
     _size = getMarkerSize _x;
-    _length = (_size select 0) * 2;
-    _width = (_size select 1) * 2;
+    _width = (_size select 0) * 2;
+    _height = (_size select 1) * 2;
     if(_width < (4 + 2 * SPACING)) then
     {
       Error_2("InitSpawnPlaces: Marker %1 is not wide enough for vehicles, required are %2 meters!", _x , (4 + 2 * SPACING));
     }
     else
     {
-      if(_length < 10) then
+      if(_height < 10) then
       {
         Error_1("InitSpawnPlaces: Marker %1 is not long enough for vehicles, required are 10 meters!", _x);
       }
       else
       {
         //Cleaning area
-        private _radius = sqrt (_length * _length + _width * _width);
+        private _radius = [0,0] vectorDistance [_width, _height];
         if (!isMultiplayer) then
         {
           {
@@ -145,13 +145,13 @@ _vehicleSpawns = [];
         };
 
         //Create the places
-        _vehicleCount = floor ((_length - SPACING) / (4 + SPACING));
+        _vehicleCount = floor ((_width - SPACING) / (4 + SPACING));
         _realLength = _vehicleCount * 4;
-        _realSpace = (_length - _realLength) / (_vehicleCount + 1);
+        _realSpace = (_width - _realLength) / (_vehicleCount + 1);
         _markerDir = markerDir _markerX;
         for "_i" from 1 to _vehicleCount do
         {
-          _dis = (_realSpace + 2 + ((_i - 1) * (4 + _realSpace))) - (_length / 2);
+          _dis = (_realSpace + 2 + ((_i - 1) * (4 + _realSpace))) - (_width / 2);
           _pos = [getMarkerPos _markerX, _dis, (_markerDir + 90)] call BIS_fnc_relPos;
           _pos set [2, ((_pos select 2) + 0.1) max 0.1];
           _vehicleSpawns pushBack [[_pos, _markerDir], false];

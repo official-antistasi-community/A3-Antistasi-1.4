@@ -38,7 +38,8 @@ private _staticAA = ["I_static_AA_F"];
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-if (allowDLCWS && A3A_hasWS) then {
+
+if (allowDLCWS) then {
   _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
   _staticAA = ["I_Tura_ZU23_lxWS"];
 };
@@ -71,6 +72,7 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc15
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
+_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
@@ -103,7 +105,7 @@ if (allowDLCEnoch) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
+if (allowDLCWS) then {_dlcUniforms append [
     "U_lxWS_ION_Casual1",
     "U_lxWS_ION_Casual2",
     "U_lxWS_ION_Casual3",

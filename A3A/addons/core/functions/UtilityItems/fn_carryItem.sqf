@@ -76,8 +76,21 @@ if (_pickUp) then {
     if !(isNull _item) then {
         _player setVelocity [0,0,0];
         detach _item;
-        _item setVelocity [0,0,0];
-        _item setPos [getPos _item # 0, getPos _item # 1, 0];
+
+	    // Some objects never lose (and even regain) their velocity when detached, becoming lethal
+	    // On a DS, object locality changes when detached, so we have to remoteexec
+	    [_item, [0,0,0]] remoteExec ["setVelocity", _item];
+
+	    // Without this, non-unit objects often hang in mid-air
+	    [_item, surfaceNormal position _item] remoteExec ["setVectorUp", _item];
+
+	    // Place on closest surface
+	    private _pos = getPosASL _item;
+	    private _intersects = lineIntersectsSurfaces [_pos, _pos vectorAdd [0,0,-100], _item];
+	    if (count _intersects > 0) then {
+	    	_item setPosASL (_intersects select 0 select 0);
+	    };
+        
         [_item, true] remoteExec ["enableSimulationGlobal", 2];
         _eventIDcarry = _player getVariable 'A3A_eventIDcarry';
         _player removeEventHandler ["GetInMan", _eventIDcarry];

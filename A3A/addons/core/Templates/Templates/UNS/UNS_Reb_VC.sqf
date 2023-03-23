@@ -57,6 +57,8 @@ if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "UNS
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
 ["attributeTFARCodes", ["tf_west_radio_code"]] call _fnc_saveToTemplate;
 
+_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
+
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [

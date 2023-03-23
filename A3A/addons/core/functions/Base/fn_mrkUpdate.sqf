@@ -27,6 +27,13 @@ private _mrkText = call {
 
 if (_mrkSide == teamPlayer) then {
     private _numTroops = count (garrison getVariable [_marker, []]);
-    if (_numTroops > 0) then { _mrkText = format ["%1: %2", _mrkText, _numTroops] };
+    private _limit = [_marker] call A3A_fnc_getGarrisonLimit;
+    if (_numTroops > 0) then { 
+        _mrkText = format ["%1: %2%3", 
+            _mrkText, 
+            _numTroops, 
+            if (_limit != -1) then {format ["/%1", _limit]} else {""}
+        ]; 
+    };
 };
 _mrkD setMarkerText _mrkText;

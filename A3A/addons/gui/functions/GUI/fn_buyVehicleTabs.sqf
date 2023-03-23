@@ -456,7 +456,6 @@ if  (_tab in ["other"]) then
                 "Loot Box"
             ];
         };
-        
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
             10,
@@ -472,7 +471,6 @@ if  (_tab in ["other"]) then
             false,
             "Light"
         ];
-        
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 

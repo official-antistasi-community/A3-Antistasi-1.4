@@ -35,7 +35,7 @@ if (_price == -1) exitwith {};
 
 //check to make sure that the player is not spamming
 private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
-if (_lastTimePurchase > time) exitwith {["Item Purchase", format ["You already bought one, wait %1 seconds before you can buy another.", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
+if (_lastTimePurchase > time) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
 
 if (_price != 0) then {
     //try to take money away 😞
@@ -50,7 +50,7 @@ if (_price != 0) then {
             };
         };
     };
-    if (_insufficientFunds) exitwith {["Item Purchase", "You can't afford this Item."] call A3A_fnc_customHint};
+    if (_insufficientFunds) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint};
 };
 
 //had money for item

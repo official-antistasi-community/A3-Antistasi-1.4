@@ -23,7 +23,7 @@
 ["vehiclesCivCar", ["gm_gc_civ_p601"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["gm_gc_civ_ural375d_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["gm_gc_civ_mi2p"]] call _fnc_saveToTemplate;
-["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["gm_gc_army_dshkm_aatripod"]] call _fnc_saveToTemplate;
 ["staticAT", ["gm_gc_army_spg9_tripod"]] call _fnc_saveToTemplate;

@@ -23,7 +23,7 @@
 ["vehiclesCivCar", ["C_Offroad_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["RHS_Ural_Open_Civ_03"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["RHS_Mi8t_civilian"]] call _fnc_saveToTemplate;
-["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
 ["staticAT", ["rhsgref_nat_SPG9"]] call _fnc_saveToTemplate;

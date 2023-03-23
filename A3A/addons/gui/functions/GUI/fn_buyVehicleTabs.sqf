@@ -52,8 +52,8 @@ if (_tab isEqualTo "vehicles") then
         (A3A_faction_reb get 'vehiclesCivCar') +
         (A3A_faction_reb get 'vehiclesCivTruck') +
         (A3A_faction_reb get 'vehiclesCivHeli') +
-        (A3A_faction_reb get 'vehicleCivPlane') +
-        (A3A_faction_reb get 'vehicleCivBoat');
+        (A3A_faction_reb get 'vehiclesCivPlane') +
+        (A3A_faction_reb get 'vehiclesCivBoat');
 
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;

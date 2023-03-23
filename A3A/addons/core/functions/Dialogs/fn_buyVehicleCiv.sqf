@@ -13,7 +13,7 @@ if (str (_display) != "no display") then
 	private _vehicleCivCar = selectRandom(FactionGet(reb,"vehiclesCivCar"));
 	private _vehicleCivTruck = selectRandom(FactionGet(reb,"vehiclesCivTruck"));
 	private _vehicleCivHeli = selectRandom(FactionGet(reb,"vehiclesCivHeli"));
-	private _vehicleCivBoat = selectRandom(FactionGet(reb,"vehicleCivBoat"));
+	private _vehicleCivBoat = selectRandom(FactionGet(reb,"vehiclesCivBoat"));
 
 	_ChildControl = _display displayCtrl 104;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",[_vehicleCivCar] call A3A_fnc_vehiclePrice];

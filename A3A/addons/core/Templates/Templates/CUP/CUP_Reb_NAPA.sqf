@@ -17,13 +17,13 @@
 ["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", ["CUP_C_DC3_CIV"]] call _fnc_saveToTemplate;       // replace from civ varient 
-["vehicleHeli", [""]] call _fnc_saveToTemplate;
+["vehiclesHeli", [""]] call _fnc_saveToTemplate;
 
 
 ["vehiclesCivCar", ["CUP_O_Hilux_unarmed_CR_CIV"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["CUP_C_Ural_Civ_03"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["CUP_C_412"]] call _fnc_saveToTemplate;
-["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["CUP_I_DSHKM_NAPA"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;

@@ -793,7 +793,7 @@ class civ_vehicle 			{
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;
 		 	h = 0.0560125 * safezoneH;
-		 	action = "closeDialog 0;[selectRandom(A3A_faction_reb get 'vehicleCivBoat')] spawn A3A_fnc_addFIAveh;";
+		 	action = "closeDialog 0;[selectRandom(A3A_faction_reb get 'vehiclesCivBoat')] spawn A3A_fnc_addFIAveh;";
 		 };
 	};
 };

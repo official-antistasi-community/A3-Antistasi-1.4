@@ -41,7 +41,7 @@
 ["vehiclesCivCar", ["vn_c_car_02_01"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["vn_b_wheeled_m54_01_airport"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["vn_b_air_uh1d_04_09"]] call _fnc_saveToTemplate;
-["vehicleCivBoat", ["vn_c_boat_08_01"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["vn_c_boat_08_01"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["vn_i_static_m60_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;

@@ -75,7 +75,7 @@ private _costs = call {
     if (
         (_typeX in arrayCivVeh)
         or (_typeX in civBoats)
-        or (_typeX in (FactionGet(reb,"vehicleCivBoat") + FactionGet(reb,"vehiclesCivCar") + FactionGet(reb,"vehiclesCivTruck")))
+        or (_typeX in (FactionGet(reb,"vehiclesCivBoat") + FactionGet(reb,"vehiclesCivCar") + FactionGet(reb,"vehiclesCivTruck")))
     ) exitWith {25};
     if (
         (_typeX in FactionGet(all,"vehiclesLight"))

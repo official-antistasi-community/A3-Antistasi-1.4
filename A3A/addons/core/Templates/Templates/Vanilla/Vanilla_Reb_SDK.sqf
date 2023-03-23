@@ -23,7 +23,7 @@ private _vehicleAA = [""];
 ["vehiclesCivCar", ["C_Offroad_01_F", "C_Kart_01_F", "C_SUV_01_F", "C_Hatchback_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Truck_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
-["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F","I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;

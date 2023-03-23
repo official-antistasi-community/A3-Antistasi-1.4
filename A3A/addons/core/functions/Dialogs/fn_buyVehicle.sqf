@@ -10,11 +10,11 @@ _display = findDisplay 100;
 
 if (str (_display) != "no display") then
 {
-	private _vehicleBasic = selectRandom (FactionGet(reb,"vehicleBasic"));
-	private _vehicleLightUnarmed = selectRandom (FactionGet(reb,"vehicleLightUnarmed"));
-	private _vehicleTruck = selectRandom (FactionGet(reb,"vehicleTruck"));
-	private _vehicleLightArmed = selectRandom (FactionGet(reb,"vehicleLightArmed"));
-	private _staticMG = selectRandom (FactionGet(reb,"staticMG"));
+	private _vehicleBasic = selectRandom (FactionGet(reb,"vehiclesBasic"));
+	private _vehicleLightUnarmed = selectRandom (FactionGet(reb,"vehiclesLightUnarmed"));
+	private _vehicleTruck = selectRandom (FactionGet(reb,"vehiclesTruck"));
+	private _vehicleLightArmed = selectRandom (FactionGet(reb,"vehiclesLightArmed"));
+	private _staticMG = selectRandom (FactionGet(reb,"staticMGs"));
 	private _staticMortar = selectRandom (FactionGet(reb,"staticMortar"));
 	private _staticAT = selectRandom (FactionGet(reb,"staticAT"));
 	private _staticAA = selectRandom (FactionGet(reb,"staticAA"));

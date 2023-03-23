@@ -8,24 +8,24 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
-["vehicleLightArmed", ["gm_gc_army_uaz469_dshkm"]] call _fnc_saveToTemplate;
-["vehicleTruck", ["gm_ge_army_kat1_451_cargo"]] call _fnc_saveToTemplate;
-["vehicleAT", ["gm_gc_army_uaz469_spg9"]] call _fnc_saveToTemplate;
-["vehicleAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["gm_gc_army_uaz469_dshkm"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["gm_ge_army_kat1_451_cargo"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["gm_gc_army_uaz469_spg9"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehicleRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", ["gm_gc_civ_l410s_passenger"]] call _fnc_saveToTemplate;
+["vehiclesPlane", ["gm_gc_civ_l410s_passenger"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", ["gm_gc_civ_p601"]] call _fnc_saveToTemplate;
-["vehicleCivTruck", ["gm_gc_civ_ural375d_cargo"]] call _fnc_saveToTemplate;
-["vehicleCivHeli", ["gm_gc_civ_mi2p"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["gm_gc_civ_p601"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["gm_gc_civ_ural375d_cargo"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["gm_gc_civ_mi2p"]] call _fnc_saveToTemplate;
 ["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", ["gm_gc_army_dshkm_aatripod"]] call _fnc_saveToTemplate;
+["staticMGs", ["gm_gc_army_dshkm_aatripod"]] call _fnc_saveToTemplate;
 ["staticAT", ["gm_gc_army_spg9_tripod"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 

@@ -15,7 +15,7 @@ if (count hcAllGroups player >= _maxGroups) exitWith {
 private _exit = false;
 if (_typeGroup isEqualType "") then {
 	if (_typeGroup == "") then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
-	if (A3A_hasIFA and ((_typeGroup in FactionGet(reb,"staticMortar")) or (_typeGroup in FactionGet(reb,"staticMG"))) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
+	if (A3A_hasIFA and ((_typeGroup in FactionGet(reb,"staticMortar")) or (_typeGroup in FactionGet(reb,"staticMGs"))) and !debug) then {_exit = true; ["Recruit Squad", "The group or vehicle type you requested is not supported in your modset."] call A3A_fnc_customHint;};
 };
 if (_exit) exitWith {};
 
@@ -33,18 +33,18 @@ if (_typeGroup isEqualType []) then {
     _formatX = _typeGroup;
 	{ _costs = _costs + (server getVariable _x); _costHR = _costHR +1 } forEach _typeGroup;
 
-	if (_withBackpck == "MG") then {_costs = _costs + ([selectRandom(FactionGet(reb,"staticMG"))] call A3A_fnc_vehiclePrice)};
+	if (_withBackpck == "MG") then {_costs = _costs + ([selectRandom(FactionGet(reb,"staticMGs"))] call A3A_fnc_vehiclePrice)};
 	if (_withBackpck == "Mortar") then {_costs = _costs + ([selectRandom(FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)};
 	_isInfantry = true;
 
 } else {
     private _typeCrew = FactionGet(reb,"unitCrew");
 	_costs = 2*(server getVariable _typeCrew) + ([_typeGroup] call A3A_fnc_vehiclePrice);
-	if (_typeGroup in FactionGet(reb,"staticAA")) then { _costs = _costs + ([selectRandom(FactionGet(reb,"vehicleTruck"))] call A3A_fnc_vehiclePrice) };
+	if (_typeGroup in FactionGet(reb,"staticAA")) then { _costs = _costs + ([selectRandom(FactionGet(reb,"vehiclesTruck"))] call A3A_fnc_vehiclePrice) };
     _formatX = [_typeCrew, _typeCrew];
 	_costHR = 2;
 
-	if ((_typeGroup in FactionGet(reb,"staticMortar")) or (_typeGroup in FactionGet(reb,"staticMG"))) exitWith { _isInfantry = true };
+	if ((_typeGroup in FactionGet(reb,"staticMortar")) or (_typeGroup in FactionGet(reb,"staticMGs"))) exitWith { _isInfantry = true };
 };
 
 if ((_withBackpck != "") and A3A_hasIFA) exitWith {["Recruit Squad", "Your current modset doesn't support packing/unpacking static weapons."] call A3A_fnc_customHint;};
@@ -58,13 +58,13 @@ if (_exit) exitWith {};
 private _mounts = [];
 private _vehType = switch true do {
     case (!_isInfantry && {_typeGroup in FactionGet(reb,"staticAA")}): {
-        if (FactionGet(reb,"vehicleAA") isEqualTo [""]) exitWith {_mounts pushBack [selectRandom(FactionGet(reb,"staticAA")),-1,[[1],[],[]]]; selectRandom(FactionGet(reb,"vehicleTruck"))};
-        selectRandom (FactionGet(reb,"vehicleAA"))
+        if (FactionGet(reb,"vehiclesAA") isEqualTo [""]) exitWith {_mounts pushBack [selectRandom(FactionGet(reb,"staticAA")),-1,[[1],[],[]]]; selectRandom(FactionGet(reb,"vehiclesTruck"))};
+        selectRandom (FactionGet(reb,"vehiclesAA"))
     };
     case (!_isInfantry): {_typeGroup};
-    case (count _formatX isEqualTo 2): {selectRandom (FactionGet(reb,"vehicleBasic"))};
-    case (count _formatX > 4): {selectRandom (FactionGet(reb,"vehicleTruck"))};
-    default {selectRandom (FactionGet(reb,"vehicleLightUnarmed"))};
+    case (count _formatX isEqualTo 2): {selectRandom (FactionGet(reb,"vehiclesBasic"))};
+    case (count _formatX > 4): {selectRandom (FactionGet(reb,"vehiclesTruck"))};
+    default {selectRandom (FactionGet(reb,"vehiclesLightUnarmed"))};
 };
 private _idFormat = switch true do {
     case (_typeGroup isEqualTo (FactionGet(reb,"groupMedium"))): {"Tm-"};
@@ -72,8 +72,8 @@ private _idFormat = switch true do {
     case (_typeGroup isEqualTo (FactionGet(reb,"groupSniper"))): {"Snpr-"};
     case (_typeGroup isEqualTo (FactionGet(reb,"groupSentry"))): {"Stry-"};
     case (_typeGroup in (FactionGet(reb,"staticMortar"))): {"Mort-"};
-    case (_typeGroup in (FactionGet(reb,"staticMG"))): {"MG-"};
-    case (_typeGroup in (FactionGet(reb,"vehicleAT"))): {"M.AT-"};
+    case (_typeGroup in (FactionGet(reb,"staticMGs"))): {"MG-"};
+    case (_typeGroup in (FactionGet(reb,"vehiclesAT"))): {"M.AT-"};
     case (_typeGroup in (FactionGet(reb,"staticAA"))): {"M.AA-"};
     default {
         switch _withBackpck do {

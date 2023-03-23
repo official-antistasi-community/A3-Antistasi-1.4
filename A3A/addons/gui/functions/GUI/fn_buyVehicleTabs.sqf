@@ -49,9 +49,9 @@ if (_tab isEqualTo "vehicles") then
 
     // Add civ vehicles to the list
     private _civilianVehicles = 
-        (A3A_faction_reb get 'vehicleCivCar') +
-        (A3A_faction_reb get 'vehicleCivTruck') +
-        (A3A_faction_reb get 'vehicleCivHeli') +
+        (A3A_faction_reb get 'vehiclesCivCar') +
+        (A3A_faction_reb get 'vehiclesCivTruck') +
+        (A3A_faction_reb get 'vehiclesCivHeli') +
         (A3A_faction_reb get 'vehicleCivPlane') +
         (A3A_faction_reb get 'vehicleCivBoat');
 
@@ -63,11 +63,11 @@ if (_tab isEqualTo "vehicles") then
 
     // Add military vehicles to the list
     private _militaryVehicles = 
-        (A3A_faction_reb get 'vehicleBasic') +
-        (A3A_faction_reb get 'vehicleLightUnarmed') +
-        (A3A_faction_reb get 'vehicleTruck') +
-        (A3A_faction_reb get 'vehicleLightArmed') +
-        (A3A_faction_reb get 'staticMG') +
+        (A3A_faction_reb get 'vehiclesBasic') +
+        (A3A_faction_reb get 'vehiclesLightUnarmed') +
+        (A3A_faction_reb get 'vehiclesTruck') +
+        (A3A_faction_reb get 'vehiclesLightArmed') +
+        (A3A_faction_reb get 'staticMGs') +
         (A3A_faction_reb get 'staticMortar') +
         (A3A_faction_reb get 'staticAT') +
         (A3A_faction_reb get 'staticAA');

@@ -10,9 +10,9 @@ _display = findDisplay 100;
 
 if (str (_display) != "no display") then
 {
-	private _vehicleCivCar = selectRandom(FactionGet(reb,"vehicleCivCar"));
-	private _vehicleCivTruck = selectRandom(FactionGet(reb,"vehicleCivTruck"));
-	private _vehicleCivHeli = selectRandom(FactionGet(reb,"vehicleCivHeli"));
+	private _vehicleCivCar = selectRandom(FactionGet(reb,"vehiclesCivCar"));
+	private _vehicleCivTruck = selectRandom(FactionGet(reb,"vehiclesCivTruck"));
+	private _vehicleCivHeli = selectRandom(FactionGet(reb,"vehiclesCivHeli"));
 	private _vehicleCivBoat = selectRandom(FactionGet(reb,"vehicleCivBoat"));
 
 	_ChildControl = _display displayCtrl 104;

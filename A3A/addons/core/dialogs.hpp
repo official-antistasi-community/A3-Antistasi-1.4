@@ -642,7 +642,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closedialog 0; nul = [selectRandom (A3A_faction_reb get 'vehicleBasic')] spawn A3A_fnc_addFIAveh";
+			action = "closedialog 0; nul = [selectRandom (A3A_faction_reb get 'vehiclesBasic')] spawn A3A_fnc_addFIAveh";
 		};
 		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
@@ -652,7 +652,7 @@ class buy_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleLightUnarmed')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesLightUnarmed')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_truck: A3A_core_BattleMenuRedButton
 		{
@@ -662,7 +662,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleTruck')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesTruck')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Aoffroad: A3A_core_BattleMenuRedButton
 		{
@@ -672,7 +672,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleLightArmed')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesLightArmed')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
@@ -683,7 +683,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'staticMG')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'staticMGs')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
@@ -762,7 +762,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleCivCar')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesCivCar')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
@@ -772,7 +772,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleCivTruck')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesCivTruck')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
@@ -783,7 +783,7 @@ class civ_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleCivHeli')] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesCivHeli')] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
@@ -2173,7 +2173,7 @@ class squad_recruit 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'staticMG')] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'staticMGs')] spawn A3A_fnc_addFIAsquadHC";
 		};
 		class HQ_button_infteamM: A3A_core_BattleMenuRedButton
 		{
@@ -2183,7 +2183,7 @@ class squad_recruit 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehicleAT')] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [selectRandom(A3A_faction_reb get 'vehiclesAT')] spawn A3A_fnc_addFIAsquadHC";
 		};
 		class HQ_button_ATteamM: A3A_core_BattleMenuRedButton
 		{

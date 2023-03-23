@@ -67,7 +67,7 @@ setVar("vehiclesLightAPCs", OccAndInv("vehiclesLightAPCs"));
 setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
 setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
-setVar("vehiclesAA", OccAndInv("vehiclesAA") + Reb("vehicleAA") - [""]);
+setVar("vehiclesAA", OccAndInv("vehiclesAA") + Reb("vehiclesAA") - [""]);
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
 setVar("vehiclesHelisLight", OccAndInv("vehiclesHelisLight"));
@@ -80,7 +80,7 @@ setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
 setVar("staticMortars", OccAndInv("staticMortars") + Reb("staticMortar"));
 setVar("staticAA", OccAndInv("staticAA") + Reb("staticAA"));
 setVar("staticAT", OccAndInv("staticAT") + Reb("staticAT"));
-setVar("staticMG", OccAndInv("staticMGs") + Reb("staticMG"));
+setVar("staticMGs", OccAndInv("staticMGs") + Reb("staticMGs"));
 
 private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesMilitiaTrucks")
@@ -88,7 +88,7 @@ private _vehMilitia = OccAndInv("vehiclesMilitiaCars")
 setVar("vehiclesMilitia", _vehMilitia);
 
 //boats
-private _vehBoats = OccAndInv("vehiclesTransportBoats") + OccAndInv("vehiclesGunBoats") + Reb("vehicleBoat");
+private _vehBoats = OccAndInv("vehiclesTransportBoats") + OccAndInv("vehiclesGunBoats") + Reb("vehiclesBoat");
 setVar("vehiclesBoats", _vehBoats);
 
 //Occ&Inv helicopters
@@ -104,21 +104,21 @@ private _vehFixedWing =
 OccAndInv("vehiclesPlanesCAS")
 + OccAndInv("vehiclesPlanesAA")
 + OccAndInv("vehiclesPlanesTransport")
-+ Reb("vehiclePlane");
++ Reb("vehiclesPlane");
 setVar("vehiclesFixedWing", _vehFixedWing);
 
 //trucks to carry infantry
 private _vehTrucks =
 OccAndInv("vehiclesTrucks")
 + OccAndInv("vehiclesMilitiaTrucks")
-+ Reb("vehicleTruck");
++ Reb("vehiclesTruck");
 setVar("vehiclesTrucks", _vehTrucks);
 
 //Armed cars
 private _carsArmed =
 OccAndInv("vehiclesLightArmed")
 + OccAndInv("vehiclesMilitiaLightArmed")
-+ Reb("vehicleLightArmed");
++ Reb("vehiclesLightArmed");
 setVar("vehiclesLightArmed", _carsArmed);
 
 //Unarmed cars
@@ -126,7 +126,7 @@ private _carsUnarmed =
 OccAndInv("vehiclesLightUnarmed")      // anything else?
 + OccAndInv("vehiclesMilitiaCars")
 + OccAndInv("vehiclesPolice")
-+ Reb("vehicleLightUnarmed");
++ Reb("vehiclesLightUnarmed");
 setVar("vehiclesLightUnarmed", _carsUnarmed);
 setVar("vehiclesLight", _carsArmed + _carsUnarmed);
 
@@ -141,9 +141,9 @@ setVar("vehiclesArmor", _vehArmor);
 
 //rebel vehicles
 private _vehReb = 
-    Reb("vehicleBasic") + Reb("vehicleTruck") + Reb("vehicleRepair") + Reb("vehicleBoat")
-    + Reb("vehicleAT") + Reb("vehicleLightArmed") + Reb("vehicleLightUnarmed")
-    + Reb("staticMG") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortar");
+    Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesRepair") + Reb("vehiclesBoat")
+    + Reb("vehiclesAT") + Reb("vehiclesLightArmed") + Reb("vehiclesLightUnarmed")
+    + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortar");
 setVar("vehiclesReb", _vehReb);
 
 //trucks that can cary logistics cargo

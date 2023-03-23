@@ -390,8 +390,8 @@ for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append FactionGet(reb,"vehicleCivCar"); 
-_civVehicles append FactionGet(reb,"vehicleCivTruck");			// Civ car/truck from rebel template, in case they're different
+_civVehicles append FactionGet(reb,"vehiclesCivCar"); 
+_civVehicles append FactionGet(reb,"vehiclesCivTruck");			// Civ car/truck from rebel template, in case they're different
 _civVehicles pushBackUnique "C_Van_01_box_F";		// Box van from bank mission. TODO: Define in rebel template
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
@@ -415,7 +415,7 @@ for "_i" from 0 to (count _civBoatData - 2) step 2 do {
 DECLARE_SERVER_VAR(civBoats, _civBoats);
 DECLARE_SERVER_VAR(civBoatsWeighted, _civBoatsWeighted);
 
-private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehicleCivBoat") + FactionGet(reb,"vehicleCivHeli");
+private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehicleCivBoat") + FactionGet(reb,"vehiclesCivHeli");
 DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 
 //////////////////////////////////////
@@ -477,9 +477,9 @@ private _vehicleResourceCosts = createHashMap;
 // Threat table
 private _groundVehicleThreat = createHashMap;
 
-{ _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMG");
+{ _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMGs");
 { _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + FactionGet(Reb, "vehicleAT");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + FactionGet(Reb, "vehiclesAT");
 
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
@@ -495,7 +495,7 @@ private _rebelVehicleCost = createHashMap;
 { _rebelVehicleCost set [_x, 300] } forEach FactionGet(reb, "vehiclesTruck");
 { _rebelVehicleCost set [_x, 200] } forEach FactionGet(reb, "vehiclesLightUnarmed");
 { _rebelVehicleCost set [_x, 700] } forEach FactionGet(reb, "vehiclesLightArmed") + FactionGet(reb, "vehiclesAT");
-{ _rebelVehicleCost set [_x, 400] } forEach FactionGet(reb, "staticMG") + FactionGet(reb, "vehiclesBoat");
+{ _rebelVehicleCost set [_x, 400] } forEach FactionGet(reb, "staticMGs") + FactionGet(reb, "vehiclesBoat");
 { _rebelVehicleCost set [_x, 800] } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortar");
 { _rebelVehicleCost set [_x, 1100] } forEach FactionGet(reb, "vehiclesAA");
 { _rebelVehicleCost set [_x, 5000] } forEach FactionGet(reb, "vehiclesCivHeli");

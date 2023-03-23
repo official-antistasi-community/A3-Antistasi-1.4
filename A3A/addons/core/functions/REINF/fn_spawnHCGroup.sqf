@@ -75,7 +75,7 @@ switch _special do {
     case "staticAutoT": {
         private _staticType = switch _idFormat do {
             case "Mort-": {selectRandom(FactionGet(reb,"staticMortar"))};   // John might not like this but, it just hc groups. Does it matter if they get random weapons?
-            case "MG-": {selectRandom(FactionGet(reb,"staticMG"))};
+            case "MG-": {selectRandom(FactionGet(reb,"staticMGs"))};
             default {""};
         };
 
@@ -105,10 +105,10 @@ switch _special do {
     _bypassAI = false;
     call _initInfVeh;
     case "MG": {
-        private _backpacks = getArray (configFile/"CfgVehicles"/selectRandom(FactionGet(reb,"staticMG"))/"assembleInfo"/"dissasembleTo");
+        private _backpacks = getArray (configFile/"CfgVehicles"/selectRandom(FactionGet(reb,"staticMGs"))/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + ([selectRandom(FactionGet(reb,"staticMG"))] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([selectRandom(FactionGet(reb,"staticMGs"))] call A3A_fnc_vehiclePrice);
     };
     case "Mortar": {
         private _backpacks = getArray (configFile/"CfgVehicles"/selectRandom(FactionGet(reb,"StaticMortar"))/"assembleInfo"/"dissasembleTo");

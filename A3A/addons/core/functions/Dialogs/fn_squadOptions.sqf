@@ -32,7 +32,7 @@ if (str (_display) != "no display") then
 	_costs = 0;
 	_costHR = 0;
 	{_costs = _costs + (server getVariable _x); _costHR = _costHR +1} forEach FactionGet(reb,"groupSquadSupp");
-	_costs = _costs + ([selectRandom(FactionGet(reb,"staticMG"))] call A3A_fnc_vehiclePrice);
+	_costs = _costs + ([selectRandom(FactionGet(reb,"staticMGs"))] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 107;

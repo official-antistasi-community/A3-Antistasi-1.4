@@ -40,7 +40,7 @@ if (!isNil "loadLastSave" && {!loadLastSave}) then {
 			//Easy Difficulty Tweaks
 			server setVariable ["hr",25,true];
 			server setVariable ["resourcesFIA",5000,true];
-			vehInGarage = [selectRandom (FactionGet(reb,"vehicleTruck")), selectRandom (FactionGet(reb,"vehicleTruck")), selectRandom (FactionGet(reb,"staticMortar")), selectRandom (FactionGet(reb,"staticMG")), selectRandom (FactionGet(reb,"staticAA"))];
+			vehInGarage = [selectRandom (FactionGet(reb,"vehiclesTruck")), selectRandom (FactionGet(reb,"vehiclesTruck")), selectRandom (FactionGet(reb,"staticMortar")), selectRandom (FactionGet(reb,"staticMGs")), selectRandom (FactionGet(reb,"staticAA"))];
 			if !(A3A_hasTFAR || A3A_hasTFARBeta) then
 				{
 				["ItemRadio"] call A3A_fnc_unlockEquipment;

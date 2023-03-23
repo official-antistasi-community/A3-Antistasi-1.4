@@ -41,17 +41,17 @@ if (str (_display) != "no display") then
 
 	_ChildControl = _display displayCtrl 108;
 	_costHR = 2;
-	_costs = 2*_crewCost + ([selectRandom(FactionGet(reb, "staticMG"))] call A3A_fnc_vehiclePrice);
+	_costs = 2*_crewCost + ([selectRandom(FactionGet(reb, "staticMGs"))] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 109;
 	_costHR = 2;
-	_costs = 2*_crewCost + ([selectRandom (FactionGet(reb,"vehicleAT"))] call A3A_fnc_vehiclePrice);
+	_costs = 2*_crewCost + ([selectRandom (FactionGet(reb,"vehiclesAT"))] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 110;
 	_costHR = 2;
-	_costs = 2*_crewCost + ([selectRandom(FactionGet(reb,"vehicleTruck"))] call A3A_fnc_vehiclePrice) + ([selectRandom(FactionGet(reb,"staticAA"))] call A3A_fnc_vehiclePrice);
+	_costs = 2*_crewCost + ([selectRandom(FactionGet(reb,"vehiclesTruck"))] call A3A_fnc_vehiclePrice) + ([selectRandom(FactionGet(reb,"staticAA"))] call A3A_fnc_vehiclePrice);
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 111;

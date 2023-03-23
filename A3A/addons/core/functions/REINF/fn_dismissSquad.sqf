@@ -56,7 +56,7 @@ private _assignedVehicles =	[];
 				{
 					case _assemblesTo in FactionGet(reb,"staticMortar"): {_resourcesFIA = _resourcesFIA + ([selectRandom (FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)/2};
 					case _assemblesTo in FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticAA"))] call A3A_fnc_vehiclePrice)/2};
-					case _assemblesTo in FactionGet(reb,"staticMG"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticMG"))] call A3A_fnc_vehiclePrice)/2};
+					case _assemblesTo in FactionGet(reb,"staticMGs"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticMGs"))] call A3A_fnc_vehiclePrice)/2};
 					case _assemblesTo in FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([selectRandom(FactionGet(reb,"staticAT"))] call A3A_fnc_vehiclePrice)/2};
 				};
 			};

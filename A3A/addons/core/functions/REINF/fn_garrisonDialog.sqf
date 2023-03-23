@@ -74,7 +74,7 @@ if (_typeX == "rem") then
 	_costs = 0;
 	_hr = 0;
 	{
-	if (_x == FactionGet(reb,"unitCrew")) then {if (_outpostFIA) then {_costs = _costs + ([selectRandom(FactionGet(reb,"vehicleLightArmed"))] call A3A_fnc_vehiclePrice)} else {_costs = _costs + ([selectRandom(FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)}};
+	if (_x == FactionGet(reb,"unitCrew")) then {if (_outpostFIA) then {_costs = _costs + ([selectRandom(FactionGet(reb,"vehiclesLightArmed"))] call A3A_fnc_vehiclePrice)} else {_costs = _costs + ([selectRandom(FactionGet(reb,"staticMortar"))] call A3A_fnc_vehiclePrice)}};
 	_hr = _hr + 1;
 	_costs = _costs + (server getVariable [_x,0]);
 	} forEach _garrison;

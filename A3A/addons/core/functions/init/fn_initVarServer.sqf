@@ -487,26 +487,35 @@ private _groundVehicleThreat = createHashMap;
 
 
 // Rebel vehicle cost
-private _rebelVehicleCost = createHashMap;
+private _rebelVehicleCosts = createHashMap;
+
+_fnc_setPriceIfValid = 
+{
+	_this params ["_hashMap", "_className", "_price"];
+	private _configClass = configFile >> "CfgVehicles" >> _className;
+    if (isClass _configClass) then {
+		_hashMap set [_className, _price];
+	};
+};
  
-{ _rebelVehicleCost set [_x, 50] } forEach FactionGet(reb, "vehiclesBasic");
-{ _rebelVehicleCost set [_x, 200] } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
-{ _rebelVehicleCost set [_x, 600] } forEach FactionGet(reb, "vehiclesCivTruck");
-{ _rebelVehicleCost set [_x, 300] } forEach FactionGet(reb, "vehiclesTruck");
-{ _rebelVehicleCost set [_x, 200] } forEach FactionGet(reb, "vehiclesLightUnarmed");
-{ _rebelVehicleCost set [_x, 700] } forEach FactionGet(reb, "vehiclesLightArmed") + FactionGet(reb, "vehiclesAT");
-{ _rebelVehicleCost set [_x, 400] } forEach FactionGet(reb, "staticMGs") + FactionGet(reb, "vehiclesBoat");
-{ _rebelVehicleCost set [_x, 800] } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortar");
-{ _rebelVehicleCost set [_x, 1100] } forEach FactionGet(reb, "vehiclesAA");
-{ _rebelVehicleCost set [_x, 5000] } forEach FactionGet(reb, "vehiclesCivHeli");
-{ _rebelVehicleCost set [_x, 5000] } forEach FactionGet(reb, "vehiclesRepair");
+{ [_rebelVehicleCosts, _x, 50] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesBasic");
+{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
+{ [_rebelVehicleCosts, _x, 600] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivTruck");
+{ [_rebelVehicleCosts, _x, 300] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesTruck");
+{ [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesLightUnarmed");
+{ [_rebelVehicleCosts, _x, 700] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesLightArmed") + FactionGet(reb, "vehiclesAT");
+{ [_rebelVehicleCosts, _x, 400] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticMGs") + FactionGet(reb, "vehiclesBoat");
+{ [_rebelVehicleCosts, _x, 800] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortar");
+{ [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesRepair");
  
  
 // Template overrides
 private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
 	private _vehType = _x select 0;
-	if !(_vehType in _vehicleResourceCosts) then { continue };
+	if !(_vehType in _vehicleResourceCosts or _vehType in _rebelVehicleCosts) then { continue };
 	{
 		if !(_x isEqualType []) then { continue };		// first entry is classname
 		_x params ["_attr", "_val"];
@@ -549,7 +558,7 @@ Info("Creating pricelist");
 
 {
 	server setVariable [_x, _y, true];
-} forEach _rebelVehicleCosts;
+} forEach A3A_rebelVehicleCosts;
 
 ///////////////////////
 //     GARRISONS    ///

@@ -8,7 +8,7 @@
 ["flagTexture", "\uns_flags\flag_vc_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "Faction_UNS_VC"] call _fnc_saveToTemplate;
 
-["vehicleBasic", []"uns_m274"]] call _fnc_saveToTemplate;
+["vehicleBasic", ["uns_m274"]] call _fnc_saveToTemplate;
 ["vehicleLightUnarmed", ["uns_Type55"]] call _fnc_saveToTemplate;
 ["vehicleLightArmed", ["uns_Type55_LMG"]] call _fnc_saveToTemplate;
 ["vehicleTruck",["uns_nvatruck_open"]] call _fnc_saveToTemplate;
@@ -37,6 +37,8 @@
 
 ["breachingExplosivesAPC", [["uns_M118_mag_remote", 1],["PipeBomb", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["PipeBomb", 2],["uns_M118_mag_remote", 2],["uns_mine_TM_mag", 1]]] call _fnc_saveToTemplate;
+
+#include "UNS_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //

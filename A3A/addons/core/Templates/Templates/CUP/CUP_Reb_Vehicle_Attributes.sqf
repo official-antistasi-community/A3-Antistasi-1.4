@@ -1,0 +1,20 @@
+["attributesVehicles", [
+    ["I_Quadbike_01_F", ["rebCost", 50]],
+    ["CUP_I_Hilux_armored_unarmed_NAPA", ["rebCost", 200]],
+    ["CUP_I_Hilux_DSHKM_NAPA", ["rebCost", 700]],
+    ["CUP_V3S_Open_NAPA", ["rebCost", 300]],
+    ["CUP_I_Hilux_SPG9_NAPA", ["rebCost", 700]],
+    ["I_G_Boat_Transport_01_F", ["rebCost", 200]],
+    ["CUP_I_V3S_Repair_TKG", ["rebCost", 10000]],
+    ["CUP_C_DC3_CIV", ["rebCost", 10000]],
+    ["CUP_O_Hilux_unarmed_CR_CIV", ["rebCost", 200]],
+    ["CUP_C_Ural_Civ_03", ["rebCost", 500]],
+    ["CUP_C_412", ["rebCost", 6000]],
+    ["CUP_C_Mi17_Civilian_RU", ["rebCost", 6000]],
+    ["C_Rubberboat", ["rebCost", 200]],
+    ["CUP_I_DSHKM_NAPA", ["rebCost", 400]],
+    ["CUP_I_SPG9_NAPA", ["rebCost", 800]],
+    ["CUP_I_ZU23_NAPA", ["rebCost", 800]],
+    ["CUP_I_2b14_82mm_NAPA", ["rebCost", 800]],
+    ["CUP_I_Ural_ZU23_NAPA", ["rebCost", 1200]]
+]] call _fnc_saveToTemplate;

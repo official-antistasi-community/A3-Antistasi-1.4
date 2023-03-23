@@ -1,0 +1,19 @@
+["attributesVehicles", [
+    ["gm_ge_army_k125", ["rebCost", 50]],
+    ["gm_ge_army_iltis_cargo", ["rebCost", 200]],
+    ["gm_gc_army_uaz469_dshkm", ["rebCost", 700]],
+    ["gm_ge_army_kat1_451_cargo", ["rebCost", 300]],
+    ["gm_gc_army_uaz469_spg9", ["rebCost", 700]],
+    ["I_C_Boat_Transport_02_F", ["rebCost", 200]],
+    ["CUP_I_V3S_Repair_TKG", ["rebCost", 10000]],
+    ["gm_gc_civ_l410s_passenger", ["rebCost", 10000]],
+    ["gm_gc_civ_p601", ["rebCost", 200]],
+    ["gm_gc_civ_ural375d_cargo", ["rebCost", 500]],
+    ["gm_gc_civ_mi2p", ["rebCost", 6000]],
+    ["C_Rubberboat", ["rebCost", 200]],
+    ["gm_gc_army_dshkm_aatripod", ["rebCost", 400]],
+    ["gm_gc_army_spg9_tripod", ["rebCost", 800]],
+    ["CUP_I_ZU23_NAPA", ["rebCost", 800]],
+    ["CUP_O_2b14_82mm_RU", ["rebCost", 800]],
+    ["CUP_I_Ural_ZU23_NAPA", ["rebCost", 1200]]
+]] call _fnc_saveToTemplate;

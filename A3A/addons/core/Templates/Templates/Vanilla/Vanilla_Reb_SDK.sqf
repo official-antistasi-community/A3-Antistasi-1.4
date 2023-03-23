@@ -20,12 +20,12 @@ private _vehicleAA = [""];
 
 ["vehiclePlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", ["C_Offroad_01_F"]] call _fnc_saveToTemplate;
-["vehicleCivTruck", ["C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+["vehicleCivCar", ["C_Offroad_01_F", "C_Kart_01_F", "C_SUV_01_F", "C_Hatchback_01_F"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["C_Van_01_transport_F", "C_Truck_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehicleCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehicleCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
+["staticMG", ["I_G_HMG_02_high_F","I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
 private _staticAA = ["I_static_AA_F"];
 ["staticMortar", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
@@ -45,6 +45,8 @@ if (allowDLCWS) then {
 };
 ["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
+
+#include "Vanilla_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //

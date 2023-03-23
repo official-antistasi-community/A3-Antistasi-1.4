@@ -1,0 +1,19 @@
+["attributesVehicles", [
+    ["vn_c_bicycle_01", ["rebCost", 50]],
+    ["vn_i_wheeled_m151_02", ["rebCost", 200]],
+    ["vn_o_car_04_mg_01", ["rebCost", 700]],
+    ["vn_i_wheeled_m54_01", ["rebCost", 300]],
+    ["vn_b_wheeled_m151_mg_05", ["rebCost", 700]],
+    ["vn_o_boat_02_01", ["rebCost", 200]],
+    ["vn_i_wheeled_m54_repair", ["rebCost", 10000]],
+    ["vn_o_air_mig19_gun", ["rebCost", 100000]],
+    ["vn_c_car_02_01", ["rebCost", 200]],
+    ["vn_b_wheeled_m54_01_airport", ["rebCost", 500]],
+    ["vn_b_air_uh1d_04_09", ["rebCost", 6000]],
+    ["vn_c_boat_08_01", ["rebCost", 200]],
+    ["vn_i_static_m60_high", ["rebCost", 400]],
+    ["vn_o_vc_static_type56rr", ["rebCost", 800]],
+    ["vn_i_static_m45", ["rebCost", 800]],
+    ["vn_i_static_mortar_m2", ["rebCost", 800]],
+    ["vn_b_wheeled_m54_mg_02", ["rebCost", 1200]]
+]] call _fnc_saveToTemplate;

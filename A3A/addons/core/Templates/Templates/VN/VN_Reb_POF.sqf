@@ -61,6 +61,8 @@
 //["vehicleAmmoStation", ["Land_vn_wf_vehicle_service_point_east", 5000]] call _fnc_saveToTemplate;
 //["vehicleHealthStation", ["Land_vn_tent_mash_01_01", 75]] call _fnc_saveToTemplate;
 
+#include "VN_Reb_Vehicle_Attributes.sqf"
+
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////

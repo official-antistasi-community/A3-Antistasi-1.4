@@ -486,8 +486,24 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
 
 
+// Rebel vehicle cost
+private _rebelVehicleCost = createHashMap;
+ 
+{ _rebelVehicleCost set [_x, 50] } forEach FactionGet(reb, "vehiclesBasic");
+{ _rebelVehicleCost set [_x, 200] } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
+{ _rebelVehicleCost set [_x, 600] } forEach FactionGet(reb, "vehiclesCivTruck");
+{ _rebelVehicleCost set [_x, 300] } forEach FactionGet(reb, "vehiclesTruck");
+{ _rebelVehicleCost set [_x, 200] } forEach FactionGet(reb, "vehiclesLightUnarmed");
+{ _rebelVehicleCost set [_x, 700] } forEach FactionGet(reb, "vehiclesLightArmed") + FactionGet(reb, "vehiclesAT");
+{ _rebelVehicleCost set [_x, 400] } forEach FactionGet(reb, "staticMG") + FactionGet(reb, "vehiclesBoat");
+{ _rebelVehicleCost set [_x, 800] } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortar");
+{ _rebelVehicleCost set [_x, 1100] } forEach FactionGet(reb, "vehiclesAA");
+{ _rebelVehicleCost set [_x, 5000] } forEach FactionGet(reb, "vehiclesCivHeli");
+{ _rebelVehicleCost set [_x, 5000] } forEach FactionGet(reb, "vehiclesRepair");
+ 
+ 
 // Template overrides
-private _overrides = FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
+private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
 	private _vehType = _x select 0;
 	if !(_vehType in _vehicleResourceCosts) then { continue };
@@ -497,12 +513,14 @@ private _overrides = FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "at
 		call {
 			if (_attr == "threat") then { _groundVehicleThreat set [_vehType, _val] };
 			if (_attr == "cost") exitWith { _vehicleResourceCosts set [_vehType, _val] };
+			if (_attr == "rebCost") exitWith { _rebelVehicleCosts set [_vehType, _val] };
 		};
 	} forEach _x;
 } forEach _overrides;
-
+ 
 DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
 DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
+DECLARE_SERVER_VAR(A3A_rebelVehicleCosts, _rebelVehicleCosts);
 
 ///////////////////////////
 //     MOD TEMPLATES    ///
@@ -529,27 +547,10 @@ Info("Creating pricelist");
 {server setVariable [_x,100,true]} forEach [FactionGet(reb,"unitMedic"), FactionGet(reb,"unitExp"), FactionGet(reb,"unitEng")];
 {server setVariable [_x,150,true]} forEach [FactionGet(reb,"unitSL"), FactionGet(reb,"unitSniper")];
 
-{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivCar"));
-{server setVariable [_x,600,true]} forEach (FactionGet(reb,"vehicleCivTruck"));
-if (FactionGet(reb,"vehicleCivHeli") isNotEqualTo [""]) then {
-	{server setVariable [_x,5000,true]} forEach (FactionGet(reb,"vehicleCivHeli"));
-};
-if (FactionGet(reb,"vehicleCivPlane") isNotEqualTo [""]) then {
-	{server setVariable [_x,10000,true]} forEach (FactionGet(reb,"vehicleCivPlane"));
-};
-{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleCivBoat"));
-{server setVariable [_x,50,true]} forEach (FactionGet(reb,"vehicleBasic"));
-{server setVariable [_x,200,true]} forEach (FactionGet(reb,"vehicleLightUnarmed"));
-{server setVariable [_x,300,true]} forEach (FactionGet(reb,"vehicleTruck"));
-{server setVariable [_x,700,true]} forEach FactionGet(reb,"vehicleLightArmed") + FactionGet(reb,"vehicleAT");
-{server setVariable [_x,400,true]} forEach FactionGet(reb,"staticMG") + FactionGet(reb,"vehicleBoat") + FactionGet(reb,"vehicleRepair");
-{server setVariable [_x,800,true]} forEach FactionGet(reb,"staticMortar") + FactionGet(reb,"staticAT") + FactionGet(reb,"staticAA");
-if (FactionGet(reb,"vehicleAA") isNotEqualTo [""]) then {
-    {server setVariable [_x,1100,true]} forEach (FactionGet(reb,"vehicleAA")); // should be vehSDKTruck + staticAAteamPlayer otherwise things will break
-};
-if (FactionGet(reb,"vehicleHeli") isNotEqualTo [""]) then {
-	{server setVariable [_x,6000,true]} forEach (FactionGet(reb,"vehicleHeli"));
-};
+{
+	server setVariable [_x, _y, true];
+} forEach _rebelVehicleCosts;
+
 ///////////////////////
 //     GARRISONS    ///
 ///////////////////////

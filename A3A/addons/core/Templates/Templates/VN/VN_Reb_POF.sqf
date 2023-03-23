@@ -26,27 +26,27 @@
 //       Vehicles       //
 //////////////////////////
 
-["vehicleBasic", "vn_c_bicycle_01"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "vn_i_wheeled_m151_02"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "vn_o_car_04_mg_01"] call _fnc_saveToTemplate;
-["vehicleTruck", "vn_i_wheeled_m54_01"] call _fnc_saveToTemplate;
-["vehicleAT", "vn_b_wheeled_m151_mg_05"] call _fnc_saveToTemplate;
-["vehicleAA", "vn_b_wheeled_m54_mg_02"] call _fnc_saveToTemplate;
+["vehicleBasic", ["vn_c_bicycle_01"]] call _fnc_saveToTemplate;
+["vehicleLightUnarmed", ["vn_i_wheeled_m151_02"]] call _fnc_saveToTemplate;
+["vehicleLightArmed", ["vn_o_car_04_mg_01"]] call _fnc_saveToTemplate;
+["vehicleTruck", ["vn_i_wheeled_m54_01"]] call _fnc_saveToTemplate;
+["vehicleAT", ["vn_b_wheeled_m151_mg_05"]] call _fnc_saveToTemplate;
+["vehicleAA", ["vn_b_wheeled_m54_mg_02"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", "vn_o_boat_02_01"] call _fnc_saveToTemplate;
-["vehicleRepair", "vn_i_wheeled_m54_repair"] call _fnc_saveToTemplate;
+["vehicleBoat", ["vn_o_boat_02_01"]] call _fnc_saveToTemplate;
+["vehicleRepair", ["vn_i_wheeled_m54_repair"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "vn_o_air_mig19_gun"] call _fnc_saveToTemplate;
+["vehiclePlane", ["vn_o_air_mig19_gun"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "vn_c_car_02_01"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "vn_b_wheeled_m54_01_airport"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "vn_b_air_uh1d_04_09"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "vn_c_boat_08_01"] call _fnc_saveToTemplate;
+["vehicleCivCar", ["vn_c_car_02_01"]] call _fnc_saveToTemplate;
+["vehicleCivTruck", ["vn_b_wheeled_m54_01_airport"]] call _fnc_saveToTemplate;
+["vehicleCivHeli", ["vn_b_air_uh1d_04_09"]] call _fnc_saveToTemplate;
+["vehicleCivBoat", ["vn_c_boat_08_01"]] call _fnc_saveToTemplate;
 
-["staticMG", "vn_i_static_m60_high"] call _fnc_saveToTemplate;
-["staticAT", "vn_o_vc_static_type56rr"] call _fnc_saveToTemplate;
-["staticAA", "vn_i_static_m45"] call _fnc_saveToTemplate;
-["staticMortar", "vn_i_static_mortar_m2"] call _fnc_saveToTemplate;
+["staticMG", ["vn_i_static_m60_high"]] call _fnc_saveToTemplate;
+["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
+["staticAA", ["vn_i_static_m45"]] call _fnc_saveToTemplate;
+["staticMortar", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
 

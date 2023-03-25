@@ -28,7 +28,7 @@
 ["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["staticMortar", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;
+["staticMortars", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 

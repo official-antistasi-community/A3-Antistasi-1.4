@@ -3,7 +3,7 @@ FIX_LINE_NUMBERS()
 private ["_gunner","_helperX"];
 private _isMortar = false;
 {if (_x getVariable ["typeOfSoldier",""] == "StaticGunner") then {_gunner = _x} else {_helperX = _x}} forEach _this;
-{if (_x getVariable ["typeOfSoldier",""] == "StaticMortar") then {_gunner = _x;_isMortar = true} else {_helperX = _x}} forEach _this;
+{if (_x getVariable ["typeOfSoldier",""] == "staticMortars") then {_gunner = _x;_isMortar = true} else {_helperX = _x}} forEach _this;
 private _groupX = group _gunner;
 private _mounted = false;
 private _veh = objNull;

@@ -77,7 +77,7 @@ setVar("vehiclesHelisTransport", OccAndInv("vehiclesHelisTransport"));
 setVar("vehiclesPlanesAA", OccAndInv("vehiclesPlanesAA"));
 setVar("vehiclesPlanesCAS", OccAndInv("vehiclesPlanesCAS"));
 setVar("vehiclesPlanesTransport", OccAndInv("vehiclesPlanesTransport"));
-setVar("staticMortars", OccAndInv("staticMortars") + Reb("staticMortar"));
+setVar("staticMortars", OccAndInv("staticMortars") + Reb("staticMortars"));
 setVar("staticAA", OccAndInv("staticAA") + Reb("staticAA"));
 setVar("staticAT", OccAndInv("staticAT") + Reb("staticAT"));
 setVar("staticMGs", OccAndInv("staticMGs") + Reb("staticMGs"));
@@ -143,7 +143,8 @@ setVar("vehiclesArmor", _vehArmor);
 private _vehReb = 
     Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesRepair") + Reb("vehiclesBoat")
     + Reb("vehiclesAT") + Reb("vehiclesLightArmed") + Reb("vehiclesLightUnarmed")
-    + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortar");
+    + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortars")
+    + Reb("vehiclesAA") - [""];
 setVar("vehiclesReb", _vehReb);
 
 //trucks that can cary logistics cargo

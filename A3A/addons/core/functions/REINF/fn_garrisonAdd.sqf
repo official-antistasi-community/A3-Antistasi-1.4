@@ -17,7 +17,7 @@ if (_costs > _resourcesFIA) exitWith {
 	[localize "STR_A3A_garrison_header",  format [localize "STR_A3A_garrison_error_no_money", _costs]] call A3A_fnc_customHint;
 };
 
-if ((_unitType in FactionGet(reb, "unitCrew")) and _markerX in outpostsFIA) exitWith {
+if ((_unitType == FactionGet(reb, "unitCrew")) and _markerX in outpostsFIA) exitWith {
 	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_mortar"] call A3A_fnc_customHint;
 };
 

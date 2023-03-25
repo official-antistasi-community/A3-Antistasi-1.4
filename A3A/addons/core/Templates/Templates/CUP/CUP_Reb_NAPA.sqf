@@ -13,17 +13,13 @@
 ["vehiclesLightArmed", ["CUP_I_Hilux_DSHKM_NAPA", "CUP_I_Datsun_PK"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["CUP_V3S_Open_NAPA"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["CUP_I_Hilux_SPG9_NAPA"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;    // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
+["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA", "CUP_I_Hilux_zu23_NAPA"]] call _fnc_saveToTemplate;    // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
 ["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", ["CUP_C_DC3_CIV"]] call _fnc_saveToTemplate;       // replace from civ varient s
-["vehiclesCivPlane", ["CUP_C_AN2_CIV", "CUP_C_C47_CIV"]] call _fnc_saveToTemplate;
+["staticMortars", ["CUP_C_AN2_CIV", "CUP_C_C47_CIV"]] call _fnc_saveToTemplate;
 ["vehiclesHeli", ["CUP_I_412_Military_Armed_PMC"]] call _fnc_saveToTemplate;
-["vehiclesHeavyArmed", ["CUP_I_T34_NAPA", "CUP_I_Hilux_zu23_NAPA",
-    "CUP_I_Hilux_armored_zu23_NAPA", "CUP_I_Hilux_armored_igla_NAPA", "CUP_I_Hilux_igla_NAPA", "CUP_I_Hilux_armored_UB32_NAPA",
-    "CUP_I_Hilux_armored_SPG9_NAPA", "CUP_I_Hilux_armored_MLRS_NAPA", "CUP_I_Hilux_armored_DSHKM_NAPA", "CUP_I_Hilux_UB32_NAPA",
-    "CUP_I_Hilux_MLRS_NAPA", "CUP_I_Hilux_btr60_NAPA", "CUP_I_BRDM2_NAPA", "CUP_I_SUV_Armored_ION"
-]] call _fnc_saveToTemplate;
+["vehiclesHeavyArmed", ["CUP_I_Hilux_UB32_NAPA","CUP_I_Hilux_MLRS_NAPA", "CUP_I_Hilux_btr60_NAPA"]] call _fnc_saveToTemplate;
 
 
 ["vehiclesCivCar", ["CUP_O_Hilux_unarmed_CR_CIV"]] call _fnc_saveToTemplate;
@@ -35,7 +31,7 @@
 ["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["staticMortar", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;
+["staticMortars", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 

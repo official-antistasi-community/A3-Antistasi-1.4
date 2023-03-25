@@ -53,7 +53,7 @@ _mrkDest setMarkerColorLocal "ColorRed";
 _mrkDest setMarkerTextLocal "Bomb Run Exit";
 
 //openMap false;
-private _typePlaneX = selectRandom (FactionGet(reb,"vehiclesPlane"));
+private _typePlaneX = (FactionGet(reb,"vehiclesPlane")) # 0;
 private _isHelicopter = _typePlaneX isKindOf "helicopter";
 
 _angorig = _ang - 180;

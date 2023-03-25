@@ -29,7 +29,7 @@
 ["staticAT", ["gm_gc_army_spg9_tripod"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["staticMortar", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
+["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 

@@ -46,7 +46,7 @@
 ["staticMGs", ["vn_i_static_m60_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
 ["staticAA", ["vn_i_static_m45"]] call _fnc_saveToTemplate;
-["staticMortar", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
+["staticMortars", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
 

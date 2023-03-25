@@ -8,7 +8,7 @@ _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
 private _typeExp = FactionGet(reb,"unitExp");
-_costs = 2*(server getVariable _typeExp) + ([selectRandom (FactionGet(reb,"vehiclesTruck"))] call A3A_fnc_vehiclePrice);
+_costs = 2*(server getVariable _typeExp) + ([(FactionGet(reb,"vehiclesTruck")) # 0] call A3A_fnc_vehiclePrice);
 [-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_typeX == "ATMine") then
@@ -74,7 +74,7 @@ sleep 1;
 _unit = [_groupX, _typeExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineF"];
 
-private _truckXType = selectRandom (FactionGet(reb,"vehiclesTruck"));
+private _truckXType = (FactionGet(reb,"vehiclesTruck")) # 0;
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,_truckXType];
 

@@ -28,7 +28,7 @@ if (alive _x) then
 		}
 	else
 		{
-		if (_result == "StaticMortar") then
+		if (_result == "staticMortars") then
 			{
 			_mortarsX pushBack _x;
 			}

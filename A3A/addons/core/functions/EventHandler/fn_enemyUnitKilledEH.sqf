@@ -46,7 +46,7 @@ if (side (group _killer) == teamPlayer) then
         };
         _killer addRating 1000;
     };
-    if (vehicle _killer isKindOf "StaticMortar") then
+    if (vehicle _killer isKindOf "staticMortars") then
     {
         {
             if ((_x distance _victim < 300) and (captive _x)) then

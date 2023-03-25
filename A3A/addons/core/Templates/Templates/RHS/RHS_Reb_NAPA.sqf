@@ -28,7 +28,7 @@
 ["staticMGs", ["rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
 ["staticAT", ["rhsgref_nat_SPG9"]] call _fnc_saveToTemplate;
 ["staticAA", ["rhsgref_nat_ZU23"]] call _fnc_saveToTemplate;
-["staticMortar", ["rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
+["staticMortars", ["rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 

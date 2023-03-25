@@ -28,7 +28,7 @@
 ["staticMGs", ["uns_pk_high_VC"]] call _fnc_saveToTemplate;
 ["staticAT", ["uns_Type36_57mm_VC"]] call _fnc_saveToTemplate;
 ["staticAA", ["uns_ZPU2_VC"]] call _fnc_saveToTemplate;
-["staticMortar", ["uns_m1941_82mm_mortarVC"]] call _fnc_saveToTemplate;
+["staticMortars", ["uns_m1941_82mm_mortarVC"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "uns_8Rnd_82mmHE_M1941"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "uns_8Rnd_82mmSMOKE_M1941"] call _fnc_saveToTemplate;
 

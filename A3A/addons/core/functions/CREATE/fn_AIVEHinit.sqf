@@ -107,7 +107,7 @@ else
 		{
 			_veh setCenterOfMass [(getCenterOfMass _veh) vectorAdd [0, 0, -1], 0];
 
-			if !(_typeX isKindOf "StaticMortar") then {
+			if !(_typeX isKindOf "staticMortars") then {
 				[_veh, "static"] remoteExec ["A3A_fnc_flagAction", [teamPlayer,civilian], _veh];
 				if (_side == teamPlayer && !isNil {serverInitDone}) then { [_veh] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 			};

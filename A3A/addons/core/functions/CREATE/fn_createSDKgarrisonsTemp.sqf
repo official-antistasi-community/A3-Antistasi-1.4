@@ -25,7 +25,7 @@ if (_typeX isEqualType "") then {
     if (_typeX isEqualTo FactionGet(reb,"unitRifle")) then { [_markerX] remoteExec ["A3A_fnc_updateRebelStatics", 2] };
 
     if (_typeX == FactionGet(reb,"unitCrew")) then {
-        private _veh = selectRandom(FactionGet(reb,"staticMortar")) createVehicle _positionX;
+        private _veh = (FactionGet(reb,"staticMortars")) # 0 createVehicle _positionX;
         _nul=[_veh] spawn UPSMON_fnc_artillery_add; //TODO need delete UPSMON link
 
         _unit assignAsGunner _veh;

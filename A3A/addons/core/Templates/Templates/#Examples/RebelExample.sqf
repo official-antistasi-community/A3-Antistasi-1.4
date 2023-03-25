@@ -8,29 +8,29 @@
 ["flagTexture", ""] call _fnc_saveToTemplate;
 ["flagMarkerType", ""] call _fnc_saveToTemplate;
 
-["vehiclesBasic", [""]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", [""]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", [""]] call _fnc_saveToTemplate;
-["vehiclesTruck", [""]] call _fnc_saveToTemplate;
-["vehiclesAT", [""]] call _fnc_saveToTemplate;
-["vehiclesAA", [""]] call _fnc_saveToTemplate;
+["vehiclesBasic", []] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", []] call _fnc_saveToTemplate;
+["vehiclesLightArmed", []] call _fnc_saveToTemplate;
+["vehiclesTruck", []] call _fnc_saveToTemplate;
+["vehiclesAT", []] call _fnc_saveToTemplate;
+["vehiclesAA", []] call _fnc_saveToTemplate;
 
-["vehiclesBoat", [""]] call _fnc_saveToTemplate;
-["vehiclesRepair", [""]] call _fnc_saveToTemplate;
+["vehiclesBoat", []] call _fnc_saveToTemplate;
+["vehiclesRepair", []] call _fnc_saveToTemplate;
 
-["vehiclesPlane", [""]] call _fnc_saveToTemplate;
-["vehiclesHeli", [""]] call _fnc_saveToTemplate;
+["vehiclesPlane", []] call _fnc_saveToTemplate;
+["vehiclesHeli", []] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", [""]] call _fnc_saveToTemplate;
-["vehiclesCivTruck", [""]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", [""]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", [""]] call _fnc_saveToTemplate;
-["vehiclesCivPlane", [""]] call _fnc_saveToTemplate;
+["vehiclesCivCar", []] call _fnc_saveToTemplate;
+["vehiclesCivTruck", []] call _fnc_saveToTemplate;
+["vehiclesCivHeli", []] call _fnc_saveToTemplate;
+["vehiclesCivBoat", []] call _fnc_saveToTemplate;
+["vehiclesCivPlane", []] call _fnc_saveToTemplate;
 
-["staticMGs", [""]] call _fnc_saveToTemplate;
-["staticAT", [""]] call _fnc_saveToTemplate;
-["staticAA", [""]] call _fnc_saveToTemplate;
-["staticMortar", [""]] call _fnc_saveToTemplate;
+["staticMGs", []] call _fnc_saveToTemplate;
+["staticAT", []] call _fnc_saveToTemplate;
+["staticAA", []] call _fnc_saveToTemplate;
+["staticMortars", []] call _fnc_saveToTemplate;
 ["staticMortarMagHE", ""] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;
 

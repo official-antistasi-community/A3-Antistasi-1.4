@@ -71,7 +71,7 @@ if (_tab isEqualTo "vehicles") then
         (A3A_faction_reb get 'vehiclesHeavyArmed') +
         (A3A_faction_reb get 'vehiclesMedical') +
         (A3A_faction_reb get 'staticMGs') +
-        (A3A_faction_reb get 'staticMortar') +
+        (A3A_faction_reb get 'staticMortars') +
         (A3A_faction_reb get 'staticAT') +
         (A3A_faction_reb get 'staticAA');
     

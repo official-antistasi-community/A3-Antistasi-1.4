@@ -1,19 +1,2 @@
 ["attributesVehicles", [
-    ["I_G_Quadbike_01_F", ["rebCost", 50]],
-    ["rhsgref_cdf_reg_uaz_open", ["rebCost", 200]],
-    ["rhsgref_nat_uaz_dshkm", ["rebCost", 700]],
-    ["rhsgref_cdf_zil131", ["rebCost", 300]],
-    ["rhsgref_nat_uaz_spg9", ["rebCost", 700]],
-    ["I_C_Boat_Transport_02_F", ["rebCost", 200]],
-    ["rhsgref_cdf_gaz66_repair", ["rebCost", 10000]],
-    ["RHS_AN2", ["rebCost", 10000]],
-    ["C_Offroad_01_F", ["rebCost", 200]],
-    ["RHS_Ural_Open_Civ_03", ["rebCost", 500]],
-    ["RHS_Mi8t_civilian", ["rebCost", 6000]],
-    ["C_Rubberboat", ["rebCost", 200]],
-    ["rhsgref_ins_DSHKM", ["rebCost", 400]],
-    ["rhsgref_nat_SPG9", ["rebCost", 800]],
-    ["rhsgref_nat_ZU23", ["rebCost", 800]],
-    ["rhsgref_nat_2b14", ["rebCost", 800]],
-    ["rhsgref_nat_ural_Zu23", ["rebCost", 1200]]
 ]] call _fnc_saveToTemplate;

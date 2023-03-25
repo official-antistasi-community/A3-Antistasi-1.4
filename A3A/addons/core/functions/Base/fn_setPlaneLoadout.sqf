@@ -214,12 +214,6 @@ if (_type == "CAS") then
             _plane setVariable ["bombRacks", ["LIB_FAB250_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [12, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
-        case "CUP_I_CESSNA_T41_ARMED_ION": {
-            _loadout = ["PylonMissile_1Rnd_Mk82_F","PylonMissile_1Rnd_Mk82_F"];
-            //_plane setVariable ["mainGun", "LIB_UBK_PE2"];
-            _plane setVariable ["bombRacks", ["Mk82BombLauncher"]];
-            _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [15, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
-        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);

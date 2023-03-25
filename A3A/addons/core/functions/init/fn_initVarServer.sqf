@@ -507,10 +507,10 @@ _fnc_setPriceIfValid =
 { [_rebelVehicleCosts, _x, 400] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticMGs") + FactionGet(reb, "vehiclesBoat");
 { [_rebelVehicleCosts, _x, 800] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortars");
 { [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
-{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli") + FactionGet(reb, "vehiclesHeli");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
 { [_rebelVehicleCosts, _x, 10000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesRepair");
-{ [_rebelVehicleCosts, _x, 30000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesHeavyArmed");
+{ [_rebelVehicleCosts, _x, 30000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesHeavyArmed") + FactionGet(reb, "vehiclesHeli");
  
  
 // Template overrides

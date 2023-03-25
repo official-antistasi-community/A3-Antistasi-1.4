@@ -20,6 +20,7 @@
 ["staticMortars", ["CUP_C_AN2_CIV", "CUP_C_C47_CIV"]] call _fnc_saveToTemplate;
 ["vehiclesHeli", ["CUP_I_412_Military_Armed_PMC"]] call _fnc_saveToTemplate;
 ["vehiclesHeavyArmed", ["CUP_I_Hilux_UB32_NAPA","CUP_I_Hilux_MLRS_NAPA", "CUP_I_Hilux_btr60_NAPA"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["CUP_I_LR_Ambulance_RACS"]] call _fnc_saveToTemplate;
 
 
 ["vehiclesCivCar", ["CUP_O_Hilux_unarmed_CR_CIV"]] call _fnc_saveToTemplate;

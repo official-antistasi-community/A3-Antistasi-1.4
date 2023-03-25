@@ -20,12 +20,15 @@
 
 ["vehiclesPlane", []] call _fnc_saveToTemplate;
 ["vehiclesHeli", []] call _fnc_saveToTemplate;
+["vehiclesHeavyArmed", []] call _fnc_saveToTemplate;
+["vehiclesMedical", []] call _fnc_saveToTemplate;
 
 ["vehiclesCivCar", []] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", []] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", []] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", []] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", []] call _fnc_saveToTemplate;
+
 
 ["staticMGs", []] call _fnc_saveToTemplate;
 ["staticAT", []] call _fnc_saveToTemplate;

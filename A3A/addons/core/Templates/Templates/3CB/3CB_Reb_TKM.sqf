@@ -20,7 +20,6 @@
 
 ["vehiclesPlane", ["UK3CB_CHC_I_Antonov_AN2"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", ["UK3CB_C_AC500", "UK3CB_C_DC3"]] call _fnc_saveToTemplate;
-["vehiclesHeli", ["UK3CB_ADA_I_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_FIA_I_Hilux_Ambulance"]] call _fnc_saveToTemplate;
 
 ["vehiclesCivCar", ["UK3CB_C_Hilux_Open"]] call _fnc_saveToTemplate;

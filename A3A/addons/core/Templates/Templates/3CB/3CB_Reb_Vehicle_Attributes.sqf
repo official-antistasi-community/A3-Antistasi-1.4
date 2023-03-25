@@ -2,19 +2,51 @@
     ["I_G_Quadbike_01_F", ["rebCost", 50]],
     ["UK3CB_CCM_I_Datsun_Open", ["rebCost", 200]],
     ["UK3CB_TKM_I_LR_M2", ["rebCost", 700]],
+    ["UK3CB_NAP_I_Datsun_Pkm", ["rebCost", 700]],
+    ["UK3CB_NAP_I_Hilux_Dshkm", ["rebCost", 700]],
     ["UK3CB_CCM_I_V3S_Closed", ["rebCost", 300]],
     ["UK3CB_I_G_Hilux_Spg9", ["rebCost", 700]],
     ["UK3CB_I_G_Fishing_Boat_SPG9", ["rebCost", 200]],
     ["UK3CB_CCM_I_V3S_Repair", ["rebCost", 10000]],
     ["UK3CB_CHC_I_Antonov_AN2", ["rebCost", 10000]],
+    ["UK3CB_C_AC500", ["rebCost", 7000]],
+    ["UK3CB_C_DC3", ["rebCost", 10000]],
     ["UK3CB_C_Hilux_Open", ["rebCost", 200]],
     ["UK3CB_TKC_C_Kamaz_Open", ["rebCost", 500]],
+
     ["UK3CB_C_Bell412_Civ", ["rebCost", 6000]],
     ["UK3CB_TKC_C_Mi8AMT", ["rebCost", 6000]],
+    ["UK3CB_ADA_I_UH1H_MED", ["rebCost", 6000]],
+    ["UK3CB_C_Bell412_Medic", ["rebCost", 6000]],
+    ["UK3CB_ADA_I_UH1H_GUNSHIP", ["rebCost", 20000]],
+    ["UK3CB_FIA_I_Bell412_Armed", ["rebCost", 20000]],
+
+    ["UK3CB_ION_I_Desert_SUV_Armed", ["rebCost", 4000]],
+    ["UK3CB_NAP_I_Hilux_Rocket", ["rebCost", 2000]],
+    ["UK3CB_NAP_I_Hilux_Rocket_Arty", ["rebCost", 3000]],
+    ["UK3CB_NAP_I_T34", ["rebCost", 40000]],
+    ["UK3CB_MEI_I_Hilux_BTR", ["rebCost", 1500]],
+    ["UK3CB_NAP_I_BRDM2_HQ", ["rebCost", 2500]],
+    ["UK3CB_NAP_I_BRDM2", ["rebCost", 3000]],
+
+    ["UK3CB_FIA_I_Hilux_Ambulance", ["rebCost", 600]],
+    ["UK3CB_NAP_I_MTLB_AMB", ["rebCost", 3000]],
+    
     ["C_Rubberboat", ["rebCost", 200]],
+
     ["UK3CB_NAP_I_DSHKM", ["rebCost", 400]],
+    ["UK3CB_MEI_I_DSHkM_Mini_TriPod", ["rebCost", 300]],
+    ["UK3CB_FIA_I_M240_Low", ["rebCost", 300]],
+    ["UK3CB_FIA_I_M240_High", ["rebCost", 400]],
+    ["UK3CB_MEI_I_KORD_high", ["rebCost", 600]],
+    ["UK3CB_MEI_I_KORD", ["rebCost", 500]],
+    ["UK3CB_MEI_I_PKM_Low", ["rebCost", 300]],
     ["UK3CB_UN_I_SPG9", ["rebCost", 800]],
     ["UK3CB_UN_I_ZU23", ["rebCost", 800]],
     ["rhsgref_ins_g_2b14", ["rebCost", 800]],
-    ["UK3CB_TKM_I_V3S_Zu23", ["rebCost", 1200]]
+
+    ["UK3CB_TKM_I_V3S_Zu23", ["rebCost", 1200]],
+    ["UK3CB_NAP_I_Hilux_Zu23_Front", ["rebCost", 1200]],
+    ["UK3CB_MEI_I_Hilux_Igla_Chair", ["rebCost", 1500]],
+    ["UK3CB_MEI_I_Hilux_Vulcan_Front", ["rebCost", 1800]]
 ]] call _fnc_saveToTemplate;

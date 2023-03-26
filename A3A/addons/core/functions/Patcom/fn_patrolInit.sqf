@@ -22,13 +22,13 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-PATCOM_DEBUG = false; // Enable PATCOM specific debug.
+PATCOM_DEBUG = true; // Enable PATCOM specific debug.
 publicVariable "PATCOM_DEBUG";
 
-PATCOM_VISUAL_RANGE = 400; // How far should PATCOM look for Enemies.
+PATCOM_VISUAL_RANGE = 200; // How far should PATCOM look for Enemies.
 publicVariable "PATCOM_VISUAL_RANGE";
 
-PATCOM_ARTILLERY_MANAGER = true;
+PATCOM_ARTILLERY_MANAGER = false;
 publicVariable "PATCOM_ARTILLERY_MANAGER";
 
 PATCOM_ARTILLERY_DELAY = 60;

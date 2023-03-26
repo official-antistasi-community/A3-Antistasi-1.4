@@ -100,8 +100,6 @@ if (A3A_hasTFAR || A3A_hasTFARBeta) then {
     [] spawn A3A_fnc_radioJam;
 };
 
-[] spawn A3A_fnc_ambientCivs;
-
 if (isMultiplayer && {playerMarkersEnabled}) then {
     [] spawn A3A_fnc_playerMarkers;
 };

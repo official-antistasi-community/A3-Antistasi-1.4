@@ -16,6 +16,7 @@ if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea 
 _vehiclesX = [];
 _soldiers = [];
 private _dogs = [];
+private _groups = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;

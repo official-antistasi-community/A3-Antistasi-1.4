@@ -13,8 +13,6 @@
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", ["C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", []] call _fnc_saveToTemplate;
-["vehiclesHeli", []] call _fnc_saveToTemplate;
-["vehiclesHeavyArmed", []] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;

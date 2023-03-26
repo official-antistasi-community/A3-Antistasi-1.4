@@ -104,9 +104,9 @@ _loadoutData set ["ATLaunchers", [
 ["rhs_weap_M136"]
 ]];
 _loadoutData set ["heavyATLaunchers", [
-["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA"], [], ""],
-["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_SR"], [], ""],
-["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA"], [], ""]
+["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA"], ["rhs_mag_smaw_SR"], ""],
+["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_SR"], ["rhs_mag_smaw_SR"], ""],
+["rhs_weap_smaw_green", "", "", "rhs_weap_optic_smaw",["rhs_mag_smaw_HEAA"], ["rhs_mag_smaw_SR"], ""]
 ]];
 _loadoutData set ["AALaunchers", ["rhs_weap_igla"]];
 _loadoutData set ["sidearms", [
@@ -558,14 +558,13 @@ private _latTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    [["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 4] call _fnc_addMagazines;
 
     [selectRandom ["ATLaunchers", "lightATLaunchers"]] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
-    ["launcher", 2] call _fnc_addMagazines;
+    ["launcher", 1] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -594,8 +593,8 @@ private _atTemplate = {
 
     [selectRandom ["lightATLaunchers", "heavyATLaunchers"]] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
-    ["launcher", 3] call _fnc_addMagazines;
-
+    ["launcher", 2] call _fnc_addMagazines;
+    ["launcher", 2] call _fnc_addAdditionalMuzzleMagazines;
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
 

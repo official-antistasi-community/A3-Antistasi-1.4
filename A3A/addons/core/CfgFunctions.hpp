@@ -188,6 +188,18 @@ class CfgFunctions
             class zoneCheck {};
         };
 
+        class Civilian {
+            file = QPATHTOFOLDER(functions\Civilian);
+            class civilianFiredNearEH {};
+            class civilianInitEH {};
+            class createAmbientCiv {};
+            class createAmbientCivTraffic {};
+            class createCivilianTracks {};
+            class createMusicSource {};
+            class createRoomLight {};
+            class getDayState {};
+        };
+
         class Collections {
             file = QPATHTOFOLDER(functions\Collections);
             class getNestedObject {};
@@ -217,14 +229,11 @@ class CfgFunctions
             class AAFroadPatrol {};
             class airportCanAttack {};
             class AIVEHinit {};
-            class ambientCivs {};
             class attackHQ {};
             class availableBasesAir {};
             class availableBasesLand {};
             class calculateMarkerArea {};
             class cargoSeats {};
-            class CIVinit {};
-            class civVEHinit {};
             class cleanserVeh {};
             class createAIAirplane {};
             class createAICities {};
@@ -236,7 +245,6 @@ class CfgFunctions
             class createAttackForceLand {};
             class createAttackForceMixed {};
             class createAttackVehicle {};
-            class createCIV {};
             class createFIAOutposts2 {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
@@ -427,6 +435,38 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\ModsAndDLC);
             class darkMapFix {};
             class getModOfConfigClass {};
+        };
+
+        class Patcom {
+            file = QPATHTOFOLDER(functions\Patcom);
+            class clearVehicleCargo {};
+            class debugText3D {};
+            class getSafePos {};
+            class patrolAILoad {};
+            class patrolAnimation {};
+            class patrolArea {};
+            class patrolAttack {};
+            class patrolBuildingEnterable {};
+            class patrolCallForHelp {};
+            class patrolCanSee {};
+            class patrolCivilianCommander {};
+            class patrolClosestKnownEnemy {};
+            class patrolCommander {};
+            class patrolCreateWaypoint {};
+            class patrolDefend {};
+            class patrolEnterableBuildings {};
+            class patrolGroupGarrison {};
+            class patrolGroupVariables {};
+            class patrolHandleFormation {};
+            class patrolHealSelf {};
+            class patrolInit {};
+            class patrolLoop {};
+            class patrolSearchBuilding {};
+            class patrolSetCombatModes {};
+            class patrolSetParams {};
+            class patrolSideIsEnemy {};
+            class patrolSuppressionEH {};
+            class patrolUnitHitEH {};
         };
 
         class OrgPlayers {

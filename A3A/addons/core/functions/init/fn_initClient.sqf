@@ -27,10 +27,6 @@ if !(isServer) then {
 
     // Headless client navgrid init
     if (!hasInterface) then {
-        Info("Headless client UPSMON init started");
-        [] call UPSMON_fnc_Init_UPSMON;
-        Info("Headless client UPSMON init completed");
-
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;

@@ -46,6 +46,7 @@ for "_i" from 1 to _max do
 		_groupVeh = _vehicle select 2;
 		_soldiers = _soldiers + _vehCrew;
 		_groups pushBack _groupVeh;
+		[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
 		_vehiclesX pushBack _veh;
 		sleep 1;
 	}
@@ -130,8 +131,10 @@ if (_patrol) then
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
-			_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM", "NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
+
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 		};
 		_countX = _countX +1;
@@ -152,7 +155,11 @@ while {true} do {
 	_veh = _typeVehX createVehicle (_spawnParameter select 0);
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
-	_nul=[_veh] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
+
+	//OLD CALL - TO BE REPLACED - HAZEY
+	//_nul=[_veh] spawn DORK_fnc_artillery_add;
+
+
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	_unit moveInGunner _veh;
 	[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -305,18 +312,28 @@ _array = [];
 _subArray = [];
 _countX = 0;
 _radiusX = _radiusX -1;
-while {_countX <= _radiusX} do
-	{
+while {_countX <= _radiusX} do {
 	_array pushBack (_garrison select [_countX,7]);
 	_countX = _countX + 8;
+};
+for "_i" from 0 to (count _array - 1) do {
+	private _groupX = if (_i == 0) then {
+		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup;
+	} else {
+		private _spawnPosition = [_positionX, 50, 100, 20, 0, -1, 0] call A3A_fnc_getSafePos;
+		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup;
 	};
-for "_i" from 0 to (count _array - 1) do
-	{
-	_groupX = if (_i == 0) then {[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup} else {[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup};
 	_groups pushBack _groupX;
-	{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
-	if (_i == 0) then {_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON} else {_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON};
-	};//TODO need delete UPSMON link
+	{
+		[_x, _markerX] call A3A_fnc_NATOinit; 
+		_soldiers pushBack _x;
+	} forEach units _groupX;
+	if (_i == 0) then {
+		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+	} else {
+		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+	};
+};
 
 ["locationSpawned", [_markerX, "Airport", true]] call EFUNC(Events,triggerEvent);
 
@@ -328,7 +345,11 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 deleteMarker _mrk;
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _dogs;
-{ deleteGroup _x } forEach _groups;
+
+{
+	_x setVariable ["PATCOM_Controlled", ""];
+	deleteGroup _x;
+} forEach _groups;
 
 {
 	// delete all vehicles that haven't been stolen

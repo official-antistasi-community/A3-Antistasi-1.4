@@ -65,11 +65,14 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2"] spawn UPSMON_fnc_UPSMON;
+	//OLD CALL - TO BE REPLACED - HAZEY
+	//[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
 
 	_groupX1 = [_pos,_sideX,_typeGroup] call A3A_fnc_spawnGroup;
 	sleep 1;
-	_nul = [leader _groupX1, _mrk, "SAFE","SPAWNED", "NOVEH2"] spawn UPSMON_fnc_UPSMON;
+
+	//OLD CALL - TO BE REPLACED - HAZEY
+	//[_groupX1, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
 
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX1;

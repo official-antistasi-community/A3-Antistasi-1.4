@@ -17,7 +17,10 @@ if ((typeOf _static == FactionGet(reb,"staticMortar")) and (isMultiPlayer)) exit
 if (_groupX getVariable "staticAutoT") exitWith
 	{
 	_groupX setVariable ["staticAutoT",false,true];
-	if (typeOf _static == FactionGet(reb,"staticMortar")) then {_groupX setvariable ["UPSMON_Removegroup",true]};
+
+	//OLD CALL - TO BE REPLACED - HAZEY
+	//if (typeOf _static == FactionGet(reb,"staticMortar")) then {_groupX setvariable ["DORK_Removegroup",true]};
+
 	sleep 5;
 	["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode OFF.", groupID _groupX]] call A3A_fnc_customHint;
 	};
@@ -25,7 +28,9 @@ if (_groupX getVariable "staticAutoT") exitWith
 ["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode ON.", groupID _groupX]] call A3A_fnc_customHint;
 _groupX setVariable ["staticAutoT",true,true];
 
-if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {[_static] spawn UPSMON_fnc_artillery_add;};//TODO delete UPSMON link
+//OLD CALL - TO BE REPLACED - HAZEY
+//if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {[_static] spawn DORK_fnc_artillery_add;};
+
 _LeaderX = leader _groupX;
 _truckX = vehicle _LeaderX;
 _boy = gunner _static;

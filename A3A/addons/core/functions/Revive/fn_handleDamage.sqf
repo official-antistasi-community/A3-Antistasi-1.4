@@ -47,6 +47,7 @@ private _makeUnconscious =
 {
 	params ["_unit", "_injurer"];
 	_unit setVariable ["incapacitated",true,true];
+	_unit setVariable ["helpFailed", 0];
 	_unit setUnconscious true;
 	if (vehicle _unit != _unit) then
 	{
@@ -109,8 +110,8 @@ if (_part == "") then
 			{
 				if (autoheal) then
 				{
-					_helped = _unit getVariable ["helped",objNull];
-					if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
+					if (!isNull (_unit getVariable ["helped",objNull])) exitWith {};
+					[_unit] call A3A_fnc_askHelp;
 				};
 			};
 		};

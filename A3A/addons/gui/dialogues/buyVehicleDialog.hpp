@@ -14,7 +14,7 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
             w = DIALOG_W * GRID_W;
             h = 5 * GRID_H;
         };
-    
+
         class TabButtons : A3A_ControlsGroupNoScrollbars
         {
             idc = A3A_IDC_MAINDIALOGTABBUTTONS;

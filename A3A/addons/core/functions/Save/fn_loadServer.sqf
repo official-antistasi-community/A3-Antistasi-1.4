@@ -144,7 +144,6 @@ if (isServer) then {
 	["tasks"] call A3A_fnc_getStatVariable;
 
 	statsLoaded = 0; publicVariable "statsLoaded";
-	placementDone = true; publicVariable "placementDone";
 	petros allowdamage true;
 };
 Info("loadServer Completed.");

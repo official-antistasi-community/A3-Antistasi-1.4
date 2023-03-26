@@ -138,7 +138,6 @@ else
     } forEach controlsX;
     petros setPos _posHQ;
     [_posHQ, true] call A3A_fnc_relocateHQObjects;         // sets all the other vars
-    placementDone = true; publicVariable "placementDone";           // do we need this now?
 };
 
 if (_startType != "load") then {
@@ -288,6 +287,16 @@ savingServer = false;           // enable saving
         [] call A3A_fnc_logPerformance;
         sleep _logPeriod;
     };
+};
+
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
 };
 
 Info("initServer completed");

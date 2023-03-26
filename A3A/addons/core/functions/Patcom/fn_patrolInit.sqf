@@ -31,7 +31,7 @@ publicVariable "PATCOM_VISUAL_RANGE";
 PATCOM_ARTILLERY_MANAGER = false;
 publicVariable "PATCOM_ARTILLERY_MANAGER";
 
-PATCOM_ARTILLERY_DELAY = 60;
+PATCOM_ARTILLERY_DELAY = 4; // How quickly artillery becomes available again.
 publicVariable "PATCOM_ARTILLERY_DELAY";
 
 // This Hashmap acts as a blacklist to remove unwanted buildings

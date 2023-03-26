@@ -41,4 +41,10 @@ if (_distance < 5) then {
 		_unit doSuppressiveFire _shooter;
 		_unit setvariable ["PATCOM_Supp_Time", time];
 	};
+
+	// Chance to call Counter Artillery. Temp way to get the AI to fire it.
+	private _counterArtilleryCall = random 10;
+	if (_counterArtilleryCall > 8) then {
+		[getPos _instigator, (random 150), "HE"] call A3A_fnc_artilleryFireMission;
+	};
 };

@@ -91,5 +91,71 @@ switch _callBackName do {
         };
     };
 
+    case "LARGEITEM":
+    {
+        switch _action do {
+            case "Placed":
+            {
+                _arguments params  [
+                    ["_unit", objNull, [objNull]],
+                    ["_spawnItem", "", [""]],       // easier to keep the format from the buyitem then writing a new one
+                    ["_price", -1, [0]],
+                    ["_callbacks", [], [[]]],
+                    ["_object", objNull, [objNull]]
+                ];
+
+                private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
+                if (_lastTimePurchase > time) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint; deleteVehicle _vehicle;};
+
+                if (_price != 0) then {
+                    //try to take money away 😞
+                    private _insufficientFunds = isNil {
+                        if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
+                            [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
+                            true;
+                        } else {
+                            if ((_unit getVariable ["moneyX", 0]) >= _price) then {
+                                [-_price] call A3A_fnc_resourcesPlayer;
+                                true;
+                            };
+                        };
+                    };
+                    if (_insufficientFunds) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint; deleteVehicle _vehicle;};
+                };
+
+                _unit setVariable ["A3A_spawnItem_cooldown", time + 15];
+                
+                //object globals
+                _vehicle setVariable ["A3A_canGarage", true, true];
+                _vehicle setVariable ["A3A_itemPrice", _price, true];
+                
+                if(!isNull _object) then
+                {
+                    private _price = _object getVariable ["A3A_itemPrice", 0];
+                    private _canOpenDoors = _object getVariable ["A3A_canOpenDoor", false];
+                    private _itemClassName = _object getVariable ["A3A_packedObject", ""];
+
+                    _vehicle setVariable ["A3A_canGarage", true, true];
+                    _vehicle setVariable ["A3A_itemPrice", _price, true];
+                    _vehicle setVariable ["A3A_canOpenDoor", _canOpenDoors, true]; 
+                    deleteVehicle _object;
+                };
+                
+        
+                // callbacks
+                {
+                    private _func_name = (_x #0);
+                    if (_x #1) then {
+                            private _jipKey = "A3A_utilityItems_item_" + _func_name + "_" + ((str _vehicle splitString ":") joinString "");
+                            [_vehicle, _jipKey] remoteExecCall [_func_name, 0, _jipKey];
+                    } else {
+                        [_vehicle] call (missionNamespace getVariable _func_name);
+                    };
+                } foreach (_callbacks);
+            };
+            default {false};
+        };
+    };
+
     default {false};
 };

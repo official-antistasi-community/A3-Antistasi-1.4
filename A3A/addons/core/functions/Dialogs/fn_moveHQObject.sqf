@@ -25,6 +25,9 @@ _thingX setVariable ["objectBeingMoved", true];
 if !(_isStatic) then { _thingX removeAction _id };
 if (_isStatic) then { _thingX lock true };
 
+if (isNil {_thingX getVariable "A3A_originalMass"}) then { _thingX setVariable ["A3A_originalMass", getMass _thingX] };
+[_thingX, 1e-12] remoteExecCall ["setMass", 0]; 
+
 private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
 private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
 _thingX attachTo [_playerX, [0, _spacing, _height]];
@@ -72,6 +75,8 @@ private _fnc_placeObject = {
 	if (_thingX isKindOf "StaticWeapon") then { _thingX lock false };
 
 	_thingX setVariable ["objectBeingMoved", false];
+
+	[_thingX, _thingX getVariable "A3A_originalMass"] remoteExecCall ["setMass", _thingX];
 };
 
 private _actionX = _playerX addAction ["Drop Here", {

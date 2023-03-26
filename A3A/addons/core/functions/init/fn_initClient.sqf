@@ -35,6 +35,16 @@ if !(isServer) then {
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;
     };
+
+    if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+        isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+        // disable lambs danger fsm entrypoint
+        ["CAManBase", "InitPost", {
+            params ["_unit"];
+            (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+            _unit setVariable ["lambs_danger_disableAI", true];
+        }] call CBA_fnc_addClassEventHandler;
+    };
 };
 
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
@@ -432,15 +442,6 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
-// Check if we need to relocate HQ. Might happen if we leave during placement?
-// Should be replaced with server-side monitoring loop
-if (isNil "placementDone") then {
-    if (isNil "playerPlacingHQ" || {!(playerPlacingHQ in (call A3A_fnc_playableUnits))}) then {
-        playerPlacingHQ = player;
-        publicVariable "playerPlacingHQ";
-        [] spawn A3A_fnc_placementSelection;
-    };
-};
 
 initClientDone = true;
 Info("initClient completed");

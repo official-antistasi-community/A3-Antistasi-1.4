@@ -156,9 +156,7 @@ while {true} do {
 	_veh setDir (_spawnParameter select 1);
 	//_veh setPosATL (_spawnParameter select 0);
 
-	//OLD CALL - TO BE REPLACED - HAZEY
-	//_nul=[_veh] spawn DORK_fnc_artillery_add;
-
+	[_groupX] call A3A_fnc_artilleryAdd;
 
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	_unit moveInGunner _veh;

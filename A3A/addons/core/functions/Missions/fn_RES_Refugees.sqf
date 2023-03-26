@@ -144,8 +144,7 @@ else
 		[_dog] spawn A3A_fnc_guardDog;
 		};
 
-	//OLD CALL - TO BE REPLACED - HAZEY
-	//[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
 	
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	_groupX1 = [_houseX buildingExit 0, Occupants, _faction get "groupPolice"] call A3A_fnc_spawnGroup;

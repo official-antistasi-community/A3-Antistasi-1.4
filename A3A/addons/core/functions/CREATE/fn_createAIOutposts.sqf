@@ -107,7 +107,7 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
 
-		//OLD CALL - TO BE REPLACED - HAZEY - ARTILLERY CALL
+		[_groupX] call A3A_fnc_artilleryAdd;
 
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _veh;

@@ -68,8 +68,7 @@ for "_i" from 1 to 4 do
 	_groupX = [_positionX,Occupants,_groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
 
-	//OLD CALL - TO BE REPLACED - HAZEY
-	//[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
 
 
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;

@@ -107,7 +107,6 @@ _lineIndex = 0;
         sleep 0.25;
     } forEach _crewArray;
 
-    //OLD CALL - TO BE REPLACED - HAZEY
     [_groupX, getMarkerPos _markerX, _patrolSize] call A3A_fnc_patrolGroupGarrison;
 
     private _forcePatrol = ((count _allGroups) > ((count _patrolGroups) * 3));

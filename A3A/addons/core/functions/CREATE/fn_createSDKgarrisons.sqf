@@ -50,7 +50,7 @@ if (_typeCrew in _garrison) then
 		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
 		_vehiclesX pushBack _veh;
 
-		//OLD CALL - TO BE REPLACED - HAZEY - ARTILLERY
+		[_groupMortars] call A3A_fnc_artilleryAdd;
 
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
@@ -72,7 +72,7 @@ if (_typeCrew in _garrison) then
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
 
-		//OLD CALL - TO BE REPLACED - HAZEY - ARTILLERY
+		[_groupMortars] call A3A_fnc_artilleryAdd;
 	}
 	else
 	{

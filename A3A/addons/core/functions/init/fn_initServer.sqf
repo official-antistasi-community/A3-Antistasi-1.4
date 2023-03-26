@@ -60,7 +60,7 @@ Info("Server JNA preload started");
 Info("Background init completed");
 A3A_backgroundInitDone = true;
 
-Info("Initialising PATCOM Variables");
+Info("Server Initialising PATCOM Variables");
 [] call A3A_fnc_patrolInit;
 
 // **************** Starting game, param-dependent init *******************************

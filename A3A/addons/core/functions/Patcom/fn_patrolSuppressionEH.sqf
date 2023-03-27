@@ -44,8 +44,7 @@ if (_distance < 5) then {
 
 	if (PATCOM_ARTILLERY_MANAGER) then {
 		// Chance to call Counter Artillery. Temp way to get the AI to fire it.
-		private _counterArtilleryCall = random 10;
-		if (_counterArtilleryCall > 9) then {
+		if (random 10 > 9) then {
 			[getPos _instigator, (random 150), "HE", _unit] call A3A_fnc_artilleryFireMission;
 		};
 	};

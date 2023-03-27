@@ -456,6 +456,7 @@ class CfgFunctions
             class patrolAnimation {};
             class patrolArea {};
             class patrolArmStatics {};
+            class patrolArmVehicle {};
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCallForHelp {};
@@ -478,6 +479,7 @@ class CfgFunctions
             class patrolSideIsEnemy {};
             class patrolSuppressionEH {};
             class patrolUnitHitEH {};
+            class patrolWater {};
         };
 
         class OrgPlayers {

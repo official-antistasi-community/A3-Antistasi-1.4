@@ -44,14 +44,6 @@ private _currentOrders = _patrolParams # 0;
 // Handle Patrol Formations, Exits if already set and time not expired.
 [leader _group] call A3A_fnc_patrolHandleFormation;
 
-if (PATCOM_DEBUG) then {
-	{
-		private _PathEH = _x addEventHandler ["PathCalculated", {
-			_this spawn A3A_fnc_debug3DPath;
-		}];
-	} foreach (units _group);
-};
-
 private _enemyArray = [];
 // Check if enemy combat is near.
 if (count _knownEnemies > 0) then {
@@ -109,5 +101,5 @@ if (_currentOrders == "Patrol_Road") exitWith {
 };
 
 if (_currentOrders == "Patrol_Water") exitWith {
-
+	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#3, _patrolParams#4, _patrolParams#5] call A3A_fnc_patrolWater;
 };

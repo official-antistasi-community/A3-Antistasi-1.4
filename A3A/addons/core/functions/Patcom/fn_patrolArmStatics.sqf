@@ -71,7 +71,12 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 			};
 			_unit moveInGunner _static;
 			_unit setCombatBehaviour "AWARE"; 
-			_unit setUnitCombatMode "YELLOW";					
+			_unit setUnitCombatMode "YELLOW";
+
+			if (typeOf _static in FactionGet(all, "vehiclesArtillery")) then {
+				[_group] call A3A_fnc_artilleryAdd;
+			};
+
 			[_unit, _static, _group] spawn {
 				params ["_unit", "_static", "_group"];
 				private _staticGreen = true;

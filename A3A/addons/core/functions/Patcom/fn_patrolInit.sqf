@@ -34,8 +34,8 @@ publicVariable "PATCOM_ARTILLERY_MANAGER";
 PATCOM_ARTILLERY_DELAY = 5; // How quickly artillery becomes available again after firing in seconds.
 publicVariable "PATCOM_ARTILLERY_DELAY";
 
-PATCOM_AI_REARM = true; // Allow AI to rearm from dead or surrounding boxes.
-publicVariable "PATCOM_AI_REARM";
+PATCOM_AI_VEHICLES = false; // Allow AI to man nearby vehicles and put them to use.
+publicVariable "PATCOM_AI_VEHICLES";
 
 PATCOM_AI_STATICS = true; // Allow AI to find and arm statics near their group.
 publicVariable "PATCOM_AI_STATICS";

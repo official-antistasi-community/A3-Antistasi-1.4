@@ -89,6 +89,14 @@ if ((side leader _group) == civilian) then {
         //private _KilledEH = _x addEventHandler ["Killed",{_this spawn A3A_fnc_patrolCallForHelp;}];
     } forEach units _group;
 
+    if (PATCOM_DEBUG) then {
+        {
+            private _PathEH = _x addEventHandler ["PathCalculated", {
+                _this spawn A3A_fnc_debug3DPath;
+            }];
+        } foreach (units _group);
+    };
+
     _scriptComplete = true;
 };
 

@@ -169,14 +169,24 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		_mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 		if(count _mrkMar > 0) then
 		{
-			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
-			_vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
+			// Getting spawn positions can sometimes return empty array.
+			// We keep trying to get a safe pos until one is found.
+			private _spawnPosition = [];
+			while {(count _spawnPosition <= 2)} do {
+				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 0, 100, 2, 0, 0] call A3A_fnc_getSafePos;
+				sleep 0.001;
+			};
+
+			_vehicle = [_spawnPosition, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 			_veh = _vehicle select 0;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_vehCrew = _vehicle select 1;
-			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
+			{[_x, _markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
 			_groupVeh = _vehicle select 2;
 			_soldiers = _soldiers + _vehCrew;
+
+			[_groupVeh, "Patrol_Water", 25, 200, -1, true, _spawnPosition] call A3A_fnc_patrolLoop;
+
 			_groups pushBack _groupVeh;
 			_vehiclesX pushBack _veh;
 			sleep 1;

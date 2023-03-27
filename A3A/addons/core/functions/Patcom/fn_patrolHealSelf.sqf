@@ -29,7 +29,7 @@ private _CanHeal = false;
 if (alive _unit && {"FirstAidKit" in (items _unit)}) then {
 	if (damage _unit > 0.1) then {
 		if (PATCOM_DEBUG) then {
-			[_Unit, "Healing Self", 10] call A3A_fnc_debugText3D;
+			[_Unit, "HEALING SELF", 5, "Yellow"] call A3A_fnc_debugText3D;
 		};
 		_unit setdamage 0;
 		_unit action ["HealSoldierSelf", _unit];	

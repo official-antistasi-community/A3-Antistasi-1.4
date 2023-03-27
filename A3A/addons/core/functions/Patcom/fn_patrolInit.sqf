@@ -25,14 +25,23 @@ FIX_LINE_NUMBERS()
 PATCOM_DEBUG = true; // Enable PATCOM specific debug.
 publicVariable "PATCOM_DEBUG";
 
-PATCOM_VISUAL_RANGE = 200; // How far should PATCOM look for Enemies.
+PATCOM_VISUAL_RANGE = 200; // How far before PATCOM can start to detect enemies.
 publicVariable "PATCOM_VISUAL_RANGE";
 
-PATCOM_ARTILLERY_MANAGER = false;
+PATCOM_ARTILLERY_MANAGER = true; //Allow Patcome to control AI Artillery. False is default A3 Artillery AI.
 publicVariable "PATCOM_ARTILLERY_MANAGER";
 
-PATCOM_ARTILLERY_DELAY = 4; // How quickly artillery becomes available again.
+PATCOM_ARTILLERY_DELAY = 5; // How quickly artillery becomes available again after firing in seconds.
 publicVariable "PATCOM_ARTILLERY_DELAY";
+
+PATCOM_AI_REARM = true; // Allow AI to rearm from dead or surrounding boxes.
+publicVariable "PATCOM_AI_REARM";
+
+PATCOM_AI_STATICS = true; // Allow AI to find and arm statics near their group.
+publicVariable "PATCOM_AI_STATICS";
+
+PATCOM_AI_STATIC_ARM = 120; // How long AI stay on static weapons after they arm them.
+publicVariable "PATCOM_AI_ARM_STATICS";
 
 // This Hashmap acts as a blacklist to remove unwanted buildings
 PATCOM_Building_Blacklist = createHashMap;

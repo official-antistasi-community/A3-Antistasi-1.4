@@ -37,7 +37,7 @@ if ((leader _group) distance _building > 250) exitwith {};
 [_group, _building] spawn {
     params ["_group", "_building"];
 
-	ServerDebug_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
+	Info_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
 
     private _leader = leader _group;
 	_group lockWP true;

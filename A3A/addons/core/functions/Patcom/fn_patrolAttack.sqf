@@ -40,13 +40,22 @@ params [
 ];
 
 if (count _knownEnemies < 1) exitWith {
-    ServerDebug_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
+    Info_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
 	private _previousOrders = _group getVariable "PATCOM_Previous_Orders";
 	_group setVariable ["PATCOM_Current_Orders", _previousOrders];
     _group setVariable ["PATCOM_Group_State", "CALM"];
 };
 
 [_group, "COMBAT", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
+
+if (PATCOM_DEBUG) then {
+    [leader _group, "ATTACK", 10, "White"] call A3A_fnc_debugText3D;
+};
+
+// If Enabled unit in combat, activly check for statics near their positions to man.
+if (PATCOM_AI_STATICS) then {
+    [_group] call A3A_fnc_patrolArmStatics;
+};
 
 // Set Waypoint Name
 private _waypointName = "PATCOM_PATROL_ATTACK";

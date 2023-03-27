@@ -27,8 +27,9 @@ if !(isServer) then {
 
     // Headless client navgrid init
     if (!hasInterface) then {
-        Info("HC Initialising PATCOM Variables");
-        [] call A3A_fnc_patrolInit;
+        //Note: This shouldn't need to run on HC. But its here if it does eventually.
+        //Info("HC Initialising PATCOM Variables");
+        //[] call A3A_fnc_patrolInit;
 
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists

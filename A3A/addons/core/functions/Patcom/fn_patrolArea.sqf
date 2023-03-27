@@ -46,7 +46,16 @@ private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 if ((side leader _group) == civilian) then {
     [_group, "CARELESS", "NORMAL", "LINE", "BLUE", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 } else {
-    [_group, "SAFE", "LIMITED", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
+    [_group, "SAFE", "LIMITED", "COLUMN", "WHITE", "AUTO"] call A3A_fnc_patrolSetCombatModes;
+    _group setVariable ["PATCOM_Group_State", "CALM"];
+};
+
+if (PATCOM_DEBUG) then {
+    if ((side leader _group) == civilian) then {
+        [leader _group, "CIVILIAN THINGS", 10, "White"] call A3A_fnc_debugText3D;
+    } else {
+        [leader _group, "PATROL AREA", 10, "White"] call A3A_fnc_debugText3D;
+    };
 };
 
 // We check to see if the waypoint is still active after 3 minutes. If waypoint isn't complete the unit is likely stuck.

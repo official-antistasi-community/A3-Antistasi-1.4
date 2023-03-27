@@ -32,7 +32,7 @@ if (_distance < 5) then {
 	
 	if (_UnitSupChk + 10 < time) then {
 		if (PATCOM_DEBUG) then {
-			[_unit, "SUPPRESSED", 10] call A3A_fnc_debugText3D;
+			[_unit, "SUPPRESSED", 2, "Yellow"] call A3A_fnc_debugText3D; // Default text is 10
 		};
 		_unit setCombatBehaviour "COMBAT"; 
 		_unit setUnitCombatMode "RED";
@@ -42,9 +42,11 @@ if (_distance < 5) then {
 		_unit setvariable ["PATCOM_Supp_Time", time];
 	};
 
-	// Chance to call Counter Artillery. Temp way to get the AI to fire it.
-	private _counterArtilleryCall = random 10;
-	if (_counterArtilleryCall > 8) then {
-		[getPos _instigator, (random 150), "HE"] call A3A_fnc_artilleryFireMission;
+	if (PATCOM_ARTILLERY_MANAGER) then {
+		// Chance to call Counter Artillery. Temp way to get the AI to fire it.
+		private _counterArtilleryCall = random 10;
+		if (_counterArtilleryCall > 9) then {
+			[getPos _instigator, (random 150), "HE", _unit] call A3A_fnc_artilleryFireMission;
+		};
 	};
 };

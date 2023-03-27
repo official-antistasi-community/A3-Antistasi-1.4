@@ -33,16 +33,24 @@ params ["_group"];
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group == 0) exitWith {
 	If (PATCOM_DEBUG) then {
-		ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
+		Info_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
 	};
 };
 
 private _knownEnemies = [_group, PATCOM_VISUAL_RANGE] call A3A_fnc_patrolClosestKnownEnemy;
 private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
-private _currentOrders = _patrolParams#0;
+private _currentOrders = _patrolParams # 0;
 
 // Handle Patrol Formations, Exits if already set and time not expired.
 [leader _group] call A3A_fnc_patrolHandleFormation;
+
+if (PATCOM_DEBUG) then {
+	{
+		private _PathEH = _x addEventHandler ["PathCalculated", {
+			_this spawn A3A_fnc_debug3DPath;
+		}];
+	} foreach (units _group);
+};
 
 private _enemyArray = [];
 // Check if enemy combat is near.
@@ -68,7 +76,7 @@ if (count _knownEnemies > 0) then {
 };
 
 If (PATCOM_DEBUG) then {
-	ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
+	Info_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
 };
 
 if (_currentOrders == "Patrol_Attack") exitWith {

@@ -37,7 +37,7 @@ private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
 private _dayState = [] call A3A_fnc_getDayState;
 
 if (_type == "Resource") then {
-	ServerDebug_2("Spawning Resource Civilians in %1 with a radius of %2", _markerX, _locationRadius);
+	Info_2("Spawning Resource Civilians in %1 with a radius of %2", _markerX, _locationRadius);
 
 	// We don't want to add too many civ's.
 	if (_civilianPopulation > _maxSpawnedCivilians) then {
@@ -48,7 +48,7 @@ if (_type == "Resource") then {
 if (_type == "City") then {
 	_buildings = nearestObjects [_positionX, ["House"], _locationRadius];
 
-	ServerDebug_2("Spawning City Civilians in %1 with a radius of %2", _markerX, _locationRadius);
+	Info_2("Spawning City Civilians in %1 with a radius of %2", _markerX, _locationRadius);
 
 	private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX, _positionX] call BIS_fnc_nearestPosition};
 	private _cityData = server getVariable _city;
@@ -164,6 +164,7 @@ if (_type == "City") then {
 // Handle removal of civ's.
 waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
+
 {
 	_x setVariable ["PATCOM_Controlled", false];
 	deleteGroup _x;

@@ -97,7 +97,7 @@ if (_patrol) then
 	};
 };
 
-if ((_frontierX) and (_markerX in outposts)) then
+if (_markerX in outposts) then
 {
 	_typeUnit = _faction get "unitStaticCrew";
 	_typeVehX = selectRandom (_faction get "staticMortars");

@@ -13,7 +13,7 @@
 ["vehiclesLightArmed", ["UK3CB_TKM_I_LR_M2"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["UK3CB_CCM_I_V3S_Closed"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["UK3CB_I_G_Hilux_Spg9"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_TKM_I_V3S_Zu23", "UK3CB_NAP_I_Hilux_Zu23_Front", "UK3CB_MEI_I_Hilux_Vulcan_Front"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_TKM_I_V3S_Zu23", "UK3CB_NAP_I_Hilux_Zu23_Front"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["UK3CB_I_G_Fishing_Boat_SPG9"]] call _fnc_saveToTemplate;
 ["vehiclesRepair", ["UK3CB_CCM_I_V3S_Repair"]] call _fnc_saveToTemplate;

@@ -693,14 +693,14 @@ class Templates
         climate[] = {"arctic"};
     };
 
-    class GM_BW_Desert : GM_Base
-    {
-        side = "Occ";
-        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "Bundeswehr Desert";
-        file = "GM_AI_BW_desert";
-        climate[] = {"tropical","arid"};
-    };
+    //class GM_BW_Desert : GM_Base
+    //{
+    //    side = "Occ";
+    //    flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
+    //    name = "Bundeswehr Desert";
+    //    file = "GM_AI_BW_desert";
+    //    climate[] = {"tropical","arid"};
+    //};
 
     class GM_Reb : GM_Base
     {

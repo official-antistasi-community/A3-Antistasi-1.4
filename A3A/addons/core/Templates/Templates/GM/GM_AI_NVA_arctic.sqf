@@ -211,7 +211,7 @@ _sfLoadoutData set ["slVests", ["gm_gc_army_vest_80_leader_str"]];
 _sfLoadoutData set ["backpacks", ["gm_gc_army_backpack_80_assaultpack_empty_str"]];
 _sfLoadoutData set ["mgBackpacks", ["gm_gc_army_backpack_80_assaultpack_lmg_str", "gm_gc_army_backpack_80_lmg_str"]];
 _sfLoadoutData set ["glBackpacks", ["gm_gc_army_backpack_80_at_str"]];
-_sfLoadoutData set ["helmets", ["gm_gc_army_headgear_m56_cover_str"]];
+_sfLoadoutData set ["helmets", ["gm_gc_army_headgear_m56_cover_win"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02_ghex_F"]];
 
 //SF Weapons
@@ -265,7 +265,7 @@ _militaryLoadoutData set ["slVests", ["gm_gc_army_vest_80_leader_str"]];
 _militaryLoadoutData set ["backpacks", ["gm_gc_army_backpack_80_assaultpack_empty_str"]];
 _militaryLoadoutData set ["mgBackpacks", ["gm_gc_army_backpack_80_assaultpack_lmg_str", "gm_gc_army_backpack_80_lmg_str"]];
 _militaryLoadoutData set ["glBackpacks", ["gm_gc_army_backpack_80_at_str"]];
-_militaryLoadoutData set ["helmets", ["gm_gc_army_headgear_m56_cover_str", "gm_gc_army_headgear_m56_net", "gm_gc_army_headgear_m56"]];
+_militaryLoadoutData set ["helmets", ["gm_gc_army_headgear_m56_cover_win"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_02_ghex_F"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -329,7 +329,7 @@ _militiaLoadoutData set ["slVests", ["gm_pl_army_vest_80_leader_gry"]];
 _militiaLoadoutData set ["maVests", ["gm_pl_army_vest_80_marksman_gry"]];
 _militiaLoadoutData set ["backpacks", ["gm_pl_army_backpack_80_oli"]];
 _militiaLoadoutData set ["glBackpacks", ["gm_pl_army_backpack_at_80_gry"]];
-_militiaLoadoutData set ["helmets", ["gm_pl_army_headgear_wz67_oli", "gm_pl_army_headgear_wz67_net_oli"]];
+_militiaLoadoutData set ["helmets", ["gm_pl_headgear_wz67_cover_win"]];
 
 _militiaLoadoutData set ["rifles", [
     ["gm_mpikm72_prp", "", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""]

@@ -79,6 +79,16 @@ class Events {
             };
         };
     };
+    class civVehInit {
+        isLocal = 1;
+        class params {
+            class _0 {
+                description = "civ vehicle being initialized";
+                types[] = {"OBJECT"};
+                optional = 0;
+            };
+        };
+    };
     class locationSpawned {
         isLocal = 1;
         class params {

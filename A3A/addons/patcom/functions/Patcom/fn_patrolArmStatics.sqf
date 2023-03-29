@@ -4,17 +4,17 @@
 		Checks for open static weapons near the AI group.
 
     Arguments:
-    	
+    	<Object> Group of units you want to search for StaticWeapon.
 
     Return Value:
-    	
+    	N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		
+		[_group] call A3A_fnc_patrolArmStatics;
 
     License: MIT License
 

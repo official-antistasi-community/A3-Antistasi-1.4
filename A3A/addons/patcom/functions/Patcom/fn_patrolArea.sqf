@@ -71,6 +71,9 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
         // Percentage chance on searching a nearby building.
         if (10 > random 100) exitWith {
             [_group] call A3A_fnc_patrolSearchBuilding;
+            if (PATCOM_DEBUG) then {
+                [leader _group, "SEARCH BUILDING", 10, "Green"] call A3A_fnc_debugText3D;
+            };
         };
     };
 

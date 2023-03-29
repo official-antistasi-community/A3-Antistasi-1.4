@@ -34,7 +34,6 @@ class CfgFunctions {
             class patrolArmVehicle {};
             class patrolAttack {};
             class patrolBuildingEnterable {};
-            class patrolCallForHelp {};
             class patrolCivilianCommander {};
             class patrolClosestKnownEnemy {};
             class patrolClosestObject {};

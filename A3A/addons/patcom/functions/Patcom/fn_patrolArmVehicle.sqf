@@ -1,3 +1,26 @@
+/*
+    Author: [Hazey]
+    Description:
+		Checks for open vehicles near the AI group.
+
+    Arguments:
+    	<Object> Group of units you want to search for vehicle.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_group] call A3A_fnc_patrolArmVehicle;
+
+    License: MIT License
+
+	Notes:
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_group"];

@@ -8,6 +8,7 @@
 		<String> - Text.
 		<Number> - How long you want text to display for.
 		<String> - Color you want. Red, Green, Blue, Yellow, White
+		
     Return Value:
     	N/A
 
@@ -17,6 +18,7 @@
 
     Example: 
 		[leader _group, "ATTACK", 10, "White"] call A3A_fnc_debugText3D;
+
     License: MIT License
 */
 #include "..\..\script_component.hpp"

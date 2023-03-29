@@ -4,7 +4,8 @@
 		Debug Utility to draw 3D Paths of AI Units.
 
     Arguments:
-
+		<Object> Unit to show 3D Paths for.
+		<Array> Array of AI paths. See Notes.
     Return Value:
     	N/A
 
@@ -13,6 +14,14 @@
     Public: No
 
     Example: 
+		{
+            private _PathEH = _x addEventHandler ["PathCalculated", {
+                _this spawn A3A_fnc_debug3DPath;
+            }];
+        } foreach (units _group);
+
+	Notes:
+		To use this you have to attach a PathCalculated eventHandler.
 
     License: MIT License
 */

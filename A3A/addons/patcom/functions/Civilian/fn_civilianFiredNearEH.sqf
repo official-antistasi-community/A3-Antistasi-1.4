@@ -28,7 +28,7 @@ params ["_unit", "_firer", "_distance"];
 if (side group _firer == civilian) exitWith {};
 
 // Get a list of tracks from the Civilian Fear tracks hashmap
-private _tracks = keys A3A_Civilian_Amb_Fear_Tracks;
+private _tracks = keys A3A_Civilian_Amb_Tracks;
 
 // If we don't have scream effects, why even bother!
 if (count _tracks == 0) exitWith {

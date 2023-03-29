@@ -1,3 +1,34 @@
+/*
+    Author: [Hazey]
+    Description:
+		Set bulky combat modes.
+
+    Arguments:
+		<Object> Group you want to do the patrolling.
+		<String> What type of patrol unit is doing.
+		<Number> Min distance a unit can move while patrolling.
+		<Number> Max distance a unit can move while patrolling.
+		<Number> Distance unit can move away from its spawn point.
+		<Bool> Should unit use static defined center for patrol, or its last waypoint as center.
+		<Array> Center position unit should patrol around.
+		<Bool> Should group search surrounding buildings.
+
+    Return Value:
+    	N/A
+
+    Scope: Any
+    Environment: Any
+    Public: No
+
+    Example: 
+		[_group, _patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings] call A3A_fnc_patrolSetParams;
+
+    License: MIT License
+
+	Notes:
+		Its Ugly, but it works.
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_group", "_patrolType", "_minDist", "_maxDist", "_dist", "_fromCenter", "_centerPos", "_searchBuildings"];

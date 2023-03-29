@@ -5,10 +5,10 @@
 		Get's the current AI amount and outputs the load.
 
     Arguments:
-    	N/A
+    	<Number> Amount of AI currently spawned.
 
     Return Value:
-    	N/A
+    	<Number> How long to pause the main loop.
 
     Scope: Any
     Environment: Any

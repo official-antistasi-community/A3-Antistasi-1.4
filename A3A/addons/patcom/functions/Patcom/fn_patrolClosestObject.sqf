@@ -4,25 +4,28 @@
 		Checks closest object from an array of objects.
 
     Arguments:
-    	
+    	<Array> List of closest objects.
+		<Object> Object source for finding closest object.
+		<Bool> Sort given array either in ascending (true) or descending (false) order.
 
     Return Value:
-    	
+    	<Object> Returns closest object from list of Objects.
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		
+		_unit = [_unitArray, _x, true, "W1"] call A3A_fnc_patrolClosestObject;
 
     License: MIT License
 
 	Notes:
+		Okay, I know there's a few ways to handle this. It's over engineered for how were using it.
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_list", "_object", ["_order",true]];
+params ["_list", "_object", ["_order", true]];
 
 private _position = [0,0,0];
 if (isNil "_object" || {isNil "_list"}) exitWith {
@@ -61,4 +64,5 @@ private _closestObject = ((_distanceArray # 0) # 1);
 if (isNil "_closestObject") then {
 	_closestObject = [0,0,0];
 };
+
 _closestObject

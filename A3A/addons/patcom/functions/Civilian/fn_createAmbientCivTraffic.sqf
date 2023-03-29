@@ -5,7 +5,6 @@
 
     Arguments:
     	<String> City Marker where you would like the Ambient Civilians traffic created.
-		Note, the marker must be provided from citiesX
 
     Return Value:
     	N/A
@@ -18,6 +17,9 @@
 		[[_marker], "A3A_fnc_createAmbientCivTraffic"] call A3A_fnc_scheduler;
 
     License: MIT License
+
+	Note:
+		The marker must be provided from citiesX
 */
 
 if (!isServer and hasInterface) exitWith{};

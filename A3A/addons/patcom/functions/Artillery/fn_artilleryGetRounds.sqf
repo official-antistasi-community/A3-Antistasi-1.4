@@ -1,90 +1,32 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_roundType", "_vehicle"];
+params ["_roundType", "_artilleryType", "_side"];
 
-private _rounds = 0;
-private _class = ObjNull;
-private _mags = [];
+private _faction = Faction(_side);
+private _shellType = "";
 
-_mags = [_mags, magazinesAmmo _vehicle] call BIS_fnc_arrayPushStack;
-
-//ServerDebug_1("Mags: %1", _mags);
-
-{
+if (_artilleryType in (_faction get "staticMortars")) then {
 	switch (_roundType) do {
-		case "HE": 
-		{
-			private _ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-			private _parents = [(configFile>> "CfgAmmo" >> _ammo), true] call BIS_fnc_returnParents;
-	
-			If ("ShellBase" in _parents) then {
-				_class = _x select 0;
-				_rounds = _rounds + (_x select 1);
-			};
+		case "HE": {
+			_shellType = _faction get "mortarMagazineHE";
+			Info_1("HE: %1", _shellType);
+		};
+
+		case "SMOKE": {
+			_shellType = _faction get "mortarMagazineSmoke";
+			Info_1("SMOKE: %1", _shellType);
 		};
 		
-		case "AT": 
-		{
-			private _ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-			private _cfg = tolower gettext (configFile>> "CfgAmmo" >> _ammo >> "submunitionAmmo");
-	
-			If (_cfg == "M_Mo_82mm_AT_LG") then {
-				_class = _x select 0;
-				_rounds = _rounds + (_x select 1);
-			};
-		};
-		
-		case "SMOKE": 
-		{
-			private _ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-			private _cfg = tolower gettext (configFile>> "CfgAmmo" >> _ammo >> "submunitionAmmo");
-	
-			If (_cfg == "SmokeShellArty") then {
-				_class = _x select 0;
-				_rounds = _rounds + (_x select 1);
-			};
-
-			if (A3A_hasRHS) then {
-				if (_cfg == "rhs_ammo_d832du_smoke") then {
-					_class = _x select 0;
-					_rounds = _rounds + (_x select 1);
-				};
-			};
-		};
-		
-		case "ILLUM": 
-		{
-			private _ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-			private _parents = [(configFile>> "CfgAmmo" >> _ammo),true] call BIS_fnc_returnParents;
-	
-			If ("FlareCore" in _parents) then {
-				_class = _x select 0;
-				_rounds = _rounds + (_x select 1);
-			};
-
-			if (A3A_hasRHS) then {
-				_ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-
-				if (_ammo == "rhs_ammo_3vs25m") then {
-					_class = _x select 0;
-					_rounds = _rounds + (_x select 1);
-				};
-			};
+		case "FLARE": {
+			_shellType = _faction get "mortarMagazineFlare";
+			Info_1("FLARE: %1", _shellType);
 		};
 
-		default
-		{
-			private _ammo = tolower gettext (configFile>> "CfgMagazines" >> (_x select 0) >> "ammo");
-			private _parents = [(configFile>> "CfgAmmo" >> _ammo), true] call BIS_fnc_returnParents;
-	
-			If ("ShellBase" in _parents) then {
-				_class = _x select 0;
-				_rounds = _rounds + (_x select 1);
-			};
+		default {
+			_shellType = _faction get "mortarMagazineHE";
+			Info_1("DEFAULT: %1", _shellType);
 		};
-	};	
-} foreach _mags;
-
-private _result = [_rounds, _class];
-//ServerDebug_1("_result: %1", _result);
-_result
+	};
+};
+Info_1("RETURN: %1", _shellType);
+_shellType

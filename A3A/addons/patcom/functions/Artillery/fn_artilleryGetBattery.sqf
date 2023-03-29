@@ -7,7 +7,6 @@ private _batteryArray = [];
 
 {
 	if !(_x getVariable ["PATCOM_ArtilleryBusy", false]) then {
-		//ServerDebug_1("Artillery Group Found %1", _x);
 		{
 			private _veh = vehicle _x;
 			private _class = typeOf _veh;
@@ -16,7 +15,6 @@ private _batteryArray = [];
 				if (_artyChk isEqualTo 1) then {
 					if !(_veh in _batteryArray) then {
 						_batteryArray pushBack _veh;
-						//ServerDebug_1("Artillery Vehicle Found %1", _veh);
 					};
 				};
 			};

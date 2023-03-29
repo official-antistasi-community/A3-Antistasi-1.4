@@ -31,5 +31,5 @@ private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 if (count units _group <= 0) exitWith {};
 
 if ((side leader _group) == civilian) then {
-	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#3] call A3A_fnc_patrolArea;
+	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#3,_patrolParams#4,_patrolParams#5,_patrolParams#6,_patrolParams#7] call A3A_fnc_patrolArea;
 };

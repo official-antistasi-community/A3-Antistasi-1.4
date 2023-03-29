@@ -67,9 +67,8 @@ if (_group getVariable "PATCOM_WaypointTime" < serverTime) exitWith {
 // Check for current waypoints and make sure they are type MOVE for patrol
 if (currentWaypoint _group == count waypoints _group || waypointType [_group, currentWaypoint _group] != "MOVE") then {
     if (_searchBuildings) then {
-
         // Percentage chance on searching a nearby building.
-        if (10 > random 100) exitWith {
+        if (25 > random 100) exitWith {
             [_group] call A3A_fnc_patrolSearchBuilding;
             if (PATCOM_DEBUG) then {
                 [leader _group, "SEARCH BUILDING", 10, "Green"] call A3A_fnc_debugText3D;

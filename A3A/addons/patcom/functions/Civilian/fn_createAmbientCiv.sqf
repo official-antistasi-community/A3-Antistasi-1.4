@@ -67,7 +67,7 @@ if (_type == "City") then {
 		_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 		[_civPress] spawn A3A_fnc_CIVinit;
 		_civilians pushBack _civPress;
-		[_groupX, "Patrol_Area", 5, 50, 300, false, [], true] call A3A_fnc_patrolLoop;
+		[_groupX, "Patrol_Area", 5, 50, 300, false, [], false] call A3A_fnc_patrolLoop;
 	};
 };
 

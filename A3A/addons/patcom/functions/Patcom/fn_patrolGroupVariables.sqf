@@ -47,7 +47,7 @@ If (PATCOM_DEBUG) then {
 if ((side leader _group) == civilian) then {
     // Patrol Type, Min Patrol, Max Patrol, Max Distance, From Center, Center Pos, Search Buildings
     if ((count (_group getVariable ["PATCOM_Patrol_Params", []])) == 0) then {
-        _group setVariable ["PATCOM_Patrol_Params", ["Civilian", 10, 50 + (random 50), -1, true, getPos (leader _group), false]];
+        _group setVariable ["PATCOM_Patrol_Params", ["Civilian", 10, 50 + (random 50), -1, true, getPos (leader _group), true]];
     };
 
     _group setVariable ["PATCOM_Patrol_Home", getPos (leader _group)];

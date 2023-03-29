@@ -392,11 +392,9 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\LTC);
             class canLoot {};
             class canTransfer {};
-            class carryCrate {};
             class initLootToCrate {};
             class lootFromContainer {};
             class lootToCrate {};
-            class spawnCrate {};
         };
 
         class Missions {

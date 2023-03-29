@@ -55,6 +55,11 @@ clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;
 clearBackpackCargoGlobal _boxX;
 [_boxX] call A3A_Logistics_fnc_addLoadAction;
+private _jipKey = "A3A_movableObject_" + ((str _crate splitString ":") joinString "");
+[_boxX, _jipKey] remoteExecCall ["A3A_fnc_initMovableObject", 0, _jipKey];
+if (LootToCrateEnabled) then {
+	[_boxX, _jipKey] remoteExecCall ["A3A_fnc_initLootToCrate", 0, _jipKey];
+};
 
 // move all unit's equipment except uniform into the surrender crate
 private _loadout = getUnitLoadout _unit;

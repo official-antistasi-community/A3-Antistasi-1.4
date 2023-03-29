@@ -8,7 +8,7 @@ Arguments:
 3.  <array>     callback functions, [[name, isGlobal - > true if need exec]]
 
 Return Value:
-    <nil>
+1.  <object>    spawned object
 
 Scope: Clients
 Environment: Unscheduled
@@ -76,3 +76,4 @@ _item setVariable ["A3A_itemPrice", _price, true];
         [_item] call (missionNamespace getVariable _func_name);
     };
 } foreach (_callbacks);
+_item

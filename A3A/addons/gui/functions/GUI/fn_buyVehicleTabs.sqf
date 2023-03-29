@@ -461,7 +461,7 @@ if  (_tab in ["other"]) then
         };
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
-            10,
+            25,
             "A3A_fnc_buyItem",
             [
                 player,
@@ -474,6 +474,32 @@ if  (_tab in ["other"]) then
             false,
             "Light"
         ];
+
+        if(A3A_hasACE) then {
+            _buyableItemList pushBack [
+                "ACE_Wheel",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Wheel",
+                    5
+                ], 
+                false
+            ];
+
+            _buyableItemList pushBack [
+                "ACE_Track",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Track",
+                    5
+                ], 
+                false
+            ];
+        };
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 

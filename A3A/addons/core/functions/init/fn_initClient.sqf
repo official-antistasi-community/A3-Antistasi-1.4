@@ -283,6 +283,11 @@ if (A3A_hasACE) then {
         params ["_explosive","_dir","_pitch","_unit"];
         if (_unit == player) then { player setCaptive false };
     }] call CBA_fnc_addEventHandler;
+
+    ["ace_towing_ropeDeployed", {
+        params ["_unit", "_target", "_ropeClass"]
+        if (_unit == player) then { player setCaptive false };
+    }] call CBA_fnc_addEventHandler;    
 };
 
 // Prevent players getting shot by their own AIs. EH is respawn-persistent

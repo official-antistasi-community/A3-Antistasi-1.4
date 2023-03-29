@@ -7,8 +7,7 @@ petros setSkill 1;
 petros setVariable ["respawning",false];
 petros allowDamage false;
 
-[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros"] call BIS_fnc_setIdentity;
-[petros, ["Petros", "", ""]] remoteExec ["setName", 0, petros];         // because BIS_fnc_setIdentity doesn't override full name
+[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros"] call A3A_fnc_setIdentity;
 
 removeHeadgear petros;
 removeGoggles petros;

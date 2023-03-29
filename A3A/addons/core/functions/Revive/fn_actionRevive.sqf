@@ -16,12 +16,6 @@ if !([_medic] call A3A_fnc_canFight) exitWith
     if (_player) then { ["Revive", "You are not able to revive anyone."] call A3A_fnc_customHint };
     false
 };
-if (([_cured] call A3A_fnc_fatalWound) and !_isMedic) exitWith
-{
-    if (_player) then {["Revive", format ["%1 is injured by a fatal wound, only a medic can revive him.",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 is injured by a fatal wound, only a medic can revive him.",name _cured]};
-    false
-};
 if !(isNull attachedTo _cured) exitWith
 {
     if (_player) then {["Revive", format ["%1 is being carried or transported and you cannot heal him.",name _cured]] call A3A_fnc_customHint;};
@@ -37,7 +31,7 @@ if !(_cured getVariable ["incapacitated",false]) exitWith
 
 private _medkits = ["Medikit"] + (A3A_faction_reb get "mediKits");    // Medikit is kept in case a unit still got hold of it.
 private _firstAidKits = ["FirstAidKit"] + (A3A_faction_reb get "firstAidKits");    // FirstAidKit is kept in case a unit still got hold of it.
-private _hasMedkit = (count (_medkits arrayIntersect items _medic) > 0);
+private _hasMedkit = (count (_medkits arrayIntersect (items _medic + items _cured)) > 0);
 private _medicFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items _medic };
 private _curedFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items _cured };
 
@@ -48,21 +42,10 @@ if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
     false
 };
 
-private _timer = if ([_cured] call A3A_fnc_fatalWound) then
-{
-    time + 35 + (random 20)
-}
-else
-{
-    if (_isMedic) then
-    {
-        time + 10 + (random 5)
-    }
-    else
-    {
-        time + 15 + (random 10)
-    };
-};
+private _timer = [10, A3A_reviveTime] select _inPlayerGroup;
+if ([_cured] call A3A_fnc_fatalWound) then { _timer = _timer * 2 };
+if (!_isMedic) then { _timer = _timer * 2 };
+_timer = (_timer * (1 + random 0.5)) + time;
 
 _medic setVariable ["helping",true];
 _medic playMoveNow selectRandom medicAnims;
@@ -132,7 +115,7 @@ if (!([_medic] call A3A_fnc_canFight)) exitWith
 };
 
 // Successful revive
-if (_isMedic) then {_cured setDamage 0.25} else {_cured setDamage 0.5};
+if (_isMedic) then {_cured setDamage 0} else {_cured setDamage 0.25};
 if (!_hasMedkit) then {
     if (count _medicFAKs == 0) then { _cured removeItem selectRandom _curedFAKs }
     else { _medic removeItem selectRandom _medicFAKs };

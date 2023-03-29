@@ -4789,6 +4789,21 @@
         <Spanish>Ya estas llevando algo</Spanish>
         <Polish>Już coś nosisz.</Polish>
       </Key>
+      <Key ID="STR_A3A_Utility_Items_Last_Time_Purchase">
+        <Original>You already bought one, wait %1 seconds before you can buy another.</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Insufficient_Funds">
+        <Original>You can't afford this Item.</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Purchase_Title">
+        <Original>Item Purchase</Original>
+      </Key>
+      <Key ID="STR_A3A_Packable_Objects_Title">
+        <Original>Packing Objects</Original>
+      </Key>
+      <Key ID="STR_A3A_Packable_Objects_refunding_error">
+        <Original>refunding money due to error</Original>
+      </Key>
     </Container>
     <Container name="time_units">
       <!--Note the lack of front spacing on abbreviations.-->
@@ -5050,19 +5065,20 @@
         <Polish>Zakończono ładowanie serwera.</Polish>
         <Portuguese>Carregamento servidor concluida</Portuguese>
       </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_waitserver">
+        <Original>Waiting for server...</Original>
+      </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminwait">
-        <Original>Waiting for an admin to start the game.</Original>
-        <Czech>Čekání na odstartování hry adminem.</Czech>
-        <French>En attente d'un admin pour démarrer la partie.</French>
-        <Italian>Aspettando che un admin faccia iniziare la partita</Italian>
-        <Chinesesimp>等待管理员启动游戏</Chinesesimp>
-        <Korean>관리자가 게임을 시작하기를 기다리는 중</Korean>
-        <Russian>Ожидание начала игры администратором.</Russian>
-        <Polish>Oczekiwanie na rozpoczęcie gry przez administratora.</Polish>
-        <Portuguese>A espera de um admin para iniciar jogo</Portuguese>
+        <Original>Waiting for an admin to log in...</Original>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_autostartwait">
+        <Original>Waiting for an admin to log in, or autostart timeout...</Original>
+      </Key>
+      <Key ID="STR_A3A_feedback_serverinfo_adminsetup">
+        <Original>Admin is setting up the game.</Original>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_background">
-        <Original>Waiting for background init to complete.</Original>
+        <Original>Waiting for background init to complete...</Original>
         <Czech>Čekání na dokončení inicializace na pozadí</Czech>
         <French>En attente de la fin de l'initialisation.</French>
         <Italian>Aspettando che l'inizializzazione di background sia completata.</Italian>
@@ -5092,6 +5108,117 @@
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission">
         <Original>"This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version."</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_garrisons">
+      <Key ID="STR_A3A_garrison_header">
+        <Original>Garrison</Original>
+        <Russian>Гарнизон</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrisons_header">
+        <Original>Garrisons</Original>
+        <Russian>Гарнизоны</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_full_limit">
+        <Original>This garrison is full, choose another zone to add this HC squad into it's garrison.</Original>
+        <Russian>Этот гарнизон полон, выберите другую локацию для того чтобы добавить этот отряд в гарнизон.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_exceed_limit">
+        <Original>Adding this squad to garrison will exceed garrison limit. Some of them will join garrison, the rest will be dismissed and their cost will be refunded.</Original>
+        <Russian>Добавление этого отряда в гарнизон превысит лимит гарнизона. Какая-то их часть присоединится к гарнизону, оставшиеся будут распущены, а их стоимость будет возмещена.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_reached_limit">
+        <Original>Garrison limit has reached, you can't add new units anymore.</Original>
+        <Russian>Достигнут лимит гарнизона, вы больше не можете добавлять в него новые юниты.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_select_zone">
+        <Original>Select the zone on where you will send the selected troops as garrison.</Original>
+        <Russian>Выберите зону, куда вы отправите выбранные войска в качестве гарнизона.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_not_markerzone">
+        <Original>You must select any %1 zone with marker.</Original>
+        <Russian>Вы должны выбрать любую зону %1 с маркером.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_not_teamplayer">
+        <Original>Selected zone does not belong to %1.</Original>
+        <Russian>Выбранная зона не принадлежит %1.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_wrong_type">
+        <Original>You can't manage garrisons on this kind of zone.</Original>
+        <Russian>Вы не можете управлять гарнизонами у зоны этого типа.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_already_in_garrison">
+        <Original>Selected units are already in garrison.</Original>
+        <Russian>Выбранные юниты уже в гарнизоне.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_no_specific_squads">
+        <Original>You can't add units to player led, Watchpost, Roadblocks or Minefield building squads.</Original>
+        <Russian>Вы не можете добавлять юниты в ведомые игроком отряды, сторожевые посты, блокпосты и отряды строителей минных полей.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_dead_units">
+        <Original>Dead or player-controlled units can't be added to garrison.</Original>
+        <Russian>Мертвые или контролируемые игроком юниты не могут быть добавлены в гарнизон.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_no_specific_units">
+        <Original>Static crewmen, prisoners, refugees, Petros or unknown units cannot be added to garrison.</Original>
+        <Russian>Расчёты стационарных орудий, пленные, беженцы, Петрос или неизвестные юниты не могут быть добавлены в гарнизон.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_adding_to_garrison">
+        <Original>Adding units to garrison...</Original>
+        <Russian>Добавление юнитов в гарнизон...</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_adding_to_garrison_hc">
+        <Original>Adding %1 squad to garrison...</Original>
+        <Russian>Добавление отряда %1 в гарнизон...</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_fail_zone_lost">
+        <Original>%1 group has returned to HC control as the zone which was planned to be garrisoned has been lost.</Original>
+        <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_no_hr">
+        <Original>You lack HR to recruit units.</Original>
+        <Russian>Вам не хватает HR, чтобы добавить новый юнит в гарнизон.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_no_money">
+        <Original>You don't have enough money for adding this kind of unit (%1€ needed).</Original>
+        <Russian>У вас недостаточно денег для добавления такого юнита (необходимо %1€).</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_recruit_success">
+        <Original>Unit has been recruited.%1</Original>
+        <Russian>Юнит нанят в гарнизон.%1</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_enemies_near">
+        <Original>You can't recruit units into garrison when enemies are near the zone.</Original>
+        <Russian>Вы не можете набирать юниты в гарнизон, когда враги находятся рядом с зоной.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_still_updating">
+        <Original>This garrison is still updating, please try again in a few seconds.</Original>
+        <Russian>Этот гарнизон все еще обновляется, повторите попытку через несколько секунд.</Russian>
+      </Key>
+      <Key ID="STR_A3A_garrison_error_no_mortar">
+        <Original>You can't add mortars to Roadblock or Watchpost garrisons.</Original>
+        <Russian>Вы не можете добавлять минометы в гарнизоны блокпостов и сторожевых постов.</Russian>
+      </Key>
+    </Container>
+    <Container name="A3A_GCTracker">
+      <Key ID="STR_A3A_GCTracker_tracker_title">
+        <Original>Garbage Cleaner Tracker</Original>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_tracker_notification">
+        <Original>Last Garbage Clean was %1 ago. Keep track of it.</Original>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
+        <Original>"Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times."</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_customHint">
+      <Key ID="STR_A3A_customHint_dismiss_no_key">
+        <Original>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Previous Hints&lt;br/&gt;Bind dismiss key by: &lt;t color='#f0d498'&gt;Escape Menu&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLS&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;SHOW: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Dismiss Previous Hint&lt;/t&gt;&lt;/t&gt;</Original>
+        <Russian>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 предыдущих подсказок&lt;br/&gt;Назначить клавишу закрытия подсказок: &lt;t color='#f0d498'&gt;Меню паузы&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;НАСТРОЙКА&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;УПРАВЛЕНИЕ&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;ФИЛЬТР: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Закрыть предыдущую подсказку&lt;/t&gt;&lt;/t&gt;</Russian>
+      </Key>
+      <Key ID="STR_A3A_customHint_dismiss">
+        <Original>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Press &lt;t color='#%3'&gt;%4&lt;/t&gt; to dismiss hint. +%5&lt;/t&gt;</Original>
+        <Russian>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Нажмите &lt;t color='#%3'&gt;%4&lt;/t&gt; чтобы закрыть подсказку. +%5&lt;/t&gt;</Russian>
       </Key>
     </Container>
   </Package>

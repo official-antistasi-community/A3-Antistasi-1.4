@@ -39,7 +39,7 @@ if (_typeX == "ATMine") then
 if (_x select 0 == _typeM) exitWith {_quantity = _x select 1}
 } forEach _pool;
 
-if (_quantity < 5) exitWith {["Minefields", "You need at least 5 mines of this type to build a Minefield."] call A3A_fnc_customHint;};
+if (_quantity < 5 && _quantity isNotEqualTo -1) exitWith {["Minefields", "You need at least 5 mines of this type to build a Minefield."] call A3A_fnc_customHint;};
 
 if (!visibleMap) then {openMap true};
 positionTel = [];

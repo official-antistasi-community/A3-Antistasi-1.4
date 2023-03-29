@@ -23,6 +23,9 @@ isNil {
 
 respawnTeamPlayer setMarkerPos _newPosition;
 posHQ = _newPosition; publicVariable "posHQ";
+"Synd_HQ" setMarkerPos _newPosition;
+chopForest = false; publicVariable "chopForest";
+
 
 [respawnTeamPlayer, 1, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
 [respawnTeamPlayer, 1, civilian] call A3A_fnc_setMarkerAlphaForSide;
@@ -60,7 +63,4 @@ mapX hideObjectGlobal false;
 fireX hideObjectGlobal false;
 flagX hideObjectGlobal false;
 
-
-"Synd_HQ" setMarkerPos _newPosition;
-chopForest = false; publicVariable "chopForest";
 

@@ -5,6 +5,11 @@ if (isServer) then {
     Info("Starting Persistent Load.");
 	petros allowdamage false;
 
+	// Set all main markers to occupant control by default, overridden by mrkSDK & mrkCSAT
+	{ 
+		if (sidesX getVariable _x != Occupants) then { sidesX setVariable [_x, Occupants, true] };
+	} forEach (airportsX + resourcesX + factories + outposts + seaports);
+
 	A3A_saveVersion = 0;
 	["version"] call A3A_fnc_getStatVariable;
 	["outpostsFIA"] call A3A_fnc_getStatVariable;
@@ -56,20 +61,15 @@ if (isServer) then {
 	// obsolete since rebelGear
 	//unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 
+	// Set enemy roadblock allegiance to match nearest main marker
+	private _mainMarkers = markersX - controlsX - outpostsFIA;
 	{
 		if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-			_positionX = getMarkerPos _x;
-			_nearX = [(markersX - controlsX - outpostsFIA),_positionX] call BIS_fnc_nearestPosition;
-			_sideX = sidesX getVariable [_nearX,sideUnknown];
+			private _nearX = [_mainMarkers, markerPos _x] call BIS_fnc_nearestPosition;
+			private _sideX = sidesX getVariable [_nearX,sideUnknown];
 			sidesX setVariable [_x,_sideX,true];
 		};
 	} forEach controlsX;
-
-	{
-		if (sidesX getVariable [_x,sideUnknown] == sideUnknown) then {
-			sidesX setVariable [_x,Occupants,true];
-		};
-	} forEach markersX;
 
 	{
 		[_x] call A3A_fnc_mrkUpdate
@@ -144,7 +144,6 @@ if (isServer) then {
 	["tasks"] call A3A_fnc_getStatVariable;
 
 	statsLoaded = 0; publicVariable "statsLoaded";
-	placementDone = true; publicVariable "placementDone";
 	petros allowdamage true;
 };
 Info("loadServer Completed.");

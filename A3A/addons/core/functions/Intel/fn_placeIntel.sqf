@@ -151,8 +151,8 @@ private _ehId = _building addEventHandler ["Killed", {
 		deleteVehicle _intel;
 	};
 
-	if (!isNull _desk) then {
-		_desk enableSimulation true;
+	if (!isNull _desk && {!simulationEnabled _desk}) then {
+		[_desk, true] remoteExec ["enableSimulationGlobal",2];
 	};
 
 	_building removeEventHandler ["Killed",_thisEventHandler];

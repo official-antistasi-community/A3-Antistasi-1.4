@@ -35,7 +35,7 @@ _object addAction [
         (([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
         and (attachedTo _target isEqualTo objNull)
     )", 
-    4
+    8
 ];
 
 _object addAction [
@@ -51,7 +51,7 @@ _object addAction [
     "(
         !(_this getVariable ['A3A_rotatingObject',false])
     )",
-    4
+    8
 ];
 
 nil;

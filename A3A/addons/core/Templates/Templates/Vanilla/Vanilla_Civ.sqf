@@ -120,7 +120,7 @@ if (allowDLCOrange) then {
   ];
 };
 
-if (allowDLCWS && A3A_hasWS) then {
+if (allowDLCWS) then {
   _dlcUniforms append [
     "U_lxWS_C_Djella_01",
     "U_lxWS_C_Djella_02",

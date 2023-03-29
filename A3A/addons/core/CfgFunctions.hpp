@@ -5,6 +5,7 @@ class CfgFunctions
     {
         class AI {
             file = QPATHTOFOLDER(functions\AI);
+            class AIdrag {};
             class airbomb {};
             class AIreactOnKill {};
             class artySupport {};
@@ -129,6 +130,7 @@ class CfgFunctions
             class flagaction {};
             class fogCheck {};
             class garbageCleaner {};
+            class garbageCleanerTracker {};
             class garrisonInfo {};
             class getAggroLevelString {};
             class getRecentDamage {};
@@ -334,6 +336,7 @@ class CfgFunctions
             class updatePreference {};
             class updateReinfState {};
             class updateVehicles {};
+            class getGarrisonLimit {};
         };
 
         class init {
@@ -741,6 +744,8 @@ class CfgFunctions
             class getAdmin {};
             class localLog {};
             class log {};
+            class setIdentity {};
+            class setIdentityLocal {};
             class setPos {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
@@ -756,12 +761,16 @@ class CfgFunctions
             class buyItem {};
             class attachedObjects {};
             class dropObject {};
-            class remainingFuel {}
+            class medicalBox {};
+            class medicalBoxFill {};
+            class openDoorsTent {};
+            class remainingFuel {};
             class teamLeaderRTSPlacer {};
             class initBuildingDB {};
             class initTeamLeaderBox {};
             class placeBuilderObjects {};
             class eachFrameEventHanderPlacer {};
+
         };
     };
 };

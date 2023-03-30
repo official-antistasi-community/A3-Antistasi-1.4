@@ -7,6 +7,7 @@ class CfgFunctions {
             class artilleryFireMission {};
             class artilleryGetBattery {};
             class artilleryGetRounds {};
+            class getReloadTime {};
         };
 
         class Civilian {

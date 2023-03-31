@@ -104,7 +104,9 @@ if (_patrol) then
         _arrayGroups = _faction get (if (_isFIA) then {"groupsMilitiaSmall"} else {"groupsSmall"});
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
-		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		_groupX = [_spawnPosition, _sideX, _typeGroup, false, true] call A3A_fnc_spawnGroup;
+
 		if !(isNull _groupX) then
 		{
 			sleep 1;
@@ -115,8 +117,10 @@ if (_patrol) then
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
-			_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
+			
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 		};
 		_countX = _countX +1;
@@ -130,37 +134,6 @@ _flagX allowDamage false;
 _vehiclesX pushBack _flagX;
 if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
-if (not(_markerX in destroyedSites)) then
-{
-	if ((daytime > 8) and (daytime < 18)) then
-	{
-		_groupX = createGroup civilian;
-		_groups pushBack _groupX;
-		for "_i" from 1 to 4 do
-		{
-			_civ = [_groupX, FactionGet(civ, "unitWorker"), _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
-			_nul = [_civ] spawn A3A_fnc_CIVinit;
-			_civs pushBack _civ;
-			_civ setVariable ["markerX",_markerX,true];
-			sleep 0.5;
-			_civ addEventHandler ["Killed",
-				{
-					if (({alive _x} count (units group (_this select 0))) == 0) then
-					{
-						_markerX = (_this select 0) getVariable "markerX";
-						_nameX = [_markerX] call A3A_fnc_localizar;
-						destroyedSites pushBackUnique _markerX;
-						publicVariable "destroyedSites";
-						["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
-					};
-				}];
-		};
-		//_nul = [_markerX,_civs] spawn destroyCheck;
-		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
-	};
-};
-
-//_pos = _positionX findEmptyPosition [5,_size,"I_Truck_02_covered_F"];//donde pone 5 antes ponía 10
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
@@ -194,31 +167,27 @@ while {_countX <= _radiusX} do
 	_countX = _countX + 8;
 };
 
-for "_i" from 0 to (count _array - 1) do
-	{
-	_groupX = if (_i == 0) then
-	{
-		[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup
-	}
-	else
-	{
-		[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup
+for "_i" from 0 to (count _array - 1) do {
+	_groupX = if (_i == 0) then {
+		[_positionX,_sideX, (_array select _i),true, false] call A3A_fnc_spawnGroup;
+	} else {
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 	_groups pushBack _groupX;
+
 	{
-		[_x,_markerX] call A3A_fnc_NATOinit;
+		[_x, _markerX] call A3A_fnc_NATOinit;
 		_soldiers pushBack _x;
 	} forEach units _groupX;
-	if (_i == 0) then
-	{
-		//Can't we just precompile this and call this like every other funtion? Would save some time
-		_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP","SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
-	}
-	else
-	{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
+
+	if (_i == 0) then {
+		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+	} else {
+		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};
-	};//TODO need delete UPSMON link
+};
+
 ["locationSpawned", [_markerX, "Resource", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
@@ -230,7 +199,11 @@ deleteMarker _mrk;
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _civs;
 { deleteVehicle _x } forEach _dogs;
-{ deleteGroup _x } forEach _groups;
+
+{ 
+	_x setVariable ["PATCOM_Controlled", ""];
+	deleteGroup _x ;
+} forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

@@ -106,8 +106,8 @@ _lineIndex = 0;
         ];
         sleep 0.25;
     } forEach _crewArray;
-    [leader _groupX, _marker, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
 
+    [_groupX, getMarkerPos _markerX, _patrolSize] call A3A_fnc_patrolGroupGarrison;
 
     private _forcePatrol = ((count _allGroups) > ((count _patrolGroups) * 3));
     _groupSoldier = createGroup _side;
@@ -172,11 +172,11 @@ if(((_patrolMarkerSize select 0) < (_mainMarkerSize select 0)) || {(_patrolMarke
 _patrolMarker setMarkerSizeLocal _patrolMarkerSize;
 
 {
-  [leader _x, _marker, "SAFE", "SPAWNED", "RANDOM", "NOFOLLOW", "NOVEH"] spawn UPSMON_fnc_UPSMON;
+  [_x, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 } forEach _stayGroups;
 
 {
-  [leader _x, _patrolMarker, "SAFE", "SPAWNED", "RANDOM","NOVEH2"] spawn UPSMON_fnc_UPSMON;
+  [_x, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 } forEach _patrolGroups;
 
 /*

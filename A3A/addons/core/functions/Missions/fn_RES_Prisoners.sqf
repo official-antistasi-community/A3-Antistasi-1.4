@@ -35,7 +35,7 @@ private _taskId = "RES" + str A3A_taskCount;
 _posHouse = [];
 _countX = 0;
 //_houses = nearestObjects [_positionX, ["house"], 50];
-_houses = (nearestObjects [_positionX, ["house"], 50]) select {!((typeOf _x) in UPSMON_Bld_remove)};
+_houses = (nearestObjects [_positionX, ["house"], 50]) select {!((typeOf _x) in Bld_remove)};
 _houseX = "";
 _potentials = [];
 for "_i" from 0 to (count _houses) - 1 do

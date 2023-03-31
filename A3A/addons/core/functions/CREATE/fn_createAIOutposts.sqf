@@ -82,22 +82,23 @@ if (_patrol) then
 		if !(isNull _groupX) then
 		{
 			sleep 1;
-			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
-			{
+			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then {
 				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
-			[leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
+			
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 		};
 		_countX = _countX +1;
 	};
 };
 
-if ((_frontierX) and (_markerX in outposts)) then
+if (_markerX in outposts) then
 {
 	_typeUnit = _faction get "unitStaticCrew";
 	_typeVehX = selectRandom (_faction get "staticMortars");
@@ -107,7 +108,9 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_spawnsUsed pushBack _spawnParameter#2;
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
-		_nul=[_veh] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
+
+		[_groupX] call A3A_fnc_artilleryAdd;
+
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _veh;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -169,14 +172,24 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		_mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 		if(count _mrkMar > 0) then
 		{
-			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
-			_vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
+			// Getting spawn positions can sometimes return empty array.
+			// We keep trying to get a safe pos until one is found.
+			private _spawnPosition = [];
+			while {(count _spawnPosition <= 2)} do {
+				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 0, 100, 2, 0, 0] call A3A_fnc_getSafePos;
+				sleep 0.001;
+			};
+
+			_vehicle = [_spawnPosition, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
 			_veh = _vehicle select 0;
 			[_veh, _sideX] call A3A_fnc_AIVEHinit;
 			_vehCrew = _vehicle select 1;
-			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
+			{[_x, _markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
 			_groupVeh = _vehicle select 2;
 			_soldiers = _soldiers + _vehCrew;
+
+			[_groupVeh, "Patrol_Water", 25, 200, -1, true, _spawnPosition] call A3A_fnc_patrolLoop;
+
 			_groups pushBack _groupVeh;
 			_vehiclesX pushBack _veh;
 			sleep 1;
@@ -299,32 +312,28 @@ while {_countX <= _radiusX} do
 	_countX = _countX + 8;
 };
 
-for "_i" from 0 to (count _array - 1) do
-{
-	//What is so special about the first?
-	_groupX = if (_i == 0) then
-	{
-		[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup
-	}
-	else
-	{
-		[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup
+for "_i" from 0 to (count _array - 1) do {
+	_groupX = if (_i == 0) then {
+		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
+	} else {
+		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
+
 	_groups pushBack _groupX;
+
 	{
 		[_x,_markerX] call A3A_fnc_NATOinit;
 		_soldiers pushBack _x;
 	} forEach units _groupX;
-	if (_i == 0) then
-	{
-		//Can't we just precompile this and call this like every other funtion? Would save some time
-		_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
-	}
-	else
-	{
-		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
+
+	// Garrison the first group into buildings
+	if (_i == 0) then {
+		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+	} else {
+		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};
-};//TODO need delete UPSMON link
+};
 ["locationSpawned", [_markerX, "Outpost", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
@@ -335,7 +344,11 @@ deleteMarker _mrk;
 
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _dogs;
-{ deleteGroup _x } forEach _groups;
+
+{ 
+	_x setVariable ["PATCOM_Controlled", ""];
+	deleteGroup _x ;
+} forEach _groups;
 
 {
 	// delete all vehicles that haven't been stolen

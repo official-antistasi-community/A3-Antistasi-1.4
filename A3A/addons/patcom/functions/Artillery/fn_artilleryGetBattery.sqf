@@ -1,5 +1,24 @@
-// Returns array of available battery groups
+/*
+	Author: [Hazey]
+	Description:
+		Returns an array of available artillery batteries.
 
+	Arguments:
+		N/A
+
+	Return Value:
+		<Array> A list of available battery units.
+
+	Scope: Any
+	Environment: Any
+	Public: No
+
+	Example: 
+		private _batteryUnits = [] call A3A_fnc_artilleryGetBattery;
+
+	License: MIT License
+	TODO: Move isArtilleryInRange check into getBattery
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

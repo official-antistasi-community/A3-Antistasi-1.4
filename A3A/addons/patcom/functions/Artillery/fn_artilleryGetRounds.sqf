@@ -1,3 +1,27 @@
+/*
+	Author: [Hazey]
+	Description:
+		Returns the Ammo Class for the requested vehicle.
+
+	Arguments:
+		<String> Which type of shell do you need to return. "HE", "SMOKE", "FLARE".
+		<String> Classname of Artillery unit that you need to find the ammo class for.
+		<Side> Side/Faction in which you need to find the ammo class for.
+
+	Return Value:
+		<String> Ammo class for current vehicle.
+
+	Scope: Any
+	Environment: Any
+	Public: No
+
+	Example: 
+		private _ammoType = [_roundType, _batteryClass, _side] call A3A_fnc_artilleryGetRounds
+
+	License: MIT License
+	TODO: Add in additional artillery units and round types.
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_roundType", "_artilleryType", "_side"];
@@ -9,24 +33,19 @@ if (_artilleryType in (_faction get "staticMortars")) then {
 	switch (_roundType) do {
 		case "HE": {
 			_shellType = _faction get "mortarMagazineHE";
-			Info_1("HE: %1", _shellType);
 		};
 
 		case "SMOKE": {
 			_shellType = _faction get "mortarMagazineSmoke";
-			Info_1("SMOKE: %1", _shellType);
 		};
 		
 		case "FLARE": {
 			_shellType = _faction get "mortarMagazineFlare";
-			Info_1("FLARE: %1", _shellType);
 		};
 
 		default {
 			_shellType = _faction get "mortarMagazineHE";
-			Info_1("DEFAULT: %1", _shellType);
 		};
 	};
 };
-Info_1("RETURN: %1", _shellType);
 _shellType

@@ -30,7 +30,7 @@ if (_marker isEqualTo "") exitWith {};
 
 // Find all non-mortar statics within marker
 private _statics = staticsToSave inAreaArray _marker;
-_statics = _statics select { !(_x isKindOf "staticMortar") };           // don't bother with mortars yet
+_statics = _statics select { !(_x isKindOf "StaticMortar") };           // don't bother with mortars yet
 if (count _statics == 0) exitWith {};
 
 // Find unlocked & unoccupied statics

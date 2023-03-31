@@ -13,7 +13,7 @@
 ["vehiclesLightArmed", ["I_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
-private _vehicleAA = [""];
+private _vehicleAA = [];
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepair", ["B_G_Offroad_01_repair_F"]] call _fnc_saveToTemplate;
@@ -40,8 +40,8 @@ private _staticAA = ["I_static_AA_F"];
 
 
 if (allowDLCWS) then {
-  _vehicleAA = ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA = ["I_Tura_ZU23_lxWS"];
+  _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
+  _staticAA insert [0, "I_Tura_ZU23_lxWS"];
 };
 ["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;

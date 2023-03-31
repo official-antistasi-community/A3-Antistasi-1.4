@@ -22,7 +22,7 @@
 
 ["vehiclesCivCar", ["uns_willys"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["uns_zil157"]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", [""]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", []] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["UNS_skiff2_C"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["uns_pk_high_VC"]] call _fnc_saveToTemplate;

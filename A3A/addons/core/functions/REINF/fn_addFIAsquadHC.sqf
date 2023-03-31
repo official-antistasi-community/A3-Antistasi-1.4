@@ -58,7 +58,7 @@ if (_exit) exitWith {};
 private _mounts = [];
 private _vehType = switch true do {
     case (!_isInfantry && {_typeGroup in FactionGet(reb,"staticAA")}): {
-        if (FactionGet(reb,"vehiclesAA") isEqualTo [""]) exitWith {_mounts pushBack [(FactionGet(reb,"staticAA")) # 0,-1,[[1],[],[]]]; (FactionGet(reb,"vehiclesTruck")) # 0};
+        if (FactionGet(reb,"vehiclesAA") isEqualTo []) exitWith {_mounts pushBack [(FactionGet(reb,"staticAA")) # 0,-1,[[1],[],[]]]; (FactionGet(reb,"vehiclesTruck")) # 0};
         (FactionGet(reb,"vehiclesAA")) # 0
     };
     case (!_isInfantry): {_typeGroup};

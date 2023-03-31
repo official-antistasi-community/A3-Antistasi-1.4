@@ -11,7 +11,7 @@ Arguments: <OBJECT>
 
 Return Value: <STRING>
     "Normal", "Medic", "Engineer", "ATMan", "AAMan", "MGMan", "Sniper"
-    "staticMortars", "StaticGunner", "StaticBase"
+    "staticMortar", "StaticGunner", "StaticBase"
 
 Scope: Any
 Environment: Any
@@ -76,7 +76,7 @@ private _fnc_isMortar = {
 
         if !(_vehicle isKindOf "StaticWeapon") exitWith {};
 
-        _return = _vehicle isKindOf "staticMortars";
+        _return = _vehicle isKindOf "staticMortar";
         _isStaticGunner = !_return;
     }
     else
@@ -87,7 +87,7 @@ private _fnc_isMortar = {
 
         if (_backpackWeapon == "") exitWith { _isStaticBase = true; };
 
-        _return = _backpackWeapon isKindOf "staticMortars";
+        _return = _backpackWeapon isKindOf "staticMortar";
         _isStaticGunner = !_return;
     };
 
@@ -123,7 +123,7 @@ do
     private _isStaticGunner = false;
     private _isStaticBase = false;
 
-    case (call _fnc_isMortar): { "staticMortars" };
+    case (call _fnc_isMortar): { "staticMortar" };
     case (_isStaticGunner): { "StaticGunner" };
     case (_isStaticBase): { "StaticBase" };
 

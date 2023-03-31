@@ -54,10 +54,10 @@ private _assignedVehicles =	[];
                 private _assemblesTo = getText (configFile/"CfgVehicles"/_backpck/"assembleInfo"/"assembleTo");
 				switch (true) do
 				{
-					case _assemblesTo in FactionGet(reb,"staticMortars"): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
-					case _assemblesTo in FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
-					case _assemblesTo in FactionGet(reb,"staticMGs"): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
-					case _assemblesTo in FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticMortars"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticAA"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticMGs"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticAT"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
 				};
 			};
 		};

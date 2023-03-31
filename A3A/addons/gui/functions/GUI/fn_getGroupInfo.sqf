@@ -55,7 +55,7 @@ private _hasStatic = false;
 private _staticDeployed = false;
 
 // If the group has variable mortarsX OR if any of the units has a mortar
-if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_typeOfSoldier == "staticMortars"} count _units > 0)) then {
+if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_typeOfSoldier == "staticMortar"} count _units > 0)) then {
   _hasMortar = true;
 	if ({vehicle _x isKindOf "StaticWeapon"} count _units > 0) then {
     _mortarDeployed = true;

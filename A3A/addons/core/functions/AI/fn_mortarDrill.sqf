@@ -1,6 +1,6 @@
 private ["_morty","_helperX"];
 
-{if (_x getVariable ["typeOfSoldier",""] == "staticMortars") then {_morty = _x} else {_helperX = _x}} forEach _this;
+{if (_x getVariable ["typeOfSoldier",""] == "staticMortar") then {_morty = _x} else {_helperX = _x}} forEach _this;
 
 private _groupX = group _morty;
 private _faction = Faction(side _groupX);

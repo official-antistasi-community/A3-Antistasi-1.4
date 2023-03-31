@@ -13,7 +13,7 @@
 ["vehiclesLightArmed", ["CUP_I_Hilux_DSHKM_NAPA"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["CUP_V3S_Open_NAPA"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["CUP_I_Hilux_SPG9_NAPA"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;             // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
+["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA", "CUP_I_Hilux_zu23_NAPA"]] call _fnc_saveToTemplate;             // Add back as player-only vehicle: "CUP_I_Hilux_zu23_NAPA"
 ["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
 ["vehiclesPlane", ["CUP_C_DC3_CIV"]] call _fnc_saveToTemplate;

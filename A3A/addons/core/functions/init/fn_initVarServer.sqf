@@ -508,7 +508,7 @@ _fnc_setPriceIfValid =
 { [_rebelVehicleCosts, _x, 800] call _fnc_setPriceIfValid } forEach FactionGet(reb, "staticAT") + FactionGet(reb, "staticAA") + FactionGet(reb, "staticMortars");
 { [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
-{ [_rebelVehicleCosts, _x, 10000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
+{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesRepair");
  
  
@@ -516,12 +516,12 @@ _fnc_setPriceIfValid =
 private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
 	private _vehType = _x select 0;
-	if !(_vehType in _vehicleResourceCosts or _vehType in _rebelVehicleCosts) then { continue };
+	if !(_vehType in ((keys _vehicleResourceCosts) + (keys _rebelVehicleCosts))) then { continue };
 	{
 		if !(_x isEqualType []) then { continue };		// first entry is classname
 		_x params ["_attr", "_val"];
 		call {
-			if (_attr == "threat") then { _groundVehicleThreat set [_vehType, _val] };
+			if (_attr == "threat") exitWith { _groundVehicleThreat set [_vehType, _val] };
 			if (_attr == "cost") exitWith { _vehicleResourceCosts set [_vehType, _val] };
 			if (_attr == "rebCost") exitWith { _rebelVehicleCosts set [_vehType, _val] };
 		};

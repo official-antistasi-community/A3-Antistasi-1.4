@@ -22,7 +22,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 params ["_group", ["_variance", 10 + (random 50)]];
-group
 waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
 
 _group setVariable ["PATCOM_ArtilleryBattery", true, true];

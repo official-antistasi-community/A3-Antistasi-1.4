@@ -33,20 +33,20 @@ _max = if (_frontierX) then {2} else {1};
 for "_i" from 1 to _max do
 {
 	private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
-  
+	
 	if !(_spawnParameter isEqualType []) exitWith {};
 	_spawnsUsed pushBack _spawnParameter#2;
 	isNil {
 		_veh = createVehicle [selectRandom (_faction get "vehiclesAA"), (_spawnParameter select 0), [], 0, "CAN_COLLIDE"];
 		_veh setDir (_spawnParameter select 1);
-  };
-  
+  	};
+
 	_groupVeh = [_sideX, _veh] call A3A_fnc_createVehicleCrew;
 	{[_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupVeh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	_soldiers append units _groupVeh;
 	_groups pushBack _groupVeh;
-  [_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
+  	[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
 	_vehiclesX pushBack _veh;
 	sleep 1;
 };
@@ -150,14 +150,11 @@ while {true} do {
 	_typeVehX = selectRandom (_faction get "staticMortars");
 	_veh = _typeVehX createVehicle (_spawnParameter select 0);
 	_veh setDir (_spawnParameter select 1);
-	//_veh setPosATL (_spawnParameter select 0);
-
-	[_groupX] call A3A_fnc_artilleryAdd;
-
 	_unit = [_groupX, _typeUnit, _positionX, [], 0, "CAN_COLLIDE"] call A3A_fnc_createUnit;
 	_unit moveInGunner _veh;
 	[_unit,_markerX] call A3A_fnc_NATOinit;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
+	[_groupX] call A3A_fnc_artilleryAdd;
 	_soldiers pushBack _unit;
 	_vehiclesX pushBack _veh;
 	sleep 1;

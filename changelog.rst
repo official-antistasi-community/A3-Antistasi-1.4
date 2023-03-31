@@ -2242,7 +2242,7 @@ Version 1.1.0
 
 * NEW FEATURE: Major assault AI overhaul. Now AI sent on major attacks will perform the following:
 * Mortar assemble and mortar support.
-* staticMG assemble / dissassemble.
+* StaticMG assemble / dissassemble.
 * More proactive and specialised backup requests of whatever (mortar, airstrikes, qrfs).
 * Flanking while supressing or covering the flankers.
 * Building assaults.

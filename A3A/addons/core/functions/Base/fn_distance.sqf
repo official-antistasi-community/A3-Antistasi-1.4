@@ -305,6 +305,9 @@ private _processInvaderMarker = {
             // ENABLE this marker
             spawner setVariable [_marker, ENABLED, true];
 
+            // Prevent other routines taking spawn places 
+            [_marker, 1] call A3A_fnc_addTimeForIdle;
+
             switch (true)
             do
             {

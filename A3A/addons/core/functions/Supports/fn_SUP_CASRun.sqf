@@ -1,3 +1,13 @@
+/*  CAS routine to perform a low-level attack run
+
+Environment: Server, scheduled, internal
+
+Arguments:
+    <OBJECT> Aircraft object to use
+    <OBJECT> Target object for attack run
+    <STRING> Name of support (for debug logging)
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 

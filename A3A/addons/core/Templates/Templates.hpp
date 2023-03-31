@@ -173,6 +173,7 @@ class Templates
     {
         side = "Inv";
         flagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
+        logo = "\rhsafrf\addons\rhs_main\data\rhs_logo_ca.paa";
         name = "RHS AFRF Arid";
         file = "RHS_AI_AFRF_Arid";
         climate[] = {"arid"};
@@ -232,6 +233,21 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "RHS";
         file = "RHS_Civ";
+    };
+
+    class RHS_SAF_Base
+    {
+    	requiredAddons[] = {"rhssaf_main"};
+	    basepath = QPATHTOFOLDER(Templates\Templates\RHS);
+	    logo = "\rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
+        priority = 30;
+    };
+    class RHS_SAF : RHS_SAF_Base
+    {
+	    side = "Inv";
+	    flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
+        name = "RHS SAF";
+        file = "RHS_AI_SAF";
     };
 
     //************* 3CB Factions ***************************************************

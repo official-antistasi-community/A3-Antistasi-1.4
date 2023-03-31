@@ -37,6 +37,7 @@ private _crewGroup = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
 { [_x, nil, false, "legacy"] call A3A_fnc_NATOinit } forEach (units _crewGroup);
 [_vehicle, _side, "legacy"] call A3A_fnc_AIVEHinit;				// don't pay up-front for reinf vehicles/crew, assumed to return
 
+
 private _expectedCargo = ([_vehicleType, true] call BIS_fnc_crewCount) - ([_vehicleType, false] call BIS_fnc_crewCount);
 if (_expectedCargo < count _groupType) then { _groupType resize _expectedCargo };           // trim to cargo seat count
 private _cargoGroup = [_posOrigin, _side, _groupType, true, false] call A3A_fnc_spawnGroup;         // force spawn, should be pre-checked
@@ -62,6 +63,14 @@ if (_isLand) then {
 
 	private _reinfWP = _cargoGroup addWaypoint [_posDest, 0];
 	_reinfWP setWaypointBehaviour "AWARE";
+
+	// Free the spawn position after 60 seconds
+	_vehicle spawn {
+		sleep 60;
+		if (isNull _this) exitWith {};
+		[_this getVariable "spawnPlace"] call A3A_fnc_freeSpawnPositions;
+		_this setVariable ["spawnPlace", nil];
+	};
 }
 else
 {

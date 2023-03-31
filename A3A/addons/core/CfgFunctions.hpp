@@ -223,6 +223,7 @@ class CfgFunctions
             class calculateMarkerArea {};
             class cargoSeats {};
             class cleanserVeh {};
+            class countFreeSpawnPositions {};
             class createAIAirplane {};
             class createAICities {};
             class createAIcontrols {};
@@ -615,6 +616,9 @@ class CfgFunctions
             class SUP_carpetBombsRoutine {};
             class SUP_CAS {};
             class SUP_CASAvailable {};
+            class SUP_CASApproach {};
+            class SUP_CASDiveBomb {};
+            class SUP_CASDiveBombRun {};
             class SUP_CASRoutine {};
             class SUP_CASRun {};
             class SUP_cruiseMissile {};

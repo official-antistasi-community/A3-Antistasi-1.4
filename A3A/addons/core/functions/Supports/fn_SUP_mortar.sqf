@@ -46,12 +46,12 @@ private _spawnDir = 0;
     private _spawnParams = [_x, "Mortar"] call A3A_fnc_findSpawnPosition;
     if (_spawnParams isEqualType []) exitWith
     {
-        //Will occupy a mortar spawn position until the outpost spawnes in and despawns again (Currently we dont spawn mortars at outposts anyways)
+        // Spawn position cleared by vehicleDeleted EH
         _spawnRadius = 0;
         _spawnPos = _spawnParams select 0;
         _spawnDir = _spawnParams select 1;
+        _vehicle setVariable ["spawnPlace", _spawnParams#2];
     };
-    [_x] spawn A3A_fnc_freeSpawnPositions;
 } forEach _possibleBases;
 
 if (_spawnPos isEqualTo []) then 

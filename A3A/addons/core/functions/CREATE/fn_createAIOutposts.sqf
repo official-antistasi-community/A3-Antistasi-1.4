@@ -11,6 +11,7 @@ _vehiclesX = [];
 _groups = [];
 _soldiers = [];
 private _dogs = [];
+private _spawnsUsed = [];
 
 _positionX = getMarkerPos (_markerX);
 _pos = [];
@@ -104,6 +105,7 @@ if (_markerX in outposts) then
 	_spawnParameter = [_markerX, "Mortar"] call A3A_fnc_findSpawnPosition;
 	if(_spawnParameter isEqualType []) then
 	{
+		_spawnsUsed pushBack _spawnParameter#2;
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
 
@@ -123,6 +125,7 @@ _ret = [_markerX,_size,_sideX,_frontierX] call A3A_fnc_milBuildings;
 _groups pushBack (_ret select 0);
 _vehiclesX append (_ret select 1);
 _soldiers append (_ret select 2);
+_spawnsUsed append (_ret select 3);
 { [_x, _sideX] call A3A_fnc_AIVEHinit } forEach _vehiclesX;
 
 if(random 100 < (40 + tierWar * 3)) then
@@ -250,6 +253,7 @@ else
 _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
+	_spawnsUsed pushBack _spawnParameter#2;
 	private _typeVehX = call {
 		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesRepairTrucks") };
 		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
@@ -258,10 +262,12 @@ if (_spawnParameter isEqualType []) then
 		if (count _types == 0) then { (_faction get "vehiclesCargoTrucks") } else { _types };
 		selectRandom _types;
 	};
-	_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
-	_veh setDir (_spawnParameter select 1);
+	isNil {
+		_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "CAN_COLLIDE"];
+		_veh setDir (_spawnParameter select 1);
+	};
 	_vehiclesX pushBack _veh;
-	_nul = [_veh, _sideX] call A3A_fnc_AIVEHinit;
+	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	sleep 1;
 };
 
@@ -332,7 +338,6 @@ for "_i" from 0 to (count _array - 1) do {
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
-[_markerX] call A3A_fnc_freeSpawnPositions;
 
 deleteMarker _mrk;
 //{if ((!alive _x) and (not(_x in destroyedBuildings))) then {destroyedBuildings = destroyedBuildings + [position _x]; publicVariableServer "destroyedBuildings"}} forEach _buildings;
@@ -352,6 +357,9 @@ deleteMarker _mrk;
 		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
 	};
 } forEach _vehiclesX;
+
+_spawnsUsed call A3A_fnc_freeSpawnPositions;
+
 
 // If loot crate was stolen, set the cooldown
 if (!isNil "_ammoBox") then {

@@ -28,7 +28,7 @@ private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
-[_mrkOrigin, _startDelay + 5] call A3A_fnc_addTimeForIdle;
+[_mrkOrigin, _startDelay + 1] call A3A_fnc_addTimeForIdle;      // best not to try driving past this stuff
 
 
 // Determine convoy type from destination

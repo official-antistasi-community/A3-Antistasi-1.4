@@ -55,8 +55,7 @@ clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;
 clearBackpackCargoGlobal _boxX;
 [_boxX] call A3A_Logistics_fnc_addLoadAction;
-private _jipKey = "A3A_initObject_" + ((str _crate splitString ":") joinString "");
-[_boxX, _jipKey] remoteExecCall ["A3A_fnc_initObject", 0, _jipKey];
+[_boxX, [true, true]] call A3A_fnc_initObject;
 
 
 // move all unit's equipment except uniform into the surrender crate

@@ -34,8 +34,7 @@ if(_itemClassName isEqualTo "") exitwith {
 private _item = _itemClassName createVehicle [0,0,0];
 _item allowDamage false;
 
-
-_callBacks = [['A3A_fnc_initMovableObject', false],['A3A_Logistics_fnc_initPackableObjects', true]];
+_callBacks = [['A3A_fnc_initObject', false, [true, false, true]]];
 
 if(_canOpenDoors) then {
     _callBacks pushBack ['A3A_fnc_openDoorsTent', true];

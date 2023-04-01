@@ -754,6 +754,7 @@ class CfgFunctions
             class carryItem {};
             class initMovableObject {};
             class initObject {};
+            class initObjectRemote {};
             class rotateItem {};
             class buyItem {};
             class attachedObjects {};

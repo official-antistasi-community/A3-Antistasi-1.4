@@ -232,7 +232,6 @@ if (side group player == teamPlayer) then
 		];
 	[] spawn A3A_fnc_unitTraits;
 	[] spawn A3A_fnc_statistics;
-	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	call A3A_fnc_dropObject;
 	}
 else

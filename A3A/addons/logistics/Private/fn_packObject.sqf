@@ -55,8 +55,7 @@ _package addAction [
 
 // add logi
 [_package] call A3A_Logistics_fnc_addLoadAction;
-private _jipKey = "A3A_utilityItems_item_" + "A3A_fnc_initMovableObject" + "_" + ((str _package splitString ":") joinString "");
-[_package, _jipKey] remoteExecCall ["A3A_fnc_initMovableObject", 0, _jipKey];
+[_package, [true]] call A3A_fnc_initObject;
 
 //delete object
 deleteVehicle _object;

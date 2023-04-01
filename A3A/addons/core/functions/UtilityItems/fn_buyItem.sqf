@@ -62,6 +62,12 @@ if (_position isEqualTo []) then {_position = getPos _unit};
 private _item = _spawnItem createVehicle _position;
 _item allowDamage false;
 
+// clear inventory
+clearMagazineCargoGlobal _item;
+clearWeaponCargoGlobal _item;
+clearItemCargoGlobal _item;
+clearBackpackCargoGlobal _item;
+
 //object globals
 _item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
@@ -73,7 +79,7 @@ _item setVariable ["A3A_itemPrice", _price, true];
             private _jipKey = "A3A_utilityItems_item_" + _func_name + "_" + ((str _item splitString ":") joinString "");
             [_item, _jipKey, _params] remoteExecCall [_func_name, 0, _jipKey];
     } else {
-        [_item] call (missionNamespace getVariable _func_name);
+        [_item, _params] call (missionNamespace getVariable _func_name);
     };
 } foreach (_callbacks);
 _item

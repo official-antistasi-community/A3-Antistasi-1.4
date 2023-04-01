@@ -144,12 +144,12 @@ switch _callBackName do {
         
                 // callbacks
                 {
-                    private _func_name = (_x #0);
-                    if (_x #1) then {
+                    _x params [["_func_name", ""], ["_isRemote", false], ["_params", []]];
+                    if (_isRemote) then {
                             private _jipKey = "A3A_utilityItems_item_" + _func_name + "_" + ((str _vehicle splitString ":") joinString "");
-                            [_vehicle, _jipKey] remoteExecCall [_func_name, 0, _jipKey];
+                            [_vehicle, _jipKey, _params] remoteExecCall [_func_name, 0, _jipKey];
                     } else {
-                        [_vehicle] call (missionNamespace getVariable _func_name);
+                        [_vehicle, _params] call (missionNamespace getVariable _func_name);;
                     };
                 } foreach (_callbacks);
             };

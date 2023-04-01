@@ -356,6 +356,7 @@ if (_varName in _specialVarLoads) then {
         //future objects that needs initialising needs another unique handler here which might eventually become troublessome
             //handle buyable fuel containers
             if (typeOf _veh in [FactionGet(reb,"vehicleFuelDrum")#0,FactionGet(reb,"vehicleFuelTank")#0]) then {
+                
                 [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
                 [_veh,[_veh],"A3A_Logistics_fnc_addLoadAction"] call _fnc_remoteExecObjectJIPSafe;
                 _veh allowDamage false;

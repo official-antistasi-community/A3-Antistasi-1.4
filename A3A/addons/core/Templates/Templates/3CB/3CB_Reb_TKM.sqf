@@ -8,27 +8,29 @@
 ["flagTexture", "uk3cb_factions\addons\uk3cb_factions_tkm\flag\tkm_b_flag_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "UK3CB_MARKER_B_TKM"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "UK3CB_CCM_I_Datsun_Open"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "UK3CB_TKM_I_LR_M2"] call _fnc_saveToTemplate;
-["vehicleTruck", "UK3CB_CCM_I_V3S_Closed"] call _fnc_saveToTemplate;
-["vehicleAT", "UK3CB_I_G_Hilux_Spg9"] call _fnc_saveToTemplate;
-["vehicleAA", "UK3CB_TKM_I_V3S_Zu23"] call _fnc_saveToTemplate;
+["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["UK3CB_CCM_I_Datsun_Open"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_TKM_I_LR_M2"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["UK3CB_CCM_I_V3S_Closed"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["UK3CB_I_G_Hilux_Spg9"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_TKM_I_V3S_Zu23", "UK3CB_NAP_I_Hilux_Zu23_Front"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", "UK3CB_I_G_Fishing_Boat_SPG9"] call _fnc_saveToTemplate;
-["vehicleRepair", "UK3CB_CCM_I_V3S_Repair"] call _fnc_saveToTemplate;
+["vehiclesBoat", ["UK3CB_I_G_Fishing_Boat_SPG9"]] call _fnc_saveToTemplate;
+["vehiclesRepair", ["UK3CB_CCM_I_V3S_Repair"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "UK3CB_CHC_I_Antonov_AN2"] call _fnc_saveToTemplate;
+["vehiclesPlane", ["UK3CB_CHC_I_Antonov_AN2"]] call _fnc_saveToTemplate;
+["vehiclesCivPlane", ["UK3CB_C_AC500", "UK3CB_C_DC3"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["UK3CB_FIA_I_Hilux_Ambulance"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "UK3CB_C_Hilux_Open"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "UK3CB_TKC_C_Kamaz_Open"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "UK3CB_TKC_C_Mi8AMT"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["UK3CB_C_Hilux_Open"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["UK3CB_TKC_C_Kamaz_Open"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["UK3CB_TKC_C_Mi8AMT", "UK3CB_ADA_I_UH1H_MED"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", "UK3CB_NAP_I_DSHKM"] call _fnc_saveToTemplate;
-["staticAT", "UK3CB_UN_I_SPG9"] call _fnc_saveToTemplate;
-["staticAA", "UK3CB_UN_I_ZU23"] call _fnc_saveToTemplate;
-["staticMortar", "rhsgref_ins_g_2b14"] call _fnc_saveToTemplate;
+["staticMGs", ["UK3CB_NAP_I_DSHKM", "UK3CB_FIA_I_M240_Low", "UK3CB_FIA_I_M240_High", "UK3CB_MEI_I_KORD_high", "UK3CB_MEI_I_KORD", "UK3CB_MEI_I_PKM_Low", "UK3CB_MEI_I_DSHkM_Mini_TriPod"]] call _fnc_saveToTemplate;
+["staticAT", ["UK3CB_UN_I_SPG9"]] call _fnc_saveToTemplate;
+["staticAA", ["UK3CB_UN_I_ZU23"]] call _fnc_saveToTemplate;
+["staticMortars", ["rhsgref_ins_g_2b14"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
 
@@ -37,6 +39,8 @@
 
 ["breachingExplosivesAPC", [["rhs_ec75_mag", 2], ["rhs_ec75_sand_mag", 2], ["rhs_ec200_mag", 1], ["rhs_ec200_sand_mag", 1], ["rhsusf_m112_mag", 1], ["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["rhs_ec75_mag", 4], ["rhs_ec75_sand_mag", 4], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1],["DemoCharge_Remote_Mag", 2], ["rhsusf_m112_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1], ["SatchelCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
+
+#include "3CB_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //

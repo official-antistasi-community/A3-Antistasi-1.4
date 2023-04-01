@@ -141,7 +141,7 @@ switch _callBackName do {
                     deleteVehicle _object;
                 };
                 
-        
+                if(_callbacks isEqualTo []) exitWith {};
                 // callbacks
                 {
                     _x params [["_func_name", ""], ["_isRemote", false], ["_params", []]];

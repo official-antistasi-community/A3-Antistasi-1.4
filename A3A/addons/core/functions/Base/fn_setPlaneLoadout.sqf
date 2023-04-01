@@ -208,6 +208,19 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "Tornado_AWS_CANNON_W"];
             _plane setVariable ["missileLauncher", ["FIR_Brimstone"]];
         };
+        // IFA test planes
+        case "LIB_Ju87": {
+            _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50"];
+            _plane setVariable ["mainGun", "LIB_2xMG151_JU87"];
+            _plane setVariable ["bombRacks", ["LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [15, -2]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
+        case "LIB_Pe2": {
+            _loadout = ["LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250"];
+            _plane setVariable ["mainGun", "LIB_UBK_PE2"];
+            _plane setVariable ["bombRacks", ["LIB_FAB250_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [12, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);

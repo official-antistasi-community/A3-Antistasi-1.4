@@ -609,6 +609,15 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot\n%1 max load is %2</Original>
       </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
+        <Original>This item has medical capability</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_ammo_tooltip">
+        <Original>This item can rearm other vehicles</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
+        <Original>This item can repair other vehicles</Original>
+      </Key>
     </Container>
     <Container name="dialog_main_player">
       <Key ID="STR_antistasi_dialogs_main_fast_travel">

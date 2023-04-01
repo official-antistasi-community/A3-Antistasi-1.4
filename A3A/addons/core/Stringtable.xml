@@ -694,9 +694,13 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
         <Original>Yes</Original>
+        <Czech>Ano</Czech>
+        <German>Ja</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
         <Original>No</Original>
+        <Czech>Ne</Czech>
+        <German>Nein</German>
       </Key>
     </Container>
     <Container name="credits_generic">
@@ -4696,7 +4700,7 @@
         <Russian>Выберите свой игровой режим</Russian>
         <Korean>게임 모드 설정</Korean>
         <Italian>Seleziona la tua modalità di gioco</Italian>
-        <Czech>Vyberte svůj herní režim</Czech>
+        <Czech>Vyberte herní režim</Czech>
         <Spanish>Selecciona tu modo de Juego</Spanish>
         <Polish>Wybierz Tryb Gry</Polish>
       </Key>
@@ -5013,22 +5017,27 @@
       <Key ID="STR_A3A_base_vehicleBoxRestore_restored_additive">
         <Original>Nearby units have been healed, refreshed and can go undercover again.&lt;br/&gt;&lt;br/&gt;Nearby vehicles are:%1</Original>
         <Russian>Соседние юниты были вылечены, восстановлены и теперь могут снова уходить в гражданскую маскировку.&lt;br/&gt;&lt;br/&gt;Техника рядом:%1</Russian>
+        <Czech>Blízké jednotky byly vyléčeny, osvěženy a mohou být znovu v utajení.&lt;br/&gt;&lt;br/&gt;Blízká vozidla jsou:%1</Czech>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_noreported">
         <Original>&lt;br/&gt; - no longer reported</Original>
         <Russian>&lt;br/&gt; - более не разыскивается</Russian>
+        <Czech>&lt;br/&gt; - již není hlášeno</Czech>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_rearmed">
         <Original>&lt;br/&gt; - rearmed</Original>
         <Russian>&lt;br/&gt; - перезаряжена</Russian>
+        <Czech>&lt;br/&gt; - přezbrojený</Czech>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_repaired">
         <Original>&lt;br/&gt; - repaired</Original>
         <Russian>&lt;br/&gt; - отремонтирована</Russian>
+        <Czech>&lt;br/&gt; - opraveno</Czech>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_refueled">
         <Original>&lt;br/&gt; - refueled</Original>
         <Russian>&lt;br/&gt; - заправлена</Russian>
+        <Czech>&lt;br/&gt; - natankovat</Czech>
       </Key>
     </Container>
     <Container name="server_info">
@@ -5067,15 +5076,23 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_waitserver">
         <Original>Waiting for server...</Original>
+        <Czech>Čekání na server...</Czech>
+        <German>Warte auf Server...</German>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminwait">
         <Original>Waiting for an admin to log in...</Original>
+        <Czech>Čeká se na přihlášení administrátora...</Czech>
+        <German>Warte auf Admin Anmeldung...</German>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_autostartwait">
         <Original>Waiting for an admin to log in, or autostart timeout...</Original>
+        <Czech>Čekání na přihlášení správce nebo vypršení časového limitu automatického spuštění...</Czech>
+        <German>Warte auf Admin Anmeldung oder auf den automatischen Start-Timer...</German>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminsetup">
         <Original>Admin is setting up the game.</Original>
+        <Czech>Admin nastavuje hru.</Czech>
+        <German>Ein Admin konfiguriert das Spiel.</German>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_background">
         <Original>Waiting for background init to complete...</Original>
@@ -5094,20 +5111,27 @@
         <Original>Restore nearby units</Original>
         <German>Stelle Einheiten in der Nähe wieder her</German>
         <Russian>Восстановить союзников поблизости</Russian>
+        <Czech>Obnovte okolní jednotky</Czech>
       </Key>
     </Container>
     <Container name="mission_check">
       <Key ID="STR_A3A_missioncheck_nonmodmission_title">
         <Original>Deprecated Mission</Original>
+        <Czech>Zastaralá mise</Czech>
+        <German>Veraltete Mission</German>
       </Key>
       <Key ID="STR_A3A_missioncheck_nonmodmission">
         <Original>An incompatible pre-mod Antistasi mission has been started. To play this mission, unload the Antistasi mod. If you intended to load a mission from the Antistasi mod, select the correct mission.</Original>
+        <Czech>Byla zahájena nekompatibilní mise Antistasi před modifikací. Chcete-li hrát tuto misi, vyjměte modul Antistasi. Pokud jste zamýšleli načíst misi z modu Antistasi, vyberte správnou misi.</Czech>
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission_title">
         <Original>Outdated Mission</Original>
+        <Czech>Zastaralá mise</Czech>
+        <German>Veraltete Mission</German>
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission">
         <Original>"This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version."</Original>
+        <Czech>"Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi."</Czech>
       </Key>
     </Container>
     <Container name="A3A_garrisons">

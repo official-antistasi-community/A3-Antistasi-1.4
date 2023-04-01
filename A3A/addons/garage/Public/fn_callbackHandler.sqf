@@ -141,7 +141,7 @@ switch _callBackName do {
                     deleteVehicle _object;
                 };
                 
-        
+                if(_callbacks isEqualTo []) exitWith {};
                 // callbacks
                 {
                     private _func_name = (_x #0);

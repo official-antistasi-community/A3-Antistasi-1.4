@@ -282,10 +282,7 @@ class CfgFunctions
 
         class Dialogs {
             file = QPATHTOFOLDER(functions\Dialogs);
-            class buyVehicle {};
-            class buyVehicleCiv {};
             class clearForest {};
-            class createDialog_setParams {};
             class createDialog_shouldLoadPersonalSave {};
             class dialogHQ {};
             class fastTravelRadio {};

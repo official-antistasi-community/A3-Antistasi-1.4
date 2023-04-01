@@ -53,14 +53,15 @@ _mrkDest setMarkerColorLocal "ColorRed";
 _mrkDest setMarkerTextLocal "Bomb Run Exit";
 
 //openMap false;
-private _isHelicopter = FactionGet(reb,"vehiclePlane") isKindOf "helicopter";
+private _typePlaneX = (FactionGet(reb,"vehiclesPlane")) # 0;
+private _isHelicopter = _typePlaneX isKindOf "helicopter";
 
 _angorig = _ang - 180;
 
 _origpos = [_pos1, 2500, _angorig] call BIS_fnc_relPos;
 _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
-_planefn = [_origpos, _ang, FactionGet(reb,"vehiclePlane"), teamPlayer] call A3A_fnc_spawnVehicle;
+_planefn = [_origpos, _ang, _typePlaneX, teamPlayer] call A3A_fnc_spawnVehicle;
 _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;

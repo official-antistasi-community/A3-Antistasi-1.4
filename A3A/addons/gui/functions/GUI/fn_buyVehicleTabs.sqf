@@ -31,7 +31,7 @@ params[["_tab","_vehicles"], ["_params",[]]];
 private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
 private _selectedTab = -1;
 
-if (_tab isEqualTo "vehicles") then
+if (_tab isEqualTo "vehicles") then 
 {
     _selectedTab = A3A_IDC_VEHICLESGROUP;
     Debug("BuyVehicleTab starting...");
@@ -48,30 +48,34 @@ if (_tab isEqualTo "vehicles") then
     private _buyableVehiclesList = [];
 
     // Add civ vehicles to the list
-    private _civilianVehicles = [
-        A3A_faction_reb get 'vehicleCivCar',
-        A3A_faction_reb get 'vehicleCivTruck',
-        A3A_faction_reb get 'vehicleCivHeli',
-        A3A_faction_reb get 'vehicleCivBoat'
-    ];
+    private _civilianVehicles = 
+        (A3A_faction_reb get 'vehiclesCivCar') +
+        (A3A_faction_reb get 'vehiclesCivTruck') +
+        (A3A_faction_reb get 'vehiclesCivHeli') +
+        (A3A_faction_reb get 'vehiclesCivPlane') +
+        (A3A_faction_reb get 'vehiclesCivBoat');
 
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
         _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
     } forEach _civilianVehicles;
 
-    // Add military vehicles to the list
-    private _militaryVehicles = [
-        A3A_faction_reb get 'vehicleBasic',
-        A3A_faction_reb get 'vehicleLightUnarmed',
-        A3A_faction_reb get 'vehicleTruck',
-        A3A_faction_reb get 'vehicleLightArmed',
-        A3A_faction_reb get 'staticMG',
-        A3A_faction_reb get 'staticMortar',
-        A3A_faction_reb get 'staticAT',
-        A3A_faction_reb get 'staticAA'
-    ];
 
+    // Add military vehicles to the list
+    private _militaryVehicles = 
+        (A3A_faction_reb get 'vehiclesBasic') +
+        (A3A_faction_reb get 'vehiclesLightUnarmed') +
+        (A3A_faction_reb get 'vehiclesTruck') +
+        (A3A_faction_reb get 'vehiclesLightArmed') +
+        (A3A_faction_reb get 'vehiclesMedical') +
+        (A3A_faction_reb get 'vehiclesAA') +
+        (A3A_faction_reb get 'vehiclesBoat') +
+        (A3A_faction_reb get 'vehiclesPlane') + 
+        (A3A_faction_reb get 'staticMGs') +
+        (A3A_faction_reb get 'staticMortars') +
+        (A3A_faction_reb get 'staticAT') +
+        (A3A_faction_reb get 'staticAA');
+    
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
         _buyableVehiclesList pushBack [_x, _vehiclePrice, false];
@@ -341,22 +345,22 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _fuelDrum # 0,
             _fuelDrum # 1,
-            "A3A_fnc_buyItem",
+            "A3A_fnc_buyItem", 
             [
                 player,
-                _fuelDrum # 0,
-                _fuelDrum # 1,
+                _fuelDrum # 0,  
+                _fuelDrum # 1, 
                 [
                     ['A3A_fnc_initObject', true, [true]], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
-            ],
+            ], 
             false,
             "Fuel Drum"
         ];
-
+    
         private _fuelTank = (A3A_faction_reb get 'vehicleFuelTank');
         _buyableItemList pushBack [
-            _fuelTank # 0,
+            _fuelTank # 0, 
             _fuelTank # 1,
             "HR_GRG_fnc_confirmPlacement", [
                 _fuelTank # 0, 
@@ -475,10 +479,36 @@ if  (_tab in ["other"]) then
                 [
                     ['A3A_fnc_initObject', true, [true]]
                 ]
-            ],
+            ], 
             false,
             "Light"
         ];
+
+        if(A3A_hasACE) then {
+            _buyableItemList pushBack [
+                "ACE_Wheel",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Wheel",
+                    5
+                ], 
+                false
+            ];
+
+            _buyableItemList pushBack [
+                "ACE_Track",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Track",
+                    5
+                ], 
+                false
+            ];
+        };
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 

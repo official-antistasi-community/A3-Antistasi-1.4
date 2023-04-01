@@ -66,6 +66,8 @@ _item allowDamage false;
 _item setVariable ["A3A_canGarage", true, true];
 _item setVariable ["A3A_itemPrice", _price, true];
 
+if(_callbacks isEqualTo []) exitWith {}; 
+
 // callbacks
 {
     _x params [["_func_name", ""], ["_isRemote", false], ["_params", []]];

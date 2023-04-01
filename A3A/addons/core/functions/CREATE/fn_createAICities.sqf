@@ -12,7 +12,7 @@ private _dogs = [];
 _positionX = getMarkerPos (_markerX);
 
 _num = [_markerX] call A3A_fnc_sizeMarker;
-private _patrolSize = [_markerX] call A3A_fnc_sizeMarker;
+private _patrolSize = _num;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
 if ((markersX - controlsX) findIf {(getMarkerPos _x inArea _markerX) and (sidesX getVariable [_x,sideUnknown] != _sideX)} != -1) exitWith {};
@@ -48,8 +48,7 @@ else
 if (_num < 1) then {_num = 1};
 
 _countX = 0;
-private _radius = [_markerX] call A3A_fnc_sizeMarker;
-_radius = round (_radius / 2);
+_patrolSize = round (_patrolSize / 2);
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafePos;
 	// We Opt to use this method over the above. This will provide road positions for spawning rather than a random position.
@@ -58,7 +57,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 
 	while {(count _spawnPosition <= 2)} do {
 		//_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
-		_spawnPosition = [[[_positionX, _radius]], ["water"]] call BIS_fnc_randomPos;
+		_spawnPosition = [[[_positionX, _patrolSize]], ["water"]] call BIS_fnc_randomPos;
 		//_spawnPosition = [_positionX, 50 + (random 50), 200, 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		sleep 0.50;
 	};

@@ -28,8 +28,8 @@
 ["vehiclesRepairTrucks", ["UK3CB_ADA_I_Ural_Repair", "UK3CB_ADA_I_V3S_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_ADA_I_Ural_Fuel", "UK3CB_ADA_I_Van_Fuel", "UK3CB_ADA_I_V3S_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_ADA_I_M113_AMB", "UK3CB_ADA_B_MTLB_AMB"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_O_BRDM2", "UK3CB_ADA_I_BTR40_MG", "UK3CB_ADA_B_MTLB_BMP", "UK3CB_ADA_B_MTLB_Cannon", "UK3CB_ADA_B_MTLB_KPVT", "UK3CB_ADA_B_MTLB_PKT"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_ADA_I_BMP1", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR60", "UK3CB_ADA_I_BTR70", "UK3CB_ADA_I_BTR80", "UK3CB_ADA_I_BTR80a"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_ADA_I_M113_M2", "UK3CB_ADA_I_M113_MK19", "UK3CB_ADA_I_BRDM2_HQ", "UK3CB_ADA_O_BRDM2", "UK3CB_ADA_I_BTR40_MG", "UK3CB_ADA_B_MTLB_KPVT", "UK3CB_ADA_B_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_ADA_I_BMP1", "UK3CB_ADA_I_BMP2", "UK3CB_ADA_I_BTR60", "UK3CB_ADA_I_BTR70", "UK3CB_ADA_I_BTR80", "UK3CB_ADA_I_BTR80a", "UK3CB_ADA_B_MTLB_BMP", "UK3CB_ADA_B_MTLB_Cannon"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_ADA_I_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_ADA_I_T72A", "UK3CB_ADA_I_T72B", "UK3CB_ADA_I_T72BM", "UK3CB_ADA_I_T55"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_ADA_I_ZsuTank"]] call _fnc_saveToTemplate;

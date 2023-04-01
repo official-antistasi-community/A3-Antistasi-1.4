@@ -26,8 +26,8 @@
 ["vehiclesRepairTrucks", ["UK3CB_TKA_B_Ural_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_TKA_B_Ural_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_TKA_O_GAZ_Vodnik_MedEvac"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_TKA_O_BRDM2_HQ", "UK3CB_TKA_O_BRDM2", "UK3CB_TKA_O_GAZ_Vodnik_PKT", "UK3CB_TKA_O_GAZ_Vodnik_KVPT", "UK3CB_TKA_O_BTR40_MG", "UK3CB_TKA_O_MTLB_BMP", "UK3CB_TKA_O_MTLB_Cannon", "UK3CB_TKA_O_MTLB_KPVT", "UK3CB_TKA_O_MTLB_PKT"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_TKA_O_BMP1", "UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K", "UK3CB_TKA_O_BTR60", "UK3CB_TKA_O_BTR70", "UK3CB_TKA_O_BTR80", "UK3CB_TKA_O_BTR80a", "UK3CB_TKA_O_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_TKA_O_BRDM2_HQ", "UK3CB_TKA_O_BRDM2", "UK3CB_TKA_O_GAZ_Vodnik_PKT", "UK3CB_TKA_O_GAZ_Vodnik_KVPT", "UK3CB_TKA_O_BTR40_MG", "UK3CB_TKA_O_MTLB_KPVT", "UK3CB_TKA_O_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_TKA_O_BMP1", "UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K", "UK3CB_TKA_O_BTR60", "UK3CB_TKA_O_BTR70", "UK3CB_TKA_O_BTR80", "UK3CB_TKA_O_BTR80a", "UK3CB_TKA_O_MTLB_ZU23", "UK3CB_TKA_O_MTLB_BMP", "UK3CB_TKA_O_MTLB_Cannon"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_TKA_O_BMP2", "UK3CB_TKA_O_BMP2K"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_TKA_B_T72BM", "UK3CB_TKA_B_T72A", "UK3CB_TKA_B_T72B", "UK3CB_TKA_B_T55"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_TKA_B_ZsuTank"]] call _fnc_saveToTemplate;

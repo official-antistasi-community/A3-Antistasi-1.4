@@ -13,12 +13,12 @@ if (vehicle _x isKindOf "staticWeapon") then {_static = vehicle _x;}
 } forEach units _groupX;
 if (isNull _static) exitWith {["Static Auto Target", "Selected squad is not a mounted static type."] call A3A_fnc_customHint;};
 
-if ((typeOf _static == FactionGet(reb,"staticMortar")) and (isMultiPlayer)) exitWith {["Static Auto Target", "Static Auto Target is not available for Mortar Squads in Multiplayer"] call A3A_fnc_customHint;};
+if ((typeOf _static in FactionGet(reb,"staticMortar")) and (isMultiPlayer)) exitWith {["Static Auto Target", "Static Auto Target is not available for Mortar Squads in Multiplayer"] call A3A_fnc_customHint;};
 if (_groupX getVariable "staticAutoT") exitWith
 	{
 	_groupX setVariable ["staticAutoT",false,true];
 
-	if (typeOf _static == FactionGet(reb,"staticMortar")) then {
+	if (typeOf _static in FactionGet(reb,"staticMortar")) then {
 		[_groupX] call A3A_fnc_artilleryAdd;
 	};
 
@@ -29,8 +29,8 @@ if (_groupX getVariable "staticAutoT") exitWith
 ["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode ON.", groupID _groupX]] call A3A_fnc_customHint;
 _groupX setVariable ["staticAutoT",true,true];
 
-if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {
-	//Hazey need replacement
+if (typeOf _static in FactionGet(reb,"staticMortar")) exitWith {
+	[_groupX] call A3A_fnc_artilleryAdd;
 };
 
 _LeaderX = leader _groupX;

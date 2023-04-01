@@ -368,7 +368,26 @@ class Templates
         file = "3CB_AI_KRG";
         climate[] = {"arid"};
     };
-
+    class 3CBF_ION_Arid : 3CBF_Base
+    {
+        side = "Inv";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION Arid";
+        file = "3CB_AI_ION_Arid";
+        climate[] = {"arid"};
+    };
+        class 3CBF_ION_Temperate : 3CBF_ION_Arid
+    {
+        name = "3CB ION Temperate";
+        file = "3CB_AI_ION_Temperate";
+        climate[] = {"temperate","tropical"};
+    };
+        class 3CBF_ION_Arctic : 3CBF_ION_Arid
+    {
+        name = "3CB ION Arctic";
+        file = "3CB_AI_ION_Arctic";
+        climate[] = {"arctic"};
+    };
     class 3CBF_CCM : 3CBF_Base
     {
         side = "Reb";
@@ -376,7 +395,13 @@ class Templates
         name = "3CB CCM";
         file = "3CB_Reb_CNM";
     };
-
+    class 3CB_Reb_ION : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION Rebells";
+        file = "3CB_Reb_ION";
+    };
     class 3CBF_TKM : 3CBF_Base
     {
         side = "Reb";
@@ -385,7 +410,13 @@ class Templates
         file = "3CB_Reb_TKM";
         maps[] = {"takistan","tem_anizay","kunduz"};
     };
-
+    class 3CB_Reb_FIA : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "3CB FIA Rebells";
+        file = "3CB_Reb_FIA";
+    };
     class 3CBF_CHC : 3CBF_Base
     {
         side = "Civ";

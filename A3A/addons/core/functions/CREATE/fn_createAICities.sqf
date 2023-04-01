@@ -91,10 +91,6 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 {if (alive _x) then {deleteVehicle _x}} forEach _soldiers;
 {deleteVehicle _x} forEach _dogs;
-
-{
-	_x setVariable ["PATCOM_Controlled", ""];
-	deleteGroup _x;
-} forEach _groups;
+{ deleteGroup _x } forEach _groups;
 
 ["locationSpawned", [_markerX, "City", false]] call EFUNC(Events,triggerEvent);

@@ -15,6 +15,7 @@ _frontierX = _this select 3;
 
 _vehiclesX = [];
 _soldiers = [];
+private _spawnsUsed = [];
 
 _groupX = createGroup _sideX;
 _typeUnit = _faction get "unitStaticCrew";
@@ -22,16 +23,17 @@ _typeUnit = _faction get "unitStaticCrew";
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];
 _helicopterTypes append (_faction get "vehiclesHelisLight");
-private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
 private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
-while {_spawnParameter isEqualType [] && {_count > 0}} do
+while {_count > 0} do
 {
     if (_helicopterTypes isEqualTo []) exitWith {}; //no helis to pick from
     _typeVehX = selectRandom _helicopterTypes;
+    private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
+    if !(_spawnParameter isEqualType []) exitWith {};       // out of spawn places
+    _spawnsUsed pushBack _spawnParameter#2;
     _veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
     _veh setDir (_spawnParameter select 1);
     _vehiclesX pushBack _veh;
-    _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
     _count = _count - 1;
 };
 
@@ -251,4 +253,4 @@ for "_i" from 0 to (count _buildings) - 1 do
 
 
 
-[_groupX,_vehiclesX,_soldiers]
+[_groupX,_vehiclesX,_soldiers,_spawnsUsed]

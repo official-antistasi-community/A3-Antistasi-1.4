@@ -13,13 +13,13 @@ _isRoad = isOnRoad _positionTel;
 
 _textX = format ["%1 Observation Post",FactionGet(reb,"name")];
 _typeGroup = FactionGet(reb,"groupSniper");
-_typeVehX = FactionGet(reb,"vehicleBasic");
+_typeVehX = (FactionGet(reb,"vehiclesBasic")) # 0;
 private _tsk = "";
 if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
 	_typeGroup = FactionGet(reb,"groupAT");
-	_typeVehX = FactionGet(reb,"vehicleTruck");
+	_typeVehX = (FactionGet(reb,"vehiclesTruck")) # 0;
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];

@@ -19,6 +19,7 @@ _soldiers = [];
 private _dogs = [];
 _groups = [];
 _vehiclesX = [];
+private _spawnsUsed = [];
 
 _frontierX = [_markerX] call A3A_fnc_isFrontline;
 
@@ -163,6 +164,7 @@ if (not(_markerX in destroyedSites)) then
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
+	_spawnsUsed pushBack _spawnParameter#2;
 	private _typeVehX = call {
 		if (FactionGet(civ,"vehiclesCivRepair") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesRepairTrucks") };
 		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
@@ -171,8 +173,10 @@ if (_spawnParameter isEqualType []) then
 		if (count _types == 0) then { (_faction get "vehiclesCargoTrucks") } else { _types };
 		selectRandom _types;
 	};
-	_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
-	_veh setDir (_spawnParameter select 1);
+	isNil {
+		_veh = createVehicle [_typeVehX, (_spawnParameter select 0), [], 0, "NONE"];
+		_veh setDir (_spawnParameter select 1);
+	};
 	_vehiclesX pushBack _veh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
 	sleep 1;
@@ -219,7 +223,7 @@ for "_i" from 0 to (count _array - 1) do
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
-[_markerX] call A3A_fnc_freeSpawnPositions;
+_spawnsUsed call A3A_fnc_freeSpawnPositions;
 
 deleteMarker _mrk;
 

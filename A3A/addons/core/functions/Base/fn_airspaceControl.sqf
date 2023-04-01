@@ -27,7 +27,7 @@ _vehicle setVariable ["airspaceControl", true, true];
 private _airType = -1;
 if(_vehicle isKindOf "Helicopter") then
 {
-    if(typeOf _vehicle == FactionGet(reb,"vehicleCivHeli")) then
+    if((typeOf _vehicle) in (FactionGet(reb,"vehiclesCivHeli"))) then
     {
         _airType = CIV_HELI;
     }

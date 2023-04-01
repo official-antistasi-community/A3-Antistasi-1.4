@@ -1,25 +1,29 @@
+/*  Free an array of spawn positions (data returned by findSpawnPosition)
+
+Environment: Any.
+
+Arguments:
+    <ARRAY<
+        <STRING> Var name for spawn places
+        <NUMBER> Index of spawn place
+    >>
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_marker"];
 
-/* Unlocks all locked vehicle slots of a marker
-*****/
-
-_spawns = spawner getVariable [format ["%1_spawns", _marker], [[],[],[],[]]];
-if(_spawns isEqualTo [[],[],[],[]]) exitWith
 {
-    Error_1("Marker %1 has no spawn places defined!", _marker);
-};
-
-DebugArray("Spawn places for "+_marker, _spawns);
-
-for "_i" from 0 to 3 do
-{
-  _places = _spawns select _i;
-  {
-    if(_x select 1) then
-    {
-      _x set [1, false];
-    }
-  } forEach _places;
-};
+    if !(_x isEqualTypeArray ["", 0]) then {
+        Error_1("Invalid data provided: %1", _x);
+        continue;
+    };
+    _x params ["_varName", "_index"];
+    private _used = spawner getVariable [_varName, []];
+    if (count _used <= _index) then {
+        Error_3("Invalid index %3 provided for varname %1", _varName, _index);
+        continue;
+    };
+    _used set [_index, false];
+    spawner setVariable [_varName, _used, true];
+    Debug_2("Freed place with varname %1 and index %2", _varName, _index);
+} forEach _this;

@@ -68,10 +68,10 @@ _item setVariable ["A3A_itemPrice", _price, true];
 
 // callbacks
 {
-    private _func_name = (_x #0);
-    if (_x #1) then {
+    _x params [["_func_name", ""], ["_isRemote", false], ["_params", []]];
+    if (_isRemote) then {
             private _jipKey = "A3A_utilityItems_item_" + _func_name + "_" + ((str _item splitString ":") joinString "");
-            [_item, _jipKey] remoteExecCall [_func_name, 0, _jipKey];
+            [_item, _jipKey, _params] remoteExecCall [_func_name, 0, _jipKey];
     } else {
         [_item] call (missionNamespace getVariable _func_name);
     };

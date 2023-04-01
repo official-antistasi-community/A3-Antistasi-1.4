@@ -347,7 +347,7 @@ if  (_tab in ["other"]) then
                 _fuelDrum # 0,
                 _fuelDrum # 1,
                 [
-                    ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ['A3A_fnc_initObject', true, [true]], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
             ],
             false,
@@ -366,7 +366,7 @@ if  (_tab in ["other"]) then
                     _fuelTank # 0,  
                     _fuelTank # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                        ['A3A_fnc_initObject', true, [true]], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ]
             ],
@@ -397,7 +397,7 @@ if  (_tab in ["other"]) then
                     _medTent  # 0,  
                     _medTent  # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                        ['A3A_fnc_initObject', true, [true, false, true]], ['A3A_fnc_openDoorsTent', true]
                     ]
                 ]
             ],
@@ -417,7 +417,7 @@ if  (_tab in ["other"]) then
                     _ammoStation # 0,  
                     _ammoStation # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                        ['A3A_fnc_initObject', true, [true]], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ]
             ],
@@ -437,7 +437,7 @@ if  (_tab in ["other"]) then
                     _repairStation # 0,  
                     _repairStation # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_Logistics_fnc_initPackableObjects', true]
+                        ['A3A_fnc_initObject', true, [true, false, true]], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ]
             ],
@@ -456,7 +456,7 @@ if  (_tab in ["other"]) then
                     A3A_faction_occ get 'surrenderCrate',
                     10,
                     [
-                        ['A3A_fnc_initMovableObject', true], ['A3A_fnc_initLootToCrate', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                        ['A3A_fnc_initObject', true, [true, true]], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ],
                 false,
@@ -473,7 +473,7 @@ if  (_tab in ["other"]) then
                 A3A_faction_reb get 'vehicleLightSource',
                 25,
                 [
-                    ['A3A_fnc_initMovableObject', true]
+                    ['A3A_fnc_initObject', true, [true]]
                 ]
             ],
             false,

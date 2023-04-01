@@ -49,7 +49,7 @@ PATCOM_Building_Blacklist = createHashMap;
 // Get bad buildings from VarsCommon
 {
 	PATCOM_Building_Blacklist set [_x, "REMOVED"];
-} forEach Bld_remove;
+} forEach A3A_buildingBlacklist;
 
 publicVariable "PATCOM_Building_Blacklist";
 

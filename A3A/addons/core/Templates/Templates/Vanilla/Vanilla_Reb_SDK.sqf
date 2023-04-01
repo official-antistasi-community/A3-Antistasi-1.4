@@ -10,9 +10,9 @@
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["I_G_Offroad_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["I_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["I_G_Offroad_01_armed_F", "I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["I_C_Offroad_02_AT_F", "I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
 private _vehicleAA = [];
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;

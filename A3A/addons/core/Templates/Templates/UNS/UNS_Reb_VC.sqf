@@ -16,7 +16,6 @@
 ["vehiclesAA", ["uns_nvatruck_zpu"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["UNS_VC_Sampan_Transport"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["uns_zil157_repair"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["uns_an2"]] call _fnc_saveToTemplate;
 

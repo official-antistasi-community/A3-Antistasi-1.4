@@ -34,7 +34,6 @@
 ["vehiclesAA", ["vn_b_wheeled_m54_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["vn_o_boat_02_01"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["vn_i_wheeled_m54_repair"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["vn_o_air_mig19_gun"]] call _fnc_saveToTemplate;
 

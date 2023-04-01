@@ -9,28 +9,28 @@
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["rhsgref_cdf_reg_uaz_open"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["rhsgref_tla_offroad", "rhsgref_nat_uaz_open","rhsgref_nat_uaz"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["rhsgref_nat_uaz_dshkm"]] call _fnc_saveToTemplate;
-["vehiclesTruck", ["rhsgref_cdf_zil131"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["rhsgref_nat_van", "rhsgref_cdf_zil131"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["rhsgref_nat_uaz_spg9"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhsgref_nat_ural_Zu23"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["rhsgref_cdf_gaz66_repair"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["RHS_AN2"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["rhsgref_ins_g_gaz66_ap2"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["C_Offroad_01_F"]] call _fnc_saveToTemplate;
-["vehiclesCivTruck", ["RHS_Ural_Open_Civ_03"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["C_Offroad_01_F", "C_Hatchback_01_F","C_Hatchback_01_sport_F","C_Offroad_01_F","C_SUV_01_F"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["RHS_Ural_Open_Civ_01","C_Van_01_transport_F","C_Van_02_transport_F","C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["RHS_Mi8t_civilian"]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
+["staticMGs", ["rhsgref_nat_DSHKM",  "rhsgref_nat_DSHKM_Mini_TriPod", "rhsgref_nat_NSV_TriPod", "rhs_KORD_high_VMF"]] call _fnc_saveToTemplate;
 ["staticAT", ["rhsgref_nat_SPG9"]] call _fnc_saveToTemplate;
 ["staticAA", ["rhsgref_nat_ZU23"]] call _fnc_saveToTemplate;
-["staticMortars", ["rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
-["staticMortarMagHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
-["staticMortarMagSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
+["staticMortars", ["rhsgref_cdf_reg_M252", "rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
+["staticMortarMagHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
+["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 
 ["mineAT", "rhs_mag_mine_ptm1"] call _fnc_saveToTemplate;
 ["mineAPERS", "rhs_mine_ozm72_b_mag"] call _fnc_saveToTemplate;

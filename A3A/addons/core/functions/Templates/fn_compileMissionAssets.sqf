@@ -142,7 +142,7 @@ setVar("vehiclesArmor", _vehArmor);
 
 //rebel vehicles
 private _vehReb = 
-    Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesRepair") + Reb("vehiclesBoat")
+    Reb("vehiclesBasic") + Reb("vehiclesTruck") + Reb("vehiclesBoat")
     + Reb("vehiclesAT") + Reb("vehiclesLightArmed") + Reb("vehiclesLightUnarmed")
     + Reb("staticMGs") + Reb("staticAT") + Reb("staticAA") + Reb("staticMortars")
     + Reb("vehiclesHelis") + Reb("vehiclesPlane") + Reb("vehiclesMedical") + Reb("vehiclesAA");

@@ -1,6 +1,6 @@
 /*
 Author: Killerswin2
-    function wrapper that inits objects addActions for subsystems
+    function remote wrapper that inits objects addActions for subsystems
 Arguments:
     0.<Object> Object that we try to add actions to 
     1.<String> Custom JIP key to prevent overwriting 

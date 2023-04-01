@@ -68,6 +68,7 @@ if (_tab isEqualTo "vehicles") then
         (A3A_faction_reb get 'vehiclesTruck') +
         (A3A_faction_reb get 'vehiclesLightArmed') +
         (A3A_faction_reb get 'vehiclesMedical') +
+        (A3A_faction_reb get 'vehiclesAT') +
         (A3A_faction_reb get 'vehiclesAA') +
         (A3A_faction_reb get 'vehiclesBoat') +
         (A3A_faction_reb get 'vehiclesPlane') + 

@@ -80,7 +80,6 @@ if ((side leader _group) == civilian) then {
     _group setVariable ["PATCOM_Controlled", true];
 
     {   
-        private _hitEH = _x addEventHandler ["Hit", {_this call A3A_fnc_patrolUnitHitEH;}];
         private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
     } forEach units _group;
 

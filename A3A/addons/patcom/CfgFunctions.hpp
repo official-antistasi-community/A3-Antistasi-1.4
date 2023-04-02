@@ -52,7 +52,6 @@ class CfgFunctions {
             class patrolSetParams {};
             class patrolSideIsEnemy {};
             class patrolSuppressionEH {};
-            class patrolUnitHitEH {};
             class patrolWater {};
         };
     };

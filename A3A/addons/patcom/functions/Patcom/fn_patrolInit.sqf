@@ -83,12 +83,5 @@ PATCOM_Garrison_Positions = createHashMapFromArray [
 	["Land_Ind_Mlyn_01", [9,5,7,6,4,3]]
 ];
 
-[] spawn {
-	while {true} do {
-		PATCOM_AI_LOAD = (count allunits);
-		sleep 30;
-	};
-};
-
 PATCOM_INIT_COMPLETE = true;
 Info("PATCOM | Init Complete");

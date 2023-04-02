@@ -53,7 +53,7 @@ if (count _knownEnemies > 0) then {
 			_currentOrders = "Patrol_Attack";
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
-		Info_1("Known Enemies 1 - %1", _knownEnemies);
+
 	_group setVariable ["PATCOM_Known_Enemy", _knownEnemies];
 };
 

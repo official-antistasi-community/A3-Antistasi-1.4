@@ -48,8 +48,6 @@ waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
 	};
 
 	while {true} do {
-		private _aiLoad = [PATCOM_AI_LOAD] call A3A_fnc_patrolAILoad;
-
 		if ((isNull _group) || (({alive _x} count units _group) < 1)) exitWith {};
 
 		// Will not run unless PATCOM_Controlled is set to false.
@@ -61,6 +59,6 @@ waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
 			[_group] call A3A_fnc_patrolCommander;
 		};
 
-		sleep _aiLoad;
+		sleep (round (((count allunits) / 2) * 1.2));
 	};
 };

@@ -26,32 +26,32 @@ FIX_LINE_NUMBERS()
 
 params ["_count"];
 
-private _aiLoadSleep = 5;
-private _maxLoadSleep = 60;
+private _aiLoadSleep = 10;
+private _maxLoadSleep = 120;
 
 // IF SWITCH OF PAIN!
 if (_count <= 30) exitWith {
-	_aiLoadSleep = 5;
-	_aiLoadSleep;
-};
-
-if ((_count >= 31) && (_count <= 60)) exitWith {
 	_aiLoadSleep = 10;
 	_aiLoadSleep;
 };
 
+if ((_count >= 31) && (_count <= 60)) exitWith {
+	_aiLoadSleep = 20;
+	_aiLoadSleep;
+};
+
 if ((_count >= 61) && (_count <= 90)) exitWith {
-	_aiLoadSleep = 25;
+	_aiLoadSleep = 40;
 	_aiLoadSleep;
 };
 
 if ((_count >= 91) && (_count <= 120)) exitWith {
-	_aiLoadSleep = 35;
+	_aiLoadSleep = 60;
 	_aiLoadSleep;
 };
 
 if ((_count >= 121) && (_count <= 150)) exitWith {
-	_aiLoadSleep = 45;
+	_aiLoadSleep = 90;
 	_aiLoadSleep;
 };
 

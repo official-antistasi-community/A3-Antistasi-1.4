@@ -47,14 +47,7 @@ private _currentOrders = _patrolParams # 0;
 private _enemyArray = [];
 // Check if enemy combat is near.
 if (count _knownEnemies > 0) then {
-	{
-		if ((_x # 0) < PATCOM_VISUAL_RANGE) then {
-			_enemyArray pushback (_x # 1);
-		};
-    } foreach _knownEnemies;
-
-	if (count _enemyArray > 0) then {
-		if !(_currentOrders == "Patrol_Attack") then {
+	if !(_currentOrders == "Patrol_Attack") then {
 			_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
 
 			// Set Current Orders to Attack.
@@ -62,8 +55,6 @@ if (count _knownEnemies > 0) then {
 
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
-	};
-	
 	_group setVariable ["PATCOM_Known_Enemy", _enemyArray];
 };
 

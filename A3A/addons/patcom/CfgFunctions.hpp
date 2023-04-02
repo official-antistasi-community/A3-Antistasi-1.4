@@ -36,7 +36,6 @@ class CfgFunctions {
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCivilianCommander {};
-            class patrolClosestKnownEnemy {};
             class patrolClosestObject {};
             class patrolCommander {};
             class patrolCreateWaypoint {};
@@ -50,7 +49,6 @@ class CfgFunctions {
             class patrolSearchBuilding {};
             class patrolSetCombatModes {};
             class patrolSetParams {};
-            class patrolSideIsEnemy {};
             class patrolSuppressionEH {};
             class patrolWater {};
         };

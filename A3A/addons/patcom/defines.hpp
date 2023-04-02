@@ -4,6 +4,9 @@
 // How far before PATCOM can start to detect enemies.
 #define PATCOM_VISUAL_RANGE 200
 
+// How long before PATCOM unit forgets about an enemy.
+#define PATCOM_TARGET_TIME 120
+
 //Allow Patcome to control AI Artillery. False is default A3 Artillery AI.
 #define PATCOM_ARTILLERY_MANAGER true
 

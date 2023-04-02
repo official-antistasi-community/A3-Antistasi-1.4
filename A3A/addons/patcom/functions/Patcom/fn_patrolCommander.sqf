@@ -37,14 +37,13 @@ if (count units _group == 0) exitWith {
 	};
 };
 
-private _knownEnemies = [_group, PATCOM_VISUAL_RANGE] call A3A_fnc_patrolClosestKnownEnemy;
+private _knownEnemies = _group targets [true, PATCOM_VISUAL_RANGE, [], PATCOM_TARGET_TIME];
 private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 private _currentOrders = _patrolParams # 0;
 
 // Handle Patrol Formations, Exits if already set and time not expired.
 [leader _group] call A3A_fnc_patrolHandleFormation;
 
-private _enemyArray = [];
 // Check if enemy combat is near.
 if (count _knownEnemies > 0) then {
 	if !(_currentOrders == "Patrol_Attack") then {
@@ -52,10 +51,10 @@ if (count _knownEnemies > 0) then {
 
 			// Set Current Orders to Attack.
 			_currentOrders = "Patrol_Attack";
-
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
-	_group setVariable ["PATCOM_Known_Enemy", _enemyArray];
+		Info_1("Known Enemies 1 - %1", _knownEnemies);
+	_group setVariable ["PATCOM_Known_Enemy", _knownEnemies];
 };
 
 If (PATCOM_DEBUG) then {
@@ -64,7 +63,7 @@ If (PATCOM_DEBUG) then {
 
 if (_currentOrders == "Patrol_Attack") exitWith {
 	// Give group waypoint to nearest Known Enemy.
-	[_group, _enemyArray] call A3A_fnc_patrolAttack;
+	[_group, _knownEnemies] call A3A_fnc_patrolAttack;
 };
 
 if (_currentOrders == "Patrol_Hold") exitWith {

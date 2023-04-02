@@ -32,7 +32,7 @@ params [
     "_group", 
     "_knownEnemies",
     ["_minimumRadius", 25], 
-    ["_maximumRadius", 100], 
+    ["_maximumRadius", 50], 
     ["_objectDistance", 10], 
     ["_waterMode", 0], 
     ["_maxGradient", -1], 
@@ -62,6 +62,7 @@ private _waypointName = "PATCOM_PATROL_ATTACK";
 
 if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
     // Select random group in the array to attack.
+    Info_1("Known Enemies 2 - %1", _knownEnemies);
     private _targetGroup = selectRandom _knownEnemies;
 
     // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.

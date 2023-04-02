@@ -24,18 +24,16 @@ FIX_LINE_NUMBERS()
 
 params ["_group"];
 
-private _scriptComplete = false;
-
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group <= 0) exitWith {
-    If (PATCOM_DEBUG) then {
+    if (PATCOM_DEBUG) then {
 		Info_1("PATCOM | Group: %1 is Empty", _group);
 	};
 };
 
 // Skip if Group is already being controlled by the PATCOM or is Civilian Controlled.
 if (_group getVariable "PATCOM_Controlled") exitWith {
-    If (PATCOM_DEBUG) then {
+    if (PATCOM_DEBUG) then {
 		Info_1("PATCOM | Group: %1 is already controlled", _group);
 	};
 };
@@ -61,8 +59,6 @@ if ((side leader _group) == civilian) then {
 
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
-
-    _scriptComplete = true;
 } else {
 
     // Setup Variable for use later.
@@ -95,8 +91,4 @@ if ((side leader _group) == civilian) then {
             }];
         } foreach (units _group);
     };
-
-    _scriptComplete = true;
 };
-
-_scriptComplete

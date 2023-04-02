@@ -797,6 +797,7 @@ SA_Find_Nearby_Tow_Vehicles = {
 
 if (hasInterface) then {
 	[] spawn {
+		scriptName "fn_advancedTowingInit_loop";
 		while {true} do {
 			if (!isNull player && isPlayer player) then {
 				if !(player getVariable ["SA_Tow_Actions_Loaded",false]) then {

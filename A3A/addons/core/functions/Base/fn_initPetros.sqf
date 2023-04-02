@@ -109,6 +109,9 @@ petros addMPEventHandler ["mpkilled",
 		};
 	};
 }];
-[] spawn {sleep 120; petros allowDamage true;};
+[] spawn {
+    scriptName "fn_initPetros_internal";
+    sleep 120; petros allowDamage true;
+};
 
 Info("initPetros completed");

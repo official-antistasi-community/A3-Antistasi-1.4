@@ -159,6 +159,7 @@ private _ehId = _building addEventHandler ["Killed", {
 }];
 
 _nil = [_marker, _desk, _intel, _building, _ehId] spawn {
+	scriptName "fn_placeIntel_waitUntil";
 	params ["_marker", "_desk", "_intel", "_building", "_ehId"];
 	waitUntil{sleep 10; (spawner getVariable _marker == 2)};
 	deleteVehicle _desk;

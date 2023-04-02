@@ -64,6 +64,7 @@ for "_i" from 1 to _vehCount do {
 };
 
 _vehicles spawn {
+    scriptName "fn_createAttackForceLand_spawn";
     sleep 60;
     // Free spawn places for any vehicles that still exist
     private _vehicles = _this select { !isNull _x };

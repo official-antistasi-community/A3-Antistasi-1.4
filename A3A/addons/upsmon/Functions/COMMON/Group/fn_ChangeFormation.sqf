@@ -158,7 +158,8 @@ If (!(_grp getvariable ["UPSMON_haschangedformation",false])) then
 };
 
 [_grp] spawn 
-{
+{	
+	scriptName "upsmon_fnc_changeFormation_spawn";
 	private ["_grp"];
 	
 	_grp = _this select 0;

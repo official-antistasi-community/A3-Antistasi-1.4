@@ -22,27 +22,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-PATCOM_DEBUG = true; // Enable PATCOM specific debug.
-publicVariable "PATCOM_DEBUG";
-
-PATCOM_VISUAL_RANGE = 200; // How far before PATCOM can start to detect enemies.
-publicVariable "PATCOM_VISUAL_RANGE";
-
-PATCOM_ARTILLERY_MANAGER = true; //Allow Patcome to control AI Artillery. False is default A3 Artillery AI.
-publicVariable "PATCOM_ARTILLERY_MANAGER";
-
-PATCOM_ARTILLERY_DELAY = 5; // How quickly artillery becomes available again after firing in seconds.
-publicVariable "PATCOM_ARTILLERY_DELAY";
-
-PATCOM_AI_VEHICLES = false; // Allow AI to man nearby vehicles and put them to use.
-publicVariable "PATCOM_AI_VEHICLES";
-
-PATCOM_AI_STATICS = true; // Allow AI to find and arm statics near their group.
-publicVariable "PATCOM_AI_STATICS";
-
-PATCOM_AI_STATIC_ARM = 120; // How long AI stay on static weapons after they arm them.
-publicVariable "PATCOM_AI_ARM_STATICS";
-
 // This Hashmap acts as a blacklist to remove unwanted buildings
 PATCOM_Building_Blacklist = createHashMap;
 
@@ -50,8 +29,6 @@ PATCOM_Building_Blacklist = createHashMap;
 {
 	PATCOM_Building_Blacklist set [_x, "REMOVED"];
 } forEach A3A_buildingBlacklist;
-
-publicVariable "PATCOM_Building_Blacklist";
 
 // This HashMap contains a list of valid garrison positions.
 PATCOM_Garrison_Positions = createHashMapFromArray [
@@ -106,42 +83,12 @@ PATCOM_Garrison_Positions = createHashMapFromArray [
 	["Land_Ind_Mlyn_01", [9,5,7,6,4,3]]
 ];
 
-publicVariable "PATCOM_Garrison_Positions";
-
-PATCOM_Patrol_Animations = [
-	//"acts_rifle_operations_back",
-	//"acts_rifle_operations_barrel",
-	//"acts_rifle_operations_checking_chamber",
-	//"acts_rifle_operations_front",
-	//"acts_rifle_operations_right",
-	//"acts_rifle_operations_left",
-	//"acts_rifle_operations_zeroing",
-	"acts_ambient_cleaning_nose",
-	"acts_ambient_gestures_sneeze",
-	"acts_ambient_gestures_tired",
-	"acts_ambient_gestures_yawn",
-	"acts_ambient_picking_up",
-	"acts_ambient_relax_1",
-	"acts_ambient_relax_2",
-	"acts_ambient_relax_3",
-	"acts_ambient_relax_4",
-	"acts_ambient_rifle_drop",
-	"acts_ambient_shoelaces",
-	"acts_ambient_stretching",
-	"acts_shieldfromsun_in"
-];
-
-publicVariable "PATCOM_Patrol_Animations";
-
 [] spawn {
 	while {true} do {
 		PATCOM_AI_LOAD = (count allunits);
-		publicVariable "PATCOM_AI_LOAD";
 		sleep 30;
 	};
 };
 
 PATCOM_INIT_COMPLETE = true;
-publicVariable "PATCOM_INIT_COMPLETE";
-
 Info("PATCOM | Init Complete");

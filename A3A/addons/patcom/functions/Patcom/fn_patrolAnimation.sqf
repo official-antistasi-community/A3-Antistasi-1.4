@@ -24,11 +24,12 @@ params ["_unit"];
 
 private _group = group _unit;
 private _groupState = _group getVariable "PATCOM_Group_State";
+private _animations = ["acts_ambient_cleaning_nose","acts_ambient_gestures_sneeze","acts_ambient_gestures_tired","acts_ambient_gestures_yawn","acts_ambient_picking_up","acts_ambient_relax_1","acts_ambient_relax_2","acts_ambient_relax_3","acts_ambient_relax_4","acts_ambient_rifle_drop","acts_ambient_shoelaces","acts_ambient_stretching","acts_shieldfromsun_in"];
 
 if !(_groupState == "CALM") exitWith {};
 
-if (PATCOM_Patrol_Animations findIf {_x == (animationstate _Unit)} == -1) then {
-	private _animation = selectRandom PATCOM_Patrol_Animations;
+if (_animations findIf {_x == (animationstate _Unit)} == -1) then {
+	private _animation = selectRandom _animations;
 	[_unit, _animation] remoteExec ["playMove"];
 
 	if (_animation == "acts_shieldfromsun_in") then {

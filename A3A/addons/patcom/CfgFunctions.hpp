@@ -45,7 +45,6 @@ class CfgFunctions {
             class patrolGroupGarrison {};
             class patrolGroupVariables {};
             class patrolHandleFormation {};
-            class patrolHealSelf {};
             class patrolInit {};
             class patrolLoop {};
             class patrolSearchBuilding {};

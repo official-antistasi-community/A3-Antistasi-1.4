@@ -22,16 +22,10 @@
     License: MIT License
 */
 
-params ["_unit", "_source", "_damage", "_instigator"];
+params ["_unit"];
 
 private _unitStance = Stance _unit;
 if !(_unitStance isEqualTo "PRONE") then {	
-	[_unit] spawn {
-		params ["_unit"];
-		sleep 5 + random 5;
-		_unit call A3A_fnc_patrolHealSelf;
-	}; 
-
 	_unit setUnitPos "DOWN";
 
 	[_unit, _unitStance] spawn  {

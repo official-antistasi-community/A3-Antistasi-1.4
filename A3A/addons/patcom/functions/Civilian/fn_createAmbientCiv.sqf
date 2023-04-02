@@ -27,6 +27,9 @@ params ["_markerX", "_type", ["_maxSpawnedCivilians", 6], ["_civilianPopulation"
 // We only want to run on the server and not on the players
 if (!isServer and hasInterface) exitWith{};
 
+//Not sure if that ever happens, but it reduces redundance
+if (spawner getVariable _markerX == 2) exitWith {};
+
 private _civilianGroups = [];
 private _soundSources = [];
 private _lightSources = [];

@@ -30,7 +30,10 @@ _unit disableAI "AUTOTARGET";
 //Stops civilians from shouting out commands.
 [_unit, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call A3A_fnc_setIdentity;
 
-_firedNear = _unit addEventHandler["FiredNear", A3A_fnc_civilianFiredNearEH];
+_unit addEventHandler["FiredNear", {
+    params ["_unit"];
+    [_unit, _thisEvent, _thisEventHandler] call A3A_fnc_civilianFiredNearEH;
+}];
 
 _unit addEventHandler ["HandleDamage", {
         private _unit = _this select 0;

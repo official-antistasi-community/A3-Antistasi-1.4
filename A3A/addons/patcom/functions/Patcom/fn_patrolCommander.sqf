@@ -66,28 +66,12 @@ if (_currentOrders == "Patrol_Attack") exitWith {
 	[_group, _knownEnemies] call A3A_fnc_patrolAttack;
 };
 
-if (_currentOrders == "Patrol_Hold") exitWith {
-
-};
-
-if (_currentOrders == "Patrol_Ambush") exitWith {
-
-};
-
-if (_currentOrders == "Patrol_Chase") exitWith {
-
-};
-
 if (_currentOrders == "Patrol_Defend") exitWith {
 	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#4, _patrolParams#5] call A3A_fnc_patrolDefend;
 };
 
 if (_currentOrders == "Patrol_Area") exitWith {
 	[_group, _patrolParams#1, _patrolParams#2, _patrolParams#3, _patrolParams#4, _patrolParams#5, _patrolParams#6] call A3A_fnc_patrolArea;
-};
-
-if (_currentOrders == "Patrol_Road") exitWith {
-
 };
 
 if (_currentOrders == "Patrol_Water") exitWith {

@@ -16,7 +16,6 @@
 ["vehiclesAA", []] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", []] call _fnc_saveToTemplate;
-["vehiclesRepair", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", []] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
@@ -40,6 +39,8 @@
 
 ["breachingExplosivesAPC", []] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", []] call _fnc_saveToTemplate;
+
+//Enter #include "Modset_Reb_Vehicle_Attributes.sqf" here
 
 ///////////////////////////
 //  Rebel Starting Gear  //

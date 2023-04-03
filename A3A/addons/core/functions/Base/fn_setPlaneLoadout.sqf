@@ -66,6 +66,7 @@ if (_type == "CAS") then
         case "UK3CB_TKA_B_Su25SM_CAS";
         case "UK3CB_LDF_B_Su25SM_CAS";
         case "UK3CB_ADA_I_Su25SM_CAS";
+        case "UK3CB_KDF_B_Su25SM_CAS";
         case "UK3CB_CW_SOV_O_LATE_Su25SM_CAS":
         {
             _loadout = ["rhs_mag_kh29D","rhs_mag_kh29D","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_b8m1_s8kom","rhs_mag_b8m1_s8kom","rhs_mag_R60M","rhs_mag_R60M","rhs_ASO2_CMFlare_Chaff_Magazine_x4"];
@@ -274,6 +275,7 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
         };
         case "UK3CB_ANA_B_L39_PYLON";
+        case "UK3CB_KDF_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";

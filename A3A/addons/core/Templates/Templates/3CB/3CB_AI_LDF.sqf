@@ -26,8 +26,8 @@
 ["vehiclesRepairTrucks", ["UK3CB_LDF_B_T810_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_LDF_B_T810_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_LDF_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_LDF_B_BRDM2", "UK3CB_LDF_B_BRDM2_ATGM", "UK3CB_LDF_B_BRDM2_HQ", "UK3CB_B_MaxxPro_M2_US_W", "UK3CB_B_MaxxPro_MK19_US_W", "UK3CB_LDF_B_MTLB_PKT"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_LDF_B_BMP1", "UK3CB_LDF_B_BMP2", "UK3CB_LDF_B_BMP2K", "UK3CB_LDF_B_Marshall", "UK3CB_LDF_B_Marshall_Camo", "UK3CB_LDF_B_Marshall_Cage", "UK3CB_LDF_B_Marshall_Cage_Camo", "UK3CB_LDF_B_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_LDF_B_BRDM2", "UK3CB_LDF_B_BRDM2_ATGM", "UK3CB_LDF_B_BRDM2_HQ", "UK3CB_B_MaxxPro_M2_US_W", "UK3CB_B_MaxxPro_MK19_US_W", "UK3CB_LDF_B_MTLB_KPVT", "UK3CB_LDF_B_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_LDF_B_BMP1", "UK3CB_LDF_B_BMP2", "UK3CB_LDF_B_BMP2K", "UK3CB_LDF_B_Marshall", "UK3CB_LDF_B_Marshall_Camo", "UK3CB_LDF_B_Marshall_Cage", "UK3CB_LDF_B_Marshall_Cage_Camo", "UK3CB_LDF_B_MTLB_ZU23", "UK3CB_LDF_B_MTLB_BMP", "UK3CB_LDF_B_MTLB_Cannon"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_LDF_B_BMP2", "UK3CB_LDF_B_BMP2K"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_LDF_B_Leopard", "UK3CB_LDF_B_Leopard_Cage", "UK3CB_LDF_B_T72BB", "UK3CB_LDF_B_T72A"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_LDF_B_ZsuTank"]] call _fnc_saveToTemplate;

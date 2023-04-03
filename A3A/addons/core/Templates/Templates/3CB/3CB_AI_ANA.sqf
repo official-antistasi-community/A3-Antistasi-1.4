@@ -354,7 +354,7 @@ _policeLoadoutData set ["shotGuns", [
 _policeLoadoutData set ["SMGs", [
 ["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
 ["UK3CB_M16A1", "", "", "", [], [], ""],
-["rhs_weap_ak74n", "", "rhs_acc_2dpzenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
 ["UK3CB_BHP", "", "", "", [], [], ""]

@@ -26,8 +26,8 @@
 ["vehiclesRepairTrucks", ["UK3CB_TKA_B_Ural_Repair", "rhsusf_M977A4_REPAIR_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_TKA_B_Ural_Fuel", "rhsusf_M978A4_usarmy_d"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_TKA_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_TKA_B_M113_M240", "UK3CB_TKA_B_M113_M2", "UK3CB_TKA_B_M113_MK19", "UK3CB_TKA_B_MTLB_PKT", "UK3CB_TKA_B_M1117", "UK3CB_TKA_B_BTR40_MG"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BMP1", "UK3CB_TKA_B_BMP2", "UK3CB_TKA_B_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_TKA_B_M113_M240", "UK3CB_TKA_B_M113_M2", "UK3CB_TKA_B_M113_MK19", "UK3CB_TKA_B_MTLB_KPVT", "UK3CB_TKA_B_MTLB_PKT", "UK3CB_TKA_B_M1117", "UK3CB_TKA_B_BTR40_MG"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BTR60", "UK3CB_TKA_B_BMP1", "UK3CB_TKA_B_BMP2", "UK3CB_TKA_B_MTLB_ZU23", "UK3CB_TKA_B_MTLB_BMP", "UK3CB_TKA_B_MTLB_Cannon"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_TKA_B_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_TKA_B_T72A", "UK3CB_TKA_B_T72B", "UK3CB_TKA_B_T72BM", "UK3CB_TKA_B_T55", "rhsusf_m1a1aimd_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_TKA_B_ZsuTank", "RHS_M6"]] call _fnc_saveToTemplate;
@@ -80,8 +80,8 @@
 ///  Identities   ///
 /////////////////////
 
-["voices", ["Male01PER","Male02PER","Male03PER"]] call _fnc_saveToTemplate;
-["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+["voices", ["Male01PER", "Male02PER", "Male03PER"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01", "PersianHead_A3_02", "PersianHead_A3_03"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

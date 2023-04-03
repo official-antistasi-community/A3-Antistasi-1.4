@@ -68,6 +68,7 @@ if (_tab isEqualTo "vehicles") then
         (A3A_faction_reb get 'vehiclesTruck') +
         (A3A_faction_reb get 'vehiclesLightArmed') +
         (A3A_faction_reb get 'vehiclesMedical') +
+        (A3A_faction_reb get 'vehiclesAT') +
         (A3A_faction_reb get 'vehiclesAA') +
         (A3A_faction_reb get 'vehiclesBoat') +
         (A3A_faction_reb get 'vehiclesPlane') + 
@@ -351,7 +352,7 @@ if  (_tab in ["other"]) then
                 _fuelDrum # 0,  
                 _fuelDrum # 1, 
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
             ], 
             false,
@@ -370,7 +371,7 @@ if  (_tab in ["other"]) then
                     _fuelTank # 0,  
                     _fuelTank # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ]
             ],
@@ -401,7 +402,7 @@ if  (_tab in ["other"]) then
                     _medTent  # 0,  
                     _medTent  # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
                     ]
                 ]
             ],
@@ -421,7 +422,7 @@ if  (_tab in ["other"]) then
                     _ammoStation # 0,  
                     _ammoStation # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
                     ]
                 ]
             ],
@@ -441,7 +442,7 @@ if  (_tab in ["other"]) then
                     _repairStation # 0,  
                     _repairStation # 1, 
                     [
-                        ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_Logistics_fnc_initPackableObjects', true]
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_Logistics_fnc_initPackableObjects', true]
                     ]
                 ]
             ],
@@ -469,7 +470,7 @@ if  (_tab in ["other"]) then
                 A3A_faction_reb get 'vehicleLightSource',
                 25,
                 [
-                    ['A3A_fnc_initMovableObject', false]
+                    ['A3A_fnc_initMovableObject', true]
                 ]
             ], 
             false,

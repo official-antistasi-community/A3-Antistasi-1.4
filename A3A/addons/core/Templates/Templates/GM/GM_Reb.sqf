@@ -16,7 +16,6 @@
 ["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["CUP_I_V3S_Repair_TKG"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["gm_gc_civ_l410s_passenger"]] call _fnc_saveToTemplate;
 

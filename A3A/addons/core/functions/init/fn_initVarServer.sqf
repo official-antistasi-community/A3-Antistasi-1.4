@@ -43,7 +43,7 @@ DECLARE_SERVER_VAR(cleantime, 3600);
 DECLARE_SERVER_VAR(distanceSPWN1, distanceSPWN*1.3);
 DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 //Quantity of Civs to spawn in (most likely per client - Bob Murphy 26.01.2020)
-//DECLARE_SERVER_VAR(civPerc, 5);
+//DECLARE_SERVER_VAR(globalCivilianMax, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour

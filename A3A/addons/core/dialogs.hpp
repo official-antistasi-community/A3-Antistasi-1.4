@@ -1068,7 +1068,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[player,'civPerc','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
+			action = "[player,'globalCivilianMax','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
 		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
@@ -1078,7 +1078,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[player,'civPerc','decrease'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
+			action = "[player,'globalCivilianMax','decrease'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
 	};
 };

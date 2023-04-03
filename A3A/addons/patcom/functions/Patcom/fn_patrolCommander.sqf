@@ -37,7 +37,7 @@ if (count units _group == 0) exitWith {
 	};
 };
 
-private _knownEnemies = _group targets [true, PATCOM_VISUAL_RANGE, [], PATCOM_TARGET_TIME];
+private _knownEnemies = _group targets [true, PATCOM_VISUAL_RANGE, [resistance, sideEnemy], PATCOM_TARGET_TIME];
 private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 private _currentOrders = _patrolParams # 0;
 

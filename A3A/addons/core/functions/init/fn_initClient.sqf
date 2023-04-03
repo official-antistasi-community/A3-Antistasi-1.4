@@ -409,7 +409,7 @@ mapX addAction ["Game Options", {
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
         "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str civPerc +
+        "<br/>Civilian Limit: "+ str globalCivilianMax +
         "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI

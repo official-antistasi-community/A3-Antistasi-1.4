@@ -65,7 +65,6 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 			_unit assignAsGunner _static;
 			[_unit] orderGetIn true;
 
-			_Waiting = 0;
 			while {(alive _unit) && {_unit distance _static > 4}} do {
 				sleep 3;
 			};

@@ -18,6 +18,7 @@ class CfgFunctions {
             class createAmbientCivTraffic {};
             class createCivilianTracks {};
             class createMusicSource {};
+            class createResourceCiv {};
             class createRoomLight {};
             class getDayState {};
         };

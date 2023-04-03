@@ -134,6 +134,15 @@ _flagX allowDamage false;
 _vehiclesX pushBack _flagX;
 if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
+private _spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
+if !(isNull (_spawnedCivilians # 0)) then {
+	_groups pushBack (_spawnedCivilians # 0);
+	
+	{
+		_civs pushBack _x;
+	} forEach (_spawnedCivilians # 1);
+};
+
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
 if (_spawnParameter isEqualType []) then
 {
@@ -199,11 +208,7 @@ deleteMarker _mrk;
 { if (alive _x) then { deleteVehicle _x } } forEach _soldiers;
 { deleteVehicle _x } forEach _civs;
 { deleteVehicle _x } forEach _dogs;
-
-{ 
-	_x setVariable ["PATCOM_Controlled", ""];
-	deleteGroup _x ;
-} forEach _groups;
+{ deleteGroup _x } forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

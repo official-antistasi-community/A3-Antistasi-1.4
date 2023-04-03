@@ -22,14 +22,14 @@
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_markerX", "_type", ["_maxSpawnedCivilians", 6], ["_civilianPopulation", 4]];
+params ["_markerX"];
 
 // We only want to run on the server and not on the players
 if (!isServer and hasInterface) exitWith{};
 
-//Not sure if that ever happens, but it reduces redundance
-if (spawner getVariable _markerX == 2) exitWith {};
+if (_markerX in destroyedSites) exitWith {};
 
+private _spawnKey = _markerX + "_civ";
 private _civilianGroups = [];
 private _soundSources = [];
 private _lightSources = [];
@@ -39,141 +39,87 @@ private _positionX = getMarkerPos (_markerX);
 private _locationRadius = [_markerX] call A3A_fnc_sizeMarker;
 private _dayState = [] call A3A_fnc_getDayState;
 
-if (_type == "Resource") then {
-	Info_2("Spawning Resource Civilians in %1 with a radius of %2", _markerX, _locationRadius);
+_buildings = nearestObjects [_positionX, ["House"], _locationRadius];
 
-	// We don't want to add too many civ's.
-	if (_civilianPopulation > _maxSpawnedCivilians) then {
-		_civilianPopulation = _maxSpawnedCivilians;
-	};
+Info_2("Spawning City Civilians in %1 with a radius of %2", _markerX, _locationRadius);
+
+private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX, _positionX] call BIS_fnc_nearestPosition};
+private _cityData = server getVariable _city;
+private _numCiv = round (1.5 * sqrt (_cityData # 0) * (1 - tierWar / 20));
+
+// We don't want to add too many civ's.
+if (_numCiv > maxCiviliansPerTown) then {
+	_numCiv = maxCiviliansPerTown;
 };
 
-if (_type == "City") then {
-	_buildings = nearestObjects [_positionX, ["House"], _locationRadius];
-
-	Info_2("Spawning City Civilians in %1 with a radius of %2", _markerX, _locationRadius);
-
-	private _city = if (_positionX isEqualType "") then {_positionX} else {[citiesX, _positionX] call BIS_fnc_nearestPosition};
-	private _cityData = server getVariable _city;
-
-	_civilianPopulation = round ((sqrt (_cityData#0)) / 2);
-
-	// We don't want to add too many civ's.
-	if (_civilianPopulation > _maxSpawnedCivilians) then {
-		_civilianPopulation = _maxSpawnedCivilians;
-	};
-
-	if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
-		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
-		_groupX = createGroup civilian;
-		_civilianGroups pushBack _groupX;
-		_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
-		[_civPress] spawn A3A_fnc_CIVinit;
-		_civilians pushBack _civPress;
-		[_groupX, "Patrol_Area", 5, 50, 300, false, [], false] call A3A_fnc_patrolLoop;
-	};
+if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
+	private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+	_groupX = createGroup civilian;
+	_civilianGroups pushBack _groupX;
+	_civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
+	[_civPress] spawn A3A_fnc_CIVinit;
+	_civilians pushBack _civPress;
+	[_groupX, "Patrol_Area", 5, 50, 300, false, [], false] call A3A_fnc_patrolLoop;
 };
 
-if (_type == "Resource") then {
-	if !((_markerX in resourcesX) or (_markerX in factories)) exitWith {};
-
-	if (not(_markerX in destroyedSites)) then {
-		if ((daytime > 8) and (daytime < 18)) then {
-			private _groupX = createGroup civilian;
-			_civilianGroups pushBack _groupX;
-			
-			for "_i" from 1 to _civilianPopulation do {
-				private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
-				private _civUnit = [_groupX, FactionGet(civ, "unitWorker"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
-				_civUnit setVariable ["isScared", false];
-				_civUnit setVariable ["markerX", _markerX, true];
-				_civilians pushBack _civUnit;
-
-				// Add event handlers to civilian units.
-				[_civUnit] spawn A3A_fnc_civilianInitEH;
-
-				sleep 0.5;
-				_civUnit addEventHandler ["Killed",
-					{
-						if (({alive _x} count (units group (_this select 0))) == 0) then {
-							private _markerX = (_this select 0) getVariable "markerX";
-							private _nameX = [_markerX] call A3A_fnc_localizar;
-							destroyedSites pushBackUnique _markerX;
-							publicVariable "destroyedSites";
-							["TaskFailed", ["", format ["%1 Destroyed", _nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer, civilian]];
-						};
-					}
-				];
-			};
-
-			[_groupX] call A3A_fnc_patrolLoop;
-		};
+for "_i" from 1 to _numCiv do {
+	
+	if (count units civilian >= globalCivilianMax) exitWith {
+		Info("Global Civilian spawn limit reached! - Exiting");
 	};
-};
 
+	private _posHouse = [];
 
-if (_type == "City") then {
-	for "_i" from 1 to _civilianPopulation do {
-		private _posHouse = [];
+	while {true} do {
+		private _building = selectRandom _buildings;
+		private _housePositions = [_building] call BIS_fnc_buildingPositions;
 
-		while {true} do {
-			private _building = selectRandom _buildings;
-			private _housePositions = [_building] call BIS_fnc_buildingPositions;
+		if !(_housePositions isEqualTo []) exitWith {_posHouse = selectRandom _housePositions};
+	};
 
-			if !(_housePositions isEqualTo []) exitWith {_posHouse = selectRandom _housePositions};
-		};
+	private _groupX = createGroup civilian;
+	private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
+	_civUnit setPosATL _posHouse;
+	_civUnit setVariable ["isScared", false];
 
-		private _groupX = createGroup civilian;
-		private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
-		_civUnit setPosATL _posHouse;
-		_civUnit setVariable ["isScared", false];
+	_civilianGroups pushBack _groupX;
+	_civilians pushBack _civUnit;
 
-		_civilianGroups pushBack _groupX;
-		_civilians pushBack _civUnit;
+	[_civUnit] spawn A3A_fnc_civilianInitEH;
 
-		[_civUnit] spawn A3A_fnc_civilianInitEH;
+	// Actions to do during the evening hours of spawn.
+	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
+		private _building = _posHouse nearestObject "House";
+		_light = [_building] call A3A_fnc_createRoomLight;
+		_lightSources pushBack _light;
+	};
 
-		// Actions to do during the evening hours of spawn.
-		if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
+	// Actions to do during the morning hours of spawn.
+	if (_dayState == "MORNING") then {
+		if (4 > random 10) then {
 			private _building = _posHouse nearestObject "House";
-			_light = [_building] call A3A_fnc_createRoomLight;
-			_lightSources pushBack _light;
+			private _soundSource = [_building] call A3A_fnc_createMusicSource;
+			_soundSources pushBack _soundSource;
+		};
+		_light = [_building] call A3A_fnc_createRoomLight;
+		_lightSources pushBack _light;
+	};
+
+	// Actions to do during the day hours of spawn
+	if (_dayState == "DAY") then {
+		if (7 > random 10) then {
+			private _building = _posHouse nearestObject "House";
+			private _soundSource = [_building] call A3A_fnc_createMusicSource;
+			_soundSources pushBack _soundSource;
 		};
 
-		// Actions to do during the morning hours of spawn.
-		if (_dayState == "MORNING") then {
-			if (4 > random 10) then {
-				private _building = _posHouse nearestObject "House";
-				private _soundSource = [_building] call A3A_fnc_createMusicSource;
-				_soundSources pushBack _soundSource;
-			};
-			_light = [_building] call A3A_fnc_createRoomLight;
-			_lightSources pushBack _light;
-		};
-
-		// Actions to do during the day hours of spawn
-		if (_dayState == "DAY") then {
-			if (7 > random 10) then {
-				private _building = _posHouse nearestObject "House";
-				private _soundSource = [_building] call A3A_fnc_createMusicSource;
-				_soundSources pushBack _soundSource;
-			};
-
-			[_groupX] call A3A_fnc_patrolLoop;
-		};
+		[_groupX] call A3A_fnc_patrolLoop;
 	};
 };
 
 // Handle removal of civ's.
-waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
+waitUntil {sleep 1;(spawner getVariable _spawnKey == 2)};
 {if (alive _x) then {deleteVehicle _x};} forEach _civilians;
-
-{
-	_x setVariable ["PATCOM_Controlled", false];
-	deleteGroup _x;
-} forEach _civilianGroups;
-
-if (_type == "City") then {
-	{deleteVehicle _x} forEach _soundSources;
-	{deleteVehicle _x} forEach _lightSources;
-};
+{ deleteGroup _x } forEach _civilianGroups;
+{deleteVehicle _x} forEach _soundSources;
+{deleteVehicle _x} forEach _lightSources;

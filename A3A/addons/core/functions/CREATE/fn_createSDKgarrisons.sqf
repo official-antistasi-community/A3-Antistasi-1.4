@@ -27,6 +27,16 @@ if (_markerX != "Synd_HQ") then
 			[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
 		};
 	};
+
+	if ((_markerX in resourcesX) or (_markerX in factories)) then {
+		private _spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
+		if !(isNull (_spawnedCivilians # 0)) then {
+			_groups pushBack (_spawnedCivilians # 0);
+			{
+				_civs pushBack _x;
+			} forEach (_spawnedCivilians # 1);
+		};
+	};
 };
 
 private _size = [_markerX] call A3A_fnc_sizeMarker;
@@ -128,11 +138,8 @@ for "_i" from 0 to (count _groups) - 1 do {
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
-
-{ 
-	_x setVariable ["PATCOM_Controlled", ""];
-	deleteGroup _x ;
-} forEach _groups;
+{ deleteVehicle _x } forEach _civs;
+{ deleteGroup _x } forEach _groups;
 
 deleteGroup _groupStatics;
 deleteGroup _groupMortars;

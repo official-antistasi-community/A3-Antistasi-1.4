@@ -33,7 +33,6 @@ if (_markerX in destroyedSites) exitWith {};
 // civ part of cities has a separate spawn state from the garrison
 private _spawnKey = _markerX + "_civ";
 
-private _civs = [];
 private _groups = [];
 private _vehiclesX = [];
 private _groupsPatrol = [];
@@ -50,6 +49,10 @@ private _typeVehX = "";
 private _dirVeh = 0;
 
 private _roads = nearestTerrainObjects [getMarkerPos _markerX, ["MAIN ROAD", "ROAD", "TRACK"], 250, false, true];
+
+// no bridges or junctions
+_roads = _roads select { !(getRoadInfo _x # 8) and (count roadsConnectedTo [_x, true] <= 2) and (count (_x nearRoads 10) < 2)};
+
 if (count _roads == 0) exitWith
 {
     Error_1("Roads not found for marker %1", _markerX);
@@ -58,6 +61,7 @@ _roads = _roads call BIS_fnc_arrayShuffle;
 
 private _maxRoads = count _roads;
 
+_numCiv = 15 * sqrt _numCiv * (1 - tierWar / 20);
 private _numParked = _numCiv * (1/60) * civTraffic;
 private _numTraffic = _numCiv * (1/300) * civTraffic;
 
@@ -83,7 +87,8 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
 				_dirveh = _p1 getDir _p2;
 			};
 
-			private _pos = [_p1, 3, _dirveh + 90] call BIS_Fnc_relPos;
+			private _width = 3 max (getRoadInfo _road # 1 / 2 - 1);
+			_pos = [_p1, _width, _dirveh + 90] call BIS_Fnc_relPos;
 			_typeVehX = selectRandomWeighted civVehiclesWeighted;
 
 			private _veh = _typeVehX createVehicle _pos;
@@ -211,7 +216,6 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 };
 
 waitUntil {sleep 1; (spawner getVariable _spawnKey == 2)};
-{deleteVehicle _x} forEach _civs;
 {deleteGroup _x} forEach _groups;
 
 {

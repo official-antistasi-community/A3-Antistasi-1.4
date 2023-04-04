@@ -285,10 +285,7 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
 
-{ 
-	_x setVariable ["PATCOM_Controlled", ""];
-	deleteGroup _x ;
-} forEach _groups;
+{ deleteGroup _x } forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

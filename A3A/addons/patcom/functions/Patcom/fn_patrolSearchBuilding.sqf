@@ -22,14 +22,8 @@ FIX_LINE_NUMBERS()
 
 params ["_group"];
 
-// Get nearestBuilding around group leader to search.
-private _buildings = nearestObjects [leader _group, ["House", "Building"], 50];
-
-// Exit if no buildings are found around group leader.
-if (count _buildings == 0) exitwith {};
-
-// Get random building inside the building array.
-private _building = selectRandom _buildings;
+// Get nearestBuilding with a path LOD closest to the group leader.
+private _building = nearestBuilding (getPos (leader _group));
 
 // Exit if for some reason the group leader is further than 250m of the building.
 if ((leader _group) distance _building > 250) exitwith {};

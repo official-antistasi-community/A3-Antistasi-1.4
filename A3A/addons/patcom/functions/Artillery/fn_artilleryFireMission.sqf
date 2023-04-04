@@ -40,7 +40,7 @@ private _group = group (gunner _selBattery);
 private _side = side _group;
 private _artilleryVarience = _group getvariable ["PATCOM_ArtilleryError", 10 + (random 50)];
 private _dayState = [] call A3A_fnc_getDayState;
-private _reloadTime = [leader _group] call A3A_fnc_getReloadTime;
+private _reloadTime = [_selBattery] call A3A_fnc_getReloadTime;
 
 _group setVariable ["PATCOM_ArtilleryBusy", true, true];
 
@@ -60,7 +60,7 @@ If (PATCOM_DEBUG) then {
 	[leader _group, "FIREMISSION ACCEPTED", 5, "Yellow"] call A3A_fnc_debugText3D;
 };
 
-private _batteryClass = (typeOf vehicle (leader _group));
+private _batteryClass = (typeOf _selBattery);
 private _ammoType = [_roundType, _batteryClass, _side] call A3A_fnc_artilleryGetRounds;
 
 if !(_targetPos inRangeOfArtillery [[_selBattery], _ammoType]) exitWith {
@@ -74,12 +74,12 @@ if !(_targetPos inRangeOfArtillery [[_selBattery], _ammoType]) exitWith {
 	params ["_group", "_targetPos", "_area", "_artilleryVarience", "_selBattery", "_ammoType", "_rounds", "_reloadTime"];
 
 	for "_i" from 1 to _rounds do {
-		private _finalTargetPos = [_targetPos, 10, (_area + _artilleryVarience), 0, 1, -1, 0] call A3A_fnc_getSafePos;
+		private _finalTargetPos = [_targetPos, _artilleryVarience, _area, 0, 1, -1, 0] call A3A_fnc_getSafePos;
 		_selBattery doArtilleryFire [_finalTargetPos, _ammoType, 1];
 		If (PATCOM_DEBUG) then {
 			[leader _group, "ROUND AWAY", 1, "Green"] call A3A_fnc_debugText3D;
 		};
-		sleep (_reloadTime + 2);
+		sleep (_reloadTime + (2 + (random 4)));
 	};
 
 	sleep PATCOM_ARTILLERY_DELAY;

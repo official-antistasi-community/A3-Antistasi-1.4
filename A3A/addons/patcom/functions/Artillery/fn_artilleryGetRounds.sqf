@@ -29,7 +29,13 @@ params ["_roundType", "_artilleryType", "_side"];
 private _faction = Faction(_side);
 private _shellType = "";
 
-if (_artilleryType in (_faction get "staticMortars")) then {
+if (_artilleryType in (_faction get "vehiclesArtillery")) exitWith {
+	_shellArray = _faction get "magazines" get _artilleryType;
+	_shellType = (_shellArray # 0);
+	_shellType
+};
+
+if (_artilleryType in (_faction get "staticMortars")) exitWith {
 	switch (_roundType) do {
 		case "HE": {
 			_shellType = _faction get "mortarMagazineHE";
@@ -47,5 +53,6 @@ if (_artilleryType in (_faction get "staticMortars")) then {
 			_shellType = _faction get "mortarMagazineHE";
 		};
 	};
+	_shellType
 };
 _shellType

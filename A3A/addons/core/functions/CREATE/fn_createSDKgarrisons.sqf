@@ -123,11 +123,12 @@ while {(spawner getVariable _markerX != 2) and (_countUnits < _totalUnits)} do
 for "_i" from 0 to (count _groups) - 1 do {
 	_groupX = _groups select _i;
 	if (_i == 0) then {
-		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		_groups pushBack _groupX;
+		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		if (count _garrisonGroup > 0) then {
+			_groups append _garrisonGroup;
+		};
 	} else {
 		[_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
-		_groups pushBack _groupX;
 	};
 };
 

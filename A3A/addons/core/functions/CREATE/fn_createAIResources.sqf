@@ -188,7 +188,10 @@ for "_i" from 0 to (count _array - 1) do {
 	} forEach units _groupX;
 
 	if (_i == 0) then {
-		[_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		if (count _garrisonGroup > 0) then {
+			_groups append _garrisonGroup;
+		};
 	} else {
 		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};

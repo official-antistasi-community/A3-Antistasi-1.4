@@ -107,7 +107,10 @@ _lineIndex = 0;
         sleep 0.25;
     } forEach _crewArray;
 
-    [_groupX, getMarkerPos _markerX, _patrolSize] call A3A_fnc_patrolGroupGarrison;
+    private _garrisonGroup = [_groupX, getMarkerPos _markerX, _patrolSize] call A3A_fnc_patrolGroupGarrison;
+    if (count _garrisonGroup > 0) then {
+			_allGroups append _garrisonGroup;
+		};
 
     private _forcePatrol = ((count _allGroups) > ((count _patrolGroups) * 3));
     _groupSoldier = createGroup _side;

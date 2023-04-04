@@ -9,14 +9,14 @@
         <Number> How far you want to look for potential positions
 
     Return Value:
-    	N/A
+    	<Group> Returns group if not enough buildings or positions are found.
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-        [_group, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+        private _garrisonGroups = [_group, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
 
     License: MIT License
 */
@@ -27,12 +27,12 @@ FIX_LINE_NUMBERS()
 params ["_group", "_position", "_radius"];
 
 private _units = units _group;
+private _buildings = [];
+private _newGroups = [];
 
 if (count _units == 0) exitwith {};
 
 _group lockWP true;
-
-private _buildings = [];
 _buildings = nearestObjects [_position, keys PATCOM_Garrison_Positions, _radius];
 
 if (count _buildings == 0) then {
@@ -76,6 +76,8 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
 // Splits Garrison AI into an addition defense group if not enough buildings/positions were found.
 if (count _units > 0) then {
    private _groupSplit = createGroup (side _group);
+   _newGroups pushBack _groupSplit;
    _units join _groupSplit;
    [_groupSplit, "Patrol_Defend", 0, 100, -1, true, _position, false] call A3A_fnc_patrolLoop;
 };
+_newGroups

@@ -25,12 +25,34 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
 
             class Controls
             {
-                class VehicleTabButton : A3A_Button
+                class civilianVehicleTabButton : A3A_Button
                 {
                     idc = A3A_IDC_VEHICLETABBUTTON;
-                    text = $STR_antistasi_dialogs_vehicle_tab_vehicles;
-                    onButtonClick = "[""switchTab"", [""vehicles""]] call A3A_fnc_buyVehicleDialog";
+                    text = $STR_antistasi_dialogs_vehicle_tab_civ;
+                    onButtonClick = "[""switchTab"", [""civilian""]] call A3A_fnc_buyVehicleDialog";
                     x = 0;
+                    y = 0;
+                    w = 30 * GRID_W;
+                    h = 5 * GRID_H;
+                };
+
+                 class rebelVehicleTabButton : A3A_Button
+                {
+                    idc = A3A_IDC_VEHICLETABBUTTON;
+                    text = $STR_antistasi_dialogs_vehicle_tab_reb;
+                    onButtonClick = "[""switchTab"", [""rebel""]] call A3A_fnc_buyVehicleDialog";
+                    x = 30 * GRID_W;
+                    y = 0;
+                    w = 30 * GRID_W;
+                    h = 5 * GRID_H;
+                };
+
+                class staticsTabButton : A3A_Button
+                {
+                    idc = A3A_IDC_OTHERTABBUTTON;
+                    text = $STR_antistasi_dialogs_vehicle_tab_static;
+                    onButtonClick = "[""switchTab"", [""static""]] call A3A_fnc_buyVehicleDialog";
+                    x = 60 * GRID_W;
                     y = 0;
                     w = 30 * GRID_W;
                     h = 5 * GRID_H;
@@ -41,7 +63,7 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
                     idc = A3A_IDC_OTHERTABBUTTON;
                     text = $STR_antistasi_dialogs_vehicle_tab_other;
                     onButtonClick = "[""switchTab"", [""other""]] call A3A_fnc_buyVehicleDialog";
-                    x = 30 * GRID_W;
+                    x = 90 * GRID_W;
                     y = 0;
                     w = 30 * GRID_W;
                     h = 5 * GRID_H;
@@ -50,16 +72,52 @@ class A3A_BuyVehicleDialog : A3A_TabbedDialog
         };
 
         // Main content
-        class VehicleTab : A3A_DefaultControlsGroup
+        class civilainVehicleTab : A3A_DefaultControlsGroup
         {
-            idc = A3A_IDC_BUYVEHICLEMAIN;
+            idc = A3A_IDC_BUYCIVVEHICLEMAIN;
             show = false;
 
             class Controls
             {
                 class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
                 {
-                    idc = A3A_IDC_VEHICLESGROUP;
+                    idc = A3A_IDC_CIVVEHICLESGROUP;
+                    x = 0;
+                    y = 4 * GRID_H;
+                    w = PX_W(DIALOG_W);
+                    h = PX_H(DIALOG_H) - 8 * GRID_H;
+                };
+            };
+        };
+
+        class rebelVehicleTab : A3A_DefaultControlsGroup
+        {
+            idc = A3A_IDC_BUYREBVEHICLEMAIN;
+            show = false;
+
+            class Controls
+            {
+                class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
+                {
+                    idc = A3A_IDC_REBVEHICLESGROUP;
+                    x = 0;
+                    y = 4 * GRID_H;
+                    w = PX_W(DIALOG_W);
+                    h = PX_H(DIALOG_H) - 8 * GRID_H;
+                };
+            };
+        };
+
+        class staticsTab : A3A_DefaultControlsGroup
+        {
+            idc = A3A_IDC_BUYSTATICMAIN;
+            show = false;
+
+            class Controls
+            {
+                class VehiclesControlsGroup : A3A_ControlsGroupNoHScrollbars
+                {
+                    idc = A3A_IDC_STATICSGROUP;
                     x = 0;
                     y = 4 * GRID_H;
                     w = PX_W(DIALOG_W);

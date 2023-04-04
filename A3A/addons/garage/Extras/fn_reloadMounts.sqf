@@ -31,7 +31,7 @@ private _cat = HR_GRG_vehicles#4;
 } forEach attachedObjects HR_GRG_previewVeh;
 
 //remove unticked statics
-private _toRemove = [];
+/*private _toRemove = [];
 for "_i" from 0 to (lbSize _ctrl) -1 do {
     private _class = _ctrl lbData _i;
     private _UID = _ctrl lbValue _i;
@@ -39,6 +39,8 @@ for "_i" from 0 to (lbSize _ctrl) -1 do {
     if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 ) then {_toRemove pushBack [_class, _UID]}; // if not checked
 };
 HR_GRG_Mounts = HR_GRG_Mounts - _toRemove;
+*/
+HR_GRG_Mounts = [];
 
 //add new statics to the list
 for "_i" from 0 to (lbSize _ctrl) -1 do {

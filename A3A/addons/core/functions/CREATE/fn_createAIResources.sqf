@@ -135,12 +135,9 @@ _vehiclesX pushBack _flagX;
 if (flagTexture _flagX != (_faction get "flagTexture")) then {[_flagX,(_faction get "flagTexture")] remoteExec ["setFlagTexture",_flagX]};
 
 private _spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
-if !(isNull (_spawnedCivilians # 0)) then {
+if !(isNil "_spawnedCivilians") then {
 	_groups pushBack (_spawnedCivilians # 0);
-	
-	{
-		_civs pushBack _x;
-	} forEach (_spawnedCivilians # 1);
+	_civs append (_spawnedCivilians # 1);
 };
 
 private _spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;

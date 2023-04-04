@@ -30,11 +30,9 @@ if (_markerX != "Synd_HQ") then
 
 	if ((_markerX in resourcesX) or (_markerX in factories)) then {
 		private _spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
-		if !(isNull (_spawnedCivilians # 0)) then {
+		if !(isNil "_spawnedCivilians") then {
 			_groups pushBack (_spawnedCivilians # 0);
-			{
-				_civs pushBack _x;
-			} forEach (_spawnedCivilians # 1);
+			_civs append (_spawnedCivilians # 1);
 		};
 	};
 };

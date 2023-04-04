@@ -17,7 +17,7 @@ _POWs = [];
 
 _radiusX = [_markerX] call A3A_fnc_sizeMarker;
 //_houses = nearestObjects [_positionX, ["house"], _radiusX];
-_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in UPSMON_Bld_remove)};
+_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in A3A_buildingBlacklist)};
 _posHouse = [];
 _houseX = _houses select 0;
 while {count _posHouse < 3} do
@@ -143,7 +143,9 @@ else
 		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
+
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _mrk, true] call A3A_fnc_patrolLoop;
+	
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	_groupX1 = [_houseX buildingExit 0, Occupants, _faction get "groupPolice"] call A3A_fnc_spawnGroup;
 	};

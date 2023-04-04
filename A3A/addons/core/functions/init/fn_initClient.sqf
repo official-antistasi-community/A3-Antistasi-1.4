@@ -27,9 +27,8 @@ if !(isServer) then {
 
     // Headless client navgrid init
     if (!hasInterface) then {
-        Info("Headless client UPSMON init started");
-        [] call UPSMON_fnc_Init_UPSMON;
-        Info("Headless client UPSMON init completed");
+        Info("HC Initialising PATCOM Variables");
+        [] call A3A_fnc_patrolInit;
 
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
@@ -103,8 +102,6 @@ player setVariable ["spawner",true,true];
 if (A3A_hasTFAR || A3A_hasTFARBeta) then {
     [] spawn A3A_fnc_radioJam;
 };
-
-[] spawn A3A_fnc_ambientCivs;
 
 if (isMultiplayer && {playerMarkersEnabled}) then {
     [] spawn A3A_fnc_playerMarkers;
@@ -412,7 +409,7 @@ mapX addAction ["Game Options", {
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
         "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str civPerc +
+        "<br/>Civilian Limit: "+ str globalCivilianMax +
         "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI

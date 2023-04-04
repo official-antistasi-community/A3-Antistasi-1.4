@@ -4,7 +4,7 @@ private ["_positionX","_size","_buildings","_groupX","_typeUnit","_sideX","_buil
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _size = _this select 1;
-_buildings = nearestObjects [_positionX, listMilBld, _size, true];
+_buildings = nearestObjects [_positionX, A3A_milBuildingWhitelist, _size, true];
 _buildings = _buildings inAreaArray _markerX;
 
 if (count _buildings == 0) exitWith {[grpNull,[],[]]};

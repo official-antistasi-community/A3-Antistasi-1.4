@@ -63,12 +63,19 @@ class Params
         texts[] = {"200","300","400","500"};
         default = 300;
     };
-    class civPerc
+    class globalCivilianMax
     {
-        title = "Maximum wandering civilians";
+        title = "Maximum global civilians";
+        values[] = {0,2,5,10,15,20};
+        texts[] = {"0","2","5","10","15","20"};
+        default = 5;
+    };
+    class maxCiviliansPerTown
+    {
+        title = "Maximum civilians spawn per town";
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
-        default = 5;
+        default = 2;
     };
     class initialPlayerMoney
     {

@@ -217,14 +217,11 @@ class CfgFunctions
             class AAFroadPatrol {};
             class airportCanAttack {};
             class AIVEHinit {};
-            class ambientCivs {};
             class attackHQ {};
             class availableBasesAir {};
             class availableBasesLand {};
             class calculateMarkerArea {};
             class cargoSeats {};
-            class CIVinit {};
-            class civVEHinit {};
             class cleanserVeh {};
             class countFreeSpawnPositions {};
             class createAIAirplane {};
@@ -237,7 +234,6 @@ class CfgFunctions
             class createAttackForceLand {};
             class createAttackForceMixed {};
             class createAttackVehicle {};
-            class createCIV {};
             class createFIAOutposts2 {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};

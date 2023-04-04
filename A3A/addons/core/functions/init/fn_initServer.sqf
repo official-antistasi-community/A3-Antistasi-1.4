@@ -57,13 +57,11 @@ call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 Info("Server JNA preload started");
 ["Preload"] call jn_fnc_arsenal;
 
-// UPSMON
-Info("UPSMON init started");
-[] call UPSMON_fnc_Init_UPSMON;
-
 Info("Background init completed");
 A3A_backgroundInitDone = true;
 
+Info("Server Initialising PATCOM Variables");
+[] call A3A_fnc_patrolInit;
 
 // **************** Starting game, param-dependent init *******************************
 

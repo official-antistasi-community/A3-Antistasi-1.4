@@ -29,6 +29,20 @@ respawnTeamPlayer = "respawn_guerrila";			// not really sure why we have two mar
 posHQ = getMarkerPos respawnTeamPlayer;
 
 ////////////////////////////////////////
+//     DECLARING PATCOM VARIABLES    ///
+////////////////////////////////////////
+Info("Initialising PATCOM Variables");
+
+PATCOM_DEBUG = true; // Enable PATCOM specific debug.
+PATCOM_VISUAL_RANGE = 200; // How far before PATCOM can start to detect enemies.
+PATCOM_TARGET_TIME = 120; // How long before PATCOM unit forgets about an enemy.
+PATCOM_ARTILLERY_MANAGER = true; // Allow Patcome to control AI Artillery. False is default A3 Artillery AI.
+PATCOM_ARTILLERY_DELAY = 5; // How quickly artillery becomes available again after firing in seconds.
+PATCOM_AI_VEHICLES = false; // Allow AI to man nearby vehicles and put them to use.
+PATCOM_AI_STATICS = true; // Allow AI to find and arm statics near their group.
+PATCOM_AI_STATIC_ARM = 120; // How long AI stay on static weapons after they arm them.
+
+////////////////////////////////////////
 //     DECLARING ITEM CATEGORIES     ///
 ////////////////////////////////////////
 Info("Declaring item categories");

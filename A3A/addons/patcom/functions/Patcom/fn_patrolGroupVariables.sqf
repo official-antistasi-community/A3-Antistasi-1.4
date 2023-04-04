@@ -79,10 +79,6 @@ if ((side leader _group) == civilian) then {
     // Set Group to being controlled by PATCOM so we don't init variables again.
     _group setVariable ["PATCOM_Controlled", true];
 
-    {   
-        private _suppressionEH = _x addEventHandler ["Suppressed", {_this call A3A_fnc_patrolSuppressionEH;}];
-    } forEach units _group;
-
     if (PATCOM_DEBUG) then {
         {
             private _PathEH = _x addEventHandler ["PathCalculated", {

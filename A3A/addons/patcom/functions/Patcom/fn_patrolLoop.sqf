@@ -47,11 +47,11 @@ waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
 		[_group, _patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings] call A3A_fnc_patrolSetParams;
 	};
 
+	// Will not run unless PATCOM_Controlled is set to false.
+	[_group] call A3A_fnc_patrolGroupVariables;
+
 	while {true} do {
 		if ((isNull _group) || (({alive _x} count units _group) < 1)) exitWith {};
-
-		// Will not run unless PATCOM_Controlled is set to false.
-		[_group] call A3A_fnc_patrolGroupVariables;
 
 		if ((side leader _group) == civilian) then {
 			[_group] call A3A_fnc_patrolCivilianCommander;

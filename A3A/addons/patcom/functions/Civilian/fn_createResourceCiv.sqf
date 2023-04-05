@@ -23,7 +23,9 @@
 FIX_LINE_NUMBERS()
 params ["_markerX", ["_maxResourceCivilians", 4]];
 
-if (not(_markerX in destroyedSites)) exitWith {};
+if (_markerX in destroyedSites) exitWith {
+	Debug("_markerX in destroyedSites and civilian workers and have not spawned.");
+};
 if ((daytime > 8) and (daytime < 18)) exitWith {
 	Debug("Civilian Workers are outside of working hours and have not spawned.")
 };

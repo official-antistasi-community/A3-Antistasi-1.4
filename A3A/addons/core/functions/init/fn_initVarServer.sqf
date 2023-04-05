@@ -460,6 +460,7 @@ DECLARE_SERVER_VAR(A3A_vehClassToCrew,call A3A_fnc_initVehClassToCrew);
 // Default vehicle resource costs
 private _vehicleResourceCosts = createHashMap;
 
+{ _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars");
 { _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "vehiclesLightUnarmed") + FactionGet(all, "vehiclesTrucks");
 { _vehicleResourceCosts set [_x, 50] } forEach FactionGet(all, "vehiclesLightArmed");
 { _vehicleResourceCosts set [_x, 60] } forEach FactionGet(all, "vehiclesLightAPCs");

@@ -71,7 +71,7 @@ for "_i" from 1 to _numCiv do {
 
 	private _posHouse = [];
 
-	if (count _buildings > 0) then {
+	if (!(_buildings isEqualType []) || (count _buildings > 0)) then {
 		_building = selectRandom _buildings;
 		private _housePositions = [_building] call BIS_fnc_buildingPositions;
 		_buildings = _buildings deleteAt (_buildings find _building);

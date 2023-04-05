@@ -597,8 +597,14 @@
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
         <Original>Only the Commander may buy this item.</Original>
       </Key>
-      <Key ID="STR_antistasi_dialogs_vehicle_tab_vehicles">
-        <Original>Vehicles</Original>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_civ">
+        <Original>Civilian</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_reb">
+        <Original>Rebel</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_vehicle_tab_static">
+        <Original>Statics</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
         <Original>Other</Original>

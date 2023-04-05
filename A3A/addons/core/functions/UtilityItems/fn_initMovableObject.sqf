@@ -49,7 +49,8 @@ _object addAction [
     true,
     "",
     "(
-        !(_this getVariable ['A3A_rotatingObject',false])
+        !(_originalTarget getVariable ['A3A_rotatingObject',false]) 
+        and (attachedTo _originalTarget isEqualTo objNull)
     )",
     8
 ];

@@ -75,9 +75,46 @@ for "_i" from 1 to _numCiv do {
 		_building = selectRandom _buildings;
 		private _housePositions = [_building] call BIS_fnc_buildingPositions;
 		_buildings = _buildings deleteAt (_buildings find _building);
+
 		if !(_housePositions isEqualTo []) then {
 			_posHouse = selectRandom _housePositions;
+		} else {
+			_posHouse = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		};
+
+		private _groupX = createGroup civilian;
+		private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
+		_civUnit setPosATL _posHouse;
+		_civilianGroups pushBack _groupX;
+		_civilians pushBack _civUnit;
+		[_civUnit] spawn A3A_fnc_civilianInitEH;
+
+		// Actions to do during the evening hours of spawn.
+		if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
+			_light = [_building] call A3A_fnc_createRoomLight;
+			_lightSources pushBack _light;
+		};
+
+		// Actions to do during the morning hours of spawn.
+		if (_dayState == "MORNING") then {
+			if (4 > random 10) then {
+				private _soundSource = [_building] call A3A_fnc_createMusicSource;
+				_soundSources pushBack _soundSource;
+			};
+			_light = [_building] call A3A_fnc_createRoomLight;
+			_lightSources pushBack _light;
+		};
+
+		// Actions to do during the day hours of spawn
+		if (_dayState == "DAY") then {
+			if (7 > random 10) then {
+				private _soundSource = [_building] call A3A_fnc_createMusicSource;
+				_soundSources pushBack _soundSource;
+			};
+
+			[_groupX] call A3A_fnc_patrolLoop;
+		};
+
 	} else {
 		private _groupX = createGroup civilian;
 		private _spawnPosition = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
@@ -86,40 +123,6 @@ for "_i" from 1 to _numCiv do {
 		_civilianGroups pushBack _groupX;
 		_civilians pushBack _civUnit;
 		[_civUnit] spawn A3A_fnc_civilianInitEH;
-		[_groupX] call A3A_fnc_patrolLoop;
-		continue;
-	};
-
-	private _groupX = createGroup civilian;
-	private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _posHouse, [],0, "NONE"] call A3A_fnc_createUnit;
-	_civUnit setPosATL _posHouse;
-	_civilianGroups pushBack _groupX;
-	_civilians pushBack _civUnit;
-	[_civUnit] spawn A3A_fnc_civilianInitEH;
-
-	// Actions to do during the evening hours of spawn.
-	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
-		_light = [_building] call A3A_fnc_createRoomLight;
-		_lightSources pushBack _light;
-	};
-
-	// Actions to do during the morning hours of spawn.
-	if (_dayState == "MORNING") then {
-		if (4 > random 10) then {
-			private _soundSource = [_building] call A3A_fnc_createMusicSource;
-			_soundSources pushBack _soundSource;
-		};
-		_light = [_building] call A3A_fnc_createRoomLight;
-		_lightSources pushBack _light;
-	};
-
-	// Actions to do during the day hours of spawn
-	if (_dayState == "DAY") then {
-		if (7 > random 10) then {
-			private _soundSource = [_building] call A3A_fnc_createMusicSource;
-			_soundSources pushBack _soundSource;
-		};
-
 		[_groupX] call A3A_fnc_patrolLoop;
 	};
 };

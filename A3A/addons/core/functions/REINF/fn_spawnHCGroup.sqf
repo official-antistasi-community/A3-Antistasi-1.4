@@ -56,6 +56,8 @@ private _bypassAI = true;
 private _initInfVeh = {
     if (isNull _vehicle) exitWith {};
     leader _group moveInDriver _vehicle;
+    // Required because moveInAny is bugged for gunners (eg. GM trucks) and breaks the driving AI
+    if (fullCrew [_vehicle, "gunner", true] isNotEqualTo []) then { (units _group # 1) moveInGunner _vehicle };
     call _initVeh;
     ["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
     petros directSay "SentGenBaseUnlockVehicle";

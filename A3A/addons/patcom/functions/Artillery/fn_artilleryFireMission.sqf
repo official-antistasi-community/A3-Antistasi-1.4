@@ -63,6 +63,10 @@ If (PATCOM_DEBUG) then {
 private _batteryClass = (typeOf _selBattery);
 private _ammoType = [_roundType, _batteryClass, _side] call A3A_fnc_artilleryGetRounds;
 
+if (_ammoType == "") exitWith {
+	Debug_1("Unable to find ammoType for Classname - %1", _batteryClass);
+};
+
 if !(_targetPos inRangeOfArtillery [[_selBattery], _ammoType]) exitWith {
 	If (PATCOM_DEBUG) then {
 		[leader _group, "OUT OF RANGE", 5, "Red"] call A3A_fnc_debugText3D;

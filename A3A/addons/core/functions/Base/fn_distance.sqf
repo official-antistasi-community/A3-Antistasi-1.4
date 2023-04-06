@@ -119,6 +119,9 @@ private _processOccupantMarker = {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
                 };
 
+                // Prevent other routines taking spawn places 
+                [_marker, 1] call A3A_fnc_addTimeForIdle;
+
                 case (_marker in airportsX):
                 {
                     [[_marker], "A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
@@ -303,9 +306,6 @@ private _processInvaderMarker = {
             // ENABLE this marker
             spawner setVariable [_marker, ENABLED, true];
 
-            // Prevent other routines taking spawn places 
-            [_marker, 1] call A3A_fnc_addTimeForIdle;
-
             switch (true)
             do
             {
@@ -318,6 +318,9 @@ private _processInvaderMarker = {
                 {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
                 };
+
+                // Prevent other routines taking spawn places 
+                [_marker, 1] call A3A_fnc_addTimeForIdle;
 
                 case (_marker in airportsX):
                 {

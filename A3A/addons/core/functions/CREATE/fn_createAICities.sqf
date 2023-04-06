@@ -48,19 +48,15 @@ else
 if (_num < 1) then {_num = 1};
 
 _countX = 0;
-_patrolSize = round (_patrolSize / 2);
+
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
-	// private _spawnPosition = [_positionX, 10, _radius, 0, 0, -1, 0] call A3A_fnc_getSafePos;
-	// We Opt to use this method over the above. This will provide road positions for spawning rather than a random position.
-	// We want to keep these units within the city for the most part.
 	private _spawnPosition = [];
 
-	while {(count _spawnPosition <= 2)} do {
-		//_spawnPosition = [[[_positionX, _radius]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
-		_spawnPosition = [[[_positionX, _patrolSize]], ["water"]] call BIS_fnc_randomPos;
-		//_spawnPosition = [_positionX, 50 + (random 50), 200, 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
-		sleep 0.50;
+	_spawnPosition = [[[_positionX, round (_patrolSize / 2)]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
+	if (_spawnPosition isEqualTo [0,0]) then {
+		_spawnPosition = [_positionX, 25, round (_patrolSize / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 	};
+
 	private _groupX = [_spawnPosition, (_params # 1), (_params # 2)] call A3A_fnc_spawnGroup;
 
 	// Forced non-spawner for performance and consistency with other garrison patrols
@@ -79,7 +75,7 @@ while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 			[_dog] spawn A3A_fnc_guardDog;
 		};
 	};
-	[_groupX, "Patrol_Area", 25, _patrolSize, -1, true, _positionX, true] call A3A_fnc_patrolLoop;
+	[_groupX, "Patrol_Area", 25, 150, 150, false, _positionX, true] call A3A_fnc_patrolLoop;
 	_groups pushBack _groupX;
 	_countX = _countX + 1;
 };

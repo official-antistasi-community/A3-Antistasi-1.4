@@ -117,9 +117,10 @@ if (count _mrkMar > 0) then {
 			// Getting spawn positions can sometimes return empty array.
 			// We keep trying to get a safe pos until one is found.
 			private _spawnPosition = [];
-			while {(count _spawnPosition <= 2)} do {
-				_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 20, 20, 2, 0, 0] call A3A_fnc_getSafePos;
-				sleep 0.001;
+			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 5, 50, 20, 2, 0, 0] call A3A_fnc_getSafePos;
+			if (_spawnPosition isEqualTo [0,0]) then {
+				Debug_1("%1 could not be spawned because no valid spawn position was found.", _typeVehX);
+				continue;
 			};
 
 			private _veh = _typeVehX createVehicle _spawnPosition;

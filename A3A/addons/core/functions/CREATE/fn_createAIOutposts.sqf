@@ -175,7 +175,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 			// Getting spawn positions can sometimes return empty array.
 			// We keep trying to get a safe pos until one is found.
 			private _spawnPosition = [];
-			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 0, 100, 2, 0, 0] call A3A_fnc_getSafePos;
+			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 100, 100, 2, 0, 0] call A3A_fnc_getSafePos;
 
 			if (!(_spawnPosition isEqualTo [0,0])) then {
 				_vehicle = [_spawnPosition, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;

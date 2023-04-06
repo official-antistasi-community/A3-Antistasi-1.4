@@ -81,7 +81,7 @@ while {count _civilians < _numCiv} do
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };
-    [_groupCivil, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+    [_groupCivil, "Patrol_Defend", 0, 100, -1, true, _pos, false] call A3A_fnc_patrolLoop;
 };
 
 

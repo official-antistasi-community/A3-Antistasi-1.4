@@ -390,9 +390,9 @@ for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append FactionGet(reb,"vehiclesCivCar"); 
-_civVehicles append FactionGet(reb,"vehiclesCivTruck");			// Civ car/truck from rebel template, in case they're different
-_civVehicles pushBackUnique "C_Van_01_box_F";		// Box van from bank mission. TODO: Define in rebel template
+_civVehicles append FactionGet(reb,"vehiclesCivCar");
+_civVehicles append FactionGet(reb,"vehiclesCivTruck");
+_civVehicles append FactionGet(reb,"vehiclesCivSupply");  // Box van from bank mission. TODO: Define in rebel template
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
 DECLARE_SERVER_VAR(civVehiclesWeighted, _civVehiclesWeighted);
@@ -490,7 +490,7 @@ private _groundVehicleThreat = createHashMap;
 // Rebel vehicle cost
 private _rebelVehicleCosts = createHashMap;
 
-_fnc_setPriceIfValid = 
+_fnc_setPriceIfValid =
 {
 	_this params ["_hashMap", "_className", "_price"];
 	private _configClass = configFile >> "CfgVehicles" >> _className;
@@ -498,7 +498,7 @@ _fnc_setPriceIfValid =
 		_hashMap set [_className, _price];
 	};
 };
- 
+
 { [_rebelVehicleCosts, _x, 50] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesBasic");
 { [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
 { [_rebelVehicleCosts, _x, 600] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivTruck") + FactionGet(reb, "vehiclesMedical");
@@ -510,8 +510,8 @@ _fnc_setPriceIfValid =
 { [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
- 
- 
+
+
 // Template overrides
 private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
@@ -527,7 +527,7 @@ private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "at
 		};
 	} forEach _x;
 } forEach _overrides;
- 
+
 DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
 DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
 DECLARE_SERVER_VAR(A3A_rebelVehicleCosts, _rebelVehicleCosts);

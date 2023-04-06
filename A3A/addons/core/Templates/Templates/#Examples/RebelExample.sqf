@@ -25,7 +25,7 @@
 ["vehiclesCivHeli", []] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", []] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", []] call _fnc_saveToTemplate;
-
+["vehiclesCivSupply", []] call _fnc_saveToTemplate;
 
 ["staticMGs", []] call _fnc_saveToTemplate;
 ["staticAT", []] call _fnc_saveToTemplate;
@@ -113,7 +113,7 @@ private _squadLeaderTemplate = {
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["facewear"] call _fnc_setFacewear;
-    
+
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;

@@ -39,7 +39,7 @@ _package setVariable ["A3A_canOpenDoor", _canOpenDoors, true];
 _package setVariable ["A3A_packedObject", typeOf _object, true]; 
 
 // add actions for unpacking but remote for others
-[_package] remoteExecCall ["A3A_Logistics_fnc_packObjectAction", 0, _package];
+[_package] remoteExecCall ["A3A_Logistics_fnc_unpackObjectAction", 0, _package];
 
 // add logi
 [_package] call A3A_Logistics_fnc_addLoadAction;

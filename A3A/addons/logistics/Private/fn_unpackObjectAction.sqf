@@ -17,7 +17,7 @@ Example:
 
 
 params  [
-    ["_object", objNull, [objNull]]
+    ["_package", objNull, [objNull]]
 ];
 
 _package addAction [

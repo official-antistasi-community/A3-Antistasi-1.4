@@ -39,6 +39,11 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
+// These have a rifle grenade muzzle but with no magazines or wells defined
+["rhs_weap_m70b1", ["Rifles","Weapons"]],
+["rhs_weap_m70b1n", ["Rifles","Weapons"]],
+["rhs_weap_m70ab2", ["Rifles","Weapons"]],
+
 ["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],		// Drone backpack
 ["UK3CB_BAF_L103A2", ["Unknown","Items"]],			// Drill practice rifle, no mags
 

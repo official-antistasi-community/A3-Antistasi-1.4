@@ -37,6 +37,7 @@ class CfgFunctions {
             class tryLoad {};
             class unload {};
             class unpackObject {};
+            class unpackObjectAction {};
         };
     };
 };

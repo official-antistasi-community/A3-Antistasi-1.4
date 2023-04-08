@@ -56,10 +56,10 @@ private _anim = "ApanPercMstpSnonWnonDnon_ApanPknlMstpSnonWnonDnon";
 // Set random chance to play scream/panic sound.
 if (random 1 > 0.3) then {
 	// Get a list of tracks from the Civilian Fear tracks hashmap
-	private _tracks = keys A3A_Civilian_Amb_Tracks;
+	private _tracks = A3A_Civilian_Amb_Tracks get "Fear";
 	if (count _tracks > 0) then {
 		private _panicNoise = selectRandom _tracks;
-		[_unit, _panicNoise] remoteExec ["say3D"];
+		[_unit, _panicNoise # 0] remoteExec ["say3D"];
 	} else {
 		Error("No Tracks found to make the unit scream");
 	};

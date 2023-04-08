@@ -35,7 +35,7 @@ _musicSource attachTo [_building, [1,1,1]];
 [_building, _musicSource] spawn {
 	params ["_building", "_musicSource", "_locationType"];
 	private _tracksPlayed = 1;
-	private _tracks = keys A3A_Civilian_Amb_Tracks;
+	private _tracks = A3A_Civilian_Amb_Tracks get "Ambience";
 
 	if (count _tracks == 0) exitWith {
 		Error("No Tracks found to create a music source");
@@ -46,9 +46,9 @@ _musicSource attachTo [_building, [1,1,1]];
     while { (alive _musicSource) } do {
         while { _tracksPlayed < _totalTracks } do {
 			private _track = selectRandom (_tracks);
-			private _trackDuration = A3A_Civilian_Amb_Tracks get _track;
+			private _trackDuration = _track # 1;
 
-			[_musicSource, _track] remoteExec ["say3D"];
+			[_musicSource, _track # 0] remoteExec ["say3D", [0, _musicSource], true];
 
 			sleep _trackDuration;
 

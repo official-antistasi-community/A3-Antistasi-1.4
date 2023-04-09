@@ -52,8 +52,9 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 	_x spawn {
 		params ["_unit", "_static", "_group"];
 		private _assignedGunner = assignedGunner _static;
-		if (isNull _assignedGunner) then {
+		if ((isNull _assignedGunner) && ((_static getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false)) then {
 			[_unit] join grpnull;
+			_static setVariable ["PATCOM_STATIC_ASSIGNED", true];
 			_unit setCombatBehaviour "SAFE"; 
 			_unit setUnitCombatMode "BLUE";
 
@@ -102,6 +103,7 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 				
 				unassignVehicle _unit;
 				_unit leaveVehicle _static;
+				_static setVariable ["PATCOM_STATIC_ASSIGNED", false];
 				doGetOut _unit;
 				[_unit] join _group;
 			

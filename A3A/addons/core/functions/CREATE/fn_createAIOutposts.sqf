@@ -78,12 +78,18 @@ if (_patrol) then
         _arrayGroups = _faction get (if (_isFIA) then {"groupsMilitiaSmall"} else {"groupsSmall"});
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
-		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
+
+		private _spawnPosition = [_positionX, 25, round (_size / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		if (_spawnPosition isEqualTo [0,0]) exitWith {
+			ServerDebug("Unable to find spawn position for patrol unit.");
+		};
+
+		_groupX = [_spawnPosition,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 		{
 			sleep 1;
 			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then {
-				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+				_dog = [_groupX, "Fin_random_F",_spawnPosition,[],0,"FORM"] call A3A_fnc_createUnit;
 				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
@@ -317,7 +323,7 @@ for "_i" from 0 to (count _array - 1) do {
 	_groupX = if (_i == 0) then {
 		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
 	} else {
-		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 10, 100, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 

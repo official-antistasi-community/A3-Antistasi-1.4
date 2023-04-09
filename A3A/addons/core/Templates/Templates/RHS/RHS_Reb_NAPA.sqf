@@ -31,6 +31,7 @@
 ["staticMortars", ["rhsgref_cdf_reg_M252", "rhsgref_nat_2b14"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["mineAT", "rhs_mag_mine_ptm1"] call _fnc_saveToTemplate;
 ["mineAPERS", "rhs_mine_ozm72_b_mag"] call _fnc_saveToTemplate;

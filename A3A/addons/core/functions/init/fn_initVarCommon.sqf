@@ -34,7 +34,7 @@ posHQ = getMarkerPos respawnTeamPlayer;
 Info("Initialising PATCOM Variables");
 
 PATCOM_DEBUG = true; // Enable PATCOM specific debug.
-PATCOM_VISUAL_RANGE = 200; // How far before PATCOM can start to detect enemies.
+PATCOM_VISUAL_RANGE = 400; // How far before PATCOM can start to detect enemies.
 PATCOM_TARGET_TIME = 120; // How long before PATCOM unit forgets about an enemy.
 PATCOM_ARTILLERY_MANAGER = true; // Allow Patcome to control AI Artillery. False is default A3 Artillery AI.
 PATCOM_ARTILLERY_DELAY = 5; // How quickly artillery becomes available again after firing in seconds.

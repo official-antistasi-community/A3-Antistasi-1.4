@@ -104,7 +104,10 @@ if (_patrol) then
         _arrayGroups = _faction get (if (_isFIA) then {"groupsMilitiaSmall"} else {"groupsSmall"});
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
-		private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 25, round (_size / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		if (_spawnPosition isEqualTo [0,0]) exitWith {
+			ServerDebug("Unable to find spawn position for patrol unit.");
+		};
 		_groupX = [_spawnPosition, _sideX, _typeGroup, false, true] call A3A_fnc_spawnGroup;
 
 		if !(isNull _groupX) then

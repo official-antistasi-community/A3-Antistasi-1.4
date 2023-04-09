@@ -33,11 +33,11 @@ params ["_group"];
 // We exit here if the group is empty. It's a waste of performance to handle empty groups.
 if (count units _group == 0) exitWith {
 	If (PATCOM_DEBUG) then {
-		Info_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
+		ServerDebug_1("PATCOM | Group Eliminated, Exiting PATCOM Group: %1", _group);
 	};
 };
 
-private _knownEnemies = _group targets [true, PATCOM_VISUAL_RANGE, [resistance, sideEnemy], PATCOM_TARGET_TIME];
+private _knownEnemies = [_group] call A3A_fnc_patrolGetEnemies;
 private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 private _currentOrders = _patrolParams # 0;
 
@@ -53,12 +53,10 @@ if (count _knownEnemies > 0) then {
 			_currentOrders = "Patrol_Attack";
 			_group setVariable ["PATCOM_Group_State", "COMBAT"];
 		};
-
-	_group setVariable ["PATCOM_Known_Enemy", _knownEnemies];
 };
 
 If (PATCOM_DEBUG) then {
-	Info_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
+	ServerDebug_3("PATCOM | Group: %1 | Current Orders: %2 | Group State: %3", _group, _currentOrders, _group getVariable "PATCOM_Group_State");
 };
 
 if (_currentOrders == "Patrol_Attack") exitWith {

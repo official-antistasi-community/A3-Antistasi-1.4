@@ -50,7 +50,7 @@ if ([_targetPos, (_area + _artilleryVarience), _side] call A3A_fnc_artilleryDang
 	};
 
 	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
-		//_roundType = "FLARE"; // Need to add flare into templates.
+		_roundType = "FLARE"; // Need to add flare into templates.
 	} else {
 		_roundType = "SMOKE";
 	};
@@ -64,7 +64,7 @@ private _batteryClass = (typeOf _selBattery);
 private _ammoType = [_roundType, _batteryClass, _side] call A3A_fnc_artilleryGetRounds;
 
 if (_ammoType == "") exitWith {
-	Debug_1("Unable to find ammoType for Classname - %1", _batteryClass);
+	ServerDebug_1("Unable to find ammoType for Classname - %1", _batteryClass);
 };
 
 if !(_targetPos inRangeOfArtillery [[_selBattery], _ammoType]) exitWith {

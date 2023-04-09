@@ -50,7 +50,7 @@ if ([_targetPos, (_area + _artilleryVarience), _side] call A3A_fnc_artilleryDang
 	};
 
 	if (_dayState == "EVENING" || {_dayState == "NIGHT"}) then {
-		//_roundType = "FLARE"; // Need to add flare into templates.
+		_roundType = "FLARE"; // Need to add flare into templates.
 	} else {
 		_roundType = "SMOKE";
 	};

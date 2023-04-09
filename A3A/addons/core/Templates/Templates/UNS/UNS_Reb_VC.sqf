@@ -30,6 +30,7 @@
 ["staticMortars", ["uns_m1941_82mm_mortarVC"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "uns_8Rnd_82mmHE_M1941"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "uns_8Rnd_82mmSMOKE_M1941"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "uns_8Rnd_82mmILLUM_M1941"] call _fnc_saveToTemplate;
 
 ["mineAT", "uns_mine_AT_mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "uns_mine_AP_mag"] call _fnc_saveToTemplate;

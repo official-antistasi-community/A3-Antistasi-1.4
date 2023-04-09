@@ -29,6 +29,11 @@ params ["_group"];
 private _Allunits = ((units _group) select {alive _x});
 private _Leader = leader _group;
 private _Crewmen = [];
+private _vehicles = assignedVehicles _group;
+
+if (count _vehicles > 1) exitWith {
+	ServerDebug_1("Vehicle already assigned to %1. Exiting.", _group);
+};
 
 {
 	//Pull classname of unit.

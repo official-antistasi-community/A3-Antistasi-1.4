@@ -74,7 +74,7 @@ _unit addEventHandler ["Killed", {
         switch (true) do {
             //Must be group, in case they're undercover.
             case (side group _killer == teamPlayer): {
-                Debug("aggroEvent | Rebels killed a civilian");
+                ServerDebug("aggroEvent | Rebels killed a civilian");
                 [Occupants, 10 * _multiplier, 60] remoteExec ["A3A_fnc_addAggression",2];
                 [1,0,getPosATL _victim] remoteExec ["A3A_fnc_citySupportChange",2];
             };

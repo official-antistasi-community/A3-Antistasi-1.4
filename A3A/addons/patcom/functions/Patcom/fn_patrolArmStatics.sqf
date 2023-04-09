@@ -61,7 +61,7 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
 				[_unit, "STATIC FOUND", 5, "Green"] call A3A_fnc_debugText3D;
 			};
 
-			_unit doMove (getposATL _static);
+			_unit doMove (getPosATL _static);
 			_unit assignAsGunner _static;
 			[_unit] orderGetIn true;
 

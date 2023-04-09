@@ -41,6 +41,7 @@ class CfgFunctions {
             class patrolCreateWaypoint {};
             class patrolDefend {};
             class patrolEnterableBuildings {};
+            class patrolGetEnemies {};
             class patrolGroupGarrison {};
             class patrolGroupVariables {};
             class patrolHandleFormation {};

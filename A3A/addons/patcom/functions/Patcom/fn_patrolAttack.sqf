@@ -40,7 +40,7 @@ params [
 ];
 
 if (count _knownEnemies < 1) exitWith {
-    Info_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
+    ServerDebug_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
 	private _previousOrders = _group getVariable "PATCOM_Previous_Orders";
 	_group setVariable ["PATCOM_Current_Orders", _previousOrders];
     _group setVariable ["PATCOM_Group_State", "CALM"];
@@ -60,14 +60,13 @@ if (PATCOM_AI_STATICS) then {
 // Set Waypoint Name
 private _waypointName = "PATCOM_PATROL_ATTACK";
 
-if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
+if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
     // Select random group in the array to attack.
-    Info_1("Known Enemies 2 - %1", _knownEnemies);
     private _targetGroup = selectRandom _knownEnemies;
 
     // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.
     // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
     private _nextWaypointPos = [getPos (leader _targetGroup), _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafePos;
     
-    [_group, _nextWaypointPos, "MOVE", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    [_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

@@ -23,7 +23,7 @@ FIX_LINE_NUMBERS()
 params ["_group"];
 
 // Get nearestBuilding with a path LOD closest to the group leader.
-private _building = nearestBuilding (getPos (leader _group));
+private _building = nearestBuilding (getPosATL (leader _group));
 
 // Exit if for some reason the group leader is further than 250m of the building.
 if ((leader _group) distance _building > 250) exitwith {};
@@ -31,13 +31,13 @@ if ((leader _group) distance _building > 250) exitwith {};
 [_group, _building] spawn {
     params ["_group", "_building"];
 
-	Info_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
+	ServerDebug_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
 
     private _leader = leader _group;
 	_group lockWP true;
 
     // Add a waypoint to regroup after the search
-	[_group, getPos _building, "MOVE", "PATCOM_HOUSE_SEARCH", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+	[_group, getPosATL _building, "MOVE", "PATCOM_HOUSE_SEARCH", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 
     // Prepare group to search
     _group setBehaviour "AWARE";

@@ -479,8 +479,9 @@ private _vehicleResourceCosts = createHashMap;
 private _groundVehicleThreat = createHashMap;
 
 { _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMGs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + FactionGet(Reb, "vehiclesAT");
+{ _groundVehicleThreat set [_x, 60] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(Reb, "vehiclesAA") + FactionGet(Reb, "vehiclesAT");
 
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");

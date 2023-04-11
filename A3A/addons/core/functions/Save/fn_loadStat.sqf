@@ -53,7 +53,7 @@ private _specialVarLoads = [
     "garrison","tasks","membersX","vehInGarage","destroyedBuildings","idlebases",
     "chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
     "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "enemyResources", "HQKnowledge",
-    "testingTimerIsActive", "version", "HR_Garage", "A3A_fuelAmountleftArray"
+    "testingTimerIsActive", "version", "HR_Garage", "A3A_fuelAmountleftArray", "objData"
 ];
 
 private _varName = _this select 0;
@@ -327,6 +327,34 @@ if (_varName in _specialVarLoads) then {
             vehicleBox setPos ((_varValue select 5) select 1);
         };
         {_x setPos _posHQ} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
+    };
+
+    if (_varname == 'objData') then 
+    {
+        private _hqMap = _varValue get "Synd_HQ";
+        private _buildingArray = [];
+        private _staticArray = [];
+        {
+            {
+                //[typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];
+                _x params ["_typeVehX", "_posVeh", "_xVectorUp", "_xVectorDir"];
+                private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
+                _veh setPosWorld _posVeh;
+                _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
+                [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
+                if (_x isEqualTo "Building") then {
+                    _buildingArray pushBackUnique _veh;
+                } else {
+                    _staticArray pushBackUnique _veh;
+                };
+            } forEach _y; // arrays of data
+            
+        } forEach _hqMap;
+        
+        _hqMap set ["Building", _buildingArray];
+        _hqMap set ["StaticWeapon", _staticArray];
+        _varValue set ["Synd_HQ", _hqMap];
+        sidesX setVariable ["OBJ_DATA", _varValue, true];
     };
     if (_varname == 'staticsX') then {
         for "_i" from 0 to (count _varvalue) - 1 do {

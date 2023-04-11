@@ -97,6 +97,11 @@ if (gameMode != 1) then {
 };
 bookedSlots = floor ((memberSlots/100) * (playableSlotsNumber teamPlayer)); publicVariable "bookedSlots";
 
+// create the new statics save system.
+private _hashMap = createHashMap;
+private _nestedHashmap = createHashMap;
+_hashMap set ["Synd_HQ", _nestedHashmap];
+sidesX setVariable ["OBJ_DATA", _hashMap, true];
 
 // ****************** Load save data or create new *********************************
 

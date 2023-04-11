@@ -159,15 +159,32 @@ _arrayEst = [];
 	};
 } forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];
 
-_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-{
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
-		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
-	};
-} forEach staticsToSave;
+// _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+// {
+// 	_positionX = position _x;
+// 	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+// 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
+// 	};
+// } forEach staticsToSave;
 
 ["staticsX", _arrayEst] call A3A_fnc_setStatVariable;
+
+private _hashmap = createHashMap;
+{
+	private _nestedHashmap = createHashMap;
+	private _keys = keys _y;
+	private _indexKey = [];
+	{
+		if ((_x find "Data") isNotEqualTo -1) then {
+			_nestedHashmap set [_x, _y get _x];
+		};
+	} forEach _keys;
+
+	_hashmap set [_x, _nestedHashmap];
+} forEach (sidesX getVariable ["OBJ_DATA", nil]);
+
+["objData", _hashmap] call A3A_fnc_setStatVariable;
+
 [] call A3A_fnc_arsenalManage;
 
 _jna_dataList = [];

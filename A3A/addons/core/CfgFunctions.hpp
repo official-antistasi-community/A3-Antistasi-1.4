@@ -509,6 +509,7 @@ class CfgFunctions
             class addBombRun {};
             class addFIAsquadHC {};
             class addFIAveh {};
+            class addObjectToBuildSave {};
             class addSquadVeh {};
             class addToGarrison {};
             class autoGarrison {};

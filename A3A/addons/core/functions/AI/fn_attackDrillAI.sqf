@@ -312,7 +312,7 @@ while {true} do
 					{[_x] spawn A3A_fnc_autoRearm; sleep 1} forEach (_movable select {!(_x getVariable ["maneuvering",false])});
 					};
 				};
-			if !(isNull(_groupX getVariable ["transporte",objNull])) then
+			if (!isNull(_groupX getVariable ["transporte",objNull]) and !(_groupX getVariable ["A3A_forceDismount",false])) then
 				{
 				(units _groupX select {vehicle _x == _x}) allowGetIn true;
 				};

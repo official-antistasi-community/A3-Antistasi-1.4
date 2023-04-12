@@ -18,6 +18,7 @@ private _buildingArray = [];
 private _staticArray = [];
 {
     private _key = _x;
+    if !(_key in ["BuildingData", "StaticWeaponData"]) then {continue};
     {
         //[typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];
         _x params ["_typeVehX", "_posVeh", "_xVectorUp", "_xVectorDir"];
@@ -25,7 +26,7 @@ private _staticArray = [];
         _veh setPosWorld _posVeh;
         _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
         [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-        if (_key isEqualTo "Building") then {
+        if (_key isEqualTo "BuildingData") then {
             _buildingArray pushBackUnique _veh;
         } else {
             _staticArray pushBackUnique _veh;

@@ -337,6 +337,7 @@ if (_varName in _specialVarLoads) then {
         private _staticArray = [];
         {
             private _key = _x;
+            if !(_key in ["BuildingData", "StaticWeaponData"]) then {continue};
             {
                 systemChat str _key;
                 //[typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];

@@ -37,7 +37,7 @@ _textX = format [
     , count (_units#6)
     , count (_units#7)
     , count (_units#8)
-    , {_x distance _positionX < _size} count staticsToSave
+    , {_x distance _positionX < _size} count ([_siteX, 3] call A3A_fnc_getObjectList)
     , _estatic
     , if (_limit != -1) then {format ["/%1", _limit]} else {""}
 ];

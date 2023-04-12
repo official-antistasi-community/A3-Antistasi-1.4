@@ -91,8 +91,6 @@ _veh enableSimulationGlobal false;
 if ((build_type == "SB") or (build_type == "CB")) exitWith
 {
 	[_veh, build_nearestFriendlyMarker] call A3A_fnc_addObjectToBuildSave;
-	//staticsToSave pushBackUnique _veh;
-	//publicVariable "staticsToSave"
 };
 
 

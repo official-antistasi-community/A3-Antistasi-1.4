@@ -117,13 +117,9 @@ if (
     && {count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (_player inArea _x)}) < 1} //no airports
 ) exitWith {["STR_HR_GRG_Feedback_addVehicle_airBlocked", [FactionGet(reb,"name")]] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
-//here to allow adaption of external Antistasi system without needing to addapt code under APL-ND
-private _broadcastReportedVehsAndStaticsToSave = {
-    publicVariable "staticsToSave";
-};
 //_this is vehicle
-private _deleteFromReportedVehsAndStaticsToSave = {
-    staticsToSave deleteAt (staticsToSave find _this);
+private _deleteFromReportedVehsAndStatics = {
+    [_this] call A3A_fnc_removeObjectFromBuildSave;
 };
 //_this is vehicle
 private _transferToArsenal = {
@@ -175,7 +171,7 @@ private _addVehicle = {
 
     //Antistasi adaptions
     _this call _transferToArsenal;
-    _this call _deleteFromReportedVehsAndStaticsToSave;
+    _this call _deleteFromReportedVehsAndStatics;
     _this call _unloadAceCargo;
 
     deleteVehicle _this;
@@ -202,7 +198,6 @@ private _catsRequiringUpdate = [];
 } forEach attachedObjects _vehicle;
 _vehicle call _addVehicle;
 
-if (_catsRequiringUpdate isNotEqualTo []) then _broadcastReportedVehsAndStaticsToSave;
 
 //refresh category for active users
 private _refreshCode = {

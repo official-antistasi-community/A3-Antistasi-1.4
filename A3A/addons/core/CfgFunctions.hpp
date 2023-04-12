@@ -239,6 +239,7 @@ class CfgFunctions
             class createAttackVehicle {};
             class createCIV {};
             class createFIAOutposts2 {};
+            class createObjects {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
             class createUnit {};
@@ -526,10 +527,12 @@ class CfgFunctions
             class FIAskillAdd {};
             class garrisonAdd {};
             class garrisonDialog {};
+            class getObjectList {};
             class NATObomb {};
             class postmortem {};
             class reDress {};
             class reinfPlayer {};
+            class removeObjectFromBuildSave {};
             class spawnHCGroup {};
             class vehiclePrice {};
             class vehStats {};

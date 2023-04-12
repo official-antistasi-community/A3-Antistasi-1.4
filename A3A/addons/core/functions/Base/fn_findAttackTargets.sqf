@@ -34,7 +34,7 @@ if (count _possibleTargets == 0 || count _possibleStartBases == 0) exitWith {
 };
 Debug_2("%1 possible targets for attack found, possible start points are %2", count _possibleTargets, _possibleStartBases);
 
-
+private _hashMap = sidesX getVariable ["OBJ_DATA"];
 //**************** Data preparation *************************************************************
 
 // Build X/Y/threat array for all enemy locations
@@ -48,7 +48,10 @@ private _maxThreatDist = distanceForAirAttack + 1000;
 
     private _threat = 10 * count (garrison getVariable [_x, []]);
     if (_markerSide == teamPlayer) then {
-        _threat = _threat + 50 * count (staticsToSave inAreaArray _x);
+        private _analyzedHash = _hashmap getOrDefault [_x, nil];
+        if (isNil "_analyzedHash") then {continue};
+        _staticsX = _analyzedHash getOrDefault ["StaticWeaponData", []];
+        _threat = _threat + 50 * count (_staticsX);
     } else {
         // based on typical static count
         _threat = _threat + call {

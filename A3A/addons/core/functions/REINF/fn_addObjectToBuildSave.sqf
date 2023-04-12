@@ -21,7 +21,7 @@ Example:
 
 params [["_veh", objNull], ["_markerKey", ""]];
 
-if(isNull _veh) then {};
+if(isNull _veh) exitWith {};
 
 if(_markerKey isEqualTo "") then {
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
@@ -38,6 +38,8 @@ switch (true) do {
 	default { };
 };
 
+systemChat str [_veh, _type];
+
 private _objMap = sidesX getVariable ["OBJ_DATA", nil];
 if (isNil "_objMap") exitWith {};
 private _hashmap = _objMap getOrDefault [_markerKey, nil];
@@ -47,7 +49,7 @@ private _objectsToSave = _hashmap getOrDefault [_type, []];
 _objectsToSave pushBackUnique _veh;
 private _objectsData = _hashmap getOrDefault [(_type + "Data"), []];
 
-_objectsData pushBack [typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];
+_objectsData pushBackUnique [typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];
 
 
 _hashmap set [_type, _objectsToSave];

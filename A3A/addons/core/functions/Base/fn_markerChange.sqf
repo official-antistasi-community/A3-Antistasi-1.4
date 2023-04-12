@@ -283,17 +283,13 @@ Debug_1("Notification and points done for marker change at %1", _markerX);
 if (_winner == teamPlayer) then
 {
 	[] call A3A_fnc_tierCheck;
-
 	//Convert all of the static weapons to teamPlayer, essentially. Make them mannable by AI.
 	//Make the size larger, as rarely does the marker cover the whole outpost.
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
 	{
 		[_x, teamPlayer, true] call A3A_fnc_vehKilledOrCaptured;
-		if !(_x in staticsToSave) then {
-			staticsToSave pushBack _x;
-		};
+		[_x, _markerX] call A3A_fnc_addObjectToBuildSave;
 	} forEach _staticWeapons;
-	publicVariable "staticsToSave";
 
 	if (!isNull _flagX) then
 	{
@@ -314,8 +310,10 @@ else
 	{
 	//Remove static weapons near the marker from the saved statics array
 	private _staticWeapons = nearestObjects [_positionX, ["StaticWeapon"], _size * 1.5, true];
-	staticsToSave = staticsToSave - _staticWeapons;
-	publicVariable "staticsToSave";
+	{
+		[_x, _markerX] call A3A_fnc_removeObjectFromBuildSave;
+		
+	} forEach _staticWeapons;
 	{
 		[_x, _winner, true] call A3A_fnc_vehKilledOrCaptured;
 	} forEach _staticWeapons;
@@ -324,7 +322,7 @@ else
 	[_staticWeapons, _markerX] spawn {
 		params ["_statics", "_markerX"];
 		waitUntil { sleep 1; spawner getVariable _markerX == 2 };
-		{ deleteVehicle _x } forEach (_statics - staticsToSave);
+		{ deleteVehicle _x } forEach (_statics);
 	};
 
 	if (!isNull _flagX) then

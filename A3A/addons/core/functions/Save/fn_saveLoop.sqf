@@ -114,12 +114,10 @@ _vehInGarage = _vehInGarage + vehInGarage;
 				if (vehicle _friendX != _friendX) then {
 					_veh = vehicle _friendX;
 					_typeVehX = typeOf _veh;
-					if (not(_veh in staticsToSave)) then {
-						if ((_veh isKindOf "StaticWeapon") or (driver _veh == _friendX)) then {
-							if ((group _friendX in (hcAllGroups theBoss)) or (!isMultiplayer)) then {
-								_resourcesBackground = _resourcesBackground + ([_typeVehX] call A3A_fnc_vehiclePrice);
-								if (count attachedObjects _veh != 0) then {{_resourcesBackground = _resourcesBackground + ([typeOf _x] call A3A_fnc_vehiclePrice)} forEach attachedObjects _veh};
-							};
+					if ((_veh isKindOf "StaticWeapon") or (driver _veh == _friendX)) then {
+						if ((group _friendX in (hcAllGroups theBoss)) or (!isMultiplayer)) then {
+							_resourcesBackground = _resourcesBackground + ([_typeVehX] call A3A_fnc_vehiclePrice);
+							if (count attachedObjects _veh != 0) then {{_resourcesBackground = _resourcesBackground + ([typeOf _x] call A3A_fnc_vehiclePrice)} forEach attachedObjects _veh};
 						};
 					};
 				};
@@ -141,7 +139,7 @@ _arrayEst = [];
 {
 	_veh = _x;
 	_typeVehX = typeOf _veh;
-	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
+	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in (["Synd_HQ", 3] call A3A_fnc_getObjectList)) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
 		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not(_veh isKindOf "Building"))) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
 			_posVeh = getPosWorld _veh;
 			_xVectorUp = vectorUp _veh;
@@ -158,30 +156,13 @@ _arrayEst = [];
 		};
 	};
 } forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];
-
-// _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
-// {
-// 	_positionX = position _x;
-// 	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
-// 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
-// 	};
-// } forEach staticsToSave;
-
 ["staticsX", _arrayEst] call A3A_fnc_setStatVariable;
 
-private _hashmap = createHashMap;
+private _hashmap = +(sidesX getVariable ["OBJ_DATA", nil]);
 {
-	private _nestedHashmap = createHashMap;
-	private _keys = keys _y;
-	private _indexKey = [];
-	{
-		if ((_x find "Data") isNotEqualTo -1) then {
-			_nestedHashmap set [_x, _y get _x];
-		};
-	} forEach _keys;
-
-	_hashmap set [_x, _nestedHashmap];
-} forEach (sidesX getVariable ["OBJ_DATA", nil]);
+	_y deleteAt "StaticWeapon";
+	_y deleteAt "Building";
+} forEach _hashmap;
 
 ["objData", _hashmap] call A3A_fnc_setStatVariable;
 

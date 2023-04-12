@@ -10,6 +10,7 @@ _markerX = _this select 0;
 _sideX = _this select 1;
 if (_markerX isEqualType []) then {_positionX = _markerX} else {_positionX = getMarkerPos _markerX};
 _threat = _threat + 2 * ({(isOnRoad getMarkerPos _x) and (getMarkerPos _x distance _positionX < distanceSPWN)} count outpostsFIA);
+private _hashMap = sidesX getVariable ["OBJ_DATA"];
 
 {
 if (getMarkerPos _x distance _positionX < distanceSPWN) then
@@ -18,10 +19,12 @@ if (getMarkerPos _x distance _positionX < distanceSPWN) then
 	_garrison = garrison getVariable [_analyzed,[]];
 	_threat = _threat + (floor((count _garrison)/8));
 	//_size = [_analyzed] call A3A_fnc_sizeMarker;
-	_staticsX = staticsToSave select {_x inArea _analyzed};
+	private _analyzedHash = _hashmap getOrDefault [_analyzed, nil];
+	if (isNil "_analyzedHash") then {continue};
+	_staticsX = _analyzedHash getOrDefault ["StaticWeaponData", []];
 	if (count _staticsX > 0) then
 		{
-		_threat = _threat + ({typeOf _x in FactionGet(reb,"staticMortars")} count _staticsX) + (2*({typeOf _x in FactionGet(reb,"staticAT")} count _staticsX))
+		_threat = _threat + ({typeOf (_x # 0) in FactionGet(reb,"staticMortars")} count _staticsX) + (2*({typeOf (_x # 0) in FactionGet(reb,"staticAT")} count _staticsX))
 		};
 	};
 } forEach (markersX - citiesX - controlsX - outpostsFIA) select {sidesX getVariable [_x,sideUnknown] != _sideX};

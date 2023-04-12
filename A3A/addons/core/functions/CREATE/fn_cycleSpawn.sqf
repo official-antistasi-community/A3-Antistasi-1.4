@@ -197,13 +197,4 @@ deleteMarker _patrolMarker;
 	deleteGroup _x
 } forEach _allGroups;
 
-{
-	if (!(_x in staticsToSave)) then
-	{
-		if ((!([distanceSPWN, 1, _x, teamPlayer] call A3A_fnc_distanceUnits))) then
-		{
-			deleteVehicle _x;
-		};
-	};
-} forEach _allVehicles;
 */

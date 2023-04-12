@@ -64,8 +64,11 @@ if (_markerX != "Synd_HQ") then
 	};
 };
 
+// spawn in statics and buildings
+[_markerX] call A3A_fnc_createObjects;
+
 private _size = [_markerX] call A3A_fnc_sizeMarker;
-_staticsX = staticsToSave select {_x distance2D _positionX < _size};
+_staticsX = ([_markerX, 3] call A3A_fnc_getObjectList); 
 
 _garrison = [];
 _garrison = _garrison + (garrison getVariable [_markerX,[]]);
@@ -167,5 +170,5 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 deleteGroup _groupStatics;
 deleteGroup _groupMortars;
 
-{if (!(_x in staticsToSave)) then {deleteVehicle _x}} forEach _vehiclesX;
+{deleteVehicle _x} forEach _vehiclesX + ([_markerX, 3] call A3A_fnc_getObjectList);
 ["locationSpawned", [_markerX, "RebelOutpost", false]] call EFUNC(Events,triggerEvent);

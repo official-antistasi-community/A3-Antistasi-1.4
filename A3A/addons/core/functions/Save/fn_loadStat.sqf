@@ -331,18 +331,26 @@ if (_varName in _specialVarLoads) then {
 
     if (_varname == 'objData') then 
     {
+        copyToClipboard str _varValue;
         private _hqMap = _varValue get "Synd_HQ";
         private _buildingArray = [];
         private _staticArray = [];
         {
+            private _key = _x;
             {
+                systemChat str _key;
                 //[typeOf _veh, getPosWorld _veh, vectorUp _veh, vectorDir _veh];
-                _x params ["_typeVehX", "_posVeh", "_xVectorUp", "_xVectorDir"];
+                _x params [
+                    ["_typeVehX", "", [""]],
+                    ["_posVeh", [0,0,0], [[]]],
+                    ["_xVectorUp", [0,0,0], [[]]],
+                    ["_xVectorDir", [0,0,0], [[]]]
+                ];
                 private _veh = createVehicle [_typeVehX,[0,0,1000],[],0,"CAN_COLLIDE"];
                 _veh setPosWorld _posVeh;
                 _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
                 [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-                if (_x isEqualTo "Building") then {
+                if (_key isEqualTo "BuildingData") then {
                     _buildingArray pushBackUnique _veh;
                 } else {
                     _staticArray pushBackUnique _veh;
@@ -370,15 +378,11 @@ if (_varName in _specialVarLoads) then {
                 _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
             };
             [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
-                staticsToSave pushBack _veh;
-            }
-            else {
-                if (!isNil "_state") then {
-                    [_veh, _state] call HR_GRG_fnc_setState;
-                };
-                [_veh] spawn A3A_fnc_vehDespawner;
+ 
+            if (!isNil "_state") then {
+                [_veh, _state] call HR_GRG_fnc_setState;
             };
+            [_veh] spawn A3A_fnc_vehDespawner;
 
         //this is less flexible than buyItem is but is fine for the specific use case of fuel drums and light sources
         //future objects that needs initialising needs another unique handler here which might eventually become troublessome
@@ -403,7 +407,7 @@ if (_varName in _specialVarLoads) then {
             };
          */
         };
-        publicVariable "staticsToSave";
+
     };
     if (_varname == 'tasks') then {
 /*

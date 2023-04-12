@@ -211,10 +211,7 @@ if (side group player == teamPlayer) then
 			private _veh = _this select 1;
 			[_veh, teamPlayer] call A3A_fnc_AIVEHinit;		// will flip/capture if already initialized
 			if (_veh isKindOf "StaticWeapon") then {
-				if (not(_veh in staticsToSave)) then {
-					staticsToSave pushBack _veh;
-					publicVariable "staticsToSave";
-				};
+				//TODO: add static weapon to location
 				_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 				_pos = position _veh;
 				if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns."] call A3A_fnc_customHint;};

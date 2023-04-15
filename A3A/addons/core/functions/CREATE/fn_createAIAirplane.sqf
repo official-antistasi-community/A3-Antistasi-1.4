@@ -333,10 +333,9 @@ for "_i" from 0 to (count _array - 1) do {
 		_soldiers pushBack _x;
 	} forEach units _groupX;
 	if (_i == 0) then {
-		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		if (count _garrisonGroup > 0) then {
-			_groups append _garrisonGroup;
-		};
+		// Sets first loop as garrison, returns additional defense groups if not enough positions found.
+		private _additionalGroups = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		_groups append _additionalGroups;
 	} else {
 		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};

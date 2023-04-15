@@ -29,7 +29,7 @@ params ["_targetPos", "_area", "_roundType", "_rounds", "_caller"];
 
 private _batteryUnits = [] call A3A_fnc_artilleryGetBattery;
 
-if (count _batteryUnits < 1) exitWith {
+if (count _batteryUnits == 0) exitWith {
 	If (PATCOM_DEBUG) then {
 		[_caller, "NO SUPPORT AVAILABLE", 5, "Red"] call A3A_fnc_debugText3D;
 	};

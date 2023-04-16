@@ -53,7 +53,7 @@ if (_numCiv > maxCiviliansPerTown) then {
 	_numCiv = maxCiviliansPerTown;
 };
 
-if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
+if (random 100 < ((aggressionOccupants) + (aggressionInvaders))) then {
 	private _spawnPosition = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
 	private _groupX = createGroup civilian;
 	_civilianGroups pushBack _groupX;

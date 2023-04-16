@@ -21,8 +21,7 @@
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params ["_group", ["_variance", 10 + (random 50)]];
+params ["_group"];
 
 _group setVariable ["PATCOM_ArtilleryBattery", true, true];
 _group setVariable ["PATCOM_ArtilleryBusy", false, true];
-_group setVariable ["PATCOM_ArtilleryError", _variance, true];

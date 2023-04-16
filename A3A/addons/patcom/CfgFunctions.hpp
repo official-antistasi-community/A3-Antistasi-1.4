@@ -5,8 +5,6 @@ class CfgFunctions {
             class artilleryAdd {};
             class artilleryDangerClose {};
             class artilleryFireMission {};
-            class artilleryGetBattery {};
-            class artilleryGetRounds {};
             class getReloadTime {};
         };
 

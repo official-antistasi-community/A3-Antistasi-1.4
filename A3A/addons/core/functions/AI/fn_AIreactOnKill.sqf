@@ -50,9 +50,7 @@ if(_group getVariable ["A3A_canCallSupportAt", -1] < time) then {
 
 // Call for Local battery support.
 if (PATCOM_ARTILLERY_MANAGER) then {
-    if (random 1 > 0.9) then {
-        [getPos _killer, (random 150), "HE", (round (1 + tierWar / 2)), _unit] call A3A_fnc_artilleryFireMission;
-    };
+    [getPos _killer, (random 150), "HE", (round (1 + tierWar / 2)), _group] call A3A_fnc_artilleryFireMission;
 };
 
 if (!fleeing leader _group and random 1 < 0.5) then

@@ -28,10 +28,10 @@ private _result = false;
 {
 	if (alive (leader _x)) then {
 		if (((leader _x) distance2D _targetPos) < _radius) exitwith {
-			_result = true; 
+			_result = true;
 			_result
 		};
 	};
-} foreach (groups _side);
+} foreach ((groups _side) + (groups civilian));
 
 _result

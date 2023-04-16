@@ -36,12 +36,11 @@ private _side = side _callerGroup;
 		{
 			private _veh = vehicle _x;
 			private _class = typeOf _veh;
-			if !(isNil ("_class")) then {
-				private _artyChk = getNumber(configfile/"CfgVehicles"/_class/"artilleryScanner");
-				if (_artyChk isEqualTo 1) then {
-					if !(_veh in _batteryArray) then {
-						_batteryArray pushBack _veh;
-					};
+			if ((_class == "") || (gunner _veh != _x)) then { continue; };
+			private _artyChk = getNumber(configfile/"CfgVehicles"/_class/"artilleryScanner");
+			if (_artyChk isEqualTo 1) then {
+				if !(_veh in _batteryArray) then {
+					_batteryArray pushBackUnique _veh;
 				};
 			};
 		} forEach (units _x);

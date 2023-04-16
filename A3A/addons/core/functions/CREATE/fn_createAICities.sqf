@@ -49,12 +49,16 @@ if (_num < 1) then {_num = 1};
 
 _countX = 0;
 
+private _roadPositions = (_positionX nearRoads round(_patrolSize / 2));
+
 while {(spawner getVariable _markerX != 2) and (_countX < _num)} do {
 	private _spawnPosition = [];
 
-	_spawnPosition = [[[_positionX, round (_patrolSize / 2)]], ["water"], { isOnRoad _this }] call BIS_fnc_randomPos;
-	if (_spawnPosition isEqualTo [0,0]) then {
-		_spawnPosition = [_positionX, 25, round (_patrolSize / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+	if (count _roadPositions >= 1) then {
+		_spawnPosition = selectRandom _roadPositions;
+		_roadPositions deleteAt (_roadPositions find _spawnPosition);
+	} else {
+		_spawnPosition = _positionX;
 	};
 
 	private _groupX = [_spawnPosition, (_params # 1), (_params # 2)] call A3A_fnc_spawnGroup;

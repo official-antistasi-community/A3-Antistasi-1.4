@@ -79,7 +79,7 @@ if (_patrol) then
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
 
-		private _spawnPosition = [_positionX, 25, round (_size / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 25, round (_size / 2), 2, 0, -1, 0] call A3A_fnc_getSafePos;
 		if (_spawnPosition isEqualTo [0,0]) exitWith {
 			ServerDebug("Unable to find spawn position for patrol unit.");
 		};
@@ -181,7 +181,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 			// Getting spawn positions can sometimes return empty array.
 			// We keep trying to get a safe pos until one is found.
 			private _spawnPosition = [];
-			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 100, 100, 2, 0, 0] call A3A_fnc_getSafePos;
+			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 100, 10, 2, 0, 0] call A3A_fnc_getSafePos;
 
 			if (!(_spawnPosition isEqualTo [0,0])) then {
 				_vehicle = [_spawnPosition, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
@@ -323,7 +323,7 @@ for "_i" from 0 to (count _array - 1) do {
 	_groupX = if (_i == 0) then {
 		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
 	} else {
-		private _spawnPosition = [_positionX, 10, 100, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 10, 100, 2, 0, -1, 0] call A3A_fnc_getSafePos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 

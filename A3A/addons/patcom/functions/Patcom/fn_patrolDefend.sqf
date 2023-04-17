@@ -55,6 +55,6 @@ if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName 
         [_group] call A3A_fnc_patrolArmVehicle;
     };
 
-    private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+    private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
     [_group, _nextWaypointPos, "MOVE", _waypointName, -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
 };

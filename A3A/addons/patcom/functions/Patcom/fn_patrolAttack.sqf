@@ -33,7 +33,7 @@ params [
     "_knownEnemies",
     ["_minimumRadius", 25], 
     ["_maximumRadius", 50], 
-    ["_objectDistance", 10], 
+    ["_objectDistance", 2], 
     ["_waterMode", 0], 
     ["_maxGradient", -1], 
     ["_shoreMode", 0]

@@ -34,6 +34,11 @@ private _assignedPairs = [];
 if (count _staticsNear < 0) exitWith {};
 
 {
+	if !(alive _x) then {
+		_staticsNear deleteAt (_staticsNear find _x);
+		continue;
+	};
+
 	private _unit = [_unitArray, _x, true, "W1"] call A3A_fnc_patrolClosestObject;
 	if (_unit isEqualTo [0,0,0]) exitWith {};
 

@@ -37,7 +37,7 @@ private _groupX = createGroup civilian;
 private _positionX = getMarkerPos (_markerX);
 
 for "_i" from 1 to _maxResourceCivilians do {
-	private _spawnPosition = [_positionX, 10, 50, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+	private _spawnPosition = [_positionX, 10, 50, 2, 0, -1, 0] call A3A_fnc_getSafePos;
 	if (_spawnPosition isEqualTo [0,0]) then {
 		ServerDebug("Resource Civilian could not be spawned because no valid spawn position was found.");
 		continue;

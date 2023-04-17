@@ -116,7 +116,7 @@ if (_patrol) then
 		_arraygroups = _faction get "groupsSmall";
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
-		private _spawnPosition = [_positionX, 25, round (_patrolSize / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 25, round (_patrolSize / 2), 5, 0, -1, 0] call A3A_fnc_getSafePos;
 		if (_spawnPosition isEqualTo [0,0]) exitWith {
 			ServerDebug("Unable to find spawn position for patrol unit.");
 		};
@@ -324,7 +324,7 @@ for "_i" from 0 to (count _array - 1) do {
 	private _groupX = if (_i == 0) then {
 		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup;
 	} else {
-		private _spawnPosition = [_positionX, 50, 100, 20, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 50, 100, 5, 0, -1, 0] call A3A_fnc_getSafePos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup;
 	};
 	_groups pushBack _groupX;
@@ -333,10 +333,9 @@ for "_i" from 0 to (count _array - 1) do {
 		_soldiers pushBack _x;
 	} forEach units _groupX;
 	if (_i == 0) then {
-		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
-		if (count _garrisonGroup > 0) then {
-			_groups append _garrisonGroup;
-		};
+		// Sets first loop as garrison, returns additional defense groups if not enough positions found.
+		private _additionalGroups = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		_groups append _additionalGroups;
 	} else {
 		[_groupX, "Patrol_Defend", 0, 200, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};

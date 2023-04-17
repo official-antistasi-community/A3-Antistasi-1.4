@@ -73,11 +73,11 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
     } foreach _buildingPositions;
 } forEach _buildings;
 
-// Splits Garrison AI into an addition defense group if not enough buildings/positions were found.
+// Splits Garrison AI into an additional defense group if not enough buildings/positions were found.
 if (count _units > 0) then {
    private _groupSplit = createGroup (side _group);
    _newGroups pushBack _groupSplit;
-   _units join _groupSplit;
+   _units joinSilent _groupSplit;
    [_groupSplit, "Patrol_Defend", 0, 100, -1, true, _position, false] call A3A_fnc_patrolLoop;
 };
 _newGroups

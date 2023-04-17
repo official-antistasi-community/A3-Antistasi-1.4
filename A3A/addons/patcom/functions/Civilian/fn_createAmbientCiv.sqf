@@ -53,8 +53,8 @@ if (_numCiv > maxCiviliansPerTown) then {
 	_numCiv = maxCiviliansPerTown;
 };
 
-if ((random 100 < ((aggressionOccupants) + (aggressionInvaders))) and (spawner getVariable _markerX != 2)) then {
-	private _spawnPosition = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+if (random 100 < ((aggressionOccupants) + (aggressionInvaders))) then {
+	private _spawnPosition = [_positionX, 10, 150, 3, 0, -1, 0] call A3A_fnc_getSafePos;
 	private _groupX = createGroup civilian;
 	_civilianGroups pushBack _groupX;
 	private _civPress = [_groupX, FactionGet(civ, "unitPress"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
@@ -79,7 +79,7 @@ for "_i" from 1 to _numCiv do {
 		if !(_housePositions isEqualTo []) then {
 			_posHouse = selectRandom _housePositions;
 		} else {
-			_posHouse = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+			_posHouse = [_positionX, 10, 150, 3, 0, -1, 0] call A3A_fnc_getSafePos;
 		};
 
 		private _groupX = createGroup civilian;
@@ -117,7 +117,7 @@ for "_i" from 1 to _numCiv do {
 
 	} else {
 		private _groupX = createGroup civilian;
-		private _spawnPosition = [_positionX, 10, 150, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 10, 150, 3, 0, -1, 0] call A3A_fnc_getSafePos;
 		private _civUnit = [_groupX, FactionGet(civ, "unitMan"), _spawnPosition, [],0, "NONE"] call A3A_fnc_createUnit;
 		_civUnit setPosATL _spawnPosition;
 		_civilianGroups pushBack _groupX;

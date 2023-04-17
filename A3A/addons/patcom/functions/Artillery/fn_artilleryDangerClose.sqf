@@ -25,15 +25,13 @@ FIX_LINE_NUMBERS()
 params ["_targetPos", "_radius", "_side"];
 private _result = false;
 
-{	
-	If (_x == grpNull) exitWith {};
-
+{
 	if (alive (leader _x)) then {
 		if (((leader _x) distance2D _targetPos) < _radius) exitwith {
-			_result = true; 
+			_result = true;
 			_result
 		};
 	};
-} foreach (allGroups select {side _x == _side});
+} foreach ((groups _side) + (groups civilian));
 
 _result

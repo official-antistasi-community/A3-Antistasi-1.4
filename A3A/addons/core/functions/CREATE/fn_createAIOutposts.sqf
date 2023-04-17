@@ -79,7 +79,7 @@ if (_patrol) then
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
 
-		private _spawnPosition = [_positionX, 25, round (_size / 2), 20, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 25, round (_size / 2), 2, 0, -1, 0] call A3A_fnc_getSafePos;
 		if (_spawnPosition isEqualTo [0,0]) exitWith {
 			ServerDebug("Unable to find spawn position for patrol unit.");
 		};
@@ -178,28 +178,18 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 		_mrkMar = seaSpawn select {getMarkerPos _x inArea _markerX};
 		if(count _mrkMar > 0) then
 		{
-			// Getting spawn positions can sometimes return empty array.
-			// We keep trying to get a safe pos until one is found.
-			private _spawnPosition = [];
-			_spawnPosition = [(getMarkerPos (_mrkMar select 0)), 0, 100, 100, 2, 0, 0] call A3A_fnc_getSafePos;
-
-			if (!(_spawnPosition isEqualTo [0,0])) then {
-				_vehicle = [_spawnPosition, 0, _typeVehX, _sideX] call A3A_fnc_spawnVehicle;
-				_veh = _vehicle select 0;
-				[_veh, _sideX] call A3A_fnc_AIVEHinit;
-				_vehCrew = _vehicle select 1;
-				{[_x, _markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
-				_groupVeh = _vehicle select 2;
-				_soldiers = _soldiers + _vehCrew;
-
-				[_groupVeh, "Patrol_Water", 25, 200, -1, true, _spawnPosition] call A3A_fnc_patrolLoop;
-
-				_groups pushBack _groupVeh;
-				_vehiclesX pushBack _veh;
-				sleep 1;
-			} else {
-				Error_1("Could not find vehicle spawn location. - seaSpawn marker on %1!", _markerX);
-			};
+			_pos = (getMarkerPos (_mrkMar select 0)) findEmptyPosition [0,20,_typeVehX];
+			_vehicle=[_pos, 0,_typeVehX, _sideX] call A3A_fnc_spawnVehicle;
+			_veh = _vehicle select 0;
+			[_veh, _sideX] call A3A_fnc_AIVEHinit;
+			_vehCrew = _vehicle select 1;
+			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
+			_groupVeh = _vehicle select 2;
+			_soldiers = _soldiers + _vehCrew;
+			[_groupVeh, "Patrol_Water", 25, 200, -1, true, _pos] call A3A_fnc_patrolLoop;
+			_groups pushBack _groupVeh;
+			_vehiclesX pushBack _veh;
+			sleep 1;
 		}
 		else
 		{
@@ -323,7 +313,7 @@ for "_i" from 0 to (count _array - 1) do {
 	_groupX = if (_i == 0) then {
 		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
 	} else {
-		private _spawnPosition = [_positionX, 10, 100, 10, 0, -1, 0] call A3A_fnc_getSafePos;
+		private _spawnPosition = [_positionX, 10, 100, 2, 0, -1, 0] call A3A_fnc_getSafePos;
 		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
 

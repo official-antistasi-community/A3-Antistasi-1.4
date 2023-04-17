@@ -4,7 +4,14 @@
 		Patrol Loop, Add's units to Array to be controlled.
 
     Arguments:
-    	N/A
+    	<Group> Group whom you want to give PATCOM control over.
+		<String> Patrol Types. "Patrol_Area", "Patrol_Defend", "Patrol_Attack". Etc.
+		<Number> Minimum Patrol distance.
+		<Number> Maxiumum Patrol distance.
+		<Number> Max distance unit can go before needing to return home/center.
+		<Bool> Should patrol happen from center of spawn. False means that it uses it current position to patrol.
+		<Array> Center Position of unit. Typically where it spawned.
+		<Bool> Should this unit search buildings?
 
     Return Value:
     	N/A
@@ -14,12 +21,15 @@
     Public: No
 
     Example: 
-		[] call A3A_fnc_patrolLoop;
+		[_groupX, "Patrol_Area", 25, 150, 150, false, _positionX, true] call A3A_fnc_patrolLoop;
 
     License: MIT License
 
-	Todo: 
-		Giddi: Make sleep dynamic with AI population - hazey: Good idea.
+	Note:
+		The From Center can be a little bit confusing. Create a circle in your head and place it where the unit spawned.
+		If From center is set to true. It will only patrol within the circle. However if it is set to false. When the 
+		unit reaches its end patrol point. The circle moves to its current position and they get a new patrol point within
+		that new radius allowing them to venture out further and more dynamically.
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
@@ -33,8 +43,6 @@ params [
 	["_centerPos", []], 
 	["_searchBuildings", false]
 ];
-
-waitUntil {((!isNil "PATCOM_INIT_COMPLETE") && (PATCOM_INIT_COMPLETE))};
 
 [_group, _patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings] spawn {
 	params ["_group","_patrolType", "_minDist", "_maxDist", "_dist", "_fromCenter", "_centerPos", "_searchBuildings"];

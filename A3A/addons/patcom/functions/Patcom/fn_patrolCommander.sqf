@@ -46,7 +46,7 @@ private _currentOrders = _patrolParams # 0;
 
 // Check if enemy combat is near.
 if (count _knownEnemies > 0) then {
-	if !(_currentOrders == "Patrol_Attack") then {
+	if ((_currentOrders != "Patrol_Attack") && (_currentOrders != "Patrol_Water")) then {
 			_group setVariable ["PATCOM_Previous_Orders", _currentOrders];
 
 			// Set Current Orders to Attack.

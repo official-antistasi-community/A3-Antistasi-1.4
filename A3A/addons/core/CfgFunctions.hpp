@@ -363,6 +363,7 @@ class CfgFunctions
 
             class initVehClassToCrew {};
             class initZones {};
+            class initZuesLogging {};
             class modBlacklist {};
             class playerMarkers {};
             class prepareMarkerArrays {};
@@ -751,6 +752,7 @@ class CfgFunctions
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};
             class getItemListFromDLC {};
+            class zuesLogging {};
         };
 
         class UtilityItems {

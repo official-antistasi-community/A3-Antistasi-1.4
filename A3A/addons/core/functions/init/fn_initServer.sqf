@@ -300,7 +300,36 @@ if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
 };
 
 
-call A3A_fnc_initZeusLogging;
-[] spawn A3A_fnc_spawnZeusCount; 
 
+if(A3A_hasZen) then 
+{
+    ["zen_common_createZues", {
+        [_this] spawn {
+            params ["_unit"];
+
+            // wait encase our event was call first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] call A3A_fnc_initZeusLogging;
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if(A3A_hasACE) then 
+{
+    ["ace_zeus_createZeus", {
+        [_this] spawn {
+            params ["_unit"];
+
+            // wait encase our event was call first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] call A3A_fnc_initZeusLogging;
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+[allCurators] call A3A_fnc_initZeusLogging;
 Info("initServer completed");

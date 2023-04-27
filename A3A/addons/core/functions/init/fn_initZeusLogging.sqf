@@ -21,99 +21,96 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private _curatorModules = allCurators;
+params ["_curatorModules"]
 
-A3A_zeusLoggingEvents = [];
 
 {
 	private _logEventId = [];
-	_logEventId pushBack (_x addEventHandler ["CuratorFeedbackMessage", {
+	_x addEventHandler ["CuratorFeedbackMessage", {
 		[_this, "CuratorFeedbackMessage", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorGroupDoubleClicked", {
+	_x addEventHandler ["CuratorGroupDoubleClicked", {
 		[_this, "CuratorGroupDoubleClicked", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorGroupPlaced", {
+	_x addEventHandler ["CuratorGroupPlaced", {
 		[_this, "CuratorGroupPlaced", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorGroupSelectionChanged", {
+	_x addEventHandler ["CuratorGroupSelectionChanged", {
 		[_this, "CuratorGroupSelectionChanged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorMarkerDeleted", {
+	_x addEventHandler ["CuratorMarkerDeleted", {
 		params ["_curator", "_marker"];
 		[_this, "CuratorMarkerDeleted", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorMarkerDoubleClicked", {
+	_x addEventHandler ["CuratorMarkerDoubleClicked", {
 		[_this, "CuratorMarkerDoubleClicked", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorMarkerEdited", {
+	_x addEventHandler ["CuratorMarkerEdited", {
 		[_this, "CuratorMarkerEdited", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorMarkerPlaced", {
+	_x addEventHandler ["CuratorMarkerPlaced", {
 		[_this, "CuratorMarkerPlaced", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorMarkerSelectionChanged", {
+	_x addEventHandler ["CuratorMarkerSelectionChanged", {
 		[_this, "CuratorMarkerSelectionChanged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectDeleted", {
+	_x addEventHandler ["CuratorObjectDeleted", {
 		// need to do this to log the object as by the time we log, the object is nil
 		private _passedParam = [_this#0, str (_this#1)];
 		[_passedParam, "CuratorObjectDeleted", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectDoubleClicked", {
+	_x addEventHandler ["CuratorObjectDoubleClicked", {
 		[_this, "CuratorObjectDoubleClicked", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectEdited", {
+	_x addEventHandler ["CuratorObjectEdited", {
 		[_this, "CuratorObjectEdited", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectPlaced", {
+	_x addEventHandler ["CuratorObjectPlaced", {
 		[_this, "CuratorObjectPlaced", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectRegistered", {
+	_x addEventHandler ["CuratorObjectRegistered", {
 		[_this, "CuratorObjectRegistered", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorObjectSelectionChanged", {
+	_x addEventHandler ["CuratorObjectSelectionChanged", {
 		[_this, "CuratorObjectSelectionChanged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorPinged", {
+	_x addEventHandler ["CuratorPinged", {
 		[_this, "CuratorPinged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorWaypointDeleted", {
+	_x addEventHandler ["CuratorWaypointDeleted", {
 		[_this, "CuratorWaypointDeleted", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorWaypointDoubleClicked", {
+	_x addEventHandler ["CuratorWaypointDoubleClicked", {
 		[_this, "CuratorWaypointDoubleClicked", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorWaypointEdited", {
+	_x addEventHandler ["CuratorWaypointEdited", {
 		[_this, "CuratorWaypointEdited", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorWaypointPlaced", {
+	_x addEventHandler ["CuratorWaypointPlaced", {
 		[_this, "CuratorWaypointPlaced", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
+	}];
 
-	_logEventId pushBack (_x addEventHandler ["CuratorWaypointSelectionChanged", {
+	_x addEventHandler ["CuratorWaypointSelectionChanged", {
 		[_this, "CuratorWaypointSelectionChanged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
-	}]);
-
-	A3A_zeusLoggingEvents set [_forEachIndex, _logEventId];
+	}];
 
 } forEach _curatorModules;

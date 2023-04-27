@@ -748,7 +748,6 @@ class CfgFunctions
             class setIdentity {};
             class setIdentityLocal {};
             class setPos {};
-            class spawnZeusCount {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};

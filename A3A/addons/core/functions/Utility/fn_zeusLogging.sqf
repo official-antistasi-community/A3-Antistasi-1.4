@@ -1,7 +1,7 @@
 /*
     Author: [Killerswin2]
     Description:
-        logs all the stuff that zues is doing
+        logs all the stuff that zeus is doing
 
     Argument: 
 	0: event params
@@ -16,7 +16,7 @@
     Dependencies:
 
     Example:
-	[_this, "CuratorWaypointSelectionChanged", player] remoteExec ["A3A_fnc_zuesLogging", 2];
+	[_this, "CuratorWaypointSelectionChanged", player] remoteExec ["A3A_fnc_zeusLogging", 2];
 
     License: MIT License
 */

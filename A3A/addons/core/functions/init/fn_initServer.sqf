@@ -299,6 +299,8 @@ if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
     }] call CBA_fnc_addClassEventHandler;
 };
 
-call A3A_fnc_initZuesLogging;
+
+call A3A_fnc_initZeusLogging;
+[] spawn A3A_fnc_spawnZeusCount; 
 
 Info("initServer completed");

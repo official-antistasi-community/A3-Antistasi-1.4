@@ -1,0 +1,94 @@
+# https://EditorConfig.org
+# https://github.com/editorconfig/editorconfig/wiki/EditorConfig-Properties
+
+
+# is top-most EditorConfig file
+root = true
+
+
+
+# General rules for all files -----------------------------------------------------------
+# have to be carefully evaluated before introduction
+[*]
+
+
+
+# Documentation files -----------------------------------------------------------
+
+[*.rst]
+indent_size = 3
+indent_style = space
+
+[*.md]
+insert_final_newline = true
+trim_trailing_whitespace = false
+indent_size = 4
+indent_style = space
+charset = utf-8
+
+
+
+# Script files -----------------------------------------------------------
+
+[*.py]
+insert_final_newline = true
+indent_size = 4
+indent_style = space
+charset = utf-8
+
+[*.ts]
+indent_size = 4
+indent_style = tab
+
+
+[*.js]
+indent_size = 2
+indent_style = space
+
+[*.{ps1,psm1,psd1}]
+indent_size = 4
+trim_trailing_whitespace = true
+
+
+
+# Arma files -----------------------------------------------------------
+
+[*.sqf]
+indent_size = 4
+indent_style = space
+
+[*.hpp]
+indent_size = 4
+indent_style = space
+
+[*.cpp]
+indent_size = 4
+indent_style = space
+
+[*.cfg]
+indent_size = 4
+indent_style = space
+
+[*.rvmat]
+indent_size = 4
+indent_style = space
+
+
+# Misc files -----------------------------------------------------------
+
+[Makefile]
+indent_style = tab
+
+
+[Stringtable.xml]
+indent_size = 2
+indent_style = space
+
+
+[*.yml]
+indent_size = 2
+indent_style = space
+
+[*.xml]
+indent_size = 2
+indent_style = space

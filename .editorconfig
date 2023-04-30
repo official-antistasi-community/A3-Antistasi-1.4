@@ -55,7 +55,7 @@ trim_trailing_whitespace = true
 
 [*.sqf]
 indent_size = 8
-indent_style = space
+indent_style = tab
 
 [*.hpp]
 indent_size = 4

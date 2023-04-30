@@ -54,7 +54,7 @@ trim_trailing_whitespace = true
 # Arma files -----------------------------------------------------------
 
 [*.sqf]
-indent_size = 4
+indent_size = 8
 indent_style = space
 
 [*.hpp]

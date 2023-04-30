@@ -16,16 +16,40 @@ Arguments:
 	Example:
     [_object, _jipKey, _params] remoteExec [A3A_fnc_initObjectRemote, _jipKey]; 
 	*/
-	
-params[["_object", objNull, [objNull]],["_jipKey", "", [""]], ["_params", []]];
+#include "objInitDefines.hpp"
+params[["_object", objNull, [objNull]],["_jipKey", "", [""]], ["_itemType", -1]];
 
 if(_params isEqualTo []) exitWith {}; 
 
-_params params [ ["_isMovableObject", false], ["_isLootCrate", false], ["_isPackable", false]];
 if (isNull _object) exitwith {remoteExec ["", _jipKey];};
+if(_itemType isEqualTo -1) exitWith {remoteExec ["", _jipKey];}
 	
-if(_isMovableObject) then {[_object, _jipKey] call A3A_fnc_initMovableObject;};
-if(_isLootCrate && LootToCrateEnabled) then {[_object, _jipKey] call A3A_fnc_initLootToCrate;};
-if(_isPackable) then {[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;};
+switch (_itemType) do {
+	case MOVE_OBJ: { [_object, _jipKey] call A3A_fnc_initMovableObject;};
+	case LOOT_CRATE: { [_object, _jipKey] call A3A_fnc_initLootToCrate;};
+	case PACKABLE: { [_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;};
+
+	case (MOVE_OBJ+LOOT_CRATE): {
+		[_object, _jipKey] call A3A_fnc_initMovableObject;
+		[_object, _jipKey] call A3A_fnc_initLootToCrate;		
+	};
+	case (MOVE_OBJ+PACKABLE): {
+		[_object, _jipKey] call A3A_fnc_initMovableObject;
+		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
+	};
+	case (LOOT_CRATE+PACKABLE): {
+		[_object, _jipKey] call A3A_fnc_initLootToCrate;
+		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
+	};
+	case (MOVE_OBJ+LOOT_CRATE+PACKABLE): {
+		[_object, _jipKey] call A3A_fnc_initMovableObject;
+		[_object, _jipKey] call A3A_fnc_initLootToCrate;
+		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
+	};
+
+	default { 
+		// how did you get here
+	};
+};
 
 nil;

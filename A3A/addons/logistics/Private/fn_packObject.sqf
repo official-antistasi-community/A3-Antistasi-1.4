@@ -55,7 +55,7 @@ _package addAction [
 
 // add logi
 [_package] call A3A_Logistics_fnc_addLoadAction;
-[_package, [true]] call A3A_fnc_initObject;
+[_package, 1] call A3A_fnc_initObject;
 
 //delete object
 deleteVehicle _object;

@@ -54,8 +54,8 @@ clearMagazineCargoGlobal _boxX;
 clearWeaponCargoGlobal _boxX;
 clearItemCargoGlobal _boxX;
 clearBackpackCargoGlobal _boxX;
-[_boxX] call A3A_Logistics_fnc_addLoadAction;
-[_boxX, 3] call A3A_fnc_initObject;
+//[_boxX] call A3A_Logistics_fnc_addLoadAction;
+[_boxX, MOVE_OBJ + LOOT_CRATE + LOADABLE] call A3A_fnc_initObject;
 
 
 // move all unit's equipment except uniform into the surrender crate

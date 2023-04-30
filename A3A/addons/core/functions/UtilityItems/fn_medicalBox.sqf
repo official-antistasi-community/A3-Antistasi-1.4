@@ -16,8 +16,8 @@ Example:
 #include "..\..\script_component.hpp"
 
 if(A3A_hasACE) then {
-	[player, FactionGet(reb,"vehicleMedicalBox") # 0, FactionGet(reb,"vehicleMedicalBox") # 1, [['A3A_fnc_initObject', false, 1], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem;
+	[player, FactionGet(reb,"vehicleMedicalBox") # 0, FactionGet(reb,"vehicleMedicalBox") # 1, [['A3A_fnc_initObject', false, MOVE_OBJ + LOADABLE]]] call A3A_fnc_buyItem;
 } else 
 {
-	[player, FactionGet(reb,"vehicleMedicalBox") # 0, FactionGet(reb,"vehicleMedicalBox") # 1, [['A3A_fnc_initObject', false, 1], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_fnc_medicalBoxFill', false]]] call A3A_fnc_buyItem;
+	[player, FactionGet(reb,"vehicleMedicalBox") # 0, FactionGet(reb,"vehicleMedicalBox") # 1, [['A3A_fnc_initObject', false, MOVE_OBJ + LOADABLE], ['A3A_fnc_medicalBoxFill', false]]] call A3A_fnc_buyItem;
 };

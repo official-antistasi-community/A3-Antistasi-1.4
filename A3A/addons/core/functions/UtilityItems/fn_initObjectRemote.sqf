@@ -15,41 +15,42 @@ Arguments:
 	
 	Example:
     [_object, _jipKey, _params] remoteExec [A3A_fnc_initObjectRemote, _jipKey]; 
-	*/
-#include "objInitDefines.hpp"
+*/
+#include "..\..\script_component.hpp"
 params[["_object", objNull, [objNull]],["_jipKey", "", [""]], ["_itemType", -1]];
 
-if(_params isEqualTo []) exitWith {}; 
 
-if (isNull _object) exitwith {remoteExec ["", _jipKey];};
-if(_itemType isEqualTo -1) exitWith {remoteExec ["", _jipKey];}
+if (isNull _object) exitwith {remoteExec ["", _jipKey]};
+if(_itemType isEqualTo -1) exitWith {remoteExec ["", _jipKey]};
 	
-switch (_itemType) do {
-	case MOVE_OBJ: { [_object, _jipKey] call A3A_fnc_initMovableObject;};
-	case LOOT_CRATE: { [_object, _jipKey] call A3A_fnc_initLootToCrate;};
-	case PACKABLE: { [_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;};
-
-	case (MOVE_OBJ+LOOT_CRATE): {
-		[_object, _jipKey] call A3A_fnc_initMovableObject;
-		[_object, _jipKey] call A3A_fnc_initLootToCrate;		
-	};
-	case (MOVE_OBJ+PACKABLE): {
-		[_object, _jipKey] call A3A_fnc_initMovableObject;
-		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
-	};
-	case (LOOT_CRATE+PACKABLE): {
-		[_object, _jipKey] call A3A_fnc_initLootToCrate;
-		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
-	};
-	case (MOVE_OBJ+LOOT_CRATE+PACKABLE): {
-		[_object, _jipKey] call A3A_fnc_initMovableObject;
-		[_object, _jipKey] call A3A_fnc_initLootToCrate;
-		[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
-	};
-
-	default { 
-		// how did you get here
-	};
+// movable object
+if (([_itemType, MOVE_OBJ] call BIS_fnc_bitwiseAND) > 0) then 
+{
+	[_object, _jipKey] call A3A_fnc_initMovableObject;
 };
 
-nil;
+// loot crate object
+if (([_itemType, LOOT_CRATE] call BIS_fnc_bitwiseAND) > 0) then 
+{
+	[_object, _jipKey] call A3A_fnc_initLootToCrate;
+};
+
+// packable object
+if (([_itemType, PACKABLE] call BIS_fnc_bitwiseAND) > 0) then 
+{
+	[_object, _jipKey] call A3A_Logistics_fnc_initPackableObjects;
+};
+
+// loadable object from logistic system.
+if(([_itemType, LOADABLE] call BIS_fnc_bitwiseAND) > 0) then 
+{
+	
+	if (([_object] call A3A_Logistics_fnc_getCargoNodeType) isEqualTo -1) exitWith {
+		Error_1("tried to add action to unsupported object type. Type: %1",typeOf _object);
+		nil
+	};
+	
+	[_object , "load"] remoteExec ["A3A_Logistics_fnc_addAction", 0, _object];
+};
+
+nil

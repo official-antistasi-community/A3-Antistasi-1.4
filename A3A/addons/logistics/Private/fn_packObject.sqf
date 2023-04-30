@@ -14,6 +14,8 @@ Example:
     [_object] call A3A_Logistics_fnc_packObject; 
 */
 
+#include "..\script_component.hpp"
+
 params  [
     ["_object", objNull, [objNull]]
 ];
@@ -55,7 +57,7 @@ _package addAction [
 
 // add logi
 [_package] call A3A_Logistics_fnc_addLoadAction;
-[_package, 1] call A3A_fnc_initObject;
+[_package, MOVE_OBJ] call A3A_fnc_initObject;
 
 //delete object
 deleteVehicle _object;

@@ -12,6 +12,7 @@ Dependencies:
 Example:
     [_object] call A3A_Logistics_fnc_unpackObject; 
 */
+#include "..\script_component.hpp"
 
 params  [
     ["_object", objNull, [objNull]]
@@ -34,7 +35,7 @@ if(_itemClassName isEqualTo "") exitwith {
 private _item = _itemClassName createVehicle [0,0,0];
 _item allowDamage false;
 
-_callBacks = [['A3A_fnc_initObject', false, 5]];
+_callBacks = [['A3A_fnc_initObject', false, MOVE_OBJ + PACKABLE]];
 
 if(_canOpenDoors) then {
     _callBacks pushBack ['A3A_fnc_openDoorsTent', true];

@@ -14,9 +14,14 @@ Arguments:
 	Dependencies: 
 	
 	Example:
-    [_object, _params] call A3A_fnc_initObject; 
-	*/
+    [_object, _type] call A3A_fnc_initObject; 
+*/
+#include "..\..\script_component.hpp"
 params[["_object", objNull, [objNull]], ["_itemType", -1]];
 
 private _jipKey = "A3A_initObject_" + ((str _object splitString ":") joinString "");
-[_object, _jipKey, _itemType] remoteExec ["A3A_fnc_initObjectRemote", 0, _jipKey]; 
+
+if (_itemType isNotEqualTo -1) then 
+{
+	[_object, _jipKey, _itemType] remoteExec ["A3A_fnc_initObjectRemote", 0, _jipKey]; 
+};

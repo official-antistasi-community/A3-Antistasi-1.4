@@ -45,7 +45,6 @@ class CfgFunctions {
             class patrolLoop {};
             class patrolSearchBuilding {};
             class patrolSetCombatModes {};
-            class patrolSetParams {};
             class patrolWater {};
         };
     };

@@ -55,7 +55,7 @@ params [
 	};
 
 	if !((side leader _group) == civilian) then {
-		[_group, _patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings] call A3A_fnc_patrolSetParams;
+		_group setVariable ["PATCOM_Patrol_Params", [_patrolType, _minDist, _maxDist, _dist, _fromCenter, _centerPos, _searchBuildings]];
 	};
 
 	// Will not run unless PATCOM_Controlled is set to false.

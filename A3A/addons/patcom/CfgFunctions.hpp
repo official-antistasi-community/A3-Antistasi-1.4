@@ -33,7 +33,6 @@ class CfgFunctions {
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCivilianCommander {};
-            class patrolClosestObject {};
             class patrolCommander {};
             class patrolCreateWaypoint {};
             class patrolDefend {};

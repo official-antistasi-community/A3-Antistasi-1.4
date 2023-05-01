@@ -25,30 +25,43 @@
 FIX_LINE_NUMBERS()
 params ["_group"];
 
-private _leader = leader _group;
-private _staticsNear = nearestObjects [_leader, ["StaticWeapon"], 150];
-private _unitArray = units _group;
-_unitArray deleteAt (_unitArray find _leader);
 private _assignedPairs = [];
+private _leader = leader _group;
 
-if (count _staticsNear < 0) exitWith {};
+private _staticsNear = nearestObjects [_leader, ["StaticWeapon"], 150];
+
+// Only get statics that are currently in working order.
+_staticsNear = _staticsNear select {alive _x};
+
+// Only get statics which currently are not crewed.
+_staticsNear = _staticsNear select {(crew _x) isequalto []};
+
+// Only get statics which are not current assigned.
+_staticsNear = _staticsNear select {(_x getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false};
+
+// Exit if no statics are near.
+if (count _staticsNear == 0) exitWith {};
+
+// Get all units in the current group looking for statics.
+private _unitArray = units _group;
+
+// We don't want the leader to arm the static.
+_unitArray deleteAt (_unitArray find _leader);
+
+// We verify that the unit is not already in a vehicle for some reason.
+_unitArray = _unitArray select {isNull objectParent _x};
+
+// Exit if no units are available to be used in the statics.
+if (count _unitArray == 0) exitWith {};
 
 {
-	if !(alive _x) then {
-		_staticsNear deleteAt (_staticsNear find _x);
-		continue;
+	private _unit = selectRandom _unitArray;
+
+	if (_unit distance2D _x < 100) then {
+		_assignedPairs pushback [_unit, _x, _group];
+		_unitArray deleteAt (_unitArray find _unit);	
 	};
 
-	private _unit = [_unitArray, _x, true, "W1"] call A3A_fnc_patrolClosestObject;
-	if (_unit isEqualTo [0,0,0]) exitWith {};
-
-	private _foot = isNull objectParent _unit;
-	if (_foot) then {
-		if (_unit distance2D _x < 100) then {
-			_assignedPairs pushback [_unit, _x, _group];
-			_unitArray deleteAt (_unitArray findIf {_x isEqualTo _unit});	
-		};
-	};
 } foreach _staticsNear;
 
 if (count _assignedPairs isEqualTo 0) exitWith {};

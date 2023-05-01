@@ -13,10 +13,10 @@ private _convoyData = [];
 for "_i" from 0 to ((count _unitObjects) - 1) do
 {
 	private _data = _unitObjects select _i;
-	private _vehicle = _data select 0;
+        private _vehicle = _data select 0;
 	private _convoyLine = [];
 
-	private _cargoData = [];
+		private _cargoData = [];
 	{
 		if(alive _x) then
 		{

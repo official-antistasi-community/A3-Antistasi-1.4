@@ -18,7 +18,12 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo_wiw", "gm_ge_army_typ1200_cargo_olw", "gm_ge_army_iltis_cargo_win", "gm_ge_army_iltis_cargo_un"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo_wiw", "gm_ge_army_typ1200_cargo_olw", "gm_ge_army_iltis_cargo_win", "gm_ge_army_iltis_cargo_un",
+    "gm_ge_army_typ1200_cargo_wiw", "gm_ge_army_typ1200_cargo_olw", "gm_ge_army_typ1200_cargo_win",  "gm_ge_army_typ1200_cargo_un", "gm_ge_army_typ253_cargo_wiw", 
+    "gm_ge_army_typ253_cargo_olw", "gm_ge_army_typ253_cargo_win", "gm_ge_army_typ253_cargo_un", "gm_ge_army_typ253_mp_wiw", "gm_ge_army_typ253_mp_olw", 
+    "gm_ge_army_typ253_mp_win", "gm_ge_army_typ253_mp_un", "gm_ge_army_typ247_cargo_wiw", "gm_ge_army_typ247_cargo_olw", "gm_ge_army_typ247_cargo_win", 
+    "gm_ge_army_typ247_cargo_un", "gm_ge_army_typ247_firefighter_wiw", "gm_ge_army_typ247_firefighter_olw", "gm_ge_army_typ247_firefighter_win", 
+    "gm_ge_army_typ247_firefighter_un", "gm_ge_bgs_w123_cargo", "gm_ge_bgs_typ253_cargo", "gm_ge_army_w123_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["gm_ge_army_iltis_milan_un", "gm_ge_army_iltis_mg3_un", "gm_ge_army_iltis_mg3_un", "gm_ge_army_iltis_milan_win", "gm_ge_army_iltis_mg3_win", "gm_ge_army_iltis_mg3_win", "gm_ge_army_iltis_milan_wiw", "gm_ge_army_iltis_mg3_wiw", "gm_ge_army_iltis_mg3_wiw", "gm_ge_army_luchsa2_un", "gm_ge_army_luchsa2_win", "gm_ge_army_luchsa2_wiw"]] call _fnc_saveToTemplate; //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed", ["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
 ["vehiclesTrucks", ["gm_ge_army_kat1_451_container_un", "gm_ge_army_u1300l_cargo_un", "gm_ge_army_kat1_451_cargo_un", "gm_ge_army_u1300l_container_un", "gm_ge_army_u1300l_container_win", "gm_ge_army_u1300l_cargo_win", "gm_ge_army_kat1_451_cargo_win", "gm_ge_army_kat1_451_container_win", "gm_ge_army_kat1_451_cargo_wiw", "gm_ge_army_kat1_451_container_wiw", "gm_ge_army_u1300l_container_wiw", "gm_ge_army_u1300l_cargo_wiw"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["gm_ge_army_kat1_451_container_un", "gm_ge_army_u1300l_container_un", "gm_ge_army_u1300l_container_win", "gm_ge_army_kat1_451_container_win", "gm_ge_army_kat1_451_container_wiw", "gm_ge_army_u1300l_container_wiw", "gm_ge_army_kat1_454_cargo_wiw", "gm_ge_army_kat1_452_container_win", "gm_ge_army_kat1_452_container_wiw", "gm_ge_army_kat1_454_cargo_win", "gm_ge_army_kat1_452_container_un", "gm_ge_army_kat1_454_cargo_un"]] call _fnc_saveToTemplate;
@@ -27,7 +32,7 @@
 ["vehiclesFuelTrucks", ["gm_ge_army_kat1_451_refuel_wiw", "gm_ge_army_kat1_451_refuel_win", "gm_ge_army_kat1_451_refuel_un"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["gm_dk_army_m113a1dk_medic_win_rc", "gm_dk_army_m113a1dk_medic_un_rc", "gm_ge_army_u1300l_medic_wiw_rc", "gm_ge_army_u1300l_medic_win_rc", "gm_ge_army_u1300l_medic_un_rc"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["gm_dk_army_m113a2dk_win", "gm_dk_army_m113a2dk_un", "gm_ge_army_leopard1a1a1_wiw", "gm_ge_army_leopard1a1a2_wiw", "gm_ge_army_leopard1a1a3_wiw", "gm_ge_army_leopard1a1a4_wiw", "gm_ge_army_leopard1a3_wiw", "gm_ge_army_leopard1a3a1_wiw", "gm_ge_army_leopard1a3a2_wiw", "gm_ge_army_leopard1a3a3_wiw", "gm_ge_army_leopard1a5_wiw", "gm_ge_army_leopard1a5a1_wiw", "gm_ge_army_leopard1a1a1_win", "gm_ge_army_leopard1a1a2_win", "gm_ge_army_leopard1a1a3_win", "gm_ge_army_leopard1a1a4_win", "gm_ge_army_leopard1a3_win", "gm_ge_army_leopard1a3a1_win", "gm_ge_army_leopard1a3a2_win", "gm_ge_army_leopard1a3a3_win", "gm_ge_army_leopard1a5_win", "gm_ge_army_leopard1a5a1_win", "gm_ge_army_leopard1a1a1_un", "gm_ge_army_leopard1a1a2_un", "gm_ge_army_leopard1a1a3_un", "gm_ge_army_leopard1a1a4_un", "gm_ge_army_leopard1a3_un", "gm_ge_army_leopard1a3a1_un", "gm_ge_army_leopard1a3a2_un", "gm_ge_army_leopard1a3a3_un", "gm_ge_army_leopard1a5_un", "gm_ge_army_leopard1a5a1_un"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["gm_ge_army_gepard1a1_wiw", "gm_ge_army_gepard1a1_win", "gm_ge_army_gepard1a1_un"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["gm_ge_army_gepard1a1_wiw", "gm_ge_army_gepard1a1_win", "gm_ge_army_gepard1a1_un", "CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesLightAPCs", ["gm_ge_army_fuchsa0_reconnaissance_wiw", "gm_ge_army_fuchsa0_command_wiw", "gm_ge_army_fuchsa0_command_win", "gm_ge_army_fuchsa0_reconnaissance_win", "gm_ge_army_fuchsa0_command_un", "gm_ge_army_fuchsa0_reconnaissance_un"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["gm_ge_army_m113a1g_apc_milan_un", "gm_ge_army_m113a1g_apc_milan_win", "gm_ge_army_m113a1g_apc_milan_wiw", "gm_ge_army_m113a1g_apc_win", "gm_ge_army_m113a1g_apc_un", "gm_ge_army_m113a1g_apc_wiw", "gm_ge_army_m113a1g_command_win", "gm_ge_army_m113a1g_command_un", "gm_ge_army_m113a1g_command_wiw", "gm_dk_army_m113a1dk_apc_win", "gm_dk_army_m113a1dk_apc_un"]] call _fnc_saveToTemplate;
@@ -68,7 +73,7 @@
 ["vehiclesMilitiaTrucks", ["gm_ge_army_u1300l_container_un", "gm_ge_army_u1300l_container_win", "gm_ge_army_u1300l_container_wiw"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["gm_ge_army_iltis_cargo_win", "gm_ge_army_iltis_cargo_un", "gm_ge_army_iltis_cargo_wiw"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["gm_ge_pol_typ1200"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["gm_ge_pol_typ1200", "gm_ge_pol_w123", "gm_ge_pol_typ253"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["gm_ge_army_mg3_aatripod"]] call _fnc_saveToTemplate;
 ["staticAT", ["gm_ge_army_milan_launcher_tripod"]] call _fnc_saveToTemplate;

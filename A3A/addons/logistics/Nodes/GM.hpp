@@ -233,3 +233,48 @@ class gm_gm_vehicles_gm_land_gm_wheeled_gm_ural375d_gm_ural375d_cargo_p3d : TRIP
         };
     };
 };
+
+class gm_gm_vehicles_gm_land_gm_wheeled_gm_typ2_gm_typ247 : TRIPLES(ADDON,Nodes,Base)
+{
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-1.15,-0.7};
+        };
+        class Node2
+        {
+            offset[] = {0,-1.95,-0.7};
+        };
+    };
+};a
+
+class gm_gm_vehicles_gm_land_gm_wheeled_gm_typ2_gm_typ251 : TRIPLES(ADDON,Nodes,Base)
+{
+        class Nodes
+    {
+        class Node1
+        {
+            offset[] = {-0.1,-0.2,-0.6};
+        };
+        class Node2
+        {
+            offset[] = {-0.1,-1,-0.6};
+        };
+        class Node3
+        {
+            offset[] = {-0.1,-1.8,-0.6};
+        };
+    };
+};
+
+class gm_gm_vehicles_gm_land_gm_wheeled_gm_typ2_gm_typ253 : TRIPLES(ADDON,Nodes,Base)
+{
+        class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-2.2,-0.6};
+        };
+    };
+};

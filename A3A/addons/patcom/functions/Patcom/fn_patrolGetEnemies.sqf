@@ -30,9 +30,7 @@ if (_side isEqualTo teamPlayer) then {
 	};
 };
 
-{
-	_knownEnemies pushBackUnique _x;
-} forEach (_group targets [true, PATCOM_VISUAL_RANGE, _enemySides, PATCOM_TARGET_TIME]);
+_knownEnemies append (_group targets [true, PATCOM_VISUAL_RANGE, _enemySides, PATCOM_TARGET_TIME]);
 
 {
 	if ((side _x) in _enemySides) then {

@@ -63,6 +63,8 @@ if ((leader _group) distance _building > 250) exitwith {};
                 sleep 2;
             };
         } forEach _units;
+
+        sleep 5;
     };
     _group lockWP false;
 	_group setBehaviour "SAFE";

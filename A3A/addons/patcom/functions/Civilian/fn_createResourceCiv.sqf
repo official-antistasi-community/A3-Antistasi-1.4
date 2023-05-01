@@ -1,20 +1,21 @@
 /*
     Author: [Hazey]
     Description:
-
+		Adds civilians to resource points to be used as workers.
 
     Arguments:
-
+		<String> Marker location where you want the civilians to be spawned at.
+		<Number> Max amount of civilians you want to be spawned in. Default: 4
 
     Return Value:
-    	N/A
+    	<Array> Array of spawnedCivilians for deletion or manipulation purposes.
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-
+		_spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
 
     License: MIT License
 */
@@ -26,10 +27,11 @@ params ["_markerX", ["_maxResourceCivilians", 4]];
 private _daystate = [] call A3A_fnc_getDayState;
 
 if (_markerX in destroyedSites) exitWith {
-	ServerDebug("_markerX in destroyedSites and civilian workers and have not spawned.");
+	ServerDebug("_markerX in destroyedSites and civilian workers have not spawned.");
 };
+
 if !(_daystate == "DAY") exitWith {
-	ServerDebug("Civilian Workers are outside of working hours and have not spawned.")
+	ServerDebug("Civilian Workers are outside of working hours and have not spawned.");
 };
 
 private _civs = [];

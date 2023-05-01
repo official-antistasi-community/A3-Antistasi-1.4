@@ -5,9 +5,10 @@
 
     Arguments:
         <Group> Group you want to defend an area.
-        <Array> Position Center.
         <Number> Minimum Radius from Center to Defend.
         <Number> Maximum Radius from Center to Defend.
+        <Bool> Should unit patrol from center or from last waypoint position. True from center, False from waypoint.
+        <Array> Center Position unit is calling from.
 
     Return Value:
     	N/A

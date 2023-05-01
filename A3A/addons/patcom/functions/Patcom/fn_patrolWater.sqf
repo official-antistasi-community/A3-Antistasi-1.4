@@ -4,14 +4,13 @@
 		Group Patrol Water
 
     Arguments:
-        <Group> Group you want to run a Patrol Area.
-        <Number> Max Distance the unit should venture before returning home.
+        <Group> Group you want to patrol the surrounding water.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.
-        <Number> Distance from nearest object to create waypoint.
-        <Number> 0 - No Water, 1 - land & water, 2 - water only
-        <Number> Max Gradient to create waypoint on. Used to avoid super hilly maps.
-        <Number> Should be on the shore or not.
+        <Number> Maximum distance this unit can Patrol before returning home.
+        <Bool> Should unit patrol from center or from last waypoint position. True from center, False from waypoint.
+        <Array> Center Position unit is calling from.
+
 
     Return Value:
     	N/A

@@ -6,7 +6,6 @@
     Arguments:
         <Group> Group you want to run an attack.
         <Array> List of KnownEnemies.
-        <Number> Max Distance the unit should venture before returning home.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.
         <Number> Distance from nearest object to create waypoint.

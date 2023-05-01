@@ -5,9 +5,9 @@
 
     Arguments:
     	<Group> Group waypoint should be added to.
+		<Array> Position to create waypoint at.
 		<String> Waypoint Type, Typically "MOVE".
 		<String> Waypoint Name, used to verify current waypoint.
-		<Array> Position to create waypoint at.
 		<Number> Radius of waypoint.
 		<Number> Distance to ignore newly created waypoint.
 
@@ -19,7 +19,7 @@
     Public: No
 
     Example: 
-		[_group, "MOVE", "PATCOM_PATROL_AREA", _nextWaypointPos, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+		[_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
 
     License: MIT License
 */

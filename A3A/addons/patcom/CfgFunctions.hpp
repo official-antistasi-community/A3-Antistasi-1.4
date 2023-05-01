@@ -27,7 +27,6 @@ class CfgFunctions {
             class debugText3D {};
             class debug3DPath {};
             class getSafePos {};
-            class patrolAnimation {};
             class patrolArea {};
             class patrolArmStatics {};
             class patrolArmVehicle {};

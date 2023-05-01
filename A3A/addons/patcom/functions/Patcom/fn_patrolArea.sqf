@@ -89,7 +89,7 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     } else {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
+        private _nextWaypointPos = [getPosATL (leader _group), _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     };
 };

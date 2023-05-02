@@ -30,7 +30,7 @@
             CfgMissions >> MPMissions >> Antistasi_${worldname} >> briefingName
             Mission >> Intel >> briefingName
     \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
-    <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
+        <Key ID="STR_antistasi_mission_info_${worldname}_mapname_short_text">
         <Original>Antistasi Altis</Original>
       </Key>
       <Key ID="STR_antistasi_mission_info_${worldname}_mapname_text">

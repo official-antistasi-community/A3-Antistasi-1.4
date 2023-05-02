@@ -1,7 +1,7 @@
 /*
     Author: [Hazey]
     Description:
-		Group Patrol Area
+        Group Patrol Area
 
     Arguments:
         <Group> Group you want to run a Patrol Area.
@@ -14,14 +14,14 @@
         <Number> Should be on the shore or not.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolArea;
+        [_group] call A3A_fnc_patrolArea;
 
     License: MIT License
 */

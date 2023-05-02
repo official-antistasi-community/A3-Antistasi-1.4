@@ -1,7 +1,7 @@
 /*
     Author: [Hazey]
     Description:
-		Sends group directly to garrison positions
+        Sends group directly to garrison positions
 
     Arguments:
         <Group> Group to run action on.
@@ -9,7 +9,7 @@
         <Number> How far you want to look for potential positions
 
     Return Value:
-    	<Group> Returns group if not enough buildings or positions are found.
+        <Group> Returns group if not enough buildings or positions are found.
 
     Scope: Any
     Environment: Any

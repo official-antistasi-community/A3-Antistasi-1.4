@@ -1,7 +1,7 @@
 /*
     Author: [Hazey]
     Description:
-		Group Defend Area
+        Group Defend Area
 
     Arguments:
         <Group> Group you want to defend an area.
@@ -11,14 +11,14 @@
         <Array> Center Position unit is calling from.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group, 20, 50] call A3A_fnc_patrolDefend;
+        [_group, 20, 50] call A3A_fnc_patrolDefend;
 
     License: MIT License
 */

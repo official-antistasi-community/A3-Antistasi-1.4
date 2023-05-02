@@ -1,6 +1,6 @@
 class CfgSounds
 {
-	sounds[] = {};
+    sounds[] = {};
     class A3A_Audio_Civ_Song1
     {
       name = "A3A_Audio_Civ_Song1";

@@ -1,20 +1,20 @@
 /*
     Author: [Hazey]
     Description:
-		Create a civilian sound source at a provided building.
+        Create a civilian sound source at a provided building.
 
     Arguments:
-    	<Object> Building you want to attach it to.
+        <Object> Building you want to attach it to.
 
     Return Value:
-    	<Object> Sound Source
+        <Object> Sound Source
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		_musicSource = [_building] call A3A_fnc_createMusicSource;
+        _musicSource = [_building] call A3A_fnc_createMusicSource;
 
     License: MIT License
 */
@@ -33,28 +33,28 @@ _musicSource attachTo [_building, [1,1,1]];
 [_musicSource, true] remoteExec ["hideObjectGlobal", 2];
 
 [_building, _musicSource] spawn {
-	params ["_building", "_musicSource", "_locationType"];
-	private _tracksPlayed = 1;
-	private _tracks = A3A_Civilian_Amb_Tracks get "Ambience";
+    params ["_building", "_musicSource", "_locationType"];
+    private _tracksPlayed = 1;
+    private _tracks = A3A_Civilian_Amb_Tracks get "Ambience";
 
-	if (count _tracks == 0) exitWith {
-		Error("No Tracks found to create a music source");
-	};
+    if (count _tracks == 0) exitWith {
+        Error("No Tracks found to create a music source");
+    };
 
     private _totalTracks = count _tracks;
 
     while { (alive _musicSource) } do {
         while { _tracksPlayed < _totalTracks } do {
-			private _track = selectRandom (_tracks);
-			private _trackDuration = _track # 1;
+            private _track = selectRandom (_tracks);
+            private _trackDuration = _track # 1;
 
-			[_musicSource, _track # 0] remoteExec ["say3D", [0, _musicSource], true];
+            [_musicSource, _track # 0] remoteExec ["say3D", [0, _musicSource], true];
 
-			sleep _trackDuration;
+            sleep _trackDuration;
 
-			_tracksPlayed = _tracksPlayed + 1;
+            _tracksPlayed = _tracksPlayed + 1;
 
-			if not (alive _musicSource) exitWith {};
+            if not (alive _musicSource) exitWith {};
         };
         sleep (random 10);
     };

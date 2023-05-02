@@ -1,14 +1,14 @@
 /*
     Author: [Hazey]
     Description:
-		Returns an array of enterable buildings
+        Returns an array of enterable buildings
 
     Arguments:
         <Array> Position you want to check for enterable houses
         <Number> How far you want to check for enterable houses
 
     Return Value:
-    	<Array> List of enterable houses.
+        <Array> List of enterable houses.
 
     Scope: Any
     Environment: Any
@@ -28,7 +28,7 @@ private _enterable = [];
 
 {
     if ([_x] call A3A_fnc_patrolBuildingEnterable) then {
-    	_enterable pushback _x;
+        _enterable pushback _x;
     };
 } forEach (nearestObjects [_position, ["House","Building"], _radius]);
 

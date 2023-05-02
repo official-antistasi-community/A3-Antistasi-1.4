@@ -1,21 +1,21 @@
 /*
     Author: [Hazey]
     Description:
-		Add available artillery to active battery list.
+        Add available artillery to active battery list.
 
     Arguments:
-    	<Group> Group whom you want to make an active artillery battery.
-		<Number> Default variance in shot spread. (How accurate the unit is)
+        <Group> Group whom you want to make an active artillery battery.
+        <Number> Default variance in shot spread. (How accurate the unit is)
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group, _variance] call A3A_fnc_artilleryAdd;
+        [_group, _variance] call A3A_fnc_artilleryAdd;
 
     License: MIT License
 */

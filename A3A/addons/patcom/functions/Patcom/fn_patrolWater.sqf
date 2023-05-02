@@ -1,7 +1,7 @@
 /*
     Author: [Hazey]
     Description:
-		Group Patrol Water
+        Group Patrol Water
 
     Arguments:
         <Group> Group you want to patrol the surrounding water.
@@ -13,14 +13,14 @@
 
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolArea;
+        [_group] call A3A_fnc_patrolArea;
 
     License: MIT License
 */
@@ -44,7 +44,7 @@ private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 _group setVariable ["PATCOM_Group_State", "CALM"];
 
 if (PATCOM_DEBUG) then {
-	[leader _group, "PATROL WATER", 10, "White"] call A3A_fnc_debugText3D;
+    [leader _group, "PATROL WATER", 10, "White"] call A3A_fnc_debugText3D;
 };
 
 // We check to see if the waypoint is still active after 3 minutes. If waypoint isn't complete the unit is likely stuck.

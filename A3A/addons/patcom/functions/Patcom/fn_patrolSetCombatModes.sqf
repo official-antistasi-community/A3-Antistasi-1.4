@@ -1,25 +1,25 @@
 /*
     Author: [Hazey]
     Description:
-		Set bulky combat modes.
+    Set bulky combat modes.
 
     Arguments:
     <Group> Group to handle orders on.
-		<String> Behaviour to set on group
-		<String> Speed Mode to set on group
-		<String> Formation to give group
-		<String> Combat Mode to set on group
+    <String> Behaviour to set on group
+    <String> Speed Mode to set on group
+    <String> Formation to give group
+    <String> Combat Mode to set on group
     <String> Set the units stance "AUTO" default.
 
     Return Value:
-    	N/A
+      N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolSetCombatModes;
+    [_group] call A3A_fnc_patrolSetCombatModes;
 
     License: MIT License
 */

@@ -1067,7 +1067,7 @@
         <Spanish>Echale un ojo, si es muy alto, te tendrás que enfrentar a más ataques con mejores tropas</Spanish>
         <Polish>Miej na to oko. Jeśli będzie zbyt wysoki, będziesz musiał stawić czoła większej liczbie ataków wroga z coraz to lepszymi oddziałami.</Polish>
       </Key>
-<Key ID="STR_antistasi_journal_entry_header_tutorial_3">
+      <Key ID="STR_antistasi_journal_entry_header_tutorial_3">
         <Original>Strategy</Original>
         <French>Stratégie</French>
         <German>Strategie</German>
@@ -1079,7 +1079,7 @@
         <Spanish>Estratégia</Spanish>
         <Polish>Strategie</Polish>
       </Key>
-            <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
         <Original>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</Original>
         <French>Une fois que vous avez une bonne quantité de ressources, concentrez-vous sur les communications ennemies. Si vous les perturbés suffisament, vous n'aurez pas à faire face à de grandes contre-attaques.</French>
         <German>Sobald du eine solide Menge and Ressourcen zusammen hast, konzentriere dich auf ihre Kommunikation. Störst du sie ausreichend, wirst du dich keinen größeren Gegenangriffen mehr stellen müssen.</German>
@@ -1103,7 +1103,7 @@
         <Spanish>Conquista y Defiende</Spanish>
         <Polish>Zdobądź i Utrzymaj</Polish>
       </Key>
-<Key ID="STR_antistasi_journal_entry_text_tutorial_4">
+      <Key ID="STR_antistasi_journal_entry_text_tutorial_4">
         <Original>Don't expect a light counter-attack when you conquer strategic zones such as resources or airports. The enemy will send everything they can, if available. If you conquer a zone and expect a counter-attack, fleeing is a nice option.</Original>
         <French>Ne vous attendez pas à une contre-attaque légère lorsque vous conquérez des zones stratégiques telles que des ressources ou des aéroports. L'ennemi enverra tout ce qu'il peut, s'il est disponible. Si vous conquérez une zone et vous attendez à une contre-attaque, la fuite est une bonne option.</French>
         <German>Erwarte keine einfachen Gegenangriffe, wenn du eine strategische Zone, wie Ressourcen oder Flugplätze, einnimmst. Der Feind wird dir alles was er zur Verfügung hat entgegenwerfen. Eroberst du eine Zone und erwartest einen Gegenangriff ist Rückzug immer eine gute Option.</German>
@@ -1331,7 +1331,7 @@
         <Spanish>Usa la acción en el menu de tu fogata del CG para descansar 8 horas.</Spanish>
         <Polish>Użyj menu akcji na ognisku w kwaterze głównej, aby odpocząć przez 8 godzin.</Polish>
       </Key>
-<Key ID="STR_antistasi_journal_entry_header_commander_7">
+      <Key ID="STR_antistasi_journal_entry_header_commander_7">
         <Original>Bomb Run</Original>
         <French>Bombardement</French>
         <German>Bombardierung</German>
@@ -1367,7 +1367,7 @@
         <Spanish>Artilleria</Spanish>
         <Polish>Artyleria</Polish>
       </Key>
-<Key ID="STR_antistasi_journal_entry_text_commander_8">
+      <Key ID="STR_antistasi_journal_entry_text_commander_8">
         <Original>Mounted mortar teams may be used as artillery support. Select a mortar team using the High Command bar, and press SHIFT + Y in-game to call in a mortar fire mission.</Original>
         <French>Les équipes de mortiers montés peuvent être utilisées comme support d'artillerie. Sélectionnez une équipe de mortiers à l'aide de la barre de haut commandement et appuyez sur SHIFT + Y dans le jeu pour demander un tir de mortier.</French>
         <German>Stationierte Mörserteams können als Artillerieunterstützung eingesetzt werden. Wähle ein Mörserteam über die Oberbefehlsleiste und drücke Shift + Z, um einen Artillerieschlag anzufordern.</German>
@@ -1547,7 +1547,7 @@
         <Spanish>En la bandera del CG, si la opción de Miembro del Servidorestá habilitada, podrás chequear qué Miembros están ahora jugando y el numero total de no Miembros.</Spanish>
         <Polish>Na fladze w kwaterze dowodzenia, jeśli włączona jest funkcja Członków Serwera, możesz sprawdzić, którzy z Członków Serwera są w grze i całkowitą liczbę pozostałych osób.</Polish>
       </Key>
-<Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
+      <Key ID="STR_antistasi_journal_entry_header_SpecialK_1">
         <Original>Battle Options</Original>
         <French>Options de combat</French>
         <German>Schlachtoptionen</German>
@@ -4517,7 +4517,7 @@
         <Spanish>Humos</Spanish>
         <Polish>Dymna</Polish>
       </Key>
-<Key ID="STR_antistasi_dialogs_mortar_type_laser">
+      <Key ID="STR_antistasi_dialogs_mortar_type_laser">
         <Original>Laser Guided</Original>
         <French>Guidé au laser</French>
         <Chinesesimp>激光制导炸弹</Chinesesimp>

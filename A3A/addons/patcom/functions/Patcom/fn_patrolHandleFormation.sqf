@@ -22,6 +22,9 @@
 
 params ["_unit"];
 
+// Distance to check on surrounding features to set formation around.
+private _distanceToCheck = 300;
+
 //Grab the group of the unit
 private _group = group _unit;
 
@@ -41,10 +44,9 @@ if (!isNull objectParent _unit && {behaviour _unit == "SAFE"}) exitWith {
     _group setVariable ["PATCOM_Form_Set", [true, serverTime + 300]];
 };
 
-// City
-private _nearestCity = nearestLocation [getPosASL _unit, "nameCity"];
-_locationPos = locationPosition _nearestCity;
-if ((_locationPos distance _unit) < 500) exitWith {
+// City / Village
+private _nearestCity = nearestLocations [getPosASL _unit, ["nameCity", "NameVillage"], _distanceToCheck];
+if (count _nearestCity > 0) exitWith {
     if (!isNull objectParent _unit) then {
         _group setFormation "COLUMN";
     } else {
@@ -53,39 +55,17 @@ if ((_locationPos distance _unit) < 500) exitWith {
     _group setVariable ["PATCOM_Form_Set", [true, serverTime + 300]];
 };
 
-// Village
-private _nearestVillage = nearestLocation [getPosASL _unit, "NameVillage"];
-_locationPos = locationPosition _nearestVillage;
-if ((_locationPos distance _unit) < 500) exitWith {
-    if ((vehicle _unit) != _unit) then {
-        _group setFormation "COLUMN"; 
-    } else {
-        _group setFormation "STAG COLUMN";
-    };
-    _group setVariable ["PATCOM_Form_Set", [true, serverTime + 300]];
-};
-
 // Hill
-private _nearestHill = nearestLocation [getPosASL _unit, "Hill"];
-_locationPos = locationPosition _nearestHill;
-if ((_locationPos distance _unit) < 500) exitWith {
-    if ((vehicle _unit) != _unit) then {
-        _group setFormation "LINE";
-    } else {
-        _group setFormation "LINE";
-    };
+private _nearestHill = nearestLocations [getPosASL _unit, ["Hill"], _distanceToCheck];
+if (count _nearestHill > 0) exitWith {
+    _group setFormation "LINE";
     _group setVariable ["PATCOM_Form_Set", [true, serverTime + 300]];
 };
 
 // Airports/Seaports
-private _nearestLocal = nearestLocation [getPosASL _unit, "NameLocal"];
-_locationPos = locationPosition _nearestLocal;
-if ((_locationPos distance _unit) < 300) exitWith {
-    if ((vehicle _unit) != _unit) then {
-        _group setFormation "COLUMN"; 
-    } else {
-        _group setFormation "COLUMN"; 
-    };
+private _nearestLocal = nearestLocations [getPosASL _unit, ["NameLocal"], _distanceToCheck];
+if (count _nearestLocal > 0) exitWith {
+    _group setFormation "COLUMN"; 
     _group setVariable ["PATCOM_Form_Set", [true, serverTime + 300]];
 };
 

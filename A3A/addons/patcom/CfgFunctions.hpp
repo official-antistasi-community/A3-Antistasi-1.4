@@ -29,7 +29,6 @@ class CfgFunctions {
             class getSafePos {};
             class patrolArea {};
             class patrolArmStatics {};
-            class patrolArmVehicle {};
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCivilianCommander {};

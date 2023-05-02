@@ -19,7 +19,7 @@
       </Key>
     </Container>
     <Container name="mission_info">
-            <!--> Example of mission info:
+      <!--> Example of mission info:
         String uses in description.exe:
         briefingName = $STR_antistasi_mission_info_${worldname}_mapname_text;
         OnLoadName = $STR_antistasi_mission_info_${worldname}_mapname_short_text;

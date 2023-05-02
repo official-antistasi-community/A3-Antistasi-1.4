@@ -491,7 +491,7 @@
         <Polish>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Otwórz Garaż</Polish>
       </Key>
       <Key ID="STR_HR_GRG_addVehicle_Action">
-                <!--%1 is display name of vehicle-->
+        <!--%1 is display name of vehicle-->
         <Original>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</Original>
         <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</French>
         <Russian>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Стоянка %1</Russian>
@@ -612,7 +612,7 @@
         <Italian>Non puoi mettere un veicolo bloccato nel garage</Italian>
         <Polish>Nie możesz garażować zablokowanego pojazdu</Polish>
       </Key>
-            <!--%1 is faction name-->
+      <!--%1 is faction name-->
       <Key ID="STR_HR_GRG_Feedback_addVehicle_badLocation">
         <Original>You and the vehicle need to be in a %1 garrisons surroundings in order to garage a it</Original>
         <French>Vous et le véhicule devez être dans les alentours d'une garnisons %1 afin de le ranger</French>
@@ -646,7 +646,7 @@
         <Italian>Non puoi inserire un veicolo nel garage poichè ci sono nemici nelle vicinanze</Italian>
         <Polish>Nie możesz garażować pojazdów, gdy wrogowie są blisko ciebie</Polish>
       </Key>
-            <!--%1 is faction name-->
+      <!--%1 is faction name-->
       <Key ID="STR_HR_GRG_Feedback_addVehicle_airBlocked">
         <Original>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</Original>
         <French>Vous ne pouvez pas garer un aéronef tant que vous n'êtes pas à proximité d'un aéroport appartenant à %1. Veuillez déplacer votre aéronef vers un aéroport sous votre contrôle pour le garer</French>
@@ -703,7 +703,7 @@
         <Polish>Nie ma wystarczająco dużo miejsca na garażowanie tego pojazdu</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Feedback_addVehicle_Success">
-                <!--%1 is display name of vehicle-->
+        <!--%1 is display name of vehicle-->
         <Original>%1 Garaged</Original>
         <French>%1 garé</French>
         <Russian>%1 перемещен/перемещена в гараж</Russian>
@@ -726,7 +726,7 @@
         <Polish>Nie można zamontować broni statycznej</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Feedback_checkedOutToolTip">
-                <!-- name is appended on at the start with a space in between-->
+        <!-- name is appended on at the start with a space in between-->
         <Original>is looking at this vehicle.</Original>
         <French>regarde ce véhicule.</French>
         <Russian>смотрит на эту технику</Russian>
@@ -738,7 +738,7 @@
         <Polish>patrzy na ten pojazd.</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Feedback_LockedToolTip">
-                <!-- name is appended on at the end with a spcae in between-->
+        <!-- name is appended on at the end with a spcae in between-->
         <Original>Vehicle is locked by</Original>
         <French>Le véhicule est verrouillé par</French>
         <Russian>Эта техника закрыта</Russian>
@@ -750,7 +750,7 @@
         <Polish>Pojazd jest zablokowany przez</Polish>
       </Key>
       <Key ID="STR_HR_GRG_Feedback_CP_Rotation">
-                <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
+        <!--Keybinds are hardcoded to key DIK codes: DIK_E, DIK_Q, DIK_ESCAPE, DIK_RETURN, and DIK_SPACE-->
         <Original>&lt;t size='0.6'&gt;Rotate Left: Q &lt;br/&gt;Rotate Right: E &lt;br/&gt;Cancel: Enter/ESC &lt;br/&gt;Place: Space&lt;/t&gt;</Original>
         <French>&lt;t size='0.6'&gt;Tourner à gauche: Q &lt;br/&gt;Tourner à droite: E &lt;br/&gt;Annuler: Entrer/ESC &lt;br/&gt;Placer: Espace&lt;/t&gt;</French>
         <Russian>&lt;t size='0.6'&gt;Поворот влево: Q &lt;br/&gt;Поворот вправо: E &lt;br/&gt;Отменить: Enter/ESC &lt;br/&gt;Поставить: Space&lt;/t&gt;</Russian>
@@ -849,7 +849,7 @@
         <Italian>[Preset Custom]</Italian>
         <Polish>[Ustawienie niestandardowe]</Polish>
       </Key>
-            <!--%1 is pylon number-->
+      <!--%1 is pylon number-->
       <Key ID="STR_HR_GRG_Pylons_PylonText">
         <Original>Pylon %1</Original>
         <Russian>Пилон</Russian>

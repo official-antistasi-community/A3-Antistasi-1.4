@@ -1343,7 +1343,7 @@
         <Spanish>Bomb Run</Spanish>
         <Polish>Nalot Bombowy</Polish>
       </Key>
-            <Key ID="STR_antistasi_journal_entry_text_commander_7">
+      <Key ID="STR_antistasi_journal_entry_text_commander_7">
         <Original>Use your Airstrike points to perform a bombing run of the specified type.</Original>
         <French>Utilisez vos points de frappe aérienne pour effectuer un bombardement du type spécifié.</French>
         <German>Benutze deine Luftschlagpunkte, um eine Bombardierung durchführen zu lassen.</German>
@@ -1391,7 +1391,7 @@
         <Spanish>Reclutar Escuadra</Spanish>
         <Polish>Rekrutuj Oddział</Polish>
       </Key>
-            <Key ID="STR_antistasi_journal_entry_text_commander_9">
+      <Key ID="STR_antistasi_journal_entry_text_commander_9">
         <Original>The Commander may recruit an AI manned squad at base camp flags. Use the High Command module (CTRL + SPACE) to give orders to your squads. Also you may temporally control and dismiss the squad leader in the same way you do with squad-mates.</Original>
         <French>Le commandant peut recruter une escouade IA au drapeau du QG. Utilisez le module HC (CTRL + ESPACE) pour donner des ordres à vos escouades. Vous pouvez également contrôler et renvoyer temporairement le chef d'escouade de la même manière que vous le faites avec vos coéquipiers.</French>
         <German>Als Kommandant kannst du KI Gruppen im HQ rekrutieren. Nutze das Oberbefehlsmodul (Strg + Leertaste), um deinen Gruppen Befehle zu erteilen. Außerdem kannst du temporär Gruppenführer, auf die gleiche Art wie deine Gruppenmitglieder, kontrollieren.</German>

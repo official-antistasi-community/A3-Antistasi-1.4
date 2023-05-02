@@ -18,7 +18,7 @@
     Public: No
 
     Example: 
-        [getPos _instigator, (random 150), "HE", 6, _unit] call A3A_fnc_artilleryFireMission;
+        [getPosATL _instigator, (random 150), "HE", 6, _unit] call A3A_fnc_artilleryFireMission;
 
     License: MIT License
 */

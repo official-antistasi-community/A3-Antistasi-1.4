@@ -83,7 +83,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
             private _roadcon = roadsConnectedTo [_road, true];
 
             if (count _roadcon != 0) then {
-                private _p2 = getPos (_roadcon # 0);
+                private _p2 = getPosATL (_roadcon # 0);
                 _dirveh = _p1 getDir _p2;
             };
 
@@ -100,7 +100,7 @@ while {(spawner getVariable _spawnKey != 2) and (_countParked < _numParked)} do 
 
             _vehiclesX pushBack _veh;
             [_veh, civilian] spawn A3A_fnc_AIVEHinit;
-            _veh setVariable ["originalPos", getPos _veh];
+            _veh setVariable ["originalPos", getPosATL _veh];
             };
         };
 
@@ -131,7 +131,7 @@ if (count _mrkMar > 0) then {
 
             _vehiclesX pushBack _veh;
             [_veh, civilian] spawn A3A_fnc_AIVEHinit;
-            _veh setVariable ["originalPos", getPos _veh];
+            _veh setVariable ["originalPos", getPosATL _veh];
 
             sleep 1;
         };
@@ -156,7 +156,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 
                     // Get connected road and direction for use with facing the vehicle.
                     private _roadcon = roadsConnectedto _road;
-                    private _p2 = getPos (_roadcon select 0);
+                    private _p2 = getPosATL (_roadcon select 0);
 
                     // Face Vehicle to road direction.
                     _dirveh = [_p1, _p2] call BIS_fnc_DirTo;
@@ -165,7 +165,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
                     _typeVehX = selectRandomWeighted civVehiclesWeighted;
 
                     // Create Civilian Vehicle
-                    private _veh = _typeVehX createVehicle (getPos _p1);
+                    private _veh = _typeVehX createVehicle (getPosATL _p1);
 
                     // Set Vehicle direction to that of the road.
                     _veh setDir _dirveh;
@@ -177,7 +177,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
                     _vehPatrol = _vehPatrol + [_veh];
 
                     // Creat AI Unit to add into Civilian Vehicle
-                    private _civ = [_groupP, FactionGet(civ, "unitMan"), (getPos _p1), [],0, "NONE"] call A3A_fnc_createUnit;
+                    private _civ = [_groupP, FactionGet(civ, "unitMan"), (getPosATL _p1), [],0, "NONE"] call A3A_fnc_createUnit;
 
                     // Add Event Handlers to Civilian inside vehicle
                     [_civ] spawn A3A_fnc_civilianInitEH;
@@ -197,7 +197,7 @@ if ([_markerX,false] call A3A_fnc_fogCheck > 0.2) then {
 
 
                     // Create Vehicle waypoints
-                    _posDestination = getPos (selectRandom (nearestTerrainObjects [getMarkerPos (selectRandom _patrolCities), ["ROAD", "TRACK"], 250, false, true]));
+                    _posDestination = getPosATL (selectRandom (nearestTerrainObjects [getMarkerPos (selectRandom _patrolCities), ["ROAD", "TRACK"], 250, false, true]));
                     private _wp = _groupP addWaypoint [_posDestination,0];
                     _wp setWaypointType "MOVE";
                     _wp setWaypointSpeed "LIMITED";

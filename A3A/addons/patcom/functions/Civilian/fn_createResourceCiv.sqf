@@ -28,10 +28,12 @@ private _daystate = [] call A3A_fnc_getDayState;
 
 if (_markerX in destroyedSites) exitWith {
 	ServerDebug("_markerX in destroyedSites and civilian workers have not spawned.");
+	nil;
 };
 
 if !(_daystate == "DAY") exitWith {
 	ServerDebug("Civilian Workers are outside of working hours and have not spawned.");
+	nil;
 };
 
 private _civs = [];

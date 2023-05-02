@@ -1,27 +1,26 @@
 /*
     Author: [Hazey]
     Description:
-		Group Patrol Water
+        Group Patrol Water
 
     Arguments:
-        <Group> Group you want to run a Patrol Area.
-        <Number> Max Distance the unit should venture before returning home.
+        <Group> Group you want to patrol the surrounding water.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.
-        <Number> Distance from nearest object to create waypoint.
-        <Number> 0 - No Water, 1 - land & water, 2 - water only
-        <Number> Max Gradient to create waypoint on. Used to avoid super hilly maps.
-        <Number> Should be on the shore or not.
+        <Number> Maximum distance this unit can Patrol before returning home.
+        <Bool> Should unit patrol from center or from last waypoint position. True from center, False from waypoint.
+        <Array> Center Position unit is calling from.
+
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolArea;
+        [_group] call A3A_fnc_patrolArea;
 
     License: MIT License
 */
@@ -31,7 +30,7 @@ FIX_LINE_NUMBERS()
 params [
     "_group",  
     ["_minimumRadius", 50], 
-    ["_maxiumumRadius", 100], 
+    ["_maximumRadius", 100], 
     ["_maxPatrolDistance", -1],
     ["_fromCenter", false],
     ["_centerPos", []]
@@ -45,7 +44,7 @@ private _patrolParams = _group getVariable "PATCOM_Patrol_Params";
 _group setVariable ["PATCOM_Group_State", "CALM"];
 
 if (PATCOM_DEBUG) then {
-	[leader _group, "PATROL WATER", 10, "White"] call A3A_fnc_debugText3D;
+    [leader _group, "PATROL WATER", 10, "White"] call A3A_fnc_debugText3D;
 };
 
 // We check to see if the waypoint is still active after 3 minutes. If waypoint isn't complete the unit is likely stuck.
@@ -65,11 +64,11 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
 
     if (_fromCenter) then {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [_centerPos, _minimumRadius, _maxiumumRadius, 2, 2, -1, 0] call A3A_fnc_getSafePos;
+        private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 2, 2, -1, 0] call A3A_fnc_getSafePos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_WATER", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     } else {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _maxiumumRadius, 2, 2, -1, 0] call A3A_fnc_getSafePos;
+        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _maximumRadius, 2, 2, -1, 0] call A3A_fnc_getSafePos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_WATER", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     };
 };

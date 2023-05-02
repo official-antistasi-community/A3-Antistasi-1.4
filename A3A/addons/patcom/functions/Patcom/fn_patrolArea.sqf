@@ -1,7 +1,7 @@
 /*
     Author: [Hazey]
     Description:
-		Group Patrol Area
+        Group Patrol Area
 
     Arguments:
         <Group> Group you want to run a Patrol Area.
@@ -14,14 +14,14 @@
         <Number> Should be on the shore or not.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group] call A3A_fnc_patrolArea;
+        [_group] call A3A_fnc_patrolArea;
 
     License: MIT License
 */
@@ -31,7 +31,7 @@ FIX_LINE_NUMBERS()
 params [
     "_group",  
     ["_minimumRadius", 50], 
-    ["_maxiumumRadius", 100], 
+    ["_maximumRadius", 100], 
     ["_maxPatrolDistance", -1],
     ["_fromCenter", false],
     ["_centerPos", []],
@@ -85,11 +85,11 @@ if (currentWaypoint _group == count waypoints _group || waypointType [_group, cu
 
     if (_fromCenter) then {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [_centerPos, _minimumRadius, _maxiumumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
+        private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     } else {
         // | Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode |
-        private _nextWaypointPos = [getPos (leader _group), _minimumRadius, _maxiumumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
+        private _nextWaypointPos = [getPosATL (leader _group), _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;
         [_group, _nextWaypointPos, "MOVE", "PATCOM_PATROL_AREA", -1, _patrolParams # 1] call A3A_fnc_patrolCreateWaypoint;
     };
 };

@@ -1,13 +1,13 @@
 /*
     Author: [Hazey]
     Description:
-		Send group to search a nearby building.
+        Send group to search a nearby building.
 
     Arguments:
         <Group> Group you want to search building.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
@@ -31,13 +31,13 @@ if ((leader _group) distance _building > 250) exitwith {};
 [_group, _building] spawn {
     params ["_group", "_building"];
 
-	ServerDebug_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
+    ServerDebug_2("PATCOM | Group: %1 | Searching Building: %2", _group, _building);
 
     private _leader = leader _group;
-	_group lockWP true;
+    _group lockWP true;
 
     // Add a waypoint to regroup after the search
-	[_group, getPosATL _building, "MOVE", "PATCOM_HOUSE_SEARCH", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    [_group, getPosATL _building, "MOVE", "PATCOM_HOUSE_SEARCH", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 
     // Prepare group to search
     _group setBehaviour "AWARE";
@@ -63,11 +63,13 @@ if ((leader _group) distance _building > 250) exitwith {};
                 sleep 2;
             };
         } forEach _units;
+
+        sleep 5;
     };
     _group lockWP false;
-	_group setBehaviour "SAFE";
+    _group setBehaviour "SAFE";
 
-	// We set this waypoint quickly to leave the area. Hopefully this will help with units that get stuck
-	private _nextWaypoint = [getPos (leader _group), 50, 100, 0, 0, -1, 0, getPos (leader _group)] call A3A_fnc_getSafePos;
-	[_group, _nextWaypoint, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    // We set this waypoint quickly to leave the area. Hopefully this will help with units that get stuck
+    private _nextWaypoint = [getPos (leader _group), 50, 100, 0, 0, -1, 0, getPos (leader _group)] call A3A_fnc_getSafePos;
+    [_group, _nextWaypoint, "MOVE", "PATCOM_PATROL_AREA", -1, 50] call A3A_fnc_patrolCreateWaypoint;
 };

@@ -1,21 +1,21 @@
 /*
     Author: [Hazey]
     Description:
-		Gets current time of day cycle in phases.
-		Exports Time (Hour / Minute).
+    Gets current time of day cycle in phases.
+    Exports Time (Hour / Minute).
 
     Arguments:
-    	N/A
+      N/A
 
     Return Value:
-    	<String> Current Day State
+      <String> Current Day State
 
     Scope: Any
     Environment: Any
     Public: Yes
 
     Example: 
-		_daystate = [] call A3A_fnc_getDayState
+    _daystate = [] call A3A_fnc_getDayState
 
     License: MIT License
 */
@@ -27,9 +27,9 @@ private _dayState = "";
 _hour = (_date#3);
 
 if ((_hour > 5) && (_hour < 7)) then {
-	_dayState = "MORNING";	
+    _dayState = "MORNING";	
 } else {
-	_dayState = "DAY";
+    _dayState = "DAY";
 };
 
 if(_sunOrMoon < 1) then {

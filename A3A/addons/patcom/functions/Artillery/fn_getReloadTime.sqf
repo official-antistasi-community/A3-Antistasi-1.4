@@ -1,24 +1,24 @@
 /*
-	Author: [Hazey]
-	Description:
-		Get's the reload time of units vehicle turret.
+    Author: [Hazey]
+    Description:
+        Get's the reload time of units vehicle turret.
 
-	Arguments:
-		<Object> Unit you want to check reload time for.
+    Arguments:
+        <Object> Unit you want to check reload time for.
 
-	Return Value:
-		<Number> How long it takes for the weapon to reload.
+    Return Value:
+        <Number> How long it takes for the weapon to reload.
 
-	Scope: Any
-	Environment: Any
-	Public: No
+    Scope: Any
+    Environment: Any
+    Public: No
 
-	Example: 
-		[_unit] call A3A_fnc_getReloadTime;
+    Example: 
+        [_unit] call A3A_fnc_getReloadTime;
 
-	License: MIT License
+    License: MIT License
 
-	Notes:
+    Notes:
 */
 
 #include "..\..\script_component.hpp"

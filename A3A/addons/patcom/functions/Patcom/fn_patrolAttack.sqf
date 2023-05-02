@@ -1,12 +1,11 @@
 /*
     Author: [Hazey]
     Description:
-		Group Patrol Attack
+        Group Patrol Attack
 
     Arguments:
         <Group> Group you want to run an attack.
         <Array> List of KnownEnemies.
-        <Number> Max Distance the unit should venture before returning home.
         <Number> Minimum Radius from Center to Patrol.
         <Number> Maximum Radius from Center to Patrol.
         <Number> Distance from nearest object to create waypoint.
@@ -15,14 +14,14 @@
         <Number> Should be on the shore or not.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group, _knownEnemies] call A3A_fnc_patrolArea;
+        [_group, _knownEnemies] call A3A_fnc_patrolArea;
 
     License: MIT License
 */
@@ -41,8 +40,8 @@ params [
 
 if (count _knownEnemies < 1) exitWith {
     ServerDebug_1("PATCOM | patrolAttack | Previous orders on Group: %1", _group);
-	private _previousOrders = _group getVariable "PATCOM_Previous_Orders";
-	_group setVariable ["PATCOM_Current_Orders", _previousOrders];
+    private _previousOrders = _group getVariable "PATCOM_Previous_Orders";
+    _group setVariable ["PATCOM_Current_Orders", _previousOrders];
     _group setVariable ["PATCOM_Group_State", "CALM"];
 };
 

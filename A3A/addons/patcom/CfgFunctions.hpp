@@ -27,14 +27,11 @@ class CfgFunctions {
             class debugText3D {};
             class debug3DPath {};
             class getSafePos {};
-            class patrolAnimation {};
             class patrolArea {};
             class patrolArmStatics {};
-            class patrolArmVehicle {};
             class patrolAttack {};
             class patrolBuildingEnterable {};
             class patrolCivilianCommander {};
-            class patrolClosestObject {};
             class patrolCommander {};
             class patrolCreateWaypoint {};
             class patrolDefend {};
@@ -47,7 +44,6 @@ class CfgFunctions {
             class patrolLoop {};
             class patrolSearchBuilding {};
             class patrolSetCombatModes {};
-            class patrolSetParams {};
             class patrolWater {};
         };
     };

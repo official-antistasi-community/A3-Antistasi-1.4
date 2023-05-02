@@ -1,10 +1,10 @@
 /*
     Author: [Hazey]
     Description:
-		Add Ambient room light to civilian house
+    Add Ambient room light to civilian house
 
     Arguments:
-    	<Object> Building to add light to.
+      <Object> Building to add light to.
 
     Return Value:
       <Object> Light Source
@@ -14,7 +14,7 @@
     Public: Yes
 
     Example: 
-		_light = [_building] call A3A_FNC_createRoomLight;
+    _light = [_building] call A3A_FNC_createRoomLight;
 
     License: MIT License
 */

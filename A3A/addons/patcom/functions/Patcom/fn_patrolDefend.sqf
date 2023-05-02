@@ -1,23 +1,24 @@
 /*
     Author: [Hazey]
     Description:
-		Group Defend Area
+        Group Defend Area
 
     Arguments:
         <Group> Group you want to defend an area.
-        <Array> Position Center.
         <Number> Minimum Radius from Center to Defend.
         <Number> Maximum Radius from Center to Defend.
+        <Bool> Should unit patrol from center or from last waypoint position. True from center, False from waypoint.
+        <Array> Center Position unit is calling from.
 
     Return Value:
-    	N/A
+        N/A
 
     Scope: Any
     Environment: Any
     Public: No
 
     Example: 
-		[_group, 20, 50] call A3A_fnc_patrolDefend;
+        [_group, 20, 50] call A3A_fnc_patrolDefend;
 
     License: MIT License
 */
@@ -49,10 +50,6 @@ if ((waypointType [_group, currentWaypoint _group] != "MOVE") || ((waypointName 
     // Happens once per waypoint completion.
     if (PATCOM_AI_STATICS) then {
         [_group] call A3A_fnc_patrolArmStatics;
-    };
-
-    if (PATCOM_AI_VEHICLES) then {
-        [_group] call A3A_fnc_patrolArmVehicle;
     };
 
     private _nextWaypointPos = [_centerPos, _minimumRadius, _maximumRadius, 2, 0, -1, 0] call A3A_fnc_getSafePos;

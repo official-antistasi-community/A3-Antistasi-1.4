@@ -4790,8 +4790,8 @@
       </Key>
     </Container>
     <Container name="time_units">
-            <!--Note the lack of front spacing on abbreviations.-->
-            <!--Auto translated.-->
+      <!--Note the lack of front spacing on abbreviations.-->
+      <!--Auto translated.-->
       <Key ID="STR_antistasi_timeSpan_days">
         <Original>Days</Original>
         <German>Tage</German>
@@ -4928,7 +4928,7 @@
       </Key>
       <Key ID="STR_antistasi_timeSpan_microseconds_abbr">
         <Original>µs</Original>
-                <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
+        <!--Note: Micro sign (µ) U+00B5, is completely different from Greek Mu (μ) U+-->
         <Korean>마이크로초</Korean>
         <Russian>мкс</Russian>
         <Chinesesimp>µs</Chinesesimp>

@@ -25,7 +25,7 @@ private _colour = _colours select (random((count _colours)-1));
 private _brightness = random 10 / 100;
 
 // Create light source
-private _light = "#lightpoint" createVehicle getPosATL _building;
+private _light = "#lightpoint" createVehicle getPos _building;
 
 [_light, _brightness] remoteExec ["setLightBrightness"];
 [_light, _colour] remoteExec ["setLightColor"];

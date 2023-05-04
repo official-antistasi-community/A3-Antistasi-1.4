@@ -68,7 +68,7 @@ for "_i" from 1 to 3000 do {
     if (_FinalResult isFlatEmpty [-1, -1, _maxGradient, _gradientRadius, _waterMode, _shoreMode] isEqualTo []) then {_Pass = false;};
     
     // away from other objects
-    if (_checkProximity && {!(nearestTerrainObjects [_FinalResult, ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "BUSSTOP", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "ROCK", "ROCKS", "POWERSOLAR", "POWERWAVE", "POWERWIND", "SHIPWRECK"], _objectProximity, false, true] isEqualTo [])}) then {_Pass = false;};	
+    if (_checkProximity && {!(nearestTerrainObjects [_FinalResult, ["TREE", "SMALL TREE", "BUSH", "BUILDING", "HOUSE", "FOREST BORDER", "FOREST TRIANGLE", "FOREST SQUARE", "CHURCH", "CHAPEL", "CROSS", "BUNKER", "FORTRESS", "FOUNTAIN", "VIEW-TOWER", "LIGHTHOUSE", "QUAY", "FUELSTATION", "HOSPITAL", "FENCE", "WALL", "BUSSTOP", "FOREST", "TRANSMITTER", "STACK", "RUIN", "TOURISM", "WATERTOWER", "ROCK", "ROCKS", "POWERSOLAR", "POWER LINES", "POWERWAVE", "POWERWIND", "SHIPWRECK"], _objectProximity, false, true] isEqualTo [])}) then {_Pass = false;};	
     
     // not inside something
     if !(lineIntersectsSurfaces [AGLtoASL _FinalResult, AGLtoASL _FinalResult vectorAdd [0, 0, 50], objNull, objNull, false, 1, "GEOM", "NONE"] isEqualTo []) then {_Pass = false};

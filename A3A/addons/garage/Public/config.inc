@@ -56,8 +56,9 @@ if (isNil "HR_GRG_ServiceDisabled_Repair") then {HR_GRG_ServiceDisabled_Repair =
 //camo blacklist (display name, case sensitive)
 HR_GRG_blackListCamo = ["IDAP", "African Desert Extremists", "African Desert Extremists 01", "African Desert Extremists 02",
 "African Desert Extremists Alt", "Middle East Extremists", "Middle East Extremists Alt", "Middle East Extremists 1", "Middle East Extremists 2",
-"Middle East Extremists 3", "Middle East Extremists 4", "Middle East Extremists 5", "Middle East Extremists 6"];
-//proxies
+"Middle East Extremists 3", "Middle East Extremists 4", "Middle East Extremists 5", "Middle East Extremists 6",
+"Middle East Extremists 01", "Middle East Extremists 02", "Middle East Extremists 03", "Middle East Extremists 04", "Middle East Extremists 05", "Middle East Extremists 06"];
+//proxies"Middle East Extremists 01"
 HR_GRG_fnc_Hint = {
     params ["_key", ["_arguments", []]];
     ["Garage",

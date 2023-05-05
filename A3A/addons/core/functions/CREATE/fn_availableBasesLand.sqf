@@ -23,15 +23,20 @@ params ["_side", "_target", ["_returnAll", false]];
 private _lowAir = Faction(_side) getOrDefault ["attributeLowAir", false];
 private _nearMarkers = [_target, _lowAir] call A3A_fnc_findLandSupportMarkers;
 
+// Just go simple here for the moment. Point is not to spawn at a site that's under attack
+private _rebelSpawners = units teamPlayer select { _x getVariable ["spawner", false] };
+
 private _freeBases = [];
 private _weights = [];
 {
     _x params ["_marker", "_navDist"];
     if (sidesX getVariable [_marker, sideUnknown] != _side) then {continue};
     if (dateToNumber date < server getVariable [_marker, 0]) then {continue};       // addTimeForIdle
-    if (spawner getVariable _marker != 2) then {continue};                           // spawn places dangerous if spawned
+    //if (spawner getVariable _marker == 0) then {continue};                           // spawn places should coexist now...
+    if ([_marker, "Vehicle"] call A3A_fnc_countFreeSpawnPositions == 0) then {continue};             // maybe request by required place count?
     if (count (garrison getVariable [_marker,[]]) < 16) then {continue};
- 
+    if (_rebelSpawners inAreaArray [markerPos _marker, 700, 700] isNotEqualTo []) then {continue};
+
     _freeBases pushBack _marker;
     _weights pushBack (1 / _navDist^2);
 } forEach _nearMarkers;

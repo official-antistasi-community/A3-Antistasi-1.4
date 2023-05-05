@@ -6,9 +6,9 @@ _carrierX = _this select 1;
 if (!alive _carryX) exitWith {["Carry/Drag", format ["%1 is dead.",name _carryX]] call A3A_fnc_customHint;};
 if !(_carryX getVariable ["incapacitated",false]) exitWith {["Carry/Drag", format ["%1 no longer needs your help.",name _carryX]] call A3A_fnc_customHint;};
 if !(isNull attachedTo _carryX) exitWith {["Carry/Drag", format ["%1 is being carried or transported and you cannot carry him.",name _carryX]] call A3A_fnc_customHint;};
-if (captive _carrierX) then {[_carrierX,false] remoteExec ["setCaptive",0,_carrierX]; _carrierX setCaptive false};
+if (captive _carrierX) then {_carrierX setCaptive false};
 _carrierX playMoveNow "AcinPknlMstpSrasWrflDnon";
-[_carryX,"AinjPpneMrunSnonWnonDb"] remoteExec ["switchMove"];
+[_carryX,"AinjPpneMrunSnonWnonDb"] remoteExec ["switchMove",_carryX];
 //_carryX setVariable ["carryX",true,true];
 _carryX setVariable ["helped",_carrierX,true];
 [_carryX,"remove"] remoteExec ["A3A_fnc_flagaction",0,_carryX];
@@ -22,14 +22,7 @@ waitUntil {sleep 0.5; (!alive _carryX) or !([_carrierX] call A3A_fnc_canFight) o
 _carrierX removeAction _action;
 if (count attachedObjects _carrierX != 0) then {detach _carryX};
 _carrierX playMove "amovpknlmstpsraswrfldnon";
-sleep 2;
-_carryX playMoveNow "";
-if (_carryX getVariable ["incapacitated",false]) then
-	{
-	[_carryX,false] remoteExec ["setUnconscious",_carryX];
-	waitUntil {sleep 0.1; lifeState _carryX != "incapacitated"};
-	[_carryX,true] remoteExec ["setUnconscious",_carryX];
-	};
+[_carryX,"UnconsciousReviveDefault"] remoteExec ["switchMove",_carryX];
 //_carryX setVariable ["carryX",false,true];
 [_carryX,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_carryX];
 sleep 5;

@@ -5,6 +5,7 @@ class CfgFunctions
     {
         class AI {
             file = QPATHTOFOLDER(functions\AI);
+            class AIdrag {};
             class airbomb {};
             class AIreactOnKill {};
             class artySupport {};
@@ -129,6 +130,7 @@ class CfgFunctions
             class flagaction {};
             class fogCheck {};
             class garbageCleaner {};
+            class garbageCleanerTracker {};
             class garrisonInfo {};
             class getAggroLevelString {};
             class getRecentDamage {};
@@ -153,6 +155,7 @@ class CfgFunctions
             class onPlayerDisconnect {};
             class outpostDialog {};
             class patrolDestinations {};
+            class petrosDeathMonitor {};
             class placementSelection {};
             class playableUnits {};
             class getSideRadioTowerInfluence {};
@@ -224,6 +227,7 @@ class CfgFunctions
             class CIVinit {};
             class civVEHinit {};
             class cleanserVeh {};
+            class countFreeSpawnPositions {};
             class createAIAirplane {};
             class createAICities {};
             class createAIcontrols {};
@@ -283,10 +287,7 @@ class CfgFunctions
 
         class Dialogs {
             file = QPATHTOFOLDER(functions\Dialogs);
-            class buyVehicle {};
-            class buyVehicleCiv {};
             class clearForest {};
-            class createDialog_setParams {};
             class createDialog_shouldLoadPersonalSave {};
             class dialogHQ {};
             class fastTravelRadio {};
@@ -334,6 +335,7 @@ class CfgFunctions
             class updatePreference {};
             class updateReinfState {};
             class updateVehicles {};
+            class getGarrisonLimit {};
         };
 
         class init {
@@ -616,6 +618,9 @@ class CfgFunctions
             class SUP_carpetBombsRoutine {};
             class SUP_CAS {};
             class SUP_CASAvailable {};
+            class SUP_CASApproach {};
+            class SUP_CASDiveBomb {};
+            class SUP_CASDiveBombRun {};
             class SUP_CASRoutine {};
             class SUP_CASRun {};
             class SUP_cruiseMissile {};
@@ -756,6 +761,9 @@ class CfgFunctions
             class buyItem {};
             class attachedObjects {};
             class dropObject {};
+            class medicalBox {};
+            class medicalBoxFill {};
+            class openDoorsTent {};
             class remainingFuel {};
         };
     };

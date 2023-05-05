@@ -54,72 +54,29 @@ if (!fleeing leader _group and random 1 < 0.5) then
     _group allowFleeing (2 - _courage - count _activeGroupMembers / count units _group);
 };
 
+if (_group getVariable ["A3A_reactingToKill", false]) exitWith {};      // don't spam this loop
+_group setVariable ["A3A_reactingToKill", true];
+
 {
-    if (fleeing _x) then
-	{
-        if (_x call A3A_fnc_canFight) then
-		{
-            private _enemy = _x findNearestEnemy _x;
-            if (!isNull _enemy) then
-			{
-                if ((_x distance _enemy < 50) && (vehicle _x == _x)) then
-				{
-                    [_x] spawn A3A_fnc_surrenderAction;
-				}
-                else
-				{
-                    if (([primaryWeapon _x] call BIS_fnc_baseWeapon) in allMachineGuns) then
-                    {
-                        [_x,_enemy] call A3A_fnc_suppressingFire
-                    }
-                    else
-                    {
-                        [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke
-                    };
-				};
-			};
-		};
-	}
-    else
-	{
-        if (_x call A3A_fnc_canFight) then
-		{
-            private _enemy = _x findNearestEnemy _x;
-            if (!isNull _enemy) then
-			{
-                if (([primaryWeapon _x] call BIS_fnc_baseWeapon) in allMachineGuns) then
-				{
-                    [_x,_enemy] call A3A_fnc_suppressingFire;
-				}
-                else
-				{
-                    if (sunOrMoon == 1 || haveNV) then
-					{
-                        [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke;
-					}
-                    else
-					{
-                        if (sunOrMoon < 1) then
-						{
-                            if ((A3A_hasIFA and ((_x getVariable "unitType") in FactionGet(all,"SquadLeaders"))) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
-							{
-                                [_x,_enemy] spawn A3A_fnc_useFlares;
-							};
-						};
-					};
-				};
-			}
-            else
-			{
-                if ((sunOrMoon <1) && !haveNV) then
-				{
-                    if ((A3A_hasIFA and ((_x getVariable "unitType") in FactionGet(all,"SquadLeaders"))) || (count (getArray (configfile >> "CfgWeapons" >> primaryWeapon _x >> "muzzles")) == 2)) then
-					{
-                        [_x] call A3A_fnc_useFlares;
-					};
-				};
-			};
-		};
+    if !(_x call A3A_fnc_canFight) then { continue };
+    private _enemy = _x findNearestEnemy _x;
+
+    call {
+        if (fleeing _x && {!isNull _enemy && (_x distance _enemy < 50) && (vehicle _x == _x)} ) exitWith {
+            [_x] spawn A3A_fnc_surrenderAction;
+        };
+        if (_x getVariable ["helping", false]) exitWith {};
+        if (!isNull _enemy && (primaryWeapon _x in allMachineGuns)) exitWith {
+            if (random 100 < 40) then { [_x,_enemy] spawn A3A_fnc_suppressingFire };
+        };
+        if (sunOrMoon == 1 || haveNV) exitWith {
+            if (random 100 < 40) then { [_x,_x,_enemy] spawn A3A_fnc_chargeWithSmoke };
+        };
+        if (primaryWeapon _x in allGrenadeLaunchers) exitWith {
+            [_x,_enemy] spawn A3A_fnc_useFlares;
+        };
 	};
     sleep (1 + random 1);
 } forEach _activeGroupMembers;
+
+_group setVariable ["A3A_reactingToKill", nil];

@@ -40,7 +40,7 @@ private _aggro = [aggressionOccupants, aggressionInvaders] select (_side == Inva
 if (_delay < 0) then { _delay = (0.5 + random 1) * (300 - 15*tierWar - 1*_aggro) };
 
 //Set idle times for marker, just so that stuff doesn't spawn on top? Carrier will ignore anyway
-[_airbase, 5+_delay/60] call A3A_fnc_addTimeForIdle;
+//[_airbase, 5+_delay/60] call A3A_fnc_addTimeForIdle;
 
 // kinda epic but whatever
 [[_suppName, _side, _resPool, _delay, _targPos, _airbase, true, _vehCount, _attackCount, _estResources], "A3A_fnc_SUP_QRFRoutine"] call A3A_fnc_scheduler;

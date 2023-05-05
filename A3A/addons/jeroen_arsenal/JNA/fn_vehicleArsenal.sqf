@@ -635,6 +635,10 @@ switch _mode do {
 			_count = _count * 25;
 		};
 
+		if (_add > 0 && {_count > _amount && {_amount != -1}}) then {
+			_count = _amount;
+		};
+
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add

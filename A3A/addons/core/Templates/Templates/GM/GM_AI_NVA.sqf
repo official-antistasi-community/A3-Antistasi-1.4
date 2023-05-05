@@ -46,7 +46,7 @@
 ["vehiclesHelisAttack", ["CUP_O_Mi24_P_Dynamic_RU"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["gm_gc_airforce_mi2urn", "gm_gc_airforce_mi2us", "gm_pl_airforce_mi2urp", "gm_pl_airforce_mi2urpg", "CUP_O_Mi8_RU"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["gm_gc_army_ural375d_mlrs", "gm_gc_army_2s1", "gm_gc_army_2p16"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["gm_gc_army_ural375d_mlrs", "gm_gc_army_2s1"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
     ["gm_gc_army_ural375d_mlrs", ["gm_40Rnd_mlrs_122mm_he_9m22u","gm_40Rnd_mlrs_122mm_icm_9m218","gm_40Rnd_mlrs_122mm_mine_9m28k","gm_40Rnd_mlrs_122mm_mine_9m22k"]],
     ["gm_gc_army_2s1", ["gm_28Rnd_122x447mm_he_of462","gm_28Rnd_122x447mm_he_3of56","gm_28Rnd_122x447mm_heat_bk6m","gm_28Rnd_122x447mm_heat_t_bk13"]]
@@ -214,7 +214,7 @@ _sfLoadoutData set ["binoculars", ["Laserdesignator_02_ghex_F"]];
 _sfLoadoutData set ["slRifles", [
     ["gm_akmn_wud", "gm_bayonet_6x3_wud", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""],
     ["gm_akm_wud", "gm_bayonet_6x3_wud", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""],
-    ["gm_akm_pallad_wud", "gm_bayonet_6x3_wud", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""]
+    ["gm_akm_pallad_wud", "", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["rifles", [
     ["gm_akm_wud", "gm_bayonet_6x3_wud", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], [], ""]
@@ -223,7 +223,7 @@ _sfLoadoutData set ["carbines", [
     ["gm_mpiak74n_prp", "gm_bayonet_6x3_blk", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_545x39mm_B_7N6_ak74_prp", "gm_30Rnd_545x39mm_B_T_7T3_ak74_prp"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-    ["gm_akm_pallad_wud", "gm_bayonet_6x3_wud", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""],
+    ["gm_akm_pallad_wud", "", "gm_zvn64_front", "gm_zvn64_rear_ak", ["gm_30Rnd_762x39mm_B_57N231_ak47_blk", "gm_30Rnd_762x39mm_B_T_57N231P_ak47_blk"], ["1Rnd_HE_Grenade_shell"], ""],
     ["gm_pallad_d_brn", "", "", "", ["1Rnd_HE_Grenade_shell"], [], ""]
 ]];
 _sfLoadoutData set ["SMGs", [

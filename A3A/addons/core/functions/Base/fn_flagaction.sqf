@@ -132,7 +132,9 @@ switch _typeX do
         fireX addAction ["Rest for 8 Hours", A3A_fnc_skiptime,nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction ["Clear Nearby Forest", A3A_fnc_clearForest,nil,0,false,true,"","(_this == theBoss)",4];
         fireX addAction ["I hate the fog", { [10,[0,0,0]] remoteExec ["setFog",2]; },nil,0,false,true,"","(_this == theBoss)",4];
-        fireX addAction ["Rain rain go away", { [10,0] remoteExec ["setRain",2]; [60,0.25] remoteExec ["setOvercast",2] },nil,0,false,true,"","(_this == theBoss)",4];
+        if (WeatherSystem == 0) then {
+            fireX addAction ["Rain rain go away", { [10,0] remoteExec ["setRain",2]; [60,0.25] remoteExec ["setOvercast",2] },nil,0,false,true,"","(_this == theBoss)",4];
+        };
         fireX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)",4];
     };
     case "SDKFlag":

@@ -98,13 +98,24 @@ if (_varName in _specialVarLoads) then {
     };
     if (_varName == 'hr') then {server setVariable ["HR",_varValue,true]};
     if (_varName == 'dateX') then {setDate _varValue};
+
     if (_varName == 'weather') then {
-        // Avoid persisting potentially-broken fog values
-        private _fogParams = _varValue select 0;
-        0 setFog [_fogParams#0, (_fogParams#1) max 0, (_fogParams#2) max 0];
-        0 setRain (_varValue select 1);
-        forceWeatherChange
+        if (WeatherSystem == 0) then {
+            // Avoid persisting potentially-broken fog values
+            private _fogParams = _varValue select 0;
+            0 setFog [_fogParams#0, (_fogParams#1) max 0, (_fogParams#2) max 0];
+            0 setRain (_varValue select 1);
+            forceWeatherChange;
+        } else {
+            // Backwards Compatability.
+            if (count _varValue <= 2) then {
+                ["new"] call A3A_fnc_weatherServerInit;
+            } else {
+                [_varValue # 0, _varValue # 1, _varValue # 2, _varValue # 3, _varValue # 4] call A3A_fnc_setWeatherScene;
+            };
+        };
     };
+
     if (_varName == 'resourcesFIA') then {server setVariable ["resourcesFIA",_varValue,true]};
     if (_varName == 'destroyedSites') then {destroyedSites = +_varValue; publicVariable "destroyedSites"};
     if (_varName == 'skillFIA') then {

@@ -254,6 +254,11 @@ A3A_startupState = "completed"; publicVariable "A3A_startupState";
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop
 [] spawn A3A_fnc_garbageCleanerTracker;             // 5-minute loop
 
+// ********************* Start Weather loops *****************************************
+if (WeatherSystem > 0) then {
+    [_startType] call A3A_fnc_weatherServerInit;                  // Loop based on WeatherCycleDelay Param.
+};
+
 savingServer = false;           // enable saving
 
 // Autosave loop. Save if there were any players on the server since the last save.

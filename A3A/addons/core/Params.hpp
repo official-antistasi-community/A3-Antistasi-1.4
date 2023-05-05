@@ -163,6 +163,41 @@ class Params
         default = 5000;
     };
 
+    class SpacerWeather
+    {
+        title = "";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class TitleWeather
+    {
+        title = "WEATHER OPTIONS";
+        values[] = {""};
+        texts[] = {""};
+        default = "";
+    };
+    class WeatherSystem
+    {
+        title = "Which weather system would you like to use?";
+        values[] = {0, 1, 2, 3, 4, 5};
+        texts[] = {"Default/Old", "Dynamic", "Arid", "Arctic", "Temperate", "Tropical"};
+        default = 1;
+    };
+    class WeatherCycleDelay
+    {
+        title = "How often should weather update?";
+        values[] = {-1, 60, 600, 1800, 3600, 7200, 10800};  // -1 is disabled. Weather will not change.
+        texts[] = {"Off", "Debug", "10 Minutes", "30 Minutes", "1 Hour", "2 Hours", "3 Hours"};
+        default = 60;
+    };
+    class WeatherAllowFog
+    {
+        title = "Allow Fog?";
+        values[] = {0, 1};
+        texts[] = {"No", "Yes"};
+        default = 1;
+    };
     class SpacerBalance
     {
         title = "";

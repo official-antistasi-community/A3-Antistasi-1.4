@@ -184,6 +184,13 @@ class Params
         texts[] = {"Default/Old", "Dynamic", "Arid", "Arctic", "Temperate", "Tropical"};
         default = 1;
     };
+    class WeatherSeason
+    {
+        title = "What season do you want to play in?";
+        values[] = {0, 1, 2, 3};
+        texts[] = {"Spring", "Summer", "Fall", "Winter"};
+        default = 1;
+    };
     class WeatherCycleDelay
     {
         title = "How often should weather update?";

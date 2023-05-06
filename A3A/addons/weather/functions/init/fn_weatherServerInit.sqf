@@ -15,7 +15,14 @@
     Public: No
 
     Example: 
-		[] call A3A_fnc_weatherServerInit;
+		["new"] call A3A_fnc_weatherServerInit;
+
+    Game Params:
+        WeatherSeason
+            0. Spring
+            1. Summer
+            2. Fall
+            3. Winter
 
     License: MIT License
 */
@@ -25,9 +32,13 @@ FIX_LINE_NUMBERS()
 
 params ["_startType"];
 
+// Should only run on the server.
 if !(isServer) exitWith {};
 
-private _currentmonth = (date # 1);
+// Exit if _startType is load.
+if (_startType == "load") exitWith {};
+
+private _currentSeason = WeatherSeason;
 private _selectedWeather = WeatherSystem;
 
 // Dynamic Auto Selection.
@@ -41,16 +52,12 @@ if (_selectedWeather == 1) then {
     };
 };
 
-if (_startType == "load") exitWith {
-    ServerDebug("WeatherManager | Loading Weather from save or exiting for backwards compatability");
-};
-
 switch (_selectedWeather) do {
 
     case 2: { // Arid Weather
         // Winter (October, November, December, January, February and March)
-        if ((_currentmonth >= 10 && _currentmonth <= 12) || (_currentmonth >= 1 && _currentmonth <= 3)) then {
-            ServerDebug_1("WeatherManager | Arid Winter | Current Month is %1", _currentmonth);
+        if ((_currentSeason == 2) || (_currentSeason == 3)) then {
+            ServerDebug_1("WeatherManager | Arid | Selected Season is %1", _currentSeason);
 
             // Starting Values for Arid Winter
             private _initialArgs = [
@@ -63,8 +70,8 @@ switch (_selectedWeather) do {
         };
         
         // Summer (April, May, June, July, August, September)
-        if (_currentmonth >= 4 && _currentmonth <= 9) then {
-            ServerDebug_1("WeatherManager | Arid Summer | Current Month is %1", _currentmonth);
+        if ((_currentSeason == 0) || (_currentSeason == 1)) then {
+            ServerDebug_1("WeatherManager | Arid | Selected Season is %1", _currentSeason);
 
             // Starting Values for Arid Summer
             private _initialArgs = [
@@ -75,13 +82,12 @@ switch (_selectedWeather) do {
             ];
             _initialArgs call A3A_fnc_setWeatherScene;
         };
-    
     };
 
     case 3: { // Artic Weather
         // Winter (November, December, January and February)
-        if ((_currentmonth >= 11 && _currentmonth <= 12) || (_currentmonth >= 1 && _currentmonth <= 2)) then {
-            ServerDebug_1("WeatherManager | Artic Winter | Current Month is %1", _currentmonth);
+        if (_currentSeason == 3) then {
+            ServerDebug_1("WeatherManager | Artic | Selected Season is %1", _currentSeason);
 
             // Starting Values for Artic Winter
             private _initialArgs = [
@@ -94,8 +100,8 @@ switch (_selectedWeather) do {
         };
 
         // Spring (March, April and May)
-        if (_currentmonth >= 3 && _currentmonth <= 5) then {
-            ServerDebug_1("WeatherManager | Artic Spring | Current Month is %1", _currentmonth);
+        if (_currentSeason == 0) then {
+            ServerDebug_1("WeatherManager | Artic | Selected Season is %1", _currentSeason);
 
             // Starting Values for Artic Spring
             private _initialArgs = [
@@ -108,8 +114,8 @@ switch (_selectedWeather) do {
         };
 
         // Summer (June, July and August)
-        if (_currentmonth >= 6 && _currentmonth <= 8) then {
-            ServerDebug_1("WeatherManager | Artic Summer | Current Month is %1", _currentmonth);
+        if (_currentSeason == 1) then {
+            ServerDebug_1("WeatherManager | Artic | Selected Season is %1", _currentSeason);
 
             // Starting Values for Artic Summer
             private _initialArgs = [
@@ -122,8 +128,8 @@ switch (_selectedWeather) do {
         };
 
         // Fall (September, October)
-        if (_currentmonth >= 9 && _currentmonth <= 10) then {
-            ServerDebug_1("WeatherManager | Artic Fall | Current Month is %1", _currentmonth);
+        if (_currentSeason == 2) then {
+            ServerDebug_1("WeatherManager | Artic | Selected Season is %1", _currentSeason);
 
             // Starting Values for Artic Fall
             private _initialArgs = [
@@ -138,8 +144,8 @@ switch (_selectedWeather) do {
 
     case 4: { // Temperate Weather
         // Winter (December, January and February)
-        if ((_currentmonth == 12) || (_currentmonth >= 1 && _currentmonth <= 2)) then {
-            ServerDebug_1("WeatherManager | Temperate Winter | Current Month is %1", _currentmonth);
+        if (_currentSeason == 3) then {
+            ServerDebug_1("WeatherManager | Temperate | Selected Season is %1", _currentSeason);
 
             // Starting Values for Temperate Winter
             private _initialArgs = [
@@ -153,8 +159,8 @@ switch (_selectedWeather) do {
         };
 
         // Spring (March, April and May)
-        if (_currentmonth >= 3 && _currentmonth <= 5) then {
-            ServerDebug_1("WeatherManager | Temperate Spring | Current Month is %1", _currentmonth);
+        if (_currentSeason == 0) then {
+            ServerDebug_1("WeatherManager | Temperate | Selected Season is %1", _currentSeason);
 
             // Starting Values for Temperate Spring
             private _initialArgs = [
@@ -167,8 +173,8 @@ switch (_selectedWeather) do {
         };
         
         // Summer (June, July, August, September)
-        if (_currentmonth >= 6 && _currentmonth <= 9) then {
-            ServerDebug_1("WeatherManager | Temperate Summer | Current Month is %1", _currentmonth);
+        if (_currentSeason == 1) then {
+            ServerDebug_1("WeatherManager | Temperate | Selected Season is %1", _currentSeason);
 
             // Starting Values for Temperate Summer
             private _initialArgs = [
@@ -181,8 +187,8 @@ switch (_selectedWeather) do {
         };
 
         // Fall (October, November)
-        if (_currentmonth >= 10 && _currentmonth <= 11) then {
-            ServerDebug_1("WeatherManager | Temperate Fall | Current Month is %1", _currentmonth);
+        if (_currentSeason == 2) then {
+            ServerDebug_1("WeatherManager | Temperate | Selected Season is %1", _currentSeason);
 
             // Starting Values for Temperate Fall
             private _initialArgs = [
@@ -197,8 +203,8 @@ switch (_selectedWeather) do {
 
     case 5: { // Tropical Weather
         // Winter (November, December, January and February)
-        if ((_currentmonth >= 11 && _currentmonth <= 12) || (_currentmonth >= 1 && _currentmonth <= 2)) then {
-            ServerDebug_1("WeatherManager | Tropical Winter | Current Month is %1", _currentmonth);
+        if (_currentSeason == 3) then {
+            ServerDebug_1("WeatherManager | Tropical | Selected Season is %1", _currentSeason);
 
             // Starting Values for Tropical Winter
             private _initialArgs = [
@@ -211,8 +217,8 @@ switch (_selectedWeather) do {
         };
 
         // Spring (March, April)
-        if (_currentmonth >= 3 && _currentmonth <= 4) then {
-            ServerDebug_1("WeatherManager | Tropical Spring | Current Month is %1", _currentmonth);
+        if (_currentSeason == 0) then {
+            ServerDebug_1("WeatherManager | Tropical | Selected Season is %1", _currentSeason);
 
             // Starting Values for Tropical Spring
             private _initialArgs = [
@@ -225,8 +231,8 @@ switch (_selectedWeather) do {
         };
         
         // Summer (May, June, July, August)
-        if (_currentmonth >= 5 && _currentmonth <= 8) then {
-            ServerDebug_1("WeatherManager | Tropical Summer | Current Month is %1", _currentmonth);
+        if (_currentSeason == 1) then {
+            ServerDebug_1("WeatherManager | Tropical | Selected Season is %1", _currentSeason);
 
             // Starting Values for Tropical Summer
             private _initialArgs = [
@@ -239,8 +245,8 @@ switch (_selectedWeather) do {
         };
 
         // Fall (September, October)
-        if (_currentmonth >= 9 && _currentmonth <= 10) then {
-            ServerDebug_1("WeatherManager | Tropical Fall | Current Month is %1", _currentmonth);
+        if (_currentSeason == 2) then {
+            ServerDebug_1("WeatherManager | Tropical | Selected Season is %1", _currentSeason);
 
             // Starting Values for Tropical Fall
             private _initialArgs = [

@@ -121,7 +121,6 @@ _loadoutData set ["lightATLaunchers", [
 ]];
 _loadoutData set ["ATLaunchers", [
     ["gm_pzf44_2_oli", "", "", "gm_feroz2x17_pzf44_2_blk", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
-    ["gm_pzf44_2_des", "", "", "gm_feroz2x17_pzf44_2_des", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""],
     ["gm_pzf44_2_win", "", "", "gm_feroz2x17_pzf44_2_win", ["gm_1Rnd_44x537mm_heat_dm32_pzf44_2"], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
@@ -315,8 +314,8 @@ _militaryLoadoutData set ["machineGuns", [
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
     ["gm_g3a3_dmr_blk", "", "acc_pointer_IR", "gm_feroz24_blk", ["gm_20Rnd_762x51mm_B_DM41_g3_blk", "gm_20Rnd_762x51mm_B_T_DM21A1_g3_blk"], [], "bipod_01_F_blk"],
-    ["gm_msg90a1_blk", "gm_suppressor_atec150_762mm_blk", "", "gm_zf10x42_stanaghk_blk", ["gm_20Rnd_762x51mm_B_T_DM21_g3_blk","gm_20Rnd_762x51mm_AP_DM151_g3_blk", "gm_20Rnd_762x51mm_B_DM111_g3_blk"], [], "gm_msg90_bipod_blk"],
-    ["gm_g3sg1_blk", "gm_suppressor_atec150_762mm_blk", "", "gm_feroz24_stanagClaw_blk", ["gm_20Rnd_762x51mm_B_T_DM21A2_g3_blk","gm_20Rnd_762x51mm_AP_DM151_g3_blk"], [], "bipod_01_F_blk"]
+    ["gm_msg90a1_blk", "", "", "gm_zf10x42_stanaghk_blk", ["gm_20Rnd_762x51mm_B_T_DM21_g3_blk","gm_20Rnd_762x51mm_AP_DM151_g3_blk", "gm_20Rnd_762x51mm_B_DM111_g3_blk"], [], "gm_msg90_bipod_blk"],
+    ["gm_g3sg1_blk", "", "", "gm_feroz24_stanagClaw_blk", ["gm_20Rnd_762x51mm_B_T_DM21A2_g3_blk","gm_20Rnd_762x51mm_AP_DM151_g3_blk"], [], "bipod_01_F_blk"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
     ["CUP_srifle_G22_wdl", "CUP_muzzle_snds_AWM", "", "CUP_optic_LeupoldMk4_10x40_LRT_Woodland_pip", ["CUP_5Rnd_762x67_G22"], [], "CUP_bipod_Harris_1A2_L_BLK"]

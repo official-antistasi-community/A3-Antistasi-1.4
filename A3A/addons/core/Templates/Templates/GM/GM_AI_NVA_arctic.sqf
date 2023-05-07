@@ -100,7 +100,7 @@
     "gm_WhiteHead_04_camo_02","gm_WhiteHead_05_camo_02","gm_WhiteHead_06_camo_02",
     "gm_WhiteHead_07_camo_02","gm_WhiteHead_08_camo_02","gm_WhiteHead_09_camo_02",
     "gm_WhiteHead_10_camo_02","gm_WhiteHead_11_camo_02","gm_WhiteHead_12_camo_02",
-    "gm_WhiteHead_13_camo_02","gm_WhiteHead_14_camo_02""gm_WhiteHead_15_camo_02",
+    "gm_WhiteHead_13_camo_02","gm_WhiteHead_14_camo_02","gm_WhiteHead_15_camo_02",
     "gm_WhiteHead_16_camo_02","gm_WhiteHead_17_camo_02","gm_WhiteHead_18_camo_02",
     "gm_WhiteHead_19_camo_02","gm_WhiteHead_20_camo_02","gm_WhiteHead_21_camo_02" ]] call _fnc_saveToTemplate;
 
@@ -250,9 +250,9 @@ _sfLoadoutData set ["SMGs", [
 ]];
 _sfLoadoutData set ["machineGuns", [
     ["gm_rpk_wud", "gm_suppressor_pbs1_762mm_blk", "", "gm_zvn64_rpk", ["gm_75Rnd_762x39mm_B_M43_ak47_blk", "gm_75Rnd_762x39mm_B_T_M43_ak47_blk"], [], ""],
-    ["gm_rpkn_wud", "gm_suppressor_pbs1_762mm_blk", "", "gm_zvn64_ak", ["gm_75Rnd_762x39mm_B_M43_ak47_blk", "gm_75Rnd_762x39mm_B_T_M43_ak47_blk"], [], ""],
+    ["gm_rpkn_wud", "gm_suppressor_pbs1_762mm_blk", "", "gm_zvn64_rpk", ["gm_75Rnd_762x39mm_B_M43_ak47_blk", "gm_75Rnd_762x39mm_B_T_M43_ak47_blk"], [], ""],
     ["gm_lmgrpk_brn", "gm_suppressor_pbs1_762mm_blk", "", "gm_zvn64_rpk", ["gm_75Rnd_762x39mm_B_M43_ak47_blk", "gm_75Rnd_762x39mm_B_T_M43_ak47_blk"], [], ""],
-    ["gm_lmgrpk74n_brn", "gm_suppressor_pbs4_545mm_blk", "", "gm_zvn64_ak", ["gm_45Rnd_545x39mm_B_7N6_ak74_prp", "gm_45Rnd_545x39mm_B_T_7T3_ak74_prp"], [], ""],
+    ["gm_lmgrpk74n_brn", "gm_suppressor_pbs4_545mm_blk", "", "gm_zvn64_rpk", ["gm_45Rnd_545x39mm_B_7N6_ak74_prp", "gm_45Rnd_545x39mm_B_T_7T3_ak74_prp"], [], ""],
     ["gm_hmgpkm_prp", "", "", "", ["gm_100Rnd_762x54mmR_B_T_7t2_pk_grn", "gm_100Rnd_762x54mmR_API_7bz3_pk_grn"], [], ""]
 ]];
 

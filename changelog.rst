@@ -17,7 +17,6 @@ Version 3.2.0
    * [Added] - New & custom AI waypoint system PATCOM
 
    * [Added] - AI will now attempt to use open static weapons
-   * [Added] - AI can now attempt to use empty vehicles around them (Currently Disabled)
    * [Added] - AI can now call in any spawned and active Artillery that is within range (Dice Roll)
    * [Added] - AI will now breach and search buildings (Dice Roll).
    * [Added] - AI will now garrison in houses during heavy fire fights (Dice Roll).
@@ -121,10 +120,6 @@ Version 3.2.0
 
 |
 
-
-==========
-Changelog
-==========
 
 Version 3.1.0
 ===============

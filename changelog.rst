@@ -27,7 +27,7 @@ Version 3.2.0
    * [Changed] - AI Behavior is now different. Defend AI will stay around objectives. Patrol AI can now travel freely within the AO and patrol all the way out to the edge of cities and slightly beyond. You're no longer safe in that bush on the edge of town.
    * [Changed] - AI Ships can now patrol seabases.
 
-   .. rubric:: :issue:`2542` & `2546` & `2706` Buy Item Part 2 & 3
+   .. rubric:: :issue:`2542` & :issue:`2546` & :issue:`2706` Buy Item Part 2 & 3
 
 
    * [Added] - Categories within the "Buy Vehicle" menu
@@ -50,15 +50,15 @@ Version 3.2.0
    * :issue:`2627` Rewrite/Overhaul and partial cleanup of old resourceCheck code
    * :issue:`2742` Changed vehiclemarker error to info
    * :issue:`2695` Changed spawn distance and civ limit settings to admin only settings
-   * :issue:`2692` & `2696` & `2710` & `2726` & `2763` Fixed small implementation issues, debug stuff and cleaned up unused files
+   * :issue:`2692` & :issue:`2696` & :issue:`2710` & :issue:`2726` & :issue:`2763` Fixed small implementation issues, debug stuff and cleaned up unused files
 
 .. admonition:: Template updates
 
-   * :issue:`2722` & `2734` Fixed minor template issues
+   * :issue:`2722` & :issue:`2734` Fixed minor template issues
    * :issue:`2691` Updated 3CB templates and expanded buylists for Vanilla, RHS and 3CBF templates
    * :issue:`2665` Added `BWMOD <https://steamcommunity.com/workshop/filedetails/?id=1200127537>`_ support
    * :issue:`2662` Added `RHS SAF <https://steamcommunity.com/workshop/filedetails/?id=843632231>`_ templates
-   * :issue:`2601` & `2574` Added GM Actic templates and updated GM templates with 1.5 content
+   * :issue:`2601` & :issue:`2574` Added GM Actic templates and updated GM templates with 1.5 content
 
 .. admonition:: Groundwork
 
@@ -68,7 +68,7 @@ Version 3.2.0
 
 .. admonition:: Localization
 
-   * :issue:`2682` & `2751` Additional Czech, German and Korean Translation
+   * :issue:`2682` & :issue:`2751` Additional Czech, German and Korean Translation
 
 .. admonition:: Bugfixes
 
@@ -126,7 +126,7 @@ Version 3.1.0
 
 .. admonition:: Major
 
-   * :issue:`2476` & `2624` Buy Item GUI - moves buyable assets like the light and the looting boxes into an additional tab in the buy vehicle menu
+   * :issue:`2476` & :issue:`2624` Buy Item GUI - moves buyable assets like the light and the looting boxes into an additional tab in the buy vehicle menu
 
 .. admonition:: Minor
 
@@ -139,13 +139,13 @@ Version 3.1.0
 .. admonition:: Groundwork
 
    * :issue:`2633` Changed all addons to lowercase only for linux compatibility
-   * :issue:`2631` & `2635` & `2636` Updated build pipeline & keys for different steam workhop items
+   * :issue:`2631` & :issue:`2635` & :issue:`2636` Updated build pipeline & keys for different steam workhop items
 
 .. admonition:: Bugfixes
 
    * :issue:`2591` Fixed typo in CUP templates
    * :issue:`2592` Fixed exploit where every unit could be set captive using ace hotkeys
-   * :issue:`2594` & `2628` Fixed intel desks floating after building destruction
+   * :issue:`2594` & :issue:`2628` Fixed intel desks floating after building destruction
    * :issue:`2597` Fixed count attached objects each frame. 
    * :issue:`2603` Fixed markers loading on incorrect side
    * :issue:`2608` Force disabled acex_headless as it conflicts with internal HC scripts

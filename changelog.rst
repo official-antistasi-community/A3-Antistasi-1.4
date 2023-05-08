@@ -45,7 +45,7 @@ Version 3.2.0
    * :issue:`2622` Added Garrison Limits to prevent exploiting by filling units caps and performance reasons
    * :issue:`2725` Rewrite/Overhaul of Petros death handling
    * :issue:`2678` Rewrite/Overhaul of radioJam, improve performance and fix last-tower bug
-   * :issue:`2668` Rewrite/Overhaul of some initSpawnPlaces stuff
+   * :issue:`2668` Rewrite/Overhaul of some initSpawnPlaces parts
    * :issue:`2644` Rewrite/Overhaul of Antistasi revive and AI aid logic
    * :issue:`2627` Rewrite/Overhaul and partial cleanup of old resourceCheck code
    * :issue:`2742` Changed vehiclemarker error to info

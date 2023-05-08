@@ -72,8 +72,8 @@ Version 3.2.0
 
 .. admonition:: Bugfixes
 
-   * :issue:`2762` Fixed units being inapprotiately revealed to garrisons
-   * :issue:`2745` Fixed roadblock establishind using remote control
+   * :issue:`2762` Fixed units being inappropriately revealed to garrisons
+   * :issue:`2745` Fixed roadblock establishing using remote control
    * :issue:`2743` Fixed small map issues
    * :issue:`2741` Fixed ACE grenades being throwable near HQ
    * :issue:`2740` Fixed crate transfer not updating arsenal unlocks
@@ -84,14 +84,10 @@ Version 3.2.0
    * :issue:`2727` Fixed some bad GL configs
    * :issue:`2724` Fixed case where napalm bomb lands before the run is spawned
    * :issue:`2720` Fixed reference error in object database
-   * :issue:`2719` Fixed undercover for civ planes
-   * :issue:`2715` Fixed incorrect addTimeForIdle call
-   * :issue:`2714` Fixed support mortars not entering active info correctly
    * :issue:`2707` Fixed ASF loiter altitude
    * :issue:`2705` Fixed Unsung radio detection
    * :issue:`2702` Fixed garage static weapon vehicle swap exploit
    * :issue:`2700` Fixed inmuneConvoy running the bridge hack after reaching the objective
-   * :issue:`2699` Fixed support mortar spawn places
    * :issue:`2697` Fixed rebel infantry truck issue with moveInAny on GM trucks
    * :issue:`2690` Fixed bunkers being counted as static weapons for rebel AI manning
    * :issue:`2687` Fixed issue with QRFs not able to spawn at already spawned locations causing AI to overuse air QRFs and artillery

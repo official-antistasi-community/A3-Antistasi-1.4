@@ -43,6 +43,11 @@ Version 3.2.0
    * :issue:`2646` Added custom Antistasi Berets
    * :issue:`2626` Added parameter for automated garbage clean
    * :issue:`2622` Added Garrison Limits to prevent exploiting by filling units caps and performance reasons
+   * :issue:`2725` Rewrite/Overhaul of Petros death handling
+   * :issue:`2678` Rewrite/Overhaul of radioJam, improve performance and fix last-tower bug
+   * :issue:`2668` Rewrite/Overhaul of some initSpawnPlaces stuff
+   * :issue:`2644` Rewrite/Overhaul of Antistasi revive and AI aid logic
+   * :issue:`2627` Rewrite/Overhaul and partial cleanup of old resourceCheck code
    * :issue:`2742` Changed vehiclemarker error to info
    * :issue:`2695` Changed spawn distance and civ limit settings to admin only settings
    * :issue:`2692` & `2696` & `2710` & `2726` & `2763` Fixed small implementation issues, debug stuff and cleaned up unused files
@@ -102,14 +107,6 @@ Version 3.2.0
    * :issue:`2625` Fixed createVehicleCrew preventing to fill cargo turrets with units
    * :issue:`2574` Fixed exploit where undercover was not removed when approaching downed heli
  
-.. admonition:: Refactor
-
-   * :issue:`2725` Rewrite of Petros death handling
-   * :issue:`2678` Rewrite of radioJam, improve performance and fix last-tower bug
-   * :issue:`2668` Rewrite of some initSpawnPlaces stuff
-   * :issue:`2644` Rewrite of Antistasi revive and AI aid logic
-   * :issue:`2627` Rewrite and partial cleanup of old resourceCheck code
-
 .. warning::
 
    * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.

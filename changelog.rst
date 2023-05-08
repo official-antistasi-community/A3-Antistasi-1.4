@@ -51,7 +51,7 @@ Version 3.2.0
 
    * :issue:`2722` & `2734` Fixed minor template issues
    * :issue:`2691` Updated 3CB templates and expanded buylists for Vanilla, RHS and 3CBF templates
-   * :issue:`2665` Added `BWMOD <https://steamcommunity.com/workshop/filedetails/?id=1200127537>`_ support (expand)
+   * :issue:`2665` Added `BWMOD <https://steamcommunity.com/workshop/filedetails/?id=1200127537>`_ support
    * :issue:`2662` Added `RHS SAF <https://steamcommunity.com/workshop/filedetails/?id=843632231>`_ templates
    * :issue:`2601` & `2574` Added GM Actic templates and updated GM templates with 1.5 content
 

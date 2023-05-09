@@ -328,6 +328,22 @@ class Params
         texts[] = {"No","Yes"};
         default = 0;
     };
+    class startWithILBERadios
+    {
+        attr[] = {"server"};
+        title = "[ILBE] Start with ILBE Radio Backpacks?";
+        values[] = {0,1};
+        texts[] = {"No","Yes"};
+        default = 1;
+    };
+    class startWithcTabItems
+    {
+        attr[] = {"server"};
+        title = "[cTab] Start with cTab Items?";
+        values[] = {0,1};
+        texts[] = {"No","Yes"};
+        default = 1;
+    };
     class helmetLossChance
     {
         title = "Chance of helmet loss on headshots";

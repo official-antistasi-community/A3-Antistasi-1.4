@@ -99,12 +99,10 @@ A3A_hasTFARBeta = isClass (configFile >> "CfgPatches" >> "tfar_static_radios");
 if (A3A_hasTFARBeta) then {A3A_hasTFAR = false};
 
 //ILBE Assault Pack - Rewrite Detection (TFAR Long Range radio backpacks)
-A3A_hasILBE = false;
 A3A_hasILBE = ((A3A_hasTFAR || A3A_hasTFARBeta) && isClass (configFile >> "CfgWeapons" >> "tfw_blade"));
 
 //cTab Detection
-A3A_hascTab = false;
- A3A_hascTab = (isClass (configFile >> "CfgWeapons" >> "ItemcTab"));
+A3A_hascTab = (isClass (configFile >> "CfgWeapons" >> "ItemcTab"));
 
 //ACE Detection
 A3A_hasACE = (!isNil "ace_common_fnc_isModLoaded");

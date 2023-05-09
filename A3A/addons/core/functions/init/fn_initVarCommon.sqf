@@ -100,7 +100,7 @@ if (A3A_hasTFARBeta) then {A3A_hasTFAR = false};
 
 //ILBE Assault Pack - Rewrite Detection (TFAR Long Range radio backpacks)
 A3A_hasILBE = false;
-if((A3A_hasTFAR || A3A_hasTFARBeta) && isClass (configFile >> "CfgWeapons" >> "tfw_blade")) then { A3A_hasILBE = true; Info("ILBE Detected."); };
+A3A_hasILBE = ((A3A_hasTFAR || A3A_hasTFARBeta) && isClass (configFile >> "CfgWeapons" >> "tfw_blade"));
 
 //cTab Detection
 A3A_hascTab = false;

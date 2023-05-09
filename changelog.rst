@@ -6,7 +6,7 @@ Version 3.2.0
 ===============
 
 .. note::
-   08nd May 2023
+   9th May 2023
 
 .. admonition:: Major
 

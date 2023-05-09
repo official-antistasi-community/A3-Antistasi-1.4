@@ -104,7 +104,7 @@ A3A_hasILBE = ((A3A_hasTFAR || A3A_hasTFARBeta) && isClass (configFile >> "CfgWe
 
 //cTab Detection
 A3A_hascTab = false;
-if(isClass (configFile >> "CfgWeapons" >> "ItemcTab")) then { A3A_hascTab = true; Info("cTab Detected."); };
+ A3A_hascTab = (isClass (configFile >> "CfgWeapons" >> "ItemcTab"));
 
 //ACE Detection
 A3A_hasACE = (!isNil "ace_common_fnc_isModLoaded");

@@ -76,38 +76,21 @@ petros addEventHandler
 petros addMPEventHandler ["mpkilled",
 {
     removeAllActions petros;
-    _killer = _this select 1;
-    if (isServer) then
-	{
-        if ((side _killer == Invaders) or (side _killer == Occupants) and !(isPlayer _killer) and !(isNull _killer)) then
-		{
-			_nul = [] spawn {
-				garrison setVariable ["Synd_HQ",[],true];
-				_hrT = server getVariable "hr";
-				_resourcesFIAT = server getVariable "resourcesFIA";
-				[-1*(round(_hrT*0.9)),-1*(round(_resourcesFIAT*0.9))] remoteExec ["A3A_fnc_resourcesFIA",2];
-				waitUntil {count allPlayers > 0};
-				if (!isNull theBoss) then {
-					[] remoteExec ["A3A_fnc_placementSelection",theBoss];
-				} else {
-					private _playersWithRank =
-						(call A3A_fnc_playableUnits)
-						select {(side (group _x) == teamPlayer) && isPlayer _x && _x == _x getVariable ["owner", _x]}
-						apply {[([_x] call A3A_fnc_numericRank) select 0, _x]};
-					_playersWithRank sort false;
+    if (!isServer) exitWith {};
 
-					 [] remoteExec ["A3A_fnc_placementSelection", _playersWithRank select 0 select 1];
-				};
-			};
-			{
-				if (side _x == Occupants) then {_x setPos (getMarkerPos respawnOccupants)};
-			} forEach (call A3A_fnc_playableUnits);
-		}
-        else
-		{
-            [] call A3A_fnc_createPetros;
-		};
-	};
+    _killer = _this select 1;
+    if ((side _killer == Invaders) or (side _killer == Occupants) and !(isPlayer _killer) and !(isNull _killer)) then
+    {
+        garrison setVariable ["Synd_HQ", [], true];
+        _hr = server getVariable "hr";
+        _res = server getVariable "resourcesFIA";
+        [-1*(round(_hr*0.9)), -1*(round(_res*0.9))] spawn A3A_fnc_resourcesFIA;
+        [] spawn A3A_fnc_petrosDeathMonitor;
+    }
+    else
+    {
+        [] call A3A_fnc_createPetros;
+    };
 }];
 [] spawn {sleep 120; petros allowDamage true;};
 

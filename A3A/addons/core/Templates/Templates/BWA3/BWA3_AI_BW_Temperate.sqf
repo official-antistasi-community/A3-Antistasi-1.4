@@ -217,7 +217,7 @@ _loadoutData set ["ATLaunchers", [
 ["BWA3_Bunkerfaust_Loaded", "", "", "", [""], [], ""]
 ]]; 				
 _loadoutData set ["AALaunchers", [
-["BWA3_Fliegerfaust", "", "", "", [""], [], ""]
+["BWA3_Fliegerfaust", "", "", "", ["BWA3_Fliegerfaust_Mag"], [], ""]
 ]];
 _loadoutData set ["sidearms", [
 ["BWA3_P12", "", "BWA3_acc_LLMPI_irlaser", "", [], [], ""],

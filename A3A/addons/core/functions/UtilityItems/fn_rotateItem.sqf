@@ -23,8 +23,8 @@ params[["_object", objNull, [objNull]]];
 #define E_PRESSED 0
 #define Q_PRESSED 1
 #define WAIT_TIME 2
-#define LIGHT_DIR 3
-#define LIGHT 4
+#define OBJ_DIR 3
+#define OBJ 4
 #define INFO_TEXT 5
 #define END_ROTATING 6
 #define KEYDOWN_EH 7
@@ -37,7 +37,7 @@ A3A_objectRotate_EHDB = [false, false, time, getDir _object, _object, "", {
     findDisplay 46 displayRemoveEventHandler ["KeyDown", A3A_objectRotate_EHDB # KEYDOWN_EH ];
     removeMissionEventHandler ["EachFrame", A3A_objectRotate_EHDB # EACHFRAME_EH ];
     terminate (A3A_objectRotate_EHDB # HINT_DISPLAY );
-    _object setVariable ["A3A_rotatingObject", false, true];
+    (A3A_objectRotate_EHDB # OBJ) setVariable ["A3A_rotatingObject", false, true];
     A3A_objectRotate_EHDB = nil;
 }, -1, -1, controlNull];
 
@@ -74,23 +74,23 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
     // rotation
     if (A3A_objectRotate_EHDB # Q_PRESSED) then {
         A3A_objectRotate_EHDB set [Q_PRESSED, false];
-        A3A_objectRotate_EHDB set [LIGHT_DIR, (A3A_objectRotate_EHDB # LIGHT_DIR) -1];
+        A3A_objectRotate_EHDB set [OBJ_DIR, (A3A_objectRotate_EHDB # OBJ_DIR) -1];
         _directionChanged = true;
     };
 
     if (A3A_objectRotate_EHDB # E_PRESSED) then {
         A3A_objectRotate_EHDB set [E_PRESSED, false];
-        A3A_objectRotate_EHDB set [LIGHT_DIR, (A3A_objectRotate_EHDB # LIGHT_DIR) +1];
+        A3A_objectRotate_EHDB set [OBJ_DIR, (A3A_objectRotate_EHDB # OBJ_DIR) +1];
         _directionChanged = true;
     };
 
     //set dir
     if (_directionChanged) then {
-        (A3A_objectRotate_EHDB # LIGHT) setDir (A3A_objectRotate_EHDB # LIGHT_DIR);
-        (A3A_objectRotate_EHDB # LIGHT) setVectorUp surfaceNormal getPos (A3A_objectRotate_EHDB # LIGHT);
+        (A3A_objectRotate_EHDB # OBJ) setDir (A3A_objectRotate_EHDB # OBJ_DIR);
+        (A3A_objectRotate_EHDB # OBJ) setVectorUp surfaceNormal getPos (A3A_objectRotate_EHDB # OBJ);
     };
 
-    if ((player distance (A3A_objectRotate_EHDB # LIGHT)) > 5) then {
+    if ((player distance (A3A_objectRotate_EHDB # OBJ)) > 5) then {
         A3A_objectRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Far"];
     }else {
         A3A_objectRotate_EHDB set [INFO_TEXT, localize "STR_A3A_Utility_Items_Feedback_Normal"];
@@ -99,7 +99,7 @@ private _eachFrameEH  = addMissionEventHandler ["EachFrame", {
     private _control_Hint = [A3A_objectRotate_EHDB # INFO_TEXT , 0, 0.9, 0.2, 0, 0, 17001] spawn BIS_fnc_dynamicText;
     A3A_objectRotate_EHDB set [HINT_DISPLAY, _control_Hint];
 
-    if (!([player] call A3A_fnc_canFight)||((player distance (A3A_objectRotate_EHDB # LIGHT)) > 6)) then{
+    if (!([player] call A3A_fnc_canFight)||((player distance (A3A_objectRotate_EHDB # OBJ)) > 6)) then{
         call (A3A_objectRotate_EHDB # END_ROTATING);
     };
 

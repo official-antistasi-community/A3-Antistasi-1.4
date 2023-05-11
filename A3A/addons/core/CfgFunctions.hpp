@@ -155,6 +155,7 @@ class CfgFunctions
             class onPlayerDisconnect {};
             class outpostDialog {};
             class patrolDestinations {};
+            class petrosDeathMonitor {};
             class placementSelection {};
             class playableUnits {};
             class getSideRadioTowerInfluence {};

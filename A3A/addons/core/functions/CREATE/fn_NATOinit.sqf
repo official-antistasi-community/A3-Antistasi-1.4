@@ -245,26 +245,11 @@ else
     _unit unlinkItem (_unit call A3A_fnc_getRadio);
 };
 
-//Reveals all air vehicles to the unit, if it is either gunner of a vehicle or equipted with a launcher
-private _reveal = false;
-if !(isNull objectParent _unit) then
-{
-    if (_unit == gunner (objectParent _unit)) then
-    {
-        _reveal = true;
-    };
-}
-else
-{
-    if ((secondaryWeapon _unit) in allMissileLaunchers) then
-    {
-        _reveal = true;
-    };
-};
-if (_reveal) then
+//Reveals all air vehicles to the unit, if it is either gunner of a vehicle or equipped with a launcher
+if (_unit == gunner objectParent _unit or {(secondaryWeapon _unit) in allAA}) then
 {
     {
-        _unit reveal [_x,1.5];
-    } forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanceSPWN)}
+        if (!isNull driver _x) then { _unit reveal [_x, 1.5] };
+    } forEach (_unit nearEntities ["Air", distanceSPWN*2]);
 };
 ["AIInit", [_unit, _side, _marker, _unit getVariable "spawner"]] call EFUNC(Events,triggerEvent);

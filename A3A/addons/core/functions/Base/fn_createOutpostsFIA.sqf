@@ -51,10 +51,11 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 		_owner = (leader _groupX) getVariable ["owner",leader _groupX];
 		(leader _groupX) remoteExec ["removeAllActions",leader _groupX];
 		_owner remoteExec ["selectPlayer",leader _groupX];
-		(leader _groupX) setVariable ["owner",_owner,true];
-		{[_x] joinsilent group _owner} forEach units group _owner;
-		[group _owner, _owner] remoteExec ["selectLeader", _owner];
+		//(leader _groupX) setVariable ["owner",_owner,true];
+		//{[_x] joinsilent group _owner} forEach units group _owner;
+		//[group _owner, _owner] remoteExec ["selectLeader", _owner];
 		waitUntil {!(isPlayer leader _groupX)};
+		sleep 5;			// Give client & server time to resolve the selectPlayer before we delete anything
 		};
 	outpostsFIA = outpostsFIA + [_mrk]; publicVariable "outpostsFIA";
 	sidesX setVariable [_mrk,teamPlayer,true];

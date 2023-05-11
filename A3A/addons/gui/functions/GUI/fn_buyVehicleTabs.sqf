@@ -29,16 +29,11 @@ FIX_LINE_NUMBERS()
 params[["_tab","_vehicles"], ["_params",[]]];
 
 private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
-private _selectedTab = -1;
 
 if (_tab isEqualTo "vehicles") then 
 {
-    _selectedTab = A3A_IDC_VEHICLESGROUP;
+    _params params ["_tab", "_selectedTab", "_arrayOfClasses"];
     Debug("BuyVehicleTab starting...");
-
-    // show the vehicle tab so that user don't freak out
-    private _selectedTabCtrl = _display displayCtrl A3A_IDC_BUYVEHICLEMAIN;
-    _selectedTabCtrl ctrlShow true;
 
     // Setup Object render
     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
@@ -47,39 +42,15 @@ if (_tab isEqualTo "vehicles") then
     // Add stuff to the buyable vehicles list
     private _buyableVehiclesList = [];
 
-    // Add civ vehicles to the list
-    private _civilianVehicles = 
-        (A3A_faction_reb get 'vehiclesCivCar') +
-        (A3A_faction_reb get 'vehiclesCivTruck') +
-        (A3A_faction_reb get 'vehiclesCivHeli') +
-        (A3A_faction_reb get 'vehiclesCivPlane') +
-        (A3A_faction_reb get 'vehiclesCivBoat');
-
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
-        _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
-    } forEach _civilianVehicles;
-
-
-    // Add military vehicles to the list
-    private _militaryVehicles = 
-        (A3A_faction_reb get 'vehiclesBasic') +
-        (A3A_faction_reb get 'vehiclesLightUnarmed') +
-        (A3A_faction_reb get 'vehiclesTruck') +
-        (A3A_faction_reb get 'vehiclesLightArmed') +
-        (A3A_faction_reb get 'vehiclesMedical') +
-        (A3A_faction_reb get 'vehiclesAA') +
-        (A3A_faction_reb get 'vehiclesBoat') +
-        (A3A_faction_reb get 'vehiclesPlane') + 
-        (A3A_faction_reb get 'staticMGs') +
-        (A3A_faction_reb get 'staticMortars') +
-        (A3A_faction_reb get 'staticAT') +
-        (A3A_faction_reb get 'staticAA');
-    
-    {
-        private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
-        _buyableVehiclesList pushBack [_x, _vehiclePrice, false];
-    } forEach _militaryVehicles;
+        if(_tab isEqualTo A3A_IDC_BUYREBVEHICLEMAIN || _tab isEqualTo A3A_IDC_BUYSTATICMAIN) then {
+            _buyableVehiclesList pushBack [_x, _vehiclePrice, false];
+        } else {
+            // civ vehicle
+            _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
+        };
+    } forEach _arrayOfClasses;
 
     private _vehiclesControlsGroup = _display displayCtrl _selectedTab;
 
@@ -327,6 +298,7 @@ if (_tab isEqualTo "vehicles") then
 if  (_tab in ["other"]) then
 {
     Debug("BuyLogisticsTab starting...");
+    private _selectedTab = -1;
 
     if(_tab isEqualTo "other") then
     {

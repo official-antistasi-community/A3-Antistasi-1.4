@@ -45,7 +45,7 @@ switch (_mode) do
         private _civLimitSlider = _display displayCtrl A3A_IDC_CIVLIMITSLIDER;
         _civLimitSlider sliderSetRange [_civLimitMin, _civLimitMax];
         _civLimitSlider sliderSetSpeed [10, 10];
-        private _civLimit = missionNamespace getVariable ["civPerc",0];
+        private _civLimit = missionNamespace getVariable ["globalCivilianMax",0];
         _civLimitSlider sliderSetPosition _civLimit;
         ctrlSetText [A3A_IDC_CIVLIMITEDITBOX, str _civLimit];
 
@@ -191,7 +191,7 @@ switch (_mode) do
 
             private _display = findDisplay A3A_IDD_MAINDIALOG;
             private _civLimitEditBox = _display displayCtrl A3A_IDC_CIVLIMITEDITBOX;
-            private _civPerc = floor parseNumber ctrlText _civLimitEditBox;
+            private _globalCivilianMax = floor parseNumber ctrlText _civLimitEditBox;
             private _spawnDistanceEditBox = _display displayCtrl A3A_IDC_SPAWNDISTANCEEDITBOX;
             private _distanceSPWN = floor parseNumber ctrlText _spawnDistanceEditBox;
             private _aiLimiterEditBox = _display displayCtrl A3A_IDC_AILIMITEREDITBOX;
@@ -201,8 +201,8 @@ switch (_mode) do
             // [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
 
             // TODO UI-update: Placeholder routine, don't merge! Has no security checks whatsoever
-            // Trace_3("Changing AI Settings - civPerc:%1, distanceSPWN:%2, maxUnits:%3", _civPerc, _distanceSPWN, _maxUnits);
-            // missionNamespace setVariable ["civPerc", _civPerc];
+            // Trace_3("Changing AI Settings - globalCivilianMax:%1, distanceSPWN:%2, maxUnits:%3", _globalCivilianMax, _distanceSPWN, _maxUnits);
+            // missionNamespace setVariable ["globalCivilianMax", _globalCivilianMax];
             // missionNamespace setVariable ["distanceSPWN", _distanceSPWN];
             // missionNamespace setVariable ["maxUnits", _maxUnits];
 

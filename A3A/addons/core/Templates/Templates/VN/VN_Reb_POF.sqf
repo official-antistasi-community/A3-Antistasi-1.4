@@ -48,6 +48,7 @@
 ["staticMortars", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "vn_mortar_m2_mag_lume_x8"] call _fnc_saveToTemplate;
 
 ["mineAT", "vn_mine_m15_mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "vn_mine_m14_mag"] call _fnc_saveToTemplate;

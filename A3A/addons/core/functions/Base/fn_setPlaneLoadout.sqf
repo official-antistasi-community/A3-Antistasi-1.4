@@ -262,6 +262,7 @@ if (_type == "AA") then
         case "UK3CB_TKA_O_MIG29SM";
         case "UK3CB_CW_SOV_O_LATE_MIG29S";
         case "UK3CB_LDF_B_MIG29SM";
+        case "UK3CB_KDF_B_MIG29SM";
         case "UK3CB_AAF_O_MIG29S":
         {
             _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R77_AKU170_MIG29","rhs_mag_R77_AKU170_MIG29","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];

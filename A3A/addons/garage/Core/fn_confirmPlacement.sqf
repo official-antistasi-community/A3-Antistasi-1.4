@@ -5,13 +5,14 @@
 
     Arguments:
     0. <String> className of vehicle
-    1. <String> callback name (optional)(see HR_GRG_fnc_callbackHandler for code)
-    2. <Any>    Arguments for the callback (optional)
-    3. <Array>  Arrays of [className of Mount, Index of mount in garage] (optional) (internal)
-    4. <Array>  Pylons (optional)
-    5. <Struct/nil> Vehicle state (optional)
-    6. <Bool>   use garage vehicle pool for placement (optional: default false)
-    7. <String> extra text which will be shown together with the vehicle placement hint (optional)
+    1. <Code>   Code to be called on successful placement, params [object, arg1, arg2, ...]
+    3. <Code>   Code to be called when checking placement, params [ghost, arg1, arg2, ...]. Return [true, "reason"] for bad, otherwise [false].
+    4. <Array>  Arguments appended to the object for the callbacks (optional)
+    5. <Array>  Arrays of [className of Mount, Index of mount in garage] (optional) (internal)
+    6. <Array>  Pylons (optional)
+    7. <Struct/nil> Vehicle state (optional)
+    8. <Bool>   use garage vehicle pool for placement (optional: default false)
+    9. <String> extra text which will be shown together with the vehicle placement hint (optional)
 
     Return Value:
     <nil>
@@ -29,7 +30,8 @@
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 params [
     ["_class", "", [""]]
-    , ["_callBack", ""]
+    , ["_callBackPlace", {}]
+    , ["_callBackCheck", {[false]}]
     , ["_callBackArgs", []]
     , ["_mounts", [], [[]]]
     , ["_pylons", [], [[]]]
@@ -53,7 +55,9 @@ HR_GRG_validPlacement = 0;
 HR_GRG_CP_mounts = _mounts;
 HR_GRG_CP_pylons = _pylons;
 HR_GRG_usePool = _useGRGPool;
-HR_GRG_CP_callBack = [_callBack, _callBackArgs];
+HR_GRG_CP_callBackPlace = _callBackPlace;
+HR_GRG_CP_callBackCheck = _callBackCheck;
+HR_GRG_CP_callBackArgs = _callBackArgs;
 HR_GRG_CP_extraText = _extraText;
 HR_GRG_callBackFeedback = "";
 HR_GRG_EH_EF = -1;
@@ -299,7 +303,7 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             };
             _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
             _veh call HR_GRG_fnc_vehInit;
-            if !(HR_GRG_usePool) then {[_veh,HR_GRG_CP_callBack, "Placed"] call HR_GRG_fnc_callbackHandler};
+            if !(HR_GRG_usePool) then {([_veh] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callbackPlace};
 
             true;
         } else { false };
@@ -356,10 +360,10 @@ HR_GRG_EH_EF = addMissionEventHandler ["EachFrame", {
         if (_exit) exitWith { true call _hide };
 
         //callback check
-        private _callBack = [HR_GRG_dispVehicle,HR_GRG_CP_callBack, "invalidPlacement"] call HR_GRG_fnc_callbackHandler;
-        private _callbackCheck = _callBack param [0, false, [false]];
-        HR_GRG_callBackFeedback = _callBack param [1, "", [""]];
-        if ( _callbackCheck ) exitWith { true call _hide ; HR_GRG_validPlacement = 3 };
+        private _checkData = ([HR_GRG_dispVehicle] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callBackCheck;
+        private _callbackCheck = _checkData param [0, false, [false]];
+        HR_GRG_callBackFeedback = _checkData param [1, "", [""]];
+        if ( _callbackCheck ) exitWith { true call _hide; HR_GRG_validPlacement = 3 };
 
         //player in vehicle
         HR_GRG_dispSquare params ["_adjustment", "_square", "_diameter"];

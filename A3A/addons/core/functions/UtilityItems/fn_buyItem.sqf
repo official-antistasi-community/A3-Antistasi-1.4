@@ -1,14 +1,9 @@
 /*
 Author: [Killerswin2, Håkon]
-    trys to purchase a item and places it near the player. Damage for the object is disabled.
+    Tries to purchase a item and places it near the player. Damage for the object is disabled.
 Arguments:
 0.  <object>    Unit that will be buying the item
 1.  <string>    Item classname
-2.  <number>    price of item
-3.  <array>     callback functions, [[name, isGlobal - > true if need exec]]
-
-Return Value:
-1.  <object>    spawned object
 
 Scope: Clients
 Environment: Unscheduled
@@ -16,72 +11,64 @@ Public: yes
 Dependencies:
 
 Example:
-    [player, _fuelDrum # 0, _fuelDrum # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem
+    [player, _fuelDrum # 0] call A3A_fnc_buyItem
 */
 #include "..\..\script_component.hpp"
-params  [
-    ["_unit", objNull, [objNull]],
-    ["_spawnItem", "", [""]],
-    ["_price", -1, [0]],
-    ["_callbacks", [], [[]]]
-];
+FIX_LINE_NUMBERS()
 
-// error checking, _unit, _spawnItem, and _callbacks
-if (!canSuspend) exitwith{};
-if (!hasInterface) exitwith{};
-if (isNull _unit) exitwith {};
-if (!isClass (configFile/"CfgVehicles"/_spawnItem)) exitwith {};
-if (_price == -1) exitwith {};
+params ["_unit", "_itemClass"];
 
-//check to make sure that the player is not spamming
-private _lastTimePurchase = _unit getVariable["A3A_spawnItem_cooldown",time];
-if (_lastTimePurchase > time) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;};
+if (isNull _unit) exitwith { Error("Unit is null") };
+if (!isClass (configFile/"CfgVehicles"/_itemClass)) exitwith { Error_1("Class %1 does not exist", _itemClass) };
+if !(_itemClass in A3A_buyableItemsHM) exitWith { Error_1("Class %1 is not a buyable item", _itemClass) };
 
-if (_price != 0) then {
-    //try to take money away 😞
-    private _insufficientFunds = isNil {
-        if (_unit == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
-            [0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-            true;
-        } else {
-            if ((_unit getVariable ["moneyX", 0]) >= _price) then {
-                [-_price] call A3A_fnc_resourcesPlayer;
-                true;
-            };
-        };
+private _fnc_placed = {
+    params ["_item", "_unit", "_price", "_flags"];
+
+    if ((_unit == theBoss && server getVariable ["resourcesFIA", 0] < _price) || (_unit != theBoss && _unit getVariable ["moneyX", 0] < _price)) exitWith {
+        [localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
     };
-    if (_insufficientFunds) exitwith {[localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint};
+
+    if (_price > 0) then {
+        if (_unit == theBoss) exitWith { [0, -_price] remoteExec ["A3A_fnc_resourcesFIA", 2] };
+        [-_price] call A3A_fnc_resourcesPlayer;     // uh, we're just assuming _unit == player here
+    };
+
+    _unit setVariable ["A3A_spawnItem_cooldown", time + 15];
+
+    //object globals
+    _item setVariable ["A3A_canGarage", true, true];        // what's this used for?
+    _item setVariable ["A3A_itemPrice", _price, true];      // can go?
+
+    _item call A3A_fnc_initObject;
 };
 
-//had money for item
-_unit setVariable ["A3A_spawnItem_cooldown", time + 15];
 
-//spawn the Item
-private _position = (getPos _unit vectorAdd [3,0,0]) findEmptyPosition [1,50,_spawnItem];
-if (_position isEqualTo []) then {_position = getPos _unit};
-private _item = _spawnItem createVehicle _position;
-_item allowDamage false;
+(A3A_buyableItemHM get _itemClass) params ["", "_price", "", "", "_flags"];
 
-// clear inventory
-clearMagazineCargoGlobal _item;
-clearWeaponCargoGlobal _item;
-clearItemCargoGlobal _item;
-clearBackpackCargoGlobal _item;
+if (_unit getVariable["A3A_spawnItem_cooldown",time] > time) exitwith {
+    [localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;
+};
 
-//object globals
-_item setVariable ["A3A_canGarage", true, true];
-_item setVariable ["A3A_itemPrice", _price, true];
+if (("cmmdr" in _flags) && player isNotEqualTo theBoss) exitwith {
+    [localize "STR_antistasi_dialogs_buy_item_custom_hint_header", localize "STR_antistasi_dialogs_buy_item_custom_hint_commander_only"] call A3A_fnc_customHint;
+};
 
-if(_callbacks isEqualTo []) exitWith {}; 
+if ((_unit == theBoss && server getVariable ["resourcesFIA", 0] < _price) || (_unit != theBoss && _unit getVariable ["moneyX", 0] < _price)) exitWith {
+    [localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
+};
 
-// callbacks
+// Simple random placement
+if !("place" in _flags) exitWith
 {
-    _x params [["_func_name", ""], ["_isRemote", false], ["_params", []]];
-    if (_isRemote) then {
-            private _jipKey = "A3A_utilityItems_item_" + _func_name + "_" + ((str _item splitString ":") joinString "");
-            [_item, _jipKey, _params] remoteExecCall [_func_name, 0, _jipKey];
-    } else {
-        [_item, _params] call (missionNamespace getVariable _func_name);
-    };
-} foreach (_callbacks);
-_item
+    //spawn the Item
+    private _position = (getPosATL _unit vectorAdd [3,0,0]) findEmptyPosition [1,50,_itemClass];
+    if (_position isEqualTo []) then {_position = getPosATL _unit};
+    private _item = _itemClass createVehicle _position;
+    _item allowDamage false;            // what, permanent?
+
+    [_item, _unit, _price, _flags] call _fnc_placed;
+};
+
+// Manual placement
+[_itemClass, _fnc_placed, {false}, [_unit, _price, _flags]] call HR_GRG_fnc_confirmPlacement;

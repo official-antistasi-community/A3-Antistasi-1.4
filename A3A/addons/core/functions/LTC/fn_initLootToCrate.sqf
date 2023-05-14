@@ -4,7 +4,7 @@
         Initilizes the LTC system for the individual client
 
     Arguments:
-    0. <nil>
+    0. <Object> Object to add the loot actions to
 
     Return Value:
     <nil>
@@ -14,17 +14,15 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [_object, _jipKey] call A3A_fnc_initLootToCrate;
+    Example: [_object] call A3A_fnc_initLootToCrate;
 
     License: MIT License
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params[["_object", objNull, [objNull]],["_jipKey", "", [""]]];
+params [["_object", objNull, [objNull]]];
 
-if (isNull _object) exitwith {remoteExec ["", _jipKey];};
-
-//check if action already on player
+//check if action already on object
 if ((actionIDs _object) findIf {
     _params = _object actionParams _x;
     (_params#0) isEqualTo "Load loot to crate"
@@ -63,6 +61,5 @@ _object addAction [
     )",
     3
 ];
-
 
 nil;

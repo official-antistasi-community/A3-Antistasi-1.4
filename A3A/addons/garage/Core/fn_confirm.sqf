@@ -31,6 +31,7 @@ HR_GRG_Mounts apply {
     _class
     , nil //not used internaly
     , nil //not used internaly
+    , []  // not user internally
     , HR_GRG_Mounts
     , if (
             HR_GRG_Pylons_Enabled //Pylon editing enabled

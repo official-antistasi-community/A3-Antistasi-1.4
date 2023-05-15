@@ -1,19 +1,12 @@
+/*
+    Initialize data for buyable items
+    Sets global vars A3A_buyableItemList and A3A_buyableItemHM
 
-// Build data for buyable objects
-// might also include some stuff that isn't buyable?
+Arguments: none
+Returns: none
 
-// Everything here should have actions initialized with initObject
-
-// Parameters required:
-// - Classname. What about multiples (eg. occ & inv having different surrender crates? Why?)
-// - Price. Negative for not buyable?
-// - Placement function: Either HRGRG confirmPlacement or the simple random placer (buyItem?). true/false then?
-// - Display name in buy menu (eg. "Fuel Drum")
-// - Fill function? Eg for medical box.
-// - Flags for actions (packable, lootcrate(no?), loadable(no?), moveable)
-// - Flag for whether it should be saved?
-
-// ok, have a classname -> this stuff hashmap, plus an ordered list of classnames.
+Environment: Server, must be called after faction loading
+*/
 
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

@@ -1,20 +1,20 @@
 /*
 Author: Killerswin2
-    function wrapper that inits objects addActions for subsystems
+    Function to initialize buyable items
+
 Arguments:
-    0.<Object> Object that we try to add actions to 
-    1.<array> params to pass
-	
-	Return Value:
+    0.<Object> Object to initialize. Should be present in A3A_buyableItemHM
+
+Return Value:
     <nil>
-	
-	Scope: Anywhere
-	Environment: Unscheduled
-	Public: No
-	Dependencies: 
-	
-	Example:
-    [_object, _type] call A3A_fnc_initObject; 
+
+Scope: Anywhere
+Environment: Unscheduled
+Public: No
+Dependencies:
+
+Example:
+    [_object] call A3A_fnc_initObject;
 */
 #include "..\..\script_component.hpp"
 
@@ -27,10 +27,15 @@ if !(typeof _object in A3A_buyableItemHM) exitWith { Error_1("initObject used on
 
 // clear inventory. May or may not be done elsewhere
 if !("noclear" in _flags) then {
-	clearMagazineCargoGlobal _object;
-	clearWeaponCargoGlobal _object;
-	clearItemCargoGlobal _object;
-	clearBackpackCargoGlobal _object;
+    clearMagazineCargoGlobal _object;
+    clearWeaponCargoGlobal _object;
+    clearItemCargoGlobal _object;
+    clearBackpackCargoGlobal _object;
+};
+
+// Double loot crate max load if we're running with no unlocks
+if ("loot" in _flags and minWeaps == -1) then {
+    [_object, (maxLoad _object) * 2] remoteExecCall ["setMaxLoad", 2];      // setMaxLoad is server-execution
 };
 
 _object setVariable ["A3A_canGarage", true, true];

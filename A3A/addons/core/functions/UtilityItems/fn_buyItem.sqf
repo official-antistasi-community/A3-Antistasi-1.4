@@ -1,6 +1,6 @@
 /*
 Author: [Killerswin2, Håkon]
-    Tries to purchase a item and places it near the player. Damage for the object is disabled.
+    Tries to purchase a buyable item, using either the garage placer or a simple placer as appropriate. Damage for the object is disabled.
 Arguments:
 0.  <object>    Unit that will be buying the item
 1.  <string>    Item classname

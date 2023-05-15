@@ -16,10 +16,3 @@
 // #define UseDoomGUI
 // Enable completed sections of experimental UI.
 #define UseDoomGUIPreview
-
-
-//object init defines
-#define MOVE_OBJ 1
-#define LOOT_CRATE 2
-#define PACKABLE 4
-#define LOADABLE 8

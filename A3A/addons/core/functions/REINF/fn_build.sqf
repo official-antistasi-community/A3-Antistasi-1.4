@@ -154,6 +154,7 @@ private _fnc_placeCheck = {
 
 private _fnc_placed = {
 	params ["_vehicle"];
+	if (isNull _vehicle) exitWith {};
 	private _type = typeOf _vehicle;
 	private _pos = getPosASL _vehicle;
 	private _dir = getDir _vehicle;

@@ -47,15 +47,10 @@ if (_grpIdx == -1) then {
 };
 
 // create surrender box
-private _surrenderCrateType = Faction(side group _unit) get "surrenderCrate";
+private _surrenderCrateType = FactionGet(reb,"surrenderCrate");
 private _boxX = _surrenderCrateType createVehicle position _unit;
 _boxX allowDamage false;
-clearMagazineCargoGlobal _boxX;
-clearWeaponCargoGlobal _boxX;
-clearItemCargoGlobal _boxX;
-clearBackpackCargoGlobal _boxX;
-//[_boxX] call A3A_Logistics_fnc_addLoadAction;
-[_boxX, MOVE_OBJ + LOOT_CRATE + LOADABLE] call A3A_fnc_initObject;
+[_boxX] call A3A_fnc_initObject;
 
 
 // move all unit's equipment except uniform into the surrender crate

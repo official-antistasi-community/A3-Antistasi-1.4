@@ -31,6 +31,7 @@ if (isNil "initClientDone") then {
 private _flags = (A3A_buyableItemHM get typeof _object) # 4;
 
 // movable object
+// TODO: Do we really want rotate on everything?
 if ("move" in _flags) then {
 	[_object] call A3A_fnc_initMovableObject;
 };
@@ -42,7 +43,32 @@ if ("loot" in _flags) then {
 
 // packable object
 if ("pack" in _flags) then {
-	[_object] call A3A_Logistics_fnc_initPackableObjects;
+	_object addAction [
+		"Pack object",
+		{ _this#0 call A3A_Logistics_fnc_packObject },
+		nil, 1.5, true, true, "",
+		"(isNull attachedTo _originalTarget)", 10
+	];
+//	[_object] call A3A_Logistics_fnc_initPackableObjects;
 };
 
-nil
+// unpackable object
+if ("unpack" in _flags) then {
+	_object addAction [
+		"Unpack object",
+		{ _this#0 call A3A_Logistics_fnc_unpackObject },
+		nil, 1.5, true, true, "",
+		"(isNull attachedTo _originalTarget)", 10
+	];
+//	[_object] call A3A_Logistics_fnc_unpackObjectAction;
+};
+
+// specific to the tent
+if (typeOf _object == "Land_MedicalTent_01_MTP_closed_F") then {
+	_object addAction [
+		"Open Doors",
+		{ _this#0 animateSource ["Door_Hide", 1, true] },
+		nil, 1.5, true, true, "",
+		"true", 10
+	];
+};

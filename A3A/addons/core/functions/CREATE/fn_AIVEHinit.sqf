@@ -26,8 +26,13 @@ _veh setVariable ["ownerSide", _side, true];
 if (isNil "_resPool") then { _resPool = "legacy" };
 _veh setVariable ["A3A_resPool", _resPool, true];
 
+// Not a crewed vehicle, fire off object init instead
+if (fullCrew [_veh, "", true] isEqualTo []) exitWith {
+	_veh call A3A_fnc_initObject;
+};
+
 // probably just shouldn't be called for these
-if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
+//if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
 //if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later

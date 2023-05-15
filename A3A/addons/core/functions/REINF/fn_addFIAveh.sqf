@@ -31,6 +31,7 @@ private _extraMessage =	format ["Buying vehicle for $%1.", _cost];
 
 private _fnc_placed = {
 	params ["_vehicle", "_cost"];
+	if (isNull _vehicle) exitWith {};
 	if (player == theBoss) then {
 		[0,(-1 * _cost)] remoteExec ["A3A_fnc_resourcesFIA",2];
 	} else {

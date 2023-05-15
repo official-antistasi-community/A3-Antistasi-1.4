@@ -24,9 +24,11 @@ if !(_itemClass in A3A_buyableItemsHM) exitWith { Error_1("Class %1 is not a buy
 
 private _fnc_placed = {
     params ["_item", "_unit", "_price", "_flags"];
+    if (isNull _item) exitWith {};          // placement cancelled
 
     if ((_unit == theBoss && server getVariable ["resourcesFIA", 0] < _price) || (_unit != theBoss && _unit getVariable ["moneyX", 0] < _price)) exitWith {
         [localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
+        deleteVehicle _item;
     };
 
     if (_price > 0) then {
@@ -36,18 +38,15 @@ private _fnc_placed = {
 
     _unit setVariable ["A3A_spawnItem_cooldown", time + 15];
 
-    //object globals
-    _item setVariable ["A3A_canGarage", true, true];        // what's this used for?
-    _item setVariable ["A3A_itemPrice", _price, true];      // can go?
-
-    _item call A3A_fnc_initObject;
+//    _item call A3A_fnc_initObject;
 };
 
 
 (A3A_buyableItemHM get _itemClass) params ["", "_price", "", "", "_flags"];
 
-if (_unit getVariable["A3A_spawnItem_cooldown",time] > time) exitwith {
-    [localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastTimePurchase - time)]] call A3A_fnc_customHint;
+private _lastItemPurchase = _unit getVariable ["A3A_spawnItem_cooldown", 0];
+if (_lastItemPurchase > time) exitwith {
+    [localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastItemPurchase - time)]] call A3A_fnc_customHint;
 };
 
 if (("cmmdr" in _flags) && player isNotEqualTo theBoss) exitwith {
@@ -65,7 +64,8 @@ if !("place" in _flags) exitWith
     private _position = (getPosATL _unit vectorAdd [3,0,0]) findEmptyPosition [1,50,_itemClass];
     if (_position isEqualTo []) then {_position = getPosATL _unit};
     private _item = _itemClass createVehicle _position;
-    _item allowDamage false;            // what, permanent?
+    _item allowDamage false;            // what, permanent? TODO: make this an item flag?
+    _item call A3A_fnc_initObject;
 
     [_item, _unit, _price, _flags] call _fnc_placed;
 };

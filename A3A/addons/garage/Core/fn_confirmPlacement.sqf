@@ -5,14 +5,13 @@
 
     Arguments:
     0. <String> className of vehicle
-    1. <Code>   Code to be called on successful placement, params [object, arg1, arg2, ...]
+    1. <Code>   Code to be called on placement, params [object, arg1, arg2, ...], null object if placement cancelled
     3. <Code>   Code to be called when checking placement, params [ghost, arg1, arg2, ...]. Return [true, "reason"] for bad, otherwise [false].
     4. <Array>  Arguments appended to the object for the callbacks (optional)
     5. <Array>  Arrays of [className of Mount, Index of mount in garage] (optional) (internal)
     6. <Array>  Pylons (optional)
     7. <Struct/nil> Vehicle state (optional)
-    8. <Bool>   use garage vehicle pool for placement (optional: default false)
-    9. <String> extra text which will be shown together with the vehicle placement hint (optional)
+    8. <String> extra text which will be shown together with the vehicle placement hint (optional)
 
     Return Value:
     <nil>
@@ -22,7 +21,7 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [_class, "BUYFIA", [], nil, nil, nil, false, _extraText] call HR_GRG_fnc_confirmPlacement;
+    Example: [_class, _fnc_placed, {[false]}, [_price], nil, nil, nil, _extraText] call HR_GRG_fnc_confirmPlacement;
 
     License: APL-ND
 */
@@ -36,7 +35,6 @@ params [
     , ["_mounts", [], [[]]]
     , ["_pylons", [], [[]]]
     , "_state"
-    , ["_useGRGPool", false, [false]]
     , ["_extraText", "", [""]]
 ];
 
@@ -54,7 +52,6 @@ HR_GRG_keyE = false;
 HR_GRG_validPlacement = 0;
 HR_GRG_CP_mounts = _mounts;
 HR_GRG_CP_pylons = _pylons;
-HR_GRG_usePool = _useGRGPool;
 HR_GRG_CP_callBackPlace = _callBackPlace;
 HR_GRG_CP_callBackCheck = _callBackCheck;
 HR_GRG_CP_callBackArgs = _callBackArgs;
@@ -265,53 +262,45 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
         private _dir = HR_GRG_dir;
         call HR_GRG_cleanUp;
 
-        //place vehicle if confirming placement
-        private _placed = if (_key isEqualTo DIK_SPACE) then {
-            //create vehicle
-            private _veh = _class createVehicle [0,0,10000];
-            [_veh] call HR_GRG_fnc_prepPylons;
-            [_veh, _state] call HR_GRG_fnc_setState;
-            if (HR_GRG_usePool && !HR_GRG_ServiceDisabled_Refuel) then {
-                [_veh] remoteExecCall ["HR_GRG_fnc_refuelVehicleFromSources", 2];
-            };
-
-            _veh setDir _dir;
-            _veh setPos _pos;
-            _veh setVectorUp surfaceNormal position _veh;
-
-            _veh enableSimulation false;
-            _veh allowDamage false;
-            [_veh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
-
-            //create and load cargo
-            {
-                private _static = (_x#0) createVehicle _pos;
-                [_static, _x#2] call HR_GRG_fnc_setState;
-                _static allowDamage false;
-                private _nodes = [_veh, _static] call A3A_Logistics_fnc_canLoad;
-                if (_nodes isEqualType 0) exitWith {};
-                (_nodes + [true]) call A3A_Logistics_fnc_load;
-                _static call HR_GRG_fnc_vehInit;
-            } forEach HR_GRG_CP_mounts;
-
-            //set pylons loudout
-            if !(HR_GRG_CP_pylons isEqualTo []) then {
-                {
-                    _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
-                    _veh setPylonLoadout [_pylonIndex, _mag, _forced, _turret]
-                } forEach HR_GRG_CP_pylons;
-            };
-            _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
-            _veh call HR_GRG_fnc_vehInit;
-            if !(HR_GRG_usePool) then {([_veh] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callbackPlace};
-
-            true;
-        } else { false };
-        //handle garage pool changes
-        if (HR_GRG_usePool) then {
-            private _fnc = if (_placed) then {"HR_GRG_fnc_removeFromPool"} else {"HR_GRG_fnc_releaseAllVehicles"};
-            [clientOwner, player, _fnc] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
+        if (_key isNotEqualTo DIK_SPACE) exitWith {
+            // Tell callback that the vehicle wasn't placed
+            ([objNull] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callbackPlace;
         };
+
+        //create vehicle
+        private _veh = _class createVehicle [0,0,10000];
+        [_veh] call HR_GRG_fnc_prepPylons;
+        [_veh, _state] call HR_GRG_fnc_setState;
+
+        _veh setDir _dir;
+        _veh setPos _pos;
+        _veh setVectorUp surfaceNormal position _veh;
+
+        _veh enableSimulation false;
+        _veh allowDamage false;
+        [_veh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
+
+        //create and load cargo
+        {
+            private _static = (_x#0) createVehicle _pos;
+            [_static, _x#2] call HR_GRG_fnc_setState;
+            _static allowDamage false;
+            private _nodes = [_veh, _static] call A3A_Logistics_fnc_canLoad;
+            if (_nodes isEqualType 0) exitWith {};
+            (_nodes + [true]) call A3A_Logistics_fnc_load;
+            _static call HR_GRG_fnc_vehInit;
+        } forEach HR_GRG_CP_mounts;
+
+        //set pylons loudout
+        if !(HR_GRG_CP_pylons isEqualTo []) then {
+            {
+                _x params ["_pylonIndex", "_mag", "_forced", "_turret"];
+                _veh setPylonLoadout [_pylonIndex, _mag, _forced, _turret]
+            } forEach HR_GRG_CP_pylons;
+        };
+        _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
+        _veh call HR_GRG_fnc_vehInit;
+        ([_veh] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callbackPlace;
     };
 
     //block key press if valid key

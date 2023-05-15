@@ -436,7 +436,7 @@ if  (_tab in ["other"]) then
             private _refuelCount = if (A3A_hasACE) then {getNumber (_configClass >> "ace_refuel_fuelCargo")} else {getNumber (_configClass >> "transportFuel")};
             _itemPic ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_refuel_tooltip", _displayName, _refuelCount];
         };
-        if (_className isEqualTo (A3A_faction_occ get 'surrenderCrate')) then {
+        if (_className isEqualTo (A3A_faction_reb get 'surrenderCrate')) then {
             _itemPic ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_tooltip", _displayName, getNumber(_configClass >> "maximumLoad")];
         };
         if (_className in [(A3A_faction_reb get 'vehicleMedicalBox')#0, (A3A_faction_reb get 'vehicleHealthStation')#0]) then {

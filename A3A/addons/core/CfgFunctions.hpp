@@ -750,18 +750,15 @@ class CfgFunctions
 
         class UtilityItems {
             file = QPATHTOFOLDER(functions\UtilityItems);
+            class attachedObjects {};
+            class buyItem {};
             class carryItem {};
+            class dropObject {};
             class initMovableObject {};
             class initObject {};
             class initObjectRemote {};
-            class rotateItem {};
-            class buyItem {};
-            class attachedObjects {};
-            class dropObject {};
-            class medicalBox {};
-            class medicalBoxFill {};
-            class openDoorsTent {};
             class remainingFuel {};
+            class rotateItem {};
         };
     };
 };

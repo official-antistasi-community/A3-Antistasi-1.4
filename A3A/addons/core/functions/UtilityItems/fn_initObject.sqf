@@ -23,7 +23,7 @@ params [["_object", objNull, [objNull]]];
 if (isNull _object) exitWith { Error("Non-existent object passed") };
 if !(typeof _object in A3A_buyableItemHM) exitWith { Error_1("initObject used on object type %1", typeof _object) };
 
-private _flags = (A3A_buyableItemHM get typeof _object) # 4;
+(A3A_buyableItemHM get typeof _object) params ["", "_price", "", "", "_flags"];
 
 // clear inventory. May or may not be done elsewhere
 if !("noclear" in _flags) then {
@@ -32,6 +32,9 @@ if !("noclear" in _flags) then {
 	clearItemCargoGlobal _object;
 	clearBackpackCargoGlobal _object;
 };
+
+_object setVariable ["A3A_canGarage", true, true];
+_object setVariable ["A3A_itemPrice", _price, true];
 
 // Let logistics do its own JIPing for the moment
 // Assumption that the object isn't loaded into anything?

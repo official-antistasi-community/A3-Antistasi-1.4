@@ -34,8 +34,8 @@ if (LTCLootUnlocked) then {
     _unlocked = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 };
 
-_targets = nearestObjects [getposATL _container, ["Man"], 10];
-_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 10];
+_targets = nearestObjects [getposATL _container, ["Man"], LootToCreateDistance];
+_weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], LootToCreateDistance];
 
 _container setVariable ["stopPostmortem", true, true]; //block postmortem on surrender crates
 

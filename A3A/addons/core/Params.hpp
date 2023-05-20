@@ -342,6 +342,13 @@ class Params
         texts[] = {"Disabled", "Enabled"};
         default = 1;
     };
+    class LootToCreateDistance
+    {
+        title = "Loot to crate distance";
+        values[] = {10,15,25,50};
+        texts[] = {"10 m","15 m","25 m","50 m"};
+        default = 10;
+    };
     class LTCLootUnlocked
     {
         title = "Loot to crate transfers unlocked items";

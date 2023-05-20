@@ -299,7 +299,6 @@ HR_GRG_EH_keyDown = findDisplay 46 displayAddEventHandler ["KeyDown", {
             } forEach HR_GRG_CP_pylons;
         };
         _veh spawn {sleep 0.5;_this allowDamage true;_this enableSimulation true; { _x allowDamage true; } forEach (attachedObjects _this); };
-        _veh call HR_GRG_fnc_vehInit;
         ([_veh] + HR_GRG_CP_callBackArgs) call HR_GRG_CP_callbackPlace;
     };
 

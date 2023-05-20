@@ -313,7 +313,7 @@ if  (_tab in ["other"]) then
 
     private _added = 0;
     {
-        (A3A_buyableItemHM get _x) params [
+        (A3A_utilityItemHM get _x) params [
             ["_className", ""],
             ["_price", 0],
             ["_buttonText", ""],
@@ -337,7 +337,7 @@ if  (_tab in ["other"]) then
         */
 
         // Add some extra padding to the top if there are 2 rows or less
-        private _topPadding = if (count A3A_buyableItemList < 7) then {5 * GRID_H} else {0};
+        private _topPadding = if (count A3A_utilityItemList < 7) then {5 * GRID_H} else {0};
 
         private _itemXpos = 7 * GRID_W + ((7 * GRID_W + 44 * GRID_W) * (_added mod 3));
         private _itemYpos = (floor (_added / 3)) * (44 * GRID_H) + _topPadding;
@@ -455,7 +455,7 @@ if  (_tab in ["other"]) then
         _itemControlsGroup ctrlCommit 0.1;
 
         _added = _added + 1;
-    } forEach A3A_buyableItemList;
+    } forEach A3A_utilityItemList;
 
     Debug("BuyLogisticsTab complete.");
 };

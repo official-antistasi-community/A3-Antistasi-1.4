@@ -24,12 +24,12 @@ params [["_object", objNull, [objNull]],["_jipKey", "", [""]]];
 // If object no longer exists, clear the JIP entry
 if (isNull _object) exitwith {remoteExec ["", _jipKey]};
 
-// Wait until client init is complete so that all the subsystems (inc buyableItemHM) are ready
+// Wait until client init is complete so that all the subsystems (inc utilityItemHM) are ready
 if (isNil "initClientDone") then {
     waitUntil {sleep 1; !isNil "initClientDone"};
 };
 
-private _flags = (A3A_buyableItemHM get typeof _object) # 4;
+private _flags = (A3A_utilityItemHM get typeof _object) # 4;
 
 // movable object
 // TODO: Do we really want rotate on everything?

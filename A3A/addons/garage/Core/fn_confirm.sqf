@@ -27,7 +27,8 @@ private _fnc_placed = {
     if (!isNull _veh && !HR_GRG_ServiceDisabled_Refuel) then {
         [_veh] remoteExecCall ["HR_GRG_fnc_refuelVehicleFromSources", 2];
     };
-    
+    _veh call HR_GRG_fnc_vehInit;
+
     private _fnc = if (!isNull _veh) then {"HR_GRG_fnc_removeFromPool"} else {"HR_GRG_fnc_releaseAllVehicles"};
     [clientOwner, player, _fnc] remoteExecCall ["HR_GRG_fnc_execForGarageUsers", 2]; //run code on server as HR_GRG_Users is maintained ONLY on the server
 };

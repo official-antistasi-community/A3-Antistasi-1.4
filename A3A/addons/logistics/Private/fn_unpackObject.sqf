@@ -30,7 +30,7 @@ private _fnc_placed = {
     if (isNull _item) exitWith { _oldItem hideObject false };          // placement cancelled
  
     deleteVehicle _oldItem;
-    //_item call A3A_fnc_initObject;
+    _item call A3A_fnc_initObject;
 };
 
 _object hideObject true;

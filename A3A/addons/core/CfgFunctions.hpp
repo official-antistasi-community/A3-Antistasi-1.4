@@ -349,7 +349,7 @@ class CfgFunctions
             class credits {};
             class initACEUnconsciousHandler {};
             class initBases {};
-            class initBuyableItems {};
+            class initUtilityItems {};
             class initGarrisons {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};

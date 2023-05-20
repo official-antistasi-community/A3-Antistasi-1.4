@@ -53,8 +53,8 @@ if ([getPosATL _player] call A3A_fnc_enemyNearCheck) exitWith {
 private _utilityRefund = {
     params ["_object", ["_instantRefund", true]];
 
-    // canGarage true means it's in the buyableItem lists
-    private _flags = (A3A_buyableItemHM get typeof _object) # 4;
+    // canGarage true means it's in the utilityItem lists
+    private _flags = (A3A_utilityItemHM get typeof _object) # 4;
 
     if ("cmmdr" in _flags && _player isNotEqualTo theBoss && _instantRefund) exitWith {
         ["STR_HR_GRG_Feedback_addVehicle_commander_only"] remoteExec ["HR_GRG_fnc_Hint", _client];

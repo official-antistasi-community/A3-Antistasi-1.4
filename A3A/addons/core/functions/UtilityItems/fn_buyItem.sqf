@@ -20,7 +20,7 @@ params ["_unit", "_itemClass"];
 
 if (isNull _unit) exitwith { Error("Unit is null") };
 if (!isClass (configFile/"CfgVehicles"/_itemClass)) exitwith { Error_1("Class %1 does not exist", _itemClass) };
-if !(_itemClass in A3A_buyableItemsHM) exitWith { Error_1("Class %1 is not a buyable item", _itemClass) };
+if !(_itemClass in A3A_utilityItemsHM) exitWith { Error_1("Class %1 is not a buyable item", _itemClass) };
 
 private _fnc_placed = {
     params ["_item", "_unit", "_price", "_flags"];
@@ -38,11 +38,11 @@ private _fnc_placed = {
 
     _unit setVariable ["A3A_spawnItem_cooldown", time + 15];
 
-//    _item call A3A_fnc_initObject;
+    _item call A3A_fnc_initObject;
 };
 
 
-(A3A_buyableItemHM get _itemClass) params ["", "_price", "", "", "_flags"];
+(A3A_utilityItemHM get _itemClass) params ["", "_price", "", "", "_flags"];
 
 private _lastItemPurchase = _unit getVariable ["A3A_spawnItem_cooldown", 0];
 if (_lastItemPurchase > time) exitwith {
@@ -65,7 +65,6 @@ if !("place" in _flags) exitWith
     if (_position isEqualTo []) then {_position = getPosATL _unit};
     private _item = _itemClass createVehicle _position;
     _item allowDamage false;            // what, permanent? TODO: make this an item flag?
-    _item call A3A_fnc_initObject;
 
     [_item, _unit, _price, _flags] call _fnc_placed;
 };

@@ -138,12 +138,12 @@ _arrayEst = [];
 {
 	// Include buyable items marked as saveable
 	// TODO: Do we need to refund the others?
-	if (typeof _x in A3A_buyableItemHM and {"save" in (A3A_buyableItemHM get typeof _x)#4}) then {
+	if (typeof _x in A3A_utilityItemHM and {"save" in (A3A_utilityItemHM get typeof _x)#4}) then {
 		_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
 		continue;
 	};
 
-	if (fullCrew [_veh, "", true] isEqualTo []) then { continue };			// no crew seats, not in buyableItems, not saved
+	if (fullCrew [_veh, "", true] isEqualTo []) then { continue };			// no crew seats, not in utilityItems, not saved
 	if (_x isKindOf "StaticWeapon") then { continue };						// static weapons are accounted for in staticsToSave
 	if ({(alive _x) and (!isPlayer _x)} count crew _veh > 0) then { continue };		// no AI-crewed vehicles, those are refunded
 

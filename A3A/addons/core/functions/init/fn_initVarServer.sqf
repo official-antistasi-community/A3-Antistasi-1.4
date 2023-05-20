@@ -451,9 +451,9 @@ DECLARE_SERVER_VAR(A3A_smokeMuzzleHM, _smokeMuzzleHM);
 ////////////////////////////////////
 
 // Utility items data init
-call A3A_fnc_initBuyableItems;
-ONLY_DECLARE_SERVER_VAR(A3A_buyableItemList);
-ONLY_DECLARE_SERVER_VAR(A3A_buyableItemHM);
+call A3A_fnc_initUtilityItems;
+ONLY_DECLARE_SERVER_VAR(A3A_utilityItemList);
+ONLY_DECLARE_SERVER_VAR(A3A_utilityItemHM);
 
 //fast ropes are hard defined here, because of old fixed offsets.
 //fastrope needs to be rewritten and then we can get get ridd of this

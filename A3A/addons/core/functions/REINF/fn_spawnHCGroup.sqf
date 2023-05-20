@@ -64,7 +64,7 @@ private _initInfVeh = {
 };
 
 private _initVeh = {
-    [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;          // Already called by HR_GRG_fnc_vehInit, but make sure
+    [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;
     _group addVehicle _vehicle;
     _vehicle setVariable ["owner",_group,true];
     driver _vehicle action ["engineOn", _vehicle];

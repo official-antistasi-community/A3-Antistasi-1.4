@@ -342,7 +342,7 @@ class Params
         texts[] = {"Disabled", "Enabled"};
         default = 1;
     };
-    class LootToCreateDistance
+    class LootToCrateDistance
     {
         title = "Loot to crate distance";
         values[] = {10,15,25,50};

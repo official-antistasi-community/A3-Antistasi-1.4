@@ -342,11 +342,11 @@ class Params
         texts[] = {"Disabled", "Enabled"};
         default = 1;
     };
-    class LootToCrateDistance
+    class LootToCrateRadius
     {
-        title = "Loot to crate distance";
-        values[] = {10,15,25,50};
-        texts[] = {"10 m","15 m","25 m","50 m"};
+        title = "Loot to crate radius";
+        values[] = {10,15,20};
+        texts[] = {"10 m","15 m","20 m"};
         default = 10;
     };
     class LTCLootUnlocked

@@ -42,4 +42,4 @@ private _fnc_placed = {
 	[_vehicle, teamPlayer] call A3A_fnc_AIVehInit;
 };
 
-[_typeVehX, _fnc_placed, {false}, [_cost], nil, nil, nil, false, _extraMessage] call HR_GRG_fnc_confirmPlacement;
+[_typeVehX, _fnc_placed, {false}, [_cost], nil, nil, nil, _extraMessage] call HR_GRG_fnc_confirmPlacement;

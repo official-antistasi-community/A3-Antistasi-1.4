@@ -346,7 +346,7 @@ class Params
     {
         title = "Loot to crate radius";
         values[] = {10,15,20};
-        texts[] = {"10 m","15 m","20 m"};
+        texts[] = {"10m","15m","20m"};
         default = 10;
     };
     class LTCLootUnlocked

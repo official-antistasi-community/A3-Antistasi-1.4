@@ -91,7 +91,7 @@ switch _typeX do
             {
                 removeAllActions _flag;
                 if (player == player getVariable ["owner",player]) then {[] call SA_Add_Player_Tow_Actions};
-                if (lootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
+                if (LootToCrateRadius > 0) then {call A3A_fnc_initLootToCrate};
                 call A3A_fnc_dropObject;
             }
             else

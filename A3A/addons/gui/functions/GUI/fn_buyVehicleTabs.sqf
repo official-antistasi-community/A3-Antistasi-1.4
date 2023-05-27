@@ -422,7 +422,7 @@ if  (_tab in ["other"]) then
         ];
 
         //LTC
-        if (LootToCrateEnabled) then {
+        if (LootToCrateRadius > 0) then {
             _buyableItemList pushBack [
                 A3A_faction_occ get 'surrenderCrate',
                 10,

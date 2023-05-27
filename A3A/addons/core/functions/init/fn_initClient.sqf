@@ -391,7 +391,7 @@ vehicleBox addAction ["Buy Vehicle", {
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 call A3A_fnc_dropObject;
-if (LootToCrateEnabled) then {
+if (LootToCrateRadius > 0) then {
     call A3A_fnc_initLootToCrate;
 };
 

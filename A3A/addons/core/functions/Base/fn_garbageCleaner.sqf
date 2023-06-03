@@ -26,9 +26,11 @@ private _fnc_distCheck = {
 {
 	// Locked check is a hack for roadblock vehicles
 	if !(_x isKindOf "StaticWeapon" or unitIsUAV _x or locked _x > 1) then { [_x, 500] call _fnc_distCheck };
+
 } forEach (vehicles select {_x getVariable ["ownerSide", sideUnknown] == teamPlayer});
 
 if (A3A_hasACE) then {
+    // I am a comment to check if editorconfig changes indent from tabs to spaces
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
 	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_01");			//MBT turret wrecks

@@ -32,7 +32,8 @@ private _fnc_distCheck = {
 if (A3A_hasACE) then {
     // I am a comment to check if editorconfig changes indent from tabs to spaces
 	{ deleteVehicle _x } forEach (allMissionObjects "ACE_bodyBagObject");
-	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
+    // the next code line is changed manually from one tab to 4 spaces
+    { deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_01");			//MBT turret wrecks
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_02");
 	{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "ACE_envelope_big");		// ACE trench objects

@@ -303,7 +303,7 @@ if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
 
 if(A3A_hasZen) then 
 {
-    ["zen_common_createZues", {
+    ["zen_common_createZeus", {
         [_this] spawn {
             params ["_unit"];
 

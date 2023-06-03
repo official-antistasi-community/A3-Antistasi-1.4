@@ -63,9 +63,8 @@ while {true} do
 			["TaskSucceeded", ["", format ["%1 joined %2",_city,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,teamPlayer,true];
 			[Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
-			_mrkD = format ["Dum%1",_city];
-			_mrkD setMarkerColor colorTeamPlayer;
 			garrison setVariable [_city,[],true];
+			[_city] call A3A_fnc_mrkUpdate;
 			sleep 5;
 			{_nul = [_city,_x] spawn A3A_fnc_deleteControls} forEach controlsX;
 			[] call A3A_fnc_tierCheck;
@@ -75,9 +74,8 @@ while {true} do
 			["TaskFailed", ["", format ["%1 joined %2",_city,FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,Occupants,true];
 			[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
-			_mrkD = format ["Dum%1",_city];
-			_mrkD setMarkerColor colorOccupants;
 			garrison setVariable [_city,[],true];
+			[_city] call A3A_fnc_mrkUpdate;
 			sleep 5;
 			[] call A3A_fnc_tierCheck;
 		};

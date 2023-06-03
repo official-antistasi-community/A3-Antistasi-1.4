@@ -63,12 +63,19 @@ class Params
         texts[] = {"200","300","400","500"};
         default = 300;
     };
-    class civPerc
+    class globalCivilianMax
     {
-        title = "Maximum wandering civilians";
+        title = "Maximum global civilians";
+        values[] = {0,2,5,10,15,20};
+        texts[] = {"0","2","5","10","15","20"};
+        default = 5;
+    };
+    class maxCiviliansPerTown
+    {
+        title = "Maximum civilians spawn per town";
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
-        default = 5;
+        default = 2;
     };
     class initialPlayerMoney
     {
@@ -104,6 +111,13 @@ class Params
         values[] = {3600, 7200, 10800, 14400, 9999999};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
         Default = 9999999;
+    };
+    class A3A_reviveTime
+    {
+        title = "Minimum revive time for players";
+        values[] = {5,10,15};
+        texts[] = {"5 seconds","10 seconds","15 seconds"};
+        default = 10;
     };
 
     class SpacerMembership
@@ -238,7 +252,14 @@ class Params
         texts[] = {"Not allowed", "Allowed"};
         default = 0;
     };
-
+    class A3A_rebelGarrisonLimit
+    {
+        title = "How many rebels can be garrisoned (1.5x for airports, 0.5x for resources and factories)?";
+        tooltip = "How many troops can be in garrison. Note that No limit option may affect performance as there might be too many troops for CPU to handle.";
+        values[] = {-1, 16, 24, 32};
+        texts[] = {"No limit", "16", "24", "32"};
+        default = 24;
+    };
     class SpacerEquipment
     {
         title = "";

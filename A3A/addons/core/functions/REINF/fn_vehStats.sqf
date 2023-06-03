@@ -28,11 +28,13 @@ if (_this select 0 == "mount") exitWith
 				{
 				_textX = format ["%2%1 dismounting<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn false; [_x] allowGetIn false} forEach units _groupX;
+				_groupX setVariable ["A3A_forceDismount", true];
 				}
 			else
 				{
 				_textX = format ["%2%1 boarding<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
+				_groupX setVariable ["A3A_forceDismount", nil];
 				};
 			}
 		else
@@ -40,6 +42,7 @@ if (_this select 0 == "mount") exitWith
 			if (leader _groupX in _veh) then
 				{
 				_textX = format ["%2%1 dismounting<br/>",groupID _groupX,_textX];
+				_groupX setVariable ["A3A_forceDismount", true];
 				if (canMove _veh) then
 					{
 					{[_x] orderGetIn false; [_x] allowGetIn false} forEach assignedCargo _veh;
@@ -54,6 +57,7 @@ if (_this select 0 == "mount") exitWith
 				{
 				_textX = format ["%2%1 boarding<br/>",groupID _groupX,_textX];
 				{[_x] orderGetIn true; [_x] allowGetIn true} forEach units _groupX;
+				_groupX setVariable ["A3A_forceDismount", nil];
 				};
 			};
 		};

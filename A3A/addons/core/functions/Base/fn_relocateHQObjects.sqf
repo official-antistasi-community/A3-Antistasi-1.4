@@ -23,6 +23,9 @@ isNil {
 
 respawnTeamPlayer setMarkerPos _newPosition;
 posHQ = _newPosition; publicVariable "posHQ";
+"Synd_HQ" setMarkerPos _newPosition;
+chopForest = false; publicVariable "chopForest";
+
 
 [respawnTeamPlayer, 1, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
 [respawnTeamPlayer, 1, civilian] call A3A_fnc_setMarkerAlphaForSide;
@@ -59,10 +62,6 @@ vehicleBox hideObjectGlobal false;
 mapX hideObjectGlobal false;
 fireX hideObjectGlobal false;
 flagX hideObjectGlobal false;
-
-
-"Synd_HQ" setMarkerPos _newPosition;
-chopForest = false; publicVariable "chopForest";
 
 //AGN change
 [flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];

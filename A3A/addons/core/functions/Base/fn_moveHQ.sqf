@@ -70,13 +70,13 @@ if (count _garrison > 0) then
                     {
                         if (_unitType == FactionGet(reb,"unitCrew")) then
                         {
-                            _costs = _costs - ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
+                            _costs = _costs - ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)
                         };
                         _hr = _hr - 1;
                         _costs = _costs - (server getVariable (_unitType));
                     };
                 };
-                if (typeOf (vehicle _x) == FactionGet(reb,"staticMortar")) then
+                if (typeOf (vehicle _x) in FactionGet(reb,"staticMortars")) then
                 {
                     deleteVehicle vehicle _x
                 };
@@ -87,7 +87,7 @@ if (count _garrison > 0) then
     {
         if (_x == FactionGet(reb,"unitCrew")) then
         {
-            _costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
+            _costs = _costs + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)
         };
         _hr = _hr + 1;
         _costs = _costs + (server getVariable _x);

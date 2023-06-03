@@ -5,7 +5,7 @@
 
 <p align="center">
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/releases/latest">
-        <img src="https://img.shields.io/badge/Latest_Version-3.1.0-blue.svg?style=flat-square" alt="Antistasi Version">
+        <img src="https://img.shields.io/badge/Latest_Version-3.2.0-blue.svg?style=flat-square" alt="Antistasi Version">
     </a>
     <a href="https://github.com/official-antistasi-community/A3-Antistasi/issues">
         <img src="https://img.shields.io/github/issues/official-antistasi-community/A3-Antistasi?style=flat-square" alt="Issues">
@@ -46,7 +46,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
     - [Steam Workshop: 2498453852](https://steamcommunity.com/sharedfiles/filedetails/?id=2498453852)
 - 3CB BAF & Factions Base Collection
     - [Steam Workshop: 2575673140](https://steamcommunity.com/sharedfiles/filedetails/?id=2575673140)
-- 3CB BAF & Factions Base Collection
+- CUP Base Collection
     - [Steam Workshop: 2902920186](https://steamcommunity.com/sharedfiles/filedetails/?id=2902920186)
 
 
@@ -60,18 +60,17 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 - Persistent Stat Save System: You won't lose game or server progress upon a game update.
 - AI Garrisons that use static weapon you add.
 - Supports up to 3 Headless Clients.
-- NEW - Difficulty and enemy behaviour is balanced based on player count
-- NEW - Antistasi now has a Setup GUI for choosing factions, parameters, selecting a game to load or creating a new one.
-- NEW - You can have multiple campaigns running in parallel
-- NEW - Fuel economy system
-- NEW - Translated to Czech, French, Italian, Korean, Polish, Russian, Simplified Chinese and Spanish
+- Difficulty and enemy behaviour is balanced based on player count
+- Antistasi now has a Setup GUI for choosing factions, parameters, selecting a game to load or creating a new one.
+- You can have multiple campaigns running in parallel
+- Fuel economy system
 
 
 ## Antistasi Guide
-Check out our new [Antistasi Guide](https://official-antistasi-community.github.io/A3-Antistasi-Docs/index.html) with a ton of information.
+Check out our new [Antistasi Guide](https://antistasi.de/guide) with a ton of information.
 
 
-## [🛠 Building the Mod](https://https://official-antistasi-community.github.io/A3-Antistasi-Docs/dev_guide/dev/dev_guide_how_to_build.html)
+## [🛠 Building the Mod](https://official-antistasi-community.github.io/A3-Antistasi-Docs/dev_guide/dev/dev_guide_how_to_build.html)
 
 ## Known Issues:
 For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

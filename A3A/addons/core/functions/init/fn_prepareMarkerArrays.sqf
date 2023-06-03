@@ -108,7 +108,7 @@ fnc_sortPlacementMarker =
 
 // Autogenerate stuff like helipad placements for markers that don't have any defined spawn places
 {
-    private _spawnStr = format ["%1_spawns", _x];
+    private _spawnStr = format ["%1_vehicle_used", _x];
     if (isNil { spawner getVariable _spawnStr }) then {
         Debug_1("Generating additional spawn places for %1", _x);
         [_x, []] call A3A_fnc_initSpawnPlaces;

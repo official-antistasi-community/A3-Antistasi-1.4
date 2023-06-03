@@ -154,4 +154,7 @@ if (_medicX getVariable ["cancelRevive",false]) then {
     sleep 15;			// don't give other orders for a bit? Why not?
 };
 
+//AGN change
+[flagX, theBoss, objNull] remoteExec ["A3A_fnc_addTeleportToPole", 0];
+
 _cured			// probably doesn't matter, function is always spawned?

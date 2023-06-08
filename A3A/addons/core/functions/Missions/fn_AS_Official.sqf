@@ -22,10 +22,10 @@ _dateLimitNum = dateToNumber _dateLimit;
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
-private _taskString = format ["A %4 officer is inspecting %1. Go there and kill him before %2:%3.",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming];
+private _taskString = format [localize"STR_A3A_mission_AS_Official_description",_nameDest,numberToDate [2035,_dateLimitNum] select 3,numberToDate [2035,_dateLimitNum] select 4,_naming];
 
 private _taskId = "AS" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[_taskString,"Kill the Officer",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_taskString,localize"STR_A3A_mission_AS_Official_title",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _grp = createGroup _sideX;

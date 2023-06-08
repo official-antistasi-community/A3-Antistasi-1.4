@@ -5286,5 +5286,271 @@
         <Korean>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;&lt;t color='#%3'&gt;%4&lt;/t&gt; 키를 눌러 힌트를 해제하십시오. +%5&lt;/t&gt;</Korean>
       </Key>
     </Container>
+    <Container name="STR_A3A_missions">
+      <Key ID="STR_A3A_missions_title">
+        <Original>Missions</Original>
+      </Key>
+      <Key ID="STR_A3A_missions_petros_give">
+        <Original>I have a mission for you!</Original>
+      </Key>
+      <Key ID="STR_A3A_missions_petros_noMission">
+        <Original>I already gave you a mission of this type.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_Traitor_title">
+        <Original>Kill the Traitor</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_Traitor_description">
+        <Original>A traitor has scheduled a meeting with %4 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Protect_Contact_title">
+        <Original>Protect Contact</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Protect_Contact_description">
+        <Original>We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_Traitor_succeeded">
+        <Original>Someone found some intel on the traitors family, he will not cause any problems any more!</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_Official_title">
+        <Original>Kill the Officer</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_Official_description">
+        <Original>A %4 officer is inspecting %1. Go there and kill him before %2:%3.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_specOP_title">
+        <Original>SpecOps</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_specOP_description">
+        <Original>We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_petros_far">
+        <Original>I have no assassination missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_AS_hint_far">
+        <Original>Assassination Missions require cities, patrolled Jungles or Airports closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Conquer_Outpost_title">
+        <Original>Take the Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Conquer_Outpost_description">
+        <Original>A %1 is disturbing our operations in the area. Go there and capture it before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Resource_Acquisition_title">
+        <Original>Resource Acquisition</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_Resource_Acquisition_description">
+        <Original>A %1 would be a fine addition to our cause. Go there and capture it before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_CON_petros_far">
+        <Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_CON_hint_far">
+        <Original>Conquest Missions require roadblocks or outposts closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyAmmo_title">
+        <Original>Ammo Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyAmmo_description">
+        <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyArmored_title">
+        <Original>Armored Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyArmored_description">
+        <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyPrisoner_title">
+        <Original>Prisoner Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyPrisoner_description">
+        <Original>A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyReinforcements_title">
+        <Original>Reinforcements Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyReinforcements_description">
+        <Original>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMoney_title">
+        <Original>Money Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMoney_description">
+        <Original>A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoySupply_title">
+        <Original>Supply Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoySupply_description">
+        <Original>A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyProtect_title">
+        <Original>Protect Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyProtect_description">
+        <Original>A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMarker_escort">
+        <Original>Convoy Escort</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMarker_ObjectiveTab">
+        <Original> Convoy Objective</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMarker_Objective">
+        <Original>Convoy Objective</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoyMarker_Lead">
+        <Original>Convoy Lead</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoy_petros_battle">
+        <Original>There is a big battle around, I don't think the enemy will send any convoy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoy_hint_battle">
+        <Original>Convoy Missions require a calmed status around the island, and now it is not the proper time.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoy_petros_far">
+        <Original>I have no Convoy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_convoy_hint_far">
+        <Original>Convoy Missions require nearby enemy facilities, with a road route to an idle base within 3km.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Antenna_title">
+        <Original>Destroy Radio Tower</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Antenna_description">
+        <Original>We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Heli_title">
+        <Original>Downed Heli</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Heli_description">
+        <Original>We have downed a helicopter. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Veh_title">
+        <Original>Steal or Destroy Armor</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Veh_description">
+        <Original>We know an enemy armor (%3) is stationed in %1. It is a good chance to destroy or steal it before it causes more damage. Do it before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_Veh_notification">
+        <Original>AA Stolen in %1</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_petros_far">
+        <Original>I have no destroy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_DES_hint_far">
+        <Original>Destroy Missions require Airbases or Radio Towers closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Ammo_title">
+        <Original>Steal or Destroy Ammotruck</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Ammo_description">
+        <Original>We've spotted an Ammotruck in an %1. Go there and destroy or steal it before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Ammo_notification">
+        <Original>Ammotruck Stolen in an %1</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_title">
+        <Original>Bank Robbery</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_description">
+        <Original>We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_notification">
+        <Original>Bank of %1 being assaulted</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_HintTitle">
+        <Original>Bank Mission</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_Hint_driver">
+        <Original>Bring this truck to %1 Bank and park it in the main entrance</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_Hint_FarBank">
+        <Original>Don't get the truck far from the bank or count will restart</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Bank_Hint_back">
+        <Original>Drive the Truck back to base to finish this mission</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_petros_far">
+        <Original>I have no logistics missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_hint_far">
+        <Original>Logistics Missions require Outposts, Seaports or Banks closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Salvage_title">
+        <Original>Salvage supplies</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Salvage_description">
+        <Original>A supply shipment was sunk outside of %1. Go there and recover the supplies before %2. You will need to get a hold of a boat with a winch to recover the shipment, check beaches for civilian boats you can commandeer.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_title">
+        <Original>City Supplies</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_description">
+        <Original>%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. I have placed a crate with supplies near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_HintTitle">
+        <Original>Logistics Mission</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_Hint_info">
+        <Original>Deliver this box to %1, unload it to start distributing to people</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_action">
+        <Original>Delivery infos</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_marker">
+        <Original>Supply Box</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_notification">
+        <Original>%2 deploying supplies in %1</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_keepArea">
+        <Original>Keep the area clear of hostiles for %1 more seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_Delivered">
+        <Original>Supplies Delivered</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_LOG_Supplies_stayClose">
+        <Original>Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_SUPP_petros_far">
+        <Original>I have no support missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_SUPP_hint_far">
+        <Original>Support Missions require Cities closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_REP_Antenna_title">
+        <Original>Tower Rebuild Disrupt</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_REP_Antenna_description">
+        <Original>%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_Prisoners_title">
+        <Original>POW Rescue</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_Prisoners_description">
+        <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_Refugees_title">
+        <Original>Refugees Evac</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_Refugees_description">
+        <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_Refugees_description2">
+        <Original>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_petros_far">
+        <Original>I have no rescue missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_RES_hint_far">
+        <Original>Rescue Missions require Cities or Airports closer than 4Km from your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_UnderAttack_title">
+        <Original>%1 Contact Report</Original>
+      </Key>
+      <Key ID="STR_A3A_mission_UnderAttack_description">
+        <Original>%2 is attacking us in %1. Help the defense if you can</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

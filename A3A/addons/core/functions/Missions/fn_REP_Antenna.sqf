@@ -21,8 +21,8 @@ private _taskId = "REP" + str A3A_taskCount;
 	[teamPlayer, civilian],
 	_taskId,
 	[
-		format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,FactionGet(occ,"name")],
-		"Tower Rebuild Disrupt",
+		format [localize"STR_A3A_mission_REP_Antenna_description",_nameDest,_displayTime,FactionGet(occ,"name")],
+		localize"STR_A3A_mission_REP_Antenna_title",
 		_markerX
 	],
 	getPos _antennaDead,

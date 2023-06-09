@@ -5025,7 +5025,7 @@
         <Russian>Соседние юниты были вылечены, восстановлены и теперь могут снова уходить в гражданскую маскировку.&lt;br/&gt;&lt;br/&gt;Техника рядом:%1</Russian>
         <Korean>인근 유닛이 치료되고 새로워졌으며, 다시 위장할 수 있습니다.&lt;br/&gt;&lt;br/&gt;인근 차량은:%1</Korean>
         <Czech>Blízké jednotky byly vyléčeny, osvěženy a mohou být znovu v utajení.&lt;br/&gt;&lt;br/&gt;Blízká vozidla jsou:%1</Czech>
-        <Spanish>Las unidades cercanas han sido curadas, rehabilitadas y pueden ponerse de incógnito de nuevo.&lt;br/&gt;&lt;br/&gt;Los vehículos cercanos son:%1</Spanish>
+        <Spanish>Las unidades cercanas han sido curadas, rehabilitadas y pueden ponerse de incógnito de nuevo.&lt;br/&gt;&lt;br/&gt;Los vehículos cercanos:%1</Spanish>
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_noreported">
         <Original>&lt;br/&gt; - no longer reported</Original>

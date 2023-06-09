@@ -5195,7 +5195,7 @@
         <Original>Adding this squad to garrison will exceed garrison limit. Some of them will join garrison, the rest will be dismissed and their cost will be refunded.</Original>
         <Russian>Добавление этого отряда в гарнизон превысит лимит гарнизона. Какая-то их часть присоединится к гарнизону, оставшиеся будут распущены, а их стоимость будет возмещена.</Russian>
         <Korean>이 분대를 주둔지에 추가하면 주둔군 제한을 초과하게 됩니다. 그들 중 일부는 주둔지에 합류할 것이고, 나머지는 해산되며 비용은 환불될 것입니다.</Korean>
-        <Spanish>Añadir esta escuadra a la guarnición excederá el límite de la guarnición. Algunos de ellos se unirán a la guartnición, el resto serán descartados y su coste será reembolsado.</Spanish>
+        <Spanish>Añadir esta escuadra a la guarnición excederá el límite de la guarnición. Algunos de ellos se unirán a la guarnición, el resto serán descartados y su coste será reembolsado.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_reached_limit">
         <Original>Garrison limit has reached, you can't add new units anymore.</Original>

@@ -5091,7 +5091,7 @@
         <Russian>Загрузка сервера завершена.</Russian>
         <Polish>Zakończono ładowanie serwera.</Polish>
         <Portuguese>Carregamento servidor concluida</Portuguese>
-        <Spanish>Completada carga del servidor.</Spanish>
+        <Spanish>Completada la carga del servidor.</Spanish>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_waitserver">
         <Original>Waiting for server...</Original>

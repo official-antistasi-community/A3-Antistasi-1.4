@@ -5207,7 +5207,7 @@
         <Original>Select the zone on where you will send the selected troops as garrison.</Original>
         <Russian>Выберите зону, куда вы отправите выбранные войска в качестве гарнизона.</Russian>
         <Korean>선택한 병력을 주둔지로 보낼 구역을 선택하십시오.</Korean>
-        <Spanish>Selecciona la zona hacia la que vas a enviar los tropas seleccionadas como guarnición.</Spanish>
+        <Spanish>Selecciona la zona en la que vas a guarnicionar los tropas seleccionadas.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_markerzone">
         <Original>You must select any %1 zone with marker.</Original>

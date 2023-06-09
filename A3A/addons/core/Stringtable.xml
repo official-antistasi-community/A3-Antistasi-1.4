@@ -5320,7 +5320,7 @@
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>"Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times."</Original>
         <Korean>"쓰레기 청소 기록 프로그램이 임계값을 초과하여 쓰레기를 청소합니다. 쓰레기 청소 시간을 계속 기록합니다."</Korean>
-        <Spanish>"El Seguimiento del Limpiador de Basura ejecuta un limpiador a causa de superar el umbral de tiempo. Manten supervisado el Limpiador de Basura."</Spanish>
+        <Spanish>"El Seguimiento del Limpiador de Basura llevó a cabo una limpieza porque el umbral de tiempo fue superado. Mantén supervisado el Limpiador de Basura."</Spanish>
       </Key>
     </Container>
     <Container name="A3A_customHint">

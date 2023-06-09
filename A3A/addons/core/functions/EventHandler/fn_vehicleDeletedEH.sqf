@@ -6,6 +6,9 @@ params ["_veh"];
 private _landingPad = _veh getVariable "LandingPad";
 if (!isNil "_landingPad") then { deleteVehicle _landingPad };
 
+private _spawnPlace = _veh getVariable "spawnPlace";
+if (!isNil "_spawnPlace") then { [_spawnPlace] call A3A_fnc_freeSpawnPositions };
+
 private _side = _veh getVariable ["ownerSide", teamPlayer];
 private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
 if (!alive _veh || (_side != Occupants && _side != Invaders) || _vehCost == 0) exitWith {};

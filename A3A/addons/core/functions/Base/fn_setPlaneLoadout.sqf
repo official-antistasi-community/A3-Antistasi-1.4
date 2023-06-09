@@ -66,12 +66,20 @@ if (_type == "CAS") then
         case "UK3CB_TKA_B_Su25SM_CAS";
         case "UK3CB_LDF_B_Su25SM_CAS";
         case "UK3CB_ADA_I_Su25SM_CAS";
+        case "UK3CB_KDF_B_Su25SM_CAS";
         case "UK3CB_CW_SOV_O_LATE_Su25SM_CAS":
         {
             _loadout = ["rhs_mag_kh29D","rhs_mag_kh29D","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_b8m1_s8kom","rhs_mag_b8m1_s8kom","rhs_mag_R60M","rhs_mag_R60M","rhs_ASO2_CMFlare_Chaff_Magazine_x4"];
             _plane setVariable ["mainGun", "rhs_weap_gsh302"];
             _plane setVariable ["rocketLauncher", ["rhs_weap_s8"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_kh29d_Launcher", "rhs_weap_kh25mtp_Launcher"]];
+        };
+        case "rhssaf_airforce_l_18":
+        {
+            _loadout = ["rhs_mag_b8m1_bd3_umk2a_s8kom","rhs_mag_b8m1_bd3_umk2a_s8kom","rhs_mag_kh25MTP_apu68_mig29","rhs_mag_kh25MTP_apu68_mig29","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
+            _plane setVariable ["mainGun", "rhs_weap_gsh301"];
+            _plane setVariable ["rocketLauncher", ["rhs_weap_s8", "rhs_weap_s8df"]];
+            _plane setVariable ["missileLauncher", ["rhs_weap_kh25mtp_Launcher"]];
         };
         case "vn_b_air_f4c_at":
         {
@@ -195,6 +203,25 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["Uns_FFAR_HEAT_Launcher_dl"]];
             _plane setVariable ["missileLauncher", ["uns_AGM12_Launcher_dl"]];
         };
+        case "Tornado_AWS_camo_ger":
+        {
+            _loadout = ["Tornado_AWS_ECMpod_1rnd_M","FIR_IRIS_T_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_DM_type1_P_3rnd_M","FIR_Brimstone_DM_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_DM_type2_P_3rnd_M","FIR_Brimstone_DM_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_IRIS_T_P_1rnd_M","Tornado_AWS_AIRCMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
+            _plane setVariable ["mainGun", "Tornado_AWS_CANNON_W"];
+            _plane setVariable ["missileLauncher", ["FIR_Brimstone"]];
+        };
+        // IFA test planes
+        case "LIB_Ju87": {
+            _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50"];
+            _plane setVariable ["mainGun", "LIB_2xMG151_JU87"];
+            _plane setVariable ["bombRacks", ["LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [15, -2]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
+        case "LIB_Pe2": {
+            _loadout = ["LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250"];
+            _plane setVariable ["mainGun", "LIB_UBK_PE2"];
+            _plane setVariable ["bombRacks", ["LIB_FAB250_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [12, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);
@@ -243,7 +270,12 @@ if (_type == "AA") then
         {
             _loadout = ["rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R74M2_int","rhs_mag_R74M2_int","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170"];
         };
+        case "rhssaf_airforce_o_l_18_101":
+        {
+            _loadout = ["rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
+        };
         case "UK3CB_ANA_B_L39_PYLON";
+        case "UK3CB_KDF_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";
@@ -326,6 +358,15 @@ if (_type == "AA") then
         {
             _loadout = ["uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1Rnd_K13","uns_pylonRack_1rnd_fuel_mig21","uns_pylonRack_1rnd_fuel_mig21","uns_pylonRack_1rnd_fuel_mig21"];
 
+        };
+        //SEAD but no other Ground Weapons so AA
+        case "Tornado_AWS_ecr_ger":
+        {
+            _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","","FIR_AGM88_P_1rnd_M","FIR_AGM88_P_1rnd_M","","","","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","",""];
+        };
+        case "Tornado_AWS_GER":
+        {
+            _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_type2_P_3rnd_M","FIR_Brimstone_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
         };
         default
         {

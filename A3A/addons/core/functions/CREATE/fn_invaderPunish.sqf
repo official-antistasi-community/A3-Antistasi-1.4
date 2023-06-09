@@ -81,7 +81,7 @@ while {count _civilians < _numCiv} do
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };
-    [leader _groupCivil, _mrkDest, "AWARE","SPAWNED","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
+    [_groupCivil, "Patrol_Defend", 0, 100, -1, true, _pos, false] call A3A_fnc_patrolLoop;
 };
 
 

@@ -27,20 +27,29 @@ if !(isServer) then {
 
     // Headless client navgrid init
     if (!hasInterface) then {
-        Info("Headless client UPSMON init started");
-        [] call UPSMON_fnc_Init_UPSMON;
-        Info("Headless client UPSMON init completed");
+        Info("HC Initialising PATCOM Variables");
+        [] call A3A_fnc_patrolInit;
 
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;
+    };
+
+    if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+        isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+        // disable lambs danger fsm entrypoint
+        ["CAManBase", "InitPost", {
+            params ["_unit"];
+            (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+            _unit setVariable ["lambs_danger_disableAI", true];
+        }] call CBA_fnc_addClassEventHandler;
     };
 };
 
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
 while {true} do {
     private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
-    isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr] call A3A_fnc_customHint };         // not re-entrant, apparently
+    isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr, true] call A3A_fnc_customHint };         // not re-entrant, apparently
     if (A3A_startupState == "completed") exitWith {};
     sleep 0.1;
 };
@@ -93,8 +102,6 @@ player setVariable ["spawner",true,true];
 if (A3A_hasTFAR || A3A_hasTFARBeta) then {
     [] spawn A3A_fnc_radioJam;
 };
-
-[] spawn A3A_fnc_ambientCivs;
 
 if (isMultiplayer && {playerMarkersEnabled}) then {
     [] spawn A3A_fnc_playerMarkers;
@@ -402,7 +409,7 @@ mapX addAction ["Game Options", {
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
         "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str civPerc +
+        "<br/>Civilian Limit: "+ str globalCivilianMax +
         "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
@@ -432,15 +439,6 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
-// Check if we need to relocate HQ. Might happen if we leave during placement?
-// Should be replaced with server-side monitoring loop
-if (isNil "placementDone") then {
-    if (isNil "playerPlacingHQ" || {!(playerPlacingHQ in (call A3A_fnc_playableUnits))}) then {
-        playerPlacingHQ = player;
-        publicVariable "playerPlacingHQ";
-        [] spawn A3A_fnc_placementSelection;
-    };
-};
 
 initClientDone = true;
 Info("initClient completed");

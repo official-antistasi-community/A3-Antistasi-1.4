@@ -29,16 +29,11 @@ FIX_LINE_NUMBERS()
 params[["_tab","_vehicles"], ["_params",[]]];
 
 private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;
-private _selectedTab = -1;
 
-if (_tab isEqualTo "vehicles") then
+if (_tab isEqualTo "vehicles") then 
 {
-    _selectedTab = A3A_IDC_VEHICLESGROUP;
+    _params params ["_tab", "_selectedTab", "_arrayOfClasses"];
     Debug("BuyVehicleTab starting...");
-
-    // show the vehicle tab so that user don't freak out
-    private _selectedTabCtrl = _display displayCtrl A3A_IDC_BUYVEHICLEMAIN;
-    _selectedTabCtrl ctrlShow true;
 
     // Setup Object render
     private _objPreview = _display displayCtrl A3A_IDC_BUYOBJECTRENDER;  // 9303;
@@ -47,35 +42,15 @@ if (_tab isEqualTo "vehicles") then
     // Add stuff to the buyable vehicles list
     private _buyableVehiclesList = [];
 
-    // Add civ vehicles to the list
-    private _civilianVehicles = [
-        A3A_faction_reb get 'vehicleCivCar',
-        A3A_faction_reb get 'vehicleCivTruck',
-        A3A_faction_reb get 'vehicleCivHeli',
-        A3A_faction_reb get 'vehicleCivBoat'
-    ];
-
     {
         private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
-        _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
-    } forEach _civilianVehicles;
-
-    // Add military vehicles to the list
-    private _militaryVehicles = [
-        A3A_faction_reb get 'vehicleBasic',
-        A3A_faction_reb get 'vehicleLightUnarmed',
-        A3A_faction_reb get 'vehicleTruck',
-        A3A_faction_reb get 'vehicleLightArmed',
-        A3A_faction_reb get 'staticMG',
-        A3A_faction_reb get 'staticMortar',
-        A3A_faction_reb get 'staticAT',
-        A3A_faction_reb get 'staticAA'
-    ];
-
-    {
-        private _vehiclePrice = [_x] call A3A_fnc_vehiclePrice;
-        _buyableVehiclesList pushBack [_x, _vehiclePrice, false];
-    } forEach _militaryVehicles;
+        if(_tab isEqualTo A3A_IDC_BUYREBVEHICLEMAIN || _tab isEqualTo A3A_IDC_BUYSTATICMAIN) then {
+            _buyableVehiclesList pushBack [_x, _vehiclePrice, false];
+        } else {
+            // civ vehicle
+            _buyableVehiclesList pushBack [_x, _vehiclePrice, true];
+        };
+    } forEach _arrayOfClasses;
 
     private _vehiclesControlsGroup = _display displayCtrl _selectedTab;
 
@@ -135,7 +110,6 @@ if (_tab isEqualTo "vehicles") then
                 if (true || isNil "Dev_GUI_prevInjectEnter") then {
                     params ["_control"];
                     private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-
                     private _model = _control getVariable "model";
                     private _className = _control getVariable "className";
                     private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;  // 9300;
@@ -156,7 +130,6 @@ if (_tab isEqualTo "vehicles") then
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {
@@ -325,6 +298,7 @@ if (_tab isEqualTo "vehicles") then
 if  (_tab in ["other"]) then
 {
     Debug("BuyLogisticsTab starting...");
+    private _selectedTab = -1;
 
     if(_tab isEqualTo "other") then
     {
@@ -343,34 +317,108 @@ if  (_tab in ["other"]) then
         _buyableItemList pushBack [
             _fuelDrum # 0,
             _fuelDrum # 1,
-            "A3A_fnc_buyItem",
+            "A3A_fnc_buyItem", 
             [
                 player,
-                _fuelDrum # 0,
-                _fuelDrum # 1,
+                _fuelDrum # 0,  
+                _fuelDrum # 1, 
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
                 ]
-            ],
+            ], 
             false,
             "Fuel Drum"
         ];
-
+    
         private _fuelTank = (A3A_faction_reb get 'vehicleFuelTank');
         _buyableItemList pushBack [
-            _fuelTank # 0,
+            _fuelTank # 0, 
             _fuelTank # 1,
-            "A3A_fnc_buyItem",
-            [
-                player,
-                _fuelTank # 0,
-                _fuelTank # 1,
+            "HR_GRG_fnc_confirmPlacement", [
+                _fuelTank # 0, 
+                "LARGEITEM",
                 [
-                    ['A3A_fnc_initMovableObject', false], ['A3A_Logistics_fnc_addLoadAction', false]
+                    player,
+                    _fuelTank # 0,  
+                    _fuelTank # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ]
                 ]
             ],
             true,
             "Fuel Tank"
+        ];
+        
+
+        private _medCrate = FactionGet(reb,"vehicleMedicalBox");
+        _buyableItemList pushBack [
+            _medCrate # 0, 
+            _medCrate # 1,
+            "A3A_fnc_medicalBox", 
+            [], 
+            false,
+            "Medical Box"
+        ];
+
+        private _medTent  = FactionGet(reb,"vehicleHealthStation");
+        _buyableItemList pushBack [
+            _medTent  # 0, 
+            _medTent  # 1,
+            "HR_GRG_fnc_confirmPlacement", [
+                _medTent  # 0,
+                "LARGEITEM",
+                [
+                    player,
+                    _medTent  # 0,  
+                    _medTent  # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_initPackableObjects', true], ['A3A_fnc_openDoorsTent', true]
+                    ]
+                ]
+            ],
+            false,
+            "Medical Tent"
+        ];
+
+        private _ammoStation = FactionGet(reb,"vehicleAmmoStation");
+        _buyableItemList pushBack [
+            _ammoStation # 0, 
+            _ammoStation # 1,
+            "HR_GRG_fnc_confirmPlacement", [
+                _ammoStation  # 0,
+                "LARGEITEM",
+                [
+                    player,
+                    _ammoStation # 0,  
+                    _ammoStation # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]
+                    ]
+                ]
+            ],
+            false,
+            "Ammo Station"
+        ];
+
+        private _repairStation = FactionGet(reb,"vehicleRepairStation");
+        _buyableItemList pushBack [
+            _repairStation # 0, 
+            _repairStation # 1,
+            "HR_GRG_fnc_confirmPlacement", [
+                _repairStation  # 0,
+                "LARGEITEM",
+                [
+                    player,
+                    _repairStation # 0,  
+                    _repairStation # 1, 
+                    [
+                        ['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false], ['A3A_Logistics_fnc_initPackableObjects', true]
+                    ]
+                ]
+            ],
+            false,
+            "Repair Station"
         ];
 
         //LTC
@@ -378,13 +426,12 @@ if  (_tab in ["other"]) then
             _buyableItemList pushBack [
                 A3A_faction_occ get 'surrenderCrate',
                 10,
-                "A3A_fnc_spawnCrate",
+                "A3A_fnc_spawnCrate", 
                 [player],
                 false,
                 "Loot Box"
             ];
         };
-
         _buyableItemList pushBack [
             A3A_faction_reb get 'vehicleLightSource',
             25,
@@ -394,13 +441,38 @@ if  (_tab in ["other"]) then
                 A3A_faction_reb get 'vehicleLightSource',
                 25,
                 [
-                    ['A3A_fnc_initMovableObject', false]
+                    ['A3A_fnc_initMovableObject', true]
                 ]
-            ],
+            ], 
             false,
             "Light"
         ];
 
+        if(A3A_hasACE) then {
+            _buyableItemList pushBack [
+                "ACE_Wheel",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Wheel",
+                    5
+                ], 
+                false
+            ];
+
+            _buyableItemList pushBack [
+                "ACE_Track",
+                5,
+                "A3A_fnc_buyItem",
+                [
+                    player,
+                    "ACE_Track",
+                    5
+                ], 
+                false
+            ];
+        };
 
     private _itemControlsGroup = _display displayCtrl _selectedTab;
 
@@ -484,7 +556,6 @@ if  (_tab in ["other"]) then
                     private _boundingDiameter = [_className] call FUNC(sizeOf);
                     _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
                     _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-
                     private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_BUYVEHICLEPREVIEW;  // 9304;
                     private _mouseAbsolutePos = getMousePosition;
                     private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
@@ -495,7 +566,6 @@ if  (_tab in ["other"]) then
                     _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
                     _editorPreviewPicture ctrlShow false;
                     _editorPreviewPicture ctrlCommit 1;
-
                     _objPreview ctrlShow true;
                     _objPreview ctrlEnable false;  // Prevent the user dragging it.
                 } else {
@@ -544,6 +614,34 @@ if  (_tab in ["other"]) then
             _ltcIcon ctrlSetTooltip format [localize "STR_antistasi_dialogs_buy_vehicle_loot_tooltip", _displayName, getNumber(_configClass >> "maximumLoad")];
             _ltcIcon ctrlCommit 0;
         };
+
+        if (_className in [(A3A_faction_reb get 'vehicleMedicalBox')#0, (A3A_faction_reb get 'vehicleHealthStation')#0]) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Heal;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_med_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
+        if (_className isEqualTo (FactionGet(reb,"vehicleAmmoStation")#0)) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Rearm;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_ammo_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
+        if (_className isEqualTo (FactionGet(reb,"vehicleRepairStation")#0)) then
+        {
+            private _ltcIcon = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
+            _ltcIcon ctrlSetPosition [1 * GRID_W, 1 * GRID_H, 3 * GRID_W, 3 * GRID_H];
+            _ltcIcon ctrlSetText A3A_Icon_Repair;
+            _ltcIcon ctrlSetTooltip localize "STR_antistasi_dialogs_buy_vehicle_repair_tooltip";
+            _ltcIcon ctrlCommit 0;
+        };
+
 
         // Show item
         _itemControlsGroup ctrlSetFade 0;

@@ -5201,7 +5201,7 @@
         <Original>Garrison limit has reached, you can't add new units anymore.</Original>
         <Russian>Достигнут лимит гарнизона, вы больше не можете добавлять в него новые юниты.</Russian>
         <Korean>주둔지가 한계에 도달했으며, 더 이상 새 유닛을 추가할 수 없습니다.</Korean>
-        <Spanish>La guarnición ha alcanzado su límite, no puedes añadir más unidades nuevas.</Spanish>
+        <Spanish>La guarnición ha alcanzado su límite, no puedes añadir nuevas unidades.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_select_zone">
         <Original>Select the zone on where you will send the selected troops as garrison.</Original>

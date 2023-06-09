@@ -2990,7 +2990,7 @@
         <Polish>Wczytaj Stare Parametry</Polish>
         <Portuguese>Copiar parametros anteriores</Portuguese>
         <Chinesesimp>复制之前的参数</Chinesesimp>
-        <Spanish>Cargar parámetros antiguos</Spanish>
+        <Spanish>Cargar parámetros existentes</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
         <Original>Use New Save file</Original>

@@ -2978,7 +2978,7 @@
         <Polish>Skopiuj Starą Rozgrywkę</Polish>
         <Portuguese>copiar jogo antigo</Portuguese>
         <Chinesesimp>加载之前的存档</Chinesesimp>
-        <Spanish>Copiar Partida antigua</Spanish>
+        <Spanish>Copiar Partida existente</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_load_old_params">
         <Original>Load old params</Original>

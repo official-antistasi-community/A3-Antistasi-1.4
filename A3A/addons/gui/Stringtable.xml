@@ -631,7 +631,7 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot\n%1 max load is %2</Original>
         <Korean>이 아이템은 전리품을 수집할 수 있습니다.\n%1의 처ㅣ대 수용량은 %2입니다.</Korean>
-        <Spanish>Este objeto puede recolectar el loot \nLa carga máxima de %1 es %2</Spanish>
+        <Spanish>Este objeto puede recolectar loot \nLa carga máxima de %1 es %2</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
         <Original>This item has medical capability</Original>

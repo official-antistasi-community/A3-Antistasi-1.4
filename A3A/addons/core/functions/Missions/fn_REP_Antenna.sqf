@@ -21,8 +21,8 @@ private _taskId = "REP" + str A3A_taskCount;
 	[teamPlayer, civilian],
 	_taskId,
 	[
-		format [localize"STR_A3A_mission_REP_Antenna_description",_nameDest,_displayTime,FactionGet(occ,"name")],
-		localize"STR_A3A_mission_REP_Antenna_title",
+		format [localize "STR_A3A_mission_REP_Antenna_description",_nameDest,_displayTime,FactionGet(occ,"name")],
+		localize "STR_A3A_mission_REP_Antenna_title",
 		_markerX
 	],
 	getPos _antennaDead,

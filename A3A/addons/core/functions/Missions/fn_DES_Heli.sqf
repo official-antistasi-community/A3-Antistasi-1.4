@@ -97,8 +97,8 @@ private _dateLimitNum = dateToNumber _dateLimit;
 Info("Creating Helicopter Down mission");
 private _location = [_missionOrigin] call A3A_fnc_localizar;
 private _taskId = "DES" + str A3A_taskCount;
-private _text = format [localize"STR_A3A_mission_DES_Heli_description",_location];
-[[teamPlayer,civilian],_taskId,[_text,localize"STR_A3A_mission_DES_Heli_title",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+private _text = format [localize "STR_A3A_mission_DES_Heli_description",_location];
+[[teamPlayer,civilian],_taskId,[_text,localize "STR_A3A_mission_DES_Heli_title",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ////////////////

@@ -15,7 +15,7 @@ if(isNil "_type") then {
 };
 if (isNil "_type" or leader group petros != petros) exitWith { A3A_missionRequestInProgress = nil };
 if (_type in A3A_activeTasks) exitWith {
-	if (!_silent) then {[petros,"globalChat",localize"STR_A3A_missions_petros_noMission"] remoteExec ["A3A_fnc_commsMP",_requester]};
+	if (!_silent) then {[petros,"globalChat",localize "STR_A3A_missions_petros_noMission"] remoteExec ["A3A_fnc_commsMP",_requester]};
 	A3A_missionRequestInProgress = nil;
 };
 
@@ -51,8 +51,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_AS_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_AS_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_AS_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_AS_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -68,8 +68,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_CON_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_CON_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_CON_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_CON_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -92,8 +92,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_DES_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_DES_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_DES_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_DES_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -120,8 +120,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_LOG_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_LOG_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_LOG_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_LOG_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -146,8 +146,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_SUPP_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_SUPP_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_SUPP_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_SUPP_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
             Debug_1("City weights: %1", _weightedMarkers);
@@ -165,8 +165,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_RES_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_RES_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_RES_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_RES_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _site = selectRandom _possibleMarkers;
@@ -177,8 +177,8 @@ switch (_type) do {
 	case "CONVOY": {
 		if (bigAttackInProgress) exitWith {
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_convoy_petros_battle"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_convoy_hint_battle", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_convoy_petros_battle"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_convoy_hint_battle", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		};
 		// only do the city convoys on flip?
@@ -200,8 +200,8 @@ switch (_type) do {
 		if (count _possibleMarkers == 0) then
 		{
 			if (!_silent) then {
-				[petros,"globalChat",localize"STR_A3A_mission_convoy_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize"STR_A3A_mission_convoy_hint_far", localize"STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_convoy_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_convoy_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
 			private _convoyPair = selectRandom _convoyPairs;
@@ -215,7 +215,7 @@ switch (_type) do {
 };
 
 if (count _possibleMarkers > 0) then {
-	if (!_silent) then {[petros,"globalChat",localize"STR_A3A_missions_petros_give"] remoteExec ["A3A_fnc_commsMP",_requester]};
+	if (!_silent) then {[petros,"globalChat",localize "STR_A3A_missions_petros_give"] remoteExec ["A3A_fnc_commsMP",_requester]};
 	sleep 3;			// delay lockout until the mission is registered
 };
 A3A_missionRequestInProgress = nil;

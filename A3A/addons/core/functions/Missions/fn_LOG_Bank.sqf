@@ -43,15 +43,15 @@ _truckX addEventHandler ["GetIn",
 	{
 	if (_this select 1 == "driver") then
 		{
-		_textX = format [localize"STR_A3A_mission_LOG_Bank_Hint_driver",(_this select 0) getVariable "destinationX"];
-		[localize"STR_A3A_mission_LOG_Bank_HintTitle", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
+		_textX = format [localize "STR_A3A_mission_LOG_Bank_Hint_driver",(_this select 0) getVariable "destinationX"];
+		[localize "STR_A3A_mission_LOG_Bank_HintTitle", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
 		};
 	}];
 
 [_truckX,"Mission Vehicle"] spawn A3A_fnc_inmuneConvoy;
 
 private _taskId = "LOG" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[format [localize"STR_A3A_mission_LOG_Bank_description",_nameDest,_displayTime],localize"STR_A3A_mission_LOG_Bank_title",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[format [localize "STR_A3A_mission_LOG_Bank_description",_nameDest,_displayTime],localize "STR_A3A_mission_LOG_Bank_title",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
 [_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groups = [];
@@ -85,7 +85,7 @@ else
     private _reveal = [_positionX, Occupants] call A3A_fnc_calculateSupportCallReveal;
     [Occupants, _truckX, _positionX, 4, _reveal] remoteExec ["A3A_fnc_requestSupport", 2];
 	[10*_bonus,-20*_bonus,_markerX] remoteExec ["A3A_fnc_citySupportChange",2];
-	["TaskFailed", ["", format [localize"STR_A3A_mission_LOG_Bank_notification",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskFailed", ["", format [localize "STR_A3A_mission_LOG_Bank_notification",_nameDest]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (_friendX distance _truckX < 300) then
 		{
@@ -107,14 +107,14 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize"STR_A3A_mission_LOG_Bank_Hint_FarBank", localize"STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_FarBank", localize "STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX < 7) or (dateToNumber date < _dateLimitNum)};
 			}
 		else
 			{
 			if (alive _truckX) then
 				{
-				{if (isPlayer _x) then {[petros,"hint",localize"STR_A3A_mission_LOG_Bank_Hint_back", localize"STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+				{if (isPlayer _x) then {[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_back", localize "STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 				_exit = true;
 				};
 			//waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX > 7) or (dateToNumber date < _dateLimitNum)};

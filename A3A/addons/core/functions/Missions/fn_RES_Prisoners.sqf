@@ -28,7 +28,7 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 _nameDest = [_markerX] call A3A_fnc_localizar;
 
 private _taskId = "RES" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[format [localize"STR_A3A_mission_RES_Prisoners_description",_nameDest,_displayTime],localize"STR_A3A_mission_RES_Prisoners_title",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[format [localize "STR_A3A_mission_RES_Prisoners_description",_nameDest,_displayTime],localize "STR_A3A_mission_RES_Prisoners_title",_markerX],_positionX,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //_blacklistbld = ["Land_Cargo_HQ_V1_F", "Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F"];

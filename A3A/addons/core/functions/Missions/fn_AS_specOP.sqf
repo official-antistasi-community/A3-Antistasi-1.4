@@ -19,10 +19,10 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _naming = if (_sideX == Occupants) then {"NATO"} else {"CSAT"};
-private _taskString = format [localize"STR_A3A_mission_AS_specOP_description",_nameDest,_displayTime];
+private _taskString = format [localize "STR_A3A_mission_AS_specOP_description",_nameDest,_displayTime];
 private _taskId = "AS" + str A3A_taskCount;
 
-[[teamPlayer,civilian],_taskId,[_taskString,localize"STR_A3A_mission_AS_specOP_title",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_taskString,localize "STR_A3A_mission_AS_specOP_title",_markerX],_positionX,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 waitUntil  {sleep 5; (dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
 

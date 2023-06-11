@@ -40,11 +40,11 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-_textX = if (_sideX == Occupants) then {format [localize"STR_A3A_mission_RES_Refugees_description",_nameDest,_displayTime]} else {format [localize"STR_A3A_mission_RES_Refugees_description2",_nameDest,FactionGet(inv,"name"),FactionGet(reb,"name")]};
+_textX = if (_sideX == Occupants) then {format [localize "STR_A3A_mission_RES_Refugees_description",_nameDest,_displayTime]} else {format [localize "STR_A3A_mission_RES_Refugees_description2",_nameDest,FactionGet(inv,"name"),FactionGet(reb,"name")]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
 private _taskId = "RES" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[_textX,localize"STR_A3A_mission_RES_Refugees_title",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_textX,localize "STR_A3A_mission_RES_Refugees_title",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groupPOW = createGroup teamPlayer;

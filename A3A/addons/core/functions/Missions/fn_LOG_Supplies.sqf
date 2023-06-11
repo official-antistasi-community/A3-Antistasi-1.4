@@ -21,10 +21,10 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _nameDest = [_markerX] call A3A_fnc_localizar;
 _holdTime = if(_difficultX) then {4} else {2};
-_taskDescription = format [localize"STR_A3A_mission_LOG_Supplies_description",_nameDest,_displayTime, _holdTime];
+_taskDescription = format [localize "STR_A3A_mission_LOG_Supplies_description",_nameDest,_displayTime, _holdTime];
 
 private _taskId = "SUPP" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[_taskDescription,localize"STR_A3A_mission_LOG_Supplies_title",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_taskDescription,localize "STR_A3A_mission_LOG_Supplies_title",_markerX],_positionX,false,0,true,"Heal",true] call BIS_fnc_taskCreate;
 [_taskId, "SUPP", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 //Creating the box
@@ -33,10 +33,10 @@ _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
 [_truckX] call A3A_Logistics_fnc_addLoadAction;
-_truckX addAction [localize"STR_A3A_mission_LOG_Supplies_action",
+_truckX addAction [localize "STR_A3A_mission_LOG_Supplies_action",
 	{
-		_text = format [localize"STR_A3A_mission_LOG_Supplies_Hint_info",(_this select 0) getVariable "destinationX"]; //This need a rework
-		[localize"STR_A3A_mission_LOG_Supplies_HintTitle", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
+		_text = format [localize "STR_A3A_mission_LOG_Supplies_Hint_info",(_this select 0) getVariable "destinationX"]; //This need a rework
+		[localize "STR_A3A_mission_LOG_Supplies_HintTitle", _text] remoteExecCall ["A3A_fnc_customHint",_this select 2];	//This need a rework
 	},
 	nil,
 	0,
@@ -49,7 +49,7 @@ _truckX addAction [localize"STR_A3A_mission_LOG_Supplies_action",
 //{_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
 _truckX setVariable ["destinationX",_nameDest,true];
 
-[_truckX,localize"STR_A3A_mission_LOG_Supplies_marker"] spawn A3A_fnc_inmuneConvoy;
+[_truckX,localize "STR_A3A_mission_LOG_Supplies_marker"] spawn A3A_fnc_inmuneConvoy;
 
 waitUntil {sleep 1; (dateToNumber date > _dateLimitNum) or ((_truckX distance _positionX < 40) and (isNull attachedTo _truckX) and (isNull ropeAttachedTo _truckX)) or (isNull _truckX)};
 _bonus = if (_difficultX) then {2} else {1};
@@ -62,7 +62,7 @@ if ((dateToNumber date > _dateLimitNum) or (isNull _truckX)) then
 else
 	{
 	_countX = 120*_bonus;//120
-	["TaskFailed", ["", format [localize"STR_A3A_mission_LOG_Supplies_notification",_nameDest,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskFailed", ["", format [localize "STR_A3A_mission_LOG_Supplies_notification",_nameDest,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	{_friendX = _x;
 	if (captive _friendX) then
 		{
@@ -81,22 +81,22 @@ else
 		{
 		while {(_countX > 0) and (_truckX distance _positionX < 40) and ({[_x] call A3A_fnc_canFight} count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits) == count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0) and (dateToNumber date < _dateLimitNum) and (isNull attachedTo _truckX)} do
 			{
-			_formatX = format [localize"STR_A3A_mission_LOG_Supplies_keepArea", _countX];
-			{if (isPlayer _x) then {[petros,"hint",_formatX,localize"STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+			_formatX = format [localize "STR_A3A_mission_LOG_Supplies_keepArea", _countX];
+			{if (isPlayer _x) then {[petros,"hint",_formatX,localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 			sleep 1;
 			_countX = _countX - 1;
 			};
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint",localize"STR_A3A_mission_LOG_Supplies_stayClose", localize"STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint",localize "STR_A3A_mission_LOG_Supplies_stayClose", localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; ((_truckX distance _positionX < 40) and ([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0)) or (dateToNumber date > _dateLimitNum) or (isNull _truckX)};
 			};
 		if (_countX < 1) exitWith {};
 		};
 		if ((dateToNumber date < _dateLimitNum) and !(isNull _truckX)) then
 			{
-			[petros,"hint",localize"STR_A3A_mission_LOG_Supplies_Delivered", localize"STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+			[petros,"hint",localize "STR_A3A_mission_LOG_Supplies_Delivered", localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 			[_taskId, "SUPP", "SUCCEEDED"] call A3A_fnc_taskSetState;
 			{if (_x distance _positionX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
 			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;

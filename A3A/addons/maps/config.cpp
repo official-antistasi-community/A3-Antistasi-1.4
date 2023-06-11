@@ -36,6 +36,7 @@ class CfgMissions
         A3A_Mission(Enoch)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
+        A3A_Mission(regero)
         A3A_Mission(sara)
 #if __A3_DEBUG__
         A3A_Mission(Stratis)

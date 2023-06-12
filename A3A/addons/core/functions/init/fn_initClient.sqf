@@ -391,9 +391,6 @@ vehicleBox addAction ["Buy Vehicle", {
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 call A3A_fnc_dropObject;
-if (LootToCrateEnabled) then {
-    call A3A_fnc_initLootToCrate;
-};
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 

@@ -24,6 +24,14 @@
 //  ["RHS_AH64D_GS", ["cost", 300]],           // no hellfires
     ["RHS_AH64D", ["cost", 350]],
     ["RHS_AH64D_CS", ["cost", 350]],
-    ["RHS_AH64D_AA", ["cost", 350]]
+    ["RHS_AH64D_AA", ["cost", 350]],
+	
+	//Cost adjustments for ChDKZ
+    ["rhsgref_ins_ural_Zu23", ["cost", 75]], //Softskinned Zu platforms
+    ["rhsgref_ins_gaz66_zu23", ["cost", 75]],//Softskinned Zu platforms
+    ["rhsgref_BRDM2_HQ_ins", ["cost", 50]],
+    ["rhsgref_BRDM2UM_ins", ["cost", 40]],
+    ["rhsgref_ins_uaz", ["cost", 10]],
+    ["rhsgref_ins_uaz_open", ["cost", 10]]
 
 ]] call _fnc_saveToTemplate;

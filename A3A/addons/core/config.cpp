@@ -58,3 +58,5 @@ class CfgMPGameTypes {
         description = "";
     };
 };
+
+#include "CfgMarkers.hpp"

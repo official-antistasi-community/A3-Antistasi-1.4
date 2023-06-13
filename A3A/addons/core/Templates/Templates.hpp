@@ -185,6 +185,16 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
 
+    class RHS_CHDKZ : RHS_Base
+    {
+        side = "Inv";
+        flagTexture = "rhsgref\addons\rhsgref_main\data\flag_chdkz_co.paa";
+        name = "RHS ChDKZ";
+        file = "RHS_AI_ChDKZ";
+        maps[] = {"chernarus_summer","chernarus_winter","chernarus"};
+        logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+    };
+	
     class RHS_CDF : RHS_Base
     {
         side = "Occ";

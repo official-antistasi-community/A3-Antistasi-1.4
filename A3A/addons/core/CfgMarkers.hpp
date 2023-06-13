@@ -18,4 +18,9 @@ class CfgMarkers {
 		icon = QPATHTOFOLDER(data\map\markers\flags\serbia_ca.paa);
 		texture = QPATHTOFOLDER(data\map\markers\flags\serbia_ca.paa);
 	};
+	class a3a_flag_chdkz: flag_NATO {
+		name = "ChDKZ";
+		icon = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
+		texture = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
+	};
 };

@@ -238,8 +238,11 @@ _militaryLoadoutData set ["saboteurCarbines", [
 ["rhs_weap_m92", "rhs_acc_pbs1", "", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_U"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74n_2_gp25", "rhs_acc_dtk1983", "", "rhs_acc_ekp1", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_aks74n_gp25", "rhs_acc_dtk1983", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak103_gp25", "rhs_acc_dtk", "", "rhs_acc_ekp1", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["rhs_weap_savz61"
 ]];
@@ -303,7 +306,6 @@ _militiaLoadoutData set ["slRifles", [
 ["rhs_weap_aks74_2", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
 ["rhs_weap_ak74_2", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
 ["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_ak74_2_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_aks74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_akm_gp25", "rhs_acc_dtk", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
@@ -331,7 +333,8 @@ _militiaLoadoutData set ["saboteurCarbines", [
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+["rhs_weap_ak74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_aks74_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
 //_militiaLoadoutData set ["SMGs", []];
 _militiaLoadoutData set ["machineGuns", [
@@ -598,38 +601,7 @@ private _explosivesExpertTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    ["saboteurCarbines"] call _fnc_setPrimary;
-    ["primary", 5] call _fnc_addMagazines;
-
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
-
-    ["items_medical_standard"] call _fnc_addItemSet;
-    ["items_explosivesExpert_extras"] call _fnc_addItemSet;
-    ["items_miscEssentials"] call _fnc_addItemSet;
-
-    ["lightExplosives", 2] call _fnc_addItem;
-    if (random 1 > 0.5) then {["heavyExplosives", 1] call _fnc_addItem;};
-    if (random 1 > 0.5) then {["atMines", 1] call _fnc_addItem;};
-    if (random 1 > 0.5) then {["apMines", 1] call _fnc_addItem;};
-
-    ["antiInfantryGrenades", 1] call _fnc_addItem;
-    ["smokeGrenades", 1] call _fnc_addItem;
-
-    ["maps"] call _fnc_addMap;
-    ["watches"] call _fnc_addWatch;
-    ["compasses"] call _fnc_addCompass;
-    ["radios"] call _fnc_addRadio;
-    ["NVGs"] call _fnc_addNVGs;
-};
-private _sfexplosivesExpertTemplate = {
-    ["helmets"] call _fnc_setHelmet;
-    ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
-    ["aaBackpacks"] call _fnc_setBackpack;
-
-    [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
+    [["saboteurCarbines", selectRandom ["rifles", "carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -661,7 +633,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    ["carbines"] call _fnc_setPrimary;
+    [["saboteurCarbines", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -950,7 +922,7 @@ private _unarmedTemplate = {
 private _traitorTemplate = {
     call _unarmedTemplate;
     ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
+    ["handgun", 8] call _fnc_addMagazines;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////
@@ -967,7 +939,7 @@ private _unitTypes = [
     ["Rifleman", _riflemanTemplate],
     ["Medic", _medicTemplate, [["medic", true]]],
     ["Engineer", _engineerTemplate, [["engineer", true]]],
-    ["ExplosivesExpert", _sfexplosivesExpertTemplate, [["explosiveSpecialist", true]]],
+    ["ExplosivesExpert", _explosivesExpertTemplate, [["explosiveSpecialist", true]]],
     ["Grenadier", _grenadierTemplate],
     ["LAT", _latTemplate],
     ["AT", _sfatTemplate],

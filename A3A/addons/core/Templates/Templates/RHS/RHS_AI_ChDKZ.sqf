@@ -54,7 +54,7 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhsgref_ins_btr60","rhsgref_ins_btr70", "rhsgref_BRDM2_ins","rhsgref_BRDM2_ins", "rhsgref_ins_bmp2"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["rhsgref_ins_btr60","rhsgref_ins_btr70", "rhsgref_BRDM2_ins","rhsgref_BRDM2_ins", "rhsgref_ins_bmp2","rhsgref_ins_bmp1"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvsc"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhs_mig29s_vvs","rhs_mig29sm_vvs"]] call _fnc_saveToTemplate;

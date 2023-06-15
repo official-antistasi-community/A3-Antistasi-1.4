@@ -27,7 +27,6 @@
     ["RHS_AH64D_AA", ["cost", 350]],
 	
 	//Cost adjustments for ChDKZ
-    ["RHS_Mi8MTV3_heavy_vvsc", ["cost", 170]],
     ["rhsgref_BRDM2_HQ_ins", ["cost", 50]],
     ["rhsgref_BRDM2UM_ins", ["cost", 40]],
     ["rhsgref_ins_uaz", ["cost", 10]],

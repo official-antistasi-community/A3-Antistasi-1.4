@@ -27,8 +27,7 @@
     ["RHS_AH64D_AA", ["cost", 350]],
 	
 	//Cost adjustments for ChDKZ
-    ["rhsgref_ins_ural_Zu23", ["cost", 75]], //Softskinned Zu platforms
-    ["rhsgref_ins_gaz66_zu23", ["cost", 75]],//Softskinned Zu platforms
+    ["RHS_Mi8MTV3_heavy_vvsc", ["cost", 170]],
     ["rhsgref_BRDM2_HQ_ins", ["cost", 50]],
     ["rhsgref_BRDM2UM_ins", ["cost", 40]],
     ["rhsgref_ins_uaz", ["cost", 10]],

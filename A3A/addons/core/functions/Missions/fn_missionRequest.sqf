@@ -146,8 +146,8 @@ switch (_type) do {
 
 		if (count _possibleMarkers == 0) then {
 			if (!_silent) then {
-				[petros,"globalChat",localize "STR_A3A_mission_SUPP_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
-				[petros,"hint",localize "STR_A3A_mission_SUPP_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"globalChat",localize "STR_A3A_mission_LOG_petros_far"] remoteExec ["A3A_fnc_commsMP",_requester];
+				[petros,"hint",localize "STR_A3A_mission_LOG_hint_far", localize "STR_A3A_missions_title"] remoteExec ["A3A_fnc_commsMP",_requester];
 			};
 		} else {
             Debug_1("City weights: %1", _weightedMarkers);

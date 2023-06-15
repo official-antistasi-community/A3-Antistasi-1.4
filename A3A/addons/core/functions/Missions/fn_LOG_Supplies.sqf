@@ -81,7 +81,7 @@ else
 		{
 		while {(_countX > 0) and (_truckX distance _positionX < 40) and ({[_x] call A3A_fnc_canFight} count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits) == count ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0) and (dateToNumber date < _dateLimitNum) and (isNull attachedTo _truckX)} do
 			{
-			_formatX = format [localize "STR_A3A_mission_LOG_Supplies_keepArea", _countX];
+			_formatX = format [localize "STR_A3A_mission_LOG_Supplies_keep_аrea", _countX];
 			{if (isPlayer _x) then {[petros,"hint",_formatX,localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 			sleep 1;
 			_countX = _countX - 1;
@@ -89,7 +89,7 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint",localize "STR_A3A_mission_LOG_Supplies_stayClose", localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (((_truckX distance _positionX > 40) or (not([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits)) or ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits != 0)) and (alive _truckX)) then {{[petros,"hint","Stay close to the crate, and clean all BLUFOR presence in the surroundings or count will restart", localize "STR_A3A_mission_LOG_Supplies_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([100,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; ((_truckX distance _positionX < 40) and ([80,1,_truckX,teamPlayer] call A3A_fnc_distanceUnits) and ({(side _x == Occupants) and (_x distance _truckX < 50)} count allUnits == 0)) or (dateToNumber date > _dateLimitNum) or (isNull _truckX)};
 			};
 		if (_countX < 1) exitWith {};

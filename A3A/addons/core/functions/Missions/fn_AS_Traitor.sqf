@@ -56,7 +56,7 @@ _posTsk = (position _houseX) getPos [random 100, random 360];
 
 private _taskId = "AS" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskID,[format [localize "STR_A3A_mission_AS_Traitor_description",_nameDest,_displayTime,FactionGet(occ,"name")],localize "STR_A3A_mission_AS_Traitor_title",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
-[[Occupants],_taskID+"B",[format [localize "STR_A3A_mission_Protect_Contact_description",_nameDest,_displayTime,FactionGet(reb,"name")],localize "STR_A3A_mission_Protect_Contact_title",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[Occupants],_taskID+"B",[format [localize "STR_A3A_mission_AS_Protect_description",_nameDest,_displayTime,FactionGet(reb,"name")],localize "STR_A3A_mission_AS_Protect_title",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 traitorIntel = false; publicVariable "traitorIntel";

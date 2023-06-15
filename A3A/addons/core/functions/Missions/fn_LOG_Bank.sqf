@@ -44,7 +44,7 @@ _truckX addEventHandler ["GetIn",
 	if (_this select 1 == "driver") then
 		{
 		_textX = format [localize "STR_A3A_mission_LOG_Bank_Hint_driver",(_this select 0) getVariable "destinationX"];
-		[localize "STR_A3A_mission_LOG_Bank_HintTitle", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
+		[localize "STR_A3A_mission_LOG_Bank_Hint_Title", _textX] remoteExecCall ["A3A_fnc_customHint", _this select 2];
 		};
 	}];
 
@@ -107,14 +107,14 @@ else
 		if (_countX > 0) then
 			{
 			_countX = 120*_bonus;//120
-			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_FarBank", localize "STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
+			if (_truckX distance _positionX > 6) then {{[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_Far", localize "STR_A3A_mission_LOG_Bank_Hint_Title"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([200,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits)};
 			waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX < 7) or (dateToNumber date < _dateLimitNum)};
 			}
 		else
 			{
 			if (alive _truckX) then
 				{
-				{if (isPlayer _x) then {[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_back", localize "STR_A3A_mission_LOG_Bank_HintTitle"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
+				{if (isPlayer _x) then {[petros,"hint",localize "STR_A3A_mission_LOG_Bank_Hint_back", localize "STR_A3A_mission_LOG_Bank_Hint_Title"] remoteExec ["A3A_fnc_commsMP",_x]}} forEach ([80,0,_truckX,teamPlayer] call A3A_fnc_distanceUnits);
 				_exit = true;
 				};
 			//waitUntil {sleep 1; (!alive _truckX) or (_truckX distance _positionX > 7) or (dateToNumber date < _dateLimitNum)};

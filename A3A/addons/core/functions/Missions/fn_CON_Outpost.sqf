@@ -25,13 +25,13 @@ _textX = "";
 _taskName = "";
 if (_markerX in resourcesX) then
 	{
-	_textX = format [localize "STR_A3A_mission_Resource_Acquisition_description",_nameDest,_displayTime];
-	_taskName = localize "STR_A3A_mission_Resource_Acquisition_title";
+	_textX = format [localize "STR_A3A_mission_CON_Resource_description",_nameDest,_displayTime];
+	_taskName = localize "STR_A3A_mission_CON_Resource_title";
 	}
 else
 	{
-	_textX = format [localize "STR_A3A_mission_Conquer_Outpost_description",_nameDest,_displayTime];
-	_taskName = localize "STR_A3A_mission_Conquer_Outpost_title";
+	_textX = format [localize "STR_A3A_mission_CON_Outpost_description",_nameDest,_displayTime];
+	_taskName = localize "STR_A3A_mission_CON_Outpost_title";
 	};
 
 private _taskId = "CON" + str A3A_taskCount;

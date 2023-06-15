@@ -65,43 +65,43 @@ switch (tolower _convoyType) do
 {
     case "ammunition":
     {
-        _textX = format [localize "STR_A3A_mission_convoyAmmo_description",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = localize "STR_A3A_mission_convoyAmmo_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Ammo_description",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_mission_convoy_Ammo_title";
         _taskIcon = "rearm";
         _typeVehObj = selectRandom (_faction get "vehiclesAmmoTrucks");
     };
     case "armor":
     {
-        _textX = format [localize "STR_A3A_mission_convoyArmored_description",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = localize "STR_A3A_mission_convoyArmored_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Armored_description",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_mission_convoy_Armored_title";
         _taskIcon = "Destroy";
         _typeVehObj = selectRandom (_faction get "vehiclesAA");
     };
     case "prisoners":
     {
-        _textX = format [localize "STR_A3A_mission_convoyPrisoner_description",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = localize "STR_A3A_mission_convoyPrisoner_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Prisoner_description",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_mission_convoy_Prisoner_title";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
     case "reinforcements":
     {
-        _textX = format [localize "STR_A3A_mission_convoyReinforcements_description",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = localize "STR_A3A_mission_convoyReinforcements_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Reinforcements_description",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_mission_convoy_Reinforcements_title";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
     case "money":
     {
-        _textX = format [localize "STR_A3A_mission_convoyMoney_description",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = localize "STR_A3A_mission_convoyMoney_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Money_description",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_mission_convoy_Money_title";
         _taskIcon = "move";
         _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
     case "supplies":
     {
-        _textX = format [localize "STR_A3A_mission_convoySupply_description",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
-        _taskTitle = localize "STR_A3A_mission_convoySupply_title";
+        _textX = format [localize "STR_A3A_mission_convoy_Supply_description",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
+        _taskTitle = localize "STR_A3A_mission_convoy_Supply_title";
         _taskIcon = "heal";
         _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
@@ -114,7 +114,7 @@ private _posDest = navGrid select ([_mrkDest] call A3A_fnc_getMarkerNavPoint) se
 
 private _taskId = "CONVOY" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_sideX],_taskID+"B",[format [localize "STR_A3A_mission_convoyProtect_description",_nameOrigin,_displayTime,_nameDest],localize "STR_A3A_mission_convoyProtect_title",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[_sideX],_taskID+"B",[format [localize "STR_A3A_mission_convoy_Protect_description",_nameOrigin,_displayTime,_nameDest],localize "STR_A3A_mission_convoy_Protect_title",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ServerInfo_3("%1 convoy mission created from %2 to %3", _convoyType, _mrkOrigin, _mrkDest);
@@ -164,7 +164,7 @@ private _fnc_spawnConvoyVehicle = {
 
 private _fnc_spawnEscortVehicle = {
     private _typeVehEsc = selectRandomWeighted _vehPool;
-    private _veh = [_typeVehEsc, localize "STR_A3A_mission_convoyMarker_escort"] call _fnc_spawnConvoyVehicle;
+    private _veh = [_typeVehEsc, localize "STR_A3A_mission_convoy_Marker_escort"] call _fnc_spawnConvoyVehicle;
 
     private _typeGroup = [_typeVehEsc, _sideX] call A3A_fnc_cargoSeats;
     if (count _typeGroup == 0) exitWith {};
@@ -179,7 +179,7 @@ private _fnc_spawnEscortVehicle = {
 
 // Objective vehicle
 sleep 2;
-private _objText = if (_difficult) then {localize "STR_A3A_mission_convoyMarker_ObjectiveTab"} else {localize "STR_A3A_mission_convoyMarker_Objective"};
+private _objText = if (_difficult) then {" " + localize "STR_A3A_mission_convoy_Marker_Objective"} else {localize "STR_A3A_mission_convoy_Marker_Objective"};
 private _vehObj = [_typeVehObj, _objText] call _fnc_spawnConvoyVehicle;
 
 //if (_convoyType == "Armor") then {_vehObj allowCrewInImmobile true;};
@@ -231,7 +231,7 @@ for "_i" from 1 to _countX do
 // Lead vehicle
 sleep 2;
 private _typeVehX = selectRandom (if (_sideX == Occupants && random 4 < tierWar) then {_faction get "vehiclesPolice"} else {_faction get "vehiclesLightArmed"});
-private _vehLead = [_typeVehX, localize "STR_A3A_mission_convoyMarker_Lead"] call _fnc_spawnConvoyVehicle;
+private _vehLead = [_typeVehX, localize "STR_A3A_mission_convoy_Marker_Lead"] call _fnc_spawnConvoyVehicle;
 
 // Apply convoy resource cost, if it's from attack or defence pool
 if (_resPool != "legacy") then {

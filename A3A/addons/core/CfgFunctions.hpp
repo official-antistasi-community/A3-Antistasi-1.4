@@ -752,7 +752,6 @@ class CfgFunctions
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};
             class getItemListFromDLC {};
-            class zeusLogging {};
         };
 
         class UtilityItems {

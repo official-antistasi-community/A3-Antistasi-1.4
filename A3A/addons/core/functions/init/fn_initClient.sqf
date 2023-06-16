@@ -99,7 +99,7 @@ autoHeal = true;				//Should AI in player squad automatically heal teammates
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 
-if (A3A_hasTFAR || A3A_hasTFARBeta) then {
+if (A3A_hasTFAR || A3A_hasTFARBeta || A3A_hasACRE) then {
     [] spawn A3A_fnc_radioJam;
 };
 
@@ -391,9 +391,6 @@ vehicleBox addAction ["Buy Vehicle", {
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 call A3A_fnc_dropObject;
-if (LootToCrateEnabled) then {
-    call A3A_fnc_initLootToCrate;
-};
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 

@@ -41,7 +41,7 @@ private _staticAA = ["I_static_AA_F"];
 
 if (allowDLCWS) then {
   _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA insert [0, "I_Tura_ZU23_lxWS"];
+  _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
 };
 ["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;

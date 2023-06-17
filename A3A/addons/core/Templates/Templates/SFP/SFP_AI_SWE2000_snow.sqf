@@ -167,7 +167,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", []];
+_sfLoadoutData set ["uniforms", ["sfp_m90s_uniform"]];
 _sfLoadoutData set ["vests", []];
 _sfLoadoutData set ["backpacks", []];
 _sfLoadoutData set ["helmets", []];
@@ -187,7 +187,7 @@ _sfLoadoutData set ["sidearms", []];
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", []];
+_militaryLoadoutData set ["uniforms", ["sfp_m90s_uniform_ws","sfp_m90s_uniform","sfp_m90s_uniform_sw"]];
 _militaryLoadoutData set ["vests", []];
 _militaryLoadoutData set ["backpacks", []];
 _militaryLoadoutData set ["helmets", []];
@@ -208,19 +208,20 @@ _militaryLoadoutData set ["sidearms", []];
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
-_policeLoadoutData set ["uniforms", []];
-_policeLoadoutData set ["vests", []];
-_policeLoadoutData set ["helmets", []];
+_policeLoadoutData set ["uniforms", ["sfp_police_uniform_modern_reflective","sfp_police_uniform_modern"]];
+_policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
+_policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
-_policeLoadoutData set ["SMGs", []];
-_policeLoadoutData set ["sidearms", []];
+_policeLoadoutData set ["SMGs", ["sfp_mp5", "sfp_kpistm45"]];
+_policeLoadoutData set ["shotguns", ["sfp_remington870", "sfp_remington870_chrome","sfp_remington870_wood_chrome","sfp_remington870_wood_blue"]];
+_policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]],"sfp_p226"];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", []];
+_militiaLoadoutData set ["uniforms", ["sfp_m90s_uniform_ws","sfp_m90s_uniform_sw"]];
 _militiaLoadoutData set ["vests", []];
 _militiaLoadoutData set ["backpacks", []];
 _militiaLoadoutData set ["helmets", []];

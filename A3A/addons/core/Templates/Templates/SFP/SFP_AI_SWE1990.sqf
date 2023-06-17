@@ -207,12 +207,13 @@ _militaryLoadoutData set ["sidearms", []];
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
-_policeLoadoutData set ["uniforms", []];
-_policeLoadoutData set ["vests", []];
-_policeLoadoutData set ["helmets", []];
+_policeLoadoutData set ["uniforms", ["sfp_police_uniform_modern_reflective","sfp_police_uniform_modern"]];
+_policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
+_policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
-_policeLoadoutData set ["SMGs", []];
-_policeLoadoutData set ["sidearms", []];
+_policeLoadoutData set ["SMGs", ["sfp_kpistm45"]];
+_policeLoadoutData set ["shotguns", ["sfp_remington870_wood_chrome","sfp_remington870_wood_blue"]];
+_policeLoadoutData set ["sidearms", ["sfp_revolver58"]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //

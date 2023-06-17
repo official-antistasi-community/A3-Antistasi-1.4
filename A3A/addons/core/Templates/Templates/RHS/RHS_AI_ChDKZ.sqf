@@ -198,12 +198,9 @@ _militaryLoadoutData set ["backpacks", []];
 _militaryLoadoutData set ["slBackpacks", ["rhs_r148"]];
 _militaryLoadoutData set ["helmets", [
 "rhs_ssh60","rhs_ssh68_2", "rhs_ssh60","rhs_ssh68_2", 
-"rhs_6b47_bare", "rhs_6b28_green", "rhs_6b27m_green", "rhs_6b26_green",
 "rhs_6b47_bare", "rhs_6b28_green", "rhs_6b27m_green", "rhs_6b26_green", //RU supplied
 "rhsgref_6b27m_ttsko_digi","rhsgref_6b27m_ttsko_forest","rhsgref_6b27m_ttsko_mouintain","rhsgref_6b27m_ttsko_urban", //Stolen from CDF
-"rhsgref_bcap_specter", "H_Cap_blk","H_Cap_oli","H_Cap_oli_hs",
-"rhs_beanie","rhs_beanie_green","H_Watchcap_blk","H_Watchcap_khk",
-"H_Bandanna_khk_hs","H_Bandanna_khk","H_Bandanna_gry", ""
+"", "", ""
 ]];
 _militaryLoadoutData set ["slHat", ["H_Beret_blk"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
@@ -277,10 +274,7 @@ private _militiaLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 //_militiaLoadoutData set ["backpacks", []];
 _militiaLoadoutData set ["vests", ["rhs_6b2","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militiaLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog"]];
-_militiaLoadoutData set ["helmets", ["rhs_ssh60","rhs_ssh68_2", 
-"rhsgref_bcap_specter", "H_Cap_blk","H_Cap_oli","H_Cap_oli_hs",
-"rhs_beanie","rhs_beanie_green","H_Watchcap_blk","H_Watchcap_khk",
-"H_Bandanna_khk_hs","H_Bandanna_khk","H_Bandanna_gry"]];
+_militiaLoadoutData set ["helmets", ["rhs_ssh60","rhs_ssh68_2", "", ""]];
 _militiaLoadoutData set ["NVGs", []];
 _militiaLoadoutData set ["slHat", ["rhsgref_patrolcap_specter"]];
 
@@ -496,7 +490,6 @@ _pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_alt", "rhs_zsh7a_mike", "rhs_
 private _squadLeaderTemplate = {
 	[["slHat","helmets"] call _fnc_fallback]call _fnc_setHelmet;
     [["slVests","glVests"] call _fnc_fallback] call _fnc_setVest;
-    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
 
     [["slBackpacks","backpacks"] call _fnc_fallback] call _fnc_setBackpack;
@@ -823,7 +816,6 @@ private _machineGunnerTemplate = {
 private _marksmanTemplate = {
     ["sniHats"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
-    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
@@ -850,7 +842,6 @@ private _marksmanTemplate = {
 private _sniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
-    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 

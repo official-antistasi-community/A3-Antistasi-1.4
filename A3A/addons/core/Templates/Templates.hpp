@@ -261,7 +261,22 @@ class Templates
         file = "RHS_AI_SAF";
     };
 
-    // ***************************** 3CB Factions *****************************
+    //************* SFP ********************************************************
+    class SFP_Base
+    {
+        requiredAddons[] = {"Swedish_Forces_Pack"};
+        basepath = QPATHTOFOLDER(Templates\Templates\SFP);
+        logo = "\sfp_config\data\logos\sfp_logo_ca.paa";
+        priority = 30;
+    };
+    class SFP_SAF : SFP_Base
+    {
+	    side = "Occ";
+	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
+        name = "SFP SwAF";
+        file = "RHS_AI_SAF";
+    };
+    //************* 3CB Factions ***************************************************
 
     class 3CBF_Base
     {

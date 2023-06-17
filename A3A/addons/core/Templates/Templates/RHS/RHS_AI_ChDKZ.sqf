@@ -279,7 +279,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["rhsgref_uniform_reed","rhsgref_uniform_reed","rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g","rhsgref_uniform_vsr"]];
+_militaryLoadoutData set ["uniforms", ["rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g","rhsgref_uniform_vsr"]];
 _militaryLoadoutData set ["vests", ["rhs_6b3_AK_3","rhs_6b3_AK_2","rhs_6b3_AK","rhs_6b3","rhs_6b2_AK","rhs_6b2_chicom","rhs_6b2_lifchik","rhs_6b2_RPK","rhs_6b2_SVD","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militaryLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
 _militaryLoadoutData set ["slVests", ["rhs_6sh92_digi_vog_headset","rhs_6sh92_vog_headset","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
@@ -376,6 +376,7 @@ _policeLoadoutData set ["sidearms", ["rhs_weap_makarov_pm","rhs_weap_tt33"]];
 
 private _militiaLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 
+_militiaLoadoutData set ["uniforms", ["rhsgref_uniform_reed"]];
 _militiaLoadoutData set ["vests", ["rhs_6b2","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militiaLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog"]];
 _militiaLoadoutData set ["helmets", ["rhs_ssh60","rhs_ssh68_2", "", ""]];

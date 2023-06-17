@@ -373,6 +373,7 @@ _sfLoadoutData set ["slHat", ["rhs_beret_mvd"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_03"]];
 _sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15"]];
 
+_sfLoadoutData set ["facewear", ["rhs_balaclava1_olive", "rhs_balaclava", "G_Balaclava_oli","G_Balaclava_blk",""]];
 
 _sfLoadoutData set ["slRifles", [
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk4screws", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm_89"], [], "rhs_acc_grip_ffg2"],
@@ -454,6 +455,7 @@ _policeLoadoutData set ["uniforms", ["rhs_uniform_omon"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police", "H_PASGT_basic_blue_F", "rhs_omon_cap"]];
 _policeLoadoutData set ["NVGs", []];
+_policeLoadoutData set ["facewear", []];
 
 _policeLoadoutData set ["SMGs", ["rhs_weap_savz61","rhs_weap_pp2000","rhs_weap_savz61",
 ["rhs_weap_pp2000", "", "", "", ["rhs_mag_9x19mm_7n31_44"], [], ""]

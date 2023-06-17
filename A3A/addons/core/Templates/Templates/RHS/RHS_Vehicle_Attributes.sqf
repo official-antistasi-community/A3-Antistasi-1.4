@@ -27,9 +27,10 @@
     ["RHS_AH64D_AA", ["cost", 350]],
 	
 	//Cost adjustments for ChDKZ
-    ["rhsgref_BRDM2_HQ_ins", ["cost", 50]],
-    ["rhsgref_BRDM2UM_ins", ["cost", 40]],
-    ["rhsgref_ins_uaz", ["cost", 10]],
-    ["rhsgref_ins_uaz_open", ["cost", 10]]
+    ["RHS_Mi24P_vvsc", ["cost", 170]], 		//Cheaper attack heli
+    ["rhsgref_BRDM2_HQ_ins", ["cost", 50]], //Single limited arc PK
+    ["rhsgref_BRDM2UM_ins", ["cost", 40]], 	
+    ["rhsgref_ins_uaz", ["cost", 10]],      
+    ["rhsgref_ins_uaz_open", ["cost", 10]]	
 
 ]] call _fnc_saveToTemplate;

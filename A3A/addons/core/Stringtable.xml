@@ -5506,10 +5506,10 @@
       <Key ID="STR_A3A_mission_LOG_Supplies_Delivered">
         <Original>Supplies Delivered</Original>
       </Key>
-      <Key ID="STR_A3A_mission_LOG_petros_far">
+      <Key ID="STR_A3A_mission_LOG_Supplies_petros_far">
         <Original>I have no support missions for you. Move our HQ closer to the enemy.</Original>
       </Key>
-      <Key ID="STR_A3A_mission_LOG_hint_far">
+      <Key ID="STR_A3A_mission_LOG_Supplies_hint_far">
         <Original>Support Missions require Cities closer than 4Km from your HQ.</Original>
       </Key>
       <Key ID="STR_A3A_mission_REP_Antenna_title">

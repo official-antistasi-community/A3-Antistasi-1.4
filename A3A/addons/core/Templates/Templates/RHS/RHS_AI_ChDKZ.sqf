@@ -147,7 +147,7 @@ _loadoutData set ["rangefinders", ["Rangefinder"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
-_loadoutData set ["backpacks", []];
+_loadoutData set ["backpacks", ["rhs_sidor"]];
 _loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
 _loadoutData set ["atBackpacks", ["rhs_rpg_vl"]];
 _loadoutData set ["aaBackpacks", ["B_Carryall_oli"]];
@@ -283,8 +283,6 @@ _militaryLoadoutData set ["uniforms", ["rhsgref_uniform_reed","rhsgref_uniform_r
 _militaryLoadoutData set ["vests", ["rhs_6b3_AK_3","rhs_6b3_AK_2","rhs_6b3_AK","rhs_6b3","rhs_6b2_AK","rhs_6b2_chicom","rhs_6b2_lifchik","rhs_6b2_RPK","rhs_6b2_SVD","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militaryLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
 _militaryLoadoutData set ["slVests", ["rhs_6sh92_digi_vog_headset","rhs_6sh92_vog_headset","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
-_militaryLoadoutData set ["backpacks", []];
-_militaryLoadoutData set ["slBackpacks", ["rhs_r148"]];
 _militaryLoadoutData set ["helmets", [
 "rhs_ssh60","rhs_ssh68_2", "rhs_ssh60","rhs_ssh68_2", 
 "rhs_6b47_bare", "rhs_6b28_green", "rhs_6b27m_green", "rhs_6b26_green", //RU supplied
@@ -384,10 +382,7 @@ _militiaLoadoutData set ["helmets", ["rhs_ssh60","rhs_ssh68_2", "", ""]];
 _militiaLoadoutData set ["NVGs", []];
 _militiaLoadoutData set ["slHat", ["rhsgref_patrolcap_specter"]];
 
-
-_militiaLoadoutData set ["lightATLaunchers", ["rhs_weap_rpg18","rhs_weap_rpg18",
-["rhs_weap_rpg7", "", "", "",["rhs_rpg7_OG7V_mag"], [], ""]
-]];
+_militiaLoadoutData set ["lightATLaunchers", ["rhs_weap_rpg18"]];
 _militiaLoadoutData set ["ATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
@@ -397,7 +392,6 @@ _militiaLoadoutData set ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7VS_mag"], [], ""],
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_TBG7V_mag"], [], ""]
 ]];
-
 
 _militiaLoadoutData set ["slRifles", [
 ["rhs_weap_akm", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
@@ -483,7 +477,7 @@ private _squadLeaderTemplate = {
     [["slVests","glVests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-    [["slBackpacks","backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    ["backpacks"] call _fnc_setBackpack;
 
     [["slRifles", "grenadeLaunchers"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -821,7 +815,6 @@ private _policeTemplate = {
     ["vests"] call _fnc_setVest;
     ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     [selectRandomWeighted["SMGs",2, "rifles",2, "shotGuns",1]] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;

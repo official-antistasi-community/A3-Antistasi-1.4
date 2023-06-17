@@ -260,6 +260,7 @@ class Templates
         name = "RHS SAF";
         file = "RHS_AI_SAF";
     };
+	
 
     //************* SFP ********************************************************
     class SFP_Base
@@ -267,15 +268,47 @@ class Templates
         requiredAddons[] = {"Swedish_Forces_Pack"};
         basepath = QPATHTOFOLDER(Templates\Templates\SFP);
         logo = "\sfp_config\data\logos\sfp_logo_ca.paa";
-        priority = 30;
+	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
+        priority = 70;
     };
-    class SFP_SAF : SFP_Base
+    class SFP_SAF90 : SFP_Base
     {
 	    side = "Occ";
-	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
-        name = "SFP SwAF";
-        file = "RHS_AI_SAF";
+        name = "SFP SwAF '90";
+        file = "SFP_AI_SWE1990";
     };
+    class SFP_SAF00 : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '00";
+        file = "SFP_AI_SWE2000";
+    };
+    class SFP_SAF15 : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '15";
+        file = "SFP_AI_SWE2015";
+    };
+    class SFP_SAF35 : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '35";
+        file = "SFP_AI_SWE2035";
+    };
+	#if __A3_DEBUG__
+    class SFP_SAF00_W : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '00 ARTIC";
+        file = "SFP_AI_SWE2000_snow";
+    };
+    class SFP_SAF15_D : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '15 ARID";
+        file = "SFP_AI_SWE2015_desert";
+    };
+	#endif
     //************* 3CB Factions ***************************************************
 
     class 3CBF_Base

@@ -83,7 +83,7 @@
 ["voices", []] call _fnc_saveToTemplate;
 //SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
 ["sfVoices", []] call _fnc_saveToTemplate;
-["sfFaces", []] call _fnc_saveToTemplate;
+["sfFaces", ["sfp_face01_camo","sfp_face02_camo"]] call _fnc_saveToTemplate;
 ["milVoices", []] call _fnc_saveToTemplate;
 ["milFaces", []] call _fnc_saveToTemplate;
 ["polVoices", []] call _fnc_saveToTemplate;

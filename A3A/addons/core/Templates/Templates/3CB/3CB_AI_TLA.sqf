@@ -1,7 +1,7 @@
 //////////////////////////
 //   Side Information   //
 //////////////////////////
-
+//Tanoan Liberation Army
 ["name", "TLA"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "TLA Support Corridor"] call _fnc_saveToTemplate;
 
@@ -19,16 +19,16 @@
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["UK3CB_ARD_O_YAVA"]] call _fnc_saveToTemplate; 
-["vehiclesLightUnarmed", ["UK3CB_ARD_O_Hilux_Open","UK3CB_ARD_O_Hilux_Closed","UK3CB_CW_SOV_O_EARLY_UAZ_Closed","UK3CB_CW_SOV_O_EARLY_UAZ_Open","UK3CB_CW_SOV_O_EARLY_BRDM2_UM","UK3CB_CW_SOV_O_EARLY_BTR40"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_ARD_O_Hilux_Dshkm","UK3CB_ARD_O_Hilux_M2","UK3CB_ARD_O_Hilux_GMG","UK3CB_ARD_O_Hilux_Spg9","UK3CB_ARD_O_Hilux_Metis","UK3CB_CW_SOV_O_EARLY_UAZ_MG","UK3CB_CW_SOV_O_EARLY_UAZ_AGS30","UK3CB_CW_SOV_O_EARLY_UAZ_SPG9"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightUnarmed", ["UK3CB_ARD_O_Hilux_Open","UK3CB_ARD_O_Hilux_Closed","UK3CB_CW_SOV_O_EARLY_BRDM2_UM","UK3CB_CW_SOV_O_EARLY_BTR40"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_ARD_O_Hilux_Dshkm","UK3CB_ARD_O_Hilux_M2","UK3CB_ARD_O_Hilux_GMG","UK3CB_ARD_O_Hilux_Spg9","UK3CB_ARD_O_Hilux_Metis","UK3CB_CW_SOV_O_EARLY_Gaz66_ZU23"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered","UK3CB_CW_SOV_O_EARLY_Gaz66_Open","UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered_Flatbed","UK3CB_CW_SOV_O_EARLY_Gaz66_Open_Flatbed","UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Repair","UK3CB_CW_SOV_O_EARLY_Ural_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_CW_SOV_O_EARLY_Ural_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Med"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_EARLY_BRDM2","UK3CB_CW_SOV_O_EARLY_BRDM2_HQ","UK3CB_CW_SOV_O_EARLY_BTR40_MG","UK3CB_CW_SOV_O_EARLY_MTLB_PKT"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["UK3CB_CW_SOV_O_EARLY_BMD1","UK3CB_CW_SOV_O_EARLY_BMD1K","UK3CB_CW_SOV_O_EARLY_BMD1PK","UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70","rhs_btr60_msv","rhs_btr70_msv","UK3CB_CW_SOV_O_EARLY_MTLB_KPVT","UK3CB_CW_SOV_O_EARLY_MTLB_BMP"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_EARLY_BRDM2","UK3CB_CW_SOV_O_EARLY_BRDM2","UK3CB_CW_SOV_O_EARLY_BRDM2_HQ","UK3CB_CW_SOV_O_EARLY_BTR40_MG","UK3CB_CW_SOV_O_EARLY_MTLB_PKT"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesAPCs", ["UK3CB_CW_SOV_O_EARLY_BMD1","UK3CB_CW_SOV_O_EARLY_BMD1K","UK3CB_CW_SOV_O_EARLY_BMD1PK","UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70","UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70","UK3CB_CW_SOV_O_EARLY_MTLB_KPVT","UK3CB_CW_SOV_O_EARLY_MTLB_BMP"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["UK3CB_CW_SOV_O_EARLY_BMP1","UK3CB_CW_SOV_O_EARLY_BMP2","UK3CB_CW_SOV_O_EARLY_BMP2K"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", ["UK3CB_CW_SOV_O_EARLY_T55","UK3CB_ARD_O_T34"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_CW_SOV_O_EARLY_ZsuTank"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
@@ -36,7 +36,7 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_CHD_O_Fishing_Boat_DSHKM"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70","rhs_btr60_msv","rhs_btr70_msv"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70","UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["UK3CB_CW_SOV_O_EARLY_MIG21_CAS","UK3CB_CW_SOV_O_EARLY_MIG21","UK3CB_CW_SOV_O_EARLY_LI2_ARMED","UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed_Bombs"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["UK3CB_CW_SOV_O_EARLY_MIG21_AA"]] call _fnc_saveToTemplate;              // 
@@ -51,8 +51,8 @@
 ["vehiclesArtillery", ["UK3CB_CW_SOV_O_EARLY_BM21","UK3CB_ARD_O_Hilux_Rocket_Arty","rhs_D30_msv"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["UK3CB_CW_SOV_O_EARLY_BM21", ["rhs_mag_m21of_1"]],
-["UK3CB_ARD_O_Hilux_Rocket_Arty", [Magazines]],
-["rhs_D30_msv", [Magazines]]
+["UK3CB_ARD_O_Hilux_Rocket_Arty", ["122mm_10rnds"]],
+["rhs_D30_msv", ["rhs_mag_3of56_10"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
 ["uavsAttack", []] call _fnc_saveToTemplate;

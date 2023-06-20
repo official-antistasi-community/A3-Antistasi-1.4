@@ -192,9 +192,19 @@ _sfLoadoutData set ["helmets", []];
 _sfLoadoutData set ["binoculars", []];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData set ["rifles", []];
-_sfLoadoutData set ["carbines", []];
-_sfLoadoutData set ["grenadeLaunchers", []];
+_sfLoadoutData set ["rifles", [
+["rhs_weap_ak74n", "rhs_acc_dtk", "", 	"rhs_acc_pkas", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_pbs4", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk", "", 	"rhs_acc_pkas", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_pbs4", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7U1_AK"], [], ""]
+]];
+_sfLoadoutData set ["carbines", [
+["rhs_weap_aks74un", "rhs_acc_dtk", "", 	"rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", 	"rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK"], [], ""]
+]];
+_sfLoadoutData set ["grenadeLaunchers", [
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
+]];
 _sfLoadoutData set ["SMGs", []];
 _sfLoadoutData set ["machineGuns", []];
 _sfLoadoutData set ["marksmanRifles", []];

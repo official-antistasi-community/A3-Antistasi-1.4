@@ -348,6 +348,15 @@ class Templates
         maps[] = {"altis"};
         climate[] = {"arid"};
     };
+    class 3CBF_AAF_arid : 3CBF_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
+        name = "3CB AAF Arid";
+        file = "3CB_AI_AAF_arid";
+        maps[] = {"altis"};
+        climate[] = {"arid"};
+    };
 
     class 3CBF_LDF : 3CBF_Base
     {

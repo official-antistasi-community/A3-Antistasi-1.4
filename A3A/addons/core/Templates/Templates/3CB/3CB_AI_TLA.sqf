@@ -146,11 +146,19 @@ _loadoutData set ["rangefinders", ["Rangefinder"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
+<<<<<<< Updated upstream
 _loadoutData set ["backpacks", []];
 _loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
 _loadoutData set ["atBackpacks", ["rhs_rpg_empty"]];
 _loadoutData set ["aaBackpacks", ["B_Carryall_oli"]];
 _loadoutData set ["mgBackpacks", ["rhs_sidor"]];
+=======
+_loadoutData set ["backpacks", ["B_FieldPack_cbr","rhs_assault_umbts","rhs_sidor","UK3CB_UN_B_B_ASS"]];
+_loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
+_loadoutData set ["atBackpacks", ["rhs_rpg_empty"]];
+_loadoutData set ["aaBackpacks", ["B_Carryall_oli"]];
+_loadoutData set ["mgBackpacks", ["rhs_rd54"]];
+>>>>>>> Stashed changes
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
 
@@ -241,7 +249,12 @@ _policeLoadoutData set ["uniforms", ["UK3CB_CW_SOV_O_Early_U_Tank_Crew_Uniform_0
 _policeLoadoutData set ["vests", ["UK3CB_ADA_B_V_TacVest_BLK"]];
 _policeLoadoutData set ["helmets", ["H_Hat_Safari_sand_F", "H_Hat_Safari_olive_F", "UK3CB_H_Safari_Hat_Brown"]];
 _policeLoadoutData set ["facewear", ["rhsusf_shemagh2_grn", "rhs_scarf","UK3CB_G_Bandanna_red_check"]];
+<<<<<<< Updated upstream
 _policeLoadoutData set ["NVGs", [""]];
+=======
+_policeLoadoutData set ["NVGs", []];
+_policeLoadoutData set ["gpses", []];
+>>>>>>> Stashed changes
 
 _policeLoadoutData set ["rifles", ["uk3cb_enfield_no3"]];
 _policeLoadoutData set ["carbines", [["uk3cb_sks_01", "uk3cb_muzzle_sks_bayonet", "", "", [], [], ""]]];
@@ -258,6 +271,10 @@ _militiaLoadoutData set ["vests", ["rhsgref_alice_webbing","rhsgref_chestrig","r
 _militiaLoadoutData set ["backpacks", []];
 _militiaLoadoutData set ["helmets", ["H_Hat_Safari_sand_F", "H_Hat_Safari_olive_F", "UK3CB_H_Safari_Hat_Brown"]];
 _militiaLoadoutData set ["NVGs", []];
+<<<<<<< Updated upstream
+=======
+_militiaLoadoutData set ["gpses", []];
+>>>>>>> Stashed changes
 
 _militiaLoadoutData set ["lightATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],

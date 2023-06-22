@@ -318,7 +318,11 @@ _militaryLoadoutData set ["carbines", [
 ["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
 _militaryLoadoutData set ["saboteurCarbines", [
-["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_ekp8_18", ["rhs_30Rnd_545x39_7U1_AK"], [], ""]
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_ekp1", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_1p63", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7U1_AK"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],

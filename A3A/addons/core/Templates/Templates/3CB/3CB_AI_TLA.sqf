@@ -146,19 +146,11 @@ _loadoutData set ["rangefinders", ["Rangefinder"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
-<<<<<<< Updated upstream
-_loadoutData set ["backpacks", []];
-_loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
-_loadoutData set ["atBackpacks", ["rhs_rpg_empty"]];
-_loadoutData set ["aaBackpacks", ["B_Carryall_oli"]];
-_loadoutData set ["mgBackpacks", ["rhs_sidor"]];
-=======
 _loadoutData set ["backpacks", ["B_FieldPack_cbr","rhs_assault_umbts","rhs_sidor","UK3CB_UN_B_B_ASS"]];
 _loadoutData set ["medBackpacks", ["rhs_medic_bag"]];
 _loadoutData set ["atBackpacks", ["rhs_rpg_empty"]];
 _loadoutData set ["aaBackpacks", ["B_Carryall_oli"]];
 _loadoutData set ["mgBackpacks", ["rhs_rd54"]];
->>>>>>> Stashed changes
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
 
@@ -227,16 +219,40 @@ private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_1","rhsgref_uniform_TLA_2"]];
 _militaryLoadoutData set ["vests", []];
 _militaryLoadoutData set ["backpacks", []];
-_militaryLoadoutData set ["helmets", []];
+_militaryLoadoutData set ["helmets", ["H_Bandanna_khk", "rhs_ssh60","rhs_ssh68","rhs_ssh68_2", "rhsgref_M56","H_Booniehat_oli","H_Hat_Safari_olive_F"]];
 _militaryLoadoutData set ["binoculars", []];
 
-_militaryLoadoutData set ["rifles", []];
-_militaryLoadoutData set ["carbines", []];
-_militaryLoadoutData set ["grenadeLaunchers", []];
-_militaryLoadoutData set ["SMGs", ["rhs_weap_m3a1", "rhs_weap_savz61"]];
-_militaryLoadoutData set ["machineGuns", []];
-_militaryLoadoutData set ["marksmanRifles", []];
-_militaryLoadoutData set ["sniperRifles", []];
+_militaryLoadoutData set ["rifles", [
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", 	["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_bakelite_89", "rhs_30Rnd_762x39mm_bakelite_tracer"], [], ""],
+["UK3CB_M16A1", "", "", "", ["UK3CB_M16_20rnd_556x45","UK3CB_M16_20rnd_556x45_G"], [], ""],
+["UK3CB_M16A2", "", "", "", ["UK3CB_M16_30rnd_556x45","UK3CB_M16_30rnd_556x45_G"], [], ""]
+]];
+_militaryLoadoutData set ["carbines", [
+"uk3cb_sks_01",
+["rhs_weap_aks74un", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+]];
+_militaryLoadoutData set ["grenadeLaunchers", ["rhs_weap_m79",
+["UK3CB_M16A2_UGL", "", "", "", ["UK3CB_M16_20rnd_556x45_G"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["rhs_weap_akmn_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_ak74n_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
+["rhs_weap_aks74n_gp25", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N10_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs _VG40OP_white"], ""]
+]];
+_militaryLoadoutData set ["SMGs", ["rhs_weap_m3a1", "rhs_weap_savz61","uk3cb_ppsh41"]];
+_militaryLoadoutData set ["machineGuns", ["rhs_weap_fnmag","rhs_weap_pkm",
+["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "rhs_acc_1p78", ["rhs_75Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["UK3CB_RPK", "", "", "", ["rhs_75Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["UK3CB_RPK_74N", "", "", "rhs_acc_1p29", ["rhs_45Rnd_545x39_7N6M_AK", "rhs_45Rnd_545X39_AK_Green","UK3CB_RPK74_60rnd_545x39"], [], ""]
+]];
+_militaryLoadoutData set ["marksmanRifles", [
+["rhs_weap_svdp", "", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N1"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk", "rhs_acc_2dpZenit", "rhs_acc_pso1m2", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK"], [], ""],
+["rhs_weap_akmn_npz", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "optic_SOS", ["rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_m76", "", "", "rhs_acc_pso1m2", ["rhsgref_10Rnd_792x57_m76", "rhssaf_10Rnd_792x57_m76_tracer"], [], ""]
+]];
+_militaryLoadoutData set ["sniperRifles", [["rhs_weap_svdp", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_762x54mmR_7N1"], [], ""],
+["rhs_weap_m14_rail", "", "", "rhsusf_acc_M8541_low", 	["rhsusf_20Rnd_762x51_m80_Mag"], [], "rhsusf_acc_m14_bipod"]]];
 _militaryLoadoutData set ["sidearms", ["rhs_weap_tt33","rhs_weap_makarov_pm"]];
 
 ///////////////////////////////
@@ -249,12 +265,8 @@ _policeLoadoutData set ["uniforms", ["UK3CB_CW_SOV_O_Early_U_Tank_Crew_Uniform_0
 _policeLoadoutData set ["vests", ["UK3CB_ADA_B_V_TacVest_BLK"]];
 _policeLoadoutData set ["helmets", ["H_Hat_Safari_sand_F", "H_Hat_Safari_olive_F", "UK3CB_H_Safari_Hat_Brown"]];
 _policeLoadoutData set ["facewear", ["rhsusf_shemagh2_grn", "rhs_scarf","UK3CB_G_Bandanna_red_check"]];
-<<<<<<< Updated upstream
-_policeLoadoutData set ["NVGs", [""]];
-=======
 _policeLoadoutData set ["NVGs", []];
 _policeLoadoutData set ["gpses", []];
->>>>>>> Stashed changes
 
 _policeLoadoutData set ["rifles", ["uk3cb_enfield_no3"]];
 _policeLoadoutData set ["carbines", [["uk3cb_sks_01", "uk3cb_muzzle_sks_bayonet", "", "", [], [], ""]]];
@@ -268,13 +280,9 @@ _policeLoadoutData set ["sidearms", ["rhs_weap_makarov_pm"]];
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_1","rhsgref_uniform_TLA_2"]];
 _militiaLoadoutData set ["vests", ["rhsgref_alice_webbing","rhsgref_chestrig","rhsgref_chicom", "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_oli"]];
-_militiaLoadoutData set ["backpacks", []];
 _militiaLoadoutData set ["helmets", ["H_Hat_Safari_sand_F", "H_Hat_Safari_olive_F", "UK3CB_H_Safari_Hat_Brown"]];
 _militiaLoadoutData set ["NVGs", []];
-<<<<<<< Updated upstream
-=======
 _militiaLoadoutData set ["gpses", []];
->>>>>>> Stashed changes
 
 _militiaLoadoutData set ["lightATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
@@ -289,23 +297,22 @@ _militiaLoadoutData set ["heavyATLaunchers", [
 
 _militiaLoadoutData set ["rifles", [
 "uk3cb_sks_01",
-"rhs_weap_l1a1_wood",
-["rhs_weap_akm", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""]
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", 	["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
 ["rhs_weap_aks74u", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
-["UK3CB_M16A2_UGL", "", "", "", ["UK3CB_M16_20rnd_556x45_G"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["rhs_weap_akms_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 "rhs_weap_m79"]];
 _militiaLoadoutData set ["SMGs", ["rhs_weap_m3a1", "rhs_weap_savz61"]];
 _militiaLoadoutData set ["machineGuns", [
 ["UK3CB_RPK", "", "", "", ["rhs_30Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 ["UK3CB_RPK_74", "", "", "", ["rhs_45Rnd_545X39_7N6_AK", "rhs_30Rnd_545x39_7N6M_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
-_militiaLoadoutData set ["marksmanRifles", [[
-["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x39mm", "rhs_10Rnd_762x39mm_tracer"], [], ""],
-"uk3cb_enfield_no3t", "", "", "uk3cb_optic_no32", [], [], ""]]];
+_militiaLoadoutData set ["marksmanRifles", [["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x39mm", "rhs_10Rnd_762x39mm_tracer"], [], ""],
+["uk3cb_enfield_no3t", "", "", "uk3cb_optic_no32", [], [], ""]]];
+_militiaLoadoutData set ["sniperRifles", [["uk3cb_enfield_no3t", "", "", "uk3cb_optic_no32", [], [], ""]]];
 _militiaLoadoutData set ["sidearms", ["rhs_weap_makarov_pm"]];
 
 //////////////////////////

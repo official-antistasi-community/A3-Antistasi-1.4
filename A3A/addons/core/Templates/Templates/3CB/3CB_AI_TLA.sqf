@@ -40,7 +40,7 @@
 ["vehiclesGunBoats", ["UK3CB_CHD_O_Fishing_Boat_DSHKM"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_CW_SOV_O_EARLY_MTLB_PKT","UK3CB_CW_SOV_O_EARLY_MTLB_KPVT","UK3CB_CW_SOV_O_EARLY_MTLB_BMP"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", [/*"UK3CB_CW_SOV_O_EARLY_MIG21_CAS","UK3CB_CW_SOV_O_EARLY_MIG21",*/"UK3CB_CW_SOV_O_EARLY_LI2_ARMED","UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesCAS", ["UK3CB_CW_SOV_O_EARLY_MIG21_CAS","UK3CB_CW_SOV_O_EARLY_MIG21","UK3CB_CW_SOV_O_EARLY_LI2_ARMED","UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["UK3CB_CW_SOV_O_EARLY_MIG21_AA"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["UK3CB_CW_SOV_O_EARLY_Antonov_AN2","UK3CB_CW_SOV_O_EARLY_LI2","UK3CB_CW_SOV_O_EARLY_LI2"]] call _fnc_saveToTemplate;
 
@@ -50,10 +50,9 @@
 ["vehiclesHelisLightAttack", ["UK3CB_CW_SOV_O_EARLY_Mi8AMTSh","UK3CB_CW_SOV_O_EARLY_Mi_24P"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", ["UK3CB_CW_SOV_O_EARLY_Mi_24V"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
-["vehiclesArtillery", ["UK3CB_CW_SOV_O_EARLY_BM21","UK3CB_ARD_O_Hilux_Rocket_Arty","rhs_D30_msv"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["UK3CB_CW_SOV_O_EARLY_BM21","rhs_D30_msv"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["UK3CB_CW_SOV_O_EARLY_BM21", ["rhs_mag_m21of_1"]],
-["UK3CB_ARD_O_Hilux_Rocket_Arty", ["122mm_10rnds"]],
 ["rhs_D30_msv", ["rhs_mag_3of56_10"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
@@ -121,7 +120,7 @@ _loadoutData set ["heavyATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_TBG7V_mag"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", ["rhs_weap_igla"]];
-_loadoutData set ["sidearms", []];
+_loadoutData set ["sidearms", ["rhs_weap_tt33","rhs_weap_makarov_pm"]];
 
 _loadoutData set ["ATMines", ["rhs_mine_tm62m_mag"]];
 _loadoutData set ["APMines", ["rhs_mine_pmn2_mag"]];
@@ -258,7 +257,7 @@ _militiaLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_1","rhsgref_uniform_T
 _militiaLoadoutData set ["vests", ["rhsgref_alice_webbing","rhsgref_chestrig","rhsgref_chicom", "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_oli"]];
 _militiaLoadoutData set ["backpacks", []];
 _militiaLoadoutData set ["helmets", ["H_Hat_Safari_sand_F", "H_Hat_Safari_olive_F", "UK3CB_H_Safari_Hat_Brown"]];
-_militiaLoadoutData set ["NVGs", [""]];
+_militiaLoadoutData set ["NVGs", []];
 
 _militiaLoadoutData set ["lightATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_PG7V_mag", "rhs_rpg7_PG7VL_mag"], [], ""],

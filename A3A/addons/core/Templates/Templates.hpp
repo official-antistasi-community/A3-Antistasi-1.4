@@ -297,6 +297,16 @@ class Templates
         file = "3CB_AI_CW_Sov";
         climate[] = {"temperate","tropical","arctic"};
     };
+	
+    class 3CBF_TLA : 3CBF_Base
+    {
+        side = "Inv";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_cw_sov\flag\cw_sov_army_flag_co.paa";
+        name = "3CB TLA"; //Tanoan liberation/revolutionary army
+        file = "3CB_AI_TLA";
+        maps[] = {"tanoa"};
+        climate[] = {"tropical"};
+    };
 
     class 3CBF_CW_US : 3CBF_Base
     {

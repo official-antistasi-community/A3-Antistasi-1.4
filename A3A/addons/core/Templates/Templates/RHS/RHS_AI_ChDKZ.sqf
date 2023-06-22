@@ -314,6 +314,7 @@ _militaryLoadoutData set ["rifles", [
 ["rhs_weap_ak74n_2", "rhs_acc_dtk1983", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
+["rhs_weap_akms", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
 ["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];

@@ -271,42 +271,48 @@ class Templates
 	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
         priority = 70;
     };
-    class SFP_SAF90 : SFP_Base
-    {
-	    side = "Occ";
-        name = "SFP SwAF '90";
-        file = "SFP_AI_SWE1990";
-    };
     class SFP_SAF00 : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SwAF '00";
+        name = "SFP Early SwAF";
         file = "SFP_AI_SWE2000";
+    };
+    class SFP_SAF00_W : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP Early SwAF ARTIC";
+        file = "SFP_AI_SWE2000_snow";
     };
     class SFP_SAF15 : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SwAF '15";
+        name = "SFP SwAF";
         file = "SFP_AI_SWE2015";
     };
+    class SFP_SAF15 : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF ARTIC";
+        file = "SFP_AI_SWE2015_snow";
+    };
+	#if __A3_DEBUG__
     class SFP_SAF35 : SFP_Base
     {
 	    side = "Occ";
         name = "SFP SwAF '35";
         file = "SFP_AI_SWE2035";
     };
-	#if __A3_DEBUG__
-    class SFP_SAF00_W : SFP_Base
-    {
-	    side = "Occ";
-        name = "SFP SwAF '00 ARTIC";
-        file = "SFP_AI_SWE2000_snow";
-    };
     class SFP_SAF15_D : SFP_Base
     {
 	    side = "Occ";
         name = "SFP SwAF '15 ARID";
         file = "SFP_AI_SWE2015_desert";
+    };
+    class SFP_SAF90 : SFP_Base
+    {
+	    side = "Occ";
+        name = "SFP SwAF '90";
+        file = "SFP_AI_SWE1990";
     };
 	#endif
     //************* 3CB Factions ***************************************************

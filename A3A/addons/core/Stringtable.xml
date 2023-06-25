@@ -443,6 +443,12 @@
         <Spanish>Reclutar AT</Spanish>
         <Polish>Rekrutuj Celowniczego PPANC</Polish>
       </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_atmissile_text">
+        <Original>Recruit AT Missile</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_garrison_spawn_aamissile_text">
+        <Original>Recruit AA Missile</Original>
+      </Key>
     </Container>
     <Container name="dialog_build_minefield">
       <Key ID="STR_antistasi_dialogs_minefield_frame_text">
@@ -628,7 +634,7 @@
         <Polish>Rekrutuj Strzelca Wyborowego</Polish>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_antitank_text">
-        <Original>Recruit Antitank Solider</Original>
+        <Original>Recruit Antitank Soldier</Original>
         <French>Recruter un Soldat Antichar</French>
         <Russian>Гранатомётчик</Russian>
         <German>Panzerabwehrsoldat rekrutieren</German>
@@ -638,6 +644,12 @@
         <Italian>Recluta Soldato Anticarro</Italian>
         <Spanish>Reclutar AT</Spanish>
         <Polish>Rekrutuj Celowniczego PPANC</Polish>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_atmissile_text">
+        <Original>Recruit AT Missile Soldier</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_unit_recruit_aamissile_text">
+        <Original>Recruit AA Missile Soldier</Original>
       </Key>
     </Container>
     <Container name="dialog_generic">
@@ -4813,6 +4825,30 @@
       <Key ID="STR_A3A_Packable_Objects_refunding_error">
         <Original>refunding money due to error</Original>
         <Spanish>Devolviendo el dinero a causa de un error.</Spanish>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_lootbox">
+        <Original>Loot Box</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_fueldrum">
+        <Original>Fuel Drum</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_fueltank">
+        <Original>Fuel Tank</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_medicaltent">
+        <Original>Medical Tent</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_medicalbox">
+        <Original>Medical Box</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_ammostation">
+        <Original>Ammo Station</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_repairstation">
+        <Original>Repair Station</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_light">
+        <Original>Light</Original>
       </Key>
     </Container>
     <Container name="time_units">

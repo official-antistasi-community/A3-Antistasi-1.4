@@ -48,34 +48,30 @@ if ([getPosATL _player] call A3A_fnc_enemyNearCheck) exitWith {
     false;
 };
 
-//LTC refund
-private _ltcRefund = {
-    params ["_box", ["_instantRefund", true]];
-    [_box, boxX, true] call A3A_fnc_ammunitionTransfer;
-
-    if (_instantRefund) then {
-        [10] remoteExec ["A3A_fnc_resourcesPlayer", _client];
-        ["STR_HR_GRG_Feedback_addVehicle_LTC"] remoteExec ["HR_GRG_fnc_Hint", _client];
-        true
-    } else {10};
-};
-if (_class in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) exitWith {[_vehicle] call _ltcRefund};
 
 //Utility refund
 private _utilityRefund = {
     params ["_object", ["_instantRefund", true]];
 
+    // canGarage true means it's in the utilityItem lists
+    private _flags = (A3A_utilityItemHM get typeof _object) # 4;
+
+    if ("cmmdr" in _flags && _player isNotEqualTo theBoss && _instantRefund) exitWith {
+        ["STR_HR_GRG_Feedback_addVehicle_commander_only"] remoteExec ["HR_GRG_fnc_Hint", _client];
+        false;
+    };
+
     private _toRefund = 0;
     private _feedBack = "STR_HR_GRG_Feedback_addVehicle_Item_Stored";
-    if (typeOf _object in [FactionGet(reb,"vehicleFuelDrum")#0 , FactionGet(reb,"vehicleFuelTank")#0]) then {
-        if (_player isNotEqualTo theBoss && _instantRefund) exitWith {
-            _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only";
-        };
-
+    if ("fuel" in _flags) then {
         _toRefund = floor (([_object] call A3A_fnc_remainingFuel) * (_object getVariable ['A3A_itemPrice', 0]));
         _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_sold";
     } else {
         _toRefund = _object getVariable ['A3A_itemPrice', 0];
+    };
+    if ("loot" in _flags) then {
+        _feedBack = "STR_HR_GRG_Feedback_addVehicle_LTC";
+        [_object, boxX, true] call A3A_fnc_ammunitionTransfer;
     };
 
     deleteVehicle _object;
@@ -86,7 +82,6 @@ private _utilityRefund = {
         [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
         true;
     };
-
     _toRefund
 };
 if (_vehicle getVariable ['A3A_canGarage', false]) exitwith { [_vehicle] call _utilityRefund };
@@ -138,7 +133,6 @@ private _unloadAceCargo = {
         if (typeOf _x in ["ACE_Wheel", "ACE_Track"]) then { continue };
         [_x, _this] call ace_cargo_fnc_unloadItem;
 
-        if (typeOf _x in [FactionGet(occ,"surrenderCrate"), FactionGet(inv,"surrenderCrate")]) then { _toRefund = _toRefund + ([_x, false] call _ltcRefund) };
         if (_x getVariable ['A3A_canGarage', false]) then { _toRefund = _toRefund + ([_x, false] call _utilityRefund) };
     } forEach (_this getVariable ["ace_cargo_loaded", []]);
 

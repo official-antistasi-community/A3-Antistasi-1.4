@@ -568,8 +568,8 @@
         <Italian>Carburante venduto</Italian>
         <Polish>Sprzedano paliwo</Polish>
       </Key>
-      <Key ID="STR_HR_GRG_Feedback_addVehicle_Fuel_commander_only">
-        <Original>Fuel sources can only be garaged by commander</Original>
+      <Key ID="STR_HR_GRG_Feedback_addVehicle_commander_only">
+        <Original>This object can only be garaged by the commander</Original>
         <French>Les sources de carburant ne peuvent être garées que par le commandant</French>
         <Russian>Источники топлива могут быть перемещены в гараж только Командиром</Russian>
         <Korean>유류차량은 지휘관만 차고에 넣을 수 있습니다.</Korean>

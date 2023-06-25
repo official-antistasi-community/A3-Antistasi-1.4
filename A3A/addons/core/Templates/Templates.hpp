@@ -275,50 +275,30 @@ class Templates
     {
 	    side = "Occ";
         name = "SFP Early SvAF";
-        file = "SFP_AI_SWE2000";
+        file = "SFP_AI_SWE_early";
         climate[] = {"temperate","tropical"};
     };
     class SFP_SAF00_Arctic : SFP_Base
     {
 	    side = "Occ";
         name = "SFP Early SvAF ARTIC";
-        file = "SFP_AI_SWE2000_snow";
+        file = "SFP_AI_SWE_early_snow";
         climate[] = {"arctic"};
     };
     class SFP_SAF15 : SFP_Base
     {
 	    side = "Occ";
         name = "SFP Modern SvAF";
-        file = "SFP_AI_SWE2015";
+        file = "SFP_AI_SWE";
         climate[] = {"temperate","tropical"};
     };
     class SFP_SAF15_Arctic : SFP_Base
     {
 	    side = "Occ";
         name = "SFP Modern SvAF ARTIC";
-        file = "SFP_AI_SWE2015_snow";
+        file = "SFP_AI_SWE_snow";
         climate[] = {"arctic"};
     };
-	#if __A3_DEBUG__
-    class SFP_SAF35 : SFP_Base
-    {
-	    side = "Occ";
-        name = "SFP SwAF '35";
-        file = "SFP_AI_SWE2035";
-    };
-    class SFP_SAF15_D : SFP_Base
-    {
-	    side = "Occ";
-        name = "SFP SwAF '15 ARID";
-        file = "SFP_AI_SWE2015_desert";
-    };
-    class SFP_SAF90 : SFP_Base
-    {
-	    side = "Occ";
-        name = "SFP SwAF '90";
-        file = "SFP_AI_SWE1990";
-    };
-	#endif
     //************* 3CB Factions ***************************************************
 
     class 3CBF_Base

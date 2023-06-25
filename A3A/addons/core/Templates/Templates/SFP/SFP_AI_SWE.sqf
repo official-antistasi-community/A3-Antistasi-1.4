@@ -273,7 +273,7 @@ _policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rn
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["sfp_m90w_uniform_ksk90"]];
+_militiaLoadoutData set ["uniforms", ["sfp_m90w_uniform"]];
 _militiaLoadoutData set ["vests", ["sfp_stridsvast2000","sfp_stridssele"]];
 _militiaLoadoutData set ["glVests", ["sfp_stridsbalte_304k_gl"]];
 _militiaLoadoutData set ["mgVests", ["sfp_stridsvast2000_mg"]];

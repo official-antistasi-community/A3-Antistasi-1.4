@@ -274,28 +274,28 @@ class Templates
     class SFP_SAF00 : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP Early SwAF";
+        name = "SFP Early SvAF";
         file = "SFP_AI_SWE2000";
         climate[] = {"temperate","tropical"};
     };
     class SFP_SAF00_Arctic : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP Early SwAF ARTIC";
+        name = "SFP Early SvAF ARTIC";
         file = "SFP_AI_SWE2000_snow";
         climate[] = {"arctic"};
     };
     class SFP_SAF15 : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SwAF";
+        name = "SFP SvAF";
         file = "SFP_AI_SWE2015";
         climate[] = {"temperate","tropical"};
     };
     class SFP_SAF15_Arctic : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SwAF ARTIC";
+        name = "SFP SvAF ARTIC";
         file = "SFP_AI_SWE2015_snow";
         climate[] = {"arctic"};
     };

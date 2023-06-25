@@ -173,6 +173,7 @@ class Templates
     {
         side = "Inv";
         flagTexture = "rhsafrf\addons\rhs_main\data\flag_rus_co.paa";
+        logo = "\rhsafrf\addons\rhs_main\data\rhs_logo_ca.paa";
         name = "RHS AFRF Arid";
         file = "RHS_AI_AFRF_Arid";
         climate[] = {"arid"};
@@ -232,6 +233,21 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "RHS";
         file = "RHS_Civ";
+    };
+
+    class RHS_SAF_Base
+    {
+    	requiredAddons[] = {"rhssaf_main"};
+	    basepath = QPATHTOFOLDER(Templates\Templates\RHS);
+	    logo = "\rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
+        priority = 30;
+    };
+    class RHS_SAF : RHS_SAF_Base
+    {
+	    side = "Inv";
+	    flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
+        name = "RHS SAF";
+        file = "RHS_AI_SAF";
     };
 
     //************* 3CB Factions ***************************************************
@@ -352,7 +368,26 @@ class Templates
         file = "3CB_AI_KRG";
         climate[] = {"arid"};
     };
-
+    class 3CBF_ION_Arid : 3CBF_Base
+    {
+        side = "Inv";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION Arid";
+        file = "3CB_AI_ION_Arid";
+        climate[] = {"arid"};
+    };
+        class 3CBF_ION_Temperate : 3CBF_ION_Arid
+    {
+        name = "3CB ION Temperate";
+        file = "3CB_AI_ION_Temperate";
+        climate[] = {"temperate","tropical"};
+    };
+        class 3CBF_ION_Arctic : 3CBF_ION_Arid
+    {
+        name = "3CB ION Arctic";
+        file = "3CB_AI_ION_Arctic";
+        climate[] = {"arctic"};
+    };
     class 3CBF_CCM : 3CBF_Base
     {
         side = "Reb";
@@ -360,7 +395,13 @@ class Templates
         name = "3CB CCM";
         file = "3CB_Reb_CNM";
     };
-
+    class 3CB_Reb_ION : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION Rebells";
+        file = "3CB_Reb_ION";
+    };
     class 3CBF_TKM : 3CBF_Base
     {
         side = "Reb";
@@ -369,7 +410,13 @@ class Templates
         file = "3CB_Reb_TKM";
         maps[] = {"takistan","tem_anizay","kunduz"};
     };
-
+    class 3CB_Reb_FIA : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "3CB FIA Rebells";
+        file = "3CB_Reb_FIA";
+    };
     class 3CBF_CHC : 3CBF_Base
     {
         side = "Civ";
@@ -391,7 +438,7 @@ class Templates
 
     class 3CBBAF_Base
     {
-        requiredAddons[] = {"UK3CB_BAF_Weapons","UK3CB_BAF_Vehicles","UK3CB_BAF_Units_Common","UK3CB_BAF_Equipment"};
+        requiredAddons[] = {"UK3CB_BAF_Weapons","UK3CB_BAF_Vehicles","UK3CB_BAF_Units_Common","UK3CB_BAF_Equipment","rhsgref_main"};
         //requiredAddons[] = {"UK3CB_BAF_Units_Common"};              // has weapons/equipment/vehicles dependencies
         basepath = QPATHTOFOLDER(Templates\Templates\3CB);
         logo = "\UK3CB_BAF_Weapons\addons\UK3CB_BAF_Weapons_Ammo\data\ui\logo_small_3cb_ca.paa";
@@ -586,20 +633,55 @@ class Templates
         climate[] = {"arctic"};
     };
 
-    class CUP_NAPA : CUP_Base
+    class CUP_BW_Arid : CUP_Base
+    {
+        side = "Occ";
+        flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_ger_co.paa";
+        name = "CUP BW Arid";
+        file = "CUP_AI_BW_Arid";
+        climate[] = {"arid"};
+    };
+        class CUP_BW_Temperate : CUP_BW_Arid
+    {
+        name = "CUP BW Temperate";
+        file = "CUP_AI_BW_Temperate";
+        climate[] = {"arctic","temperate","tropical"};
+    };
+        class CUP_HIL : CUP_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f_exp\flags\flag_tanoa_co.paa";
+        name = "CUP HIL";
+        file = "CUP_AI_HIL";
+        climate[] = {"temperate","tropical"};
+    };
+    class CUP_TKM : CUP_Base
+    {
+        side = "Reb";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
+        name = "CUP TKM";
+        file = "CUP_Reb_TKM";
+    };
+    class CUP_Reb : CUP_Base
     {
         side = "Reb";
         flagTexture = "cup\baseconfigs\cup_baseconfigs\data\flags\flag_napa_co.paa";
         name = "CUP NAPA";
-        file = "CUP_Reb";
+        file = "CUP_Reb_NAPA";
     };
-
+    class CUP_TKC : CUP_Base
+    {
+        side = "Civ";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
+        name = "CUP TKC";
+        file = "CUP_Civ_TKC";
+    };
     class CUP_Civ : CUP_Base
     {
         side = "Civ";
-        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
-        name = "CUP civs";
-        file = "CUP_Civ";
+        flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_chernarus_co.paa";
+        name = "CUP CHC";
+        file = "CUP_Civ_CHC";
     };
 
     // ************************************* Unsung *******************************************************
@@ -661,7 +743,7 @@ class Templates
     {
         side = "Inv";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
-        name = "Nationale Volksarmee";
+        name = "GM Nationale Volksarmee Temperate";
         file = "GM_AI_NVA";
         climate[] = {"temperate","tropical","arid"};
     };
@@ -670,7 +752,7 @@ class Templates
     {
         side = "Inv";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
-        name = "Nationale Volksarmee Winter";
+        name = "GM Nationale Volksarmee Arctic";
         file = "GM_AI_NVA_arctic";
         climate[] = {"arctic"};
     };
@@ -679,28 +761,28 @@ class Templates
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "Bundeswehr";
+        name = "GM Bundeswehr Temperate";
         file = "GM_AI_BW";
-        climate[] = {"temperate"};
+        climate[] = {"temperate","tropical","arid"};
     };
 
     class GM_BW_Arctic : GM_Base
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "Bundeswehr Winter";
+        name = "GM Bundeswehr Arctic";
         file = "GM_AI_BW_arctic";
         climate[] = {"arctic"};
     };
 
-    //class GM_BW_Desert : GM_Base
-    //{
-    //    side = "Occ";
-    //    flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-    //    name = "Bundeswehr Desert";
-    //    file = "GM_AI_BW_desert";
-    //    climate[] = {"tropical","arid"};
-    //};
+    class GM_BW_Desert : GM_Base
+    {
+        side = "Occ";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
+        name = "GM Bundeswehr Desert";
+        file = "GM_AI_BW_desert";
+        climate[] = {"tropical","arid"};
+    };
 
     class GM_Reb : GM_Base
     {
@@ -718,4 +800,29 @@ class Templates
         file = "GM_Civ";
     };
 
+    // ***************************** BWA3 *************************************************
+
+    class BWA3_Base
+    {
+        requiredAddons[] = {"bwa3_common"};
+        basepath = QPATHTOFOLDER(Templates\Templates\BWA3);
+        logo = QPATHTOFOLDER(Templates\Templates\BWA3\bwa3_logo.paa);
+        priority = 65;
+    };
+
+    class BWA3_BW_Arid : BWA3_Base
+    {
+        side = "Occ";
+        flagTexture = "bwa3_common\data\bwa3_flag_germany_co.paa";
+        name = "BWA3 BW Arid";
+        file = "BWA3_AI_BW_Arid";
+        climate[] = {"arid"};
+    };
+    class BWA3_BW_Temperate : BWA3_BW_Arid
+    {
+        name = "BWA3 BW Temperate";
+        file = "BWA3_AI_BW_Temperate";
+        climate[] = {"temperate","tropical","arctic"};
+    };
+    
 };

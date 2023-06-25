@@ -1,64 +1,55 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private ["_hr","_resourcesFIA","_typeX","_costs","_markerX","_garrison","_positionX","_unit","_groupX","_veh","_pos"];
 
-_hr = server getVariable "hr";
+params ["_unitType"];
 
-if (_hr < 1) exitWith {["Garrisons", "You lack HR to make a new recruitment."] call A3A_fnc_customHint;};
+private _hr = server getVariable "hr";
 
-_resourcesFIA = server getVariable "resourcesFIA";
-
-_typeX = _this select 0;
-
-_costs = 0;
-
-_costs = server getVariable _typeX;
-if (_typeX == FactionGet(reb,"unitCrew")) then {_costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)};
-
-if (_costs > _resourcesFIA) exitWith {["Garrisons", format ["You do not have enough money for this kind of unit (%1 € needed).",_costs]] call A3A_fnc_customHint;};
-
-_markerX = positionXGarr;
-
-if ((_typeX == FactionGet(reb,"unitCrew")) and (_markerX in outpostsFIA)) exitWith {["Garrisons", "You cannot add mortars to a Roadblock garrison."] call A3A_fnc_customHint;};
-
-_positionX = getMarkerPos _markerX;
-
-if (surfaceIsWater _positionX) exitWith {["Garrisons", "This Garrison is still updating, please try again in a few seconds."] call A3A_fnc_customHint;};
-
-if ([_positionX] call A3A_fnc_enemyNearCheck) exitWith {["Garrisons", "You cannot Recruit Garrison Units with enemies near the zone."] call A3A_fnc_customHint;};
-
-scopename "main";
-if !(player call A3A_fnc_isMember) then {
-	private _curSize = count (garrison getVariable _markerX);
-	private _maxSize = call {
-		if (_markerX in airportsX) exitWith { 30 };
-		if (_markerX in outposts) exitWith { 20 };
-		15;
-	};
-	if (_curSize >= _maxSize) then {
-		["Garrisons", "You cannot add any more troops to this garrison as a guest"] call A3A_fnc_customHint;
-		breakout "main";
-	};
+if (_hr < 1) exitWith {
+	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_hr"] call A3A_fnc_customHint;
 };
 
+private _markerX = positionXGarr;
+private _resourcesFIA = server getVariable "resourcesFIA";
+private _costs = server getVariable _unitType;
+
+if (_costs > _resourcesFIA) exitWith {
+	[localize "STR_A3A_garrison_header",  format [localize "STR_A3A_garrison_error_no_money", _costs]] call A3A_fnc_customHint;
+};
+
+if ((_unitType == FactionGet(reb, "unitCrew")) and _markerX in outpostsFIA) exitWith {
+	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_mortar"] call A3A_fnc_customHint;
+};
+
+private _positionX = getMarkerPos _markerX;
+
+if (surfaceIsWater _positionX) exitWith {
+	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_still_updating"] call A3A_fnc_customHint;
+};
+
+if ([_positionX] call A3A_fnc_enemyNearCheck) exitWith {
+	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_enemies_near"] call A3A_fnc_customHint;
+};
+
+private _garrison = garrison getVariable [_markerX,[]];
+private _limit = [_markerX] call A3A_fnc_getGarrisonLimit;
+
+if (_limit != -1 && {count _garrison >= _limit}) exitWith {
+	[localize "STR_A3A_garrisons_header", localize "STR_A3A_garrison_reached_limit"] call A3A_fnc_customHint;
+};
+
+
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
-/*
-_garrison = [];
-_garrison = _garrison + (garrison getVariable [_markerX,[]]);
-_garrison pushBack _typeX;
-garrison setVariable [_markerX,_garrison,true];
-//[_markerX] call A3A_fnc_mrkUpdate;*/
-_countX = count (garrison getVariable [_markerX,[]]);
-[_typeX,teamPlayer,_markerX,1] remoteExec ["A3A_fnc_garrisonUpdate",2];
+
+private _countX = count _garrison;
+[_unitType,teamPlayer,_markerX,1] remoteExec ["A3A_fnc_garrisonUpdate",2];
 waitUntil {(_countX < count (garrison getVariable [_markerX, []])) or (sidesX getVariable [_markerX,sideUnknown] != teamPlayer)};
 
-if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
-	{
-	["Garrisons", format ["Soldier recruited.%1",[_markerX] call A3A_fnc_garrisonInfo]] call A3A_fnc_customHint;
+if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then {
+	private _garrisonInfo = format [localize "STR_A3A_garrison_recruit_success", [_markerX] call A3A_fnc_garrisonInfo];
+	[localize "STR_A3A_garrison_header", _garrisonInfo] call A3A_fnc_customHint;
 
-	if (spawner getVariable _markerX != 2) then
-		{
-		//[_markerX] remoteExec ["tempMoveMrk",2];
-		[_markerX,_typeX] remoteExec ["A3A_fnc_createSDKGarrisonsTemp",2];
-		};
+	if (spawner getVariable _markerX != 2) then {
+		[_markerX,_unitType] remoteExec ["A3A_fnc_createSDKGarrisonsTemp",2];
 	};
+};

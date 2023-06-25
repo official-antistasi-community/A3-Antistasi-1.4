@@ -43,7 +43,8 @@ if (_difficultX) then
 
 _grp selectLeader _official;
 sleep 1;
-_nul = [leader _grp, _markerX, "SAFE", "SPAWNED", "NOVEH", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+
+[_grp, "Patrol_Area", 25, 50, 100, false, [], true] call A3A_fnc_patrolLoop;
 
 {_nul = [_x,""] call A3A_fnc_NATOinit; _x allowFleeing 0} forEach units _grp;
 

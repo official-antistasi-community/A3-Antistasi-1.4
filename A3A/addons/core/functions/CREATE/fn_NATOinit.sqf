@@ -87,7 +87,7 @@ _unit addEventHandler ["Deleted", A3A_fnc_enemyUnitDeletedEH];
 
 //Calculates the skill of the given unit
 //private _skill = (0.15 * skillMult) + (0.04 * difficultyCoef) + (0.02 * tierWar);
-private _skill = (0.1 * A3A_enemySkillMul) + (0.15 * A3A_balancePlayerScale) + (0.01 * tierWar);
+private _skill = (0.1 * A3A_enemySkillMul) + (0.07 * (1 max A3A_activePlayerCount^0.5)) + (0.01 * tierWar);
 private _regularFaces = (_faction get "faces");
 private _regularVoices = (_faction get "voices");
 private ["_face", "_voice"];
@@ -121,7 +121,7 @@ default {
     _voice = selectRandom _regularVoices;
     };
 };
-[_unit, _face, _voice] call BIS_fnc_setIdentity;
+[_unit, _face, _voice] call A3A_fnc_setIdentity;
 _unit setSkill _skill;
 
 //Adjusts squadleaders with improved skill and adds intel action
@@ -245,26 +245,11 @@ else
     _unit unlinkItem (_unit call A3A_fnc_getRadio);
 };
 
-//Reveals all air vehicles to the unit, if it is either gunner of a vehicle or equipted with a launcher
-private _reveal = false;
-if !(isNull objectParent _unit) then
-{
-    if (_unit == gunner (objectParent _unit)) then
-    {
-        _reveal = true;
-    };
-}
-else
-{
-    if ((secondaryWeapon _unit) in allMissileLaunchers) then
-    {
-        _reveal = true;
-    };
-};
-if (_reveal) then
+//Reveals all air vehicles to the unit, if it is either gunner of a vehicle or equipped with a launcher
+if (_unit == gunner objectParent _unit or {(secondaryWeapon _unit) in allAA}) then
 {
     {
-        _unit reveal [_x,1.5];
-    } forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanceSPWN)}
+        if (!isNull driver _x) then { _unit reveal [_x, 1.5] };
+    } forEach (_unit nearEntities ["Air", distanceSPWN*2]);
 };
 ["AIInit", [_unit, _side, _marker, _unit getVariable "spawner"]] call EFUNC(Events,triggerEvent);

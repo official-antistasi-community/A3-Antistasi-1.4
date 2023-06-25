@@ -31,9 +31,11 @@ _mrkFinal setMarkerShape "ICON";
 //_mrkFinal setMarkerColor "ColorBlue";
 //_mrkFinal setMarkerText "Bank";
 
-_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"];
+private _bankVehicleClass = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
 
-_truckX = "C_Van_01_box_F" createVehicle _pos;
+_pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,_bankVehicleClass];
+
+_truckX = _bankVehicleClass createVehicle _pos;
 {_x reveal _truckX} forEach (allPlayers - (entities "HeadlessClient_F"));
 [_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 _truckX setVariable ["destinationX",_nameDest,true];
@@ -52,14 +54,6 @@ private _taskId = "LOG" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[format ["We know Gendarmes are guarding a large amount of money in the bank of %1. Take this truck and go there before %2, hold the truck close to tha bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring it back to HQ and the money will be ours.",_nameDest,_displayTime],"Bank Robbery",_mrkFinal],_positionX,false,0,true,"Interact",true] call BIS_fnc_taskCreate;
 [_taskId, "LOG", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
-_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], _positionX];
-_mrk setMarkerShapeLocal "RECTANGLE";
-_mrk setMarkerSizeLocal [30,30];
-_mrk setMarkerTypeLocal "hd_warning";
-_mrk setMarkerColorLocal "ColorRed";
-_mrk setMarkerBrushLocal "DiagGrid";
-_mrk setMarkerAlphaLocal 0;
-
 _groups = [];
 _soldiers = [];
 for "_i" from 1 to 4 do
@@ -67,7 +61,10 @@ for "_i" from 1 to 4 do
 	private _groupType = if (_difficultX) then { FactionGet(occ, "groupSentry") } else { FactionGet(occ, "groupPolice") };
 	_groupX = [_positionX,Occupants,_groupType] call A3A_fnc_spawnGroup;
 	sleep 1;
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "FORTIFY"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionX, true] call A3A_fnc_patrolLoop;
+
+
 	{[_x,""] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 	_groups pushBack _groupX;
 	};
@@ -155,5 +152,4 @@ deleteVehicle _truckX;
 
 { [_x] spawn A3A_fnc_groupDespawner } forEach _groups;
 
-deleteMarker _mrk;
 deleteMarker _mrkFinal;

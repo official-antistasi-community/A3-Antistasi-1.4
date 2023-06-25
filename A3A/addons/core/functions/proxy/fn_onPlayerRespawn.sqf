@@ -78,7 +78,7 @@ if (side group player == teamPlayer) then
 		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
 	//Give them a map, in case they're commander and need to replace petros.
-	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ get "uniforms") + (A3A_faction_reb get "uniforms")), []],[],[],selectRandom (A3A_faction_civ get "headgear"),"",[],
+	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ get "uniforms") + (A3A_faction_reb get "uniforms")), []],[],[],[],"",[],
 	[(selectRandom unlockedmaps),"","",(selectRandom unlockedCompasses),(selectRandom unlockedwatches),""]];
 
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
@@ -232,7 +232,6 @@ if (side group player == teamPlayer) then
 		];
 	[] spawn A3A_fnc_unitTraits;
 	[] spawn A3A_fnc_statistics;
-	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	call A3A_fnc_dropObject;
 	}
 else

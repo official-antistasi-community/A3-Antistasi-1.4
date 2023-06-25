@@ -27,17 +27,32 @@ if !(isServer) then {
 
     // Headless client navgrid init
     if (!hasInterface) then {
-        Info("Headless client UPSMON init started");
-        [] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
-        Info("Headless client UPSMON init completed");
+        Info("HC Initialising PATCOM Variables");
+        [] call A3A_fnc_patrolInit;
 
         call A3A_fnc_loadNavGrid;
         waitUntil { sleep 0.1; !isNil "serverInitDone" };			// addNodesNearMarkers needs marker lists
         call A3A_fnc_addNodesNearMarkers;
     };
+
+    if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+        isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+        // disable lambs danger fsm entrypoint
+        ["CAManBase", "InitPost", {
+            params ["_unit"];
+            (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+            _unit setVariable ["lambs_danger_disableAI", true];
+        }] call CBA_fnc_addClassEventHandler;
+    };
 };
 
-waitUntil { sleep 0.1; !isNil "serverInitDone" };
+if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
+while {true} do {
+    private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
+    isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr, true] call A3A_fnc_customHint };         // not re-entrant, apparently
+    if (A3A_startupState == "completed") exitWith {};
+    sleep 0.1;
+};
 
 //****************************************************************
 
@@ -84,11 +99,9 @@ autoHeal = true;				//Should AI in player squad automatically heal teammates
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 
-if (A3A_hasTFAR || A3A_hasTFARBeta) then {
+if (A3A_hasTFAR || A3A_hasTFARBeta || A3A_hasACRE) then {
     [] spawn A3A_fnc_radioJam;
 };
-
-[] spawn A3A_fnc_ambientCivs;
 
 if (isMultiplayer && {playerMarkersEnabled}) then {
     [] spawn A3A_fnc_playerMarkers;
@@ -108,7 +121,7 @@ stragglers = creategroup teamPlayer;
 (group player) enableAttack false;
 
 if (isNil "ace_noradio_enabled" or {!ace_noradio_enabled}) then {
-    [player, nil, selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity
+    [player, nil, selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity
 };
 //Give the player the base loadout.
 [player] call A3A_fnc_dress;
@@ -377,24 +390,9 @@ vehicleBox addAction ["Buy Vehicle", {
     }
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
-vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-vehicleBox addAction ["Buy Light for 25€", {[player, FactionGet(reb,"vehicleLightSource"), 25, [['A3A_fnc_initMovableObject', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","true",4];
-private _fuelDrum = FactionGet(reb,"vehicleFuelDrum");
-private _fuelTank = FactionGet(reb,"vehicleFuelTank");
-if (isClass (configFile/"CfgVehicles"/_fuelDrum # 0)) then {
-    private _dispName = getText (configFile/"CfgVehicles"/_fuelDrum # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelDrum # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelDrum,0,false,true,"","true",4];
-};
-if (isClass (configFile/"CfgVehicles"/_fuelTank # 0)) then {
-    private _dispName = getText (configFile/"CfgVehicles"/_fuelTank # 0/"displayName");
-    vehicleBox addAction [format["Buy %1 for %2€",_dispName, _fuelTank # 1], {[player, _this # 3 # 0, _this # 3 # 1, [['A3A_fnc_initMovableObject', true], ['A3A_Logistics_fnc_addLoadAction', false]]] call A3A_fnc_buyItem},_fuelTank,0,false,true,"","_this == theBoss",4];
-};
 call A3A_fnc_dropObject;
 
-if (LootToCrateEnabled) then {
-    vehicleBox addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
-    call A3A_fnc_initLootToCrate;
-};
+vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
@@ -408,7 +406,7 @@ mapX addAction ["Game Options", {
         "<br/>Unlock Weapon Number: "+ str minWeaps +
         "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
         "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str civPerc +
+        "<br/>Civilian Limit: "+ str globalCivilianMax +
         "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
@@ -438,16 +436,8 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
-// Check if we need to relocate HQ. Might happen if we leave during placement?
-// Should be replaced with server-side monitoring loop
-if (isNil "placementDone") then {
-    if (isNil "playerPlacingHQ" || {!(playerPlacingHQ in (call A3A_fnc_playableUnits))}) then {
-        playerPlacingHQ = player;
-        publicVariable "playerPlacingHQ";
-        [] spawn A3A_fnc_placementSelection;
-    };
-};
 
+initClientDone = true;
 Info("initClient completed");
 
 if(!isMultiplayer) then

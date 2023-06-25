@@ -16,6 +16,7 @@ if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea 
 _vehiclesX = [];
 _soldiers = [];
 private _dogs = [];
+private _groups = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;
@@ -123,7 +124,10 @@ if (_isControl) then
 				_dogs pushBack _dog;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
-			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+			_groups pushBack _groupX;
+
 			// Forced non-spawner as they're very static.
 			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 			};
@@ -169,7 +173,10 @@ else
 				};
 			};
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+
+		[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
+		_groups pushBack _groupX;
+
 		_typeVehX = selectRandom (_faction get "uavsPortable");
 		if !(isNil "_typeVehX") then
 			{
@@ -277,7 +284,8 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
-deleteGroup _groupX;
+
+{ deleteGroup _x } forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

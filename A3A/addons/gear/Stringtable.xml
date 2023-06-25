@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3-Antistasi">
+    <Package name="A3-Antistasi Mission">
+        <Container name="gear">
+            <Key ID="STR_A3A_G_HEADGEAR_BASE_DN">
+                <Original>Antistasi Headgear (WIP)</Original>
+                <Spanish>Sombrero de Antistasi (WIP)</Spanish>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_01_DN">
+                <Original>Beret [Antistasi] (Black)</Original>
+                <Spanish>Boina [Antistasi] (Negra)</Spanish>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_02_DN">
+                <Original>Beret [Antistasi] (Red)</Original>
+                <Spanish>Boina [Antistasi] (Roja)</Spanish>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_03_DN">
+                <Original>Beret [Antistasi] (Blue)</Original>
+                <Spanish>Boina [Antistasi] (Azul)</Spanish>
+            </Key>
+            <Key ID="STR_A3A_G_BERET_04_DN">
+                <Original>Beret [Antistasi] (Green)</Original>
+                <Spanish>Boina [Antistasi] (Verde)</Spanish>
+            </Key>
+        </Container>
+    </Package>
+</Project>

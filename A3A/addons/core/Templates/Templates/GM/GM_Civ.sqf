@@ -21,12 +21,22 @@
     ,"CUP_C_S1203_CIV_CR", 0.5
     ,"CUP_C_Tractor_Old_CIV", 0.2
     ,"CUP_C_TT650_CIV", 0.2
+    ,"gm_ge_ff_typ247_firefighter", 0.1
+    ,"gm_ge_civ_typ247",  1
+    ,"gm_ge_dbp_typ247", 0.1
+    ,"gm_ge_civ_typ251", 1
+    ,"gm_ge_dbp_typ251", 0.1
+    ,"gm_ge_civ_typ253", 1
+    ,"gm_ge_taxi_typ253", 0.1
+    ,"gm_ge_ff_w123", 0.1
+    ,"gm_ge_dbp_w123", 0.1
+    ,"gm_ge_taxi_w123", 0.1
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [
     "gm_ge_civ_u1300l", 1
     ,"gm_ge_ff_u1300l_firefighter", 0.2
-    ,"gm_gc_civ_ural375d_cargo",  1  ]] call _fnc_saveToTemplate;
+    ,"gm_gc_civ_ural375d_cargo",  1 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
@@ -44,6 +54,7 @@
 ["vehiclesCivMedical", [
     "CUP_B_S1203_Ambulance_CR", 0.1
     ,"C_Van_02_medevac_F", 0.1
+    , "gm_ge_ff_u1300l_medic", 0.1 
     //,"gm_gc_civ_mi2sr", 0.1
     //,"gm_ge_adak_bo105m_vbh", 0.1
 ]] call _fnc_saveToTemplate;

@@ -5,7 +5,6 @@ FIX_LINE_NUMBERS()
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
-
 Info("Server init started");
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
@@ -58,20 +57,17 @@ call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 Info("Server JNA preload started");
 ["Preload"] call jn_fnc_arsenal;
 
-// UPSMON
-Info("UPSMON init started");
-[] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
-
 Info("Background init completed");
 A3A_backgroundInitDone = true;
 
+Info("Server Initialising PATCOM Variables");
+[] call A3A_fnc_patrolInit;
 
 // **************** Starting game, param-dependent init *******************************
 
 // Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
-
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
+A3A_startupState = "starting"; publicVariable "A3A_startupState";
 
 // Use true params list in case we're loading an autosave from a different version
 private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
@@ -140,7 +136,6 @@ else
     } forEach controlsX;
     petros setPos _posHQ;
     [_posHQ, true] call A3A_fnc_relocateHQObjects;         // sets all the other vars
-    placementDone = true; publicVariable "placementDone";           // do we need this now?
 };
 
 if (_startType != "load") then {
@@ -245,10 +240,9 @@ addMissionEventHandler ["EntityKilled", {
 }];
 
 
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_completed"] remoteExec ["A3A_fnc_customHint", 0];
-
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
+A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 
 // ********************* Initialize loops *******************************************
@@ -256,6 +250,7 @@ Info("Setting serverInitDone as true");
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop
+[] spawn A3A_fnc_garbageCleanerTracker;             // 5-minute loop
 
 savingServer = false;           // enable saving
 
@@ -290,6 +285,16 @@ savingServer = false;           // enable saving
         [] call A3A_fnc_logPerformance;
         sleep _logPeriod;
     };
+};
+
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
 };
 
 Info("initServer completed");

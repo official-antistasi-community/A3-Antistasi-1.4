@@ -28,7 +28,7 @@ private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
-[_mrkOrigin, _startDelay + 5] call A3A_fnc_addTimeForIdle;
+[_mrkOrigin, _startDelay + 1] call A3A_fnc_addTimeForIdle;      // best not to try driving past this stuff
 
 
 // Determine convoy type from destination
@@ -96,14 +96,14 @@ switch (tolower _convoyType) do
         _textX = format ["A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nameOrigin,_displayTime,_nameDest];
         _taskTitle = "Money Convoy";
         _taskIcon = "move";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
     case "supplies":
     {
         _textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
         _taskTitle = "Supply Convoy";
         _taskIcon = "heal";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
 };
 
@@ -189,7 +189,7 @@ if (_convoyType == "Prisoners") then
     for "_i" from 1 to (1+ round (random 11)) do
     {
         private _unit = [_grpPOW, FactionGet(reb,"unitUnarmed"), _posSpawn, [], 0, "NONE"] call A3A_fnc_createUnit;
-        [_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity;
+        [_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity;
         _unit setCaptive true;
         _unit disableAI "MOVE";
         _unit setBehaviour "CARELESS";

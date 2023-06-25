@@ -22,7 +22,15 @@ aceItems = [
 	"ACE_UAVBattery",
 	"ACE_SpareBarrel",
 	"ACE_Flashlight_XL50",
-	"ACE_HandFlare_White"
+	"ACE_HandFlare_White",
+	"ACE_Chemlight_HiBlue",
+	"ACE_Chemlight_HiGreen",
+	"ACE_Chemlight_HiRed",
+	"ACE_Chemlight_HiWhite",
+	"ACE_Chemlight_HiYellow",
+	"ACE_Chemlight_Orange",
+	"ACE_Chemlight_UltraHiOrange",
+	"ACE_Chemlight_White"
 ];
 
 aceMedItems = [
@@ -65,6 +73,7 @@ katMedItems = [
 	"kat_chestSeal",     //KAT Breathing
 	"kat_Pulseoximeter",     //KAT Breathing
 	"kat_stethoscope",     //KAT Breathing
+	"kat_ncdKit",     //standalone alternative to AAT Kit - added in V2.10.2
 
 	"kat_bloodIV_A",     //KAT Circulation
 	"kat_bloodIV_A_250",     //KAT Circulation

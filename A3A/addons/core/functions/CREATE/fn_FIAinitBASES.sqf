@@ -73,30 +73,10 @@ _EHkilledIdx = _unit addEventHandler ["killed", {
 		};
 	}];
 
-_revealX = false;
-if (vehicle _unit != _unit) then
-	{
-	if (_unit == gunner (vehicle _unit)) then
-		{
-			_revealX = true;
-			if (debug) then {
-                Debug_1("Unit: %1 is mounted gunner.", _unit);
-			};
-		};
-	}
-else
-	{
-	if ((secondaryWeapon _unit) in allMissileLaunchers) then {
-			_revealX = true;
-			if (debug) then {
-                Debug_2("Unit: %1 has launcher: %2.", _unit, (secondaryWeapon _unit));
-			};
-		};
-	};
-
-if (_revealX) then
-	{
-	{
-	_unit reveal [_x,1.5];
-	} forEach allUnits select {(vehicle _x isKindOf "Air") and (_x distance _unit <= distanceSPWN)};
-	};
+//Reveals all air vehicles to the unit, if it is either gunner of a vehicle or equipped with a launcher
+if (_unit == gunner objectParent _unit or {(secondaryWeapon _unit) in allAA}) then
+{
+    {
+        if (!isNull driver _x) then { _unit reveal [_x, 1.5] };
+    } forEach (_unit nearEntities ["Air", distanceSPWN*2]);
+};

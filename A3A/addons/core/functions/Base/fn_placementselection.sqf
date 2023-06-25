@@ -1,17 +1,10 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 scriptName "fn_placementSelection.sqf";
-private _newGame = isNil "placementDone";
 private _disabledPlayerDamage = false;
 
-if (_newGame) then {
-    Info("New session selected");
-	"Initial HQ Placement Selection" hintC ["Click on the Map Position you want to start the Game.","Close the map with M to start in the default position.","Don't select areas with enemies nearby!!\n\nGame experience changes a lot on different starting positions."];
-} else {
-	player allowDamage false;
-	_disabledPlayerDamage = true;
-	format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
-};
+player allowDamage false;
+format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
 	0 = _this spawn {
@@ -21,16 +14,10 @@ hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
 }];
 
 private _markersX = markersX select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+_markersX = _markersX - (controlsX select {!isOnRoad (getMarkerPos _x)});
+openMap [true,true];
 
-if (_newGame) then {
-	_markersX = _markersX - controlsX;
-	openMap true;
-} else {
-	_markersX = _markersX - (controlsX select {!isOnRoad (getMarkerPos _x)});
-	openMap [true,true];
-};
 private _mrkDangerZone = [];
-
 {
 	_mrk = createMarkerLocal [format ["%1dumdum", count _mrkDangerZone], getMarkerPos _x];
 	_mrk setMarkerShapeLocal "ELLIPSE";
@@ -74,7 +61,7 @@ while {_positionIsInvalid} do {
 		_positionIsInvalid = true;
 	};
 
-	if (!_positionIsInvalid && !_newGame) then {
+	if (!_positionIsInvalid) then {
 		//Invalid if enemies nearby
 		_positionIsInvalid = (allUnits findIf {(side _x == Occupants || side _x == Invaders) && {_x distance _positionClicked < 500}}) > -1;
 		if (_positionIsInvalid) then {["HQ Position", "There are enemies in the surroundings of that area, please select another."] call A3A_fnc_customHint;};
@@ -82,32 +69,25 @@ while {_positionIsInvalid} do {
 	sleep 0.1;
 };
 
-//If we're still in the map, we chose a place.
-if (visiblemap) then {
-	if (_newGame) then {
-		{
-			if (getMarkerPos _x distance _positionClicked < distanceSPWN) then {
-				sidesX setVariable [_x,teamPlayer,true];
-			};
-		} forEach controlsX;
-		petros setPos _positionClicked;
-	} else {
-		_controlsX = controlsX select {!(isOnRoad (getMarkerPos _x))};
-		{
-			if (getMarkerPos _x distance _positionClicked < distanceSPWN) then {
-				sidesX setVariable [_x,teamPlayer,true];
-			};
-		} forEach _controlsX;
-		[_positionClicked] remoteExec ["A3A_fnc_createPetros", 2];
-	};
-	[_positionClicked, _newGame] remoteExec ["A3A_fnc_relocateHQObjects", 2];
-	openmap [false,false];
-};
-
-if (_disabledPlayerDamage) then {player allowDamage true};
+player allowDamage true;
 
 {deleteMarkerLocal _x} forEach _mrkDangerZone;
-"Synd_HQ" setMarkerPos (getMarkerPos respawnTeamPlayer);
-posHQ = getMarkerPos respawnTeamPlayer; publicVariable "posHQ";
-if (_newGame) then {placementDone = true; publicVariable "placementDone"};
-chopForest = false; publicVariable "chopForest";
+
+//If we're still in the map, we chose a place.
+if (visiblemap) then {
+	_controlsX = controlsX select {!(isOnRoad (getMarkerPos _x))};
+	{
+		if (getMarkerPos _x distance _positionClicked < distanceSPWN) then {
+			sidesX setVariable [_x,teamPlayer,true];
+		};
+	} forEach _controlsX;
+	[_positionClicked] remoteExec ["A3A_fnc_createPetros", 2];
+	[_positionClicked, false] remoteExec ["A3A_fnc_relocateHQObjects", 2];
+	openmap [false,false];
+
+	// Make sure petros is actually placed before we signal that we're done placing
+	sleep 5;
+};
+
+A3A_playerPlacingPetros = "";
+publicVariableServer "A3A_playerPlacingPetros";

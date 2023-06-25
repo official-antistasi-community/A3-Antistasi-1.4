@@ -186,7 +186,7 @@ _sfLoadoutData set ["rifles", [
 ["sfp_ak5c_blk", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5c_blk", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5c", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
 ["sfp_ak5dmk2", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
@@ -238,7 +238,8 @@ _militaryLoadoutData set ["carbines", [
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak5c_m203", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
-_militaryLoadoutData set ["SMGs", ["sfp_kpistm45b", "sfp_mp5"]];
+_militaryLoadoutData set ["SMGs", ["sfp_kpistm45b", 
+["sfp_mp5_rail", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_9mm_mp5"], [], ""]]];
 _militaryLoadoutData set ["machineGuns", [
 ["sfp_ksp90b", "", "", "sfp_optic_aimpoint", ["sfp_200Rnd_556x45_ksp90"], [], ""],
 ["sfp_ksp58B2", "", "", "sfp_optic_3x_aimpoint", ["sfp_50Rnd_762x51_ksp58"], [], ""]
@@ -589,7 +590,7 @@ private _aaTemplate = {
 private _machineGunnerTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    [["mgVests", "vests"] call _fnc_fallback]
+    [["mgVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 

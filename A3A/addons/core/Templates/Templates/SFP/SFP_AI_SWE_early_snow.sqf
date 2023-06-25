@@ -36,7 +36,7 @@
 
 ["vehiclesTransportBoats", ["sfp_gruppbat"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["sfp_strb90"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_MTLB_pk_Winter_CDF"]]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_MTLB_pk_Winter_CDF"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["sfp_jas39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 

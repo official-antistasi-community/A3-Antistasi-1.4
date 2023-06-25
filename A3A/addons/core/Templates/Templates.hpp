@@ -288,14 +288,14 @@ class Templates
     class SFP_SAF15 : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SvAF";
+        name = "SFP Modern SvAF";
         file = "SFP_AI_SWE2015";
         climate[] = {"temperate","tropical"};
     };
     class SFP_SAF15_Arctic : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP SvAF ARTIC";
+        name = "SFP Modern SvAF ARTIC";
         file = "SFP_AI_SWE2015_snow";
         climate[] = {"arctic"};
     };

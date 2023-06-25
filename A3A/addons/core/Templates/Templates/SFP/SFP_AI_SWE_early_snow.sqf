@@ -208,7 +208,7 @@ _militaryLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
 _militaryLoadoutData set ["rifles", [
 ["sfp_ak5", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
 ["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
-"sfp_ak4"
+["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
@@ -253,8 +253,10 @@ _militiaLoadoutData set ["uniforms", ["sfp_m90s_uniform_ws","sfp_m90s_uniform_sw
 _militiaLoadoutData set ["vests", ["sfp_stridssele"]];
 _militiaLoadoutData set ["helmets", ["sfp_m90w_helmet", "sfp_m90s_helmet"]];
 
-_militiaLoadoutData set ["rifles", ["sfp_ak4"]];
-_militiaLoadoutData set ["carbines", ["sfp_ak4"]];
+_militiaLoadoutData set ["rifles", [
+["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""]]];
+_militiaLoadoutData set ["carbines", [
+["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""]]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak4_m203", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
@@ -330,6 +332,7 @@ private _riflemanTemplate = {
 
     [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 2] call _fnc_addAdditionalMuzzleMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;

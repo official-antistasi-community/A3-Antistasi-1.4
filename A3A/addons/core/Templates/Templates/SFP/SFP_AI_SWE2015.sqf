@@ -23,12 +23,12 @@
 ["vehiclesLightArmed", ["sfp_tgb16_ksp58","sfp_tgb16_rws"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["sfp_bv206", "sfp_tgb1317", "sfp_tgb20", "sfp_tgb13_ksp58"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["sfp_tgb30_repair"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["sfp_tgb1314"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["sfp_patgb360"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_BAF_WOOD"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["CUP_B_MTVR_Repair_BAF_WOOD"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_BAF_WOOD"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["sfp_tgb1314","CUP_I_BMP2_AMB_NAPA"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_O_MTLB_pk_Green_RU"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesAPCs", ["sfp_patgb360","CUP_I_BMP2_NAPA"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", ["sfp_strv122","sfp_strv122b"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
@@ -36,20 +36,21 @@
 
 ["vehiclesTransportBoats", ["sfp_gruppbat"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["sfp_strb90","sfp_strb90_rws"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", []] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_O_MTLB_pk_Green_RU"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["sfp_jas39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
-["vehiclesHelisTransport", ["sfp_hkp4","sfp_hkp16","sfp_hkp16_ffv"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["CUP_B_AW159_Unarmed_GB", "sfp_hkp9", "sfp_hkp9_sog", "CUP_B_AW159_Unarmed_GB", "CUP_B_AW159_Unarmed_GB"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
+["vehiclesHelisTransport", ["CUP_B_Merlin_HC3A_Armed_GB", "CUP_B_Merlin_HC3A_Armed_GB","sfp_hkp16","sfp_hkp16_ffv"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
-["vehiclesHelisLightAttack", ["sfp_hkp9_rb55"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+//hkp9 rb55 is ATGM only, AW159 is a stand in for AW109, used as an attack helicopter here in lieu of anything more fitting
+["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_AW159_GB"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
+["vehiclesHelisAttack", ["CUP_B_AW159_GB"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["sfp_fh77","sfp_grkpbv90120"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [["sfp_fh77",["32Rnd_155mm_Mo_shells"]],["sfp_grkpbv90120",["sfp_2Rnd_120mm_Mo_shells","sfp_2nd_120mm_Guided_shells"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
+["magazines", createHashMapFromArray [["sfp_fh77",["32Rnd_155mm_Mo_shells"]],["sfp_grkpbv90120",["sfp_2Rnd_120mm_Mo_shells"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
 ["uavsPortable", []] call _fnc_saveToTemplate;
@@ -212,7 +213,7 @@ _policeLoadoutData set ["uniforms", ["sfp_police_uniform_modern_reflective","sfp
 _policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
 _policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
-_policeLoadoutData set ["SMGs", ["sfp_mp5", "sfp_kpistm45b"]];
+_policeLoadoutData set ["SMGs", ["sfp_mp5"]];
 _policeLoadoutData set ["shotguns", ["sfp_remington870", "sfp_remington870_chrome","sfp_remington870_wood_chrome","sfp_remington870_wood_blue"]];
 _policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]],"sfp_p226"];
 
@@ -606,7 +607,7 @@ private _policeTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-    ["SMGs"] call _fnc_setPrimary;
+    [selectRandom ["shotguns", "SMGs"]] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -728,7 +729,7 @@ private _unitTypes = [
 ////////////////////////
 private _prefix = "police";
 private _unitTypes = [
-    ["SquadLeader", _squadLeaderTemplate],
+    ["SquadLeader", _policeTemplate],
     ["Standard", _policeTemplate]
 ];
 

@@ -265,7 +265,7 @@ class Templates
     //************* SFP ********************************************************
     class SFP_Base
     {
-        requiredAddons[] = {"Swedish_Forces_Pack"};
+        requiredAddons[] = {"Swedish_Forces_Pack","CUP_Creatures_People_Civil_Russia", "CUP_BaseConfigs", "CUP_AirVehicles_Core"};
         basepath = QPATHTOFOLDER(Templates\Templates\SFP);
         logo = "\sfp_config\data\logos\sfp_logo_ca.paa";
 	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
@@ -276,24 +276,28 @@ class Templates
 	    side = "Occ";
         name = "SFP Early SwAF";
         file = "SFP_AI_SWE2000";
+        climate[] = {"temperate","tropical"};
     };
-    class SFP_SAF00_W : SFP_Base
+    class SFP_SAF00_Arctic : SFP_Base
     {
 	    side = "Occ";
         name = "SFP Early SwAF ARTIC";
         file = "SFP_AI_SWE2000_snow";
+        climate[] = {"arctic"};
     };
     class SFP_SAF15 : SFP_Base
     {
 	    side = "Occ";
         name = "SFP SwAF";
         file = "SFP_AI_SWE2015";
+        climate[] = {"temperate","tropical"};
     };
-    class SFP_SAF15 : SFP_Base
+    class SFP_SAF15_Arctic : SFP_Base
     {
 	    side = "Occ";
         name = "SFP SwAF ARTIC";
         file = "SFP_AI_SWE2015_snow";
+        climate[] = {"arctic"};
     };
 	#if __A3_DEBUG__
     class SFP_SAF35 : SFP_Base

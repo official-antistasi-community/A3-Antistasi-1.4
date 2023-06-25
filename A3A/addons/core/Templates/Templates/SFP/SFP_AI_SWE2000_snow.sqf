@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "SwAF"] call _fnc_saveToTemplate;
-["spawnMarkerName", "SwAF Support Corridor"] call _fnc_saveToTemplate;
+["name", "SvAF"] call _fnc_saveToTemplate;
+["spawnMarkerName", "SvAF Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "sfp_flagcarrier_sweden"] call _fnc_saveToTemplate;
 ["flagTexture", "\sfp_config\data\flag_sweden_co.paa"] call _fnc_saveToTemplate;
@@ -18,17 +18,17 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
-["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["CUP_B_M1030_USA"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["sfp_tgb11","sfp_tgb1112"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["sfp_tgb1111_sog_ksp58"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["sfp_bv206_winter"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["CUP_B_MTVR_Repair_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["sfp_tgb1314","CUP_I_BMP2_AMB_NAPA"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58","I_E_Truck_02_F"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_MTLB_pk_Winter_CDF"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["CUP_I_BMP2_NAPA"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesAPCs", ["CUP_I_BMP1_TK_GUE"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c_snow"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", ["sfp_strv103c","sfp_strv102_snow","sfp_strv121_snow","sfp_ikv91_snow"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c_snow"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored

@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "SwAF"] call _fnc_saveToTemplate;
-["spawnMarkerName", "SwAF Support Corridor"] call _fnc_saveToTemplate;
+["name", "SvAF"] call _fnc_saveToTemplate;
+["spawnMarkerName", "SvAF Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "sfp_flagcarrier_sweden"] call _fnc_saveToTemplate;
 ["flagTexture", "\sfp_config\data\flag_sweden_co.paa"] call _fnc_saveToTemplate;
@@ -21,16 +21,16 @@
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["sfp_tgb16"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["sfp_tgb16_ksp58","sfp_tgb16_rws"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
-["vehiclesTrucks", ["sfp_bv206", "sfp_tgb1317", "sfp_tgb20", "sfp_tgb13_ksp58"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["CUP_B_MTVR_Ammo_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["CUP_B_MTVR_Repair_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_BAF_WOOD"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["sfp_tgb1314","CUP_I_BMP2_AMB_NAPA"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["sfp_bv206", "sfp_tgb1317", "sfp_tgb20", "sfp_tgb13_ksp58","I_E_Truck_02_F"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58","I_E_Truck_02_F"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_O_MTLB_pk_Green_RU"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["sfp_patgb360","CUP_I_BMP2_NAPA"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesAPCs", ["sfp_patgb360","CUP_I_BMP1_TK_GUE"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["sfp_strv122","sfp_strv122b"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["sfp_strv122","sfp_strv122b","sfp_strv121","sfp_ikv91"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 
@@ -114,9 +114,9 @@ _loadoutData set ["lightExplosives", ["DemoCharge_Remote_Mag"]];
 _loadoutData set ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
 
 _loadoutData set ["antiTankGrenades", []];
-_loadoutData set ["antiInfantryGrenades", []];
-_loadoutData set ["smokeGrenades", []];
-_loadoutData set ["signalsmokeGrenades", []];
+_loadoutData set ["antiInfantryGrenades", ["sfp_handgrenade_shgr56"]];
+_loadoutData set ["smokeGrenades", ["SmokeShell"]];
+_loadoutData set ["signalsmokeGrenades", ["SmokeShellBlue","SmokeShellGreen","SmokeShellOrange","SmokeShellPurple","SmokeShellRed","SmokeShellYellow"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -223,14 +223,16 @@ _policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rn
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", []];
-_militiaLoadoutData set ["vests", []];
+_militiaLoadoutData set ["uniforms", ["sfp_m90w_uniform_ksk90"]];
+_militiaLoadoutData set ["vests", ["sfp_stridsvast2000"]];
 _militiaLoadoutData set ["backpacks", []];
-_militiaLoadoutData set ["helmets", []];
+_militiaLoadoutData set ["helmets", ["sfp_m90w_helmet"]];
 
-_militiaLoadoutData set ["rifles", []];
+_militiaLoadoutData set ["rifles", [
+["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""]
+]];
 _militiaLoadoutData set ["carbines", []];
-_militiaLoadoutData set ["grenadeLaunchers", []];
+_militiaLoadoutData set ["grenadeLaunchers", ["sfp_ak5_m203"]];
 _militiaLoadoutData set ["SMGs", []];
 _militiaLoadoutData set ["machineGuns", []];
 _militiaLoadoutData set ["marksmanRifles", []];
@@ -241,14 +243,14 @@ _militiaLoadoutData set ["sidearms", []];
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", []];
-_crewLoadoutData set ["vests", []];
-_crewLoadoutData set ["helmets", []];
+_crewLoadoutData set ["uniforms", ["sfp_m90p_uniform"]];
+_crewLoadoutData set ["vests", ["sfp_kroppsskydd12_crew"]];
+_crewLoadoutData set ["helmets", ["H_HelmetCrew_I"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", []];
-_pilotLoadoutData set ["vests", []];
-_pilotLoadoutData set ["helmets", []];
+_pilotLoadoutData set ["uniforms", ["sfp_m87_flying_suit"]];
+_pilotLoadoutData set ["vests", ["sfp_kroppsskydd12_crew"]];
+_pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_B"]];
 
 
 /////////////////////////////////

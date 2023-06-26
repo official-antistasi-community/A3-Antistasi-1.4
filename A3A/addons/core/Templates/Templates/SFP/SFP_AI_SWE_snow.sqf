@@ -266,7 +266,7 @@ _policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
 _policeLoadoutData set ["SMGs", ["sfp_mp5"]];
 _policeLoadoutData set ["shotguns", ["sfp_remington870", "sfp_remington870_chrome","sfp_remington870_wood_chrome","sfp_remington870_wood_blue"]];
-_policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]],"sfp_p226"];
+_policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]]];
 
 
 ////////////////////////////////

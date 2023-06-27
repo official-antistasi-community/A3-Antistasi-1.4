@@ -366,7 +366,7 @@ private _riflemanTemplate = {
 private _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["medicFacewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    [["medVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["medBackpacks"] call _fnc_setBackpack;
 	[selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;

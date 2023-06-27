@@ -134,8 +134,10 @@ _loadoutData set ["rangefinders", ["Rangefinder"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
-_loadoutData set ["backpacks", []];
-_loadoutData set ["hvBackpacks", []];
+_loadoutData set ["backpacks", ["sfp_backpack_stridssack08"]];
+_loadoutData set ["latBackpacks", ["sfp_stridssele_backpack_grg"]];
+_loadoutData set ["atBackpacks", ["sfp_backpack_grg_loader"]];
+_loadoutData set ["hvBackpacks", ["sfp_backpack_stridssack2000"]];
 _loadoutData set ["slBackpacks", ["sfp_stridssack2000_ra_ksk12"]];
 _loadoutData set ["medBackpacks", ["sfp_backpack_sjvv9"]];
 _loadoutData set ["longRangeRadios", []];
@@ -176,10 +178,8 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["sfp_m90w_uniform_dirty","sfp_m90w_uniform_boots_m08"]];
-_sfLoadoutData set ["vests", ["V_Chestrig_khk"]];
-_sfLoadoutData set ["backpacks", ["sfp_backpack_stridssack08"]];
-_sfLoadoutData set ["hvBackpacks", ["sfp_backpack_stridssack2000"]];
-_sfLoadoutData set ["helmets", ["sfp_m90w_booniehat"]];
+_sfLoadoutData set ["vests", ["sfp_stridsvast2000_gl","sfp_kroppsskydd12"]];
+_sfLoadoutData set ["helmets", ["sfp_m90w_booniehat","sfp_m90green_helmet_clean_peltor_nvg_velcro"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -224,9 +224,10 @@ _sfLoadoutData set ["sidearms", [["sfp_p88", "muzzle_snds_L", "sfp_tlr2", "", ["
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["sfp_m90w_uniform_modern"]];
-_militaryLoadoutData set ["vests", ["sfp_kroppsskydd12"]];
-_militaryLoadoutData set ["backpacks", ["sfp_backpack_stridssack08"]];
-_militaryLoadoutData set ["hvBackpacks", ["sfp_backpack_stridssack2000"]];
+_militaryLoadoutData set ["vests", ["sfp_kroppsskydd12","sfp_kroppsskydd12_holster"]];
+_militaryLoadoutData set ["glVests", ["sfp_kroppsskydd12_gl","sfp_kroppsskydd12_tl"]];
+_militaryLoadoutData set ["mgVests", ["sfp_kroppsskydd12_mg"]];
+_militaryLoadoutData set ["medVests", ["sfp_kroppsskydd12_medic"]];
 _militaryLoadoutData set ["helmets", ["sfp_m90w_helmet_nvg"]];
 
 _militaryLoadoutData set ["rifles", [
@@ -281,11 +282,13 @@ _policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rn
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["sfp_m90w_uniform"]];
-_militiaLoadoutData set ["vests", ["sfp_stridsvast2000","sfp_stridssele"]];
-_militiaLoadoutData set ["glVests", ["sfp_stridsbalte_304k_gl"]];
-_militiaLoadoutData set ["mgVests", ["sfp_stridsvast2000_mg"]];
-_militiaLoadoutData set ["backpacks", ["sfp_backpack_lk35"]];
-_militiaLoadoutData set ["helmets", ["sfp_m90w_helmet"]];
+_militiaLoadoutData set ["vests", ["sfp_stridsvast2000","sfp_stridsvast2000_light","sfp_stridsbalte_304k","sfp_stridsbalte_304k_extrabag","sfp_kroppsskydd94","sfp_kroppskydd94_rifle1"]];
+_militiaLoadoutData set ["glVests", ["sfp_stridsbalte_304k_gl","sfp_stridsvast2000_gl"]];
+_militiaLoadoutData set ["mgVests", ["sfp_stridsbalte_304k_ar","sfp_stridsvast2000_mg"]];
+_militiaLoadoutData set ["backpacks", ["sfp_stridssele_backpack","sfp_stridssele_backpack","sfp_stridssele_backpack_grg"]];
+_militiaLoadoutData set ["hvBackpacks", ["sfp_backpack_lk35"]];
+_militiaLoadoutData set ["slBackpacks", ["sfp_ra180"]];
+_militiaLoadoutData set ["helmets", ["sfp_m90green_helmet_clean"]];
 
 _militiaLoadoutData set ["ATLaunchers", ["sfp_grg48"]];
 
@@ -392,7 +395,7 @@ private _riflemanTemplate = {
 private _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["medicFacewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    [["medVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["medBackpacks"] call _fnc_setBackpack;
 	[selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
@@ -512,8 +515,11 @@ private _latTemplate = {
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-
-    [selectRandom ["lightATLaunchers", "ATLaunchers"]] call _fnc_setLauncher;
+	private _at = selectRandom ["lightATLaunchers", "ATLaunchers"];
+    [_at] call _fnc_setLauncher;
+	if (_at == "ATLaunchers") then {
+		["latBackpacks"] call _fnc_setBackpack; //use the light grg pack if grg gunner
+	};
     //TODO - Add a check if it's disposable.
     ["launcher", 1] call _fnc_addMagazines;
 
@@ -543,7 +549,11 @@ private _atTemplate = {
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
-    [selectRandom ["ATLaunchers", "missileATLaunchers"]] call _fnc_setLauncher;
+	private _at = selectRandom ["missileATLaunchers", "ATLaunchers"];
+    [_at] call _fnc_setLauncher;
+	if (_at == "ATLaunchers") then {
+		["atBackpacks"] call _fnc_setBackpack; //use the grg pack if grg gunner
+	};
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
 

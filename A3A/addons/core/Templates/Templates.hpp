@@ -276,7 +276,7 @@ class Templates
 	    side = "Occ";
         name = "SFP Early SvAF";
         file = "SFP_AI_SWE_early";
-        climate[] = {"temperate","tropical"};
+        climate[] = {"temperate","tropical","arid"};
     };
     class SFP_SAF00_Arctic : SFP_Base
     {
@@ -290,7 +290,7 @@ class Templates
 	    side = "Occ";
         name = "SFP Modern SvAF";
         file = "SFP_AI_SWE";
-        climate[] = {"temperate","tropical"};
+        climate[] = {"temperate","tropical","arid"};
     };
     class SFP_SAF15_Arctic : SFP_Base
     {

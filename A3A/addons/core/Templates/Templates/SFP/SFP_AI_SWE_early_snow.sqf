@@ -133,7 +133,7 @@ _loadoutData set ["rangefinders", ["Rangefinder"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
-_loadoutData set ["backpacks", ["sfp_stridssele_backpack","sfp_stridssele_backpack","sfp_stridssele_backpack_grg"]];
+_loadoutData set ["backpacks", ["sfp_stridssele_backpack"]];
 _loadoutData set ["hvBackpacks", ["sfp_backpack_lk35"]];
 _loadoutData set ["latBackpacks", ["sfp_stridssele_backpack_grg"]];
 _loadoutData set ["atBackpacks", ["sfp_backpack_grg_loader"]];

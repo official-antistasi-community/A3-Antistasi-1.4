@@ -307,7 +307,7 @@ _militiaLoadoutData set ["marksmanRifles", [
 ["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["sfp_ak4b", "", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], ""],
+["sfp_ak4b", "", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", []];
 

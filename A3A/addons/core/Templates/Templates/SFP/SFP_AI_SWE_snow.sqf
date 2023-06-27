@@ -76,6 +76,7 @@
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
+#include "SFP_Vehicle_Attributes.sqf"
 /////////////////////
 ///  Identities   ///
 /////////////////////
@@ -141,7 +142,7 @@ _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["hats", ["sfp_m90w_cap_alt_grp","sfp_m90w_cap_grp"]];
 
-_loadoutData set ["facewear", ["G_Bandanna_oli", "CUP_G_ESS_KHK_Facewrap_White", "CUP_G_PMC_Facewrap_Winter_Glasses_Ember"]];
+_loadoutData set ["facewear", ["G_Bandanna_oli", "CUP_G_ESS_KHK_Facewrap_White", "CUP_G_PMC_Facewrap_Winter_Glasses_Ember","G_Shades_Black"]];
 _loadoutData set ["medicFacewear", ["sfp_armband_medic","sfp_armband_medic_white"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
@@ -265,7 +266,12 @@ _policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
 _policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
 _policeLoadoutData set ["SMGs", ["sfp_mp5"]];
-_policeLoadoutData set ["shotguns", ["sfp_remington870", "sfp_remington870_chrome","sfp_remington870_wood_chrome","sfp_remington870_wood_blue"]];
+_policeLoadoutData set ["shotguns", [
+["sfp_remington870", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""], 
+["sfp_remington870_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
+["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
+["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]
+]];
 _policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]]];
 
 

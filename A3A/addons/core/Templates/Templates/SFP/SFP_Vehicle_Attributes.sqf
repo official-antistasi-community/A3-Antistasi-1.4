@@ -1,10 +1,12 @@
 ["attributesVehicles", [
     // Light tank
-    ["sfp_ikv91", ["cost", 150]],     //Light tank, basically IFV without passanger capacity
+    ["sfp_ikv91", ["cost", 150]],     //Light tank, basically IFV without passenger capacity
 	//Trash light armed
     ["sfp_tgb1111_sog_ksp58", ["cost", 30]],     //Limited MG arc
 
-
+	//Light attack helis used as regular attack helis
+    ["CUP_B_UH1D_gunship_GER_KSK_Des", ["cost", 130]],
+    ["CUP_B_AW159_GB", ["cost", 130]]
 ]] call _fnc_saveToTemplate;
 
 //Base cost 20 static AA, AT, Mortars

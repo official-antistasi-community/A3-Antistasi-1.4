@@ -179,7 +179,7 @@ _loadoutData set ["items_unarmed_extras", []];
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["sfp_m90s_uniform"]];
 _sfLoadoutData set ["vests", ["sfp_stridsvast2000_gl","sfp_kroppsskydd12"]];
-_sfLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
+_sfLoadoutData set ["helmets", ["sfp_m90s_helmet_headset"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -228,7 +228,7 @@ _militaryLoadoutData set ["vests", ["sfp_kroppsskydd12","sfp_kroppsskydd12_holst
 _militaryLoadoutData set ["glVests", ["sfp_kroppsskydd12_gl","sfp_kroppsskydd12_tl"]];
 _militaryLoadoutData set ["mgVests", ["sfp_kroppsskydd12_mg"]];
 _militaryLoadoutData set ["medVests", ["sfp_kroppsskydd12_medic"]];
-_militaryLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
+_militaryLoadoutData set ["helmets", ["sfp_m90s_helmet_peltor","sfp_m90s_helmet_peltor_nomic"]];
 
 _militaryLoadoutData set ["rifles", [
 ["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
@@ -285,12 +285,10 @@ _militiaLoadoutData set ["uniforms", ["sfp_m90s_uniform_ws", "sfp_m90s_uniform_s
 _militiaLoadoutData set ["vests", ["sfp_stridsvast2000","sfp_stridsvast2000_light","sfp_stridsbalte_304k","sfp_stridsbalte_304k_extrabag","sfp_kroppsskydd94","sfp_kroppskydd94_rifle1"]];
 _militiaLoadoutData set ["glVests", ["sfp_stridsbalte_304k_gl","sfp_stridsvast2000_gl"]];
 _militiaLoadoutData set ["mgVests", ["sfp_stridsbalte_304k_ar","sfp_stridsvast2000_mg"]];
-_militiaLoadoutData set ["backpacks", ["sfp_stridssele_backpack","sfp_stridssele_backpack","sfp_stridssele_backpack_grg"]];
+_militiaLoadoutData set ["backpacks", ["sfp_stridssele_backpack"]];
 _militiaLoadoutData set ["hvBackpacks", ["sfp_backpack_lk35"]];
 _militiaLoadoutData set ["slBackpacks", ["sfp_ra180"]];
 _militiaLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
-
-_militiaLoadoutData set ["ATLaunchers", ["sfp_grg48"]];
 
 _militiaLoadoutData set ["rifles", [
 ["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""],
@@ -299,15 +297,17 @@ _militiaLoadoutData set ["rifles", [
 _militiaLoadoutData set ["carbines", ["sfp_ak5d"]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
+["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
 ["sfp_ak5_m203", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", ["sfp_kpistm45", "sfp_kpistm45b"]];
 _militiaLoadoutData set ["machineGuns", ["sfp_ksp58"]];
 _militiaLoadoutData set ["marksmanRifles", [
+["sfp_ak4b", "", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], ""],
 ["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["sfp_psg90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""]
+["sfp_ak4b", "", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], ""],
 ]];
 _militiaLoadoutData set ["sidearms", []];
 
@@ -520,9 +520,10 @@ private _latTemplate = {
     [_at] call _fnc_setLauncher;
 	if (_at == "ATLaunchers") then {
 		["latBackpacks"] call _fnc_setBackpack; //use the light grg pack if grg gunner
+		["launcher", 2] call _fnc_addMagazines;
+	} else{
+		["launcher", 1] call _fnc_addMagazines;
 	};
-    //TODO - Add a check if it's disposable.
-    ["launcher", 1] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -547,14 +548,16 @@ private _atTemplate = {
     ["uniforms"] call _fnc_setUniform;
 	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
-    ["rifles"] call _fnc_setPrimary;
+    ["carbines"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
-    
 	private _at = selectRandom ["missileATLaunchers", "ATLaunchers"];
     [_at] call _fnc_setLauncher;
 	if (_at == "ATLaunchers") then {
 		["atBackpacks"] call _fnc_setBackpack; //use the grg pack if grg gunner
+		["launcher", 4] call _fnc_addMagazines;
+	} else{
+		["launcher", 2] call _fnc_addMagazines;
 	};
 
     ["sidearms"] call _fnc_setHandgun;

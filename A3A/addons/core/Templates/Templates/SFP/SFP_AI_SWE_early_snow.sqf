@@ -104,7 +104,7 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", ["sfp_pskott86","sfp_pskott68"]];
-_loadoutData set ["ATLaunchers", ["sfp_grg48","sfp_grg86"]];
+_loadoutData set ["ATLaunchers", ["sfp_grg86"]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", ["sfp_rbs69"]];
 _loadoutData set ["sidearms", []];
@@ -135,8 +135,8 @@ _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["backpacks", ["sfp_stridssele_backpack","sfp_stridssele_backpack","sfp_stridssele_backpack_grg"]];
 _loadoutData set ["hvBackpacks", ["sfp_backpack_lk35"]];
-_loadoutData set ["LATBackpacks", ["sfp_stridssele_backpack_grg"]];
-_loadoutData set ["ATBackpacks", ["sfp_backpack_grg_loader"]];
+_loadoutData set ["latBackpacks", ["sfp_stridssele_backpack_grg"]];
+_loadoutData set ["atBackpacks", ["sfp_backpack_grg_loader"]];
 _loadoutData set ["slBackpacks", ["sfp_ra180"]];
 _loadoutData set ["medBackpacks", ["sfp_backpack_sjvv9"]];
 _loadoutData set ["longRangeRadios", []];
@@ -482,14 +482,19 @@ private _latTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["LATBackpacks"] call _fnc_setBackpack;
+    ["backpacks"] call _fnc_setBackpack;
 
     [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
-    [["lightATLaunchers", "ATLaunchers"] call _fnc_fallback] call _fnc_setLauncher;
-    //TODO - Add a check if it's disposable.
-    ["launcher", 1] call _fnc_addMagazines;
+	private _at = selectRandom ["lightATLaunchers", "ATLaunchers"];
+    [_at] call _fnc_setLauncher;
+	if (_at == "ATLaunchers") then {
+		["latBackpacks"] call _fnc_setBackpack; //use the light grg pack if grg gunner
+		["launcher", 2] call _fnc_addMagazines;
+	} else{
+		["launcher", 1] call _fnc_addMagazines;
+	};
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -512,14 +517,14 @@ private _atTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["ATBackpacks"] call _fnc_setBackpack;
+    ["atBackpacks"] call _fnc_setBackpack;
 
     [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["ATLaunchers"] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
-    ["launcher", 2] call _fnc_addMagazines;
+    ["launcher", 4] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -542,7 +547,7 @@ private _aaTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    [selectRandom ["LATBackpacks", "ATBackpacks"]] call _fnc_setBackpack;
+    [selectRandom ["latBackpacks", "atBackpacks"]] call _fnc_setBackpack;
 
     [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;

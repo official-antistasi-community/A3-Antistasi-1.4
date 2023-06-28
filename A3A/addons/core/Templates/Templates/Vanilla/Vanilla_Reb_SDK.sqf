@@ -9,7 +9,7 @@
 ["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["I_G_Offroad_01_F", "I_C_Offroad_02_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["I_C_Offroad_02_unarmed_F", "I_G_Offroad_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["I_G_Offroad_01_armed_F", "I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["I_C_Offroad_02_AT_F", "I_G_Offroad_01_AT_F"]] call _fnc_saveToTemplate;

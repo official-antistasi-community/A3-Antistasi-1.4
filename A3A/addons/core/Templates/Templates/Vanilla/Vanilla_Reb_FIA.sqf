@@ -40,7 +40,7 @@ private _staticAA = ["I_static_AA_F"];
 
 if (allowDLCExpansion) then {
     _vehiclesCivCar append ["C_Offroad_02_unarmed_F"];
-}
+};
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 
 if (allowDLCWS) then {

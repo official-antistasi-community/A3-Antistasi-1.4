@@ -219,7 +219,7 @@ _militaryLoadoutData set ["rifles", [
 ]];
 _militaryLoadoutData set ["carbines", [
 ["sfp_cga5p", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5d", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
+["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
 ["sfp_ak5d", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [

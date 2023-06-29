@@ -2,8 +2,8 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "SvAF"] call _fnc_saveToTemplate;
-["spawnMarkerName", "SvAF Support Corridor"] call _fnc_saveToTemplate;
+["name", "SDF"] call _fnc_saveToTemplate;
+["spawnMarkerName", "SDF Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "sfp_flagcarrier_sweden"] call _fnc_saveToTemplate;
 ["flagTexture", "\sfp_config\data\flag_sweden_co.paa"] call _fnc_saveToTemplate;

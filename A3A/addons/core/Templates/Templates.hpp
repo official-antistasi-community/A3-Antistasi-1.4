@@ -237,6 +237,17 @@ class Templates
         name = "RHS NAPA";
         file = "RHS_Reb_NAPA";
     };
+	
+    class RHS_SDK : RHS_Base
+    {
+        side = "Reb";
+        flagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+        name = "RHS SDK";
+        file = "RHS_Reb_SDK";
+        maps[] = {"Tanoa"};
+        climate[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
 
     class RHS_Civ : RHS_Base
     {

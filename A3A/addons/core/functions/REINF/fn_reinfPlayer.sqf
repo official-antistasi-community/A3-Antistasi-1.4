@@ -20,6 +20,18 @@ if (_costs > _resourcesFIA) exitWith {["AI Recruitment", format ["You do not hav
 
 if ((count units group player) + (count units stragglers) > 9) exitWith {["AI Recruitment", "Your squad is full or you have too many scattered units with no radio contact."] call A3A_fnc_customHint;};
 
+private _weaponHM = createHashMapFromArray [
+	[A3A_faction_reb get "unitSniper", "SniperRifles"],
+	[A3A_faction_reb get "unitLAT", "RocketLaunchers"],
+	[A3A_faction_reb get "unitMG", "MachineGuns"],
+	[A3A_faction_reb get "unitGL", "GrenadeLaunchers"],
+	[A3A_faction_reb get "unitAA", "MissileLaunchersAA"],
+	[A3A_faction_reb get "unitAT", "MissileLaunchersAT"]];
+
+if (A3A_rebelGear getOrDefault [_weaponHM getOrDefault [_typeUnit, ""], false] isEqualTo []) exitWith {
+	["AI Recruitment", "You don't have enough weapons to equip this type of unit."] call A3A_fnc_customHint;
+};
+
 private _unit = [group player, _typeUnit, position player, [], 0, "NONE"] call A3A_fnc_createUnit;
 
 if (!isMultiPlayer) then {

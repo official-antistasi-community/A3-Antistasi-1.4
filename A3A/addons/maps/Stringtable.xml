@@ -713,6 +713,7 @@
         <Chinesesimp>Antistasi -溪山</Chinesesimp>
         <Polish>Antistasi Khe Sanh</Polish>
         <Portuguese>Antistasi Khe Sanh</Portuguese>
+        <Spanish>Antistasi Khe Sanh</Spanish>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_mapname_text">
         <Original>Antistasi - Liberation of Khe Sanh</Original>
@@ -725,6 +726,7 @@
         <Chinesesimp>Antistasi -解放溪山</Chinesesimp>
         <Polish>Antistasi - Wyzwolenie Khe Sanh</Polish>
         <Portuguese>Antistasi - Libertaçao de Khe Sanh</Portuguese>
+        <Spanish>Antistasi - Liberación de Khe Sanh</Spanish>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -749,6 +751,7 @@
         <Chinesesimp>新的丛林，新的战斗</Chinesesimp>
         <Polish>Kolejna dżungla, kolejna walka.</Polish>
         <Portuguese>Outra floresta, outra luta</Portuguese>
+        <Spanish>Otra jungla, otra pelea.</Spanish>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_mapname_short_text">
         <Original>Antistasi Chernarus Autumn</Original>
@@ -761,6 +764,7 @@
         <Chinesesimp>Antistasi -彻那鲁斯的秋天</Chinesesimp>
         <Polish>Antistasi Czernarus Jesień</Polish>
         <Portuguese>Antistasi Chernarus Outono</Portuguese>
+        <Spanish>Antistasi Chernarus Otoño</Spanish>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_mapname_text">
         <Original>Antistasi - Autumn of Rebellion</Original>
@@ -773,6 +777,7 @@
         <Chinesesimp>Antistasi -叛逆之秋</Chinesesimp>
         <Polish>Antistasi - Jesień Buntu</Polish>
         <Portuguese>Antistasi - Revoluçao de Outono</Portuguese>
+        <Spanish>Antistasi - Otoño de rebelión</Spanish>
       </Key>
       <Key ID="STR_antistasi_mission_info_chernarus_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -797,6 +802,7 @@
         <Chinesesimp>林莽革命</Chinesesimp>
         <Polish>Rewolucja w stercie liści.</Polish>
         <Portuguese>Revoluçao num monte de folhas</Portuguese>
+        <Spanish>Revolución en una montaña de hojas.</Spanish>
       </Key>
     </Container>
   </Package>

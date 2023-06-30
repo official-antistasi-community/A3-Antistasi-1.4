@@ -17,9 +17,7 @@ Example:
     [_object, ] call A3A_fnc_initMovableObject; 
 */
 
-params[["_object", objNull, [objNull]],["_jipKey", "", [""]]];
-
-if (isNull _object) exitwith {remoteExec ["", _jipKey];};
+params [["_object", objNull, [objNull]]];
 
 _object addAction [
     "Carry object",

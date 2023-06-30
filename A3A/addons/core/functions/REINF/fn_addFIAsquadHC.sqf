@@ -90,6 +90,15 @@ private _special = if (_isInfantry) then {
     "VehicleSquad"
 };
 
+private _fnc_placeCheck = {
+    params ["_vehicle"];
+    [getMarkerPos respawnTeamPlayer distance _vehicle > 50, "You cant place HC vehicles further than 50m from HQ"];
+};
+private _fnc_placed = {
+    params ["_vehicle", "_formatX", "_idFormat", "_special"];
+    [_formatX, _idFormat, _special, _vehicle] spawn A3A_fnc_spawnHCGroup;
+};
+
 private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance player > 50) then {
     {
         private _searchCenter = getMarkerPos respawnTeamPlayer getPos [20 + random 30, random 360];
@@ -108,7 +117,8 @@ private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance pl
         [_formatX, _idFormat, _special, _vehicle] spawn A3A_fnc_spawnHCGroup;
     }
 } else { HR_GRG_fnc_confirmPlacement };
-if (!_isInfantry) exitWith { [_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod };
+
+if (!_isInfantry) exitWith { [_vehType, _fnc_placed, _fnc_placeCheck, [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod };
 
 private _vehCost = [_vehType] call A3A_fnc_vehiclePrice;
 if (_isInfantry and (_costs + _vehCost) > server getVariable "resourcesFIA") exitWith {
@@ -136,4 +146,4 @@ waitUntil {(!dialog) or (!isNil "vehQuery")};
 if ((!dialog) and (isNil "vehQuery")) exitWith { [_formatX, _idFormat, _special, objNull] spawn A3A_fnc_spawnHCGroup }; //spawn group call here
 
 vehQuery = nil;
-[_vehType, "HCSquadVehicle", [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod;
+[_vehType, _fnc_placed, _fnc_placeCheck, [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod;

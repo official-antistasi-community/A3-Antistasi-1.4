@@ -17,8 +17,7 @@ private _fnc_distCheck = {
 { deleteVehicle _x } forEach allDead;
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolder");
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolderSimulated");
-{ if (isNull attachedTo _x) then { [_x, 500] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(occ,"surrenderCrate"));// Surrender boxes NATO
-{ if (isNull attachedTo _x) then { [_x, 500] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(inv,"surrenderCrate"));// Surrender boxes CSAT
+{ if (isNull attachedTo _x) then { [_x, 500] call _fnc_distCheck } } forEach (allMissionObjects FactionGet(reb,"surrenderCrate"));// Surrender boxes
 { deleteVehicle _x } forEach (allMissionObjects "Leaflet_05_F");				// Drone drop leaflets
 { deleteVehicle _x } forEach (allMissionObjects "Ejection_Seat_Base_F");		// All vanilla ejection seats
 

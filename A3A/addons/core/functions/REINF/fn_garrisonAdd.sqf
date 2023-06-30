@@ -38,6 +38,7 @@ if (_limit != -1 && {count _garrison >= _limit}) exitWith {
 	[localize "STR_A3A_garrisons_header", localize "STR_A3A_garrison_reached_limit"] call A3A_fnc_customHint;
 };
 
+
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 private _countX = count _garrison;

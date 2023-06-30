@@ -23,7 +23,7 @@ private _vehiclesPlane = [];
 private _vehiclesCivPlane = ["C_Plane_Civil_01_F"];
 private _vehiclesMedical = ["rhs_gaz66_ap2_msv"];
 
-private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_02_unarmed_F", "C_SUV_01_F"];
+private _vehiclesCivCar = ["C_Offroad_01_F", "C_Offroad_02_unarmed_F"];
 private _vehiclesCivTruck = ["RHS_Ural_Open_Civ_02","C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"];
 private _vehiclesCivHeli = ["RHS_Mi8t_civilian"];
 private _vehiclesCivBoat = ["C_Boat_Civil_01_F", "C_Rubberboat"];
@@ -45,7 +45,7 @@ private _staticMortars = ["rhsgref_tla_g_2b14"];
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 	_vehiclesBasic = ["UK3CB_FIA_I_TT650"];
-	_vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "rhsgref_tla_g_offroad"];
+	_vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "rhsgref_tla_g_offroad"];
 	_vehiclesLightArmed = ["UK3CB_FIA_I_LR_M2", "UK3CB_MDF_I_MB4WD_LMG"];
 	_vehiclesTruck = ["UK3CB_KDF_I_Gaz66_Covered","UK3CB_KDF_I_Gaz66_Open"];
 	_vehiclesAT = ["UK3CB_MDF_I_MB4WD_AT"];
@@ -57,7 +57,7 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 	_vehiclesCivPlane = ["UK3CB_C_Cessna_172"];
 	_vehiclesMedical = ["UK3CB_FIA_I_Hilux_Ambulance"];
 	
-	_vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_02_unarmed_F", "C_SUV_01_F"];
+	_vehiclesCivCar = ["C_Offroad_02_unarmed_F", "UK3CB_C_LandRover_Closed", "UK3CB_C_LandRover_Open", "UK3CB_C_Datsun_Open", "UK3CB_C_Gaz24", "UK3CB_C_Skoda", "UK3CB_C_S1203", "UK3CB_C_MMT"];
 	_vehiclesCivTruck = ["RHS_Ural_Open_Civ_02","C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"];
 	_vehiclesCivHeli = ["UK3CB_C_Mi8AMT_ADC"];
 	_vehiclesCivBoat = ["UK3CB_CHC_C_Fishing_Boat", "C_Rubberboat"];
@@ -68,31 +68,34 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 	_staticMortars = ["rhsgref_tla_g_2b14"];
 };
 
-["vehiclesBasic", [_vehiclesBasic] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", [_vehiclesLightUnarmed]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", [_vehiclesLightArmed]] call _fnc_saveToTemplate;
-["vehiclesTruck", [_vehiclesTruck]] call _fnc_saveToTemplate;
-["vehiclesAT", [_vehiclesAT]] call _fnc_saveToTemplate;
-["vehiclesAA", [_vehiclesAA]] call _fnc_saveToTemplate;
+["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesTruck", _vehiclesTruck] call _fnc_saveToTemplate;
+["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
+["vehiclesAA", _vehiclesAA] call _fnc_saveToTemplate;
 
-["vehiclesBoat", [_vehiclesBoat]] call _fnc_saveToTemplate;
+["vehiclesBoat", _vehiclesBoat] call _fnc_saveToTemplate;
 
-["vehiclesPlane", [_vehiclesPlane]] call _fnc_saveToTemplate;
-["vehiclesCivPlane", [_vehiclesCivPlane]] call _fnc_saveToTemplate;
-["vehiclesMedical", [_vehiclesMedical]] call _fnc_saveToTemplate;
+["vehiclesPlane", _vehiclesPlane] call _fnc_saveToTemplate;
+["vehiclesCivPlane", _vehiclesCivPlane] call _fnc_saveToTemplate;
+["vehiclesMedical", _vehiclesMedical] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", [_vehiclesCivCar]] call _fnc_saveToTemplate;
-["vehiclesCivTruck", [_vehiclesCivTruck]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", [_vehiclesCivHeli]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", [_vehiclesCivBoat]] call _fnc_saveToTemplate;
+["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
+["vehiclesCivTruck", _vehiclesCivTruck] call _fnc_saveToTemplate;
+["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
+["vehiclesCivBoat", _vehiclesCivBoat] call _fnc_saveToTemplate;
 
-["staticMGs", [_staticMGs]] call _fnc_saveToTemplate;
-["staticAT", [_staticAT]] call _fnc_saveToTemplate;
-["staticAA", [_staticAA]] call _fnc_saveToTemplate;
-["staticMortars", [_staticMortars]] call _fnc_saveToTemplate;
+["staticMGs", _staticMGs] call _fnc_saveToTemplate;
+["staticAT", _staticAT] call _fnc_saveToTemplate;
+["staticAA", _staticAA] call _fnc_saveToTemplate;
+["staticMortars", _staticMortars] call _fnc_saveToTemplate;
 
-#include "..\3CB\3CB_Reb_Vehicle_Attributes.sqf"
-
+if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
+	#include "..\3CB\3CB_Reb_Vehicle_Attributes.sqf"
+} else {
+	#include "RHS_Reb_Vehicle_Attributes.sqf"
+};
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////

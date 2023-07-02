@@ -238,7 +238,6 @@ _sfLoadoutData set ["SMGs", [
 ["rhs_weap_pp2000", "", "", "", ["rhs_mag_9x19mm_7n31_44"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-["rhs_weap_m92", "rhs_acc_pbs1", "", "rhs_acc_1p78", ["rhs_30Rnd_762x39mm_U"], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_dtk4short", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7U1_AK","rhs_30Rnd_545x39_7N22_AK"], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_dtk4short", "", "", ["rhs_30Rnd_545x39_7U1_AK","rhs_30Rnd_545x39_7N22_AK"], [], ""],
 ["rhs_weap_vss_grip", "", "rhs_acc_perst1ik_ris", "rhs_acc_pkas", ["rhs_20rnd_9x39mm_SP5"], [], "rhs_acc_grip_ffg2"],

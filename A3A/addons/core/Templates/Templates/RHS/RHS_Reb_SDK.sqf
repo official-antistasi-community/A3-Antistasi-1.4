@@ -45,10 +45,10 @@ private _staticMortars = ["rhsgref_tla_g_2b14"];
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 	_vehiclesBasic = ["UK3CB_FIA_I_TT650"];
-	_vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "rhsgref_tla_g_offroad"];
-	_vehiclesLightArmed = ["UK3CB_FIA_I_LR_M2", "UK3CB_MDF_I_MB4WD_LMG"];
+	_vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "UK3CB_FIA_I_Datsun_Open"];
+	_vehiclesLightArmed = ["UK3CB_I_G_LandRover_M2", "UK3CB_MDF_I_MB4WD_LMG","UK3CB_I_G_LandRover_SF_M2"];
 	_vehiclesTruck = ["UK3CB_KDF_I_Gaz66_Covered","UK3CB_KDF_I_Gaz66_Open"];
-	_vehiclesAT = ["UK3CB_MDF_I_MB4WD_AT"];
+	_vehiclesAT = ["UK3CB_MDF_I_MB4WD_AT", "UK3CB_I_G_LandRover_SPG9"];
 	_vehiclesAA = ["UK3CB_KDF_I_Gaz66_ZU23"];
 	
 	_vehiclesBoat append ["UK3CB_I_G_Fishing_Boat_SPG9", "UK3CB_CHD_I_Fishing_Boat_Zu23_front"];
@@ -63,9 +63,6 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 	_vehiclesCivBoat = ["UK3CB_CHC_C_Fishing_Boat", "C_Rubberboat"];
 	
 	_staticMGs append ["UK3CB_NAP_I_PKM_High",  "UK3CB_NAP_I_PKM_Low"];
-	_staticAT = ["rhsgref_tla_g_SPG9"];
-	_staticAA = ["rhsgref_tla_g_ZU23"];
-	_staticMortars = ["rhsgref_tla_g_2b14"];
 };
 
 ["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
@@ -117,9 +114,9 @@ _initialRebelEquipment append ["Chemlight_blue", "Chemlight_green", "Chemlight_r
 
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
-	_initialRebelEquipment append ["uk3cb_enfield_no3","uk3cb_no4_enfield_303_10Rnd_magazine_Y","uk3cb_no4_enfield_303_10Rnd_magazine_YT"];
+	_initialRebelEquipment append ["uk3cb_enfield_no4_walnut","uk3cb_no4_enfield_303_10Rnd_magazine_Y","uk3cb_no4_enfield_303_10Rnd_magazine_YT",["uk3cb_1rnd_riflegrenade_mas_at_l", 75]];
+} else { _initialRebelEquipment append [["rhs_weap_rpg18", 50]];
 };
-
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

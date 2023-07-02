@@ -591,47 +591,59 @@
       <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
         <Original>Buy %1 for %2 %3</Original>
         <Korean>%2%3에 %1 구매</Korean>
+        <Spanish>Comprar %1 para %2 %3</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_header">
         <Original>Purchase Item</Original>
         <Korean>아이템 구매</Korean>
+        <Spanish>Comprar objeto</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
         <Original>Only the Commander may buy this item.</Original>
         <Korean>지휘관만 이 아이템을 살 수 있습니다.</Korean>
+        <Spanish>Solo el comandante puede comprar este objeto.</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_civ">
         <Original>Civilian</Original>
         <Korean>민간용</Korean>
+        <Spanish>Civil</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_reb">
         <Original>Rebel</Original>
         <Korean>반군용</Korean>
+        <Spanish>Rebelde</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_static">
         <Original>Statics</Original>
         <Korean>고정화기</Korean>
+        <Spanish>Estáticas</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
         <Original>Other</Original>
         <Korean>그 외</Korean>
+        <Spanish>Otras</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
         <Original>This item can refuel others\n%1 max fuel is %2</Original>
         <Korean>이 아이템은 다른 차량을 재급유할 수 있습니다.\n%1의 최대 연료량은 %2입니다.</Korean>
+        <Spanish>Este objeto puede repostar a otros \nEl máximo combustible de %1 es %2</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot\n%1 max load is %2</Original>
         <Korean>이 아이템은 전리품을 수집할 수 있습니다.\n%1의 처ㅣ대 수용량은 %2입니다.</Korean>
+        <Spanish>Este objeto puede recolectar loot \nLa carga máxima de %1 es %2</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
         <Original>This item has medical capability</Original>
+        <Spanish>Este objeto dispone de capacidades médicas</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ammo_tooltip">
         <Original>This item can rearm other vehicles</Original>
+        <Spanish>Este objeto puede rearmar a otros vehículos</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
         <Original>This item can repair other vehicles</Original>
+        <Spanish>Este objeto puede reparar a otros vehículos</Spanish>
       </Key>
     </Container>
     <Container name="dialog_main_player">
@@ -2882,6 +2894,7 @@
         <Polish>KONFIGURACJA ANTYSTASI</Polish>
         <Portuguese>ANTISTASI SETUP</Portuguese>
         <Chinesesimp>ANTISTASI设置</Chinesesimp>
+        <Spanish>CONFIGURAR ANTISTASI</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_loadgame_tab_button">
         <Original>Load Game</Original>
@@ -2893,6 +2906,7 @@
         <Polish>Wczytaj Rozgrywkę</Polish>
         <Portuguese>Carregar jogo</Portuguese>
         <Chinesesimp>载入游戏</Chinesesimp>
+        <Spanish>Cargar Partida</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_faction_tab_button">
         <Original>Factions</Original>
@@ -2904,6 +2918,7 @@
         <Polish>Frakcje</Polish>
         <Portuguese>Fações</Portuguese>
         <Chinesesimp>派系</Chinesesimp>
+        <Spanish>Facciones</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_params_tab_button">
         <Original>Params</Original>
@@ -2915,6 +2930,7 @@
         <Polish>Parametry</Polish>
         <Portuguese>Parametros</Portuguese>
         <Chinesesimp>参数</Chinesesimp>
+        <Spanish>Parámetros</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_saved_games">
         <Original>Saved Games</Original>
@@ -2926,6 +2942,7 @@
         <Polish>Zapisane Rozgrywki</Polish>
         <Portuguese>Jogos salvos</Portuguese>
         <Chinesesimp>保存游戏</Chinesesimp>
+        <Spanish>Partidas Guardadas</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_start_game">
         <Original>Start game</Original>
@@ -2937,6 +2954,7 @@
         <Polish>Rozpocznij Rozgrywkę</Polish>
         <Portuguese>Começar jogo</Portuguese>
         <Chinesesimp>开始游戏</Chinesesimp>
+        <Spanish>Comenzar Partida</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_create_new_game">
         <Original>Create new game</Original>
@@ -2948,6 +2966,7 @@
         <Polish>Stwórz Nową Rozgrywkę</Polish>
         <Portuguese>Criar novo jogo</Portuguese>
         <Chinesesimp>创建新的游戏</Chinesesimp>
+        <Spanish>Crear nueva Partida</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_copy_old_game">
         <Original>Copy old game</Original>
@@ -2959,6 +2978,7 @@
         <Polish>Skopiuj Starą Rozgrywkę</Polish>
         <Portuguese>copiar jogo antigo</Portuguese>
         <Chinesesimp>加载之前的存档</Chinesesimp>
+        <Spanish>Copiar Partida existente</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_load_old_params">
         <Original>Load old params</Original>
@@ -2970,6 +2990,7 @@
         <Polish>Wczytaj Stare Parametry</Polish>
         <Portuguese>Copiar parametros anteriores</Portuguese>
         <Chinesesimp>复制之前的参数</Chinesesimp>
+        <Spanish>Cargar parámetros existentes</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
         <Original>Use New Save file</Original>
@@ -2981,6 +3002,7 @@
         <Polish>Użyj Nowego Pliku Zapisu</Polish>
         <Portuguese>Usar novo save</Portuguese>
         <Chinesesimp>使用新的存档文件</Chinesesimp>
+        <Spanish>Usar fichero de Partida nueva</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_set_hq_position">
         <Original>Set HQ Position</Original>
@@ -2992,6 +3014,7 @@
         <Polish>Ustaw Pozycję Sztabu</Polish>
         <Portuguese>Colocar posiçao Posto Comando</Portuguese>
         <Chinesesimp>设置总部位置</Chinesesimp>
+        <Spanish>Establecer posición del HQ</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_new_save_name">
         <Original>New save name</Original>
@@ -3003,6 +3026,7 @@
         <Polish>Nowa Nazwa Zapisu</Polish>
         <Portuguese>Novo mone save</Portuguese>
         <Chinesesimp>新的存档名</Chinesesimp>
+        <Spanish>Nuevo nombre de guardado</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_rename_game">
         <Original>Rename game</Original>
@@ -3014,6 +3038,7 @@
         <Polish>Zmień Nazwę Rozgrywki</Polish>
         <Portuguese>Renomear jogo</Portuguese>
         <Chinesesimp>重命名存档</Chinesesimp>
+        <Spanish>Renombrar Partida</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_delete_game">
         <Original>Delete game</Original>
@@ -3025,6 +3050,7 @@
         <Polish>Usuń Rozgrywkę</Polish>
         <Portuguese>Apagar jogo</Portuguese>
         <Chinesesimp>删除存档</Chinesesimp>
+        <Spanish>Borrar Partida</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_rebels">
         <Original>Rebels</Original>
@@ -3036,6 +3062,7 @@
         <Polish>Rebelianci</Polish>
         <Portuguese>Insurgentes</Portuguese>
         <Chinesesimp>叛军</Chinesesimp>
+        <Spanish>Rebeldes</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_civilians">
         <Original>Civilians</Original>
@@ -3047,6 +3074,7 @@
         <Polish>Cywile</Polish>
         <Portuguese>Civis</Portuguese>
         <Chinesesimp>平民</Chinesesimp>
+        <Spanish>Civiles</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_occupants">
         <Original>Occupants</Original>
@@ -3058,6 +3086,7 @@
         <Polish>Okupanci</Polish>
         <Portuguese>Ocupante</Portuguese>
         <Chinesesimp>占领方</Chinesesimp>
+        <Spanish>Ocupantes</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_invaders">
         <Original>Invaders</Original>
@@ -3069,6 +3098,7 @@
         <Polish>Najeźdźcy</Polish>
         <Portuguese>Invasores</Portuguese>
         <Chinesesimp>侵略方</Chinesesimp>
+        <Spanish>Invasores</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_addonvics">
         <Original>Addon vehicles</Original>
@@ -3080,6 +3110,7 @@
         <Polish>Dodatkowe Pojazdy</Polish>
         <Portuguese>Veiculos addon</Portuguese>
         <Chinesesimp>模组载具</Chinesesimp>
+        <Spanish>Addon de vehículos</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_dlc">
         <Original>DLC</Original>
@@ -3091,6 +3122,7 @@
         <Polish>DLC</Polish>
         <Portuguese>DLC</Portuguese>
         <Chinesesimp>DLC</Chinesesimp>
+        <Spanish>DLC</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_map_limits">
         <Original>Override map limits</Original>
@@ -3102,6 +3134,7 @@
         <Polish>Nadpisz Limity Mapy</Polish>
         <Portuguese>Substituir limities mapa</Portuguese>
         <Chinesesimp>覆盖地图限制设置</Chinesesimp>
+        <Spanish>Desbloquear límites de mapa</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_camo_limits">
         <Original>Override camo limits</Original>
@@ -3113,6 +3146,7 @@
         <Polish>Nadpisz Limity Kamuflażu</Polish>
         <Portuguese>Substituir limities camuflagem</Portuguese>
         <Chinesesimp>覆盖伪装限制设置</Chinesesimp>
+        <Spanish>Desbloquear límites de camuflaje</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_show_missing_mods">
         <Original>Show missing mods</Original>
@@ -3124,6 +3158,7 @@
         <Polish>Pokaż Brakujące Mody</Polish>
         <Portuguese>Mostrar mods em falta</Portuguese>
         <Chinesesimp>显示缺失的mod</Chinesesimp>
+        <Spanish>Mostrar mods que faltan</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_override_side_limits">
         <Original>Override side limits</Original>
@@ -3135,6 +3170,7 @@
         <Polish>Nadpisz Limity Stron</Polish>
         <Portuguese>Substituir limities lado</Portuguese>
         <Chinesesimp>覆盖阵营限制设置</Chinesesimp>
+        <Spanish>Desbloquear límites de bandos</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_switch_enemy_sides">
         <Original>Switch enemy sides</Original>
@@ -3146,6 +3182,7 @@
         <Polish>Zmień Strony Wroga</Polish>
         <Portuguese>Mudar lado enimigos</Portuguese>
         <Chinesesimp>改变敌军阵营</Chinesesimp>
+        <Spanish>Cambiar bandos enemigos</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_title">
         <Original>CONFIRM ACTION</Original>
@@ -3157,6 +3194,7 @@
         <Polish>POTWIERDŹ DZIAŁANIE</Polish>
         <Portuguese>CONFIMAR</Portuguese>
         <Chinesesimp>确认行动</Chinesesimp>
+        <Spanish>CONFIRMAR ACCIÓN</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_yes">
         <Original>YES</Original>
@@ -3168,6 +3206,7 @@
         <Polish>TAK</Polish>
         <Portuguese>SIM</Portuguese>
         <Chinesesimp>确认</Chinesesimp>
+        <Spanish>SI</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_confirm_cancel">
         <Original>CANCEL</Original>
@@ -3179,6 +3218,7 @@
         <Polish>ANULUJ</Polish>
         <Portuguese>CANCELAR</Portuguese>
         <Chinesesimp>取消</Chinesesimp>
+        <Spanish>CANCELAR</Spanish>
       </Key>
     </Container>
     <Container name="hqpos_dialog">
@@ -3192,6 +3232,7 @@
         <Polish>Zamknij</Polish>
         <Portuguese>Fechar</Portuguese>
         <Chinesesimp>关闭</Chinesesimp>
+        <Spanish>Cerrar</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_title">
         <Original>HQ Position</Original>
@@ -3203,6 +3244,7 @@
         <Polish>Pozycja Sztabu</Polish>
         <Portuguese>Posiçao Posto Comando</Portuguese>
         <Chinesesimp>总部位置</Chinesesimp>
+        <Spanish>Posición del HQ</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_nearenemy">
         <Original>Selected position cannot be near enemy zones.</Original>
@@ -3214,6 +3256,7 @@
         <Polish>Wybrana pozycja nie może znajdować się w pobliżu stref wroga.</Polish>
         <Portuguese>Posiçao selecionada nao pode estar perto de zonas enimigas</Portuguese>
         <Chinesesimp>所选位置不能过于靠近敌占区</Chinesesimp>
+        <Spanish>La zona seleccionada no puede estar cerca de zonas enemigas.</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_inwater">
         <Original>Selected position cannot be in water.</Original>
@@ -3225,6 +3268,7 @@
         <Polish>Wybrana pozycja nie może znajdować się w wodzie.</Polish>
         <Portuguese>Posiçao selecionada nao pode estar na agua</Portuguese>
         <Chinesesimp>所选位置不能位于水上</Chinesesimp>
+        <Spanish>La posición seleccionada no puede estar en agua.</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_hqpos_feedback_outsidemap">
         <Original>Selected position cannot be outside the map.</Original>
@@ -3236,6 +3280,7 @@
         <Polish>Wybrana pozycja nie może znajdować się poza mapą.</Polish>
         <Portuguese>Posiçao selecionada nao pode estar fora do mapa</Portuguese>
         <Chinesesimp>所选位置不能位于地图外</Chinesesimp>
+        <Spanish>La posición seleccionada no puede estar fuera del mapa.</Spanish>
       </Key>
     </Container>
   </Package>

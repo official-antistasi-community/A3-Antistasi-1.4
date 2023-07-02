@@ -349,6 +349,7 @@ class CfgFunctions
             class credits {};
             class initACEUnconsciousHandler {};
             class initBases {};
+            class initUtilityItems {};
             class initGarrisons {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
@@ -387,11 +388,9 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\LTC);
             class canLoot {};
             class canTransfer {};
-            class carryCrate {};
             class initLootToCrate {};
             class lootFromContainer {};
             class lootToCrate {};
-            class spawnCrate {};
         };
 
         class Missions {
@@ -751,16 +750,15 @@ class CfgFunctions
 
         class UtilityItems {
             file = QPATHTOFOLDER(functions\UtilityItems);
-            class carryItem {};
-            class initMovableObject {};
-            class rotateItem {};
-            class buyItem {};
             class attachedObjects {};
+            class buyItem {};
+            class carryItem {};
             class dropObject {};
-            class medicalBox {};
-            class medicalBoxFill {};
-            class openDoorsTent {};
+            class initMovableObject {};
+            class initObject {};
+            class initObjectRemote {};
             class remainingFuel {};
+            class rotateItem {};
         };
     };
 };

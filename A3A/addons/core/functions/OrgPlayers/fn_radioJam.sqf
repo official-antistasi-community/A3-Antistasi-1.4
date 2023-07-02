@@ -14,6 +14,23 @@ private _fnc_setInterference = {
     params ["_recInterference", "_sendInterference"];
     player setVariable ["tf_receivingDistanceMultiplicator", _recInterference];
     player setVariable ["tf_sendingDistanceMultiplicator", _sendInterference];
+
+    if(A3A_hasACRE) then 
+    {
+        if(_recInterference == 1 && _sendInterference == 1) exitWith
+        {
+            [{}] call acre_api_fnc_setCustomSignalFunc;
+        };
+
+        [{
+            private _coreSignal = _this call acre_sys_signal_fnc_getSignalCore;
+            _coreSignal params ["_Px", "_maxSignal"];
+            private _sendInterference = player getVariable ["tf_sendingDistanceMultiplicator", 1];
+
+            [_Px * _sendInterference, _maxSignal]
+
+        }] call acre_api_fnc_setCustomSignalFunc;
+    }
 };
 
 while {true} do

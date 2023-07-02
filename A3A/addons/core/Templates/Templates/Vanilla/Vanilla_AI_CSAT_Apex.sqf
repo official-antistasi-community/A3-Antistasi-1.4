@@ -75,7 +75,7 @@ private _vehiclesAmphibious = ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"];
 
 //If Western Sahara DLC
 if (allowDLCWS) then {
-	_cargoTrucks append ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
+	_cargoTrucks = ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
     _vehiclesLightUnarmed append ["O_T_APC_Wheeled_02_unarmed_lxWS"];
     _vehiclesLightAPCs append ["O_T_APC_Wheeled_02_hmg_lxWS"];
     _vehiclesAPCs append ["O_T_APC_Tracked_02_30mm_lxWS"];

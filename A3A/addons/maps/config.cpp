@@ -47,5 +47,6 @@ class CfgMissions
         A3A_Mission(Tembelan)
         A3A_Mission(vt7)
         A3A_Mission(cup_chernarus_A3)
+        A3A_Mission(isladuala3)
     };
 };

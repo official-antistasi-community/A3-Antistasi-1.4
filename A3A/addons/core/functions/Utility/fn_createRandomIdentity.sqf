@@ -36,13 +36,9 @@ private _faces = _faction getOrDefault [_faceKey, _faction get "faces"];
 private _identity = createHashMap;
 _identity set ["face", selectRandom _faces];
 
-private _voice = "NoVoice";
 private _voiceKey = _typePrefix + (if (_typePrefix == "") then { "voices" } else { "Voices" });
 private _voices = _faction getOrDefault [_voiceKey, _faction get "voices"];
-if (!(isNil "_voices")) then {
-    _voice = selectRandom _voices;
-};
-_identity set ["speaker", _voice];
+_identity set ["speaker", selectRandom _voices];
 
 _identity set ["firstName", selectRandom (_faction get "firstNames")];
 _identity set ["lastName", selectRandom (_faction get "lastNames")];

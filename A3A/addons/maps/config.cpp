@@ -45,5 +45,6 @@ class CfgMissions
         A3A_Mission(tem_anizay)
         A3A_Mission(Tembelan)
         A3A_Mission(vt7)
+        A3A_Mission(cup_chernarus_A3)
     };
 };

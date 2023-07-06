@@ -352,7 +352,7 @@ class Templates
     {
         side = "Occ";
         flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
-        name = "3CB AAF Arid";
+        name = "3CB AAF Brown";
         file = "3CB_AI_AAF_arid";
         maps[] = {"altis"};
         climate[] = {"arid"};

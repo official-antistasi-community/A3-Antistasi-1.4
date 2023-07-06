@@ -9,7 +9,7 @@ class isladuala3 {
 	antennasBlacklistIndex[] = {};
 	banks[] = {}; //no suitable building available
 	garrison[] = {
-		{},{"airport_1","seaport_1","seaport_9","resource_1","factory_1","outpost_1","outpost_2","outpost_3"},{},{"control_39","control_100","control_42","control_43","control_104","control_41","control_101","control_40","control_103","control_76","control_102","control_73","control_74","control_75"}
+		{},{"airport_1","seaport_1","seaport_9","resource_1","factory_1","outpost_1","outpost_2","outpost_3"},{},{"control_39","control_100","control_42","control_43","control_104","control_41","control_101","control_40","control_103","control_76","control_102","control_73","control_74","control_75","control_127","control_128"}
 	};
 	fuelStationTypes[] = {"Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"};
 	climate = "arid";

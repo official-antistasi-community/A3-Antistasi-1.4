@@ -41,7 +41,7 @@
 ["vehiclesGunBoats", ["UK3CB_CHD_O_Fishing_Boat_DSHKM"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["UK3CB_CW_SOV_O_EARLY_MTLB_PKT","UK3CB_CW_SOV_O_EARLY_MTLB_KPVT","UK3CB_CW_SOV_O_EARLY_MTLB_BMP"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", [/*"UK3CB_CW_SOV_O_EARLY_MIG21_CAS","UK3CB_CW_SOV_O_EARLY_MIG21",*/"UK3CB_CW_SOV_O_EARLY_LI2_ARMED"/*,"UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed_Rockets"*/]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesCAS", ["UK3CB_CW_SOV_O_EARLY_MIG21_AT","UK3CB_CW_SOV_O_EARLY_MIG21_AT","UK3CB_CW_SOV_O_EARLY_LI2_ARMED"/*,"UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed_Rockets"*/]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["UK3CB_CW_SOV_O_EARLY_MIG21_AA"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["UK3CB_CW_SOV_O_EARLY_Antonov_AN2","UK3CB_CW_SOV_O_EARLY_LI2","UK3CB_CW_SOV_O_EARLY_LI2"]] call _fnc_saveToTemplate;
 

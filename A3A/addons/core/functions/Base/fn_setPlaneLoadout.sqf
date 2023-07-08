@@ -132,8 +132,7 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F", "missiles_DAR"]];
             _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
         };
-        case "UK3CB_CW_SOV_O_EARLY_MIG21_CAS";
-        case "UK3CB_CW_SOV_O_EARLY_MIG21";
+        case "UK3CB_CW_SOV_O_EARLY_MIG21_AT";
         case "UK3CB_TKA_B_MIG21_AT":
         {
             _loadout = ["uk3cb_mag_kh25MA","rhs_mag_b8m1_bd3_umk2a_s8t","rhs_mag_b8m1_bd3_umk2a_s8t","uk3cb_mag_kh25MA"];
@@ -157,6 +156,11 @@ if (_type == "CAS") then
 				_plane setVariable ["bombRacks", ["UK3CB_Factions_Bomb_FAB250"]];
 			};
             _plane setVariable ["rocketLauncher", ["UK3CB_Factions_Rockets_S8KOM"]];
+        };
+        case "UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed_Bombs": {
+			_loadout = ["UK3CB_Factions_PylonMissile_1Rnd_FAB250","UK3CB_Factions_PylonMissile_1Rnd_FAB250"];
+			_plane setVariable ["diveParams", [900, 400, 110, 40, 5, [7, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+			_plane setVariable ["bombRacks", ["UK3CB_Factions_Bomb_FAB250"]];
         };
         // cup aircraft
         case "CUP_B_L39_CZ":

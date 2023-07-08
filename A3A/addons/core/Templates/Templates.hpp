@@ -449,6 +449,17 @@ class Templates
         name = "3CB FIA Rebells";
         file = "3CB_Reb_FIA";
     };
+	
+    class 3CB_Reb_SDK : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+        name = "3CB SDK";
+        file = "RHS_Reb_SDK";
+        maps[] = {"Tanoa"};
+        climate[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
     class 3CBF_CHC : 3CBF_Base
     {
         side = "Civ";

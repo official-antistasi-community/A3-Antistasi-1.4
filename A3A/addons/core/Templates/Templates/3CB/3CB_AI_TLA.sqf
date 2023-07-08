@@ -1,7 +1,7 @@
 //////////////////////////
 //   Side Information   //
 //////////////////////////
-//Tanoan Liberation Army
+//Tanoan Liberation Army, natural enemies of the HIDF, CW US, US, and SDK
 ["name", "TLA"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "TLA Support Corridor"] call _fnc_saveToTemplate;
 

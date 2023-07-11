@@ -177,9 +177,9 @@ _sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_14"]];						//this line determines NV
 _sfLoadoutData set ["binoculars", ["rhsusf_bino_m24"]];
 
 _sfLoadoutData set ["rifles", [ 					//this line determines rifles -- Example: ["arifle_MX_F", "arifle_MX_pointer_F"] -- Array, can contain multiple assets
-["rhs_weap_l1a1", "rhsusf_acc_acc_762sd_silencer", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
-["rhs_weap_l1a1", "rhsusf_acc_acc_762sdn6_silencer", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
-["rhs_weap_l1a1", "rhsusf_acc_acc_762sd_silencer", "", "", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
+["rhs_weap_l1a1", "rhsusf_acc_aac_762sd_silencer", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
+["rhs_weap_l1a1", "rhsusf_acc_aac_762sdn6_silencer", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
+["rhs_weap_l1a1", "rhsusf_acc_aac_762sd_silencer", "", "", ["rhs_mag_20Rnd_762x51_m80a1_fnfal"], [], ""],
 ["rhs_weap_m16a4", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_acog2_usmc", ["rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red"], [], ""],
 ["rhs_weap_m16a4", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_acog2_usmc", ["rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red"], [], "rhsusf_acc_rvg_blk"],
 ["rhs_weap_m16a4", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_g33_xps3", ["rhs_mag_30Rnd_556x45_M855_Stanag", "rhs_mag_30Rnd_556x45_M855_Stanag_Tracer_Red"], [], "rhsusf_acc_rvg_blk"],

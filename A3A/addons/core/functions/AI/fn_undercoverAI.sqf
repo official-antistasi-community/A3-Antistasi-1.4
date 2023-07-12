@@ -47,5 +47,5 @@ _unit enableAI "AUTOTARGET";
 _unit setUnitPos "AUTO";
 
 // Remove backpack if changed, prevents static/device dupe exploits
-if (backpack _unit != _loadOut#5#0) then { _loadOut set [5, []] };
+if (_loadOut#5 isNotEqualTo [] and { backpack _unit != _loadOut#5#0 }) then { _loadOut set [5, []] };
 _unit setUnitLoadout _loadOut;

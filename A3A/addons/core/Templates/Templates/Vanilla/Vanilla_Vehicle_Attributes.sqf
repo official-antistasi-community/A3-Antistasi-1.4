@@ -8,5 +8,17 @@
 
     // AAF trash CAS
     ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]]
+	
+	
+    // NATO AFV
+    ["B_T_AFV_Wheeled_01_cannon_F", ["cost", 200]],
+    ["B_T_AFV_Wheeled_01_up_cannon_F", ["cost", 200]],
+    ["B_AFV_Wheeled_01_cannon_F", ["cost", 200]],
+    ["B_AFV_Wheeled_01_up_cannon_F", ["cost", 200]],
+    // CSAT Tank
+    ["O_MBT_04_cannon_F", ["cost", 200]],
+    ["O_MBT_04_command_F", ["cost", 200]],
+    ["O_MBT_04_cannon_F", ["cost", 200]],
+    ["O_MBT_04_command_F", ["cost", 200]]
 
 ]] call _fnc_saveToTemplate;

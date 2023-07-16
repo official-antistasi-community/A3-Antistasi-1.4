@@ -78,19 +78,26 @@ if (_patrol) then
         _arrayGroups = _faction get (if (_isFIA) then {"groupsMilitiaSmall"} else {"groupsSmall"});
 		if ([_markerX,false] call A3A_fnc_fogCheck < 0.3) then {_arraygroups = _arraygroups - (_faction get "groupSniper")};
 		_typeGroup = selectRandom _arraygroups;
-		_groupX = [_positionX,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
+
+		private _spawnPosition = [_positionX, 25, round (_size / 2), 2, 0, -1, 0] call A3A_fnc_getSafePos;
+		if (_spawnPosition isEqualTo [0,0]) exitWith {
+			ServerDebug("Unable to find spawn position for patrol unit.");
+		};
+
+		_groupX = [_spawnPosition,_sideX, _typeGroup,false,true] call A3A_fnc_spawnGroup;
 		if !(isNull _groupX) then
 		{
 			sleep 1;
-			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then
-			{
-				_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
+			if ((random 10 < 2.5) and (_typeGroup isNotEqualTo (_faction get "groupSniper"))) then {
+				_dog = [_groupX, "Fin_random_F",_spawnPosition,[],0,"FORM"] call A3A_fnc_createUnit;
 				_dogs pushBack _dog;
 				[_dog] spawn A3A_fnc_guardDog;
 				sleep 1;
 			};
-			[leader _groupX, _mrk, "SAFE","SPAWNED", "RANDOM","NOVEH2"] spawn UPSMON_fnc_UPSMON;//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupX;
+			
 			{[_x,_markerX] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 		};
 		_countX = _countX +1;
@@ -107,7 +114,9 @@ if ((_frontierX) and (_markerX in outposts)) then
 		_spawnsUsed pushBack _spawnParameter#2;
 		_groupX = createGroup _sideX;
 		_veh = _typeVehX createVehicle (_spawnParameter select 0);
-		_nul=[_veh] spawn UPSMON_fnc_artillery_add;//TODO need delete UPSMON link
+
+		[_groupX] call A3A_fnc_artilleryAdd;
+
 		_unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _veh;
 		[_unit,_markerX] call A3A_fnc_NATOinit;
@@ -177,6 +186,7 @@ if ((_markerX in seaports) and !A3A_hasIFA) then
 			{[_x,_markerX] call A3A_fnc_NATOinit} forEach _vehCrew;
 			_groupVeh = _vehicle select 2;
 			_soldiers = _soldiers + _vehCrew;
+			[_groupVeh, "Patrol_Water", 25, 200, -1, true, _pos] call A3A_fnc_patrolLoop;
 			_groups pushBack _groupVeh;
 			_vehiclesX pushBack _veh;
 			sleep 1;
@@ -299,32 +309,31 @@ while {_countX <= _radiusX} do
 	_countX = _countX + 8;
 };
 
-for "_i" from 0 to (count _array - 1) do
-{
-	//What is so special about the first?
-	_groupX = if (_i == 0) then
-	{
-		[_positionX,_sideX, (_array select _i),true,false] call A3A_fnc_spawnGroup
-	}
-	else
-	{
-		[_positionX,_sideX, (_array select _i),false,true] call A3A_fnc_spawnGroup
+for "_i" from 0 to (count _array - 1) do {
+	_groupX = if (_i == 0) then {
+		[_positionX, _sideX, (_array select _i), true, false] call A3A_fnc_spawnGroup
+	} else {
+		private _spawnPosition = [_positionX, 10, 100, 2, 0, -1, 0] call A3A_fnc_getSafePos;
+		[_spawnPosition, _sideX, (_array select _i), false, true] call A3A_fnc_spawnGroup
 	};
+
 	_groups pushBack _groupX;
+
 	{
 		[_x,_markerX] call A3A_fnc_NATOinit;
 		_soldiers pushBack _x;
 	} forEach units _groupX;
-	if (_i == 0) then
-	{
-		//Can't we just precompile this and call this like every other funtion? Would save some time
-		_nul = [leader _groupX, _markerX, "SAFE", "RANDOMUP", "SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
-	}
-	else
-	{
-		_nul = [leader _groupX, _markerX, "SAFE", "SPAWNED", "RANDOM","NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
+
+	// Garrison the first group into buildings
+	if (_i == 0) then {
+		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		if (count _garrisonGroup > 0) then {
+			_groups append _garrisonGroup;
+		};
+	} else {
+		[_groupX, "Patrol_Defend", 0, 100, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};
-};//TODO need delete UPSMON link
+};
 ["locationSpawned", [_markerX, "Outpost", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};

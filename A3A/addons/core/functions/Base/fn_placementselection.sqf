@@ -69,8 +69,11 @@ while {_positionIsInvalid} do {
 	sleep 0.1;
 };
 
+player allowDamage true;
+
+{deleteMarkerLocal _x} forEach _mrkDangerZone;
+
 //If we're still in the map, we chose a place.
-// Should be impossible to close it without picking now? No new-game case anymore.
 if (visiblemap) then {
 	_controlsX = controlsX select {!(isOnRoad (getMarkerPos _x))};
 	{
@@ -81,8 +84,10 @@ if (visiblemap) then {
 	[_positionClicked] remoteExec ["A3A_fnc_createPetros", 2];
 	[_positionClicked, false] remoteExec ["A3A_fnc_relocateHQObjects", 2];
 	openmap [false,false];
+
+	// Make sure petros is actually placed before we signal that we're done placing
+	sleep 5;
 };
 
-player allowDamage true;
-
-{deleteMarkerLocal _x} forEach _mrkDangerZone;
+A3A_playerPlacingPetros = "";
+publicVariableServer "A3A_playerPlacingPetros";

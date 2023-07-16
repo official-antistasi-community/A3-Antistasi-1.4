@@ -168,7 +168,8 @@ if (isClass (configfile >> "CfgPatches" >> "Tornado_AWS")) then {
 
 ["staticMortars", ["BWA3_MRS120_Tropen"]] call _fnc_saveToTemplate; 				
 ["mortarMagazineHE", "BWA3_8Rnd_120mm_Mo_shells"] call _fnc_saveToTemplate; 			
-["mortarMagazineSmoke", "BWA3_8Rnd_120mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 		
+["mortarMagazineSmoke", "BWA3_8Rnd_120mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 
+["mortarMagazineFlare", "BWA3_8Rnd_120mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["BWA3_DM31AT", "BWA3_AT2"]] call _fnc_saveToTemplate;
@@ -214,7 +215,7 @@ _loadoutData set ["ATLaunchers", [
 ["BWA3_Bunkerfaust_Loaded", "", "", "", [""], [], ""]
 ]]; 				
 _loadoutData set ["AALaunchers", [
-["BWA3_Fliegerfaust", "", "", "", [""], [], ""]
+["BWA3_Fliegerfaust", "", "", "", ["BWA3_Fliegerfaust_Mag"], [], ""]
 ]];
 _loadoutData set ["sidearms", [
 ["BWA3_P12", "", "BWA3_acc_LLMPI_irlaser", "", [], [], ""],

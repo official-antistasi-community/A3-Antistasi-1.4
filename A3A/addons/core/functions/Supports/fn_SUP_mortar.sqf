@@ -39,30 +39,25 @@ private _possibleBases = (outposts + airportsX) select
 if(count _possibleBases == 0) exitWith { Debug("No bases found for mortar support"); -1 };
 
 //Search for an outpost with a designated mortar position if possible
-private _spawnRadius = 10;
-private _spawnPos = [];
-private _spawnDir = 0;
+private _spawnRadius = 0;
+private _spawnParams = false;
 {
-    private _spawnParams = [_x, "Mortar"] call A3A_fnc_findSpawnPosition;
-    if (_spawnParams isEqualType []) exitWith
-    {
-        // Spawn position cleared by vehicleDeleted EH
-        _spawnRadius = 0;
-        _spawnPos = _spawnParams select 0;
-        _spawnDir = _spawnParams select 1;
-        _vehicle setVariable ["spawnPlace", _spawnParams#2];
-    };
+    _spawnParams = [_x, "Mortar"] call A3A_fnc_findSpawnPosition;
+    if (_spawnParams isEqualType []) exitWith {};
 } forEach _possibleBases;
 
-if (_spawnPos isEqualTo []) then 
+// Otherwise just put it somewhere near the flag
+if !(_spawnParams isEqualType []) then 
 {
     private _base = selectRandom _possibleBases;
-    _spawnPos = markerPos _base;
+    _spawnParams = [markerPos _base, 0, nil];
+    _spawnRadius = 10;
 };
 
 
 // Spawn in mortar
-private _vehicle = [_vehType, _spawnPos, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
+private _vehicle = [_vehType, _spawnParams#0, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
+_vehicle setVariable ["spawnPlace", _spawnParams#2];
 _vehicle setVariable ["shellType", _shellType];
 [_vehicle, _side, _resPool] call A3A_fnc_AIVehInit;
 
@@ -81,7 +76,7 @@ if (_target isEqualType objNull) then {
 };
 
 // name, side, suppType, pos, radius, remTargets, targets
-private _suppData = [_supportName, _side, "MORTAR", _spawnPos, _maxRange, _targArray, _minRange];
+private _suppData = [_supportName, _side, "MORTAR", _spawnParams#0, _maxRange, _targArray, _minRange];
 A3A_activeSupports pushBack _suppData;
 [_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 

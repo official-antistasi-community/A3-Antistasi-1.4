@@ -34,11 +34,10 @@
 ["vehiclesAA", ["vn_b_wheeled_m54_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["vn_o_boat_02_01"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["vn_i_wheeled_m54_repair"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["vn_o_air_mig19_gun"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["vn_c_car_02_01"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["vn_c_car_02_01", "vn_c_car_01_01","vn_c_car_03_01","vn_c_wheeled_m151_02","vn_c_wheeled_m151_01","vn_c_car_04_01"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["vn_b_wheeled_m54_01_airport"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["vn_b_air_uh1d_04_09"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["vn_c_boat_08_01"]] call _fnc_saveToTemplate;
@@ -49,6 +48,7 @@
 ["staticMortars", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "vn_mortar_m2_mag_lume_x8"] call _fnc_saveToTemplate;
 
 ["mineAT", "vn_mine_m15_mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "vn_mine_m14_mag"] call _fnc_saveToTemplate;

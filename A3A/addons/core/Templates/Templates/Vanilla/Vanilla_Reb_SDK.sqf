@@ -10,27 +10,27 @@
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["I_G_Offroad_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["I_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["I_G_Offroad_01_armed_F", "I_C_Offroad_02_LMG_F"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["I_C_Offroad_02_AT_F", "I_C_Offroad_02_AT_F"]] call _fnc_saveToTemplate;
 private _vehicleAA = [];
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["B_G_Offroad_01_repair_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["C_Offroad_01_F", "C_SUV_01_F", "C_Hatchback_01_F"]] call _fnc_saveToTemplate;
-["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Truck_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_01_F", "C_SUV_01_F"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["I_G_HMG_02_high_F","I_G_HMG_02_F"]] call _fnc_saveToTemplate;
+["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
 private _staticAA = ["I_static_AA_F"];
 ["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["mineAT", "ATMine_Range_Mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "APERSMine_Range_Mag"] call _fnc_saveToTemplate;

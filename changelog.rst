@@ -2,6 +2,62 @@
 Changelog
 ==========
 
+Version 3.3.0
+===============
+
+.. note::
+   xth July 2023
+
+.. admonition:: Major
+
+   .. rubric:: :issue:`` placeholder
+
+
+   * [Added] - placeholder
+
+
+.. admonition:: Minor
+
+   * :issue:`2818` Don't spam hints on top of setup UI
+   * :issue:`2797` ACRE Jamming
+   * :issue:`2777` Add parameter to control Loot To Crate distance
+   * :issue:`2755` Allow rebels to purchase AT and AA missile launcher troops
+
+.. admonition:: Template updates
+
+   * :issue:`2813` Discounted rebel 7.62 and 5.56 vics & statics
+   * :issue:`2794` Rudimentary Sog 1.3 Update
+
+.. admonition:: Localization
+
+   * :issue:`2780` Small Spanish update
+
+.. admonition:: Bugfixes
+
+   * :issue:`2817` Fix undercover backpack exploit
+   * :issue:`2816` Don't place units or statics on destroyed buildings
+   * :issue:`2808` Fix trailing comma and missing AA plane in ION Temperate
+   * :issue:`2793` Remove deleted files from logistics CfgFunctions
+   * :issue:`2791` Dive bombing & CAS fixes
+   * :issue:`2790` Fix some RHS flags
+   * :issue:`2789` Remove unintentional enemy skill dependence on resource balance setting
+   * :issue:`2768` Fix syntax for adding WS CDLC static AA to rebel templates
+
+ .. admonition:: Refactor
+
+   * :issue:`2773` Refactor buyable item management
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
 Version 3.2.0
 ===============
 

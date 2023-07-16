@@ -442,6 +442,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
+[allCurators] call A3A_fnc_initZeusLogging;
 
 initClientDone = true;
 Info("initClient completed");

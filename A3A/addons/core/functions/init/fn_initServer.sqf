@@ -331,5 +331,4 @@ if(A3A_hasACE) then
     }] call CBA_fnc_addEventHandler;
 };
 
-[allCurators] call A3A_fnc_initZeusLogging;
 Info("initServer completed");

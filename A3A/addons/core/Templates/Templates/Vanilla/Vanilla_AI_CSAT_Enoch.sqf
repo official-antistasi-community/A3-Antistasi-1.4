@@ -403,8 +403,8 @@ _pilotLoadoutData set ["vests", ["V_BandollierB_khk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]];
 
 
-
-
+if ("mark" in A3A_enabledDLC) then {
+};
 
 /////////////////////////////////
 //    Unit Type Definitions    //

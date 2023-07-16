@@ -89,10 +89,6 @@ if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
-};
-if ("mark" in A3A_enabledDLC) then {
-};
-if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", [_vehiclesPolice]] call _fnc_saveToTemplate;
@@ -392,6 +388,8 @@ _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I"]]
 
 
 
+if ("mark" in A3A_enabledDLC) then {
+};
 
 
 /////////////////////////////////

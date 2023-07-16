@@ -96,9 +96,6 @@ if ("expansion" in A3A_enabledDLC) then {
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"]
 };
-if ("mark" in A3A_enabledDLC) then {
-};
-
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
@@ -419,6 +416,8 @@ _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 
 
+if ("mark" in A3A_enabledDLC) then {
+};
 
 
 /////////////////////////////////

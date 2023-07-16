@@ -420,6 +420,10 @@ _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_EAF_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_I_E", "H_PilotHelmetHeli_I_E"]];
 
 
+if ("mark" in A3A_enabledDLC) then {
+};
+
+
 /////////////////////////////////
 //    Unit Type Definitions    //
 /////////////////////////////////

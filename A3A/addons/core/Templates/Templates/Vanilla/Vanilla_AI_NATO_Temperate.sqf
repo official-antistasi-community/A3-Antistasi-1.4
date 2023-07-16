@@ -413,6 +413,8 @@ _pilotLoadoutData set ["vests", ["V_Rangemaster_belt"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 
 
+if ("mark" in A3A_enabledDLC) then {
+};
 
 
 

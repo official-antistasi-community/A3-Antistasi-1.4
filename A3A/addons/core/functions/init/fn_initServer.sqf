@@ -322,7 +322,7 @@ if(A3A_hasACE) then
         [_this] spawn {
             params ["_unit"];
 
-            // wait encase our event was call first
+            // wait in case our event was called first
             waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
 
             //now add the logging to the module

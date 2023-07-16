@@ -48,6 +48,7 @@ if !(isServer) then {
 
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
 while {true} do {
+    if (dialog) then { sleep 0.1; continue };           // don't spam hints while the setup dialog is open
     private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
     isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr, true] call A3A_fnc_customHint };         // not re-entrant, apparently
     if (A3A_startupState == "completed") exitWith {};
@@ -99,7 +100,7 @@ autoHeal = true;				//Should AI in player squad automatically heal teammates
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 
-if (A3A_hasTFAR || A3A_hasTFARBeta) then {
+if (A3A_hasTFAR || A3A_hasTFARBeta || A3A_hasACRE) then {
     [] spawn A3A_fnc_radioJam;
 };
 

@@ -100,7 +100,7 @@ if(A3A_hasACEMedical && isClass (configFile >> "CfgWeapons" >> "kat_scalpel")) t
 A3A_hasIFA = false;			// this one is everywhere, just mark it false and remove later
 
 // Zeus enhanced
-A3A_hasZen = (isClass(configFile >> "CfgPatches" >> "zen_common"));
+A3A_hasZen = (isClass (configFile >> "CfgPatches" >> "zen_common"));
 
 //Content Mods (Units, Vehicles, Weapons, Clothes etc.)
 //These are handled by a script in the Templates folder to keep integrators away from critical code.

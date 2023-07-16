@@ -58,7 +58,7 @@ private _Tanks = ["O_T_MBT_02_cannon_ghex_F"] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_covered_F", "O_Truck_03_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["O_static_AT_F"]] call _fnc_saveToTemplate;
@@ -78,7 +78,7 @@ if (allowDLCWS) then {
     _cargoTrucks = ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
 };
 if ("enoch" in A3A_enabledDLC) then {
-	["vehiclesPolice", ["B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F","B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"]] call _fnc_saveToTemplate;
+	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	_Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"];
@@ -88,6 +88,11 @@ if ("expansion" in A3A_enabledDLC) then {
 	_LightArmed append ["O_T_MRAP_02_hmg_ghex_F", "O_T_MRAP_02_gmg_ghex_F", "O_T_LSV_02_AT_F", "O_T_LSV_02_armed_F"];
 	["vehiclesPlanesTransport", ["O_T_VTOL_02_infantry_dynamicLoadout_F"]] call _fnc_saveToTemplate; 
 };
+if ("orange" in A3A_enabledDLC) then {
+	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+};
+["vehiclesPolice", [_vehiclesPolice]] call _fnc_saveToTemplate;
+
 
 ["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _LightArmed] call _fnc_saveToTemplate;

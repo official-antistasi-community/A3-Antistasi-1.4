@@ -59,7 +59,7 @@ private _AA = ["I_LT_01_AA_F"];
 ["vehiclesMilitiaTrucks", ["I_Truck_02_transport_F", "I_Truck_02_covered_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["I_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
@@ -86,12 +86,17 @@ if (allowDLCWS) then {
 };
 //If contact DLC
 if ("enoch" in A3A_enabledDLC) then {
-	["vehiclesPolice", ["B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F","B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"]] call _fnc_saveToTemplate;
+	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
 };
 if ("mark" in A3A_enabledDLC) then {
 };
+if ("orange" in A3A_enabledDLC) then {
+	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+};
+["vehiclesPolice", [_vehiclesPolice]] call _fnc_saveToTemplate;
+
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _lightArmed] call _fnc_saveToTemplate;
 ["vehiclesAA", _AA] call _fnc_saveToTemplate;

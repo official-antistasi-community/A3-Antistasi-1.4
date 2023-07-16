@@ -59,7 +59,7 @@ private _HelisTransport = ["B_Heli_Transport_01_camo_F"];
 ["vehiclesMilitiaTrucks", ["B_T_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["B_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["B_static_AT_F"]] call _fnc_saveToTemplate;
@@ -80,7 +80,7 @@ if ("ws" in A3A_enabledDLC) then {
 };
 
 if ("enoch" in A3A_enabledDLC) then {
-	["vehiclesPolice", ["B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F","B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"]] call _fnc_saveToTemplate;
+	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	_Tanks append ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passanger seats.
@@ -94,6 +94,11 @@ if ("expansion" in A3A_enabledDLC) then {
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_F", "B_Heli_Transport_03_unarmed_green_F"]
 };
+if ("orange" in A3A_enabledDLC) then {
+	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+};
+["vehiclesPolice", [_vehiclesPolice]] call _fnc_saveToTemplate;
+
 
 ["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _LightArmed] call _fnc_saveToTemplate;

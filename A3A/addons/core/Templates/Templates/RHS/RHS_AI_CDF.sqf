@@ -7,7 +7,7 @@
 
 ["flag", "Flag_AltisColonial_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhs_flag_insurgents"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_cdf"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

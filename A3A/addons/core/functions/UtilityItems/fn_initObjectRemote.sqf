@@ -38,7 +38,7 @@ if ("move" in _flags) then {
 };
 
 // loot crate object
-if ("loot" in _flags) then {
+if ("loot" in _flags && lootToCrateRadius > 0) then {
     [_object] call A3A_fnc_initLootToCrate;
 };
 

@@ -7,7 +7,7 @@
 
 ["flag", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
 ["flagTexture", "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_serbia"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

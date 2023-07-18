@@ -75,6 +75,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks = ["O_Truck_02_cargo_lxWS","O_Truck_02_flatbed_lxWS"];
+	["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 
 if ("enoch" in A3A_enabledDLC) then {

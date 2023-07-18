@@ -80,12 +80,13 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
     _APCs append ["APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"];
+	["uavsPortable", ["B_UAV_01_F", "B_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passanger seats.
+	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_MRAP_01_F","B_LSV_01_unarmed_F"];

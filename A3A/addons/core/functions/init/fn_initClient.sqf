@@ -48,6 +48,7 @@ if !(isServer) then {
 
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
 while {true} do {
+    if (dialog) then { sleep 0.1; continue };           // don't spam hints while the setup dialog is open
     private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
     isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr, true] call A3A_fnc_customHint };         // not re-entrant, apparently
     if (A3A_startupState == "completed") exitWith {};
@@ -391,9 +392,6 @@ vehicleBox addAction ["Buy Vehicle", {
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 call A3A_fnc_dropObject;
-if (LootToCrateRadius > 0) then {
-    call A3A_fnc_initLootToCrate;
-};
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
@@ -439,6 +437,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
+[allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
 
 initClientDone = true;
 Info("initClient completed");

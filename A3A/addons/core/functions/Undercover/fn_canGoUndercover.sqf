@@ -53,10 +53,15 @@ if !(isNull (objectParent player)) then
         ["Undercover", "You are not in a civilian vehicle."] call A3A_fnc_customHint;
         _result = [false, "In non civilian vehicle"];
     };
-    if ((objectParent player) getVariable ["A3A_reported", false]) then
+    if ((objectParent player) getVariable ["A3A_reported", false]) exitWith
     {
         ["Undercover", "This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover."] call A3A_fnc_customHint;
         _result = [false, "In reported vehicle"];
+    };
+    if ((objectParent player) getVariable ["SA_Tow_Ropes", []] isNotEqualTo []) exitWith
+    {
+        ["Undercover", "This vehicle cannot go undercover while it has tow ropes attached"] call A3A_fnc_customHint;
+        _result = [false, "In vehicle with tow ropes attached"];
     };
 }
 else
@@ -104,6 +109,12 @@ else
         _text = format ["%1<br/>Being naked. Thats what you think is unsuspicious?", _text];
         _result set [0, false];
         _result pushBack "No clothes";
+    };
+    if (!isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull])) then
+    {
+        _text = format ["%1<br/>Holding tow ropes.", _text];
+        _result set [0, false];
+        _result pushBack "Holding tow ropes";
     };
     if !(_result select 0) then
     {

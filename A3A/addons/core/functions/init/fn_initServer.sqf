@@ -77,9 +77,6 @@ private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
     missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
 } forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
-// Might have params dependency at some point
-if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
-
 // Need to run this before game load or initial unlocks. Params dependency.
 boxX call jn_fnc_arsenal_init;
 
@@ -239,6 +236,9 @@ addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+// call ACE3 initialization stuff
+if(A3A_hasACE) then {call A3A_fnc_initACE};
+
 
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
@@ -302,21 +302,6 @@ if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
 if(A3A_hasZen) then 
 {
     ["zen_common_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
-
-if(A3A_hasACE) then 
-{
-    ["ace_zeus_createZeus", {
         [_this] spawn {
             params ["_unit"];
 

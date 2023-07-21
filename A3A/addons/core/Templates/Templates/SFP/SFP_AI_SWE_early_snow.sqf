@@ -62,8 +62,8 @@
 ["vehiclesPolice", ["sfp_police_suv", "sfp_police_offroad"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
-["staticAT", ["sfp_rbs56","sfp_rbs56","sfp_rbs55"]] call _fnc_saveToTemplate;
-["staticAA", ["sfp_rbs70","sfp_rbs70", "sfp_rbs77"]] call _fnc_saveToTemplate;
+["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;
+["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 ["staticMortars", ["sfp_grk84"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
@@ -198,7 +198,7 @@ _sfLoadoutData set ["marksmanRifles", [
 ["sfp_ak5b", "muzzle_snds_M", "", "sfp_optic_susat_4x", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]]];
 _sfLoadoutData set ["sniperRifles", [
 ["sfp_psg90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""]]];
-_sfLoadoutData set ["sidearms", [["sfp_p88", "muzzle_snds_L", "sfp_tlr2", "", ["sfp_17Rnd_9x19_Mag"], [], ""]
+_sfLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "muzzle_snds_L", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]
 ]];
 /////////////////////////////////
 //    Military Loadout Data    //
@@ -237,7 +237,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["sfp_psg90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""]]];
-_militaryLoadoutData set ["sidearms", [["sfp_p88", "", "sfp_tlr2", "", ["sfp_17Rnd_9x19_Mag"], [], ""]]];
+_militaryLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]]];
 
 
 ///////////////////////////////
@@ -252,7 +252,7 @@ _policeLoadoutData set ["helmets", ["sfp_police_hat"]];
 
 _policeLoadoutData set ["SMGs", ["sfp_kpistm45"]];
 _policeLoadoutData set ["shotguns", [["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]]];
-_policeLoadoutData set ["sidearms", [["sfp_p226", "", "sfp_tlr2", "", ["sfp_15Rnd_9x19_Mag"], [], ""]]];
+_policeLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //
@@ -277,7 +277,7 @@ _militiaLoadoutData set ["machineGuns", ["sfp_ksp58a"]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4"], [], ""]
 ]];
-_militiaLoadoutData set ["sidearms", ["sfp_signpist50", "sfp_revolver58"]];
+_militiaLoadoutData set ["sidearms", [["CUP_FlareWhite_265_M", "", "", "", ["CUP_FlareRed_265_M", "CUP_FlareWhite_265_M"], [], ""], "CUP_hgun_Glock17_blk"]];
 
 //////////////////////////
 //    Misc Loadouts     //

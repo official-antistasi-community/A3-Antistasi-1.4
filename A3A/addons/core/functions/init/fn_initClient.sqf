@@ -71,7 +71,6 @@ if (!isServer) then {
     [clientOwner, "destroyedBuildings"] remoteExecCall ["publicVariableClient", 2];
 
     boxX call jn_fnc_arsenal_init;
-    if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 };
 
 // Headless clients register with server and bail out at this point
@@ -278,13 +277,6 @@ player addEventHandler ["GetInMan", {
     };
 }];
 
-if (A3A_hasACE) then {
-    ["ace_explosives_place", {
-        params ["_explosive","_dir","_pitch","_unit"];
-        if (_unit == player) then { player setCaptive false };
-    }] call CBA_fnc_addEventHandler;
-};
-
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
 player addEventHandler ["HandleRating", {0}];
 
@@ -345,27 +337,10 @@ waituntil {!isnull (finddisplay 46)};
 GVAR(keys_battleMenu) = false; //initilize key flags to false
 
 
-if (A3A_hasACE) then
-{
-    if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
-        Error("ACE non-public functions have changed, rebel group join/leave actions will not be removed.");
-    };
-    // Remove group join action from all rebel unit types
-    // Need to compile the menus first, because ACE delays creating menus until a unit of that class is created
-    private _unitTypes = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "I_G_medic_F", "I_G_engineer_F", "I_G_Soldier_GL_F", "I_G_officer_F"];
-    {
-        [_x] call ace_interact_menu_fnc_compileMenu;
-        [_x] call ace_interact_menu_fnc_compileMenuSelfAction;
-        [_x, 0, ["ACE_ApplyHandcuffs"]] call ace_interact_menu_fnc_removeActionFromClass;
-        [_x, 1, ["ACE_SelfActions", "ACE_TeamManagement", "ACE_LeaveGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-        [_x, 0, ["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
-    } forEach _unitTypes;			// TODO: add raw unit types from new templates
-};
 
 boxX allowDamage false;			// hmm...
 boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
 boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (A3A_hasACE) then { [boxX, boxX] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 flagX allowDamage false;
 flagX addAction ["Unit Recruitment", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
 flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
@@ -383,7 +358,6 @@ vehicleBox allowDamage false;
 vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
-if (A3A_hasACE) then { [vehicleBox, VehicleBox] call ace_common_fnc_claim;};	//Disables ALL Ace Interactions
 
 vehicleBox addAction ["Buy Vehicle", {
     if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
@@ -438,6 +412,9 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
+
+// call ACE3 initialization stuff
+if(A3A_hasACE) then {call A3A_fnc_initACE};
 
 [allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
 

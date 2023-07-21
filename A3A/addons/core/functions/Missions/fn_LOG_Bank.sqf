@@ -76,8 +76,8 @@ _bonus = if (_difficultX) then {2} else {1};
 if ((dateToNumber date > _dateLimitNum) or (!alive _truckX)) then
 	{
 	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
-	[-1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
-	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+	[-200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
+	[-10,theBoss] call A3A_fnc_playerScoreAdd;
 	}
 else
 	{
@@ -130,10 +130,10 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 	[_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 	[0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
     Debug("aggroEvent | Rebels won a bank mission");
-	[Occupants, 20 * _bonus, 120] remoteExec ["A3A_fnc_addAggression",2];
-	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
+	[Occupants, 10, 120] remoteExec ["A3A_fnc_addAggression",2];
+	[400*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-	[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+	[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 	waitUntil {sleep 1; speed _truckX == 0};
 
 	[_truckX] call A3A_fnc_empty;
@@ -141,8 +141,7 @@ if ((_truckX distance _posbase < 50) and (dateToNumber date < _dateLimitNum)) th
 if (!alive _truckX) then
 	{
 	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
-	[1800*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
-	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+	//[400*_bonus, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 	};
 
 

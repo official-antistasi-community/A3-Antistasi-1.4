@@ -347,6 +347,7 @@ class CfgFunctions
             class cityinfo {};
             class clientIdleChecker {};
             class credits {};
+            class initACE {};
             class initACEUnconsciousHandler {};
             class initBases {};
             class initUtilityItems {};

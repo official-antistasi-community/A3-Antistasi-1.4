@@ -329,12 +329,6 @@ if (_varName in _specialVarLoads) then {
                 };
                 [_veh] call A3A_fnc_initRemoveStructure;
                 staticsToSave pushBack _veh;
-            }
-            else {
-                if (!isNil "_state") then {
-                    [_veh, _state] call HR_GRG_fnc_setState;
-                };
-                [_veh] spawn A3A_fnc_vehDespawner;
             };
             if ((!isNil "_state")&& !(_state isEqualType 0))  then {
                 [_veh, _state] call HR_GRG_fnc_setState;

@@ -79,7 +79,7 @@ if (isNil "A3A_notBuiltObjectList") then {
 		deleteVehicle _target;
 
 		[_vehicle] call A3A_fnc_initRemoveStructure;
-		if (_className isEqualTo "Flag_AAF_F") then {
+		if (_className isEqualTo A3A_faction_reb get "flag") then {
 			[_vehicle, (A3A_faction_reb get "flagTexture")] remoteExec ["setFlagTexture", _vehicle];
 		};
 		//remove from list

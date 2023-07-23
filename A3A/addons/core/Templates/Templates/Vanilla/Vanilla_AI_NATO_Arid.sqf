@@ -416,8 +416,99 @@ _pilotLoadoutData set ["uniforms", ["U_B_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 
+/* template
+if ("mark" in A3A_enabledDLC) then {
+private _sfMG      = _sfLoadoutData get "machineGuns";
+private _sfMarks   = _sfLoadoutData get "marksmanRifles";
+private _sfSniper  = _sfLoadoutData get "sniperRifles";
+
+_sfMG append [];
+_sfMarks append [];
+_sfSniper append [];
+
+_sfLoadoutData set ["machineGuns", _sfMG];
+_sfLoadoutData set ["marksmanRifles", _sfMarks];
+_sfLoadoutData set ["sniperRifles", _sfSniper];
+
+private _mMG      = _militaryLoadoutData get "machineGuns";
+private _mMarks   = _militaryLoadoutData get "marksmanRifles";
+private _mSniper  = _militaryLoadoutData get "sniperRifles";
+
+_mMG append [];
+_mMarks append [];
+_mSniper append [];
+
+_militaryLoadoutData set ["machineGuns", _mMG];
+_militaryLoadoutData set ["marksmanRifles", _mMarks];
+_militaryLoadoutData set ["sniperRifles", _mSniper];
+
+
+private _milMG      = _militiaLoadoutData get "machineGuns";
+private _milMarks   = _militiaLoadoutData get "marksmanRifles";
+private _milSniper  = _militiaLoadoutData get "sniperRifles";
+
+_milMG append [];
+_milMarks append [];
+_milSniper append [];
+
+_militiaLoadoutData set ["machineGuns", _milMG];
+_militiaLoadoutData set ["marksmanRifles", _milMarks];
+_militiaLoadoutData set ["sniperRifles", _milSniper];
+
+}; */
 
 if ("mark" in A3A_enabledDLC) then {
+private _sfMG      = _sfLoadoutData get "machineGuns";
+private _sfMarks   = _sfLoadoutData get "marksmanRifles";
+private _sfSniper  = _sfLoadoutData get "sniperRifles";
+
+_sfMG append [
+["MMG_02_camo_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"], 
+["MMG_02_camo_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_snd"]];
+_sfMarks append [
+["srifle_DMR_03_tan_F", "muzzle_snds_B", "acc_pointer_IR", "optic_AMS_snd", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
+["srifle_DMR_03_tan_F", "muzzle_snds_B", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"]];
+_sfSniper append [
+["srifle_DMR_02_sniper_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"], 
+["srifle_DMR_02_sniper_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"]];
+
+_sfLoadoutData set ["machineGuns", _sfMG];
+_sfLoadoutData set ["marksmanRifles", _sfMarks];
+_sfLoadoutData set ["sniperRifles", _sfSniper];
+
+private _mMG      = _militaryLoadoutData get "machineGuns";
+private _mMarks   = _militaryLoadoutData get "marksmanRifles";
+private _mSniper  = _militaryLoadoutData get "sniperRifles";
+
+_mMG append [
+["MMG_02_sand_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"], 
+["MMG_02_sand_F", "", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_snd"]
+];
+_mMarks append [
+["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_AMS_snd", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
+["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
+["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_SOS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"]];
+_mSniper append [
+["srifle_DMR_02_sniper_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"],
+["srifle_DMR_02_sniper_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"]];
+
+_militaryLoadoutData set ["machineGuns", _mMG];
+_militaryLoadoutData set ["marksmanRifles", _mMarks];
+_militaryLoadoutData set ["sniperRifles", _mSniper];
+
+
+private _milMG      = _militiaLoadoutData get "machineGuns";
+private _milMarks   = _militiaLoadoutData get "marksmanRifles";
+private _milSniper  = _militiaLoadoutData get "sniperRifles";
+
+_milMG append [];
+_milMarks append [];
+_milSniper append [];
+
+_militiaLoadoutData set ["machineGuns", _milMG];
+_militiaLoadoutData set ["marksmanRifles", _milMarks];
+_militiaLoadoutData set ["sniperRifles", _milSniper];
+
 };
 
 

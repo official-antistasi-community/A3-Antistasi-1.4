@@ -1,0 +1,31 @@
+csat generic		        |	            |	
+"srifle_DMR_04_F"			|	ASP-1	    |	SF only
+"srifle_DMR_05_blk_F"		|	Cyrus	    |	
+		                    |	            |	
+csat arid		            |	            |	
+"srifle_DMR_04_Tan_F"		|	ASP-1	    |	SF only
+"srifle_DMR_05_hex_F"		|	Cyrus	    |	
+"srifle_DMR_05_tan_f"		|	Cyrus	    |	
+"MMG_01_hex_F"				|	Navid	    |	
+"MMG_01_tan_F"				|	Navid	    |	
+		                    |	            |	
+nato generic 		        |	            |	
+"srifle_DMR_02_F"			|	MAR-10	    |	
+"srifle_DMR_03_F"			|	Mk1	        |	
+"MMG_02_black_F"			|	SPMG	    |	
+		                    |	            |	
+nato green		            |	            |	
+"srifle_DMR_02_camo_F" 		|	Mar-10	    |	
+"srifle_DMR_03_khaki_F" 	|	mk1	        |	
+"srifle_DMR_03_woodland_F"	|	mk1	        |	
+		                    |	            |	
+nato arid		            |	            |	
+"srifle_DMR_02_sniper_F" 	|	Mar-10	    |	
+"srifle_DMR_03_multicam_F"	|	Mk1	        |	
+"srifle_DMR_03_tan_F"		|	mk1	        |	
+"MMG_02_camo_F" 			|	SPMG (MTP)	|	
+"MMG_02_sand_F"		        |	SPMG	    |	
+		                    |	            |	
+Militia 		            |	            |	
+"srifle_DMR_06_camo_F" 		|	Mk14	    |	
+"srifle_DMR_06_olive_F"		|	Mk14	    |	

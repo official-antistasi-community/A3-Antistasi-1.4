@@ -458,8 +458,8 @@ _militiaLoadoutData set ["sidearms", ["rhs_weap_makarov_pm","rhs_weap_tt33","rhs
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_crewLoadoutData set ["uniforms", ["rhs_uniform_vkpo_gloves"]];
-_crewLoadoutData set ["vests", ["rhs_6b45_light"]];
+_crewLoadoutData set ["uniforms", ["rhs_uniform_gorka_r_g_gloves", "rhs_uniform_gorka_r_y_gloves"]];
+_crewLoadoutData set ["vests", ["rhs_6b3_holster"]];
 _crewLoadoutData set ["helmets", ["rhs_tsh4", "rhs_tsh4_ess"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;

@@ -31,8 +31,7 @@ private _vehiclesCivBoat = ["C_Boat_Civil_01_F", "C_Rubberboat"];
 private _staticMGs = ["rhsgref_tla_g_DSHKM",  "rhsgref_tla_g_DSHKM_Mini_TriPod", "rhsgref_hidf_m2_static_minitripod"];
 private _staticAT = ["rhsgref_tla_g_SPG9"];
 private _staticAA = ["rhsgref_tla_g_ZU23"];
-private _staticMortars = ["rhsgref_tla_g_2b14"];
-
+["staticMortars", ["rhsgref_cdf_reg_M252"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 ["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
@@ -44,25 +43,25 @@ private _staticMortars = ["rhsgref_tla_g_2b14"];
 ["breachingExplosivesTank", [["rhs_ec75_mag", 4], ["rhs_ec75_sand_mag", 4], ["rhs_ec200_mag", 2], ["rhs_ec200_sand_mag", 2], ["rhs_ec400_mag", 1], ["rhs_ec400_sand_mag", 1],["DemoCharge_Remote_Mag", 2], ["rhsusf_m112_mag", 2], ["rhsusf_m112x4_mag", 1], ["rhs_charge_M2tet_x2_mag", 1], ["SatchelCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
-	_vehiclesBasic = ["UK3CB_FIA_I_TT650"];
-	_vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "UK3CB_FIA_I_Datsun_Open"];
-	_vehiclesLightArmed = ["UK3CB_I_G_LandRover_M2", "UK3CB_MDF_I_MB4WD_LMG","UK3CB_I_G_LandRover_SF_M2"];
-	_vehiclesTruck = ["UK3CB_KDF_I_Gaz66_Covered","UK3CB_KDF_I_Gaz66_Open"];
-	_vehiclesAT = ["UK3CB_MDF_I_MB4WD_AT", "UK3CB_I_G_LandRover_SPG9"];
-	_vehiclesAA = ["UK3CB_KDF_I_Gaz66_ZU23"];
-	
-	_vehiclesBoat append ["UK3CB_I_G_Fishing_Boat_SPG9", "UK3CB_CHD_I_Fishing_Boat_Zu23_front"];
-	
-	_vehiclesPlane = ["UK3CB_FIA_I_C400", "UK3CB_I_G_Antonov_An2_Armed"];
-	_vehiclesCivPlane = ["UK3CB_C_Cessna_172"];
-	_vehiclesMedical = ["UK3CB_FIA_I_Hilux_Ambulance"];
-	
-	_vehiclesCivCar = ["C_Offroad_02_unarmed_F", "UK3CB_C_LandRover_Closed", "UK3CB_C_LandRover_Open", "UK3CB_C_Datsun_Open", "UK3CB_C_Gaz24", "UK3CB_C_Skoda", "UK3CB_C_S1203", "UK3CB_C_MMT"];
-	_vehiclesCivTruck = ["RHS_Ural_Open_Civ_02","C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"];
-	_vehiclesCivHeli = ["UK3CB_C_Mi8AMT_ADC"];
-	_vehiclesCivBoat = ["UK3CB_CHC_C_Fishing_Boat", "C_Rubberboat"];
-	
-	_staticMGs append ["UK3CB_NAP_I_PKM_High",  "UK3CB_NAP_I_PKM_Low"];
+    _vehiclesBasic = ["UK3CB_FIA_I_TT650"];
+    _vehiclesLightUnarmed = ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "UK3CB_FIA_I_Datsun_Open"];
+    _vehiclesLightArmed = ["UK3CB_I_G_LandRover_M2", "UK3CB_MDF_I_MB4WD_LMG","UK3CB_I_G_LandRover_SF_M2"];
+    _vehiclesTruck = ["UK3CB_KDF_I_Gaz66_Covered","UK3CB_KDF_I_Gaz66_Open"];
+    _vehiclesAT = ["UK3CB_MDF_I_MB4WD_AT", "UK3CB_I_G_LandRover_SPG9"];
+    _vehiclesAA = ["UK3CB_KDF_I_Gaz66_ZU23"];
+    
+    _vehiclesBoat append ["UK3CB_I_G_Fishing_Boat_SPG9", "UK3CB_CHD_I_Fishing_Boat_Zu23_front"];
+    
+    _vehiclesPlane = ["UK3CB_FIA_I_C400", "UK3CB_I_G_Antonov_An2_Armed"];
+    _vehiclesCivPlane = ["UK3CB_C_Cessna_172"];
+    _vehiclesMedical = ["UK3CB_FIA_I_Hilux_Ambulance"];
+    
+    _vehiclesCivCar = ["C_Offroad_02_unarmed_F", "UK3CB_C_LandRover_Closed", "UK3CB_C_LandRover_Open", "UK3CB_C_Datsun_Open", "UK3CB_C_Gaz24", "UK3CB_C_Skoda", "UK3CB_C_S1203", "UK3CB_C_MMT"];
+    _vehiclesCivTruck = ["RHS_Ural_Open_Civ_02","C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"];
+    _vehiclesCivHeli = ["UK3CB_C_Mi8AMT_ADC"];
+    _vehiclesCivBoat = ["UK3CB_CHC_C_Fishing_Boat", "C_Rubberboat"];
+    
+    _staticMGs append ["UK3CB_NAP_I_PKM_High",  "UK3CB_NAP_I_PKM_Low"];
 };
 
 ["vehiclesBasic", _vehiclesBasic] call _fnc_saveToTemplate;
@@ -86,12 +85,11 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
 ["staticMGs", _staticMGs] call _fnc_saveToTemplate;
 ["staticAT", _staticAT] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
-["staticMortars", _staticMortars] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
-	#include "..\3CB\3CB_Reb_Vehicle_Attributes.sqf"
+    #include "..\3CB\3CB_Reb_Vehicle_Attributes.sqf"
 } else {
-	#include "RHS_Reb_Vehicle_Attributes.sqf"
+    #include "RHS_Reb_Vehicle_Attributes.sqf"
 };
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -114,8 +112,8 @@ _initialRebelEquipment append ["Chemlight_blue", "Chemlight_green", "Chemlight_r
 
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_Common")) then {
-	_initialRebelEquipment append ["uk3cb_enfield_no4_walnut","uk3cb_no4_enfield_303_10Rnd_magazine_Y","uk3cb_no4_enfield_303_10Rnd_magazine_YT",["uk3cb_1rnd_riflegrenade_mas_at_l", 75]];
-} else { _initialRebelEquipment append [["rhs_weap_rpg18", 50]];
+    _initialRebelEquipment append ["uk3cb_enfield_no4_walnut","uk3cb_no4_enfield_303_10Rnd_magazine_Y","uk3cb_no4_enfield_303_10Rnd_magazine_YT",["uk3cb_1rnd_riflegrenade_mas_at_l", 75]];
+    } else { _initialRebelEquipment append [["rhs_weap_rpg18", 50]];
 };
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
@@ -128,18 +126,26 @@ private _rebUniforms = [
     "U_IG_leader",
     "U_IG_Guerrilla_6_1",
     "U_I_G_resistanceLeader_F",
+    "rhsgref_uniform_tigerstripe",
+    "rhsgref_uniform_altis_lizard_olive"
+];
+
+private _dlcUniforms = [];
+
+if (allowDLCExpansion) then {_dlcUniforms append [
     "U_I_C_Soldier_Bandit_4_F",
     "U_I_C_Soldier_Bandit_1_F",
     "U_I_C_Soldier_Bandit_2_F",
     "U_I_C_Soldier_Bandit_5_F",
     "U_I_C_Soldier_Bandit_3_F",
-	"U_I_C_Soldier_Para_5_F",
-	"rhsgref_uniform_tigerstripe",
-	"rhsgref_uniform_altis_lizard_olive"
+    "U_I_C_Soldier_Para_2_F",
+    "U_I_C_Soldier_Para_3_F",
+    "U_I_C_Soldier_Para_5_F",
+    "U_I_C_Soldier_Para_4_F",
+    "U_I_C_Soldier_Para_1_F",
+    "U_I_C_Soldier_Camo_F"
 ];
-
-private _dlcUniforms = [];
-
+};
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F",
     "U_I_L_Uniform_01_deserter_F"

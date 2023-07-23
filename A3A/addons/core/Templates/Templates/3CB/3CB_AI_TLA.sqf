@@ -43,10 +43,10 @@
 
 ["vehiclesPlanesCAS", ["UK3CB_CW_SOV_O_EARLY_MIG21_AT","UK3CB_CW_SOV_O_EARLY_MIG21_AT","UK3CB_CW_SOV_O_EARLY_LI2_ARMED"/*,"UK3CB_CW_SOV_O_EARLY_Antonov_AN2_Armed_Rockets"*/]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["UK3CB_CW_SOV_O_EARLY_MIG21_AA"]] call _fnc_saveToTemplate;              // 
-["vehiclesPlanesTransport", ["UK3CB_CW_SOV_O_EARLY_Antonov_AN2","UK3CB_CW_SOV_O_EARLY_LI2","UK3CB_CW_SOV_O_EARLY_LI2"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["UK3CB_CW_SOV_O_EARLY_LI2"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_CW_SOV_O_EARLY_Mi8AMT"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
-["vehiclesHelisTransport", ["RHS_Mi24Vt_vvsc","UK3CB_CW_SOV_O_EARLY_Mi8","UK3CB_CW_SOV_O_EARLY_Mi8"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["RHS_Mi24Vt_vvsc","UK3CB_CW_SOV_O_EARLY_Mi8","UK3CB_CW_SOV_O_EARLY_Mi8"]] call _fnc_saveToTemplate; //Mi24Vt has 1x 12.7mm turret, and disabled pylons
 // Should be capable of dealing damage to ground targets without additional scripting
 ["vehiclesHelisLightAttack", ["UK3CB_CW_SOV_O_EARLY_Mi8AMTSh","UK3CB_CW_SOV_O_EARLY_Mi_24P"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", ["UK3CB_CW_SOV_O_EARLY_Mi_24V"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
@@ -187,7 +187,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_I_C_Soldier_Para_1_F","U_I_C_Soldier_Para_2_F","U_I_C_Soldier_Para_3_F","U_I_C_Soldier_Para_4_F","U_I_C_Soldier_Camo_F"]];
+_sfLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_1","rhsgref_uniform_TLA_2"]];
 _sfLoadoutData set ["vests", ["UK3CB_V_Belt_Rig_KHK","UK3CB_MDF_B_V_TacVest_LIZ","UK3CB_MD99_VEST_Rifleman_KHK","UK3CB_MD12_VEST_Rifleman_OLI"]];
 _sfLoadoutData set ["helmets", ["rhs_headband", "rhs_6b27m_ml", "rhsgref_6b27m_ttsko_mountain"]];
 _sfLoadoutData set ["facewear", ["rhsusf_shemagh2_grn", "rhsusf_shemagh2_od", "rhsusf_shemagh2_tan", "rhsusf_shemagh2_white","UK3CB_G_KLR_BLK","UK3CB_G_KLR_Oli","UK3CB_G_KLR_TAN"]];
@@ -363,7 +363,7 @@ _pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_alt", "rhs_zsh7a_mike", "rhs_
 _pilotLoadoutData set ["sidearms", ["rhs_weap_tt33"]];
 
 private _officialLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officialLoadoutData set ["uniforms", ["U_I_C_Soldier_Camo_F"]];
+_officialLoadoutData set ["uniforms", ["UK3CB_TKP_I_U_QRF_CombatUniform_BLK"]];
 _officialLoadoutData set ["vests", ["rhs_gear_OFF"]];
 _officialLoadoutData set ["facewear", ["rhs_googles_black", "G_Squares_Tinted","G_Aviator","G_Aviator"]];
 _officialLoadoutData set ["helmets", ["UK3CB_H_MilCap_VEG"]];

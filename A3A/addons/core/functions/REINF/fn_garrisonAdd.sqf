@@ -17,7 +17,7 @@ if (_costs > _resourcesFIA) exitWith {
 	[localize "STR_A3A_garrison_header",  format [localize "STR_A3A_garrison_error_no_money", _costs]] call A3A_fnc_customHint;
 };
 
-if (_unitType == FactionGet(reb, "unitCrew") and _markerX in outpostsFIA) exitWith {
+if ((_unitType == FactionGet(reb, "unitCrew")) and _markerX in outpostsFIA) exitWith {
 	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_mortar"] call A3A_fnc_customHint;
 };
 
@@ -37,6 +37,7 @@ private _limit = [_markerX] call A3A_fnc_getGarrisonLimit;
 if (_limit != -1 && {count _garrison >= _limit}) exitWith {
 	[localize "STR_A3A_garrisons_header", localize "STR_A3A_garrison_reached_limit"] call A3A_fnc_customHint;
 };
+
 
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 

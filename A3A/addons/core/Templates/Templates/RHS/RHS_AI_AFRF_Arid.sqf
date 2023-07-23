@@ -56,7 +56,7 @@
 ["uavsPortable", ["rhs_pchela1t_vvsc"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["rhs_tigr_m_vv", "rhs_tigr_m_vv"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["rhs_tigr_sts_vv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["rhs_zil131_vv", "RHS_Ural_VV_01", "RHS_Ural_Open_VV_01", "rhs_zil131_open_vv", "rhs_kraz255b1_cargo_open_vv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhs_uaz_vv", "rhs_uaz_open_vv", "rhs_tigr_vv", "rhs_tigr_3camo_vv"]] call _fnc_saveToTemplate;
 
@@ -69,6 +69,7 @@
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;

@@ -135,5 +135,32 @@ if ((build_type == "SB") or (build_type == "CB")) then
 
 if (_leave) exitWith {["Build Info", format ["%1",_textX]] call A3A_fnc_customHint;};
 
+// Not really converted to callback system. Whatever.
+private _fnc_placeCheck = {
+	params ["_vehicle"];
+	switch (build_type) do { //return inverted here so true = cant place
+		case "RB": {
+			[!(isOnRoad _vehicle), "Roadblocks can only be built on roads"];
+		};
+		case "SB": {
+			[(isOnRoad _vehicle) || {!(_vehicle inArea build_nearestFriendlyMarker)}, "Bunkers can only be built off roads, in friendly areas"];
+		};
+		case "CB": {
+			[(isOnRoad _vehicle) || {!(_vehicle inArea build_nearestFriendlyMarker)}, "Bunkers can only be built off roads, in friendly areas"];
+		};
+		default { false };
+	};
+};
+
+private _fnc_placed = {
+	params ["_vehicle"];
+	if (isNull _vehicle) exitWith {};
+	private _type = typeOf _vehicle;
+	private _pos = getPosASL _vehicle;
+	private _dir = getDir _vehicle;
+	deleteVehicle _vehicle;
+	[_type, _pos, _dir] spawn A3A_fnc_buildCreateVehicleCallback;
+};
+
 //START PLACEMENT HERE
-[_classX, "BUILDSTRUCTURE"] call HR_GRG_fnc_confirmPlacement;
+[_classX, _fnc_placed, _fnc_placeCheck, []] call HR_GRG_fnc_confirmPlacement;

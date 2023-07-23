@@ -10,9 +10,9 @@ if (not _onoff) then {_damage = 0.95;};
 _radiusX = markerSize _markerX;
 _size = _radiusX select 0;
 
-for "_i" from 0 to ((count lamptypes) -1) do
+for "_i" from 0 to ((count A3A_lampTypes) -1) do
     {
-    _lamps = _positionX nearObjects [lamptypes select _i,_size];
+    _lamps = _positionX nearObjects [A3A_lampTypes select _i,_size];
     {sleep 0.3; _x setDamage _damage} forEach _lamps;
     };
     //123

@@ -48,7 +48,8 @@ _mainMarker = getMarkerPos _marker;
 
 if(count _vehicleMarker == 0) then
 {
-  Error_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
+  // Not automatically wrong. Some locations may not have any vehicle places
+  Info_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
 };
 
 private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_markerX"];
@@ -74,6 +75,9 @@ _helipads = [];
     };
   };
 } forEach _buildings;
+
+private _heliCount = count _helipads;
+private _hangarCount = count _hangars;
 
 //Find additional helipads and hangars (maybe a unified system would be better??)
 {
@@ -102,6 +106,10 @@ _helipads = [];
   } forEach _buildings;
 } forEach _hangarMarker;
 //All additional hangar and helipads found
+
+if (_heliCount != count _helipads or _hangarCount != count _hangars) then {
+  Debug_5("Marker %1 buildings diff: %2;%3 %4;%5", _marker, _heliCount, count _helipads, _hangarCount, count _hangars);
+};
 
 private ["_vehicleSpawns", "_size", "_width", "_height", "_vehicleCount", "_realLength", "_realSpace", "_markerDir", "_dis", "_pos", "_heliSpawns", "_dir", "_planeSpawns", "_mortarSpawns", "_spawns"];
 
@@ -154,7 +162,7 @@ _vehicleSpawns = [];
           _dis = (_realSpace + 2 + ((_i - 1) * (4 + _realSpace))) - (_width / 2);
           _pos = [getMarkerPos _markerX, _dis, (_markerDir + 90)] call BIS_fnc_relPos;
           _pos set [2, ((_pos select 2) + 0.1) max 0.1];
-          _vehicleSpawns pushBack [[_pos, _markerDir], false];
+          _vehicleSpawns pushBack [_pos, _markerDir];
         };
       };
     };
@@ -177,7 +185,7 @@ _heliSpawns = [];
       } foreach (nearestTerrainObjects [_pos, ["Tree","Bush", "Hide", "Rock"], 5, true]);
     };
     _dir = direction _x;
-    _heliSpawns pushBack [[_pos, _dir], false];
+    _heliSpawns pushBack [_pos, _dir];
 } forEach _helipads;
 
 _planeSpawns = [];
@@ -190,19 +198,22 @@ _planeSpawns = [];
       //This hangar is facing the wrong way...
       _dir = _dir + 180;
     };
-    _planeSpawns pushBack [[_pos, _dir], false];
+    _planeSpawns pushBack [_pos, _dir];
 } forEach _hangars;
 
 _mortarSpawns = [];
 {
   _pos = getMarkerPos _x;
   _pos set [2, ((_pos select 2) + 0.1) max 0.1];
-  _mortarSpawns pushBack [[_pos, 0], false];
+  _mortarSpawns pushBack [_pos, 0];
 } forEach _mortarMarker;
 
-_spawns = [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns];
+//Debug_2("%1 set to %2", _marker, [_vehicleSpawns, _heliSpawns, _planeSpawns, _mortarSpawns]);
 
-//Debug_2("%1 set to %2", _marker, _spawns);
-
-//Saving the spawn places
-spawner setVariable [format ["%1_spawns", _marker], _spawns, true];
+//Create the spawn places and initial used-slot arrays
+{
+    if (_x#0 isEqualTo []) then { continue };
+    private _varName = format ["%1_%2", _marker, _x#1];
+    spawner setVariable [_varName + "_places", _x#0, true];
+    spawner setVariable [_varName + "_used", (_x#0) apply {false}, true];
+} forEach [[_vehicleSpawns, "vehicle"], [_heliSpawns, "heli"], [_planeSpawns, "plane"], [_mortarSpawns, "mortar"]];

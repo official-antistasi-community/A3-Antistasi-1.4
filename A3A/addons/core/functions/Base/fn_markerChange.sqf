@@ -189,6 +189,7 @@ if (_markerX in outposts) then
 	if (_winner != teamPlayer) then
 	{
 		server setVariable [_markerX,dateToNumber date,true];
+		[_markerX,30] call A3A_fnc_addTimeForIdle;
 		if (_loser == teamPlayer) then
 		{
             Debug("aggroEvent | Rebels lost an outpost");

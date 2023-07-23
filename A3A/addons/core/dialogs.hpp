@@ -253,18 +253,18 @@ class garrison_recruit 			{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
 			x = 0.244979 * safezoneW + safezoneX;
-			y = 0.223941 * safezoneH + safezoneY;
+			y = 0.173941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
-			h = 0.492103 * safezoneH;
+			h = 0.592103 * safezoneH;
 		};
 		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_garrison_recruit_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
-			y = 0.233941 * safezoneH + safezoneY;
+			y = 0.183941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
-			h = 0.462103 * safezoneH;
+			h = 0.562103 * safezoneH;
 		};
 		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
@@ -272,7 +272,7 @@ class garrison_recruit 			{
 			text = $STR_antistasi_dialogs_generic_button_back_text;
 			tooltip = $STR_antistasi_dialogs_generic_button_back_tooltip;
 			x = 0.61 * safezoneW + safezoneX;
-			y = 0.251941 * safezoneH + safezoneY;
+			y = 0.201941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0;_nul = createDialog ""build_menu"";";
@@ -282,7 +282,7 @@ class garrison_recruit 			{
 			idc = 104;
 			text = $STR_antistasi_dialogs_garrison_spawn_rifleman_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
+			y = 0.267959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitRifle'] spawn A3A_fnc_garrisonAdd";
@@ -292,7 +292,7 @@ class garrison_recruit 			{
 			idc = 105;
 			text = $STR_antistasi_dialogs_garrison_spawn_autorifleman_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
+			y = 0.365981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMG'] spawn A3A_fnc_garrisonAdd";
@@ -302,7 +302,7 @@ class garrison_recruit 			{
 			idc = 126;
 			text = $STR_antistasi_dialogs_garrison_spawn_medic_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.514003 * safezoneH + safezoneY;
+			y = 0.464003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMedic'] spawn A3A_fnc_garrisonAdd";
@@ -312,7 +312,7 @@ class garrison_recruit 			{
 			idc = 107;
 			text = $STR_antistasi_dialogs_garrison_spawn_squad_lead_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
+			y = 0.267959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitSL'] spawn A3A_fnc_garrisonAdd";
@@ -322,7 +322,7 @@ class garrison_recruit 			{
 			idc = 108;
 			text = $STR_antistasi_dialogs_garrison_spawn_mortar_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.514003 * safezoneH + safezoneY;
+			y = 0.464003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitCrew'] spawn A3A_fnc_garrisonAdd";
@@ -332,7 +332,7 @@ class garrison_recruit 			{
 			idc = 109;
 			text = $STR_antistasi_dialogs_garrison_spawn_grenadier_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
+			y = 0.365981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitGL'] spawn A3A_fnc_garrisonAdd";
@@ -342,21 +342,40 @@ class garrison_recruit 			{
 			idc = 110;
 			text = $STR_antistasi_dialogs_garrison_spawn_marksman_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.612025 * safezoneH + safezoneY;
+			y = 0.562025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitSniper'] spawn A3A_fnc_garrisonAdd";
 		};
-
-		class HQ_button_AT: A3A_core_BattleMenuRedButton
+		class HQ_button_LAT: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_garrison_spawn_at_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.612025 * safezoneH + safezoneY;
+			y = 0.562025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitLAT'] spawn A3A_fnc_garrisonAdd";
+		};
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
+		{
+			idc = 112;
+			text = $STR_antistasi_dialogs_garrison_spawn_atmissile_text;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.660047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "nul = [A3A_faction_reb get 'unitAT'] spawn A3A_fnc_garrisonAdd";
+		};
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
+		{
+			idc = 113;
+			text = $STR_antistasi_dialogs_garrison_spawn_aamissile_text;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.660047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "nul = [A3A_faction_reb get 'unitAA'] spawn A3A_fnc_garrisonAdd";
 		};
 	};
 };										//slots: 8
@@ -437,25 +456,25 @@ class unit_recruit 		{
 			idc = 101;
 			text = $STR_antistasi_dialogs_generic_box_text;
 			x = 0.244979 * safezoneW + safezoneX;
-			y = 0.223941 * safezoneH + safezoneY;
+			y = 0.173941 * safezoneH + safezoneY;
 			w = 0.445038 * safezoneW;
-			h = 0.492103 * safezoneH;
+			h = 0.592103 * safezoneH;
 		};
 		class HQ_frame: A3A_core_BattleMenuFrame
 		{
 			idc = 102;
 			text = $STR_antistasi_dialogs_unit_recruit_frame_text;
 			x = 0.254979 * safezoneW + safezoneX;
-			y = 0.233941 * safezoneH + safezoneY;
+			y = 0.183941 * safezoneH + safezoneY;
 			w = 0.425038 * safezoneW;
-			h = 0.462103 * safezoneH;
+			h = 0.562103 * safezoneH;
 		};
 		class HQ_button_back: A3A_core_BattleMenuRedButton
 		{
 			idc = 103;
 			text = $STR_antistasi_dialogs_generic_button_back_text;
 			x = 0.61 * safezoneW + safezoneX;
-			y = 0.251941 * safezoneH + safezoneY;
+			y = 0.201941 * safezoneH + safezoneY;
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
@@ -465,7 +484,7 @@ class unit_recruit 		{
 			idc = 104;
 			text = $STR_antistasi_dialogs_unit_recruit_militiaman_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
+			y = 0.267959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitRifle'] spawn A3A_fnc_reinfPlayer";
@@ -475,7 +494,7 @@ class unit_recruit 		{
 			idc = 105;
 			text = $STR_antistasi_dialogs_unit_recruit_mg_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
+			y = 0.365981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMG'] spawn A3A_fnc_reinfPlayer";
@@ -485,7 +504,7 @@ class unit_recruit 		{
 			idc = 126;
 			text = $STR_antistasi_dialogs_unit_recruit_medic_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.514003 * safezoneH + safezoneY;
+			y = 0.464003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitMedic'] spawn A3A_fnc_reinfPlayer";
@@ -495,7 +514,7 @@ class unit_recruit 		{
 			idc = 107;
 			text = $STR_antistasi_dialogs_unit_recruit_engineer_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
+			y = 0.267959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitEng'] spawn A3A_fnc_reinfPlayer";
@@ -505,7 +524,7 @@ class unit_recruit 		{
 			idc = 108;
 			text = $STR_antistasi_dialogs_unit_recruit_explosive_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.514003 * safezoneH + safezoneY;
+			y = 0.464003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitExp'] spawn A3A_fnc_reinfPlayer";
@@ -515,7 +534,7 @@ class unit_recruit 		{
 			idc = 109;
 			text = $STR_antistasi_dialogs_unit_recruit_grenadier_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.415981 * safezoneH + safezoneY;
+			y = 0.365981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitGL'] spawn A3A_fnc_reinfPlayer";
@@ -525,21 +544,40 @@ class unit_recruit 		{
 			idc = 110;
 			text = $STR_antistasi_dialogs_unit_recruit_marksman_text;
 			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.612025 * safezoneH + safezoneY;
+			y = 0.562025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitSniper'] spawn A3A_fnc_reinfPlayer";
 		};
-
-		class HQ_button_AT: A3A_core_BattleMenuRedButton
+		class HQ_button_LAT: A3A_core_BattleMenuRedButton
 		{
 			idc = 111;
 			text = $STR_antistasi_dialogs_unit_recruit_antitank_text;
 			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.612025 * safezoneH + safezoneY;
+			y = 0.562025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			action = "nul = [A3A_faction_reb get 'unitLAT'] spawn A3A_fnc_reinfPlayer";
+		};
+		class HQ_button_AT: A3A_core_BattleMenuRedButton
+		{
+			idc = 112;
+			text = $STR_antistasi_dialogs_unit_recruit_atmissile_text;
+			x = 0.272481 * safezoneW + safezoneX;
+			y = 0.660047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "nul = [A3A_faction_reb get 'unitAT'] spawn A3A_fnc_reinfPlayer";
+		};
+		class HQ_button_AA: A3A_core_BattleMenuRedButton
+		{
+			idc = 113;
+			text = $STR_antistasi_dialogs_unit_recruit_aamissile_text;
+			x = 0.482498 * safezoneW + safezoneX;
+			y = 0.660047 * safezoneH + safezoneY;
+			w = 0.175015 * safezoneW;
+			h = 0.0560125 * safezoneH;
+			action = "nul = [A3A_faction_reb get 'unitAA'] spawn A3A_fnc_reinfPlayer";
 		};
 	};
 };
@@ -576,28 +614,6 @@ class vehicle_option 	{
 			w = 0.06 * safezoneW;//0.175015
 			h = 0.05 * safezoneH;
 			action = "closeDialog 0";
-		};
-		class HQ_button_Gsquad: A3A_core_BattleMenuRedButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_vehicle_purchase_civie_text;
-			tooltip = $STR_antistasi_dialogs_vehicle_purchase_civie_tooltip;
-			x = 0.272481 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicleCiv;";
-		};
-		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
-		{
-			idc = -1;
-			text = $STR_antistasi_dialogs_vehicle_purchase_military_text;
-			tooltip = $STR_antistasi_dialogs_vehicle_purchase_military_tooltip;
-			x = 0.482498 * safezoneW + safezoneX;
-			y = 0.317959 * safezoneH + safezoneY;
-			w = 0.175015 * safezoneW;
-			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0; [] spawn A3A_fnc_buyVehicle;";
 		};
 	};
 };
@@ -642,7 +658,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closedialog 0; nul = [A3A_faction_reb get 'vehicleBasic'] spawn A3A_fnc_addFIAveh";
+			action = "closedialog 0; nul = [(A3A_faction_reb get 'vehiclesBasic') # 0] spawn A3A_fnc_addFIAveh";
 		};
 		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
@@ -652,7 +668,7 @@ class buy_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleLightUnarmed'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesLightUnarmed') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_truck: A3A_core_BattleMenuRedButton
 		{
@@ -662,7 +678,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleTruck'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesTruck') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Aoffroad: A3A_core_BattleMenuRedButton
 		{
@@ -672,7 +688,7 @@ class buy_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleLightArmed'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesLightArmed') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_MG: A3A_core_BattleMenuRedButton
 		{
@@ -683,7 +699,7 @@ class buy_vehicle 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMG'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticMGs') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_mortar: A3A_core_BattleMenuRedButton
 		{
@@ -694,7 +710,7 @@ class buy_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMortar'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticMortars') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_AT: A3A_core_BattleMenuRedButton
 		{
@@ -705,7 +721,7 @@ class buy_vehicle 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticAT'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticAT') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 
 		class HQ_button_AA: A3A_core_BattleMenuRedButton
@@ -717,7 +733,7 @@ class buy_vehicle 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticAA'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticAA') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 	};
 };
@@ -762,7 +778,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivCar'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesCivCar') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
@@ -772,7 +788,7 @@ class civ_vehicle 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivTruck'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesCivTruck') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_Gremove: A3A_core_BattleMenuRedButton
 		{
@@ -783,7 +799,7 @@ class civ_vehicle 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleCivHeli'] spawn A3A_fnc_addFIAveh;";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesCivHeli') # 0] spawn A3A_fnc_addFIAveh;";
 		};
 		class HQ_button_offroad: A3A_core_BattleMenuRedButton
 		{
@@ -793,7 +809,7 @@ class civ_vehicle 			{
 		 	y = 0.415981 * safezoneH + safezoneY;
 		 	w = 0.175015 * safezoneW;
 		 	h = 0.0560125 * safezoneH;
-		 	action = "closeDialog 0;[A3A_faction_reb get 'vehicleCivBoat'] spawn A3A_fnc_addFIAveh;";
+		 	action = "closeDialog 0;[(A3A_faction_reb get 'vehiclesCivBoat') # 0] spawn A3A_fnc_addFIAveh;";
 		 };
 	};
 };
@@ -842,7 +858,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_civ_limit_tooltip;
-			action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""civ_config""} else {[""Civilian Spawn"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
+			action = "if (call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""civ_config""} else {[""Civilian Spawn"", ""Only admins have access to this function.""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_R1: A3A_core_BattleMenuRedButton
 		{
@@ -853,7 +869,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_maps_spawn_distance_tooltip;
-			action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""spawn_config""} else {[""Spawn Distance"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
+			action = "if (call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""spawn_config""} else {[""Spawn Distance"", ""Only admins have access to this function.""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_L2: A3A_core_BattleMenuRedButton
 		{
@@ -864,7 +880,7 @@ class game_options 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "";	//$STR_antistasi_dialogs_maps_ai_limiter_tooltip;
-			//action = "if (player == theBoss || call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {[""AI Limiter"", ""Only our Commander or admin has access to this function.""] call A3A_fnc_customHint;};";
+			//action = "if (call BIS_fnc_admin > 0 || isServer) then {closeDialog 0; nul = createDialog ""fps_limiter""} else {[""AI Limiter"", ""Only admins have access to this function.""] call A3A_fnc_customHint;};";
 		};
 		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
@@ -1090,7 +1106,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[player,'civPerc','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
+			action = "[player,'globalCivilianMax','increase'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
 		class HQ_button_Gstatic: A3A_core_BattleMenuRedButton
 		{
@@ -1100,7 +1116,7 @@ class civ_config 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[player,'civPerc','decrease'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
+			action = "[player,'globalCivilianMax','decrease'] remoteExecCall ['A3A_fnc_HQGameOptions',2];";
 		};
 	};
 };
@@ -2173,7 +2189,7 @@ class squad_recruit 			{
 			y = 0.514003 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMG'] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticMGs') # 0] spawn A3A_fnc_addFIAsquadHC";
 		};
 		class HQ_button_infteamM: A3A_core_BattleMenuRedButton
 		{
@@ -2183,7 +2199,7 @@ class squad_recruit 			{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'vehicleAT'] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'vehiclesAT') # 0] spawn A3A_fnc_addFIAsquadHC";
 		};
 		class HQ_button_ATteamM: A3A_core_BattleMenuRedButton
 		{
@@ -2193,7 +2209,7 @@ class squad_recruit 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticAA'] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticAA') # 0] spawn A3A_fnc_addFIAsquadHC";
 		};
 
 		class HQ_button_mortar: A3A_core_BattleMenuRedButton
@@ -2204,7 +2220,7 @@ class squad_recruit 			{
 			y = 0.612025 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "closeDialog 0;nul = [A3A_faction_reb get 'staticMortar'] spawn A3A_fnc_addFIAsquadHC";
+			action = "closeDialog 0;nul = [(A3A_faction_reb get 'staticMortars') # 0] spawn A3A_fnc_addFIAsquadHC";
 		};
 	};
 };

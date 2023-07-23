@@ -13,13 +13,13 @@ _isRoad = isOnRoad _positionTel;
 
 _textX = format ["%1 Observation Post",FactionGet(reb,"name")];
 _typeGroup = FactionGet(reb,"groupSniper");
-_typeVehX = FactionGet(reb,"vehicleBasic");
+_typeVehX = (FactionGet(reb,"vehiclesBasic")) # 0;
 private _tsk = "";
 if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
 	_typeGroup = FactionGet(reb,"groupAT");
-	_typeVehX = FactionGet(reb,"vehicleTruck");
+	_typeVehX = (FactionGet(reb,"vehiclesTruck")) # 0;
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];
@@ -51,10 +51,11 @@ if ({(alive _x) and (_x distance _positionTel < 10)} count units _groupX > 0) th
 		_owner = (leader _groupX) getVariable ["owner",leader _groupX];
 		(leader _groupX) remoteExec ["removeAllActions",leader _groupX];
 		_owner remoteExec ["selectPlayer",leader _groupX];
-		(leader _groupX) setVariable ["owner",_owner,true];
-		{[_x] joinsilent group _owner} forEach units group _owner;
-		[group _owner, _owner] remoteExec ["selectLeader", _owner];
+		//(leader _groupX) setVariable ["owner",_owner,true];
+		//{[_x] joinsilent group _owner} forEach units group _owner;
+		//[group _owner, _owner] remoteExec ["selectLeader", _owner];
 		waitUntil {!(isPlayer leader _groupX)};
+		sleep 5;			// Give client & server time to resolve the selectPlayer before we delete anything
 		};
 	outpostsFIA = outpostsFIA + [_mrk]; publicVariable "outpostsFIA";
 	sidesX setVariable [_mrk,teamPlayer,true];

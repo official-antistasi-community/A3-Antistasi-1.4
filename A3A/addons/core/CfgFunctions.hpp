@@ -155,6 +155,7 @@ class CfgFunctions
             class onPlayerDisconnect {};
             class outpostDialog {};
             class patrolDestinations {};
+            class petrosDeathMonitor {};
             class placementSelection {};
             class playableUnits {};
             class getSideRadioTowerInfluence {};
@@ -217,15 +218,13 @@ class CfgFunctions
             class AAFroadPatrol {};
             class airportCanAttack {};
             class AIVEHinit {};
-            class ambientCivs {};
             class attackHQ {};
             class availableBasesAir {};
             class availableBasesLand {};
             class calculateMarkerArea {};
             class cargoSeats {};
-            class CIVinit {};
-            class civVEHinit {};
             class cleanserVeh {};
+            class countFreeSpawnPositions {};
             class createAIAirplane {};
             class createAICities {};
             class createAIcontrols {};
@@ -236,7 +235,6 @@ class CfgFunctions
             class createAttackForceLand {};
             class createAttackForceMixed {};
             class createAttackVehicle {};
-            class createCIV {};
             class createFIAOutposts2 {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
@@ -285,10 +283,7 @@ class CfgFunctions
 
         class Dialogs {
             file = QPATHTOFOLDER(functions\Dialogs);
-            class buyVehicle {};
-            class buyVehicleCiv {};
             class clearForest {};
-            class createDialog_setParams {};
             class createDialog_shouldLoadPersonalSave {};
             class dialogHQ {};
             class fastTravelRadio {};
@@ -354,6 +349,7 @@ class CfgFunctions
             class credits {};
             class initACEUnconsciousHandler {};
             class initBases {};
+            class initUtilityItems {};
             class initGarrisons {};
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
@@ -365,6 +361,7 @@ class CfgFunctions
 
             class initVehClassToCrew {};
             class initZones {};
+            class initZeusLogging {};
             class modBlacklist {};
             class playerMarkers {};
             class prepareMarkerArrays {};
@@ -393,11 +390,9 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\LTC);
             class canLoot {};
             class canTransfer {};
-            class carryCrate {};
             class initLootToCrate {};
             class lootFromContainer {};
             class lootToCrate {};
-            class spawnCrate {};
         };
 
         class Missions {
@@ -621,6 +616,9 @@ class CfgFunctions
             class SUP_carpetBombsRoutine {};
             class SUP_CAS {};
             class SUP_CASAvailable {};
+            class SUP_CASApproach {};
+            class SUP_CASDiveBomb {};
+            class SUP_CASDiveBombRun {};
             class SUP_CASRoutine {};
             class SUP_CASRun {};
             class SUP_cruiseMissile {};
@@ -755,15 +753,13 @@ class CfgFunctions
 
         class UtilityItems {
             file = QPATHTOFOLDER(functions\UtilityItems);
-            class carryItem {};
-            class initMovableObject {};
-            class rotateItem {};
-            class buyItem {};
             class attachedObjects {};
+            class buyItem {};
+            class carryItem {};
             class dropObject {};
-            class medicalBox {};
-            class medicalBoxFill {};
-            class openDoorsTent {};
+            class initMovableObject {};
+            class initObject {};
+            class initObjectRemote {};
             class remainingFuel {};
             class teamLeaderRTSPlacer {};
             class initBuildingDB {};

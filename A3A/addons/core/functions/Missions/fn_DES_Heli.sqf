@@ -351,16 +351,15 @@ if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100)
     };
     [_taskId, "DES", "SUCCEEDED"] call A3A_fnc_taskSetState;
     [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-    [1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     {if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-    [5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_isAttackHeli) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    [10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 } else {
     Debug_2("%1 was successfully recovered by %2, mission failed", _heli, _sideX);
     [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
-    [-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     [-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_isAttackHeli) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (_isAttackHeli) then {[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 };
 Info("Downed Heli mission completed");
 ////////////

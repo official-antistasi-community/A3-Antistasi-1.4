@@ -19,9 +19,7 @@ Example:
 #define GC_THRESHOLD_DISABLE 0
 
 
-
 #define GC_NOTIFY_CHECK_INTERVAL 10
-
 
 
 #define GC_FINAL_WARNING_SECONDS 120
@@ -34,6 +32,15 @@ if(A3A_GCThreshold isEqualTo GC_THRESHOLD_DISABLE) exitWith {};
 
 // store the value of the last garbage clean so it can be checked if it changed.
 private _storedLastGCTime = A3A_lastGarbageCleanTime;
+
+
+// initialize some later needed variables.
+private _contextQueue = [];
+
+private _currentContext = [];
+
+
+
 
 private _fnc_conditionalSleep = {
     // returns true if the condition turned true at any time and false if it rant until _targetTime
@@ -86,9 +93,7 @@ private _onAutoGC = {
 
 
 
-private _contextQueue = [];
 
-private _currentContext = [];
 
 
 private _getNewContextQueue = {

@@ -77,27 +77,17 @@ if (spawner getVariable _markerX == 0) then
 			["TaskFailed", ["", format ["AA Stolen in %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 			};
 		[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-        [_sideX, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
-		if (_sideX == Invaders) then
-        {
-            [0,10*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
-        }
-        else
-        {
-            [0,5*_bonus,_positionX] remoteExec ["A3A_fnc_citySupportChange",2]
-        };
-		[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+        [_sideX, 5, 60] remoteExec ["A3A_fnc_addAggression", 2];
+		[400*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-		[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+		[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}
 else
 	{
     [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
-	[-5*_bonus,-100*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-	[5*_bonus,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-	[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+	[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+	[-10,theBoss] call A3A_fnc_playerScoreAdd;
 	};
 
 [_taskId, "DES", 1200] spawn A3A_fnc_taskDelete;

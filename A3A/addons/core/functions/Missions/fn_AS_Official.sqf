@@ -15,7 +15,7 @@ _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occup
 private _faction = Faction(_sideX);
 _positionX = getMarkerPos _markerX;
 
-_timeLimit = if (_difficultX) then {15} else {30};//120
+_timeLimit = if (_difficultX) then {30} else {60};//120
 if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
 _dateLimitNum = dateToNumber _dateLimit;
@@ -58,7 +58,7 @@ if (not alive _official) then
 		[0,600] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[2400, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[10,theBoss] call A3A_fnc_playerScoreAdd;
+		[20,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,60] call A3A_fnc_addTimeForIdle;
 		}
 	else
@@ -66,7 +66,7 @@ if (not alive _official) then
 		[0,300] remoteExec ["A3A_fnc_resourcesFIA",2];
 		[1800, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[5,theBoss] call A3A_fnc_playerScoreAdd;
+		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,30] call A3A_fnc_addTimeForIdle;
 		};
 	}
@@ -75,13 +75,13 @@ else
 	[_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
 	if (_difficultX) then
 		{
-		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		[-20,theBoss] call A3A_fnc_playerScoreAdd;
+		[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-60] call A3A_fnc_addTimeForIdle;
 		}
 	else
 		{
-		[-600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+		[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 		[-10,theBoss] call A3A_fnc_playerScoreAdd;
 		[_markerX,-30] call A3A_fnc_addTimeForIdle;
 		};

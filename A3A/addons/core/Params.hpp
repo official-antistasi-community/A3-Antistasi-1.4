@@ -187,16 +187,16 @@ class Params
     class A3A_enemyBalanceMul
     {
         title = "Overall enemy resource balance";
-        values[] = {3,5,7,10,14,20,28};
-        texts[] =  {"Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {4,6,8,10,12,14,17,20,24,28};
+        texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
     };
     class A3A_enemyAttackMul
     {
         attr[] = {"server"};
         title = "Enemy attack resource balance (relative to overall balance)";
-        values[] = {3,5,7,10,14,20,28};
-        texts[] =  {"Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {4,6,8,10,12,14,17,20,24,28};
+        texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
     };
     class A3A_invaderBalanceMul

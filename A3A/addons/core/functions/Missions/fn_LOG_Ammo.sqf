@@ -98,24 +98,24 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 	if (dateToNumber date > _dateLimitNum) then
 		{
 		[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
-		[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+		[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+		[-10, theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	if ((not alive _truckX) or (call _fnc_truckReturnedToBase)) then
 		{
 
 			[_taskId, "LOG", "SUCCEEDED"] call A3A_fnc_taskSetState;
 			[0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-			[1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+			[400*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
 			{if (_x distance _truckX < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-			[5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+			[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	}
 else
 	{
 	[_taskId, "LOG", "FAILED"] call A3A_fnc_taskSetState;
-	[-1200*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-	[-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
+	[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+	[-10, theBoss] call A3A_fnc_playerScoreAdd;
 	};
 
 [_taskId, "LOG", 1200] spawn A3A_fnc_taskDelete;

@@ -26,7 +26,7 @@ if(!isServer) exitWith {};
 if(A3A_GCThreshold isEqualTo GC_THRESHOLD_DISABLE) exitWith {};
 
 
-private _singleStepTime = (A3A_GCThreshold/4);
+
 
 private _storedLastGCTime = A3A_lastGarbageCleanTime;
 
@@ -84,13 +84,13 @@ private _contextQueue = [];
 
 private _currentContext = [];
 
-private _resetTracker = {
 
 
+private _getNewContextQueue = {
 
-    _storedLastGCTime = A3A_lastGarbageCleanTime;
+    private _singleStepTime = (A3A_GCThreshold/4);
 
-    _contextQueue = [
+    private _out = [
         [A3A_lastGarbageCleanTime + (_singleStepTime*1), _onRemind],
         [A3A_lastGarbageCleanTime + (_singleStepTime*2), _onRemind],
         [A3A_lastGarbageCleanTime + (_singleStepTime*3), _onRemind],
@@ -98,6 +98,18 @@ private _resetTracker = {
         [A3A_lastGarbageCleanTime+A3A_GCThreshold, _onAutoGC],
         [999999, nil]
     ];
+
+
+    _out;
+};
+
+private _resetTracker = {
+
+
+
+    _storedLastGCTime = A3A_lastGarbageCleanTime;
+
+    _contextQueue = call _getNewContextQueue;
     _currentContext = _contextQueue select 0;
 
     Debug("Reseted GC Tracker");

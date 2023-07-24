@@ -212,17 +212,20 @@ class Templates
         file = "RHS_AI_USAF_Army_Arid";
         climate[] = {"arid"};
     };
+
     class RHS_USAF_Army_Temperate : RHS_USAF_Army_Arid
     {
         name = "RHS US Army Temperate";
         file = "RHS_AI_USAF_Army_Temperate";
         climate[] = {"temperate","tropical","arctic"};
     };
+
     class RHS_USAF_Marines_Arid : RHS_USAF_Army_Arid
     {
         name = "RHS USMC Arid";
         file = "RHS_AI_USAF_Marines_Arid";
     };
+
     class RHS_USAF_Marines_Temperate : RHS_USAF_Army_Temperate
     {
         name = "RHS USMC Temperate";
@@ -258,6 +261,24 @@ class Templates
 	    flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
         name = "RHS SAF";
         file = "RHS_AI_SAF";
+    };
+
+    class RHS_PPLF_Tropical : RHS_Base
+    {
+        side = "Inv";
+        flagTexture = "A3\Data_F\Flags\Flag_CSAT_CO.paa";
+        name = "PPLF";
+        file = "RHS_AI_PPLF_Tropical";
+        climate[] = {"tropical"};
+    };
+
+    class RHS_TFWS_Tropical : RHS_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa";
+        name = "TFWS";
+        file = "RHS_AI_TFWS_Tropical";
+        climate[] = {"tropical"};
     };
 
     //************* 3CB Factions ***************************************************

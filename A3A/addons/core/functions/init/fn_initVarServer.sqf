@@ -43,7 +43,7 @@ DECLARE_SERVER_VAR(cleantime, 3600);
 DECLARE_SERVER_VAR(distanceSPWN1, distanceSPWN*1.3);
 DECLARE_SERVER_VAR(distanceSPWN2, distanceSPWN*0.5);
 //Quantity of Civs to spawn in (most likely per client - Bob Murphy 26.01.2020)
-//DECLARE_SERVER_VAR(civPerc, 5);
+//DECLARE_SERVER_VAR(globalCivilianMax, 5);
 //The furthest distance the AI can attack from using helicopters or planes
 DECLARE_SERVER_VAR(distanceForAirAttack, 10000);
 //The furthest distance the AI can attack from using trucks and armour
@@ -390,9 +390,9 @@ for "_i" from 0 to (count _civVehiclesWeighted - 2) step 2 do {
 	_civVehicles pushBack (_civVehiclesWeighted select _i);
 };
 
-_civVehicles append FactionGet(reb,"vehiclesCivCar"); 
-_civVehicles append FactionGet(reb,"vehiclesCivTruck");			// Civ car/truck from rebel template, in case they're different
-_civVehicles pushBackUnique "C_Van_01_box_F";		// Box van from bank mission. TODO: Define in rebel template
+_civVehicles append FactionGet(reb,"vehiclesCivCar");
+_civVehicles append FactionGet(reb,"vehiclesCivTruck");
+_civVehicles append FactionGet(reb,"vehiclesCivSupply");  // Box van from bank mission. TODO: Define in rebel template
 
 DECLARE_SERVER_VAR(arrayCivVeh, _civVehicles);
 DECLARE_SERVER_VAR(civVehiclesWeighted, _civVehiclesWeighted);
@@ -415,7 +415,7 @@ for "_i" from 0 to (count _civBoatData - 2) step 2 do {
 DECLARE_SERVER_VAR(civBoats, _civBoats);
 DECLARE_SERVER_VAR(civBoatsWeighted, _civBoatsWeighted);
 
-private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehiclesCivBoat") + FactionGet(reb,"vehiclesCivHeli");
+private _undercoverVehicles = (arrayCivVeh - ["C_Quadbike_01_F"]) + FactionGet(reb,"vehiclesCivBoat") + FactionGet(reb,"vehiclesCivHeli") + FactionGet(reb, "vehiclesCivPlane");
 DECLARE_SERVER_VAR(undercoverVehicles, _undercoverVehicles);
 
 //////////////////////////////////////
@@ -450,6 +450,11 @@ DECLARE_SERVER_VAR(A3A_smokeMuzzleHM, _smokeMuzzleHM);
 //   CLASSING TEMPLATE VEHICLES  ///
 ////////////////////////////////////
 
+// Utility items data init
+call A3A_fnc_initUtilityItems;
+ONLY_DECLARE_SERVER_VAR(A3A_utilityItemList);
+ONLY_DECLARE_SERVER_VAR(A3A_utilityItemHM);
+
 //fast ropes are hard defined here, because of old fixed offsets.
 //fastrope needs to be rewritten and then we can get get ridd of this
 private _vehFastRope = ["O_Heli_Light_02_unarmed_F","B_Heli_Transport_01_camo_F","RHS_UH60M_d","UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM","UK3CB_BAF_Merlin_HC3_18_GPMG_Tropical_RM","RHS_Mi8mt_vdv","RHS_Mi8mt_vv","RHS_Mi8mt_Cargo_vv"];
@@ -460,6 +465,7 @@ DECLARE_SERVER_VAR(A3A_vehClassToCrew,call A3A_fnc_initVehClassToCrew);
 // Default vehicle resource costs
 private _vehicleResourceCosts = createHashMap;
 
+{ _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars");
 { _vehicleResourceCosts set [_x, 20] } forEach FactionGet(all, "vehiclesLightUnarmed") + FactionGet(all, "vehiclesTrucks");
 { _vehicleResourceCosts set [_x, 50] } forEach FactionGet(all, "vehiclesLightArmed");
 { _vehicleResourceCosts set [_x, 60] } forEach FactionGet(all, "vehiclesLightAPCs");
@@ -478,8 +484,9 @@ private _vehicleResourceCosts = createHashMap;
 private _groundVehicleThreat = createHashMap;
 
 { _groundVehicleThreat set [_x, 40] } forEach FactionGet(all, "staticMGs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
-{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars") + FactionGet(Reb, "vehiclesAT");
+{ _groundVehicleThreat set [_x, 60] } forEach FactionGet(all, "vehiclesLightArmed") + FactionGet(all, "vehiclesLightAPCs");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(all, "staticAA") + FactionGet(all, "staticAT") + FactionGet(all, "staticMortars");
+{ _groundVehicleThreat set [_x, 80] } forEach FactionGet(Reb, "vehiclesAA") + FactionGet(Reb, "vehiclesAT");
 
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
@@ -489,7 +496,7 @@ private _groundVehicleThreat = createHashMap;
 // Rebel vehicle cost
 private _rebelVehicleCosts = createHashMap;
 
-_fnc_setPriceIfValid = 
+_fnc_setPriceIfValid =
 {
 	_this params ["_hashMap", "_className", "_price"];
 	private _configClass = configFile >> "CfgVehicles" >> _className;
@@ -497,7 +504,7 @@ _fnc_setPriceIfValid =
 		_hashMap set [_className, _price];
 	};
 };
- 
+
 { [_rebelVehicleCosts, _x, 50] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesBasic");
 { [_rebelVehicleCosts, _x, 200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivCar") + FactionGet(reb, "vehiclesCivBoat");
 { [_rebelVehicleCosts, _x, 600] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivTruck") + FactionGet(reb, "vehiclesMedical");
@@ -509,9 +516,8 @@ _fnc_setPriceIfValid =
 { [_rebelVehicleCosts, _x, 1200] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesAA");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesCivHeli");
 { [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesPlane") + FactionGet(reb, "vehiclesCivPlane");
-{ [_rebelVehicleCosts, _x, 5000] call _fnc_setPriceIfValid } forEach FactionGet(reb, "vehiclesRepair");
- 
- 
+
+
 // Template overrides
 private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "attributesVehicles") + FactionGet(Inv, "attributesVehicles");
 {
@@ -527,7 +533,7 @@ private _overrides = FactionGet(Reb, "attributesVehicles") + FactionGet(Occ, "at
 		};
 	} forEach _x;
 } forEach _overrides;
- 
+
 DECLARE_SERVER_VAR(A3A_vehicleResourceCosts, _vehicleResourceCosts);
 DECLARE_SERVER_VAR(A3A_groundVehicleThreat, _groundVehicleThreat);
 DECLARE_SERVER_VAR(A3A_rebelVehicleCosts, _rebelVehicleCosts);
@@ -556,6 +562,7 @@ Info("Creating pricelist");
 {server setVariable [_x,75,true]} forEach [FactionGet(reb,"unitMG"), FactionGet(reb,"unitGL"), FactionGet(reb,"unitLAT")];
 {server setVariable [_x,100,true]} forEach [FactionGet(reb,"unitMedic"), FactionGet(reb,"unitExp"), FactionGet(reb,"unitEng")];
 {server setVariable [_x,150,true]} forEach [FactionGet(reb,"unitSL"), FactionGet(reb,"unitSniper")];
+{server setVariable [_x,500,true]} forEach [FactionGet(reb,"unitAT"), FactionGet(reb,"unitAA")];
 
 {
 	server setVariable [_x, _y, true];

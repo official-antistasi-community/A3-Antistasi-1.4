@@ -91,7 +91,6 @@ switch _typeX do
             {
                 removeAllActions _flag;
                 if (player == player getVariable ["owner",player]) then {[] call SA_Add_Player_Tow_Actions};
-                if (lootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
                 call A3A_fnc_dropObject;
             }
             else
@@ -142,7 +141,6 @@ switch _typeX do
 #endif
         removeAllActions _flag;
         _flag addAction ["Unit Recruitment", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {["Unit Recruitment", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; };},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4];
-        _flag addAction ["Buy loot box for 10€", {player call A3A_fnc_spawnCrate},nil,0,false,true,"","true", 4];
         _flag addAction ["Buy Vehicle", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
             ["Buy Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
         } else {

@@ -19,36 +19,37 @@
 ["itemMaps", ["vn_b_item_map"]] call _fnc_saveToTemplate;  // Relies on autodetection.
 
 ["diveGear", ["vn_b_uniform_seal_09_01", "vn_b_acc_seal_01", "vn_b_vest_seal_01"]] call _fnc_saveToTemplate;
-
 ["flyGear", ["vn_b_uniform_heli_01_01"]] call _fnc_saveToTemplate;
+
+["surrenderCrate", "vn_o_ammobox_04"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
 
-["vehiclesBasic", ["vn_c_bicycle_01"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["vn_i_wheeled_m151_02"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["vn_o_car_04_mg_01"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["vn_c_bicycle_01", "vn_b_wheeled_m274_02_03"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["vn_i_wheeled_m151_02", "vn_b_wheeled_m274_01_02"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["vn_o_car_04_mg_01", "vn_b_wheeled_m274_mg_01_02"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["vn_i_wheeled_m54_01"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["vn_b_wheeled_m151_mg_05"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["vn_b_wheeled_m151_mg_05", "vn_b_wheeled_m274_mg_02_02"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["vn_b_wheeled_m54_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["vn_o_boat_02_01"]] call _fnc_saveToTemplate;
-["vehiclesRepair", ["vn_i_wheeled_m54_repair"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["vn_o_air_mig19_gun"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["vn_c_car_02_01"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["vn_c_car_02_01", "vn_c_car_01_01","vn_c_car_03_01","vn_c_wheeled_m151_02","vn_c_wheeled_m151_01","vn_c_car_04_01"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["vn_b_wheeled_m54_01_airport"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["vn_b_air_uh1d_04_09"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["vn_c_boat_08_01"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["vn_i_static_m60_high"]] call _fnc_saveToTemplate;
-["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
-["staticAA", ["vn_i_static_m45"]] call _fnc_saveToTemplate;
-["staticMortars", ["vn_i_static_mortar_m2"]] call _fnc_saveToTemplate;
+["staticMGs", ["vn_i_static_m60_high","vn_i_static_m1919a4_high","vn_o_kr_static_m1910_high_01","vn_i_static_m2_high", "vn_b_army_static_m2_scoped_high"]] call _fnc_saveToTemplate;
+["staticAT", ["vn_o_vc_static_type56rr","vn_i_static_m101_01"]] call _fnc_saveToTemplate;
+["staticAA", ["vn_i_static_m45","vn_o_kr_static_zgu1_01"]] call _fnc_saveToTemplate;
+["staticMortars", ["vn_i_static_mortar_m2","vn_i_static_mortar_m29"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "vn_mortar_m2_mag_lume_x8"] call _fnc_saveToTemplate;
 
 ["mineAT", "vn_mine_m15_mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "vn_mine_m14_mag"] call _fnc_saveToTemplate;

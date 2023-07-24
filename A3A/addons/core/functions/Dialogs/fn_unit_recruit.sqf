@@ -32,4 +32,8 @@ if (str (_display) != "no display") then
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitSniper")];
 	_ChildControl = _display displayCtrl 111;
 	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitLAT")];
+	_ChildControl = _display displayCtrl 112;
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitAT")];
+	_ChildControl = _display displayCtrl 113;
+	_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitAA")];
 };

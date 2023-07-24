@@ -6,6 +6,7 @@ logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //S
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
 Info("Server init started");
+A3A_serverVersion = QUOTE(VERSION); publicVariable "A3A_serverVersion";
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
@@ -57,13 +58,11 @@ call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 Info("Server JNA preload started");
 ["Preload"] call jn_fnc_arsenal;
 
-// UPSMON
-Info("UPSMON init started");
-[] call UPSMON_fnc_Init_UPSMON;
-
 Info("Background init completed");
 A3A_backgroundInitDone = true;
 
+Info("Server Initialising PATCOM Variables");
+[] call A3A_fnc_patrolInit;
 
 // **************** Starting game, param-dependent init *******************************
 
@@ -297,6 +296,38 @@ if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
         (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
         _unit setVariable ["lambs_danger_disableAI", true];
     }] call CBA_fnc_addClassEventHandler;
+};
+
+
+
+if(A3A_hasZen) then 
+{
+    ["zen_common_createZeus", {
+        [_this] spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if(A3A_hasACE) then 
+{
+    ["ace_zeus_createZeus", {
+        [_this] spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
 };
 
 Info("initServer completed");

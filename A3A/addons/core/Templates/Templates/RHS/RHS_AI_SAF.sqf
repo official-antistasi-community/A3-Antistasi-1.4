@@ -7,7 +7,7 @@
 
 ["flag", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
 ["flagTexture", "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhssaf_flag_serbia"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_serbia"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -69,6 +69,7 @@
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
@@ -210,14 +211,14 @@ _sfLoadoutData set ["rifles", [
 ["rhs_weap_SCARH_LB", "rhsusf_acc_aac_scarh_silencer", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a", ["rhs_mag_20Rnd_SCAR_762x51_m80_ball"], [], "rhsusf_acc_grip3"],
 ["rhs_weap_SCARH_STD", "rhsusf_acc_aac_762sd_silencer", "", "rhsusf_acc_su230a", ["rhs_mag_20Rnd_SCAR_762x51_m118_special"], [], "rhsusf_acc_grip3"],
 ["rhs_weap_SCARH_STD", "rhsusf_acc_aac_762sd_silencer", "", "rhsusf_acc_ACOG", ["rhs_mag_20Rnd_SCAR_762x51_m118_special"], [], "rhsusf_acc_grip2"],
-["rhs_weap_g36kv", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a", ["rhssaf_30rnd_556x45_SPR_G36", "rhssaf_30rnd_556x45_SOST_G36"], [], "rhsusf_acc_grip3"],
+["rhs_weap_g36kv", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230", ["rhssaf_30rnd_556x45_SPR_G36", "rhssaf_30rnd_556x45_SOST_G36"], [], "rhsusf_acc_grip3"],
 ["rhs_weap_g36kv", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15A", "rhsusf_acc_g33_T1", ["rhssaf_30rnd_556x45_SPR_G36", "rhssaf_30rnd_556x45_SOST_G36"], [], "rhsusf_acc_grip2"]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_g36kv_ag36", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG", ["rhssaf_30rnd_556x45_SPR_G36", "rhssaf_30rnd_556x45_SOST_G36"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_g36kv_ag36", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230_mrds", ["rhssaf_30rnd_556x45_SPR_G36", "rhssaf_30rnd_556x45_SOST_G36"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_m4a1_m203", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk318_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], "rhsusf_acc_grip_m203_blk"],
-["rhs_weap_m4a1_m203", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230a", ["rhs_mag_30Rnd_556x45_Mk318_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], "rhsusf_acc_grip_m203_blk"],
+["rhs_weap_m4a1_m203", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhs_mag_30Rnd_556x45_Mk318_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], "rhsusf_acc_grip_m203_blk"],
 ["rhs_weap_m4a1_m320", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhs_mag_30Rnd_556x45_Mk318_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_m4a1_m320", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_Mk318_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];

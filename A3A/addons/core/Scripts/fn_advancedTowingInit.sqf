@@ -51,8 +51,6 @@ if( count (ropeAttachedObjects _vehicle) == 0 ) then { \
 	_cargo = ((ropeAttachedObjects _vehicle) select 0) getVariable ["SA_Cargo",objNull]; \
 };
 
-SA_Advanced_Towing_Install = {
-
 // Prevent advanced towing from installing twice
 if(!isNil "SA_TOW_INIT") exitWith {};
 scriptName "fn_advancedTowingInit.sqf";
@@ -393,7 +391,6 @@ SA_Attach_Tow_Ropes = {
 };
 
 SA_Take_Tow_Ropes = {
-	if (captive player) then {player setCaptive false};//by Barbolani to avoid undercover exploits
 	params ["_vehicle","_player"];
 	if(local _vehicle) then {
 		diag_log format ["Take Tow Ropes Called %1", _this];
@@ -836,49 +833,4 @@ SA_RemoteExecServer = {
 	};
 };
 
-if (isServer) then {
-
-	// Adds support for exile network calls (Only used when running exile) //
-
-	SA_SUPPORTED_REMOTEEXECSERVER_FUNCTIONS = ["SA_Set_Owner","SA_Hide_Object_Global"];
-
-	ExileServer_AdvancedTowing_network_AdvancedTowingRemoteExecServer = {
-		params ["_sessionId", "_messageParameters",["_isCall",false]];
-		_messageParameters params ["_params","_functionName"];
-		if (_functionName in SA_SUPPORTED_REMOTEEXECSERVER_FUNCTIONS) then {
-			if (_isCall) then {
-				_params call (missionNamespace getVariable [_functionName,{}]);
-			} else {
-				_params spawn (missionNamespace getVariable [_functionName,{}]);
-			};
-		};
-	};
-
-	SA_SUPPORTED_REMOTEEXECCLIENT_FUNCTIONS = ["SA_Simulate_Towing","SA_Attach_Tow_Ropes","SA_Take_Tow_Ropes","SA_Put_Away_Tow_Ropes","SA_Pickup_Tow_Ropes","SA_Drop_Tow_Ropes","SA_Hint"];
-
-	ExileServer_AdvancedTowing_network_AdvancedTowingRemoteExecClient = {
-		params ["_sessionId", "_messageParameters"];
-		_messageParameters params ["_params","_functionName","_target",["_isCall",false]];
-		if (_functionName in SA_SUPPORTED_REMOTEEXECCLIENT_FUNCTIONS) then {
-			if (_isCall) then {
-				_params remoteExecCall [_functionName, _target];
-			} else {
-				_params remoteExec [_functionName, _target];
-			};
-		};
-	};
-
-	// Install Advanced Towing on all clients (plus JIP) //
-
-	publicVariable "SA_Advanced_Towing_Install";
-	remoteExecCall ["SA_Advanced_Towing_Install", -2,true];
-
-};
-
 Info("Loaded advanced towing");
-
-};
-
-if (isServer) then {
-	[] call SA_Advanced_Towing_Install;
-};

@@ -61,11 +61,13 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_agm65d"]];
         };
+        case "RHS_Su25SM_vvsc";
         case "RHS_Su25SM_CAS_vvs";
         case "rhsgref_cdf_b_su25";
         case "UK3CB_TKA_B_Su25SM_CAS";
         case "UK3CB_LDF_B_Su25SM_CAS";
         case "UK3CB_ADA_I_Su25SM_CAS";
+        case "UK3CB_KDF_B_Su25SM_CAS";
         case "UK3CB_CW_SOV_O_LATE_Su25SM_CAS":
         {
             _loadout = ["rhs_mag_kh29D","rhs_mag_kh29D","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_kh25MTP","rhs_mag_b8m1_s8kom","rhs_mag_b8m1_s8kom","rhs_mag_R60M","rhs_mag_R60M","rhs_ASO2_CMFlare_Chaff_Magazine_x4"];
@@ -98,6 +100,12 @@ if (_type == "CAS") then
             _loadout = ["vn_rocket_s5_heat_x16","vn_rocket_s5_heat_x16","vn_missile_kh66_mag_01_x1","vn_missile_kh66_mag_01_x1"];
             _plane setVariable ["mainGun", "vn_nr30_v_01"];
             _plane setVariable ["rocketLauncher", ["vn_rocket_s5_heat_launcher"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
+        };
+        case "vn_o_air_mig21_cas":
+        {
+            _loadout = ["vn_missile_mig21_kh66_mag_x1","vn_missile_mig21_kh66_mag_x1","vn_gunpod_gsh23l_v_200_mag"];
+            _plane setVariable ["mainGun", "vn_gunpod_gsh23l"];
             _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
         };
         case "RHSGREF_A29B_HIDF":
@@ -256,11 +264,13 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_aim9m","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_zpl20_mixed","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_aim9m","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
         };
         //RHS Russian Air superiority
+        case "rhs_mig29sm_vvs";
         case "rhs_mig29s_vvs";
         case "rhsgref_cdf_b_mig29s";
         case "UK3CB_TKA_O_MIG29SM";
         case "UK3CB_CW_SOV_O_LATE_MIG29S";
         case "UK3CB_LDF_B_MIG29SM";
+        case "UK3CB_KDF_B_MIG29SM";
         case "UK3CB_AAF_O_MIG29S":
         {
             _loadout = ["rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R77_AKU170_MIG29","rhs_mag_R77_AKU170_MIG29","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
@@ -274,6 +284,7 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
         };
         case "UK3CB_ANA_B_L39_PYLON";
+        case "UK3CB_KDF_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";
@@ -302,6 +313,10 @@ if (_type == "AA") then
         case "vn_o_air_mig19_cap":
         {
             _loadout = ["vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1","vn_missile_mig19_01_aa2_mag_x1"];
+        };
+        case "vn_o_air_mig21_cap":
+        {
+            _loadout = ["vn_missile_mig21_aa2_mag_x1","vn_missile_mig21_aa2_mag_x1","vn_gunpod_gsh23l_v_200_mag"];
         };
         case "UK3CB_B_Mystere_HIDF_AA1";
         case "UK3CB_MDF_B_Mystere_AA1":

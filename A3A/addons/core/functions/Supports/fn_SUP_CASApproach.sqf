@@ -21,7 +21,7 @@ _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRad
 //Get available ammo count of all allowed propelled weapons
 private _ammoHM = createHashMap;
 private _loadout = _plane getVariable "loadout";
-private _weapons = [] + (_plane getVariable "rocketLauncher") + (_plane getVariable "missileLauncher");
+private _weapons = [] + (_plane getVariable ["rocketLauncher", []]) + (_plane getVariable ["missileLauncher", []]);
 {
     private _weapon = _x;
     private _magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
@@ -34,7 +34,7 @@ private _weapons = [] + (_plane getVariable "rocketLauncher") + (_plane getVaria
     _ammoHM set [_weapon, _ammo];
 } forEach _weapons;
 _plane setVariable ["ammoCount", _ammoHM];
-Debug("Starting ammo: %1", _ammoHM);
+Debug_1("Starting ammo: %1", _ammoHM);
 
 
 // Function to calculate ammo types/quantities to use against different vehicle types
@@ -189,6 +189,7 @@ private _baseSpotChance = 0.05 * (1 + _aggro / 100);
 #define STATE_REPOSITION 2
 #define STATE_APPROACH 3
 
+private _numRuns = 0;
 private _acquired = false;
 private _targetObj = objNull;
 private _lastKnownPos = [];         // PosASL
@@ -291,6 +292,11 @@ while {true} do
                 Debug_1("Ammo at end of run: %1", _ammoHM);
                 if (-1 == values _ammoHM findIf { _x > 0 }) exitWith {
                     Info_1("%1 out of ammo, returning to base", _supportName);
+                    break;
+                };
+                _numRuns = _numRuns + 1;
+                if (_numRuns >= 3) exitWith {
+                    Info_2("%1 has completed %2 attack runs, returning to base", _supportName, _numRuns);
                     break;
                 };
                 _state = STATE_REPOSITION;

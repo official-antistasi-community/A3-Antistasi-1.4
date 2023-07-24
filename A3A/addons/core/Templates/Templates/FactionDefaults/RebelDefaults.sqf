@@ -7,13 +7,15 @@
 ["mediKits", ["Medikit"]] call _fnc_saveToTemplate;  // However, item is tested for for help and reviving.
 ["toolKits", ["ToolKit"]] call _fnc_saveToTemplate;  // Relies on autodetection.
 ["itemMaps", ["ItemMap"]] call _fnc_saveToTemplate;  // Relies on autodetection.
-
 ["diveGear", ["U_I_Wetsuit", "V_RebreatherIA", "G_Diving"]] call _fnc_saveToTemplate;
-
 ["flyGear", ["U_I_pilotCoveralls"]] call _fnc_saveToTemplate;
+
+["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate;
+
 ["vehiclesCivPlane", []] call _fnc_saveToTemplate;
 ["vehiclesPlane", []] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
+["vehiclesCivSupply", ["C_Van_01_box_F"]] call _fnc_saveToTemplate;
 
 ["vehicleLightSource", "Land_LampShabby_F"] call _fnc_saveToTemplate;
 ["vehicleFuelDrum", ["FlexibleTank_01_forest_F", 150]] call _fnc_saveToTemplate;

@@ -4,7 +4,7 @@ private ["_positionX","_size","_buildings","_groupX","_typeUnit","_sideX","_buil
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _size = _this select 1;
-_buildings = nearestObjects [_positionX, listMilBld, _size, true];
+_buildings = nearestObjects [_positionX, A3A_milBuildingWhitelist, _size, true];
 _buildings = _buildings inAreaArray _markerX;
 
 if (count _buildings == 0) exitWith {[grpNull,[],[]]};
@@ -70,7 +70,7 @@ for "_i" from 0 to (count _buildings) - 1 do
     private _typeB = typeOf _building;
 
     call {
-        if (isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
+        if (damage _building >= 1 or isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
         if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
         {
             private _type = selectRandom (_faction get "staticMGs");

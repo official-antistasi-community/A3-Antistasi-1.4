@@ -49,7 +49,7 @@ _mainMarker = getMarkerPos _marker;
 if(count _vehicleMarker == 0) then
 {
   // Not automatically wrong. Some locations may not have any vehicle places
-  Error_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
+  Info_1("InitSpawnPlaces: Could not find any vehicle places on %1!", _marker);
 };
 
 private ["_markerSize", "_distance", "_buildings", "_hangars", "_helipads", "_markerX"];

@@ -27,8 +27,8 @@
 ## About
 A Persistent Whole Map Mission for MP co-op, focused on Resistance, Infantry and Guerrilla Tactics.
 
-## Project Status 
-Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)  
+## Project Status
+Master Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=master)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-community/A3-Antistasi.svg?branch=unstable)](https://travis-ci.com/official-antistasi-community/A3-Antistasi)
 
 ## Grab our latest release on Steam!
@@ -71,7 +71,7 @@ Unstable Branch: [![Build Status](https://travis-ci.com/official-antistasi-commu
 Check out our new [Antistasi Guide](https://official-antistasi-community.github.io/A3-Antistasi-Docs/index.html) with a ton of information.
 
 
-## [🛠 Building the Mod](https://https://official-antistasi-community.github.io/A3-Antistasi-Docs/dev_guide/dev/dev_guide_how_to_build.html)
+## [🛠 Building the Mod](https://official-antistasi-community.github.io/A3-Antistasi-Docs/dev_guide/dev/dev_guide_how_to_build.html)
 
 ## Known Issues:
 For a list of known issues, please see the [Issues on Github](https://github.com/official-antistasi-community/A3-Antistasi/issues).

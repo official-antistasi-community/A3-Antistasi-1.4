@@ -5207,8 +5207,6 @@
       <Key ID="STR_A3A_missioncheck_oldmission">
         <Original>This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version.</Original>
         <Czech>Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi.</Czech>
-        <Original>This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version.</Original>
-        <Czech>Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi.</Czech>
         <Korean>이 임무는 구식이며 게임을 망칠 수 있는 중요한 지도의 세부 정보가 부족할 수 있습니다. 미션메이커에게 알리거나 확장 버전을 최신 버전으로 업데이트하십시오.</Korean>
         <Spanish>Esta misión esta desactualizada y puede faltarle detalles importantes del mapa que pueden romper la partida. Informa al editor de la misión o actualiza la extensión a la última versión.</Spanish>
       </Key>

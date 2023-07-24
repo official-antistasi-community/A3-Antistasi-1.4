@@ -5130,8 +5130,8 @@
         <German>Veraltete Mission</German>
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission">
-        <Original>"This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version."</Original>
-        <Czech>"Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi."</Czech>
+        <Original>This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version.</Original>
+        <Czech>Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi.</Czech>
       </Key>
     </Container>
     <Container name="A3A_garrisons">
@@ -5232,7 +5232,7 @@
         <Original>Last Garbage Clean was %1 ago. Keep track of it.</Original>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
-        <Original>"Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times."</Original>
+        <Original>Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
       </Key>
     </Container>
     <Container name="A3A_customHint">

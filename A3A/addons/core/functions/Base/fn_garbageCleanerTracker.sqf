@@ -18,19 +18,25 @@ Example:
 
 #define GC_THRESHOLD_DISABLE 0
 
+
+
 #define GC_NOTIFY_CHECK_INTERVAL 10
 
+
+
 #define GC_FINAL_WARNING_SECONDS 120
+
 
 if(!isServer) exitWith {};
 if(A3A_GCThreshold isEqualTo GC_THRESHOLD_DISABLE) exitWith {};
 
 
 
-
+// store the value of the last garbage clean so it can be checked if it changed.
 private _storedLastGCTime = A3A_lastGarbageCleanTime;
 
 private _fnc_conditionalSleep = {
+    // returns true if the condition turned true at any time and false if it rant until _targetTime
     private _returnValue = false;
     private _targetEndTime = serverTime + GC_NOTIFY_CHECK_INTERVAL;
 
@@ -85,12 +91,13 @@ private _contextQueue = [];
 private _currentContext = [];
 
 
-
 private _getNewContextQueue = {
+    // creates the context queue, to modify the beaviour of the tracker, only this function has to be edited
 
     private _singleStepTime = (A3A_GCThreshold/4);
 
-    private _out = [
+    // context queue is an array that consists of sub arrays of [trigger time, function to call]
+    private _returnValue = [
         [A3A_lastGarbageCleanTime + (_singleStepTime*1), _onRemind],
         [A3A_lastGarbageCleanTime + (_singleStepTime*2), _onRemind],
         [A3A_lastGarbageCleanTime + (_singleStepTime*3), _onRemind],
@@ -100,13 +107,13 @@ private _getNewContextQueue = {
     ];
 
 
-    _out;
+    _returnValue;
 };
 
 private _resetTracker = {
 
 
-
+    // reset the stored GC Time as it most likely has changed.
     _storedLastGCTime = A3A_lastGarbageCleanTime;
 
     _contextQueue = call _getNewContextQueue;
@@ -115,18 +122,23 @@ private _resetTracker = {
     Debug("Reseted GC Tracker");
 };
 
-
+// initially fill the context Queue
 call _resetTracker;
 
+
+// event-loop
 while {true} do {
 
-
+    // sleeps for the CHECK_INTERVAL, but also return sooner if it detects that a GC happened. If GC happened, we reset the context queue.
     if  (call _fnc_conditionalSleep) then {
         call _resetTracker;
     };
 
+    // if we ever enter a state where the last context (auto-gc) was used but the queue was not reset, then we do nothing.
     if (isNil {_currentContext select 1}) then {continue;};
 
+    // actuall main logic, checks if the set time of the top item in the queue is in the past, if yes it executes the associated function
+    // then removes the top most item from the queue and sets the new top most as current.
     if (serverTime >= (_currentContext select 0)) then {
         call (_currentContext select 1);
         _contextQueue deleteAt 0;

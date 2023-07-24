@@ -706,14 +706,14 @@
         <Czech>Ano</Czech>
         <German>Ja</German>
         <Korean>예</Korean>
-        <Spanish>Si</Spanish>							 
+        <Spanish>Si</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
         <Original>No</Original>
         <Czech>Ne</Czech>
         <German>Nein</German>
         <Korean>아니오</Korean>
-        <Spanish>No</Spanish>							 
+        <Spanish>No</Spanish>
       </Key>
     </Container>
     <Container name="credits_generic">
@@ -4808,7 +4808,7 @@
       </Key>
       <Key ID="STR_A3A_Utility_Items_Last_Time_Purchase">
         <Original>You already bought one, wait %1 seconds before you can buy another.</Original>
-        <Spanish>Ya has comprado una unidad, espera %1 segundos antes de poder comprar otra.</Spanish>				  
+        <Spanish>Ya has comprado una unidad, espera %1 segundos antes de poder comprar otra.</Spanish>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Insufficient_Funds">
         <Original>You can't afford this Item.</Original>
@@ -5151,7 +5151,7 @@
         <Czech>Čekání na přihlášení správce nebo vypršení časového limitu automatického spuštění...</Czech>
         <German>Warte auf Admin Anmeldung oder auf den automatischen Start-Timer...</German>
         <Korean>관리자가 로그인하거나 자동 시작 시간 초과를 기다리는 중...</Korean>
-        <Spanish>Esperando a que un Admin se autentique, o que comience automáticamente al terminal el contador...</Spanish>							 
+        <Spanish>Esperando a que un Admin se autentique, o que comience automáticamente al terminal el contador...</Spanish>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminsetup">
         <Original>Admin is setting up the game.</Original>
@@ -5352,9 +5352,9 @@
         <Spanish>Seguimiento del Limpiador de Basura</Spanish>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_notification">
-        <Original>Last Garbage Clean was %1 ago. Keep track of it.</Original>
-        <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 계속 기록합니다.</Korean>
-        <Spanish>La ultima Limpieza de Basura fue hace %1. Mantenlo supervisado.</Spanish>
+        <Original>Last Garbage Clean was %1 ago. Keep track of it. Forced GC in %2.</Original>
+        <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 계속 기록합니다. %2</Korean>
+        <Spanish>La ultima Limpieza de Basura fue hace %1. Mantenlo supervisado. %2</Spanish>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>"Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times."</Original>

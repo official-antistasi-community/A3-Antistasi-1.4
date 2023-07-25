@@ -6,18 +6,32 @@ Version 3.3.0
 ===============
 
 .. note::
-   xth July 2023
+   25th July 2023
 
 .. admonition:: Major
 
-   .. rubric:: :issue:`` placeholder
+   .. rubric:: :issue:`2848` `Spearhead 1944 <https://store.steampowered.com/app/1175380/Arma_3_Creator_DLC_Spearhead_1944/>`_ Integration
 
 
-   * [Added] - placeholder
+   * [Added] - SPE-only templates (inactive)
+   * [Added] - SPE-IFA templates
+   * [Added] - SPE_Normandy map port
+   * [Added] - custom roadblocks for SPE_Normandy
+   * [Added] - airp_x_plane marker for planes to spawn on when insufficient amount of / place for hangars
+   * [Added] - Ability to define assets as "junk" for them to be deleted from the arsenal
+   * [Fixed] - plane / planex issue with transport planes
 
+   .. rubric:: :issue:`2819` Chernarus 2020 port
+
+
+   * [Added] - Complete port for Chernarus 2020 - requires `CUP Terrains - Maps 2.0 <https://steamcommunity.com/workshop/filedetails/?id=1981964169>`_
 
 .. admonition:: Minor
 
+   * :issue:`2839` Rebalance mission effects on enemy resources
+   * :issue:`2838` Support/Resource balance tweaks
+   * :issue:`2832` Added Client vs Server check to prevent people joining a game with incorrect versions
+   * :issue:`2750` Added login for Zeus activities
    * :issue:`2818` Don't spam hints on top of setup UI
    * :issue:`2797` ACRE Jamming
    * :issue:`2777` Add parameter to control Loot To Crate distance
@@ -26,6 +40,7 @@ Version 3.3.0
 .. admonition:: Template updates
 
    * :issue:`2813` Discounted rebel 7.62 and 5.56 vics & statics
+   * :issue:`2796` & :issue:`2840` Added RHS Chdkz AI template
    * :issue:`2794` Rudimentary Sog 1.3 Update
 
 .. admonition:: Localization
@@ -34,6 +49,9 @@ Version 3.3.0
 
 .. admonition:: Bugfixes
 
+   * :issue:`2846` Stringtable and readme fixes
+   * :issue:`2834` Fixed tow ropes exploit and removed towing init network spam
+   * :issue:`2833` Fixed typos in lightAPC & IFV categorization
    * :issue:`2817` Fix undercover backpack exploit
    * :issue:`2816` Don't place units or statics on destroyed buildings
    * :issue:`2808` Fix trailing comma and missing AA plane in ION Temperate

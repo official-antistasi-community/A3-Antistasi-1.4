@@ -827,7 +827,7 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
     
-    // ***************************** Spee Wie das Waschmittel *****************************
+    // ***************************** Spe *****************************
 /*    //Commented out as no vehiclesPlanesTransport exist and the templates don't work without them
     class SPE_Base
     {

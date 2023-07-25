@@ -56,7 +56,7 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["LIB_Kfz1_MG42_sernyt_DLV"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["SPE_ST_OpelBlitz_Open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["LIB_Kfz1_sernyt"]] call _fnc_saveToTemplate;
 

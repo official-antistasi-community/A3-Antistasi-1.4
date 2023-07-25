@@ -56,11 +56,11 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["SPE_US_M3_Halftrack"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["LIB_Kfz1_MG42_sernyt_DLV"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["SPE_ST_OpelBlitz_Open"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["SPE_ST_OpelBlitz"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["LIB_Kfz1_sernyt"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["SPE_ST_OpelBlitz_Open"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["LIB_Kfz1_sernyt"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["SPE_MG42_Lafette_Deployed", "SPE_MG34_Lafette_Deployed"]] call _fnc_saveToTemplate;
 ["staticAT", ["SPE_leFH18_AT", "SPE_Pak40"]] call _fnc_saveToTemplate;

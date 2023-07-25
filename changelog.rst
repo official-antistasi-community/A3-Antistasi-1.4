@@ -16,10 +16,10 @@ Version 3.3.0
    * [Added] - SPE-only templates (inactive)
    * [Added] - SPE-IFA templates
    * [Added] - SPE_Normandy map port
-   * [Added] - custom roadblocks for SPE_Normandy
+   * [Added] - Custom roadblocks for SPE_Normandy
    * [Added] - airp_x_plane marker for planes to spawn on when insufficient amount of / place for hangars
    * [Added] - Ability to define assets as "junk" for them to be deleted from the arsenal
-   * [Fixed] - plane / planex issue with transport planes
+   * [Fixed] - Fixed issue based on planes having to many "fake" cargo turret seats
 
    .. rubric:: :issue:`2819` Chernarus 2020 port
 

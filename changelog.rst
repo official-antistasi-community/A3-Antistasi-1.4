@@ -13,8 +13,8 @@ Version 3.3.0
    .. rubric:: :issue:`2848` `Spearhead 1944 <https://store.steampowered.com/app/1175380/Arma_3_Creator_DLC_Spearhead_1944/>`_ Integration
 
 
-   * [Added] - SPE-only templates (inactive)
-   * [Added] - SPE-IFA templates
+   * [Added] - SPE-IFA templates - WORKING but require `IFA3 AIO <https://steamcommunity.com/workshop/filedetails/?id=2648308937>`_ to be loaded
+   * [Added] - SPE-only templates (inactive due to missing assets)
    * [Added] - SPE_Normandy map port
    * [Added] - Custom roadblocks for SPE_Normandy
    * [Added] - airp_x_plane marker for planes to spawn on when insufficient amount of / place for hangars

@@ -180,6 +180,8 @@ private _itemCategory = switch true do {
 			};
 			// Everything else
 			default {
+				// haaaaack
+				if (_item isKindOf ["SPE_MUZZLE_FAKEMAG", configFile >> "CfgMagazines"]) exitWith {"junk"};
 				"Magazine";
 			};
 		};
@@ -194,6 +196,8 @@ private _itemCategory = switch true do {
 		"Glasses";
 	};
 };
+
+if (_itemCategory == "junk") exitWith {-1};
 
 INITTYPES
 

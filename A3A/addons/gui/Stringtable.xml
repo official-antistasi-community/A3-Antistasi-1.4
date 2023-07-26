@@ -591,58 +591,70 @@
       <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
         <Original>Buy %1 for %2 %3</Original>
         <Korean>%2%3에 %1 구매</Korean>
+        <Chinesesimp>花 %2 %3 购买 %1</Chinesesimp>
         <Spanish>Comprar %1 para %2 %3</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_header">
         <Original>Purchase Item</Original>
         <Korean>아이템 구매</Korean>
+        <Chinesesimp>购买物品</Chinesesimp>
         <Spanish>Comprar objeto</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_commander_only">
         <Original>Only the Commander may buy this item.</Original>
         <Korean>지휘관만 이 아이템을 살 수 있습니다.</Korean>
+        <Chinesesimp>只有指挥官可以购买此物品。</Chinesesimp>
         <Spanish>Solo el comandante puede comprar este objeto.</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_civ">
         <Original>Civilian</Original>
         <Korean>민간용</Korean>
+        <Chinesesimp>民用</Chinesesimp>
         <Spanish>Civil</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_reb">
         <Original>Rebel</Original>
         <Korean>반군용</Korean>
+        <Chinesesimp>反叛军</Chinesesimp>
         <Spanish>Rebelde</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_static">
         <Original>Statics</Original>
         <Korean>고정화기</Korean>
+        <Chinesesimp>固定</Chinesesimp>
         <Spanish>Estáticas</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
         <Original>Other</Original>
         <Korean>그 외</Korean>
+        <Chinesesimp>其他</Chinesesimp>
         <Spanish>Otras</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
         <Original>This item can refuel others\n%1 max fuel is %2</Original>
         <Korean>이 아이템은 다른 차량을 재급유할 수 있습니다.\n%1의 최대 연료량은 %2입니다.</Korean>
+        <Chinesesimp>这个物品可以给其他载具加油\n%1 最大油量是 %2</Chinesesimp>
         <Spanish>Este objeto puede repostar a otros \nEl máximo combustible de %1 es %2</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot\n%1 max load is %2</Original>
         <Korean>이 아이템은 전리품을 수집할 수 있습니다.\n%1의 처ㅣ대 수용량은 %2입니다.</Korean>
+        <Chinesesimp>这个物品可以收集战利品\n%1 最大载重是 %2</Chinesesimp>
         <Spanish>Este objeto puede recolectar loot \nLa carga máxima de %1 es %2</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
         <Original>This item has medical capability</Original>
+        <Chinesesimp>这个物品具有医疗功能</Chinesesimp>
         <Spanish>Este objeto dispone de capacidades médicas</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ammo_tooltip">
         <Original>This item can rearm other vehicles</Original>
+        <Chinesesimp>这个物品可以给其他载具补给</Chinesesimp>
         <Spanish>Este objeto puede rearmar a otros vehículos</Spanish>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
         <Original>This item can repair other vehicles</Original>
+        <Chinesesimp>这个物品可以修理其他载具</Chinesesimp>
         <Spanish>Este objeto puede reparar a otros vehículos</Spanish>
       </Key>
     </Container>

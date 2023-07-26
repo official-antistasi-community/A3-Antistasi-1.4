@@ -37,6 +37,7 @@ class CfgMissions
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
         A3A_Mission(sara)
+        A3A_Mission(SPE_Normandy)
 #if __A3_DEBUG__
         A3A_Mission(Stratis)
 #endif

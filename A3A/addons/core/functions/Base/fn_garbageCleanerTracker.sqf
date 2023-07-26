@@ -45,7 +45,11 @@ private _currentContext = [];
 
 private _fnc_conditionalSleep = {
     // returns true if the condition turned true at any time and false if it rant until _targetTime
+    // done this way to be able to immediatley register when a manual GC was done.
+
     private _returnValue = false;
+
+    // end-time can be changed to be a parameter if necessary
     private _targetEndTime = serverTime + GC_NOTIFY_CHECK_INTERVAL;
 
     while {serverTime < _targetEndTime} do {
@@ -64,7 +68,8 @@ private _fnc_conditionalSleep = {
 
 
 
-private _onRemind = {
+private _fnc_onRemind = {
+
     private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
     private _timeUntilForcedGC = [[(A3A_lastGarbageCleanTime + A3A_GCThreshold)-serverTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
     [localize "STR_A3A_GCTracker_tracker_title", format [localize "STR_A3A_GCTracker_tracker_notification", _timeSinceLastGC, _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
@@ -72,7 +77,7 @@ private _onRemind = {
 };
 
 
-private _onFinalWarning = {
+private _fnc_onFinalWarning = {
 
     private _timeUntilForcedGC = [[(A3A_lastGarbageCleanTime + A3A_GCThreshold)-serverTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
     ["Final Warning", format ["Automatic Garbage Clean incoming in %1", _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
@@ -82,8 +87,7 @@ private _onFinalWarning = {
 
 
 
-private _onAutoGC = {
-
+private _fnc_onAutoGC = {
 
     [] call A3A_fnc_garbageCleaner;
     [localize "STR_A3A_GCTracker_tracker_title", localize "STR_A3A_GCTracker_tracker_ran_gc"] remoteExec ["A3A_fnc_customHint", 0];
@@ -94,27 +98,31 @@ private _onAutoGC = {
 };
 
 // Noop function just to be save and to not break the Context Queue format.
-private _noOp = {
+private _fnc_noOp = {
 
 };
 
 
 
-private _getNewContextQueue = {
+private _fnc_getNewContextQueue = {
     // creates the context queue, to modify the beaviour of the tracker, only this function has to be edited
-
+    // basically a context queue factory function
     private _singleStepTime = (A3A_GCThreshold/4);
 
+
+    // ensure that the final warning actually happens after the last reminder, currently not that important but could be if the preset thresholds change
     private _actualWarningSeconds = GC_FINAL_WARNING_SECONDS min (_singleStepTime/2);
+
+
     // context queue is an array that consists of sub arrays of [trigger time, function to call]
     // last context always has to be the Sentinel context aka [GC_QUEUE_SENTINEL_TIME, _noOp]
     private _returnValue = [
-        [A3A_lastGarbageCleanTime + (_singleStepTime*1), _onRemind],
-        [A3A_lastGarbageCleanTime + (_singleStepTime*2), _onRemind],
-        [A3A_lastGarbageCleanTime + (_singleStepTime*3), _onRemind],
-        [(A3A_lastGarbageCleanTime + A3A_GCThreshold)-_actualWarningSeconds, _onFinalWarning],
-        [A3A_lastGarbageCleanTime+A3A_GCThreshold, _onAutoGC],
-        [GC_QUEUE_SENTINEL_TIME, _noOp]
+        [A3A_lastGarbageCleanTime + (_singleStepTime*1), _fnc_onRemind],
+        [A3A_lastGarbageCleanTime + (_singleStepTime*2), _fnc_onRemind],
+        [A3A_lastGarbageCleanTime + (_singleStepTime*3), _fnc_onRemind],
+        [(A3A_lastGarbageCleanTime + A3A_GCThreshold)-_actualWarningSeconds, _fnc_onFinalWarning],
+        [A3A_lastGarbageCleanTime+A3A_GCThreshold, _fnc_onAutoGC],
+        [GC_QUEUE_SENTINEL_TIME, _fnc_noOp]
     ];
 
 
@@ -122,20 +130,24 @@ private _getNewContextQueue = {
     _returnValue;
 };
 
-private _resetTracker = {
+private _fnc_resetTracker = {
+    // resets everything after a GC happened or initially sets everything up
 
 
     // reset the stored GC Time as it most likely has changed.
     _storedLastGCTime = A3A_lastGarbageCleanTime;
 
-    _contextQueue = call _getNewContextQueue;
+    // generate a completely new context queue from the context queue factory function
+    _contextQueue = call _fnc_getNewContextQueue;
+
+    // pre-select the current context as to not have to do it each time the loop checks if it has to trigger
     _currentContext = _contextQueue select 0;
 
     Debug("Reseted GC Tracker");
 };
 
 // initially fill the context Queue
-call _resetTracker;
+call _fnc_resetTracker;
 
 
 // event-loop
@@ -143,11 +155,12 @@ while {true} do {
 
     // sleeps for the CHECK_INTERVAL, but also return sooner if it detects that a GC happened. If GC happened, we reset the context queue.
     if  (call _fnc_conditionalSleep) then {
-        call _resetTracker;
+        call _fnc_resetTracker;
     };
 
     // if we ever enter a state where the last context (auto-gc) was used but the queue was not reset, then we do nothing.
     if ((_currentContext select 0) isEqualTo GC_QUEUE_SENTINEL_TIME) then {
+        Error("Context Queue ran out without triggering a GC, something went wrong");
         continue;
         };
 

@@ -445,9 +445,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_atmissile_text">
         <Original>Recruit AT Missile</Original>
+        <Chinesesimp>招募反坦克导弹兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_aamissile_text">
         <Original>Recruit AA Missile</Original>
+        <Chinesesimp>招募防空导弹兵</Chinesesimp>
       </Key>
     </Container>
     <Container name="dialog_build_minefield">
@@ -647,9 +649,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_atmissile_text">
         <Original>Recruit AT Missile Soldier</Original>
+        <Chinesesimp>招募反坦克导弹兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_aamissile_text">
         <Original>Recruit AA Missile Soldier</Original>
+        <Chinesesimp>招募防空导弹兵</Chinesesimp>
       </Key>
     </Container>
     <Container name="dialog_generic">
@@ -703,6 +707,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_yes_tooltip">
         <Original>Yes</Original>
+        <Chinesesimp>是</Chinesesimp>
         <Czech>Ano</Czech>
         <German>Ja</German>
         <Korean>예</Korean>
@@ -710,6 +715,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_generic_button_no_tooltip">
         <Original>No</Original>
+        <Chinesesimp>否</Chinesesimp>
         <Czech>Ne</Czech>
         <German>Nein</German>
         <Korean>아니오</Korean>
@@ -4808,47 +4814,60 @@
       </Key>
       <Key ID="STR_A3A_Utility_Items_Last_Time_Purchase">
         <Original>You already bought one, wait %1 seconds before you can buy another.</Original>
-        <Spanish>Ya has comprado una unidad, espera %1 segundos antes de poder comprar otra.</Spanish>				  
+        <Chinesesimp>你已经购买了一个，等待%1秒后才能购买另一个。</Chinesesimp>
+        <Spanish>Ya has comprado una unidad, espera %1 segundos antes de poder comprar otra.</Spanish>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Insufficient_Funds">
         <Original>You can't afford this Item.</Original>
+        <Chinesesimp>你买不起这个物品。</Chinesesimp>
         <Spanish>No puedes pagar ese objeto.</Spanish>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Purchase_Title">
         <Original>Item Purchase</Original>
+        <Chinesesimp>购买物品</Chinesesimp>
         <Spanish>Compra de objeto</Spanish>
       </Key>
       <Key ID="STR_A3A_Packable_Objects_Title">
         <Original>Packing Objects</Original>
+        <Chinesesimp>打包物品</Chinesesimp>
         <Spanish>Objetos empacables</Spanish>
       </Key>
       <Key ID="STR_A3A_Packable_Objects_refunding_error">
         <Original>refunding money due to error</Original>
+        <Chinesesimp>由于错误退款</Chinesesimp>
         <Spanish>Devolviendo el dinero a causa de un error.</Spanish>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_lootbox">
         <Original>Loot Box</Original>
+        <Chinesesimp>战利品箱</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_fueldrum">
         <Original>Fuel Drum</Original>
+        <Chinesesimp>燃油桶</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_fueltank">
         <Original>Fuel Tank</Original>
+        <Chinesesimp>燃油罐</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_medicaltent">
         <Original>Medical Tent</Original>
+        <Chinesesimp>医疗帐篷</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_medicalbox">
         <Original>Medical Box</Original>
+        <Chinesesimp>医疗箱</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_ammostation">
         <Original>Ammo Station</Original>
+        <Chinesesimp>弹药站</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_repairstation">
         <Original>Repair Station</Original>
+        <Chinesesimp>修理站</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_light">
         <Original>Light</Original>
+        <Chinesesimp>灯</Chinesesimp>
       </Key>
     </Container>
     <Container name="time_units">
@@ -5065,6 +5084,7 @@
       </Key>
       <Key ID="STR_A3A_base_vehicleBoxRestore_noreported">
         <Original>&lt;br/&gt; - no longer reported</Original>
+        <Chinesesimp>&lt;br/&gt; - 不再报告</Chinesesimp>
         <Russian>&lt;br/&gt; - более не разыскивается</Russian>
         <Czech>&lt;br/&gt; - již není hlášeno</Czech>
         <Korean>&lt;br/&gt; - 더 이상 신고되지 않습니다</Korean>
@@ -5073,6 +5093,7 @@
       <Key ID="STR_A3A_base_vehicleBoxRestore_rearmed">
         <Original>&lt;br/&gt; - rearmed</Original>
         <Russian>&lt;br/&gt; - перезаряжена</Russian>
+        <Chinesesimp>&lt;br/&gt; - 重新装填</Chinesesimp>
         <Czech>&lt;br/&gt; - přezbrojený</Czech>
         <Korean>&lt;br/&gt; - 재무장되었습니다</Korean>
         <Spanish>&lt;br/&gt; - han sido rearmados</Spanish>
@@ -5080,6 +5101,7 @@
       <Key ID="STR_A3A_base_vehicleBoxRestore_repaired">
         <Original>&lt;br/&gt; - repaired</Original>
         <Russian>&lt;br/&gt; - отремонтирована</Russian>
+        <Chinesesimp>&lt;br/&gt; - 修理</Chinesesimp>
         <Czech>&lt;br/&gt; - opraveno</Czech>
         <Korean>&lt;br/&gt; - 수리되었습니다</Korean>
         <Spanish>&lt;br/&gt; - han sido reparados</Spanish>
@@ -5087,6 +5109,7 @@
       <Key ID="STR_A3A_base_vehicleBoxRestore_refueled">
         <Original>&lt;br/&gt; - refueled</Original>
         <Russian>&lt;br/&gt; - заправлена</Russian>
+        <Chinesesimp>&lt;br/&gt; - 加油</Chinesesimp>
         <Czech>&lt;br/&gt; - natankovat</Czech>
         <Korean>&lt;br/&gt; - 재급유되었습니다</Korean>
         <Spanish>&lt;br/&gt; - han sido repostados</Spanish>
@@ -5107,6 +5130,7 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_mismatch">
         <Original>Version mismatch error:&lt;br/&gt;&lt;br/&gt;Server: %1&lt;br/&gt;Client: %2</Original>
+        <Chinesesimp>版本不匹配错误:&lt;br/&gt;&lt;br/&gt;服务器: %1&lt;br/&gt;客户端: %2</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_starting">
         <Original>Starting game...</Original>
@@ -5134,6 +5158,7 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_waitserver">
         <Original>Waiting for server...</Original>
+        <Chinesesimp>等待服务器...</Chinesesimp>
         <Czech>Čekání na server...</Czech>
         <German>Warte auf Server...</German>
         <Korean>서버 기다리는 중...</Korean>
@@ -5141,6 +5166,7 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminwait">
         <Original>Waiting for an admin to log in...</Original>
+        <Chinesesimp>等待管理员登录...</Chinesesimp>
         <Czech>Čeká se na přihlášení administrátora...</Czech>
         <German>Warte auf Admin Anmeldung...</German>
         <Korean>관리자가 로그인하길 기다리는 중...</Korean>
@@ -5148,6 +5174,7 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_autostartwait">
         <Original>Waiting for an admin to log in, or autostart timeout...</Original>
+        <Chinesesimp>等待管理员登录，或自动启动超时...</Chinesesimp>
         <Czech>Čekání na přihlášení správce nebo vypršení časového limitu automatického spuštění...</Czech>
         <German>Warte auf Admin Anmeldung oder auf den automatischen Start-Timer...</German>
         <Korean>관리자가 로그인하거나 자동 시작 시간 초과를 기다리는 중...</Korean>
@@ -5155,6 +5182,7 @@
       </Key>
       <Key ID="STR_A3A_feedback_serverinfo_adminsetup">
         <Original>Admin is setting up the game.</Original>
+        <Chinesesimp>管理员正在设置游戏。</Chinesesimp>
         <Czech>Admin nastavuje hru.</Czech>
         <German>Ein Admin konfiguriert das Spiel.</German>
         <Korean>관리자가 게임을 설정 중입니다.</Korean>
@@ -5176,6 +5204,7 @@
     <Container name="A3A_actions">
       <Key ID="STR_A3A_actions_restore_units">
         <Original>Restore nearby units</Original>
+        <Chinesesimp>恢复附近的单位</Chinesesimp>
         <German>Stelle Einheiten in der Nähe wieder her</German>
         <Russian>Восстановить союзников поблизости</Russian>
         <Czech>Obnovte okolní jednotky</Czech>
@@ -5186,6 +5215,7 @@
     <Container name="mission_check">
       <Key ID="STR_A3A_missioncheck_nonmodmission_title">
         <Original>Deprecated Mission</Original>
+        <Chinesesimp>已弃用的任务</Chinesesimp>
         <Czech>Zastaralá mise</Czech>
         <German>Veraltete Mission</German>
         <Korean>사용되지 않는 임무</Korean>
@@ -5193,12 +5223,14 @@
       </Key>
       <Key ID="STR_A3A_missioncheck_nonmodmission">
         <Original>An incompatible pre-mod Antistasi mission has been started. To play this mission, unload the Antistasi mod. If you intended to load a mission from the Antistasi mod, select the correct mission.</Original>
+        <Chinesesimp>已启动不兼容的旧版本Antistasi模组任务。要玩此任务,请卸载Antistasi模组。如果你想要载入Antistasi模组中的任务,请选择正确的任务。</Chinesesimp>
         <Czech>Byla zahájena nekompatibilní mise Antistasi před modifikací. Chcete-li hrát tuto misi, vyjměte modul Antistasi. Pokud jste zamýšleli načíst misi z modu Antistasi, vyberte správnou misi.</Czech>
         <Korean>호환되지 않는 사전 모드로 안티스타시 임무가 시작되었습니다. 이 임무를 수행하려면 안티스타시 모드를 언로드하십시오. 안티스타시 모드에서 임무를 로드하려는 경우 올바른 임무를 선택하십시오.</Korean>
         <Spanish>Se ha cargado una partida de Antistasi anterior a la actualización de mod de esta misión. Para jugar esta misión, no cargues el mod de Antistasi. Si planeas cargar una misión desde el mod de Antistasi, selecciona la misión correcta.</Spanish>
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission_title">
         <Original>Outdated Mission</Original>
+        <Chinesesimp>过时的任务</Chinesesimp>
         <Czech>Zastaralá mise</Czech>
         <German>Veraltete Mission</German>
         <Korean>구식 임무</Korean>
@@ -5206,6 +5238,7 @@
       </Key>
       <Key ID="STR_A3A_missioncheck_oldmission">
         <Original>This mission is outdated and could lack important map details that may break your game. Inform your mission maker or update the extension to the latest version.</Original>
+        <Chinesesimp>此任务已过时，可能缺少重要的地图细节，这可能会破坏您的游戏。通知您的任务制作者或将扩展更新到最新版本。</Chinesesimp>
         <Czech>Tato mise je zastaralá a může postrádat důležité detaily mapy, které mohou narušit vaši hru. Informujte svého tvůrce mise nebo aktualizujte rozšíření na nejnovější verzi.</Czech>
         <Korean>이 임무는 구식이며 게임을 망칠 수 있는 중요한 지도의 세부 정보가 부족할 수 있습니다. 미션메이커에게 알리거나 확장 버전을 최신 버전으로 업데이트하십시오.</Korean>
         <Spanish>Esta misión esta desactualizada y puede faltarle detalles importantes del mapa que pueden romper la partida. Informa al editor de la misión o actualiza la extensión a la última versión.</Spanish>
@@ -5214,132 +5247,154 @@
     <Container name="A3A_garrisons">
       <Key ID="STR_A3A_garrison_header">
         <Original>Garrison</Original>
+        <Chinesesimp>驻军</Chinesesimp>
         <Russian>Гарнизон</Russian>
         <Korean>주둔군</Korean>
         <Spanish>Guarnición</Spanish>
       </Key>
       <Key ID="STR_A3A_garrisons_header">
         <Original>Garrisons</Original>
+        <Chinesesimp>驻军</Chinesesimp>
         <Russian>Гарнизоны</Russian>
         <Korean>주둔지</Korean>
         <Spanish>Guarniciones</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_full_limit">
         <Original>This garrison is full, choose another zone to add this HC squad into it's garrison.</Original>
+        <Chinesesimp>此驻军已满，请选择另一个区域将此高级指挥小队添加到其驻军中。</Chinesesimp>
         <Russian>Этот гарнизон полон, выберите другую локацию для того чтобы добавить этот отряд в гарнизон.</Russian>
         <Korean>이 주둔지는 꽉 찼으므로, 이 하이 커맨드 분대를 주둔지에 추가하려면 다른 구역을 선택하십시오.</Korean>
         <Spanish>La guarnición está llena, selecciona otra zona para añadir esta escuadra de HC a su guarnición.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_exceed_limit">
         <Original>Adding this squad to garrison will exceed garrison limit. Some of them will join garrison, the rest will be dismissed and their cost will be refunded.</Original>
+        <Chinesesimp>将此小队添加到驻军将超出驻军限制。其中一些人将加入驻军，其余人将被解雇，其成本将被退还。</Chinesesimp>
         <Russian>Добавление этого отряда в гарнизон превысит лимит гарнизона. Какая-то их часть присоединится к гарнизону, оставшиеся будут распущены, а их стоимость будет возмещена.</Russian>
         <Korean>이 분대를 주둔지에 추가하면 주둔군 제한을 초과하게 됩니다. 그들 중 일부는 주둔지에 합류할 것이고, 나머지는 해산되며 비용은 환불될 것입니다.</Korean>
         <Spanish>Añadir esta escuadra a la guarnición excederá el límite de la guarnición. Algunos de ellos se unirán a la guarnición, el resto serán descartados y su coste será reembolsado.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_reached_limit">
         <Original>Garrison limit has reached, you can't add new units anymore.</Original>
+        <Chinesesimp>驻军已达到上限，您不能再添加新单位了。</Chinesesimp>
         <Russian>Достигнут лимит гарнизона, вы больше не можете добавлять в него новые юниты.</Russian>
         <Korean>주둔지가 한계에 도달했으며, 더 이상 새 유닛을 추가할 수 없습니다.</Korean>
         <Spanish>La guarnición ha alcanzado su límite, no puedes añadir nuevas unidades.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_select_zone">
         <Original>Select the zone on where you will send the selected troops as garrison.</Original>
+        <Chinesesimp>选择您将作为驻军发送的区域。</Chinesesimp>
         <Russian>Выберите зону, куда вы отправите выбранные войска в качестве гарнизона.</Russian>
         <Korean>선택한 병력을 주둔지로 보낼 구역을 선택하십시오.</Korean>
         <Spanish>Selecciona la zona en la que vas a guarnicionar los tropas seleccionadas.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_markerzone">
         <Original>You must select any %1 zone with marker.</Original>
+        <Chinesesimp>您必须选择任何带有标记的 %1 区域。</Chinesesimp>
         <Russian>Вы должны выбрать любую зону %1 с маркером.</Russian>
         <Korean>마커가 있는 아무 %1 구역을 선택해야 합니다.</Korean>
         <Spanish>Debes seleccionar alguna zona %1 con marcador.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_teamplayer">
         <Original>Selected zone does not belong to %1.</Original>
+        <Chinesesimp>所选区域不属于 %1。</Chinesesimp>
         <Russian>Выбранная зона не принадлежит %1.</Russian>
         <Korean>선택한 구역이 %1 소속이 아닙니다.</Korean>
         <Spanish>La zona seleccionada no pertenece a %1.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_wrong_type">
         <Original>You can't manage garrisons on this kind of zone.</Original>
+        <Chinesesimp>您不能在此类区域上管理驻军。</Chinesesimp>
         <Russian>Вы не можете управлять гарнизонами у зоны этого типа.</Russian>
         <Korean>이런 구역에서는 주둔지를 관리할 수 없습니다.</Korean>
         <Spanish>No puedes gestionar guarniciones en este tipo de zonas.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_already_in_garrison">
         <Original>Selected units are already in garrison.</Original>
+        <Chinesesimp>所选单位已经在驻军中。</Chinesesimp>
         <Russian>Выбранные юниты уже в гарнизоне.</Russian>
         <Korean>선택한 유닛은 이미 주둔지에 있습니다.</Korean>
         <Spanish>Las unidades seleccionadas ya se encuentran en una guarnición.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_no_specific_squads">
         <Original>You can't add units to player led, Watchpost, Roadblocks or Minefield building squads.</Original>
+        <Chinesesimp>您不能将单位添加到玩家领导的、监视哨、路障或地雷区建筑小队。</Chinesesimp>
         <Russian>Вы не можете добавлять юниты в ведомые игроком отряды, сторожевые посты, блокпосты и отряды строителей минных полей.</Russian>
         <Korean>플레이어가 이끄는 부대, 감시 초소, 검문소 또는 지뢰지대 건설 부대로는 유닛을 추가할 수 없습니다.</Korean>
         <Spanish>No puedes añadir unidades a jugadores liderados, a Puestos de observación, a Controles de carretera o a escuadras de despliegues de campos de minas.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_dead_units">
         <Original>Dead or player-controlled units can't be added to garrison.</Original>
+        <Chinesesimp>死亡或玩家控制的单位不能添加到驻军。</Chinesesimp>
         <Russian>Мертвые или контролируемые игроком юниты не могут быть добавлены в гарнизон.</Russian>
         <Korean>사망하거나 플레이어가 조종하는 유닛은 주둔지에 추가할 수 없습니다.</Korean>
         <Spanish>Unidades muertas o controladas por el jugador no pueden ser añadidas a la guarnición.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_no_specific_units">
         <Original>Static crewmen, prisoners, refugees, Petros or unknown units cannot be added to garrison.</Original>
+        <Chinesesimp>静态机组人员、囚犯、难民、Petros或未知单位不能添加到驻军。</Chinesesimp>
         <Russian>Расчёты стационарных орудий, пленные, беженцы, Петрос или неизвестные юниты не могут быть добавлены в гарнизон.</Russian>
         <Korean>고정화기 승무원, 포로, 난민, 페트로스 또는 알려지지 않은 유닛은 주둔지에 추가할 수 없습니다.</Korean>
         <Spanish>Tripulación estática, prisioneros, refugiados, Petros o unidades desconocidas no pueden ser añadidas a una guarnición.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_adding_to_garrison">
         <Original>Adding units to garrison...</Original>
+        <Chinesesimp>将单位添加到驻军...</Chinesesimp>
         <Russian>Добавление юнитов в гарнизон...</Russian>
         <Korean>고정화기 승무원, 포로, 난민, 페트로스 또는 알려지지 않은 유닛은 주둔지에 추가할 수 없습니다.</Korean>
         <Spanish>Añadiendo unidades a la guarnición...</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_adding_to_garrison_hc">
         <Original>Adding %1 squad to garrison...</Original>
+        <Chinesesimp>将 %1 小队添加到驻军...</Chinesesimp>
         <Russian>Добавление отряда %1 в гарнизон...</Russian>
         <Korean>주둔지에 %1 분대를 추가하는 중...</Korean>
         <Spanish>Añadiendo la escuadra %1 a la guarnición...</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_fail_zone_lost">
         <Original>%1 group has returned to HC control as the zone which was planned to be garrisoned has been lost.</Original>
+        <Chinesesimp>%1 小队已返回到HC控制，因为计划驻扎的区域已经丢失。</Chinesesimp>
         <Russian>Группа %1 вернулась под контроль HC, т.к. зона, указанная для гарнизона, утрачена.</Russian>
         <Korean>%1 그룹은 주둔할 예정이었던 구역을 잃었기 때문에 하이 커맨드 통제로 들어갔습니다.</Korean>
         <Spanish>El grupo %1 ha vuelto bajo el control de HC ya que la zona donde se planeaba aguarnicionar ha sido perdida.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_hr">
         <Original>You lack HR to recruit units.</Original>
+        <Chinesesimp>您缺少HR来招募单位。</Chinesesimp>
         <Russian>Вам не хватает HR, чтобы добавить новый юнит в гарнизон.</Russian>
         <Korean>유닛을 모집할 인력이 부족합니다.</Korean>
         <Spanish>Te falta HR para reclutar unidades.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_money">
         <Original>You don't have enough money for adding this kind of unit (%1€ needed).</Original>
+        <Chinesesimp>您没有足够的钱来添加此类单位（需要 %1€）。</Chinesesimp>
         <Russian>У вас недостаточно денег для добавления такого юнита (необходимо %1€).</Russian>
         <Korean>이런 종류의 유닛을 추가할 충분한 비용이 없습니다 (%1€ 필요).</Korean>
-        Spanish>No tienes suficiente dinero para añadir este tipo de unidad (Necesitas %1€).</Spanish>
+        <Spanish>No tienes suficiente dinero para añadir este tipo de unidad (Necesitas %1€).</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_recruit_success">
         <Original>Unit has been recruited.%1</Original>
+        <Chinesesimp>单位已被招募。%1</Chinesesimp>
         <Russian>Юнит нанят в гарнизон.%1</Russian>
         <Korean>다음 유닛을 모집했습니다: %1</Korean>
         <Spanish>La unidad ha sido reclutada.%1</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_error_enemies_near">
         <Original>You can't recruit units into garrison when enemies are near the zone.</Original>
+        <Chinesesimp>当敌人靠近区域时，您不能将单位招募到驻军中。</Chinesesimp>
         <Russian>Вы не можете набирать юниты в гарнизон, когда враги находятся рядом с зоной.</Russian>
         <Korean>적들이 근처에 있을 때는 주둔지에 유닛을 모집할 수 없습니다.</Korean>
         <Spanish>No puedes reclutar unidades en guarniciones cuando los enemigos se encuentran cerca de la zona.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_error_still_updating">
         <Original>This garrison is still updating, please try again in a few seconds.</Original>
+        <Chinesesimp>此驻军仍在更新中，请在几秒钟后重试。</Chinesesimp>
         <Russian>Этот гарнизон все еще обновляется, повторите попытку через несколько секунд.</Russian>
         <Korean>이 주둔지는 아직 업데이트 중이니 몇 초 후에 다시 시도하십시오.</Korean>
         <Spanish>La guarnición se está actualizando, por favor inténtalo en unos segundos.</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_mortar">
         <Original>You can't add mortars to Roadblock or Watchpost garrisons.</Original>
+        <Chinesesimp>您不能将迫击炮添加到路障或监视哨驻军中。</Chinesesimp>
         <Russian>Вы не можете добавлять минометы в гарнизоны блокпостов и сторожевых постов.</Russian>
         <Korean>검문소나 감시초소에는 박격포를 추가할 수 없습니다.</Korean>
         <Spanish>No puedes añadir morteros a las guarniciones de Control de carretera o Puesto de boservación.</Spanish>
@@ -5348,16 +5403,19 @@
     <Container name="A3A_GCTracker">
       <Key ID="STR_A3A_GCTracker_tracker_title">
         <Original>Garbage Cleaner Tracker</Original>
+        <Chinesesimp>垃圾清洁器跟踪器</Chinesesimp>
         <Korean>쓰레기 청소 기록 프로그램</Korean>
         <Spanish>Seguimiento del Limpiador de Basura</Spanish>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_notification">
         <Original>Last Garbage Clean was %1 ago. Keep track of it.</Original>
+        <Chinesesimp>上次垃圾清洁是 %1 前。继续跟踪。</Chinesesimp>
         <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 계속 기록합니다.</Korean>
         <Spanish>La ultima Limpieza de Basura fue hace %1. Mantenlo supervisado.</Spanish>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
+        <Chinesesimp>垃圾清洁器跟踪器运行垃圾清洁，因为时间超过了阈值。继续跟踪GC时间。</Chinesesimp>
         <Korean>쓰레기 청소 기록 프로그램이 임계값을 초과하여 쓰레기를 청소합니다. 쓰레기 청소 시간을 계속 기록합니다.</Korean>
         <Spanish>El Seguimiento del Limpiador de Basura llevó a cabo una limpieza porque el umbral de tiempo fue superado. Mantén supervisado el Limpiador de Basura.</Spanish>
       </Key>
@@ -5365,12 +5423,14 @@
     <Container name="A3A_customHint">
       <Key ID="STR_A3A_customHint_dismiss_no_key">
         <Original>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Previous Hints&lt;br/&gt;Bind dismiss key by: &lt;t color='#f0d498'&gt;Escape Menu&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLS&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;SHOW: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Dismiss Previous Hint&lt;/t&gt;&lt;/t&gt;</Original>
+        <Chinesesimp>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 以前的提示&lt;br/&gt;通过以下方式绑定解除键：&lt;t color='#f0d498'&gt;逃生菜单&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;配置&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;控制&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;显示：Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;解除以前的提示&lt;/t&gt;&lt;/t&gt;</Chinesesimp>
         <Russian>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 предыдущих подсказок&lt;br/&gt;Назначить клавишу закрытия подсказок: &lt;t color='#f0d498'&gt;Меню паузы&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;НАСТРОЙКА&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;УПРАВЛЕНИЕ&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;ФИЛЬТР: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Закрыть предыдущую подсказку&lt;/t&gt;&lt;/t&gt;</Russian>
         <Korean>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 이전 힌트&lt;br/&gt;해제 키: &lt;t color='#f0d498'&gt;ESC&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;설정;/t&gt; &gt; &lt;t color='#f0d498'&gt;조작&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;표시: 안티스타시&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;이전 힌트 해제&lt;/t&gt;&lt;/t&gt;</Korean>
         <Spanish>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Pistas anteriores&lt;br/&gt;Configura la tecla de despejar con: &lt;t color='#f0d498'&gt;Menú Escape&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURAR&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLES&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;MOSTRAR: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Despejar Pista Anterior&lt;/t&gt;&lt;/t&gt;</Spanish>
       </Key>
       <Key ID="STR_A3A_customHint_dismiss">
         <Original>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Press &lt;t color='#%3'&gt;%4&lt;/t&gt; to dismiss hint. +%5&lt;/t&gt;</Original>
+        <Chinesesimp>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;按 &lt;t color='#%3'&gt;%4&lt;/t&gt; 以解除提示。+%5&lt;/t&gt;</Chinesesimp>
         <Russian>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Нажмите &lt;t color='#%3'&gt;%4&lt;/t&gt; чтобы закрыть подсказку. +%5&lt;/t&gt;</Russian>
         <Korean>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;&lt;t color='#%3'&gt;%4&lt;/t&gt; 키를 눌러 힌트를 해제하십시오. +%5&lt;/t&gt;</Korean>
         <Spanish>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Pulsa &lt;t color='#%3'&gt;%4&lt;/t&gt; para despejar la pista. +%5&lt;/t&gt;</Spanish>

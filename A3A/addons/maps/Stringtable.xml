@@ -806,9 +806,11 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_mapname_short_text">
         <Original>Antistasi Chernarus 2020</Original>
+        <Chinesesimp>Antistasi Chernarus 2020</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_mapname_text">
         <Original>Antistasi - Another Liberation of Cherno</Original>
+        <Chinesesimp>Antistasi - 另一个切尔诺贝利的解放</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -824,12 +826,15 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_blurb_text">
         <Original>This text not being updated is an Easter Egg.</Original>
+        <Chinesesimp>这个文本不会被更新，这是一个复活节彩蛋。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_mapname_short_text">
         <Original>Antistasi Normandy</Original>
+        <Chinesesimp>Antistasi Normandy</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_mapname_text">
         <Original>Antistasi - The French Resistance</Original>
+        <Chinesesimp>Antistasi - 法国抵抗运动</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -845,6 +850,7 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_blurb_text">
         <Original>Vive la résistance!</Original>
+        <Chinesesimp>抵抗运动万岁！</Chinesesimp>
       </Key>
     </Container>
   </Package>

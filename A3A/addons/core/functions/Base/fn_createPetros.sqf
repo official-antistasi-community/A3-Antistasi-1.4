@@ -16,7 +16,7 @@ if (isNil "_location") then {
 };
 
 private _oldPetros = petros;
-private _identity = createHashMapFromArray[
+private _identity = createHashMapFromArray [
     ["firstName", "Petros"],
     ["face", "GreekHead_A3_01"], 
     ["speaker", "Male06GRE"],

@@ -21,7 +21,7 @@ Example:
     private _identity = [A3A_faction_reb, "Rifleman"] call A3A_fnc_createRandomIdentity;
 */
 
-params["_faction", "_unitType"];
+params ["_faction", "_unitType"];
 
 private _typePrefix = switch (true) do {
     case ("militia_" in _unitType): { "mil" };

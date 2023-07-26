@@ -28,6 +28,7 @@
 
 "class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+	    canLoadWeapon = 0;
         class Nodes
     {
         class Node1
@@ -56,6 +57,7 @@
 
 "class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_Tent_p3d : TRIPLES(ADDON,Nodes,Base)
 {
+	    canLoadWeapon = 0;
         class Nodes
     {
         class Node1
@@ -84,34 +86,7 @@
 
 "class WW2_Assets_m_Vehicles_Trucks_m_IF_Us6_p3d : TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
-    {
-        class Node1
-        {
-            offset[] = {0,-0.28,0.2};
-			seats[] = {1,10};
-        };
-        class Node2
-        {
-            offset[] = {0,-1.08,0.2};
-			seats[] = {2,5,6,7};
-        };
-        class Node3
-        {
-            offset[] = {0,-1.88,0.2};
-			seats[] = {3,4};
-        };
-        class Node4
-        {
-            offset[] = {0,-2.68,0.2};
-			seats[] = {8,9};
-        };
-    };
-};
-"
-
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Us6_p3d : TRIPLES(ADDON,Nodes,Base)
-{
+	    canLoadWeapon = 0;
         class Nodes
     {
         class Node1
@@ -163,34 +138,7 @@
 
 "class WW2_Assets_m_Vehicles_Trucks_m_IF_Gmc353Truck_p3d : TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
-    {
-        class Node1
-        {
-            offset[] = {0,-0.4,-0.6};
-			seats[] = {1,2,7,10};
-        };
-        class Node2
-        {
-            offset[] = {0,-1.2,-0.6};
-			seats[] = {5,6};
-        };
-        class Node3
-        {
-            offset[] = {0,-2,-0.6};
-			seats[] = {3,4};
-        };
-        class Node4
-        {
-            offset[] = {0,-2.8,-0.6};
-			seats[] = {8,9};
-        };
-    };
-};
-"
-
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Gmc353Truck_p3d : TRIPLES(ADDON,Nodes,Base)
-{
+	    canLoadWeapon = 0;
         class Nodes
     {
         class Node1

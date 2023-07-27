@@ -276,7 +276,7 @@ class Mission
 							name="seaports";
 							class Entities
 							{
-								items=8;
+								items=4;
 								class Item0
 								{
 									dataType="Layer";
@@ -369,132 +369,6 @@ class Mission
 								class Item1
 								{
 									dataType="Layer";
-									name="seaport_2";
-									class Entities
-									{
-										items=4;
-										class Item0
-										{
-											dataType="Marker";
-											position[]={10116.853,1.3947487,4294.502};
-											name="seap_2_helipad";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=15;
-											b=15;
-											id=192;
-											atlOffset=53.699196;
-										};
-										class Item1
-										{
-											dataType="Marker";
-											position[]={10119.804,3.7215996,4336.5674};
-											name="seap_2_vehicle";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorGreen";
-											a=15;
-											b=15;
-											id=193;
-											atlOffset=53.699192;
-										};
-										class Item2
-										{
-											dataType="Marker";
-											position[]={10098.07,0.31895828,4315.6729};
-											name="seaport_2";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=41.747002;
-											b=41.750999;
-											id=194;
-											atlOffset=53.699196;
-										};
-										class Item3
-										{
-											dataType="Marker";
-											position[]={10077.589,-1.2607422,4294.502};
-											name="seap_2_mortar";
-											markerType="ELLIPSE";
-											type="ellipse";
-											colorName="ColorYellow";
-											a=14.473;
-											b=13.825;
-											id=195;
-											atlOffset=53.699196;
-										};
-									};
-									id=191;
-									atlOffset=54.135635;
-								};
-								class Item2
-								{
-									dataType="Layer";
-									name="seaport_3";
-									class Entities
-									{
-										items=4;
-										class Item0
-										{
-											dataType="Marker";
-											position[]={10109.186,0.65402985,4402.2344};
-											name="seap_3_helipad";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=15;
-											b=15;
-											id=197;
-											atlOffset=47.968231;
-										};
-										class Item1
-										{
-											dataType="Marker";
-											position[]={10112.137,2.6771049,4444.2988};
-											name="seap_3_vehicle";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorGreen";
-											a=15;
-											b=15;
-											id=198;
-											atlOffset=47.969063;
-										};
-										class Item2
-										{
-											dataType="Marker";
-											position[]={10090.847,-1.5954094,4423.8086};
-											name="seaport_3";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=41.747002;
-											b=41.750999;
-											id=199;
-											atlOffset=46.278145;
-										};
-										class Item3
-										{
-											dataType="Marker";
-											position[]={10070.365,-5.1891937,4402.6377};
-											name="seap_3_mortar";
-											markerType="ELLIPSE";
-											type="ellipse";
-											colorName="ColorYellow";
-											a=14.473;
-											b=13.825;
-											id=200;
-											atlOffset=46.278145;
-										};
-									};
-									id=196;
-									atlOffset=46.518925;
-								};
-								class Item3
-								{
-									dataType="Layer";
 									name="seaport_4";
 									class Entities
 									{
@@ -545,7 +419,7 @@ class Mission
 									id=201;
 									atlOffset=1.5321312;
 								};
-								class Item4
+								class Item2
 								{
 									dataType="Layer";
 									name="seaport_5";
@@ -950,139 +824,13 @@ class Mission
 									id=206;
 									atlOffset=0.037900448;
 								};
-								class Item5
-								{
-									dataType="Layer";
-									name="seaport_6";
-									class Entities
-									{
-										items=4;
-										class Item0
-										{
-											dataType="Marker";
-											position[]={10114.989,-22.038351,4167.8906};
-											name="seap_6_helipad";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=15;
-											b=15;
-											id=212;
-											atlOffset=31.990751;
-										};
-										class Item1
-										{
-											dataType="Marker";
-											position[]={10117.94,-21.578733,4209.9561};
-											name="seap_6_vehicle";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorGreen";
-											a=15;
-											b=15;
-											id=213;
-											atlOffset=31.991301;
-										};
-										class Item2
-										{
-											dataType="Marker";
-											position[]={10096.207,-22.95439,4189.0615};
-											name="seaport_6";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=41.747002;
-											b=41.750999;
-											id=214;
-											atlOffset=31.953184;
-										};
-										class Item3
-										{
-											dataType="Marker";
-											position[]={10075.726,-23.375147,4167.8906};
-											name="seap_6_mortar";
-											markerType="ELLIPSE";
-											type="ellipse";
-											colorName="ColorYellow";
-											a=14.473;
-											b=13.825;
-											id=215;
-											atlOffset=31.991102;
-										};
-									};
-									id=211;
-									atlOffset=32.195423;
-								};
-								class Item6
-								{
-									dataType="Layer";
-									name="seaport_7";
-									class Entities
-									{
-										items=4;
-										class Item0
-										{
-											dataType="Marker";
-											position[]={10141.853,-15.050781,4525.6494};
-											name="seap_7_helipad";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=15;
-											b=15;
-											id=217;
-											atlOffset=28.709217;
-										};
-										class Item1
-										{
-											dataType="Marker";
-											position[]={10144.36,-8.9889526,4567.3105};
-											name="seap_7_vehicle";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorGreen";
-											a=15;
-											b=15;
-											id=218;
-											atlOffset=34.771046;
-										};
-										class Item2
-										{
-											dataType="Marker";
-											position[]={10123.07,-15.050781,4546.8203};
-											name="seaport_7";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=41.747002;
-											b=41.750999;
-											id=219;
-											atlOffset=28.709217;
-										};
-										class Item3
-										{
-											dataType="Marker";
-											position[]={10102.589,-15.132542,4525.6494};
-											name="seap_7_mortar";
-											markerType="ELLIPSE";
-											type="ellipse";
-											colorName="ColorYellow";
-											a=14.473;
-											b=13.825;
-											id=220;
-											atlOffset=28.709217;
-										};
-									};
-									id=216;
-									atlOffset=29.426065;
-								};
-								class Item7
+								class Item3
 								{
 									dataType="Layer";
 									name="seaport_8";
 									class Entities
 									{
-										items=6;
+										items=5;
 										class Item0
 										{
 											dataType="Marker";
@@ -1111,20 +859,6 @@ class Mission
 										};
 										class Item2
 										{
-											dataType="Marker";
-											position[]={10104.719,2.9325447,4666.8613};
-											name="seaport_9";
-											markerType="RECTANGLE";
-											type="rectangle";
-											colorName="ColorBlue";
-											a=68.468002;
-											b=59.422646;
-											angle=175.87192;
-											id=1245;
-											atlOffset=46.692543;
-										};
-										class Item3
-										{
 											dataType="Object";
 											class PositionInfo
 											{
@@ -1139,7 +873,7 @@ class Mission
 											type="Land_Cargo_Patrol_V1_F";
 											atlOffset=4.7683716e-007;
 										};
-										class Item4
+										class Item3
 										{
 											dataType="Object";
 											class PositionInfo
@@ -1156,7 +890,7 @@ class Mission
 											type="Land_Cargo_Patrol_V1_F";
 											atlOffset=2.3358312;
 										};
-										class Item5
+										class Item4
 										{
 											dataType="Object";
 											class PositionInfo

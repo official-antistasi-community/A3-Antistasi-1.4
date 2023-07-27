@@ -157,7 +157,7 @@ if (_isControl) then
 		}
 	else
 		{
-		_typeVehX = selectRandom (_faction get "vehiclesMilitiaCars");
+		_typeVehX = selectRandom (_faction get "vehiclesMilitiaLightArmed");
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;

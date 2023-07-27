@@ -1,4 +1,4 @@
-"class WW2_Assets_m_Vehicles_WheeledAPC_m_IF_SdKfz_7_p3d : TRIPLES(ADDON,Nodes,Base)
+class WW2_Assets_m_Vehicles_WheeledAPC_m_IF_SdKfz_7_p3d : TRIPLES(ADDON,Nodes,Base)
 {
         class Nodes
     {
@@ -24,9 +24,9 @@
         };
     };
 };
-"
 
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_p3d : TRIPLES(ADDON,Nodes,Base)
+
+class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_p3d : TRIPLES(ADDON,Nodes,Base)
 {
 	    canLoadWeapon = 0;
         class Nodes
@@ -53,9 +53,9 @@
         };
     };
 };
-"
 
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_Tent_p3d : TRIPLES(ADDON,Nodes,Base)
+
+class WW2_Assets_m_Vehicles_Trucks_m_IF_Opelblitz_Tent_p3d : TRIPLES(ADDON,Nodes,Base)
 {
 	    canLoadWeapon = 0;
         class Nodes
@@ -82,9 +82,9 @@
         };
     };
 };
-"
 
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Us6_p3d : TRIPLES(ADDON,Nodes,Base)
+
+class WW2_Assets_m_Vehicles_Trucks_m_IF_Us6_p3d : TRIPLES(ADDON,Nodes,Base)
 {
 	    canLoadWeapon = 0;
         class Nodes
@@ -111,9 +111,9 @@
         };
     };
 };
-"
 
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Zis5v_p3d : TRIPLES(ADDON,Nodes,Base)
+
+class WW2_Assets_m_Vehicles_Trucks_m_IF_Zis5v_p3d : TRIPLES(ADDON,Nodes,Base)
 {
         class Nodes
     {
@@ -134,9 +134,9 @@
         };
     };
 };
-"
 
-"class WW2_Assets_m_Vehicles_Trucks_m_IF_Gmc353Truck_p3d : TRIPLES(ADDON,Nodes,Base)
+
+class WW2_Assets_m_Vehicles_Trucks_m_IF_Gmc353Truck_p3d : TRIPLES(ADDON,Nodes,Base)
 {
 	    canLoadWeapon = 0;
         class Nodes
@@ -163,4 +163,3 @@
         };
     };
 };
-"

@@ -59,7 +59,7 @@ private _fnc_conditionalSleep = {
             break;
         };
 
-        sleep 2;
+        uiSleep 2;
     };
 
 

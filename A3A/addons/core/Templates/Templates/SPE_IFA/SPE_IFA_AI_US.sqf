@@ -21,7 +21,7 @@
 
 ["vehiclesBasic", ["LIB_US_Willys_MB"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_US_Willys_MB", "LIB_US_Willys_MB_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3", "LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3", "LIB_M8_Greyhound", "LIB_M3A3_Stuart", "LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["SPE_US_M3_Halftrack_Unarmed", "LIB_US_GMC_Open", "LIB_US_GMC_Tent"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["SPE_US_M3_Halftrack_Unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["SPE_US_M3_Halftrack_Ammo", "LIB_US_GMC_Ammo"]] call _fnc_saveToTemplate;
@@ -30,8 +30,8 @@
 ["vehiclesMedical", ["SPE_US_M3_Halftrack_Ambulance", "LIB_US_GMC_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["LIB_US_Scout_M3", "SPE_US_M3_Halftrack"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["SPE_US_M3_Halftrack", "SPE_US_M16_Halftrack", "SPE_US_M3_Halftrack"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["SPE_M10", "SPE_M4A0_75_Early", "SPE_M4A0_75"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["SPE_M18_Hellcat", "SPE_M4A1_76", "SPE_M4A1_75"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["SPE_M18_Hellcat", "SPE_M10", "LIB_M8_Greyhound", "LIB_M3A3_Stuart", "LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["SPE_M4A0_75_Early", "SPE_M4A0_75", "SPE_M4A1_76", "SPE_M4A1_75"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["SPE_US_M16_Halftrack"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["LIB_LCVP"]] call _fnc_saveToTemplate;

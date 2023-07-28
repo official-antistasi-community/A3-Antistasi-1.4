@@ -38,7 +38,7 @@ private _Tanks ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 
 ["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
 private _HelisTransport = ["B_Heli_Transport_01_F"];
@@ -91,11 +91,10 @@ if ("tanks" in A3A_enabledDLC) then {
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_MRAP_01_F","B_LSV_01_unarmed_F"];
 	_LightArmed append ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
-	_HelisTransport append ["B_CTRG_Heli_Transport_01_sand_F"]
-	["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
+	_HelisTransport append ["B_CTRG_Heli_Transport_01_sand_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
-	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"]
+	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];

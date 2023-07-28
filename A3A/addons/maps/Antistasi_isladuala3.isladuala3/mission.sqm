@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={5455.167,46.709946,4854.6348};
-		dir[]={0.030960308,-0.30027178,0.95336384};
-		up[]={0.0097463094,0.95384693,0.30012113};
-		aside[]={0.99948502,-4.0110172e-007,-0.032457113};
+		pos[]={2615.0078,35.650002,5766.7715};
+		dir[]={0,-0.70710683,0.70710683};
+		up[]={0,0.70710677,0.70710677};
+		aside[]={0.99999994,0,-0};
 	};
 };
 binarizationWanted=0;
@@ -275,6 +275,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="seaports";
+							state=2;
 							class Entities
 							{
 								items=4;
@@ -920,6 +921,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="airports";
+							state=2;
 							class Entities
 							{
 								items=6;
@@ -945,15 +947,16 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={9800.54,7.6105037,9312.3643};
+											position[]={9800.54,7.6110001,9312.3643};
 											name="airp_1_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
-											a=15;
-											b=35.729725;
-											angle=106.60865;
+											a=35;
+											b=15;
+											angle=15.999999;
 											id=241;
+											atlOffset=0.00049638748;
 										};
 										class Item2
 										{
@@ -2365,7 +2368,7 @@ class Mission
 											flags=1;
 											id=1181;
 											type="ModuleHideTerrainObjects_F";
-											atlOffset=0.7190609;
+											atlOffset=3.8455763;
 											class CustomAttributes
 											{
 												class Attribute0
@@ -7613,7 +7616,7 @@ class Mission
 										class Item142
 										{
 											dataType="Marker";
-											position[]={3425.4624,3.4382584,9090.5137};
+											position[]={3393.3115,6.2014966,8721.6729};
 											name="control_142";
 											markerType="ELLIPSE";
 											type="rectangle";
@@ -7679,7 +7682,7 @@ class Mission
 										};
 									};
 									id=347;
-									atlOffset=26.734232;
+									atlOffset=19.556988;
 								};
 								class Item2
 								{
@@ -7701,6 +7704,7 @@ class Mission
 								{
 									dataType="Layer";
 									name="detectPlayer";
+									state=2;
 									class Entities
 									{
 										items=13;
@@ -7944,6 +7948,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="factories";
+							state=2;
 							class Entities
 							{
 								items=10;
@@ -10221,6 +10226,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="outposts";
+							state=2;
 							class Entities
 							{
 								items=22;
@@ -15441,13 +15447,12 @@ class Mission
 												angles[]={0,4.5653067,0};
 											};
 											side="Empty";
-											flags=4;
 											class Attributes
 											{
 											};
 											id=1448;
 											type="Land_HBarrier_5_F";
-											atlOffset=0.075752258;
+											atlOffset=1.4859314;
 										};
 										class Item23
 										{
@@ -20535,14 +20540,14 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={4266.5005,8,8965.3018};
+											position[]={4266.5,8,8965.3018};
 											name="outp_16_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
 											a=6;
-											b=6;
-											angle=263.91739;
+											b=12;
+											angle=263.91696;
 											id=1881;
 										};
 										class Item2
@@ -22612,6 +22617,7 @@ class Mission
 						{
 							dataType="Layer";
 							name="resources";
+							state=2;
 							class Entities
 							{
 								items=20;
@@ -24855,14 +24861,14 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={2614.0422,10.65,5793.0645};
+											position[]={2614.042,10.65,5793.064};
 											name="reso_18_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
-											a=5.7563181;
+											a=5.756;
 											b=6;
-											angle=282.29871;
+											angle=190;
 											id=1975;
 										};
 										class Item2
@@ -26034,6 +26040,7 @@ class Mission
 		{
 			dataType="Layer";
 			name="Comments";
+			state=2;
 			class Entities
 			{
 				items=31;

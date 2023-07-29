@@ -389,9 +389,31 @@ _pilotLoadoutData set ["uniforms", ["U_I_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_oli"]];
 _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I"]];
 
-
-
 if ("mark" in A3A_enabledDLC) then {
+
+	_sfMarks append [
+	["srifle_DMR_03_khaki_F", "muzzle_snds_B_khk_F", "acc_pointer_IR", "optic_AMS_khk", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"], 
+	["srifle_DMR_03_khaki_F", "muzzle_snds_B_khk_F", "acc_pointer_IR", "optic_SOS_khk_F", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"]];
+
+	_sfLoadoutData set ["marksmanRifles", _sfMarks];
+
+	private _mMarks   = _militaryLoadoutData get "marksmanRifles";
+	private _mSniper  = _militaryLoadoutData get "sniperRifles";
+
+	_mMarks append [
+	["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_AMS_khk", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"], 
+	["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_SOS_khk_F", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"]];
+	_mSniper append [
+	["srifle_DMR_02_camo_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_khk"],
+	["srifle_DMR_02_camo_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_khk"]];
+	
+	_militaryLoadoutData set ["marksmanRifles", _mMarks];
+	_militaryLoadoutData set ["sniperRifles", _mSniper];
+	
+	_militiaLoadoutData set ["marksmanRifles", [["srifle_DMR_06_olive_F", "", "", "optic_MRCO", [], [], ""] ]];
+	_militiaLoadoutData set ["sniperRifles", [["srifle_DMR_06_olive_F", "", "", "optic_KHS_old", [], [], ""],
+	["srifle_DMR_06_olive_F", "", "", "optic_KHS_blk", [], [], ""]]];
+	//Overwrites the ABR/EBR - not fitting for a militia
 };
 
 

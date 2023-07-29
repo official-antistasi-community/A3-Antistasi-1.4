@@ -7,8 +7,7 @@
     ["I_E_Heli_light_03_dynamicLoadout_F", ["cost", 100]],
 
     // AAF trash CAS
-    ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]]
-	
+    ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]],
 	
     // NATO AFV - Used as Light tank
     ["B_T_AFV_Wheeled_01_cannon_F", ["cost", 150], ["threat", 200]],

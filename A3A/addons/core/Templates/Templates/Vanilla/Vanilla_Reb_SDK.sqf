@@ -44,7 +44,7 @@ if ("ws" in A3A_enabledDLC) then {
 	_staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
 	_vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
 	_vehiclesLightArmed insert [0, ["I_G_Offroad_01_armor_armed_lxWS"]];
-	_vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
+	_vehiclesAT insert [0, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
 
 ["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;

@@ -29,19 +29,20 @@ params ["_group", "_position", "_radius"];
 private _units = units _group;
 private _buildings = [];
 private _newGroups = [];
+private _minimumUnits = 2; // Minimum units per building.
 
 if (count _units == 0) exitwith {};
 
 _group lockWP true;
-_buildings = nearestObjects [_position, keys PATCOM_Garrison_Positions, _radius];
+_buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 
-if (count _buildings == 0) then {
-    _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
-};
-
-// don't place units on destroyed buildings
+// Don't place units in destroyed buildings
 _buildings = _buildings select { damage _x < 1 && !isObjectHidden _x };
 _buildings = _buildings call BIS_fnc_arrayShuffle;
+
+// Figure out how many units should be put in each building.
+private _unitsPerBuilding = ceil(count _units / count _buildings);
+if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
 
 {
     if (count _units == 0) exitWith {};
@@ -49,33 +50,41 @@ _buildings = _buildings call BIS_fnc_arrayShuffle;
     private _class = typeOf _building;
     private _buildingPositions = [];
 
-    if (_class in PATCOM_Garrison_Positions) then {
+    // Check to see if building is in whitelist first for better unit positions.
+    if (_class in PATCOM_Garrison_Positions_Whitelist) then {
         {
             private _buildingPos = _building buildingPos _x;
             if !(_buildingPos isEqualTo [0,0,0]) then {
                 _buildingPositions pushBack _buildingPos;
             };
-        } forEach (PATCOM_Garrison_Positions get _class);
+        } forEach (PATCOM_Garrison_Positions_Whitelist get _class);
     } else {
+        // If no pre-defined building positions are found. We default to a random one.
         _buildingPositions = _building buildingPos -1;
     };
 
-    {
+    // Mix up the building positions for better randomization.
+    _buildingPositions = _buildingPositions call BIS_fnc_arrayShuffle;
+
+    // Evenly distribute units between found amount of buildings.
+    // Note: If more buildings are found than units, loop will exit when the unit pool reaches zero.
+    for "_i" from 1 to _unitsPerBuilding do {
         if (count _units == 0) exitWith {};
+        if (count _buildingPositions == 0) exitWith {};
         private _unit = _units select 0;
-        private _position = _x;
+        private _position = _buildingPositions select 0;
         _unit setposATL _position;
         _unit setdir ((_unit getRelDir _building)-180);
-        _unit disableAI "PATH";
         _unit setUnitPos "UP";
 
         dostop _unit;
 
         _units deleteAt 0;
-    } foreach _buildingPositions;
+        _buildingPositions deleteAt 0;
+    };
 } forEach _buildings;
 
-// Splits Garrison AI into an additional defense group if not enough buildings/positions were found.
+// Splits Garrison AI into additional defense groups if not enough buildings/positions were found.
 if (count _units > 0) then {
    private _groupSplit = createGroup (side _group);
    _newGroups pushBack _groupSplit;

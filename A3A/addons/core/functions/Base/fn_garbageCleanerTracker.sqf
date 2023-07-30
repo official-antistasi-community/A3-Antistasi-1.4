@@ -54,7 +54,7 @@ private _fnc_conditionalSleep = {
 
     while {serverTime < _targetEndTime} do {
 
-        if not (_storedLastGCTime isEqualTo A3A_lastGarbageCleanTime) then {
+        if (_storedLastGCTime isNotEqualTo A3A_lastGarbageCleanTime) then {
             _returnValue = true;
             break;
         };

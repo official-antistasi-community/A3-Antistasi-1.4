@@ -47,7 +47,7 @@
 ["vehiclesLightAPCs", ["rhsgref_BRDM2_ins"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_bmd2","rhsgref_ins_bmd1p","rhsgref_ins_bmd1"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhsgref_ins_bmp2k","rhsgref_ins_bmp2d","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp1p","rhsgref_ins_bmp1k","rhsgref_ins_bmp1d","rhsgref_ins_bmp1"]] call _fnc_saveToTemplate;                //this line determines IFVs
-["vehiclesTanks", ["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["a3a_chdkz_72a","a3a_chdkz_72a","a3a_chdkz_72b","a3a_chdkz_72c"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhsgref_ins_zsu234"]] call _fnc_saveToTemplate;
 
 

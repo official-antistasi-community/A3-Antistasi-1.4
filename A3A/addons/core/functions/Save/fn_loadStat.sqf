@@ -323,7 +323,7 @@ if (_varName in _specialVarLoads) then {
             };
             [_veh, teamPlayer] call A3A_fnc_AIVEHinit;                  // Calls initObject instead if it's a buyable item
             // TODO: Check whether various buyable items turn up as "Building"
-            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building") and isNil {_veh getVariable "A3A_canGarage"}) then {
+            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building") and !isNil {_veh getVariable "A3A_canGarage"}) then {
                 staticsToSave pushBack _veh;
             };
             if (!isNil "_state") then {

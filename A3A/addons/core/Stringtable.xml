@@ -5318,7 +5318,7 @@
         <Original>You don't have enough money for adding this kind of unit (%1€ needed).</Original>
         <Russian>У вас недостаточно денег для добавления такого юнита (необходимо %1€).</Russian>
         <Korean>이런 종류의 유닛을 추가할 충분한 비용이 없습니다 (%1€ 필요).</Korean>
-        <Spanish>No tienes suficiente dinero para añadir este tipo de unidad (Necesitas %1€).</Spanish>
+        Spanish>No tienes suficiente dinero para añadir este tipo de unidad (Necesitas %1€).</Spanish>
       </Key>
       <Key ID="STR_A3A_garrison_recruit_success">
         <Original>Unit has been recruited.%1</Original>

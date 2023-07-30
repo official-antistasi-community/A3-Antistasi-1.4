@@ -47,25 +47,99 @@ if (count _knownEnemies < 1) exitWith {
 
 [_group, "COMBAT", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 
-if (PATCOM_DEBUG) then {
-    [leader _group, "ATTACK", 10, "White"] call A3A_fnc_debugText3D;
-};
+private _attackType = selectRandomWeighted ["Direct", 0.2, "FlankQuick", 0.4, "FlankLong", 0.6];
+private _attackWaypointNames = ["PATROL_ATTACK_DIRECT", "PATROL_ATTACK_FLANKQUICK", "PATROL_ATTACK_FLANKLONG"];
 
 // If Enabled unit in combat, activly check for statics near their positions to man.
 if (PATCOM_AI_STATICS) then {
     [_group] call A3A_fnc_patrolArmStatics;
 };
 
-// Set Waypoint Name
-private _waypointName = "PATCOM_PATROL_ATTACK";
+if (_attackType == "Direct") then {
+    // Set Waypoint Name
+    private _waypointName = "PATROL_ATTACK_DIRECT";
 
-if ((waypointType [_group, currentWaypoint _group] != "SAD") || ((waypointName [_group, currentWaypoint _group]) != _waypointName)) then {
-    // Select random group in the array to attack.
-    private _targetGroup = selectRandom _knownEnemies;
+    if (!((waypointName [_group, currentWaypoint _group]) in _attackWaypointNames)) then {
+        if (PATCOM_DEBUG) then {
+            [leader _group, format["ATTACK-%1", _attackType], 30, "White"] call A3A_fnc_debugText3D;
+        };
 
-    // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.
-    // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
-    private _nextWaypointPos = [getPosATL (leader _targetGroup), _minimumRadius, _maximumRadius, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafePos;
-    
-    [_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+        // Select random group in the array to attack.
+        private _targetGroup = selectRandom _knownEnemies;
+
+        // Instead of taking the Perceived Position and creating a waypoint from there. We opt to get our own waypoint so we can add some variation.
+        // Center Position | Min Radius | Max Radius | Min Object Distance | Water Mode | Max Gradient | ShoreMode
+        private _nextWaypointPos = [getPosATL (leader _targetGroup), 0, 25, _objectDistance, _waterMode, _maxGradient, _shoreMode] call A3A_fnc_getSafePos;
+        
+        [_group, _nextWaypointPos, "SAD", _waypointName, -1, 50] call A3A_fnc_patrolCreateWaypoint;
+    };
+};
+
+if (_attackType == "FlankQuick") then {
+    // Set Waypoint Name
+    private _waypointName = "PATROL_ATTACK_FLANKQUICK";
+
+    if (!((waypointName [_group, currentWaypoint _group]) in _attackWaypointNames)) then {
+        if (PATCOM_DEBUG) then {
+            [leader _group, format["ATTACK-%1", _attackType], 30, "White"] call A3A_fnc_debugText3D;
+        };
+
+        // Select random group in the array to attack.
+        private _targetGroup = selectRandom _knownEnemies;
+
+        // Define final enemy position to attack.
+        private _enemyPosition = getPosATL (leader _targetGroup);
+
+        private _flankPosition = [_enemyPosition, 250] call A3A_fnc_patrolFlankPos;
+
+        private _flankWaypoint = _group addwaypoint [_flankPosition, 0];
+        _flankWaypoint setWaypointName _waypointName;	
+
+        [_group, (_flankWaypoint select 1)] setWaypointCompletionRadius 50;
+
+        _group setCurrentWaypoint [_group, (_flankWaypoint select 1)];
+
+        private _finalWaypoint = _group addwaypoint [_enemyPosition, 0];
+        _finalWaypoint setWaypointName _waypointName;
+
+        [_group, (_finalWaypoint select 1)] setWaypointCompletionRadius 50;
+    };
+};
+
+if (_attackType == "FlankLong") then {
+    // Set Waypoint Name
+    private _waypointName = "PATROL_ATTACK_FLANKLONG";
+
+    if (!((waypointName [_group, currentWaypoint _group]) in _attackWaypointNames)) then {
+        if (PATCOM_DEBUG) then {
+            [leader _group, format["ATTACK-%1", _attackType], 30, "White"] call A3A_fnc_debugText3D;
+        };
+
+        // Select random group in the array to attack.
+        private _targetGroup = selectRandom _knownEnemies;
+
+        // Define final enemy position to attack.
+        private _enemyPosition = getPosATL (leader _targetGroup);
+
+        private _flankPositionNear = [getPosATL (leader _group), 250] call A3A_fnc_patrolFlankPos;
+
+        private _flankPositionFar = [_enemyPosition, 250] call A3A_fnc_patrolFlankPos;
+
+        private _flankWaypointNear = _group addwaypoint [_flankPositionNear, 0];
+        _flankWaypointNear setWaypointName _waypointName;	
+
+        [_group, (_flankWaypointNear select 1)] setWaypointCompletionRadius 50;
+
+        _group setCurrentWaypoint [_group, (_flankWaypointNear select 1)];
+
+        private _flankWaypointFar = _group addwaypoint [_flankPositionFar, 0];
+        _flankWaypointFar setWaypointName _waypointName;	
+
+        [_group, (_flankWaypointFar select 1)] setWaypointCompletionRadius 50;
+
+        private _finalWaypoint = _group addwaypoint [_enemyPosition, 0];
+        _finalWaypoint setWaypointName _waypointName;
+
+        [_group, (_finalWaypoint select 1)] setWaypointCompletionRadius 50;
+    };
 };

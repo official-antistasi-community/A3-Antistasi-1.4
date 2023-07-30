@@ -94,7 +94,7 @@ if ("heli" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
-["vehiclesPolice", [_vehiclesPolice]] call _fnc_saveToTemplate;
+["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
 
 ["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;

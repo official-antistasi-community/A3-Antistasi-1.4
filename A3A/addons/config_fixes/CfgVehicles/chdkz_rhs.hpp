@@ -3,7 +3,7 @@ class rhsgref_ins_t72ba;
 class rhsgref_ins_t72bb;
 class rhsgref_ins_t72bc;
 
-class a3a_chdkz_72a : rhsgref_ins_t72ba{
+class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba{
 
 #if __A3_DEBUG__
     scope = 2;
@@ -17,7 +17,7 @@ class a3a_chdkz_72a : rhsgref_ins_t72ba{
 		killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
 	};
 };
-class a3a_chdkz_72b : rhsgref_ins_t72bb{
+class a3a_rhs_chdkz_72b : rhsgref_ins_t72bb{
 #if __A3_DEBUG__
     scope = 2;
 #else
@@ -30,7 +30,7 @@ class a3a_chdkz_72b : rhsgref_ins_t72bb{
 		killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
 	};
 };
-class a3a_chdkz_72c : rhsgref_ins_t72bc{
+class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc{
 #if __A3_DEBUG__
     scope = 2;
 #else

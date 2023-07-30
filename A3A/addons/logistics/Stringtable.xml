@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3-Antistasi">
+    <Package name="A3-Antistasi Mission">
+        <Container name="Logistics">
+            <Key ID="STR_antistasi_logistics_dev_gencargo_lacknodes">
+                <Original>Vehicle lacks nodes, define them or use a different vehicle.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_dev_gencargo_lackcapacity">
+                <Original>Vehicle lacks the capacity for a cargo of this size. Capacity: </Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_dev_gencargo_lackavailability">
+                <Original>Vehicle lacks the ability to load weapons.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_addaction_load">
+                <Original>Load %1 into nearest vehicle.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_loaded_nospace">
+                <Original><t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t></Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_loaded_freeslots">
+                <Original><t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t></Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_unloaded_freeslots">
+                <Original><t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t></Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_default">
+                <Original>Default mass: </Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_cargo">
+                <Original>Cargo mass: </Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_objectmass_current">
+                <Original>Current mass: </Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_addweaponaction_getin">
+                <Original>Get in %1 as Gunner.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_logistics">
+                <Original>Logistics</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_addweaponaction_alreadyin">
+                <Original>Someone is already in the static.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_load_being">
+                <Original>Cargo is already being loaded into the vehicle.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_distance">
+                <Original>No vehicle is close enough.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_desveh">
+                <Original>You can't load cargo into a destroyed vehicle.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_dexcargo">
+                <Original>You can't load destroyed cargo into a vehicle.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no">
+                <Original>%1 cannot be loaded.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_mounted">
+                <Original>Can't load a static that's mounted.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_ontop">
+                <Original>%1 can not be mounted on a %2.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_helped">
+                <Original>%1 is being helped or no longer needs your help.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_unable">
+                <Original>%1 is unable to load any cargo.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_space">
+                <Original>%1 does not have enough space to load %2.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_tryload_no_blocking">
+                <Original>%1 can not load cargo while units are blocking the cargo plane.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_unload_no_mounted">
+                <Original>Can't unload a static that's mounted.</Original>
+            </Key>
+            <Key ID="STR_antistasi_logistics_private_unload_no_already">
+                <Original>Cargo is already being unloaded from the vehicle.</Original>
+            </Key>
+        </Container>
+    </Package>
+</Project>

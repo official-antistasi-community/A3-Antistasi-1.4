@@ -66,14 +66,19 @@ private _cargoMass = _newMass - _defaultMass;
 private _msg = "";
 if (!_removeObject) then{
     if (_availableNodes == 0) then {
-        _msg = Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"" There is no more space.</t>", _objectName, _vehicleName, _availableNodes];
+        _msg = Format [localize "STR_antistasi_logistics_private_objectmass_loaded_nospace", _objectName, _vehicleName, _availableNodes];
     } else {
-        _msg = Format ["<t color='#00fff3'>""%1"" is loaded onto ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes];
+        _msg = Format [localize "STR_antistasi_logistics_private_objectmass_loaded_freeslots", _objectName, _vehicleName, _availableNodes];
     };
 } else {
-    _msg = Format ["<t color='#00fff3'>""%1"" was unloaded from ""%2"". Free slots: ""%3"".</t>", _objectName, _vehicleName, _availableNodes];
+    _msg = Format [localize "STR_antistasi_logistics_private_objectmass_unloaded_freeslots", _objectName, _vehicleName, _availableNodes];
 };
-
+/*
+This needs to be slapped into the block below but no clue how.
+"Default mass: " --> STR_antistasi_logistics_private_objectmass_default
+"Cargo mass: " --> STR_antistasi_logistics_private_objectmass_cargo
+"Current mass: " --> STR_antistasi_logistics_private_objectmass_current
+*/
 private _text = format [
     "
     <img image='%1' size='2' align='left'/>

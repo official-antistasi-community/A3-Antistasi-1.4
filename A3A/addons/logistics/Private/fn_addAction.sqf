@@ -23,7 +23,7 @@ if (isNull _object) exitWith {
 };
 
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
-private _loadText = format ["Load %1 into nearest vehicle", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
+private _loadText = format [localize "STR_antistasi_logistics_private_addaction_load", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
 
 switch (_action) do {
     case "load":{

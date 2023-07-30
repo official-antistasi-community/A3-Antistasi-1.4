@@ -8,7 +8,7 @@ class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba{
 #if __A3_DEBUG__
     scope = 2;
 #else
-    scope = 0;
+    scope = 1;
 #endif
 	class EventHandlers
 	{
@@ -21,7 +21,7 @@ class a3a_rhs_chdkz_72b : rhsgref_ins_t72bb{
 #if __A3_DEBUG__
     scope = 2;
 #else
-    scope = 0;
+    scope = 1;
 #endif
 	class EventHandlers
 	{
@@ -34,7 +34,7 @@ class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc{
 #if __A3_DEBUG__
     scope = 2;
 #else
-    scope = 0;
+    scope = 1;
 #endif
 	hiddenSelectionsTextures[] =
 	{

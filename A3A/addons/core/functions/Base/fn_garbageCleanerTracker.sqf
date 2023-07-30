@@ -97,7 +97,7 @@ private _fnc_onAutoGC = {
     Debug_2("Garbage Cleaner Tracker has ran a gc as players reached threshold, time since last gc: %1", _timeSinceLastGC);
 };
 
-// Noop function just to be save and to not break the Context Queue format.
+// Noop function just to be safe and to not break the Context Queue format.
 private _fnc_noOp = {
 
 };

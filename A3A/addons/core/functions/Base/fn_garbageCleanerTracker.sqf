@@ -154,7 +154,7 @@ call _fnc_resetTracker;
 while {true} do {
 
     // sleeps for the CHECK_INTERVAL, but also return sooner if it detects that a GC happened. If GC happened, we reset the context queue.
-    if  (call _fnc_conditionalSleep) then {
+    if (call _fnc_conditionalSleep) then {
         call _fnc_resetTracker;
     };
 

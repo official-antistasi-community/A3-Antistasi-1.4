@@ -557,7 +557,7 @@ switch _mode do {
 			_ctrlList lnbsetcolor [[_r,1],_color];
 			_ctrlList lnbsetcolor [[_r,2],_color];
 			_text = _ctrlList lnbtext [_r,1];
-			_ctrlList lbsettooltip [_r * _columns,[_text,_text + "\n(Not compatible with currently equipped weapons)"] select _isIncompatible];
+			_ctrlList lbsettooltip [_r * _columns,[_text,_text + localize "STR_antistasi_logistics_JNA_arsenal_scope_incompatible"] select _isIncompatible];
 		};
 	};
 
@@ -646,7 +646,7 @@ switch _mode do {
 				//non-member limits
 				_min = [_index, _item] call _minItemsMember;
 				if((_amount <= _min) AND (_amount != -1) AND !([player] call A3A_fnc_isMember)) exitWith{
-					['showMessage',[_display,"We are low on this item, only members may use it"]] call jn_fnc_arsenal;
+					['showMessage',[_display, localize "STR_antistasi_logistics_JNA_arsenal_memberonly"]] call jn_fnc_arsenal;
 				};
 
 				//magazines are handeld by bullet count

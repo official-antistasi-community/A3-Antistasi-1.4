@@ -59,7 +59,7 @@
 ["vehiclesMilitiaTrucks", ["sfp_tgb20"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["sfp_tgb11"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["sfp_police_suv", "sfp_police_offroad"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["sfp_police_offroad"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;

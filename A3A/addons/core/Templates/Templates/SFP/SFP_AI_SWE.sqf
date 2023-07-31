@@ -60,11 +60,11 @@
 ["vehiclesMilitiaTrucks", ["sfp_tgb20"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["sfp_tgb16"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["sfp_police_suv", "sfp_police_offroad"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["sfp_police_offroad"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
-["staticAT", ["CUP_B_TOW_TriPod_US","sfp_rbs56"]] call _fnc_saveToTemplate;
-["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate; //RBS97 may or may not be a bit too strong, but it only has 3 missiles, will be able to compensate for a subpar vehiclesAA
+["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;
+["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 ["staticMortars", ["sfp_grk84"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;

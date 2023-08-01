@@ -65,7 +65,7 @@
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
-["staticMortars", ["sfp_grk84"]] call _fnc_saveToTemplate;
+["staticMortars", ["CUP_B_M252_US"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;

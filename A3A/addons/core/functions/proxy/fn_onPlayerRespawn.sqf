@@ -27,6 +27,8 @@ _nul = [_oldUnit] spawn A3A_fnc_postmortem;
 _oldUnit setVariable ["incapacitated",false,true];
 _newUnit setVariable ["incapacitated",false,true];
 
+[true] call A3A_fnc_selfReviveReset;
+
 if (side group player == teamPlayer) then
 	{
 	_owner = _oldUnit getVariable ["owner",_oldUnit];

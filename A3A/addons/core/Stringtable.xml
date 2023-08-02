@@ -5362,6 +5362,23 @@
         <Spanish>El Seguimiento del Limpiador de Basura llevó a cabo una limpieza porque el umbral de tiempo fue superado. Mantén supervisado el Limpiador de Basura.</Spanish>
       </Key>
     </Container>
+    <Container name="A3A_selfRevive">
+      <Key ID="STR_A3A_selfRevive_title">
+        <Original>Self Revive</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_noFAK">
+        <Original>You don't have a first aid kit for self-revive.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_recent">
+        <Original>You have already revived yourself recently.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_success">
+        <Original>You shake off the injury, but you're not feeling great.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_timeout">
+        <Original>You are feeling much better.</Original>
+      </Key>
+    </Container>
     <Container name="A3A_customHint">
       <Key ID="STR_A3A_customHint_dismiss_no_key">
         <Original>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Previous Hints&lt;br/&gt;Bind dismiss key by: &lt;t color='#f0d498'&gt;Escape Menu&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLS&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;SHOW: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Dismiss Previous Hint&lt;/t&gt;&lt;/t&gt;</Original>

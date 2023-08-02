@@ -1,48 +1,42 @@
 private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_isPlayer","_camTarget","_saveVolumeVoice"];
-_unit = _this select 0;
-//if (_unit getVariable "inconsciente") exitWith {};
-//if (damage _unit < 0.9) exitWith {};
-//if (!local _unit) exitWith {};
-//_unit setVariable ["inconsciente",true,true];
+
+params ["_unit", "_injurer", "_fatalWound"];
+
+_unit setDamage 0.9;
+if (!_fatalWound) then { _unit setHitPointDamage ["hitface", 0.5]; };			// fatal wound marker
+
 _bleedOut = time + 300;//300
 _isPlayer = false;
 _playersX = false;
 _inPlayerGroup = false;
 _unit setBleedingremaining 300;
-_injurer = _this select 1;
 
 if (isPlayer _unit) then
-	{
+{
 	_isPlayer = true;
-	if (!isMultiplayer) then {_bleedOut = time + 600};//50
-	_unit spawn
-		{
-		sleep 5;
-		_this allowDamage true;
-		};
+	_unit spawn { sleep 5; _this allowDamage true };
 	closeDialog 0;
+	openMap false;
 	if (!isNil "respawnMenu") then {(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu]};
 	respawnMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",
-		{
-		_handled = false;
-		if (_this select 1 == 19) then
-			{
-			if (player getVariable ["incapacitated",false]) then
-				{
-				(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
-				[player] spawn A3A_fnc_respawn;
-				};
-			};
-		_handled;
-		}];
+	{
+		if !(player getVariable ["incapacitated",false]) exitWith {false};
+		if (_this select 1 == 19) then {
+			[player] spawn A3A_fnc_respawn;
+		};
+		if (_this select 1 == 35) then {
+			if (A3A_selfReviveMethods) then { [] spawn A3A_fnc_selfRevive };
+			//if (A3A_selfReviveMethods == 2) then { [] spawn A3A_fnc_transferToAI };		// different keys later?
+		};
+		false;
+	}];
 	if (_injurer != Invaders) then {_unit setCaptive true};
-	openMap false;
 	{
-	if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
+		if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
 	} forEach units group _unit;
-	}
+}
 else
-	{
+{
 	if ({isPlayer _x} count units  group _unit > 0) then {_inPlayerGroup = true};
 	_unit stop true;
 	if (_inPlayerGroup) then
@@ -96,21 +90,25 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 	};
 
 	if (_isPlayer) then	{
-		private _textX = "<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit R to Respawn";
-		if !(isNull _helper) then {
-			if (_helper distance _unit < 3) then {
-				_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn", name _helper];
-			} else {
-				_textX = format ["<t size='0.6'>%1 is helping you.<t size='0.5'><br/>Hit R to Respawn", name _helper];
-			};
+		private _helpText = "<t size='0.8'>" + call {
+			if (isNull _helper) exitWith { "There is no AI near to help you." };
+			if (_helper distance _unit < 3) exitWith { format ["%1 is helping you.", name _helper] };
+			format ["%1 is on the way to help you.", name _helper];
+		};
+		private _respawnText = "<t size='0.6'><br/>Hit R to Respawn";
+		private _reviveText = call {
+			if (A3A_selfReviveMethods) exitWith { "<br/>Hit H to Withstand Injury" };
+			//if (A3A_selfReviveMethods == 2) exitWith { "<br/>Hit H to take over nearest AI ally" };
+			""
 		};
 		private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
-		[_textX,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
+		[_helpText + _respawnText + _reviveText,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
 	};
 
-	sleep 3;
-	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + 3};			// delay bleedout if dragged or loaded into vehicle
-	if (random 20 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50]};
+	private _sleepTime = [3, 1] select (isPlayer _unit);
+	sleep _sleepTime;
+	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + _sleepTime};			// delay bleedout if dragged or loaded into vehicle
+	if (random 60 < _sleepTime) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50]};
 };
 
 if (_isPlayer) then
@@ -138,20 +136,14 @@ _unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
 if (time > _bleedOut) exitWith
-	{
-	if (_isPlayer) then
-		{
-		[_unit] call A3A_fnc_respawn
-		}
-	else
-		{
-		_unit setDamage 1;
-		};
-	};
+{
+	if (isPlayer _unit) exitWith { [player] spawn A3A_fnc_respawn };
+	_unit setDamage 1;
+};
 if (alive _unit) then
-	{
+{
 	_unit setUnconscious false;
 	//_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
 	_unit playMoveNow "unconsciousoutprone";
 	_unit setBleedingremaining 0;
-	};
+};

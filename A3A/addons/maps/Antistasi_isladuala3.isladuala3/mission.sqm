@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=3660;
+		nextID=4068;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=2258;
+		nextID=2506;
 	};
 	class Camera
 	{
-		pos[]={2615.0078,35.650002,5766.7715};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={5883.2266,79.699135,4276.8711};
+		dir[]={-0.78304213,-0.61109698,0.11584545};
+		up[]={-0.6045177,0.79155558,0.08943408};
+		aside[]={0.14635044,-8.7940862e-008,0.98923856};
 	};
 };
 binarizationWanted=0;
@@ -275,7 +275,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="seaports";
-							state=2;
 							class Entities
 							{
 								items=4;
@@ -450,7 +449,7 @@ class Mission
 											colorName="ColorGreen";
 											a=15;
 											b=6;
-											angle=111.70803;
+											angle=111.70802;
 											id=208;
 										};
 										class Item2
@@ -921,7 +920,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="airports";
-							state=2;
 							class Entities
 							{
 								items=6;
@@ -954,7 +952,7 @@ class Mission
 											colorName="ColorGreen";
 											a=35;
 											b=15;
-											angle=15.999999;
+											angle=15.999995;
 											id=241;
 											atlOffset=0.00049638748;
 										};
@@ -1518,7 +1516,7 @@ class Mission
 										class Item4
 										{
 											dataType="Marker";
-											position[]={5741.7168,16.91,5973.2959};
+											position[]={5879.9331,27.131807,5990.4502};
 											name="airp_2_helipad";
 											markerType="RECTANGLE";
 											type="rectangle";
@@ -1553,7 +1551,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1732;
 											type="Land_HelipadEmpty_F";
@@ -1569,7 +1566,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1733;
 											type="Land_HelipadEmpty_F";
@@ -1585,7 +1581,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1734;
 											type="Land_HelipadEmpty_F";
@@ -1601,7 +1596,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1735;
 											type="Land_HelipadEmpty_F";
@@ -1617,7 +1611,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1736;
 											type="Land_HelipadEmpty_F";
@@ -1633,7 +1626,6 @@ class Mission
 											side="Empty";
 											class Attributes
 											{
-												presence=0.7033211;
 											};
 											id=1737;
 											type="Land_HelipadEmpty_F";
@@ -2368,7 +2360,7 @@ class Mission
 											flags=1;
 											id=1181;
 											type="ModuleHideTerrainObjects_F";
-											atlOffset=3.8455763;
+											atlOffset=0.7190609;
 											class CustomAttributes
 											{
 												class Attribute0
@@ -7889,7 +7881,7 @@ class Mission
 										class Item0
 										{
 											dataType="Marker";
-											position[]={9606.6543,0,4263.0903};
+											position[]={9596.293,0,4380.522};
 											name="seaPatrol";
 											type="Empty";
 											id=2150;
@@ -7929,7 +7921,7 @@ class Mission
 										class Item0
 										{
 											dataType="Marker";
-											position[]={9628.9307,0,4342.7603};
+											position[]={9615.1143,0,4549.9922};
 											name="seaAttackSpawn";
 											type="mil_ambush";
 											angle=28.695;
@@ -7948,7 +7940,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="factories";
-							state=2;
 							class Entities
 							{
 								items=10;
@@ -10131,7 +10122,7 @@ class Mission
 											colorName="ColorBrown";
 											a=85.412674;
 											b=89.104851;
-											angle=56.811577;
+											angle=56.811569;
 											id=2191;
 											atlOffset=2.5899601;
 										};
@@ -10226,7 +10217,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="outposts";
-							state=2;
 							class Entities
 							{
 								items=22;
@@ -10656,7 +10646,7 @@ class Mission
 											class PositionInfo
 											{
 												position[]={8352.2129,24.27492,8884.2197};
-												angles[]={0,1.4811412,-0};
+												angles[]={0,1.4811412,0};
 											};
 											side="Empty";
 											flags=5;
@@ -10893,7 +10883,7 @@ class Mission
 											colorName="ColorGreen";
 											a=6;
 											b=6;
-											angle=205.55489;
+											angle=205.55486;
 											id=1817;
 										};
 										class Item2
@@ -11242,7 +11232,7 @@ class Mission
 									name="outpost_4";
 									class Entities
 									{
-										items=14;
+										items=17;
 										class Item0
 										{
 											dataType="Marker";
@@ -11259,14 +11249,14 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={9632.4795,16.74,2453.5039};
+											position[]={9638.7266,16.74,2458.0298};
 											name="outp_4_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
-											a=15;
-											b=8.3263683;
-											angle=148.2095;
+											a=6;
+											b=10;
+											angle=239.41508;
 											id=1821;
 										};
 										class Item2
@@ -11350,8 +11340,8 @@ class Mission
 											dataType="Object";
 											class PositionInfo
 											{
-												position[]={9613.3379,18.06831,2537.5427};
-												angles[]={0,5.677125,0};
+												position[]={9611.6328,18.06831,2544.5503};
+												angles[]={-0,1.0129529,0};
 											};
 											side="Empty";
 											flags=4;
@@ -11671,9 +11661,48 @@ class Mission
 											id=1657;
 											type="Land_BagBunker_Small_F";
 										};
+										class Item14
+										{
+											dataType="Marker";
+											position[]={9645.8564,16.747396,2446.3015};
+											name="outp_4_vehicle_1";
+											markerType="RECTANGLE";
+											type="rectangle";
+											colorName="ColorGreen";
+											a=6;
+											b=10;
+											angle=239.41508;
+											id=4063;
+										};
+										class Item15
+										{
+											dataType="Marker";
+											position[]={9604.6943,16.74,2523.127};
+											name="outp_4_vehicle_2";
+											markerType="RECTANGLE";
+											type="rectangle";
+											colorName="ColorGreen";
+											a=6;
+											b=10;
+											angle=328.32907;
+											id=4064;
+										};
+										class Item16
+										{
+											dataType="Marker";
+											position[]={9592.2334,16.74,2514.7083};
+											name="outp_4_vehicle_3";
+											markerType="RECTANGLE";
+											type="rectangle";
+											colorName="ColorGreen";
+											a=6;
+											b=10;
+											angle=329.83813;
+											id=4067;
+										};
 									};
 									id=1819;
-									atlOffset=-0.010133743;
+									atlOffset=-0.00034141541;
 								};
 								class Item4
 								{
@@ -15447,12 +15476,13 @@ class Mission
 												angles[]={0,4.5653067,0};
 											};
 											side="Empty";
+											flags=4;
 											class Attributes
 											{
 											};
 											id=1448;
 											type="Land_HBarrier_5_F";
-											atlOffset=1.4859314;
+											atlOffset=0.075752258;
 										};
 										class Item23
 										{
@@ -17138,7 +17168,7 @@ class Mission
 											colorName="ColorGreen";
 											a=6;
 											b=6;
-											angle=352.37146;
+											angle=352.3714;
 											id=1861;
 										};
 										class Item2
@@ -18556,7 +18586,7 @@ class Mission
 											colorName="ColorGreen";
 											a=6;
 											b=11.771548;
-											angle=212.55394;
+											angle=212.55392;
 											id=1876;
 										};
 										class Item2
@@ -18569,7 +18599,7 @@ class Mission
 											colorName="ColorGUER";
 											a=75.590714;
 											b=83.462097;
-											angle=213.79553;
+											angle=213.79552;
 											id=1877;
 											atlOffset=-0.32539606;
 										};
@@ -20547,7 +20577,7 @@ class Mission
 											colorName="ColorGreen";
 											a=6;
 											b=12;
-											angle=263.91696;
+											angle=263.9169;
 											id=1881;
 										};
 										class Item2
@@ -22617,7 +22647,6 @@ class Mission
 						{
 							dataType="Layer";
 							name="resources";
-							state=2;
 							class Entities
 							{
 								items=20;
@@ -22772,14 +22801,14 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={9363.5879,16.77,2650.2427};
+											position[]={9363.5879,16.77,2650.2429};
 											name="reso_2_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
-											a=15;
-											b=4.4664679;
-											angle=134.60735;
+											a=10;
+											b=6;
+											angle=134.60698;
 											id=1911;
 										};
 										class Item2
@@ -24114,7 +24143,7 @@ class Mission
 										class Item0
 										{
 											dataType="Marker";
-											position[]={4594.3418,14.96,2685.0181};
+											position[]={4599.8433,14.96,2669.3601};
 											name="reso_8_helipad";
 											markerType="RECTANGLE";
 											type="rectangle";
@@ -24126,13 +24155,14 @@ class Mission
 										class Item1
 										{
 											dataType="Marker";
-											position[]={4597.2915,14.96,2727.082};
+											position[]={4563.6484,14.96,2759.2451};
 											name="reso_8_vehicle";
 											markerType="RECTANGLE";
 											type="rectangle";
 											colorName="ColorGreen";
-											a=15;
-											b=15;
+											a=6;
+											b=10;
+											angle=270.10931;
 											id=1935;
 										};
 										class Item2
@@ -24804,7 +24834,7 @@ class Mission
 											colorName="ColorGreen";
 											a=9.5265903;
 											b=15;
-											angle=359.4816;
+											angle=359.48154;
 											id=1971;
 										};
 										class Item2

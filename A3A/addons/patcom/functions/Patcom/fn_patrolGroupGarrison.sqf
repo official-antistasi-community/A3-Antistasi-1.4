@@ -36,6 +36,12 @@ if (count _units == 0) exitwith {};
 _group lockWP true;
 _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 
+if (count _buildings == 0) exitWith {
+    Error_1("PATCOM | No Valid Garrison buildings found near group: %1 | Defaulting to Defend.", _group);
+    [_group, "Patrol_Defend", 0, 100, -1, true, _position, false] call A3A_fnc_patrolLoop;
+    _group
+};
+
 // Don't place units in destroyed buildings
 _buildings = _buildings select { damage _x < 1 && !isObjectHidden _x };
 _buildings = _buildings call BIS_fnc_arrayShuffle;

@@ -25,7 +25,7 @@ if (isNull _cargo || isNull _vehicle) exitWith {
 
 //action to get into static
 private _name = getText (configFile >> "CfgVehicles" >> typeOf _cargo >> "displayName");
-private _text = format [localize "STR_antistasi_logistics_private_addweaponaction_getin", _name];
+private _text = format [localize "STR_A3A_logi_addweaponaction_getin", _name];
 
 private _actionID = _vehicle addAction [
     _text,
@@ -34,7 +34,7 @@ private _actionID = _vehicle addAction [
         if !(attachedTo _static isEqualTo _vehicle) exitWith {[_vehicle, _id] remoteExecCall ["removeAction", 0]};// incase of code break in unloading static
         if (!alive gunner _static) then {
             _caller moveInGunner _static;
-        } else {[localize "STR_antistasi_logistics_logistics", localize "STR_antistasi_logistics_private_addweaponaction_alreadyin"] call A3A_fnc_customHint};
+        } else {[localize "STR_A3A_logi_title", localize "STR_A3A_logi_addweaponaction_alreadyin"] call A3A_fnc_customHint};
     },
     _cargo,
     5.5,

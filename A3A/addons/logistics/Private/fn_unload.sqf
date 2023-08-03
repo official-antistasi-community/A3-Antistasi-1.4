@@ -30,9 +30,9 @@ if ((count _loaded) isEqualTo 1) then {_lastLoaded = true};
 if !(
     ((gunner _cargo) isEqualTo _cargo)
     or ((gunner _cargo) isEqualTo objNull)
-) exitWith {[localize "STR_antistasi_logistics_logistics", localize "STR_antistasi_logistics_private_unload_no_mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+) exitWith {[localize "STR_A3A_logi_title", localize "STR_A3A_logi_unload_no_mounted"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 
-if (_vehicle getVariable ["LoadingCargo", false]) exitWith {[localize "STR_antistasi_logistics_logistics",localize "STR_antistasi_logistics_private_unload_no_already"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
+if (_vehicle getVariable ["LoadingCargo", false]) exitWith {[localize "STR_A3A_logi_title",localize "STR_A3A_logi_unload_no_already"] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner]};
 _vehicle setVariable ["LoadingCargo",true,true];
 
 //object string for jip

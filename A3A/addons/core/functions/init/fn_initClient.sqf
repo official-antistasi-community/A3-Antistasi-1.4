@@ -413,8 +413,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
-// call ACE3 initialization stuff
-if(A3A_hasACE) then {call A3A_fnc_initACE};
+if (A3A_hasACE) then {call A3A_fnc_initACE};
 
 [allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
 

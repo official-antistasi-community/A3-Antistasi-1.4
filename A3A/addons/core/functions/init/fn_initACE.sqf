@@ -37,6 +37,10 @@ if (A3A_hasACEMedical) then {
     if (_unit == player) then { player setCaptive false };
 }] call CBA_fnc_addEventHandler;
 
+["ace_throwableThrown", { 
+    params ["_unit", "_throwable"]; 
+    if (isCaptive player && _unit == player) then { player setCaptive false }; 
+}] call CBA_fnc_addEventHandler;
 
 if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
     Error("ACE non-public functions have changed, rebel group join/leave actions will not be removed.");

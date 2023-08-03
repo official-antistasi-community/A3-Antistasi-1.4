@@ -56,6 +56,8 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
             private _buildingPos = _building buildingPos _x;
             if !(_buildingPos isEqualTo [0,0,0]) then {
                 _buildingPositions pushBack _buildingPos;
+            } else {
+                Error_1("PATCOM | Bad building position found | Class: %1", _class);
             };
         } forEach (PATCOM_Garrison_Positions_Whitelist get _class);
     } else {
@@ -69,18 +71,13 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
     // Evenly distribute units between found amount of buildings.
     // Note: If more buildings are found than units, loop will exit when the unit pool reaches zero.
     for "_i" from 1 to _unitsPerBuilding do {
-        if (count _units == 0) exitWith {};
-        if (count _buildingPositions == 0) exitWith {};
-        private _unit = _units select 0;
-        private _position = _buildingPositions select 0;
+        if ((count _units == 0) || (count _buildingPositions == 0)) exitWith {};
+        private _unit = _units deleteAt 0;
+        private _position = _buildingPositions deleteAt 0;
         _unit setposATL _position;
         _unit setdir ((_unit getRelDir _building)-180);
         _unit setUnitPos "UP";
-
         dostop _unit;
-
-        _units deleteAt 0;
-        _buildingPositions deleteAt 0;
     };
 } forEach _buildings;
 

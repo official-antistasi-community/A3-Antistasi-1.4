@@ -71,6 +71,7 @@ if (!isServer) then {
     [clientOwner, "destroyedBuildings"] remoteExecCall ["publicVariableClient", 2];
 
     boxX call jn_fnc_arsenal_init;
+    if (A3A_hasACEMedical) then { call A3A_fnc_initACEUnconsciousHandler };
 };
 
 // Headless clients register with server and bail out at this point

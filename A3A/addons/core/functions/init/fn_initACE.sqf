@@ -25,25 +25,12 @@ if (A3A_hasACEMedical) then {
     ["ace_treatmentStarted", {
         params ["_caller", "_target", "_selectionName", "_className", "_itemUser", "_usedItem"];
         systemChat str _this;
-        if(_usedItem in ["ACE_atropine", "ACE_epinephrine", "ACE_morphine"]) then {
+        if (_usedItem in ["ACE_atropine", "ACE_epinephrine", "ACE_morphine"]) then {
             ServerInfo_3("Player: %1 used %2 on %3",name _caller,_usedItem,name _target);
         };
     }] call CBA_fnc_addEventHandler;
 };
 
-if(isServer) then {
-    ["ace_zeus_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
 
 ["ace_explosives_place", {
     params ["_explosive","_dir","_pitch","_unit"];

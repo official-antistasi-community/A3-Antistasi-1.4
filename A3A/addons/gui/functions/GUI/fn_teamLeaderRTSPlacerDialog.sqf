@@ -107,55 +107,6 @@ switch (_mode) do
 				call (A3A_building_EHDB # UPDATE_BB);
 			}];
 
-			_button ctrlAddEventHandler ["MouseEnter", {
-                params ["_control"];
-                if (true || isNil "Dev_GUI_prevInjectEnter") then {
-                    params ["_control"];
-                    private _UIScaleAdjustment = (0.55/getResolution#5);  // I tweaked this on UI Small, so that's why the 0.55 is the base size.
-
-                    private _model = _control getVariable "model";
-                    private _className = _control getVariable "className";
-                    private _display = findDisplay A3A_IDD_TEAMLEADERDIALOG;  // 9300;
-                    private _objPreview = _display displayCtrl A3A_IDC_TEAMLEADERBUILDINGRENDER;  // 9303;
-                    _objPreview ctrlSetModel _model;
-                    private _boundingDiameter = [_className] call FUNC(sizeOf);
-                    _objPreview ctrlSetModelScale (2.25/(_boundingDiameter) * _UIScaleAdjustment);
-                    _objPreview ctrlSetModelDirAndUp [[-0.6283,0.3601,0.6896],[-0.0125,-0.5015,0.8651]];  // x y z
-
-                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_TEAMLEADERBUILDIMAGEPREVIEW;  // 9304;
-                    private _mouseAbsolutePos = getMousePosition;
-                    private _mouseRelativePos = ctrlMousePosition _editorPreviewPicture;
-                    _mouseAbsolutePos vectorDiff _mouseRelativePos params ["_objPreview_x", "_objPreview_y"];
-
-
-                    private _yAdjustment = 0.25 * _UIScaleAdjustment;
-                    _objPreview ctrlSetPosition [_objPreview_x + 0.5 * (22 * pixelW * pixelGridNoUIScale), 4, _objPreview_y - 0.5 * (12.5 * pixelW * pixelGridNoUIScale) + _yAdjustment];
-                    _editorPreviewPicture ctrlShow false;
-                    _editorPreviewPicture ctrlCommit 1;
-
-                    _objPreview ctrlShow true;
-                    _objPreview ctrlEnable false;  // Prevent the user dragging it.
-                } else {
-                    _control call Dev_GUI_prevInjectEnter;
-                };
-            }];
-            _button ctrlAddEventHandler ["MouseExit", {
-                params ["_control"];
-                if (true || isNil "Dev_GUI_prevInjectExit") then {
-                    params ["_control"];
-                    private _display = findDisplay A3A_IDD_TEAMLEADERDIALOG;  // 9300;
-                    private _objPreview = _display displayCtrl A3A_IDC_TEAMLEADERBUILDINGRENDER;  // 9303;
-
-                    private _editorPreviewPicture = ctrlParentControlsGroup _control controlsGroupCtrl A3A_IDC_TEAMLEADERBUILDIMAGEPREVIEW;  // 9304;
-
-                    _editorPreviewPicture ctrlShow true;
-                    _editorPreviewPicture ctrlCommit 1;
-
-                    _objPreview ctrlShow false;
-                } else {
-                    _control call Dev_GUI_prevInjectExit;
-                };
-            }];
 			if (_price isNotEqualTo 0) then {
 				private _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];
 				_priceText ctrlSetPosition[23 * GRID_W, 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
@@ -195,12 +146,11 @@ switch (_mode) do
 			
 		}];
 
-		_txt = _display ctrlCreate[ "A3A_StructuredText", -1];
-		_txt ctrlSetPosition[ (1.4 * safeZoneX) + safeZoneW, -0.65 * safeZoneY, 0.5, 0.3];			// funkiness because I don't want to deal with dialogs anymore tonight
-		_txt ctrlCommit 0;
-		_txt ctrlSetStructuredText parseText localize "STR_antistasi_teamleader_placer_placer_info";
+		// _txt = _display ctrlCreate[ "A3A_StructuredText", -1];
+		// _txt ctrlSetPosition[ (1.4 * safeZoneX) + safeZoneW, -0.65 * safeZoneY, 0.5, 0.3];			// funkiness because I don't want to deal with dialogs anymore tonight
+		// _txt ctrlCommit 0;
+		// _txt ctrlSetStructuredText parseText localize "STR_antistasi_teamleader_placer_placer_info";
 	};
-
 	default
     {
         // Log error if attempting to call a mode that doesn't exist

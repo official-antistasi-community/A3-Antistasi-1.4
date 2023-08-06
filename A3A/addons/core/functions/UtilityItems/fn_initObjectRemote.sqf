@@ -71,3 +71,8 @@ if (typeOf _object == "Land_MedicalTent_01_MTP_closed_F") then {
         "true", 10
     ];
 };
+
+// teamleader placer stuff
+if ("team" in _flags) then {
+    [_object] call A3A_fnc_initTeamLeaderBox;
+};

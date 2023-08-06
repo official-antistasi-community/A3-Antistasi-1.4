@@ -23,7 +23,7 @@ _object addAction [
 		if ([getPosATL (_this#3)] call A3A_fnc_enemyNearCheck) exitWith {
 			["TeamLeader Placer", "You can not use the placer while there are enemies nearby."] call A3A_fnc_customHint;
 		};
-        [_this#3, 75] call A3A_fnc_teamLeaderRTSPlacer;
+        [_this#3, 75, _this#3] call A3A_fnc_teamLeaderRTSPlacer;
     },
     _object,
     1.5,
@@ -35,3 +35,5 @@ _object addAction [
     )", 
     4
 ];
+
+_object setVariable ["A3A_SUPPLYVALUE", 10000, true];

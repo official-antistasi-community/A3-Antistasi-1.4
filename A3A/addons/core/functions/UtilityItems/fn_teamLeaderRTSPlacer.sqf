@@ -18,14 +18,20 @@ Example:
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 #include "placerDefines.hpp"
+#include "\x\A3A\addons\GUI\dialogues\ids.inc"
 
-params [["_centerObject", player, [objNull]], ["_buildingRadius", 20, [0]]];
+params [
+	["_centerObject", player, [objNull]],
+	["_buildingRadius", 20, [0]],
+	["_teamLeaderBox", objNull, [objNull]]
+];
 
 
 if(!isNil "A3A_building_EHDB") exitwith {};
 
 
-[_centerObject, _buildingRadius] call A3A_fnc_initBuildingDB;
+[_centerObject, _buildingRadius, _teamLeaderBox] call A3A_fnc_initBuildingDB;
+("A3A_PlacerHint" call BIS_fnc_rscLayer) cutRsc ["A3A_PlacerHints", "PLAIN", -1, false];
 A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
 A3A_cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
@@ -59,19 +65,21 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
 		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
-		//try to take money away 😞
-		private _insufficientFunds = isNil {
-    		if (player == theBoss && (server getVariable ["resourcesFIA", 0]) >= _price) then {
-        		[0,(-_price)] remoteExec ["A3A_fnc_resourcesFIA",2];
-        		true;
-    		} else {
-        		if ((player getVariable ["moneyX", 0]) >= _price) then {
-            		[-_price] call A3A_fnc_resourcesPlayer;
-            		true;
-        		};
-    		};
-		};
+		private _supply = (A3A_building_EHDB # TEAMLEADER_BOX) getVariable ["A3A_SUPPLYVALUE", 10000];
+		private _insufficientFunds = false;
 
+		if(_price <= _supply) then 
+		{
+			_supply = _supply - _price;
+			[(A3A_building_EHDB # TEAMLEADER_BOX),["A3A_SUPPLYVALUE", _supply]] remoteExec ["setVariable", 0];
+			systemChat str _supply;
+			//(A3A_building_EHDB # TEAMLEADER_BOX) setVariable ["A3A_SUPPLYVALUE", _supply, true];
+		}
+		else
+		{
+			_insufficientFunds = true;
+		};
+		// exit
 		if (_insufficientFunds) exitwith {[localize "STR_antistasi_teamleader_placer_title", localize "STR_antistasi_teamleader_placer_insufficient_funds"] call A3A_fnc_customHint};
 
 	
@@ -95,8 +103,22 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		A3A_building_EHDB set [SPACE_PRESSED, true];
 	};
 
+	// unsafe mode
+	if (_key isEqualTo DIK_LSHIFT) then {
+		A3A_building_EHDB set [UNSAFE_MODE, !(A3A_building_EHDB # UNSAFE_MODE)];
+		// change the text color to tell that you have entered the mode
+		private _display = uiNamespace getVariable "display";
+		private _shiftText = (_display displayCtrl IDC_PLACERHINT_SHIFT_TEXT);
+		if (A3A_building_EHDB # UNSAFE_MODE) then {_shiftText ctrlSetTextColor [1, 0, 0, 1];} else {_shiftText ctrlSetTextColor [1, 1, 1, 1];}
+	};
+
+	// snap to surface
 	if (_key isEqualTo DIK_LALT) then {
-		A3A_building_EHDB set [UNSAFE_MODE, true];
+		A3A_building_EHDB set [SNAP_SURFACE_MODE, !(A3A_building_EHDB # SNAP_SURFACE_MODE)];
+		// change the text color to tell that you have entered the mode
+		private _display = uiNamespace getVariable "display";
+		private _altText = (_display displayCtrl IDC_PLACERHINT_ALT_TEXT);
+		if (A3A_building_EHDB # SNAP_SURFACE_MODE) then {_altText ctrlSetTextColor [1, 0, 0, 1];} else {_altText ctrlSetTextColor [1, 1, 1, 1];}
 	};
 
 	if (_key isEqualTo DIK_E) then {
@@ -112,10 +134,6 @@ A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
 
 private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 	params ["_displayOrControl", "_key"];
-
-	if (_key isEqualTo DIK_LALT) then {
-		A3A_building_EHDB set [UNSAFE_MODE, false];
-	};
 
 	if (_key isEqualTo DIK_SPACE) then {
 		A3A_building_EHDB set [SPACE_PRESSED, false];
@@ -167,6 +185,14 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		_stateChange = true;
 	};
 	
+		if(A3A_building_EHDB # SNAP_SURFACE_MODE) then {
+		private _vehiclePos = getPosASL _object;
+		private _intersects = lineIntersectsSurfaces [_vehiclePos, _vehiclePos vectorAdd [0,0,-100], _object];
+	    if (count _intersects > 0) then {
+			_vehiclePostion = (_intersects select 0 select 0);
+		};
+		_stateChange = true;
+	};
 	
 	private _hide = {
 		_object hideObject _this;

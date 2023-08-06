@@ -18,7 +18,11 @@ Example:
 
 
 
-params [["_buildCenter", player, [objNull]],[ "_buildRadius", 20,[0]]];
+params [
+	["_buildCenter", player, [objNull]],
+	["_buildRadius", 20,[0]],
+	["_teamLeaderBox", objNull, [objNull]]
+];
 
 
 A3A_building_EHDB = [
@@ -41,6 +45,7 @@ A3A_building_EHDB = [
 		A3A_cam cameraEffect ["terminate", "back"];
 		camDestroy A3A_cam;
 		deleteVehicle (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+		("A3A_PlacerHint" call BIS_fnc_rscLayer) cutText ["", "PLAIN"];
 		private _params = (A3A_building_EHDB # BUILD_OBJECTS_ARRAY);
 		A3A_buildingRays = nil;
 		A3A_building_EHDB = nil;
@@ -126,5 +131,9 @@ A3A_building_EHDB = [
 	_buildRadius,
 	15,
 	0,
-	0
+	0,
+	_teamLeaderBox,
+	false,
+	false,
+	false
 ]; 

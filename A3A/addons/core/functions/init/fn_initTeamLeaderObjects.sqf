@@ -36,8 +36,4 @@ if(A3A_buildableObjects isEqualTo []) then
 	];
  };
 
-
-A3A_buildableObjects = _buildObjects append [[A3A_faction_reb get "flag", 0, 2]];
-
-// this is not needed
-//publicVariable "A3A_buildableObjects";
+A3A_buildableObjects append [[A3A_faction_reb get "flag", 0, 2]];

@@ -122,7 +122,6 @@ A3A_hasZen = (isClass (configFile >> "CfgPatches" >> "zen_common"));
 
 A3A_hasCUPCoreMap = false;
 if (isClass (configfile >> "CfgPatches" >> "CUP_CA_Data")) then {A3A_hasCUPCoreMap = true; Info("Cup Terrains Detected.") };
-call A3A_fnc_initTeamLeaderObjects;
 
 ////////////////////////////////////
 //        BUILDINGS LISTS        ///

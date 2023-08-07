@@ -135,8 +135,8 @@ if (_attackType == "FlankLong") then {
         private _enemyPosition = getPosATL (leader _targetGroup);
 
         // Get first and second flanking positions.
-        private _flankPositionNear = [getPosATL (leader _group), 250] call A3A_fnc_patrolFlankPos;
-        private _flankPositionFar = [_enemyPosition, 250] call A3A_fnc_patrolFlankPos;
+        private _flankPositionNear = [getPosATL (leader _group), 150] call A3A_fnc_patrolFlankPos;
+        private _flankPositionFar = [_enemyPosition, 150] call A3A_fnc_patrolFlankPos;
 
         // Add first waypoint to group.
         private _flankWaypointNear = _group addwaypoint [_flankPositionNear, 0, 1, _waypointName];

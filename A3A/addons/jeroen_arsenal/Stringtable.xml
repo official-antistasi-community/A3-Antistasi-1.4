@@ -9,6 +9,12 @@
             <Key ID="STR_A3A_JNA_vehicle_title">
                 <Original>Vehicle inventory</Original>
             </Key>
+            <Key ID="STR_A3A_JNA_loading_error">
+                <Original>ERROR DURING ARSENAL LOAD</Original>
+            </Key>
+            <Key ID="STR_A3A_JNA_rhs_error">
+                <Original>ERROR - Please report RPT to Antistasi Dev's.</Original>
+            </Key>
             <Key ID="STR_A3A_JNA_export_todo">
                 <Original>TODO</Original>
             </Key>

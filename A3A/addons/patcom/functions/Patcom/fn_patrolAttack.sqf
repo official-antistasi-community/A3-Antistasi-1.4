@@ -48,7 +48,7 @@ if (count _knownEnemies < 1) exitWith {
 [_group, "COMBAT", "FULL", "COLUMN", "RED", "AUTO"] call A3A_fnc_patrolSetCombatModes;
 
 // Get random attack type.
-private _attackType = selectRandomWeighted ["Direct", 0.2, "FlankQuick", 0.4, "FlankLong", 0.6];
+private _attackType = selectRandomWeighted ["Direct", 0.5, "FlankQuick", 0.3, "FlankLong", 0.2];
 private _attackWaypointNames = ["PATROL_ATTACK_DIRECT", "PATROL_ATTACK_FLANKQUICK", "PATROL_ATTACK_FLANKLONG"];
 
 // If Enabled unit in combat, activly check for statics near their positions to man.

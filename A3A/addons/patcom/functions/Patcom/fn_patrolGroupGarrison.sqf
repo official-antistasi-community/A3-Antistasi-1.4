@@ -56,6 +56,11 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
     private _class = typeOf _building;
     private _buildingPositions = [];
 
+    if (_class in A3A_staticBuildingClasses) then {
+        private _staticsNear = nearestObjects [getPosATL _building, ["StaticWeapon"], 6];
+        if (count _staticsNear > 0) then {continue};
+    };
+
     // Check to see if building is in whitelist first for better unit positions.
     if (_class in PATCOM_Garrison_Positions_Whitelist) then {
         {

@@ -45,9 +45,9 @@
 ["vehiclesPlanesCAS", []] call _fnc_saveToTemplate;             //Will be used with CAS script, must be defined in setPlaneLoadout. Needs
                                                                 //fixed gun and either rockets or missiles
 
-["vehiclesPlanesAA", []] call _fnc_saveToTemplate;              //Will be used with ASF script, must be defined in setPlaneLoadout. Needs 								        //fixed gun and either rockets or missiles
+["vehiclesPlanesAA", []] call _fnc_saveToTemplate;              //Will be used with ASF script, must be defined in setPlaneLoadout. Needs 								        //fixed gun and AA missiles
 
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;	//Plane that can carry passengers and cargo(?) infantry variant if availbe no 									//need for vehicle one currently
+["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;	//Plane that can carry passengers and cargo(?) infantry variant if availbe, no 									//need for vehicle one currently
 
 ["vehiclesHelisLight", []] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
 

@@ -32,6 +32,7 @@
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", []] call _fnc_saveToTemplate;                 // cannon armed, heavely armored, passengers will be ignored
 ["vehiclesAA", []] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
+
 //["vehiclesCRV", []] call_fnc_saveToTemplate;                  // vehicle with capability to repair,rearm and refuel vehicles
 //["vehiclesUGV", []] call_fnc_saveToTemplate;			// unmanned ground vehicle, armed(or unarmed so it can carry cargo??)
 								// UGV's and CRV's are currently not utilyzed and may not be in the future

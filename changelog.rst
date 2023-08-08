@@ -3,6 +3,35 @@ Changelog
 ==========
 
 
+Version 3.3.3
+===============
+
+.. note::
+   08th August 2023
+
+.. admonition:: Bugfixes
+
+   * :issue:`2900` Fixed early road patrol despawn and increased spawn rate
+   * :issue:`2898` Fixed undefined variable in ArmStatic
+   * :issue:`2891` Fixed Lafette tripod category override typo
+   * :issue:`2889` Fixed merging issue with :issue:`2808` and hence properly fixed trailing comma and missing AA plane in ION Temperate
+   * :issue:`2887` Fixed autoRearm first aid kits bug and reduced waitUntil spam
+   * :issue:`2877` Fixed stringtable error
+   * :issue:`2874` Fixed various vehicle/static save issues
+   * :issue:`2872` Fixed units spawning in additional SPE bocage mounds
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
 Version 3.3.2
 ===============
 

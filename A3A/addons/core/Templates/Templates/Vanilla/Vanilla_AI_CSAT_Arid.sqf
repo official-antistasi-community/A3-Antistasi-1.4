@@ -392,6 +392,29 @@ _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]]
 
 
 if ("mark" in A3A_enabledDLC) then {
+	private _sfMG      = _sfLoadoutData get "machineGuns";
+	private _sfMarks   = _sfLoadoutData get "marksmanRifles";
+	private _sfSniper  = _sfLoadoutData get "sniperRifles";
+	
+	_sfMG append [];
+	_sfMarks append [
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", ["10Rnd_127x54_Mag"], [], "bipod_02_F_hex"].
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", ["10Rnd_127x54_Mag"], [], "bipod_02_F_hex"]
+	];
+	_sfSniper append [];
+	
+	_sfLoadoutData set ["machineGuns", _sfMG];
+	_sfLoadoutData set ["marksmanRifles", _sfMarks];
+	_sfLoadoutData set ["sniperRifles", _sfSniper];
+	
+	private _mMG      = _militaryLoadoutData get "machineGuns";
+	private _mSniper  = _militaryLoadoutData get "sniperRifles";
+	
+	_mMG append [];
+	_mSniper append [];
+	
+	_militaryLoadoutData set ["machineGuns", _mMG];
+	_militaryLoadoutData set ["sniperRifles", _mSniper];	
 };
 
 

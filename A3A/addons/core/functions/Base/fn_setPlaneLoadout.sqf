@@ -43,6 +43,13 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F"]];
             _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F", "missiles_SCALPEL"]];
         };
+        case "I_Plane_Fighter_04_F":
+        {
+		    _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
+            _plane setVariable ["mainGun", "weapon_Fighter_Gun20mm_AA"];
+            _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F"]];
+            _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher"]];
+        };
         //RHS US CAS (A-10)
         case "RHS_A10";
         case "UK3CB_CW_US_B_EARLY_A10":
@@ -262,6 +269,11 @@ if (_type == "AA") then
         case "O_Plane_Fighter_02_F":
         {
             _loadout = ["PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1"];
+        };
+        //Vanilla IND Multi-purpose
+        case "I_Plane_Fighter_03_dynamicLoadout_F":
+        {
+            _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
         };
         //Vanilla IND Air superiority fighter
         case "I_Plane_Fighter_04_F":

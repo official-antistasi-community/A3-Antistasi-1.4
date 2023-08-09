@@ -139,6 +139,28 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_s8t"]];
             _plane setVariable ["missileLauncher", ["uk3cb_weap_kh25ma_Launcher"]];
         };
+        // SFP aircraft
+        case "sfp_jas39":
+        {
+            _loadout = ["sfp_1x_rb98","sfp_1x_rb98","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","sfp_6rnd_arak135_AP","sfp_6rnd_arak135_AP","PylonRack_3Rnd_Missile_AGM_02_F"];
+            _plane setVariable ["mainGun", "sfp_mauser_bk27_27mm"];
+            _plane setVariable ["rocketLauncher", ["sfp_arak135_launcher"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F","missiles_SCALPEL"]];
+        };
+        case "sfp_jas39_bk90":
+        {
+            _loadout = ["sfp_1x_rb98","sfp_1x_rb98","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","sfp_1rnd_bk90"];
+            _plane setVariable ["mainGun", "sfp_mauser_bk27_27mm"];
+            _plane setVariable ["bombRacks", ["sfp_bk90_launcher"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F","missiles_SCALPEL"]];
+        };
+        case "sfp_jas39_rb15":
+        {
+            _loadout = ["sfp_1x_rb98","sfp_1x_rb98","CUP_PylonPod_19Rnd_CRV7_KEP_plane_M","CUP_PylonPod_19Rnd_CRV7_KEP_plane_M","PylonRack_3Rnd_Missile_AGM_02_F","PylonRack_3Rnd_Missile_AGM_02_F","sfp_1x_rb15"];
+            _plane setVariable ["mainGun", "sfp_mauser_bk27_27mm"];
+            _plane setVariable ["rocketLauncher", ["CUP_Vmlauncher_CRV7_veh"]];
+            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F","sfp_rbs15_launcher"]];
+        };
         // cup aircraft
         case "CUP_B_L39_CZ":
         {
@@ -336,6 +358,12 @@ if (_type == "AA") then
         case "UK3CB_MDF_B_Mystere_AA1":
         {
             _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
+        };
+        // SFP aircraft
+        case "sfp_jas39";
+        case "sfp_jas39_cap":
+        {
+            _loadout = ["sfp_1x_rb98","sfp_1x_rb98","CUP_PylonPod_2Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_2Rnd_AIM_9L_LAU_Sidewinder_M","sfp_2x_rb100","sfp_2x_rb100","CUP_PylonPod_2Rnd_AGM114L_Hellfire_II_Plane_M"];
         };
         // cup aircraft
         case "CUP_B_L39_CZ":

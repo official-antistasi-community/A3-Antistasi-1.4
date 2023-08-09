@@ -30,7 +30,7 @@
 ["vehiclesLightAPCs", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_O_MTLB_pk_Green_RU"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["sfp_patgb360","CUP_I_BMP1_TK_GUE"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["sfp_strv122","sfp_strv122b","sfp_strv121","sfp_ikv91"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["sfp_strv122","sfp_strv122b","sfp_ikv91"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 

@@ -396,12 +396,18 @@ if ("mark" in A3A_enabledDLC) then {
 	private _sfMarks   = _sfLoadoutData get "marksmanRifles";
 	private _sfSniper  = _sfLoadoutData get "sniperRifles";
 	
-	_sfMG append [];
-	_sfMarks append [
-	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", ["10Rnd_127x54_Mag"], [], "bipod_02_F_hex"].
-	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", ["10Rnd_127x54_Mag"], [], "bipod_02_F_hex"]
+	_sfMG append [
+	["MMG_01_tan_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["MMG_01_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]
 	];
-	_sfSniper append [];
+	_sfMarks append [
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"]
+	];
+	_sfSniper append [
+	["srifle_DMR_05_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+	];
 	
 	_sfLoadoutData set ["machineGuns", _sfMG];
 	_sfLoadoutData set ["marksmanRifles", _sfMarks];
@@ -410,8 +416,13 @@ if ("mark" in A3A_enabledDLC) then {
 	private _mMG      = _militaryLoadoutData get "machineGuns";
 	private _mSniper  = _militaryLoadoutData get "sniperRifles";
 	
-	_mMG append [];
-	_mSniper append [];
+	_mMG append [
+	["MMG_01_tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["MMG_01_hex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]];
+	_mSniper append [
+	["srifle_DMR_05_hex_F", "", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_05_tan_f", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+	];
 	
 	_militaryLoadoutData set ["machineGuns", _mMG];
 	_militaryLoadoutData set ["sniperRifles", _mSniper];	

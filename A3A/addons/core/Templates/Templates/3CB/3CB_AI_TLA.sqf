@@ -33,7 +33,7 @@
 ["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_EARLY_BRDM2"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["UK3CB_CW_SOV_O_EARLY_BTR60","UK3CB_CW_SOV_O_EARLY_BTR70"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["UK3CB_CW_SOV_O_EARLY_BMP1","UK3CB_CW_SOV_O_EARLY_BMP2","UK3CB_CW_SOV_O_EARLY_BMP2K"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["UK3CB_CW_SOV_O_EARLY_T55","UK3CB_ARD_O_T34"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["UK3CB_CW_SOV_O_EARLY_T72A","UK3CB_CW_SOV_O_EARLY_T55","UK3CB_CW_SOV_O_EARLY_T55","UK3CB_ARD_O_T34"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_CW_SOV_O_EARLY_ZsuTank"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 

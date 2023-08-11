@@ -14,6 +14,10 @@
     ["UK3CB_AAF_B_M1117", ["cost", 80], ["threat", 100]],
     ["UK3CB_ANA_B_M1117", ["cost", 80], ["threat", 100]],
     ["UK3CB_TKA_O_GAZ_Vodnik_Cannon", ["cost", 80], ["threat", 100]],
+	
+	
+    // Trash tank
+    ["UK3CB_ARD_O_T34", ["cost", 150], ["threat", 200]],
 
     // Trash planes
     ["UK3CB_AAF_B_L39_PYLON", ["cost", 150]],
@@ -22,6 +26,7 @@
     ["UK3CB_LDF_B_L39_PYLON", ["cost", 150]],
     ["UK3CB_KDF_B_L39_PYLON", ["cost", 150]],
     ["UK3CB_ADA_I_L39_PYLON", ["cost", 150]],
+    ["UK3CB_CW_SOV_O_EARLY_LI2_ARMED", ["cost", 150]],
     ["rhs_l159_cdf_b_CDF_CAP", ["cost", 150]],
     ["RHSGREF_A29B_HIDF", ["cost", 120]],
     ["UK3CB_B_Mystere_HIDF_CAS1", ["cost", 200]],           // not many missiles. Gun is actually good though

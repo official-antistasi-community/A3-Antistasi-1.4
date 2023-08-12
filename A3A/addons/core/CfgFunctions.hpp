@@ -360,6 +360,7 @@ class CfgFunctions
 
             class initVehClassToCrew {};
             class initZones {};
+            class initZeusLogging {};
             class modBlacklist {};
             class playerMarkers {};
             class prepareMarkerArrays {};

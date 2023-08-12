@@ -3,13 +3,13 @@ if (!isServer and hasInterface) exitWith{};
 
 _markerX = _this select 0;
 
-_difficultX = if (random 10 < tierWar) then {true} else {false};
 _leave = false;
 _contactX = objNull;
 _groupContact = grpNull;
 _tsk = "";
 _positionX = getMarkerPos _markerX;
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
+_difficultX = if (random 10 < tierWar) then {true} else {false};
 _timeLimit = if (_difficultX) then {60} else {120};
 if (A3A_hasIFA) then {_timeLimit = _timeLimit * 2};
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + _timeLimit];
@@ -27,42 +27,23 @@ private _taskId = "AS" + str A3A_taskCount;
 waitUntil  {sleep 5; (dateToNumber date > _dateLimitNum) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
 
 if (dateToNumber date > _dateLimitNum) then
-	{
+{
 	[_taskId, "AS", "FAILED"] call A3A_fnc_taskSetState;
-	if (_difficultX) then
-		{
-		[10,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		[-20,theBoss] call A3A_fnc_playerScoreAdd;
-		}
-	else
-		{
-		[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		[-10,theBoss] call A3A_fnc_playerScoreAdd;
-		};
-	}
+	[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+	[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+	[-10,theBoss] call A3A_fnc_playerScoreAdd;
+}
 else
-	{
+{
+	private _bonus = [1, 1.5] select _difficultX;
 	[_taskId, "AS", "SUCCEEDED"] call A3A_fnc_taskSetState;
-	if (_difficultX) then
-		{
-		[0,400] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[0,10,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[1200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[20,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[20,theBoss] call A3A_fnc_playerScoreAdd;
-		}
-	else
-		{
-		[0,200] remoteExec ["A3A_fnc_resourcesFIA",2];
-		[0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[600, _sideX] remoteExec ["A3A_fnc_timingCA",2];
-		{if (isPlayer _x) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
-		[10,theBoss] call A3A_fnc_playerScoreAdd;
-		};
+	[0,200*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
+	[0,5,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+	[800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+	{if (isPlayer _x) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
+	[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
     [_sideX, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
 	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
-	};
+};
 
 [_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;

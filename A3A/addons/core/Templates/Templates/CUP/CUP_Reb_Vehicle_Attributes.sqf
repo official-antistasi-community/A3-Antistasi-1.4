@@ -1,4 +1,7 @@
 ["attributesVehicles", [
+    // light armed stuff
+    ["CUP_I_Datsun_PK", ["rebCost", 600]],
+	
     // heavy armed stuff
     ["CUP_I_Hilux_UB32_NAPA", ["rebCost", 6000]],
     ["CUP_I_Hilux_MLRS_NAPA", ["rebCost", 12000]],

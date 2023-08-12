@@ -1872,7 +1872,7 @@ switch _mode do {
 						_magazine = _x select 0;
 						_amount = _x select 1;
 						_indexItem = _magazine call jn_fnc_arsenal_itemType;
-
+						if (_indexItem < 0) then { continue };
 						[_indexItem, _magazine, _amount] call jn_fnc_arsenal_addItem;//TODO
 					}forEach(_oldMagazines - _newMagazines);
 

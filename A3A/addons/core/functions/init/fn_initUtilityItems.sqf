@@ -30,7 +30,7 @@ private _items = [
     [FactionGet(reb,"vehicleLightSource"), 25, "light", "", ["move"]]           // note: If we do want this saved, need to switch saveLoop to nearObjects
 ];
 
-if (!LootToCrateEnabled) then { _items deleteAt 0 };
+if (LootToCrateRadius == 0) then { _items deleteAt 0 };
 
 if(A3A_hasACE) then {
     _items pushBack [_medCrate#0, _medCrate#1, "medicalbox", "heal", ["noclear", "move"]],

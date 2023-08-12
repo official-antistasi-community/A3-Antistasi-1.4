@@ -6,6 +6,7 @@ FIX_LINE_NUMBERS()
 if (isNil "logLevel") then { logLevel = 2; A3A_logDebugConsole = 1 };
 
 Info("initClient started");
+A3A_clientVersion = QUOTE(VERSION);
 Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
@@ -21,6 +22,8 @@ enableEnvironment [false, true];
 
 if !(isServer) then {
     call A3A_fnc_initVarCommon;
+
+    [] execVM QPATHTOFOLDER(Scripts\fn_advancedTowingInit.sqf);
 
     Info("Running client JNA preload");
     ["Preload"] call jn_fnc_arsenal;
@@ -46,8 +49,18 @@ if !(isServer) then {
     };
 };
 
+// Server/client version check
+waitUntil { sleep 0.1; !isNil "initZonesDone" };
+if (isNil "A3A_serverVersion") then { A3A_serverVersion = "pre-3.3" };
+if (A3A_clientVersion != A3A_serverVersion) exitWith {
+    private _errorStr = format [localize "STR_A3A_feedback_serverinfo_mismatch", A3A_serverVersion, A3A_clientVersion];
+    [localize "STR_A3A_feedback_serverinfo", _errorStr] call A3A_fnc_customHint;
+};
+
+// Show server startup state hints
 if (isNil "A3A_startupState") then { A3A_startupState = "waitserver" };
 while {true} do {
+    if (dialog) then { sleep 0.1; continue };           // don't spam hints while the setup dialog is open
     private _stateStr = localize ("STR_A3A_feedback_serverinfo_" + A3A_startupState);
     isNil { [localize "STR_A3A_feedback_serverinfo", _stateStr, true] call A3A_fnc_customHint };         // not re-entrant, apparently
     if (A3A_startupState == "completed") exitWith {};
@@ -436,6 +449,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
+[allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
 
 initClientDone = true;
 Info("initClient completed");

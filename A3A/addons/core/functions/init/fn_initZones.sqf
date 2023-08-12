@@ -73,7 +73,7 @@ private _disabledTowns = getArray (_mapInfo/"disabledTowns");
 {server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
 private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 
-"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+"(getText (_x >> ""type"") in [""NameCityCapital"",""Namecitycapital"", ""NameCity"",""Namecity"", ""NameVillage"",""Namevillage"", ""CityCenter"",""Citycenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
 !((configName _x) in _disabledTowns)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {

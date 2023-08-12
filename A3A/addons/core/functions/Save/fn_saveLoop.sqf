@@ -143,9 +143,9 @@ _arrayEst = [];
 		continue;
 	};
 
-	if (fullCrew [_veh, "", true] isEqualTo []) then { continue };			// no crew seats, not in utilityItems, not saved
+	if (fullCrew [_x, "", true] isEqualTo []) then { continue };			// no crew seats, not in utilityItems, not saved
 	if (_x isKindOf "StaticWeapon") then { continue };						// static weapons are accounted for in staticsToSave
-	if ({(alive _x) and (!isPlayer _x)} count crew _veh > 0) then { continue };		// no AI-crewed vehicles, those are refunded
+	if ({(alive _x) and (!isPlayer _x)} count crew _x > 0) then { continue };		// no AI-crewed vehicles, those are refunded
 
 	_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
 
@@ -154,8 +154,7 @@ _arrayEst = [];
 
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+	if ((alive _x) and !(surfaceIsWater position _x) and (isNull attachedTo _x)) then {
 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;

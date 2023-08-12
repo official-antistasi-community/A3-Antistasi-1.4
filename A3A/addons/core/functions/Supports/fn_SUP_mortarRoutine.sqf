@@ -22,16 +22,16 @@ sleep _sleepTime;
 
 //Decrease number of rounds and time alive if aggro is low
 private _sideAggression = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _numberOfRounds = 32;
+private _numberOfRounds = 24;
 private _timeAlive = 1200;
 
 //If the aggro is low, the mortar will shoot less and stay longer in one spot
 if((30 + random 40) >_sideAggression) then
 {
-    _numberOfRounds = 16;
+    _numberOfRounds = 12;
     _timeAlive = 1800;
 };
-private _shotsPerVolley = _numberOfRounds / 4;
+private _shotsPerVolley = _numberOfRounds / 3;
 
 //A function to repeatedly fire onto a target without loops by using an EH
 _fn_executeMortarFire =

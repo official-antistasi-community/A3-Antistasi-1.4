@@ -23,10 +23,10 @@
 ["vehiclesLightArmed", []] call _fnc_saveToTemplate;             // must be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", []] call _fnc_saveToTemplate;		 // vehicle that can carry troops and cargoboxes
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;		 // vehicle that can carry only cargoboxes
-["vehiclesAmmoTrucks", []] call _fnc_saveToTemplate;		 // wheeled vehicle with capability to rearm vehicles
-["vehiclesRepairTrucks", []] call _fnc_saveToTemplate;		 // wheeled vehicle with capability to repair vehicles
-["vehiclesFuelTrucks", []] call _fnc_saveToTemplate;		 // wheeled vehicle with capability to refuel vehicles
-["vehiclesMedical", []] call _fnc_saveToTemplate;		 // vehicle with capability to provide healing vehicles
+["vehiclesAmmoTrucks", []] call _fnc_saveToTemplate;		 // vehicle with capability to rearm vehicles
+["vehiclesRepairTrucks", []] call _fnc_saveToTemplate;		 // vehicle with capability to repair vehicles
+["vehiclesFuelTrucks", []] call _fnc_saveToTemplate;		 // vehicle with capability to refuel vehicles
+["vehiclesMedical", []] call _fnc_saveToTemplate;		 // vehicle with capability to provide healing
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers

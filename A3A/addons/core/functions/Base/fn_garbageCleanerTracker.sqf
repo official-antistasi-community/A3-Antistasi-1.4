@@ -72,7 +72,7 @@ private _fnc_onRemind = {
 
     private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
     private _timeUntilForcedGC = [[(A3A_lastGarbageCleanTime + A3A_GCThreshold)-serverTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-    [localize "STR_A3A_GCTracker_tracker_title", format [localize "STR_A3A_GCTracker_tracker_notification", _timeSinceLastGC, _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", -2];
+    [localize "STR_A3A_GCTracker_tracker_title", format [localize "STR_A3A_GCTracker_tracker_notification", _timeSinceLastGC, _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
     Debug_2("Garbage Cleaner Tracker has notified players of last gc time %1 and time until forced gc %2", _timeSinceLastGC, _timeUntilForcedGC);
 };
 
@@ -80,7 +80,7 @@ private _fnc_onRemind = {
 private _fnc_onFinalWarning = {
 
     private _timeUntilForcedGC = [[(A3A_lastGarbageCleanTime + A3A_GCThreshold)-serverTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-    ["Final Warning", format ["Automatic Garbage Clean incoming in %1", _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", -2];
+    ["Final Warning", format ["Automatic Garbage Clean incoming in %1", _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
     Debug("Garbage Cleaner Tracker has notified players of finalWarning for auto GC");
 
 };
@@ -90,7 +90,7 @@ private _fnc_onFinalWarning = {
 private _fnc_onAutoGC = {
 
     [] call A3A_fnc_garbageCleaner;
-    [localize "STR_A3A_GCTracker_tracker_title", localize "STR_A3A_GCTracker_tracker_ran_gc"] remoteExec ["A3A_fnc_customHint", -2];
+    [localize "STR_A3A_GCTracker_tracker_title", localize "STR_A3A_GCTracker_tracker_ran_gc"] remoteExec ["A3A_fnc_customHint", 0];
 
     private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
 

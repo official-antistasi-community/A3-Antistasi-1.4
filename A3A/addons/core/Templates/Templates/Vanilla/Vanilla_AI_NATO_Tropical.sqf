@@ -51,7 +51,7 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 ["B_T_MBT_01_mlrs_F", ["12Rnd_230mm_rockets"]]
 ]] call _fnc_saveToTemplate;
 
-["uavsAttack", ["B_UAV_02_F"]] call _fnc_saveToTemplate;
+["uavsAttack", ["B_UAV_02_F", "UAV_05_Base_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles

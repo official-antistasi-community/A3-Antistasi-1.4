@@ -52,7 +52,7 @@ private _APCs = ["B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F"];       
     ["B_MBT_01_mlrs_F",["12Rnd_230mm_rockets"]]
 ]] call _fnc_saveToTemplate;//this line determines artillery magazines -- Example: ["magazines", createHashMapFromArray [["B_MBT_01_arty_F", ["32Rnd_155mm_Mo_shells"]]]] -- Array, can contain multiple assets
 
-["uavsAttack", ["B_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["uavsAttack", ["B_UAV_02_dynamicLoadout_F", "UAV_05_Base_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:

@@ -18,8 +18,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo", "gm_ge_army_typ1200_cargo", "gm_ge_army_typ253_cargo", "gm_ge_army_typ253_mp", 
-    "gm_ge_army_typ247_cargo", "gm_ge_army_typ247_firefighter", "gm_ge_bgs_w123_cargo", "gm_ge_bgs_typ253_cargo", "gm_ge_army_w123_cargo"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo_des", "gm_ge_army_typ1200_cargo_des", "gm_ge_army_typ253_cargo_des", "gm_ge_army_typ253_mp_des", 
+    "gm_ge_army_typ247_cargo_des", "gm_ge_army_typ247_firefighter_des", "gm_ge_bgs_w123_cargo", "gm_ge_bgs_typ253_cargo", "gm_ge_army_w123_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["gm_ge_army_iltis_milan", "gm_ge_army_iltis_mg3", "gm_ge_army_iltis_mg3", "gm_ge_army_luchsa1", "gm_ge_army_luchsa2"]] call _fnc_saveToTemplate; //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed", ["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
 ["vehiclesTrucks", ["gm_ge_army_u1300l_cargo", "gm_ge_army_u1300l_container", "gm_ge_army_kat1_451_cargo", "gm_ge_army_kat1_451_container"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["gm_ge_army_kat1_454_cargo", "gm_ge_army_u1300l_container", "gm_ge_army_kat1_452_container", "gm_ge_army_kat1_451_container"]] call _fnc_saveToTemplate;

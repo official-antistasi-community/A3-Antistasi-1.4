@@ -55,7 +55,7 @@
 ["vehiclesHelisLight", []] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
 
 ["vehiclesHelisTransport", []] call _fnc_saveToTemplate;        // bigger heli with more passengers. 
-Should be capable of dealing damage to ground targets without additional scripting
+//Should be capable of dealing damage to ground targets without additional scripting
 
 ["vehiclesHelisLightAttack", []] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc

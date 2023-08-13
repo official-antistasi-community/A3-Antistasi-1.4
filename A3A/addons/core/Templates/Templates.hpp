@@ -116,6 +116,40 @@ class Templates
         file = "Vanilla_Civ";
     };
 
+    // ***************************** Western Sahara *****************************
+    class WS_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"Weapons_1_F_lxWS"};
+        logo = "a3\ui_f\data\logos\arma3_white_ca.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\WS); //the path to the template folder
+        priority = 15;
+        forceDLC[] = {"ws"};
+    };
+	class WS_NATO : WS_Base
+	{
+	};
+	class WS_CSAT : WS_Base
+	{
+	};
+	class WS_SIFA : WS_Base
+	{
+	};
+	class WS_ION : WS_Base
+	{
+	};
+	class WS_UNA : WS_Base
+	{
+	};
+	class WS_TURA : WS_Base
+	{
+	};
+	class WS_Civ : WS_Base
+	{
+        side = "Civ";
+        flagTexture = "\lxws\data_f_lxws\img\markers\Argana_CA.paa";
+        name = "Western Sahara";
+        file = "WS_Civ";
+	};
     // ***************************** VN *****************************
 
     class VN_Base

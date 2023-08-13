@@ -9,17 +9,17 @@
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_SFIA_Offroad_lxWS","O_Tura_Offroad_armor_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS"]] call _fnc_saveToTemplate;
+private _vehiclesLightUnarmed = ["O_SFIA_Offroad_lxWS","O_Tura_Offroad_armor_lxWS"];
+private _vehiclesLightArmed = ["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS"];
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["O_SFIA_Offroad_AT_lxWS","O_Tura_Offroad_armor_AT_lxWS"]] call _fnc_saveToTemplate;
+private _vehiclesAT = ["O_SFIA_Offroad_AT_lxWS","O_Tura_Offroad_armor_AT_lxWS"];
 ["vehiclesAA", ["I_Tura_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
+private _vehiclesCivCar = ["C_Offroad_lxWS", "C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
@@ -38,8 +38,11 @@ private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-if (allowDLCExpansion) then {
+if ("expansion" in A3A_enabledDLC) then {
     _vehiclesCivCar append ["C_Offroad_02_unarmed_F"];
+	_vehiclesLightUnarmed append ["I_C_Offroad_02_unarmed_F"];
+	_vehiclesLightArmed append ["I_C_Offroad_02_LMG_F"];
+	_vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 

@@ -4,9 +4,9 @@
 ["name", "SIFA"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "SIFA Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_Argana_F_lxWS"] call _fnc_saveToTemplate;
-["flagTexture", "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "lxWS_flag_Argana"] call _fnc_saveToTemplate;
+["flag", "Flag_SFIA_lxWS"] call _fnc_saveToTemplate;
+["flagTexture", "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_SIFA"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -214,8 +214,10 @@ _sfLoadoutData set ["sidearms", []];
 //    Military Loadout Data    //
 /////////////////////////////////
 
+private _milSights = ["optic_r1_low_lxWS","optic_r1_high_lxWS","optic_ACO_grn"];
+
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["U_lxWS_SFIA_soldier_1_O"]];
+_militaryLoadoutData set ["uniforms", ["U_lxWS_SFIA_soldier_1_O","U_lxWS_SFIA_soldier_2_O"]];
 _militaryLoadoutData set ["vests", ["V_lxWS_TacVestIR_oli", "V_TacVestIR_blk"]];
 _militaryLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militaryLoadoutData set ["backpacks", ["B_Kitbag_tan", "B_Kitbag_cbr", "B_Kitbag_rgr"]];
@@ -223,14 +225,14 @@ _militaryLoadoutData set ["helmets", ["lxWS_H_ssh40_sand"]];
 
 _militaryLoadoutData set ["slRifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "optic_MRCO", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
-["arifle_SLR_lxWS", "", "acc_flashlight", "optic_ACO_grn", ["20Rnd_762x51_slr_desert_lxWS"], [], ""],
+["arifle_SLR_D_lxWS", "", "acc_flashlight", selectRandom _milSights, ["20Rnd_762x51_slr_desert_lxWS"], [], ""],
 ["arifle_Galat_lxWS", "", "saber_light_lxWS", "optic_r1_low_lxWS", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
 ["arifle_VelkoR5_lxWS", "", "saber_light_lxWS", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_green_lxWS","35Rnd_556x45_Velko_tracer_green_lxWS"], [], ""],
 ["arifle_VelkoR5_GL_lxWS", "", "saber_light_lxWS", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_green_lxWS","35Rnd_556x45_Velko_tracer_green_lxWS"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
-["arifle_SLR_V_lxWS", "", "", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]
+["arifle_SLR_V_lxWS", "", "", selectRandom _milSights, ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["arifle_Galat_lxWS", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
@@ -244,12 +246,13 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 _militaryLoadoutData set ["SMGs", ["hgun_PDW2000_F"]];
 _militaryLoadoutData set ["machineGuns", [
 ["LMG_S77_Desert_lxWS", "", "", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
-["LMG_S77_lxWS", "", "", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+["LMG_S77_lxWS", "", "", selectRandom _milSights, ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
 ["arifle_Galat_lxWS", "", "", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""],
-["arifle_Velko_lxWS", "", "", "", ["50Rnd_556x45_Velko_reload_tracer_green_lxWS", "50Rnd_556x45_Velko_tracer_green_lxWS"], [], ""]
+["arifle_Velko_lxWS", "", "", "optic_MRCO", ["50Rnd_556x45_Velko_reload_tracer_green_lxWS", "50Rnd_556x45_Velko_tracer_green_lxWS"], [], ""],
+["arifle_SLR_V_lxWS", "", "", "optic_MRCO", ["30Rnd_762x51_slr_reload_tracer_green_lxWS", "30Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["arifle_SLR_lxWS", "", "acc_flashlight", "optic_MRCO", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
+["arifle_SLR_lxWS", "", "acc_flashlight", "optic_SOS", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
 ["arifle_SLR_V_lxWS", "", "", "optic_DMS", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
@@ -263,11 +266,16 @@ _militaryLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
-_policeLoadoutData set ["uniforms", []];
-_policeLoadoutData set ["vests", []];
-_policeLoadoutData set ["helmets", []];
+_policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
+_policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
+_policeLoadoutData set ["helmets", ["H_Cap_police","lxWS_H_turban_02_blue","lxWS_H_turban_03_blue"]];
 
-_policeLoadoutData set ["SMGs", []];
+_policeLoadoutData set ["SMGs", [
+["SMG_03C_TR_black", "", "acc_flashlight", "optic_Holosight_smg_blk_F", [], [], ""],
+["SMG_03C_TR_black", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""],
+["SMG_02_F", "", "acc_flashlight", "optic_Holosight_smg_blk_F", [], [], ""],
+["SMG_02_F", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""]
+]];
 _policeLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 ////////////////////////////////
@@ -275,19 +283,34 @@ _policeLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["U_lxWS_SFIA_soldier_2_O"]];
+_militiaLoadoutData set ["uniforms", ["U_lxWS_SFIA_soldier_2_O","U_lxWS_SFIA_deserter"]];
 _militiaLoadoutData set ["vests", ["V_lxWS_HarnessO_oli"]];
 _militiaLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militiaLoadoutData set ["backpacks", ["B_FieldPack_khk"]];
-_militiaLoadoutData set ["helmets", []];
+_militiaLoadoutData set ["helmets", ["lxWS_H_turban_02_gray","lxWS_H_turban_02_sand","lxWS_H_turban_02_green","lxWS_H_turban_02_black","lxWS_H_turban_03_gray","lxWS_H_turban_03_sand","lxWS_H_turban_03_green","lxWS_H_turban_03_black"]];
 
-_militiaLoadoutData set ["slRifles", []];
-_militiaLoadoutData set ["rifles", []];
-_militiaLoadoutData set ["carbines", []];
-_militiaLoadoutData set ["grenadeLaunchers", []];
-_militiaLoadoutData set ["SMGs", []];
-_militiaLoadoutData set ["machineGuns", []];
-_militiaLoadoutData set ["marksmanRifles", []];
+_militiaLoadoutData set ["slRifles", [
+["arifle_SLR_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_desert_lxWS"], [], ""],
+["arifle_Galat_lxWS", "", "saber_light_lxWS", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]
+]];
+_militiaLoadoutData set ["rifles", [
+["arifle_SLR_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]]];
+_militiaLoadoutData set ["carbines", [
+["arifle_Galat_lxWS", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
+["arifle_Galat_lxWS", "", "saber_light_lxWS", "optic_r1_low_lxWS", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]
+]];
+_militiaLoadoutData set ["grenadeLaunchers", [
+["arifle_SLR_GL_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_50mm_Smoke_lxWS"], ""],
+["arifle_SLR_GL_lxWS", "", "", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""]
+]];
+_militiaLoadoutData set ["SMGs", ["hgun_PDW2000_F"]];
+_militiaLoadoutData set ["machineGuns", [
+["arifle_Galat_lxWS", "", "", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""],
+["arifle_SLR_V_lxWS", "", "", "optic_MRCO", ["20Rnd_762x51_slr_reload_tracer_green_lxWS", "20Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
+]];
+_militiaLoadoutData set ["marksmanRifles", [
+["arifle_SLR_lxWS", "", "acc_flashlight", "optic_SOS", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]
+]];
 _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 //////////////////////////
@@ -295,15 +318,20 @@ _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", []];
+_crewLoadoutData set ["uniforms", ["U_lxWS_SFIA_Tanker_O"]];
 _crewLoadoutData set ["vests", []];
 _crewLoadoutData set ["helmets", []];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", []];
+_pilotLoadoutData set ["uniforms", ["U_lxWS_SFIA_pilot_O"]];
 _pilotLoadoutData set ["vests", []];
 _pilotLoadoutData set ["helmets", []];
 
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["uniforms", ["U_lxWS_SFIA_Officer_1_O", "U_O_ParadeUniform_01_CSAT_F", "U_O_ParadeUniform_01_CSAT_decorated_F"]];
+_officerLoadoutData set ["vests", []];
+_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_CSAT_F"]];
+_officerLoadoutData set ["backpacks", []];
 
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -371,7 +399,7 @@ private _medicTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-      [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
     ["primary", 6] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -620,7 +648,7 @@ private _sniperTemplate = {
     ["uniforms"] call _fnc_setUniform;
 
 
-    ["sniperRifles"] call _fnc_setPrimary;
+    [["sniperRifles", "marksmanRifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 6] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -802,8 +830,8 @@ private _unitTypes = [
 ["other", [["Crew", _crewTemplate]], _crewLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _squadLeaderTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _squadLeaderTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
-["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Traitor", _traitorTemplate]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
 ["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

@@ -78,18 +78,24 @@ _initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
+    "U_lxWS_Djella_02_Sand",
+    "U_lxWS_Djella_03_Green",
+    "U_lxWS_Djella_02_Grey",
+    "U_lxWS_Djella_02_Brown",
+    "U_lxWS_SFIA_deserter"
+];
+
+private _dlcUniforms = [
     "U_IG_Guerilla1_1",
     "U_IG_Guerilla2_1",
     "U_IG_Guerilla2_2",
     "U_IG_Guerilla2_3",
-    "U_IG_Guerilla3_1",
-    "U_IG_leader",
-    "U_IG_Guerrilla_6_1",
-    "U_I_G_resistanceLeader_F",
-    "U_I_L_Uniform_01_deserter_F"
+    "U_lxWS_ION_Casual1",
+    "U_lxWS_ION_Casual2",
+    "U_lxWS_ION_Casual3",
+    "U_lxWS_ION_Casual4",
+    "U_lxWS_ION_Casual5"
 ];
-
-private _dlcUniforms = [];
 
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F"
@@ -111,19 +117,27 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCWS) then {_dlcUniforms append [
-    "U_lxWS_ION_Casual1",
-    "U_lxWS_ION_Casual2",
-    "U_lxWS_ION_Casual3",
-    "U_lxWS_ION_Casual4",
-    "U_lxWS_ION_Casual5",
-    "U_lxWS_SFIA_deserter"
-];
-};
-
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 
 ["headgear", [
+    "lxWS_H_turban_02_yellow",
+    "lxWS_H_turban_02_gray",
+    "lxWS_H_turban_02_sand",
+    "lxWS_H_turban_02_red",
+    "lxWS_H_turban_02_orange",
+    "lxWS_H_turban_02_green_pattern",
+    "lxWS_H_turban_02_green",
+    "lxWS_H_turban_02_blue",
+    "lxWS_H_turban_02_black",
+    "lxWS_H_turban_03_yellow",
+    "lxWS_H_turban_03_gray",
+    "lxWS_H_turban_03_sand",
+    "lxWS_H_turban_03_red",
+    "lxWS_H_turban_03_orange",
+    "lxWS_H_turban_03_green_pattern",
+    "lxWS_H_turban_03_green",
+    "lxWS_H_turban_03_blue",
+    "lxWS_H_turban_03_black",
     "H_Booniehat_khk_hs",
     "H_Booniehat_tan",
     "H_Cap_tan",
@@ -141,10 +155,10 @@ if (allowDLCWS) then {_dlcUniforms append [
 ///  Identities   ///
 /////////////////////
 
-["faces", ["GreekHead_A3_02","GreekHead_A3_03","GreekHead_A3_04",
-"GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08",
-"GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
-["voices", ["Male01GRE", "Male02GRE", "Male03GRE", "Male04GRE", "Male05GRE", "Male06GRE"]] call _fnc_saveToTemplate;
+["faces", ["lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
+"lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
+"lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
+["voices", ["male01fre", "male02fre", "male03fre"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

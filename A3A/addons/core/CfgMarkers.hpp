@@ -23,4 +23,10 @@ class CfgMarkers {
 		icon = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
 	};
+	class a3a_flag_SIFA: flag_NATO {
+		scope = 1;
+		name = "SIFA";
+		icon = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
+		texture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
+	};
 };

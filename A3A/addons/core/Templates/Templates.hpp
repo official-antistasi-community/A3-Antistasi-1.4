@@ -123,7 +123,6 @@ class Templates
         logo = "a3\ui_f\data\logos\arma3_white_ca.paa";
         basepath = QPATHTOFOLDER(Templates\Templates\WS); //the path to the template folder
         priority = 15;
-        forceDLC[] = {"ws"};
     };
 	class WS_NATO : WS_Base
 	{
@@ -133,6 +132,10 @@ class Templates
 	};
 	class WS_SIFA : WS_Base
 	{
+        side = "Occ";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
+        name = "SIFA";
+        file = "WS_AI_SIFA";
 	};
 	class WS_ION : WS_Base
 	{
@@ -142,11 +145,15 @@ class Templates
 	};
 	class WS_TURA : WS_Base
 	{
+        side = "Reb";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
+        name = "Tura";
+        file = "WS_Reb_TURA";
 	};
 	class WS_Civ : WS_Base
 	{
         side = "Civ";
-        flagTexture = "\lxws\data_f_lxws\img\markers\Argana_CA.paa";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
         name = "Western Sahara";
         file = "WS_Civ";
 	};

@@ -19,28 +19,28 @@
 #include "..\..\script_component.hpp"
 
 if (A3A_hasACEMedical) then { 
-    call A3A_fnc_initACEUnconsciousHandler;
-
     // log atropine, epinephrine, and morphine use
+    // Appears to be local to the medic
     ["ace_treatmentStarted", {
         params ["_caller", "_target", "_selectionName", "_className", "_itemUser", "_usedItem"];
-        systemChat str _this;
         if (_usedItem in ["ACE_atropine", "ACE_epinephrine", "ACE_morphine"]) then {
             ServerInfo_3("Player: %1 used %2 on %3",name _caller,_usedItem,name _target);
         };
     }] call CBA_fnc_addEventHandler;
 };
 
-
 ["ace_explosives_place", {
     params ["_explosive","_dir","_pitch","_unit"];
-    if (_unit == player) then { player setCaptive false };
+    if (captive player && _unit == player) then { player setCaptive false };
 }] call CBA_fnc_addEventHandler;
 
 ["ace_throwableThrown", { 
     params ["_unit", "_throwable"]; 
-    if (isCaptive player && _unit == player) then { player setCaptive false }; 
+    if (captive player && _unit == player) then { player setCaptive false }; 
 }] call CBA_fnc_addEventHandler;
+
+[boxX, boxX] call ace_common_fnc_claim;	//Disables ALL Ace Interactions
+[vehicleBox, VehicleBox] call ace_common_fnc_claim;	//Disables ALL Ace Interactions
 
 if (isNil "ace_interact_menu_fnc_compileMenu" || isNil "ace_interact_menu_fnc_compileMenuSelfAction") exitWith {
     Error("ACE non-public functions have changed, rebel group join/leave actions will not be removed.");
@@ -56,5 +56,3 @@ private _unitTypes = ["I_G_soldier_F", "I_G_Soldier_TL_F", "I_G_Soldier_AR_F", "
     [_x, 0, ["ACE_MainActions", "ACE_JoinGroup"]] call ace_interact_menu_fnc_removeActionFromClass;
 } forEach _unitTypes;			// TODO: add raw unit types from new templates
 
-[boxX, boxX] call ace_common_fnc_claim;	//Disables ALL Ace Interactions
-[vehicleBox, VehicleBox] call ace_common_fnc_claim;	//Disables ALL Ace Interactions

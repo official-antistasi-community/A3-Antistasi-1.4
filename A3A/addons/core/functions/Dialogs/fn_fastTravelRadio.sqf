@@ -72,7 +72,7 @@ if (count _positionTel > 0) then
 		if (!isMultiplayer) then {if (not(_base in forcedSpawn)) then {_forcedX = true; forcedSpawn = forcedSpawn + [_base]}};
 		if (!_esHC) then {
 			disableUserInput true;
-			cutText ["Fast travelling, please wait " + [[_fastTravelTime] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format, "BLACK", 1];
+			cutText ["Fast travelling, please wait " + ([[_fastTravelTime] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format), "BLACK", 1];
 			sleep 1;
 		} else {
 			["Fast Travel", format ["Moving group %1 to destination",groupID _groupX]] call A3A_fnc_customHint;
@@ -83,7 +83,7 @@ if (count _positionTel > 0) then
  			_timePassed = 0;
  			while {_timePassed < _travelDuration} do
  				{
- 				cutText ["Fast travelling, please wait " + [[_travelDuration - _timePassed] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format, "BLACK", 0.0001];
+ 				cutText ["Fast travelling, please wait " + ([[_travelDuration - _timePassed] call A3A_fnc_secondsToTimeSpan,0,0,false,1] call A3A_fnc_timeSpan_format), "BLACK", 0.0001];
  				sleep 1;
  				_timePassed = _timePassed + 1;
  				}

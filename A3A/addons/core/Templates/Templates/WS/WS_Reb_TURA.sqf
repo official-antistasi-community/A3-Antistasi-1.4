@@ -45,7 +45,9 @@ if ("expansion" in A3A_enabledDLC) then {
 	_vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
-
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
 
 #include "WS_Reb_Vehicle_Attributes.sqf"
 

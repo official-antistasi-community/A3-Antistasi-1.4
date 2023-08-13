@@ -10,10 +10,10 @@
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["O_SFIA_Offroad_lxWS","O_Tura_Offroad_armor_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["O_SFIA_Offroad_armed_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["I_G_Offroad_01_AT_F"]] call _fnc_saveToTemplate;
-private _vehicleAA = [];
+["vehiclesAT", ["O_SFIA_Offroad_AT_lxWS","O_Tura_Offroad_armor_AT_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["I_Tura_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 
@@ -26,7 +26,7 @@ private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01
 
 ["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
-private _staticAA = ["I_static_AA_F"];
+["staticAA", ["I_Tura_ZU23_lxWS"]] call _fnc_saveToTemplate;
 ["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
@@ -43,12 +43,6 @@ if (allowDLCExpansion) then {
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 
-if (allowDLCWS) then {
-  _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
-};
-["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
-["staticAA", _staticAA] call _fnc_saveToTemplate;
 
 #include "WS_Reb_Vehicle_Attributes.sqf"
 

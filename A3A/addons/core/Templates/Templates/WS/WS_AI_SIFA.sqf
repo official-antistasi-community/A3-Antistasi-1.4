@@ -366,19 +366,35 @@ _militiaLoadoutData set ["marksmanRifles", [
 ]];
 _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
+
+if ("expansion" in A3A_enabledDLC) then {
+	private _militiaRifles   = _militiaLoadoutData get "rifles";
+	private _militiaCarbines   = _militiaLoadoutData get "carbines";
+	
+	_militiaRifles append [
+	["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
+	_militiaCarbines append [
+	["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+	
+	_militiaLoadoutData set ["rifles", _militiaRifles];
+	_militiaLoadoutData set ["carbines", _militiaCarbines];
+	
+	_militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+};
+
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["U_lxWS_SFIA_Tanker_O"]];
-_crewLoadoutData set ["vests", []];
-_crewLoadoutData set ["helmets", []];
+_crewLoadoutData set ["vests", ["V_TacVestIR_blk"]];
+_crewLoadoutData set ["helmets", ["lxWS_H_Tank_tan_F", "lxWS_H_HelmetCrew_I"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_lxWS_SFIA_pilot_O"]];
-_pilotLoadoutData set ["vests", []];
-_pilotLoadoutData set ["helmets", []];
+_pilotLoadoutData set ["vests", ["V_TacVestIR_blk"]];
+_pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_O","H_CrewHelmetHeli_O"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_lxWS_SFIA_Officer_1_O", "U_O_ParadeUniform_01_CSAT_F", "U_O_ParadeUniform_01_CSAT_decorated_F"]];
@@ -753,12 +769,12 @@ private _crewTemplate = {
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
+    ["handgun", 4] call _fnc_addMagazines;
 
     ["items_medical_basic"] call _fnc_addItemSet;
     ["items_crew_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
-    ["smokeGrenades", 2] call _fnc_addItem;
+    ["smokeGrenades", 3] call _fnc_addItem;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

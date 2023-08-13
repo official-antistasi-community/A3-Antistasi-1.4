@@ -125,13 +125,7 @@ _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
 ["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
 ["launch_RPG32_F", "", "", "", ["RPG32_F"], [], ""],
-["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
+["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""]
 ]];
 _loadoutData set ["ATLaunchers", [
 ["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],

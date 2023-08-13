@@ -39,6 +39,8 @@ if (count _buildings == 0) then {
     _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 };
 
+// don't place units on destroyed buildings
+_buildings = _buildings select { damage _x < 1 && !isObjectHidden _x };
 _buildings = _buildings call BIS_fnc_arrayShuffle;
 
 {

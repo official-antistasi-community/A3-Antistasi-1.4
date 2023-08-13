@@ -136,7 +136,8 @@ private _vehArmor =
 getVar("vehiclesTanks")
 + getVar("vehiclesAA")
 + getVar("vehiclesArtillery")
-+ getVar("vehiclesAPCs");
++ getVar("vehiclesLightAPCs")
++ getVar("vehiclesAPCs")
 + getVar("vehiclesIFVs");
 setVar("vehiclesArmor", _vehArmor);
 

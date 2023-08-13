@@ -32,7 +32,7 @@ private _ifvWeight =       [ 0,  0,  2,  4,  6,  8, 12, 16, 20, 25] select _leve
 
 // Assumption is that at least one of APC or battle bus exists
 if (_faction get "vehiclesIFVs" isEqualTo []) then { _apcWeight = _apcWeight + _ifvWeight };
-if (_faction get "vehiclesAPCs" isEqualTo []) then { _bbWeight = _bbWeight + _apcWeight };
+if (_faction get "vehiclesAPCs" isEqualTo []) then { _lapcWeight = _lapcWeight + _apcWeight };
 if (_faction get "vehiclesLightAPCs" isEqualTo []) then { _apcWeight = _apcWeight + _lapcWeight/2; _truckWeight = _truckWeight + _lapcWeight/2; };
 
 // only occupants use militia vehicle types?

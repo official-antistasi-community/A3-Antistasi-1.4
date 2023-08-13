@@ -101,6 +101,7 @@ else            // ground vehicle
         // Vehicle has no weapons(?) and small cargo, merge crew group into cargo group
         (units _crewGroup) joinSilent _cargoGroup;
         deleteGroup _crewGroup;
+        _cargoGroup selectLeader driver _vehicle;
 
         //Create the path waypoints
         private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;

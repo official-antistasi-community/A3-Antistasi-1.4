@@ -90,7 +90,7 @@ while {true} do
         _group setCurrentWaypoint _attackWP;
 
         _group reveal [_targetObj, 1.5];         // do we need to add knowledge level to target list? Only used here?
-        _group setBehaviour "COMBAT";
+        _group setBehaviourStrong "COMBAT";
         _group setCombatMode "RED";
         _plane flyInHeight -1;          // experimental
         _currentlyAttacking = true;
@@ -114,6 +114,8 @@ while {true} do
             deleteWaypoint [_group, 1];
             _group setCurrentWaypoint _loiterWP;
 
+            _group setBehaviourStrong "AWARE";
+            _group setCombatMode "YELLOW";
             //_plane flyInHeight 1000;
             _currentlyAttacking = false;
             _timeout = _timeout - 300;

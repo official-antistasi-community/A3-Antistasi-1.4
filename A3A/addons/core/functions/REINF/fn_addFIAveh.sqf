@@ -40,6 +40,9 @@ private _fnc_placed = {
 	};
 	_vehicle setFuel random [0.10, 0.175, 0.25];
 	[_vehicle, teamPlayer] call A3A_fnc_AIVehInit;
+	if (_vehicle isKindOf "StaticWeapon") then {
+		staticsToSave pushBack _vehicle; publicVariable "staticsToSave";
+	};
 };
 
 [_typeVehX, _fnc_placed, {false}, [_cost], nil, nil, nil, _extraMessage] call HR_GRG_fnc_confirmPlacement;

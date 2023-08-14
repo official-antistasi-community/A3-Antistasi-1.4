@@ -38,7 +38,7 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Tru
 
 ["vehiclesPlanesCAS", ["O_Plane_CAS_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["O_Plane_Fighter_02_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", [O_T_VTOL_02_infantry_hex_F]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["O_Heli_Transport_04_covered_F", "O_Heli_Transport_04_bench_F"]] call _fnc_saveToTemplate;

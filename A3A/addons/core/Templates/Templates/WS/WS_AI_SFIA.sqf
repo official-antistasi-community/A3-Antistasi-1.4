@@ -218,7 +218,7 @@ _sfLoadoutData set ["vests", ["V_PlateCarrier1_blk"]];
 _sfLoadoutData set ["backpacks", []];
 _sfLoadoutData set ["helmets", []];
 _sfLoadoutData set ["facewear", []];
-_sfLoadoutData set ["binoculars", []];
+_sfLoadoutData set ["binoculars", ["Laserdesignator"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

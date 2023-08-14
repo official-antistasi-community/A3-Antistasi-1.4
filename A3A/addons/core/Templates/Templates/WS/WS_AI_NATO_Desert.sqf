@@ -228,7 +228,7 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and sh
 
 if (_sfSwitch < 0.5) then {
 	//US Recon SF
-	_sfLoadoutData set ["uniforms", ["U_lxWS_B_CombatUniform_desert_tshirt", "U_lxWS_B_CombatUniform_desert", "U_lxWS_B_CombatUniform_desert_vest"]];
+	_sfLoadoutData set ["uniforms", ["U_lxWS_B_CombatUniform_desert_vest"]];
 	_sfLoadoutData set ["vests", ["V_lxWS_PlateCarrier1_desert"]];
 	_sfLoadoutData set ["Hvests", ["V_lxWS_PlateCarrier2_desert"]];
 	_sfLoadoutData set ["backpacks", ["B_Kitbag_cbr", "B_Carryall_cbr", "B_AssaultPack_cbr"]];
@@ -350,11 +350,11 @@ if (_sfSwitch < 0.5) then {
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData set ["uniforms", ["U_lxWS_B_CombatUniform_desert", "U_lxWS_B_CombatUniform_desert_tshirt"]];
-_militaryLoadoutData set ["vests", ["V_PlateCarrier1_rgr", "V_PlateCarrier2_rgr"]];
-_militaryLoadoutData set ["Hvests", ["V_PlateCarrierSpec_rgr"]];
-_militaryLoadoutData set ["glVests", ["V_PlateCarrierGL_rgr"]];
+_militaryLoadoutData set ["vests", ["V_lxWS_PlateCarrier1_desert", "V_lxWS_PlateCarrier2_desert"]];
+_militaryLoadoutData set ["Hvests", ["V_lxWS_PlateCarrierSpec_desert"]];
+_militaryLoadoutData set ["glVests", ["V_lxWS_PlateCarrierGL_desert"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_Kitbag_rgr", "B_AssaultPack_rgr", "B_Kitbag_mcamo"]];
-_militaryLoadoutData set ["helmets", ["H_HelmetB_camo", "H_HelmetB", "H_HelmetSpecB", "H_HelmetB_light"]];
+_militaryLoadoutData set ["helmets", ["H_HelmetB_desert", "H_HelmetB_sand", "H_HelmetB_light_desert","H_HelmetB_light_sand"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator"]];
 
 _militaryLoadoutData set ["rifles", [
@@ -429,9 +429,9 @@ _policeLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militiaLoadoutData set ["uniforms", ["U_lxWS_B_CombatUniform_desert", "U_lxWS_B_CombatUniform_desert_tshirt"]];
-_militiaLoadoutData set ["vests", ["V_Chestrig_rgr", "V_PlateCarrier1_rgr"]];
+_militiaLoadoutData set ["vests", ["V_Chestrig_khk", "V_TacVest_khk"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];
-_militiaLoadoutData set ["helmets", ["H_HelmetB_light", "H_MilCap_mcamo", "H_Bandanna_mcamo"]];
+_militiaLoadoutData set ["helmets", ["H_Cap_tan_specops_US", "lxWS_H_MilCap_desert", "H_Bandanna_sand"]];
 
 _militiaLoadoutData set ["rifles", [
 ["arifle_MX_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""]

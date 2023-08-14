@@ -120,22 +120,31 @@ class Templates
     class WS_Base : Vanilla_Base
     {
         requiredAddons[] = {"Weapons_1_F_lxWS"};
-        logo = "a3\ui_f\data\logos\arma3_white_ca.paa";
+        logo = "\lxWS\data_f_lxWS\Logos\arma3_lxws_logo_ca.paa";
         basepath = QPATHTOFOLDER(Templates\Templates\WS); //the path to the template folder
-        priority = 15;
+        priority = 25;
+        climate[] = {"arid"};
     };
 	class WS_NATO : WS_Base
 	{
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+        name = "WS NATO Desert";
+        file = "WS_AI_NATO_Desert";
 	};
 	class WS_CSAT : WS_Base
 	{
+        side = "Inv";
+        flagTexture = "A3\Data_F\Flags\Flag_CSAT_CO.paa";
+        name = "WS CSAT North Africa";
+        file = "WS_AI_CSAT_NAfrica";
 	};
 	class WS_SIFA : WS_Base
 	{
         side = "Occ";
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
-        name = "SIFA";
-        file = "WS_AI_SIFA";
+        name = "WS SFIA";
+        file = "WS_AI_SFIA";
 	};
 	class WS_ION : WS_Base
 	{
@@ -147,7 +156,7 @@ class Templates
 	{
         side = "Reb";
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
-        name = "Tura";
+        name = "WS Tura";
         file = "WS_Reb_TURA";
 	};
 	class WS_Civ : WS_Base

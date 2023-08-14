@@ -18,8 +18,8 @@
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", []] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_SFIA_Offroad_lxWS","O_Tura_Offroad_armor_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["O_SFIA_Offroad_AT_lxWS","O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_AT_lxWS","O_Tura_Offroad_armor_armed_lxWS", "O_SFIA_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightUnarmed", ["O_Tura_Offroad_armor_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["O_Tura_Offroad_armor_AT_lxWS","O_Tura_Offroad_armor_armed_lxWS", "O_SFIA_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["O_SFIA_Truck_02_transport_lxWS","O_SFIA_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["O_SFIA_Truck_02_flatbed_lxWS","O_SFIA_Truck_02_cargo_lxWS","O_SFIA_Truck_02_transport_lxWS","O_SFIA_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["O_SFIA_Truck_02_Ammo_lxWS"]] call _fnc_saveToTemplate;
@@ -92,17 +92,18 @@ if ("orange" in A3A_enabledDLC) then {
 ///  Identities   ///
 /////////////////////
 //Faces and Voices given to AI Factions.
-["faces", ["lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03",
+"lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
 "lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
 "lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 ["voices", ["male01fre", "male02fre", "male03fre"]] call _fnc_saveToTemplate;
 //SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
-["sfVoices", []] call _fnc_saveToTemplate;
-["sfFaces", []] call _fnc_saveToTemplate;
-["milVoices", []] call _fnc_saveToTemplate;
-["milFaces", []] call _fnc_saveToTemplate;
-["polVoices", []] call _fnc_saveToTemplate;
-["polFaces", []] call _fnc_saveToTemplate;
+//["sfVoices", []] call _fnc_saveToTemplate;
+//["sfFaces", []] call _fnc_saveToTemplate;
+//["milVoices", []] call _fnc_saveToTemplate;
+//["milFaces", []] call _fnc_saveToTemplate;
+//["polVoices", []] call _fnc_saveToTemplate;
+//["polFaces", []] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -240,8 +241,8 @@ _sfLoadoutData set ["SMGs", [
 ["sgun_aa40_lxWS", "muzzle_snds_12Gauge_lxWS", "acc_pointer_IR", "optic_r1_high_lxWS", ["20Rnd_12Gauge_AA40_Pellets_lxWS"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
-["LMG_S77_Compact_Snakeskin_lxWS", "suppressor_h_snake_lxWS", "acc_pointer_IR_snake_lxWS", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
-["LMG_S77_Desert_lxWS", "suppressor_h_sand_lxWS", "acc_pointer_IR_sand_lxWS", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+["LMG_S77_Compact_Snakeskin_lxWS", "", "acc_pointer_IR_snake_lxWS", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+["LMG_S77_Desert_lxWS", "", "acc_pointer_IR_sand_lxWS", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
 ["arifle_Velko_lxWS", "suppressor_l_sand_lxWS", "acc_pointer_IR_sand_lxWS", "optic_MRCO", ["50Rnd_556x45_Velko_reload_tracer_green_lxWS", "50Rnd_556x45_Velko_tracer_green_lxWS"], [], ""]
 ]];
 _sfLoadoutData set ["marksmanRifles", [
@@ -268,7 +269,7 @@ _militaryLoadoutData set ["uniforms", ["U_lxWS_SFIA_soldier_1_O","U_lxWS_SFIA_so
 _militaryLoadoutData set ["vests", ["V_lxWS_TacVestIR_oli", "V_TacVestIR_blk"]];
 _militaryLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militaryLoadoutData set ["backpacks", ["B_Kitbag_tan", "B_Kitbag_cbr", "B_Kitbag_rgr"]];
-_militaryLoadoutData set ["helmets", ["lxWS_H_ssh40_sand"]];
+_militaryLoadoutData set ["helmets", ["lxWS_H_ssh40_sand","lxWS_H_ssh40_green"]];
 
 _militaryLoadoutData set ["slRifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "optic_MRCO", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
@@ -349,17 +350,17 @@ _militiaLoadoutData set ["slRifles", [
 _militiaLoadoutData set ["rifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]]];
 _militiaLoadoutData set ["carbines", [
-["arifle_Galat_lxWS", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
+["arifle_Galat_lxWS", "", "saber_light_lxWS", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
 ["arifle_Galat_lxWS", "", "saber_light_lxWS", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["arifle_SLR_GL_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_50mm_Smoke_lxWS"], ""],
-["arifle_SLR_GL_lxWS", "", "", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""]
+["arifle_SLR_GL_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_40mm_HE_lxWS","1Rnd_58mm_AT_lxWS","1Rnd_50mm_Smoke_lxWS"], ""],
+["arifle_SLR_GL_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], ["1Rnd_58mm_AT_lxWS","1Rnd_40mm_HE_lxWS","1Rnd_50mm_Smoke_lxWS"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", ["hgun_PDW2000_F"]];
 _militiaLoadoutData set ["machineGuns", [
-["arifle_Galat_lxWS", "", "", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""],
-["arifle_SLR_V_lxWS", "", "", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS", "20Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
+["arifle_Galat_lxWS", "", "saber_light_lxWS", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""],
+["arifle_SLR_V_lxWS", "", "", "", ["30Rnd_762x51_slr_reload_tracer_green_lxWS", "30Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "optic_SOS", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]

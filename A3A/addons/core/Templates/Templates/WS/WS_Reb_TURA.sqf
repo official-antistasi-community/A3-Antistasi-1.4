@@ -63,7 +63,7 @@ private _initialRebelEquipment = [
 "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
 "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr",
 "V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt",
-"Binocular",
+"Binocular", "hgun_Pistol_Signal_F", "6Rnd_GreenSignal_F", "6Rnd_RedSignal_F"
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
 
 if (allowDLCExpansion) then {
@@ -157,7 +157,8 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 ///  Identities   ///
 /////////////////////
 
-["faces", ["lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03",
+"lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
 "lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
 "lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 ["voices", ["male01fre", "male02fre", "male03fre"]] call _fnc_saveToTemplate;

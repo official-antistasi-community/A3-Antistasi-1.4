@@ -122,7 +122,8 @@ class Templates
         requiredAddons[] = {"Weapons_1_F_lxWS"};
         logo = "\lxWS\data_f_lxWS\Logos\arma3_lxws_logo_ca.paa";
         basepath = QPATHTOFOLDER(Templates\Templates\WS); //the path to the template folder
-        priority = 25;
+        priority = 5;
+        forceDLC[] = {"ws"};
         climate[] = {"arid"};
     };
 	class WS_NATO : WS_Base

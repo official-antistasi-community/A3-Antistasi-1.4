@@ -416,43 +416,28 @@ _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 
 if ("mark" in A3A_enabledDLC) then {
-	private _sfMG      = _sfLoadoutData get "machineGuns";
-	private _sfMarks   = _sfLoadoutData get "marksmanRifles";
-	private _sfSniper  = _sfLoadoutData get "sniperRifles";
-	
-	_sfMG append [
+	(_sfLoadoutData get "machineGuns") append [
 	["MMG_02_camo_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"], 
 	["MMG_02_camo_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_snd"]];
-	_sfMarks append [
+	(_sfLoadoutData get "marksmanRifles") append [
 	["srifle_DMR_03_tan_F", "muzzle_snds_B_snd_F", "acc_pointer_IR", "optic_AMS_snd", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
 	["srifle_DMR_03_tan_F", "muzzle_snds_B_arid_F", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"]];
-	_sfSniper append [
+	
+	(_sfLoadoutData get "sniperRifles") append [
 	["srifle_DMR_02_sniper_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"], 
 	["srifle_DMR_02_sniper_F", "muzzle_snds_338_sand", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"]];
 	
-	_sfLoadoutData set ["machineGuns", _sfMG];
-	_sfLoadoutData set ["marksmanRifles", _sfMarks];
-	_sfLoadoutData set ["sniperRifles", _sfSniper];
-	
-	private _mMG      = _militaryLoadoutData get "machineGuns";
-	private _mMarks   = _militaryLoadoutData get "marksmanRifles";
-	private _mSniper  = _militaryLoadoutData get "sniperRifles";
-	
-	_mMG append [
+	(_militaryLoadoutData get "machineGuns") append [
 	["MMG_02_sand_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"], 
 	["MMG_02_sand_F", "", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_snd"]
 	];
-	_mMarks append [
+	(_militaryLoadoutData get "marksmanRifles") append [
 	["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_AMS_snd", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
 	["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"], 
 	["srifle_DMR_03_tan_F", "", "acc_pointer_IR", "optic_SOS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_snd"]];
-	_mSniper append [
+	(_militaryLoadoutData get "sniperRifles") append [
 	["srifle_DMR_02_sniper_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"],
 	["srifle_DMR_02_sniper_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_snd"]];
-	
-	_militaryLoadoutData set ["machineGuns", _mMG];
-	_militaryLoadoutData set ["marksmanRifles", _mMarks];
-	_militaryLoadoutData set ["sniperRifles", _mSniper];
 };
 
 
@@ -521,7 +506,7 @@ private _medicTemplate = {
     [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
-      [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
     ["primary", 6] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

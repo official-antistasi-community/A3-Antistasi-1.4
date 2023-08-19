@@ -390,36 +390,25 @@ _pilotLoadoutData set ["vests", ["V_TacVest_oli"]];
 _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I"]];
 
 if ("mark" in A3A_enabledDLC) then {
-	private _sfMarks   = _sfLoadoutData get "marksmanRifles";
-	private _sfSniper  = _sfLoadoutData get "sniperRifles";
 
-	_sfMarks append [
+	(_sfLoadoutData get "marksmanRifles") append [
 	["srifle_DMR_03_khaki_F", "muzzle_snds_B_khk_F", "acc_pointer_IR", "optic_AMS_khk", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"], 
 	["srifle_DMR_03_khaki_F", "muzzle_snds_B_khk_F", "acc_pointer_IR", "optic_SOS_khk_F", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"]];
-	_sfSniper append [
+	(_sfLoadoutData get "sniperRifles") append [
 	["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_KHS_tan", [], [], "bipod_03_F_blk"], 
 	["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_03_F_blk"]];
 
-	_sfLoadoutData set ["marksmanRifles", _sfMarks];
-	_sfLoadoutData set ["sniperRifles", _sfSniper];
-
-	private _mMarks   = _militaryLoadoutData get "marksmanRifles";
-	private _mSniper  = _militaryLoadoutData get "sniperRifles";
-
-	_mMarks append [
+	(_militaryLoadoutData get "marksmanRifles") append [
 	["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_AMS_khk", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"], 
 	["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_SOS_khk_F", ["20Rnd_762x51_Mag"], [], "bipod_01_F_khk"]];
-	_mSniper append [
+	(_militaryLoadoutData get "sniperRifles") append [
 	["srifle_DMR_02_camo_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_khk"],
 	["srifle_DMR_02_camo_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_khk"]];
-	
-	_militaryLoadoutData set ["marksmanRifles", _mMarks];
-	_militaryLoadoutData set ["sniperRifles", _mSniper];
-	
+
 	_militiaLoadoutData set ["marksmanRifles", [["srifle_DMR_06_olive_F", "", "", "optic_MRCO", [], [], ""] ]];
 	_militiaLoadoutData set ["sniperRifles", [["srifle_DMR_06_olive_F", "", "", "optic_KHS_old", [], [], ""],
 	["srifle_DMR_06_olive_F", "", "", "optic_KHS_blk", [], [], ""]]];
-	//Overwrites the ABR/EBR - not fitting for a militia, others will still use it
+	//Overwrites the ABR/EBR - not fitting for the AAF militia, others will still use it
 };
 
 

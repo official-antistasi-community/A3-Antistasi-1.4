@@ -58,6 +58,17 @@ private _gl = [];
     };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
 
+if (count A3A_specialGrenadeLaunchers > 0) then {
+    // muzzle + base grenade launchers, broken down in the arsenal
+    private _rifleHM = createHashMapFromArray (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
+    private _muzzleHM = createHashMapFromArray (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_ITEMMUZZLE);
+    {
+        private _weapCount = _rifleHM getOrDefault [_y#0, 0];
+        if (_weapCount >= 0 and _weapCount < 2*ITEM_MIN) then { continue };        // slightly hacky but whatever
+        [_gl, _x, _muzzleHM getOrDefault [_y#1, 0]] call _fnc_addItem;
+    } forEach A3A_specialGrenadeLaunchers;
+};
+
 _rebelGear set ["Rifles", _rifle];
 _rebelGear set ["SMGs", _smg];
 _rebelGear set ["Shotguns", _shotgun];

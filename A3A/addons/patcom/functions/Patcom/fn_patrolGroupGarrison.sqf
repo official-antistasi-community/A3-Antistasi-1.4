@@ -75,23 +75,23 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
     {
         // Exit if no more units are available to be placed.
         if (count _units == 0) exitWith {
-            Debug("PATCOM | No more garrison units available to place. Exiting");
+            Trace("PATCOM | No more garrison units available to place. Exiting");
         };
 
         // Exit if we have already placed max amount of units in building.
         if (_unitsPlaced >= _unitsPerBuilding) exitWith {
-            Debug("PATCOM | Max garrison units placed in building. Moving to next building");
+            Trace("PATCOM | Max garrison units placed in building. Moving to next building");
         };
 
          // Move to next position if current one is invalid.
         if (_x isEqualTo [0,0,0]) then {
-            Debug_1("PATCOM | Position invalid in (%1), moving to next position", _class);
+            Trace_1("PATCOM | Position invalid in (%1), moving to next position", _class);
             continue;
         };
 
         // Continue to next building position if current position is too close to a static weapon.
         if ((count (_x nearEntities ["StaticWeapon", 3])) > 0) then {
-            Debug_1("PATCOM | Position (%1) too close to StaticWeapon, moving to next position.", _x);
+            Trace_1("PATCOM | Position (%1) too close to StaticWeapon, moving to next position.", _x);
             continue;
         };
 

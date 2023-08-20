@@ -85,13 +85,13 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
 
          // Move to next position if current one is invalid.
         if (_x isEqualTo [0,0,0]) then {
-            Trace_1("PATCOM | Position invalid in (%1), moving to next position", _class);
+            Debug_1("PATCOM | Position invalid in (%1), moving to next position", _class);
             continue;
         };
 
         // Continue to next building position if current position is too close to a static weapon.
         if ((count (_x nearEntities ["StaticWeapon", 3])) > 0) then {
-            Trace_1("PATCOM | Position (%1) too close to StaticWeapon, moving to next position.", _x);
+            Debug_1("PATCOM | Position (%1) too close to StaticWeapon, moving to next position.", _x);
             continue;
         };
 

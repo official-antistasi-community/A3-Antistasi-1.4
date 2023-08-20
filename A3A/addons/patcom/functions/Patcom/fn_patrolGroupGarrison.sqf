@@ -55,11 +55,11 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
     private _building = _x;
     private _class = typeOf _building;
     private _buildingPositions = [];
+    private _staticsNear = (getPosATL _building) nearEntities ["StaticWeapon", round (sizeOf _class)];
 
-    if (_class in A3A_staticBuildingClasses) then {
-        private _staticsNear = nearestObjects [getPosATL _building, ["StaticWeapon"], 6];
-        if (count _staticsNear > 0) then {continue};
-    };
+    // Continue if statics are close to the building. 
+    // We don't want garrison units clipping into their positions.
+    if (count _staticsNear > 0) then {continue};
 
     // Check to see if building is in whitelist first for better unit positions.
     if (_class in PATCOM_Garrison_Positions_Whitelist) then {

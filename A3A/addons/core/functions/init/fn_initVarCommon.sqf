@@ -143,7 +143,6 @@ A3A_buildingBlacklist = [
 	"Land_vn_tent_mash_02_01","Land_vn_tent_mash_01_03","Land_vn_army_hut_storrage","Land_vn_army_hut_int","Land_vn_wf_field_hospital_east","Land_vn_army_hut2_int","Land_vn_army_hut3_long_int", "Land_vn_o_prop_cong_cage_01", "Land_vn_o_prop_cong_cage_02", "Land_vn_o_prop_cong_cage_03",
 	"Land_SPE_bocage_long_mound", "Land_SPE_bocage_short_mound", "Land_SPE_bocage_short_mound_lc", "Land_SPE_bocage_long_mound_lc"
 ];
-A3A_staticBuildingClasses = ["Land_BagBunker_Small_F", "Land_BagBunker_01_small_green_F"];
 //Lights and Lamps array used for 'Blackout'
 A3A_lampTypes = [
 	"Lamps_Base_F", "PowerLines_base_F", "Land_LampDecor_F", "Land_LampHalogen_F", "Land_LampHarbour_F", "Land_LampShabby_F", "Land_NavigLight", "Land_runway_edgelight", "Land_PowerPoleWooden_L_F", "Land_SPE_StreetLamp_Off", "Land_SPE_StreetLamp", "Land_SPE_StreetLamp_pole_off", "Land_SPE_StreetLamp_pole", "Land_SPE_StreetLamp_wall_off", "Land_SPE_StreetLamp_wall", "Land_SPE_Ger_Lamp", "Land_SPE_US_Lamp", "Land_SPE_Onion_Lamp"

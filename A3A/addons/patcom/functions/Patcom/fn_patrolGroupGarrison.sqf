@@ -62,12 +62,7 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
     // Check to see if building is in whitelist first for better unit positions.
     if (_class in PATCOM_Garrison_Positions_Whitelist) then {
         {
-            private _buildingPos = _building buildingPos _x;
-            if !(_buildingPos isEqualTo [0,0,0]) then {
-                _buildingPositions pushBack _buildingPos;
-            } else {
-                Debug_1("PATCOM | Bad building position found | Class: %1", _class);
-            };
+            _buildingPositions pushBack (_building buildingPos _x);
         } forEach (PATCOM_Garrison_Positions_Whitelist get _class);
     } else {
         // If no pre-defined building positions are found. We default to a random one.

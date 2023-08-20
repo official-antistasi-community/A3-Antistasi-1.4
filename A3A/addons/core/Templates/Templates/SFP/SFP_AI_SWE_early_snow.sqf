@@ -27,8 +27,8 @@
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_MTLB_pk_Winter_CDF"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["CUP_I_BMP1_TK_GUE"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesLightAPCs", ["sfp_pbv302_mounted_snow"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesAPCs", ["sfp_pbv302_mounted_snow", "sfp_pbv302_snow", "sfp_pbv302_snow"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c_snow"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", ["sfp_strv103c","sfp_strv102","sfp_strv121_snow","sfp_ikv91_snow"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c_snow"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
@@ -36,7 +36,7 @@
 
 ["vehiclesTransportBoats", ["sfp_gruppbat"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["sfp_strb90"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_MTLB_pk_Winter_CDF"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","sfp_pbv302_snow"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
@@ -181,23 +181,30 @@ _sfLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["rifles", [
+["sfp_ak5b", "muzzle_snds_M", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5_snow", "muzzle_snds_M", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-["sfp_cga5p", "muzzle_snds_M", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5b", "muzzle_snds_M", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5d", "muzzle_snds_M", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5d", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak5_m203", "muzzle_snds_M", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
-_sfLoadoutData set ["SMGs", ["sfp_kpistm45b"]];
+_sfLoadoutData set ["SMGs", [
+["sfp_mp5_rail", "muzzle_snds_L", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_9mm_mp5"], [], ""],
+["sfp_kpistm45", "", "", "", ["sfp_71Rnd_9mm_kpistm45"], [], ""]]];
 _sfLoadoutData set ["shotguns", []];
-_sfLoadoutData set ["machineGuns", ["sfp_ksp90b"]];
+_sfLoadoutData set ["machineGuns", [
+["sfp_ksp90b", "", "", "sfp_optic_aimpoint", ["sfp_200Rnd_556x45_ksp90"], [], ""],
+["sfp_ksp58B2", "muzzle_snds_H_MG_blk_F", "", "sfp_optic_3x_aimpoint", ["sfp_50Rnd_762x51_ksp58"], [], ""]]];
 _sfLoadoutData set ["marksmanRifles", [
 ["sfp_ak5b", "muzzle_snds_M", "", "sfp_optic_susat_4x", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]]];
 _sfLoadoutData set ["sniperRifles", [
-["sfp_psg90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""]]];
+["sfp_psg90_base", "muzzle_snds_B", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""],
+["sfp_psg90_camo", "muzzle_snds_B", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""],
+["sfp_ag90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_10Rnd_127x99_ag90"], [], ""]]];
 _sfLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "muzzle_snds_L", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]
 ]];
 /////////////////////////////////
@@ -208,17 +215,17 @@ private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["sfp_m90s_uniform"]];
 _militaryLoadoutData set ["vests", ["sfp_stridsbalte_304k","sfp_stridsbalte_304k_extrabag","sfp_stridsbalte_304k_ar","sfp_stridsbalte_304k_gl","sfp_kroppsskydd94","sfp_kroppskydd94_rifle1"]];
 _militaryLoadoutData set ["medVests", ["sfp_stridsbalte_304k_medic"]];
-_militaryLoadoutData set ["helmets", ["sfp_m90s_helmet"]];
+_militaryLoadoutData set ["helmets", ["sfp_m90s_helmet_headset"]];
 
 _militaryLoadoutData set ["rifles", [
-["sfp_ak5", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
+["sfp_ak5b", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""],
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""],
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["sfp_cga5p", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5b", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""],
 ["sfp_ak5d", "", "", "", ["sfp_30Rnd_556x45_Stanag"], [], ""]
 ]];

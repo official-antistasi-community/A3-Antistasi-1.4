@@ -5820,5 +5820,479 @@
         <Original>Vehicle unlocked.</Original>
       </Key>
     </Container>
+    <Container name="A3A_fn_convoy">
+      <Key ID="STR_A3A_fn_convoy_convdebug_title">
+        <Original>Convoy Debug</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_convdebug_admin">
+        <Original>Only server admins can execute the convoy debug!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_convdebug_deactivate">
+        <Original>Deactivate convoy debug</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_ammo_title">
+        <Original>Ammo Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_ammo_text">
+        <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_armored_title">
+        <Original>Armored Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_armored_text">
+        <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_prison_title">
+        <Original>Prisoner Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_prison_text">
+        <Original>A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_reinf_title">
+        <Original>Reinforcements Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_reinf_text">
+        <Original>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_money_title">
+        <Original>Money Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_money_text">
+        <Original>A truck plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_supply_title">
+        <Original>Supply Convoy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_convoy_craiact_supply_text">
+        <Original>A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_create">
+      <Key ID="STR_A3A_fn_create_aivehinit_general">
+        <Original>General</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_create_aivehinit_no_human">
+        <Original>Only Humans can pilot an air vehicle</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_dialogs">
+      <Key ID="STR_A3A_fn_dialogs_clrforest_title">
+        <Original>Clear Forest</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_clrforest_commander">
+        <Original>Only Commanders can order to clear the forest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_clrforest_cleared">
+        <Original>You've cleared the surroundings of trees and bushes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_title">
+        <Original>Fast Travel</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_grp_select">
+        <Original>You can select one group only to Fast Travel.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_command">
+        <Original>You cannot Fast Travel groups commanded by players.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_control">
+        <Original>You cannot Fast Travel while you are controlling AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_tow">
+        <Original>You cannot Fast Travel with your Tow Rope out or a Vehicle attached.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_ff">
+        <Original>You cannot fast travel while being FF Punished.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_enemy1">
+        <Original>You cannot Fast Travel with enemies near the group.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_other">
+        <Original>You cannot Fast Travel if you don't have a driver in all your vehicles or your vehicles are damaged and cannot move or your group is in a boat.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_click_zone">
+        <Original>Click on the zone you want to travel.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_onlyhq">
+        <Original>Player groups are only allowed to Fast Travel to HQ or Airbases.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_enemy2">
+        <Original>You cannot Fast Travel to an enemy controlled zone.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_attack1">
+        <Original>You cannot Fast Travel to a location that is under attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_attack2">
+        <Original>You cannot Fast Travel to an area under attack or with enemies in the surrounding.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_members">
+        <Original>There are no members near the target location. You need to be within %1 km of HQ, an attack, commander or a member.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_grp_moving">
+        <Original>Moving group %1 to destination</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_cancelled">
+        <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_grp_arrived">
+        <Original>Group %1 arrived to destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_click_marker">
+        <Original>You must click near a marker under your control.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_title">
+        <Original>Minefields</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_no_one">
+        <Original>We can only deploy one minefield at a time.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_no_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_no_radioman">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_no_resource">
+        <Original>Not enough resources to recruit a mine deploying team (%1 € and %2 HR needed).</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_available">
+        <Original>An Explosive Specialist is available on your High Command bar.<br/><br/>Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.<br/><br/>Upon returning back to HQ he will unload mines stored in his vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_timer">
+        <Original>You need at least 5 mines of this type to build a Minefield.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_minediag_click">
+        <Original>Click on the position you wish to build the minefield.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_title">
+        <Original>Move HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_commander">
+        <Original>Only Player Commander is allowed to move HQ assets.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_already">
+        <Original>The asset you want to move is being moved by another player.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_vehicle">
+        <Original>You cannot move HQ assets while in a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_attached">
+        <Original>You have other things attached, you cannot move this.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_closer">
+        <Original>This asset needs to be closer to it relative zone center to be able to be moved.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_no_far">
+        <Original>This asset cannot be moved more far away for its zone center.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_addact_drop">
+        <Original>Drop Here</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_addact_move">
+        <Original>Move this asset</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_title">
+        <Original>Skip Time / Rest</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_commander">
+        <Original>Only the Commander can order to rest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_enemy1">
+        <Original>You cannot rest while enemies are near our units.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_enemy2">
+        <Original>You cannot rest while the enemy is counterattacking.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_civatt">
+        <Original>You cannot rest while citizens are under attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_hqatt">
+        <Original>You cannot rest while your HQ is under attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius">
+        <Original>All players must be in a 100m radius from HQ to be able to rest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqopt_title">
+        <Original>Squad Options</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqopt_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqopt_radioman">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqrec_title">
+        <Original>Squad Recruit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqrec_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_sqrec_radioman">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_init">
+      <Key ID="STR_A3A_fn_init_initclient_statdepl">
+        <Original>Static Deployed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_statdepl_confirm">
+        <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_warning">
+        <Original>Warning</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_vehlocked">
+        <Original>This Vehicle is locked, ask the Owner to unlock it.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_geninfo">
+        <Original>General Info</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_member_admin">
+        <Original>You are not in the member's list, but as you are Server Admin, you have been added. Welcome!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_member_guest">
+        <Original>Welcome Guest<br/><br/>You have joined this server as guest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_mods_tfar">
+        <Original>Players will use TFAR radios. Unconscious players' radios will be muted.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_mods_acre">
+        <Original>Players will use ACRE radios. Unconscious players' radios will be muted.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_mods_ace">
+        <Original>ACE items added to arsenal and ammo-boxes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_mods_ace_revive">
+        <Original>Default revive system will be disabled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_mods_loaded">
+        <Original>Loaded Mods</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_recunit">
+        <Original>Recruit Unit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_recunit_no">
+        <Original>You cannot recruit units while there are enemies near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_buyveh">
+        <Original>Purchase Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_buyveh_enemy">
+        <Original>You cannot buy vehicles while there are enemies near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_transfer">
+        <Original>Transfer Vehicle cargo to Ammobox</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_move">
+        <Original>Move this asset</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_recruit">
+        <Original>Unit Recruitment</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_arsenal">
+        <Original>Vehicle Arsenal</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_buyveh">
+        <Original>Buy Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_mapinfo">
+        <Original>Map Info</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_ailoadinfo">
+        <Original>AI Load Info</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_clientidle_title">
+        <Original>Client idle checker</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_clientidle_warning">
+        <Original>You are now considered AFK. You may lose commander if an election is triggered.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_intel">
+      <Key ID="STR_A3A_fn_intel_title1">
+        <Original>Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_title2">
+        <Original>Search Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_reset">
+        <Original>No one in range of the intel, need to start from scratch</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_1_err">
+        <Original>Reference to unknown location, need to locate location to continue decifering</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_1_act">
+        <Original>Locate location</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_2_err">
+        <Original>Ilegible text encountered, need to decifer meaning from context</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_2_act">
+        <Original>Decifer meaning</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_3_err">
+        <Original>Unkown codename encountered, need to decifer the codename reference</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_3_act">
+        <Original>Decifer codename</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_4_err">
+        <Original>Section of texts meaning hidden behind a riddle, have to solve it to continue</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_err_4_act">
+        <Original>Solve riddle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_prog">
+        <Original>Decryption progress at </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_encr_success">
+        <Original>You managed to decipher the intel!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_doc_success">
+        <Original>Intel documents taken.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_die">
+        <Original>The screen says:<br/><br/>Prepare to die!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_reset">
+        <Original>No one in range of the intel, reseting download!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_1_err">
+        <Original>Data Fragment Error. File {002451%12-215502%} has to be confirmed manually!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_1_act">
+        <Original>Confirm file</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_2_err">
+        <Original>404 Error on server. URL incorrect. Skip URL?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_2_act">
+        <Original>Skip URL</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_3_err">
+        <Original>Windows needs an update. Update now and lose all data?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_sm_3_act">
+        <Original>Stop windows update</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_me_1_err">
+        <Original>Download port closed on server. Manual reroute required!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_me_1_act">
+        <Original>Reroute download</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_me_2_err">
+        <Original>Error in NetworkAdapter. Hardware not responding. Restart now?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_me_2_act">
+        <Original>Restart NetworkAdapter</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_la_1_err">
+        <Original>Critical Error in network infrastructur. Server returned ErrorCode: CRITICAL_ARMA_PROCESS_DIED</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_err_la_1_act">
+        <Original>Restart server process</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_prog">
+        <Original>Download at %1%2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_laptop_success">
+        <Original>You managed to download the intel!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_leader_cancel">
+        <Original>Search cancelled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_leader_compl_found">
+        <Original>Search completed, intel found!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_leader_compl_empty">
+        <Original>Search completed, but you found nothing!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_time_1">
+        <Original>%1 attack is imminent!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_time_2">
+        <Original>%1 attack expected in %2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_reso_1">
+        <Original>%1 has plenty of defence reserves available</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_reso_2">
+        <Original>%1 has moderate defence reserves available</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_reso_3">
+        <Original>%1 is short on defence reserves</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_reso_4">
+        <Original>%1 has almost no defence reserves left</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_reso_5">
+        <Original>%1 is completely out of defence reserves!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_decry_1">
+        <Original>We found a %1 decryption key!<br/>It allows us to fully decrypt the next support call.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_conv_1">
+        <Original>We found the tracking data for a %1 convoy.<br/>Convoy position marked on map!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_conv_2">
+        <Original>There are currently no %1 convoys driving around!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_decry_2">
+        <Original>You found a package of %1 decryption keys!<br/>They allow your faction to decrypt support calls.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_conv_3">
+        <Original>We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_trait_1">
+        <Original>You found incriminating data on the traitor, we don't think he will cause any more trouble</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_weap_1">
+        <Original>You found the supply data for the<br/> %1<br/> You have unlocked this weapon!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_select_mon_1">
+        <Original>You found some confidential data, you sold it for %1 on the black market!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_place_disarm">
+        <Original>Disarm bomb</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_intel_leader_addact_cancel">
+        <Original>Cancel Search</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_ltc">
+      <Key ID="STR_A3A_fn_ltc_title">
+        <Original>Loot crate</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_canl_cooldown">
+        <Original>Cooldown still active.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_cant_already">
+        <Original>Already transfering.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_init_addact_ltc">
+        <Original>Load loot to crate</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_init_addact_ltv">
+        <Original>Load loot from crate to vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_lfc_noveh">
+        <Original>No vehicles nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_lfc_transfered">
+        <Original>All loot transfered to %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_lfc_no_full">
+        <Original>Unable to transfer all loot to %1. %1 full.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_ltc_looting">
+        <Original>Looting...</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_ltc_transfered">
+        <Original>Nearby loot transfered to crate.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ltc_ltc_notrans">
+        <Original>Unable to transfer all nearby loot.</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

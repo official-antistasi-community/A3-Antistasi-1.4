@@ -2,20 +2,20 @@
 FIX_LINE_NUMBERS()
 params["_vehicle", "_caller", "_actionID"];
 
-private _titleStr = localize "STR_A3A_core_fn_base_breachveh_breachveh";
+private _titleStr = localize "STR_A3A_fn_base_breachveh_breachveh";
 
-if(!isPlayer _caller) exitWith {[_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_player"] call A3A_fnc_customHint;};
+if(!isPlayer _caller) exitWith {[_titleStr, localize "STR_A3A_fn_base_breachveh_no_player"] call A3A_fnc_customHint;};
 
 //Only engineers should be able to breach a vehicle
 private _isEngineer = _caller getUnitTrait "engineer";
 if(!_isEngineer) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_engi"] call A3A_fnc_customHint;;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_engi"] call A3A_fnc_customHint;;
 };
 
 if(!alive _vehicle) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_destr"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_destr"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
@@ -23,14 +23,14 @@ private _vehCrew = crew _vehicle;
 private _aliveCrew = _vehCrew select {alive _x};
 if(count _aliveCrew == 0) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_dead"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_dead"] call A3A_fnc_customHint;
     _vehicle lock false;
     _vehicle removeAction _actionID;
 };
 
 if(side (_aliveCrew select 0) == teamPlayer) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_friendly"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_friendly"] call A3A_fnc_customHint;
     _vehicle removeAction _actionID;
 };
 
@@ -58,7 +58,7 @@ private _index = -1;
 //Abort if no explosives found
 if(_magazineArray isEqualTo []) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_noexpl"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_noexpl"] call A3A_fnc_customHint;
 };
 
 private _explosive = "";
@@ -95,7 +95,7 @@ if(!(_explo isEqualTo [])) then
 
 if(_explosiveCount == 0) exitWith
 {
-    [_titleStr, localize "STR_A3A_core_fn_base_breachveh_no_wrongexpl"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_wrongexpl"] call A3A_fnc_customHint;
 };
 
 private _time = 15 + (random 5);
@@ -117,7 +117,7 @@ _caller setVariable ["breachVeh", _vehicle];
 _caller setVariable ["animsDone",false];
 _caller setVariable ["cancelBreach",false];
 
-private _action = _caller addAction [localize "STR_A3A_core_fn_base_breachveh_cancel", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this) && (_this == vehicle _this)"];
+private _action = _caller addAction [localize "STR_A3A_fn_base_breachveh_cancel", {(_this select 1) setVariable ["cancelBreach",true]},nil,6,true,true,"","(isPlayer _this) && (_this == vehicle _this)"];
 _vehicle removeAction _actionID;
 
 _caller addEventHandler ["AnimDone",
@@ -158,7 +158,7 @@ if
   {_caller getVariable ["cancelBreach",false]}}}}
 ) exitWith
 {
-  [_titleStr, localize "STR_A3A_core_fn_base_breachveh_cancel"] call A3A_fnc_customHint;
+  [_titleStr, localize "STR_A3A_fn_base_breachveh_cancel"] call A3A_fnc_customHint;
   _caller setVariable ["cancelBreach",nil];
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;
@@ -173,7 +173,7 @@ for "_count" from 1 to _explosiveCount do
 
 //Added as the vehicle might blow up. Best not to blow up in the player's face.
 //Pause AFTER removing the explosive in case they decide to drop it or something.
-[_titleStr, localize "STR_A3A_core_fn_base_breachveh_timer"] call A3A_fnc_customHint;
+[_titleStr, localize "STR_A3A_fn_base_breachveh_timer"] call A3A_fnc_customHint;
 sleep 10;
 
 private _hitPointsConfigPath = configFile >> "CfgVehicles" >> (typeOf _vehicle) >> "HitPoints";

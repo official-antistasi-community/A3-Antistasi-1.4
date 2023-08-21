@@ -5376,5 +5376,445 @@
         <Spanish>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Pulsa &lt;t color='#%3'&gt;%4&lt;/t&gt; para despejar la pista. +%5&lt;/t&gt;</Spanish>
       </Key>
     </Container>
+    <Container name="A3A_core">
+      <Key ID="STR_A3A_core_fn_ai_artySupport_title">
+	      <Original>Artillery Support</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_select">
+        <Original>You must select an artillery group.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_selectOr">
+        <Original>You must select an artillery group or it is a Mobile Mortar and it's moving.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_cannotfire">
+        <Original>All elements in this Battery cannot fire or are disabled.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_noammo">
+        <Original>The Battery has no ammo to fire. Reload it on HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_busy">
+        <Original>Selected Battery is busy right now.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_modno">
+        <Original>Your current modset doesn't support this strike type.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_selectposstart">
+        <Original>Select the position on map where to perform the Artillery strike.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_oob">
+        <Original>The position you marked is out of bounds for that Battery.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_artySupport_selectposend">
+        <Original>Select the position to finish the barrage.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_autoheal_title">
+        <Original>AI Auto Heal</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_autoheal_mustleader">
+        <Original>You must be leader of your group to enable Auto Heal.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_autoheal_needsai">
+        <Original>Auto Heal requires at least one AI soldier in your group.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_title">
+        <Original>Static Auto Target</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_mustselect">
+        <Original>You must select one group on the HC bar.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_notmounted">
+        <Original>Selected squad is not a mounted static type.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_notavailable">
+        <Original>Static Auto Target is not available for Mortar Squads in Multiplayer.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_autotarget_off">
+        <Original>Mounted Static Squad %1 set to Auto Target Mode OFF.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ai_staticautot_autotarget_on">
+        <Original>Mounted Static Squad %1 set to Auto Target Mode ON.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_cargo">
+        <Original>Cargo</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_empty_vehicle_empty">
+        <Original>Closest vehicle (%1) is empty.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_empty_cargo_transferred">
+        <Original>Transferred cargo from %1 to arsenal.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_transfer_commander_only">
+        <Original>Only the Commander can transfer this ammobox content to any truck.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_transfer_box_empty">
+        <Original>Closest Ammobox is empty.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_transfer_loading">
+        <Original>Truck loading. <br/><br/>Time remaining: %1 secs.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_ammo_transfer_cancelled">
+        <Original>Transfer cancelled due to movement of Truck or Player.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_airspacecontrol_undercover">
+        <Original>Undercover</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_airspacecontrol_warning">
+        <Original>Unidentified helicopter<br/><br/>You are closing in on the airspace of %1.<br/><br/> Change your course or we will take defensive actions!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_title">
+        <Original>Move HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_no_comm">
+        <Original>Only our Commander has access to this function.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_comm_only">
+        <Original>Commander only</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_no_empty1">
+        <Original>You must first empty your Arsenal inventory in order to move the HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_no_empty2">
+        <Original>Arsenal inventory must be empty</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_petros_down">
+        <Original>Put Petros down before you move the HQ!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_canmovehq_petros_pickedup">
+        <Original>Petros currently picked up</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_caclaggro_occ_red">
+        <Original>%1 aggression level reduced to %2<br/></Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_caclaggro_occ_inc">
+        <Original>%1 aggression level increased to %2<br/></Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_caclaggro_inv_red">
+        <Original>%1%2 aggression level reduced to %3</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_caclaggro_inv_inc">
+        <Original>%1%2 aggression level increased to %3</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_caclaggro_levelchange">
+        <Original>Aggression level changed</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_commsmp_error">
+        <Original>Download error:<br/>%1</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_commsmp_remaining">
+        <Original>Time Remaining: %1 secs</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_commsmp_countdown">
+        <Original>Countdown</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_commsmp_warlvlchange">
+        <Original>War Level Changed<br/><br/>Current Level: %1</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_createoutpfia_create">
+        <Original>Create Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_createoutpfia_outdated">
+        <Original>Deprecated option. Use Remove Garrison from HQ instead.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_take">
+        <Original>Take the Flag</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_recruit">
+        <Original>Unit Recruitment</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_recruit_no">
+        <Original>You cannot recruit units while there are enemies near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_vehiclebuy">
+        <Original>Buy Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_vehiclebuy_no">
+        <Original>You cannot buy vehicles while there are enemies near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_missionrequest">
+        <Original>Mission Request</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_hq_manage">
+        <Original>HQ Management</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_asset_move">
+        <Original>Move this asset</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_hq_build">
+        <Original>Build HQ here</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_truckX">
+        <Original>Transfer Ammobox to Truck</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_heal_">
+        <Original>Revive %1</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_heal_">
+        <Original>Carry %1</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_refugee">
+        <Original>Liberate</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_prisonerx">
+        <Original>Liberate POW</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_capturex_release">
+        <Original>Release POW</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_capturex_recruit">
+        <Original>Recruit</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_capturex_interrogate">
+        <Original>Interrogate</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_firex_rest">
+        <Original>Rest for 8 Hours</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_firex_forest">
+        <Original>Clear Nearby Forest</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_firex_fog">
+        <Original>I hate the fog</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_firex_rain">
+        <Original>Rain rain go away</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_buyveh">
+        <Original>Buy Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_buyveh_no">
+        <Original>You cannot buy vehicles while there are enemies near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_intel_search">
+        <Original>Search for Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_intel_take">
+        <Original>Take Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_intel_download">
+        <Original>Download Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_intel_decifer">
+        <Original>Decifer Intel</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_static_allow">
+        <Original>Allow AIs to use this weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_flagaction_static_prevent">
+        <Original>Prevent AIs using this weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_gc_title">
+        <Original>Garbage Cleaner</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_gc_wait">
+        <Original>Please wait for GC to finish.<br/>Last GC was %1 ago.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_gc_deleted">
+        <Original>Garbage Deleted.<br/>Last GC was %1 ago.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_movehq_garrison">
+        <Original>Garrison</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_movehq_stay">
+        <Original>HQ Garrison will stay here and distract the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_movehq_removed">
+        <Original>Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_title">
+        <Original>Capture</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_no_undercover">
+        <Original>You cannot Capture the Flag while Undercover.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_no_wl3">
+        <Original>You cannot capture Airports until you reach War Level 3.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_abort">
+        <Original>Aborted Outpost Capture</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_used">
+        <Original>Flag pole being used, wait %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_lurk_check">
+        <Original>The enemy still lurks about. Check your map and clear the area.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_mrkwin_lurk_hunt">
+        <Original>The enemy still lurks about. Hunt them down and clear the area.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_hcdics_warning">
+        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_hcdics_hc">
+        <Original>Headless Client</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_title">
+        <Original>Watchposts/Roadblocks</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_one">
+        <Original>We can only deploy / delete one Watchpost or Roadblock at a time.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_radio">
+        <Original>Radio Required</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_radioman">
+        <Original>Radio-man Required</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_radioman">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_click_position">
+        <Original>Click on the position you wish to build the Watchpost or Roadblock. <br/><br/> Remember: to build Roadblocks you must click exactly on a road map section.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_click_delete">
+        <Original>Click on the Watchpost or Roadblock to delete.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_delete">
+        <Original>No Watchposts or Roadblocks deployed to delete.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_enemies">
+        <Original>You cannot delete a Post while enemies are near it.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_post">
+        <Original>No post nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_outpdiag_no_resources">
+        <Original>You lack of resources to build this Watchpost or Roadblock. <br/><br/> %1 HR and %2 € needed.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_petros_dead">
+        <Original>Petros is Dead</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_petros_dead_long">
+        <Original>Petros has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_title">
+        <Original>HQ Position</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_no_enemy_zone">
+        <Original>Place selected is very close to enemy zones.<br/><br/> Please select another position.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_no_water">
+        <Original>Selected position cannot be in water.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_no_map">
+        <Original>Selected position cannot be outside the map.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_placeselec_no_enemy_near">
+        <Original>There are enemies in the surroundings of that area, please select another.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_title">
+        <Original>Rebuild Assets</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_no_money">
+        <Original>You do not have enough money to rebuild any Asset. You need 5.000 €.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_click_zone">
+        <Original>Click on the zone you want to rebuild.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_click_marker">
+        <Original>You must click near a map marker.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_no">
+        <Original>You cannot rebuild that.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_no_notower">
+        <Original>That Outpost does not have a destroyed Radio Tower.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_no_owner">
+        <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_done_1">
+        <Original>%1 Rebuilt</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_rebasset_done_2">
+        <Original>Radio Tower rebuilt.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_sell">
+        <Original>Sell Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_no_looking">
+        <Original>You are not looking at a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_no_closer">
+        <Original>Vehicle must be closer than 50 meters to the headquarters marker.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_no_empty">
+        <Original>In order to sell the vehicle, it must be empty.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_no_owner">
+        <Original>You are not the owner of this vehicle. Therefore, you cannot sell it.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_progress">
+        <Original>Vehicle sale already in progress.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_no_suitable">
+        <Original>The vehicle you are looking is not suitable in our marketplace.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_sellveh_sold">
+        <Original>Vehicle Sold.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_breachveh">
+        <Original>Breach Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_player">
+        <Original>Only players are currently able to breach vehicles!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_engi">
+        <Original>You have to be an engineer to breach a vehicle!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_destr">
+        <Original>Why would you want to breach a destroyed vehicle?</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_dead">
+        <Original>There is no living crew left, no need for breaching!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_friendly">
+        <Original>You cannot breach a vehicle which is controlled by the rebels!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_noexpl">
+        <Original>You carry no explosives. You will need some to breach vehicles!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_no_wrongexpl">
+        <Original>You don't have the right explosives, check the briefing notes to see what you need!</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_cancel">
+        <Original>Breaching cancelled.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_timer">
+        <Original>Breaching in 10 seconds.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_breachveh_cancel">
+        <Original>Cancel Breaching</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_unlockveh">
+        <Original>Unlock Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_looking">
+        <Original>You are not looking at a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_destr">
+        <Original>You cannot unlock/lock destroyed.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_no1">
+        <Original>Sorry you cannot unlock %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_no2">
+        <Original>The vehicle you are looking at cannot be used.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_owner1">
+        <Original>The vehicle you are looking does not belong to anyone.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_no_owner2">
+        <Original>You cannot unlock/lock vehicles which you do not own.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_locked">
+        <Original>Vehicle locked.</Original>
+      </Key>
+      <Key ID="STR_A3A_core_fn_base_unlockveh_unlocked">
+        <Original>Vehicle unlocked.</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

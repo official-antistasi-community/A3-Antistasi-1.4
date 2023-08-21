@@ -21,3 +21,6 @@ if (_owner in hcArray) then
 		hcArray = hcArray - [_owner];
 	};
 };
+
+//STR_A3A_core_fn_base_hcdics_hc - needs implementation in line 14
+//STR_A3A_core_fn_base_hcdics_warning - needs implementation in line 14

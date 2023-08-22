@@ -131,13 +131,13 @@ else
 		};
 	};
 
-if (captive _unit) then {_unit setCaptive false};
 _unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
 if (time > _bleedOut) exitWith
 {
 	if (isPlayer _unit) exitWith { [player] spawn A3A_fnc_respawn };
+	if (captive _unit) then {_unit setCaptive false};
 	_unit setDamage 1;
 };
 if (alive _unit) then
@@ -146,4 +146,12 @@ if (alive _unit) then
 	//_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
 	_unit playMoveNow "unconsciousoutprone";
 	_unit setBleedingremaining 0;
+
+	// Temp invulnerability on revive
+	_unit allowDamage false;
+	_unit spawn {
+		sleep 5;
+		if (captive _this) then {_this setCaptive false};
+		_this allowDamage true;
+	};
 };

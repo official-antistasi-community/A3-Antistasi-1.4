@@ -97,7 +97,7 @@ if (_unitsPerBuilding < _minimumUnits) then {_unitsPerBuilding = _minimumUnits};
 
         // Move the unit and set them up in position.
         private _unit = _units deleteAt 0;
-        _unit setposATL _x;
+        _unit setPosATL _x;
         _unit setdir ((_unit getRelDir _building)-180);
         _unit setUnitPos "UP";
         dostop _unit;

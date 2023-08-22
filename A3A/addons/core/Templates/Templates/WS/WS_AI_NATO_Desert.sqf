@@ -36,14 +36,14 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["B_APC_Wheeled_01_cannon_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["B_D_Plane_CAS_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
-private _HelisTransport = ["B_Heli_Transport_01_F"];
-["vehiclesHelisLightAttack", ["B_Heli_Light_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["B_D_Heli_Light_01_lxWS"]] call _fnc_saveToTemplate;
+private _HelisTransport = ["B_D_Heli_Transport_01_lxWS"];
+["vehiclesHelisLightAttack", ["B_D_Heli_Light_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["B_D_Heli_Attack_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]] call _fnc_saveToTemplate; //this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
 //new magazines storing methode, all vehicle magazines should be defined here in format [Vehicle class, [magazines]],

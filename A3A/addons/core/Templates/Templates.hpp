@@ -149,9 +149,17 @@ class Templates
 	};
 	class WS_ION : WS_Base
 	{
+        side = "Inv";
+        flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+        name = "WS ION";
+        file = "WS_AI_ION";
 	};
 	class WS_UNA : WS_Base
 	{
+        side = "Occ";
+        flagTexture = "lxws\data_f_lxws\img\flags\flag_una_CO.paa";
+        name = "WS UNA";
+        file = "WS_AI_UNA";
 	};
 	class WS_TURA : WS_Base
 	{

@@ -57,71 +57,6 @@
 //////////////////////////
 
 private _civUniforms = [
-    "U_C_Man_casual_1_F",
-    "U_C_Man_casual_2_F",
-    "U_C_Man_casual_3_F",
-    "U_C_Man_casual_4_F",
-    "U_C_Man_casual_5_F",
-    "U_C_Man_casual_6_F",
-    "U_C_ArtTShirt_01_v1_F",
-    "U_C_ArtTShirt_01_v2_F",
-    "U_C_ArtTShirt_01_v3_F",
-    "U_C_ArtTShirt_01_v4_F",
-    "U_C_ArtTShirt_01_v5_F",
-    "U_C_ArtTShirt_01_v6_F",
-    "U_NikosBody",
-    "U_NikosAgedBody",
-    "U_C_Poloshirt_blue",
-    "U_C_Poloshirt_burgundy",
-    "U_C_Poloshirt_stripped",
-    "U_C_Poloshirt_tricolour",
-    "U_C_Poloshirt_salmon",
-    "U_C_Poloshirt_redwhite",
-    "U_OrestesBody",
-    "U_C_Poor_1",
-    "U_C_HunterBody_grn",
-    "U_I_L_Uniform_01_tshirt_skull_F",
-    "U_I_L_Uniform_01_tshirt_black_F",
-    "U_I_L_Uniform_01_tshirt_sport_F",
-    "U_C_Scientist",
-    "U_C_Uniform_Scientist_02_formal_F",
-    "U_C_Uniform_Scientist_02_F",
-    "U_C_Uniform_Scientist_01_F"
-];
-
-private _pressUniforms = [
-    "U_C_Journalist",
-    "U_Marshal"
-    ];
-
-private _workerUniforms = [
-    "U_C_WorkerCoveralls",
-    "U_C_Uniform_Farmer_01_F"
-    ];
-
-private _dlcUniforms = [];
-
-if (allowDLCExpansion) then {_dlcUniforms append [
-    "U_C_man_sport_1_F",
-    "U_C_man_sport_2_F",
-    "U_C_man_sport_3_F"];
-};
-
-if (allowDLCOrange) then {
-  _dlcUniforms append [
-    "U_C_Paramedic_01_F",
-    "U_C_Mechanic_01_F"
-  ];
-  _workerUniforms append [
-    "U_C_ConstructionCoverall_Black_F",
-    "U_C_ConstructionCoverall_Blue_F",
-    "U_C_ConstructionCoverall_Red_F",
-    "U_C_ConstructionCoverall_Vrana_F"
-  ];
-};
-
-if (allowDLCWS) then {
-  _dlcUniforms append [
     "U_lxWS_C_Djella_01",
     "U_lxWS_C_Djella_02",
     "U_lxWS_C_Djella_02a",
@@ -139,6 +74,30 @@ if (allowDLCWS) then {
     "U_lxWS_Tak_03_A",
     "U_lxWS_Tak_03_B",
     "U_lxWS_Tak_03_C"
+];
+
+private _pressUniforms = [
+    "U_C_Journalist",
+    "U_Marshal"
+    ];
+
+private _workerUniforms = [
+    "U_C_WorkerCoveralls",
+    "U_C_Uniform_Farmer_01_F"
+    ];
+
+private _dlcUniforms = [];
+
+if (allowDLCOrange) then {
+  _dlcUniforms append [
+    "U_C_Paramedic_01_F",
+    "U_C_Mechanic_01_F"
+  ];
+  _workerUniforms append [
+    "U_C_ConstructionCoverall_Black_F",
+    "U_C_ConstructionCoverall_Blue_F",
+    "U_C_ConstructionCoverall_Red_F",
+    "U_C_ConstructionCoverall_Vrana_F"
   ];
 };
 
@@ -176,7 +135,7 @@ _loadoutData set ["pressUniforms", _pressUniforms];
 _loadoutData set ["workerUniforms", _workerUniforms];
 _loadoutData set ["pressVests", ["V_Press_F"]];
 _loadoutData set ["helmets", _civHats];
-_loadoutData set ["pressHelmets", ["H_Cap_press"]];
+_loadoutData set ["pressHelmets", ["H_Cap_press", "H_PASGT_basic_blue_press_F","H_PASGT_neckprot_blue_press_F"]];
 
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];

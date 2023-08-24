@@ -23,15 +23,9 @@ class CfgMarkers {
 		icon = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
 		texture = QPATHTOFOLDER(Pictures\Markers\chdkz_co.paa);
 	};
-	
-	class a3a_flag_SIFA: flag_NATO {
-		name = "SIFA";
-		icon = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
-		texture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
-	};
 	class a3a_flag_ION: flag_NATO {
 		name = "ION";
 		icon = "\A3\Data_F\Flags\flag_ion_CO.paa";
-		texture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+		texture = "\A3\Data_F\Flags\flag_ion_CO.paa"; //Needs unsquaring
 	};
 };

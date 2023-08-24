@@ -168,7 +168,7 @@ class a3a_LSV_01_AT_black_F	:	B_LSV_01_AT_F
 	textureList[] = {"Black",1,"Olive",0,"Sand",0};
 };
 
-class aac_Van_02_black_transport_F : C_Van_02_transport_F
+class a3a_Van_02_black_transport_F : C_Van_02_transport_F
 {
 	scope = 2;
 	textureList[] = {"Black",1,"White",0};

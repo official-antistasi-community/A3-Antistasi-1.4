@@ -79,7 +79,7 @@ if (_sideX == Invaders) then
 	[_houseX, _difficultX] spawn
 	{
 		params ["_house", "_isDifficult"];
-		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
+		if (_isDifficult) then {sleep 300} else {sleep (300 + random 1800)};
 		if !(_taskId call BIS_fnc_taskCompleted) then
 		{
 			// Needs rework

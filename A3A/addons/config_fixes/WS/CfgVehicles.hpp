@@ -1,5 +1,11 @@
 class CfgVehicles {
 
+	class O_Truck_02_Ammo_F;			//
+	class O_Truck_02_Fuel_F;	        //
+	class O_Truck_02_box_F;	            //
+	class O_Truck_02_transport_F;	    //
+	class O_Truck_02_medical_F;	        //
+	
 	class a3a_ION_Truck_02_Ammo_F	:	O_Truck_02_Ammo_F
 	{
 		scope = 1;

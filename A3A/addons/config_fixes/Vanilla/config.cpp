@@ -1,7 +1,8 @@
-#include "script_component.hpp"
+#include "..\script_component.hpp"
+
 
 class CfgPatches {
-    class ADDON {
+    class PATCHNAME(A3) {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
@@ -16,5 +17,6 @@ class CfgPatches {
 
 // Uncomment when needed
 //#include "CfgMagazines.hpp"
-//#include "CfgVehicles.hpp"
+#include "CfgVehicles.hpp"
+//#include "CfgMarkers.hpp"
 //#include "CfgWeapons.hpp"

@@ -82,7 +82,12 @@ private _rebUniforms = [
     "U_lxWS_Djella_02_Sand",
     "U_lxWS_Djella_03_Green",
     "U_lxWS_Djella_02_Grey",
-    "U_lxWS_Djella_02_Brown"
+    "U_lxWS_Djella_02_Brown",
+	"U_SFIA_deserter_lxWS",
+	"U_lxWS_C_Djella_06",
+	"U_lxWS_C_Djella_02a",
+	"U_lxWS_C_Djella_05",
+	"U_lxWS_C_Djella_01"
 ];
 
 private _dlcUniforms = [
@@ -90,11 +95,11 @@ private _dlcUniforms = [
     "U_IG_Guerilla2_1",
     "U_IG_Guerilla2_2",
     "U_IG_Guerilla2_3",
-    "U_lxWS_ION_Casual1",
-    "U_lxWS_ION_Casual2",
-    "U_lxWS_ION_Casual3",
-    "U_lxWS_ION_Casual4",
-    "U_lxWS_ION_Casual5"
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F",
+    "U_I_L_Uniform_01_deserter_F"
 ];
 
 if (allowDLCEnoch) then {_dlcUniforms append [

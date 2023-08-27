@@ -55,7 +55,7 @@ private _HelisTransport = ["B_Heli_Transport_01_camo_F"];
 ["uavsPortable", ["I_E_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_ldf_armed_F", "a3a_Offroad_01_ldf_AT_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["I_E_Truck_02_F", "I_E_Truck_02_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["I_E_Offroad_01_F", "I_E_Offroad_01_comms_F", "I_E_Offroad_01_covered_F"]] call _fnc_saveToTemplate;
 
@@ -86,7 +86,6 @@ if ("tanks" in A3A_enabledDLC) then {
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_T_MRAP_01_F", "B_T_LSV_01_unarmed_F"];
 	_LightArmed append ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F", "B_T_LSV_01_AT_F", "B_T_LSV_01_armed_F"];
-	["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] call _fnc_saveToTemplate;
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_F", "B_Heli_Transport_03_unarmed_green_F"]

@@ -54,9 +54,9 @@ private _Tanks = ["O_T_MBT_02_cannon_ghex_F"];
 ["uavsPortable", ["O_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_black_armed_F", "a3a_Offroad_01_black_AT_F"];
 ["vehiclesMilitiaTrucks", ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["a3a_Offroad_01_black_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -81,6 +81,7 @@ if ("ws" in A3A_enabledDLC) then {
 
 if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+	_vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	_Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"];
@@ -100,6 +101,9 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 

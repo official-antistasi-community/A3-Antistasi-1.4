@@ -56,9 +56,9 @@ private _HelisTransport = ["B_Heli_Transport_01_F"];
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_tan_armed_F", "a3a_Offroad_01_tan_AT_F"];
 ["vehiclesMilitiaTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["a3a_Offroad_01_tan_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -84,6 +84,7 @@ if ("ws" in A3A_enabledDLC) then {
 };
 if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+	_vehiclesMilitiaCars append ["a3a_Offroad_01_comms_tan_F", "a3a_Offroad_01_covered_tan_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
@@ -108,6 +109,9 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 
 ["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
+
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 

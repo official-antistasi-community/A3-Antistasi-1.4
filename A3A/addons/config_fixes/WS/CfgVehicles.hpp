@@ -6,6 +6,8 @@ class CfgVehicles {
 	class O_Truck_02_transport_F;	    //
 	class O_Truck_02_medical_F;	        //
 	
+	class I_Truck_02_MRL_F;
+	
 	class O_Truck_02_cargo_lxWS;
 	class O_Truck_02_flatbed_lxWS;
 	

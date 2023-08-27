@@ -14,16 +14,19 @@
     ,"C_SUV_01_F", 1.0
     ,"C_Van_02_vehicle_F", 1.0                // van from Orange
     ,"C_Van_02_transport_F", 0.2            // minibus
-    ,"C_Offroad_02_unarmed_F", 0.5            // Apex 4WD
+    ,"C_Offroad_02_unarmed_F", 1.5            // Apex 4WD
     ,"C_Offroad_01_comms_F", 0.1            // Contact
-    ,"C_Offroad_01_covered_F", 0.1]] call _fnc_saveToTemplate;
+    ,"C_Offroad_01_covered_F", 0.1
+	]] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [
     "C_Van_01_transport_F", 1.0
     ,"C_Van_01_box_F", 0.8
     ,"C_Truck_02_transport_F", 0.5
     ,"C_Truck_02_covered_F", 0.5
-    ,"C_Tractor_01_F", 0.3    ]] call _fnc_saveToTemplate;
+    ,"C_Tractor_01_F", 0.3    
+    ,"C_Truck_02_racing_lxWS", 0.1
+	]] call _fnc_saveToTemplate;
 
 ["vehiclesCivBoat", [
     "C_Boat_Civil_01_rescue_F", 0.1            // motorboats
@@ -48,9 +51,10 @@
 ///  Identities   ///
 /////////////////////
 
-["faces", ["GreekHead_A3_02", "GreekHead_A3_03", "GreekHead_A3_04", "GreekHead_A3_05", "GreekHead_A3_06",
-"GreekHead_A3_07", "GreekHead_A3_08", "GreekHead_A3_09", "Ioannou", "Barklem", "AfricanHead_02",
-"AsianHead_A3_02", "AsianHead_A3_03", "WhiteHead_05"]] call _fnc_saveToTemplate;
+["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03",
+"lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
+"lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
+"lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //
@@ -93,13 +97,13 @@ if (allowDLCOrange) then {
     "U_C_Paramedic_01_F",
     "U_C_Mechanic_01_F"
   ];
-  _workerUniforms append [
-    "U_C_ConstructionCoverall_Black_F",
-    "U_C_ConstructionCoverall_Blue_F",
-    "U_C_ConstructionCoverall_Red_F",
-    "U_C_ConstructionCoverall_Vrana_F"
-  ];
 };
+_workerUniforms append [
+"U_C_ConstructionCoverall_Black_F",
+"U_C_ConstructionCoverall_Blue_F",
+"U_C_ConstructionCoverall_Red_F",
+"U_C_ConstructionCoverall_Vrana_F"
+];
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;
 

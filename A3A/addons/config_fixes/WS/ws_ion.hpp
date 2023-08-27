@@ -1,3 +1,10 @@
+class a3a_ION_Truck_02_MRL_F	:	I_Truck_02_MRL_F
+{
+	side = 1;
+	crew = "B_ION_Soldier_lxWS";
+	faction = "BLU_ION_lxWS";
+	hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\truck_02\truck_02_kab_black_co.paa","a3\soft_f_beta\truck_02\data\truck_02_int_co.paa","a3\soft_f_gamma\truck_02\data\truck_02_mrl_co.paa"};
+};
 class a3a_ION_Truck_02_Ammo_F	:	O_Truck_02_Ammo_F
 {
 	side = 1;

@@ -20,45 +20,55 @@
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 //A number of these vehicles could be replaced with simple retextures
 ["vehiclesBasic", ["B_ION_Quadbike_01_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["B_ION_Offroad_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["B_ION_Offroad_armed_lxWS"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
-["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["B_ION_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["O_SFIA_Truck_02_Ammo_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["O_SFIA_Truck_02_box_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["O_SFIA_Truck_02_fuel_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["O_Truck_02_medical_F"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["B_ION_Offroad_lxWS","a3a_ion_Offroad_armor","B_LSV_01_unarmed_black_F","O_LSV_02_unarmed_black_F"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["B_ION_Offroad_armed_lxWS","a3a_ion_Offroad_armor_armed","a3a_ion_Offroad_armor_at","a3a_LSV_02_AT_black_F","a3a_LSV_01_AT_black_F","O_LSV_02_armed_black_F","B_LSV_01_armed_black_F"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_ION_Truck_02_cargo_F","a3a_ION_Truck_02_flatbed_F"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["a3a_ION_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["a3a_ION_Truck_02_repair_F"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["a3a_ION_Truck_02_Fuel_F"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["a3a_Van_02_black_medevac_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["B_ION_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesAPCs", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesTanks", ["B_ION_APC_Wheeled_01_cannon_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["a3a_ION_Truck_02_zu23_F"]] call _fnc_saveToTemplate;
 
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F", "a3a_Boat_Armed_01_hmg_blufor_F"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["B_Plane_CAS_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["a3a_Plane_Fighter_03_grey_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["a3a_Plane_Fighter_04_grey_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "B_ION_Heli_Light_02_unarmed_lxWS", "B_D_Heli_Light_01_lxWS"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
-["vehiclesHelisTransport", ["B_ION_Heli_Light_02_unarmed_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "B_ION_Heli_Light_02_unarmed_lxWS", "a3a_Heli_Light_01_ION_F"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
+["vehiclesHelisTransport", ["a3a_ION_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
-["vehiclesHelisLightAttack", ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", "B_D_Heli_Light_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
+["vehiclesHelisLightAttack", ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", "a3a_Heli_Light_01_dynamicLoadout_ION_F", "a3a_Heli_Light_02_black_F"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
-["vehiclesArtillery", []] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray []] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
+["vehiclesArtillery", ["a3a_ION_Truck_02_MRL_F", "B_MBT_01_arty_F"]] call _fnc_saveToTemplate;
+["magazines", createHashMapFromArray [
+["a3a_ION_Truck_02_MRL_F", ["12Rnd_230mm_rockets"]],
+["B_MBT_01_arty_F",["32Rnd_155mm_Mo_shells"]]
+]] call _fnc_saveToTemplate;
 
-["uavsAttack", []] call _fnc_saveToTemplate;
+["uavsAttack", ["B_T_UAV_03_dynamicLoadout_F","B_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["ION_UAV_01_lxWS","ION_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["B_ION_Offroad_armed_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_ION_Offroad_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", [
+,
+"a3a_Offroad_02_black_AT_F","a3a_Offroad_02_LMG_black_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F","a3a_Offroad_02_unarmed_black_F"]] call _fnc_saveToTemplate;
+
+private _vehiclesMilitiaLightArmed = ["B_ION_Offroad_armed_lxWS", "a3a_Offroad_01_black_AT_F", "a3a_Offroad_01_black_armed_F"];
+["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F","a3a_Offroad_02_unarmed_black_F"];
+
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -72,12 +82,15 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 ["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 if ("expansion" in A3A_enabledDLC) then {
+	_vehiclesMilitiaLightArmed append ["a3a_Offroad_02_black_AT_F","a3a_Offroad_02_LMG_black_F"];
+	_vehiclesMilitiaCars append ["a3a_Offroad_02_unarmed_black_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	["vehiclesTanks", ["O_MBT_04_cannon_F","O_MBT_04_command_F"]] call _fnc_saveToTemplate;
 };
 if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+	_vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];

@@ -25,7 +25,7 @@
 ["vehiclesAmmoTrucks", ["O_SFIA_Truck_02_Ammo_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["O_SFIA_Truck_02_box_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["O_SFIA_Truck_02_fuel_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["O_Truck_02_medical_F"]] call _fnc_saveToTemplate; //Replace with SFIA retexture
+["vehiclesMedical", ["a3a_SIFA_Truck_02_medical_F"]] call _fnc_saveToTemplate; //Replace with SFIA retexture
 ["vehiclesLightAPCs", ["O_SFIA_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["O_SFIA_APC_Tracked_02_cannon_lxWS", "O_SFIA_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
@@ -37,7 +37,7 @@
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["O_SFIA_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["O_Plane_CAS_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["O_Plane_CAS_02_dynamicLoadout_F", "a3a_Plane_Fighter_03_grey_F", "a3a_Plane_Fighter_03_grey_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["O_Plane_Fighter_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["O_T_VTOL_02_infantry_hex_F"]] call _fnc_saveToTemplate; 
 

@@ -1,16 +1,16 @@
-["attributesVehicles", [
-    // Attack helis with only fixed miniguns
-    ["O_Heli_Light_02_dynamicLoadout_F", ["cost", 100]],
-    ["O_Heli_Light_02_F", ["cost", 100]],
-    ["B_Heli_Light_01_armed_F", ["cost", 100]],
-    ["B_Heli_Light_01_dynamicLoadout_F", ["cost", 100]],
-    ["I_E_Heli_light_03_dynamicLoadout_F", ["cost", 100]],
-
+#include "..\Vanilla\Vanilla_Vehicle_Attributes.sqf"
+(["attributesVehicles"] call _fnc_getFromTemplate) append [
     ["B_ION_APC_Wheeled_01_cannon_lxWS", ["cost", 100], ["threat", 120]],
-    // AAF trash CAS
-    ["I_Plane_Fighter_03_dynamicLoadout_F", ["cost", 200]]
-
-]] call _fnc_saveToTemplate;
+    ["B_ION_APC_Wheeled_01_command_lxWS", ["cost", 70], ["threat", 120]],
+    ["B_D_Heli_Light_01_dynamicLoadout_lxWS", ["cost", 100]],
+	
+    ["a3a_Heli_Light_01_dynamicLoadout_ION_F", ["cost", 100]],
+    ["a3a_Heli_Light_02_black_F", ["cost", 90]],
+    ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", ["cost", 100]],
+	
+	
+    ["a3a_Plane_Fighter_03_grey_F", ["cost", 200]]
+];
 
 //Base cost 20 static AA, AT, Mortars   base Threat 80
 //Base cost 20 lightUnarmed             base Threat 

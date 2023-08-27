@@ -5384,28 +5384,28 @@
         <Original>You must select an artillery group.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_selectOr">
-        <Original>You must select an artillery group or it is a Mobile Mortar and it's moving.</Original>
+        <Original>You must select an artillery group or it is a mobile mortar which is moving.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_cannotfire">
-        <Original>All elements in this Battery cannot fire or are disabled.</Original>
+        <Original>All elements in this battery cannot fire or are disabled.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_noammo">
-        <Original>The Battery has no ammo to fire. Reload it on HQ.</Original>
+        <Original>The battery has no ammo to fire. Reload it on HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_busy">
-        <Original>Selected Battery is busy right now.</Original>
+        <Original>Selected battery is busy right now.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_modno">
         <Original>Your current modset doesn't support this strike type.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_selectposstart">
-        <Original>Select the position on map where to perform the Artillery strike.</Original>
+        <Original>Select the position to start the barrage on the map.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_oob">
-        <Original>The position you marked is out of bounds for that Battery.</Original>
+        <Original>The position you marked is out of bounds for that battery.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_selectposend">
-        <Original>Select the position to finish the barrage.</Original>
+        <Original>Select the position to finish the barrage on the map.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoheal_title">
         <Original>AI Auto Heal</Original>
@@ -5478,25 +5478,25 @@
         <Original>You must first empty your Arsenal inventory in order to move the HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_no_empty2">
-        <Original>Arsenal inventory must be empty</Original>
+        <Original>Arsenal inventory must be empty.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_petros_down">
         <Original>Put Petros down before you move the HQ!</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_petros_pickedup">
-        <Original>Petros currently picked up</Original>
+        <Original>Petros currently picked up.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_caclaggro_occ_red">
-        <Original>%1 aggression level reduced to %2<br/></Original>
+        <Original>%1 aggression level reduced to %2.<br/></Original>
       </Key>
       <Key ID="STR_A3A_fn_base_caclaggro_occ_inc">
-        <Original>%1 aggression level increased to %2<br/></Original>
+        <Original>%1 aggression level increased to %2.<br/></Original>
       </Key>
       <Key ID="STR_A3A_fn_base_caclaggro_inv_red">
-        <Original>%1%2 aggression level reduced to %3</Original>
+        <Original>%1%2 aggression level reduced to %3.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_caclaggro_inv_inc">
-        <Original>%1%2 aggression level increased to %3</Original>
+        <Original>%1%2 aggression level increased to %3.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_caclaggro_levelchange">
         <Original>Aggression level changed</Original>
@@ -5646,7 +5646,7 @@
         <Original>The enemy still lurks about. Hunt them down and clear the area.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_hcdics_warning">
-        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart</Original>
+        <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_hcdics_hc">
         <Original>Headless Client</Original>
@@ -5658,16 +5658,16 @@
         <Original>We can only deploy / delete one Watchpost or Roadblock at a time.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_radio">
-        <Original>Radio Required</Original>
+        <Original>Radio required</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_radioman">
-        <Original>Radio-man Required</Original>
+        <Original>Radio-man required</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_no_radioman">
-        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+        <Original>You need a Radio Man in your group to be able to give orders to other squads.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_click_position">
         <Original>Click on the position you wish to build the Watchpost or Roadblock. <br/><br/> Remember: to build Roadblocks you must click exactly on a road map section.</Original>
@@ -5872,7 +5872,7 @@
         <Original>General</Original>
       </Key>
       <Key ID="STR_A3A_fn_create_aivehinit_no_human">
-        <Original>Only Humans can pilot an air vehicle</Original>
+        <Original>Only Humans can pilot an air vehicle.</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_dialogs">
@@ -5928,7 +5928,7 @@
         <Original>There are no members near the target location. You need to be within %1 km of HQ, an attack, commander or a member.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_grp_moving">
-        <Original>Moving group %1 to destination</Original>
+        <Original>Moving group %1 to destination.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_cancelled">
         <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase.</Original>
@@ -6115,28 +6115,28 @@
         <Original>Search Intel</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_reset">
-        <Original>No one in range of the intel, need to start from scratch</Original>
+        <Original>No one in range of the intel, need to start from scratch.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_1_err">
-        <Original>Reference to unknown location, need to locate location to continue decifering</Original>
+        <Original>Reference to unknown location, need to locate location to continue decifering.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_1_act">
         <Original>Locate location</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_err">
-        <Original>Ilegible text encountered, need to decifer meaning from context</Original>
+        <Original>Ilegible text encountered, need to decifer meaning from context.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_act">
         <Original>Decifer meaning</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_err">
-        <Original>Unkown codename encountered, need to decifer the codename reference</Original>
+        <Original>Unkown codename encountered, need to decifer the codename reference.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_act">
         <Original>Decifer codename</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_4_err">
-        <Original>Section of texts meaning hidden behind a riddle, have to solve it to continue</Original>
+        <Original>Section of texts meaning hidden behind a riddle, have to solve it to continue.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_4_act">
         <Original>Solve riddle</Original>
@@ -6211,22 +6211,22 @@
         <Original>%1 attack is imminent!</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_time_2">
-        <Original>%1 attack expected in %2 minutes</Original>
+        <Original>%1 attack expected in %2 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_reso_1">
-        <Original>%1 has plenty of defence reserves available</Original>
+        <Original>%1 has plenty of defence reserves available.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_reso_2">
-        <Original>%1 has moderate defence reserves available</Original>
+        <Original>%1 has moderate defence reserves available.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_reso_3">
-        <Original>%1 is short on defence reserves</Original>
+        <Original>%1 is short on defence reserves.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_reso_4">
-        <Original>%1 has almost no defence reserves left</Original>
+        <Original>%1 has almost no defence reserves left.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_reso_5">
-        <Original>%1 is completely out of defence reserves!</Original>
+        <Original>%1 is completely out of defence reserves.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_decry_1">
         <Original>We found a %1 decryption key!<br/>It allows us to fully decrypt the next support call.</Original>
@@ -6241,10 +6241,10 @@
         <Original>You found a package of %1 decryption keys!<br/>They allow your faction to decrypt support calls.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_conv_3">
-        <Original>We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map</Original>
+        <Original>We found the %1 convoy GPS decryption key!<br/>%2 convoys are marked on the map.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_trait_1">
-        <Original>You found incriminating data on the traitor, we don't think he will cause any more trouble</Original>
+        <Original>You found incriminating data on the traitor, we don't think he will cause any more trouble.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_select_weap_1">
         <Original>You found the supply data for the<br/> %1<br/> You have unlocked this weapon!</Original>
@@ -6279,7 +6279,7 @@
         <Original>No vehicles nearby.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ltc_lfc_transfered">
-        <Original>All loot transfered to %1</Original>
+        <Original>All loot transfered to %1.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ltc_lfc_no_full">
         <Original>Unable to transfer all loot to %1. %1 full.</Original>
@@ -6371,7 +6371,7 @@
         <Original>Destroy Radio Tower</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_heli_text">
-        <Original>We have downed a helicopter. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY</Original>
+        <Original>We have downed a helicopter. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY!</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_heli_titel">
         <Original>Downed Heli</Original>
@@ -6389,7 +6389,7 @@
         <Original>Steal or Destroy Ammotruck</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text1">
-        <Original>Bring this truck to %1 Bank and park it in the main entrance</Original>
+        <Original>Bring this truck to %1 Bank and park it in the main entrance.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_title1">
         <Original>Bank Mission</Original>
@@ -6401,10 +6401,10 @@
         <Original>Bank Robbery</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text2">
-        <Original>Don't get the truck far from the bank or count will restart</Original>
+        <Original>Don't get the truck far from the bank or count will restart.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text3">
-        <Original>Drive the Truck back to base to finish this mission</Original>
+        <Original>Drive the Truck back to base to finish this mission.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_salv_text">
         <Original>A supply shipment was sunk outside of %1. Go there and recover the supplies before %2. You will need to get a hold of a boat with a winch to recover the shipment, check beaches for civilian boats you can commandeer.</Original>
@@ -6419,7 +6419,7 @@
         <Original>City Supplies</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_hint_text1">
-        <Original>Deliver this box to %1, unload it to start distributing to people</Original>
+        <Original>Deliver this box to %1, unload it to start distributing to people.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_hint_title">
         <Original>Logistics Mission</Original>
@@ -6428,7 +6428,7 @@
         <Original>Delivery infos</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_hint_text2">
-        <Original>Keep the area clear of hostiles for %1 more seconds</Original>
+        <Original>Keep the area clear of hostiles for %1 more seconds.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_hint_text3">
         <Original>Supplies Delivered</Original>
@@ -6440,22 +6440,22 @@
         <Original>Tower Rebuild Disrupt</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_prison_text">
-        <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ</Original>
+        <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_prison_titel">
         <Original>POW Rescue</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_text1">
-        <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2</Original>
+        <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_text2">
-        <Original>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ</Original>
+        <Original>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_titel">
         <Original>Refugees Evac</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_unatt_text">
-        <Original>%2 is attacking us in %1. Help the defense if you can</Original>
+        <Original>%2 is attacking us in %1. Help the defense if you can.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_unatt_titel">
         <Original>%1 Contact Report</Original>

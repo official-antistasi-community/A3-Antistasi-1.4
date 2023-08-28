@@ -216,14 +216,14 @@ _sfLoadoutData set ["binoculars", ["Laserdesignator"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["rifles", [
-["arifle_XMS_Shot_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_ACO_grn", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
-["arifle_XMS_Shot_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
-["arifle_XMS_Base_lxWS", "suppressor_l_lxWS", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Hamr_sand_lxWS", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""]
+["arifle_XMS_Shot_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_ACO_grn", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
+["arifle_XMS_Shot_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
+["arifle_XMS_Base_lxWS", "suppressor_l_lxWS", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
+["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Hamr_sand_lxWS", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-["arifle_XMS_Base_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+["arifle_XMS_Base_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
+["arifle_XMS_Base_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
 ["sgun_aa40_lxWS", "muzzle_snds_12Gauge_lxWS", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["20Rnd_12Gauge_AA40_Slug_lxWS","20Rnd_12Gauge_AA40_Pellets_lxWS"], [], ""],
 ["sgun_aa40_tan_lxWS", "muzzle_snds_12Gauge_lxWS", "acc_pointer_IR", "optic_Holosight_smg", ["20Rnd_12Gauge_AA40_Slug_Tan_lxWS","20Rnd_12Gauge_AA40_Slug_lxWS"], [], ""]
 ]];
@@ -232,14 +232,14 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ["glaunch_GLX_tan_lxWS", "", "", "optic_r1_high_sand_lxWS", ["1Rnd_HE_Grenade_shell"], ["1Rnd_HE_Grenade_shell", "1Rnd_SmokeRed_Grenade_shell", "UGL_FlareGreen_F"], ""],
 ["sgun_aa40_lxWS", "muzzle_snds_12Gauge_lxWS", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Pellets_lxWS"], ["8Rnd_12Gauge_AA40_HE_lxWS", "8Rnd_12Gauge_AA40_Smoke_lxWS"], ""],
 ["sgun_aa40_tan_lxWS", "muzzle_snds_12Gauge_lxWS", "acc_pointer_IR", "optic_Holosight_smg", ["8Rnd_12Gauge_AA40_Slug_Tan_lxWS","8Rnd_12Gauge_AA40_Pellets_Tan_lxWS"], ["8Rnd_12Gauge_AA40_HE_Tan_lxWS", "8Rnd_12Gauge_AA40_Smoke_Tan_lxWS"], ""],
-["arifle_XMS_Shot_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_ACO_grn", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
-["arifle_XMS_Shot_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
-["arifle_XMS_GL_lxWS", "suppressor_l_lxWS", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_Sand_lxWS", "suppressor_l_sand_lxWS", "acc_pointer_IR", "optic_Hamr_sand_lxWS", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_XMS_Shot_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_ACO_grn", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
+["arifle_XMS_Shot_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_r1_low_sand_lxWS", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
+["arifle_XMS_GL_lxWS", "suppressor_l_lxWS", "acc_pointer_IR", "optic_r1_low_lxWS", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_Sand_lxWS", "suppressor_l_sand_lxWS", "acc_pointer_IR", "optic_Hamr_sand_lxWS", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
 ["SMG_01_F", "muzzle_snds_acp", "acc_flashlight_smg_01", "optic_r1_high_lxWS", [], [], ""],
@@ -249,8 +249,8 @@ _sfLoadoutData set ["SMGs", [
 ["SMG_03C_TR_black", "muzzle_snds_570", "acc_flashlight", "optic_Aco_smg", [], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
-["arifle_XMS_M_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_MRCO", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-["arifle_XMS_M_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_lxWS", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+["arifle_XMS_M_lxWS", "muzzle_snds_M", "acc_pointer_IR", "optic_MRCO", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_lxWS", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
+["arifle_XMS_M_Sand_lxWS", "muzzle_snds_m_snd_F", "acc_pointer_IR", "optic_Holosight", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_lxWS", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
 ["LMG_S77_Compact_lxWS", "muzzle_snds_B", "acc_pointer_IR_snake_lxWS", "optic_MRCO", ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""],
 ["LMG_S77_Compact_lxWS", "suppressor_h_lxWS", "acc_pointer_IR_snake_lxWS", "optic_Holosight_blk_F", ["100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_lxWS", "100Rnd_762x51_S77_Red_Tracer_lxWS"], [], ""],
 ["LMG_Mk200_black_F", "muzzle_snds_H", "acc_pointer_IR", "optic_MRCO", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
@@ -280,32 +280,32 @@ _militaryLoadoutData set ["helmets", ["H_HelmetB_sand", "H_HelmetB_black", "H_He
 _militaryLoadoutData set ["binoculars", ["Laserdesignator", "Binocular"]];
 
 _militaryLoadoutData set ["rifles", [
-["arifle_XMS_Shot_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
-["arifle_XMS_Shot_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
-["arifle_XMS_Base_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-["arifle_XMS_Base_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-["arifle_Mk20_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-["arifle_Mk20_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["arifle_XMS_Shot_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
+["arifle_XMS_Shot_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["6Rnd_12Gauge_Slug","6Rnd_12Gauge_Pellets"], ""],
+["arifle_XMS_Base_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
+["arifle_XMS_Base_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["arifle_XMS_Base_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-["arifle_XMS_Base_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+["arifle_XMS_Base_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
+["arifle_XMS_Base_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20C_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20C_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""],
 ["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_AA40_Slug_lxWS","8Rnd_12Gauge_AA40_Pellets_lxWS"], [], ""],
-["sgun_aa40_tan_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg", ["8Rnd_12Gauge_AA40_Slug_Tan_lxWS","8Rnd_12Gauge_AA40_Pellets_Tan_lxWS"], [], ""],
-["arifle_Mk20C_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-["arifle_Mk20C_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["sgun_aa40_tan_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg", ["8Rnd_12Gauge_AA40_Slug_Tan_lxWS","8Rnd_12Gauge_AA40_Pellets_Tan_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["arifle_XMS_Shot_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
-["arifle_XMS_Shot_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
-["arifle_XMS_GL_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_XMS_GL_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_XMS_Shot_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
+["arifle_XMS_Shot_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["6rnd_HE_Mag_lxWS","6rnd_Smoke_Mag_lxWS"], ""],
+["arifle_XMS_GL_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_XMS_GL_Sand_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
 ["SMG_01_F", "", "acc_flashlight_smg_01", "optic_r1_high_lxWS", [], [], ""],
@@ -363,16 +363,16 @@ _militiaLoadoutData set ["backpacks", ["B_AssaultPack_blk"]];
 _militiaLoadoutData set ["helmets", ["H_Cap_blk_ION", "H_Cap_usblack", "H_Cap_headphones", "lxWS_H_Bandanna_blk_hs", "H_Cap_headphones_ion_lxws", "lxWS_H_CapB_rvs_blk_ION", "H_HeadSet_black_F"]];
 
 _militiaLoadoutData set ["rifles", [
-["arifle_Mk20_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-["arifle_Mk20_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["arifle_Mk20_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["arifle_Mk20C_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-["arifle_Mk20C_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["arifle_Mk20C_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], [], ""],
+["arifle_Mk20C_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red_Tracer_Red"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["arifle_Mk20_GL_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "UGL_FlareGreen_F"], ""],
-["arifle_Mk20_GL_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "UGL_FlareRed_F"], ""]
+["arifle_Mk20_GL_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "UGL_FlareGreen_F"], ""],
+["arifle_Mk20_GL_plain_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_red", "30Rnd_556x45_Stanag_red_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "UGL_FlareRed_F"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
 "hgun_PDW2000_F","hgun_PDW2000_F",

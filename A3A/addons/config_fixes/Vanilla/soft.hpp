@@ -147,6 +147,7 @@ class a3a_Offroad_01_GEN_armed_F	:	B_G_Offroad_01_armed_F
 	side = 1;
 	hiddenSelectionsTextures[] = {"\A3\Soft_F_Exp\Offroad_01\Data\Offroad_01_ext_gen_CO.paa","\A3\Soft_F_Exp\Offroad_01\Data\Offroad_01_ext_gen_CO.paa"};
 	textureList[] = {"Gendarmerie",1};
+	animationList[] = {"HideDoor1",0,"HideDoor2",0,"HideDoor3",0.5,"HideBumper1",0.5,"HideBumper2",0.5};
 };
 class a3a_Offroad_01_GEN_AT_F : B_G_Offroad_01_AT_F
 {
@@ -155,6 +156,7 @@ class a3a_Offroad_01_GEN_AT_F : B_G_Offroad_01_AT_F
 	side = 1;
 	hiddenSelectionsTextures[] = {"\A3\Soft_F_Exp\Offroad_01\Data\Offroad_01_ext_gen_CO.paa","\A3\Soft_F_Exp\Offroad_01\Data\Offroad_01_ext_gen_CO.paa"};
 	textureList[] = {"Gendarmerie",1};
+	animationList[] = {"HideDoor1",0,"HideDoor2",0,"HideDoor3",0.5,"HideBumper1",0.5,"HideBumper2",0.5};
 };
 
 class a3a_LSV_02_AT_black_F	:	O_LSV_02_AT_F

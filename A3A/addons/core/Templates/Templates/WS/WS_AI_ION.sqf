@@ -31,7 +31,7 @@
 ["vehiclesLightAPCs", ["B_ION_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["B_ION_APC_Wheeled_01_cannon_lxWS"]] call _fnc_saveToTemplate;
+private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["a3a_ION_Truck_02_zu23_F"]] call _fnc_saveToTemplate;
 
 
@@ -59,15 +59,9 @@
 ["uavsPortable", ["ION_UAV_01_lxWS","ION_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", [
-,
-"a3a_Offroad_02_black_AT_F","a3a_Offroad_02_LMG_black_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F","a3a_Offroad_02_unarmed_black_F"]] call _fnc_saveToTemplate;
-
 private _vehiclesMilitiaLightArmed = ["B_ION_Offroad_armed_lxWS", "a3a_Offroad_01_black_AT_F", "a3a_Offroad_01_black_armed_F"];
 ["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
-private _vehiclesMilitiaCars = ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F","a3a_Offroad_02_unarmed_black_F"];
+private _vehiclesMilitiaCars = ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F"];
 
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
@@ -86,7 +80,7 @@ if ("expansion" in A3A_enabledDLC) then {
 	_vehiclesMilitiaCars append ["a3a_Offroad_02_unarmed_black_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	["vehiclesTanks", ["O_MBT_04_cannon_F","O_MBT_04_command_F"]] call _fnc_saveToTemplate;
+	_Tanks append ["a3a_MBT_04_cannon_black_F","a3a_MBT_04_command_black_F", "B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; 
 };
 if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
@@ -95,7 +89,10 @@ if ("enoch" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 
 #include "WS_Vehicle_Attributes.sqf"
 //Minefield definition

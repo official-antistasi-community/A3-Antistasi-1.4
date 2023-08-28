@@ -6,7 +6,11 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Data_F_AoW_Loadorder"};
+        #if __has_include("\CUP\Weapons\CUP_Weapons_DynamicLoadout\mk82\CUP_mk82_pod.p3d")
+        requiredAddons[] = {"A3_Weapons_F", "CUP_Weapons_DynamicLoadout"};
+        #else
+        requiredAddons[] = {"A3_Weapons_F"};
+        #endif
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";
@@ -16,5 +20,5 @@ class CfgPatches {
 
 // Uncomment when needed
 //#include "CfgMagazines.hpp"
-//#include "CfgVehicles.hpp"
+#include "CfgVehicles.hpp"
 //#include "CfgWeapons.hpp"

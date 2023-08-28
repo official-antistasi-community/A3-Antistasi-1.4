@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission">
+  <Package name="A3-Antistasi core">
     <Container name="dialog_load_previous_session">
       <Key ID="STR_antistasi_dialogs_lps_frame_text">
         <Original>Load previous personal save?</Original>

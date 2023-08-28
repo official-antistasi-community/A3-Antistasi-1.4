@@ -426,8 +426,8 @@ _militiaLoadoutData set ["carbines", [
 ]];
 
 _militiaLoadoutData set ["saboteurCarbines", [
-["rhs_weap_aks74u", "rhs_acc_pbs4", "", "", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
-["rhs_weap_akms", "rhs_acc_pbs1", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_U"], [], ""]
+["rhs_weap_aks74u", "", "", "", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_akms", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_U"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
@@ -592,7 +592,7 @@ private _explosivesExpertTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    [["saboteurCarbines", selectRandom ["rifles", "carbines"]] call _fnc_fallback] call _fnc_setPrimary;
+    [["saboteurCarbines", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -625,7 +625,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    [["saboteurCarbines", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
+    ["carbines"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

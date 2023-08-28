@@ -51,7 +51,6 @@ _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
 	_unit = [_groupPOW, FactionGet(reb,"unitUnarmed"), _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
-	[_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity;
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -79,7 +78,7 @@ if (_sideX == Invaders) then
 	[_houseX, _difficultX] spawn
 	{
 		params ["_house", "_isDifficult"];
-		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
+		if (_isDifficult) then {sleep 300} else {sleep (300 + random 1800)};
 		if !(_taskId call BIS_fnc_taskCompleted) then
 		{
 			// Needs rework

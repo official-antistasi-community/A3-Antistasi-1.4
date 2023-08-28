@@ -352,6 +352,7 @@ _militiaLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo"]];
 _militiaLoadoutData set ["vests", ["V_HarnessO_brn"]];
 _militiaLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militiaLoadoutData set ["Hvests", ["V_TacVest_brn"]];
+_militiaLoadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile","G_Combat","G_Bandanna_aviator","G_Bandanna_sport","G_Bandanna_shades","G_Bandanna_beast"]];
 _militiaLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_cbr", "B_Kitbag_cbr"]];
 _militiaLoadoutData set ["helmets", ["H_MilCap_ocamo", "lxWS_H_ssh40_sand","lxWS_H_turban_02_sand","lxWS_H_turban_03_sand"]];
 
@@ -388,11 +389,13 @@ private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // to
 _crewLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
 _crewLoadoutData set ["vests", ["V_HarnessO_brn"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_O"]];
+_crewLoadoutData set ["facewear", ["G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_blk_lxWS"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_O_PilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_BandollierB_khk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]];
+_pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
 
 
 if ("mark" in A3A_enabledDLC) then {
@@ -440,6 +443,7 @@ if ("mark" in A3A_enabledDLC) then {
 
 private _squadLeaderTemplate = {
     ["slHat"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
     [["slUniforms", "uniforms"] call _fnc_fallback] call _fnc_setUniform;
 
@@ -470,6 +474,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -495,6 +500,7 @@ private _riflemanTemplate = {
 
 private _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -520,6 +526,7 @@ private _medicTemplate = {
 
 private _grenadierTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     [["glVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -546,6 +553,7 @@ private _grenadierTemplate = {
 
 private _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     [["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -578,6 +586,7 @@ private _explosivesExpertTemplate = {
 
 private _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -606,6 +615,7 @@ private _engineerTemplate = {
 
 private _latTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -635,6 +645,7 @@ private _latTemplate = {
 
 private _atTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -664,6 +675,7 @@ private _atTemplate = {
 
 private _aaTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -693,6 +705,7 @@ private _aaTemplate = {
 
 private _machineGunnerTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
@@ -718,6 +731,7 @@ private _machineGunnerTemplate = {
 
 private _marksmanTemplate = {
     ["sniHats"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -744,6 +758,7 @@ private _marksmanTemplate = {
 
 private _sniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -770,6 +785,7 @@ private _sniperTemplate = {
 
 private _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -793,6 +809,7 @@ private _policeTemplate = {
 
 private _crewTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -817,6 +834,7 @@ private _crewTemplate = {
 
 private _unarmedTemplate = {
     ["vests"] call _fnc_setVest;
+    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
 
     ["items_medical_basic"] call _fnc_addItemSet;

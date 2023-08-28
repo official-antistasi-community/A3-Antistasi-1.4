@@ -175,7 +175,7 @@ _loadoutData set ["helmets", []];
 
 _loadoutData set ["slHat", ["H_MilCap_gry"]];
 _loadoutData set ["sniHats", ["H_Booniehat_tan"]];
-_loadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile"]];
+_loadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile","G_Combat","G_Bandanna_aviator","G_Bandanna_sport","G_Bandanna_shades","G_Bandanna_beast"]];
 _loadoutData set ["slFacewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
@@ -400,6 +400,7 @@ private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["U_BG_Guerilla2_1"]];
 _crewLoadoutData set ["vests", ["V_TacVest_blk"]];
 _crewLoadoutData set ["helmets", ["lxWS_H_HelmetCrew_I"]];
+_crewLoadoutData set ["facewear", ["G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_blk_lxWS"]];
 _crewLoadoutData set ["SMGs", [
 ["SMG_03C_TR_black", "", "saber_light_lxWS", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_03C_TR_khaki", "", "saber_light_lxWS", "optic_ACO_grn_smg", [], [], ""],
@@ -410,10 +411,18 @@ private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_lxWS_ION_Casual3"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_Cap_headphones", "H_HeadSet_black_F", "lxWS_H_Bandanna_blk_hs", "H_Cap_headphones_ion_lxws"]];
+_pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
 _crewLoadoutData set ["SMGs", [
 ["hgun_PDW2000_F", "", "", "optic_r1_high_lxWS", [], [], ""],
 ["hgun_PDW2000_F", "", "", "optic_r1_low_lxWS", [], [], ""]
 ]];
+
+private _officerLoadoutData = _pilotLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["uniforms", ["U_C_FormalSuit_01_tshirt_black_F"]];
+_officerLoadoutData set ["vests", ["V_TacVest_blk", "V_LegStrapBag_black_F"]];
+_officerLoadoutData set ["helmets", ["H_Cap_blk_ION"]];
+_officerLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_WirelessEarpiece_F"]];
+
 
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -772,9 +781,9 @@ private _sniperTemplate = {
 
 private _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["SMGs"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
@@ -820,6 +829,7 @@ private _crewTemplate = {
 
 private _unarmedTemplate = {
     ["vests"] call _fnc_setVest;
+    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
 
     ["items_medical_basic"] call _fnc_addItemSet;
@@ -934,7 +944,7 @@ private _unitTypes = [
 //The following lines are determining the loadout of the pilots
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

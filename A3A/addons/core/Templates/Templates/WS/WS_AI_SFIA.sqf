@@ -170,7 +170,7 @@ _loadoutData set ["backpacks", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["H_MilCap_gry"]];
 _loadoutData set ["sniHats", ["H_Booniehat_tan"]];
-_loadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile"]];
+_loadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile","G_Combat","G_Bandanna_aviator","G_Bandanna_sport","G_Bandanna_shades","G_Bandanna_beast"]];
 _loadoutData set ["slFacewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
@@ -350,6 +350,7 @@ _militiaLoadoutData set ["vests", ["V_lxWS_HarnessO_oli"]];
 _militiaLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militiaLoadoutData set ["backpacks", ["B_FieldPack_khk"]];
 _militiaLoadoutData set ["helmets", ["lxWS_H_turban_02_gray","lxWS_H_turban_02_sand","lxWS_H_turban_02_green","lxWS_H_turban_02_black","lxWS_H_turban_03_gray","lxWS_H_turban_03_sand","lxWS_H_turban_03_green","lxWS_H_turban_03_black"]];
+_militiaLoadoutData set ["facewear", ["G_Aviator","G_Shades_Black","G_Shades_Blue","G_Shades_Green","G_Shades_Red","G_Lowprofile"]];
 _militiaLoadoutData set ["slHat", ["lxWS_H_turban_01_red", "lxWS_H_turban_02_red", "lxWS_H_turban_03_red"]];
 _militiaLoadoutData set ["sniHats", ["lxWS_H_turban_02_sand", "lxWS_H_turban_03_sand"]];
 

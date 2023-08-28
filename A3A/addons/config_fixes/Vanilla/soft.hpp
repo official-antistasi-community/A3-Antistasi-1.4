@@ -8,7 +8,12 @@ class I_C_Offroad_02_LMG_F;			//
 
 class C_Van_02_transport_F;
 class C_Van_02_vehicle_F;
-class C_Van_02_medevac_F;
+class C_Van_02_service_F;
+
+class Van_02_medevac_base_F; //external Root Class
+class C_Van_02_medevac_F : Van_02_medevac_base_F{ 
+	class TextureSources; //external Child Class
+};
 //offroads
 class B_G_Offroad_01_armed_F;
 class B_G_Offroad_01_F;
@@ -173,18 +178,22 @@ class a3a_LSV_01_AT_black_F	:	B_LSV_01_AT_F
 class a3a_Van_02_black_transport_F : C_Van_02_transport_F
 {
 	scope = 2;
-	textureList[] = {"Black",1,"White",0};
+	textureList[] = {"Swifd",0,"IdapCargo",0,"IdapTransport",0,"IdapAmbulance",0,"CivAmbulance",0,"CivService",0,"Syndikat",0,"FIA3",0,"FIA2",0,"FIA1",0,"Daltgreen",0,"Vrana",0,"BluePearl",0,"Fuel",0,"BattleBus",0,"Green",0,"Black",1,"Red",0,"Blue",0,"Orange",0,"White",0};
 };
 class a3a_Van_02_black_vehicle_F : C_Van_02_vehicle_F
 {
 	scope = 2;
-	textureList[] = {"Black",1,"White",0};
+	textureList[] = {"Swifd",0,"IdapCargo",0,"IdapTransport",0,"IdapAmbulance",0,"CivAmbulance",0,"CivService",0,"Syndikat",0,"FIA3",0,"FIA2",0,"FIA1",0,"Daltgreen",0,"Vrana",0,"BluePearl",0,"Fuel",0,"BattleBus",0,"Green",0,"Black",1,"Red",0,"Blue",0,"Orange",0,"White",0};
+};
+class a3a_Van_02_black_service_F : C_Van_02_service_F
+{
+	scope = 2;
+	textureList[] = {"Swifd",0,"IdapCargo",0,"IdapTransport",0,"IdapAmbulance",0,"CivAmbulance",0,"CivService",0,"Syndikat",0,"FIA3",0,"FIA2",0,"FIA1",0,"Daltgreen",0,"Vrana",0,"BluePearl",0,"Fuel",0,"BattleBus",0,"Green",0,"Black",1,"Red",0,"Blue",0,"Orange",0,"White",0};
 };
 class a3a_Van_02_black_medevac_F : C_Van_02_medevac_F
 {
 	scope = 2;
-	side = 1;
-	class TextureSources{
+	class TextureSources : TextureSources{
 		class Black{
 			author = "Bohemia Interactive";
 			displayName = "Black";
@@ -198,5 +207,5 @@ class a3a_Van_02_black_medevac_F : C_Van_02_medevac_F
 			textures[] = {"\a3\Soft_F_Orange\Van_02\Data\van_body_White_CO.paa","\a3\soft_f_orange\van_02\data\van_wheel_co.paa","\a3\soft_f_orange\van_02\data\van_glass_utility_CA.paa","\a3\Soft_F_Orange\Van_02\Data\van_body_White_CO.paa"};
 		};
 	};
-	textureList[] = {"Black",1,"White",0};
+	textureList[] = {"Black",1,"White",0,"CivAmbulance",0,"IdapAmbulance",0,"LDFAmbulance",0};
 };

@@ -25,7 +25,7 @@
 ["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_ION_Truck_02_cargo_F","a3a_ION_Truck_02_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["a3a_ION_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["a3a_ION_Truck_02_repair_F"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["a3a_ION_Truck_02_repair_F", "a3a_Van_02_black_service_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["a3a_ION_Truck_02_Fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["a3a_Van_02_black_medevac_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["B_ION_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 

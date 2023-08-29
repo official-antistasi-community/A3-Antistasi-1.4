@@ -154,13 +154,13 @@ class Templates
         name = "WS ION";
         file = "WS_AI_ION";
 	};
-	class WS_UNA : WS_Base
+/*	class WS_UNA : WS_Base
 	{
         side = "Occ";
         flagTexture = "lxws\data_f_lxws\img\flags\flag_una_CO.paa";
         name = "WS UNA";
         file = "WS_AI_UNA";
-	};
+	};	*/
 	class WS_TURA : WS_Base
 	{
         side = "Reb";

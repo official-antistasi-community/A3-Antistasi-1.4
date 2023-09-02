@@ -171,7 +171,7 @@ class Templates
 	class WS_TURA : WS_Base
 	{
         side = "Reb";
-        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "WS Tura";
         file = "WS_Reb_TURA";
 	};

@@ -4,8 +4,9 @@
 ["name", "Tura"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "lxWS_flag_Argana"] call _fnc_saveToTemplate;
+["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
+
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _vehiclesLightUnarmed = ["O_SFIA_Offroad_lxWS","O_Tura_Offroad_armor_lxWS"];

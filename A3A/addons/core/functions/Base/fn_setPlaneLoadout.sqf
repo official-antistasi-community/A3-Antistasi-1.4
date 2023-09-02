@@ -35,6 +35,7 @@ if (_type == "CAS") then
             _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
         };
         //Vanilla IND CAS
+		case "a3a_Plane_Fighter_03_grey_F";
         case "I_Plane_Fighter_03_dynamicLoadout_F":
         {
 //            _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
@@ -43,6 +44,7 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["Rocket_04_AP_Plane_CAS_01_F"]];
             _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F", "missiles_SCALPEL"]];
         };
+		case "a3a_Plane_Fighter_04_grey_F";
         case "I_Plane_Fighter_04_F":
         {
 		    _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
@@ -271,11 +273,13 @@ if (_type == "AA") then
             _loadout = ["PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1"];
         };
         //Vanilla IND Multi-purpose
+		case "a3a_Plane_Fighter_03_grey_F";
         case "I_Plane_Fighter_03_dynamicLoadout_F":
         {
             _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
         };
         //Vanilla IND Air superiority fighter
+		case "a3a_Plane_Fighter_04_grey_F";
         case "I_Plane_Fighter_04_F":
         {
             _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_BIM9X_x2","PylonRack_Missile_BIM9X_x2"];

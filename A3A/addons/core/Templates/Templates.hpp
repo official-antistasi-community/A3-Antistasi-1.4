@@ -154,6 +154,13 @@ class Templates
         name = "WS ION";
         file = "WS_AI_ION";
 	};
+	class WS_ADF : WS_Base
+	{
+        side = "Occ";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
+        name = "WS ADF";
+        file = "WS_AI_ADF";
+	};
 /*	class WS_UNA : WS_Base
 	{
         side = "Occ";

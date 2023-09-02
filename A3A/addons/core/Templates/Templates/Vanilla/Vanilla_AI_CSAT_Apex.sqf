@@ -18,7 +18,7 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["O_T_Quadbike_01_ghex_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_T_LSV_02_unarmed_F","O_T_MRAP_02_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesLightUnarmed = ["O_T_LSV_02_unarmed_F","O_T_MRAP_02_ghex_F"];
 ["vehiclesLightArmed",["O_T_MRAP_02_gmg_ghex_F","O_T_MRAP_02_hmg_ghex_F","O_T_LSV_02_armed_F","O_T_LSV_02_AT_F"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_03_transport_ghex_F","O_T_Truck_03_covered_ghex_F"];
@@ -26,15 +26,15 @@ private _cargoTrucks = ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_0
 ["vehiclesRepairTrucks", ["O_T_Truck_02_Box_F","O_T_Truck_03_repair_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["O_T_Truck_02_fuel_F","O_T_Truck_03_fuel_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["O_T_Truck_03_medical_ghex_F","O_T_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["O_T_APC_Tracked_02_cannon_ghex_F","O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesLightAPCs = [];
+private _vehiclesAPCs = ["O_T_APC_Tracked_02_cannon_ghex_F","O_T_APC_Wheeled_02_rcws_v2_ghex_F"];
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["O_T_MBT_02_cannon_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["O_T_APC_Tracked_02_AA_ghex_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["O_T_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["O_T_Boat_Armed_01_hmg_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
+private _vehiclesAmphibious = ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"];
 
 ["vehiclesPlanesCAS", ["O_Plane_CAS_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["O_Plane_Fighter_02_F"]] call _fnc_saveToTemplate;
@@ -76,8 +76,16 @@ private _cargoTrucks = ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_0
 //If Western Sahara DLC
 if (allowDLCWS) then {
 	_cargoTrucks = ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
+    _vehiclesLightUnarmed append ["O_T_APC_Wheeled_02_unarmed_lxWS"];
+    _vehiclesLightAPCs append ["O_T_APC_Wheeled_02_hmg_lxWS"];
+    _vehiclesAPCs append ["O_T_APC_Tracked_02_30mm_lxWS"];
+    _vehiclesAmphibious append ["O_T_APC_Wheeled_02_unarmed_lxWS", "O_T_APC_Wheeled_02_hmg_lxWS"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", _vehiclesLightAPCs] call _fnc_saveToTemplate;
+["vehiclesAPCs", _vehiclesAPCs] call _fnc_saveToTemplate;
+["vehiclesAmphibious", _vehiclesAmphibious] call _fnc_saveToTemplate;
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 
@@ -281,9 +289,9 @@ _militaryLoadoutData set ["rifles", [
 _militaryLoadoutData set ["carbines", [
 ["arifle_Katiba_C_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green_mag_Tracer"], [], ""]
 ]];
-_militaryLoadoutData set ["grenadeLaunchers", [
+private _militaryGrenadeLaunchers = [
 ["arifle_CTAR_GL_blk_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_F", "30Rnd_580x42_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
-]];
+];
 _militaryLoadoutData set ["SMGs", [
 ["SMG_01_F", "", "", "optic_Holosight", [], [], ""],
 ["SMG_01_F", "", "", "optic_Aco_smg", [], [], ""],
@@ -292,12 +300,28 @@ _militaryLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
 ["SMG_02_F", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]
 ]];
-_militaryLoadoutData set ["machineGuns", [
+private _militaryMachineGuns = [
 ["LMG_Zafir_F", "", "acc_pointer_IR", "optic_Holosight", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""],
 ["LMG_Zafir_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""],
 ["LMG_Zafir_F", "", "acc_pointer_IR", "optic_Arco", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""],
 ["LMG_Zafir_F", "", "acc_pointer_IR", "optic_MRCO", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""]
-]];
+];
+
+//If Western Sahara DLC
+if (allowDLCWS) then {
+    _militaryGrenadeLaunchers append [
+        ["glaunch_GLX_ghex_lxWS", "", "", "", ["1Rnd_HE_Grenade_shell", "3Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell", "3Rnd_Smoke_Grenade_shell", "UGL_FlareWhite_f", "3Rnd_UGL_FlareWhite_f"], ["1Rnd_Pellet_Grenade_shell_lxWS"], ""]
+    ];
+    _militaryMachineGuns append [
+        ["LMG_S77_GHex_lxWS", "", "acc_pointer_IR", "optic_Arco_ghex_F", ["100Rnd_762x51_S77_Green_lxWS","100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+        ["LMG_S77_GHex_lxWS", "", "acc_pointer_IR", "optic_MRCO", ["100Rnd_762x51_S77_Green_lxWS","100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+        ["LMG_S77_GHex_lxWS", "", "acc_pointer_IR", "optic_Holosight", ["100Rnd_762x51_S77_Green_lxWS","100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+        ["LMG_S77_GHex_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["100Rnd_762x51_S77_Green_lxWS","100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""]
+    ];
+};
+_militaryLoadoutData set ["grenadeLaunchers", _militaryGrenadeLaunchers];
+_militaryLoadoutData set ["machineGuns", _militaryMachineGuns];
+
 _militaryLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "", "", "optic_DMS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "", "", "optic_Arco", [], [], "bipod_02_F_hex"],

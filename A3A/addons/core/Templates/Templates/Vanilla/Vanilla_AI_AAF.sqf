@@ -282,10 +282,10 @@ _militaryLoadoutData set ["carbines", [
 ["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
 ["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Holosight_lush_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
-_militaryLoadoutData set ["grenadeLaunchers", [
+private _militaryGrenadeLaunchers =  [
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Holosight_lush_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
-]];
+];
 _militaryLoadoutData set ["SMGs", [
 ["SMG_01_F", "", "", "optic_Holosight", [], [], ""],
 ["SMG_01_F", "", "", "optic_Aco_smg", [], [], ""],
@@ -294,11 +294,26 @@ _militaryLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
 ["SMG_02_F", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]
 ]];
-_militaryLoadoutData set ["machineGuns", [
+private _militaryMachineGuns = [
 ["LMG_Mk200_F", "", "acc_pointer_IR", "optic_MRCO", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
 ["LMG_Mk200_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
 ["LMG_Mk200_F", "", "acc_pointer_IR", "optic_Hamr", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"]
-]];
+];
+
+//If Western Sahara DLC
+if (allowDLCWS) then {
+    _militaryGrenadeLaunchers append [
+        ["glaunch_GLX_camo_lxWS", "", "", "", ["1Rnd_HE_Grenade_shell", "3Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell", "3Rnd_Smoke_Grenade_shell", "UGL_FlareWhite_f", "3Rnd_UGL_FlareWhite_f"], ["1Rnd_Pellet_Grenade_shell_lxWS"], ""]
+    ];
+    _militaryMachineGuns append [
+        ["LMG_S77_AAF_lxWS", "", "acc_pointer_IR", "optic_MRCO", ["100Rnd_762x51_S77_Yellow_lxWS","100Rnd_762x51_S77_Yellow_Tracer_lxWS"], [], ""],
+        ["LMG_S77_AAF_lxWS", "", "acc_pointer_IR", "optic_Hamr", ["100Rnd_762x51_S77_Yellow_lxWS","100Rnd_762x51_S77_Yellow_Tracer_lxWS"], [], ""],
+        ["LMG_S77_AAF_lxWS", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["100Rnd_762x51_S77_Yellow_lxWS","100Rnd_762x51_S77_Yellow_Tracer_lxWS"], [], ""]
+    ];
+};
+_militaryLoadoutData set ["grenadeLaunchers", _militaryGrenadeLaunchers];
+_militaryLoadoutData set ["machineGuns", _militaryMachineGuns];
+
 _militaryLoadoutData set ["marksmanRifles", [
 ["srifle_EBR_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
 ["srifle_EBR_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"]

@@ -110,7 +110,7 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 
 	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionTel, true] call A3A_fnc_patrolLoop;
 
-	sleep 30*_quantity;
+	sleep (30 * _quantity);
 	if ((alive _truckX) and ({alive _x} count units _groupX > 0)) then
 		{
 		{deleteVehicle _x} forEach units _groupX;

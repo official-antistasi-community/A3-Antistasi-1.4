@@ -7,7 +7,7 @@ player allowDamage false;
 format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
-	0 = _this spawn {
+	_this spawn {
 		_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EH];
 		hintSilent "";
 	};

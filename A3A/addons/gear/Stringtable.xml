@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-    <Package name="A3-Antistasi Mission">
+    <Package name="A3-Antistasi gear">
         <Container name="gear">
             <Key ID="STR_A3A_G_HEADGEAR_BASE_DN">
                 <Original>Antistasi Headgear (WIP)</Original>

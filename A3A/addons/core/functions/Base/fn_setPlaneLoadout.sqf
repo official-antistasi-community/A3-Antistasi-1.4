@@ -19,6 +19,7 @@ if (_type == "CAS") then
     switch (typeOf _plane) do
     {
         //Vanilla NATO CAS (A-10)
+		case "B_D_Plane_CAS_01_dynamicLoadout_lxWS";
         case "B_Plane_CAS_01_dynamicLoadout_F":
         {
             _loadout = ["PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F"];

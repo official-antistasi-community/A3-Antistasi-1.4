@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-    <Package name="A3-Antistasi Mission">
+    <Package name="A3-Antistasi logistics">
         <Container name="Logistics">
             <Key ID="STR_A3A_logi_title">
                 <Original>Logistics</Original>

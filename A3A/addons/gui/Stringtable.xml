@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission GUI">
+  <Package name="A3-Antistasi gui">
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_titlebar">
         <Original>RECRUIT UNITS</Original>

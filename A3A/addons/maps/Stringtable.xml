@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
-  <Package name="A3-Antistasi Mission">
+  <Package name="A3-Antistasi maps">
     <Container name="credits_generic">
       <Key ID="STR_antistasi_credits_generic_author_text">
         <Original>The Official Antistasi Community and Barbolani</Original>

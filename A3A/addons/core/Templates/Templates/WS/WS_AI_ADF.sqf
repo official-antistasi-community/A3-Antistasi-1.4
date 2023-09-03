@@ -43,7 +43,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "a3a_Heli_Light_01_ION_F"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
-["vehiclesHelisTransport", ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "a3a_ION_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "a3a_ION_Heli_Transport_02_F", "B_CTRG_Heli_Transport_01_sand_F"];
 // Should be capable of dealing damage to ground targets without additional scripting
 ["vehiclesHelisLightAttack", ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "a3a_Heli_Light_02_black_F", "a3a_Heli_Light_01_dynamicLoadout_ION_F"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F", "B_D_Heli_Attack_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
@@ -61,7 +61,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 ["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -85,7 +85,6 @@ if ("tanks" in A3A_enabledDLC) then {
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["a3a_MRAP_03_grey_F","B_LSV_01_unarmed_F"];
 	_LightArmed append ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
-	_HelisTransport append ["B_CTRG_Heli_Transport_01_sand_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];
@@ -111,6 +110,7 @@ if ("orange" in A3A_enabledDLC) then {
 /////////////////////
 ///  Identities   ///
 /////////////////////
+
 //Faces and Voices given to AI Factions.
 ["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem",
 "GreekHead_A3_05","GreekHead_A3_07","Sturrock","WhiteHead_01","WhiteHead_02",
@@ -135,6 +135,8 @@ if ("orange" in A3A_enabledDLC) then {
 "lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 //["polVoices", []] call _fnc_saveToTemplate;
 //["polFaces", []] call _fnc_saveToTemplate;
+
+"TanoanMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

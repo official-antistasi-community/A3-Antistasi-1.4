@@ -167,6 +167,7 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 "lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
 "lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 ["voices", ["male01fre", "male02fre", "male03fre"]] call _fnc_saveToTemplate;
+"lxWS_WSaharaMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

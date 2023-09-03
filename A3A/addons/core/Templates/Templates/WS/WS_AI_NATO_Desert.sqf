@@ -40,7 +40,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["B_D_Heli_Light_01_lxWS", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
-private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F"];
+private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "B_CTRG_Heli_Transport_01_sand_F"];
 ["vehiclesHelisLightAttack", ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "B_Heli_Light_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["B_D_Heli_Attack_01_dynamicLoadout_lxWS", "B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
@@ -56,7 +56,7 @@ private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F"
 
 ["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -83,7 +83,6 @@ if ("tanks" in A3A_enabledDLC) then {
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_MRAP_01_F","B_LSV_01_unarmed_F"];
 	_LightArmed append ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
-	_HelisTransport append ["B_CTRG_Heli_Transport_01_sand_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];
@@ -122,6 +121,7 @@ if (random [0, 0.5, 1] > 0.5) then {
 	["sfVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
 	_sfSwitch = 1; //CTRG 04 switch
 };
+"NATOMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

@@ -87,12 +87,13 @@ if ("orange" in A3A_enabledDLC) then {
 /////////////////////
 ///  Identities   ///
 /////////////////////
+
 ["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03",
 "lxWS_African_Head_Old","lxWS_African_Head_01","lxWS_African_Head_02",
 "lxWS_African_Head_03","lxWS_African_Head_04","lxWS_African_Head_05","lxWS_Said_Head",
 "lxWS_African_Head_Old_Bard"]] call _fnc_saveToTemplate;
 ["voices", ["male01fre", "male02fre", "male03fre"]] call _fnc_saveToTemplate;
-
+"lxWS_WSaharaMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

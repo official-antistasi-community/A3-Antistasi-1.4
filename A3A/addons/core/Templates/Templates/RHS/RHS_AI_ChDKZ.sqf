@@ -59,9 +59,9 @@
 ["vehiclesPlanesAA", ["rhs_mig29s_vvs","rhs_mig29sm_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["RHS_Mi8T_vvsc"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_Mi8mt_vvsc","RHS_Mi8mt_vvsc", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvsc","RHS_Mi8MTV3_heavy_vvsc","RHS_Mi8AMTSh_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["a3a_rhs_Mi8T_chdkz"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["a3a_rhs_Mi8mt_chdkz","a3a_rhs_Mi8mt_chdkz", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only
+["vehiclesHelisLightAttack", ["a3a_rhs_Mi8MTV3_chdkz","a3a_rhs_Mi8MTV3_heavy_chdkz","a3a_rhs_Mi8AMTSh_chdkz"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["RHS_Mi24P_vvsc", "RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsgref_ins_2s1","rhsgref_ins_d30","rhsgref_ins_BM21"]] call _fnc_saveToTemplate;

@@ -14,6 +14,7 @@ class CfgFunctions
             class execForGarageUsers {};
             class genVehUID {};
             class getCatIndex {};
+            class getLockCount {};
             class onLoad {};
             class onUnload {};
             class reciveBroadcast {};

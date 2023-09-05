@@ -116,6 +116,23 @@ class Templates
         file = "Vanilla_Civ";
     };
 
+    // ***************************** Western Sahara *****************************
+    class WS_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"Weapons_1_F_lxWS"};
+        logo = "\lxWS\data_f_lxWS\Logos\arma3_lxws_logo_ca.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\WS); //the path to the template folder
+        priority = 5;
+        forceDLC[] = {"ws"};
+        climate[] = {"arid"};
+    };
+	class WS_ADF : WS_Base
+	{
+        side = "Occ";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
+        name = "WS ADF";
+        file = "WS_AI_ADF";
+	};
     // ***************************** VN *****************************
 
     class VN_Base
@@ -410,7 +427,7 @@ class Templates
     {
         side = "Reb";
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
-        name = "3CB ION";
+        name = "3CB ION Rebells";
         file = "3CB_Reb_ION";
     };
     class 3CBF_TKM : 3CBF_Base
@@ -425,7 +442,7 @@ class Templates
     {
         side = "Reb";
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
-        name = "3CB FIA";
+        name = "3CB FIA Rebells";
         file = "3CB_Reb_FIA";
     };
     class 3CBF_CHC : 3CBF_Base

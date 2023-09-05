@@ -90,6 +90,7 @@
 ["faces", ["TanoanHead_A3_01","TanoanHead_A3_02","TanoanHead_A3_03","TanoanHead_A3_04",
 "TanoanHead_A3_05","TanoanHead_A3_06","TanoanHead_A3_07","TanoanHead_A3_08"]] call _fnc_saveToTemplate;
 ["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
+"TanoanMen" call _fnc_saveNames;
 
 
 //////////////////////////

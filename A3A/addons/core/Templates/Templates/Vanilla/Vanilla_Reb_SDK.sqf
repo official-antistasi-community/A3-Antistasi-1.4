@@ -39,10 +39,18 @@ private _staticAA = ["I_static_AA_F"];
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
 
-if (allowDLCWS) then {
-  _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+if ("ws" in A3A_enabledDLC) then {
+	_vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
+	_staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+	_vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
+	_vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
+	_vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
+
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
+
 ["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
 
@@ -64,7 +72,7 @@ private _initialRebelEquipment = [
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"
 ];
 
-if (allowDLCExpansion) then {
+if ("expansion" in A3A_enabledDLC) then {
     _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
 } else {
     _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
@@ -107,7 +115,7 @@ if (allowDLCEnoch) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCWS) then {_dlcUniforms append [
+if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_lxWS_ION_Casual1",
     "U_lxWS_ION_Casual2",
     "U_lxWS_ION_Casual3",

@@ -63,12 +63,8 @@ private _initialRebelEquipment = [
 "Binocular",
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"
 ];
+_initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
 
-if (allowDLCExpansion) then {
-    _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
-} else {
-    _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
-};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};

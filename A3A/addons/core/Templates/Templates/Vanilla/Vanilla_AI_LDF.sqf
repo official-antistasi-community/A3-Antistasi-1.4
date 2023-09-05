@@ -397,6 +397,35 @@ _pilotLoadoutData set ["uniforms", ["U_I_E_Uniform_01_coveralls_F"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_EAF_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_I_E", "H_PilotHelmetHeli_I_E"]];
 
+if ("mark" in A3A_enabledDLC) then {
+	(_sfLoadoutData get "machineGuns") append [
+	["MMG_02_black_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"], 
+	["MMG_02_black_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_blk"]];
+	(_sfLoadoutData get "marksmanRifles") append [
+	["srifle_DMR_03_woodland_F", "muzzle_snds_B", "acc_pointer_IR", "optic_AMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"], 
+	["srifle_DMR_03_F", "muzzle_snds_B_lush_F", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"]];
+	(_sfLoadoutData get "sniperRifles") append [
+	["srifle_DMR_02_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"], 
+	["srifle_DMR_02_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"]];
+	
+	(_militaryLoadoutData get "machineGuns") append [
+	["MMG_02_black_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"], 
+	["MMG_02_black_F", "", "acc_pointer_IR", "optic_Holosight", [], [], "bipod_01_F_blk"]
+	];
+	(_militaryLoadoutData get "marksmanRifles") append [
+	["srifle_DMR_03_woodland_F", "", "acc_pointer_IR", "optic_AMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"], 
+	["srifle_DMR_03_khaki_F", "", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"], 
+	["srifle_DMR_03_F", "", "acc_pointer_IR", "optic_SOS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"]];
+	(_militaryLoadoutData get "sniperRifles") append [
+	["srifle_DMR_02_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"],
+	["srifle_DMR_02_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"]];
+	
+	(_militiaLoadoutData get "marksmanRifles") append [
+	["srifle_DMR_06_olive_F", "", "", "optic_MRCO", ["10Rnd_Mk14_762x51_Mag"], [], ""]];
+	(_militiaLoadoutData get "sniperRifles") append [
+	["srifle_DMR_06_olive_F", "", "", "optic_KHS_old", ["10Rnd_Mk14_762x51_Mag"], [], "bipod_01_F_blk"],
+	["srifle_DMR_06_olive_F", "", "", "optic_KHS_blk", ["10Rnd_Mk14_762x51_Mag"], [], ""]];	
+};
 
 /////////////////////////////////
 //    Unit Type Definitions    //

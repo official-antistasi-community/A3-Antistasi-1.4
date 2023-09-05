@@ -103,14 +103,13 @@ _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
 ["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
+["launch_RPG32_F", "", "", "", ["RPG32_F"], [], ""],
+["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""]
 ]];
-_loadoutData set ["ATLaunchers", []];
+_loadoutData set ["ATLaunchers", [
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT"], [], ""]
+]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
@@ -362,12 +361,37 @@ _militiaLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _crewLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
 _crewLoadoutData set ["vests", ["V_HarnessO_brn"]];
-_crewLoadoutData set ["helmets", ["H_HelmetCrew_O"]];
+_crewLoadoutData set ["helmets", ["H_HelmetCrew_O", "H_Tank_black_F"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_O_PilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_BandollierB_khk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]];
+
+
+if ("mark" in A3A_enabledDLC) then {
+	(_sfLoadoutData get "machineGuns") append [
+	["MMG_01_tan_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["MMG_01_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]
+	];
+	(_sfLoadoutData get "marksmanRifles") append [
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"]
+	];
+	(_sfLoadoutData get "sniperRifles") append [
+	["srifle_DMR_05_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+	];
+	
+	(_militaryLoadoutData get "machineGuns") append [
+	["MMG_01_tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+	["MMG_01_hex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]];
+	(_militaryLoadoutData get "sniperRifles") append [
+	["srifle_DMR_05_hex_F", "", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+	["srifle_DMR_05_tan_f", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+	];
+};
+
 
 /////////////////////////////////
 //    Unit Type Definitions    //

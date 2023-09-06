@@ -95,10 +95,6 @@ if ("orange" in A3A_enabledDLC) then {
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
-
-["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
-["vehiclesLightArmed", _LightArmed] call _fnc_saveToTemplate;
-
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 

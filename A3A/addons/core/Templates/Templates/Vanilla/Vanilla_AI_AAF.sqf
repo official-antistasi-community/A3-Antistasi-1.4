@@ -87,8 +87,7 @@ if ("ws" in A3A_enabledDLC) then {
 };
 //If contact DLC
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
-	_vehiclesMilitiaCars append ["a3a_Offroad_01_comms_green_F", "a3a_Offroad_01_covered_green_F"];
+	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];´
 };
 //If Laws of war DLC
 if ("orange" in A3A_enabledDLC) then {

@@ -89,7 +89,10 @@ private _rebUniforms = [
 	"U_lxWS_C_Djella_06",
 	"U_lxWS_C_Djella_02a",
 	"U_lxWS_C_Djella_05",
-	"U_lxWS_C_Djella_01"
+	"U_lxWS_C_Djella_01",
+    "U_lxWS_Tak_02_A",
+    "U_lxWS_Tak_02_B",
+    "U_lxWS_Tak_02_C"
 ];
 
 private _dlcUniforms = [

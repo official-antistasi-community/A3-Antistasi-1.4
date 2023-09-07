@@ -21,7 +21,7 @@ class B_G_Offroad_01_AT_F;
 class I_E_Offroad_01_comms_F;
 class I_E_Offroad_01_covered_F;
 
-//Black - Any/ION
+//Black - Any/WS ION
 class a3a_Offroad_01_black_F	:	B_G_Offroad_01_F
 {
 	scope = 2;
@@ -44,7 +44,7 @@ class a3a_Offroad_01_black_AT_F : B_G_Offroad_01_AT_F
 	animationList[] = {"HideDoor1",1,"HideDoor2",1,"HideDoor3",1,"HideBumper1",0.5,"HideBumper2",0.5};
 };
 
-//Jeep Wranglers - APEX
+//Jeep Wranglers - APEX - used by WS ION
 class a3a_Offroad_02_unarmed_black_F	:	I_C_Offroad_02_unarmed_F
 {
 	scope = 2;
@@ -62,7 +62,7 @@ class a3a_Offroad_02_LMG_black_F	:	I_C_Offroad_02_LMG_F
 };
 
 
-//Greens - Tropical NATO
+//Greens - Tropical/AAF
 class a3a_Offroad_01_green_F	:	B_G_Offroad_01_F
 {
 	scope = 2;
@@ -94,7 +94,7 @@ class a3a_Offroad_01_covered_green_F : I_E_Offroad_01_covered_F
 	textureList[] = {"Green",1};
 };
 
-//Tans - Arid NATO
+//Tans - Arid
 class a3a_Offroad_01_tan_F	:	B_G_Offroad_01_F
 {
 	scope = 2;
@@ -144,7 +144,7 @@ class a3a_Offroad_01_ldf_AT_F : B_G_Offroad_01_AT_F
 	textureList[] = {"EAF",1};
 };
 
-//Gendarmerie
+//Gendarmerie - keeping these
 class a3a_Offroad_01_GEN_armed_F	:	B_G_Offroad_01_armed_F
 {
 	crew = "B_GEN_Commander_F";
@@ -164,6 +164,7 @@ class a3a_Offroad_01_GEN_AT_F : B_G_Offroad_01_AT_F
 	animationList[] = {"HideDoor1",0,"HideDoor2",0,"HideDoor3",0.5,"HideBumper1",0.5,"HideBumper2",0.5};
 };
 
+//Used by WS ION
 class a3a_LSV_02_AT_black_F	:	O_LSV_02_AT_F
 {
 	scope = 2;

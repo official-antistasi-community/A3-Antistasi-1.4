@@ -128,7 +128,7 @@ class Templates
     };
 	class WS_SIFA : WS_Base
 	{
-        side = "Occ";
+        side = "Inv";
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
         name = "WS SFIA";
         file = "WS_AI_SFIA";

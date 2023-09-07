@@ -15,9 +15,6 @@ class CfgVehicles {
 	class O_Tura_Truck_02_aa_lxWS;
 	class O_Tura_ZU23_lxWS;
 	
-	class B_MRAP_01_gmg_F;
-	class B_MRAP_01_hmg_F;
-	
 	class B_G_Offroad_01_armed_F;
 	class B_G_Offroad_01_AT_F;
 	
@@ -27,7 +24,6 @@ class CfgVehicles {
 
 	
 #include "ws_ion.hpp"
-#include "ws_una.hpp"
 	
 	//Misc retextures
 	class a3a_tan_Offroad_armor : B_Tura_Offroad_armor_lxWS

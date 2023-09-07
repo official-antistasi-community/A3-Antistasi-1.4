@@ -1,17 +1,15 @@
 
-class I_Heli_Transport_02_F; 		//
+class I_Heli_Transport_02_F;
 class B_Heli_Light_01_F;
-class B_Heli_Light_01_stripped_F; 	//
+class B_Heli_Light_01_stripped_F;
 class B_Heli_Light_01_dynamicLoadout_F;
-class I_Heli_light_03_unarmed_F;
-class I_Heli_light_03_dynamicLoadout_F;     //
 
 
 class O_Heli_Light_02_dynamicLoadout_F;
 class O_Heli_Light_02_unarmed_F;
 
-class I_Plane_Fighter_03_dynamicLoadout_F;	//
-class I_Plane_Fighter_04_F; 				//
+class I_Plane_Fighter_03_dynamicLoadout_F;
+class I_Plane_Fighter_04_F;
 
 
 class a3a_Heli_Light_02_black_F : O_Heli_Light_02_dynamicLoadout_F
@@ -42,16 +40,6 @@ class a3a_Heli_Light_01_ION_F : B_Heli_Light_01_F
 class a3a_Heli_Light_01_dynamicLoadout_ION_F : B_Heli_Light_01_dynamicLoadout_F
 {
 	hiddenSelectionsTextures[] = {"a3\air_f\heli_light_01\data\heli_light_01_ext_ion_co.paa","a3\air_f\heli_light_01\data\heli_light_01_dot_ca.paa"};
-};
-class a3a_Heli_light_03_Camo_F	:	I_Heli_light_03_unarmed_F
-{ 
-	hiddenSelectionsTextures[] = {"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_INDP_CO.paa","a3\weapons_f\ammoboxes\data\ammobox_co.paa","a3\weapons_f\ammoboxes\data\ammobox_signs_ca.paa"};
-	textureList[] = {"Green",0,"Indep",1};
-};
-class a3a_Heli_light_03_green_CAS_F	:	I_Heli_light_03_dynamicLoadout_F
-{ 
-	hiddenSelectionsTextures[] = {"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_CO.paa"};
-	textureList[] = {"Green",1,"Indep",0};
 };
 class a3a_ION_Heli_Transport_02_F : I_Heli_Transport_02_F
 {

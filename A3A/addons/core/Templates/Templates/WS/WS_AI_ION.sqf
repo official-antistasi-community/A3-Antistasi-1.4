@@ -417,10 +417,50 @@ _crewLoadoutData set ["SMGs", [
 ]];
 
 private _officerLoadoutData = _pilotLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["uniforms", ["U_C_FormalSuit_01_tshirt_black_F"]];
+_officerLoadoutData set ["uniforms", ["U_C_FormalSuit_01_tshirt_black_F", "U_Marshal"]];
 _officerLoadoutData set ["vests", ["V_TacVest_blk", "V_LegStrapBag_black_F"]];
 _officerLoadoutData set ["helmets", ["H_Cap_blk_ION"]];
 _officerLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_WirelessEarpiece_F"]];
+
+if ("expansion" in A3A_enabledDLC) then {
+	(_militiaLoadoutData get "rifles") append [
+	["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+	["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+	];
+	(_militiaLoadoutData get "carbines") append [
+	["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+	["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+	];
+	(_militiaLoadoutData get "SMGs") append [
+	["SMG_05_F", "", "saber_light_lxWS", "", [], [], ""],
+	["SMG_05_F", "", "acc_flashlight", "", [], [], ""]
+	];
+	(_militiaLoadoutData get "grenadeLaunchers") append [
+	["arifle_SPAR_01_GL_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+	["arifle_SPAR_01_GL_blk_F", "", "saber_light_lxWS", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+	];
+	(_militiaLoadoutData get "machineGuns") append [
+	["arifle_SPAR_02_blk_F", "", "saber_light_lxWS", "", ["75Rnd_556x45_Stanag_red_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_snd"],
+	["arifle_SPAR_02_snd_F", "", "saber_light_sand_lxWS", "", ["150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_Tracer_F","30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], "bipod_01_F_snd"],
+	["arifle_SPAR_02_blk_F", "", "acc_flashlight", "", ["150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_Tracer_F","30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_snd"],
+	["LMG_03_F", "", "acc_flashlight", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], ""],
+	["LMG_03_F", "", "saber_light_lxWS", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], ""]
+	];
+	(_militiaLoadoutData get "marksmanRifles") append [
+	["arifle_SPAR_03_blk_F", "", "", "optic_SOS", [], [], "bipod_03_F_blk"],
+	["arifle_SPAR_03_snd_F", "", "", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"]
+	];
+	
+	
+	(_pilotLoadoutData get "SMGs") append [
+	["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
+	["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
+	];
+	(_officerLoadoutData get "SMGs") append [
+	["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
+	["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
+	];
+};
 
 
 /////////////////////////////////

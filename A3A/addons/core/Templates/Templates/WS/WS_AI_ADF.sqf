@@ -107,6 +107,9 @@ if ("orange" in A3A_enabledDLC) then {
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
+#include "..\Vanilla\Vanilla_Vehicle_Attributes.sqf"
+#include "WS_Vehicle_Attributes.sqf"
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

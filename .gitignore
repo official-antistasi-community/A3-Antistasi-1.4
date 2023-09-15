@@ -1,5 +1,5 @@
 .vscode/
-.github/
+github/
 .idea/
 build
 *.biprivatekey

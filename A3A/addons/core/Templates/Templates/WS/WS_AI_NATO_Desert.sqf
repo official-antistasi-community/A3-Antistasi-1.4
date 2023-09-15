@@ -102,6 +102,7 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
 
+#include "..\Vanilla\Vanilla_Vehicle_Attributes.sqf"
 #include "WS_Vehicle_Attributes.sqf"
 
 /////////////////////

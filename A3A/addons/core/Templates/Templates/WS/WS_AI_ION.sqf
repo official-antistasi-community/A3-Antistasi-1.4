@@ -19,8 +19,8 @@
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["B_ION_Quadbike_01_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["a3a_ion_Offroad_armor"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["a3a_ion_Offroad_armor_armed","a3a_ion_Offroad_armor_at"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+private _vehiclesLightUnarmed = ["a3a_ion_Offroad_armor"];
+private _vehiclesLightArmed = ["a3a_ion_Offroad_armor_armed","a3a_ion_Offroad_armor_at"];
 ["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_ION_Truck_02_cargo_F","a3a_ION_Truck_02_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["a3a_ION_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;

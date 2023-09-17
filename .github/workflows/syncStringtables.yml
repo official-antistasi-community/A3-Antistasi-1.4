@@ -27,7 +27,6 @@ jobs:
         with:
           python-version: "3.11"
 
-
       - name: Install antistasi_translation_sync package
         run: pip install "Tools/antistasi_translation_sync-0.5.0-py3-none-any.whl"
 
@@ -36,55 +35,20 @@ jobs:
         run: antistasi-translation-sync -u "https://tolgee.targetingsnake.de" AUTO_ALL
 
 
-      - name: Set current date as env variable
-        run: echo "NOW=$(date +'%Y-%m-%dT%H:%M:%S')" >> $GITHUB_ENV
-
-
-      - name: Create Branch
-        uses: peterjgrainger/action-create-branch@v2.2.0
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          branch: 'tolgee-update'
-
-
-      - name: Switch to new branch
-      - uses: actions/checkout@v4
-        with:
-          ref: tolgee-update
-
-
-      - name: Commit files
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add .
-          git commit -m "synchronised Stringtables"
-          git push
-
-
-      - name: Switch to unstable
-      - uses: actions/checkout@v4
-        with:
-          ref: unstable
-
       - name: Create Pull Request
         id: cpr
         uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           commit-message: Automated Tolgee Update
-          committer: GitHub <noreply@github.com>
-          author: ${{ github.actor }} <${{ github.actor }}@users.noreply.github.com>
-          signoff: false
           branch: tolgee-update
+          branch-suffix: timestamp
           delete-branch: false
-          title: '[Example] Update report'
+          title: 'Updated Stringtable files'
           body: |
             Automated Tolgee Update
           labels: |
             localisation
-            automated pr
+            Automated PR
           assignees: Bob-Murphy
           reviewers: Bob-Murphy
-          draft: false

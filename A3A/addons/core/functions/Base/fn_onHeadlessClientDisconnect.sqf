@@ -22,5 +22,5 @@ if (_owner in hcArray) then
 	};
 };
 
-//STR_A3A_fn_base_hcdics_hc - needs implementation in line 14
-//STR_A3A_fn_base_hcdics_warning - needs implementation in line 14
+// TODO: STR_A3A_fn_base_hcdics_hc - needs implementation in line 14
+// TODO: STR_A3A_fn_base_hcdics_warning - needs implementation in line 14

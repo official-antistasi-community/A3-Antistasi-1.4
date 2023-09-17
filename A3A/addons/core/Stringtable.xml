@@ -5378,7 +5378,7 @@
     </Container>
     <Container name="A3A_fn_ai">
       <Key ID="STR_A3A_fn_ai_artySupport_title">
-	      <Original>Artillery Support</Original>
+        <Original>Artillery Support</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_select">
         <Original>You must select an artillery group.</Original>

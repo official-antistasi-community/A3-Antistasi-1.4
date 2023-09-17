@@ -6,8 +6,8 @@ private _titleStr = localize "STR_A3A_fn_base_placeselec_title";
 
 player allowDamage false;
 format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
-// localize "STR_A3A_fn_base_placeselec_petros_dead" - implement into line 8
-// localize "STR_A3A_fn_base_placeselec_petros_dead_long" - implement into line 8
+// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead" - implement into line 8
+// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead_long" - implement into line 8
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
 	0 = _this spawn {

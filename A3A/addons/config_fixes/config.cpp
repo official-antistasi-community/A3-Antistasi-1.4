@@ -6,11 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        #if __has_include("\CUP\Weapons\CUP_Weapons_DynamicLoadout\mk82\CUP_mk82_pod.p3d")
-        requiredAddons[] = {"A3_Weapons_F", "CUP_Weapons_DynamicLoadout"};
-        #else
-        requiredAddons[] = {"A3_Weapons_F"};
-        #endif
+        requiredAddons[] = {"A3_Data_F_AoW_Loadorder"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

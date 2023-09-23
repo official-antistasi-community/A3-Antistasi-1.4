@@ -1,6 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (count hcSelected player == 0) exitWith {["Artillery Support", "You must select an artillery group."] call A3A_fnc_customHint;};
+
+private _titleStr = localize "STR_A3A_fn_ai_artySupport_title";
+
+if (count hcSelected player == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_select"] call A3A_fnc_customHint;};
 
 private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
 
@@ -63,11 +66,11 @@ if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 	};
 } forEach _unitsX;
 
-if (!_hasArtillery) exitWith {["Artillery Support", "You must select an artillery group or it is a Mobile Mortar and it's moving"] call A3A_fnc_customHint;};
-if (!_areAlive) exitWith {["Artillery Support", "All elements in this Battery cannot fire or are disabled"] call A3A_fnc_customHint;};
-if ((_hasAmmunition < 2) and (!_areReady)) exitWith {["Artillery Support", "The Battery has no ammo to fire. Reload it on HQ"] call A3A_fnc_customHint;};
-if (!_areReady) exitWith {["Artillery Support", "Selected Battery is busy right now"] call A3A_fnc_customHint;};
-if (_typeAmmunition == "") exitWith {["Artillery Support", "Your current modset doesent support this strike type"] call A3A_fnc_customHint;};
+if (!_hasArtillery) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectOr"] call A3A_fnc_customHint;};
+if (!_areAlive) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_cannotfire"] call A3A_fnc_customHint;};
+if ((_hasAmmunition < 2) and (!_areReady)) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_noammo"] call A3A_fnc_customHint;};
+if (!_areReady) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_busy"] call A3A_fnc_customHint;};
+if (_typeAmmunition == "") exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_modno"] call A3A_fnc_customHint;};
 if (isNil "_typeAmmunition") exitWith {};
 
 hcShowBar false;
@@ -97,7 +100,7 @@ typeArty = nil;
 
 positionTel = [];
 
-["Artillery Support", "Select the position on map where to perform the Artillery strike."] call A3A_fnc_customHint;
+[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposstart"] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
@@ -123,7 +126,7 @@ for "_i" from 0 to (count _artyArray) - 1 do
 		};
 	};
 
-if (count _artyArrayDef1 == 0) exitWith {["Artillery Support", "The position you marked is out of bounds for that Battery."] call A3A_fnc_customHint;};
+if (count _artyArrayDef1 == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_oob"] call A3A_fnc_customHint;};
 
 _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
@@ -135,7 +138,7 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
 	positionTel = [];
 
-	["Artillery Support", "Select the position to finish the barrage."] call A3A_fnc_customHint;
+	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
 
 	if (!visibleMap) then {openMap true};
 	onMapSingleClick "positionTel = _pos;";

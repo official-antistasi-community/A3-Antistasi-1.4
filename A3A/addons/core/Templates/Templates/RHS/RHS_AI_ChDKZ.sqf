@@ -47,7 +47,7 @@
 ["vehiclesLightAPCs", ["rhsgref_BRDM2_ins"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_bmd2","rhsgref_ins_bmd1p","rhsgref_ins_bmd1"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhsgref_ins_bmp2k","rhsgref_ins_bmp2d","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp1p","rhsgref_ins_bmp1k","rhsgref_ins_bmp1d","rhsgref_ins_bmp1"]] call _fnc_saveToTemplate;                //this line determines IFVs
-["vehiclesTanks", ["rhs_t72ba_tv","rhs_t72bb_tv","rhs_t72bc_tv"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72b","a3a_rhs_chdkz_72c"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhsgref_ins_zsu234"]] call _fnc_saveToTemplate;
 
 
@@ -59,9 +59,9 @@
 ["vehiclesPlanesAA", ["rhs_mig29s_vvs","rhs_mig29sm_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["RHS_Mi8T_vvsc"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_Mi8mt_vvsc","RHS_Mi8mt_vvsc", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vvsc","RHS_Mi8MTV3_heavy_vvsc","RHS_Mi8AMTSh_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["a3a_rhs_Mi8T_chdkz"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["a3a_rhs_Mi8mt_chdkz","a3a_rhs_Mi8mt_chdkz", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only
+["vehiclesHelisLightAttack", ["a3a_rhs_Mi8MTV3_chdkz","a3a_rhs_Mi8MTV3_heavy_chdkz","a3a_rhs_Mi8AMTSh_chdkz"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["RHS_Mi24P_vvsc", "RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsgref_ins_2s1","rhsgref_ins_d30","rhsgref_ins_BM21"]] call _fnc_saveToTemplate;
@@ -426,8 +426,8 @@ _militiaLoadoutData set ["carbines", [
 ]];
 
 _militiaLoadoutData set ["saboteurCarbines", [
-["rhs_weap_aks74u", "rhs_acc_pbs4", "", "", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
-["rhs_weap_akms", "rhs_acc_pbs1", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_U"], [], ""]
+["rhs_weap_aks74u", "", "", "", ["rhs_30Rnd_545x39_7U1_AK"], [], ""],
+["rhs_weap_akms", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_762x39mm_U"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akm_gp25", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
@@ -592,7 +592,7 @@ private _explosivesExpertTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    [["saboteurCarbines", selectRandom ["rifles", "carbines"]] call _fnc_fallback] call _fnc_setPrimary;
+    [["saboteurCarbines", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -625,7 +625,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["aaBackpacks"] call _fnc_setBackpack;
 
-    [["saboteurCarbines", "carbines"] call _fnc_fallback] call _fnc_setPrimary;
+    ["carbines"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

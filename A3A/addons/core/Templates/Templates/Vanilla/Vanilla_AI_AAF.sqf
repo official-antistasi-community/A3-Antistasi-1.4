@@ -86,7 +86,7 @@ if (allowDLCWS) then {
 };
 //If contact DLC
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesMilitiaCars append ["a3a_Offroad_01_comms_green_F", "a3a_Offroad_01_covered_green_F"];
+    _vehiclesMilitiaCars append ["a3a_Offroad_01_comms_green_F", "a3a_Offroad_01_covered_green_F"];
 };
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _lightArmed] call _fnc_saveToTemplate;

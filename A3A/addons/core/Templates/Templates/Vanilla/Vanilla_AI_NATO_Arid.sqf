@@ -80,7 +80,7 @@ if (allowDLCWS) then {
     _APCs append ["APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"];
 };
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesMilitiaCars append ["a3a_Offroad_01_comms_tan_F", "a3a_Offroad_01_covered_tan_F"];
+    _vehiclesMilitiaCars append ["a3a_Offroad_01_comms_tan_F", "a3a_Offroad_01_covered_tan_F"];
 };
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 

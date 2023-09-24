@@ -18,8 +18,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["O_MRAP_02_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"]] call _fnc_saveToTemplate;
+private _LightUnarmed = ["O_MRAP_02_F"];
+private _LightArmed = ["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"];
 ["vehiclesTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_transport_F", "O_Truck_03_covered_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_transport_F", "O_Truck_03_covered_F"];
 ["vehiclesAmmoTrucks", ["O_Truck_02_Ammo_F", "O_Truck_03_ammo_F"]] call _fnc_saveToTemplate;
@@ -29,7 +29,7 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Tru
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["O_APC_Tracked_02_cannon_F", "O_APC_Wheeled_02_rcws_v2_F"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
-["vehiclesTanks", ["O_MBT_02_cannon_F"]] call _fnc_saveToTemplate;
+private _Tanks = ["O_MBT_02_cannon_F"];
 ["vehiclesAA", ["O_APC_Tracked_02_AA_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["O_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
@@ -57,7 +57,7 @@ private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_tan_armed_F", "a3a_Offroad
 ["vehiclesMilitiaTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_covered_F", "O_Truck_03_transport_F"]] call _fnc_saveToTemplate;
 private _vehiclesMilitiaCars = ["a3a_Offroad_01_tan_F"];
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["I_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["O_static_AT_F"]] call _fnc_saveToTemplate;
@@ -73,12 +73,31 @@ private _vehiclesMilitiaCars = ["a3a_Offroad_01_tan_F"];
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 //If Western Sahara DLC
-if (allowDLCWS) then {
+if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks = ["O_Truck_02_cargo_lxWS","O_Truck_02_flatbed_lxWS"];
+    ["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 if ("enoch" in A3A_enabledDLC) then {
     _vehiclesMilitiaCars append ["a3a_Offroad_01_comms_tan_F", "a3a_Offroad_01_covered_tan_F"];
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
+if ("tanks" in A3A_enabledDLC) then {
+    _Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"]; 
+};
+if ("expansion" in A3A_enabledDLC) then {
+    _LightUnarmed append ["O_MRAP_02_F", "O_LSV_02_unarmed_F"];
+    _LightArmed append ["O_LSV_02_AT_F", "O_LSV_02_armed_F"];
+};
+if ("orange" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+};
+["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
+
+
+["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _LightArmed] call _fnc_saveToTemplate;
+["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
+
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;

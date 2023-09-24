@@ -119,6 +119,13 @@ class Params
         texts[] = {"5 seconds","10 seconds","15 seconds"};
         default = 10;
     };
+    class A3A_selfReviveMethods
+    {
+        title = "Self-revive methods enabled";
+        values[] = {0,1};
+        texts[] = {"Disabled", "Withstand"};
+        default = 0;
+    };
 
     class SpacerMembership
     {

@@ -6886,5 +6886,22 @@
         <Original>%1 Contact Report</Original>
       </Key>
     </Container>
+    <Container name="A3A_selfRevive">
+      <Key ID="STR_A3A_selfRevive_title">
+        <Original>Self Revive</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_noFAK">
+        <Original>You don't have a first aid kit for self-revive.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_recent">
+        <Original>You have already revived yourself recently.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_success">
+        <Original>You shake off the injury, but you're not feeling great.</Original>
+      </Key>
+      <Key ID="STR_A3A_selfRevive_timeout">
+        <Original>You are feeling much better.</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

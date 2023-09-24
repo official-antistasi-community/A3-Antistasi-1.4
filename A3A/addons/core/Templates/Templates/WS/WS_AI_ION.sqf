@@ -74,20 +74,20 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 ["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 if ("expansion" in A3A_enabledDLC) then {
-	_vehiclesMilitiaCars append ["a3a_Offroad_02_unarmed_black_F"];
-	_vehiclesMilitiaLightArmed append ["a3a_Offroad_02_black_AT_F","a3a_Offroad_02_LMG_black_F"];
-	_vehiclesLightUnarmed append ["B_LSV_01_unarmed_black_F","O_LSV_02_unarmed_black_F"];
-	_vehiclesLightArmed append ["a3a_LSV_02_AT_black_F","a3a_LSV_01_AT_black_F","O_LSV_02_armed_black_F","B_LSV_01_armed_black_F"];
+    _vehiclesMilitiaCars append ["a3a_Offroad_02_unarmed_black_F"];
+    _vehiclesMilitiaLightArmed append ["a3a_Offroad_02_black_AT_F","a3a_Offroad_02_LMG_black_F"];
+    _vehiclesLightUnarmed append ["B_LSV_01_unarmed_black_F","O_LSV_02_unarmed_black_F"];
+    _vehiclesLightArmed append ["a3a_LSV_02_AT_black_F","a3a_LSV_01_AT_black_F","O_LSV_02_armed_black_F","B_LSV_01_armed_black_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["a3a_MBT_04_cannon_black_F","a3a_MBT_04_command_black_F", "B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; 
+    _Tanks append ["a3a_MBT_04_cannon_black_F","a3a_MBT_04_command_black_F", "B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; 
 };
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
-	_vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+    _vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
@@ -148,7 +148,7 @@ _loadoutData set ["AALaunchers", [
 _loadoutData set ["sidearms", []];
 
 if ("expansion" in A3A_enabledDLC) then {
-	(_loadoutData get "lightATLaunchers") append ["launch_RPG7_F", "launch_RPG7_F"];
+    (_loadoutData get "lightATLaunchers") append ["launch_RPG7_F", "launch_RPG7_F"];
 };
 
 _loadoutData set ["ATMines", ["ATMine_Range_Mag"]];
@@ -432,52 +432,52 @@ _officerLoadoutData set ["helmets", ["H_Cap_blk_ION"]];
 _officerLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_WirelessEarpiece_F"]];
 
 if ("expansion" in A3A_enabledDLC) then {
-	(_militiaLoadoutData get "rifles") append [
-	["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-	["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
-	];
-	(_militiaLoadoutData get "carbines") append [
-	["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
-	["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
-	];
-	(_militiaLoadoutData get "SMGs") append [
-	["SMG_05_F", "", "saber_light_lxWS", "", [], [], ""],
-	["SMG_05_F", "", "acc_flashlight", "", [], [], ""]
-	];
-	(_militiaLoadoutData get "grenadeLaunchers") append [
-	["arifle_SPAR_01_GL_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-	["arifle_SPAR_01_GL_blk_F", "", "saber_light_lxWS", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
-	];
-	(_militiaLoadoutData get "machineGuns") append [
-	["arifle_SPAR_02_blk_F", "", "saber_light_lxWS", "", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
-	["arifle_SPAR_02_snd_F", "", "saber_light_sand_lxWS", "", ["150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_Tracer_F","30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], "bipod_01_F_snd"],
-	["arifle_SPAR_02_blk_F", "", "acc_flashlight", "", ["150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_Tracer_F","30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
-	["LMG_03_F", "", "acc_flashlight", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], "bipod_01_F_blk"],
-	["LMG_03_F", "", "saber_light_lxWS", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], ""]
-	];
-	(_militiaLoadoutData get "marksmanRifles") append [
-	["arifle_SPAR_03_blk_F", "", "", "optic_SOS", [], [], "bipod_03_F_blk"],
-	["arifle_SPAR_03_snd_F", "", "", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"]
-	];
-	
-	(_militaryLoadoutData get "machineGuns") append [
-	["arifle_SPAR_02_blk_F", "", "acc_pointer_IR", "optic_MRCO", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
-	["LMG_03_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], "bipod_01_F_blk"]
-	];
-	(_militaryLoadoutData get "marksmanRifles") append [
-	["arifle_SPAR_03_blk_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_03_F_blk"],
-	["arifle_SPAR_03_snd_F", "", "acc_pointer_IR", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"]
-	];
-	
-	
-	(_pilotLoadoutData get "SMGs") append [
-	["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
-	["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
-	];
-	(_officerLoadoutData get "SMGs") append [
-	["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
-	["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
-	];
+    (_militiaLoadoutData get "rifles") append [
+    ["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+    ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+    ];
+    (_militiaLoadoutData get "carbines") append [
+    ["arifle_SPAR_01_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], ""],
+    ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+    ];
+    (_militiaLoadoutData get "SMGs") append [
+    ["SMG_05_F", "", "saber_light_lxWS", "", [], [], ""],
+    ["SMG_05_F", "", "acc_flashlight", "", [], [], ""]
+    ];
+    (_militiaLoadoutData get "grenadeLaunchers") append [
+    ["arifle_SPAR_01_GL_snd_F", "", "saber_light_sand_lxWS", "", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+    ["arifle_SPAR_01_GL_blk_F", "", "saber_light_lxWS", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+    ];
+    (_militiaLoadoutData get "machineGuns") append [
+    ["arifle_SPAR_02_blk_F", "", "saber_light_lxWS", "", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+    ["arifle_SPAR_02_snd_F", "", "saber_light_sand_lxWS", "", ["150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_F", "150Rnd_556x45_Drum_Sand_Mag_Tracer_F","30Rnd_556x45_Stanag_Sand_Tracer_Red"], [], "bipod_01_F_snd"],
+    ["arifle_SPAR_02_blk_F", "", "acc_flashlight", "", ["150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_F", "150Rnd_556x45_Drum_Mag_Tracer_F","30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
+    ["LMG_03_F", "", "acc_flashlight", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], "bipod_01_F_blk"],
+    ["LMG_03_F", "", "saber_light_lxWS", "", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], ""]
+    ];
+    (_militiaLoadoutData get "marksmanRifles") append [
+    ["arifle_SPAR_03_blk_F", "", "", "optic_SOS", [], [], "bipod_03_F_blk"],
+    ["arifle_SPAR_03_snd_F", "", "", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"]
+    ];
+    
+    (_militaryLoadoutData get "machineGuns") append [
+    ["arifle_SPAR_02_blk_F", "", "acc_pointer_IR", "optic_MRCO", ["75Rnd_556x45_Stanag_lxWS", "75Rnd_556x45_Stanag_red_lxWS", "30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
+    ["LMG_03_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Red_F", "200Rnd_556x45_Box_Tracer_Red_F"], [], "bipod_01_F_blk"]
+    ];
+    (_militaryLoadoutData get "marksmanRifles") append [
+    ["arifle_SPAR_03_blk_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_03_F_blk"],
+    ["arifle_SPAR_03_snd_F", "", "acc_pointer_IR", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"]
+    ];
+    
+    
+    (_pilotLoadoutData get "SMGs") append [
+    ["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
+    ["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
+    ];
+    (_officerLoadoutData get "SMGs") append [
+    ["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
+    ["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
+    ];
 };
 
 
@@ -554,7 +554,7 @@ private _medicTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
-	[selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

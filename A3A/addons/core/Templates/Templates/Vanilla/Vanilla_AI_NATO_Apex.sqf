@@ -85,7 +85,7 @@ if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-    _Tanks append ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
+    _Tanks append ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]; //Wheeled tank destroyers
 };
 if ("heli" in A3A_enabledDLC) then {
     _HelisTransport append ["B_Heli_Transport_03_F", "B_Heli_Transport_03_unarmed_green_F"];

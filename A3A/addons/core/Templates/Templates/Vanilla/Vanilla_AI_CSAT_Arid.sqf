@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["O_MRAP_02_F"];
-private _LightArmed = ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"];
+private _LightArmed = ["O_MRAP_02_hmg_F", "O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"];
 ["vehiclesTrucks", ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_transport_F", "O_Truck_03_covered_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_transport_F", "O_Truck_03_covered_F"];
 ["vehiclesAmmoTrucks", ["O_Truck_02_Ammo_F", "O_Truck_03_ammo_F"]] call _fnc_saveToTemplate;
@@ -86,7 +86,7 @@ if ("tanks" in A3A_enabledDLC) then {
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["O_MRAP_02_F", "O_LSV_02_unarmed_F"];
-	_LightArmed append ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F", "O_LSV_02_AT_F", "O_LSV_02_armed_F"];
+	_LightArmed append ["O_LSV_02_AT_F", "O_LSV_02_armed_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];

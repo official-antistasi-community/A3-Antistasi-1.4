@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["I_E_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["B_T_MRAP_01_F"];
-private _LightArmed = ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F"];
+private _LightArmed = ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F"];
 ["vehiclesTrucks", ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
@@ -85,7 +85,7 @@ if ("tanks" in A3A_enabledDLC) then {
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_T_MRAP_01_F", "B_T_LSV_01_unarmed_F"];
-	_LightArmed append ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F", "B_T_LSV_01_AT_F", "B_T_LSV_01_armed_F"];
+	_LightArmed append ["B_T_LSV_01_AT_F", "B_T_LSV_01_armed_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_F", "B_Heli_Transport_03_unarmed_green_F"]

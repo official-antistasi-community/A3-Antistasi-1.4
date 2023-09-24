@@ -42,18 +42,18 @@ private _staticAA = ["I_static_AA_F"];
 
 if ("expansion" in A3A_enabledDLC) then {
     _vehiclesCivCar append ["C_Offroad_02_unarmed_F"];
-	_vehiclesLightUnarmed append ["I_C_Offroad_02_unarmed_F"];
-	_vehiclesLightArmed append ["I_C_Offroad_02_LMG_F"];
-	_vehiclesAT append ["I_C_Offroad_02_AT_F"];
+    _vehiclesLightUnarmed append ["I_C_Offroad_02_unarmed_F"];
+    _vehiclesLightArmed append ["I_C_Offroad_02_LMG_F"];
+    _vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 
 if ("ws" in A3A_enabledDLC) then {
-	_vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
-	_staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
-	_vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
-	_vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
-	_vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
+    _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
+    _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+    _vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
+    _vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
+    _vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
 
 ["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;

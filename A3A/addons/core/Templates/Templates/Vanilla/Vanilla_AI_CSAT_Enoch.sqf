@@ -76,22 +76,22 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks = ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
-	["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
+    ["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
-	_vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+    _vehiclesMilitiaCars append ["C_Offroad_01_comms_F", "C_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"];
+    _Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"];
 };
 if ("expansion" in A3A_enabledDLC) then {
-	_LightUnarmed append ["O_T_MRAP_02_ghex_F", "O_T_LSV_02_unarmed_F"];
-	_LightArmed append ["O_T_LSV_02_AT_F", "O_T_LSV_02_armed_F"];
+    _LightUnarmed append ["O_T_MRAP_02_ghex_F", "O_T_LSV_02_unarmed_F"];
+    _LightArmed append ["O_T_LSV_02_AT_F", "O_T_LSV_02_armed_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 

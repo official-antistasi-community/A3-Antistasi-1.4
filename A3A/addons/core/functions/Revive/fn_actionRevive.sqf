@@ -1,7 +1,7 @@
 params ["_cured", "_medic"];
 
 private _player = isPlayer _medic;
-private _inPlayerGroup = if !(_player) then {if ({isPlayer _x} count (units group _medic) > 0) then {true} else {false}} else {false};
+private _inPlayerGroup = !_player and ({isPlayer _x} count (units group _medic) > 0);
 private _isMedic = [_medic] call A3A_fnc_isMedic;
 
 if (captive _medic) then { _medic setCaptive false };         // medic is will be local
@@ -42,7 +42,7 @@ if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
     false
 };
 
-private _timer = [10, A3A_reviveTime] select _inPlayerGroup;
+private _timer = [10, A3A_reviveTime] select (_player or _inPlayerGroup);
 if ([_cured] call A3A_fnc_fatalWound) then { _timer = _timer * 2 };
 if (!_isMedic) then { _timer = _timer * 2 };
 _timer = (_timer * (1 + random 0.5)) + time;

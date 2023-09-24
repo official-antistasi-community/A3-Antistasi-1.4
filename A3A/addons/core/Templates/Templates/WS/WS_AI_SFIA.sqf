@@ -71,10 +71,10 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 ["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("orange" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
@@ -139,8 +139,8 @@ _loadoutData set ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "
 
 
 if ("expansion" in A3A_enabledDLC) then {
-	_loadoutData set ["lightATLaunchers", ["launch_RPG7_F",
-	["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""]]];
+    _loadoutData set ["lightATLaunchers", ["launch_RPG7_F",
+    ["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""]]];
 };
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -374,12 +374,12 @@ _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 
 if ("expansion" in A3A_enabledDLC) then {
-	(_militiaLoadoutData get "rifles") append [
-	["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
-	(_militiaLoadoutData get "carbines") append [
-	["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
-	
-	_militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+    (_militiaLoadoutData get "rifles") append [
+    ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
+    (_militiaLoadoutData get "carbines") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+    
+    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
 };
 
 //////////////////////////

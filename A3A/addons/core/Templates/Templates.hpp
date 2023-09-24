@@ -126,13 +126,13 @@ class Templates
         forceDLC[] = {"ws"};
         climate[] = {"arid"};
     };
-	class WS_SIFA : WS_Base
-	{
+    class WS_SIFA : WS_Base
+    {
         side = "Inv";
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa";
         name = "WS SFIA";
         file = "WS_AI_SFIA";
-	};
+    };
     // ***************************** VN *****************************
 
     class VN_Base
@@ -212,7 +212,7 @@ class Templates
         maps[] = {"chernarus_summer","chernarus_winter","chernarus"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
     };
-	
+    
     class RHS_CDF : RHS_Base
     {
         side = "Occ";
@@ -265,15 +265,15 @@ class Templates
 
     class RHS_SAF_Base
     {
-    	requiredAddons[] = {"rhssaf_main"};
-	    basepath = QPATHTOFOLDER(Templates\Templates\RHS);
-	    logo = "\rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
+        requiredAddons[] = {"rhssaf_main"};
+        basepath = QPATHTOFOLDER(Templates\Templates\RHS);
+        logo = "\rhssaf\addons\rhssaf_main\data\rhs_logo_ca.paa";
         priority = 30;
     };
     class RHS_SAF : RHS_SAF_Base
     {
-	    side = "Inv";
-	    flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
+        side = "Inv";
+        flagTexture = "rhssaf\addons\rhssaf_main\data\flags\flag_serbia_co.paa";
         name = "RHS SAF";
         file = "RHS_AI_SAF";
     };

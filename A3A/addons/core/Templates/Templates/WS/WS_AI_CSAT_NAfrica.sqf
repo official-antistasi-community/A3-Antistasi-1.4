@@ -72,19 +72,23 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSBoundingMine", "APERSMine"]] call _fnc_saveToTemplate;
 
-if ("enoch" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
-	_vehiclesMilitiaCars append ["a3a_Offroad_01_covered_tan_F","a3a_Offroad_01_comms_tan_F"];
+if ("enoch" in A3A_enabledDLC) then
+{
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+    _vehiclesMilitiaCars append ["a3a_Offroad_01_covered_tan_F","a3a_Offroad_01_comms_tan_F"];
 };
-if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"]; 
+if ("tanks" in A3A_enabledDLC) then
+{
+    _Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"]; 
 };
-if ("expansion" in A3A_enabledDLC) then {
-	_LightUnarmed append ["O_MRAP_02_F", "O_LSV_02_unarmed_F"];
-	_LightArmed append ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F", "O_LSV_02_AT_F", "O_LSV_02_armed_F"];
+if ("expansion" in A3A_enabledDLC) then
+{
+    _LightUnarmed append ["O_MRAP_02_F", "O_LSV_02_unarmed_F"];
+    _LightArmed append ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F", "O_LSV_02_AT_F", "O_LSV_02_armed_F"];
 };
-if ("orange" in A3A_enabledDLC) then {
-	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+if ("orange" in A3A_enabledDLC) then
+{
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
@@ -399,40 +403,40 @@ _pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_B
 
 
 if ("mark" in A3A_enabledDLC) then {
-	private _sfMG      = _sfLoadoutData get "machineGuns";
-	private _sfMarks   = _sfLoadoutData get "marksmanRifles";
-	private _sfSniper  = _sfLoadoutData get "sniperRifles";
-	
-	_sfMG append [
-	["MMG_01_tan_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
-	["MMG_01_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]
-	];
-	_sfMarks append [
-	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
-	["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"]
-	];
-	_sfSniper append [
-	["srifle_DMR_05_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
-	["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
-	];
-	
-	_sfLoadoutData set ["machineGuns", _sfMG];
-	_sfLoadoutData set ["marksmanRifles", _sfMarks];
-	_sfLoadoutData set ["sniperRifles", _sfSniper];
-	
-	private _mMG      = _militaryLoadoutData get "machineGuns";
-	private _mSniper  = _militaryLoadoutData get "sniperRifles";
-	
-	_mMG append [
-	["MMG_01_tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
-	["MMG_01_hex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]];
-	_mSniper append [
-	["srifle_DMR_05_hex_F", "", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
-	["srifle_DMR_05_tan_f", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
-	];
-	
-	_militaryLoadoutData set ["machineGuns", _mMG];
-	_militaryLoadoutData set ["sniperRifles", _mSniper];	
+    private _sfMG      = _sfLoadoutData get "machineGuns";
+    private _sfMarks   = _sfLoadoutData get "marksmanRifles";
+    private _sfSniper  = _sfLoadoutData get "sniperRifles";
+    
+    _sfMG append [
+    ["MMG_01_tan_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+    ["MMG_01_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]
+    ];
+    _sfMarks append [
+    ["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+    ["srifle_DMR_04_Tan_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_02_F_hex"]
+    ];
+    _sfSniper append [
+    ["srifle_DMR_05_hex_F", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+    ["srifle_DMR_05_tan_f", "muzzle_snds_93mmg_tan", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+    ];
+    
+    _sfLoadoutData set ["machineGuns", _sfMG];
+    _sfLoadoutData set ["marksmanRifles", _sfMarks];
+    _sfLoadoutData set ["sniperRifles", _sfSniper];
+    
+    private _mMG      = _militaryLoadoutData get "machineGuns";
+    private _mSniper  = _militaryLoadoutData get "sniperRifles";
+    
+    _mMG append [
+    ["MMG_01_tan_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_hex"],
+    ["MMG_01_hex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_hex"]];
+    _mSniper append [
+    ["srifle_DMR_05_hex_F", "", "acc_pointer_IR", "optic_KHS_hex", [], [], "bipod_02_F_hex"],
+    ["srifle_DMR_05_tan_f", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_hex"]
+    ];
+    
+    _militaryLoadoutData set ["machineGuns", _mMG];
+    _militaryLoadoutData set ["sniperRifles", _mSniper];    
 };
 
 

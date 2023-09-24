@@ -108,9 +108,9 @@ class Params
     class A3A_GCThreshold
     {
         title = "Garbage Cleaner Threshold for Automatic gc";
-        values[] = {3600, 7200, 10800, 14400, 9999999};
+        values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
-        Default = 9999999;
+        Default = 0;
     };
     class A3A_reviveTime
     {

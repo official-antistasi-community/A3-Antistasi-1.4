@@ -154,8 +154,7 @@ _arrayEst = [];
 
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 {
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater position _x) and !(isNull attachedTo _x)) then {
+	if ((alive _x) and !(surfaceIsWater position _x) and (isNull attachedTo _x)) then {
 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;

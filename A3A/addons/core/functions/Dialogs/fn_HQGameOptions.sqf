@@ -36,7 +36,7 @@ private _hintTitle = "HQ Spawn Options";
 private _authenticate = _option in ["maxUnits","distanceSPWN","globalCivilianMax"];
 
 if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
-    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
+    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player]; //TODO: localisation
     Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
     nil;
 };
@@ -91,7 +91,7 @@ private _processAction = {
     private _UpperLimitText = "  " + str _upperLimit;
     private _graphicLabel = _lowerLimitText + "<t color='#00000000' shadow='0'>" + (_padding select [0,_graphicLength -count _lowerLimitText -count _UpperLimitText])+ "</t>" + _UpperLimitText;
 
-    [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];
+    [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];//TODO: localisation
 };
 
 //////////////////////////

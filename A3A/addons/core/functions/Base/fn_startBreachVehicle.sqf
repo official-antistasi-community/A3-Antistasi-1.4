@@ -158,7 +158,7 @@ if
   {_caller getVariable ["cancelBreach",false]}}}}
 ) exitWith
 {
-  [_titleStr, localize "STR_A3A_fn_base_breachveh_cancel"] call A3A_fnc_customHint;
+  [_titleStr, localize "STR_A3A_fn_base_breachveh_cancelled"] call A3A_fnc_customHint;
   _caller setVariable ["cancelBreach",nil];
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;

@@ -363,6 +363,7 @@ Antistasi - lässige Revolution</German>
         <Russian>Этот обновленный текст был пасхалкой.</Russian>
         <Portuguese>Este texto não ser atualizado é um "Easter Egg" (surpresa!)</Portuguese>
         <Turkish>Güncellenmeyen bu metin bir Easter Egg'dir.</Turkish>
+        <Chinesesimp>这个文本不会被更新，这是一个复活节彩蛋。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -384,6 +385,7 @@ Antistasi - lässige Revolution</German>
         <Russian>Antistasi Чернорусь 2020</Russian>
         <Portuguese>Antistasi Chernarus 2020</Portuguese>
         <Turkish>Antistasi Chernarus 2020</Turkish>
+        <Chinesesimp>Antistasi Chernarus 2020</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_cup_chernarus_A3_mapname_text">
         <Original>Antistasi - Another Liberation of Cherno</Original>
@@ -391,6 +393,7 @@ Antistasi - lässige Revolution</German>
         <Russian>Ещё одно Освобождение Черноруси</Russian>
         <Portuguese>Antistasi - Outra Libertação de Cherno</Portuguese>
         <Turkish>Antistasi - Cherno'nun Başka Bir Kurtuluşu</Turkish>
+        <Chinesesimp>Antistasi - 另一个切尔诺贝利的解放</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_Enoch_blurb_text">
         <Original>Stuck between two fronts.</Original>
@@ -619,6 +622,7 @@ Antistasi - lässige Revolution</German>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_blurb_text">
         <Original>Vive la résistance!</Original>
         <German>Lang lebe der Widerstand!</German>
+        <Chinesesimp>抵抗运动万岁！</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -641,6 +645,7 @@ Antistasi - lässige Revolution</German>
         <Russian>Antistasi Нормандия</Russian>
         <Portuguese>Antistasi Normandia</Portuguese>
         <Turkish>Antistasi Normandiya</Turkish>
+        <Chinesesimp>Antistasi Normandy</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_SPE_Normandy_mapname_text">
         <Original>Antistasi - The French Resistance</Original>
@@ -649,6 +654,7 @@ Antistasi - lässige Revolution</German>
         <Russian>Antistasi - Французское Сопротивление.</Russian>
         <Portuguese>Antistasi - A Resistência Francesa</Portuguese>
         <Turkish>Antistasi - Fransız Direnişi</Turkish>
+        <Chinesesimp>Antistasi - 法国抵抗运动</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_Stratis_blurb_text">
         <Original>Because nothing is more important than Freedom.</Original>

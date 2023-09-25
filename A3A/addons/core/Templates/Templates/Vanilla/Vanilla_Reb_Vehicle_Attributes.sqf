@@ -1,6 +1,6 @@
 ["attributesVehicles", [
     ["I_C_Offroad_02_LMG_F", ["rebCost", 500]],
-    ["I_C_Offroad_02_unarmed_F", ["rebCost", 150]],
+    ["I_C_Offroad_02_unarmed_F", ["rebCost", 150]], //Slow, 4 seats only
     
     ["a3a_C_Heli_Transport_02_F", ["rebCost", 6500]]
 

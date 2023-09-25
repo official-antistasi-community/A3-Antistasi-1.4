@@ -96,6 +96,7 @@
         <Russian>Только Командующий может купить это</Russian>
         <Portuguese>Apenas o Comandante pode comprar este item.</Portuguese>
         <Turkish>Sadece komutan bu eşyayı satın alabilir.</Turkish>
+        <Chinesesimp>只有指挥官可以购买此物品。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_custom_hint_header">
         <Original>Purchase Item</Original>
@@ -106,6 +107,7 @@
         <Russian>Приобрести</Russian>
         <Portuguese>Comprar item.</Portuguese>
         <Turkish>Eşyayı Satın Al</Turkish>
+        <Chinesesimp>购买物品</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_item_tooltip">
         <Original>Buy %1 for %2 %3</Original>
@@ -116,6 +118,7 @@
         <Russian>Купить %1 за %2 %3</Russian>
         <Portuguese>Comprar %1 por %2 %3</Portuguese>
         <Turkish>%2 %3 için %1 satın al</Turkish>
+        <Chinesesimp>花 %2 %3 购买 %1</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_ammo_tooltip">
         <Original>This item can rearm other vehicles</Original>
@@ -125,6 +128,7 @@
         <Russian>Этот объект может перевооружать другую технику.</Russian>
         <Portuguese>Este item consegue rearmar outros veículos.</Portuguese>
         <Turkish>Bu öğe diğer araçları yeniden silahlandırabilir</Turkish>
+        <Chinesesimp>这个物品可以给其他载具补给</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_button_tooltip">
         <Original>Buy %1 for %2 %3</Original>
@@ -247,6 +251,7 @@
         <Russian>Этот объект может собирать вещи\n%1 с максимальной вместимостью в %2</Russian>
         <Portuguese>Este item consegue recolher o saque (loot)\n%1 carga máxima é %2</Portuguese>
         <Turkish>Bu öğe ganimet toplayabilir\n%1 maksimum yük %2</Turkish>
+        <Chinesesimp>这个物品可以收集战利品\n%1 最大载重是 %2</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
         <Original>This item has medical capability</Original>
@@ -256,6 +261,7 @@
         <Russian>Этот объект имеет медицинские возможности</Russian>
         <Portuguese>Este item tem capacidades médicas</Portuguese>
         <Turkish>Bu öğenin tıbbi özelliği var</Turkish>
+        <Chinesesimp>这个物品具有医疗功能</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_passenger_amount_tooltip">
         <Original>%1 Passenger seats</Original>
@@ -294,6 +300,7 @@
         <Russian>Этот объект может заправлять технику\n%1 с запасом топлива в %2</Russian>
         <Portuguese>Este item consegue abastecer outros\n%1 Combustível máximo é %2</Portuguese>
         <Turkish>Bu öğe diğerlerine yakıt ikmali yapabilir\n%1 maks. yakıt %2'dir</Turkish>
+        <Chinesesimp>这个物品可以给其他载具加油\n%1 最大油量是 %2</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
         <Original>This item can repair other vehicles</Original>
@@ -303,6 +310,7 @@
         <Russian>Этот объект может ремонтировать другую технику</Russian>
         <Portuguese>Este item consegue reparar outros veículos</Portuguese>
         <Turkish>Bu öğe diğer araçları onarabilir</Turkish>
+        <Chinesesimp>这个物品可以修理其他载具</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_titlebar">
         <Original>BUY VEHICLE</Original>
@@ -341,6 +349,7 @@
         <Russian>Гражданские</Russian>
         <Portuguese>Civil</Portuguese>
         <Turkish>Sivil</Turkish>
+        <Chinesesimp>民用</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_other">
         <Original>Other</Original>
@@ -351,6 +360,7 @@
         <Russian>Другое</Russian>
         <Portuguese>Outro</Portuguese>
         <Turkish>Diğer</Turkish>
+        <Chinesesimp>其他</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_reb">
         <Original>Rebel</Original>
@@ -361,6 +371,7 @@
         <Russian>Сопротивление</Russian>
         <Portuguese>Rebeldes</Portuguese>
         <Turkish>İsyancı</Turkish>
+        <Chinesesimp>反叛军</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_tab_static">
         <Original>Statics</Original>
@@ -371,6 +382,7 @@
         <Russian>Стационарное</Russian>
         <Portuguese>Estáticas</Portuguese>
         <Turkish>Statikler</Turkish>
+        <Chinesesimp>固定</Chinesesimp>
       </Key>
     </Container>
     <Container name="dialog_hq">

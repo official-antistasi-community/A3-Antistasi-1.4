@@ -48,16 +48,16 @@
 
 private _initialRebelEquipment = [
 "UK3CB_BHP", "rhs_weap_tt33",
-"uk3cb_enfield_no4",
+"uk3cb_enfield_l8", "uk3cb_enfield_l8_walnut",
 ["rhs_weap_rpg75", 50],
 ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
-"UK3CB_BHP_9_13Rnd", "rhs_mag_762x25_8", "uk3cb_no4_enfield_303_10Rnd_magazine", "uk3cb_no4_enfield_303_10Rnd_magazine_GT", "uk3cb_1rnd_riflegrenade_mas_flare", "rhs_grenade_mkii_mag", "rhs_grenade_mki_mag", "rhs_mag_rdg2_black", "rhs_grenade_m15_mag",
+"UK3CB_BHP_9_13Rnd", "rhs_mag_762x25_8", "uk3cb_l42_enfield_762_10Rnd_magazine", "uk3cb_l42_enfield_762_10Rnd_magazine_WT", "uk3cb_1rnd_riflegrenade_mas_flare", "rhs_grenade_mkii_mag", "rhs_grenade_mki_mag", "rhs_mag_rdg2_black", "rhs_grenade_m15_mag",
 "UK3CB_CHC_C_B_MED", "UK3CB_B_Bedroll_Backpack", "UK3CB_TKC_C_B_Sidor_MED", "UK3CB_CW_SOV_O_LATE_B_Sidor_RIF", "UK3CB_CW_SOV_O_EARLY_B_Sidor_RIF",
 "UK3CB_V_CW_Chestrig", "UK3CB_V_CW_Chestrig_2_Small", "UK3CB_V_Belt_KHK", "UK3CB_V_Belt_Rig_KHK", "UK3CB_V_Belt_Rig_Lite_KHK", "UK3CB_V_Pouch", "UK3CB_V_Chestrig_TKA_OLI", "UK3CB_V_Chestrig_2_Small_OLI", "UK3CB_V_Chestrig_TKA_BRUSH", "UK3CB_V_Chestrig_Lite_KHK", "UK3CB_V_Chestrig_Lite_2_Small_KHK",
 "rhs_acc_2dpZenit", "Binocular"];
 
-_initialRebelEquipment append [selectRandom["uk3cb_enfield_no3", "uk3cb_enfield_no4_walnut", "uk3cb_enfield_no5", "uk3cb_enfield_no5_walnut"]];
-_initialRebelEquipment append [selectRandom["uk3cb_enfield_no3t", "uk3cb_enfield_no4t", "uk3cb_enfield_no4t_walnut"]];
+_initialRebelEquipment append [selectRandom["uk3cb_enfield_l8t", "uk3cb_enfield_l8t_walnut"]];
+_initialRebelEquipment append [selectRandom["uk3cb_enfield_l42", "uk3cb_enfield_l42_walnut"]];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155", "tf_anprc155_coyote"]};

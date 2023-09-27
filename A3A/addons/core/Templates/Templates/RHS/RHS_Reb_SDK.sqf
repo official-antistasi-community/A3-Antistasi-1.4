@@ -70,20 +70,6 @@ _initialRebelEquipment append ["Chemlight_blue", "Chemlight_green", "Chemlight_r
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 private _rebUniforms = [
-    "U_IG_Guerilla2_1",
-    "U_IG_Guerilla2_2",
-    "U_IG_Guerilla2_3",
-    "U_IG_Guerilla3_1",
-    "U_IG_leader",
-    "U_IG_Guerrilla_6_1",
-    "U_I_G_resistanceLeader_F",
-    "rhsgref_uniform_tigerstripe",
-    "rhsgref_uniform_altis_lizard_olive"
-];
-
-private _dlcUniforms = [];
-
-if (allowDLCExpansion) then {_dlcUniforms append [
     "U_I_C_Soldier_Bandit_4_F",
     "U_I_C_Soldier_Bandit_1_F",
     "U_I_C_Soldier_Bandit_2_F",
@@ -96,6 +82,19 @@ if (allowDLCExpansion) then {_dlcUniforms append [
     "U_I_C_Soldier_Para_1_F",
     "U_I_C_Soldier_Camo_F"
 ];
+
+private _dlcUniforms = [
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F",
+    "rhsgref_uniform_tigerstripe",
+    "rhsgref_uniform_altis_lizard_olive"
+];
+
 };
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F",

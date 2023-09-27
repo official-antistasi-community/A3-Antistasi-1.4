@@ -312,7 +312,7 @@ class Templates
     {
         side = "Inv";
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_cw_sov\flag\cw_sov_army_flag_co.paa";
-        name = "3CB TLA"; //Tanoan liberation/revolutionary army
+        name = "3CB TLA";
         file = "3CB_AI_TLA";
         maps[] = {"tanoa"};
         climate[] = {"tropical"};

@@ -2,8 +2,6 @@
 //   Rebel Information   //
 ///////////////////////////
 
-//Combination RHS & 3CB tanoan rebel faction
-
 ["name", "SDK"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_Syndikat_F"] call _fnc_saveToTemplate;
@@ -19,7 +17,7 @@
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 
-["vehiclesPlane", []] call _fnc_saveToTemplate;
+["vehiclesPlane", ["RHS_AN2"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", ["C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
 
@@ -95,7 +93,6 @@ private _dlcUniforms = [
     "rhsgref_uniform_altis_lizard_olive"
 ];
 
-};
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F",
     "U_I_L_Uniform_01_deserter_F"

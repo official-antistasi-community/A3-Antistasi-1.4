@@ -2,13 +2,11 @@
 //   Rebel Information   //
 ///////////////////////////
 
-//Combination RHS & 3CB tanoan rebel faction
-
-["name", "SDK"] call _fnc_saveToTemplate;
+["name", "TFIA"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_Syndikat_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate;
+["flagTexture", "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_Tanoa"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["UK3CB_FIA_I_TT650"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_MDF_I_MB4WD_Unarmed", "UK3CB_FIA_I_LR_Closed", "UK3CB_FIA_I_LR_Open", "UK3CB_FIA_I_Datsun_Open"]] call _fnc_saveToTemplate;
@@ -50,14 +48,14 @@
 
 private _initialRebelEquipment = [
 "rhs_weap_makarov_pm", "rhs_weap_tt33", "rhs_weap_Izh18",
-["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],["rhs_weap_rpg18", 5]
+["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],["rhs_weap_rpg18", 5],
 "rhs_mag_9x18_8_57N181S", "rhs_mag_762x25_8", "rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug", "rhs_mag_f1", "rhs_grenade_mki_mag", "rhs_mag_rdg2_black", "rhs_grenade_m15_mag",
 "B_FieldPack_blk", "B_FieldPack_cbr", "B_FieldPack_green_F", "B_FieldPack_khk", "B_FieldPack_oli",
 "rhsgref_chestrig", "rhsgref_chicom", "rhs_vydra_3m", "rhs_vest_pistol_holster", "rhs_vest_commander", "rhs_6sh46", "rhsgref_alice_webbing",
 "rhs_acc_2dpZenit", "Binocular"];
 
 _initialRebelEquipment append ["uk3cb_enfield_no4","uk3cb_enfield_no4_walnut","uk3cb_no4_enfield_303_10Rnd_magazine_Y","uk3cb_no4_enfield_303_10Rnd_magazine_YT",
-["uk3cb_1rnd_riflegrenade_mas_at_l", 50], "uk3cb_1rnd_riflegrenade_mas_wp", "uk3cb_1rnd_riflegrenade_mas_flare"];
+["uk3cb_1rnd_riflegrenade_mas_at_l", 50], ["uk3cb_1rnd_riflegrenade_mas_wp", 5], "uk3cb_1rnd_riflegrenade_mas_flare"];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155", "tf_anprc155_coyote"]};
@@ -93,7 +91,6 @@ private _dlcUniforms = [
     "rhsgref_uniform_altis_lizard_olive"
 ];
 
-};
 if (allowDLCEnoch) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F",
     "U_I_L_Uniform_01_deserter_F"

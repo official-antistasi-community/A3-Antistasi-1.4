@@ -451,8 +451,8 @@ class Templates
     class 3CB_SDK : 3CBF_Base
     {
         side = "Reb";
-        flagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
-        name = "3CB SDK";
+        flagTexture = "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa";
+        name = "3CB TFIA";
         file = "3CB_Reb_SDK";
         maps[] = {"Tanoa"};
         climate[] = {"tropical"};

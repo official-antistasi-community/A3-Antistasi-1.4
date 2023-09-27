@@ -19,11 +19,6 @@
     ["UK3CB_C_Ural_Recovery", ["rebCost", 1200]],
     ["UK3CB_C_V3S_Recovery", ["rebCost", 1000]],
 	
-	//Rebel Static
-    ["UK3CB_FIA_I_M240_High", ["rebCost", 300]],
-    ["UK3CB_FIA_I_M240_Low", ["rebCost", 300]],
-    ["UK3CB_MEI_I_PKM_Low", ["rebCost", 300]]
-	
 	//Rebel cars
 	["UK3CB_MDF_I_MB4WD_Unarmed", ["rebCost", 150]],  	//4 seats, slow
 	["UK3CB_FIA_I_LR_Open", ["rebCost", 250]],  	//4 seats, slow
@@ -36,7 +31,7 @@
     ["UK3CB_I_G_LandRover_SF_M2", ["rebCost", 800]],
     ["UK3CB_ION_B_Winter_M1025_M2", ["rebCost", 900]],
     ["UK3CB_ION_B_Winter_SUV_Armed", ["rebCost", 1000]],
-    ["UK3CB_ION_B_Winter_M998_2DR", ["rebCost", 500]]
+    ["UK3CB_ION_B_Winter_M998_2DR", ["rebCost", 500]],
 	
 	//Rebel Static
     ["UK3CB_FIA_I_M240_High", ["rebCost", 300]],

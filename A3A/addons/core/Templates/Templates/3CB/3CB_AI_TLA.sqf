@@ -268,7 +268,7 @@ _militaryLoadoutData set ["machineGuns", [
 "rhs_weap_pkm",
 ["rhs_weap_akmn", "rhs_acc_dtkakm", "rhs_acc_2dpZenit", "rhs_acc_1p78", ["rhs_75Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 ["UK3CB_RPK", "", "", "", ["rhs_75Rnd_762x39mm_89", "rhs_30Rnd_762x39mm_tracer"], [], ""],
-["UK3CB_RPK_74N", "", "", "rhs_acc_1p29", ["rhs_45Rnd_545x39_7N6M_AK", "rhs_45Rnd_545X39_AK_Green","UK3CB_RPK74_60rnd_545x39"], [], ""]
+["UK3CB_RPK_74N", "", "", "rhs_acc_1p29", ["rhs_45Rnd_545X39_7N6M_AK", "rhs_45Rnd_545X39_AK_Green","UK3CB_RPK74_60rnd_545x39"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2", 	["UK3CB_FNFAL_20rnd_762x51_G","UK3CB_FNFAL_20rnd_762x51_GT"], [], ""],

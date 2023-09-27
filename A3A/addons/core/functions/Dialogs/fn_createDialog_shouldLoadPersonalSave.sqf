@@ -1,3 +1,5 @@
+//TODO: add header
+
 private _saveString = ["Antistasi has a custom save system similar to other CTIs.<br/><br/>",
     "To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>""Persistent Save""</t> button.<br/><br/>"] joinString "";
 _saveString = if (autoSave) then { [_saveString,"Current parameters are configured to auto-save every <t color='#f0d498'>",(autoSaveInterval/60) toFixed 0," minutes</t>."] joinString "" }
@@ -8,3 +10,5 @@ _saveString = if (autoSave) then { [_saveString,"Current parameters are configur
 [true] call A3A_fnc_loadPreviousSession;
 
 [] spawn A3A_fnc_credits;
+
+//TODO: convert above into proper strings

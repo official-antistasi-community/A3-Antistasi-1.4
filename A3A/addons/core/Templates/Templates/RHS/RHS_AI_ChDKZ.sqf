@@ -471,6 +471,9 @@ private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["rhsgref_uniform_reed"]];
 _officerLoadoutData set ["slVests", ["rhs_vest_commander", "rhs_gear_OFF"]];
 _officerLoadoutData set ["slHat", ["rhs_beret_mvd"]];
+_officerLoadoutData set ["backpacks", []];
+_officerLoadoutData set ["facewear", ["G_Squares_Tinted","G_Aviator"]];
+
 _officerLoadoutData set ["slRifles", [
 ["rhs_weap_akmn", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 ["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
@@ -490,7 +493,7 @@ _officerLoadoutData set ["slRifles", [
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 
-    private _uniforms3cb = ["rhsgref_uniform_reed","UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03","UK3CB_CHD_B_U_CombatUniform_06","UK3CB_CHD_B_U_CombatUniform_09"];
+    private _uniforms3cb = ["rhsgref_uniform_reed","UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03"];
     _militiaLoadoutData set ["uniforms", _uniforms3cb];
     _militaryLoadoutData set ["uniforms", _uniforms3cb];
     
@@ -518,6 +521,7 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 private _squadLeaderTemplate = {
 	[["slHat","helmets"] call _fnc_fallback]call _fnc_setHelmet;
     [["slVests","glVests"] call _fnc_fallback] call _fnc_setVest;
+    ["facewear"] call _fnc_setFacewear;
     ["uniforms"] call _fnc_setUniform;
 
     ["backpacks"] call _fnc_setBackpack;

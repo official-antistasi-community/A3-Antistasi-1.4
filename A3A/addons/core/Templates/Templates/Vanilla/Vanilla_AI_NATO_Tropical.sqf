@@ -18,8 +18,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["B_T_MRAP_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["B_T_MRAP_01_hmg_F"]] call _fnc_saveToTemplate;
+private _LightUnarmed = ["B_T_MRAP_01_F"];
+private _LightArmed = ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F"];
 ["vehiclesTrucks", ["B_T_Truck_01_transport_F", "B_T_Truck_01_covered_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_T_Truck_01_flatbed_F", "B_T_Truck_01_cargo_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["B_T_Truck_01_ammo_F"]] call _fnc_saveToTemplate;
@@ -29,7 +29,7 @@
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];       //, "B_T_APC_Tracked_01_CRV_F"];
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
-["vehiclesTanks", ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"]] call _fnc_saveToTemplate;
+private _Tanks = ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_T_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
@@ -41,7 +41,7 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["B_Heli_Transport_03_F", "B_Heli_Transport_01_camo_F"]] call _fnc_saveToTemplate;
+private _HelisTransport = ["B_Heli_Transport_01_camo_F"];
 ["vehiclesHelisLightAttack", ["B_Heli_Light_01_armed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] call _fnc_saveToTemplate;
 
@@ -51,15 +51,15 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 ["B_T_MBT_01_mlrs_F", ["12Rnd_230mm_rockets"]]
 ]] call _fnc_saveToTemplate;
 
-["uavsAttack", ["B_UAV_02_F"]] call _fnc_saveToTemplate;
+["uavsAttack", ["B_UAV_02_F", "B_UAV_05_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["I_G_Offroad_01_armed_F"];
 ["vehiclesMilitiaTrucks", ["B_T_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_G_Offroad_01_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["I_G_Offroad_01_F"];
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["B_T_Static_AT_F"]] call _fnc_saveToTemplate;
@@ -76,10 +76,43 @@ private _APCs = ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"];   
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
 //If Western Sahara DLC
-if (allowDLCWS) then {
+if ("ws" in A3A_enabledDLC) then {
     _APCs append ["B_T_APC_Wheeled_01_atgm_lxWS", "B_T_APC_Wheeled_01_command_lxWS"];
+    ["uavsPortable", ["B_UAV_01_F", "B_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
+
+if ("enoch" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
+};
+if ("tanks" in A3A_enabledDLC) then {
+    _Tanks append ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
+};
+if ("expansion" in A3A_enabledDLC) then {
+    _LightUnarmed append ["B_T_MRAP_01_F", "B_T_LSV_01_unarmed_F"];
+    _LightArmed append ["B_T_LSV_01_AT_F", "B_T_LSV_01_armed_F"];
+    _HelisTransport append ["B_CTRG_Heli_Transport_01_tropic_F"];
+};
+if ("heli" in A3A_enabledDLC) then {
+    _HelisTransport append ["B_Heli_Transport_03_F", "B_Heli_Transport_03_unarmed_green_F"];
+};
+if ("orange" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
+};
+["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
+
+
+["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _LightArmed] call _fnc_saveToTemplate;
+
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
+["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
+
+["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
+
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
+
+
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 
@@ -95,6 +128,7 @@ if (allowDLCWS) then {
 "WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19","WhiteHead_20",
 "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["sfVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
+"NATOMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -218,7 +252,7 @@ _sfLoadoutData set ["rifles", [
 ]];
 _sfLoadoutData set ["carbines", [
 ["arifle_MXC_khk_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""],
-["arifle_MXC_khk_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Holosight", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""]
+["arifle_MXC_khk_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Holosight_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["arifle_MX_GL_khk_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],

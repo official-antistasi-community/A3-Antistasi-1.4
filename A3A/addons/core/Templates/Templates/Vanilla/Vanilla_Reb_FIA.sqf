@@ -9,10 +9,10 @@
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["I_G_Offroad_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["I_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+private _vehiclesLightUnarmed = ["I_G_Offroad_01_F"];
+private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F"];
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["I_G_Offroad_01_AT_F"]] call _fnc_saveToTemplate;
+private _vehiclesAT = ["I_G_Offroad_01_AT_F"];
 private _vehicleAA = [];
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
@@ -38,15 +38,28 @@ private _staticAA = ["I_static_AA_F"];
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-if (allowDLCExpansion) then {
+
+
+if ("expansion" in A3A_enabledDLC) then {
     _vehiclesCivCar append ["C_Offroad_02_unarmed_F"];
+    _vehiclesLightUnarmed append ["I_C_Offroad_02_unarmed_F"];
+    _vehiclesLightArmed append ["I_C_Offroad_02_LMG_F"];
+    _vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 
-if (allowDLCWS) then {
-  _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
-  _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+if ("ws" in A3A_enabledDLC) then {
+    _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
+    _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+    _vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
+    _vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
+    _vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
+
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
+
 ["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
 
@@ -67,7 +80,7 @@ private _initialRebelEquipment = [
 "Binocular",
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
 
-if (allowDLCExpansion) then {
+if ("expansion" in A3A_enabledDLC) then {
     _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
 } else {
     _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
@@ -99,7 +112,7 @@ if (allowDLCEnoch) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCExpansion) then {_dlcUniforms append [
+if ("expansion" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_I_C_Soldier_Bandit_4_F",
     "U_I_C_Soldier_Bandit_1_F",
     "U_I_C_Soldier_Bandit_2_F",
@@ -114,7 +127,7 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 ];
 };
 
-if (allowDLCWS) then {_dlcUniforms append [
+if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_lxWS_ION_Casual1",
     "U_lxWS_ION_Casual2",
     "U_lxWS_ION_Casual3",
@@ -148,6 +161,7 @@ if (allowDLCWS) then {_dlcUniforms append [
 "GreekHead_A3_05","GreekHead_A3_06","GreekHead_A3_07","GreekHead_A3_08",
 "GreekHead_A3_09","Ioannou","Mavros"]] call _fnc_saveToTemplate;
 ["voices", ["Male01GRE", "Male02GRE", "Male03GRE", "Male04GRE", "Male05GRE", "Male06GRE"]] call _fnc_saveToTemplate;
+"GreekMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

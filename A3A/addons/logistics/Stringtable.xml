@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project name="A3-Antistasi">
+  <Package name="A3-Antistasi logistics">
+    <Container name="Logistics">
+      <Key ID="STR_A3A_logi_addaction_load">
+        <Original>Load %1 into nearest vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_addweaponaction_alreadyin">
+        <Original>Someone is already in the static.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_addweaponaction_getin">
+        <Original>Get in %1 as Gunner.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_gencargo_lackavailability">
+        <Original>Vehicle lacks the ability to load weapons.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_gencargo_lackcapacity">
+        <Original>Vehicle lacks the capacity for a cargo of this size. Capacity: </Original>
+      </Key>
+      <Key ID="STR_A3A_logi_gencargo_lacknodes">
+        <Original>Vehicle lacks nodes, define them or use a different vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_load_being">
+        <Original>Cargo is already being loaded into the vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_cargo">
+        <Original>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Cargo mass: &lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_current">
+        <Original>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Current mass: &lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_default">
+        <Original>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Default mass: &lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_loaded_freeslots">
+        <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". Free slots: "%3".&lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_nospace">
+        <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2" There is no more space.&lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_mass_unloaded_freeslots">
+        <Original>&lt;t color='#00fff3'&gt;"%1" was unloaded from "%2". Free slots: "%3".&lt;/t&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_salvagerope_nospace">
+        <Original>%1 does not have enough space to load %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_title">
+        <Original>Logistics</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_helped">
+        <Original>%1 is being helped or no longer needs your help.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no">
+        <Original>%1 cannot be loaded.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no_blocking">
+        <Original>%1 can not load cargo while units are blocking the cargo plane.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no_mounted">
+        <Original>Can't load a static that's mounted.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no_ontop">
+        <Original>%1 can not be mounted on a %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no_space">
+        <Original>%1 does not have enough space to load %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_no_unable">
+        <Original>%1 is unable to load any cargo.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_nodesveh">
+        <Original>You can't load cargo into a destroyed vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_nodexcargo">
+        <Original>You can't load destroyed cargo into a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_tryload_nodistance">
+        <Original>No vehicle is close enough.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_unload_no_already">
+        <Original>Cargo is already being unloaded from the vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_logi_unload_no_mounted">
+        <Original>Can't unload a static that's mounted.</Original>
+      </Key>
+    </Container>
+  </Package>
+</Project>

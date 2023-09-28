@@ -104,6 +104,11 @@ while {_reason == ""} do
             _reason = "VCompromised"
         };
 
+        if (_veh getVariable ["SA_Tow_Ropes", []] isNotEqualTo []) exitWith
+        {
+            _reason = "VTowRopes"
+        };
+
         if (A3A_hasACE) then
         {
             if (((position player nearObjects["DemoCharge_Remote_Ammo", 5]) select 0) mineDetectedBy Occupants) exitWith
@@ -161,6 +166,10 @@ while {_reason == ""} do
         if (dateToNumber date < (player getVariable ["compromised", 0])) exitWith
         {
             _reason = "Compromised";
+        };
+        if (!isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull])) exitWith
+        {
+            _reason = "TowRopes";
         };
     };
     if (_reason != "") exitWith {};
@@ -228,6 +237,14 @@ switch (_reason) do
     case "VCompromised":
     {
         ["Undercover", "You entered a reported vehicle!"] call A3A_fnc_customHint;
+    };
+    case "VTowRopes":
+    {
+        ["Undercover", "You cannot be undercover while tow ropes are attached to your vehicle!"] call A3A_fnc_customHint;
+    };
+    case "TowRopes":
+    {
+        ["Undercover", "You cannot be undercover and use tow ropes!"] call A3A_fnc_customHint;
     };
     case "SpotBombTruck":
     {

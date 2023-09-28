@@ -71,6 +71,7 @@ for "_i" from 0 to (count _buildings) - 1 do
 
     call {
         if (damage _building >= 1 or isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
+        //Static MGs
         if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
         {
             private _type = selectRandom (_faction get "staticMGs");
@@ -153,7 +154,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _zpos = _zpos vectorAdd _zOffset;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
-            sleep 0,5;
+            sleep 0.5;
             _Tdir = _dir + 180;
             _zpos = AGLToASL (_building buildingPos 16); //relative South
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
@@ -161,6 +162,15 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
         };
+        if     ((_typeB == "Land_SPE_Sandbag_Nest")) exitWith
+        {
+            private _type = selectRandom (_faction get "staticMGs");
+            private _dir = (getDir _building);
+            private _pos = _building modelToWorld [0.0065918,-0.489746,-0.417223];
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+
+        //Static AAs
 		if 	((_typeB == "Land_Radar_01_HQ_F") or (_typeB == "Land_vn_radar_01_hq_f")) exitWith
         {
             private _type = selectRandom (_faction get "staticAA");
@@ -170,7 +180,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
-        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
+        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F") or (_typeB == "Land_Cargo_HQ_V4_F")) exitWith
         {
             private _type = selectRandom (_faction get "staticAA");
             private _dir = getDir _building;

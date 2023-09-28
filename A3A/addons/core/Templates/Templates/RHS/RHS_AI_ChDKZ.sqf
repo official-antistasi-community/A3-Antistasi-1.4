@@ -278,7 +278,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g"]];
+_militaryLoadoutData set ["uniforms", ["rhsgref_uniform_reed"]];
 _militaryLoadoutData set ["vests", ["rhs_6b3_AK_3","rhs_6b3_AK_2","rhs_6b3_AK","rhs_6b3","rhs_6b2_AK","rhs_6b2_chicom","rhs_6b2_lifchik","rhs_6b2_RPK","rhs_6b2_SVD","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militaryLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
 _militaryLoadoutData set ["slVests", ["rhs_6sh92_digi_vog_headset","rhs_6sh92_vog_headset","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
@@ -467,6 +467,14 @@ _pilotLoadoutData set ["uniforms", ["rhs_uniform_df15","rhs_uniform_df15_tan"]];
 _pilotLoadoutData set ["vests", ["rhs_vest_commander"]];
 _pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_alt", "rhs_zsh7a_mike", "rhs_zsh7a_mike_green", "rhs_zsh7a_mike_green_alt"]];
 
+
+////////////////////////////////
+//    Additional uniforms     //
+////////////////////////////////
+
+
+if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
+};
 
 /////////////////////////////////
 //    Unit Type Definitions    //

@@ -490,9 +490,9 @@ _officerLoadoutData set ["slRifles", [
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 
-    private _uniforms3cb = ["UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03","UK3CB_CHD_B_U_CombatUniform_06","UK3CB_CHD_B_U_CombatUniform_09"];
-    (_militiaLoadoutData get "uniforms") append [_uniforms3cb];
-    (_militaryLoadoutData get "uniforms") append [_uniforms3cb];
+    private _uniforms3cb = ["rhsgref_uniform_reed","UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03","UK3CB_CHD_B_U_CombatUniform_06","UK3CB_CHD_B_U_CombatUniform_09"];
+    _militiaLoadoutData set ["uniforms", _uniforms3cb];
+    _militaryLoadoutData set ["uniforms", _uniforms3cb];
     
     _officerLoadoutData set ["uniforms", ["UK3CB_CHD_B_U_CombatUniform_09"]];
     _officerLoadoutData set ["helmets", ["UK3CB_H_Civ_Beret"]];

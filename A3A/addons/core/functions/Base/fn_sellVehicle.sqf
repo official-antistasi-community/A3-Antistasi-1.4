@@ -98,6 +98,7 @@ private _costs = call {
     if (
         (_typeX in FactionGet(all,"vehiclesAPCs"))
         || (_typeX in FactionGet(all,"vehiclesIFVs"))
+        || (_typeX in FactionGet(all,"vehiclesLightTanks"))
         || (_typeX in FactionGet(all,"vehiclesHelisLightAttack"))
         || (_typeX in FactionGet(all,"vehiclesTransportAir"))
         || (_typeX in FactionGet(all,"vehiclesUAVs"))

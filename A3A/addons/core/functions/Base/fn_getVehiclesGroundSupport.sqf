@@ -30,7 +30,9 @@ private _tankWeight =       [ 0,  0,  3,  6, 10, 14, 18, 22, 26, 35] select _lev
 private _vehAA = (_faction get "vehiclesAA") select { A3A_vehicleResourceCosts get _x >= 100 };
 if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
+// Only one of these two is mandatory
 if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
+if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };
 
 // only occupants use militia vehicles?
 if (_side == Occupants) then {

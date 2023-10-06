@@ -36,7 +36,7 @@
 ]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", [
 "rhsgref_ins_gaz66o_flat","rhsgref_ins_gaz66_flat",
-"rhsgref_ins_zil131_flatbed_cover","rhsgref_ins_zil131_flatbed",
+"rhsgref_ins_zil131_flatbed_cover","rhsgref_ins_zil131_flatbed"
 ]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsgref_ins_gaz66_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsgref_ins_gaz66_repair","rhsgref_ins_ural_repair"]] call _fnc_saveToTemplate;

@@ -30,22 +30,20 @@
 ["vehiclesLightUnarmed", ["rhsgref_ins_uaz", "rhsgref_ins_uaz_open", "rhsgref_ins_uaz_open", "rhsgref_BRDM2UM_ins"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["rhsgref_ins_uaz_spg9","rhsgref_ins_uaz_dshkm","rhsgref_ins_uaz_ags", "rhsgref_BRDM2_HQ_ins","rhsgref_ins_gaz66_zu23","rhsgref_ins_ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", [
-"rhsgref_ins_zil131_open","rhsgref_ins_zil131",
 "rhsgref_ins_gaz66","rhsgref_ins_gaz66o",
-"rhsgref_ins_ural","rhsgref_ins_ural_open","rhsgref_ins_ural_work","rhsgref_ins_ural_work_open",
-"rhsgref_BRDM2UM_ins", "rhsgref_BRDM2_HQ_ins", "rhsgref_BRDM2_ins"
+"rhsgref_ins_ural","rhsgref_ins_ural_open",
+"rhsgref_BRDM2UM_ins", "rhsgref_BRDM2_HQ_ins"
 ]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", [
 "rhsgref_ins_gaz66o_flat","rhsgref_ins_gaz66_flat",
 "rhsgref_ins_zil131_flatbed_cover","rhsgref_ins_zil131_flatbed",
-"rhsgref_ins_ural_work","rhsgref_ins_ural_work_open"
 ]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsgref_ins_gaz66_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsgref_ins_gaz66_repair","rhsgref_ins_ural_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhsgref_ins_gaz66_ap2"]] call _fnc_saveToTemplate;
 
-["vehiclesLightAPCs", ["rhsgref_BRDM2_ins", "rhsgref_BRDM2_HQ_ins"]] call _fnc_saveToTemplate;            //this line determines light APCs
+["vehiclesLightAPCs", ["rhsgref_BRDM2_ins"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_btr70","rhsgref_ins_bmd2","rhsgref_ins_bmd1p","rhsgref_ins_bmd1"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhsgref_ins_bmp2k","rhsgref_ins_bmp2d","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp1p","rhsgref_ins_bmp1k","rhsgref_ins_bmp1d","rhsgref_ins_bmp1"]] call _fnc_saveToTemplate;                //this line determines IFVs
 ["vehiclesTanks", ["a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72b","a3a_rhs_chdkz_72c"]] call _fnc_saveToTemplate;
@@ -77,7 +75,7 @@
 
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["rhsgref_ins_uaz_dshkm"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["rhsgref_ins_gaz66","rhsgref_ins_gaz66o","rhsgref_ins_zil131_open","rhsgref_ins_zil131"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhsgref_ins_ural_work","rhsgref_ins_ural_work_open","rhsgref_ins_zil131_open","rhsgref_ins_zil131"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_ins_uaz", "rhsgref_ins_uaz_open"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhsgref_ins_gaz66","rhsgref_ins_uaz", "rhsgref_ins_uaz_open"]] call _fnc_saveToTemplate;

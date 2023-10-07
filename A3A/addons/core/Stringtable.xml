@@ -515,7 +515,7 @@
         <Original>You are not the owner of this vehicle. Therefore, you cannot sell it.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_suitable">
-        <Original>The vehicle you are looking at is not suitable in our marketplace.</Original>
+        <Original>The vehicle you are looking at is not suitable for our marketplace.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_progress">
         <Original>Vehicle sale already in progress.</Original>
@@ -602,7 +602,7 @@
         <Original>Money Convoy</Original>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_text">
-        <Original>A group of POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+        <Original>A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_title">
         <Original>Prisoner Convoy</Original>
@@ -765,7 +765,7 @@
         <Original>Only Player Commander is allowed to move HQ assets.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_movehqobj_no_far">
-        <Original>This asset cannot be moved more far away from its zone center.</Original>
+        <Original>This asset cannot be moved further away from its zone center.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_movehqobj_no_vehicle">
         <Original>You cannot move HQ assets while in a vehicle.</Original>
@@ -958,7 +958,7 @@
         <Original>Decipher codename</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_err">
-        <Original>Unkown codename encountered, need to decipher the codename reference.</Original>
+        <Original>Unknown codename encountered, need to decipher the codename reference.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_4_act">
         <Original>Solve riddle</Original>
@@ -1280,7 +1280,7 @@
         <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_text2">
-        <Original>A group of %3 supporters are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</Original>
+        <Original>A group of %3 supporters are hidden in %1 awaiting for evacuation. We have to find them before %2 does. If not, there will be a certain death for them. Bring them back to HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_titel">
         <Original>Refugees Evac</Original>

@@ -4,7 +4,7 @@ _addon set ["vehiclesCivCar", [
 	,"CUP_C_Bus_City_CIV" , 0.5
 	,"CUP_C_S1203_CIV" , 0.5
 	,"CUP_C_Volha_Gray_TKCIV" , 1.0
-	,"CUP_O_Hilux_unarmed_TK_CIV_Red" , 0.9
+	,"CUP_O_Hilux_unarmed_TK_CIV" , 0.9
 	,"CUP_C_Ikarus_TKC" , 0.4
 	,"CUP_C_Bus_City_TKCIV" , 0.5
 	,"CUP_C_LR_Transport_CTK" , 0.8

@@ -4,48 +4,81 @@
     <Container name="gear">
       <Key ID="STR_A3A_G_BERET_01_DN">
         <Original>Beret [Antistasi] (Black)</Original>
-        <German>Beret [Antistasi] (Schwarz)</German>
+        <German>Barett [Antistasi] (Schwarz)</German>
+        <Italian>Basco [Antistasi] (Nero)</Italian>
         <Spanish>Boina [Antistasi] (Negra)</Spanish>
         <French>Béret [Antistasi] (Noir)</French>
+        <Korean>[안티스타시] 베레(검정)</Korean>
         <Russian>Берет [Antistasi] (Чёрный)</Russian>
+        <Polish>Beret [Antistasi] (Czarny)
+</Polish>
+        <Czech>Beret [Antistasi] (Černý)
+</Czech>
         <Portuguese>Boina [Antistasi] (Preta)</Portuguese>
         <Turkish>Bere [Antistasi] (Siyah)</Turkish>
+        <Chinesesimp>贝雷帽 [抵抗运动] (黑色)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_G_BERET_02_DN">
         <Original>Beret [Antistasi] (Red)</Original>
-        <German>Beret [Antistasi] (Rot)</German>
+        <German>Barett [Antistasi] (Rot)</German>
+        <Italian>Basco [Antistasi] (Rosso)</Italian>
         <Spanish>Boina [Antistasi] (Roja)</Spanish>
         <French>Béret [Antistasi] (Rouge)</French>
+        <Korean>[안티스타시] 베레(빨강)</Korean>
         <Russian>Берет [Antistasi] (Красный)</Russian>
+        <Polish>Beret [Antistasi] (Czerwony)
+</Polish>
+        <Czech>Beret [Antistasi] (Červený)
+</Czech>
         <Portuguese>Boina [Antistasi] (Vermelha)</Portuguese>
         <Turkish>Bere [Antistasi] (Kırmızı)</Turkish>
+        <Chinesesimp>贝雷帽 [抵抗运动] (红色)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_G_BERET_03_DN">
         <Original>Beret [Antistasi] (Blue)</Original>
-        <German>Beret [Antistasi] (Blau)</German>
+        <German>Barett [Antistasi] (Blau)</German>
+        <Italian>Basco [Antistasi] (Blu)</Italian>
         <Spanish>Boina [Antistasi] (Azul)</Spanish>
         <French>Béret [Antistasi] (Bleu)</French>
+        <Korean>[안티스타시] 베레(파랑)</Korean>
         <Russian>Берет [Antistasi] (Синий)</Russian>
+        <Polish>Beret [Antistasi] (Niebieski)
+</Polish>
+        <Czech>Beret [Antistasi] (Modrý)
+</Czech>
         <Portuguese>Boina [Antistasi] (Azul)</Portuguese>
         <Turkish>Bere [Antistasi] (Mavi)</Turkish>
+        <Chinesesimp>贝雷帽 [抵抗运动] (蓝色)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_G_BERET_04_DN">
         <Original>Beret [Antistasi] (Green)</Original>
-        <German>Beret [Antistasi] (Grün)</German>
+        <German>Barett [Antistasi] (Grün)</German>
+        <Italian>Basco [Antistasi] (Verde)</Italian>
         <Spanish>Boina [Antistasi] (Verde)</Spanish>
         <French>Béret [Antistasi] (Vert)</French>
+        <Korean>[안티스타시] 베레(초록)</Korean>
         <Russian>Берет [Antistasi] (Зелёный)</Russian>
+        <Polish>Beret [Antistasi] (Zielony)
+</Polish>
+        <Czech>Beret [Antistasi] (Zelený)
+</Czech>
         <Portuguese>Boina [Antistasi] (Verde)</Portuguese>
         <Turkish>Bere [Antistasi] (Yeşil)</Turkish>
+        <Chinesesimp>贝雷帽 [抵抗运动] (绿色)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_G_HEADGEAR_BASE_DN">
         <Original>Antistasi Headgear (WIP)</Original>
-        <German>Antistasi Headgear (WIP)</German>
+        <German>Antistasi Kopfbedekung (WIP)</German>
+        <Italian>Headgear Antistasi (WIP)</Italian>
         <Spanish>Sombrero de Antistasi (WIP)</Spanish>
         <French>Couvre-chef Antistasi (TEC)</French>
+        <Korean>안티스타시 헤드기어 (제작 중)</Korean>
         <Russian>Головной убор Antistasi (WIP)</Russian>
+        <Polish>Nakrycie głowy Antistasi (Niedokończone)</Polish>
+        <Czech>Antistasi Headgear (WIP)</Czech>
         <Portuguese>Capacete Antistasi (WIP)</Portuguese>
         <Turkish>Antistasi Başlık (WIP)</Turkish>
+        <Chinesesimp>抵抗运动 头部装备 (尚未完工)</Chinesesimp>
       </Key>
     </Container>
   </Package>

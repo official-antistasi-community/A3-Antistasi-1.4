@@ -36,7 +36,7 @@
         <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". Free slots: "%3".&lt;/t&gt;</Original>
       </Key>
       <Key ID="STR_A3A_logi_mass_nospace">
-        <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2" There is no more space.&lt;/t&gt;</Original>
+        <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". There is no more space.&lt;/t&gt;</Original>
       </Key>
       <Key ID="STR_A3A_logi_mass_unloaded_freeslots">
         <Original>&lt;t color='#00fff3'&gt;"%1" was unloaded from "%2". Free slots: "%3".&lt;/t&gt;</Original>

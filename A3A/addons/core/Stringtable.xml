@@ -515,7 +515,7 @@
         <Original>You are not the owner of this vehicle. Therefore, you cannot sell it.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_suitable">
-        <Original>The vehicle you are looking is not suitable in our marketplace.</Original>
+        <Original>The vehicle you are looking at is not suitable in our marketplace.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_progress">
         <Original>Vehicle sale already in progress.</Original>
@@ -540,7 +540,7 @@
         <Original>Vehicle locked.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_destr">
-        <Original>You cannot unlock/lock destroyed.</Original>
+        <Original>You cannot unlock/lock destroyed vehicles.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_looking">
         <Original>You are not looking at a vehicle.</Original>
@@ -552,7 +552,7 @@
         <Original>The vehicle you are looking at cannot be used.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_owner1">
-        <Original>The vehicle you are looking does not belong to anyone.</Original>
+        <Original>The vehicle you are looking at does not belong to anyone.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_owner2">
         <Original>You cannot unlock/lock vehicles which you do not own.</Original>
@@ -602,7 +602,7 @@
         <Original>Money Convoy</Original>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_text">
-        <Original>A group os POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
+        <Original>A group of POW's is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.</Original>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_title">
         <Original>Prisoner Convoy</Original>
@@ -765,7 +765,7 @@
         <Original>Only Player Commander is allowed to move HQ assets.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_movehqobj_no_far">
-        <Original>This asset cannot be moved more far away for its zone center.</Original>
+        <Original>This asset cannot be moved more far away from its zone center.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_movehqobj_no_vehicle">
         <Original>You cannot move HQ assets while in a vehicle.</Original>
@@ -946,19 +946,19 @@
         <Original>Locate location</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_1_err">
-        <Original>Reference to unknown location, need to locate location to continue decifering.</Original>
+        <Original>Reference to unknown location, need to locate location to continue deciphering.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_act">
-        <Original>Decifer meaning</Original>
+        <Original>Decipher meaning</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_err">
-        <Original>Ilegible text encountered, need to decifer meaning from context.</Original>
+        <Original>Ilegible text encountered, need to decipher meaning from context.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_act">
-        <Original>Decifer codename</Original>
+        <Original>Decipher codename</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_err">
-        <Original>Unkown codename encountered, need to decifer the codename reference.</Original>
+        <Original>Unkown codename encountered, need to decipher the codename reference.</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_4_act">
         <Original>Solve riddle</Original>
@@ -991,10 +991,10 @@
         <Original>Download port closed on server. Manual reroute required!</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_laptop_err_me_2_act">
-        <Original>Restart NetworkAdapter</Original>
+        <Original>Restart Network Adapter</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_laptop_err_me_2_err">
-        <Original>Error in NetworkAdapter. Hardware not responding. Restart now?</Original>
+        <Original>Error in Network Adapter. Hardware not responding. Restart now?</Original>
       </Key>
       <Key ID="STR_A3A_fn_intel_laptop_err_sm_1_act">
         <Original>Confirm file</Original>
@@ -1196,7 +1196,7 @@
         <Original>Supply Convoy</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_text">
-        <Original>We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Nework. Do it before %2.</Original>
+        <Original>We need to destroy or take a Radio Tower in %1. This will interrupt %3 Propaganda Network. Do it before %2.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_titel">
         <Original>Destroy Radio Tower</Original>
@@ -1280,7 +1280,7 @@
         <Original>A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_text2">
-        <Original>A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</Original>
+        <Original>A group of %3 supporters are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_titel">
         <Original>Refugees Evac</Original>
@@ -1621,7 +1621,7 @@
         <Chinesesimp>AI将会主动互相治疗</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm">
-        <Original>Auto Rearm \ Loot</Original>
+        <Original>Auto Rearm / Loot</Original>
         <German>Automatisches Aufmunitionieren/Plündern</German>
         <Italian>Auto Riarmo / Saccheggio</Italian>
         <Spanish>Auto Rearme / Botín</Spanish>
@@ -2084,7 +2084,7 @@
         <Chinesesimp>观察哨 - 路障</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
-        <Original>O.Post-Roadblock Delete</Original>
+        <Original>Outpost-Roadblock Delete</Original>
         <Italian>Elimina Punto di osservazione - Posti di Blocco</Italian>
         <Spanish>Borrar P. Observación - Bloqueo</Spanish>
         <French>Supprimer Poste d'Obs. - Barrage routier</French>
@@ -2585,14 +2585,14 @@
         <Chinesesimp>驻军招募选项</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_aamissile_text">
-        <Original>Recruit AA Missile</Original>
+        <Original>Recruit AA Missile Unit</Original>
         <French>Recruter un Missile AA</French>
         <Russian>Нанять Специалиста ПВО</Russian>
         <Turkish>Hava Savunma Roketçisi Göreve Al</Turkish>
         <Chinesesimp>招募防空导弹兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
-        <Original>Recruit AT</Original>
+        <Original>Recruit AT Unit</Original>
         <German>Panzerabwehr rekrutieren</German>
         <Italian>Recluta Fuciliere Anti Carro</Italian>
         <Spanish>Reclutar AT</Spanish>
@@ -2605,7 +2605,7 @@
         <Chinesesimp>招募反坦克手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_atmissile_text">
-        <Original>Recruit AT Missile</Original>
+        <Original>Recruit AT Missile Unit</Original>
         <French>Recruter un Missile AT</French>
         <Russian>Нанять Стрелка с ПТУР</Russian>
         <Turkish>Anti-Tank Roketcisi Göreve Al</Turkish>
@@ -2664,7 +2664,7 @@
         <Chinesesimp>招募医疗兵</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
-        <Original>Recruit Mortar</Original>
+        <Original>Recruit Mortar Unit</Original>
         <German>Mörser rekrutieren</German>
         <Italian>Recluta Mortaio</Italian>
         <Spanish>Reclutar Mortero</Spanish>

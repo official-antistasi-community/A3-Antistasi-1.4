@@ -189,6 +189,18 @@ class CfgFunctions
             class zoneCheck {};
         };
 
+        class Builder {
+            file = QPATHTOFOLDER(functions\Builder);
+            class addBuildingActions {};
+            class buildingComplete {};
+            class buildingPlacer {};
+            class initBuildableObjects {};
+            class initBuilderMonitors {};
+            class initPlacerDB {};
+            class placeBuilderObjects {};
+            class processBuildingTimeouts {};
+        };
+
         class Collections {
             file = QPATHTOFOLDER(functions\Collections);
             class getNestedObject {};
@@ -354,7 +366,6 @@ class CfgFunctions
             class initPreJIP { preInit = 1; };
             class initSpawnPlaces {};
             class generateRoadblock {};
-            class initTeamLeaderObjects {};
 
             class initVarCommon {};
             class initVarServer {};
@@ -523,7 +534,6 @@ class CfgFunctions
             class FIAskillAdd {};
             class garrisonAdd {};
             class garrisonDialog {};
-            class initRemoveStructure {};
             class NATObomb {};
             class postmortem {};
             class reDress {};
@@ -761,12 +771,6 @@ class CfgFunctions
             class initObject {};
             class initObjectRemote {};
             class remainingFuel {};
-            class teamLeaderRTSPlacer {};
-            class initBuildingDB {};
-            class initTeamLeaderBox {};
-            class placeBuilderObjects {};
-            class eachFrameEventHanderPlacer {};
-
         };
     };
 };

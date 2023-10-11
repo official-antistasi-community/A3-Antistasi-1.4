@@ -42,6 +42,10 @@ if ("loot" in _flags and minWeaps == -1) then {
 _object setVariable ["A3A_canGarage", true, true];
 _object setVariable ["A3A_itemPrice", _price, true];
 
+if ("build" in _flags) then {
+    _object setVariable ["A3A_supplyValue", _price, true];
+};
+
 // Let logistics do its own JIPing for the moment
 // Assumption that the object isn't loaded into anything?
 if ([typeOf _object] call A3A_Logistics_fnc_isLoadable) then {[_object] call A3A_Logistics_fnc_addLoadAction};

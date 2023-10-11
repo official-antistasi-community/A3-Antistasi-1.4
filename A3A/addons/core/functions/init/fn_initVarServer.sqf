@@ -104,6 +104,8 @@ DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
 //Time of last garbage clean notification
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTimeNote, serverTime);
+// Under-construction objects
+DECLARE_SERVER_VAR(A3A_unbuiltObjects, []);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -163,6 +165,8 @@ destroyedBuildings = [];		// synced only on join, to avoid spam on change
 testingTimerIsActive = false;
 
 A3A_tasksData = [];
+
+A3A_buildingsToSave = [];
 
 hcArray = [];					// array of headless client IDs
 

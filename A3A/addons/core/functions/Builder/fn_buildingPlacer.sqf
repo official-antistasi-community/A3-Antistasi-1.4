@@ -12,7 +12,7 @@ Environment: Unscheduled
 Public: 
 no
 Example:
-[player, 100] call A3A_fnc_teamLeaderRTSPlacer.sqf
+[player, 100] call A3A_fnc_buildingPlacer.sqf
 */
 
 
@@ -26,11 +26,25 @@ params [
 	["_teamLeaderBox", objNull, [objNull]]
 ];
 
-
+// Already in the placer
 if(!isNil "A3A_building_EHDB") exitwith {};
 
+// Check enemy proximity
+if ([getPosATL _centerObject] call A3A_fnc_enemyNearCheck) exitWith {
+	// TODO: stringtable
+	["Building Placer", "You can not use the placer while there are enemies nearby."] call A3A_fnc_customHint;
+};
 
-[_centerObject, _buildingRadius, _teamLeaderBox] call A3A_fnc_initBuildingDB;
+// Check player eligibility
+// options: teamLeader (1), engineer (2), either (3). Boss always eligible
+private _eligibleTL = (A3A_builderPermissions % 1 != 0) and (typeOf player == "I_G_Soldier_TL_F");
+private _eligibleEng = (A3A_builderPermissions % 2 != 0) and (player getUnitTrait "engineer");
+if (!_eligibleTL and !_eligibleEng and player != theBoss) exitWith {
+	// TODO: stringtable
+	["Building Placer", "You are not eligible to use the building placer."] call A3A_fnc_customHint;
+};
+
+[_centerObject, _buildingRadius, _teamLeaderBox] call A3A_fnc_initPlacerDB;
 ("A3A_PlacerHint" call BIS_fnc_rscLayer) cutRsc ["A3A_PlacerHints", "PLAIN", -1, false];
 A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
 A3A_cam cameraEffect ["Internal", "top"];
@@ -65,15 +79,16 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
 		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
-		private _supply = (A3A_building_EHDB # TEAMLEADER_BOX) getVariable ["A3A_SUPPLYVALUE", 10000];
+		private _supply = (A3A_building_EHDB # TEAMLEADER_BOX) getVariable "A3A_supplyValue";
 		private _insufficientFunds = false;
+
+		// TODO: redo on server side in placeBuilderObjects to make sure people aren't double-spending
 
 		if(_price <= _supply) then 
 		{
 			_supply = _supply - _price;
-			[(A3A_building_EHDB # TEAMLEADER_BOX),["A3A_SUPPLYVALUE", _supply]] remoteExec ["setVariable", 0];
+			(A3A_building_EHDB # TEAMLEADER_BOX) setVariable ["A3A_supplyValue", _supply, true];
 			systemChat str _supply;
-			//(A3A_building_EHDB # TEAMLEADER_BOX) setVariable ["A3A_SUPPLYVALUE", _supply, true];
 		}
 		else
 		{

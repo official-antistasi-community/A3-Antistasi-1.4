@@ -20,7 +20,7 @@ Example:
 #include "..\..\dialogues\defines.hpp"
 #include "..\..\dialogues\textures.inc"
 #include "..\..\script_component.hpp"
-#include "\x\A3A\addons\core\functions\UtilityItems\placerDefines.hpp"
+#include "\x\A3A\addons\core\functions\Builder\placerDefines.hpp"
 #define BOTTOM safeZoneH + safeZoneY
 FIX_LINE_NUMBERS()
 

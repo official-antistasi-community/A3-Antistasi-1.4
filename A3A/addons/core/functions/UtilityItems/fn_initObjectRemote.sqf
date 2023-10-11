@@ -42,6 +42,16 @@ if ("loot" in _flags && lootToCrateRadius > 0) then {
     [_object] call A3A_fnc_initLootToCrate;
 };
 
+// building placer box
+if ("build" in _flags) then {
+    _object addAction [
+        "Building Placer",
+        { [_this#0, 75, _this#0] call A3A_fnc_buildingPlacer },
+        nil, 1.5, true, true, "",
+        "(isNull attachedTo _originalTarget)", 4
+    ];
+};
+
 // packable object
 if ("pack" in _flags) then {
     _object addAction [
@@ -70,9 +80,4 @@ if (typeOf _object == "Land_MedicalTent_01_MTP_closed_F") then {
         nil, 1.5, true, true, "",
         "true", 10
     ];
-};
-
-// teamleader placer stuff
-if ("team" in _flags) then {
-    [_object] call A3A_fnc_initTeamLeaderBox;
 };

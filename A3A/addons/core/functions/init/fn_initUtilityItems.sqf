@@ -28,7 +28,8 @@ private _items = [
     [_ammoStation#0, _ammoStation#1, "ammostation", "rearm", ["cmmdr", "place", "move", "save"]],
     [_repairStation#0, _repairStation#1, "repairstation", "repair", ["cmmdr", "place", "move", "pack", "save"]],
     [FactionGet(reb,"vehicleLightSource"), 25, "light", "", ["move"]],           // note: If we do want this saved, need to switch saveLoop to nearObjects
-    ["Land_PlasticCase_01_medium_F", 5, "", "", ["place", "move", "team"]]
+    ["Land_PlasticCase_01_medium_F", 100, "", "", ["place", "move", "build"]]
+    // TODO: get larger box from somewhere
 ];
 
 if (LootToCrateRadius == 0) then { _items deleteAt 0 };

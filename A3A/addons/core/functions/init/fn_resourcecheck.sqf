@@ -8,8 +8,7 @@ while {true} do
 {
 	// what's wrong with sleep 600, really?
 	//sleep 600;//600
-	private _time = time;
-	nextTick = _time + 600;
+	nextTick = time + 600;
 	waitUntil {sleep 15; time >= nextTick};
     waitUntil {sleep 10; A3A_activePlayerCount > 0};
 
@@ -140,35 +139,8 @@ while {true} do
 		[] call A3A_fnc_assignBossIfNone;
 	};
 
-
-	if (!isNil "A3A_notBuiltObjectList") then {
-
-		//A3A_notBuiltObjectList was defined but it was an empty array -> exit out of scope
-		if (A3A_notBuiltObjectList isEqualTo []) exitWith {};
-
-	{
-		_x params["_object", "_objectTimeout"];
-
-		if (_time > _objectTimeout) then {
-
-			// remove the object from the list
-			A3A_notBuiltObjectList deleteAt (A3A_notBuiltObjectList find [_object, _objectTimeout]);
-			publicVariable "A3A_notBuiltObjectList";
-
-			// refund 
-			private _price = _object getVariable ["price", 0];
-			if (_price isNotEqualTo 0) then { [0,(_price)] remoteExec ["A3A_fnc_resourcesFIA",2]; };
-
-			private _eachFrameEH = _object getVariable "eachFrameEH";
-			["EachFrame", _eachFrameEH] remoteExec ["removeMissionEventHandler", 0];
-			deleteVehicle _object;
-		};
-		
-	} forEach A3A_notBuiltObjectList;
-
-	sleep 15;
-
-	};
+	// Clear out plank objects that haven't been constructed and have exceeded the timeout
+	call A3A_fnc_processBuildingTimeouts;
 
 	// Decrease HQ knowledge values, old ones faster than current
 	if (A3A_curHQInfoOcc < 1) then { A3A_curHQInfoOcc = 0 max (A3A_curHQInfoOcc - 0.01) };

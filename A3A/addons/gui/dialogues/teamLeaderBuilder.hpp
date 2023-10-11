@@ -6,11 +6,11 @@
 
 class A3A_teamLeaderBuilder
 {
-  	idd = A3A_IDD_TEAMLEADERDIALOG;
-  	onLoad = "[""onLoad""] spawn A3A_fnc_teamLeaderRTSPlacerDialog";
-	movingenable = true;
+    idd = A3A_IDD_TEAMLEADERDIALOG;
+    onLoad = "[""onLoad""] spawn A3A_fnc_teamLeaderRTSPlacerDialog";
+    movingenable = true;
 
-	class ControlsBackground
+    class ControlsBackground
     {
         class TitleBarBackground : A3A_Background
         {
@@ -46,8 +46,8 @@ class A3A_teamLeaderBuilder
         // Main content
         class MainContent : A3A_DefaultControlsGroup
         {
-      	    idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
-	  	    x = CENTER_X(160);
+              idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
+              x = CENTER_X(160);
             y = BOTTOM - PX_H(36);
             w = PX_W(160);
             h = PX_H(36);

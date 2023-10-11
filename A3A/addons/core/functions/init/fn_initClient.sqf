@@ -394,7 +394,6 @@ vehicleBox addAction ["Buy Vehicle", {
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
 call A3A_fnc_dropObject;
-//vehicleBox addAction ["Buy Teamleader Box" , {[player, "Land_PlasticCase_01_medium_F", 5, [['A3A_fnc_initMovableObject', true], ['A3A_fnc_initTeamLeaderBox', true], ['A3A_fnc_logistics_addLoadAction', false]]] call A3A_fnc_buyItem},nil,0,false,true,"","((typeOf _this) isEqualTo 'I_G_Soldier_TL_F') or (_this == theBoss)",4];
 
 vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
@@ -424,10 +423,15 @@ mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _thi
 mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
-// get teamleader objects
-call A3A_fnc_initTeamLeaderObjects;
-
 [] spawn A3A_fnc_unitTraits;
+
+// Get list of buildable objects, has map (and template?) dependency
+call A3A_fnc_initBuildableObjects;
+
+// Start cursorObject monitor loop for adding removeStructure actions
+// Note: unitTraits must run first to add engineer trait to default commander
+0 spawn A3A_fnc_initBuilderMonitors;
+
 
 
 disableSerialization;

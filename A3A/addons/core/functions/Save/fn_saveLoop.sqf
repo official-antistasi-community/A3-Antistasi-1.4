@@ -152,8 +152,7 @@ _arrayEst = [];
 } forEach (vehicles inAreaArray [markerPos respawnTeamPlayer, 50, 50] select { alive _x });
 
 {
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+	if ((alive _x) and !(surfaceIsWater position _x) and (isNull attachedTo _x)) then {
 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;

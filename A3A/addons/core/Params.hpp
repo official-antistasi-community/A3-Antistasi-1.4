@@ -108,9 +108,9 @@ class Params
     class A3A_GCThreshold
     {
         title = "Garbage Cleaner Threshold for Automatic gc";
-        values[] = {3600, 7200, 10800, 14400, 9999999};
+        values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
-        Default = 9999999;
+        Default = 0;
     };
     class A3A_reviveTime
     {
@@ -118,6 +118,13 @@ class Params
         values[] = {5,10,15};
         texts[] = {"5 seconds","10 seconds","15 seconds"};
         default = 10;
+    };
+    class A3A_selfReviveMethods
+    {
+        title = "Self-revive methods enabled";
+        values[] = {0,1};
+        texts[] = {"Disabled", "Withstand"};
+        default = 0;
     };
     class A3A_builderPermissions
     {

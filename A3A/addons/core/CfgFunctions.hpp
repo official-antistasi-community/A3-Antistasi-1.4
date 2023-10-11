@@ -359,6 +359,7 @@ class CfgFunctions
             class cityinfo {};
             class clientIdleChecker {};
             class credits {};
+            class initACE {};
             class initACEUnconsciousHandler {};
             class initBases {};
             class initUtilityItems {};
@@ -547,11 +548,14 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Revive);
             class actionRevive {};
             class carry {};
+            class calcVestDamageAdj {};
             class fatalWound {};
             class handleDamage {};
             class handleDamageAAF {};
             class initRevive {};
             class isMedic {};
+            class selfRevive {};
+            class selfReviveReset {};
             class respawn {};
             class unconscious {};
             class unconsciousAAF {};
@@ -755,6 +759,7 @@ class CfgFunctions
             class setIdentity {};
             class setIdentityLocal {};
             class setPos {};
+            class createRandomIdentity {};
             class vehicleTextureSync {};
             class vehicleWillCollideAtPosition {};
             class getRoadDirection {};

@@ -229,6 +229,20 @@ if (_type == "CAS") then
             _plane setVariable ["bombRacks", ["LIB_FAB250_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [12, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
+        // SPE planes
+        case "SPE_FW190F8": {
+            _loadout = ["SPE_250Rnd_MG151","SPE_250Rnd_MG151","SPE_400Rnd_MG131","SPE_400Rnd_MG131","SPE_1Rnd_SC50","SPE_1Rnd_SC50","SPE_1Rnd_SC500","SPE_1Rnd_SC50","SPE_1Rnd_SC50"];
+            _plane setVariable ["mainGun", "SPE_2xMG151"];
+            _plane setVariable ["bombRacks", ["SPE_SC500_Bomb_Mount","SPE_SC50_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
+        case "SPE_P47": {
+            _loadout = ["SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_425rnd_M2_P47","SPE_3Rnd_M8_P47","SPE_3Rnd_M8_P47","SPE_1Rnd_US_500lb","SPE_1Rnd_US_500lb","SPE_1Rnd_US_500lb"];
+            _plane setVariable ["mainGun", "SPE_8xM2_P47"];
+            _plane setVariable ["rocketLauncher", ["SPE_M8_Launcher_P47"]];
+            _plane setVariable ["bombRacks", ["SPE_US_500lb_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [3, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
         default
         {
             Error_1("Plane type %1 currently not supported for CAS, please add the case!", typeOf _plane);

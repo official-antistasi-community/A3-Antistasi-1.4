@@ -2,7 +2,7 @@
 FIX_LINE_NUMBERS()
 // Do not localise timeSpan, it is broadcast to all connected clients.
 private _timeSinceLastGC = [[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-["Garbage Cleaner","Please wait for GC to finish.<br/>Last GC was " + _timeSinceLastGC + " ago."] remoteExec ["A3A_fnc_customHint", 0];
+[localize "STR_A3A_fn_base_gc_title", format [localize "STR_A3A_fn_base_gc_wait", _timeSinceLastGC]] remoteExec ["A3A_fnc_customHint", 0];
 Info("Cleaning garbage...");
 
 private _rebelSpawners = units teamPlayer select { _x getVariable ["spawner",false] };
@@ -77,6 +77,6 @@ if (isClass (configFile/"CfgPatches"/"rhsgref_main")) then {//ToDo: these should
 
 
 // Do not localise timeSpan, it is broadcast to all connected clients.
-["Garbage Cleaner","Garbage Deleted.<br/>Last GC was " + _timeSinceLastGC + " ago."] remoteExec ["A3A_fnc_customHint", 0];
+[localize "STR_A3A_fn_base_gc_title", format [localize "STR_A3A_fn_base_gc_deleted", _timeSinceLastGC]] remoteExec ["A3A_fnc_customHint", 0];
 missionNamespace setVariable ["A3A_lastGarbageCleanTime",serverTime,true];
 Info("Garbage clean completed");

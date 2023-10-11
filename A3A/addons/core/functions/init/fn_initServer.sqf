@@ -6,6 +6,7 @@ logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //S
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
 Info("Server init started");
+A3A_serverVersion = QUOTE(VERSION); publicVariable "A3A_serverVersion";
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
@@ -22,6 +23,7 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 switch (toLower worldname) do {
 	case "cam_lao_nam": {};
 	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	case "spe_normandy": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
 	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
 };
 
@@ -176,12 +178,13 @@ if (isPlayer A3A_setupPlayer) then {
     theBoss = A3A_setupPlayer; publicVariable "theBoss";
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];
@@ -239,6 +242,45 @@ addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
+};
+
+// Could replace these with entityCreated handler instead...
+if(A3A_hasZen) then {
+    ["zen_common_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if (A3A_hasACE) then {
+    ["ace_zeus_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
 
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
@@ -287,46 +329,5 @@ savingServer = false;           // enable saving
     };
 };
 
-if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
-    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
-    // disable lambs danger fsm entrypoint
-    ["CAManBase", "InitPost", {
-        params ["_unit"];
-        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
-        _unit setVariable ["lambs_danger_disableAI", true];
-    }] call CBA_fnc_addClassEventHandler;
-};
-
-
-
-if(A3A_hasZen) then 
-{
-    ["zen_common_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
-
-if(A3A_hasACE) then 
-{
-    ["ace_zeus_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
 
 Info("initServer completed");

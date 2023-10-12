@@ -57,10 +57,9 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	if (_key isEqualTo DIK_SPACE && !(A3A_building_EHDB # SPACE_PRESSED)) then {
 		if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 		if ((A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING) isEqualTo "Land_Can_V2_F") exitwith {};	// temp objects not built.
-		
-		private _mousePosition = getMousePosition;
-		private _vehiclePos = screenToWorld[_mousePosition # 0, _mousePosition # 1];
-		if(_vehiclePos distance  (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
+
+		private _vehiclePos = getPosATL (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+		if(_vehiclePos distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
 		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
 		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
@@ -109,11 +108,11 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	};
 
 	if (_key isEqualTo DIK_E) then {
-		A3A_building_EHDB set [ROTATION_MODE_E, true];
+		A3A_building_EHDB set [ROTATION_MODE_CCW, true];
 	};
 
 	if (_key isEqualTo DIK_R) then {
-			A3A_building_EHDB set [ROTATION_MODE_R, true];
+		A3A_building_EHDB set [ROTATION_MODE_CW, true];
 	};	 
 }];
 
@@ -127,11 +126,11 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 	};
 
 	if (_key isEqualTo DIK_E) then {
-		A3A_building_EHDB set [ROTATION_MODE_E, false];
+		A3A_building_EHDB set [ROTATION_MODE_CCW, false];
 	};
 
 	if (_key isEqualTo DIK_R) then {
-		A3A_building_EHDB set [ROTATION_MODE_R, false];
+		A3A_building_EHDB set [ROTATION_MODE_CW, false];
 	};
 
 }];
@@ -143,24 +142,23 @@ A3A_building_EHDB set [KEY_UP_EH, _upKeyEH];
 private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	private _stateChange = false;
 	private _object = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-	private _mousePosition = getMousePosition;
-	private _vehiclePostion = screenToWorld[_mousePosition #0, _mousePosition#1];
+	private _vehiclePos = screenToWorld getMousePosition;
 	
 	//change in position
-	if (_object distance _vehiclePostion > 0.1) then {
+	if (_object distance2d _vehiclePos > 0.1) then {
 		_stateChange = true;
 	};
 	
 
-	if (A3A_building_EHDB # ROTATION_MODE_E) then {
-		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) + diag_deltaTime * 120);
+	if (A3A_building_EHDB # ROTATION_MODE_CCW) then {
+		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) - diag_deltaTime * 120);
 		A3A_building_EHDB set [BUILD_OBJECT_TEMP_DIR, _direction];
 		_object setDir _direction;
 		_stateChange = true;
 	};
 
-	if (A3A_building_EHDB # ROTATION_MODE_R) then {
-		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) - diag_deltaTime * 120);
+	if (A3A_building_EHDB # ROTATION_MODE_CW) then {
+		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) + diag_deltaTime * 120);
 		A3A_building_EHDB set [BUILD_OBJECT_TEMP_DIR, _direction];
 		_object setDir _direction;
 		_stateChange = true;
@@ -172,11 +170,11 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		_stateChange = true;
 	};
 	
-		if(A3A_building_EHDB # SNAP_SURFACE_MODE) then {
-		private _vehiclePos = getPosASL _object;
-		private _intersects = lineIntersectsSurfaces [_vehiclePos, _vehiclePos vectorAdd [0,0,-100], _object];
+	if(A3A_building_EHDB # SNAP_SURFACE_MODE) then {
+		private _posASL = ATLtoASL _vehiclePos;
+		private _intersects = lineIntersectsSurfaces [_posASL vectorAdd [0,0,100], _posASL vectorAdd [0,0,-100], _object];
 	    if (count _intersects > 0) then {
-			_vehiclePostion = (_intersects select 0 select 0);
+			_vehiclePos = ASLtoATL (_intersects select 0 select 0);
 		};
 		_stateChange = true;
 	};
@@ -187,6 +185,7 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	
 	if (_stateChange && !(A3A_building_EHDB # UNSAFE_MODE)) then {
 		if (_object distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitWith {true call _hide};
+		if (A3A_building_EHDB # SNAP_SURFACE_MODE) exitWith {false call _hide};
 		
 		private _exit = false;
 		
@@ -205,27 +204,22 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		false call _hide;
 	}; 
 	
-	private _camClampPosition = [0,0,0];
 	
-	private _objectCenterX = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 0);
-	private _objectCenterY = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 1);
-	private _objectCenterZ = (position (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) # 2);
-	
-	private _cameraX = (position A3A_cam # 0);
-	private _cameraY = (position A3A_cam # 1);
-	private _cameraZ = (position A3A_cam # 2);
-		
-	_camClampPosition set  [0 ,[_cameraX, _objectCenterX - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterX + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
-	_camClampPosition set  [1, [_cameraY, _objectCenterY - (A3A_building_EHDB # BUILD_RADIUS), _objectCenterY + (A3A_building_EHDB # BUILD_RADIUS)] call BIS_fnc_clamp];
-	_camClampPosition set  [2, [_cameraZ, _objectCenterZ, _objectCenterZ + 10] call BIS_fnc_clamp];
+	private _centerPos = getPosATL (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER);
+	private _cameraPos = getPosATL A3A_cam;
+	private _buildRad = A3A_building_EHDB # BUILD_RADIUS;
 
+	private _camClampPos = [0,0,0];
+	_camClampPos set [0, _cameraPos#0 max (_centerPos#0 - _buildRad) min (_centerPos#0 + _buildRad)];
+	_camClampPos set [1, _cameraPos#1 max (_centerPos#1 - _buildRad) min (_centerPos#1 + _buildRad)];
+	_camClampPos set [2, _cameraPos#2 max (_centerPos#2 + 5) min (_centerPos#2 + 15)];
+	A3A_cam setPosATL _camClampPos;
 	
 	if (_stateChange) then {
-		_object setPos _vehiclePostion;
 		_object setDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
+		_object setPos _vehiclePos;
 	};
 
-	A3A_cam setPos _camClampPosition;
 }];
 
 A3A_building_EHDB set [EACH_FRAME_EH, _eventHanderEachFrame];

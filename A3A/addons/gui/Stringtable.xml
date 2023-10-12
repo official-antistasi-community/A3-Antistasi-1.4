@@ -4227,11 +4227,11 @@
        <Key ID="STR_antistasi_teamleader_placer_alt_key">
           <Original>Alt: </Original>
       </Key>
-      <Key ID="STR_antistasi_teamleader_placer_e_key">
-          <Original>E: Rotate clockwise </Original>
-      </Key>
       <Key ID="STR_antistasi_teamleader_placer_r_key">
-          <Original>R: Rotate counter-clockwise</Original>
+          <Original>R: Rotate clockwise </Original>
+      </Key>
+      <Key ID="STR_antistasi_teamleader_placer_e_key">
+          <Original>E: Rotate counter-clockwise</Original>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_shift_key">
           <Original>SHIFT: Unsafe placement mode</Original>

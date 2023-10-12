@@ -29,8 +29,8 @@ if (_take) then {
     if (isNil "_curOwner" or { _player != _curOwner }) exitWith {
         Error("Attempted to release builder box by player who wasn't controlling it");
     };
+    if (_money <= 0) exitWith { deleteVehicle _box };                   // get rid of the box if it's empty
 
-//    private _money = _box getVariable ["A3A_build_money", 0];           // uh, does this work? might need to pass it into the function instead
     _box setVariable ["A3A_itemPrice", _money, true];
     _box setVariable ["A3A_build_owner", nil, true];
 };

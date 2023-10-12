@@ -29,21 +29,6 @@ params [
 // Already in the placer
 if(!isNil "A3A_building_EHDB") exitwith {};
 
-// Check enemy proximity
-if ([getPosATL _centerObject] call A3A_fnc_enemyNearCheck) exitWith {
-	// TODO: stringtable
-	["Building Placer", "You can not use the placer while there are enemies nearby."] call A3A_fnc_customHint;
-};
-
-// Check player eligibility
-// options: teamLeader (1), engineer (2), either (3). Boss always eligible
-private _eligibleTL = (A3A_builderPermissions % 1 != 0) and (typeOf player == "I_G_Soldier_TL_F");
-private _eligibleEng = (A3A_builderPermissions % 2 != 0) and (player getUnitTrait "engineer");
-if (!_eligibleTL and !_eligibleEng and player != theBoss) exitWith {
-	// TODO: stringtable
-	["Building Placer", "You are not eligible to use the building placer."] call A3A_fnc_customHint;
-};
-
 [_centerObject, _buildingRadius, _teamLeaderBox] call A3A_fnc_initPlacerDB;
 ("A3A_PlacerHint" call BIS_fnc_rscLayer) cutRsc ["A3A_PlacerHints", "PLAIN", -1, false];
 A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
@@ -79,41 +64,28 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
 		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
-		private _supply = (A3A_building_EHDB # TEAMLEADER_BOX) getVariable "A3A_supplyValue";
-		private _insufficientFunds = false;
+		private _supply = (A3A_building_EHDB # AVAILABLE_MONEY);
 
-		// TODO: redo on server side in placeBuilderObjects to make sure people aren't double-spending
-
-		if(_price <= _supply) then 
-		{
-			_supply = _supply - _price;
-			(A3A_building_EHDB # TEAMLEADER_BOX) setVariable ["A3A_supplyValue", _supply, true];
-			systemChat str _supply;
-		}
-		else
-		{
-			_insufficientFunds = true;
+		// TODO: Ideally we wouldn't allow selection of buildings that we can't afford...
+		// This hint doesn't work anyway
+		if(_price > _supply) exitWith {
+			[localize "STR_antistasi_teamleader_placer_title", localize "STR_antistasi_teamleader_placer_insufficient_funds"] call A3A_fnc_customHint;
 		};
-		// exit
-		if (_insufficientFunds) exitwith {[localize "STR_antistasi_teamleader_placer_title", localize "STR_antistasi_teamleader_placer_insufficient_funds"] call A3A_fnc_customHint};
 
-	
-	
+		A3A_building_EHDB set [AVAILABLE_MONEY, _supply - _price];
+		["updateMoney"] call A3A_fnc_teamLeaderRTSPlacerDialog;
+
 		private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
 		private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
 		private _holdTime = (A3A_building_EHDB # HOLD_TIME);
-
-
 	
 		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction, _holdTime, _price];
-		
-		
 
 		_vehicle = _className createVehicleLocal [0,0,0];
 		_vehicle setDir _direction;
 		_vehicle setPos _vehiclePos;
 		//playSound3D[getMissionPath "Sounds\hammer.ogg", player];
-		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle; 
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle;
 
 		A3A_building_EHDB set [SPACE_PRESSED, true];
 	};

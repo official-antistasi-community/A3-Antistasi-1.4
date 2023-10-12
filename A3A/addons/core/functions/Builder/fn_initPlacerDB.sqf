@@ -36,6 +36,9 @@ A3A_building_EHDB = [
 	"Land_Can_V2_F" createVehicleLocal [0,0,0],
 	[], 
 	{
+		// Finished so release
+		private _remMoney = (A3A_building_EHDB # AVAILABLE_MONEY);
+		[A3A_building_EHDB # TEAMLEADER_BOX, player, false, _remMoney] remoteExecCall ["A3A_fnc_lockBuilderBox", 2];
 		{deleteVehicle _x} forEach A3A_boundingCircle;
 		{deleteVehicle _x} forEach (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY);
 		(A3A_building_EHDB # BUILD_DISPLAY) displayRemoveEventHandler ["KeyDown", (A3A_building_EHDB # KEY_DOWN_EH)];
@@ -135,5 +138,6 @@ A3A_building_EHDB = [
 	_teamLeaderBox,
 	false,
 	false,
-	false
+	false,
+	_teamLeaderBox getVariable ["A3A_build_money", 0]
 ]; 

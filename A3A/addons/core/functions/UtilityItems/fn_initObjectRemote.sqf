@@ -46,7 +46,7 @@ if ("loot" in _flags && lootToCrateRadius > 0) then {
 if ("build" in _flags) then {
     _object addAction [
         "Building Placer",
-        { [_this#0, 75, _this#0] call A3A_fnc_buildingPlacer },
+        { [_this#0, 75, _this#0] spawn A3A_fnc_buildingPlacerStart },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 4
     ];

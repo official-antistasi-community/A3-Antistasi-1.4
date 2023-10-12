@@ -194,9 +194,11 @@ class CfgFunctions
             class addBuildingActions {};
             class buildingComplete {};
             class buildingPlacer {};
+            class buildingPlacerStart {};
             class initBuildableObjects {};
             class initBuilderMonitors {};
             class initPlacerDB {};
+            class lockBuilderBox {};
             class placeBuilderObjects {};
             class processBuildingTimeouts {};
         };

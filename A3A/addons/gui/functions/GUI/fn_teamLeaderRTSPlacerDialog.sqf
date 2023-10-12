@@ -28,12 +28,21 @@ params[["_mode","onLoad"], ["_params",[]]];
 
 switch (_mode) do
 {
+	case ("updateMoney"):
+	{
+		private _display = findDisplay A3A_IDD_TEAMLEADERDIALOG;
+		private _moneyCtrl = _display displayCtrl A3A_IDC_TEAMLEADERBUILDERMONEY;
+
+		_moneyCtrl ctrlSetText format ["%1 €", A3A_building_EHDB # AVAILABLE_MONEY];
+	};
 	case ("onLoad"):
     {
 		private _display = findDisplay A3A_IDD_TEAMLEADERDIALOG;
 		private _parent = (_display displayCtrl A3A_IDC_TEAMLEADERBUILDERMAIN);
 		private _buildControlsGroup = _parent controlsGroupCtrl A3A_IDC_TEAMLEADERBUILDINGGROUP;
 
+		private _moneyCtrl = _display displayCtrl A3A_IDC_TEAMLEADERBUILDERMONEY;
+		_moneyCtrl ctrlSetText format ["%1 €", A3A_building_EHDB # AVAILABLE_MONEY];
 
 		private _buildableObjects = A3A_buildableObjects;
 		
@@ -86,8 +95,11 @@ switch (_mode) do
 					call A3A_initBuildingDB;
 				};
 
-				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				private _price = _control getVariable ["price", 0];
+				private _supply = A3A_building_EHDB # AVAILABLE_MONEY;
+				if (_price > _supply) exitWith {};			// TODO: Should disable buttons based on available money?
+
+				private _className = _control getVariable ["className", "Land_Tyres_F"];
 				private _holdTime = _control getVariable ["holdTime", 15];
 
 				private _object = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);

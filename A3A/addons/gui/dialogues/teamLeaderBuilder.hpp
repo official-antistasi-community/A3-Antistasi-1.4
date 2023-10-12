@@ -39,15 +39,25 @@ class A3A_teamLeaderBuilder
             text = $STR_antistasi_teamleader_placer_title;
             x = CENTER_X(160);
             y = BOTTOM - PX_H(41);
-            w = PX_W(160);
+            w = PX_W(80);
             h = PX_H(5);
+        };
+        class RemMoneyText: A3A_TitlebarText
+        {
+            idc = A3A_IDC_TEAMLEADERBUILDERMONEY;
+            text = "500 €";
+            x = CENTER_X(160) + PX_W(80);
+            y = BOTTOM - PX_H(41);
+            w = PX_W(80);
+            h = PX_H(5);
+            style = ST_RIGHT;
         };
 
         // Main content
         class MainContent : A3A_DefaultControlsGroup
         {
-              idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
-              x = CENTER_X(160);
+            idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
+            x = CENTER_X(160);
             y = BOTTOM - PX_H(36);
             w = PX_W(160);
             h = PX_H(36);
@@ -56,11 +66,11 @@ class A3A_teamLeaderBuilder
             {
                 class BuildingControlsGroup : A3A_ControlsGroupNoHScrollbars
                 {
-                idc = A3A_IDC_TEAMLEADERBUILDINGGROUP;
-                x = 0;
-                y = PX_H(4);
-                w = PX_W(160);
-                h = PX_H(36);
+                    idc = A3A_IDC_TEAMLEADERBUILDINGGROUP;
+                    x = 0;
+                    y = PX_H(4);
+                    w = PX_W(160);
+                    h = PX_H(36);
                 };
             };
         };
@@ -71,26 +81,26 @@ class A3A_teamLeaderBuilder
     {
         class VehiclePreview
         {
-        idc = A3A_IDC_TEAMLEADERBUILDINGRENDER;
+            idc = A3A_IDC_TEAMLEADERBUILDINGRENDER;
 
-        type = 82;
-        model = "\A3\Structures_F\Items\Food\Can_V3_F.p3d";
-        scale = 0.00001;  // Hide unless there is a mouse hover. This is overwritten by proper ctrlShow command on initialisation.
+            type = 82;
+            model = "\A3\Structures_F\Items\Food\Can_V3_F.p3d";
+            scale = 0.00001;  // Hide unless there is a mouse hover. This is overwritten by proper ctrlShow command on initialisation.
 
-        direction[] = {0, -0.35, -0.65};
-        up[] = {0, 0.65, -0.35};
+            direction[] = {0, -0.35, -0.65};
+            up[] = {0, 0.65, -0.35};
 
-        x = 0.5;
-        y = 0.5;
-        z = 0.2;
+            x = 0.5;
+            y = 0.5;
+            z = 0.2;
 
-        xBack = 0.5;
-        yBack = 0.5;
-        zBack = 1.2;
+            xBack = 0.5;
+            yBack = 0.5;
+            zBack = 1.2;
 
-        inBack = 1;
-        enableZoom = 1;
-        zoomDuration = 0.001;
+            inBack = 1;
+            enableZoom = 1;
+            zoomDuration = 0.001;
         };
     };
 };

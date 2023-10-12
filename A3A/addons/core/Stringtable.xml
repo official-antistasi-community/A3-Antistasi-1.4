@@ -9140,6 +9140,12 @@
         <Turkish>Tamir İstasyonu</Turkish>
         <Chinesesimp>修理站</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxsmall">
+        <Original>Small construction kit</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxlarge">
+        <Original>Large construction kit</Original>
+      </Key>
       <Key ID="STR_A3A_Utility_Items_Purchase_Title">
         <Original>Item Purchase</Original>
         <Spanish>Compra de objeto</Spanish>
@@ -9265,6 +9271,11 @@
         <Polish>Opcje związane z zarządzaniem pojazdami w oddziałach kontrolowanych przez HC</Polish>
         <Czech>Možnosti související se správou vozidel v jednotkách kontrolovaných HC</Czech>
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
+      </Key>
+    </Container>
+    <Container name="Building placer">
+      <Key ID="STR_A3A_builder_title">
+        <Original>Building Placer</original>
       </Key>
     </Container>
   </Package>

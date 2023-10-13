@@ -12,6 +12,16 @@ class A3A_PlacerHints {
     enableSimulation = 1;
     onLoad = "['onLoad', _this] spawn A3A_fnc_setUpPlacerHints";
     class controls {
+        class TestText: A3A_Text {
+            idc = IDC_PLACERHINT_TEST_TEXT;
+            text = "";
+            x = CENTER_GRID_X + 80 * GRID_W;
+            y = CENTER_GRID_Y + 25 * GRID_H;
+            w = 52 * GRID_W;
+            h = 8 * GRID_H;
+            sizeEx = 2.25 * GRID_H;
+        };
+
         // snaping mode
         class IconALT: A3A_Picture {
             idc = IDC_PLACERHINT_ALT;
@@ -61,10 +71,15 @@ class A3A_PlacerHints {
             idc = IDC_PLACERHINT_SHIFT_TEXT;
             y = CENTER_GRID_Y + 47 * GRID_H;
         };
-        // end key
+        // cancel/rebuild keys
         class IconCKEY: IconALT {
             idc = IDC_PLACERHINT_C;
             text = A3A_Icon_key_c;
+            y = CENTER_GRID_Y + 51 * GRID_H;
+        };
+        class IconTKEY: IconALT {
+            idc = IDC_PLACERHINT_T;
+            text = A3A_Icon_key_t;
             y = CENTER_GRID_Y + 51 * GRID_H;
         };
         class TextCKEY: TextALT {

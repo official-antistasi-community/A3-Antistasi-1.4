@@ -1,11 +1,16 @@
 /*
-    Create plank objects from array in the format, ["_className", "_position", "_direction", "_holdTime", "_price"]
+    Create plank objects from array in the format, ["_className", "_repairObj", "_position", "_direction", "_holdTime", "_price"]
     Add actions to clients for construct & cancel.
 
 Environment: Server, Unscheduled
 Arguments:
-    1. <array> array of [classname, position, direction, holdTime, price] for placement
-
+    1. <array> Containing arrays:
+        1. <string> Classname of object to construct or repair
+        2. <object> Object to repair, otherwise objNull
+        2. <position> Position to construct object, or nil if repair
+        3. <number> Direction to construct object, or nil if repair
+        4. <number> Construction time for object
+        5. <number> Price of object
 */
 
 params [["_objects",[],[[]]]];
@@ -18,22 +23,39 @@ private _constructionObjects = [
 
 
 {
-    _x params ["_className", "_position", "_direction", "_holdTime", "_price"];
+    _x params ["_className", "_repairObj", "_position", "_direction", "_holdTime", "_price"];
 
     private _constructionName = selectRandom _constructionObjects;
     private _planks = createVehicle [_constructionName, [0,0,0], [], 0, "CAN_COLLIDE"];
-    _planks setPosATL _position; // place on the ground
-    _planks setDir _direction;
-
-    // Only set these server-local
-    _planks setVariable ["A3A_build_pos", _position];
-    _planks setVariable ["A3A_build_dir", _direction];
-    _planks setVariable ["A3A_build_class", _className];
     _planks setVariable ["A3A_build_timeout", time + 1200];
     _planks setVariable ["A3A_build_price", _price];
+ 
+    // Most stuff only needs to be server visible
+    private _buildName = getText (configFile / "CfgVehicles" / _className / "displayName");
+    if (isNull _repairObj) then
+    {
+        // Construction, create planks on spot
+        _planks setPosATL _position; // place on the ground
+        _planks setDir _direction;
+
+        _planks setVariable ["A3A_build_pos", _position];
+        _planks setVariable ["A3A_build_dir", _direction];
+        _planks setVariable ["A3A_build_class", _className];
+        _buildName = "Build " + _buildName;
+    }
+    else
+    {
+        // Repair, create planks nearby
+        _position = getPosATL _repairObj findEmptyPosition [0, 50, _constructionName];
+        if (_position isEqualTo []) then { _position = _repairObj getPos [10, random 360] };
+        _planks setPosATL _position;
+
+        _planks setVariable ["A3A_build_repairObj", _repairObj];
+        _buildName = "Repair " + _buildName;
+    };
 
     // Only one needed for client?
-    _planks setVariable ["A3A_build_name", getText (configFile / "CfgVehicles" / _className / "displayName"), true];
+    _planks setVariable ["A3A_build_name", _buildName, true];
 
     A3A_unbuiltObjects pushBack _planks;
 

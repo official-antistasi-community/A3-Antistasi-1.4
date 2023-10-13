@@ -31,7 +31,7 @@ if(!isNil "A3A_building_EHDB") exitwith {};
 
 [_centerObject, _buildingRadius, _teamLeaderBox] call A3A_fnc_initPlacerDB;
 ("A3A_PlacerHint" call BIS_fnc_rscLayer) cutRsc ["A3A_PlacerHints", "PLAIN", -1, false];
-A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,2.5]);
+A3A_cam = "camcurator" camCreate (position _centerObject vectorAdd [0,0,5]);
 A3A_cam cameraEffect ["Internal", "top"];
 player enableSimulation false;
 
@@ -50,11 +50,27 @@ call (A3A_building_EHDB # UPDATE_BB);
 
 private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 	params["_displayOrControl","_key"];
+
 	if (_key in [DIK_ESCAPE, DIK_Y]) then {
 		call (A3A_building_EHDB # END_BUILD_FUNC);
 	};
 
-	if (_key isEqualTo DIK_SPACE && !(A3A_building_EHDB # SPACE_PRESSED)) then {
+	if (_key isEqualTo DIK_E) then {
+		A3A_building_EHDB set [ROTATION_MODE_CCW, true];
+	};
+
+	if (_key isEqualTo DIK_R) then {
+		A3A_building_EHDB set [ROTATION_MODE_CW, true];
+	};	 
+}];
+
+A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
+
+private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
+	params ["_displayOrControl", "_key"];
+
+	// Place object
+	if (_key isEqualTo DIK_SPACE) then {
 		if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
 		if ((A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING) isEqualTo "Land_Can_V2_F") exitwith {};	// temp objects not built.
 
@@ -78,15 +94,57 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
 		private _holdTime = (A3A_building_EHDB # HOLD_TIME);
 	
-		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, _vehiclePos, _direction, _holdTime, _price];
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, objNull, _vehiclePos, _direction, _holdTime, _price];
 
-		_vehicle = _className createVehicleLocal [0,0,0];
+		private _vehicle = _className createVehicleLocal [0,0,0];
 		_vehicle setDir _direction;
 		_vehicle setPos _vehiclePos;
 		//playSound3D[getMissionPath "Sounds\hammer.ogg", player];
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle;
+	};
 
-		A3A_building_EHDB set [SPACE_PRESSED, true];
+	// Cancel construction
+	if (_key isEqualTo DIK_C) then {
+		private _tempArray = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY);
+		private _buildArray = (A3A_building_EHDB # BUILD_OBJECTS_ARRAY);
+		private _objIndex = _tempArray find (A3A_building_EHDB # CURSOR_OBJECT);
+		if (_objIndex == -1) exitWith {};
+
+		deleteVehicle (_tempArray deleteAt _objIndex);
+		private _buildData = _buildArray deleteAt _objIndex;
+		private _supply = (A3A_building_EHDB # AVAILABLE_MONEY);
+		A3A_building_EHDB set [AVAILABLE_MONEY, _supply + (_buildData#5)];
+		["updateMoney"] call A3A_fnc_teamLeaderRTSPlacerDialog;
+	};
+
+	// Repair
+	if (_key isEqualTo DIK_T) then {
+		private _ruin = (A3A_building_EHDB # CURSOR_OBJECT);
+		if !(_ruin isKindOf "Ruins") exitWith {};
+		private _building = _ruin getVariable "building";
+		if (isNil "_building") then { _building = _ruin getVariable "BIS_fnc_createRuin_object" };
+		if (isNil "_building") exitWith {};																	// non-rebuildable ruin
+		if (-1 != (A3A_building_EHDB # BUILD_OBJECTS_ARRAY) findIf { _x#1 == _building }) exitWith {};		// already rebuilt
+
+		// Calculate repair cost from bounding box
+		private _bbsize = (boundingBoxReal _building # 1) vectorDiff (boundingBoxReal _building # 0);
+		private _price = 6 * sqrt((_bbsize#0) * (_bbsize#1) * (_bbsize#2));
+		_price = 10 * round (_price / 10);
+
+		// TODO: Sort out hints or something?
+		private _supply = (A3A_building_EHDB # AVAILABLE_MONEY);
+		if(_price > _supply) exitWith {};
+		A3A_building_EHDB set [AVAILABLE_MONEY, _supply - _price];
+		["updateMoney"] call A3A_fnc_teamLeaderRTSPlacerDialog;
+
+		// Place imitation of repaired building
+		private _oldPos = getPosATL _building;
+		private _vehicle = typeof _building createVehicleLocal [0,0,0];
+		_vehicle setDir getDir _building;
+		_vehicle setPosATL [_oldPos#0, _oldPos#1, 0];
+
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [typeof _building, _building, nil, nil, _price/10, _price];
+		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle;
 	};
 
 	// unsafe mode
@@ -105,24 +163,6 @@ private _downKeyEH = _emptyDisplay displayAddEventHandler ["KeyDown", {
 		private _display = uiNamespace getVariable "display";
 		private _altText = (_display displayCtrl IDC_PLACERHINT_ALT_TEXT);
 		if (A3A_building_EHDB # SNAP_SURFACE_MODE) then {_altText ctrlSetTextColor [1, 0, 0, 1];} else {_altText ctrlSetTextColor [1, 1, 1, 1];}
-	};
-
-	if (_key isEqualTo DIK_E) then {
-		A3A_building_EHDB set [ROTATION_MODE_CCW, true];
-	};
-
-	if (_key isEqualTo DIK_R) then {
-		A3A_building_EHDB set [ROTATION_MODE_CW, true];
-	};	 
-}];
-
-A3A_building_EHDB set [KEY_DOWN_EH, _downKeyEH];
-
-private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
-	params ["_displayOrControl", "_key"];
-
-	if (_key isEqualTo DIK_SPACE) then {
-		A3A_building_EHDB set [SPACE_PRESSED, false];
 	};
 
 	if (_key isEqualTo DIK_E) then {
@@ -148,7 +188,45 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	if (_object distance2d _vehiclePos > 0.1) then {
 		_stateChange = true;
 	};
-	
+
+	// Set up cursorObject-dependent hints (cancel, repair)
+	private _display = uiNamespace getVariable "display";
+	(_display displayCtrl IDC_PLACERHINT_C) ctrlShow false;
+	(_display displayCtrl IDC_PLACERHINT_T) ctrlShow false;
+	(_display displayCtrl IDC_PLACERHINT_C_TEXT) ctrlShow false;
+
+	private _intersects = lineIntersectsSurfaces [getPosASL A3A_cam, AGLtoASL _vehiclePos, _object, A3A_cam];
+	private _intersectObj = if (count _intersects > 0) then { _intersects#0#3 } else { objNull };
+	A3A_building_EHDB set [CURSOR_OBJECT, _intersectObj];
+
+	(_display displayCtrl IDC_PLACERHINT_TEST_TEXT) ctrlSetText str _intersectObj;
+
+	if (_intersectObj isKindOf "Ruins") then {
+		// Show T key and rebuild cost
+		private _ruin = _intersectObj;
+		private _building = _ruin getVariable "building";
+		if (isNil "_building") then { _building = _ruin getVariable "BIS_fnc_createRuin_object" };
+		if (isNil "_building") exitWith {};																	// non-rebuildable ruin
+		if (-1 != (A3A_building_EHDB # BUILD_OBJECTS_ARRAY) findIf { _x#1 == _building }) exitWith {};		// already rebuilt
+
+		// Calculate repair cost from bounding box
+		private _bbsize = (boundingBoxReal _building # 1) vectorDiff (boundingBoxReal _building # 0);
+		private _price = 6 * sqrt((_bbsize#0) * (_bbsize#1) * (_bbsize#2));
+		_price = 10 * round (_price / 10);
+
+		(_display displayCtrl IDC_PLACERHINT_T) ctrlShow true;
+		private _textCtrl = (_display displayCtrl IDC_PLACERHINT_C_TEXT);
+		_textCtrl ctrlSetText format ["T: Repair for %1 €", _price];
+		_textCtrl ctrlShow true;
+	};
+
+	if (_intersectObj in (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY)) then {
+		// show C key
+		(_display displayCtrl IDC_PLACERHINT_C) ctrlShow true;
+		private _textCtrl = (_display displayCtrl IDC_PLACERHINT_C_TEXT);
+		_textCtrl ctrlSetText format ["C: Cancel %1", getText (configof _intersectObj >> "displayName")];
+		_textCtrl ctrlShow true;
+	};
 
 	if (A3A_building_EHDB # ROTATION_MODE_CCW) then {
 		private _direction = ((A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR) - diag_deltaTime * 120);
@@ -171,10 +249,10 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	};
 	
 	if(A3A_building_EHDB # SNAP_SURFACE_MODE) then {
-		private _posASL = ATLtoASL _vehiclePos;
+		private _posASL = AGLtoASL _vehiclePos;
 		private _intersects = lineIntersectsSurfaces [_posASL vectorAdd [0,0,100], _posASL vectorAdd [0,0,-100], _object];
 	    if (count _intersects > 0) then {
-			_vehiclePos = ASLtoATL (_intersects select 0 select 0);
+			_vehiclePos = ASLtoAGL (_intersects select 0 select 0);
 		};
 		_stateChange = true;
 	};

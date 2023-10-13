@@ -15,6 +15,7 @@ private _position = _target getVariable ["A3A_build_pos", [0,0,0]];
 private _direction  = _target getVariable ["A3A_build_dir", [0,0,0]];
 private _objectTimeout = _target getVariable ["A3A_build_timeout", 0];
 private _price = _target getVariable ["A3A_build_price", 10];
+private _repairObj = _target getVariable ["A3A_build_repairObj", objNull];
 
 //remove from list
 A3A_unbuiltObjects deleteAt (A3A_unbuiltObjects find _target);
@@ -26,7 +27,12 @@ if (!_finished) exitWith {
     if (_price > 0) then { [0, _price] spawn A3A_fnc_resourcesFIA };
 };
 
-// Spawn the building
+// Repair case, just call the repair function
+if (!isNull _repairObj) exitWith {
+    _repairObj call A3A_fnc_repairRuinedBuilding;
+};
+
+// Construction case, spawn the building
 private _building = createVehicle [_className, [0,0,0], [], 0, "CAN_COLLIDE"];
 _building setPosATL _position;
 _building setDir _direction;

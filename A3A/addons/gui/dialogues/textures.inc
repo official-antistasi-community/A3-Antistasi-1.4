@@ -125,6 +125,7 @@ Maintainer: DoomMetal
 //teamleader placer keys
 #define A3A_Icon_key_alt          A3A_GUI_QTEXTURE_PATH_OF(keys\alt_key_ca.paa)
 #define A3A_Icon_key_c           A3A_GUI_QTEXTURE_PATH_OF(keys\c_key_ca.paa)
+#define A3A_Icon_key_t           A3A_GUI_QTEXTURE_PATH_OF(keys\t_key_ca.paa)
 #define A3A_Icon_key_e        A3A_GUI_QTEXTURE_PATH_OF(keys\e_key_ca.paa)
 #define A3A_Icon_key_r       A3A_GUI_QTEXTURE_PATH_OF(keys\r_key_ca.paa)
 #define A3A_Icon_key_shift        A3A_GUI_QTEXTURE_PATH_OF(keys\shift_key_ca.paa)

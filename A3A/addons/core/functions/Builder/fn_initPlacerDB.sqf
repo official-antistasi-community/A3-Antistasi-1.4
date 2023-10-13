@@ -139,5 +139,6 @@ A3A_building_EHDB = [
 	false,
 	false,
 	false,
-	_teamLeaderBox getVariable ["A3A_build_money", 0]
+	_teamLeaderBox getVariable ["A3A_build_money", 0],
+	objNull
 ]; 

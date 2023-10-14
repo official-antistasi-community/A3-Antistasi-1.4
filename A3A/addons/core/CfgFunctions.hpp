@@ -774,10 +774,10 @@ class CfgFunctions
             class buyItem {};
             class carryItem {};
             class dropObject {};
-            class initMovableObject {};
             class initObject {};
             class initObjectRemote {};
             class remainingFuel {};
+            class rotateItem {};
         };
     };
 };

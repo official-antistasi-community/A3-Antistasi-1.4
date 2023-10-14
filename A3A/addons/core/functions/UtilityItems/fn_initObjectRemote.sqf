@@ -31,10 +31,24 @@ if (isNil "initClientDone") then {
 
 private _flags = (A3A_utilityItemHM get typeof _object) # 4;
 
-// movable object
-// TODO: Do we really want rotate on everything?
 if ("move" in _flags) then {
-    [_object] call A3A_fnc_initMovableObject;
+    _object addAction [
+        "Carry object",
+        { [_this#3, true] call A3A_fnc_carryItem },
+        _object, 1.5, true, true, "",
+        "([_this] call A3A_fnc_countAttachedObjects == 0)
+            and (isNull attachedTo _originalTarget)", 8
+    ];
+};
+
+if ("rotate" in _flags) then {
+    _object addAction [
+        "Rotate object",
+        { [_this#3] call A3A_fnc_rotateItem },
+        _object, 1.5, true, true, "",
+        "!(_originalTarget getVariable ['A3A_rotatingObject',false])
+            and (isNull attachedTo _originalTarget)", 8
+    ];
 };
 
 // loot crate object

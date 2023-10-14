@@ -9,24 +9,29 @@ Arguments:
         2. <object> Object to repair, otherwise objNull
         2. <position> Position to construct object, or nil if repair
         3. <number> Direction to construct object, or nil if repair
-        4. <number> Construction time for object
-        5. <number> Price of object
+        4. <number> Price of object
 */
 
 params [["_objects",[],[[]]]];
 
-
 private _constructionObjects = [
-    "Land_WoodenPlanks_01_pine_F",
-    "Land_WoodenPlanks_01_F",
-    "Land_Pallets_F"];
+    ["Land_Pallets_F", 30],
+    ["Land_CinderBlocks_01_F", 100],
+    ["Land_WoodenPlanks_01_messy_pine_F", 999999]
+];
 
+// other options:
+// Land_FoodSacks_01_large_brown_F
+// Land_FoodSacks_01_small_brown_F - might make more sense if most of the small stuff is sandbag or concrete walls?
+// Land_WoodPile_02_F
+// Land_Bricks_V2_F
 
 {
-    _x params ["_className", "_repairObj", "_position", "_direction", "_holdTime", "_price"];
+    _x params ["_className", "_repairObj", "_position", "_direction", "_price"];
 
-    private _constructionName = selectRandom _constructionObjects;
-    private _planks = createVehicle [_constructionName, [0,0,0], [], 0, "CAN_COLLIDE"];
+    private _plankIndex = _constructionObjects findIf { _price <= _x#1 };
+    private _plankClass = _constructionObjects # _plankIndex # 0;
+    private _planks = createVehicle [_plankClass, [0,0,0], [], 0, "CAN_COLLIDE"];
     _planks setVariable ["A3A_build_timeout", time + 1200];
     _planks setVariable ["A3A_build_price", _price];
  
@@ -35,8 +40,8 @@ private _constructionObjects = [
     if (isNull _repairObj) then
     {
         // Construction, create planks on spot
-        _planks setPosATL _position; // place on the ground
-        _planks setDir _direction;
+        _planks setPos [_position#0, _position#1, 0];
+        _planks setDir random 360;
 
         _planks setVariable ["A3A_build_pos", _position];
         _planks setVariable ["A3A_build_dir", _direction];
@@ -46,7 +51,7 @@ private _constructionObjects = [
     else
     {
         // Repair, create planks nearby
-        _position = getPosATL _repairObj findEmptyPosition [0, 50, _constructionName];
+        _position = getPosATL _repairObj findEmptyPosition [0, 50, _plankClass];
         if (_position isEqualTo []) then { _position = _repairObj getPos [10, random 360] };
         _planks setPosATL _position;
 
@@ -60,6 +65,7 @@ private _constructionObjects = [
     A3A_unbuiltObjects pushBack _planks;
 
     // Should be the only actions on this object, so we can just JIP on the object
+    private _holdTime = 1.6 * sqrt _price;
     [_planks, _holdTime] remoteExecCall ["A3A_fnc_addBuildingActions", 0, _planks];
 
     // TODO: could trigger on unbuiltObjects change instead

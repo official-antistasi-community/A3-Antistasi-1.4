@@ -95,27 +95,27 @@ switch (_mode) do
 					call A3A_initBuildingDB;
 				};
 
+				private _object = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+				private _className = _control getVariable ["className", "Land_Tyres_F"];
+				if (_className == typeof _object) exitWith {};			// refire, potentially caused by hitting space
+
 				private _price = _control getVariable ["price", 0];
 				private _supply = A3A_building_EHDB # AVAILABLE_MONEY;
 				if (_price > _supply) exitWith {};			// TODO: Should disable buttons based on available money?
 
-				private _className = _control getVariable ["className", "Land_Tyres_F"];
-				private _holdTime = _control getVariable ["holdTime", 15];
-
-				private _object = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-				private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
-
-				A3A_building_EHDB set [BUILD_OBJECT_SELECTED_STRING, _className];
-				A3A_building_EHDB set [HOLD_TIME, _holdTime];
+				A3A_building_EHDB set [BUILD_OBJECT_SELECTED_STRING, _className];		// why does this exist?
 				A3A_building_EHDB set [OBJECT_PRICE, _price];
 
-				private _vehPos =  getPos _object;
+				private _vehPos =  getPosATL _object;
+				private _vehDir = getDir _object;
 				deleteVehicle _object;
 
-				A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, _className createVehicleLocal [0,0,0]];
-				_object enableSimulationGlobal false;
-				_object setPos _vehPos; 
-				_object setDir _direction;
+				_object = _className createVehicleLocal [0,0,0];
+				_object enableSimulation false;
+				_object hideObject true;			// Otherwise it might not get checked, with some weird input combo
+				_object setPos _vehPos;
+				_object setDir _vehDir;
+				A3A_building_EHDB set [BUILD_OBJECT_TEMP_OBJECT, _object];
 				call (A3A_building_EHDB # UPDATE_BB);
 			}];
 

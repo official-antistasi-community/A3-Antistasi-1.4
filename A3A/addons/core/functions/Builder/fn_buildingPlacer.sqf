@@ -15,6 +15,8 @@ Example:
 [player, 100] call A3A_fnc_buildingPlacer.sqf
 */
 
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 #include "\a3\ui_f\hpp\definedikcodes.inc"
 #include "placerDefines.hpp"
@@ -71,36 +73,34 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 
 	// Place object
 	if (_key isEqualTo DIK_SPACE) then {
-		if (isObjectHidden (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT)) exitWith {};
+		private _tempObject = (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
+		if (isObjectHidden _tempObject) exitWith {};
 		if ((A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING) isEqualTo "Land_Can_V2_F") exitwith {};	// temp objects not built.
 
-		private _vehiclePos = getPosATL (A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT);
-		if(_vehiclePos distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
-		if(isOnRoad _vehiclePos) exitwith {};	// can't build on roads
+		if (_tempObject distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitwith {};
+		if (isOnRoad getPosATL _tempObject) exitwith {};	// can't build on roads
 		
 		private _price = (A3A_building_EHDB # OBJECT_PRICE);
 		private _supply = (A3A_building_EHDB # AVAILABLE_MONEY);
 
-		// TODO: Ideally we wouldn't allow selection of buildings that we can't afford...
-		// This hint doesn't work anyway
-		if(_price > _supply) exitWith {
-			[localize "STR_antistasi_teamleader_placer_title", localize "STR_antistasi_teamleader_placer_insufficient_funds"] call A3A_fnc_customHint;
-		};
+		// TODO: Hints don't work here, just hope players are watching the numbers for now
+		if (_price > _supply) exitWith {};
 
 		A3A_building_EHDB set [AVAILABLE_MONEY, _supply - _price];
 		["updateMoney"] call A3A_fnc_teamLeaderRTSPlacerDialog;
 
-		private _className = (A3A_building_EHDB # BUILD_OBJECT_SELECTED_STRING);
-		private _direction = (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
-		private _holdTime = (A3A_building_EHDB # HOLD_TIME);
-	
-		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [_className, objNull, _vehiclePos, _direction, _holdTime, _price];
+		private _position = getPosWorld _tempObject;
+		private _dirAndUp = [vectorDir _tempObject, vectorUp _tempObject];
 
-		private _vehicle = _className createVehicleLocal [0,0,0];
-		_vehicle setDir _direction;
-		_vehicle setPos _vehiclePos;
+		private _vehicle = typeof _tempObject createVehicleLocal [0,0,0];
+		_vehicle setPosWorld _position;
+		_vehicle setVectorDirAndUp _dirAndUp;
 		//playSound3D[getMissionPath "Sounds\hammer.ogg", player];
+
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle;
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [typeof _vehicle, objNull, _position, _dirAndUp, _price];
+
+		_tempObject hideObject true;		// prevent unintentional double-builds
 	};
 
 	// Cancel construction
@@ -113,7 +113,7 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 		deleteVehicle (_tempArray deleteAt _objIndex);
 		private _buildData = _buildArray deleteAt _objIndex;
 		private _supply = (A3A_building_EHDB # AVAILABLE_MONEY);
-		A3A_building_EHDB set [AVAILABLE_MONEY, _supply + (_buildData#5)];
+		A3A_building_EHDB set [AVAILABLE_MONEY, _supply + (_buildData#4)];
 		["updateMoney"] call A3A_fnc_teamLeaderRTSPlacerDialog;
 	};
 
@@ -143,7 +143,7 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
 		_vehicle setDir getDir _building;
 		_vehicle setPosATL [_oldPos#0, _oldPos#1, 0];
 
-		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [typeof _building, _building, nil, nil, _price/10, _price];
+		(A3A_building_EHDB # BUILD_OBJECTS_ARRAY) pushBack [typeof _vehicle, _building, nil, nil, _price];
 		(A3A_building_EHDB # BUILD_OBJECT_TEMP_OBJECT_ARRAY) pushBack _vehicle;
 	};
 
@@ -199,7 +199,7 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	private _intersectObj = if (count _intersects > 0) then { _intersects#0#3 } else { objNull };
 	A3A_building_EHDB set [CURSOR_OBJECT, _intersectObj];
 
-	(_display displayCtrl IDC_PLACERHINT_TEST_TEXT) ctrlSetText str _intersectObj;
+	//(_display displayCtrl IDC_PLACERHINT_TEST_TEXT) ctrlSetText str _intersectObj;
 
 	if (_intersectObj isKindOf "Ruins") then {
 		// Show T key and rebuild cost
@@ -256,33 +256,9 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 		};
 		_stateChange = true;
 	};
-	
-	private _hide = {
-		_object hideObject _this;
-	};
-	
-	if (_stateChange && !(A3A_building_EHDB # UNSAFE_MODE)) then {
-		if (_object distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitWith {true call _hide};
-		if (A3A_building_EHDB # SNAP_SURFACE_MODE) exitWith {false call _hide};
-		
-		private _exit = false;
-		
-		// collison check, god arma what I would give for collison trigers (looking at you unity, BGE had them and it was made by 20ish guys)
-		if(isNil "A3A_buildingRays") then {
-			call (A3A_building_EHDB # UPDATE_BB);
-		};
-		
-		{
-			_x params ["_start", "_end"];
-			if (lineIntersects [_object modelToWorldVisualWorld _start, _object modelToWorldVisualWorld _end, _object]) then {
-				_exit = true;
-			};
-		} forEach A3A_buildingRays;
-		if (_exit) exitWith {true call _hide};
-		false call _hide;
-	}; 
-	
-	
+
+
+	// Camera clamping
 	private _centerPos = getPosATL (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER);
 	private _cameraPos = getPosATL A3A_cam;
 	private _buildRad = A3A_building_EHDB # BUILD_RADIUS;
@@ -293,10 +269,26 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 	_camClampPos set [2, _cameraPos#2 max (_centerPos#2 + 5) min (_centerPos#2 + 15)];
 	A3A_cam setPosATL _camClampPos;
 	
-	if (_stateChange) then {
-		_object setDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
-		_object setPos _vehiclePos;
+
+	// Object render state update
+	if (!_stateChange) exitWith {};
+	_object setDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
+	_object setPos _vehiclePos;
+
+	private _hide = call {
+		if (_object distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitWith {true};
+		if (A3A_building_EHDB # UNSAFE_MODE) exitWith {false};
+		if (A3A_building_EHDB # SNAP_SURFACE_MODE) exitWith {false};				// implies unsafe anyway
+
+		// collison check, god arma what I would give for collison trigers (looking at you unity, BGE had them and it was made by 20ish guys)
+		if (isNil "A3A_buildingRays") then { call (A3A_building_EHDB # UPDATE_BB) };
+
+		-1 != A3A_buildingRays findIf {
+			_x params ["_start", "_end"];
+			lineIntersects [_object modelToWorldVisualWorld _start, _object modelToWorldVisualWorld _end, _object];
+		};
 	};
+	_object hideObject _hide;
 
 }];
 

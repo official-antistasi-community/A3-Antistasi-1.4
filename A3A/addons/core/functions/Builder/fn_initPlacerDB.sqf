@@ -54,7 +54,6 @@ A3A_building_EHDB = [
 		A3A_building_EHDB = nil;
 		player enableSimulation true;
 		[_params] remoteExecCall ["A3A_fnc_placeBuilderObjects", 2];
-
 	},
 	-1,
 	-1,

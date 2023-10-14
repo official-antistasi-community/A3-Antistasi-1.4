@@ -408,7 +408,7 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_mapinfo", A3A_fnc_ci
 mapX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction [localize "STR_A3A_fn_init_initclient_addact_ailoadinfo", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
-[] spawn A3A_fnc_unitTraits;
+[] call A3A_fnc_unitTraits;
 
 // Get list of buildable objects, has map (and template?) dependency
 call A3A_fnc_initBuildableObjects;

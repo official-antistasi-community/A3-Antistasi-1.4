@@ -44,11 +44,10 @@ else
     	case "I_G_Soldier_GL_F": {player setUnitTrait ["camouflageCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Grenadier role.<br/><br/>Grenadiers have a slight bonus on carry capacity, but are easy to spot."}; //reintroduced - 8th January 2020, Bob Murphy
     	case "I_G_Soldier_AR_F": {player setUnitTrait ["audibleCoef",1.2]; player setUnitTrait ["loadCoef",0.8]; _text = "Autorifleman role.<br/><br/>Autoriflemen have a slight bonus on carry capacity, but make too much noise when they move."}; //reintroduced - 8th January 2020, Bob Murphy
     	case "I_G_engineer_F":  {_text = "Engineer role.<br/><br/>Engineers do not have any bonus or penalties, but have the ability to use Repair Kits for vehicle repair."}; //reintroduced - 8th January 2020, Bob Murphy
- };
+    };
 };
 
-if (isMultiPlayer) then
-{
+_text spawn {
 	sleep 5;
-	["Unit Traits", format ["You have selected %1.",_text]] call A3A_fnc_customHint;
+    ["Unit Traits", format ["You have selected %1.", _this]] call A3A_fnc_customHint;
 };

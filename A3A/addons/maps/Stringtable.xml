@@ -78,11 +78,11 @@
       <Key ID="STR_antistasi_mission_info_anizay_blurb_text">
         <Original>Fought on the camel's back</Original>
         <German>Kampf auf dem Kamelrücken</German>
-        <Italian>Combattuta cavalcando il cammello</Italian>
+        <Italian>Combattuta a cammello</Italian>
         <Spanish>Luchado a lomos de un camello</Spanish>
         <French>Combattu à dos de chameau</French>
         <Korean>낙타 등 위에서의 싸움</Korean>
-        <Russian>Сражайся верхом на верблюде</Russian>
+        <Russian>Сражаясь верхом на верблюде</Russian>
         <Polish>Walczył na grzbiecie wielbłąda!</Polish>
         <Czech>Bojovat na zádech velblouda</Czech>
         <Portuguese>Combate às costas do camelo</Portuguese>
@@ -247,7 +247,7 @@
         <Original>Between the anvil and a steamroller.</Original>
         <German>Zwischen einem Amboss und einer Dampfwalze.</German>
         <Italian>Tra incudine e rullo compressore.</Italian>
-        <Spanish>Entre el yunque y la apisonadora</Spanish>
+        <Spanish>Entre el yunque y la apisonadora.</Spanish>
         <French>Entre l'enclume et un rouleau compresseur</French>
         <Korean>모루와 강압기 사이에</Korean>
         <Russian>Между катком и наковальней.</Russian>
@@ -415,7 +415,7 @@
         <Original>Stuck between two fronts.</Original>
         <German>Gefangen zwischen zwei Fronten.</German>
         <Italian>Bloccati tra due fronti.</Italian>
-        <Spanish>Atrapados entre dos frentes</Spanish>
+        <Spanish>Atrapados entre dos frentes.</Spanish>
         <French>Pris entre deux feux.</French>
         <Korean>두 전선 사이에 갇히다.</Korean>
         <Russian>Застряв меж двух фронтов.</Russian>
@@ -667,7 +667,7 @@
         <Original>Antistasi Normandy</Original>
         <German>Antistasi Normandie</German>
         <Italian>Antistasi Normandia</Italian>
-        <Spanish>Antistasi Normandía.</Spanish>
+        <Spanish>Antistasi Normandía</Spanish>
         <French>Antistasi Normandie</French>
         <Korean>안티스타시 노르망디</Korean>
         <Russian>Antistasi Нормандия</Russian>
@@ -681,7 +681,7 @@
         <Original>Antistasi - The French Resistance</Original>
         <German>Antistasi - Der französische Widerstand</German>
         <Italian>Antistati- La Resistenza Francese</Italian>
-        <Spanish>Antistasi - La Resistencia Francesa.</Spanish>
+        <Spanish>Antistasi - La Resistencia Francesa</Spanish>
         <French>Antistasi - La Résistance</French>
         <Korean>안티스타시 - 프랑스 레지스탕스</Korean>
         <Russian>Antistasi - Французское Сопротивление.</Russian>

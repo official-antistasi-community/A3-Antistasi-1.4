@@ -34,7 +34,7 @@
         <Original>You can't garage an aircraft while you are not near an Airport which belongs to %1. Please move your aircraft to an Airport under your control to garage it</Original>
         <German>Du kannst kein Flugzeug einparken solange du nicht in der Nähe eines Flughafens bist, der %1 gehört. Bitte bewegen dein Flugzeug zu einem Flughafen, den du kontrollierst, um es zu parken.</German>
         <Italian>Non puoi inserire un veivolo nel garage se ti trovi lontano da un Aereoporto di appartenenza %1. Per favore sposta il veivolo ad un aereoporto sotto il controllo alleato in modo da poter conservarlo nel garage</Italian>
-        <Spanish>No puedes almacenar una aeronave si no estás cerca de un aeropuerto que pertenezca a %1. Por favor, mueve tu aeronave a un aeropuerto bajo tu control para almacenarla.</Spanish>
+        <Spanish>No puedes almacenar una aeronave si no estás cerca de un aeropuerto que pertenezca a %1. Por favor, mueve tu aeronave a un aeropuerto bajo tu control para almacenarla</Spanish>
         <French>Vous ne pouvez pas entreposer un aéronef tant que vous n'êtes pas à proximité d'un aéroport appartenant à %1. Veuillez déplacer votre aéronef vers un aéroport sous votre contrôle pour l'entreposer</French>
         <Korean>%1 소속의 공항 근처에 있지 않으면 항공기를 정비할 수 없습니다. 정비하려면 항공기를 당신이 통제하는 공항으로 이동하십시오.</Korean>
         <Russian>Вы не можете переместить авиационную технику в гараж, если Вы не возле аэропорта принадлежащего фракции %1. Пожалуйста, переместите вашу технику к аэропорту под вашим контролем для перемещения её в гараж.</Russian>
@@ -342,7 +342,7 @@
         <Original>is looking at this vehicle.</Original>
         <German>schaut sich dieses Fahrzeug an</German>
         <Italian>sta guardando questo veicolo</Italian>
-        <Spanish>está mirando a este vehículo</Spanish>
+        <Spanish>está mirando a este vehículo.</Spanish>
         <French>regarde ce véhicule.</French>
         <Korean>이(가) 이 차량을 보고 있습니다.</Korean>
         <Russian>смотрит на эту технику.</Russian>
@@ -440,12 +440,13 @@
         <Original>You have too many vehicles locked</Original>
         <German>Du hast zu viele Fahrzeuge abgeschlossen</German>
         <Italian>Hai troppi veicoli chiusi</Italian>
-        <Spanish>Tienes demasiados vehículos cerrados.</Spanish>
+        <Spanish>Tienes demasiados vehículos cerrados</Spanish>
         <French>Vous avez trop de véhicules verrouillés</French>
         <Korean>너무 많은 차량을 잠갔습니다</Korean>
         <Russian>У вас заблокировано слишком много транспорта</Russian>
         <Polish>Masz za dużo zamkniętych pojazdów</Polish>
         <Czech>Máš až moc zamknutých vozidel</Czech>
+        <Portuguese>Existem muitos veículos trancados</Portuguese>
         <Turkish>Çok fazla kilitli aracın var</Turkish>
         <Chinesesimp>你已上锁过多载具</Chinesesimp>
       </Key>

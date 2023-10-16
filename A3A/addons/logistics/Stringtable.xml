@@ -4,17 +4,6 @@
     <Container name="Logistics">
       <Key ID="STR_A3A_logi_addact_load">
         <Original>Load %1 into nearest vehicle.</Original>
-        <German>Lade %1 in das nächstgelegene Fahrzeug.</German>
-        <Italian>Carica %1 nel veicolo più vicino.</Italian>
-        <Spanish>Cargar %1 al vehículo cercano.</Spanish>
-        <French>Charger %1 dans le véhicule le plus proche.</French>
-        <Korean>%1을(를) 가장 가까운 차량에 적재하십시오.</Korean>
-        <Russian>Загрузить %1 в ближайшую машину.</Russian>
-        <Polish>Załaduj %1 do najbliższego pojazdu.</Polish>
-        <Czech>Naložit %1 do nejbližšího vozidla.</Czech>
-        <Portuguese>Carregue %1 no veículo mais próximo.</Portuguese>
-        <Turkish>En yakın araca %1 yükleyin.</Turkish>
-        <Chinesesimp>将%1装载入附近的载具</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_addact_unload">
         <Original>Unload Cargo</Original>
@@ -26,7 +15,7 @@
         <Spanish>Alguien está ocupando el equipamiento estático.</Spanish>
         <French>Quelqu'un est déjà dans l'arme statique.</French>
         <Korean>누군가 이미 고정화기에 있습니다.</Korean>
-        <Russian>Кто-то уже в статическом оружии.</Russian>
+        <Russian>Кто-то уже в этом статическом оружии.</Russian>
         <Polish>Ktoś już się znajduje w broni stacjonarnej.</Polish>
         <Czech>Někdo se již nachází ve statice.</Czech>
         <Portuguese>Alguém já está na estática.</Portuguese>
@@ -54,7 +43,7 @@
         <Spanish>El vehículo no es capaz de cargar armas.</Spanish>
         <French>Le véhicule n'a pas la possibilité de charger des armes.</French>
         <Korean>해당 차량은 무기를 탑재할 능력이 부족합니다.</Korean>
-        <Russian>В машине отсутствует возможность загрузки вооружения.</Russian>
+        <Russian>В машине отсутствует возможность загрузки оружия.</Russian>
         <Polish>Pojazd nie posiada zdolności do załadowania broni.</Polish>
         <Czech>Vozidlo nemůže naložit zbraně.</Czech>
         <Portuguese>O veículo não tem capacidade para carregar armas.</Portuguese>
@@ -113,6 +102,7 @@
         <Russian>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Масса груза: &lt;/t&gt;</Russian>
         <Polish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Masa ładunku: &lt;/t&gt;</Polish>
         <Czech>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Hmotnost nákladu: &lt;/t&gt;</Czech>
+        <Portuguese>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Carga Total: &lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Kargo kütlesi: &lt;/t&gt;</Turkish>
         <Chinesesimp>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;货物质量: &lt;/t&gt;</Chinesesimp>
       </Key>
@@ -126,6 +116,7 @@
         <Russian>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Текущая масса: &lt;/t&gt;</Russian>
         <Polish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Aktualna masa: &lt;/t&gt;</Polish>
         <Czech>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Aktuální hmotnost: &lt;/t&gt;</Czech>
+        <Portuguese>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Carga atual: &lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Şu anki kütle: &lt;/t&gt;</Turkish>
         <Chinesesimp>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;目前质量: &lt;/t&gt;</Chinesesimp>
       </Key>
@@ -139,6 +130,7 @@
         <Russian>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Масса по умолчанию: &lt;/t&gt;</Russian>
         <Polish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Domyślna masa: &lt;/t&gt;</Polish>
         <Czech>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Výchozí hmotnost: &lt;/t&gt;</Czech>
+        <Portuguese>&lt;br/&gt;&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Carga normal: &lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;Varsayılan kütle: &lt;/t&gt;</Turkish>
         <Chinesesimp>&lt;t color='#00aafd' size='1.2' shadow='1' shadowColor='#000000' align='left'&gt;默认质量: &lt;/t&gt;</Chinesesimp>
       </Key>
@@ -152,11 +144,17 @@
         <Russian>&lt;t color='#00fff3'&gt;"%1" загружен в "%2". Свободных мест: "%3".&lt;/t&gt;</Russian>
         <Polish>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". Wolne miejsca: "%3".&lt;/t&gt;</Polish>
         <Czech>&lt;t color='#00fff3'&gt;"%1" je nakládáno do "%2". Volné sloty: "%3".&lt;/t&gt;</Czech>
+        <Portuguese>&lt;t color='#00fff3'&gt;"%1" foi carregado em "%2". Espaços livres: "%3".&lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00fff3'&gt;"%1" ,"%2"'ye yüklendi. Boş yerler: "%3".&lt;/t&gt;</Turkish>
         <Chinesesimp>&lt;t color='#00fff3'&gt;"%1" 已经被装载入 "%2". 可用槽位: "%3".&lt;/t&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_mass_nospace">
         <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". There is no more space.&lt;/t&gt;</Original>
+        <Spanish>&lt;t color='#00fff3'&gt;"%1" está siendo cargado en "%2" No queda más espacio.&lt;/t&gt;</Spanish>
+        <French>&lt;t color='#00fff3'&gt;"%1" est chargé sur "%2" Il n'y a plus de place.&lt;/t&gt;</French>
+        <Czech>&lt;t color='#00fff3'&gt;"%1" je nakládáno do "%2" Už nezbylo žádné další místo.&lt;/t&gt;</Czech>
+        <Portuguese>&lt;t color='#00fff3'&gt;"%1" foi carregado em "%2". Não há mais espaço.&lt;/t&gt;</Portuguese>
+        <Turkish>&lt;t color='#00fff3'&gt;"%1" , "%2"'ye yüklendi. Boş yer kalmadı.&lt;/t&gt;</Turkish>
       </Key>
       <Key ID="STR_A3A_logi_mass_unloaded_freeslots">
         <Original>&lt;t color='#00fff3'&gt;"%1" was unloaded from "%2". Free slots: "%3".&lt;/t&gt;</Original>
@@ -168,6 +166,7 @@
         <Russian>&lt;t color='#00fff3'&gt;"%1"был выгружен из "%2". Свободных мест: "%3".&lt;/t&gt;</Russian>
         <Polish>&lt;t color='#00fff3'&gt;"%1" został wyładowany z "%2". Wolne miejsca: "%3".&lt;/t&gt;</Polish>
         <Czech>&lt;t color='#00fff3'&gt;"%1" bylo vyloženo z "%2". Volné sloty: "%3".&lt;/t&gt;</Czech>
+        <Portuguese>&lt;t color='#00fff3'&gt;"%1" foi descarregado de "%2". Espaços livres: "%3".&lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00fff3'&gt;"%1" , "%2"'den boşaltıldı. Boş yerler: "%3".&lt;/t&gt;</Turkish>
         <Chinesesimp>&lt;t color='#00fff3'&gt;"%1" 已经从"%2" 卸下 . 当前可用空间为: "%3".&lt;/t&gt;</Chinesesimp>
       </Key>
@@ -189,7 +188,7 @@
         <Original>Logistics</Original>
         <German>Logistik</German>
         <Italian>Logistica</Italian>
-        <Spanish>Logística.</Spanish>
+        <Spanish>Logística</Spanish>
         <French>Logistique</French>
         <Korean>병참</Korean>
         <Russian>Логистика</Russian>
@@ -248,7 +247,7 @@
         <Spanish>No puedes cargar equipamiento estático que ya está montado.</Spanish>
         <French>Impossible de charger une arme statique occupée.</French>
         <Korean>탑재된 고정화기를 적재할 수는 없습니다.</Korean>
-        <Russian>Невозможно загрузить установленное статическое оружие</Russian>
+        <Russian>Невозможно загрузить статическое оружие, в котором кто-то находится.</Russian>
         <Polish>Nie można załadować zamontowanej broni statycznej.</Polish>
         <Czech>Nemůžeš naložit statiku která je připevněná.</Czech>
         <Portuguese>Não é possível carregar uma estática montada.</Portuguese>
@@ -360,7 +359,7 @@
         <Spanish>No puedes descargar equipamiento estático que ya está montado.</Spanish>
         <French>Impossible de décharger une arme statique occupée.</French>
         <Korean>탑재된 고정화기를 하역할 수 없습니다.</Korean>
-        <Russian>Невозможно разгрузить установленное статическое оружие</Russian>
+        <Russian>Невозможно загрузить статическое оружие, в котором кто-то находится.</Russian>
         <Polish>Nie można wyładować broni stacjonarnej która jest zamontowana.</Polish>
         <Czech>Nemůžeš naložit statiku které je přidělaná.</Czech>
         <Portuguese>Não é possível descarregar uma estática montada.</Portuguese>

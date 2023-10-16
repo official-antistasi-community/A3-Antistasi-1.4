@@ -9273,9 +9273,29 @@
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
       </Key>
     </Container>
-    <Container name="Building placer">
+    <Container name="Building_Placer">
       <Key ID="STR_A3A_builder_title">
         <Original>Building Placer</original>
+      </Key>
+      <Key ID="STR_A3A_builder_enemies_near">
+        <Original>You can not use the placer while there are enemies nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_builder_not_eligible">
+        <Original>You are not eligible to use the building placer.</Original>
+      </Key>
+      <Key ID="STR_A3A_builder_server_respond_failed">
+        <Original>Server failed to respond to building placer request.</Original>
+      </Key>
+      <Key ID="STR_A3A_builder_box_being_used">
+        <Original>Builder box is already being used by %1</Original>
+      </Key>
+    </Container>
+    <Container name="Unit_Traits">
+      <Key ID="STR_A3A_Unit_Traits_title">
+        <Original>Unit Traits</original>
+      </Key>
+      <Key ID="STR_A3A_Unit_Traits_selected_trait">
+        <Original>You have selected %1.</original>
       </Key>
     </Container>
   </Package>

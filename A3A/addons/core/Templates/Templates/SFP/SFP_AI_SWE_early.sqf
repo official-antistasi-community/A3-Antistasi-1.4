@@ -14,38 +14,39 @@
 //////////////////////////
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate;
+["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate;
 
-// vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
+
 ["vehiclesBasic", ["CUP_B_M1030_USA"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["sfp_tgb11","sfp_tgb1112"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["sfp_tgb1111_sog_ksp58"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightArmed", ["sfp_tgb1111_sog_ksp58"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["sfp_bv206", "sfp_tgb1317", "sfp_tgb20", "sfp_tgb13_ksp58","I_E_Truck_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["sfp_tgb20", "sfp_tgb13_ksp58","I_E_Truck_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["sfp_pbv302_mounted"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["sfp_pbv302_mounted", "sfp_pbv302", "sfp_pbv302"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
-["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["sfp_strv103c","sfp_strv102","sfp_strv121","sfp_ikv91"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
+["vehiclesLightAPCs", ["sfp_pbv302_mounted"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["sfp_pbv302_mounted", "sfp_pbv302", "sfp_pbv302"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;
+["vehiclesLightTanks", ["sfp_ikv91"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["sfp_strv103c","sfp_strv102","sfp_strv121"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["sfp_lvkv90c"]] call _fnc_saveToTemplate;
 
 
 ["vehiclesTransportBoats", ["sfp_gruppbat"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["sfp_strb90"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["sfp_pbv302_mounted", "sfp_pbv302", "sfp_pbv302"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
+["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["sfp_hkp4","CUP_B_UH1D_GER_KSK_Des","CUP_B_SA330_Puma_HC1_BAF"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
-["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_UH1D_armed_GER_KSK_Des"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
+["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_UH1D_armed_GER_KSK_Des"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_UH1D_gunship_GER_KSK_Des"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["sfp_fh77"]] call _fnc_saveToTemplate;

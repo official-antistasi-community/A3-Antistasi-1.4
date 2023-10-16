@@ -30,7 +30,8 @@
 ["vehiclesLightAPCs", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","CUP_B_LAV25_HQ_green"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["sfp_patgb360","CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c_snow"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesTanks", ["sfp_strv122_snow","sfp_strv121_snow","sfp_ikv91_snow"]] call _fnc_saveToTemplate;
+["vehiclesLightTanks", ["sfp_ikv91_snow"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["sfp_strv122_snow","sfp_strv121_snow"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["sfp_lvkv90c_snow"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 

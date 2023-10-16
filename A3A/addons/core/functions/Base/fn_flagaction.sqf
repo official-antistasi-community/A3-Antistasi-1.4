@@ -13,7 +13,7 @@ switch _typeX do
     {
         removeAllActions _flag;
         _actionX = _flag addAction ["<t>Take the Flag<t> <img image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa' size='1.8' shadow=2 />", A3A_fnc_mrkWIN,nil,6,true,true,"","(isNil 'A3A_isPlayerCapturingFlag' || {!A3A_isPlayerCapturingFlag}) && (_this == _this getVariable ['owner',objNull])",4];// TODO: partial string created - unsure about implementation
-        _flag setUserActionText [_actionX,"Take the Flag","<img size='2' image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa'/>"];// TODO: string created, unsure about implementation
+        _flag setUserActionText [_actionX,localize "STR_A3A_fn_base_flagaction_take","<img size='2' image='\A3\ui_f\data\igui\cfg\actions\takeflag_ca.paa'/>"];
     };
     case "unit":
     {
@@ -53,12 +53,12 @@ switch _typeX do
             if ([_flag] call A3A_fnc_fatalWound) then
             {
                 _actionX = _flag addAction [format ["<t>Revive %1 </t> <img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];// TODO: partial string created - unsure about implementation
-                _flag setUserActionText [_actionX,format ["Revive %1",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];// TODO: string created, unsure about implementation
+                _flag setUserActionText [_actionX,format [localize "STR_A3A_fn_base_flagaction_heal_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
             }
             else
             {
                 _actionX = _flag addAction [format ["<t>Revive %1 </t> <img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];// TODO: partial string created - unsure about implementation
-                _flag setUserActionText [_actionX,format ["Revive %1",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];// TODO: string created, unsure about implementation
+                _flag setUserActionText [_actionX,format [localize "STR_A3A_fn_base_flagaction_heal_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
             };
         };
     };
@@ -69,17 +69,17 @@ switch _typeX do
             if ([_flag] call A3A_fnc_fatalWound) then
             {
                 _actionX = _flag addAction [format ["<t>Revive %1</t> <img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];// TODO: partial string created - unsure about implementation
-                _flag setUserActionText [_actionX,format ["Revive %1",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];// TODO: string created, unsure about implementation
+                _flag setUserActionText [_actionX,format [localize "STR_A3A_fn_base_flagaction_heal_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_reviveMedic_ca.paa'/></t>"];
             }
             else
             {
                 _actionX = _flag addAction [format ["<t>Revive %1</t> <img size='1.8' <img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa' />",name _flag], A3A_fnc_actionRevive,nil,6,true,false,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)",4];// TODO: partial string created - unsure about implementation
-                _flag setUserActionText [_actionX,format ["Revive %1",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];// TODO: string created, unsure about implementation
+                _flag setUserActionText [_actionX,format [localize "STR_A3A_fn_base_flagaction_heal_revive",name _flag],"<t size='2'><img image='\a3\ui_f\data\IGUI\Cfg\holdactions\holdAction_revive_ca.paa'/></t>"];
             };
             //_flag addAction [format ["Revive %1",name _flag], { _this spawn A3A_fnc_actionRevive; },nil,0,false,true,"","!(_this getVariable [""helping"",false]) and (isNull attachedTo _target)"];
 
             _actionX = _flag addAction [format ["<t>Carry %1</t> <img image='\A3\ui_f\data\igui\cfg\actions\take_ca.paa' size='1.6' shadow=2 />",name _flag], A3A_fnc_carry,nil,5,true,false,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (isNull attachedTo _target) and !(_this getVariable [""helping"",false]);",4];// TODO: partial string created - unsure about implementation
-            _flag setUserActionText [_actionX,format ["Carry %1",name _flag],"<t size='2'><img image='\A3\ui_f\data\igui\cfg\actions\take_ca.paa'/></t>"];// TODO: string created, unsure about implementation
+            _flag setUserActionText [_actionX,format [localize "STR_A3A_fn_base_flagaction_heal_carry",name _flag],"<t size='2'><img image='\A3\ui_f\data\igui\cfg\actions\take_ca.paa'/></t>"];// TODO: string created, unsure about implementation
             [_flag] call A3A_Logistics_fnc_addLoadAction;
         };
     };

@@ -266,6 +266,12 @@
         <Turkish>Statik Otomatik Hedef</Turkish>
         <Chinesesimp>固定式武器 自动追踪</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_help_title">
+        <Original>Medical</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_help_onway">
+       <Original>%1 is on the way to help you.</Original>
+      </Key>
     </Container>
     <Container name="A3A_fn_ammo">
       <Key ID="STR_A3A_fn_ammo_cargo">
@@ -363,6 +369,9 @@
         <Portuguese>Disfarçado</Portuguese>
         <Turkish>Gizlilik</Turkish>
         <Chinesesimp>伪装</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_base_airspacecontrol_undercover_text">
+       <Original>Unidentified helicopter&lt;br/&gt;&lt;br/&gt;You are closing in on the airspace of %1.&lt;br/&gt;&lt;br/&gt; Change your course or we will take defensive actions!</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_warning">
         <Original>Unidentified helicopter&lt;br/&gt;&lt;br/&gt;You are closing in on the airspace of %1.&lt;br/&gt;&lt;br/&gt; Change your course or we will take defensive actions!</Original>
@@ -1709,6 +1718,12 @@
         <Turkish>Aracın kilidini aç</Turkish>
         <Chinesesimp>解锁载具</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_base_addActBrea_addact_breach">
+        <Original>Breach Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_mrkwin_addact_abortCapture">
+        <Original>Abort Outpost Capture</Original>
+      </Key>
     </Container>
     <Container name="A3A_fn_convoy">
       <Key ID="STR_A3A_fn_convoy_convdebug_admin">
@@ -2531,6 +2546,105 @@
         <Polish>Uwaga</Polish>
         <Czech>Varování</Czech>
         <Turkish>Uyarı</Turkish>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_title">
+        <Original>City Information</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_overview_1">
+        <Original>%7&lt;br/&gt;&lt;br/&gt;Total pop: %1&lt;br/&gt;%6 Support: %2&lt;br/&gt;%5 Support: %3&lt;br/&gt;&lt;br/&gt;Murdered Pop: %4&lt;br/&gt;&lt;br/&gt;Click on the zone</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_click">
+        <Original>Click on the zone</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_hq">
+        <Original>%2 HQ%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_overview_2">
+        <Original>%1&lt;br/&gt;&lt;br/&gt;Pop %2&lt;br/&gt;%6 Support: %3 %5&lt;br/&gt;%7 Support: %4 %5</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_influ">
+        <Original>%1&lt;br/&gt;Influence: %2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_destr">
+        <Original>%1&lt;br/&gt;DESTROYED</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_airp_1">
+        <Original>%1 Airport</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_status_idle">
+        <Original>%1&lt;br/&gt;Status: Idle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_status_busy">
+        <Original>%1&lt;br/&gt;Status: Busy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_garr_good">
+        <Original>%1&lt;br/&gt;Garrison: Good</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_garr_weak">
+        <Original>%1&lt;br/&gt;Garrison: Weakened</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_garr_deci">
+        <Original>%1&lt;br/&gt;Garrison: Decimated</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_airp_2">
+        <Original>%2 Airport%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_reso_1">
+        <Original>%1 Resources</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_reso_2">
+        <Original>%2 Resources%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_fact_1">
+        <Original>%1 Factory</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_fact_2">
+        <Original>%2 Factory%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_goutp_1">
+        <Original>%2 Outpost%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_seap_1">
+        <Original>%1 Seaport</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_seap_2">
+        <Original>%2 Seaport%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_road_2">
+        <Original>%2 Roadblock%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_watch_1">
+        <Original>%1 Watchpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_cityinfo_goutp_2">
+        <Original>%1 Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_addact_gameOpt">
+        <Original>Game Options</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_title">
+        <Original>Game Options</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_version">
+        <Original>Version:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_resoBal">
+        <Original>Enemy resource balance:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_unlockNo">
+        <Original>Unlock Weapon Number:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_limFT">
+        <Original>Limited Fast Travel:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_spawnDist">
+        <Original>Spawn Distance:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_civLim">
+        <Original>Civilian Limit:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initclient_gameOpt_timeGC">
+        <Original>Time since GC:</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_intel">
@@ -3628,6 +3742,12 @@
         <Portuguese>Rastreador de Limpeza de Lixo</Portuguese>
         <Turkish>Çöp Temizleyici İzci</Turkish>
         <Chinesesimp>垃圾清洁器跟踪器</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_warning_title">
+        <Original>Final Warning</Original>
+      </Key>
+      <Key ID="STR_A3A_GCTracker_warning_text">
+        <Original>Automatic Garbage Clean incoming in %1</Original>
       </Key>
     </Container>
     <Container name="A3A_selfRevive">
@@ -9271,6 +9391,931 @@
         <Polish>Opcje związane z zarządzaniem pojazdami w oddziałach kontrolowanych przez HC</Polish>
         <Czech>Možnosti související se správou vozidel v jednotkách kontrolovaných HC</Czech>
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_OrgPlayers">
+      <Key ID="STR_A3A_fn_orgp_donMon_titel">
+        <Original>Donate Money</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_donMon_no_less">
+        <Original>You have less than 100 € to donate.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_donMon_donated_faction">
+        <Original>You have donated 100 € to the cause. This will raise your status among our forces.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_donMon_no_looking">
+        <Original>You must be looking to a player in order to give him money.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_donMon_donated_player">
+        <Original>You have donated 100 € to %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_titel">
+        <Original>Membership</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_admin">
+        <Original>Only Server Admins or hosters can add a new member.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_disabled">
+        <Original>Server Member feature is disabled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_initialised">
+        <Original>Membership feature not yet initialised. Please try again later.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_pointing">
+        <Original>You are not pointing to anyone.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_already">
+        <Original>The player is already a member of this server.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_no_not">
+        <Original>The player is not a member of this server.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_added_other">
+        <Original>"%1 has been added to the Server Members List.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_added_you">
+        <Original>You have been added to the Server Members list.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_removed_other">
+        <Original>%1 has been removed from the Server Members List.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memAdd_removed_you">
+        <Original>You have been removed from the Server Members list.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memList_titel">
+        <Original>Membership</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memList_no_disabled">
+        <Original>Server Member feature is disabled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memList_members">
+        <Original>In Game Members&lt;br/&gt;&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_memList_members_count">
+        <Original>%1&lt;br/&gt;No. members:&lt;br/&gt;%2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_plaLeash_comrade">
+        <Original>Comrade, we're losing contact!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_plaLeash_retreat">
+        <Original>Retreat &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, within &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Stay within %4 km of HQ or a member. Failure to comply will re-insert you at HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBSteal_titel">
+        <Original>Money Grab</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
+        <Original>%1 has not enough resources to grab.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBSteal_grab_yes">
+        <Original>You grabbed 100 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_titel">
+        <Original>Commander</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_choosing">
+        <Original>You resign from being commander, choosing %1 as your successor.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_chosen">
+        <Original>You resign from being commander. Your chosen successor (%1) was not eligible.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_others">
+        <Original>You resign from being Commander. Others will take the command if there is someone suitable.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_eligible_no">
+        <Original>You decided not to be eligible for commander.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTogEli_eligible_yes">
+        <Original>You are now eligible to be commander of our forces.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_title">
+        <Original>Unit Traits</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_commander1">
+        <Original>Commander role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_commander2">
+        <Original>The commander is a lightweight unit with increased camouflage, medical and engineering capabilities.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_medic1">
+        <Original>Medic role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_medic2">
+        <Original>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead1">
+        <Original>Teamleader role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead2">
+        <Original>Teamleader are more lightweight units with increased camouflage capabilities.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_rifle1">
+        <Original>Rifleman role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_rifle2">
+        <Original>Riflemen do not have any bonus or penalties but can hack drones.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier1">
+        <Original>Grenadier role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier2">
+        <Original>Grenadiers have a slight bonus on carry capacity, but are easy to spot.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle1">
+        <Original>Autorifleman role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle2">
+        <Original>Autoriflemen have a slight bonus on carry capacity, but make too much noise when they move.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_engi1">
+        <Original>Engineer role.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_engi2">
+        <Original>Engineers do not have any bonus or penalties, but have the ability to use Repair Kits for vehicle repair.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_unitTraits_you">
+        <Original>You have selected %1</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_proxy">
+      <Key ID="STR_A3A_fn_proxy_remAI_titel">
+        <Original>Remote AI</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_proxy_remAI_text">
+        <Original>Died while remote controlling AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_proxy_statDepl_titel">
+        <Original>Static Deployed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_proxy_statDepl_text">
+        <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_Punishment">
+      <Key ID="STR_A3A_fn_punish_oob_titel">
+        <Original>Out of bounds</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_oob_text">
+        <Original>Return to the AO before your blown up, you have %1 seconds.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_ff_noti">
+        <Original>FF Notification</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punEval_hurt">
+        <Original>%1 hurt you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punEval_warning">
+        <Original>FF Warning</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punEval_injured">
+        <Original>Injured comrade:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_ff_pun">
+        <Original>FF Punishment</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punRel_enough">
+        <Original>Enough then.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punRel_admin">
+        <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punSenCl_text">
+        <Original>Please do not teamkill. Stare at the turtles for %1 more seconds.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punSenSv_text">
+        <Original>has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_pun_conun">
+        <Original>Control Unit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_pun_returned">
+        <Original>Returned to original Unit due to FF.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_pun_hurt">
+        <Original>hurt you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_pun_fire">
+        <Original>Watch your fire!</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_REINF">
+      <Key ID="STR_A3A_fn_reinf_bombrun_title">
+        <Original>Airstrike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_looking">
+        <Original>You are not looking at a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_destr">
+        <Original>You can't convert destroyed Air vehicle to Airstrikes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_nearby">
+        <Original>You can't convert Airstrikes while enemies are near you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_area">
+        <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_empty">
+        <Original>In order to convert, Vehicle must be empty.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_owner">
+        <Original>You are not the owner of this vehicle. Therefore, you can't convert it.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_airveh">
+        <Original>Only Air Vehicles can be used to increase Airstrike points.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_drone">
+        <Original>Backpack drones can't be used to increase Airstrike points.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_increased">
+        <Original>Air Support increased in %1 points.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_title">
+        <Original>Recruit Squad</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_commander">
+        <Original>Only the Commander has access to this function.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_movehq">
+        <Original>You cannot recruit a new squad while you are moving your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_enemy">
+        <Original>You cannot recruit squads with enemies near your HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_many">
+        <Original>You have too many high command squads active. Disband or garrison some to recruit more.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_notsupp">
+        <Original>The group or vehicle type you requested is not supported in your modset.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_modset">
+        <Original>Your current modset doesn't support packing/unpacking static weapons.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_hr">
+        <Original>You do not have enough HR for this request (%1 required).</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money">
+        <Original>You do not have enough money for this request (%1 € required).</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_distance">
+        <Original>You cant place HC vehicles further than 50m from HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money2">
+        <Original>No money left to buy a transport vehicle (%1 € required), creating barefoot squad.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_buyveh">
+        <Original>Buy a vehicle for this squad for %1 €.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio2">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_title">
+        <Original>Add Squad Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_select_group">
+        <Original>You must select one group on the HC bar.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_has_vehicle">
+        <Original>This group has a vehicle already and their mission depends on it.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_veh_destr">
+        <Original>The selected vehicle is destroyed or cannot move.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_empty">
+        <Original>Selected vehicle is not empty.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_static">
+        <Original>You cannot assign a Static Weapon to a Squad.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_change">
+        <Original>Static Weapon Squads cannot change of vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_room">
+        <Original>The vehicle selected has no room for this squad.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addSqdVeh_assigned">
+        <Original>Vehicle assigned to %1 Squad.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildinfo_title">
+        <Original>Build Info</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_placing">
+        <Original>You can't build while placing something.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_controlling">
+        <Original>You cannot construct anything while controlling AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_uncon">
+        <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover.&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_engi">
+        <Original>You are not an engineer.&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_humanEngi">
+        <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_sl">
+        <Original>Only squad leaders can order AI to build.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_ordering">
+        <Original>Ordering %1 to build.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_engi2">
+        <Original>You have no available engineers in your squad. They may be unconscious or busy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_money">
+        <Original>You do not have enough money for this construction (%1 € needed).</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_outside">
+        <Original>You cannot build a bunker outside a controlled zone.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_no_road">
+        <Original>Roadblocks can only be built on roads</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_build_offroad_friendly">
+        <Original>Bunkers can only be built off roads, in friendly areas</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildCreVehCall_walk">
+        <Original>Walk to the selected position to start building</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildCreVehCall_no_move">
+        <Original>You didn't move to the position, construction has timed out.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildCreVehCall_cancelled">
+        <Original>Construction cancelled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_title">
+        <Original>Control Squad</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_commander">
+        <Original>Only Commander has the ability to control HC units.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_undercover">
+        <Original>You cannot control squads while undercover.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_nope">
+        <Original>Nope. Not happening.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_uncon">
+        <Original>You cannot control an unconscious or dead unit.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_damage">
+        <Original>Returned to original Unit as it received damage.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_damage_ai">
+        <Original>Returned to original Unit as controlled AI received damage.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_return">
+        <Original>Return Control to AI</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_time">
+        <Original>Time to return control to AI: %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_title">
+        <Original>Control Unit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_petros">
+        <Original>You cannot control Petros.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_uncon">
+        <Original>You cannot control AI while undercover.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_sl">
+        <Original>You cannot control AI if you are not the squad leader.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_other_player">
+        <Original>You cannot control another player.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_deadUnit">
+        <Original>You cannot control an unconscious, a dead unit.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_belong">
+        <Original>You cannot control a unit which does not belong to %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_nope">
+        <Original>Nope. Not happening.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_no_controlling">
+        <Original>You cannot control AI while you are controlling another AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_return_damage">
+        <Original>Returned to original Unit as it received damage.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_return_damage_ai">
+        <Original>Returned to original Unit as controlled AI received damage.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_return">
+        <Original>Return Control to AI</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_controlunit_return_time">
+        <Original>Time to return control to AI: %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissPlaGro_title">
+        <Original>Dismiss Group</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissPlaGro_no_sl">
+        <Original>You cannot dismiss anyone if you are not the squad leader.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissPlaGro_no_uncon">
+        <Original>You cannot disband suppressed, undercover or unconscious units.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissSquad_title">
+        <Original>Dismiss Squad</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissSquad_no_player">
+        <Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dissSquad_no_nato">
+        <Original>You cannot dismiss NATO groups.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIAinit_lost">
+        <Original>%1 lost communication, he will come back with you if possible.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_title">
+        <Original>Skill Add</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_commander">
+        <Original>Only our Commander has access to this function.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_training_max">
+        <Original>Your troops have the maximum training.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_wl">
+        <Original>You cannot upgrade training in the current War Level.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_money">
+        <Original>You do not have enough money to afford additional training. %1 € needed.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_FIASkAdd_upgraded">
+        <Original>%2 Skill Level has been Upgraded.&lt;br/&gt;Current level is %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_title">
+        <Original>Garrison</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_zone_add">
+        <Original>Select a zone to add garrisoned troops.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_zone_remove">
+        <Original>Select a zone to remove it's Garrison.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_zone_click">
+        <Original>You must click near a marked zone.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_zone_belong">
+        <Original>That zone does not belong to %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_no_enemy">
+        <Original>You cannot manage this garrison while there are enemies nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_no_att">
+        <Original>You cannot manage this garrison when there's a major attack incoming.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_no_troops">
+        <Original>The place has no garrisoned troops to remove.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_removed">
+        <Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_title">
+        <Original>Air Support</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_lack_supp">
+        <Original>You lack of enough Air Support to make this request.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio">
+        <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio2">
+        <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_no_control">
+        <Original>You need to control an airport in order to fulfill this request.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_select_start">
+        <Original>Select the spot from which the plane will start to drop the bombs.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NatoBomb_select_end">
+        <Original>Select the map position to which the plane will exit to calculate plane's route vector.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_title">
+        <Original>AI Recruitment</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_member">
+        <Original>Only Server Members can recruit AI units.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_wait">
+        <Original>You need to wait %1 seconds to be able to recruit units again.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_controlling">
+        <Original>You cannot buy units while you are controlling AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_enemy">
+        <Original>You cannot Recruit Units with enemies nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_lead">
+        <Original>You cannot recruit units as you are not your group leader.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_hr">
+        <Original>You do not have enough HR for this request.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_money">
+        <Original>You do not have enough money for this kind of unit (%1 € needed).</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_full">
+        <Original>Your squad is full or you have too many scattered units with no radio contact.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_weapons">
+        <Original>You don't have enough weapons to equip this type of unit.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_reinfPlayer_recruited">
+        <Original>Soldier Recruited.&lt;br/&gt;&lt;br/&gt;Remember: if you use the group menu to switch groups you will lose control of your recruited AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_spawnHCGro_title">
+        <Original>Recruit Squad</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
+        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_spawnHCGro_purchased">
+        <Original>Vehicle Purchased</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_title">
+        <Original>Vehicle Info</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_select">
+        <Original>You must select one group on the HC bar.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_dismount">
+        <Original>%2%1 dismounting&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_board">
+        <Original>%2%1 boarding&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_status">
+        <Original>%1 Status&lt;br/&gt;&lt;br/&gt;Alive members: %2&lt;br/&gt;Able to combat: %3&lt;br/&gt;Current task: %4&lt;br/&gt;Combat Mode:%5&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_medic_yes">
+        <Original>%1Operative Medic&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_medic_no">
+        <Original>%1No operative Medic&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_AT_yes">
+        <Original>%1With AT capabilities&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_AA_yes">
+        <Original>%1With AA capabilities&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_mortar_yes">
+        <Original>%1Mortar is deployed&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_mortar_no">
+        <Original>%1Mortar not deployed&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_static_yes">
+        <Original>%1Static is deployed&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_static_no">
+        <Original>%1Static not deployed&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_currVeh">
+        <Original>%1Current vehicle:&lt;br/&gt;%2&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_destr">
+        <Original>%1DESTROYED</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_disab">
+        <Original>%1DISABLED&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_weaDisab">
+        <Original>%1WEAPON DISABLED&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_munitioned">
+        <Original>%1Munitioned&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_boarded">
+        <Original>%1Boarded:%2/%3</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_title">
+        <Original>Add Vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_placing">
+        <Original>Unable to buy vehicle, you are already placing something.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_control">
+        <Original>You cannot buy vehicles while you are controlling AI.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_enemy">
+        <Original>You cannot buy vehicles with enemies nearby.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_supp">
+        <Original>The vehicle you requested is not supported in your current modset.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_money">
+        <Original>You do not have enough money for this vehicle: %1 € required.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_flag">
+        <Original>You need to be close to the flag to be able to purchase a vehicle.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_Revive">
+      <Key ID="STR_A3A_fn_revive_actRev_title">
+        <Original>Revive</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_dead">
+        <Original>%1 is already dead.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_able">
+        <Original>You are not able to revive anyone.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_carry1">
+        <Original>%1 is being carried or transported and you cannot heal him.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_carry2">
+        <Original>%1 is being carried or transported and I cannot heal him.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_up">
+        <Original>%1 no longer needs your help.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_meds">
+        <Original>You or %1 need a First Aid Kit or Medikit to be able to revive.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_addact_cancel">
+        <Original>Cancel Revive</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_rev_cancel">
+        <Original>Revive cancelled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_lost">
+        <Original>We lost %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_carry_title">
+        <Original>Carry/Drag</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_carry_dead">
+        <Original>%1 is dead.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_carry_nohelp">
+        <Original>%1 no longer needs your help.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_carry_no_carry">
+        <Original>%1 is being carried or transported and you cannot carry him.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_carry_addact_release">
+        <Original>Release %1</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_Save">
+      <Key ID="STR_A3A_fn_save_saveLoop_title1">
+        <Original>Save Game</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_progress">
+        <Original>Server data save is still in progress...</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_title2">
+        <Original>Persistent Save</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_saving">
+        <Original>Starting persistent save..</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_text_asset">
+        <Original>Assets:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_text_money">
+        <Original>&lt;br/&gt;Money:</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_save_saveLoop_text_options">
+        <Original>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Further infomation is provided in &lt;t color='#f0d498'&gt;Map Screen > Game Options > Persistent Save-game&lt;/t&gt;.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_Undercover">
+      <Key ID="STR_A3A_fn_undercover_title">
+        <Original>Undercover</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_ai">
+        <Original>You cannot go Undercover while you are controlling AI!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_already">
+        <Original>You are Undercover already.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_nociv">
+        <Original>You are not in a civilian vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported1">
+        <Original>This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_towrope">
+        <Original>This vehicle cannot go undercover while it has tow ropes attached.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported2">
+        <Original>You have been reported in the last 30 minutes therefore you cannot go Undercover.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_while">
+        <Original>You cannot go Undercover while:&lt;br/&gt;</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_weapon">
+        <Original>%1&lt;br/&gt;A weapon is visible.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_vest">
+        <Original>%1&lt;br/&gt;Wearing a vest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_helmet">
+        <Original>%1&lt;br/&gt;Wearing a helmet.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_ngv">
+        <Original>%1&lt;br/&gt;Wearing NVGs.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_uniform">
+        <Original>%1&lt;br/&gt;Wearing a suspicious uniform.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_naked">
+        <Original>%1&lt;br/&gt;Being naked. Thats what you think is unsuspicious?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_rope">
+        <Original>%1&lt;br/&gt;Holding tow ropes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_close">
+        <Original>You cannot go Undercover near Airports, Outposts, Seaports or Roadblocks.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_canGoUn_no_spotted">
+        <Original>You cannot go Undercover while enemies are spotting you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_reported">
+        <Original>You have been reported or spotted by the enemy!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_entered_veh1">
+        <Original>You entered a non civilian vehicle!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_entered_veh2">
+        <Original>You entered a reported vehicle!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_towrope1">
+        <Original>You cannot be undercover while tow ropes are attached to your vehicle!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_towrope2">
+        <Original>You cannot be undercover and use tow ropes!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_explo">
+        <Original>Explosives have been spotted on your vehicle!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_distance">
+        <Original>You went too far away from any roads and have been spotted!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_reason_1">
+        <Original>You cannot stay Undercover while:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_reason_2">
+        <Original>You cannot stay Undercover while showing:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_reason_3">
+        <Original>You cannot stay Undercover while healing a compromised resistance member!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_no_reason_4">
+        <Original>You cannot stay Undercover while healing a compromised resistance member&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_leftveh">
+        <Original>You left your vehicle and you are still on the Wanted List!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_trespass">
+        <Original>You have trespassed on an enemy airbase!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_detect_outp">
+        <Original>An enemy outpost or seaport has detected you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_detect_roadb">
+        <Original>An enemy roadblock has detected you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_detect_airspace">
+        <Original>You have violated the airspace of %1!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_Error">
+        <Original>Unknown error occured in undercover execution routine!</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_keybinds">
+      <Key ID="STR_A3A_keybinds_keyAcc_earplugs_title">
+        <Original>Ear Plugs</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_keyAcc_earplugs_out">
+        <Original>You've taken out your ear plugs.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_keyAcc_earplugs_in">
+        <Original>You've inserted your ear plugs.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_DN">
+        <Original>Battle menu</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_tip">
+        <Original>Opens the Antistasis battle menu.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_DN">
+        <Original>Artillery menu</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_tip">
+        <Original>Opens the Antistasis artillery support menu (commander only).</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_DN">
+        <Original>Toggle info bar</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_tip">
+        <Original>Toggles the visibility of Antistasis information bar at the top of the screen.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_DN">
+        <Original>Toggle ear plugs</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_tip">
+        <Original>Toggles the ear plugs (no effect when using ace).</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
+        <Original>Dismiss Previous Hint</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_tip">
+        <Original>Clears the last hint notification.</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_Scripts">
+      <Key ID="STR_A3A_scripts_advTowInit_title">
+        <Original>Advanced Towing</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_addact_deploy">
+        <Original>Deploy Tow Ropes</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_addact_putAway">
+        <Original>Put Away Tow Ropes</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_addact_attach">
+        <Original>Attach To Tow Ropes</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_addact_drop">
+        <Original>Drop Tow Ropes</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_addact_pick">
+        <Original>Pick Up Tow Ropes</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_attach_no_locked">
+        <Original>Cannot attach tow ropes to locked vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_attach_no_safez">
+        <Original>Cannot attach tow ropes in safe zone</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_take_no_locked">
+        <Original>Cannot take tow ropes from locked vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_take_no_safez">
+        <Original>Cannot take tow ropes in safe zone</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_put_no_locked">
+        <Original>Cannot put away tow ropes in locked vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_put_no_safez">
+        <Original>Cannot put away tow ropes in safe zone</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_pick_no_locked">
+        <Original>Cannot pick up tow ropes from locked vehicle</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_pick_no_safez">
+        <Original>Cannot pick up tow ropes in safe zone</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_success">
+        <Original>Success</Original>
+      </Key>
+      <Key ID="STR_A3A_scripts_advTowInit_fail">
+        <Original>Whoops</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_SalvageRope">
+      <Key ID="STR_A3A_fn_salvRope_addact_deploy">
+        <Original>Deploy Winch</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_salvRope_addact_stow">
+        <Original>Stow Winch</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_salvRope_addact_attach">
+        <Original>Attach Rope</Original>
+      </Key>
+    </Container>
+    <Container name="A3A_fn_UtilityItems">
+      <Key ID="STR_A3A_fn_UtilItem_dropOb_addact_drop">
+        <Original>Drop object</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_carry">
+        <Original>Carry object</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_rotate">
+        <Original>Rotate object</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_build">
+        <Original>Building placer</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_pack">
+        <Original>Pack object</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_unpack">
+        <Original>Unpack object</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_open">
+        <Original>Open Doors</Original>
       </Key>
     </Container>
     <Container name="Building_Placer">

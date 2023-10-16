@@ -39,7 +39,7 @@ if (_siteX in outposts) then
 		if (sidesX getVariable [_siteX, sideUnknown] != teamPlayer) then
 			{
 			_leave = true;
-			_textX = format ["You cannot rebuild a Radio Tower in an Outpost which does not belong to %1.",FactionGet(reb,"name")]; // TODO: not sure how to implement it - STR_A3A_fn_base_rebasset_no_owner
+			_textX = format [localize "STR_A3A_fn_base_rebasset_no_owner",FactionGet(reb,"name")];
 			}
 		else
 			{
@@ -58,7 +58,7 @@ if (isNull _antennaDead) then
 	{
 	_nameX = [_siteX] call A3A_fnc_localizar;
 
-	[_titleStr, format ["%1 Rebuilt"]] call A3A_fnc_customHint; //localize "STR_A3A_fn_base_rebasset_done_1" but what's the %1? 
+	[_titleStr, format [localize "STR_A3A_fn_base_rebasset_done_1", _nameX]] call A3A_fnc_customHint;
 
 	[0,10,_positionTel] remoteExec ["A3A_fnc_citySupportChange",2];
     [Occupants, 10, 30] remoteExec ["A3A_fnc_addAggression",2];

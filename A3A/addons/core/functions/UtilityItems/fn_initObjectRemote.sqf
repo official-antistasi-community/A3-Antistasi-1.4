@@ -33,7 +33,7 @@ private _flags = (A3A_utilityItemHM get typeof _object) # 4;
 
 if ("move" in _flags) then {
     _object addAction [
-        "Carry object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_carry",
         { [_this#3, true] call A3A_fnc_carryItem },
         _object, 1.5, true, true, "",
         "([_this] call A3A_fnc_countAttachedObjects == 0)
@@ -43,7 +43,7 @@ if ("move" in _flags) then {
 
 if ("rotate" in _flags) then {
     _object addAction [
-        "Rotate object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_rotate",
         { [_this#3] call A3A_fnc_rotateItem },
         _object, 1.5, true, true, "",
         "!(_originalTarget getVariable ['A3A_rotatingObject',false])
@@ -59,7 +59,7 @@ if ("loot" in _flags && lootToCrateRadius > 0) then {
 // building placer box
 if ("build" in _flags) then {
     _object addAction [
-        "Building Placer",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_build",
         { [_this#0, 75, _this#0] spawn A3A_fnc_buildingPlacerStart },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 4
@@ -69,7 +69,7 @@ if ("build" in _flags) then {
 // packable object
 if ("pack" in _flags) then {
     _object addAction [
-        "Pack object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_pack",
         { _this#0 call A3A_Logistics_fnc_packObject },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 10
@@ -79,7 +79,7 @@ if ("pack" in _flags) then {
 // unpackable object
 if ("unpack" in _flags) then {
     _object addAction [
-        "Unpack object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_unpack",
         { _this#0 call A3A_Logistics_fnc_unpackObject },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 10
@@ -89,7 +89,7 @@ if ("unpack" in _flags) then {
 // specific to the tent
 if (typeOf _object == "Land_MedicalTent_01_MTP_closed_F") then {
     _object addAction [
-        "Open Doors",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_open",
         { _this#0 animateSource ["Door_Hide", 1, true] },
         nil, 1.5, true, true, "",
         "true", 10

@@ -247,7 +247,7 @@
         <Chinesesimp>此物品短缺,只限服务器会员使用</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JNA_rhs_error">
-        <Original>ERROR - Please report RPT to Antistasi Dev's.</Original>
+        <Original>ERROR - Please report RPT to Antistasi Devs.</Original>
         <German>ERROR - Bitte melde RPT an Antistasi Dev's.</German>
         <Italian>ERRORE - Si prega di riportare l'RPT agli sviluppatori di Antistasi.</Italian>
         <Spanish>ERROR - Por favor, reporte el RPT a los Desarrolladores de Antistasi.  </Spanish>
@@ -464,7 +464,7 @@
         <Chinesesimp>-- 撤销上一次的保存 --</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JND_title">
-        <Original>Ultra Wide Extended Debug Console With Extra Save Buttens!</Original>
+        <Original>Ultra Wide Extended Debug Console With Extra Save Buttons!</Original>
         <Italian>Console di Debug Ultra Wide con Bottuni di Salvataggio Extra!</Italian>
         <Spanish>La Super Amplia y Extendida Consola de Debug con Extra Butones de Guardado!</Spanish>
         <French>Console de débogage étendue ultra large avec boutons de sauvegarde supplémentaires !</French>

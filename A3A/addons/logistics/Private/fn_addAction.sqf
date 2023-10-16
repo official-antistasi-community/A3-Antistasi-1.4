@@ -23,7 +23,7 @@ if (isNull _object) exitWith {
 };
 
 private _actionNames = (actionIDs _object) apply {(_object actionParams _x)#0};
-private _loadText = format [localize "STR_A3A_logi_addaction_load", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
+private _loadText = format [localize "STR_A3A_logi_addact_load", getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName")];
 
 switch (_action) do {
     case "load":{
@@ -54,7 +54,7 @@ switch (_action) do {
         ];
     };
     case "unload": {
-        private _text = "Unload Cargo";
+        private _text = localize "STR_A3A_logi_addact_unload";
         if (_text in _actionNames) exitWith {};
         private _unloadActionID = _object addAction
         [

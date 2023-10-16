@@ -34,7 +34,7 @@ Example:
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-
+private _titleStr = localize "STR_A3A_fn_undercover_title";
 private _result = [] call A3A_fnc_canGoUndercover;
 
 if(!(_result select 0)) exitWith
@@ -220,7 +220,7 @@ switch (_reason) do
 {
     case "Reported":
     {
-        ["Undercover", "You have been reported or spotted by the enemy!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_reported"] call A3A_fnc_customHint;
         if (vehicle player != player) then
         {
             (objectParent player) setVariable ["A3A_reported", true, true];
@@ -232,60 +232,60 @@ switch (_reason) do
     };
     case "VNoCivil":
     {
-        ["Undercover", "You entered a non civilian vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_entered_veh1"] call A3A_fnc_customHint;
     };
     case "VCompromised":
     {
-        ["Undercover", "You entered a reported vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_entered_veh2"] call A3A_fnc_customHint;
     };
     case "VTowRopes":
     {
-        ["Undercover", "You cannot be undercover while tow ropes are attached to your vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_towrope1"] call A3A_fnc_customHint;
     };
     case "TowRopes":
     {
-        ["Undercover", "You cannot be undercover and use tow ropes!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_towrope2"] call A3A_fnc_customHint;
     };
     case "SpotBombTruck":
     {
-        ["Undercover", "Explosives have been spotted on your vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_explo"] call A3A_fnc_customHint;
         (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "Highway":
     {
-        ["Undercover", "You went too far away from any roads and have been spotted!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_distance"] call A3A_fnc_customHint;
         (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "clothes":
     {
-        ["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_1"] call A3A_fnc_customHint;
     };
     case "clothes2":
     {
-        ["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_2"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "BadMedic":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_3"] call A3A_fnc_customHint;
     };
     case "BadMedic2":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_4"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "Compromised":
     {
-        ["Undercover", "You left your vehicle and you are still on the Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_leftveh"] call A3A_fnc_customHint;
     };
     case "Airport"; case "Roadblock"; case "Outpost":
     {
         private _text = switch (_reason) do {
-            case "Airport": {"You have trespassed on an enemy airbase!"};
-            case "Outpost": {"An enemy outpost or seaport has detected you!"};
-            case "Roadblock": {"An enemy roadblock has detected you!"};
+            case "Airport": {localize "STR_A3A_fn_undercover_goUn_trespass"};
+            case "Outpost": {localize "STR_A3A_fn_undercover_goUn_detect_outp"};
+            case "Roadblock": {localize "STR_A3A_fn_undercover_goUn_detect_roadb"};
         };
-        ["Undercover", _text] call A3A_fnc_customHint;
+        [_titleStr, _text] call A3A_fnc_customHint;
 
         if !(isNull objectParent player) then
         {
@@ -300,14 +300,14 @@ switch (_reason) do
     {
         private _veh = objectParent player;
         private _detectedBy = _veh getVariable "NoFlyZoneDetected";
-        ["Undercover", format ["You have violated the airspace of %1!", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
+        [_titleStr, format [localize "STR_A3A_fn_undercover_goUn_detect_airspace", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
         _veh setVariable ["A3A_reported", true, true];
         _veh setVariable ["NoFlyZoneDetected", nil, true];
     };
     default
     {
         Error_1("Unknown reason given, was %1", _reason);
-        ["Undercover", "Unknown error occured in undercover execution routine!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_Error"] call A3A_fnc_customHint;
     };
 };
 ["Undercover", [_reason]] call EFUNC(Events,triggerEvent);

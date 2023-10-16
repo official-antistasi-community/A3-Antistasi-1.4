@@ -4,10 +4,10 @@ if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
 
-if (savingServer) exitWith {["Save Game", "Server data save is still in progress..."] remoteExecCall ["A3A_fnc_customHint",theBoss]};
+if (savingServer) exitWith {[localize "STR_A3A_fn_save_saveLoop_title1", localize "STR_A3A_fn_save_saveLoop_progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-["Persistent Save","Starting persistent save..."] remoteExecCall ["A3A_fnc_customHint",0,false];
+[localize "STR_A3A_fn_save_saveLoop_title2",localize "STR_A3A_fn_save_saveLoop_saving"] remoteExecCall ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
@@ -375,6 +375,6 @@ _fuelAmountleftArray = [];
 if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
 
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
+_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," ",localize "STR_A3A_fn_save_saveLoop_text_asset"," ",_hrBackground toFixed 0,localize "STR_A3A_fn_save_saveLoop_text_money"," ",_resourcesBackground toFixed 0," ",localize "STR_A3A_fn_save_saveLoop_text_options"] joinString "";
+[localize "STR_A3A_fn_save_saveLoop_title2",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

@@ -386,16 +386,16 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {
+mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
     [
-        "Game Options",
-        "Version: "+ QUOTE(VERSION_FULL) +
-        "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
-        "<br/>Unlock Weapon Number: "+ str minWeaps +
-        "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
-        "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str globalCivilianMax +
-        "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
+        localize "STR_A3A_fn_init_initclient_gameOpt_title",
+        localize "STR_A3A_fn_init_initclient_gameOpt_version"+" "+ QUOTE(VERSION_FULL) +"<br/><br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_resoBal"+" "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_unlockNo"+" "+ str minWeaps +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ (["No","Yes"] select limitedFT) +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_spawnDist"+" "+ str distanceSPWN + "m" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_civLim"+" "+ str globalCivilianMax +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_timeGC"+" "+ ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
     ERROR("Disabled due to UseDoomGUI Switch.")

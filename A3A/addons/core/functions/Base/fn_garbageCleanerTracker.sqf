@@ -80,7 +80,7 @@ private _fnc_onRemind = {
 private _fnc_onFinalWarning = {
 
     private _timeUntilForcedGC = [[(A3A_lastGarbageCleanTime + A3A_GCThreshold)-serverTime] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-    ["Final Warning", format ["Automatic Garbage Clean incoming in %1", _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
+    [localize "STR_A3A_GCTracker_warning_title", format [localize "STR_A3A_GCTracker_warning_text", _timeUntilForcedGC]] remoteExec ["A3A_fnc_customHint", 0];
     Debug("Garbage Cleaner Tracker has notified players of finalWarning for auto GC");
 
 };

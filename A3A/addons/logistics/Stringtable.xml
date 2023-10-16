@@ -2,7 +2,7 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi logistics">
     <Container name="Logistics">
-      <Key ID="STR_A3A_logi_addaction_load">
+      <Key ID="STR_A3A_logi_addact_load">
         <Original>Load %1 into nearest vehicle.</Original>
         <German>Lade %1 in das nächstgelegene Fahrzeug.</German>
         <Italian>Carica %1 nel veicolo più vicino.</Italian>
@@ -15,6 +15,9 @@
         <Portuguese>Carregue %1 no veículo mais próximo.</Portuguese>
         <Turkish>En yakın araca %1 yükleyin.</Turkish>
         <Chinesesimp>将%1装载入附近的载具</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_logi_addact_unload">
+        <Original>Unload Cargo</Original>
       </Key>
       <Key ID="STR_A3A_logi_addweaponaction_alreadyin">
         <Original>Someone is already in the static.</Original>

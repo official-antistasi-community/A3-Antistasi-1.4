@@ -11,6 +11,7 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
+private _titleStr = localize "STR_A3A_scripts_advTowInit_title";
 
 #define SA_Find_Surface_ASL_Under_Position(_object,_positionAGL,_returnSurfaceASL,_canFloat) \
 _objectASL = AGLToASL (_object modelToWorldVisual (getCenterOfMass _object)); \
@@ -480,7 +481,7 @@ SA_Attach_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _cargo > 1 ) then {
-				["Cannot attach tow ropes to locked vehicle",false] call SA_Hint;
+				[localize "STR_A3A_scripts_advTowInit_attach_no_locked",false] call SA_Hint;
 				_canBeTowed = false;
 			};
 		};
@@ -488,7 +489,7 @@ SA_Attach_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot attach tow ropes in safe zone",false] call SA_Hint;
+					[localize "STR_A3A_scripts_advTowInit_attach_no_safez",false] call SA_Hint;
 					_canBeTowed = false;
 				};
 			};
@@ -526,7 +527,7 @@ SA_Take_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot take tow ropes from locked vehicle",false] call SA_Hint;
+				[localize "STR_A3A_scripts_advTowInit_take_no_locked",false] call SA_Hint;
 				_canTakeTowRopes = false;
 			};
 		};
@@ -534,7 +535,7 @@ SA_Take_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot take tow ropes in safe zone",false] call SA_Hint;
+					[localize "STR_A3A_scripts_advTowInit_take_no_safez",false] call SA_Hint;
 					_canTakeTowRopes = false;
 				};
 			};
@@ -572,7 +573,7 @@ SA_Put_Away_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot put away tow ropes in locked vehicle",false] call SA_Hint;
+				[localize "STR_A3A_scripts_advTowInit_put_no_locked",false] call SA_Hint;
 				_canPutAwayTowRopes = false;
 			};
 		};
@@ -580,7 +581,7 @@ SA_Put_Away_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot put away tow ropes in safe zone",false] call SA_Hint;
+					[localize "STR_A3A_scripts_advTowInit_put_no_safez",false] call SA_Hint;
 					_canPutAwayTowRopes = false;
 				};
 			};
@@ -637,7 +638,7 @@ SA_Pickup_Tow_Ropes_Action = {
 
 		if!(missionNamespace getVariable ["SA_TOW_LOCKED_VEHICLES_ENABLED",false]) then {
 			if( locked _vehicle > 1 ) then {
-				["Cannot pick up tow ropes from locked vehicle",false] call SA_Hint;
+				[localize "STR_A3A_scripts_advTowInit_pick_no_locked",false] call SA_Hint;
 				_canPickupTowRopes = false;
 			};
 		};
@@ -645,7 +646,7 @@ SA_Pickup_Tow_Ropes_Action = {
 		if!(missionNamespace getVariable ["SA_TOW_IN_EXILE_SAFEZONE_ENABLED",false]) then {
 			if(!isNil "ExilePlayerInSafezone") then {
 				if( ExilePlayerInSafezone ) then {
-					["Cannot pick up tow ropes in safe zone",false] call SA_Hint;
+					[localize "STR_A3A_scripts_advTowInit_pick_no_safez",false] call SA_Hint;
 					_canPickupTowRopes = false;
 				};
 			};
@@ -719,12 +720,12 @@ SA_Hint = {
     params ["_msg",["_isSuccess",true]];
     if (!isNil "ExileClient_gui_notification_event_addNotification") then {
 		if (_isSuccess) then {
-			["Success", [_msg]] call ExileClient_gui_notification_event_addNotification;
+			[localize "STR_A3A_scripts_advTowInit_success", [_msg]] call ExileClient_gui_notification_event_addNotification;
 		} else {
-			["Whoops", [_msg]] call ExileClient_gui_notification_event_addNotification;
+			[localize "STR_A3A_scripts_advTowInit_fail", [_msg]] call ExileClient_gui_notification_event_addNotification;
 		};
     } else {
-		["Advanced Towing", _msg] call A3A_fnc_customHint;
+		[_titleStr, _msg] call A3A_fnc_customHint;
     };
 };
 
@@ -742,23 +743,23 @@ SA_Set_Owner = {
 
 SA_Add_Player_Tow_Actions = {
 
-	player addAction ["Deploy Tow Ropes", {
+	player addAction [localize "STR_A3A_scripts_advTowInit_addact_deploy", {
 		[] call SA_Take_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Take_Tow_Ropes_Action_Check"];
 
-	player addAction ["Put Away Tow Ropes", {
+	player addAction [localize "STR_A3A_scripts_advTowInit_addact_putAway", {
 		[] call SA_Put_Away_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Put_Away_Tow_Ropes_Action_Check"];
 
-	player addAction ["Attach To Tow Ropes", {
+	player addAction [localize "STR_A3A_scripts_advTowInit_addact_attach", {
 		[] call SA_Attach_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Attach_Tow_Ropes_Action_Check"];
 
-	player addAction ["Drop Tow Ropes", {
+	player addAction [localize "STR_A3A_scripts_advTowInit_addact_drop", {
 		[] call SA_Drop_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Drop_Tow_Ropes_Action_Check"];
 
-	player addAction ["Pickup Tow Ropes", {
+	player addAction [localize "STR_A3A_scripts_advTowInit_addact_pick", {
 		[] call SA_Pickup_Tow_Ropes_Action;
 	}, nil, 0, false, true, "", "call SA_Pickup_Tow_Ropes_Action_Check"];
 

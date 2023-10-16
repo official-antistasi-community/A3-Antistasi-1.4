@@ -20,7 +20,7 @@ Example:
 params [["_object", objNull, [objNull]]];
 
 _object addAction [
-    "Carry object",
+    localize "STR_A3A_fn_UtilItem_initMovOb_addact_carry",
     {
         [_this#3, true] call A3A_fnc_carryItem;
     },
@@ -37,7 +37,7 @@ _object addAction [
 ];
 
 _object addAction [
-    "Rotate object",
+    localize "STR_A3A_fn_UtilItem_initMovOb_addact_rotate",
     {
         [_this#3] call A3A_fnc_rotateItem;
     },

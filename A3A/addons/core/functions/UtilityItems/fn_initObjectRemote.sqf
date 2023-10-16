@@ -45,7 +45,7 @@ if ("loot" in _flags && lootToCrateRadius > 0) then {
 // packable object
 if ("pack" in _flags) then {
     _object addAction [
-        "Pack object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_pack",
         { _this#0 call A3A_Logistics_fnc_packObject },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 10
@@ -55,7 +55,7 @@ if ("pack" in _flags) then {
 // unpackable object
 if ("unpack" in _flags) then {
     _object addAction [
-        "Unpack object",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_unpack",
         { _this#0 call A3A_Logistics_fnc_unpackObject },
         nil, 1.5, true, true, "",
         "(isNull attachedTo _originalTarget)", 10
@@ -65,7 +65,7 @@ if ("unpack" in _flags) then {
 // specific to the tent
 if (typeOf _object == "Land_MedicalTent_01_MTP_closed_F") then {
     _object addAction [
-        "Open Doors",
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_open",
         { _this#0 animateSource ["Door_Hide", 1, true] },
         nil, 1.5, true, true, "",
         "true", 10

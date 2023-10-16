@@ -50,8 +50,7 @@ switch (_mode) do
 		{
 			_x params [
 				["_className", "Land_Tyres_F"],
-				["_price", 0],
-				["_holdTime", 15]
+				["_price", 0]
 			];
 
 			private _configClass = configFile >> "CfgVehicles" >> _className;
@@ -84,7 +83,6 @@ switch (_mode) do
 			_button setVariable ["className", _className];
 			_button setVariable ["model", _model];
 			_button setVariable ["price", _price];
-			_button setVariable ["holdTime", _holdTime];
 			_button ctrlCommit 0;
 
 			_button ctrlAddEventHandler ["ButtonDown", {
@@ -129,7 +127,6 @@ switch (_mode) do
 			private _buildTime = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
 			_buildTime ctrlSetPosition[1 * GRID_W, 21 * GRID_H, 4 * GRID_W, 4 * GRID_H];
 			_buildTime ctrlSetText A3A_Icon_Construct;
-			_buildTime ctrlSetTooltip format [localize "STR_antistasi_teamleader_placer_holdtime", _displayName, _holdTime];
 			_buildTime ctrlCommit 0;
 	
 			// show stuff

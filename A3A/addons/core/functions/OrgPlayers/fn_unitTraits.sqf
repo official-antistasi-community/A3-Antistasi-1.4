@@ -49,5 +49,5 @@ else
 
 _text spawn {
 	sleep 5;
-    [localize "STR_A3A_Unit_Traits_title", format [localize "STR_A3A_Unit_Traits_selected_trait", _this]] call A3A_fnc_customHint;
+    ["Unit Traits", format ["You have selected %1", _this]] call A3A_fnc_customHint;
 };

@@ -9290,13 +9290,5 @@
         <Original>Builder box is already being used by %1</Original>
       </Key>
     </Container>
-    <Container name="Unit_Traits">
-      <Key ID="STR_A3A_Unit_Traits_title">
-        <Original>Unit Traits</original>
-      </Key>
-      <Key ID="STR_A3A_Unit_Traits_selected_trait">
-        <Original>You have selected %1.</original>
-      </Key>
-    </Container>
   </Package>
 </Project>

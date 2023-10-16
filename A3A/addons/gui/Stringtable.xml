@@ -4208,21 +4208,9 @@
         <Chinesesimp>使用新的存档文件</Chinesesimp>
       </Key>
     </Container>
-    <Container name="dialog_teamleader_placer_dialog">
+    <Container name="dialog_building_placer_dialog">
       <Key ID="STR_antistasi_teamleader_placer_title">
         <Original>Teamleader Builder</Original>
-      </Key>
-      <Key ID="STR_antistasi_teamleader_placer_holdtime">
-        <Original>%1 can be built in %2 seconds</Original>
-      </Key>
-      <Key ID="STR_antistasi_teamleader_placer_holdtime_text">
-        <Original>%1 secs</Original>
-      </Key>
-      <Key ID="STR_antistasi_teamleader_placer_insufficient_funds">
-        <Original>You can't afford this Item.</Original>
-      </Key>
-      <Key ID="STR_antistasi_teamleader_placer_placer_info">
-          <Original>&lt;t size = '0.75'&gt;E/R to rotate&lt;br/&gt;space to Place&lt;br/&gt;hold left alt to place unsafely&lt;/t&gt;</Original>
       </Key>
        <Key ID="STR_antistasi_teamleader_placer_alt_key">
           <Original>Alt: </Original>
@@ -4237,7 +4225,10 @@
           <Original>SHIFT: Unsafe placement mode</Original>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_c_key">
-          <Original>C: Cancel</Original>
+          <Original>C: Cancel %1</Original>
+      </Key>
+      <Key ID="STR_antistasi_teamleader_placer_t_key">
+          <Original>T: Rebuild for %1 €</Original>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_space_key">
           <Original>SPACE: Place object</Original>

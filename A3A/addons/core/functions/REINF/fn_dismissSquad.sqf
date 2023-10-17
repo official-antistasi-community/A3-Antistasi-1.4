@@ -2,6 +2,7 @@
 FIX_LINE_NUMBERS()
 //if (!isServer) exitWith{};
 private ["_groups","_hr","_resourcesFIA","_wp","_groupX","_veh","_leave"];
+private _titleStr = localize "STR_A3A_fn_reinf_dissSquad_title";
 
 _groups = _this select 0;
 _hr = 0;
@@ -15,13 +16,13 @@ _leave = false;
 	exitWith { _leave = true; };
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads."] call A3A_fnc_customHint;};
+if (_leave) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissSquad_no_player"] call A3A_fnc_customHint;};
 
 {
 if (_x getVariable ["esNATO",false]) then {_leave = true};
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss NATO groups."] call A3A_fnc_customHint;};
+if (_leave) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissSquad_no_nato"] call A3A_fnc_customHint;};
 
 _pos = getMarkerPos respawnTeamPlayer;
 
@@ -52,12 +53,12 @@ private _assignedVehicles =	[];
 			if (_backpck != "") then
 			{
                 private _assemblesTo = getText (configFile/"CfgVehicles"/_backpck/"assembleInfo"/"assembleTo");
-				switch (_assemblesTo) do
+				switch (true) do
 				{
-					case FactionGet(reb,"staticMortar"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticAA"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticMG"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice)/2};
-					case FactionGet(reb,"staticAT"): {_resourcesFIA = _resourcesFIA + ([FactionGet(reb,"staticAT")] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticMortars"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticAA"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticMGs"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
+					case (_assemblesTo in (FactionGet(reb,"staticAT"))): {_resourcesFIA = _resourcesFIA + ([_assemblesTo] call A3A_fnc_vehiclePrice)/2};
 				};
 			};
 		};

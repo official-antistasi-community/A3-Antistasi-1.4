@@ -4,7 +4,7 @@
 
 */
 
-params ["_pilot", "_bombType", "_bombCount", "_bombRunLength"];
+params ["_plane", "_bombType", "_bombCount", "_bombRunLength"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 Debug_1("Executing on: %1", clientOwner);
@@ -39,7 +39,7 @@ switch (_bombType) do
 
 if(_ammo == "") exitWith {};
 
-private _speedInMeters = (speed _pilot) / 3.6;
+private _speedInMeters = (speed _plane) / 3.6;
 private _metersPerBomb = _bombRunLength / _bombCount;
 //Decrease it a bit, to avoid scheduling erros
 private _timeBetweenBombs = (_metersPerBomb / _speedInMeters) - 0.05;
@@ -48,27 +48,26 @@ sleep ((_timeBetweenBombs/2) + (_bombOffset/_speedInMeters));
 for "_i" from 1 to _bombCount do
 {
     sleep _timeBetweenBombs;
-    if (alive _pilot) then
+    if (alive _plane) then
     {
-        private _bombPos = (getPos _pilot) vectorAdd [0, 0, -5];
+        private _bombPos = (getPosATL _plane) vectorAdd [0, 0, -5];
         _bomb = _ammo createvehicle _bombPos;
-        waituntil {!isnull _bomb};
-        _bomb setDir (getDir _pilot);
+        _bomb setDir (getDir _plane);
         _bomb setVelocity [0,0,-50];
+        _bomb setShotParents [_plane, driver _plane];           // server exec, really?
         if (_bombType == "NAPALM") then
         {
-            [_bomb] spawn
+            // Pass the position in because it might detonate pre-spawn
+            [_bomb, _bombPos] spawn
             {
-                private _bomba = _this select 0;
-                private _pos = [];
-                while {!isNull _bomba} do
+                params ["_bomb", "_bombPos"];
+                while {!isNull _bomb} do
                 {
-                    _pos = getPos _bomba;
+                    _bombPos = getPosATL _bomb;
                     sleep 0.1;
                 };
-                [_pos] remoteExec ["A3A_fnc_napalm",2];
+                [_bombPos] remoteExec ["A3A_fnc_napalm",2];
             };
         };
     };
 };
-//_bomba is used to track when napalm bombs hit the ground in order to call the napalm script on the correct position

@@ -47,6 +47,7 @@ private _loiterWP = _group addWaypoint [_suppCenter, 0];
 _loiterWP setWaypointSpeed "NORMAL";
 _loiterWP setWaypointType "Loiter";
 _loiterWP setWaypointLoiterRadius 2000;
+_loiterWP setWaypointLoiterAltitude 700;
 _group setCurrentWaypoint _loiterWP;
 Debug_2("%1 underway from %2", _supportName, _airport);
 
@@ -81,7 +82,6 @@ while {true} do
         };
         Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
         _timeout = _timeout + 300;              // make sure it has some time to kill
-        _remTargets = _remTargets - 1;
 
         private _attackWP = _group addWaypoint [_targetObj, 0];
         _attackWP setWaypointType "DESTROY";
@@ -90,7 +90,7 @@ while {true} do
         _group setCurrentWaypoint _attackWP;
 
         _group reveal [_targetObj, 1.5];         // do we need to add knowledge level to target list? Only used here?
-        _group setBehaviour "COMBAT";
+        _group setBehaviourStrong "COMBAT";
         _group setCombatMode "RED";
         _plane flyInHeight -1;          // experimental
         _currentlyAttacking = true;
@@ -102,7 +102,7 @@ while {true} do
         // TODO: better evasion mechanics?
         if (!alive _targetObj or {_targetObj distance2D _suppCenter > _suppRadius and _targetObj distance2D _plane > 3000}) then
         {
-            _remTargets = _remTargets + 1;
+            _remTargets = _remTargets - 1;
             _suppTarget resize 0;           // clear target array so support routines can add the next
 
             if !(alive _targetObj) then {
@@ -114,6 +114,8 @@ while {true} do
             deleteWaypoint [_group, 1];
             _group setCurrentWaypoint _loiterWP;
 
+            _group setBehaviourStrong "AWARE";
+            _group setCombatMode "YELLOW";
             //_plane flyInHeight 1000;
             _currentlyAttacking = false;
             _timeout = _timeout - 300;

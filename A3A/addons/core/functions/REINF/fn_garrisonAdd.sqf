@@ -4,9 +4,10 @@ FIX_LINE_NUMBERS()
 params ["_unitType"];
 
 private _hr = server getVariable "hr";
+private _titleStr = localize "STR_A3A_garrison_header";
 
 if (_hr < 1) exitWith {
-	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_hr"] call A3A_fnc_customHint;
+	[_titleStr, localize "STR_A3A_garrison_error_no_hr"] call A3A_fnc_customHint;
 };
 
 private _markerX = positionXGarr;
@@ -14,21 +15,21 @@ private _resourcesFIA = server getVariable "resourcesFIA";
 private _costs = server getVariable _unitType;
 
 if (_costs > _resourcesFIA) exitWith {
-	[localize "STR_A3A_garrison_header",  format [localize "STR_A3A_garrison_error_no_money", _costs]] call A3A_fnc_customHint;
+	[_titleStr,  format [localize "STR_A3A_garrison_error_no_money", _costs]] call A3A_fnc_customHint;
 };
 
-if (_unitType == FactionGet(reb, "unitCrew") and _markerX in outpostsFIA) exitWith {
-	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_no_mortar"] call A3A_fnc_customHint;
+if ((_unitType == FactionGet(reb, "unitCrew")) and _markerX in outpostsFIA) exitWith {
+	[_titleStr, localize "STR_A3A_garrison_error_no_mortar"] call A3A_fnc_customHint;
 };
 
 private _positionX = getMarkerPos _markerX;
 
 if (surfaceIsWater _positionX) exitWith {
-	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_still_updating"] call A3A_fnc_customHint;
+	[_titleStr, localize "STR_A3A_garrison_error_still_updating"] call A3A_fnc_customHint;
 };
 
 if ([_positionX] call A3A_fnc_enemyNearCheck) exitWith {
-	[localize "STR_A3A_garrison_header", localize "STR_A3A_garrison_error_enemies_near"] call A3A_fnc_customHint;
+	[_titleStr, localize "STR_A3A_garrison_error_enemies_near"] call A3A_fnc_customHint;
 };
 
 private _garrison = garrison getVariable [_markerX,[]];
@@ -38,6 +39,7 @@ if (_limit != -1 && {count _garrison >= _limit}) exitWith {
 	[localize "STR_A3A_garrisons_header", localize "STR_A3A_garrison_reached_limit"] call A3A_fnc_customHint;
 };
 
+
 _nul = [-1,-_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 private _countX = count _garrison;
@@ -46,7 +48,7 @@ waitUntil {(_countX < count (garrison getVariable [_markerX, []])) or (sidesX ge
 
 if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then {
 	private _garrisonInfo = format [localize "STR_A3A_garrison_recruit_success", [_markerX] call A3A_fnc_garrisonInfo];
-	[localize "STR_A3A_garrison_header", _garrisonInfo] call A3A_fnc_customHint;
+	[_titleStr, _garrisonInfo] call A3A_fnc_customHint;
 
 	if (spawner getVariable _markerX != 2) then {
 		[_markerX,_unitType] remoteExec ["A3A_fnc_createSDKGarrisonsTemp",2];

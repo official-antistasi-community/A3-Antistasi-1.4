@@ -14,6 +14,7 @@ class CfgFunctions
             class execForGarageUsers {};
             class genVehUID {};
             class getCatIndex {};
+            class getLockCount {};
             class onLoad {};
             class onUnload {};
             class reciveBroadcast {};
@@ -86,7 +87,6 @@ class CfgFunctions
             file = QPATHTOFOLDER(Public);
             class addVehiclesByClass {};
             class addVehicle {};
-            class callbackHandler {};
             class getSaveData {};
             class initGarage {};
             class initServer {

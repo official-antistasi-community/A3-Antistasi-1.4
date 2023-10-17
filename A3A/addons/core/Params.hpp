@@ -63,12 +63,19 @@ class Params
         texts[] = {"200","300","400","500"};
         default = 300;
     };
-    class civPerc
+    class globalCivilianMax
     {
-        title = "Maximum wandering civilians";
+        title = "Maximum global civilians";
+        values[] = {0,2,5,10,15,20};
+        texts[] = {"0","2","5","10","15","20"};
+        default = 5;
+    };
+    class maxCiviliansPerTown
+    {
+        title = "Maximum civilians spawn per town";
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
-        default = 5;
+        default = 2;
     };
     class initialPlayerMoney
     {
@@ -101,9 +108,9 @@ class Params
     class A3A_GCThreshold
     {
         title = "Garbage Cleaner Threshold for Automatic gc";
-        values[] = {3600, 7200, 10800, 14400, 9999999};
+        values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", "disabled"};
-        Default = 9999999;
+        Default = 0;
     };
     class A3A_reviveTime
     {
@@ -111,6 +118,20 @@ class Params
         values[] = {5,10,15};
         texts[] = {"5 seconds","10 seconds","15 seconds"};
         default = 10;
+    };
+    class A3A_selfReviveMethods
+    {
+        title = "Self-revive methods enabled";
+        values[] = {0,1};
+        texts[] = {"Disabled", "Withstand"};
+        default = 0;
+    };
+    class A3A_builderPermissions
+    {
+        title = "Player classes permitted to use the building placer";
+        values[] = {1, 2, 3};
+        texts[] = {"Team leaders", "Engineers", "Both"};
+        default = 3;
     };
 
     class SpacerMembership
@@ -180,16 +201,16 @@ class Params
     class A3A_enemyBalanceMul
     {
         title = "Overall enemy resource balance";
-        values[] = {3,5,7,10,14,20,28};
-        texts[] =  {"Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {4,6,8,10,12,14,17,20,24,28};
+        texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
     };
     class A3A_enemyAttackMul
     {
         attr[] = {"server"};
         title = "Enemy attack resource balance (relative to overall balance)";
-        values[] = {3,5,7,10,14,20,28};
-        texts[] =  {"Trivial","Very Easy","Easy","Normal","Hard","Very Hard","Extreme"};
+        values[] = {4,6,8,10,12,14,17,20,24,28};
+        texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
     };
     class A3A_invaderBalanceMul
@@ -253,6 +274,7 @@ class Params
         texts[] = {"No limit", "16", "24", "32"};
         default = 24;
     };
+
     class SpacerEquipment
     {
         title = "";
@@ -328,12 +350,12 @@ class Params
         texts[] = {"Never","Sometimes","Often","Always"};
         default = 33;
     };
-    class LootToCrateEnabled
+    class LootToCrateRadius
     {
-        title = "Enable Loot to crate";
-        values[] = {0, 1};
-        texts[] = {"Disabled", "Enabled"};
-        default = 1;
+        title = "Loot to crate radius";
+        values[] = {0,10,15,20};
+        texts[] = {"Disabled","10m","15m","20m"};
+        default = 10;
     };
     class LTCLootUnlocked
     {

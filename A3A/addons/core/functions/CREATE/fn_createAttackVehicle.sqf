@@ -58,7 +58,9 @@ if (_expectedCargo >= 2 and !_isAttackHeli) then
         } forEach ("true" configClasses (_config >> "Turrets"));
     };
     private _cargoTurrets = [];
-    [configFile >> "CfgVehicles" >> _vehicleType] call _fnc_addCargoTurrets;
+    if !(_vehicleType in ["LIB_C47_Skytrain", "LIB_C47_RAF"]) then {
+        [configFile >> "CfgVehicles" >> _vehicleType] call _fnc_addCargoTurrets;
+    };
 
     if (_expectedCargo < count _groupType) then { _groupType resize _expectedCargo };           // trim to cargo seat count
     _cargoGroup = [getMarkerPos _markerOrigin, _side, _groupType, true, false] call A3A_fnc_spawnGroup;         // force spawn, should be pre-checked

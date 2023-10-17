@@ -23,6 +23,8 @@ License: MIT License
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+private _titleStr = localize "STR_A3A_fn_reinf_spawnHCGro_title";
+
 params [
     ["_unitTypes", [], [[]]]
     , ["_idFormat", "", [""]]
@@ -47,7 +49,7 @@ private _units = units _group;
 theBoss hcSetGroup [_group];
 
 petros directSay "SentGenReinforcementsArrived";
-["Recruit Squad", format ["Group %1 at your command.<br/><br/>Groups are managed from the High Command bar (Default: CTRL+SPACE)<br/><br/>If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)<br/><br/>To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu.", groupID _group]] call A3A_fnc_customHint;
+[_titleStr, format [localize "STR_A3A_fn_reinf_spawnHCGro_atCommand", groupID _group]] call A3A_fnc_customHint;
 
 private _countUnits = count _units -1;
 private _bypassAI = true;
@@ -56,13 +58,15 @@ private _bypassAI = true;
 private _initInfVeh = {
     if (isNull _vehicle) exitWith {};
     leader _group moveInDriver _vehicle;
+    // Required because moveInAny is bugged for gunners (eg. GM trucks) and breaks the driving AI
+    if (fullCrew [_vehicle, "gunner", true] isNotEqualTo []) then { (units _group # 1) moveInGunner _vehicle };
     call _initVeh;
-    ["Recruit Squad", "Vehicle Purchased"] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_reinf_spawnHCGro_purchased"] call A3A_fnc_customHint;
     petros directSay "SentGenBaseUnlockVehicle";
 };
 
 private _initVeh = {
-    [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;          // Already called by HR_GRG_fnc_vehInit, but make sure
+    [_vehicle, teamPlayer] call A3A_fnc_AIVEHinit;
     _group addVehicle _vehicle;
     _vehicle setVariable ["owner",_group,true];
     driver _vehicle action ["engineOn", _vehicle];
@@ -74,8 +78,8 @@ switch _special do {
     //static squad
     case "staticAutoT": {
         private _staticType = switch _idFormat do {
-            case "Mort-": {FactionGet(reb,"staticMortar")};
-            case "MG-": {FactionGet(reb,"staticMG")};
+            case "Mort-": {(FactionGet(reb,"staticMortars")) # 0};  
+            case "MG-": {(FactionGet(reb,"staticMGs")) # 0};
             default {""};
         };
 
@@ -87,12 +91,12 @@ switch _special do {
 
     //vehicle squad
     case "BuildAA": {
-        private _static = ((attachedObjects _vehicle) select {typeOf _x == FactionGet(reb,"staticAA")})#0;
+        private _static = ((attachedObjects _vehicle) select {typeOf _x in FactionGet(reb,"staticAA")})#0;
         (_units # (_countUnits -1)) moveInDriver _vehicle;
         (_units # _countUnits) moveInGunner _static;
         call _initVeh;
         _vehicle allowCrewInImmobile true;
-        _cost = _cost + ([FactionGet(reb,"staticAA")] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([(FactionGet(reb,"staticAA")) # 0] call A3A_fnc_vehiclePrice);
     };
     case "VehicleSquad": {
         (_units # (_countUnits -1)) moveInDriver _vehicle;
@@ -105,16 +109,16 @@ switch _special do {
     _bypassAI = false;
     call _initInfVeh;
     case "MG": {
-        private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"staticMG")/"assembleInfo"/"dissasembleTo");
+        private _backpacks = getArray (configFile/"CfgVehicles"/(FactionGet(reb,"staticMGs")) # 0/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + ([FactionGet(reb,"staticMG")] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([(FactionGet(reb,"staticMGs")) # 0] call A3A_fnc_vehiclePrice);
     };
     case "Mortar": {
-        private _backpacks = getArray (configFile/"CfgVehicles"/FactionGet(reb,"staticMortar")/"assembleInfo"/"dissasembleTo");
+        private _backpacks = getArray (configFile/"CfgVehicles"/(FactionGet(reb,"staticMortars")) # 0/"assembleInfo"/"dissasembleTo");
         (_units # (_countUnits - 1)) addBackpackGlobal (_backpacks#1);
         (_units # _countUnits) addBackpackGlobal (_backpacks#0);
-        _cost = _cost + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice);
+        _cost = _cost + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice);
     };
 };
 

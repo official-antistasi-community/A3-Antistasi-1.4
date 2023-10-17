@@ -1,8 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 private ["_LeaderX","_static","_groupX","_maxCargo"];
+private _titleStr = localize "STR_A3A_fn_ai_staticautot_title";
 
-if (count hcSelected player != 1) exitWith {["Static Auto Target", "You must select one group on the HC bar."] call A3A_fnc_customHint;};
+if (count hcSelected player != 1) exitWith {[_titleStr, localize "STR_A3A_fn_ai_staticautot_mustselect"] call A3A_fnc_customHint;};
 
 _groupX = (hcSelected player select 0);
 
@@ -11,21 +12,28 @@ _static = objNull;
 {
 if (vehicle _x isKindOf "staticWeapon") then {_static = vehicle _x;}
 } forEach units _groupX;
-if (isNull _static) exitWith {["Static Auto Target", "Selected squad is not a mounted static type."] call A3A_fnc_customHint;};
+if (isNull _static) exitWith {[_titleStr, localize "STR_A3A_fn_ai_staticautot_notmounted"] call A3A_fnc_customHint;};
 
-if ((typeOf _static == FactionGet(reb,"staticMortar")) and (isMultiPlayer)) exitWith {["Static Auto Target", "Static Auto Target is not available for Mortar Squads in Multiplayer"] call A3A_fnc_customHint;};
+if ((typeOf _static in FactionGet(reb,"staticMortars")) and (isMultiPlayer)) exitWith {[_titleStr, localize "STR_A3A_fn_ai_staticautot_notavailable"] call A3A_fnc_customHint;};
 if (_groupX getVariable "staticAutoT") exitWith
 	{
 	_groupX setVariable ["staticAutoT",false,true];
-	if (typeOf _static == FactionGet(reb,"staticMortar")) then {_groupX setvariable ["UPSMON_Removegroup",true]};
-	sleep 5;
-	["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode OFF.", groupID _groupX]] call A3A_fnc_customHint;
+
+	if (typeOf _static in FactionGet(reb,"staticMortars")) then {
+		[_groupX] call A3A_fnc_artilleryAdd;
 	};
 
-["Static Auto Target", format ["Mounted Static Squad %1 set to Auto Target Mode ON.", groupID _groupX]] call A3A_fnc_customHint;
+	sleep 5;
+	[_titleStr, format [localize "STR_A3A_fn_ai_staticautot_autotarget_off", groupID _groupX]] call A3A_fnc_customHint;
+	};
+
+[_titleStr, format [localize "STR_A3A_fn_ai_staticautot_autotarget_on", groupID _groupX]] call A3A_fnc_customHint;
 _groupX setVariable ["staticAutoT",true,true];
 
-if (typeOf _static == FactionGet(reb,"staticMortar")) exitWith {[_static] spawn UPSMON_fnc_artillery_add;};//TODO delete UPSMON link
+if (typeOf _static in FactionGet(reb,"staticMortars")) exitWith {
+	[_groupX] call A3A_fnc_artilleryAdd;
+};
+
 _LeaderX = leader _groupX;
 _truckX = vehicle _LeaderX;
 _boy = gunner _static;

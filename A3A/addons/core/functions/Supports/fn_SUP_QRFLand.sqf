@@ -24,8 +24,8 @@ params ["_suppName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_
 private _base = [_side, _targPos] call A3A_fnc_availableBasesLand;
 if (isNil "_base") exitWith { Info("QRF cancelled because no land bases available"); -1 };
 
-//Set idle times for marker, just so that stuff doesn't spawn on top
-[_base, 10] call A3A_fnc_addTimeForIdle;
+// Prevent ground QRFs spawning on top of each other. Should be gone after a minute.
+[_base, 1] call A3A_fnc_addTimeForIdle;
 
 private _vehCount = 3 min ceil (_maxSpend / A3A_balanceVehicleCost);
 private _attackCount = [0, 0, round random 1, 1] select _vehCount;

@@ -8,28 +8,29 @@
 ["flagTexture", ""] call _fnc_saveToTemplate;
 ["flagMarkerType", ""] call _fnc_saveToTemplate;
 
-["vehicleBasic", ""] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", ""] call _fnc_saveToTemplate;
-["vehicleLightArmed", ""] call _fnc_saveToTemplate;
-["vehicleTruck", ""] call _fnc_saveToTemplate;
-["vehicleAT", ""] call _fnc_saveToTemplate;
-["vehicleAA", ""] call _fnc_saveToTemplate;
+["vehiclesBasic", []] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", []] call _fnc_saveToTemplate;
+["vehiclesLightArmed", []] call _fnc_saveToTemplate;
+["vehiclesTruck", []] call _fnc_saveToTemplate;
+["vehiclesAT", []] call _fnc_saveToTemplate;
+["vehiclesAA", []] call _fnc_saveToTemplate;
 
-["vehicleBoat", ""] call _fnc_saveToTemplate;
-["vehicleRepair", ""] call _fnc_saveToTemplate;
+["vehiclesBoat", []] call _fnc_saveToTemplate;
 
-["vehiclePlane", ""] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
+["vehiclesPlane", []] call _fnc_saveToTemplate;
+["vehiclesMedical", []] call _fnc_saveToTemplate;
 
-["vehicleCivCar", ""] call _fnc_saveToTemplate;
-["vehicleCivTruck", ""] call _fnc_saveToTemplate;
-["vehicleCivHeli", ""] call _fnc_saveToTemplate;
-["vehicleCivBoat", ""] call _fnc_saveToTemplate;
+["vehiclesCivCar", []] call _fnc_saveToTemplate;
+["vehiclesCivTruck", []] call _fnc_saveToTemplate;
+["vehiclesCivHeli", []] call _fnc_saveToTemplate;
+["vehiclesCivBoat", []] call _fnc_saveToTemplate;
+["vehiclesCivPlane", []] call _fnc_saveToTemplate;
+["vehiclesCivSupply", []] call _fnc_saveToTemplate;
 
-["staticMG", ""] call _fnc_saveToTemplate;
-["staticAT", ""] call _fnc_saveToTemplate;
-["staticAA", ""] call _fnc_saveToTemplate;
-["staticMortar", ""] call _fnc_saveToTemplate;
+["staticMGs", []] call _fnc_saveToTemplate;
+["staticAT", []] call _fnc_saveToTemplate;
+["staticAA", []] call _fnc_saveToTemplate;
+["staticMortars", []] call _fnc_saveToTemplate;
 ["staticMortarMagHE", ""] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;
 
@@ -38,6 +39,8 @@
 
 ["breachingExplosivesAPC", []] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", []] call _fnc_saveToTemplate;
+
+//Enter #include "Modset_Reb_Vehicle_Attributes.sqf" here
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -110,7 +113,7 @@ private _squadLeaderTemplate = {
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["facewear"] call _fnc_setFacewear;
-    
+
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;

@@ -28,7 +28,7 @@ private _displayTime = [_startDate] call A3A_fnc_dateToTimeString;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameOrigin = [_mrkOrigin] call A3A_fnc_localizar;
-[_mrkOrigin, _startDelay + 5] call A3A_fnc_addTimeForIdle;
+[_mrkOrigin, _startDelay + 1] call A3A_fnc_addTimeForIdle;      // best not to try driving past this stuff
 
 
 // Determine convoy type from destination
@@ -65,45 +65,45 @@ switch (tolower _convoyType) do
 {
     case "ammunition":
     {
-        _textX = format ["A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = "Ammo Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_ammo_text",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_ammo_titel";
         _taskIcon = "rearm";
         _typeVehObj = selectRandom (_faction get "vehiclesAmmoTrucks");
     };
     case "armor":
     {
-        _textX = format ["A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy that thing before it reaches it's destination.",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = "Armored Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_armor_text",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_armor_titel";
         _taskIcon = "Destroy";
         _typeVehObj = selectRandom (_faction get "vehiclesAA");
     };
     case "prisoners":
     {
-        _textX = format ["A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Try to intercept it. Kill or capture the truck driver to make them join you and bring them to HQ. Alive if possible.",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = "Prisoner Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_prison_text",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_prison_titel";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
     case "reinforcements":
     {
-        _textX = format ["Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Try to intercept and kill all the troops and vehicle objective.",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = "Reinforcements Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_reinf_text",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_reinf_titel";
         _taskIcon = "run";
         _typeVehObj = selectRandom (_faction get "vehiclesTrucks");
     };
     case "money":
     {
-        _textX = format ["A truck with plenty of money is being moved from %1 to %3, and it's about to depart at %2. Steal that truck and bring it to HQ. Those funds will be very welcome.",_nameOrigin,_displayTime,_nameDest];
-        _taskTitle = "Money Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_money_text",_nameOrigin,_displayTime,_nameDest];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_money_titel";
         _taskIcon = "move";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
     case "supplies":
     {
-        _textX = format ["A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
-        _taskTitle = "Supply Convoy";
+        _textX = format [localize "STR_A3A_fn_mission_conv_supply_text",_nameOrigin,_displayTime,_nameDest,FactionGet(reb,"name")];
+        _taskTitle = localize "STR_A3A_fn_mission_conv_supply_titel";
         _taskIcon = "heal";
-        _typeVehObj = "C_Van_01_box_F"; //ToDo: make this templated, no hard coded classnames
+        _typeVehObj = selectRandom (FactionGet(reb, "vehiclesCivSupply"));
     };
 };
 
@@ -114,7 +114,7 @@ private _posDest = navGrid select ([_mrkDest] call A3A_fnc_getMarkerNavPoint) se
 
 private _taskId = "CONVOY" + str A3A_taskCount;
 [[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
-[[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;//old pvp mission, no localization
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ServerInfo_3("%1 convoy mission created from %2 to %3", _convoyType, _mrkOrigin, _mrkDest);
@@ -189,7 +189,6 @@ if (_convoyType == "Prisoners") then
     for "_i" from 1 to (1+ round (random 11)) do
     {
         private _unit = [_grpPOW, FactionGet(reb,"unitUnarmed"), _posSpawn, [], 0, "NONE"] call A3A_fnc_createUnit;
-        [_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call A3A_fnc_setIdentity;
         _unit setCaptive true;
         _unit disableAI "MOVE";
         _unit setBehaviour "CARELESS";
@@ -268,21 +267,26 @@ reverse _markNames;
 
 // **************** Termination condition handling ********************************
 
-private _bonus = if (_difficult) then {2} else {1};
+private _bonus = if (_difficult) then {1.5} else {1};
 private _arrivalDist = 100;
 private _timeout = time + 3600;
 
 private _fnc_applyResults =
 {
-    params ["_success", "_success1", "_adjustCA", "_adjustBoss", "_aggroMod", "_aggroTime", "_type"];
+    params ["_success", "_success1", "_adjustCA", "_adjustScore", "_aggroMod", "_aggroTime", "_type"];
 
     _taskState = if (_success) then { "SUCCEEDED" } else { "FAILED" };
     _taskState1 = if (_success1) then { "SUCCEEDED" } else { "FAILED" };
 
     [_adjustCA, _sideX] remoteExec ["A3A_fnc_timingCA", 2];
-    [_adjustBoss, theBoss] call A3A_fnc_playerScoreAdd;
+    [_adjustScore, theBoss] call A3A_fnc_playerScoreAdd;
+    if (_adjustScore > 0) then {
+        {
+            if (isPlayer _x) then { [_adjustScore,_x] call A3A_fnc_playerScoreAdd };
+        } forEach ([500,0,_vehObj,teamPlayer] call A3A_fnc_distanceUnits);
+    };
 
-    [_sideX, _aggroMod, _aggroTime] remoteExec["A3A_fnc_addAggression", 2];
+    [_sideX, _aggroMod, _aggroTime] remoteExec ["A3A_fnc_addAggression", 2];
 
     if !(_success1) then {
         _killZones = killZones getVariable [_mrkOrigin,[]];
@@ -299,7 +303,7 @@ if (_convoyType == "Ammunition") then
     waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)};
     if ((_vehObj distance _posDest < _arrivalDist) or (time > _timeout)) then
     {
-        [false, true, -1200*_bonus, -10*_bonus, -5, 60, "ammo"] call _fnc_applyResults;
+        [false, true, -200, -10, 0, 0, "ammo"] call _fnc_applyResults;
         clearMagazineCargoGlobal _vehObj;
         clearWeaponCargoGlobal _vehObj;
         clearItemCargoGlobal _vehObj;
@@ -307,14 +311,8 @@ if (_convoyType == "Ammunition") then
     }
     else
     {
-        [true, false, 1800*_bonus, 5*_bonus, 25, 120, "ammo"] call _fnc_applyResults;
+        [true, false, 400*_bonus, 10*_bonus, 10, 120, "ammo"] call _fnc_applyResults;
         [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-        {
-            if (isPlayer _x) then
-            {
-                [10*_bonus,_x] call A3A_fnc_playerScoreAdd
-            };
-        } forEach ([500,0,_vehObj,teamPlayer] call A3A_fnc_distanceUnits);
     };
 };
 
@@ -323,19 +321,13 @@ if (_convoyType == "Armor") then
     waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)};
     if ((_vehObj distance _posDest < _arrivalDist) or (time > _timeout)) then
     {
-        [false, true, -1200*_bonus, -10*_bonus, -5, 60, "armor"] call _fnc_applyResults;
+        [false, true, -200, -10, 0, 0, "armor"] call _fnc_applyResults;
         server setVariable [_mrkDest,dateToNumber date,true];
     }
     else
     {
-        [true, false, 1800*_bonus, 5*_bonus, 20, 90, "armor"] call _fnc_applyResults;
+        [true, false, 400*_bonus, 10*_bonus, 10, 120, "armor"] call _fnc_applyResults;
         [0,5*_bonus,_posDest] remoteExec ["A3A_fnc_citySupportChange",2];
-        {
-            if (isPlayer _x) then
-            {
-                [10*_bonus,_x] call A3A_fnc_playerScoreAdd
-            };
-        } forEach ([500,0,_vehObj,teamPlayer] call A3A_fnc_distanceUnits);
     };
 };
 
@@ -344,7 +336,7 @@ if (_convoyType == "Prisoners") then
     waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (side group driver _vehObj != _sideX) or ({alive _x} count _POWs == 0)};
     if ((_vehObj distance _posDest < _arrivalDist) or ({alive _x} count _POWs == 0) or (time > _timeout)) then
     {
-        [false, true, 0, -10*_bonus, -10, 60, "prisoner"] call _fnc_applyResults;
+        [false, true, -200, -10, 0, 0, "prisoner"] call _fnc_applyResults;
     };
     if (side group driver _vehObj != _sideX) then
     {
@@ -353,16 +345,15 @@ if (_convoyType == "Prisoners") then
 
         if (({alive _x} count _POWs == 0) or (time > _timeout)) then
         {
-            [false, false, 0, -10*_bonus, 20, 120, "prisoner"] call _fnc_applyResults;
+            [false, false, 0, -10, 20, 120, "prisoner"] call _fnc_applyResults;
         }
         else
         {
             _countX = {(alive _x) and (_x distance _posHQ < 150)} count _POWs;
-            [true, false, 0, _bonus*_countX/2, 10, 120, "prisoner"] call _fnc_applyResults;
+            [true, false, 400*_bonus, _bonus*_countX/2, 10, 120, "prisoner"] call _fnc_applyResults;
 
             [_countX,_countX*300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
             [0,10*_bonus,_posSpawn] remoteExec ["A3A_fnc_citySupportChange",2];
-            {[_countX,_x] call A3A_fnc_playerScoreAdd} forEach (allPlayers - (entities "HeadlessClient_F"));
         };
     };
 };
@@ -372,13 +363,12 @@ if (_convoyType == "Reinforcements") then
     waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or ({_x call A3A_fnc_canFight} count _reinforcementsX == 0)};
     if ({_x call A3A_fnc_canFight} count _reinforcementsX == 0) then
     {
-        [true, false, 0, 5*_bonus, 10, 90, "reinforcement"] call _fnc_applyResults;
+        [true, false, 400*_bonus, 10*_bonus, 10, 120, "reinforcement"] call _fnc_applyResults;
         [0,10*_bonus,_posSpawn] remoteExec ["A3A_fnc_citySupportChange",2];
-        {if (_x distance _vehObj < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
     }
     else
     {
-        [false, true, 0, -10*_bonus, -10, 60, "reinforcement"] call _fnc_applyResults;
+        [false, true, -200, -10, 0, 0, "reinforcement"] call _fnc_applyResults;
         _countX = {alive _x} count _reinforcementsX;
         if (_countX <= 8) then {_taskState1 = "FAILED"};
         if (sidesX getVariable [_mrkDest,sideUnknown] == _sideX) then
@@ -397,11 +387,12 @@ if (_convoyType == "Money") then
     {
         if ((time > _timeout) or (_vehObj distance _posDest < _arrivalDist)) then
         {
-            [false, true, -1200, -10*_bonus, -5, 60, "money"] call _fnc_applyResults;
+            [false, true, -200, -10, 0, 0, "money"] call _fnc_applyResults;
         }
         else
         {
-            [false, false, 1200, 0, -5, 60, "money"] call _fnc_applyResults;
+            // Ok, this is a success of sorts...
+            [false, false, 400*_bonus, 0, 5, 60, "money"] call _fnc_applyResults;
         };
     }
     else
@@ -409,13 +400,12 @@ if (_convoyType == "Money") then
         waitUntil {sleep 2; (_vehObj distance _posHQ < 50) or (not alive _vehObj) or (time > _timeout)};
         if ((not alive _vehObj) or (time > _timeout)) then
         {
-            [false, false, 1200, 0, -5, 60, "money"] call _fnc_applyResults;
+            [true, false, 400*_bonus, 5*_bonus, 5, 60, "money"] call _fnc_applyResults;
         };
         if (_vehObj distance _posHQ < 50) then
         {
-            [true, false, 1200, 5*_bonus, 25, 120, "money"] call _fnc_applyResults;
+            [true, false, 400*_bonus, 10*_bonus, 10, 120, "money"] call _fnc_applyResults;
             [0,5000*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-            {if (_x distance _vehObj < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
         };
     };
 };
@@ -425,7 +415,7 @@ if (_convoyType == "Supplies") then
     waitUntil {sleep 1; (time > _timeout) or (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (side group driver _vehObj != _sideX)};
     if (not alive _vehObj) then
     {
-        [false, false, 0, -10*_bonus, 20, 120, "supply"] call _fnc_applyResults;
+        [false, false, 0, -10, 0, 0, "supply"] call _fnc_applyResults;
     }
     else
     {
@@ -434,19 +424,18 @@ if (_convoyType == "Supplies") then
             waitUntil {sleep 1; (_vehObj distance _posDest < _arrivalDist) or (not alive _vehObj) or (time > _timeout)};
             if (_vehObj distance _posDest < _arrivalDist) then
             {
-                [true, false, 0, 5*_bonus, 10, 90, "supply"] call _fnc_applyResults;
+                [true, false, 200*_bonus, 10*_bonus, 5, 120, "supply"] call _fnc_applyResults;
                 [0,15*_bonus,_mrkDest] remoteExec ["A3A_fnc_citySupportChange",2];
-                {if (_x distance _vehObj < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
             }
             else
             {
-                [false, false, 0, -10*_bonus, -10, 60, "supply"] call _fnc_applyResults;
-                [5*_bonus,-10*_bonus,_mrkDest] remoteExec ["A3A_fnc_citySupportChange",2];
+                [false, false, 0, -5, 0, 0, "supply"] call _fnc_applyResults;
+                [0,-5*_bonus,_mrkDest] remoteExec ["A3A_fnc_citySupportChange",2];
             };
         }
         else
         {
-            [false, true, 0, -10*_bonus, -10, 60, "supply"] call _fnc_applyResults;
+            [false, true, 0, -10, 0, 0, "supply"] call _fnc_applyResults;
             [15*_bonus,0,_mrkDest] remoteExec ["A3A_fnc_citySupportChange",2];
         };
     };

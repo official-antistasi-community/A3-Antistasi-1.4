@@ -1,6 +1,7 @@
 
 class Templates
 {
+    // ***************************** Vanilla *****************************
     class Vanilla_Base
     {
         requiredAddons[] = {};
@@ -115,7 +116,7 @@ class Templates
         file = "Vanilla_Civ";
     };
 
-    //************* VN ********************************************************
+    // ***************************** VN *****************************
 
     class VN_Base
     {
@@ -159,7 +160,7 @@ class Templates
         file = "VN_Civ";
     };
 
-    //************* RHS ********************************************************
+    // ***************************** RHS *****************************
 
     class RHS_Base
     {
@@ -185,6 +186,16 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
 
+    class RHS_CHDKZ : RHS_Base
+    {
+        side = "Inv";
+        flagTexture = "rhsgref\addons\rhsgref_main\data\flag_chdkz_co.paa";
+        name = "RHS ChDKZ";
+        file = "RHS_AI_ChDKZ";
+        maps[] = {"chernarus_summer","chernarus_winter","chernarus"};
+        logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+    };
+	
     class RHS_CDF : RHS_Base
     {
         side = "Occ";
@@ -250,7 +261,7 @@ class Templates
         file = "RHS_AI_SAF";
     };
 
-    //************* 3CB Factions ***************************************************
+    // ***************************** 3CB Factions *****************************
 
     class 3CBF_Base
     {
@@ -368,7 +379,26 @@ class Templates
         file = "3CB_AI_KRG";
         climate[] = {"arid"};
     };
-
+    class 3CBF_ION_Arid : 3CBF_Base
+    {
+        side = "Inv";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION Arid";
+        file = "3CB_AI_ION_Arid";
+        climate[] = {"arid"};
+    };
+        class 3CBF_ION_Temperate : 3CBF_ION_Arid
+    {
+        name = "3CB ION Temperate";
+        file = "3CB_AI_ION_Temperate";
+        climate[] = {"temperate","tropical"};
+    };
+        class 3CBF_ION_Arctic : 3CBF_ION_Arid
+    {
+        name = "3CB ION Arctic";
+        file = "3CB_AI_ION_Arctic";
+        climate[] = {"arctic"};
+    };
     class 3CBF_CCM : 3CBF_Base
     {
         side = "Reb";
@@ -376,7 +406,13 @@ class Templates
         name = "3CB CCM";
         file = "3CB_Reb_CNM";
     };
-
+    class 3CB_Reb_ION : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
+        name = "3CB ION";
+        file = "3CB_Reb_ION";
+    };
     class 3CBF_TKM : 3CBF_Base
     {
         side = "Reb";
@@ -385,7 +421,13 @@ class Templates
         file = "3CB_Reb_TKM";
         maps[] = {"takistan","tem_anizay","kunduz"};
     };
-
+    class 3CB_Reb_FIA : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "3CB FIA";
+        file = "3CB_Reb_FIA";
+    };
     class 3CBF_CHC : 3CBF_Base
     {
         side = "Civ";
@@ -403,7 +445,7 @@ class Templates
         maps[] = {"takistan","tem_anizay","kunduz"};
     };
 
-    // ***************************** 3CB BAF *************************************************
+    // ***************************** 3CB BAF *****************************
 
     class 3CBBAF_Base
     {
@@ -441,7 +483,7 @@ class Templates
         climate[] = {"tropical"};
     };
 
-    // ************************************** CUP *******************************************************
+    // ***************************** CUP *****************************
 
     class CUP_Base
     {
@@ -653,7 +695,7 @@ class Templates
         file = "CUP_Civ_CHC";
     };
 
-    // ************************************* Unsung *******************************************************
+    //***************************** Unsung *****************************
 
     class UNS_Base
     {
@@ -696,7 +738,7 @@ class Templates
         file = "UNS_Civ";
     };
 
-    // ********************************** Global Mobilization ************************************************
+    // ***************************** Global Mobilization *****************************
 
     class GM_Base
     {
@@ -712,16 +754,36 @@ class Templates
     {
         side = "Inv";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
-        name = "Nationale Volksarmee";
+        name = "GM Nationale Volksarmee Temperate";
         file = "GM_AI_NVA";
+        climate[] = {"temperate","tropical","arid"};
+    };
+
+    class GM_NVA_Arctic : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
+        name = "GM Nationale Volksarmee Arctic";
+        file = "GM_AI_NVA_arctic";
+        climate[] = {"arctic"};
     };
 
     class GM_BW : GM_Base
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "Bundeswehr";
+        name = "GM Bundeswehr Temperate";
         file = "GM_AI_BW";
+        climate[] = {"temperate","tropical","arid"};
+    };
+
+    class GM_BW_Arctic : GM_Base
+    {
+        side = "Occ";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
+        name = "GM Bundeswehr Arctic";
+        file = "GM_AI_BW_arctic";
+        climate[] = {"arctic"};
     };
 
     class GM_Reb : GM_Base
@@ -740,7 +802,7 @@ class Templates
         file = "GM_Civ";
     };
 
-    // ***************************** BWA3 *************************************************
+    // ***************************** BWA3 *****************************
 
     class BWA3_Base
     {
@@ -765,4 +827,91 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
     
+    // ***************************** Spe *****************************
+/*    //Commented out as no vehiclesPlanesTransport exist and the templates don't work without them
+    class SPE_Base
+    {
+        requiredAddons[] = {"ww2_spe_assets_c_characters_germans_c"};
+        basepath = QPATHTOFOLDER(Templates\Templates\SPE);
+        logo = QPATHTOFOLDER(Templates\Templates\SPE\spe_logo.paa);
+        priority = 80;
+        equipFlags[] = {"lowTech"};
+        forceDLC[] = {"spe"};
+    };
+
+    class SPE_US : SPE_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE\flag_us.paa);
+        name = "SPE US";
+        file = "SPE_AI_US";
+    };
+
+    class SPE_WEH : SPE_Base
+    {
+        side = "Occ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE\flag_ger.paa);
+        name = "SPE WEH";
+        file = "SPE_AI_WEH";
+    };
+
+    class SPE_Reb : SPE_Base
+    {
+        side = "Reb";
+        flagTexture = "\WW2\SPE_Core_t\Data_t\Flags\flag_FFF_co.paa";
+        name = "SPE FFF";
+        file = "SPE_Reb_FFF";
+    };
+
+    class SPE_CIV : SPE_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE\flag_fr.paa);
+        name = "SPE Civs";
+        file = "SPE_CIV";
+    };
+*/
+    // ***************************** SPE with IFA *****************************
+
+    class SPE_IFA_Base
+    {
+        requiredAddons[] = {"ww2_spe_assets_c_characters_germans_c","IFA3_Core"};
+        basepath = QPATHTOFOLDER(Templates\Templates\SPE_IFA);
+        logo = QPATHTOFOLDER(Templates\Templates\SPE_IFA\spe_ifa_logo.paa);
+        priority = 80;
+        equipFlags[] = {"lowTech"};
+        forceDLC[] = {"spe"};
+    };
+
+    class SPE_IFA_US : SPE_IFA_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE_IFA\flag_us.paa);
+        name = "SPE_IFA US";
+        file = "SPE_IFA_AI_US";
+    };
+
+    class SPE_IFA_WEH : SPE_IFA_Base
+    {
+        side = "Occ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE_IFA\flag_ger.paa);
+        name = "SPE_IFA WEH";
+        file = "SPE_IFA_AI_WEH";
+    };
+
+    class SPE_IFA_Reb : SPE_IFA_Base
+    {
+        side = "Reb";
+        flagTexture = "\WW2\SPE_Core_t\Data_t\Flags\flag_FFF_co.paa";
+        name = "SPE_IFA FFF";
+        file = "SPE_IFA_Reb_FFF";
+    };
+
+    class SPE_IFA_CIV : SPE_IFA_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPE_IFA\flag_fr.paa);
+        name = "SPE_IFA Civs";
+        file = "SPE_IFA_CIV";
+    };
 };

@@ -28,12 +28,12 @@ while {alive _veh} do
 			_veh setVariable ["revealed",false,true];
 			};
 		};
-	_pos = getPos _veh;
+	_pos = getPosATL _veh;
 	sleep 60;
-	_newPos = getPos _veh;
+	_newPos = getPosATL _veh;
 
 	_driverX = driver _veh;
-	if (_stuckHacks and (_newPos distance _pos < 5) and (_text != "Supply Box") and !(isNull _driverX)) then
+	if (_stuckHacks and {(_newPos distance _pos < 5) and (_text != "Supply Box") and !(isNull _driverX)}) then
 		{
 		if (_veh isKindOf "Air") then
 			{
@@ -50,6 +50,10 @@ while {alive _veh} do
 			{
 			if (not(_veh isKindOf "Ship")) then
 				{
+				if (currentWaypoint (group _driverX) >= count waypoints (group _driverX)) exitWith {
+					// Stop running this shit once we reached the destination
+					_stuckHacks = false;
+				};
 				if ({_x distance _newPos < 500} count (allPlayers - (entities "HeadlessClient_F")) == 0) then
 					{
 					_bridges = nearestObjects [_newPos, ["Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_BridgeSea_01_pillar_F","Land_BridgeWooden_01_pillar_F"], 50];

@@ -4,7 +4,7 @@
         Initilizes the LTC system for the individual client
 
     Arguments:
-    0. <nil>
+    0. <Object> Object to add the loot actions to
 
     Return Value:
     <nil>
@@ -14,85 +14,52 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [] call A3A_fnc_initLootToCrate;
+    Example: [_object] call A3A_fnc_initLootToCrate;
 
     License: MIT License
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-//check if action already on player
-if ((actionIDs Player) findIf {
-    _params = player actionParams _x;
-    (_params#0) isEqualTo "Load loot to crate"
+params [["_object", objNull, [objNull]]];
+
+//check if action already on object
+if ((actionIDs _object) findIf {
+    _params = _object actionParams _x;
+    (_params#0) isEqualTo "Load loot to crate" //TODO: Check needs to be changed to allow localization of addActions
 } != -1) exitWith {};
 
+
 //add load actions
-player addAction [
-    "Load loot to crate",
+_object addAction [
+    localize "STR_A3A_fn_ltc_init_addact_lt",
     {
-        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
+        [_this#3, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
     },
-    nil,
+    _object,
     1.5,
     true,
     true,
     "",
     "(
-        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and {(cursorObject distance _this < 3)
-        and {(attachedTo cursorObject isEqualTo objNull)}}
-    )"
+        (attachedTo _originalTarget isEqualTo objNull)
+    )",
+    3
 ];
 
-player addAction [
-    "Load loot from crate to vehicle",
+_object addAction [
+    localize "STR_A3A_fn_ltc_init_addact_ltv",
     {
-        [cursorObject, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
+        [_this#3, clientOwner] remoteExecCall ["A3A_fnc_canTransfer", 2];
     },
-    nil,
+    _object,
     1.5,
     true,
     true,
     "",
     "(
-        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and {(cursorObject distance _this < 3)
-        and {(attachedTo cursorObject isEqualTo objNull)}}
-    )"
-];
-
-//add carry actions
-player addAction [
-    "Carry Crate",
-    {
-        [cursorObject, true] call A3A_fnc_carryCrate;
-    },
-    nil,
-    1.5,
-    true,
-    true,
-    "",
-    "(
-        ((typeof cursorObject) in [A3A_faction_occ get 'surrenderCrate', A3A_faction_inv get'surrenderCrate'])
-        and {(cursorObject distance _this < 3)
-        and {(([_this] call A3A_fnc_countAttachedObjects) isEqualTo 0)
-        and {(attachedTo cursorObject isEqualTo objNull)}}}
-    )"
-];
-
-player addAction [
-    "Drop Crate",
-    {
-        [nil, false] call A3A_fnc_carryCrate;
-    },
-    nil,
-    1.5,
-    true,
-    true,
-    "",
-    "(
-        (_this getVariable ['carryingCrate', false])
-    )"
+        (attachedTo _originalTarget isEqualTo objNull)
+    )",
+    3
 ];
 
 nil;

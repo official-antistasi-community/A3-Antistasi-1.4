@@ -1,14 +1,16 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (bombRuns < 1) exitWith {["Air Support", "You lack of enough Air Support to make this request."] call A3A_fnc_customHint;};
+private _titleStr = localize "STR_A3A_fn_reinf_NatoBomb_title";
+
+if (bombRuns < 1) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_lack_supp"] call A3A_fnc_customHint;};
 //if (!allowPlayerRecruit) exitWith {hint "Server is very loaded. <br/>Wait one minute or change FPS settings in order to fulfill this request"};
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Air Support", "You need a radio in your inventory to be able to give orders to other squads."] call A3A_fnc_customHint;} else {["Air Support", "You need a Radio Man in your group to be able to give orders to other squads"] call A3A_fnc_customHint;}};
-if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {["Air Support", "You need to control an airport in order to fulfill this request."] call A3A_fnc_customHint;};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_no_radio"] call A3A_fnc_customHint;} else {[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_no_radio2"] call A3A_fnc_customHint;}};
+if ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == 0) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_no_control"] call A3A_fnc_customHint;};
 _typeX = _this select 0;
 
 positionTel = [];
 
-["Air Support", "Select the spot from which the plane will start to drop the bombs."] call A3A_fnc_customHint;
+[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_select_start"] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
@@ -27,7 +29,7 @@ _mrkorig setMarkerTypeLocal "hd_destroy";
 _mrkorig setMarkerColorLocal "ColorRed";
 _mrkOrig setMarkerTextLocal "Bomb Run Init";
 
-["Air Support", "Select the map position to which the plane will exit to calculate plane's route vector."] call A3A_fnc_customHint;
+[_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_select_end"] call A3A_fnc_customHint;
 
 onMapSingleClick "positionTel = _pos;";
 
@@ -53,14 +55,15 @@ _mrkDest setMarkerColorLocal "ColorRed";
 _mrkDest setMarkerTextLocal "Bomb Run Exit";
 
 //openMap false;
-private _isHelicopter = FactionGet(reb,"vehiclePlane") isKindOf "helicopter";
+private _typePlaneX = (FactionGet(reb,"vehiclesPlane")) # 0;
+private _isHelicopter = _typePlaneX isKindOf "helicopter";
 
 _angorig = _ang - 180;
 
 _origpos = [_pos1, 2500, _angorig] call BIS_fnc_relPos;
 _finpos = [_pos2, 2500, _ang] call BIS_fnc_relPos;
 
-_planefn = [_origpos, _ang, FactionGet(reb,"vehiclePlane"), teamPlayer] call A3A_fnc_spawnVehicle;
+_planefn = [_origpos, _ang, _typePlaneX, teamPlayer] call A3A_fnc_spawnVehicle;
 _plane = _planefn select 0;
 _planeCrew = _planefn select 1;
 _groupPlane = _planefn select 2;

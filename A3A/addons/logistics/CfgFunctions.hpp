@@ -27,7 +27,6 @@ class CfgFunctions {
             class getNodeConfig {};
             class getVehicleNodes {};
             class initMountedWeapon {};
-            class initPackableObjects {};
             class load {};
             class packObject {};
             class refreshVehicleLoad {};

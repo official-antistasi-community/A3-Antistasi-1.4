@@ -4,7 +4,7 @@ if (!isServer) exitWith {};
 private _updated = "";
 private _item = objNull;
 private _cateogry = objNull;
-["buttonInvToJNA"] call jn_fnc_arsenal;
+[boxX] call jn_fnc_arsenal_cargoToArsenal;
 
 if (minWeaps < 0) exitWith {""};		// no unlocks
 

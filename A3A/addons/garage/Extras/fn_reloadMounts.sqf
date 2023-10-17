@@ -30,26 +30,21 @@ private _cat = HR_GRG_vehicles#4;
     deleteVehicle _x;
 } forEach attachedObjects HR_GRG_previewVeh;
 
-//remove unticked statics
-private _toRemove = [];
-for "_i" from 0 to (lbSize _ctrl) -1 do {
-    private _class = _ctrl lbData _i;
-    private _UID = _ctrl lbValue _i;
-    Trace_4("Checking mount list | Index: %1 | Class: %2 | UID: %3 | Not checked: %4", _i, _class, _UID, (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 );
-    if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 0 ) then {_toRemove pushBack [_class, _UID]}; // if not checked
-};
-HR_GRG_Mounts = HR_GRG_Mounts - _toRemove;
-
-//add new statics to the list
+//read ticked statics from UI
+private _newMounts = [];
 for "_i" from 0 to (lbSize _ctrl) -1 do {
     private _UID = _ctrl lbValue _i;
-    if (HR_GRG_Mounts findIf {_UID isEqualTo (_x#1)} isEqualTo -1) then { //not in list
-        if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 1 ) then { //and checked
-            HR_GRG_Mounts pushBackUnique [_ctrl lbData _i, _UID];
-        };
+    if ( (checkboxTextures find (_ctrl lbPicture _i)) isEqualTo 1 ) then { //and checked
+        _newMounts pushBack [_ctrl lbData _i, _UID];
     };
 };
+
+// Preserve previous array order if elements exist in both
+HR_GRG_Mounts = HR_GRG_Mounts select { _x in _newMounts };
+HR_GRG_Mounts append (_newMounts - HR_GRG_Mounts);
+
 Trace_1("reloadMounts - Remaining mounts | %1", HR_GRG_Mounts);
+
 
 //add new statics
 private _lockedSeats = 0;

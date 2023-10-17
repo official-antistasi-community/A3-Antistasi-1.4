@@ -21,7 +21,7 @@ _dateLimit = numberToDate [date select 0, _dateLimitNum];//converts datenumber b
 _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time portion of the date array to a string for clarity in hints
 
 _radiusX = [_markerX] call A3A_fnc_sizeMarker;
-_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in UPSMON_Bld_remove)};
+_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in A3A_buildingBlacklist)};
 _posHouse = [];
 _houseX = _houses select 0;
 while {count _posHouse < 3} do
@@ -45,7 +45,9 @@ _arrayAirports = airportsX select {sidesX getVariable [_x,sideUnknown] == Occupa
 _base = [_arrayAirports, _positionX] call BIS_Fnc_nearestPosition;
 _posBase = getMarkerPos _base;
 
-_traitor = [_groupTraitor, FactionGet(occ,"unitTraitor"), _posTraitor, [], 0, "NONE"] call A3A_fnc_createUnit;
+private _traitorIdentity = [A3A_faction_reb, FactionGet(occ,"unitTraitor")] call A3A_fnc_createRandomIdentity;
+_traitorIdentity set ["speaker", "NoVoice"];
+_traitor = [_groupTraitor, FactionGet(occ,"unitTraitor"), _posTraitor, [], 0, "NONE", _traitorIdentity] call A3A_fnc_createUnit;
 _traitor allowDamage false;
 _traitor setPos _posTraitor;
 _sol1 = [_groupTraitor, FactionGet(occ,"unitBodyguard"), _posSol1, [], 0, "NONE"] call A3A_fnc_createUnit;
@@ -55,8 +57,8 @@ _groupTraitor selectLeader _traitor;
 _posTsk = (position _houseX) getPos [random 100, random 360];
 
 private _taskId = "AS" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskID,[format ["A traitor has scheduled a meeting with %4 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.",_nameDest,_displayTime,FactionGet(occ,"name")],"Kill the Traitor",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
-[[Occupants],_taskID+"B",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,FactionGet(reb,"name")],"Protect Contact",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskID,[format [localize "STR_A3A_fn_mission_as_traitor_text",_nameDest,_displayTime,FactionGet(occ,"name")],localize "STR_A3A_fn_mission_as_traitor_titel",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
+[[Occupants],_taskID+"B",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,FactionGet(reb,"name")],"Protect Contact",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;//old pvp blufor mission - won't localize
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 traitorIntel = false; publicVariable "traitorIntel";
@@ -87,7 +89,7 @@ else
 	_dirVeh = getDir _road;
 	};
 _posVeh = [_posroad, 3, _dirveh + 90] call BIS_Fnc_relPos;
-_veh = FactionGet(reb,"vehicleLightUnarmed") createVehicle _posVeh;
+_veh = ((FactionGet(reb,"vehiclesLightUnarmed")) # 0) createVehicle _posVeh;
 _veh allowDamage false;
 _veh setDir _dirVeh;
 sleep 15;
@@ -112,7 +114,9 @@ if (random 10 < 2.5) then
 	_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 	[_dog] spawn A3A_fnc_guardDog;
 	};
-_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2", "NOFOLLOW"] spawn UPSMON_fnc_UPSMON;
+
+[_groupX, "Patrol_Area", 25, 50, 100, false, [], false] call A3A_fnc_patrolLoop;
+
 {[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 
 waitUntil {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)}}}};
@@ -137,7 +141,7 @@ if (not alive _traitor || traitorIntel) then
 	[_taskId, "AS", "SUCCEEDED", true] call A3A_fnc_taskSetState;
 	if(traitorIntel && (alive _traitor)) then
 	{
-		{[petros,"hint","Someone found some intel on the traitors family, he will not cause any problems any more!"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
+		{[petros,"hint",localize "STR_A3A_fn_mission_as_traitor_hint"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
 
 		moveOut _traitor;
 		_traitor join grpNull;

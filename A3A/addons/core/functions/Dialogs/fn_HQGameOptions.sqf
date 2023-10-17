@@ -18,7 +18,7 @@ Public: Yes
 
 Example:
     [player,"maxUnits","increase"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
-    [player,"civPerc","decrease"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
+    [player,"globalCivilianMax","decrease"] remoteExecCall ["A3A_fnc_HQGameOptions",2];
 */
 params [
     ["_player",objNull,[objNull]],
@@ -31,12 +31,12 @@ FIX_LINE_NUMBERS()
 ////////////////////
 // Authentication //
 ////////////////////
-private _optionLocalisationTable = [["maxUnits","distanceSPWN","civPerc"],["AI Limit","Spawn Distance","Civilian Limit"]];
+private _optionLocalisationTable = [["maxUnits","distanceSPWN","globalCivilianMax"],["AI Limit","Spawn Distance","Civilian Limit"]];
 private _hintTitle = "HQ Spawn Options";
-private _authenticate = _option in ["maxUnits","distanceSPWN","civPerc"];
+private _authenticate = _option in ["maxUnits","distanceSPWN","globalCivilianMax"];
 
 if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
-    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
+    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player]; //TODO: localisation
     Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
     nil;
 };
@@ -91,7 +91,7 @@ private _processAction = {
     private _UpperLimitText = "  " + str _upperLimit;
     private _graphicLabel = _lowerLimitText + "<t color='#00000000' shadow='0'>" + (_padding select [0,_graphicLength -count _lowerLimitText -count _UpperLimitText])+ "</t>" + _UpperLimitText;
 
-    [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];
+    [_hintTitle, _optionName+_hintText+"<br/>"+_graphic+"<br/>"+_graphicLabel] remoteExecCall ["A3A_fnc_customHint",_player];//TODO: localisation
 };
 
 //////////////////////////
@@ -99,7 +99,7 @@ private _processAction = {
 //////////////////////////
 switch (_option) do {
     case "maxUnits": { [_option,_action,200,80,10] call _processAction; };
-    case "civPerc": { [_option,_action,150,0,1] call _processAction; };
+    case "globalCivilianMax": { [_option,_action,150,0,1] call _processAction; };
     case "distanceSPWN": {  // So close to generalising all of this away 😥, but then:
         [_option,_action,2000,600,100] call _processAction;
         distanceSPWN1 = distanceSPWN * 1.3;

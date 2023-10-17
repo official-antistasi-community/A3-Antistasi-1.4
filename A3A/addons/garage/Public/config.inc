@@ -37,8 +37,17 @@ HR_GRG_Cnd_canAccessAir = {
     count (airportsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (HR_GRG_accessPoint inArea _x)}) > 0
 };
 
+// Return lock limit for specified player
+HR_GRG_getLockLimit = {
+    [HR_GRG_LockLimit_Guest, HR_GRG_LockLimit_Member] select (_this call A3A_fnc_isMember);
+};
+
 //Lock on garaged vehicles ( Values: [{""}, { getPlayerUID player }] )
 HR_GRG_dLock = {""};
+
+//Member & guest lock limits
+if (isNil "HR_GRG_LockLimit_Member") then { HR_GRG_LockLimit_Member = 3 };
+if (isNil "HR_GRG_LockLimit_Guest") then { HR_GRG_LockLimit_Guest = 2 };
 
 HR_GRG_renderPlacementRays = false;
 
@@ -56,8 +65,10 @@ if (isNil "HR_GRG_ServiceDisabled_Repair") then {HR_GRG_ServiceDisabled_Repair =
 //camo blacklist (display name, case sensitive)
 HR_GRG_blackListCamo = ["IDAP", "African Desert Extremists", "African Desert Extremists 01", "African Desert Extremists 02",
 "African Desert Extremists Alt", "Middle East Extremists", "Middle East Extremists Alt", "Middle East Extremists 1", "Middle East Extremists 2",
-"Middle East Extremists 3", "Middle East Extremists 4", "Middle East Extremists 5", "Middle East Extremists 6"];
-//proxies
+"Middle East Extremists 3", "Middle East Extremists 4", "Middle East Extremists 5", "Middle East Extremists 6",
+"Middle East Extremists 01", "Middle East Extremists 02", "Middle East Extremists 03", "Middle East Extremists 04", "Middle East Extremists 05", "Middle East Extremists 06"];
+//proxies"Middle East Extremists 01"
+
 HR_GRG_fnc_Hint = {
     params ["_key", ["_arguments", []]];
     ["Garage",
@@ -85,6 +96,11 @@ if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
     ["HR_GRG_dLock", "CHECKBOX", ["Lock on garage", "Lock vehicles when garaged"], [HR_GRG_Prefix,"Garage"], (HR_GRG_dLock isEqualTo {getPlayerUID player}), false, {
         HR_GRG_dLock = [{""}, { getPlayerUID player }] select _this;
     }] call CBA_fnc_addSetting;
+
+    ["HR_GRG_LockLimit_Member", "SLIDER", ["Member lock limit", "Maximum vehicles that can be locked by a member"], [HR_GRG_Prefix,"Garage"],
+        [0, 10, HR_GRG_LockLimit_Member, 0], true] call CBA_fnc_addSetting;
+    ["HR_GRG_LockLimit_Guest", "SLIDER", ["Guest lock limit", "Maximum vehicles that can be locked by a guest"], [HR_GRG_Prefix,"Garage"],
+        [0, 10, HR_GRG_LockLimit_Guest, 0], true] call CBA_fnc_addSetting;
 
     ["HR_GRG_Pylons_Enabled", "CHECKBOX", ["Allow pylon editing", "Allows player to configure pylons in the garage"], [HR_GRG_Prefix,"Garage"], true, true, {
         HR_GRG_Pylons_Enabled = _this;

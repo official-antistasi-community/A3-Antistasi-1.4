@@ -2,12 +2,15 @@
 FIX_LINE_NUMBERS()
 scriptName "fn_placementSelection.sqf";
 private _disabledPlayerDamage = false;
+private _titleStr = localize "STR_A3A_fn_base_placeselec_title";
 
 player allowDamage false;
 format ["%1 is Dead",name petros] hintC format ["%1 has been killed. You lost part of your assets and need to select a new HQ position far from the enemies.",name petros];
+// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead" - implement into line 8
+// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead_long" - implement into line 8
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
-	0 = _this spawn {
+	_this spawn {
 		_this select 0 displayRemoveEventHandler ["unload", hintC_arr_EH];
 		hintSilent "";
 	};
@@ -47,30 +50,33 @@ while {_positionIsInvalid} do {
 	_markerX = [_markersX,_positionClicked] call BIS_fnc_nearestPosition;
 
 	if (getMarkerPos _markerX distance _positionClicked < 500) then {
-		["HQ Position", "Place selected is very close to enemy zones.<br/><br/> Please select another position."] call A3A_fnc_customHint;
+		[_titleStr, localize "STR_A3A_fn_base_placeselec_no_enemy_zone"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 
 	if (!_positionIsInvalid && {surfaceIsWater _positionClicked}) then {
-		["HQ Position", "Selected position cannot be in water."] call A3A_fnc_customHint;
+		[_titleStr, localize "STR_A3A_fn_base_placeselec_no_water"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 
 	if (!_positionIsInvalid && (_positionClicked findIf { (_x < 0) || (_x > worldSize)} != -1)) then {
-		["HQ Position", "Selected position cannot be outside the map."] call A3A_fnc_customHint;
+		[_titleStr, localize "STR_A3A_fn_base_placeselec_no_map"] call A3A_fnc_customHint;
 		_positionIsInvalid = true;
 	};
 
 	if (!_positionIsInvalid) then {
 		//Invalid if enemies nearby
 		_positionIsInvalid = (allUnits findIf {(side _x == Occupants || side _x == Invaders) && {_x distance _positionClicked < 500}}) > -1;
-		if (_positionIsInvalid) then {["HQ Position", "There are enemies in the surroundings of that area, please select another."] call A3A_fnc_customHint;};
+		if (_positionIsInvalid) then {[_titleStr, localize "STR_A3A_fn_base_placeselec_no_enemy_near"] call A3A_fnc_customHint;};
 	};
 	sleep 0.1;
 };
 
+player allowDamage true;
+
+{deleteMarkerLocal _x} forEach _mrkDangerZone;
+
 //If we're still in the map, we chose a place.
-// Should be impossible to close it without picking now? No new-game case anymore.
 if (visiblemap) then {
 	_controlsX = controlsX select {!(isOnRoad (getMarkerPos _x))};
 	{
@@ -81,8 +87,10 @@ if (visiblemap) then {
 	[_positionClicked] remoteExec ["A3A_fnc_createPetros", 2];
 	[_positionClicked, false] remoteExec ["A3A_fnc_relocateHQObjects", 2];
 	openmap [false,false];
+
+	// Make sure petros is actually placed before we signal that we're done placing
+	sleep 5;
 };
 
-player allowDamage true;
-
-{deleteMarkerLocal _x} forEach _mrkDangerZone;
+A3A_playerPlacingPetros = "";
+publicVariableServer "A3A_playerPlacingPetros";

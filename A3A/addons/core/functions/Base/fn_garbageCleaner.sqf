@@ -51,6 +51,7 @@ if (A3A_hasACE) then {
 	{ deleteVehicle _x } forEach (allMissionObjects "UserTexture1m_F");						// ACE spraycan tags
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_01");			//MBT turret wrecks
 	{ deleteVehicle _x } forEach (allMissionObjects "ace_cookoff_Turret_MBT_02");
+	{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "ACE_Grave");
 	{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "ACE_envelope_big");		// ACE trench objects
 	{ [_x, 200] call _fnc_distCheck } forEach (allMissionObjects "ACE_envelope_small");
 };

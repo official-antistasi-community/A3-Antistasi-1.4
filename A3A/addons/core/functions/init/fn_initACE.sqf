@@ -40,8 +40,8 @@ if (A3A_hasACEMedical) then {
 }] call CBA_fnc_addEventHandler;
 
 ["ace_towing_ropeDeployed", {
-        params ["_unit", "_target", "_ropeClass"]
-        if (captive player && _unit == player) then { player setCaptive false };
+    params ["_unit", "_target", "_ropeClass"]
+    if (captive player && _unit == player) then { player setCaptive false };
 }] call CBA_fnc_addEventHandler;
 
 [boxX, boxX] call ace_common_fnc_claim;	//Disables ALL Ace Interactions

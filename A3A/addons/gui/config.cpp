@@ -27,4 +27,4 @@ class CfgPatches {
 #include "dialogues\textures.inc"
 #include "dialogues\controls.hpp"
 #include "dialogues\dialogs.hpp"
-#include "dialogues\statusBar.hpp"
+#include "dialogues\rsc.hpp"

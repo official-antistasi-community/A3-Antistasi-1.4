@@ -178,12 +178,13 @@ if (isPlayer A3A_setupPlayer) then {
     theBoss = A3A_setupPlayer; publicVariable "theBoss";
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];

@@ -322,11 +322,15 @@ if (_varName in _specialVarLoads) then {
                 _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
             };
             [_veh, teamPlayer] call A3A_fnc_AIVEHinit;                  // Calls initObject instead if it's a buyable item
-            // TODO: Check whether various buyable items turn up as "Building"
-            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building") and isNil {_veh getVariable "A3A_canGarage"}) then {
-                staticsToSave pushBack _veh;
+
+            if (isNil {_veh getVariable "A3A_canGarage"}) then {        // Buyable items should set this
+                if (_veh isKindOf "StaticWeapon") exitWith { staticsToSave pushBack _veh };
+                if (_veh isKindOf "Building") exitWith {
+                    _veh setVariable ["A3A_building", true, true];
+                    A3A_buildingsToSave pushBack _veh;
+                };
             };
-            if (!isNil "_state") then {
+            if (!isNil "_state")  then {
                 [_veh, _state] call HR_GRG_fnc_setState;
             };
         };

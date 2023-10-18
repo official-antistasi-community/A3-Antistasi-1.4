@@ -1,5 +1,4 @@
-
-class O_Boat_Armed_01_hmg_F;                 //
+class O_Boat_Armed_01_hmg_F;
 
 class a3a_Boat_Armed_01_hmg_blufor_F : O_Boat_Armed_01_hmg_F
 {

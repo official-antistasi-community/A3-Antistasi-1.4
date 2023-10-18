@@ -1,7 +1,12 @@
+//TODO: add header
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
+private _titleStr = localize "STR_A3A_fn_dialogs_sqrec_title";
 private ["_display","_childControl","_costs","_costHR","_unitsX","_formatX"];
-if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {["Squad Recruit", "You need a radio in your inventory to be able to give orders to other squads."] call A3A_fnc_customHint;} else {["Squad Recruit", "You need a Radio Man in your group to be able to give orders to other squads."] call A3A_fnc_customHint;}};
+if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[_titleStr, localize "STR_A3A_fn_dialogs_sqrec_radio"] call A3A_fnc_customHint;} 
+else {[_titleStr, localize "STR_A3A_fn_dialogs_sqrec_radioman"] call A3A_fnc_customHint;}};
 #ifdef UseDoomGUI
 	ERROR("Disabled due to UseDoomGUI Switch.")
 #else

@@ -1,19 +1,19 @@
-
-
-class O_LSV_02_AT_F;                //
-class B_LSV_01_AT_F;                //
-class I_C_Offroad_02_unarmed_F;        //
-class I_C_Offroad_02_AT_F;            //
-class I_C_Offroad_02_LMG_F;            //
+class O_LSV_02_AT_F;
+class B_LSV_01_AT_F;
+class I_C_Offroad_02_unarmed_F;
+class I_C_Offroad_02_AT_F;
+class I_C_Offroad_02_LMG_F;
 
 class C_Van_02_transport_F;
 class C_Van_02_vehicle_F;
 class C_Van_02_service_F;
 
 class Van_02_medevac_base_F; //external Root Class
-class C_Van_02_medevac_F : Van_02_medevac_base_F{ 
+class C_Van_02_medevac_F : Van_02_medevac_base_F
+{ 
     class TextureSources; //external Child Class
 };
+
 //offroads
 class B_G_Offroad_01_armed_F;
 class B_G_Offroad_01_F;
@@ -21,7 +21,7 @@ class B_G_Offroad_01_AT_F;
 class I_E_Offroad_01_comms_F;
 class I_E_Offroad_01_covered_F;
 
-//Black - Any/WS ION
+//Black - Any
 class a3a_Offroad_01_black_F : B_G_Offroad_01_F
 {
     scope = 2;
@@ -61,8 +61,7 @@ class a3a_Offroad_02_LMG_black_F : I_C_Offroad_02_LMG_F
     textureList[] = {"Black",1,"Blue",0,"Green",0,"Orange",0,"Red",0,"White",0,"Brown",0,"Olive",0,"IDAP",0};
 };
 
-
-//Greens - Tropical/AAF
+//Greens - Tropical
 class a3a_Offroad_01_green_F : B_G_Offroad_01_F
 {
     scope = 2;
@@ -144,7 +143,7 @@ class a3a_Offroad_01_ldf_AT_F : B_G_Offroad_01_AT_F
     textureList[] = {"EAF",1};
 };
 
-//Gendarmerie - keeping these
+//Gendarmerie
 class a3a_Offroad_01_GEN_armed_F : B_G_Offroad_01_armed_F
 {
     crew = "B_GEN_Commander_F";
@@ -194,14 +193,17 @@ class a3a_Van_02_black_service_F : C_Van_02_service_F
 class a3a_Van_02_black_medevac_F : C_Van_02_medevac_F
 {
     scope = 2;
-    class TextureSources : TextureSources{
-        class Black{
+    class TextureSources : TextureSources
+    {
+        class Black
+        {
             author = "Bohemia Interactive";
             displayName = "Black";
             materials[] = {"\a3\Soft_F_Orange\Van_02\Data\van_body.rvmat","\A3\Soft_F_Orange\Van_02\Data\van_wheel.rvmat","","\a3\Data_f\Lights\Car_Beacon_Orange_emit.rvmat"};
             textures[] = {"\a3\Soft_F_Orange\Van_02\Data\van_body_Black_CO.paa","\a3\soft_f_orange\van_02\data\van_wheel_co.paa","\a3\soft_f_orange\van_02\data\van_glass_utility_CA.paa","\a3\Soft_F_Orange\Van_02\Data\van_body_Black_CO.paa"};
         };
-        class White{
+        class White
+        {
             author = "Bohemia Interactive";
             displayName = "White";
             materials[] = {"\a3\Soft_F_Orange\Van_02\Data\van_body.rvmat","\A3\Soft_F_Orange\Van_02\Data\van_wheel.rvmat","","\a3\Data_f\Lights\Car_Beacon_Orange_emit.rvmat"};

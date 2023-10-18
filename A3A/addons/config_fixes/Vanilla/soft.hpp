@@ -13,6 +13,7 @@ class C_Van_02_medevac_F : Van_02_medevac_base_F
 { 
     class TextureSources; //external Child Class
 };
+
 //offroads
 class B_G_Offroad_01_armed_F;
 class B_G_Offroad_01_F;
@@ -20,7 +21,7 @@ class B_G_Offroad_01_AT_F;
 class I_E_Offroad_01_comms_F;
 class I_E_Offroad_01_covered_F;
 
-//Black - Any/WS ION
+//Black - Any/ION
 class a3a_Offroad_01_black_F : B_G_Offroad_01_F
 {
     scope = 2;
@@ -60,7 +61,7 @@ class a3a_Offroad_02_LMG_black_F : I_C_Offroad_02_LMG_F
     textureList[] = {"Black",1,"Blue",0,"Green",0,"Orange",0,"Red",0,"White",0,"Brown",0,"Olive",0,"IDAP",0};
 };
 
-//Greens - Tropical/AAF
+//Greens - Tropical NATO
 class a3a_Offroad_01_green_F : B_G_Offroad_01_F
 {
     scope = 2;
@@ -142,7 +143,7 @@ class a3a_Offroad_01_ldf_AT_F : B_G_Offroad_01_AT_F
     textureList[] = {"EAF",1};
 };
 
-//Gendarmerie - keeping these
+//Gendarmerie
 class a3a_Offroad_01_GEN_armed_F : B_G_Offroad_01_armed_F
 {
     crew = "B_GEN_Commander_F";

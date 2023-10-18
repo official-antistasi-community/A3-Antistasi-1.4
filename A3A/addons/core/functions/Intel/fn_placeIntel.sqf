@@ -114,7 +114,7 @@ if (_isLarge && _isComputer) then {
 		_intel setVariable ["trapBomb", _bomb, true];
 		[
 			_bomb,
-			"Disarm bomb",
+			localize "STR_A3A_fn_intel_place_disarm",
 			"\Orange\Addons\ui_f_orange\Data\CfgVehicleIcons\iconExplosiveUXO_ca.paa",
 			"\Orange\Addons\ui_f_orange\Data\CfgVehicleIcons\iconExplosiveUXO_ca.paa",
 			"(_this distance _target < 3) and (_this getUnitTrait 'engineer')",

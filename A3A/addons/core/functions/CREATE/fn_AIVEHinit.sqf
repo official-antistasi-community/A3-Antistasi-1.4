@@ -89,7 +89,7 @@ else
 			if ((!isPlayer _unit) and (_unit getVariable ["spawner",false]) and (side group _unit == teamPlayer)) then
 			{
 				moveOut _unit;
-				["General", "Only Humans can pilot an air vehicle"] call A3A_fnc_customHint;
+				[localize "STR_A3A_fn_create_aivehinit_general", localize "STR_A3A_fn_create_aivehinit_no_human"] call A3A_fnc_customHint;
 			};
 		}];
 

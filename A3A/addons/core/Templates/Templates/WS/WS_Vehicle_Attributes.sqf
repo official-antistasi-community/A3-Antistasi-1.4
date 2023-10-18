@@ -1,3 +1,4 @@
+#include "..\Vanilla\Vanilla_Vehicle_Attributes.sqf"
 (["attributesVehicles"] call _fnc_getFromTemplate) append
 [
     ["B_ION_APC_Wheeled_01_cannon_lxWS", ["cost", 100], ["threat", 120]],

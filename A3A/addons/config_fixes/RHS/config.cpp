@@ -1,6 +1,6 @@
 //RHS - config.cpp
 
-include "..\script_component.hpp"
+#include "..\script_component.hpp"
 
 #if __has_include("\rhsgref\addons\rhsgref_main\config.bin")
 

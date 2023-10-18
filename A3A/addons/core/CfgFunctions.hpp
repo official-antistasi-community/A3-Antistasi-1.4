@@ -756,6 +756,7 @@ class CfgFunctions
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class isEngineer {};
             class localLog {};
             class log {};
             class setIdentity {};

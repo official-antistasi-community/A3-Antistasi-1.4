@@ -15,7 +15,7 @@ params ["_plankObject", "_holdTime"];
     "Build",
     "a3\ui_f\data\igui\cfg\actions\repair_ca.paa",
     "a3\ui_f\data\igui\cfg\actions\repair_ca.paa",
-    "player getUnitTrait 'engineer' and (player distance _target < 8)",
+    "player call A3A_fnc_isEngineer and (player distance _target < 8)",
     "[player] call A3A_fnc_canFight and (player distance _target < 10)",
     {},
     {},
@@ -36,6 +36,6 @@ _plankObject addAction ["Cancel",
     true,
     true,
     "",
-    'player getUnitTrait "engineer"',
+    "player call A3A_fnc_isEngineer",
     8
 ];

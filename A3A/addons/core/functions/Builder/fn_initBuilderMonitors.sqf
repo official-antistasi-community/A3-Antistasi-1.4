@@ -10,7 +10,7 @@ Arguments: None
 FIX_LINE_NUMBERS()
 
 Info("initBuilderMonitors started");
-if !(player getUnitTrait "engineer") exitWith {};
+if !(player call A3A_fnc_isEngineer) exitWith {};
 Info("initBuilderMonitors started2");
 
 // EH to draw icons for nearby under-construction objects

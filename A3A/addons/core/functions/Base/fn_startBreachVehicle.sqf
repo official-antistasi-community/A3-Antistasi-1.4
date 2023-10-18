@@ -7,8 +7,7 @@ private _titleStr = localize "STR_A3A_fn_base_breachveh_breachveh";
 if(!isPlayer _caller) exitWith {[_titleStr, localize "STR_A3A_fn_base_breachveh_no_player"] call A3A_fnc_customHint;};
 
 //Only engineers should be able to breach a vehicle
-private _isEngineer = _caller getUnitTrait "engineer";
-if(!_isEngineer) exitWith
+if !(_caller call A3A_fnc_isEngineer) exitWith
 {
     [_titleStr, localize "STR_A3A_fn_base_breachveh_no_engi"] call A3A_fnc_customHint;;
 };

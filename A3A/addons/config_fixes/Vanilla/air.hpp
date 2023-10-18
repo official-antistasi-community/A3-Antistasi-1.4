@@ -2,8 +2,6 @@ class I_Heli_Transport_02_F;
 class B_Heli_Light_01_F;
 class B_Heli_Light_01_stripped_F;
 class B_Heli_Light_01_dynamicLoadout_F;
-
-
 class O_Heli_Light_02_dynamicLoadout_F;
 class O_Heli_Light_02_unarmed_F;
 
@@ -14,16 +12,16 @@ class I_Plane_Fighter_04_F;
 class a3a_Heli_Light_02_black_F : O_Heli_Light_02_dynamicLoadout_F
 {
     class TextureSources
-	{
+    {
         class Black
-		{
+        {
             author = "Bohemia Interactive";
             displayName = "Black";
             textures[] = {"\A3\Air_F\Heli_Light_02\Data\Heli_Light_02_ext_CO.paa"};
         };
         class Blackcustom
-		{
-            author = "Bohemia Interactive";
+        {
+           author = "Bohemia Interactive";
             displayName = "Black Custom";
             textures[] = {"\A3\Air_F_Heli\Heli_Light_02\Data\Heli_Light_02_ext_OPFOR_V2_CO.paa"};
         };

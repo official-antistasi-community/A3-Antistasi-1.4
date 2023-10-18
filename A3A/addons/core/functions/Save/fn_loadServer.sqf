@@ -100,6 +100,9 @@ if (isServer) then {
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
+	// Move headless client logic objects near HQ so that firedNear EH etc. work more reliably
+	private _hcpos = markerPos respawnTeamPlayer vectorAdd [-100, -100, 0];
+	{ _x setPosATL _hcpos } forEach (entities "HeadlessClient_F");
 
 	tierPreference = 1;
 	publicVariable "tierPreference";

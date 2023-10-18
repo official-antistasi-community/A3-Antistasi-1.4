@@ -1,4 +1,3 @@
-
 class a3a_ION_Truck_02_MRL_F : I_Truck_02_MRL_F
 {
     side = 1;

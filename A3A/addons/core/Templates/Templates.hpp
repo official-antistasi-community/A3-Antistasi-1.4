@@ -133,6 +133,27 @@ class Templates
         name = "WS CSAT North Africa";
         file = "WS_AI_CSAT_NAfrica";
 	};
+	class WS_TURA : WS_Base
+	{
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "WS Tura";
+        file = "WS_Reb_TURA";
+	};
+	class WS_Civ : WS_Base
+	{
+        side = "Civ";
+        flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
+        name = "Western Sahara";
+        file = "WS_Civ";
+	};
+	class WS_NATO : WS_Base
+	{
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+        name = "WS NATO Desert";
+        file = "WS_AI_NATO_Desert";
+	};
     // ***************************** VN *****************************
 
     class VN_Base

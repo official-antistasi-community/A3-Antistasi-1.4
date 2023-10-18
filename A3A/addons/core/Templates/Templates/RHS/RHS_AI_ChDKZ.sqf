@@ -30,14 +30,13 @@
 ["vehiclesLightUnarmed", ["rhsgref_ins_uaz", "rhsgref_ins_uaz_open", "rhsgref_ins_uaz_open", "rhsgref_BRDM2UM_ins"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["rhsgref_ins_uaz_spg9","rhsgref_ins_uaz_dshkm","rhsgref_ins_uaz_ags", "rhsgref_BRDM2_HQ_ins","rhsgref_ins_gaz66_zu23","rhsgref_ins_ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", [
-"rhsgref_ins_zil131_open","rhsgref_ins_zil131",
 "rhsgref_ins_gaz66","rhsgref_ins_gaz66o",
-"rhsgref_ins_ural","rhsgref_ins_ural_open","rhsgref_ins_ural_work","rhsgref_ins_ural_work_open"
+"rhsgref_ins_ural","rhsgref_ins_ural_open",
+"rhsgref_BRDM2UM_ins", "rhsgref_BRDM2_HQ_ins"
 ]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", [
 "rhsgref_ins_gaz66o_flat","rhsgref_ins_gaz66_flat",
-"rhsgref_ins_zil131_flatbed_cover","rhsgref_ins_zil131_flatbed",
-"rhsgref_ins_ural_work","rhsgref_ins_ural_work_open"
+"rhsgref_ins_zil131_flatbed_cover","rhsgref_ins_zil131_flatbed"
 ]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsgref_ins_gaz66_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsgref_ins_gaz66_repair","rhsgref_ins_ural_repair"]] call _fnc_saveToTemplate;
@@ -45,7 +44,7 @@
 ["vehiclesMedical", ["rhsgref_ins_gaz66_ap2"]] call _fnc_saveToTemplate;
 
 ["vehiclesLightAPCs", ["rhsgref_BRDM2_ins"]] call _fnc_saveToTemplate;            //this line determines light APCs
-["vehiclesAPCs", ["rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_bmd2","rhsgref_ins_bmd1p","rhsgref_ins_bmd1"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr60","rhsgref_ins_btr70","rhsgref_ins_btr70","rhsgref_ins_bmd2","rhsgref_ins_bmd1p","rhsgref_ins_bmd1"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhsgref_ins_bmp2k","rhsgref_ins_bmp2d","rhsgref_ins_bmp2e","rhsgref_ins_bmp2","rhsgref_ins_bmp1p","rhsgref_ins_bmp1k","rhsgref_ins_bmp1d","rhsgref_ins_bmp1"]] call _fnc_saveToTemplate;                //this line determines IFVs
 ["vehiclesTanks", ["a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72a","a3a_rhs_chdkz_72b","a3a_rhs_chdkz_72c"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhsgref_ins_zsu234"]] call _fnc_saveToTemplate;
@@ -61,8 +60,8 @@
 
 ["vehiclesHelisLight", ["a3a_rhs_Mi8T_chdkz"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["a3a_rhs_Mi8mt_chdkz","a3a_rhs_Mi8mt_chdkz", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only
-["vehiclesHelisLightAttack", ["a3a_rhs_Mi8MTV3_chdkz","a3a_rhs_Mi8MTV3_heavy_chdkz","a3a_rhs_Mi8AMTSh_chdkz"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["RHS_Mi24P_vvsc", "RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["RHS_Mi24P_vvsc", "a3a_rhs_Mi8MTV3_chdkz","a3a_rhs_Mi8MTV3_heavy_chdkz","a3a_rhs_Mi8AMTSh_chdkz"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsgref_ins_2s1","rhsgref_ins_d30","rhsgref_ins_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -76,7 +75,7 @@
 
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["rhsgref_ins_uaz_dshkm"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["rhsgref_ins_gaz66","rhsgref_ins_gaz66o"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhsgref_ins_ural_work","rhsgref_ins_ural_work_open","rhsgref_ins_zil131_open","rhsgref_ins_zil131"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_ins_uaz", "rhsgref_ins_uaz_open"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhsgref_ins_gaz66","rhsgref_ins_uaz", "rhsgref_ins_uaz_open"]] call _fnc_saveToTemplate;
@@ -199,7 +198,7 @@ _sfLoadoutData set ["backpacks", ["rhs_assault_umbts", "B_Kitbag_sgg", "rhs_sido
 _sfLoadoutData set ["helmets", ["rhs_Booniehat_digi", "rhs_altyn", "rhs_altyn_novisor", "rhs_altyn_novisor_ess", "rhs_gssh18"]];
 _sfLoadoutData set ["slHat", ["rhs_beret_mvd"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_03"]];
-_sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15"]];
+_sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15", "rhs_1PN138"]];
 _sfLoadoutData set ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]];
 
 _sfLoadoutData set ["facewear", ["rhs_balaclava1_olive", "rhs_balaclava", "G_Balaclava_oli","G_Balaclava_blk",""]];
@@ -278,7 +277,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["rhs_uniform_gorka_r_y","rhs_uniform_gorka_r_g"]];
+_militaryLoadoutData set ["uniforms", ["rhsgref_uniform_reed"]];
 _militaryLoadoutData set ["vests", ["rhs_6b3_AK_3","rhs_6b3_AK_2","rhs_6b3_AK","rhs_6b3","rhs_6b2_AK","rhs_6b2_chicom","rhs_6b2_lifchik","rhs_6b2_RPK","rhs_6b2_SVD","rhs_6sh92_digi","rhs_6sh92_digi_radio","rhs_6sh92","rhs_6sh92_radio","V_TacVest_blk","V_BandollierB_rgr","V_Chestrig_rgr"]];
 _militaryLoadoutData set ["glVests", ["rhs_6sh92_digi_vog","rhs_6sh92_vog","rhs_6b3_VOG","rhs_6b3_VOG_2"]];
 _militaryLoadoutData set ["slVests", ["rhs_6sh92_digi_vog_headset","rhs_6sh92_vog_headset","rhs_6b3_VOG","rhs_6b3_VOG_2"]];

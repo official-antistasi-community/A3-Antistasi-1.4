@@ -139,6 +139,12 @@ class Templates
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
         name = "Western Sahara";
         file = "WS_Civ";
+	class WS_NATO : WS_Base
+	{
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
+        name = "WS NATO Desert";
+        file = "WS_AI_NATO_Desert";
 	};
     // ***************************** VN *****************************
 

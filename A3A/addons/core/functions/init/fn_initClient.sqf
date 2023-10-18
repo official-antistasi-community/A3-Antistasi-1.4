@@ -86,6 +86,7 @@ if (!isServer) then {
 
 // Headless clients register with server and bail out at this point
 if (!isServer and !hasInterface) exitWith {
+    player setPosATL (markerPos respawnTeamPlayer vectorAdd [-100, -100, 0]);
     [clientOwner] remoteExecCall ["A3A_fnc_addHC",2];
 };
 
@@ -251,7 +252,7 @@ player addEventHandler ["WeaponAssembled", {
         _markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
         _pos = position _veh;
         [_veh] call A3A_Logistics_fnc_addLoadAction;
-        if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns."] call A3A_fnc_customHint;};
+        if (_markersX findIf {_pos inArea _x} != -1) then {[localize "STR_A3A_fn_init_initclient_statdepl", localize "STR_A3A_fn_init_initclient_statdepl_confirm"] call A3A_fnc_customHint;};
     };
 }];
 
@@ -273,7 +274,7 @@ player addEventHandler ["GetInMan", {
         if (!isNil {_veh getVariable "A3A_locked"}) then {
             _owner = _veh getVariable "ownerX";
             if ({getPlayerUID _x == _owner} count (units group player) == 0) then {
-                ["Warning", "This Vehicle is locked, ask the Owner to unlock it."] call A3A_fnc_customHint;
+                [localize "STR_A3A_fn_init_initclient_warning", localize "STR_A3A_fn_init_initclient_vehlocked"] call A3A_fnc_customHint;
                 moveOut _unit;
                 _exit = true;
             };
@@ -291,6 +292,11 @@ player addEventHandler ["GetInMan", {
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
 player addEventHandler ["HandleRating", {0}];
 
+// Prevent squad icons showing in 3d display in high command
+addMissionEventHandler ["CommandModeChanged", {
+    setGroupIconsVisible [true, false];
+}];
+
 call A3A_fnc_initUndercover;
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
@@ -303,7 +309,7 @@ if (membershipEnabled) then {
     };
     if (serverCommandAvailable "#logout") then {
         _isMember = true;
-        ["General Info", "You are not in the member's list, but as you are Server Admin, you have been added. Welcome!"] call A3A_fnc_customHint;
+        [localize "STR_A3A_fn_init_initclient_geninfo", localize "STR_A3A_fn_init_initclient_member_admin"] call A3A_fnc_customHint;
     };
 
     if (_isMember) then {
@@ -314,7 +320,7 @@ if (membershipEnabled) then {
         if (_nonMembers >= (playableSlotsNumber teamPlayer) - bookedSlots) then {["memberSlots",false,1,false,false] call BIS_fnc_endMission};
         [] spawn A3A_fnc_playerLeash;
 
-        ["General Info", "Welcome Guest<br/><br/>You have joined this server as guest."] call A3A_fnc_customHint;
+        [localize "STR_A3A_fn_init_initclient_geninfo", localize "STR_A3A_fn_init_initclient_member_guest"] call A3A_fnc_customHint;
     };
 };
 
@@ -329,10 +335,10 @@ if !(isPlayer leader group player) then {
 
 if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  // Local Host || Commander || Dedicated Admin
     private _modsAndLoadText = [
-        [A3A_hasTFAR || A3A_hasTFARBeta,"TFAR","Players will use TFAR radios. Unconscious players' radios will be muted."],
-        [A3A_hasACRE,"ACRE","Players will use ACRE radios. Unconscious players' radios will be muted."],
-        [A3A_hasACE,"ACE 3","ACE items added to arsenal and ammo-boxes."],
-        [A3A_hasACEMedical,"ACE 3 Medical","Default revive system will be disabled."]
+        [A3A_hasTFAR || A3A_hasTFARBeta,"TFAR",localize "STR_A3A_fn_init_initclient_mods_tfar"],
+        [A3A_hasACRE,"ACRE",localize "STR_A3A_fn_init_initclient_mods_acre"],
+        [A3A_hasACE,"ACE 3",localize "STR_A3A_fn_init_initclient_mods_ace"],
+        [A3A_hasACEMedical,"ACE 3 Medical",localize "STR_A3A_fn_init_initclient_mods_ace_revive"]
     ] select {_x#0};
 
     private _loadedTemplateInfoXML = A3A_loadedTemplateInfoXML apply {[true,_x#0,_x#1]};	// Remove and simplify when the list above is empty and can be deleted.
@@ -340,7 +346,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
 
     if (count _modsAndLoadText isEqualTo 0) exitWith {};
     private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ":</t>" + _x#2 }) joinString "<br/>") + "</t>";
-    ["Loaded Mods",_textXML] call A3A_fnc_customHint;
+    [localize "STR_A3A_fn_init_initclient_mods_loaded",_textXML] call A3A_fnc_customHint;
 };
 
 // uh, what's this for exactly? What are we doing that needs the main display?
@@ -349,11 +355,11 @@ GVAR(keys_battleMenu) = false; //initilize key flags to false
 
 
 boxX allowDamage false;			// hmm...
-boxX addAction ["Transfer Vehicle cargo to Ammobox", {[] spawn A3A_fnc_empty;}, 4];
-boxX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+boxX addAction [localize "STR_A3A_fn_init_initclient_addact_transfer", {[] spawn A3A_fnc_empty;}, 4];
+boxX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 flagX allowDamage false;
-flagX addAction ["Unit Recruitment", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {["Recruit Unit", "You cannot recruit units while there are enemies near you."] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
-flagX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+flagX addAction [localize "STR_A3A_fn_init_initclient_addact_recruit", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {[localize "STR_A3A_fn_init_initclient_recunit", localize "STR_A3A_fn_init_initclient_recunit_no"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
+flagX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
 private _flagLight = "#lightpoint" createVehicle (getPos flagX);
@@ -366,12 +372,12 @@ _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
 vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-vehicleBox addAction ["Vehicle Arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
+vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 
-vehicleBox addAction ["Buy Vehicle", {
+vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_buyveh", {
     if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {
-        ["Purchase Vehicle", "You cannot buy vehicles while there are enemies near you."] call A3A_fnc_customHint;
+        [localize "STR_A3A_fn_init_initclient_buyveh", localize "STR_A3A_fn_init_initclient_buyveh_"] call A3A_fnc_customHint;
     } else {
         createDialog "A3A_BuyVehicleDialog";
     }
@@ -379,22 +385,22 @@ vehicleBox addAction ["Buy Vehicle", {
 
 call A3A_fnc_dropObject;
 
-vehicleBox addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {
+mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
     [
-        "Game Options",
-        "Version: "+ QUOTE(VERSION_FULL) +
-        "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
-        "<br/>Unlock Weapon Number: "+ str minWeaps +
-        "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
-        "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str globalCivilianMax +
-        "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
+        localize "STR_A3A_fn_init_initclient_gameOpt_title",
+        localize "STR_A3A_fn_init_initclient_gameOpt_version"+" "+ QUOTE(VERSION_FULL) +"<br/><br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_resoBal"+" "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_unlockNo"+" "+ str minWeaps +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ (["No","Yes"] select limitedFT) +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_spawnDist"+" "+ str distanceSPWN + "m" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_civLim"+" "+ str globalCivilianMax +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_timeGC"+" "+ ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
     ERROR("Disabled due to UseDoomGUI Switch.")
@@ -403,11 +409,19 @@ mapX addAction ["Game Options", {
 #endif
     nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction ["Map Info", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-if (isMultiplayer) then {mapX addAction ["AI Load Info", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
+mapX addAction [localize "STR_A3A_fn_init_initclient_addact_mapinfo", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+mapX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
+if (isMultiplayer) then {mapX addAction [localize "STR_A3A_fn_init_initclient_addact_ailoadinfo", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
-[] spawn A3A_fnc_unitTraits;
+[] call A3A_fnc_unitTraits;
+
+// Get list of buildable objects, has map (and template?) dependency
+call A3A_fnc_initBuildableObjects;
+
+// Start cursorObject monitor loop for adding removeStructure actions
+// Note: unitTraits must run first to add engineer trait to default commander
+0 spawn A3A_fnc_initBuilderMonitors;
+
 
 
 disableSerialization;

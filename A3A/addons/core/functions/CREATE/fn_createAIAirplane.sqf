@@ -265,7 +265,7 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 
 if (!_busy) then
 {
-	private _vehTypesHeavy = (_faction get "vehiclesAPCs") + (_faction get "vehiclesTanks");
+	private _vehTypesHeavy = (_faction get "vehiclesLightAPCs") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesTanks");
 	for "_i" from 1 to (round (random 2)) do
 	{
 		_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;

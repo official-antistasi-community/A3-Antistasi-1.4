@@ -1,8 +1,12 @@
+//Vanilla - config.cpp
+
 #include "..\script_component.hpp"
 
 
-class CfgPatches {
-    class PATCHNAME(A3) {
+class CfgPatches 
+{
+    class PATCHNAME(A3) 
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};

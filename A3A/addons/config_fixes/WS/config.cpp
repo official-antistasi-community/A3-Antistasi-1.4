@@ -1,9 +1,13 @@
+//WS - config.cpp
+
 #include "..\script_component.hpp"
 
 #if __has_include("\lxws\data_f_lxws\config.bin")
 
-class CfgPatches {
-    class PATCHNAME(WS) {
+class CfgPatches 
+{
+    class PATCHNAME(WS) 
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};

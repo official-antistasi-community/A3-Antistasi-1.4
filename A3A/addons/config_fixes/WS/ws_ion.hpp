@@ -1,3 +1,6 @@
+//WS - ws_ion.hpp
+
+//ION
 class a3a_ION_Truck_02_MRL_F : I_Truck_02_MRL_F
 {
     side = 1;
@@ -61,8 +64,7 @@ class a3a_ION_Truck_02_zu23_F : O_Tura_Truck_02_aa_lxWS
     faction = "BLU_ION_lxWS";
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\truck_02\truck_02_kab_black_co.paa","lxws\vehicles_f_lxws\truck_02\data\truck_02_cargo_olive_co.paa","a3\soft_f_beta\truck_02\data\truck_02_int_co.paa","lxws\vehicles_f_lxws\zu23\data\zu23_base_co.paa","lxws\vehicles_f_lxws\zu23\data\zu23_co.paa","lxws\vehicles_f_lxws\zu23\data\zu23_addon_1_co.paa","lxws\vehicles_f_lxws\zu23\data\zu23_addon_2_co.paa","lxws\vehicles_f_lxws\truck_02\data\addons_black_co.paa"};
 };
-
-class a3a_ion_Offroad_armor : B_Tura_Offroad_armor_lxWS
+class a3a_ION_Offroad_armor : B_Tura_Offroad_armor_lxWS
 {
     side = 1;
     crew = "B_ION_Soldier_lxWS";
@@ -70,7 +72,7 @@ class a3a_ion_Offroad_armor : B_Tura_Offroad_armor_lxWS
     textureList[] = {};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
-class a3a_ion_Offroad_armor_at : B_Tura_Offroad_armor_AT_lxWS
+class a3a_ION_Offroad_armor_at : B_Tura_Offroad_armor_AT_lxWS
 {
     side = 1;
     crew = "B_ION_Soldier_lxWS";
@@ -78,7 +80,7 @@ class a3a_ion_Offroad_armor_at : B_Tura_Offroad_armor_AT_lxWS
     textureList[] = {};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
-class a3a_ion_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
+class a3a_ION_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
 {
     side = 1;
     crew = "B_ION_Soldier_lxWS";

@@ -1,3 +1,5 @@
+//WS - CfgMarkers.hpp
+
 class CfgMarkers
 {
     class flag_NATO;

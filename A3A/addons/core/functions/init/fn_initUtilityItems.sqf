@@ -23,11 +23,14 @@ private _repairStation = FactionGet(reb,"vehicleRepairStation");
 private _items = [
     [FactionGet(reb,"surrenderCrate"), 10, "lootbox", "gear", ["move", "loot"]],
     [_fuelDrum#0, _fuelDrum#1, "fueldrum", "refuel", ["fuel", "move", "save"]],
-    [_fuelTank#0, _fuelTank#1, "fueltank", "refuel", ["cmmdr", "fuel", "place", "move", "save"]],
-    [_medTent#0, _medTent#1, "medicaltent", "heal", ["place", "move", "pack"]],
-    [_ammoStation#0, _ammoStation#1, "ammostation", "rearm", ["cmmdr", "place", "move", "save"]],
-    [_repairStation#0, _repairStation#1, "repairstation", "repair", ["cmmdr", "place", "move", "pack", "save"]],
-    [FactionGet(reb,"vehicleLightSource"), 25, "light", "", ["move"]]           // note: If we do want this saved, need to switch saveLoop to nearObjects
+    [_fuelTank#0, _fuelTank#1, "fueltank", "refuel", ["cmmdr", "fuel", "place", "move", "rotate", "save"]],
+    [_medTent#0, _medTent#1, "medicaltent", "heal", ["place", "move", "rotate", "pack"]],
+    [_ammoStation#0, _ammoStation#1, "ammostation", "rearm", ["cmmdr", "place", "move", "rotate", "save"]],
+    [_repairStation#0, _repairStation#1, "repairstation", "repair", ["cmmdr", "place", "move", "rotate", "pack", "save"]],
+    [FactionGet(reb,"vehicleLightSource"), 25, "light", "", ["move"]],           // note: If we do want this saved, need to switch saveLoop to nearObjects
+    ["Land_PlasticCase_01_medium_F", 100, "buildboxsmall", "", ["place", "move", "build"]],
+    ["Land_PlasticCase_01_large_F", 500, "buildboxlarge", "", ["place", "move", "build"]]
+    // TODO: get larger box from somewhere
 ];
 
 if (LootToCrateRadius == 0) then { _items deleteAt 0 };

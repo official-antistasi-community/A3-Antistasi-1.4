@@ -64,9 +64,9 @@
 
 ["vehiclesPolice", ["UK3CB_APD_B_LandRover_Closed", "UK3CB_APD_B_LandRover_Open", "UK3CB_APD_B_Pickup", "UK3CB_APD_B_SUV_POL", "UK3CB_APD_B_Hilux_Closed", "UK3CB_APD_B_Hilux_Open", "UK3CB_APD_B_Landcruiser_POL"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["RHS_M2StaticMG_D"]] call _fnc_saveToTemplate;
+["staticMGs", ["RHS_M2StaticMG_D", "UK3CB_AAF_I_M240_High"]] call _fnc_saveToTemplate;
 ["staticAT", ["RHS_TOW_TriPod_D", "UK3CB_AAF_B_Milan_High"]] call _fnc_saveToTemplate;
-["staticAA", ["RHS_Stinger_AA_pod_D", "UK3CB_MDF_B_RBS70"]] call _fnc_saveToTemplate;
+["staticAA", ["RHS_Stinger_AA_pod_D", "UK3CB_MDF_B_RBS70", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
 ["staticMortars", ["RHS_M252_D"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;

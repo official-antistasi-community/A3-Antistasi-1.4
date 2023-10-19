@@ -41,10 +41,10 @@
 ["vehiclesPlanesAA", ["UK3CB_ADA_B_L39_PYLON","UK3CB_ADA_O_MIG29S"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_ADA_O_C130J"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_AAF_B_UH1H", "UK3CB_AAF_B_Benches_MH9", "UK3CB_AAF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_AAF_B_UH60M2", "UK3CB_AAF_B_UH60M", "UK3CB_AAF_O_Mi8AMT", "UK3CB_AAF_O_Mi8", "UK3CB_AAF_I_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["UK3CB_AAF_B_UH1H_GUNSHIP", "UK3CB_AAF_I_Mi8AMTSh", "UK3CB_AAF_B_Bell412_Armed", "UK3CB_AAF_B_Bell412_Armed_AT"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_AAF_B_AH1Z_GS", "UK3CB_AAF_B_AH1Z", "UK3CB_AAF_I_Mi_24V"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_ADA_B_UH1H", "RHS_MELB_MH6M"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_CW_US_B_LATE_UH60M2","UK3CB_CW_US_B_LATE_UH60M","UK3CB_ADA_B_Mi8","UK3CB_ADA_B_Mi8AMT", "UK3CB_ADA_B_UH1H_M240"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_ADA_B_UH1H_GUNSHIP", "UK3CB_ANA_B_Mi8AMTSh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_AH1Z", "RHS_AH1Z", "UK3CB_ADA_O_Mi_24V"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsusf_m109d_usarmy", "UK3CB_B_M270_MLRS_HE_DES", "UK3CB_B_M270_MLRS_Cluster_DES","RHS_M119_D"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [

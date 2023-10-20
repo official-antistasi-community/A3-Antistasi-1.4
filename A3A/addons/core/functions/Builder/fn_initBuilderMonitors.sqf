@@ -23,7 +23,7 @@ A3A_buildDrawIconsEH = addMissionEventHandler ["Draw3D", {
         drawIcon3D [
             "\A3\ui_f\data\map\markers\handdrawn\objective_CA.paa",
             [1,0,0,_normalizedDistance],
-            getPosATLVisual _x vectorAdd [0,0, (0.5 * ( sin (120 * diag_tickTime))) + 1.5],
+            getPosATLVisual _x vectorAdd [0,0,2],
             1,1,0,
             _x getVariable "A3A_build_name",
             2,0.06,"RobotoCondensedLight"

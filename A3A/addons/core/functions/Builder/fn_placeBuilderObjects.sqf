@@ -40,7 +40,10 @@ private _constructionObjects = [
     if (isNull _repairObj) then
     {
         // Construction, create planks on spot
-        _planks setPos [_position#0, _position#1, 0];
+        //_planks setPos [_position#0, _position#1, 0];
+
+        // find an empty position instead of place on ground... a little safer, just a little
+        _planks setPos ([_position#0, _position#1, 0] findEmptyPosition [0, 50, _plankClass]);
         _planks setDir random 360;
 
         _planks setVariable ["A3A_build_pos", _position];

@@ -43,7 +43,8 @@ private _constructionObjects = [
         //_planks setPos [_position#0, _position#1, 0];
 
         // find an empty position instead of place on ground... a little safer, just a little
-        _planks setPos ([_position#0, _position#1, 0] findEmptyPosition [0, 50, _plankClass]);
+        private _emptyPosition = ([_position#0, _position#1, 0] findEmptyPosition [0, 50, _plankClass]);
+        if(_emptyPosition isNotEqualTo []) then { _planks setPos _emptyPosition; } else { _planks setPos _position; }
         _planks setDir random 360;
 
         _planks setVariable ["A3A_build_pos", _position];

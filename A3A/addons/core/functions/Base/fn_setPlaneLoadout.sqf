@@ -143,7 +143,7 @@ if (_type == "CAS") then
         case "UK3CB_AAF_B_Gripen_G";
         case "UK3CB_AAF_B_Gripen_DG":
         {
-            _loadout = ["PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
+            _loadout = ["","","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
             _plane setVariable ["mainGun", "weapon_Fighter_Gun20mm_AA"];
             _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher"]];
         };

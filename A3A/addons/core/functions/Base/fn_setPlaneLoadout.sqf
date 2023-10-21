@@ -307,7 +307,6 @@ if (_type == "AA") then
         };
         case "UK3CB_ANA_B_L39_PYLON";
         case "UK3CB_ADA_B_L39_PYLON";
-        case "UK3CB_KDF_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";

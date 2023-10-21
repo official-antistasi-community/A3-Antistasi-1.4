@@ -20,7 +20,7 @@
     ["UK3CB_ANA_B_L39_PYLON", ["cost", 150]],
     ["UK3CB_KRG_B_L39_PYLON", ["cost", 150]],
     ["UK3CB_LDF_B_L39_PYLON", ["cost", 150]],
-    ["UK3CB_KDF_B_L39_PYLON", ["cost", 150]],
+    ["UK3CB_TKA_B_L39_PYLON", ["cost", 150]],
     ["UK3CB_ADA_I_L39_PYLON", ["cost", 150]],
     ["rhs_l159_cdf_b_CDF_CAP", ["cost", 150]],
     ["RHSGREF_A29B_HIDF", ["cost", 120]],

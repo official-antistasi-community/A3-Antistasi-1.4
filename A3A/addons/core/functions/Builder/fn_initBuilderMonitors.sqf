@@ -16,15 +16,19 @@ Info("initBuilderMonitors started2");
 // EH to draw icons for nearby under-construction objects
 A3A_buildDrawIconsEH = addMissionEventHandler ["Draw3D", {
     {
+        // when we get farther away we increase the transparency
+        private _normalizedDistance = 1 - ((_x distance player) / 100);
+        _normalizedDistance = 0 max _normalizedDistance;
+        _normalizedDistance = 1 min _normalizedDistance;
         drawIcon3D [
             "\A3\ui_f\data\map\markers\handdrawn\objective_CA.paa",
-            [1,0,0,1],
-            getPosATL _x vectorAdd [0,0,2],
+            [1,0,0,_normalizedDistance],
+            getPosATLVisual _x vectorAdd [0,0,2],
             1,1,0,
             _x getVariable "A3A_build_name",
             2,0.06,"RobotoCondensedLight"
         ];
-    } forEach (A3A_unbuiltObjects inAreaArray [getPosATL player, 300, 300]);
+    } forEach (A3A_unbuiltObjects inAreaArray [getPosATL player, 150, 150]);
 }];
 
 // cursorObject monitor loop to add deconstruction actions to built structures

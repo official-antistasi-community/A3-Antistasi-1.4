@@ -292,6 +292,11 @@ player addEventHandler ["GetInMan", {
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
 player addEventHandler ["HandleRating", {0}];
 
+// Prevent squad icons showing in 3d display in high command
+addMissionEventHandler ["CommandModeChanged", {
+    setGroupIconsVisible [true, false];
+}];
+
 call A3A_fnc_initUndercover;
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client

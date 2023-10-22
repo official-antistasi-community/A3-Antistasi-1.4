@@ -175,7 +175,7 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 if (isPlayer A3A_setupPlayer) then {
     // Add current admin (setupPlayer) to members list and make them commander
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
-    theBoss = A3A_setupPlayer; publicVariable "theBoss";
+    theBoss = A3A_setupPlayer;
 };
 
 // Add admin as member on state change
@@ -190,6 +190,7 @@ addMissionEventHandler ["OnUserAdminStateChanged", {
 }];
 
 publicVariable "membersX";
+publicVariable "theBoss";       // need to publish this even if empty
 
 
 // Needs params + factions. Might depend on saved data in the future

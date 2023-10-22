@@ -90,27 +90,47 @@
     <Container name="dialog_building_placer_dialog">
       <Key ID="STR_antistasi_teamleader_placer_alt_key">
         <Original>Alt: </Original>
+        <German>Alt: </German>
+        <Spanish>Alt:</Spanish>
+        <Korean>Alt:</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_c_key">
         <Original>C: Cancel %1</Original>
+        <German>C: %1 abbrechen</German>
+        <Spanish>C: Cancelar %1</Spanish>
+        <Korean>C: %1 취소</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_e_key">
         <Original>E: Rotate counter-clockwise</Original>
+        <German>E: Gegen Uhrzeigersinn rotieren</German>
+        <Spanish>E: Rotar antihorario</Spanish>
+        <Korean>E: 반시계 방향으로 돌리기</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_r_key">
         <Original>R: Rotate clockwise </Original>
+        <German>R: Mit Ihrzeigersinn rotieren</German>
+        <Spanish>R: Rotar horario</Spanish>
+        <Korean>R: 시계 방향으로 돌리기</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_shift_key">
         <Original>SHIFT: Unsafe placement mode</Original>
+        <Spanish>SHIFT: Modo de colocación insegura</Spanish>
+        <Korean>쉬프트: 불안전한 배치 모드</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_space_key">
         <Original>SPACE: Place object</Original>
+        <German>Leertaste: Objekt platzieren</German>
+        <Spanish>SPACE: Colocar objeto</Spanish>
+        <Korean>스페이스: 개체 놓기</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_t_key">
         <Original>T: Rebuild for %1 €</Original>
+        <Spanish>T: Reconstruir por %1 €</Spanish>
+        <Korean>T: %1€로 재건축하기</Korean>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_title">
         <Original>Teamleader Builder</Original>
+        <Korean>조장 빌더</Korean>
       </Key>
     </Container>
     <Container name="dialog_buy_vehicle">
@@ -284,6 +304,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot&lt;br/&gt;%1 max load is %2</Original>
+        <German>Dieser Gegenstand kann Beute laden&lt;br/&gt;%1 maximale Kapazität ist %2</German>
         <French>Cet objet peut collecter du butin&lt;br/&gt;%1 charge max est %2</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
@@ -330,6 +351,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
         <Original>This item can refuel others&lt;br/&gt;%1 max fuel is %2</Original>
+        <German>Dieser Gegenstand kann andere betanken&lt;br/&gt;%1 Maximaler Füllstand ist %2</German>
         <French>Cet objet peut ravitailler les autres&lt;br/&gt;%1 carburant max est %2</French>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
@@ -574,6 +596,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
         <Original>Dead population&lt;br/&gt;You lose when this hits 33%</Original>
+        <German>Tote Bevölkerung&lt;br/&gt;Du verlierst wenn es 33% erreicht</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
         <Original>Faction money:</Original>
@@ -689,6 +712,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
         <Original>Popular support&lt;br/&gt;You need 50% to win</Original>
+        <German>Unterstützung der Bevölkerung&lt;br/&gt;Du brauchst 50% um zu gewinnen</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_button">
         <Original>Rest</Original>
@@ -1666,6 +1690,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
         <Original>You can only remote control single units&lt;br/&gt;Select exactly one AI in the list</Original>
+        <German>Du kannst nur einzelne Einheiten fernsteuern&lt;br/&gt;Wähle eine einzelne KI aus der Liste aus</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
         <Original>Select AI in the list</Original>
@@ -2398,6 +2423,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
         <Original>Number of units in the group&lt;br/&gt;Able to combat / Total number of units</Original>
+        <German>&lt;br/&gt;Anzahl der Saldaten in der Gruppe&lt;br/&gt;Fähig zu kämpfen / Gesammtanzahl der Soldaten</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
         <Original>Vehicle</Original>
@@ -2603,6 +2629,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
         <Original>Needs AI group members&lt;br/&gt;You can recruit them at the flag</Original>
+        <German>Benötigt KI-Gruppenmitglieder&lt;br/&gt; Du kannst diese an der Flagge rekrutieren</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
         <Original>Only available to squad leaders</Original>
@@ -2858,6 +2885,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_player_money_text">
         <Original>Current money:&lt;br/&gt;€ %1</Original>
+        <German>Aktuelles Geld:&lt;br/&gt;€ %1</German>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
         <Original>Sell</Original>

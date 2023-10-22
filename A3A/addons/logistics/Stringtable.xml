@@ -4,9 +4,17 @@
     <Container name="Logistics">
       <Key ID="STR_A3A_logi_addact_load">
         <Original>Load %1 into nearest vehicle.</Original>
+        <German>%1 in Fahrzeug einladen.</German>
+        <Spanish>Cargar 1% al vehículo cercano.</Spanish>
+        <Korean>%1을(를) 가장 가까운 차량에 적재하십시오.</Korean>
+        <Chinesesimp>将%1装载入附近的载具</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_addact_unload">
         <Original>Unload Cargo</Original>
+        <German>Fracht abladen. </German>
+        <Spanish>Descargar</Spanish>
+        <Korean>화물 내리기</Korean>
+        <Chinesesimp>卸下货物</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_addweaponaction_alreadyin">
         <Original>Someone is already in the static.</Original>

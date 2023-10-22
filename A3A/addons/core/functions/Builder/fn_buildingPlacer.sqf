@@ -151,7 +151,7 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
     if (_key isEqualTo DIK_LSHIFT) then {
         A3A_building_EHDB set [UNSAFE_MODE, !(A3A_building_EHDB # UNSAFE_MODE)];
         // change the text color to tell that you have entered the mode
-        private _display = uiNamespace getVariable "display";
+        private _display = uiNamespace getVariable "A3A_placerHint_display";
         private _shiftText = (_display displayCtrl IDC_PLACERHINT_SHIFT_TEXT);
         if (A3A_building_EHDB # UNSAFE_MODE) then {_shiftText ctrlSetTextColor [1, 0, 0, 1];} else {_shiftText ctrlSetTextColor [1, 1, 1, 1];}
     };
@@ -160,7 +160,7 @@ private _upKeyEH = _emptyDisplay displayAddEventHandler ["KeyUp", {
     if (_key isEqualTo DIK_LALT) then {
         A3A_building_EHDB set [SNAP_SURFACE_MODE, !(A3A_building_EHDB # SNAP_SURFACE_MODE)];
         // change the text color to tell that you have entered the mode
-        private _display = uiNamespace getVariable "display";
+        private _display = uiNamespace getVariable "A3A_placerHint_display";
         private _altText = (_display displayCtrl IDC_PLACERHINT_ALT_TEXT);
         if (A3A_building_EHDB # SNAP_SURFACE_MODE) then {_altText ctrlSetTextColor [1, 0, 0, 1];} else {_altText ctrlSetTextColor [1, 1, 1, 1];}
     };
@@ -255,7 +255,9 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
     private _camClampPos = [0,0,0];
     _camClampPos set [0, _cameraPos#0 max (_centerPos#0 - _buildRad) min (_centerPos#0 + _buildRad)];
     _camClampPos set [1, _cameraPos#1 max (_centerPos#1 - _buildRad) min (_centerPos#1 + _buildRad)];
-    _camClampPos set [2, _cameraPos#2 max (_centerPos#2 + 5) min (_centerPos#2 + 15)];
+    
+    // make the clamp a sphere instead of a weird rectangle
+    _camClampPos set [2, _cameraPos#2 max (_centerPos#2 + 5) min (_centerPos#2 + _buildRad)];
     A3A_cam setPosATL _camClampPos;
     
 

@@ -31,7 +31,7 @@ if ((actionIDs _object) findIf {
 
 //add load actions
 _object addAction [
-    localize "STR_A3A_fn_ltc_init_addact_lt",
+    localize "STR_A3A_fn_ltc_init_addact_ltc",
     {
         [_this#3, clientOwner] remoteExecCall ["A3A_fnc_canLoot", 2];
     },

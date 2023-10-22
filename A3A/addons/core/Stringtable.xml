@@ -22,7 +22,7 @@
         <Original>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Press &lt;t color='#%3'&gt;%4&lt;/t&gt; to dismiss hint. +%5&lt;/t&gt;</Original>
         <Italian>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Premi &lt;t color='#%3'&gt;%4&lt;/t&gt; per nascondere il suggerimento. +%5&lt;/t&gt;</Italian>
         <Spanish>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Pulsa &lt;t color='#%3'&gt;%4&lt;/t&gt; para cerrar la pista. +%5&lt;/t&gt;</Spanish>
-        <French>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Appuyez sur &lt;t color='#%3'&gt;%4&lt; /t&gt; pour ignorer l'indice. +%5&lt;/t</French>
+        <French>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Appuyez sur &lt;t color='#%3'&gt;%4&lt; /t&gt; pour ignorer l'astuce. +%5&lt;/t</French>
         <Korean>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;&lt;t color='#%3'&gt;%4&lt;/t&gt; 키를 눌러 힌트를 해제하십시오. +%5&lt;/t&gt;</Korean>
         <Russian>&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;Нажмите &lt;t color='#%3'&gt;%4&lt;/t&gt; чтобы закрыть подсказку. +%5&lt;/t&gt;</Russian>
         <Polish>&lt;br/&gt;&lt;br/&gt;&lt;t size='0.8' color='#%1' shadow='1' shadowColor='#%2' valign='top'&gt;NAciśnij &lt;t color='#%3'&gt;%4&lt;/t&gt; aby odrzucić podpowiedź. +%5&lt;/t&gt;</Polish>
@@ -34,7 +34,7 @@
         <Original>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Previous Hints&lt;br/&gt;Bind dismiss key by: &lt;t color='#f0d498'&gt;Escape Menu&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLS&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;SHOW: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Dismiss Previous Hint&lt;/t&gt;&lt;/t&gt;</Original>
         <Italian>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Suggerimenti Precedenti&lt;br/&gt;Imposta tasto per nascondere: &lt;t color='#f0d498'&gt;Menù di pausa&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURA&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLLI&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;MOSTRA: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Nascondi suggerimento precedente&lt;/t&gt;&lt;/t&gt;</Italian>
         <Spanish>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Pistas anteriores&lt;br/&gt;Configura la tecla de despejar con: &lt;t color='#f0d498'&gt;Menú Escape&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURAR&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLES&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;MOSTRAR: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Despejar Pista Anterior&lt;/t&gt;&lt;/t&gt;</Spanish>
-        <French>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Indice précédent&lt;br/&gt;Assigner la touche pour ignorer à : &lt;t color='#f0d498'&gt;Menu Échap&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURER&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLES&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;MONTRER : Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Ignorer Indice Précédent&lt;/t&gt;&lt;/t&gt;</French>
+        <French>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Indice précédent&lt;br/&gt;Assigner la touche pour ignorer à : &lt;t color='#f0d498'&gt;Menu Échap&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONFIGURER&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;CONTROLES&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;MONTRER : Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Ignorer I'Astuce Précédente&lt;/t&gt;&lt;/t&gt;</French>
         <Korean>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 이전 힌트&lt;br/&gt;해제 키: &lt;t color='#f0d498'&gt;ESC&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;설정;/t&gt; &gt; &lt;t color='#f0d498'&gt;조작&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;표시: 안티스타시&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;이전 힌트 해제&lt;/t&gt;&lt;/t&gt;</Korean>
         <Russian>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 предыдущих подсказок&lt;br/&gt;Назначить клавишу закрытия подсказок: &lt;t color='#f0d498'&gt;Меню паузы&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;НАСТРОЙКИ&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;УПРАВЛЕНИЕ&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;ФИЛЬТР: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Закрыть предыдущую подсказку&lt;/t&gt;&lt;/t&gt;</Russian>
         <Polish>&lt;br/&gt;&lt;t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top'&gt;%1 Poprzednie wskazówki&lt;br/&gt;Przypisz klawisz do odrzucenia poprzez: &lt;t color='#f0d498'&gt;Menu główne&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;OPCJE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;STEROWANIE&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;POKAŻ: Antistasi&lt;/t&gt; &gt; &lt;t color='#f0d498'&gt;Dismiss Previous Hint&lt;/t&gt;&lt;/t&gt;</Polish>
@@ -1244,10 +1244,11 @@
         <Czech>Zabrání stanoviště zrušeno</Czech>
         <Portuguese>Captura de Posto Avançado abortada</Portuguese>
         <Turkish>Karakol Saldırısı İptal Edildi</Turkish>
-        <Chinesesimp>遗弃哨站抢占</Chinesesimp>
+        <Chinesesimp>放弃抢占哨站</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_mrkwin_addact_abortCapture">
         <Original>Abort Outpost Capture</Original>
+        <French>Abandonner la capture de l'Avant-Poste</French>
       </Key>
       <Key ID="STR_A3A_fn_base_mrkwin_lurk_check">
         <Original>The enemy still lurks about. Check your map and clear the area.</Original>
@@ -1998,7 +1999,7 @@
         <Czech>Posily jsou posílány z %1 do %3 v konvoji a budou vyjíždět v %2. Zkus ho zastavit, pozabíjet všechny vojáky a vozidlové cíle.</Czech>
         <Portuguese>Reforços estão a ser enviados de %1 a %3 numa coluna, e está prestes a partir às %2. Tenta interceptá-los e matar todas as tropas, e o veículo objectivo.</Portuguese>
         <Turkish>%2 'de Takviye birliği taşıyan bir konvoy %1 'den %3 'e gidecek. Müdahale edin ve bütün birlikleri öldürmeye çalışın.</Turkish>
-        <Chinesesimp>敌人的支援车队将从 %1 调防至 %3, 而此车队即将从 %2 出发. 尝试截停敌支援部队，并消灭所有步兵单位以及装甲单位.</Chinesesimp>
+        <Chinesesimp>敌人的增援车队将从 %1 调防至 %3, 而此车队即将从 %2 出发. 尝试截停敌增援部队，并消灭所有步兵单位以及装甲单位.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_reinf_title">
         <Original>Reinforcements Convoy</Original>
@@ -2010,7 +2011,7 @@
         <Czech>Konvoj Posil</Czech>
         <Portuguese>Coluna de Reforços</Portuguese>
         <Turkish>Takviye Birlik Konvoyu</Turkish>
-        <Chinesesimp>敌方支援车队</Chinesesimp>
+        <Chinesesimp>敌方增援车队</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_supply_text">
         <Original>A truck with medical supplies destination %3 it's about to depart at %2 from %1. Steal that truck bring it to %3 and let people in there know it is %4 who's giving those supplies.</Original>
@@ -2111,7 +2112,7 @@
         <Czech>%1 Rychlý přesun byl zrušen protože nějaký hráč nastoupil do vozidla a destinace není HQ nebo Letiště.</Czech>
         <Portuguese>%1 Viagem Rápida foi cancelada porque algum jogador embarcou no seu veículo e o destino não é o QG ou uma Base Aérea.</Portuguese>
         <Turkish>%1 Hızlı yolculuğu, bir oyuncunun araca girmesi yüzünden iptal edildi ve hedef bir Karargah ya da Hava üssü değil.</Turkish>
-        <Chinesesimp>%1 快速旅行已经被取消，由于部分玩家登入载具后目的地不是总部或是空军基地</Chinesesimp>
+        <Chinesesimp>%1 快速旅行已经被取消，原因是部分玩家登入载具后目的地不是总部或是空军基地</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_click_marker">
         <Original>You must click near a marker under your control.</Original>
@@ -2642,39 +2643,51 @@
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_influ">
         <Original>%1&lt;br/&gt;Influence: %2</Original>
+        <French>%1&lt;br/&gt;Influence : %2</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_1">
         <Original>%7&lt;br/&gt;&lt;br/&gt;Total pop: %1&lt;br/&gt;%6 Support: %2&lt;br/&gt;%5 Support: %3&lt;br/&gt;&lt;br/&gt;Murdered Pop: %4&lt;br/&gt;&lt;br/&gt;Click on the zone</Original>
+        <French>%7&lt;br/&gt;&lt;br/&gt;Pop totale : %1&lt;br/&gt;%6 Support : %2&lt;br/&gt;%5 Support : %3&lt;br/&gt;&lt;br/&gt;Pop tuée : %4&lt;br/&gt;&lt;br/&gt;Cliquez sur la zone</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_2">
         <Original>%1&lt;br/&gt;&lt;br/&gt;Pop %2&lt;br/&gt;%6 Support: %3 %5&lt;br/&gt;%7 Support: %4 %5</Original>
+        <French>%1&lt;br/&gt;&lt;br/&gt;Pop %2&lt;br/&gt;%6 Support : %3 %5&lt;br/&gt;%7 Support : %4 %5</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_reso_1">
         <Original>%1 Resources</Original>
+        <French>%1 Ressources</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_reso_2">
         <Original>%2 Resources%1</Original>
+        <French>%2 Ressources%1</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_road_2">
         <Original>%2 Roadblock%1</Original>
+        <French>%2 Barrage Routier%1</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_seap_1">
         <Original>%1 Seaport</Original>
+        <French>%1 Port</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_seap_2">
         <Original>%2 Seaport%1</Original>
+        <French>%2 Port%1</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_status_busy">
         <Original>%1&lt;br/&gt;Status: Busy</Original>
+        <French>%1&lt;br/&gt;Etat : Occupé</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_status_idle">
         <Original>%1&lt;br/&gt;Status: Idle</Original>
+        <French>%1&lt;br/&gt;Etat : Innactif</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_title">
         <Original>City Information</Original>
+        <French>Information de la Ville</French>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_watch_1">
         <Original>%1 Watchpost</Original>
+        <French>%1 Poste d'Observation</French>
       </Key>
       <Key ID="STR_A3A_fn_init_clientidle_title">
         <Original>Client idle checker</Original>
@@ -2727,6 +2740,7 @@
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_addact_gameOpt">
         <Original>Game Options</Original>
+        <French>Options de jeu</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_addact_mapinfo">
         <Original>Map Info</Original>
@@ -2788,27 +2802,35 @@
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_civLim">
         <Original>Civilian Limit:</Original>
+        <French>Limite de civils :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_limFT">
         <Original>Limited Fast Travel:</Original>
+        <French>Voyage rapide limité :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_resoBal">
         <Original>Enemy resource balance:</Original>
+        <French>Equilibre des ressources des ennemis :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_spawnDist">
         <Original>Spawn Distance:</Original>
+        <French>Distance d'apparition :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_timeGC">
         <Original>Time since GC:</Original>
+        <French>Temps depuis le Nett. Mémoire :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_title">
         <Original>Game Options</Original>
+        <French>Options de jeu</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_unlockNo">
         <Original>Unlock Weapon Number:</Original>
+        <French>Nombre d'Armes Debloquées :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_gameOpt_version">
         <Original>Version:</Original>
+        <French>Version :</French>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_geninfo">
         <Original>General Info</Original>
@@ -3866,642 +3888,958 @@
     <Container name="A3A_fn_OrgPlayers">
       <Key ID="STR_A3A_fn_orgp_donMon_donated_faction">
         <Original>You have donated 100 € to the cause. This will raise your status among our forces.</Original>
-        <French>Vous avez donné 100 € à votre faction. Cela vas améliorer votre status au sein de nos forces</French>
+        <French>Vous avez donné 100 € à la cause. Cela va améliorer votre réputation au sein de nos forces</French>
+        <Korean>당신은 100€를 기부했습니다. 이는 우리 군에서의 당신의 지위가 높아질 것입니다.</Korean>
+        <Polish>Przekazałeś 100 € na ten cel. Podniesie to twój status wśród naszych sił.</Polish>
+        <Czech>Daroval jsi 100 € na pomoc naší věci. Tento akt zvýší tvé postavení mezi námi.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_donated_player">
         <Original>You have donated 100 € to %1.</Original>
-        <French>Vous acez donné 100 € à %1.</French>
+        <French>Vous avez donné 100 € à %1.</French>
+        <Korean>당신은 %1에 100€를 기부했습니다.</Korean>
+        <Polish>Przekazałeś 100 € na rzecz %1.</Polish>
+        <Czech>Daroval jsi 100 € hráči %1.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_no_less">
         <Original>You have less than 100 € to donate.</Original>
         <French>Vous avez moins de 100 € à donner.</French>
+        <Korean>당신은 100€보다 적은 돈을 가지고 있습니다.</Korean>
+        <Polish>Masz mniej niż 100 € do przekazania.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_no_looking">
-        <Original>You must be looking to a player in order to give him money.</Original>
+        <Original>You must be looking at a player in order to give him money.</Original>
         <French>Vous devez regarder un joueur pour pouvoir lui donner de l'argent.</French>
+        <Korean>다른 플레이어에게 돈을 주려면 그 플레이어를 바라보고 있어야 합니다.</Korean>
+        <Polish>Musisz patrzeć na gracza, aby dać mu pieniądze.</Polish>
+        <Czech>Musiš se dívat na hráče abys mu mohl darovat peníze.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_titel">
         <Original>Donate Money</Original>
         <French>Don d'argent.</French>
+        <Korean>자금 기부</Korean>
+        <Polish>Przekaż pieniądze</Polish>
+        <Czech>Darovat peníze</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_added_other">
         <Original>"%1 has been added to the Server Members List.</Original>
         <French>"%1 a été ajouté à la liste des Membres du serveur.</French>
+        <Korean>%1이(가) 서버 멤버 목록에 추가되었습니다.</Korean>
+        <Polish>"%1 został dodany do listy członków serwera.</Polish>
+        <Czech>"%1 byl přidán na seznam členů servru.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_added_you">
         <Original>You have been added to the Server Members list.</Original>
-        <French>Vous avez été ajouter à la liste des Membres du serveur.</French>
+        <French>Vous avez été ajouté à la liste des Membres du serveur.</French>
+        <Korean>당신은 서버 멤버 목록에 추가되었습니다.</Korean>
+        <Polish>Zostałeś dodany do listy członków serwera.</Polish>
+        <Czech>Byl jsi přidán na seznam členů servru.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_admin">
         <Original>Only Server Admins or hosters can add a new member.</Original>
         <French>Seul les Admins du serveur ou les Hôtes peuvent ajouter un membre.</French>
+        <Korean>오직 서버 관리자나 호스트만이 새 멤버를 추가할 수 있습니다.</Korean>
+        <Polish>Tylko administratorzy serwera lub host mogą dodać nowego członka.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_already">
         <Original>The player is already a member of this server.</Original>
         <French>Ce joueur est déja un membre du serveur.</French>
+        <Korean>해당 플레이어는 이미 서버 멤버입니다.</Korean>
+        <Polish>Gracz jest już członkiem tego serwera.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_disabled">
         <Original>Server Member feature is disabled.</Original>
         <French>La fonction de Membre du serveur est désactivée.</French>
+        <Korean>서버 멤버 기능이 비활성화되어 있습니다.</Korean>
+        <Polish>Funkcja Server Member jest wyłączona.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_initialised">
         <Original>Membership feature not yet initialised. Please try again later.</Original>
         <French>La fonction d'adhésion n'a pas encore été initialisée. Veuillez réessayer plus tard.</French>
+        <Korean>멤버십 기능이 아직 실행되지 않았습니다. 다시 시도하시기 바랍니다.</Korean>
+        <Polish>Funkcja członkostwa nie została jeszcze zainicjowana. Spróbuj ponownie później.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_not">
         <Original>The player is not a member of this server.</Original>
         <French>Ce joueur n'est pas un membre de ce serveur.</French>
+        <Korean>해당 플레이어는 이 서버의 멤버가 아닙니다.</Korean>
+        <Polish>Gracz nie jest członkiem tego serwera.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_pointing">
         <Original>You are not pointing to anyone.</Original>
         <French>Vous ne pointez personne.</French>
+        <Korean>당신은 누구에게도 가리키고 있지 않습니다.</Korean>
+        <Polish>Nie wskazujesz na nikogo.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_removed_other">
         <Original>%1 has been removed from the Server Members List.</Original>
-        <French>%1 a été retiré de la liste des membres du serveur.</French>
+        <French>%1 a été retiré de la liste des Membres du Serveur.</French>
+        <Korean>%1이(가) 서버 멤버 목록에서 제외되었습니다.</Korean>
+        <Polish>%1 został usunięty z listy członków serwera.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_removed_you">
         <Original>You have been removed from the Server Members list.</Original>
-        <French>Vous avez été retiré de la liste des Membres du serveur.</French>
+        <French>Vous avez été retiré de la liste des Membres du Serveur.</French>
+        <Korean>당신은 서버 멤버 목록에서 제외되었습니다.</Korean>
+        <Polish>Zostałeś usunięty z listy członków serwera.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_titel">
         <Original>Membership</Original>
         <French>Adhésion</French>
+        <Korean>멤버십</Korean>
+        <Polish>Członkostwo</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memList_members">
         <Original>In Game Members&lt;br/&gt;&lt;br/&gt;</Original>
         <French>Membres en jeu&lt;br/&gt;&lt;br/&gt;</French>
+        <Korean>게임 내 멤버&lt;br/&gt;&lt;br/&gt;</Korean>
+        <Polish>Członkowie w grze&lt;br/&gt;&lt;br/&gt;</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memList_members_count">
         <Original>%1&lt;br/&gt;No. members:&lt;br/&gt;%2</Original>
-        <French>%1&lt;br/&gt; Nombres de membres:&lt;br/&gt;%2</French>
+        <French>%1&lt;br/&gt; Nb. de membres :&lt;br/&gt;%2</French>
+        <Korean>%1&lt;br/&gt;멤버 수:&lt;br/&gt;%2</Korean>
+        <Polish>%1&lt;br/&gt;Liczba członków:&lt;br/&gt;%2</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memList_no_disabled">
         <Original>Server Member feature is disabled.</Original>
         <French>Fonction de Membre du serveur est désactivée.</French>
+        <Korean>서버 멤버 기능이 비활성화되어 있습니다.</Korean>
+        <Polish>Funkcja Server Member jest wyłączona.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memList_titel">
         <Original>Membership</Original>
         <French>Adhésion</French>
+        <Korean>멤버십</Korean>
+        <Polish>Członkostwo</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_plaLeash_comrade">
         <Original>Comrade, we're losing contact!</Original>
-        <French>Camarade, nous perdons le contact!</French>
+        <French>Camarade, nous perdons le contact !</French>
+        <Korean>연결이 끊어지고 있습니다, 동지!</Korean>
+        <Polish>Towarzyszu, tracimy łączność!</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_plaLeash_retreat">
         <Original>Retreat &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, within &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Stay within %4 km of HQ or a member. Failure to comply will re-insert you at HQ.</Original>
-        <French>Retraite &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, dans &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Restez dans %4 km du QG ou d'un membre. Si vous ne coopérer pas, vous serez renvoyer au QG.</French>
+        <French>Retraite &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, dans &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Restez à moins de %4 km du QG ou d'un membre. La désobéissance vous fera retourner au QG.</French>
+        <Polish>Odwrót &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, w ciągu &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Pozostań w odległości %4 km od kwatery głównej lub członka. Niezastosowanie się do tego polecenia spowoduje teleportacje do kwatery głównej.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
         <French>%1 n'a pas assez de ressources à récupérer.</French>
+        <Korean>%1은(는) 가져갈 수 있는 자금이 부족합니다.</Korean>
+        <Polish>%1 nie ma wystarczająco dużo zasobów do pobrania.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_yes">
         <Original>You grabbed 100 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces.</Original>
         <French>Vous aves pris 100 € de la réserve d'argent de %1. &lt;br/&gt;&lt;br/&gt; Cela va affecter votre prestige et votre statut au sein des forces de %1.</French>
+        <Korean>당신은 %1의 공동 자금에서 100€를 가져갔습니다.&lt;br/&gt;&lt;br/&gt;이는 %1의 군 내에서 당신의 지위와 위신에 영향을 미칠 것입니다.</Korean>
+        <Polish>Zgarnąłeś 100 € z puli pieniędzy %1.&lt;br/&gt;&lt;br/&gt;Wpłynie to na twój prestiż i status wśród sił %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_titel">
         <Original>Money Grab</Original>
         <French>Récupération d'argent</French>
+        <Korean>자금 인출</Korean>
+        <Polish>Grabież pieniędzy</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_eligible_no">
         <Original>You decided not to be eligible for commander.</Original>
-        <French>Vous avez décider de ne pas être éligible pour le commandement.</French>
+        <French>Vous avez décidé de ne pas être éligible pour le commandement.</French>
+        <Korean>당신은 지휘관이 될 자격이 없다고 결정되었습니다.</Korean>
+        <Polish>Postanowiłeś nie kwalifikować się na dowódcę.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_eligible_yes">
         <Original>You are now eligible to be commander of our forces.</Original>
         <French>Vous êtes désormais éligible pour être le commandant de nos forces.</French>
+        <Korean>당신은 이제 우리 군의 지휘관이 될 자격이 있습니다.</Korean>
+        <Polish>Jesteś teraz uprawniony do bycia dowódcą naszych sił.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_choosing">
         <Original>You resign from being commander, choosing %1 as your successor.</Original>
-        <French>Vous vous êtes retirés du commandement, choissisez %1 pour être votre successeur.</French>
+        <French>Vous vous êtes retirés du commandement, désignant %1 pour être votre successeur.</French>
+        <Korean>후임자로 %1을(를) 선택하여 지휘관 직책에서 물러납니다.</Korean>
+        <Polish>Rezygnujesz z funkcji dowódcy, wybierając %1 na swojego następcę.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_chosen">
         <Original>You resign from being commander. Your chosen successor (%1) was not eligible.</Original>
         <French>Vous vous êtes retirés du commandement. Votre successeur (%1) n'est pas éligible.</French>
+        <Korean>지휘관 직책에서 물러납니다. 당신이 선택한 후임자 %1은(는) 자격이 없습니다.</Korean>
+        <Polish>Rezygnujesz z funkcji dowódcy. Twój wybrany następca (%1) nie zakwalifikował się.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_resign_others">
         <Original>You resign from being Commander. Others will take the command if there is someone suitable.</Original>
         <French>Vous vous êtes retirés du Commandement. D'autres assumeront la position si quelqu'un est convenable.</French>
+        <Korean>지휘관 직책에서 물러납니다. 다른 사람들은 적당한 사람이 있다면 사령관 직책을 맡을 것입니다.</Korean>
+        <Polish>Rezygnujesz z funkcji dowódcy. Inni przejmą dowodzenie, jeśli znajdzie się ktoś odpowiedni.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTogEli_titel">
         <Original>Commander</Original>
         <French>Commandant</French>
+        <Korean>지휘관</Korean>
+        <Polish>Dowódca</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle1">
         <Original>Autorifleman role.</Original>
         <French>Rôle de Mitrailleur.</French>
+        <Korean>자동소총수 역할</Korean>
+        <Polish>Rola - Strzelec RKM</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle2">
-        <Original>Autoriflemen have a slight bonus on carry capacity, but make too much noise when they move.</Original>
-        <French>Les Mitrailleut on petit bonus de capacité, mais ils font beaucoup de bruit quand ils se déplacent.</French>
+        <Original>Autoriflemen have a slight bonus on carry capacity, but make more noise when they move.</Original>
+        <French>Les Mitrailleut ont un léger bonus de capacité de transport, mais font beaucoup de bruit quand ils se déplacent.</French>
+        <Korean>자동소총수는 운반 용량에 보너스를 가지지만, 이동할 때 매우 큰 소리를 냅니다.</Korean>
+        <Polish>Strzelcy automatyczni mają niewielką premię do udźwigu, ale robią więcej hałasu podczas poruszania się.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_commander1">
         <Original>Commander role.</Original>
         <French>Rôle de Commandant.</French>
+        <Korean>지휘관 역할</Korean>
+        <Polish>Rola - Dowódca</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_commander2">
         <Original>The commander is a lightweight unit with increased camouflage, medical and engineering capabilities.</Original>
-        <French>Le commandant est une unité légère avec des capacités de camouflage, médical et d'ingéniérie augmentée.</French>
+        <French>Le commandant est une unité légère avec des capacités de camouflage, médical et d'ingéniérie augmentées.</French>
+        <Korean>사령관은 위장, 의료, 공병 능력이 향상된 경량 유닛입니다.</Korean>
+        <Polish>Dowódca jest lekką jednostką o zwiększonych możliwościach kamuflażu, medycznych i inżynieryjnych.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_engi1">
         <Original>Engineer role.</Original>
-        <French>Rôle d'ingénieur.</French>
+        <French>Rôle d'Ingénieur.</French>
+        <Korean>공병 역할</Korean>
+        <Polish>Rola - Inżynier</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_engi2">
         <Original>Engineers do not have any bonus or penalties, but have the ability to use Repair Kits for vehicle repair.</Original>
-        <French>Les Ingénieurs n'ont pas de bonus ou de malus, mais ils ont l'abilité d'utiliser des kits de répération pour réparer les véhicules.</French>
+        <French>Les Ingénieurs n'ont pas de bonus ou de malus, mais ils ont la capacité d'utiliser des Kits de Réparation pour restaurer les véhicules.</French>
+        <Korean>공병은 보너스나 패널티가 없지만, 차량 수리를 위해 도구모음을 사용할 수 있는 능력이 있습니다.</Korean>
+        <Polish>Inżynierowie nie mają żadnych premii ani kar, ale mogą używać zestawów naprawczych do naprawy pojazdów.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier1">
         <Original>Grenadier role.</Original>
         <French>Rôle de Grenadier.</French>
+        <Korean>유탄수 역할</Korean>
+        <Polish>Rola - Grenadier</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier2">
         <Original>Grenadiers have a slight bonus on carry capacity, but are easy to spot.</Original>
-        <French>Les Grenadiers ont un petit bonus de capacité, mais ils ont sont facile à réperer.</French>
+        <French>Les Grenadiers ont un léger bonus de capacité de transport, mais sont facile à réperer.</French>
+        <Korean>유탄수는 운반 용량에 보너스를 가지지만, 발견되기 더 쉬워집니다.</Korean>
+        <Polish>Grenadierzy mają niewielką premię do udźwigu, ale są łatwi do wykrycia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_medic1">
         <Original>Medic role.</Original>
         <French>Rôle de Médecin.</French>
+        <Korean>의무병 역할</Korean>
+        <Polish>Rola - Medyk</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_medic2">
         <Original>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration.</Original>
-        <French>Les Médecins n'ont pas de bonus ou de malus, mais ils ont l'abilité d'utiliser certains objets médical afin de soigner complètement.</French>
+        <French>Les Médecins n'ont pas de bonus ou de malus, mais ils ont la capacité d'utiliser certains objets médicaux afin de prodiguer des soins complets.</French>
+        <Korean>의무병은 보너스나 패널티가 없지만, 완치를 위해 특정한 의료품을 사용할 수 있는 능력이 있습니다.</Korean>
+        <Polish>Medycy nie mają żadnych premii ani kar, ale mają możliwość korzystania z niektórych przedmiotów medycznych w celu pełnego przywrócenia zdrowia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_rifle1">
         <Original>Rifleman role.</Original>
         <French>Rôle de Fusilier.</French>
+        <Korean>소총수 역할</Korean>
+        <Polish>Rola - Strzelec</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_rifle2">
         <Original>Riflemen do not have any bonus or penalties but can hack drones.</Original>
         <French>Les Fusiliers n'ont pas de bonus ou de malus mais ils peuvent hacker des drones.</French>
+        <Korean>소총수는 보너스나 패널티가 없지만, 무인기를 해킹할 수 있습니다.</Korean>
+        <Polish>Strzelcy nie mają żadnych premii ani kar, ale mogą hakować drony.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead1">
         <Original>Teamleader role.</Original>
+        <French>Rôle de Chef d'équipe.</French>
+        <Korean>조장 역할</Korean>
+        <Polish>Rola - Dowódca sekcji</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead2">
         <Original>Teamleader are more lightweight units with increased camouflage capabilities.</Original>
+        <French>Les Chefs d'équipe sont des unités légères avec des capacités de camouflage augmentées.</French>
+        <Korean>조장은 위장 능력이 향상된 경량 유닛입니다.</Korean>
+        <Polish>Dowódcy sekcji to lżejsze jednostki o zwiększonych możliwościach kamuflażu.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_titel">
         <Original>Unit Traits</Original>
         <French>Attributs d'Unité</French>
+        <Korean>유닛 특성</Korean>
+        <Polish>Cechy jednostek</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_title">
         <Original>Unit Traits</Original>
+        <French>Attributs d'Unité</French>
+        <Korean>유닛 특성</Korean>
+        <Polish>Cechy jednostek</Polish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_you">
         <Original>You have selected %1.</Original>
-        <French>Vous avez sélectionner %1.</French>
+        <French>Vous avez sélectionné %1.</French>
+        <Korean>당신은 %1을(를) 선택했습니다.</Korean>
+        <Polish>Wybrałeś %1.</Polish>
       </Key>
     </Container>
     <Container name="A3A_fn_proxy">
       <Key ID="STR_A3A_fn_proxy_remAI_text">
         <Original>Died while remote controlling AI.</Original>
+        <French>Mort en controllant à distance un IA.</French>
       </Key>
       <Key ID="STR_A3A_fn_proxy_remAI_titel">
         <Original>Remote AI</Original>
+        <French>Controle à Distance d'IA</French>
       </Key>
       <Key ID="STR_A3A_fn_proxy_statDepl_text">
         <Original>Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns.</Original>
+        <French>L'arme statique a été déployée pour être utilisée dans une zone proche et sera utilisée par la  garnison si vous la laissez ici la prochaine fois que la zone apparaîtra.</French>
       </Key>
       <Key ID="STR_A3A_fn_proxy_statDepl_titel">
         <Original>Static Deployed</Original>
+        <French>Arme statique déployée</French>
       </Key>
     </Container>
     <Container name="A3A_fn_Punishment">
       <Key ID="STR_A3A_fn_punish_ff_noti">
         <Original>FF Notification</Original>
         <French>Notification de tir ami.</French>
+        <Korean>아군 오사 알림</Korean>
+        <Polish>Powiadomienie o ogniu sojuszniczym</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_ff_pun">
         <Original>FF Punishment</Original>
         <French>Punition pour tir ami</French>
+        <Korean>아군 오사 처벌</Korean>
+        <Polish>Kara za ogień sojuszniczy</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_text">
-        <Original>Return to the AO before your blown up, you have %1 seconds.</Original>
+        <Original>Return to the AO before you are blown up, you have %1 seconds.</Original>
         <French>Retournez dans la zone d'opération avant d'être explosé, vous avez %1 secondes.</French>
+        <Korean>폭발하기 전에 작전 구역에서 벗어나십시오! %1초의 시간이 있습니다!</Korean>
+        <Polish>Wróć do AO zanim wybuchniesz, masz %1 sekund.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_titel">
         <Original>Out of bounds</Original>
-        <French>Hors limite</French>
+        <French>Hors des limites</French>
+        <Korean>경계를 벗어남</Korean>
+        <Polish>Poza granicą</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_pun_conun">
         <Original>Control Unit</Original>
         <French>Contrôle de l'unité</French>
+        <Korean>유닛 조종</Korean>
       </Key>
       <Key ID="STR_A3A_fn_punish_pun_fire">
         <Original>Watch your fire!</Original>
-        <French>Regardez ou vous tirez!</French>
+        <French>Attention où vous tirez !</French>
+        <Korean>사격 조심해!</Korean>
+        <Polish>Uważaj gdzie strzelasz!</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_pun_hurt">
         <Original>hurt you!</Original>
         <French>vous a bléssé!</French>
+        <Korean>다치게 했다고!</Korean>
+        <Polish>zranił cię!</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_pun_returned">
         <Original>Returned to original Unit due to FF.</Original>
         <French>Retour à l'unité d'origine à cause de tir ami.</French>
+        <Korean>아군 오사로 인해 원본 유닛으로 돌아왔습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_punish_punEval_hurt">
         <Original>%1 hurt you!</Original>
-        <French>%1 vous a blessé</French>
+        <French>%1 vous a blessé !</French>
+        <Korean>%1이(가) 당신을 다치게 했습니다!</Korean>
+        <Polish>%1 zranił cię!</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punEval_injured">
         <Original>Injured comrade:</Original>
-        <French>Camarade blessé:</French>
+        <French>Camarade blessé :</French>
+        <Korean>부상당한 동지:</Korean>
+        <Polish>Ranny towarzysz:</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punEval_warning">
         <Original>FF Warning</Original>
         <French>Avertissement de tir ami</French>
+        <Korean>아군 오사 경고</Korean>
+        <Polish>Ostrzeżenie o ogień sojuszniczy</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punRel_admin">
         <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
-        <French>Un Admin à pitié de votre âme.&lt;br/&gt; Vous avez été pardonnée.</French>
+        <French>Un Admin a eu pitié de votre âme.&lt;br/&gt; Vous avez été pardonné.</French>
+        <Korean>관리자는 당신의 영혼을 측은히 여기며 바라봅니다.&lt;br/&gt;당신은 용서받았습니다.</Korean>
+        <Polish>Administrator patrzy z litością na twoją duszę.&lt;br/&gt; Wybaczono ci.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punRel_enough">
         <Original>Enough then.</Original>
         <French>Cela suffit.</French>
+        <Korean>이제 그만.</Korean>
+        <Polish>Wystarczy.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punSenCl_text">
         <Original>Please do not teamkill. Stare at the turtles for %1 more seconds.</Original>
-        <French>S'il vous plait, ne tuez pas d'allié. Regardez les tortues pendant %1 secondes encore.</French>
+        <French>Ne tuez pas d'alliés s'il vous plait. Regardez les tortues pendant %1 secondes de plus.</French>
+        <Korean>팀킬하지 말고 %1초 동안 거북이나 바라보십시오.</Korean>
+        <Polish>Nie zabijaj swoich. Teraz za kare wpatruj się w żółwie przez %1 sekund.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_punish_punSenSv_text">
         <Original>has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
-        <French>a été reconnu coupable de tir ami (+3 coups).&lt;br/&gt;&lt;br/&gt; Si vous pensez que c'est une erreur, vous pouvez le pardonner avec le menu déroulant adéquat.</French>
+        <French>a été reconnu coupable de tir ami (3+ reprises).&lt;br/&gt;&lt;br/&gt; Si vous pensez que c'est une erreur, vous pouvez le pardonner avec le menu déroulant adéquat.</French>
+        <Korean>아군 오사(3번 이상 공격)에 대해 유죄가 인정되었습니다.&lt;br/&gt;&lt;br/&gt;실수라고 판단된다면 해당 스크롤 메뉴 행동으로 용서할 수 있습니다.</Korean>
+        <Polish>został uznany za winnego zabijania swoich (3+ Strikes).&lt;br/&gt;&lt;br/&gt;Jeśli uważasz, że to pomyłka, możesz mu wybaczyć za pomocą odpowiedniej akcji w menu pod rolką myszki.</Polish>
       </Key>
     </Container>
     <Container name="A3A_fn_REINF">
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_control">
         <Original>You cannot buy vehicles while you are controlling AI.</Original>
         <French>Vous ne pouvez pas acheter de véhicules pendant que vous contrôler l'IA.</French>
+        <Korean>AI를 조종하는 동안에는 차량을 구입할 수 없습니다.</Korean>
+        <Polish>Nie możesz kupować pojazdów, gdy kontrolujesz SI.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_enemy">
         <Original>You cannot buy vehicles with enemies nearby.</Original>
         <French>Vous ne pouvez pas acheter de véhicules tant que des ennemis sont proches.</French>
+        <Korean>적들이 근처에 있을 때는 차량을 구입할 수 없습니다.</Korean>
+        <Polish>Nie możesz kupować pojazdów, gdy w pobliżu znajdują się wrogowie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_flag">
         <Original>You need to be close to the flag to be able to purchase a vehicle.</Original>
         <French>Vous devez être proche du drapeau afin de pouvoir acheter un véhicule.</French>
+        <Korean>차량을 구입하려면 깃발에 가까이 가야 합니다.</Korean>
+        <Polish>Musisz być blisko flagi, aby móc kupić pojazd.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_money">
         <Original>You do not have enough money for this vehicle: %1 € required.</Original>
         <French>Vous n'avez pas assez d'argent pour acheter ce véhicule: %1 € requis.</French>
+        <Korean>이 차량을 구입하기 위한 자금이 부족합니다: %1€ 필요.</Korean>
+        <Polish>Nie masz wystarczających środków na ten pojazd: %1 € wymagane.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_placing">
         <Original>Unable to buy vehicle, you are already placing something.</Original>
-        <French>Impossible d'acheter un véhicule, vous êtes déja entrain de placer quelque chose.</French>
+        <French>Impossible d'acheter un véhicule, vous êtes déja en train de placer quelque chose.</French>
+        <Korean>이미 무언가를 배치하고 있기 때문에 차량을 구입할 수 없습니다.</Korean>
+        <Polish>Nie możesz kupić pojazdu, już coś stawiasz.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_supp">
         <Original>The vehicle you requested is not supported in your current modset.</Original>
         <French>Le véhicule que vous avez demandé n'est pas pris en charge par votre modset actuel.</French>
+        <Korean>요청한 차량은 현재 모드셋에서 지원하지 않습니다.</Korean>
+        <Polish>Żądany pojazd nie jest obsługiwany w aktualnym zestawie modów.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_title">
         <Original>Add Vehicle</Original>
-        <French>Ajout du véhicule</French>
+        <French>Ajouter un véhicule</French>
+        <Korean>차량 추가</Korean>
+        <Polish>Dodaj pojazd</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_buyveh">
         <Original>Buy a vehicle for this squad for %1 €.</Original>
         <French>Acheter un véhicule pour cette escouade pour %1 €.</French>
+        <Korean>이 팀을 위한 차량을 %1 €에 구입합니다.</Korean>
+        <Polish>Kup pojazd dla tego oddziału za %1 €.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_commander">
         <Original>Only the Commander has access to this function.</Original>
         <French>Seul le Commandant à accès à cette fonction.</French>
+        <Korean>오직 지휘관만 이 기능에 액세스 할 수 있습니다.</Korean>
+        <Polish>Tylko nasz dowódca ma dostęp do tej funkcji.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_distance">
         <Original>You cant place HC vehicles further than 50m from HQ</Original>
         <French>Vous ne pouvez pas placer de véhicules HC à plus de 50m du QG.</French>
+        <Korean>본부에서 50m 이상 떨어진 곳에는 하이 커맨드 차량을 배치할 수 없습니다.</Korean>
+        <Polish>Pojazdów HC nie można umieszczać dalej niż 50 m od kwatery głównej.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_enemy">
         <Original>You cannot recruit squads with enemies near your HQ.</Original>
         <French>Vous ne pouvez pas recruter d'escouades tant que des ennemis sont proches de votre QG.</French>
+        <Korean>본부 근처에 적이 있을 때는 분대를 모집할 수 없습니다.</Korean>
+        <Polish>Nie można rekrutować oddziałów gdy wrogowie znajdują się w pobliżu kwatery głównej.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_hr">
         <Original>You do not have enough HR for this request (%1 required).</Original>
         <French>Vous n'avez pas assez de RH pour cette demande (%1 requis).</French>
+        <Korean>이 요청을 수행하기 위한 인력이 부족합니다(%1 필요).</Korean>
+        <Polish>Nie masz wystarczającej ilości HR dla tego żądania (%1 wymagane).</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_many">
         <Original>You have too many high command squads active. Disband or garrison some to recruit more.</Original>
         <French>Vous avez trop d'escouade HC actives. Renvoyer ou mettez en garnison certaines pour en recruter d'autres.</French>
+        <Korean>활성화된 하이 커맨드 분대가 너무 많습니다. 더 많은 병력을 모집하려면 일부를 해산하거나 주둔시키십시오.</Korean>
+        <Polish>Masz zbyt wiele aktywnych oddziałów High Command. Rozwiąż niektóre z nich lub zlikwiduj garnizony, aby zrekrutować więcej.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_modset">
         <Original>Your current modset doesn't support packing/unpacking static weapons.</Original>
         <French>Votre modset actuel ne supporte pas l'emballage/déballage des armes statiques.</French>
+        <Korean>현재 모드셋은 고정화기 포장/풀기를 지원하지 않습니다</Korean>
+        <Polish>Obecny zestaw modów nie obsługuje ładowania/rozładowywania broni statycznych.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money">
         <Original>You do not have enough money for this request (%1 € required).</Original>
         <French>Vous n'avez pas assez d'argent pour cette requête (%1 € requis).</French>
+        <Korean>이 요청을 수행하기 위한 자금이 부족합니다(%1€ 필요).</Korean>
+        <Polish>Nie masz wystarczających środków na realizację tego żądania (wymagane %1 €).</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money2">
         <Original>No money left to buy a transport vehicle (%1 € required), creating barefoot squad.</Original>
         <French>Pas assez d'argent pour acheter ce véhicule de transport (%1 € requis), création d'une escouade à pied.</French>
+        <Korean>수송 차량을 만들 자금이 없으며(%1 € 필요), 뚜벅이 분대로 소환합니다.</Korean>
+        <Polish>Nie ma pieniędzy na zakup pojazdu transportowego (wymagane %1 €), tworzenie oddziału bez pojazdu.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_movehq">
         <Original>You cannot recruit a new squad while you are moving your HQ.</Original>
         <French>Vous ne pouvez pas recruter de nouvelles escouades pendant que vous déplacez votre QG.</French>
+        <Korean>본부를 옮기는 동안에는 새 분대를 모집할 수 없습니다.</Korean>
+        <Polish>Nie można rekrutować nowego oddziału podczas przenoszenia sztabu.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_notsupp">
         <Original>The group or vehicle type you requested is not supported in your modset.</Original>
         <French>Le type de groupe ou véhicule que vous avez demandé n'est pas pris en charge par votre modset actuel.</French>
+        <Korean>요청한 그룹이나 차량은 현재 모드셋에서 지원하지 않습니다.</Korean>
+        <Polish>Żądany typ grupy lub pojazdu nie jest obsługiwany w aktualnym zestawie modów.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
         <French>Vous avez besoin d'une radio dans votre inventaire pour pouvoir donner des ordres aux autres escouades.</French>
+        <Korean>당신의 인벤토리에 무전기가 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
+        <Polish>Potrzebujesz radia w ekwipunku, aby móc wydawać rozkazy innym oddziałom.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio2">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
         <French>Vous avez besoin d'un Opérateur Radio dans votre groupe afin de pouvoir donner des ordes aux autres escouades</French>
+        <Korean>당신의 그룹에 무전병이 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
+        <Polish>Potrzebujesz radiowca w swojej grupie, aby móc wydawać rozkazy innym oddziałom.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_title">
         <Original>Recruit Squad</Original>
         <French>Recrutement d'escouade</French>
+        <Korean>분대 모집</Korean>
+        <Polish>Rekrutuj Oddział</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_assigned">
         <Original>Vehicle assigned to %1 Squad.</Original>
         <French>Véhicule assigné à l'escouade %1.</French>
+        <Korean>차량이 %1 분대에 할당되었습니다.</Korean>
+        <Polish>Pojazd przydzielony do oddziału %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_has_vehicle">
         <Original>This group has a vehicle already and their mission depends on it.</Original>
         <French>Ce groupe à déja un véhicule et leur mission en dépends.</French>
+        <Korean>이 그룹은 이미 차량을 보유하고 있으며, 그들의 임무는 차량에 달려 있습니다.</Korean>
+        <Polish>Ta grupa ma już pojazd i od niego zależy ich misja.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_change">
         <Original>Static Weapon Squads cannot change of vehicle.</Original>
-        <French>Les Armes Statiques d'Escouade ne peuvent pas changer de véhicule.</French>
+        <French>Les Escouade  d'Armes Statiques ne peuvent pas changer de véhicule.</French>
+        <Korean>고정화기 분대는 차량을 바꿀 수 없습니다.</Korean>
+        <Polish>Oddziały z bronią stacjonarną nie mogą zmieniać pojazdów.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_empty">
         <Original>Selected vehicle is not empty.</Original>
-        <French>Le véhicules sélectionné n'est pas vide.</French>
+        <French>Le véhicule sélectionné n'est pas vide.</French>
+        <Korean>선택한 차량이 비어 있지 않습니다.</Korean>
+        <Polish>Wybrany pojazd nie jest pusty.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_room">
         <Original>The vehicle selected has no room for this squad.</Original>
         <French>Le véhicule sélectionné n'a pas de place pour cette escouade.</French>
+        <Korean>선택한 차량에는 해당 분대를 위한 공간이 없습니다.</Korean>
+        <Polish>W wybranym pojeździe nie ma miejsca dla tego oddziału.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_static">
         <Original>You cannot assign a Static Weapon to a Squad.</Original>
-        <French>Vous ne pouvez pas assigné d'Arme Statique à une escouade.</French>
+        <French>Vous ne pouvez pas assigner d'Arme Statique à une escouade.</French>
+        <Korean>분대에 고정화기를 할당할 수 없습니다.</Korean>
+        <Polish>Nie można przypisać broni stacjonarnej do oddziału.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_select_group">
         <Original>You must select one group on the HC bar.</Original>
-        <French>Vous devez sélectionné un groupe dans la barre de HC.</French>
+        <French>Vous devez selectionner un groupe sur la barre HC.</French>
+        <Korean>당신은 하이 커맨드 선택기에서 한 개의 그룹을 선택해야 합니다.</Korean>
+        <Polish>Musisz wybrać jedną grupe z paska "HC".</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_title">
         <Original>Add Squad Vehicle</Original>
         <French>Ajout d'un véhicule à l'escouade</French>
+        <Korean>분대에 차량 추가</Korean>
+        <Polish>Przydziel Pojazd Drużynie</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_veh_destr">
         <Original>The selected vehicle is destroyed or cannot move.</Original>
-        <French>Le véhicule sélectionné est détruit ou ne pas bouger.</French>
+        <French>Le véhicule sélectionné est détruit ou immobilisé.</French>
+        <Korean>선택한 차량이 파괴되었거나 이동할 수 없습니다.</Korean>
+        <Polish>Wybrany pojazd został zniszczony lub nie może się poruszać.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_increased">
         <Original>Air Support increased in %1 points.</Original>
-        <French>Le Support Aérien est augmenté de %1 points.</French>
+        <French>Le Support Aérien a augmenté de %1 points.</French>
+        <Korean>항공 지원이 %1 포인트 상승했습니다.</Korean>
+        <Polish>Zwiększono wsparcie lotnicze o %1 pkt.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_airveh">
         <Original>Only Air Vehicles can be used to increase Airstrike points.</Original>
-        <French>Seul les véhicules aériens peuvent être utiliser pour augmenter les points de frappe aérienne.</French>
+        <French>Seul les véhicules aériens peuvent être utilisés pour augmenter les points de frappe aérienne.</French>
+        <Korean>항공기만 항공 지원을 높이는 데 사용할 수 있습니다.</Korean>
+        <Polish>Tylko pojazdy powietrzne mogą być używane do zwiększania punktów ataków powietrznych.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_area">
         <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes.</Original>
         <French>Le véhicule aérien et vous devez-être dans la zone d'un aéroport %1 ou d'un QG pour pouvoir le convertir en Frappes aériennes.</French>
+        <Korean>당신과 항공기가 %1 공항 또는 본부 지역에 있어야 공습 포인트로 전환할 수 있습니다.</Korean>
+        <Polish>Ty i pojazd powietrzny musicie znajdować się na obszarze %1 lotniska lub kwatery głównej, aby móc przekształcić je w "wsparcie z powietrza".</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_destr">
         <Original>You can't convert destroyed Air vehicle to Airstrikes.</Original>
         <French>Vous ne pouvez pas convertir de véhicules aérien détruit en Frappes Aériennes.</French>
+        <Korean>파괴된 항공기는 공습 포인트로 전환할 수 없습니다.</Korean>
+        <Polish>Nie można przekształcić zniszczonego pojazdu powietrznego w "wsparcie z powietrza".</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_drone">
         <Original>Backpack drones can't be used to increase Airstrike points.</Original>
         <French>Les sacs à dos de drones ne peuvent pas être utiliser pour augmenter les points de Frappe aérienne.</French>
+        <Korean>가방형 무인기는 공습 포인트로 쓸 수 없습니다.</Korean>
+        <Polish>Drony plecakowe nie mogą być używane do zwiększania punktów "wsparcia z powietrza".</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_empty">
         <Original>In order to convert, Vehicle must be empty.</Original>
         <French>Pour pouvoir convertir, le Véhicule doit être vide.</French>
+        <Korean>변환하려면 차량이 비어 있어야 합니다.</Korean>
+        <Polish>Aby dokonać konwersji, pojazd musi być pusty.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_looking">
         <Original>You are not looking at a vehicle.</Original>
         <French>Vous ne regardez pas un véhicule.</French>
+        <Korean>당신은 차량을 보고 있지 않습니다.</Korean>
+        <Polish>Nie patrzysz na pojazd.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_nearby">
         <Original>You can't convert Airstrikes while enemies are near you.</Original>
-        <French>Vous ne pas convertir de Frappes aériennes tant que des ennemis sont près de vous.</French>
+        <French>Vous ne pouvez pas convertir en Frappes aériennes tant que des ennemis sont près de vous.</French>
+        <Korean>적이 가까이 있을 때는 공습 포인트로 전환할 수 없습니다.</Korean>
+        <Polish>Nie możesz konwertować "wsparcia z powietrza", gdy wrogowie są blisko ciebie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_owner">
         <Original>You are not the owner of this vehicle. Therefore, you can't convert it.</Original>
         <French>Vous n'êtes pas le propriétaire de ce véhicule. Vous ne pouvez donc pas le convertir.</French>
+        <Korean>당신은 차량 주인이 아니기 때문에 변환할 수 없습니다.</Korean>
+        <Polish>Nie jesteś właścicielem tego pojazdu. Dlatego nie możesz go przekonwertować.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_title">
         <Original>Airstrike</Original>
         <French>Frappe aérienne</French>
+        <Korean>공습</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_humanEngi">
         <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
         <French>Il y a un Ingénieur humain dans votre escouade. Demandez-lui de construire.&lt;br/&gt;</French>
+        <Korean>분대원 중에 공병이 있습니다. 그들에게 건설을 부탁하십시오.&lt;br/&gt;</Korean>
+        <Polish>W twoim oddziale jest gracz inżynier. Poproś go o zbudowanie.&lt;br/&gt;</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_controlling">
         <Original>You cannot construct anything while controlling AI.</Original>
-        <French>Vous ne pouvez pas construire pendant que vous controller l'IA.</French>
+        <French>Vous ne pouvez pas construire pendant que vous controllez l'IA.</French>
+        <Korean>AI를 조종하는 동안에는 아무것도 만들 수 없습니다.</Korean>
+        <Polish>Nie można niczego konstruować podczas kontrolowania AI.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_engi">
         <Original>You are not an engineer.&lt;br/&gt;</Original>
         <French>Vous n'êtes pas un ingénieur.&lt;br/&gt;</French>
+        <Korean>당신은 공병이 아닙니다.&lt;br/&gt;</Korean>
+        <Polish>Nie jesteś inżynierem.&lt;br/&gt;</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_engi2">
         <Original>You have no available engineers in your squad. They may be unconscious or busy.</Original>
         <French>Vous n'avez aucun ingénieur disponible dans votre escouade. Ils sont peut-être occupés ou inconscients.</French>
+        <Korean>분대원 중에 이용 가능한 공병이 없습니다. 의식불명이거나 바쁠 수 있습니다.</Korean>
+        <Polish>W drużynie nie ma dostępnych inżynierów. Mogą być nieprzytomni lub zajęci.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_money">
         <Original>You do not have enough money for this construction (%1 € needed).</Original>
         <French>Vous n'avez pas assez d'argent pour cette construction (%1 € requis).</French>
+        <Korean>이 공사에 필요한 비용(%1€ 필요)이 부족합니다.</Korean>
+        <Polish>Nie masz wystarczających środków na tę budowę (potrzeba %1 €).</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_outside">
         <Original>You cannot build a bunker outside a controlled zone.</Original>
         <French>Vous ne pouvez pas construire de bunker en-dehors d'une zone sous contrôle.</French>
+        <Korean>통제 구역 밖에는 벙커를 지을 수 없습니다.</Korean>
+        <Polish>Nie można zbudować bunkra poza strefą pod kontrolą.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_placing">
         <Original>You can't build while placing something.</Original>
         <French>Vous ne pouvez pas construire pendant que vous déplacer quelque chose.</French>
+        <Korean>뭔가를 배치하는 동안에는 건설할 수 없습니다.</Korean>
+        <Polish>Nie można budować podczas umieszczania czegoś.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_road">
         <Original>Roadblocks can only be built on roads</Original>
         <French>Les Barrages routiers ne peuvent être construits que sur les routes.</French>
+        <Korean>도로에서만 로드블록을 건설할 수 있습니다.</Korean>
+        <Polish>Blokady drogowe mogą być budowane tylko na drogach</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_sl">
         <Original>Only squad leaders can order AI to build.</Original>
         <French>Seuls les chefs d'escouade peuvent ordonner à l'IA de construire.</French>
+        <Korean>분대장만이 AI 건설을 명령할 수 있습니다.</Korean>
+        <Polish>Tylko dowódcy oddziałów mogą nakazać SI budowę.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_no_uncon">
         <Original>You are an engineer, but not in a state to build: you may be unconscious or undercover.&lt;br/&gt;</Original>
         <French>Vous êtes un igénieur, mais vous n'êtes pas en état de construire: vous pouvez être inconscients ou sous couverture.&lt;br/&gt;</French>
+        <Korean>당신은 공병이지만 건설할 수 있는 상태가 아닙니다. 의식불명이거나 위장 중일 수 있습니다.&lt;br/&gt;</Korean>
+        <Polish>Jesteś inżynierem, ale nie jesteś w stanie budować: możesz być nieprzytomny lub pod przykrywką.&lt;br/&gt;</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_offroad_friendly">
         <Original>Bunkers can only be built off roads, in friendly areas</Original>
         <French>Les Bunkers ne peuvent être construits qu'en-dehors des routes, dans des zones alliées.</French>
+        <Korean>벙커는 도로 밖, 우호 지역에서만 건설할 수 있습니다.</Korean>
+        <Polish>Bunkry można budować tylko poza drogami, na przyjaznych obszarach.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_ordering">
         <Original>Ordering %1 to build.</Original>
         <French>Commande %1 de construire.</French>
+        <Korean>%1을(를) 건설하도록 명령 중입니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildCreVehCall_cancelled">
         <Original>Construction cancelled.</Original>
         <French>Construction annulée.</French>
+        <Korean>공사 취소</Korean>
+        <Polish>Budowa została anulowana.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildCreVehCall_no_move">
         <Original>You didn't move to the position, construction has timed out.</Original>
         <French>Vous ne vous êtes pas déplacé à la position, la construction a expiré.</French>
+        <Korean>위치를 옮기지 않았기 때문에 공사 시간이 초기화되었습니다.</Korean>
+        <Polish>Nie przemieściłeś się do tej pozycji, upłynął czas budowy.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildCreVehCall_walk">
         <Original>Walk to the selected position to start building</Original>
-        <French>Marchez jusqu'à la position sélectionné pour commencer à construire.</French>
+        <French>Marchez jusqu'à la position sélectionnée pour commencer à construire.</French>
+        <Korean>선택한 위치로 걸어가서 건설을 시작하십시오</Korean>
+        <Polish>Przejdź do wybranej pozycji, aby rozpocząć budowanie</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildinfo_title">
         <Original>Build Info</Original>
         <French>Info de construction</French>
+        <Korean>건축 정보</Korean>
+        <Polish>Stan budowy</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_commander">
         <Original>Only Commander has the ability to control HC units.</Original>
         <French>Seul le Commandant à l'abilité de contrôler les unités HC.</French>
+        <Korean>지휘관만이 하이 커맨드 유닛을 조종할 수 있습니다.</Korean>
+        <Polish>Tylko dowódca może kontrolować jednostki HC.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_nope">
         <Original>Nope. Not happening.</Original>
         <French>Non. Pas possible.</French>
+        <Korean>아뇨, 그럴 일 없습니다.</Korean>
+        <Polish>Nie. To się nie stanie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_uncon">
         <Original>You cannot control an unconscious or dead unit.</Original>
         <French>Vous ne pouvez pas contrôler d'unité inconsciente ou morte.</French>
+        <Korean>의식불명이거나 죽은 유닛은 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować nieprzytomnej lub martwej jednostki.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_undercover">
         <Original>You cannot control squads while undercover.</Original>
         <French>Vous ne pouvez pas contrôler d'escouade en étant sous converture.</French>
+        <Korean>위장 중에는 분대를 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować oddziałów, gdy jesteś pod przykrywką.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_return">
         <Original>Return Control to AI</Original>
         <French>Rendre le contrôle à l'IA</French>
+        <Korean>조종 권한을 AI에게 되돌리기</Korean>
+        <Polish>Zwróć kontrolę do SI</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_damage">
         <Original>Returned to original Unit as it received damage.</Original>
         <French>Retour à l'unité d'origine car dégats reçus.</French>
+        <Korean>원본 유닛이 데미지를 입었기 때문에 원본 유닛으로 돌아왔습니다.</Korean>
+        <Polish>Zwrócony do oryginalnej jednostki, ponieważ otrzymał obrażenia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_damage_ai">
         <Original>Returned to original Unit as controlled AI received damage.</Original>
         <French>Retour à l'unité d'origine car l'IA contrôler à reçu des dégats.</French>
+        <Korean>조종하는 AI가 데미지를 입었기 때문에 원본 유닛으로 돌아왔습니다.</Korean>
+        <Polish>Przywrócono do oryginalnej jednostki, ponieważ kontrolowana sztuczna inteligencja otrzymała obrażenia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_return_time">
         <Original>Time to return control to AI: %1.</Original>
         <French>Temps avant retour du contrôle à l'IA: %1.</French>
+        <Korean>조종을 AI에게 반환하는 시간: %1</Korean>
+        <Polish>Czas przywrócenia kontroli do SI: %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_title">
         <Original>Control Squad</Original>
         <French>Contrôle d'Escouade</French>
+        <Korean>분대 조종</Korean>
+        <Polish>Kontroluj oddział</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_belong">
         <Original>You cannot control a unit which does not belong to %1.</Original>
         <French>Vous ne pouvez pas contrôler d'unité qui n'appartient pas à %1.</French>
+        <Korean>%1에 속하지 않은 유닛은 조종할 수 없습니다.</Korean>
+        <Polish>Nie można kontrolować jednostki, która nie należy do %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_controlling">
         <Original>You cannot control AI while you are controlling another AI.</Original>
         <French>Vous ne pouvez pas contrôler d'IA alors que vous contrôler déja une autre IA.</French>
+        <Korean>다른 AI를 조종하는 동안에는 AI를 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować SI, gdy kontrolujesz inną SI.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_deadUnit">
         <Original>You cannot control an unconscious, a dead unit.</Original>
         <French>Vous ne pouvez pas contrôler une unité inconsciente ou morte.</French>
+        <Korean>의식불명, 즉 죽은 유닛은 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować nieprzytomnej lub martwej jednostki.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_nope">
         <Original>Nope. Not happening.</Original>
         <French>Non. Pas possible.</French>
+        <Korean>아뇨, 그럴 일 없습니다.</Korean>
+        <Polish>Nie. To się nie stanie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_other_player">
         <Original>You cannot control another player.</Original>
         <French>Vous ne pouvez pas contrôler un autre joueur.</French>
+        <Korean>다른 플레이어는 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować innego gracza.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_petros">
         <Original>You cannot control Petros.</Original>
         <French>Vous ne pouvez pas contrôler Petros.</French>
+        <Korean>페트로스는 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować Petrosa.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_sl">
         <Original>You cannot control AI if you are not the squad leader.</Original>
         <French>Vous ne pouvez pas contrôler d'IA si n'êtes pas un chef d'escouade.</French>
+        <Korean>분대장이 아니면 AI를 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować SI, jeśli nie jesteś dowódcą oddziału.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_no_uncon">
         <Original>You cannot control AI while undercover.</Original>
         <French>Vous ne pouvez pas contrôler d'IA alors que vous êtes sous converture.</French>
+        <Korean>위장 중에는 AI를 조종할 수 없습니다.</Korean>
+        <Polish>Nie możesz kontrolować SI, gdy jesteś pod przykrywką.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_return">
         <Original>Return Control to AI</Original>
         <French>Retour du Contrôle à l'IA.</French>
+        <Korean>조종 권한을 AI에게 되돌리기</Korean>
+        <Polish>Zwróć kontrolę do SI</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_return_damage">
         <Original>Returned to original Unit as it received damage.</Original>
         <French>Retour à l'unité d'origine car dégats reçus.</French>
+        <Korean>원본 유닛이 데미지를 입었기 때문에 원본 유닛으로 돌아왔습니다.</Korean>
+        <Polish>Zwrócony do oryginalnej jednostki, ponieważ otrzymał obrażenia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_return_damage_ai">
         <Original>Returned to original Unit as controlled AI received damage.</Original>
         <French>Retour à l'unité d'origine car l'IA contrôlé à reçu des dégats.</French>
+        <Korean>조종하는 AI가 데미지를 입었기 때문에 원본 유닛으로 돌아왔습니다.</Korean>
+        <Polish>Przywrócono do oryginalnej jednostki, ponieważ kontrolowana sztuczna inteligencja otrzymała obrażenia.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_return_time">
         <Original>Time to return control to AI: %1.</Original>
         <French>Temps avant retour du contrôle à l'IA: %1.</French>
+        <Korean>조종을 AI에게 반환하는 시간: %1</Korean>
+        <Polish>Czas przywrócenia kontroli do SI: %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlunit_title">
         <Original>Control Unit</Original>
         <French>Contrôle de l'unité</French>
+        <Korean>유닛 조종</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissPlaGro_no_sl">
         <Original>You cannot dismiss anyone if you are not the squad leader.</Original>
         <French>Vous ne pouvez renvoyer personne si vous n'êtes pas un chef d'escouade.</French>
+        <Korean>분대장이 아니면 누구도 해산시킬 수 없습니다.</Korean>
+        <Polish>Nie możesz nikogo zwolnić, jeśli nie jesteś dowódcą drużyny.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissPlaGro_no_uncon">
         <Original>You cannot disband suppressed, undercover or unconscious units.</Original>
         <French>Vous ne pouvez pas renvoyer des unités suppressées, inconscientes ou sous couvertures.</French>
+        <Korean>제압당하거나, 위장 중이거나 의식불명인 유닛은 해산시킬 수 없습니다.</Korean>
+        <Polish>Nie można rozwiązać jednostek pod ostrzałem, ukrytych lub nieprzytomnych.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissPlaGro_title">
         <Original>Dismiss Group</Original>
         <French>Renvoi du Groupe</French>
+        <Korean>그룹 해산</Korean>
+        <Polish>Zwolnij grupę</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissSquad_no_nato">
         <Original>You cannot dismiss NATO groups.</Original>
         <French>Vous ne pouvez pas renvoyer de groupes de NATO</French>
+        <Korean>NATO 그룹은 해산시킬 수 없습니다.</Korean>
+        <Polish>Nie można zwolnić grup NATO.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissSquad_no_player">
         <Original>You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads.</Original>
         <French>Vous ne pouvez pas renvoyer des escouades controlés par un joueur, de Poste d'observations, de Barrages routiers ou de construction de Champs de mines.</French>
+        <Korean>플레이어가 이끄는 부대, 감시 초소, 검문소 또는 지뢰지대 건설 부대는 해체시킬 수 없습니다.</Korean>
+        <Polish>Nie możnesz zwolnić oddziałów dowodzonych przez gracza, budujących posterunki, blokady dróg lub pola minowe.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissSquad_title">
         <Original>Dismiss Squad</Original>
         <French>Dissolution de l'escouade</French>
+        <Korean>분대 해산</Korean>
+        <Polish>Zwolnij oddział</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIAinit_lost">
         <Original>%1 lost communication, he will come back with you if possible.</Original>
-        <French>%1 a perdu la communication, il reviendra avec vous si possible.</French>
+        <French>%1 a perdu contact, il vous rejoindra si possible.</French>
+        <Korean>%1이(가) 통신이 끊어졌으며, 가능하면 당신에게 되돌아올 것입니다.</Korean>
+        <Polish>%1 stracił łączność, wróci z tobą, jeśli to możliwe.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_commander">
         <Original>Only our Commander has access to this function.</Original>
-        <French>Seul votre Commandant à accès à cette fonction.</French>
+        <French>Seul notre Commandant a accès à cette fonction.</French>
+        <Korean>오직 지휘관만 이 기능에 액세스 할 수 있습니다.</Korean>
+        <Polish>Tylko nasz dowódca ma dostęp do tej funkcji.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_money">
         <Original>You do not have enough money to afford additional training. %1 € needed.</Original>
-        <French>Vous n'avez pas assez d'argent pour vous permettre des entrainements supplémentaires. %1 € est nécessaire.</French>
+        <French>Vous n'avez pas assez d'argent pour vous permettre des entrainements supplémentaires. %1 € nécessaires.</French>
+        <Korean>추가적인 훈련에 필요한 자금이 없습니다. %1€가 필요합니다.</Korean>
+        <Polish>Nie masz wystarczająco dużo pieniędzy, aby pozwolić sobie na dodatkowe szkolenie. %1 € potrzebne.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_wl">
         <Original>You cannot upgrade training in the current War Level.</Original>
         <French>Vous ne pouvez pas améliorer l'entrainement dans le Niveau de Guerre actuel.</French>
+        <Korean>연재 워 레벨에서는 훈련을 업그레이드할 수 없습니다.</Korean>
+        <Polish>Nie można ulepszyć treningu na obecnym poziomie wojny.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_title">
         <Original>Skill Add</Original>
         <French>Ajout de compétences</French>
+        <Korean>훈련도 추가</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_training_max">
         <Original>Your troops have the maximum training.</Original>
         <French>Vos troupes sont entrainées au maximum.</French>
+        <Korean>당신의 부대의 훈련도는 최대입니다.</Korean>
+        <Polish>Twoi żołnierze mają maksymalne wyszkolenie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_upgraded">
         <Original>%2 Skill Level has been Upgraded.&lt;br/&gt;Current level is %1.</Original>
-        <French>%2 Niveau de Compétence a été améliorée.&lt;br/&gt; Le niveau Actuel est %1.</French>
+        <French>%2 Niveau de Compétence a été amélioré.&lt;br/&gt; Le niveau Actuel est %1.</French>
+        <Korean>%2의 능력이 업그레이드 되었습니다.&lt;br/&gt;현재 레벨은 %1입니다.</Korean>
+        <Polish>Podniesiono poziom umiejętności %2.&lt;br/&gt;Obecny poziom to %1.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_att">
         <Original>You cannot manage this garrison when there's a major attack incoming.</Original>
         <French>Vous ne pouvez pas gérer cette garnison alors qu'une attaque majeur est imminente.</French>
+        <Polish>Nie można zarządzać garnizonem, gdy nadchodzi poważny atak.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_enemy">
         <Original>You cannot manage this garrison while there are enemies nearby.</Original>
         <French>Vous ne pouvez pas gérer cette garnison tant que des ennemis sont à proximité.</French>
+        <Polish>Nie możesz zarządzać tym garnizonem, gdy w pobliżu znajdują się wrogowie.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_troops">
         <Original>The place has no garrisoned troops to remove.</Original>
@@ -4534,30 +4872,43 @@
       <Key ID="STR_A3A_fn_reinf_NatoBomb_lack_supp">
         <Original>You lack of enough Air Support to make this request.</Original>
         <French>Vous manquez de Support Aérien pour faire cette requête.</French>
+        <Korean>항공 지원이 부족하여 이 요청을 사용할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_control">
         <Original>You need to control an airport in order to fulfill this request.</Original>
         <French>Vous devez contrôler un aéroport pour compléter cette requête.</French>
+        <Korean>이 요청을 수행하기 위해서는 공항을 통제해야 합니다.</Korean>
+        <Polish>Aby spełnić tą prośbe, musisz kontrolować lotnisko.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
         <French>Vous avez besoin d'une radio dans votre inventaire afin de pouvoir donner des ordes aux autres escouades.</French>
+        <Korean>당신의 인벤토리에 무전기가 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
+        <Polish>Potrzebujesz radia w ekwipunku, aby móc wydawać rozkazy innym oddziałom.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio2">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
         <French>Vous avez besoin d'un Opérateur Radio dans votre groupe afin de pouvoir donner des ordes aux autres escouades</French>
+        <Korean>당신의 그룹에 무전병이 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
+        <Polish>Potrzebujesz radiowca w swojej grupie, aby móc wydawać rozkazy innym oddziałom.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_select_end">
         <Original>Select the map position to which the plane will exit to calculate plane's route vector.</Original>
         <French>Sélectionner la position sur la carte vers laquelle l'avion partira pour calculer le vecteur de sa trajectoire.</French>
+        <Korean>항공기의 경로 벡터를 계산하려면 항공기가 나갈 맵 위치를 선택하십시오.</Korean>
+        <Polish>Wybierz pozycję na mapie, w której to samolot wyjdzie z strefy działań, aby obliczyć wektor trasy samolotu.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_select_start">
         <Original>Select the spot from which the plane will start to drop the bombs.</Original>
         <French>Sélectionner l'endroit depuis lequel l'avion débutera le bombardement.</French>
+        <Korean>항공기가 폭탄을 투하하기 시작할 지점을 선택하십시오.</Korean>
+        <Polish>Wybierz miejsce, z którego samolot zacznie zrzucać bomby.</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_title">
         <Original>Air Support</Original>
         <French>Support Aérien</French>
+        <Korean>공중 지원</Korean>
+        <Polish>Wsparcie lotnicze</Polish>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_controlling">
         <Original>You cannot buy units while you are controlling AI.</Original>
@@ -4585,22 +4936,26 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_money">
         <Original>You do not have enough money for this kind of unit (%1 € needed).</Original>
+        <French>Vous n'avez pas assez d'argent pour ce type d'unité (%1€ requis).</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_wait">
         <Original>You need to wait %1 seconds to be able to recruit units again.</Original>
+        <French>Vous devez attendre %1 secondes avant de pouvoir recruter des unités.</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_weapons">
         <Original>You don't have enough weapons to equip this type of unit.</Original>
+        <French>Vous n'avez pas assez d'armes pour équiper ce type d'unité.</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_recruited">
         <Original>Soldier Recruited.&lt;br/&gt;&lt;br/&gt;Remember: if you use the group menu to switch groups you will lose control of your recruited AI.</Original>
+        <French>Soldat recruté.&lt;br/&gt;&lt;br/&gt;Rappel : si vous utilisez le menu de groupe pour changer de groupe, vous perdrez le controle de vos unités IA recrutées.</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_title">
         <Original>AI Recruitment</Original>
         <French>Recrutement d'IA</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
-        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu.</Original>
+        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Management option in Y menu.</Original>
         <French>Groupe %1 à votre commandement.&lt;br/&gt;&lt;br/&gt;Les Groupes sont gérer depuis la barre HC (Par défaut: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe est coincé, utilisez la fonction de Contrôle d'IA afin de les faire bouger. Les équipes d'armes statiques montés ont tendance à se bloquer (la résolution est en cours)&lt;br/&gt;&lt;br/&gt;Pour assigner un véhicule pour ce groupe, regardez un véhicule et utiliser l'option de Gestion de Véhicule d'Escouade dans le menu Y.</French>
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_purchased">
@@ -4691,18 +5046,23 @@
     <Container name="A3A_fn_Revive">
       <Key ID="STR_A3A_fn_revive_actRev_addact_cancel">
         <Original>Cancel Revive</Original>
+        <French>Annuler la Réanimation</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_lost">
         <Original>We lost %1.</Original>
+        <French>Nous avons perdu %1.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_able">
         <Original>You are not able to revive anyone.</Original>
+        <French>Vous ne pouvez réanimer personne.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_carry1">
         <Original>%1 is being carried or transported and you cannot heal him.</Original>
+        <French>%1 se fait porter ou est transporté, vous ne pouvez pas le soigner.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_carry2">
         <Original>%1 is being carried or transported and I cannot heal him.</Original>
+        <French>%1 se fait porter ou est transporté, je ne peux pas le soigner.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_dead">
         <Original>%1 is already dead.</Original>
@@ -4710,15 +5070,19 @@
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_meds">
         <Original>You or %1 need a First Aid Kit or Medikit to be able to revive.</Original>
+        <French>Vous ou %1 avez besoin d'un Kit de Premier Secours ou Medikit pour pouvoir réanimer.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_up">
         <Original>%1 no longer needs your help.</Original>
+        <French>%1 n'a plus besoin de votre aide.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_rev_cancel">
         <Original>Revive cancelled.</Original>
+        <French>Réanimation Annulée.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_title">
         <Original>Revive</Original>
+        <French>Réanimer</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_addact_release">
         <Original>Release %1</Original>
@@ -4730,9 +5094,11 @@
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_no_carry">
         <Original>%1 is being carried or transported and you cannot carry him.</Original>
+        <French>%1 se fait porter ou est transporté, vous ne pouvez pas le porter.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_nohelp">
         <Original>%1 no longer needs your help.</Original>
+        <French>%1 n'a plus besoin de votre aide.</French>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_title">
         <Original>Carry/Drag</Original>
@@ -4764,6 +5130,7 @@
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_text_asset">
         <Original>Assets:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</Original>
+        <French>Objets :&lt;br/&gt;&lt;t color='#f0d498'&gt;RH :</French>
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_text_money">
         <Original>&lt;br/&gt;Money:</Original>
@@ -4771,6 +5138,7 @@
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_text_options">
         <Original>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Further infomation is provided in &lt;t color='#f0d498'&gt;Map Screen &gt; Game Options &gt; Persistent Save-game&lt;/t&gt;.</Original>
+        <French>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Informations complémentaires dans &lt;t color='#f0d498'&gt;Ecran Carte &gt; Options de jeu &gt; Sauvegarde Persistante&lt;/t&gt;.</French>
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_title1">
         <Original>Save Game</Original>
@@ -4804,45 +5172,59 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_naked">
         <Original>%1&lt;br/&gt;Being naked. Thats what you think is unsuspicious?</Original>
+        <French>%1&lt;br/&gt;Être nu. C'est ça que vous considérez insoupçonnable ?</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_ngv">
         <Original>%1&lt;br/&gt;Wearing NVGs.</Original>
+        <French>%1&lt;br/&gt;Porte des NVGs.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_rope">
         <Original>%1&lt;br/&gt;Holding tow ropes.</Original>
+        <French>%1&lt;br/&gt;Tient un treuil de remorquage.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_uniform">
         <Original>%1&lt;br/&gt;Wearing a suspicious uniform.</Original>
+        <French>%1&lt;br/&gt;Porte un uniforme suspect.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_vest">
         <Original>%1&lt;br/&gt;Wearing a vest.</Original>
+        <French>%1&lt;br/&gt;Porte une veste.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_weapon">
         <Original>%1&lt;br/&gt;A weapon is visible.</Original>
+        <French>%1&lt;br/&gt;Une arme est visible.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported1">
         <Original>This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover.</Original>
+        <French>Ce véhicule a été signalé à l'ennemi. Changez-en ou prenez-en un nouvel exemplaire au garage pour devenir Icognito.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported2">
         <Original>You have been reported in the last 30 minutes therefore you cannot go Undercover.</Original>
+        <French>Vous avez été signalé dans les 30 dernières minutes, de fait vous ne pouvez pas devenir Icognito.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_spotted">
         <Original>You cannot go Undercover while enemies are spotting you.</Original>
+        <French>Vous ne pouvez pas devenir Icognito pendant que des ennemis vous observent.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_towrope">
         <Original>This vehicle cannot go undercover while it has tow ropes attached.</Original>
+        <French>Ce véhicule ne peut pas devenir Incognito pendant un remorquage.</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_while">
         <Original>You cannot go Undercover while:&lt;br/&gt;</Original>
+        <French>Vous ne pouvez pas devenir Icognito pendant :&lt;br/&gt;</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_airspace">
         <Original>You have violated the airspace of %1!</Original>
+        <French>Vous avez enfreint l'espace aérien de %1 !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_outp">
         <Original>An enemy outpost or seaport has detected you!</Original>
+        <French>Un avant-poste ou port ennemi vous a detecté !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_roadb">
         <Original>An enemy roadblock has detected you!</Original>
+        <French>Un barrage routier ennemi vous a detecté !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_entered_veh1">
         <Original>You entered a non civilian vehicle!</Original>
@@ -4854,6 +5236,7 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_Error">
         <Original>Unknown error occured in undercover execution routine!</Original>
+        <French>Erreur inconnue survenue pendant le processus de devenir Icognito !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_leftveh">
         <Original>You left your vehicle and you are still on the Wanted List!</Original>
@@ -4881,35 +5264,40 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_reason_4">
         <Original>You cannot stay Undercover while healing a compromised resistance member&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List!</Original>
+        <French>Vous ne pouvez pas rester sous couverture alors que vous soigner un membre de la résistance compromis !&lt;br/&gt;&lt;br/&gt;L'ennemi vous a ajouté à leur liste de gens recherchés !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_towrope1">
         <Original>You cannot be undercover while tow ropes are attached to your vehicle!</Original>
+        <French>Ce véhicule ne peut pas devenir Incognito pendant qu'un treuil de remorquage est attaché à votre véhicule !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_towrope2">
         <Original>You cannot be undercover and use tow ropes!</Original>
+        <French>Vous ne pouvez pas être Incognito et utiliser un treuil de remorquage !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_reported">
         <Original>You have been reported or spotted by the enemy!</Original>
+        <French>Vous avez été signalé ou détecté par l'ennemi !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_trespass">
         <Original>You have trespassed on an enemy airbase!</Original>
+        <French>Vous vous êtes introduit sur une base aérienne ennemie !</French>
       </Key>
       <Key ID="STR_A3A_fn_undercover_title">
         <Original>Undercover</Original>
+        <French>Incognito</French>
       </Key>
     </Container>
     <Container name="A3A_fn_UtilityItems">
       <Key ID="STR_A3A_fn_UtilItem_dropOb_addact_drop">
         <Original>Drop object</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_UtilItem_initMovOb_addact_carry">
-        <Original>Carry object</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_UtilItem_initMovOb_addact_rotate">
-        <Original>Rotate object</Original>
+        <French>Poser l'objet</French>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_build">
         <Original>Building placer</Original>
+        <French>Placeur de Construction</French>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_carry">
+        <Original>Carry object</Original>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_open">
         <Original>Open Doors</Original>
@@ -4918,6 +5306,9 @@
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_pack">
         <Original>Pack object</Original>
         <French>Emballer objet</French>
+      </Key>
+      <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_rotate">
+        <Original>Rotate object</Original>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_unpack">
         <Original>Unpack object</Original>
@@ -5215,6 +5606,7 @@
     <Container name="A3A_GCTracker">
       <Key ID="STR_A3A_GCTracker_tracker_notification">
         <Original>Last Garbage Clean was %1 ago. Keep track of it. Forced GC in %2.</Original>
+        <German>Letzte Müll-Löschung war vor %1, behalte das im Auge. Müll-Löschung wird automatisch in %2 durchgeführt.</German>
         <Italian>L'ultimo Pulisci Immondizia è stato %1 fa. Tienilo d'occhio. PI forzato in %2.</Italian>
         <Spanish>La ultima Limpieza de Basura fue hace %1. Mantenlo supervisado. Limpieza de basura forzada en %2.</Spanish>
         <French>Le dernier Nettoyage Memoire était il y a %1 jours. Continuer le suivi. Nettoyage forcé dans %2.</French>
@@ -5227,6 +5619,7 @@
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
+        <German>Müll-Löscher hat Löschung durchgeführt, weil der Zeitraum abgelaufen ist. Beachte die Fristen.</German>
         <Italian>Tracciatore Pulisci Immondizia ha eseguito una pulizia poiché il tempo trascorso ha superato la soglia. Tieni d'occhio i tempi del PI.</Italian>
         <Spanish>El Seguimiento del Limpiador de Basura llevó a cabo una limpieza porque se superó el límite de tiempo establecido. Mantén supervisados los tiempos del Limpiador de Basura.</Spanish>
         <French>Le Suivi du Nettoyage Mémoire lance un nettoyage mémoire car le temps écoulé excède le seuil. Suivre le temps de nettoyage.</French>
@@ -5240,6 +5633,7 @@
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_title">
         <Original>Garbage Cleaner Tracker</Original>
+        <German>Müll-Löscher Tracker </German>
         <Italian>Tracciatore Pulisci Immondizia</Italian>
         <Spanish>Seguimiento del Limpiador de Basura</Spanish>
         <French>Suivi du Nettoyage Mémoire</French>
@@ -5253,49 +5647,69 @@
       </Key>
       <Key ID="STR_A3A_GCTracker_warning_text">
         <Original>Automatic Garbage Clean incoming in %1</Original>
-        <French>Nettoyeur mémoire automatique dans %1</French>
+        <German>Automatische Müll-Löschung in %1</German>
+        <French>Nettoyage mémoire automatique dans %1</French>
+        <Korean>쓰레기 자동 청소가 %1에 실행됩니다</Korean>
+        <Polish>Automatyczne usuwanie śmieci rozpocznie się za %1</Polish>
+        <Czech>Automatické čistení odpadků za %1</Czech>
       </Key>
       <Key ID="STR_A3A_GCTracker_warning_title">
         <Original>Final Warning</Original>
+        <German>Letzte Warnung </German>
         <French>Dernier Avertissement</French>
+        <Korean>최종 경고</Korean>
+        <Polish>Ostatnie ostrzeżenie</Polish>
+        <Czech>Poslední varování</Czech>
       </Key>
     </Container>
     <Container name="A3A_keybinds">
       <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_DN">
         <Original>Artillery menu</Original>
+        <French>Menu d'Artillerie</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_tip">
         <Original>Opens the Antistasis artillery support menu (commander only).</Original>
+        <French>Ouvre le menu de support d'artillerie Antistasi (commandant uniquement).</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_DN">
         <Original>Battle menu</Original>
+        <French>Menu de Bataille</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_tip">
         <Original>Opens the Antistasis battle menu.</Original>
+        <French>Ouvre le menu de bataille d'Antistasi.</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
         <Original>Dismiss Previous Hint</Original>
+        <French>Ignore l'Astuce Précédente</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_tip">
         <Original>Clears the last hint notification.</Original>
+        <French>Enlève la dernière notification d'astuce.</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_DN">
         <Original>Toggle ear plugs</Original>
+        <French>Activer les bouchons d'oreilles</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_tip">
         <Original>Toggles the ear plugs (no effect when using ace).</Original>
+        <French>Active les bouchons d'oreilles (sans effet en utilisant ACE).</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_DN">
         <Original>Toggle info bar</Original>
+        <French>Activer la barre d'info</French>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_tip">
         <Original>Toggles the visibility of Antistasis information bar at the top of the screen.</Original>
+        <French>Active/desactive l'affichage de la barre d'information Antistasi en haut de l'écran.</French>
       </Key>
       <Key ID="STR_A3A_keybinds_keyAcc_earplugs_in">
         <Original>You've inserted your ear plugs.</Original>
+        <French>Vous avez enfilé vos bouchons d'oreilles.</French>
       </Key>
       <Key ID="STR_A3A_keybinds_keyAcc_earplugs_out">
         <Original>You've taken out your ear plugs.</Original>
+        <French>Vous avez retiré vos bouchons d'oreilles.</French>
       </Key>
       <Key ID="STR_A3A_keybinds_keyAcc_earplugs_title">
         <Original>Ear Plugs</Original>
@@ -5305,67 +5719,128 @@
     <Container name="A3A_Scripts">
       <Key ID="STR_A3A_scripts_advTowInit_addact_attach">
         <Original>Attach To Tow Ropes</Original>
+        <German>An Abschleppseil anbringen</German>
         <French>Attacher au treuil</French>
+        <Korean>견인줄에 걸기</Korean>
+        <Polish>Przymocuj do linki holowniczej</Polish>
+        <Czech>Přivázat k tažnému lanu</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_deploy">
         <Original>Deploy Tow Ropes</Original>
+        <German>Abschleppseil einsetzen</German>
         <French>Déployer treuil</French>
+        <Korean>견인줄 꺼내기</Korean>
+        <Polish>Rozłóż linkę holowniczą</Polish>
+        <Czech>Vyložit tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_drop">
         <Original>Drop Tow Ropes</Original>
+        <German>Abschleppseil abwerfen </German>
         <French>Lâcher le treuil</French>
+        <Korean>견인줄 떨어뜨리기</Korean>
+        <Polish>Upuść linkę holowniczą</Polish>
+        <Czech>Zahodit tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_pick">
         <Original>Pick Up Tow Ropes</Original>
+        <German>Abschleppseil aufnehmen </German>
         <French>Ramasser le treuil</French>
+        <Korean>견인줄 줍기</Korean>
+        <Polish>Podnieś linkę holowniczą</Polish>
+        <Czech>Vybrat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_putAway">
         <Original>Put Away Tow Ropes</Original>
+        <German>Abschleppseil verpacken </German>
         <French>Ranger le treuil</French>
+        <Korean>견인줄 넣기</Korean>
+        <Polish>Schowaj linkę holowniczą</Polish>
+        <Czech>Odložit tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_attach_no_locked">
         <Original>Cannot attach tow ropes to locked vehicle</Original>
+        <German>Das Abschleppseil kann nicht an verschlossene Fahrzeuge angebracht werden</German>
         <French>Impossible d'attacher le treuil à un véhicule verrouillé</French>
+        <Korean>잠긴 차량에는 견인줄을 걸 수 없습니다</Korean>
+        <Polish>Nie można przymocować linki holowniczej do zamkniętego pojazdu</Polish>
+        <Czech>Na zamčené vozidlo nelze přivázat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_attach_no_safez">
         <Original>Cannot attach tow ropes in safe zone</Original>
+        <German>Das Abschleppseil kann in einer Safezone nicht angebracht werden </German>
         <French>Impossible d'attacher le treuil dans une zone sécurisé</French>
+        <Korean>안전 구역에서는 견인줄을 걸 수 없습니다</Korean>
+        <Polish>Nie można zamocować linki holowniczej będąc w bezpiecznej strefie</Polish>
+        <Czech>V bezpečné zóně nelze přivázat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_fail">
         <Original>Whoops</Original>
+        <German>Hoppla!</German>
         <French>Oups</French>
+        <Korean>어이쿠</Korean>
+        <Polish>Uuups</Polish>
+        <Czech>Jejda</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_pick_no_locked">
         <Original>Cannot pick up tow ropes from locked vehicle</Original>
+        <German>Abschleppseil kann nicht aus verschlossenen Fahrzeugen aufgenommen werden</German>
         <French>Impossible de récupérer le treuil d'un véhicule vérrouillé</French>
+        <Korean>잠긴 차량의 견인줄은 주울 수 없습니다</Korean>
+        <Polish>Nie można podnieść linki holowniczej z zamkniętego pojazdu</Polish>
+        <Czech>Ze zamčeného vozidla nelze vybrat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_pick_no_safez">
         <Original>Cannot pick up tow ropes in safe zone</Original>
+        <German>Abschleppseil kann in einer Safezone nicht aufgenommen werden</German>
         <French>Impossible de récupérer un treuil dans une zone sécurisé</French>
+        <Korean>안전 구역에서는 견인줄을 주울 수 없습니다</Korean>
+        <Polish>Nie można podnieść linki holowniczej będąc w bezpiecznej strefie</Polish>
+        <Czech>V bezpečné zóně nelze vybrat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_put_no_locked">
         <Original>Cannot put away tow ropes in locked vehicle</Original>
+        <German>Abschleppseile können nicht in verschlossenen Fahrzeugen verpackt werden </German>
         <French>Impossible de ranger le treuil dans un véhicule vérrouillé</French>
+        <Korean>잠긴 차량의 견인줄은 넣을 수 없습니다</Korean>
+        <Polish>Nie można schować linki holowniczej w zamkniętym pojeździe</Polish>
+        <Czech>Do zamčeného vozidla nelze odložit tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_put_no_safez">
         <Original>Cannot put away tow ropes in safe zone</Original>
+        <German>Abschleppseile können nicht in einer Safezone verpackt werden </German>
         <French>Impossible de ranger le treuil dans une zone sécurisé</French>
+        <Korean>안전 구역에서는 견인줄을 넣을 수 없습니다</Korean>
+        <Polish>Nie można odłożyć linki holowniczej będąc w bezpiecznej strefie</Polish>
+        <Czech>V bezpečné zóně nelze přivázat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_success">
         <Original>Success</Original>
+        <German>Erfolg</German>
         <French>Succès</French>
+        <Korean>성공</Korean>
+        <Polish>Sukces</Polish>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_take_no_locked">
         <Original>Cannot take tow ropes from locked vehicle</Original>
+        <German>Abschleppseile können nicht von verschlossenen Fahrzeugen genommen werden</German>
         <French>Impossible de récupérer le treuil d'un véhicule vérrouillé</French>
+        <Korean>잠긴 차량의 견인줄은 가져갈 수 없습니다</Korean>
+        <Polish>Nie można wyjąć linki holowniczej z zamkniętego pojazdu</Polish>
+        <Czech>Ze zamčeného vozidla nelze vybrat tažné lano</Czech>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_take_no_safez">
         <Original>Cannot take tow ropes in safe zone</Original>
         <French>Impossible de prendre un treuil dans une zone sécurisé</French>
+        <Korean>안전 구역에서는 견인줄을 가져갈 수 없습니다</Korean>
+        <Polish>Nie można podnieść linki holowniczej będąc w bezpiecznej strefie</Polish>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_title">
         <Original>Advanced Towing</Original>
-        <French>Remorquage avancée</French>
+        <German>Fortgeschrittenes Abschleppen </German>
+        <French>Remorquage Avancé</French>
+        <Korean>고급 견인</Korean>
+        <Polish>Zaawansowane Holowanie Pojazdów</Polish>
+        <Czech>Pokročilé tahání</Czech>
       </Key>
     </Container>
     <Container name="A3A_selfRevive">
@@ -5717,18 +6192,23 @@
     <Container name="Building_Placer">
       <Key ID="STR_A3A_builder_box_being_used">
         <Original>Builder box is already being used by %1</Original>
+        <French>La boite de construction est déjà utilisée par %1</French>
       </Key>
       <Key ID="STR_A3A_builder_enemies_near">
         <Original>You can not use the placer while there are enemies nearby.</Original>
+        <French>Vous ne pouvez pas utiliser le placeur tant que des ennemis sont proches.</French>
       </Key>
       <Key ID="STR_A3A_builder_not_eligible">
         <Original>You are not eligible to use the building placer.</Original>
+        <French>Vous n'êtes pas éligible pour utiliser le placeur de constructions.</French>
       </Key>
       <Key ID="STR_A3A_builder_server_respond_failed">
         <Original>Server failed to respond to building placer request.</Original>
+        <French>Le serveur n'a pas répondu à la requête du placeur de constructions.</French>
       </Key>
       <Key ID="STR_A3A_builder_title">
         <Original>Building Placer</Original>
+        <French>Placeur de Constructions</French>
       </Key>
     </Container>
     <Container name="carpet_bombing">
@@ -10888,9 +11368,11 @@
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxlarge">
         <Original>Large construction kit</Original>
+        <French>Grand kit de construction</French>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxsmall">
         <Original>Small construction kit</Original>
+        <French>Petit kit de construction</French>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_fueldrum">
         <Original>Fuel Drum</Original>

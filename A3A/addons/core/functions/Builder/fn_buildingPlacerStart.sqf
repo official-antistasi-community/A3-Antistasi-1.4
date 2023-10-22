@@ -27,8 +27,8 @@ if ([getPosATL _centerObject] call A3A_fnc_enemyNearCheck) exitWith {
 
 // Check player eligibility
 // options: teamLeader (1), engineer (2), either (3). Boss always eligible
-private _eligibleTL = (A3A_builderPermissions % 1 != 0) and (typeOf player == "I_G_Soldier_TL_F");
-private _eligibleEng = (A3A_builderPermissions % 2 != 0) and (player call A3A_fnc_isEngineer);
+private _eligibleTL = (A3A_builderPermissions % 2 >= 0) and (typeOf player == "I_G_Soldier_TL_F");
+private _eligibleEng = (A3A_builderPermissions % 4 >= 2) and (player call A3A_fnc_isEngineer);
 if (!_eligibleTL and !_eligibleEng and player != theBoss) exitWith {
 	// TODO: stringtable
 	[_hintTitle, localize "STR_A3A_builder_not_eligible"] call A3A_fnc_customHint;

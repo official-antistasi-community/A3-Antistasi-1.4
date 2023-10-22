@@ -38,9 +38,10 @@ if (!_eligibleTL and !_eligibleEng and player != theBoss) exitWith {
 [_builderBox, player, true] remoteExecCall ["A3A_fnc_lockBuilderBox", 2];
 
 private _timeout = time + 5;
-waitUntil { 
+private _owner = objNull;
+waitUntil {
     sleep 0.1;
-    private _owner = _builderBox getVariable ["A3A_build_owner", objNull];
+    _owner = _builderBox getVariable ["A3A_build_owner", objNull];
     time > _timeout or alive _owner
 };
 

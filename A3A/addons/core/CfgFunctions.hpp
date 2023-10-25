@@ -542,6 +542,7 @@ class CfgFunctions
             class reDress {};
             class reinfPlayer {};
             class spawnHCGroup {};
+            class spawnHCVeh {};
             class vehiclePrice {};
             class vehStats {};
         };
@@ -750,6 +751,7 @@ class CfgFunctions
         class Utility {
             file = QPATHTOFOLDER(functions\Utility);
             class basicBackpack {};
+            class boxCollisionCheck {};
             class classNameToModel {};
             class countAttachedObjects {};
             class createDataObject {};

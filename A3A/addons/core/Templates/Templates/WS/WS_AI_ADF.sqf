@@ -257,9 +257,9 @@ _sfLoadoutData set ["carbines", [
 ["arifle_Mk20C_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
+["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_Mk20_GL_plain_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
@@ -309,13 +309,18 @@ _militaryLoadoutData set ["slRifles", [
 ["arifle_Velko_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
 ["arifle_VelkoR5_lxWS", "", "saber_light_lxWS", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
 ["arifle_VelkoR5_GL_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_VelkoR5_GL_lxWS", "", "saber_light_lxWS", "optic_MRCO", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_VelkoR5_GL_lxWS", "", "saber_light_lxWS", "optic_MRCO", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_Mk20_GL_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_red", "30Rnd_556x45_Stanag_Sand_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
-["arifle_Velko_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""]
+["arifle_Velko_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
+["arifle_Velko_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
+["arifle_Mk20_plain_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["arifle_VelkoR5_lxWS", "", "saber_light_lxWS", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""]
+["arifle_VelkoR5_lxWS", "", "saber_light_lxWS", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
+["arifle_VelkoR5_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], [], ""],
+["arifle_Mk20C_plain_F", "", "saber_light_lxWS", "optic_Holosight", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["arifle_VelkoR5_GL_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_red_lxWS","35Rnd_556x45_Velko_tracer_red_lxWS"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],

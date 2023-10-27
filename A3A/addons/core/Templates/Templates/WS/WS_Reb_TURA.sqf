@@ -85,7 +85,6 @@ private _rebUniforms = [
     "U_lxWS_Djella_03_Green",
     "U_lxWS_Djella_02_Grey",
     "U_lxWS_Djella_02_Brown",
-	"U_SFIA_deserter_lxWS",
 	"U_lxWS_C_Djella_06",
 	"U_lxWS_C_Djella_02a",
 	"U_lxWS_C_Djella_05",

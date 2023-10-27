@@ -395,6 +395,12 @@ _crewLoadoutData set ["vests", ["V_HarnessO_brn"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_O"]];
 _crewLoadoutData set ["facewear", ["G_Balaclava_combat","G_Balaclava_lowprofile","G_Balaclava_blk_lxWS"]];
 
+_crewLoadoutData set ["carbines", [
+["arifle_VelkoR5_lxWS", "", "acc_pointer_IR", "optic_r1_high_lxWS", ["35Rnd_556x45_Velko_reload_tracer_green_lxWS","35Rnd_556x45_Velko_tracer_green_lxWS"], [], ""],
+["arifle_Katiba_C_F", "", "acc_pointer_IR", "optic_Arco_blk_F", ["30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green_mag_Tracer"], [], ""],
+["arifle_Katiba_F", "", "acc_pointer_IR", "optic_Arco", ["30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green", "30Rnd_65x39_caseless_green_mag_Tracer"], [], ""]
+]];
+
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_O_PilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_BandollierB_khk"]];
@@ -817,7 +823,31 @@ private _crewTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-    [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
+    ["carbines"] call _fnc_setPrimary;
+    ["primary", 3] call _fnc_addMagazines;
+
+    ["sidearms"] call _fnc_setHandgun;
+    ["handgun", 2] call _fnc_addMagazines;
+
+    ["items_medical_basic"] call _fnc_addItemSet;
+    ["items_crew_extras"] call _fnc_addItemSet;
+    ["items_miscEssentials"] call _fnc_addItemSet;
+    ["smokeGrenades", 2] call _fnc_addItem;
+
+    ["maps"] call _fnc_addMap;
+    ["watches"] call _fnc_addWatch;
+    ["compasses"] call _fnc_addCompass;
+    ["radios"] call _fnc_addRadio;
+    ["gpses"] call _fnc_addGPS;
+    ["NVGs"] call _fnc_addNVGs;
+};
+private _pilotTemplate = {
+    ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
+    ["vests"] call _fnc_setVest;
+    ["uniforms"] call _fnc_setUniform;
+
+    ["SMGs"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -950,7 +980,7 @@ private _unitTypes = [
 
 //The following lines are determining the loadout of vehicle crew
 ["other", [["Crew", _crewTemplate]], _crewLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
-["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Pilot", _pilotTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
 ["other", [["Official", _squadLeaderTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission

@@ -21,7 +21,7 @@
 ["vehiclesBasic", ["B_ION_Quadbike_01_lxWS"]] call _fnc_saveToTemplate;
 private _vehiclesLightUnarmed = ["a3a_ION_Offroad_armor"];
 private _vehiclesLightArmed = ["a3a_ION_Offroad_armor_armed","a3a_ION_Offroad_armor_at"];
-["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_ION_Truck_02_covered_lxWS", "a3a_ION_Truck_02_transport_F","a3a_ION_Truck_02_cargo_F","a3a_ION_Truck_02_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["a3a_ION_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["a3a_ION_Truck_02_repair_F", "a3a_Van_02_black_service_F"]] call _fnc_saveToTemplate;
@@ -57,9 +57,9 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["uavsPortable", ["ION_UAV_01_lxWS","ION_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-private _vehiclesMilitiaLightArmed = ["B_ION_Offroad_armed_lxWS", "a3a_Offroad_01_black_AT_F", "a3a_Offroad_01_black_armed_F", "a3a_ION_Offroad_armor_armed","a3a_ION_Offroad_armor_at"];
-["vehiclesMilitiaTrucks", ["B_ION_Truck_02_covered_lxWS","a3a_ION_Truck_02_transport_F","a3a_Van_02_black_vehicle_F","a3a_Van_02_black_transport_F"]] call _fnc_saveToTemplate;
-private _vehiclesMilitiaCars = ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F", "a3a_ION_Offroad_armor"];
+private _vehiclesMilitiaLightArmed = ["B_ION_Offroad_armed_lxWS", "a3a_Offroad_01_black_AT_F", "a3a_Offroad_01_black_armed_F"];
+["vehiclesMilitiaTrucks", ["a3a_Van_02_black_transport_F","a3a_Van_02_black_vehicle_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["B_ION_Offroad_lxWS", "a3a_Offroad_01_black_F"];
 
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];

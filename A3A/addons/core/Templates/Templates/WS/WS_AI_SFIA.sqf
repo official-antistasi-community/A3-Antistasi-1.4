@@ -55,8 +55,8 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["O_SFIA_Offroad_armed_lxWS","O_Tura_Offroad_armor_armed_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["O_SFIA_Truck_02_transport_lxWS","O_SFIA_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_AT_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["I_C_Van_02_transport_F", "I_C_Van_01_transport_brown_F"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["O_SFIA_Offroad_lxWS"]] call _fnc_saveToTemplate;
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];

@@ -54,8 +54,8 @@ private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F"
 ["uavsAttack", ["B_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["B_UAV_01_F", "B_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 
-["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["I_C_Van_02_transport_F", "I_C_Van_01_transport_brown_F"]] call _fnc_saveToTemplate;
 private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];

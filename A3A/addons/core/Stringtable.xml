@@ -4012,6 +4012,7 @@
         <French>%1 a été ajouté à la liste des Membres du serveur.</French>
         <Korean>%1이(가) 서버 멤버 목록에 추가되었습니다.</Korean>
         <Polish>%1 został dodany do listy członków serwera.</Polish>
+        <Czech>%1 byl přidán na seznam členů servru.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_added_you">
         <Original>You have been added to the Server Members list.</Original>
@@ -4127,6 +4128,7 @@
         <French>Fonction de Membre du serveur est désactivée.</French>
         <Korean>서버 멤버 기능이 비활성화되어 있습니다.</Korean>
         <Polish>Funkcja Server Member jest wyłączona.</Polish>
+        <Czech>Funkce členství je na servru vypnutá.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memList_titel">
         <Original>Membership</Original>
@@ -4144,6 +4146,7 @@
         <French>Camarade, nous perdons le contact !</French>
         <Korean>연결이 끊어지고 있습니다, 전우!</Korean>
         <Polish>Towarzyszu, tracimy łączność!</Polish>
+        <Czech>Soudruhu, ztrácíme kontakt!</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_plaLeash_retreat">
         <Original>Retreat &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, within &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Stay within %4 km of HQ or a member. Failure to comply will re-insert you at HQ.</Original>
@@ -4151,6 +4154,7 @@
         <French>Retraite &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, dans &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Restez à moins de %4 km du QG ou d'un membre. La désobéissance vous fera retourner au QG.</French>
         <Korean>&lt;t color='#f0d498'&gt;%3초&lt;/t&gt; 안에 &lt;t color='#f0d498'&gt;%1m 거리 %2 방향&lt;/t&gt;으로 후퇴하십시오.&lt;br/&gt;본부 또는 멤버로부터 %4km 이내에 있으십시오. 지키지 않으면 본부로 다시 리스폰됩니다.</Korean>
         <Polish>Odwrót &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, w ciągu &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Pozostań w odległości %4 km od kwatery głównej lub członka. Niezastosowanie się do tego polecenia spowoduje teleportacje do kwatery głównej.</Polish>
+        <Czech>Stáhněte se &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt; zpět, do &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Zůstaňte v okolí %4 km od základny nebo od člena týmu. Nedodržení tohoto nařízení vás převede zpět na základnu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
@@ -4158,6 +4162,7 @@
         <French>%1 n'a pas assez de ressources à récupérer.</French>
         <Korean>%1은(는) 가져갈 수 있는 자금이 부족합니다.</Korean>
         <Polish>%1 nie ma wystarczająco dużo zasobów do pobrania.</Polish>
+        <Czech>%1 nemá dostatek zdrojů na to, aby jsi něco vzal.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_yes">
         <Original>You grabbed 100 € from the %1 Money Pool.&lt;br/&gt;&lt;br/&gt;This will affect your prestige and status among %1 forces.</Original>
@@ -4328,7 +4333,7 @@
         <French>Rôle de Chef d'équipe.</French>
         <Korean>조장 역할</Korean>
         <Polish>Rola - Dowódca sekcji</Polish>
-        <Czech>Role tímového lídra</Czech>
+        <Czech>Role týmového lídra</Czech>
         <Turkish>Tim Komutan rolü</Turkish>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead2">
@@ -4411,6 +4416,7 @@
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_text">
         <Original>Return to the AO before you are blown up, you have %1 seconds.</Original>
+        <Czech>Vraťte se do operační oblasti, než budete vyhozeni do povětří, máte %1 sekund.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_titel">
         <Original>Out of bounds</Original>
@@ -4418,6 +4424,7 @@
         <French>Hors des limites</French>
         <Korean>경계를 벗어남</Korean>
         <Polish>Poza granicą</Polish>
+        <Czech>Mimo hranice</Czech>
       </Key>
       <Key ID="STR_A3A_fn_punish_pun_conun">
         <Original>Control Unit</Original>
@@ -4513,6 +4520,7 @@
         <French>Vous ne pouvez pas acheter de véhicules pendant que vous contrôler l'IA.</French>
         <Korean>AI를 조종하는 동안에는 차량을 구입할 수 없습니다.</Korean>
         <Polish>Nie możesz kupować pojazdów, gdy kontrolujesz SI.</Polish>
+        <Czech>Nemůžeš kupovat vozidla když ovládáš AI.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_enemy">
         <Original>You cannot buy vehicles with enemies nearby.</Original>
@@ -4520,6 +4528,7 @@
         <French>Vous ne pouvez pas acheter de véhicules tant que des ennemis sont proches.</French>
         <Korean>적들이 근처에 있을 때는 차량을 구입할 수 없습니다.</Korean>
         <Polish>Nie możesz kupować pojazdów, gdy w pobliżu znajdują się wrogowie.</Polish>
+        <Czech>Nemůžeš kupovat vozidla když jsou poblíž nepřátelé.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_flag">
         <Original>You need to be close to the flag to be able to purchase a vehicle.</Original>
@@ -4527,6 +4536,7 @@
         <French>Vous devez être proche du drapeau afin de pouvoir acheter un véhicule.</French>
         <Korean>차량을 구입하려면 깃발에 가까이 가야 합니다.</Korean>
         <Polish>Musisz być blisko flagi, aby móc kupić pojazd.</Polish>
+        <Czech>Musíš být poblíž vlajky aby jsi mohl koupit vozidlo.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_money">
         <Original>You do not have enough money for this vehicle: %1 € required.</Original>
@@ -4534,6 +4544,7 @@
         <French>Vous n'avez pas assez d'argent pour acheter ce véhicule: %1 € requis.</French>
         <Korean>이 차량을 구입하기 위한 자금이 부족합니다: %1€ 필요.</Korean>
         <Polish>Nie masz wystarczających środków na ten pojazd: %1 € wymagane.</Polish>
+        <Czech>Nemáš dostatek peněz na toto vozidlo: %1 € vyžadováno.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_placing">
         <Original>Unable to buy vehicle, you are already placing something.</Original>
@@ -4541,6 +4552,7 @@
         <French>Impossible d'acheter un véhicule, vous êtes déja en train de placer quelque chose.</French>
         <Korean>이미 무언가를 배치하고 있기 때문에 차량을 구입할 수 없습니다.</Korean>
         <Polish>Nie możesz kupić pojazdu, już coś stawiasz.</Polish>
+        <Czech>Není možné koupit vozidlo, už něco umisťuješ.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_no_supp">
         <Original>The vehicle you requested is not supported in your current modset.</Original>
@@ -4548,6 +4560,7 @@
         <French>Le véhicule que vous avez demandé n'est pas pris en charge par votre modset actuel.</French>
         <Korean>요청한 차량은 현재 모드셋에서 지원하지 않습니다.</Korean>
         <Polish>Żądany pojazd nie jest obsługiwany w aktualnym zestawie modów.</Polish>
+        <Czech>Vozidlo které jste vyžádali, není podporované tvým aktuálním modsetem.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addFIAVeh_title">
         <Original>Add Vehicle</Original>
@@ -4563,6 +4576,7 @@
         <French>Acheter un véhicule pour cette escouade pour %1 €.</French>
         <Korean>이 팀을 위한 차량을 %1 €에 구입합니다.</Korean>
         <Polish>Kup pojazd dla tego oddziału za %1 €.</Polish>
+        <Czech>Zakoupit vozidlo pro toto družstvo za %1 €.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_commander">
         <Original>Only the Commander has access to this function.</Original>
@@ -4570,6 +4584,7 @@
         <French>Seul le Commandant à accès à cette fonction.</French>
         <Korean>오직 지휘관만 이 기능에 액세스 할 수 있습니다.</Korean>
         <Polish>Tylko nasz dowódca ma dostęp do tej funkcji.</Polish>
+        <Czech>Pouze velitel má přístup k této funkci.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_distance">
         <Original>You cant place HC vehicles further than 50m from HQ</Original>
@@ -4577,6 +4592,7 @@
         <French>Vous ne pouvez pas placer de véhicules HC à plus de 50m du QG.</French>
         <Korean>본부에서 50m 이상 떨어진 곳에는 하이 커맨드 차량을 배치할 수 없습니다.</Korean>
         <Polish>Pojazdów HC nie można umieszczać dalej niż 50 m od kwatery głównej.</Polish>
+        <Czech>Nemůžeš umíst HC vozidla dále než 50m od HQ.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_enemy">
         <Original>You cannot recruit squads with enemies near your HQ.</Original>
@@ -4584,6 +4600,7 @@
         <French>Vous ne pouvez pas recruter d'escouades tant que des ennemis sont proches de votre QG.</French>
         <Korean>본부 근처에 적이 있을 때는 분대를 모집할 수 없습니다.</Korean>
         <Polish>Nie można rekrutować oddziałów gdy wrogowie znajdują się w pobliżu kwatery głównej.</Polish>
+        <Czech>Nemůžeš rekrutovat družstva pokud jsou nepřátelé poblíž tvé základny.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_hr">
         <Original>You do not have enough HR for this request (%1 required).</Original>
@@ -4591,6 +4608,7 @@
         <French>Vous n'avez pas assez de RH pour cette demande (%1 requis).</French>
         <Korean>이 요청을 수행하기 위한 인력이 부족합니다(%1 필요).</Korean>
         <Polish>Nie masz wystarczającej ilości HR dla tego żądania (%1 wymagane).</Polish>
+        <Czech>Nemáš dostatek HR na tento požadavek (%1 vyžadováno).</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_many">
         <Original>You have too many high command squads active. Disband or garrison some to recruit more.</Original>
@@ -4598,6 +4616,7 @@
         <French>Vous avez trop d'escouade HC actives. Renvoyer ou mettez en garnison certaines pour en recruter d'autres.</French>
         <Korean>활성화된 하이 커맨드 분대가 너무 많습니다. 더 많은 병력을 모집하려면 일부를 해산하거나 주둔시키십시오.</Korean>
         <Polish>Masz zbyt wiele aktywnych oddziałów High Command. Rozwiąż niektóre z nich lub zlikwiduj garnizony, aby zrekrutować więcej.</Polish>
+        <Czech>Máte příliš mnoho aktivních družstev vrchního velení. Rozpustěte je nebo umístěte některé z nich do posádky, abyste mohli rekrutovat další.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_modset">
         <Original>Your current modset doesn't support packing/unpacking static weapons.</Original>
@@ -4605,6 +4624,7 @@
         <French>Votre modset actuel ne supporte pas l'emballage/déballage des armes statiques.</French>
         <Korean>현재 모드셋은 고정화기 포장/풀기를 지원하지 않습니다</Korean>
         <Polish>Obecny zestaw modów nie obsługuje ładowania/rozładowywania broni statycznych.</Polish>
+        <Czech>Váš aktuální modset nepodporuje sbalení/rozbalení statických zbraní.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money">
         <Original>You do not have enough money for this request (%1 € required).</Original>
@@ -4612,6 +4632,7 @@
         <French>Vous n'avez pas assez d'argent pour cette requête (%1 € requis).</French>
         <Korean>이 요청을 수행하기 위한 자금이 부족합니다(%1€ 필요).</Korean>
         <Polish>Nie masz wystarczających środków na realizację tego żądania (wymagane %1 €).</Polish>
+        <Czech>Nemáš dostatek peněz na tento požadavek (%1 € vyžadováno).</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_money2">
         <Original>No money left to buy a transport vehicle (%1 € required), creating barefoot squad.</Original>
@@ -4619,6 +4640,7 @@
         <French>Pas assez d'argent pour acheter ce véhicule de transport (%1 € requis), création d'une escouade à pied.</French>
         <Korean>수송 차량을 만들 자금이 없으며(%1 € 필요), 뚜벅이 분대로 소환합니다.</Korean>
         <Polish>Nie ma pieniędzy na zakup pojazdu transportowego (wymagane %1 €), tworzenie oddziału bez pojazdu.</Polish>
+        <Czech>Nezbyli žádné peníze k zakoupení transportního vozidla (%1 vyžadováno), vytvářím pěší družstvo.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_movehq">
         <Original>You cannot recruit a new squad while you are moving your HQ.</Original>
@@ -4626,6 +4648,7 @@
         <French>Vous ne pouvez pas recruter de nouvelles escouades pendant que vous déplacez votre QG.</French>
         <Korean>본부를 옮기는 동안에는 새 분대를 모집할 수 없습니다.</Korean>
         <Polish>Nie można rekrutować nowego oddziału podczas przenoszenia sztabu.</Polish>
+        <Czech>Nemůžeš rekrutovat nové družstvo když přesouváš svoje HQ.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_notsupp">
         <Original>The group or vehicle type you requested is not supported in your modset.</Original>
@@ -4633,6 +4656,7 @@
         <French>Le type de groupe ou véhicule que vous avez demandé n'est pas pris en charge par votre modset actuel.</French>
         <Korean>요청한 그룹이나 차량은 현재 모드셋에서 지원하지 않습니다.</Korean>
         <Polish>Żądany typ grupy lub pojazdu nie jest obsługiwany w aktualnym zestawie modów.</Polish>
+        <Czech>Vozidlo které jste vyžádali, není podporované tvým aktuálním modsetem.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
@@ -4640,6 +4664,7 @@
         <French>Vous avez besoin d'une radio dans votre inventaire pour pouvoir donner des ordres aux autres escouades.</French>
         <Korean>당신의 인벤토리에 무전기가 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
         <Polish>Potrzebujesz radia w ekwipunku, aby móc wydawać rozkazy innym oddziałom.</Polish>
+        <Czech>Potřebuješ mít v inventáři vysílačku aby jsi mohl vydávat rozkazy ostatním družstvům.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_radio2">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
@@ -4647,6 +4672,7 @@
         <French>Vous avez besoin d'un Opérateur Radio dans votre groupe afin de pouvoir donner des ordes aux autres escouades</French>
         <Korean>당신의 그룹에 무전병이 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
         <Polish>Potrzebujesz radiowca w swojej grupie, aby móc wydawać rozkazy innym oddziałom.</Polish>
+        <Czech>Potřebuješ mít ve skupině Radistu aby jsi mohl dávat rozkazy ostatním družstvům.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_title">
         <Original>Recruit Squad</Original>
@@ -4654,6 +4680,7 @@
         <French>Recrutement d'escouade</French>
         <Korean>분대 모집</Korean>
         <Polish>Rekrutuj Oddział</Polish>
+        <Czech>Rekrutovat družstvo</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_assigned">
         <Original>Vehicle assigned to %1 Squad.</Original>
@@ -4661,6 +4688,7 @@
         <French>Véhicule assigné à l'escouade %1.</French>
         <Korean>차량이 %1 분대에 할당되었습니다.</Korean>
         <Polish>Pojazd przydzielony do oddziału %1.</Polish>
+        <Czech>Vozidlo přiřazeno k %1 družstvu</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_has_vehicle">
         <Original>This group has a vehicle already and their mission depends on it.</Original>
@@ -4668,6 +4696,7 @@
         <French>Ce groupe à déja un véhicule et leur mission en dépends.</French>
         <Korean>이 그룹은 이미 차량을 보유하고 있으며, 그들의 임무는 차량에 달려 있습니다.</Korean>
         <Polish>Ta grupa ma już pojazd i od niego zależy ich misja.</Polish>
+        <Czech>Tato skupina již vozidlo má a jejich mise na něm závisí.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_change">
         <Original>Static Weapon Squads cannot change of vehicle.</Original>
@@ -4675,6 +4704,7 @@
         <French>Les Escouade  d'Armes Statiques ne peuvent pas changer de véhicule.</French>
         <Korean>고정화기 분대는 차량을 바꿀 수 없습니다.</Korean>
         <Polish>Oddziały z bronią stacjonarną nie mogą zmieniać pojazdów.</Polish>
+        <Czech>Osádka statické zbraně nemůže změnit vozidlo.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_empty">
         <Original>Selected vehicle is not empty.</Original>
@@ -4682,6 +4712,7 @@
         <French>Le véhicule sélectionné n'est pas vide.</French>
         <Korean>선택한 차량이 비어 있지 않습니다.</Korean>
         <Polish>Wybrany pojazd nie jest pusty.</Polish>
+        <Czech>Vybrané vozidlo není prázdné.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_room">
         <Original>The vehicle selected has no room for this squad.</Original>
@@ -4689,6 +4720,7 @@
         <French>Le véhicule sélectionné n'a pas de place pour cette escouade.</French>
         <Korean>선택한 차량에는 해당 분대를 위한 공간이 없습니다.</Korean>
         <Polish>W wybranym pojeździe nie ma miejsca dla tego oddziału.</Polish>
+        <Czech>Vybrané vozidlo nemá žádné místo pro tuto družstvo.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_no_static">
         <Original>You cannot assign a Static Weapon to a Squad.</Original>
@@ -4696,6 +4728,7 @@
         <French>Vous ne pouvez pas assigner d'Arme Statique à une escouade.</French>
         <Korean>분대에 고정화기를 할당할 수 없습니다.</Korean>
         <Polish>Nie można przypisać broni stacjonarnej do oddziału.</Polish>
+        <Czech>Nemůžeš družstvu přidělit statickou zbraň.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_select_group">
         <Original>You must select one group on the HC bar.</Original>
@@ -4703,6 +4736,7 @@
         <French>Vous devez selectionner un groupe sur la barre HC.</French>
         <Korean>당신은 하이 커맨드 표시줄에서 한 개의 그룹을 선택해야 합니다.</Korean>
         <Polish>Musisz wybrać jedną grupe z paska "HC".</Polish>
+        <Czech>Musíte vybrat pouze jednu skupinu v HC listě.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_title">
         <Original>Add Squad Vehicle</Original>
@@ -4710,6 +4744,7 @@
         <French>Ajout d'un véhicule à l'escouade</French>
         <Korean>분대에 차량 추가</Korean>
         <Polish>Przydziel Pojazd Drużynie</Polish>
+        <Czech>Přidat družstvu vozidlo</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdVeh_veh_destr">
         <Original>The selected vehicle is destroyed or cannot move.</Original>
@@ -4717,6 +4752,7 @@
         <French>Le véhicule sélectionné est détruit ou immobilisé.</French>
         <Korean>선택한 차량이 파괴되었거나 이동할 수 없습니다.</Korean>
         <Polish>Wybrany pojazd został zniszczony lub nie może się poruszać.</Polish>
+        <Czech>Vybrané vozido je zničené nebo se nemůže hýbat.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_increased">
         <Original>Air Support increased in %1 points.</Original>
@@ -4724,6 +4760,7 @@
         <French>Le Support Aérien a augmenté de %1 points.</French>
         <Korean>항공 지원이 %1 포인트 상승했습니다.</Korean>
         <Polish>Zwiększono wsparcie lotnicze o %1 pkt.</Polish>
+        <Czech>Letecká podpora se zvýšila o %1 bodů.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_airveh">
         <Original>Only Air Vehicles can be used to increase Airstrike points.</Original>
@@ -4731,6 +4768,7 @@
         <French>Seul les véhicules aériens peuvent être utilisés pour augmenter les points de frappe aérienne.</French>
         <Korean>항공기만 항공 지원을 높이는 데 사용할 수 있습니다.</Korean>
         <Polish>Tylko pojazdy powietrzne mogą być używane do zwiększania punktów ataków powietrznych.</Polish>
+        <Czech>Pouze letecká vozidla mohou být použita k navýšení bodů Leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_area">
         <Original>You and the Air vehicle need to be in the Area of an %1 Airport or HQ in order to convert it to Airstrikes.</Original>
@@ -4738,6 +4776,7 @@
         <French>Le véhicule aérien et vous devez-être dans la zone d'un aéroport %1 ou d'un QG pour pouvoir le convertir en Frappes aériennes.</French>
         <Korean>당신과 항공기가 %1 공항 또는 본부 지역에 있어야 공습 포인트로 전환할 수 있습니다.</Korean>
         <Polish>Ty i pojazd powietrzny musicie znajdować się na obszarze %1 lotniska lub kwatery głównej, aby móc przekształcić je w "wsparcie z powietrza".</Polish>
+        <Czech>Ty a letecké vozidlo musí být v oblasti %1 letiště nebo HQ aby jsi ho mohl převést na body leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_destr">
         <Original>You can't convert destroyed Air vehicle to Airstrikes.</Original>
@@ -4745,6 +4784,7 @@
         <French>Vous ne pouvez pas convertir de véhicules aérien détruit en Frappes Aériennes.</French>
         <Korean>파괴된 항공기는 공습 포인트로 전환할 수 없습니다.</Korean>
         <Polish>Nie można przekształcić zniszczonego pojazdu powietrznego w "wsparcie z powietrza".</Polish>
+        <Czech>Zničené letecké vozidla nemůžeš převést na body leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_drone">
         <Original>Backpack drones can't be used to increase Airstrike points.</Original>
@@ -4752,6 +4792,7 @@
         <French>Les sacs à dos de drones ne peuvent pas être utiliser pour augmenter les points de Frappe aérienne.</French>
         <Korean>가방형 무인기는 공습 포인트로 쓸 수 없습니다.</Korean>
         <Polish>Drony plecakowe nie mogą być używane do zwiększania punktów "wsparcia z powietrza".</Polish>
+        <Czech>Batohové drony nemohou být využity k navýšení bodů leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_empty">
         <Original>In order to convert, Vehicle must be empty.</Original>
@@ -4759,6 +4800,7 @@
         <French>Pour pouvoir convertir, le Véhicule doit être vide.</French>
         <Korean>변환하려면 차량이 비어 있어야 합니다.</Korean>
         <Polish>Aby dokonać konwersji, pojazd musi być pusty.</Polish>
+        <Czech>K převedení musí být vozidlo prázdné.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_looking">
         <Original>You are not looking at a vehicle.</Original>
@@ -4766,6 +4808,7 @@
         <French>Vous ne regardez pas un véhicule.</French>
         <Korean>당신은 차량을 보고 있지 않습니다.</Korean>
         <Polish>Nie patrzysz na pojazd.</Polish>
+        <Czech>Nedíváš se na vozidlo.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_nearby">
         <Original>You can't convert Airstrikes while enemies are near you.</Original>
@@ -4773,6 +4816,7 @@
         <French>Vous ne pouvez pas convertir en Frappes aériennes tant que des ennemis sont près de vous.</French>
         <Korean>적이 가까이 있을 때는 공습 포인트로 전환할 수 없습니다.</Korean>
         <Polish>Nie możesz konwertować "wsparcia z powietrza", gdy wrogowie są blisko ciebie.</Polish>
+        <Czech>Nemůžeš převádět na body leteckého úderu pokud jsou poblíž nepřátelé.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_owner">
         <Original>You are not the owner of this vehicle. Therefore, you can't convert it.</Original>
@@ -4780,12 +4824,14 @@
         <French>Vous n'êtes pas le propriétaire de ce véhicule. Vous ne pouvez donc pas le convertir.</French>
         <Korean>당신은 차량 주인이 아니기 때문에 변환할 수 없습니다.</Korean>
         <Polish>Nie jesteś właścicielem tego pojazdu. Dlatego nie możesz go przekonwertować.</Polish>
+        <Czech>Nejsi vlastníkem tohoto vozidla, tudíž ho nemůžeš převést.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_title">
         <Original>Airstrike</Original>
         <Italian>Attacco Aereo</Italian>
         <French>Frappe aérienne</French>
         <Korean>공습</Korean>
+        <Czech>Letecký úder</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_humanEngi">
         <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
@@ -4876,6 +4922,7 @@
         <French>Construction annulée.</French>
         <Korean>공사 취소</Korean>
         <Polish>Budowa została anulowana.</Polish>
+        <Czech>Stavba zrušena.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildCreVehCall_no_move">
         <Original>You didn't move to the position, construction has timed out.</Original>
@@ -5099,6 +5146,7 @@
         <French>%1 a perdu contact, il vous rejoindra si possible.</French>
         <Korean>%1이(가) 통신이 끊어졌으며, 가능하면 당신에게 되돌아올 것입니다.</Korean>
         <Polish>%1 stracił łączność, wróci z tobą, jeśli to możliwe.</Polish>
+        <Czech>%1 ztratil spojení, pokud to bude možné, vrátí se s vámi.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_no_commander">
         <Original>Only our Commander has access to this function.</Original>
@@ -5122,12 +5170,14 @@
         <French>Vous ne pouvez pas améliorer l'entrainement dans le Niveau de Guerre actuel.</French>
         <Korean>연재 워 레벨에서는 훈련을 업그레이드할 수 없습니다.</Korean>
         <Polish>Nie można ulepszyć treningu na obecnym poziomie wojny.</Polish>
+        <Czech>Nemůžete vylepšit výcvik v aktuální úrovni války.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_title">
         <Original>Skill Add</Original>
         <Italian>Aggiungi Abilità</Italian>
         <French>Ajout de compétences</French>
         <Korean>훈련도 추가</Korean>
+        <Czech>Přidání dovednosti.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_training_max">
         <Original>Your troops have the maximum training.</Original>
@@ -5135,6 +5185,7 @@
         <French>Vos troupes sont entrainées au maximum.</French>
         <Korean>당신의 부대의 훈련도는 최대입니다.</Korean>
         <Polish>Twoi żołnierze mają maksymalne wyszkolenie.</Polish>
+        <Czech>Vaše jednotky mají maximální výcvik.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_FIASkAdd_upgraded">
         <Original>%2 Skill Level has been Upgraded.&lt;br/&gt;Current level is %1.</Original>
@@ -5142,6 +5193,7 @@
         <French>%2 Niveau de Compétence a été amélioré.&lt;br/&gt; Le niveau Actuel est %1.</French>
         <Korean>%2의 능력이 업그레이드 되었습니다.&lt;br/&gt;현재 레벨은 %1입니다.</Korean>
         <Polish>Podniesiono poziom umiejętności %2.&lt;br/&gt;Obecny poziom to %1.</Polish>
+        <Czech>%2 Dovednost byla vylepšena.&lt;br/&gt;Aktuální úroveň je %1.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_att">
         <Original>You cannot manage this garrison when there's a major attack incoming.</Original>
@@ -5204,6 +5256,7 @@
         <Italian>Non hai abbastanza Supporto Aereo per richiedere ciò.</Italian>
         <French>Vous manquez de Support Aérien pour faire cette requête.</French>
         <Korean>항공 지원이 부족하여 이 요청을 사용할 수 없습니다.</Korean>
+        <Czech>Nemáš dostatek Letecké podpory aby jsi toto mohl vyžádat.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_control">
         <Original>You need to control an airport in order to fulfill this request.</Original>
@@ -5211,6 +5264,7 @@
         <French>Vous devez contrôler un aéroport pour compléter cette requête.</French>
         <Korean>이 요청을 수행하기 위해서는 공항을 통제해야 합니다.</Korean>
         <Polish>Aby spełnić tą prośbe, musisz kontrolować lotnisko.</Polish>
+        <Czech>Pro splnění tohoto požadavku musíte ovládat letiště.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
@@ -5218,6 +5272,7 @@
         <French>Vous avez besoin d'une radio dans votre inventaire afin de pouvoir donner des ordes aux autres escouades.</French>
         <Korean>당신의 인벤토리에 무전기가 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
         <Polish>Potrzebujesz radia w ekwipunku, aby móc wydawać rozkazy innym oddziałom.</Polish>
+        <Czech>Potřebuješ mít v inventáři vysílačku aby jsi mohl vydávat rozkazy ostatním družstvům.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_radio2">
         <Original>You need a Radio Man in your group to be able to give orders to other squads</Original>
@@ -5225,6 +5280,7 @@
         <French>Vous avez besoin d'un Opérateur Radio dans votre groupe afin de pouvoir donner des ordes aux autres escouades</French>
         <Korean>당신의 그룹에 무전병이 있어야 타 분대에 명령을 내릴 수 있습니다.</Korean>
         <Polish>Potrzebujesz radiowca w swojej grupie, aby móc wydawać rozkazy innym oddziałom.</Polish>
+        <Czech>Potřebuješ mít ve skupině Radistu aby jsi mohl dávat rozkazy ostatním družstvům.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_select_end">
         <Original>Select the map position to which the plane will exit to calculate plane's route vector.</Original>
@@ -5232,6 +5288,7 @@
         <French>Sélectionner la position sur la carte vers laquelle l'avion partira pour calculer le vecteur de sa trajectoire.</French>
         <Korean>항공기의 경로 벡터를 계산하려면 항공기가 나갈 맵 위치를 선택하십시오.</Korean>
         <Polish>Wybierz pozycję na mapie, w której to samolot wyjdzie z strefy działań, aby obliczyć wektor trasy samolotu.</Polish>
+        <Czech>Vyberte pozici na mapě, kudy letadlo vyletí, abyste mohli spočítat vektor trasy letadla.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_select_start">
         <Original>Select the spot from which the plane will start to drop the bombs.</Original>
@@ -5239,6 +5296,7 @@
         <French>Sélectionner l'endroit depuis lequel l'avion débutera le bombardement.</French>
         <Korean>항공기가 폭탄을 투하하기 시작할 지점을 선택하십시오.</Korean>
         <Polish>Wybierz miejsce, z którego samolot zacznie zrzucać bomby.</Polish>
+        <Czech>Vyber bod, ze kterého letadlo začne shazovat bomby.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_title">
         <Original>Air Support</Original>
@@ -6223,7 +6281,7 @@
         <Czech>Poslední čistění odpadu bylo %1 zpátky. Dávejte si na to pozor. Vynucené čistení odpadu za %2.</Czech>
         <Portuguese>Última Limpeza de Lixo foi há %1. Relembra este valor. LL forçada em %2</Portuguese>
         <Turkish>Son Çöp Temizleme işlemi %1 önceydi. Takipte kalın. %2'de Çöp Temizleyici çalıştırıldı.</Turkish>
-        <Chinesesimp>上次垃圾清洁是 %1 前。继续跟踪。</Chinesesimp>
+        <Chinesesimp>距离上次垃圾清理已过去 %1。请留意该细节。强制性垃圾清理将于 %2 后发生。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>Garbage Cleaner Tracker run a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
@@ -6263,6 +6321,7 @@
         <Polish>Automatyczne usuwanie śmieci rozpocznie się za %1</Polish>
         <Czech>Automatické čistení odpadků za %1</Czech>
         <Turkish>%1'de Otomatik Çöp Temizleme geliyor.</Turkish>
+        <Chinesesimp>将于 %1 之后进行自动垃圾清理</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_GCTracker_warning_title">
         <Original>Final Warning</Original>
@@ -6275,6 +6334,7 @@
         <Czech>Poslední varování</Czech>
         <Portuguese>Último aviso</Portuguese>
         <Turkish>Son Uyarı</Turkish>
+        <Chinesesimp>最后一次警告</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_keybinds">
@@ -6357,6 +6417,386 @@
         <Korean>귀마개</Korean>
       </Key>
     </Container>
+    <Container name="A3A_Params">
+      <Key ID="STR_A3A_Params_aceFood_title">
+        <Original>[ACE] Start with Food Items</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowFuturisticSupports_title">
+        <Original>Experimental] Allow futuristic supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowGuidedLaunchers_title">
+        <Original>Should Guided Launchers become unlocked?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowUnfairSupports_title">
+        <Original>Allow unfair supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowUnlockedExplosives_title">
+        <Original>Should Explosives become unlocked?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_attackHQProximityMul_title">
+        <Original>Enemy preference for attacking rebel targets closer to HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_autoSave_title">
+        <Original>Enable Autosave (every X minutes)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_autoSaveInterval_title">
+        <Original>Time between autosaves (in minutes)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_bobChaosCrates_title">
+        <Original>[Experimental] Truely Random Crates: Remove all balance checks from Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_builderPermissions_both">
+        <Original>Both</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_builderPermissions_engi">
+        <Original>Engineers</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_builderPermissions_title">
+        <Original>Player classes permitted to use the building placer</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_builderPermissions_tl">
+        <Original>Team leaders</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_civTraffic_title">
+        <Original>Quantity of civilan traffic and parked vehicles</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAmmoNumMax_title">
+        <Original>Maximum Ammo Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAmmoTypeMax_title">
+        <Original>Maximum Ammo Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAttachmentNumMax_title">
+        <Original>Maximum Attachment Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAttachmentTypeMax_title">
+        <Original>Maximum Attachment Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateBackpackNumMax_title">
+        <Original>Maximum Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateBackpackTypeMax_title">
+        <Original>Maximum Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateDeviceNumMax_title">
+        <Original>Maximum Device Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateDeviceTypeMax_title">
+        <Original>Maximum Device Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateExplosiveNumMax_title">
+        <Original>Maximum Explosive Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateExplosiveTypeMax_title">
+        <Original>Maximum Explosive Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateHelmetNumMax_title">
+        <Original>Maximum Helmet Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateHelmetTypeMax_title">
+        <Original>Maximum Helmet Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateItemNumMax_title">
+        <Original>Maximum Item Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateItemTypeMax_title">
+        <Original>Maximum Item Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_cratePlayerScaling_title">
+        <Original>Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateVestNumMax_title">
+        <Original>Maximum Vest Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateVestTypeMax_title">
+        <Original>Maximum Vest Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateWepNumMax_title">
+        <Original>Maximum Weapon Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateWepTypeMax_title">
+        <Original>Maximum Weapon Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_distanceMission_title">
+        <Original>Max distance from HQ for tasks</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_distanceSPWN_title">
+        <Original>Spawn distance</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyAttackMul_title">
+        <Original>Enemy attack resource balance (relative to overall balance)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyBalanceMul_title">
+        <Original>Overall enemy resource balance</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyNearDistance_title">
+        <Original>Distance used to check for nearby enemies</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_enemySkillMul_title">
+        <Original>Enemy AI skill (also affected by server skill)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvG">
+        <Original>Reb vs Gov</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvGaI">
+        <Original>Reb vs Gov + Inv</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvGvI">
+        <Original>Reb vs Gov vs Inv</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_title">
+        <Original>Game Mode - Do NOT change this mid mission</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_GCThreshold_title">
+        <Original>Garbage Cleaner Threshold for Automatic GC</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10km">
+        <Original>10 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10m">
+        <Original>10 meters</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10min">
+        <Original>10 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_15m">
+        <Original>15 meters</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_15min">
+        <Original>15 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_16km">
+        <Original>16 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_20m">
+        <Original>20 meters</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_20min">
+        <Original>20 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_2min">
+        <Original>2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_30min">
+        <Original>30 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_4km">
+        <Original>4 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_5km">
+        <Original>5 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_5min">
+        <Original>5 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_6km">
+        <Original>6 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_7km">
+        <Original>7 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_8km">
+        <Original>8 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_all">
+        <Original>All</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_allowed">
+        <Original>Allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_always">
+        <Original>Always</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_disabled">
+        <Original>Disabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_enabled">
+        <Original>Enabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_high">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_low">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_medium">
+        <Original>Medium</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_never">
+        <Original>Never</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nochange">
+        <Original>No change</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nolimit">
+        <Original>No limit</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_none">
+        <Original>None</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_normal">
+        <Original>Normal</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_notallowed">
+        <Original>Not allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nounlocks">
+        <Original>No unlocks</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_often">
+        <Original>Often</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_sometimes">
+        <Original>Sometimes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_unlimited">
+        <Original>Unlimited</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_veryhigh">
+        <Original>Very high</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_verylow">
+        <Original>Very low</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_globalCivilianMax_title">
+        <Original>Maximum global civilians</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_guestCommander_title">
+        <Original>Allow guests to become commander when no members are eligible</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_guestItemLimit_title">
+        <Original>Default number of items needed for guests to be able to use them</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_GUIDevPreview_title">
+        <Original>Use In-Development UI Preview</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_helmetLossChance_title">
+        <Original>Chance of helmet loss on headshots</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_idleTimeout_title">
+        <Original>Time before a player is considered AFK</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialFactionMoney_title">
+        <Original>Initial Rebel Faction Money</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialHr_title">
+        <Original>Initial Rebel Faction Manpower</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialPlayerMoney_title">
+        <Original>Initial Player Money</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_invaderBalanceMul_title">
+        <Original>Resource multiplier for invaders relative to occupants</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_any">
+        <Original>Any friendly position</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_hq">
+        <Original>Only Airports + HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_title">
+        <Original>Fast Travel Targets Allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_logDebugConsole_nondev">
+        <Original>All non-dev</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_logDebugConsole_title">
+        <Original>Log debug console use</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_debug">
+        <Original>Debug</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_error">
+        <Original>Error</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_info">
+        <Original>Info</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_title">
+        <Original>Logging Level (Amount of detail in .rpt file)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_verbose">
+        <Original>Verbose</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LootToCrateRadius_title">
+        <Original>Loot to crate radius</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LTCLootUnlocked_title">
+        <Original>Loot to crate transfers unlocked items</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_maxCiviliansPerTown_title">
+        <Original>Maximum civilians spawn per town</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_memberDistance_title">
+        <Original>Max distance of guests from the closest member or HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_membershipEnabled_title">
+        <Original>Enable Server Membership</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_memberSlots_title">
+        <Original>Percentage of Reserved Slots for Members</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_minWeaps_title">
+        <Original>Number of the same item required to unlock"</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_napalmEnabled_title">
+        <Original>Enable Napalm Bombing for AI</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_playerMarkersEnabled_title">
+        <Original>Enable Friendly Player Markers</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_rebelGarrisonLimit_title">
+        <Original>How many rebels can be garrisoned (1.5x for airports, 0.5x for resources and factories)?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_rebelGarrisonLimit_tooltip">
+        <Original>How many troops can be in garrison. Note that No limit option may affect performance as there might be too many troops for CPU to handle.</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_rebelSkillMul_title">
+        <Original>Friendly AI skill (also affected by server skill)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_reviveTime_10s">
+        <Original>10 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_reviveTime_15s">
+        <Original>15 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_reviveTime_5s">
+        <Original>5 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_reviveTime_title">
+        <Original>Minimum revive time for players</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_selfReviveMethods_title">
+        <Original>Self-revive methods enabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_selfReviveMethods_withstand">
+        <Original>Withstand</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_startWithLongRangeRadio_title">
+        <Original>[TFAR] Start with Long Range Radio?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleBalance_title">
+        <Original>BALANCE OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleDevelopment_title">
+        <Original>DEVELOPMENT OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleEquipment_title">
+        <Original>EQUIPMENT OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleLoot_title">
+        <Original>LOOT CRATE OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleMembership_title">
+        <Original>MEMBERSHIP OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_tkPunish_title">
+        <Original>Enable Teamkill Punish</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_unlockedUnlimitedAmmo_title">
+        <Original>Do Unlocked Weapons Automatically Unlock Their Standard Magazine?</Original>
+      </Key>
+    </Container>
     <Container name="A3A_Scripts">
       <Key ID="STR_A3A_scripts_advTowInit_addact_attach">
         <Original>Attach To Tow Ropes</Original>
@@ -6369,6 +6809,7 @@
         <Czech>Přivázat k tažnému lanu</Czech>
         <Portuguese>Prender nas cordas de reboque</Portuguese>
         <Turkish>"Çekme halatlarına bağla"</Turkish>
+        <Chinesesimp>系扣拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_deploy">
         <Original>Deploy Tow Ropes</Original>
@@ -6381,6 +6822,7 @@
         <Czech>Vyložit tažné lano</Czech>
         <Portuguese>Tirar cordas de reboque</Portuguese>
         <Turkish>Çekme Halatlarını Yerleştirin.</Turkish>
+        <Chinesesimp>部署拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_drop">
         <Original>Drop Tow Ropes</Original>
@@ -6393,6 +6835,7 @@
         <Czech>Zahodit tažné lano</Czech>
         <Portuguese>Largar cordas de reboque</Portuguese>
         <Turkish>Halatları Bırak</Turkish>
+        <Chinesesimp>放下拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_pick">
         <Original>Pick Up Tow Ropes</Original>
@@ -6405,6 +6848,7 @@
         <Czech>Sebrat tažné lano</Czech>
         <Portuguese>Pegar cordas de reboque</Portuguese>
         <Turkish>Çekme halatlarını alın</Turkish>
+        <Chinesesimp>拾起拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_putAway">
         <Original>Put Away Tow Ropes</Original>
@@ -6417,6 +6861,7 @@
         <Czech>Odložit tažné lano</Czech>
         <Portuguese>Jogar fora as cordas de reboque</Portuguese>
         <Turkish>Çekme halatlarını kaldırın</Turkish>
+        <Chinesesimp>将拖车绳索放回</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_attach_no_locked">
         <Original>Cannot attach tow ropes to locked vehicle</Original>
@@ -6429,6 +6874,7 @@
         <Czech>Na zamčené vozidlo nelze přivázat tažné lano</Czech>
         <Portuguese>Não é possível prender as cordas de reboque em um veículo trancado</Portuguese>
         <Turkish>Kilitli araca çekme halatı bağlanamaz</Turkish>
+        <Chinesesimp>无法在上锁的载具后面系扣拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_attach_no_safez">
         <Original>Cannot attach tow ropes in safe zone</Original>
@@ -6441,6 +6887,7 @@
         <Czech>V bezpečné zóně nelze přivázat tažné lano</Czech>
         <Portuguese>Não é possível prender as cordas de reboque em uma zona segura</Portuguese>
         <Turkish>Güvenli bölgede çekme halatları bağlanamaz.</Turkish>
+        <Chinesesimp>无法在安全区域内系扣拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_fail">
         <Original>Whoops</Original>
@@ -6453,6 +6900,7 @@
         <Czech>Jejda</Czech>
         <Portuguese>Oops</Portuguese>
         <Turkish>Hoop</Turkish>
+        <Chinesesimp>哦豁</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_pick_no_locked">
         <Original>Cannot pick up tow ropes from locked vehicle</Original>
@@ -6465,6 +6913,7 @@
         <Czech>Ze zamčeného vozidla nelze vybrat tažné lano</Czech>
         <Portuguese>Não é possível pegar as cordas de reboque de um veículo trancado</Portuguese>
         <Turkish>Kilitli araçtan çekme halatlarını alamazsınız</Turkish>
+        <Chinesesimp>无法拾起上锁载具的拖车绳扣</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_pick_no_safez">
         <Original>Cannot pick up tow ropes in safe zone</Original>
@@ -6477,6 +6926,7 @@
         <Czech>V bezpečné zóně nelze vybrat tažné lano</Czech>
         <Portuguese>Não é possível pegar as cordas de reboque em uma zona segura</Portuguese>
         <Turkish>Güvenli bölgede çekme halatlarını alamazsınız</Turkish>
+        <Chinesesimp>无法在安全区域内拾起拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_put_no_locked">
         <Original>Cannot put away tow ropes in locked vehicle</Original>
@@ -6489,6 +6939,7 @@
         <Czech>Do zamčeného vozidla nelze odložit tažné lano</Czech>
         <Portuguese>Não é possível jogar fora as cordas de reboque em um veículo trancado</Portuguese>
         <Turkish>Çekme halatlarını kilitli araca koyamazsınız</Turkish>
+        <Chinesesimp>无法放回上锁载具的拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_put_no_safez">
         <Original>Cannot put away tow ropes in safe zone</Original>
@@ -6501,6 +6952,7 @@
         <Czech>V bezpečné zóně nelze přivázat tažné lano</Czech>
         <Portuguese>Não é possível jogar fora as cordas de reboque em uma zona segura.</Portuguese>
         <Turkish>Cannot put away tow ropes in safe zone</Turkish>
+        <Chinesesimp>无法在安全区内放回拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_success">
         <Original>Success</Original>
@@ -6513,6 +6965,7 @@
         <Czech>Úspěch</Czech>
         <Portuguese>Sucesso</Portuguese>
         <Turkish>Başarılı</Turkish>
+        <Chinesesimp>成功</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_take_no_locked">
         <Original>Cannot take tow ropes from locked vehicle</Original>
@@ -6525,6 +6978,7 @@
         <Czech>Ze zamčeného vozidla nelze vybrat tažné lano</Czech>
         <Portuguese>Não é possível pegar as cordas de reboque de um veículo trancado</Portuguese>
         <Turkish>Kilitli araçtan çekme halatı alınamaz</Turkish>
+        <Chinesesimp>无法获取上锁载具的拖车绳扣</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_take_no_safez">
         <Original>Cannot take tow ropes in safe zone</Original>
@@ -6536,6 +6990,7 @@
         <Czech>V bezpečné zóně nelze vzít tažné lano</Czech>
         <Portuguese>Não é possível pegar as cordas de reboque em uma zona segura</Portuguese>
         <Turkish>Güvenli bölgede çekme halatlarını alamazsınız</Turkish>
+        <Chinesesimp>无法在安全区内获取拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_title">
         <Original>Advanced Towing</Original>
@@ -6548,6 +7003,7 @@
         <Czech>Pokročilé tahání</Czech>
         <Portuguese>Reboque avançado</Portuguese>
         <Turkish>Gelişmiş Çekici</Turkish>
+        <Chinesesimp>高级</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_selfRevive">
@@ -7108,7 +7564,7 @@
         <Korean>분대 모집</Korean>
         <Russian>Набрать отряд</Russian>
         <Polish>Rekrutuj Oddział</Polish>
-        <Czech>Nábor družstva</Czech>
+        <Czech>Rekrutovat družstvo</Czech>
         <Turkish>Birlikleri Göreve Al</Turkish>
         <Chinesesimp>招募班组</Chinesesimp>
       </Key>
@@ -9261,7 +9717,7 @@
         <Korean>분대 모집</Korean>
         <Russian>Найм отряда</Russian>
         <Polish>Rekrutuj Oddział</Polish>
-        <Czech>Nábor družstva</Czech>
+        <Czech>Rekrutovat družstvo</Czech>
         <Turkish>Birliği Göreve Al</Turkish>
         <Chinesesimp>招募班组</Chinesesimp>
       </Key>

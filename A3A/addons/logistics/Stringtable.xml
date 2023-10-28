@@ -60,7 +60,7 @@
         <Spanish>El vehículo no es capaz de cargar armas.</Spanish>
         <French>Le véhicule n'a pas la possibilité de charger des armes.</French>
         <Korean>해당 차량은 무기를 탑재할 능력이 부족합니다.</Korean>
-        <Russian>В машине отсутствует возможность загрузки оружия.</Russian>
+        <Russian>В транспортном средстве отсутствует возможность загрузки оружия.</Russian>
         <Polish>Pojazd nie posiada zdolności do załadowania broni.</Polish>
         <Czech>Vozidlo nemůže naložit zbraně.</Czech>
         <Portuguese>O veículo não tem capacidade para carregar armas.</Portuguese>
@@ -74,7 +74,7 @@
         <Spanish>El vehículo no es capaz de soportar cargas de este tamaño. Capacidad: </Spanish>
         <French>Le véhicule n'a pas assez de capacité pour une cargaison de cette taille. Capacité :</French>
         <Korean>차량에 이 크기의 화물을 적재할 용량이 부족합니다. 용량:</Korean>
-        <Russian>Машине не хватает вместимости для груза такого размера. Ёмкость:</Russian>
+        <Russian>Транспортному средству не хватает вместимости для груза такого размера. Ёмкость:</Russian>
         <Polish>Pojazd nie posiada zdolności do załadowania ładunku tego rozmiaru. Pojemność:</Polish>
         <Czech>Vozidlu chybí kapacita pro náklad této velikosti. Kapacita:</Czech>
         <Portuguese>O veículo não tem capacidade para uma carga deste tamanho. Capacidade:</Portuguese>
@@ -88,7 +88,7 @@
         <Spanish>Al vehículo le faltan nodos, defínalos  o utilice un vehículo distinto.</Spanish>
         <French>Le véhicule n'a pas de points d'attache, définissez-les ou utilisez un véhicule différent.</French>
         <Korean>차량에 노드가 없습니다. 해당 차량에 노드를 정의하거나 다른 차량을 사용하십시오.</Korean>
-        <Russian>В машине отсутствуют узлы, определите их или используйте другую машину.</Russian>
+        <Russian>В транспортном средстве отсутствуют узлы, определите их или используйте другое транспортное средство.</Russian>
         <Polish>Pojazd nie posiada węzłów, zdefiniuj je albo użyj innego pojazdu.</Polish>
         <Czech>Vozidlu chybí logistický uzel, nadefinuj jej nebo použij jiné vozidlo.</Czech>
         <Portuguese>O veículo não possui nódulos, defina-os ou use um veículo diferente.</Portuguese>
@@ -102,7 +102,7 @@
         <Spanish>La carga ya está siendo cargada en el vehículo.</Spanish>
         <French>La cargaison est déjà en train d'être chargée dans le véhicule.</French>
         <Korean>차량에 이미 화물이 적재되었습니다.</Korean>
-        <Russian>Груз уже загружается в машину.</Russian>
+        <Russian>Груз уже загружается в транспортное средство.</Russian>
         <Polish>Ładunek jest w trackie załadowywania do pojazdu.</Polish>
         <Czech>Náklad je již do vozidla nakládán.</Czech>
         <Portuguese>A carga já está sendo carregada no veículo.</Portuguese>
@@ -320,7 +320,7 @@
         <Spanish>No puedes cargar nada en un vehículo destruido.</Spanish>
         <French>Vous ne pouvez pas charger de cargaison dans un véhicule détruit.</French>
         <Korean>파괴된 차량에는 화물을 적재할 수 없습니다.</Korean>
-        <Russian>Вы не можете загрузить груз в уничтоженную машину.</Russian>
+        <Russian>Вы не можете загрузить груз в уничтоженное транспортное средство.</Russian>
         <Polish>Nie możesz załadować ładunku do zniszczonego pojazdu.</Polish>
         <Czech>Nemůžeš naložit náklad do zničeného vozidla.</Czech>
         <Portuguese>Você não pode carregar carga em um veículo destruído.</Portuguese>
@@ -334,7 +334,7 @@
         <Spanish>No puedes cargar cargas destruidas en un vehículo.</Spanish>
         <French>Vous ne pouvez pas charger de cargaison détruite dans un véhicule.</French>
         <Korean>파괴된 화물을 차량에 적재할 수 없습니다.</Korean>
-        <Russian>Вы не можете загрузить уничтоженный груз в машину.</Russian>
+        <Russian>Вы не можете загрузить уничтоженный груз в транспортное средство.</Russian>
         <Polish>Nie możesz załadować zniszczonego ładunku do pojazdu.</Polish>
         <Czech>Nemůžeš naložit zničený náklad do vozidla.</Czech>
         <Portuguese>Você não pode carregar uma carga destruída em um veículo.</Portuguese>
@@ -348,7 +348,7 @@
         <Spanish>No hay ningún vehículo suficientemente cerca.</Spanish>
         <French>Aucun véhicule n'est assez proche.</French>
         <Korean>충분히 가까운 차량이 없습니다.</Korean>
-        <Russian>Ни одна машина не находится достаточно близко.</Russian>
+        <Russian>Ни одно транспортное средство не находится достаточно близко.</Russian>
         <Polish>Żaden pojazd nie jest wystarczająco blisko.</Polish>
         <Czech>Vozidlo není dostatečně blízko.</Czech>
         <Portuguese>Nenhum veículo está perto o suficiente.</Portuguese>
@@ -362,7 +362,7 @@
         <Spanish>La carga ya está siendo descargada del vehículo.</Spanish>
         <French>La cargaison est déjà en train d'être déchargée du véhicule.</French>
         <Korean>이미 화물이 차량에서 하역되었습니다.</Korean>
-        <Russian>Груз уже выгружается из автомобиля.</Russian>
+        <Russian>Груз уже выгружается из транспортного средства.</Russian>
         <Polish>Ładunek jest w trakcie rozładowywania z pojazdu.</Polish>
         <Czech>Náklad je již z vozidla vykládán.</Czech>
         <Portuguese>A carga já está sendo descarregada do veículo.</Portuguese>

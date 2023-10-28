@@ -101,24 +101,7 @@ private _fnc_placed = {
     [_formatX, _idFormat, _special, _vehicle] spawn A3A_fnc_spawnHCGroup;
 };
 
-private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance player > 50) then {
-    {
-        private _searchCenter = getMarkerPos respawnTeamPlayer getPos [20 + random 30, random 360];
-        private _spawnPos = _searchCenter findEmptyPosition [0, 30, _vehType];
-        if (_spawnPos isEqualTo []) then {_spawnPos = _searchCenter};
-        private _vehicle = _vehType createVehicle _spawnPos;
-
-        if (_mounts isNotEqualTo []) then {
-            private _static = (FactionGet(reb,"staticAA")) # 0 createVehicle _spawnPos;
-            private _nodes = [_vehicle, _static] call A3A_Logistics_fnc_canLoad;
-            if (_nodes isEqualType 0) exitWith {};
-            (_nodes + [true]) call A3A_Logistics_fnc_load;
-            _static call HR_GRG_fnc_vehInit;
-        };
-
-        [_formatX, _idFormat, _special, _vehicle] spawn A3A_fnc_spawnHCGroup;
-    }
-} else { HR_GRG_fnc_confirmPlacement };
+private _vehiclePlacementMethod = if (getMarkerPos respawnTeamPlayer distance player > 50) then { { _this spawn A3A_fnc_spawnHCVeh } } else { HR_GRG_fnc_confirmPlacement };
 
 if (!_isInfantry) exitWith { [_vehType, _fnc_placed, _fnc_placeCheck, [_formatX, _idFormat, _special], _mounts] call _vehiclePlacementMethod };
 

@@ -229,11 +229,13 @@
       <Key ID="STR_A3A_JNA_loadinventory_notin">
         <Original>These items were not in the Arsenal:&lt;br/&gt;</Original>
         <Spanish>Estos objetos no estaban en el Arsenal:&lt;br/&gt;</Spanish>
+        <Russian>Этих предметов не было в Арсенале:&lt;br/&gt;</Russian>
         <Chinesesimp>这些物品并不在武器库内:&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JNA_loadinventory_notin_kept">
         <Original>These items were not in the Arsenal, so the originals have been kept:&lt;br/&gt;</Original>
         <Spanish>Estos objetos no estaban en el Arsenal, asi que se mantuvieron los originales:&lt;br/&gt;</Spanish>
+        <Russian>Этих предметов не было в Арсенале, поэтому были сохранены оригиналы:&lt;br/&gt;</Russian>
         <Chinesesimp>这些物品之前不在武器库内, 所以原物件将得以被储存:&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JNA_memberonly">
@@ -253,9 +255,11 @@
       <Key ID="STR_A3A_JNA_rhs_error">
         <Original>ERROR - Please report RPT to Antistasi Devs.</Original>
         <French>ERREUR - Veuillez signaler le RPT aux développeurs d'Antistasi.</French>
+        <Russian>ОШИБКА - Отправьте RPT разработчикам Antistasi.</Russian>
       </Key>
       <Key ID="STR_A3A_JNA_scope_incompatible">
         <Original>&lt;br/&gt;(Not compatible with currently equipped weapons)</Original>
+        <Russian>&lt;br/&gt;(Несовместимо с имеющимся в данный момент оружием)</Russian>
         <Chinesesimp>&lt;br/&gt;(与当前所装备的武器不兼容)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JNA_sort_amount">
@@ -405,7 +409,7 @@
         <Spanish>Inventario del vehículo</Spanish>
         <French>Inventaire des véhicules</French>
         <Korean>차량 인벤토리</Korean>
-        <Russian>Инвентарь машины</Russian>
+        <Russian>Инвентарь транспортного средства</Russian>
         <Polish>Ekwipunek pojazdu</Polish>
         <Czech>Inventář vozidla</Czech>
         <Portuguese>Inventário do veículo</Portuguese>
@@ -488,6 +492,7 @@
         <Original>Ultra Wide Extended Debug Console With Extra Save Buttons!</Original>
         <Spanish>Super Amplia y Extendida Consola de Debug con Extra Butones de Guardado!</Spanish>
         <French>Console de débogage étendue ultra large avec boutons de sauvegarde supplémentaires !</French>
+        <Russian>Сверхширокая Расширенная Консоль Отладки с Дополнительными Кнопками Сохранения!</Russian>
       </Key>
     </Container>
   </Package>

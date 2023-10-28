@@ -237,7 +237,7 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
         _stateChange = true;
     };
     
-    if(A3A_building_EHDB # SNAP_SURFACE_MODE) then {
+    if (A3A_building_EHDB # SNAP_SURFACE_MODE) then {
         private _posASL = AGLtoASL _vehiclePos;
         private _intersects = lineIntersectsSurfaces [_posASL vectorAdd [0,0,100], _posASL vectorAdd [0,0,-100], _object];
         if (count _intersects > 0) then {
@@ -263,11 +263,20 @@ private _eventHanderEachFrame = addMissionEventHandler ["EachFrame", {
 
     // Object render state update
     if (!_stateChange) exitWith {};
+
+    _object setPosATL _vehiclePos;
     _object setDir (A3A_building_EHDB # BUILD_OBJECT_TEMP_DIR);
-    _object setPos _vehiclePos;
+
+    // Conform for terrain surface normal in vicinity. Kinda works
+    private _normTotal = surfaceNormal _vehiclePos;
+    {
+        _normTotal = _normTotal vectorAdd (surfaceNormal (_vehiclePos vectorAdd _x));
+    } forEach [[-2,0], [2,0], [0,-2], [0,2]];
+    _object setVectorUp vectorNormalized _normTotal;
 
     private _hide = call {
         if (_object distance (A3A_building_EHDB # BUILD_RADIUS_OBJECT_CENTER) > (A3A_building_EHDB # BUILD_RADIUS)) exitWith {true};
+        if (surfaceIsWater _vehiclePos) exitWith {true};
         if (A3A_building_EHDB # UNSAFE_MODE) exitWith {false};
         if (A3A_building_EHDB # SNAP_SURFACE_MODE) exitWith {false};				// implies unsafe anyway
 

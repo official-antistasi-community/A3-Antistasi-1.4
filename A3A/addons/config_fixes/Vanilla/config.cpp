@@ -23,4 +23,4 @@ class CfgPatches
 //#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
 //#include "CfgMarkers.hpp"
-//#include "CfgWeapons.hpp"
+#include "CfgWeapons.hpp"

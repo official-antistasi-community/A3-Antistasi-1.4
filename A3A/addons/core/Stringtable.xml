@@ -12395,7 +12395,7 @@
       <Key ID="STR_A3A_Params_A3A_builderPermissions_both">
         <Original>Both</Original>
       </Key>
-      <Key ID="STR_A3A_Params_TitleMembership_title">
+      <Key ID="STR_A3A_Params_membershipEnabled_title">
         <Original>Enable Server Membership</Original>
       </Key>
       <Key ID="STR_A3A_Params_A3A_guestCommander_title">

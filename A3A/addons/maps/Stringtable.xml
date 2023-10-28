@@ -1028,5 +1028,55 @@
         <Chinesesimp>Antistasi - 解放 Virolahti</Chinesesimp>
       </Key>
     </Container>
+    <Container name="Mission_Params">
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_title">
+        <Original>Automatically load last valid save after delay</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_noautoload">
+        <Original>No automatic load</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_1min">
+        <Original>1 minute</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_2min">
+        <Original>2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_3min">
+        <Original>3 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_5min">
+        <Original>5 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_10min">
+        <Original>10 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_LogLevel_title">
+        <Original>Logging Level during setup</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_LogLevel_error">
+        <Original>Error</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_LogLevel_info">
+        <Original>Info</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_LogLevel_debug">
+        <Original>Debug</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_LogLevel_verbose">
+        <Original>Verbose</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_title">
+        <Original>Log debug console use during setup</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_none">
+        <Original>None</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_nondev">
+        <Original>All non-dev</Original>
+      </Key>
+      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_all">
+        <Original>All</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

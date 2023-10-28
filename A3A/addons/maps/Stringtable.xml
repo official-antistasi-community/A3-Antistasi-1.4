@@ -1065,16 +1065,16 @@
       <Key ID="STR_A3A_Mission_Params_LogLevel_verbose">
         <Original>Verbose</Original>
       </Key>
-      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_title">
+      <Key ID="STR_A3A_Mission_Params_logDebugConsole_title">
         <Original>Log debug console use during setup</Original>
       </Key>
-      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_none">
+      <Key ID="STR_A3A_Mission_Params_logDebugConsole_none">
         <Original>None</Original>
       </Key>
-      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_nondev">
+      <Key ID="STR_A3A_Mission_Params_logDebugConsole_nondev">
         <Original>All non-dev</Original>
       </Key>
-      <Key ID="STR_A3A_Mission_Params_A3A_logDebugConsole_all">
+      <Key ID="STR_A3A_Mission_Params_logDebugConsole_all">
         <Original>All</Original>
       </Key>
     </Container>

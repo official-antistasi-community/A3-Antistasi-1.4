@@ -17,9 +17,9 @@ class Params
     };
     class A3A_logDebugConsole
     {
-        title = $STR_A3A_Mission_Params_A3A_logDebugConsole_title;
+        title = $STR_A3A_Mission_Params_logDebugConsole_title;
         values[] = {-1,1,2};
-        texts[] = {$STR_A3A_Mission_Params_A3A_logDebugConsole_none, $STR_A3A_Mission_Params_A3A_logDebugConsole_nondev, $STR_A3A_Mission_Params_A3A_logDebugConsole_all};
+        texts[] = {$STR_A3A_Mission_Params_logDebugConsole_none, $STR_A3A_Mission_Params_logDebugConsole_nondev, $STR_A3A_Mission_Params_logDebugConsole_all};
         default = 1;
     };
 };

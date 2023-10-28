@@ -12301,5 +12301,385 @@
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
       </Key>
     </Container>
+    <Container name="A3A_Params">
+      <Key ID="STR_A3A_Params_gameMode_title">
+        <Original>Game Mode - Do NOT change this mid mission</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvGvI">
+        <Original>Reb vs Gov vs Inv</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvGaI">
+        <Original>Reb vs Gov + Inv</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_gameMode_RvG">
+        <Original>Reb vs Gov</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_autoSave_title">
+        <Original>Enable Autosave (every X minutes)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_autoSaveInterval_title">
+        <Original>Time between autosaves (in minutes)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_playerMarkersEnabled_title">
+        <Original>Enable Friendly Player Markers</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_title">
+        <Original>Fast Travel Targets Allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_any">
+        <Original>Any friendly position</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_limitedFT_hq">
+        <Original>Only Airports + HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_civTraffic_title">
+        <Original>Quantity of civilan traffic and parked vehicles</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_distanceMission_title">
+        <Original>Max distance from HQ for tasks</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_distanceSPWN_title">
+        <Original>Spawn distance</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyNearDistance_title">
+        <Original>Distance used to check for nearby enemies</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_globalCivilianMax_title">
+        <Original>Maximum global civilians</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_maxCiviliansPerTown_title">
+        <Original>Maximum civilians spawn per town</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialPlayerMoney_title">
+        <Original>Initial Player Money</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialFactionMoney_title">
+        <Original>Initial Rebel Faction Money</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_initialHr_title">
+        <Original>Initial Rebel Faction Manpower</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_idleTimeout_title">
+        <Original>Time before a player is considered AFK</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_GCThreshold_title">
+        <Original>Garbage Cleaner Threshold for Automatic GC</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_reviveTime_title">
+        <Original>Minimum revive time for players</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_reviveTime_5s">
+        <Original>5 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_reviveTime_10s">
+        <Original>10 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_reviveTime_15s">
+        <Original>15 seconds</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_selfReviveMethods_title">
+        <Original>Self-revive methods enabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_selfReviveMethods_withstand">
+        <Original>Withstand</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_builderPermissions_title">
+        <Original>Player classes permitted to use the building placer</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_builderPermissions_tl">
+        <Original>Team leaders</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_builderPermissions_engi">
+        <Original>Engineers</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_builderPermissions_both">
+        <Original>Both</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleMembership_title">
+        <Original>Enable Server Membership</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_guestCommander_title">
+        <Original>Allow guests to become commander when no members are eligible</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_tkPunish_title">
+        <Original>Enable Teamkill Punish</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_memberSlots_title">
+        <Original>Percentage of Reserved Slots for Members</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_memberDistance_title">
+        <Original>Max distance of guests from the closest member or HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleBalance_title">
+        <Original>BALANCE OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleMembership_title">
+        <Original>MEMBERSHIP OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_enemyBalanceMul_title">
+        <Original>Overall enemy resource balance</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_enemyAttackMul_title">
+        <Original>Enemy attack resource balance (relative to overall balance)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_invaderBalanceMul_title">
+        <Original>Resource multiplier for invaders relative to occupants</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_attackHQProximityMul_title">
+        <Original>Enemy preference for attacking rebel targets closer to HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_enemySkillMul_title">
+        <Original>Enemy AI skill (also affected by server skill)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_rebelSkillMul_title">
+        <Original>Friendly AI skill (also affected by server skill)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_napalmEnabled_title">
+        <Original>Enable Napalm Bombing for AI</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowUnfairSupports_title">
+        <Original>Allow unfair supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowFuturisticSupports_title">
+        <Original>Experimental] Allow futuristic supports to be used by the enemy</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_rebelGarrisonLimit_title">
+        <Original>How many rebels can be garrisoned (1.5x for airports, 0.5x for resources and factories)?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_rebelGarrisonLimit_tooltip">
+        <Original>How many troops can be in garrison. Note that No limit option may affect performance as there might be too many troops for CPU to handle.</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleEquipment_title">
+        <Original>EQUIPMENT OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_minWeaps_title">
+        <Original>Number of the same item required to unlock"</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_guestItemLimit_title">
+        <Original>Default number of items needed for guests to be able to use them</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_unlockedUnlimitedAmmo_title">
+        <Original>Do Unlocked Weapons Automatically Unlock Their Standard Magazine?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowGuidedLaunchers_title">
+        <Original>Should Guided Launchers become unlocked?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_allowUnlockedExplosives_title">
+        <Original>Should Explosives become unlocked?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_startWithLongRangeRadio_title">
+        <Original>[TFAR] Start with Long Range Radio?</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_aceFood_title">
+        <Original>[ACE] Start with Food Items</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_helmetLossChance_title">
+        <Original>Chance of helmet loss on headshots</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LootToCrateRadius_title">
+        <Original>Loot to crate radius</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LTCLootUnlocked_title">
+        <Original>Loot to crate transfers unlocked items</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleLoot_title">
+        <Original>LOOT CRATE OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_bobChaosCrates_title">
+        <Original>[Experimental] Truely Random Crates: Remove all balance checks from Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_cratePlayerScaling_title">
+        <Original>Decrease loot quantity as player count increases? (Yes is recommended for balance reasons)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateWepTypeMax_title">
+        <Original>Maximum Weapon Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateWepNumMax_title">
+        <Original>Maximum Weapon Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateItemTypeMax_title">
+        <Original>Maximum Item Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateItemNumMax_title">
+        <Original>Maximum Item Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAmmoTypeMax_title">
+        <Original>Maximum Ammo Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAmmoNumMax_title">
+        <Original>Maximum Ammo Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateExplosiveTypeMax_title">
+        <Original>Maximum Explosive Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateExplosiveNumMax_title">
+        <Original>Maximum Explosive Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAttachmentTypeMax_title">
+        <Original>Maximum Attachment Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateAttachmentNumMax_title">
+        <Original>Maximum Attachment Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateBackpackTypeMax_title">
+        <Original>Maximum Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateBackpackNumMax_title">
+        <Original>Maximum Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateVestTypeMax_title">
+        <Original>Maximum Vest Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateVestNumMax_title">
+        <Original>Maximum Vest Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateHelmetTypeMax_title">
+        <Original>Maximum Helmet Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateHelmetNumMax_title">
+        <Original>Maximum Helmet Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateDeviceTypeMax_title">
+        <Original>Maximum Device Backpack Types in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_crateDeviceNumMax_title">
+        <Original>Maximum Device Backpack Quantity in Crates</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_TitleDevelopment_title">
+        <Original>DEVELOPMENT OPTIONS</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_title">
+        <Original>Logging Level (Amount of detail in .rpt file)</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_error">
+        <Original>Error</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_info">
+        <Original>Info</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_debug">
+        <Original>Debug</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_LogLevel_verbose">
+        <Original>Verbose</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_logDebugConsole_title">
+        <Original>Log debug console use</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_logDebugConsole_nondev">
+        <Original>All non-dev</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_A3A_GUIDevPreview_title">
+        <Original>Use In-Development UI Preview</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_disabled">
+        <Original>Disabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_none">
+        <Original>None</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_4km">
+        <Original>4 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_5km">
+        <Original>5 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_6km">
+        <Original>6 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_7km">
+        <Original>7 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_8km">
+        <Original>8 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10km">
+        <Original>10 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_16km">
+        <Original>16 km</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_unlimited">
+        <Original>Unlimited</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nochange">
+        <Original>No change</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_verylow">
+        <Original>Very low</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_low">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_normal">
+        <Original>Normal</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_medium">
+        <Original>Medium</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_high">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_veryhigh">
+        <Original>Very high</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_notallowed">
+        <Original>Not allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_allowed">
+        <Original>Allowed</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nolimit">
+        <Original>No limit</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_nounlocks">
+        <Original>No unlocks</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_never">
+        <Original>Never</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_sometimes">
+        <Original>Sometimes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_often">
+        <Original>Often</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_always">
+        <Original>Always</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_allowed">
+        <Original>All</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_2min">
+        <Original>2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_5min">
+        <Original>5 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10min">
+        <Original>10 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_15min">
+        <Original>15 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_20min">
+        <Original>20 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_30min">
+        <Original>30 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_enabled">
+        <Original>Enabled</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_10m">
+        <Original>10 meters</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_15m">
+        <Original>15 meters</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_20m">
+        <Original>20 meters</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

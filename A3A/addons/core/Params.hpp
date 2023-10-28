@@ -100,37 +100,37 @@ class Params
     };
     class A3A_idleTimeout
     {
-        title = $STR_A3A_Params_A3A_idleTimeout_title;
+        title = $STR_A3A_Params_idleTimeout_title;
         values[] = {120,300,900,1800,9999999};
         texts[] = {$STR_A3A_Params_generic_2min, $STR_A3A_Params_generic_5min, $STR_A3A_Params_generic_15min, $STR_A3A_Params_generic_30min, $STR_A3A_Params_generic_disabled};
         default = 900;
     };
     class A3A_GCThreshold
     {
-        title = $STR_A3A_Params_A3A_GCThreshold_title;
+        title = $STR_A3A_Params_GCThreshold_title;
         values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", $STR_A3A_Params_generic_disabled};
         Default = 0;
     };
     class A3A_reviveTime
     {
-        title = $STR_A3A_Params_A3A_reviveTime_title;
+        title = $STR_A3A_Params_reviveTime_title;
         values[] = {5,10,15};
-        texts[] = {$STR_A3A_Params_A3A_reviveTime_5s, $STR_A3A_Params_A3A_reviveTime_10s, $STR_A3A_Params_A3A_reviveTime_15s};
+        texts[] = {$STR_A3A_Params_reviveTime_5s, $STR_A3A_Params_reviveTime_10s, $STR_A3A_Params_reviveTime_15s};
         default = 10;
     };
     class A3A_selfReviveMethods
     {
-        title = $STR_A3A_Params_A3A_selfReviveMethods_title;
+        title = $STR_A3A_Params_selfReviveMethods_title;
         values[] = {0,1};
-        texts[] = {$STR_A3A_Params_generic_disabled, $STR_A3A_Params_A3A_selfReviveMethods_withstand};
+        texts[] = {$STR_A3A_Params_generic_disabled, $STR_A3A_Params_selfReviveMethods_withstand};
         default = 0;
     };
     class A3A_builderPermissions
     {
-        title = $STR_A3A_Params_A3A_builderPermissions_title;
+        title = $STR_A3A_Params_builderPermissions_title;
         values[] = {1, 2, 3};
-        texts[] = {$STR_A3A_Params_A3A_builderPermissions_tl, $STR_A3A_Params_A3A_builderPermissions_engi, $STR_A3A_Params_A3A_builderPermissions_both};
+        texts[] = {$STR_A3A_Params_builderPermissions_tl, $STR_A3A_Params_builderPermissions_engi, $STR_A3A_Params_builderPermissions_both};
         default = 3;
     };
 
@@ -157,7 +157,7 @@ class Params
     };
     class A3A_guestCommander
     {
-        title = $STR_A3A_Params_A3A_guestCommander_title;
+        title = $STR_A3A_Params_guestCommander_title;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text};
         default = 1;
@@ -200,7 +200,7 @@ class Params
     };
     class A3A_enemyBalanceMul
     {
-        title = $STR_A3A_Params_A3A_enemyBalanceMul_title;
+        title = $STR_A3A_Params_enemyBalanceMul_title;
         values[] = {4,6,8,10,12,14,17,20,24,28};
         texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
@@ -208,7 +208,7 @@ class Params
     class A3A_enemyAttackMul
     {
         attr[] = {"server"};
-        title = $STR_A3A_Params_A3A_enemyAttackMul_title;
+        title = $STR_A3A_Params_enemyAttackMul_title;
         values[] = {4,6,8,10,12,14,17,20,24,28};
         texts[] =  {"0.4x","0.6x","0.8x","1.0x","1.2x","1.4x","1.7x","2.0x","2.4x","2.8x"};
         default = 10;
@@ -216,7 +216,7 @@ class Params
     class A3A_invaderBalanceMul
     {
         attr[] = {"server"};
-        title = $STR_A3A_Params_A3A_invaderBalanceMul_title;
+        title = $STR_A3A_Params_invaderBalanceMul_title;
         values[] = {10,11,12,13,14,15};
         texts[] =  {"1.0x","1.1x","1.2x","1.3x","1.4x","1.5x"};
         default = 12;
@@ -224,21 +224,21 @@ class Params
     class A3A_attackHQProximityMul
     {
         attr[] = {"server"};
-        title = $STR_A3A_Params_A3A_attackHQProximityMul_title;
+        title = $STR_A3A_Params_attackHQProximityMul_title;
         values[] = {1,2,3,5,8};
         texts[] =  {$STR_A3A_Params_generic_nochange,"2x","3x","5x","8x"};
         default = 3;
     };
     class A3A_enemySkillMul
     {
-        title = $STR_A3A_Params_A3A_enemySkillMul_title;
+        title = $STR_A3A_Params_enemySkillMul_title;
         values[] = {0,1,2,3,4};
         texts[] = {$STR_A3A_Params_generic_verylow, $STR_A3A_Params_generic_low, $STR_A3A_Params_generic_normal, $STR_A3A_Params_generic_high, $STR_A3A_Params_generic_veryhigh};
         default = 2;
     };
     class A3A_rebelSkillMul
     {
-        title = $STR_A3A_Params_A3A_rebelSkillMul_title;
+        title = $STR_A3A_Params_rebelSkillMul_title;
         values[] = {0,1,2,3,4};
         texts[] = {$STR_A3A_Params_generic_verylow, $STR_A3A_Params_generic_low, $STR_A3A_Params_generic_normal, $STR_A3A_Params_generic_high, $STR_A3A_Params_generic_veryhigh};
         default = 2;
@@ -268,8 +268,8 @@ class Params
     };
     class A3A_rebelGarrisonLimit
     {
-        title = $STR_A3A_Params_A3A_rebelGarrisonLimit_title;
-        tooltip = $STR_A3A_Params_A3A_rebelGarrisonLimit_tooltip;
+        title = $STR_A3A_Params_rebelGarrisonLimit_title;
+        tooltip = $STR_A3A_Params_rebelGarrisonLimit_tooltip;
         values[] = {-1, 16, 24, 32};
         texts[] = {$STR_A3A_Params_generic_nolimit, "16", "24", "32"};
         default = 24;
@@ -298,7 +298,7 @@ class Params
     };
     class A3A_guestItemLimit
     {
-        title = $STR_A3A_Params_A3A_guestItemLimit_title;
+        title = $STR_A3A_Params_guestItemLimit_title;
         values[] = {0,10,15,25,40};
         texts[] = {$STR_A3A_Params_generic_nolimit,"10","15","25","40"};
         default = 25;
@@ -543,14 +543,14 @@ class Params
     };
     class A3A_logDebugConsole
     {
-        title = $STR_A3A_Params_A3A_logDebugConsole_title;
+        title = $STR_A3A_Params_logDebugConsole_title;
         values[] = {-1,1,2};
-        texts[] = {$STR_A3A_Params_generic_none, $STR_A3A_Params_A3A_logDebugConsole_nondev, $STR_A3A_Params_generic_allowed};
+        texts[] = {$STR_A3A_Params_generic_none, $STR_A3A_Params_logDebugConsole_nondev, $STR_A3A_Params_generic_allowed};
         default = 1;
     };
     class A3A_GUIDevPreview
     {
-        title = $STR_A3A_Params_A3A_GUIDevPreview_title;
+        title = $STR_A3A_Params_GUIDevPreview_title;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip, $STR_antistasi_dialogs_generic_button_yes_text};
         default = 0;

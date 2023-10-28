@@ -12359,46 +12359,46 @@
       <Key ID="STR_A3A_Params_initialHr_title">
         <Original>Initial Rebel Faction Manpower</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_idleTimeout_title">
+      <Key ID="STR_A3A_Params_idleTimeout_title">
         <Original>Time before a player is considered AFK</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_GCThreshold_title">
+      <Key ID="STR_A3A_Params_GCThreshold_title">
         <Original>Garbage Cleaner Threshold for Automatic GC</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_reviveTime_title">
+      <Key ID="STR_A3A_Params_reviveTime_title">
         <Original>Minimum revive time for players</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_reviveTime_5s">
+      <Key ID="STR_A3A_Params_reviveTime_5s">
         <Original>5 seconds</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_reviveTime_10s">
+      <Key ID="STR_A3A_Params_reviveTime_10s">
         <Original>10 seconds</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_reviveTime_15s">
+      <Key ID="STR_A3A_Params_reviveTime_15s">
         <Original>15 seconds</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_selfReviveMethods_title">
+      <Key ID="STR_A3A_Params_selfReviveMethods_title">
         <Original>Self-revive methods enabled</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_selfReviveMethods_withstand">
+      <Key ID="STR_A3A_Params_selfReviveMethods_withstand">
         <Original>Withstand</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_builderPermissions_title">
+      <Key ID="STR_A3A_Params_builderPermissions_title">
         <Original>Player classes permitted to use the building placer</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_builderPermissions_tl">
+      <Key ID="STR_A3A_Params_builderPermissions_tl">
         <Original>Team leaders</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_builderPermissions_engi">
+      <Key ID="STR_A3A_Params_builderPermissions_engi">
         <Original>Engineers</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_builderPermissions_both">
+      <Key ID="STR_A3A_Params_builderPermissions_both">
         <Original>Both</Original>
       </Key>
       <Key ID="STR_A3A_Params_membershipEnabled_title">
         <Original>Enable Server Membership</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_guestCommander_title">
+      <Key ID="STR_A3A_Params_guestCommander_title">
         <Original>Allow guests to become commander when no members are eligible</Original>
       </Key>
       <Key ID="STR_A3A_Params_tkPunish_title">
@@ -12416,22 +12416,22 @@
       <Key ID="STR_A3A_Params_TitleMembership_title">
         <Original>MEMBERSHIP OPTIONS</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_enemyBalanceMul_title">
+      <Key ID="STR_A3A_Params_enemyBalanceMul_title">
         <Original>Overall enemy resource balance</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_enemyAttackMul_title">
+      <Key ID="STR_A3A_Params_enemyAttackMul_title">
         <Original>Enemy attack resource balance (relative to overall balance)</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_invaderBalanceMul_title">
+      <Key ID="STR_A3A_Params_invaderBalanceMul_title">
         <Original>Resource multiplier for invaders relative to occupants</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_attackHQProximityMul_title">
+      <Key ID="STR_A3A_Params_attackHQProximityMul_title">
         <Original>Enemy preference for attacking rebel targets closer to HQ</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_enemySkillMul_title">
+      <Key ID="STR_A3A_Params_enemySkillMul_title">
         <Original>Enemy AI skill (also affected by server skill)</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_rebelSkillMul_title">
+      <Key ID="STR_A3A_Params_rebelSkillMul_title">
         <Original>Friendly AI skill (also affected by server skill)</Original>
       </Key>
       <Key ID="STR_A3A_Params_napalmEnabled_title">
@@ -12443,10 +12443,10 @@
       <Key ID="STR_A3A_Params_allowFuturisticSupports_title">
         <Original>Experimental] Allow futuristic supports to be used by the enemy</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_rebelGarrisonLimit_title">
+      <Key ID="STR_A3A_Params_rebelGarrisonLimit_title">
         <Original>How many rebels can be garrisoned (1.5x for airports, 0.5x for resources and factories)?</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_rebelGarrisonLimit_tooltip">
+      <Key ID="STR_A3A_Params_rebelGarrisonLimit_tooltip">
         <Original>How many troops can be in garrison. Note that No limit option may affect performance as there might be too many troops for CPU to handle.</Original>
       </Key>
       <Key ID="STR_A3A_Params_TitleEquipment_title">
@@ -12455,7 +12455,7 @@
       <Key ID="STR_A3A_Params_minWeaps_title">
         <Original>Number of the same item required to unlock"</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_guestItemLimit_title">
+      <Key ID="STR_A3A_Params_guestItemLimit_title">
         <Original>Default number of items needed for guests to be able to use them</Original>
       </Key>
       <Key ID="STR_A3A_Params_unlockedUnlimitedAmmo_title">
@@ -12563,13 +12563,13 @@
       <Key ID="STR_A3A_Params_LogLevel_verbose">
         <Original>Verbose</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_logDebugConsole_title">
+      <Key ID="STR_A3A_Params_logDebugConsole_title">
         <Original>Log debug console use</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_logDebugConsole_nondev">
+      <Key ID="STR_A3A_Params_logDebugConsole_nondev">
         <Original>All non-dev</Original>
       </Key>
-      <Key ID="STR_A3A_Params_A3A_GUIDevPreview_title">
+      <Key ID="STR_A3A_Params_GUIDevPreview_title">
         <Original>Use In-Development UI Preview</Original>
       </Key>
       <Key ID="STR_A3A_Params_generic_disabled">

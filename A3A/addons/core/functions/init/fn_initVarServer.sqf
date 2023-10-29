@@ -180,7 +180,7 @@ Info("Initialising item categories");
 
 //We initialise a LOT of arrays based on the categories. Every category gets a 'allX' variables and an 'unlockedX' variable.
 
-private _unlockableCategories = allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers", "ArmoredVests", "ArmoredHeadgear", "BackpacksCargo"];
+private _unlockableCategories = allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers", "ArmoredVests", "ArmoredHeadgear"];
 
 //Build list of 'allX' variables, such as 'allWeapons'
 DECLARE_SERVER_VAR(allEquipmentArrayNames, allCategories apply {"all" + _x});

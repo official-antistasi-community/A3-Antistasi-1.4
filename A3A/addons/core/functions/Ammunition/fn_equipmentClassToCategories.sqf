@@ -132,13 +132,6 @@ call {
         };
     };
 
-    if (_basecategory == "Backpacks") exitWith {
-        // 160 = assault pack. Just a way to limit which backpacks friendly AI are using.
-        if (getNumber (configFile >> "CfgVehicles" >> _className >> "maximumLoad") >= 160) then {
-            _categories pushBack "BackpacksCargo";
-        };
-    };
-
     if (_basecategory == "Optics") exitWith {
         if (getNumber (configFile >> "CfgWeapons" >> _className >> "ace_scopeAdjust_verticalIncrement") > 0) exitWith { _categories pushBack "OpticsLong" };
         if !(isClass (configFile >> "CfgWeapons" >> _className >> "ItemInfo" >> "OpticsModes")) exitWith {};

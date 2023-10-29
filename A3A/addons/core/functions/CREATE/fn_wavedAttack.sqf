@@ -33,11 +33,11 @@ private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameEnemy = _faction get "name";
 private _taskId = "wavedAttack" + str A3A_taskCount;
 if (_targside == teamPlayer) then {
-    private _taskStr = format ["%1 is attacking our garrison at %2. Stop them if you can, or live to fight another day.", _nameEnemy, _nameDest];
-    [true,_taskId,[_taskStr,format ["%1 Attack",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+    private _taskStr = format ["%1 is attacking our garrison at %2. Stop them if you can, or live to fight another day.", _nameEnemy, _nameDest]; //TODO: Localize
+    [true,_taskId,[_taskStr,format ["%1 Attack",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate; //TODO: Localize
     [_taskId, "rebelAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 } else {
-    private _text = format ["%1 is attacking the %2 garrison at %3.", _nameEnemy, Faction(_targside) get "name", _nameDest];
+    private _text = format ["%1 is attacking the %2 garrison at %3.", _nameEnemy, Faction(_targside) get "name", _nameDest]; //TODO: Localize
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
 };
 

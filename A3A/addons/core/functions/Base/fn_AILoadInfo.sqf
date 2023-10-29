@@ -26,4 +26,4 @@ for "_i" from 0 to (count hcArray) - 1 do
 	} forEach allUnits select {alive _x};
 	_textX = format ["%1Reb: %2<br/>Occ:%3<br/>Inv:%4<br/>Civ:%5<br/>TOTAL:%6<br/><br/>",_textX,_indep,_west,_east,_civ,_total];
 	};
-[petros, "hint", _textX, "AI Load Information"] remoteExec ["A3A_fnc_commsMP",remoteExecutedOwner];
+[petros, "hint", _textX, "AI Load Information"] remoteExec ["A3A_fnc_commsMP",remoteExecutedOwner]; //TODO: Localize all the stuff above

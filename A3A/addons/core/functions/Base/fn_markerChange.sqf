@@ -356,3 +356,5 @@ markersChanging = markersChanging - [_markerX];
 ["markerChange", [_markerX, _winner]] call EFUNC(Events,triggerEvent);
 
 Debug_1("Finished marker change at %1", _markerX);
+
+ //TODO: Can above be localized?

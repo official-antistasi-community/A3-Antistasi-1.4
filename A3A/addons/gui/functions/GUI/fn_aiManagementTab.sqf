@@ -55,7 +55,7 @@ switch (_mode) do
         if (count _aisInGroup < 1) then {
             // This should not happen, the button on the playertab is disabled if you have no AI
             _aiListBox ctrlEnable false;
-            _aiListBox lbAdd "No AIs in group. You can recruit them at the flag.";
+            _aiListBox lbAdd "No AIs in group. You can recruit them at the flag."; //TODO: Localize
         } else {
             // Else add units to the listbox
             _aiListBox ctrlEnable true;

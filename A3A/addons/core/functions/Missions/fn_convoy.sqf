@@ -113,7 +113,7 @@ private _posOrigin = navGrid select ([_mrkOrigin] call A3A_fnc_getMarkerNavPoint
 private _posDest = navGrid select ([_mrkDest] call A3A_fnc_getMarkerNavPoint) select 0;
 
 private _taskId = "CONVOY" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;//old pvp blufor mission - won't localize
+[[teamPlayer,civilian],_taskId,[_textX,_taskTitle,_mrkDest],_posDest,false,0,true,_taskIcon,true] call BIS_fnc_taskCreate;
 [[_sideX],_taskID+"B",[format ["A convoy from %1 to %3, it's about to depart at %2. Protect it from any possible attack.",_nameOrigin,_displayTime,_nameDest],"Protect Convoy",_mrkDest],_posDest,false,0,true,"run",true] call BIS_fnc_taskCreate;//old pvp mission, no localization
 [_taskId, "CONVOY", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 

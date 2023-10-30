@@ -85,6 +85,9 @@ if ("expansion" in A3A_enabledDLC) then {
 } else {
     _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
 };
+if (allowDLCEnoch) then {
+    _initialRebelEquipment append ["sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
+};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};

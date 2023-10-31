@@ -45,7 +45,7 @@ if (_target isEqualType objNull and _supportIndex != -1) exitWith {
 A3A_supportCount = A3A_supportCount + 1;
 private _supportName = format ["%1%2", _type, A3A_supportCount];
 
-Info_5("Creating support %1 with side %2, pool %3, target %4 and delay %5", _type, _side, _resPool, _target, _delay);
+Info_5("Creating support %1 with side %2, pool %3, target %4 and delay %5", _supportName, _side, _resPool, _target, _delay);
 
 // Spend radio key to boost support's reveal value if available
 _reveal = [_side, _targPos, _reveal] call A3A_fnc_useRadioKey;

@@ -597,6 +597,12 @@ class Templates
         file = "CUP_AI_AFRF_Arctic";
         climate[] = {"arctic"};
     };
+    class CUP_AFRF_Desert : CUP_AFRF_Arid
+    {
+        name = "CUP AFRF Desert";
+        file = "CUP_AI_AFRF_Desert";
+        climate[] = {"arid"};
+    };
 
     class CUP_BAF_Arid : CUP_Base
     {

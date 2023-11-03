@@ -8,8 +8,8 @@
     
     ["B_D_Heli_Light_01_dynamicLoadout_lxWS", ["cost", 100]],
 
-    ["a3a_ION_Truck_02_zu23_F", ["cost", 60], ["threat", 70]],
-    ["O_SFIA_Truck_02_aa_lxWS", ["cost", 60], ["threat", 70]],
+    ["a3a_ION_Truck_02_zu23_F", ["cost", 60]],
+    ["O_SFIA_Truck_02_aa_lxWS", ["cost", 60]],
     
     ["a3a_Heli_Light_01_dynamicLoadout_ION_F", ["cost", 100]],
     ["a3a_Heli_Light_02_black_F", ["cost", 90]],

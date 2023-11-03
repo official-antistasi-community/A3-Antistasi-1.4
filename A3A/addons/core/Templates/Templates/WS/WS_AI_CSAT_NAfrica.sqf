@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["O_MRAP_02_F"];
-private _LightArmed = ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F"];
+private _LightArmed = ["O_MRAP_02_hmg_F", "O_MRAP_02_gmg_F", "a3a_O_Truck_02_zu23_F"];
 ["vehiclesTrucks", ["O_Truck_03_transport_F", "O_Truck_03_covered_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Truck_03_transport_F", "O_Truck_03_covered_F", "O_Truck_02_cargo_lxWS","O_Truck_02_flatbed_lxWS"];
 ["vehiclesAmmoTrucks", ["O_Truck_02_Ammo_F", "O_Truck_03_ammo_F"]] call _fnc_saveToTemplate;

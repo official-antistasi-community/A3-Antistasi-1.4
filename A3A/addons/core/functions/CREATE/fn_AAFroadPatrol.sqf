@@ -23,10 +23,21 @@ private _bases = (seaports + airportsX + outposts) select {
 	};
 };
 if (_bases isEqualTo []) exitWith {};
-
 Debug_1("Possible patrol bases %1", _bases);
 
-_base = selectRandom _bases;
+//Filters out bases with players too close
+private _startBases = _bases;
+_base = selectRandom _startBases;
+private _limit = 3; //unsure how needed a hard limit on tries is, checking all of _startBases might or might not be acceptable. 
+private _tries = 0;
+while { _tries < _limit && !(_players inAreaArray [markerPos _base, 250, 250] isEqualTo [])} 
+do {
+    _tries = _tries + 1;
+    _startBases deleteAt (_startBases find _base);
+    if (_startBases isEqualTo []) exitWith {};
+    _base = selectRandom _startBases;
+};
+
 _sideX = sidesX getVariable [_base,sideUnknown];
 private _faction = Faction(_sideX);
 

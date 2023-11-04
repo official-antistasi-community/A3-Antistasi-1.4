@@ -24,7 +24,7 @@
         <French>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garage %1</French>
         <Korean>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; %1 넣기</Korean>
         <Russian>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Стоянка %1</Russian>
-        <Polish>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garaż%1</Polish>
+        <Polish>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Umieść %1 w garażu</Polish>
         <Czech>&lt;img image ='\a3\ui_f\Data\Gui\rsc\rscdisplayArsenal\SpaceGarage_ca.paa'&gt;&lt;/img&gt; garáž %1</Czech>
         <Portuguese>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garagem %1</Portuguese>
         <Turkish>&lt;img image='\A3\ui_f\data\GUI\Rsc\RscDisplayArsenal\spaceGarage_ca.paa'&gt;&lt;/img&gt; Garaj %1</Turkish>
@@ -38,7 +38,7 @@
         <French>Vous ne pouvez pas entreposer un aéronef tant que vous n'êtes pas à proximité d'un aéroport appartenant à %1. Veuillez déplacer votre aéronef vers un aéroport sous votre contrôle pour l'entreposer</French>
         <Korean>%1 소속의 공항 근처에 있지 않으면 항공기를 정비할 수 없습니다. 정비하려면 항공기를 당신이 통제하는 공항으로 이동하십시오.</Korean>
         <Russian>Вы не можете переместить авиационную технику в гараж, если Вы не возле аэропорта принадлежащего фракции %1. Пожалуйста, переместите вашу технику к аэропорту под вашим контролем для перемещения её в гараж.</Russian>
-        <Polish>Nie możesz garażować statku powietrznego, gdy nie znajdujesz się w pobliżu lotniska, które należy do %1. Przenieś swój samolot na sojusznicze lotnisko, aby go zapisać</Polish>
+        <Polish>Nie możesz umieścić w hangarze samolotu/helikoptera, gdy nie znajdujesz się w pobliżu lotniska, które należy do %1. Przenieś swój pojazd na sojusznicze lotnisko</Polish>
         <Czech>Nemůžete uskladnit letadlo, když nejste poblíž letiště, které patří %1. Přesuňte prosím své letadlo na letiště pod kontrolou, abyste jej uskladnit</Czech>
         <Portuguese>Não podes guardar um avião enquanto não estiveres perto de um Aeroporto que pertença a %1. Por favor, move o avião para um Aeroporto que controles para o guardar</Portuguese>
         <Turkish>%1'e ait bir Havaalanının yakınında değilken bir uçağı garaja alamazsınız. Garajı kullanabilmek için lütfen uçağınızı kontrolünüz altındaki bir Havaalanına götürün</Turkish>
@@ -52,7 +52,7 @@
         <French>Vous et le véhicule devez être dans les alentours d'une garnison %1 afin de l'entreposer</French>
         <Korean>해당 차량을 차고에 넣으려면 당신과 차량이 %1 주둔지 주변에 있어야 합니다.</Korean>
         <Russian>Вы и ваша техника должны быть внутри гарнизона %1 для перемещения её в гараж</Russian>
-        <Polish>Ty i pojazd musicie znajdować się w otoczeniu garnizonów %1, aby móc go zgarażować</Polish>
+        <Polish>Ty i pojazd jesteście zbyt daleko od garnizonów %1, by móc umieścić go w garażu</Polish>
         <Czech>Vy a vozidlo musíte být v okolí %1 posádek abyste jej mohli uskladňovat</Czech>
         <Portuguese>Tu e o veículo precisam de estar nos arredores de uma guarnição %1 de forma a guardá-lo</Portuguese>
         <Turkish>Garajı kullanabilmek için sizin ve aracın %1 garnizon çevresinde olması gerekir.</Turkish>
@@ -66,7 +66,7 @@
         <French>Il n'y a pas assez de place pour entreposer ce véhicule</French>
         <Korean>이 차량을 차고에 넣을 공간이 충분하지 않습니다.</Korean>
         <Russian>В гараже недостаточно места для этой техники</Russian>
-        <Polish>Nie ma wystarczająco dużo miejsca na garażowanie tego pojazdu</Polish>
+        <Polish>Za mało miejsca w garażu żeby umieścić w nim ten pojazd</Polish>
         <Czech>Není dostatek prostoru pro uskladnění tohoto vozidla</Czech>
         <Portuguese>Não há espaço suficiente na garagem para este veículo</Portuguese>
         <Turkish>Bu aracı garaja koymak için yeterli alan yok</Turkish>
@@ -80,7 +80,7 @@
         <French>Cet objet ne peut être entreposé que par le commandant</French>
         <Korean>유류차량은 지휘관만 차고에 넣을 수 있습니다.</Korean>
         <Russian>Источники топлива могут быть перемещены в гараж только Командующим</Russian>
-        <Polish>Ten obiekt może być garażowany tylko przez dowódcę</Polish>
+        <Polish>Ten obiekt może być umieszczony w garażu tylko przez dowódcę</Polish>
         <Czech>Zdroje paliva mohou být uskladněny pouze velitelem</Czech>
         <Portuguese>Este objeto só pode ser guardado pelo comandante</Portuguese>
         <Turkish>Bu nesne yalnızca komutan tarafından garaja alınabilir</Turkish>
@@ -94,7 +94,7 @@
         <French>Vous ne pouvez pas entreposer un véhicule avec un équipage à l'intérieur</French>
         <Korean>승무원이 탑승한 차량은 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж технику с находящимся в нём экипажем</Russian>
-        <Polish>Nie możesz garażować pojazdu z załogą w środku</Polish>
+        <Polish>Nie możesz umieścić w garażu pojazdu z załogą</Polish>
         <Czech>Nemůžete uskladnit vozidlo s posádkou uvnitř</Czech>
         <Portuguese>Não podes guardar um veículo com passageiros dentro</Portuguese>
         <Turkish>İçinde mürettebat olan bir aracı garaja koyamazsınız</Turkish>
@@ -108,7 +108,7 @@
         <French>Vous ne pouvez pas entreposer un véhicule détruit</French>
         <Korean>파괴된 차량은 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж уничтоженную технику</Russian>
-        <Polish>Nie możesz garażować zniszczonego pojazdu</Polish>
+        <Polish>Nie możesz umieścić zniszczonego pojazdu w garażu</Polish>
         <Czech>Nemůžeš uskladnit zničené vozidlo</Czech>
         <Portuguese>Não podes guardar um veículo destruído</Portuguese>
         <Turkish>Kullanılamaz haldeki bir aracı garaja koyamazsınız</Turkish>
@@ -122,7 +122,7 @@
         <French>Vous ne pouvez pas entreposer des véhicules à plus de 25 mètres de vous</French>
         <Korean>25m 이상 떨어진 차량은 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж технику, находящуюся дальше 25 метров от вас</Russian>
-        <Polish>Nie możesz garażować pojazdów znajdujących się dalej niż 25m od Ciebie</Polish>
+        <Polish>Nie możesz umieścić w garażu pojazdów, które są oddalone o ponad 25m</Polish>
         <Czech>Nemůžete uskladňovat vozidla, která jsou dál než 25m</Czech>
         <Portuguese>Não podes guardar veículos que estejam a mais de 25m de ti</Portuguese>
         <Turkish>Size 25 metreden daha uzak olan araçları garaja koyamazsınız</Turkish>
@@ -136,7 +136,7 @@
         <French>Vous ne pouvez pas entreposer de véhicules pendant que des ennemis vous attaquent</French>
         <Korean>적들이 당신과 교전하는 동안에는 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести технику в гараж, когда вас атакует противник</Russian>
-        <Polish>Nie możesz garażować pojazdów, gdy wrogowie cię atakują</Polish>
+        <Polish>Nie możesz umieścić pojazdu w garażu gdy wrogowie cię atakują</Polish>
         <Czech>Nemůžeš uskladnit vozidla, zatímco na vás nepřátelé útočí</Czech>
         <Portuguese>Não podes guardar veículos enquanto tens inimigos a atacar-te</Portuguese>
         <Turkish>Düşmanlar size saldırırken araçları garaja koyamazsınız</Turkish>
@@ -150,7 +150,7 @@
         <French>Vous ne pouvez pas entreposer de véhicules lorsque des ennemis sont près de vous</French>
         <Korean>적들이 가까이 있는 동안에는 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести технику в гараж, когда рядом с вами противник</Russian>
-        <Polish>Nie możesz garażować pojazdów, gdy wrogowie są blisko ciebie</Polish>
+        <Polish>Nie możesz umieścić pojazdu w garażu gdy wrogowie są blisko ciebie</Polish>
         <Czech>Nemůžeš uskladnit vozidla, zatímco nepřátelé jsou blízko vás</Czech>
         <Portuguese>Não podes guardar veículos enquanto tens inimigos perto de ti</Portuguese>
         <Turkish>Düşmanlar yakınınızdayken araçları garaja koyamazsınız</Turkish>
@@ -178,7 +178,7 @@
         <French>Vous ne pouvez pas entreposer ceci</French>
         <Korean>이건 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести это в гараж</Russian>
-        <Polish>Nie możesz tego garażować</Polish>
+        <Polish>Nie możesz umieścić tego w garażu</Polish>
         <Czech>Toto nemůžete uskladnit</Czech>
         <Portuguese>Não podes guardar isto</Portuguese>
         <Turkish>Bunu garaja koyamazsın</Turkish>
@@ -192,7 +192,7 @@
         <French>Vous ne pouvez pas entreposer un véhicule en étant dans un autre véhicule</French>
         <Korean>다른 차량에 있는 동안에는 차량을 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж технику, находясь в другой</Russian>
-        <Polish>Nie możesz garażować pojazdu, będąc w innym pojeździe</Polish>
+        <Polish>Nie możesz umieścić pojazdu w garażu będąc w innym pojeździe</Polish>
         <Czech>Nemůžeš uskladnit vozidlo, když jsi v jiném vozidle</Czech>
         <Portuguese>Não podes guardar um veículo enquanto estás noutro veículo</Portuguese>
         <Turkish>Başka bir araçtayken bir aracı garaja park edemezsiniz</Turkish>
@@ -206,7 +206,7 @@
         <French>Objet stocké</French>
         <Korean>아이템 저장 완료</Korean>
         <Russian>Предмет в хранилище</Russian>
-        <Polish>Przedmiot został schowany</Polish>
+        <Polish>Przedmiot został dodany do schowka</Polish>
         <Czech>Položka uskladněna</Czech>
         <Portuguese>Item armazenado</Portuguese>
         <Turkish>Öğe saklandı</Turkish>
@@ -220,7 +220,7 @@
         <French>Vous ne pouvez pas entreposer un véhicule verrouillé</French>
         <Korean>잠긴 차량은 차고에 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж закрытую технику</Russian>
-        <Polish>Nie możesz garażować zamkniętego pojazdu</Polish>
+        <Polish>Nie możesz umieścić zamkniętego pojazdu w garażu</Polish>
         <Czech>Nemůžete uskladnit zamčené vozidlo</Czech>
         <Portuguese>Não podes guardar um veículo trancado</Portuguese>
         <Turkish>Kilitli bir aracı garaja koyamazsınız</Turkish>
@@ -234,7 +234,7 @@
         <French>Caisse de butin stockée</French>
         <Korean>전리품 상자 저장 완료</Korean>
         <Russian>Ящик с трофеями перемещен хранилище</Russian>
-        <Polish>Skrzynka z łupami została schowana</Polish>
+        <Polish>Skrzynia z wyposażeniem została dodana do schowka</Polish>
         <Czech>Kořistní bedna uložená</Czech>
         <Portuguese>Caixa de saque armazenada</Portuguese>
         <Turkish>Ganimet sandığı saklandı</Turkish>
@@ -262,7 +262,7 @@
         <French>Vous ne pouvez pas entreposer un véhicule avec votre câble de remorquage sorti ou avec un véhicule attaché</French>
         <Korean>견인 로프를 빼거나 차량에 부착한 상태에서는 차량을 넣을 수 없습니다.</Korean>
         <Russian>Вы не можете завести в гараж технику с буксирным тросом или присоединённой им техникой</Russian>
-        <Polish>Nie możesz garażować pojazdu z wyciągniętą liną holowniczą lub podłączonym pojazdem</Polish>
+        <Polish>Nie możesz umieścić w garazu pojazdu z wyciągniętą liną holowniczą lub podłączonym pojazdem</Polish>
         <Czech>Nemůžete uskladnit vozidlo, které je taženo a nebo má vytažená tažná lana</Czech>
         <Portuguese>Não podes guardar um Veículo com a Corda de Reboque de fora ou com um Veículo a reboque</Portuguese>
         <Turkish>Çekme Halatınız dışarıdayken veya Araç takılıyken bir Aracı garaja koyamazsınız</Turkish>
@@ -276,7 +276,7 @@
         <French>%1 Entreposé</French>
         <Korean>%1 넣음</Korean>
         <Russian>%1 перемещен(а) в гараж</Russian>
-        <Polish>%1 Garażowanie</Polish>
+        <Polish>%1 umieszczony w garażu</Polish>
         <Czech>%1 uskladněno</Czech>
         <Portuguese>%1 Guardado</Portuguese>
         <Turkish>%1 Garajda</Turkish>
@@ -416,7 +416,7 @@
         <French>Le véhicule est verrouillé par</French>
         <Korean>에 의해 차량이 잠겼습니다.</Korean>
         <Russian>Эта техника закрыта</Russian>
-        <Polish>Pojazd jest zablokowany przez</Polish>
+        <Polish>Pojazd został zamknięty przez</Polish>
         <Czech>Vozidlo je uzamčeno</Czech>
         <Portuguese>O veículo está trancado por</Portuguese>
         <Turkish>Aracı kilitledi</Turkish>
@@ -472,7 +472,7 @@
         <French>Vous ne pouvez accéder aux aéronefs qu'à partir d'une base aérienne alliée</French>
         <Korean>아군 공군 기지에서만 항공기에 액세스할 수 있습니다.</Korean>
         <Russian>Вы можете получить доступ к авиации только через союзный аэродром</Russian>
-        <Polish>Dostęp do samolotów można uzyskać tylko z przyjaznej bazy lotniczej</Polish>
+        <Polish>Masz dostęp do samolotów/helikopterów znajdujących się wyłącznie na sojuszniczych bazach lotniczych</Polish>
         <Czech>K letadlům můžete přistupovat pouze na přátelských letištích</Czech>
         <Portuguese>Só podes aceder aos aviões a partir de uma base aérea amiga</Portuguese>
         <Turkish>Uçaklara yalnızca dost bir hava üssünden erişebilirsiniz.</Turkish>
@@ -627,7 +627,7 @@
         <French>Les pylônes nécessitent une source de munitions pour être modifiés</French>
         <Korean>무장창을 편집하려면 탄약차량이 필요합니다.</Korean>
         <Russian>Источник боеприпасов необходим для редактирования пилонов</Russian>
-        <Polish>Pylony wymagają źródła amunicji do edycji</Polish>
+        <Polish>Wymagane jest źródło amunicji w pobliżu żeby móc edytować pylony</Polish>
         <Czech>Pylony vyžadují zdroj munice pro úpravu</Czech>
         <Portuguese>Torres necessitam de uma fonte de munição para serem editadas</Portuguese>
         <Turkish>Direkler, düzenlemek için bir cephane kaynağı gerektirir</Turkish>

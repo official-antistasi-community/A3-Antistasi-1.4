@@ -1,8 +1,12 @@
 
-#define CENTER_GRID_X ((getResolution select 2) * 0.5 * pixelW)
-#define CENTER_GRID_Y ((getResolution select 3) * 0.5 * pixelH)
-#define BOTTOM safeZoneH + safeZoneY
+#define SCREEN_RIGHT (safeZoneX + safeZoneW)
+#define SCREEN_BOTTOM (safeZoneY + safeZoneH)
 
+
+class A3A_buttonSmallText : A3A_button
+{
+    SizeEx = GUI_TEXT_SIZE_SMALL;
+};
 
 class A3A_teamLeaderBuilder
 {
@@ -16,17 +20,17 @@ class A3A_teamLeaderBuilder
         {
             moving = true;
             colorBackground[] = A3A_COLOR_TITLEBAR_BACKGROUND;
-            x = CENTER_X(160);
-            y = BOTTOM - PX_H(41);
-            w = PX_W(160);
+            x = safeZoneX;
+            y = SCREEN_BOTTOM - PX_H(41);
+            w = safeZoneW - PX_W(40);
             h = PX_H(5);
         };
 
         class Background : A3A_Background
         {
-            x = CENTER_X(160);
-            y = BOTTOM - PX_H(36);
-            w = PX_W(160);
+            x = safeZoneX;
+            y = SCREEN_BOTTOM - PX_H(36);
+            w = safeZoneW - PX_W(40);
             h = PX_H(36);
         };
     };
@@ -37,18 +41,18 @@ class A3A_teamLeaderBuilder
         {
             idc = -1;
             text = $STR_antistasi_teamleader_placer_title;
-            x = CENTER_X(160);
-            y = BOTTOM - PX_H(41);
-            w = PX_W(80);
+            x = safeZoneX;
+            y = SCREEN_BOTTOM - PX_H(41);
+            w = safeZoneW - PX_W(80);
             h = PX_H(5);
         };
         class RemMoneyText: A3A_TitlebarText
         {
             idc = A3A_IDC_TEAMLEADERBUILDERMONEY;
             text = "500 €";
-            x = CENTER_X(160) + PX_W(80);
-            y = BOTTOM - PX_H(41);
-            w = PX_W(80);
+            x = SCREEN_RIGHT - PX_W(80);
+            y = SCREEN_BOTTOM - PX_H(41);
+            w = PX_W(40);
             h = PX_H(5);
             style = ST_RIGHT;
         };
@@ -57,9 +61,9 @@ class A3A_teamLeaderBuilder
         class MainContent : A3A_DefaultControlsGroup
         {
             idc = A3A_IDC_TEAMLEADERBUILDERMAIN;
-            x = CENTER_X(160);
-            y = BOTTOM - PX_H(36);
-            w = PX_W(160);
+            x = safeZoneX;
+            y = SCREEN_BOTTOM - PX_H(36);
+            w = safeZoneW - PX_W(40);
             h = PX_H(36);
 
             class Controls
@@ -69,8 +73,8 @@ class A3A_teamLeaderBuilder
                     idc = A3A_IDC_TEAMLEADERBUILDINGGROUP;
                     x = 0;
                     y = PX_H(4);
-                    w = PX_W(160);
-                    h = PX_H(36);
+                    w = safeZoneW - PX_W(40);
+                    h = PX_H(32);
                 };
             };
         };

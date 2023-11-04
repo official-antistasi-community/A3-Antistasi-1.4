@@ -19,6 +19,7 @@ if (_type == "CAS") then
     switch (typeOf _plane) do
     {
         //Vanilla NATO CAS (A-10)
+        case "B_D_Plane_CAS_01_dynamicLoadout_lxWS";
         case "B_Plane_CAS_01_dynamicLoadout_F":
         {
             _loadout = ["PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F"];
@@ -35,6 +36,7 @@ if (_type == "CAS") then
             _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
         };
         //Vanilla IND CAS
+        case "a3a_Plane_Fighter_03_grey_F";
         case "I_Plane_Fighter_03_dynamicLoadout_F":
         {
 //            _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
@@ -272,6 +274,7 @@ if (_type == "AA") then
             _loadout = ["PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1"];
         };
         //Vanilla IND Air superiority fighter
+        case "a3a_Plane_Fighter_04_grey_F";
         case "I_Plane_Fighter_04_F":
         {
             _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_BIM9X_x2","PylonRack_Missile_BIM9X_x2"];

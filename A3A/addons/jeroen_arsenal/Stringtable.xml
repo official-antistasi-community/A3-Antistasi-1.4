@@ -258,11 +258,13 @@
         <Original>ERROR - Please report RPT to Antistasi Devs.</Original>
         <French>ERREUR - Veuillez signaler le RPT aux développeurs d'Antistasi.</French>
         <Russian>ОШИБКА - Отправьте RPT разработчикам Antistasi.</Russian>
+        <Czech>CHYBA - Prosím nahlašte RPT Antistasi Dev's</Czech>
       </Key>
       <Key ID="STR_A3A_JNA_scope_incompatible">
         <Original>&lt;br/&gt;(Not compatible with currently equipped weapons)</Original>
         <French>&lt;br/&gt;(Pas compatible avec les armes actuellement équipées)</French>
         <Russian>&lt;br/&gt;(Несовместимо с имеющимся в данный момент оружием)</Russian>
+        <Czech>&lt;br/&gt;(Nekompatibilní s aktuálně vybavenými zbraněmi)</Czech>
         <Chinesesimp>&lt;br/&gt;(与当前所装备的武器不兼容)</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_JNA_sort_amount">
@@ -496,6 +498,7 @@
         <Spanish>Super Amplia y Extendida Consola de Debug con Extra Butones de Guardado!</Spanish>
         <French>Console de débogage étendue ultra large avec boutons de sauvegarde supplémentaires !</French>
         <Russian>Сверхширокая Расширенная Консоль Отладки с Дополнительными Кнопками Сохранения!</Russian>
+        <Czech>Ultra Široká Rozšířená Debug Konzole S Extra Ukládacíma Tlačítkama!</Czech>
       </Key>
     </Container>
   </Package>

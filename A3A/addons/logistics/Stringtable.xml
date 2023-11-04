@@ -9,6 +9,8 @@
         <Spanish>Cargar 1% al vehículo más cercano.</Spanish>
         <French>Charger %1 dans le véhicule le plus proche.</French>
         <Korean>%1을(를) 가장 가까운 차량에 적재하십시오.</Korean>
+        <Polish>Załaduj %1 do najbliższego pojazdu</Polish>
+        <Czech>Naložit %1 do nejbližšího vozidla.</Czech>
         <Portuguese>Carregar %1 no veículo mais próximo.</Portuguese>
         <Turkish>En yakın araca %1 yükleyin.</Turkish>
         <Chinesesimp>将%1装载入附近的载具</Chinesesimp>
@@ -20,6 +22,7 @@
         <Spanish>Descargar</Spanish>
         <French>Déchargement du Cargo</French>
         <Korean>화물 내리기</Korean>
+        <Polish>Rozładuj ładunek</Polish>
         <Czech>Vyložit náklad</Czech>
         <Portuguese>Descarregar carga</Portuguese>
         <Turkish>Yükü Boşalt</Turkish>

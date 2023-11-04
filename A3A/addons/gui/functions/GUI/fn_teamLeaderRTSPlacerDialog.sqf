@@ -46,6 +46,11 @@ switch (_mode) do
 
 		private _buildableObjects = A3A_buildableObjects;
 		
+		private _boxWidth = round ((ctrlPosition _buildControlsGroup # 2) / GRID_W);
+		private _itemsPerRow = floor ((_boxWidth - 6) / 36);			// minimum 32 + 4 grids per tile
+		private _itemWidth = floor ((_boxWidth - 6 - 4*_itemsPerRow) / _itemsPerRow);
+
+		//diag_log format ["Builder: boxWidth %1, itemsPerRow %2, itemWidth %3", _boxWidth, _itemsPerRow, _itemWidth];
 
 		{
 			_x params [
@@ -64,21 +69,23 @@ switch (_mode) do
                 _editorPreview = A3A_PlaceHolder_NoVehiclePreview;
             };
 	
-			private _itemXpos = 7 * GRID_W + ((7 * GRID_W + 44 * GRID_W) * (_forEachIndex % 3));
-			private _itemYpos = (floor (_forEachIndex / 3)) * (44 * GRID_H);
+			private _itemXpos = (4 + (4 + _itemWidth) * (_forEachIndex % _itemsPerRow)) * GRID_W;
+			private _itemYpos = (floor (_forEachIndex / _itemsPerRow)) * (34 * GRID_H);
+
+			//diag_log format ["Builder: Item %1, xpos %2, ypos %3", _forEachIndex, _itemXpos, _itemYPos];
 
 			private _itemControlsGroup = _display ctrlCreate ["A3A_ControlsGroupNoScrollbars", A3A_IDC_TEAMLEADERBUILDITEMGROUP, _buildControlsGroup];
-			_itemControlsGroup ctrlSetPosition[_itemXpos, _itemYpos, 44 * GRID_W, 36 * GRID_H];
+			_itemControlsGroup ctrlSetPosition[_itemXpos, _itemYpos, _itemWidth * GRID_W, 30 * GRID_H];
 			_itemControlsGroup ctrlSetFade 1;
 			_itemControlsGroup ctrlCommit 0;
 
 			private _previewPicture = _display ctrlCreate ["A3A_Picture", A3A_IDC_TEAMLEADERBUILDIMAGEPREVIEW, _itemControlsGroup];
-			_previewPicture ctrlSetPosition [0, 0, 44 * GRID_W, 25 * GRID_H];
+			_previewPicture ctrlSetPosition [0, 0, _itemWidth * GRID_W, 24 * GRID_H];
 			_previewPicture ctrlSetText _editorPreview;
 			_previewPicture ctrlCommit 0;
 	
-			private _button = _display ctrlCreate ["A3A_ShortcutButton", A3A_IDC_TEAMLEADERBUILDBUTTON, _itemControlsGroup];
-			_button ctrlSetPosition [0, 25 * GRID_H, 44 * GRID_W, 8 * GRID_H];
+			private _button = _display ctrlCreate ["A3A_ButtonSmallText", A3A_IDC_TEAMLEADERBUILDBUTTON, _itemControlsGroup];
+			_button ctrlSetPosition [0, 24 * GRID_H, _itemWidth * GRID_W, 6 * GRID_H];
 			_button ctrlSetText _displayName;
 			_button setVariable ["className", _className];
 			_button setVariable ["model", _model];
@@ -119,13 +126,13 @@ switch (_mode) do
 
 			if (_price isNotEqualTo 0) then {
 				private _priceText = _display ctrlCreate ["A3A_InfoTextRight", -1, _itemControlsGroup];
-				_priceText ctrlSetPosition[23 * GRID_W, 21 * GRID_H, 20 * GRID_W, 3 * GRID_H];
+				_priceText ctrlSetPosition[(_itemWidth - 21) * GRID_W, 20 * GRID_H, 20 * GRID_W, 3 * GRID_H];
 				_priceText ctrlSetText format ["%1 €",_price];
 				_priceText ctrlCommit 0;
 			};
 
 			private _buildTime = _display ctrlCreate ["A3A_PictureStroke", -1, _itemControlsGroup];
-			_buildTime ctrlSetPosition[1 * GRID_W, 21 * GRID_H, 4 * GRID_W, 4 * GRID_H];
+			_buildTime ctrlSetPosition[1 * GRID_W, 19 * GRID_H, 4 * GRID_W, 4 * GRID_H];
 			_buildTime ctrlSetText A3A_Icon_Construct;
 			_buildTime ctrlCommit 0;
 	

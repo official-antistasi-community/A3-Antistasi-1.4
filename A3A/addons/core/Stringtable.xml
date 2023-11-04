@@ -6278,7 +6278,8 @@
         <Spanish>La ultima Limpieza de Basura fue hace %1. Mantenla supervisada. Limpieza de basura forzada en %2.</Spanish>
         <French>Le dernier Nettoyage Memoire était il y a %1 jours. Continuer le suivi. Nettoyage forcé dans %2.</French>
         <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 계속 기록합니다. 쓰레기 강제 청소는 %2 전에 실행되었습니다.</Korean>
-        <Polish>Ostatnie czyszczenie śmieci miało miejsce %1 temu. Uważaj na następne. Wymuszone Czysczenie za %2.</Polish>
+        <Russian>Последняя чистка мусора была %1 назад. Имейте это в виду. Принудительная чистка будет через %2.</Russian>
+        <Polish>Ostatnie czyszczenie śmieci miało miejsce %1 temu. Uważaj na następne. Czyszczenie będzie wymuszone za %2.</Polish>
         <Czech>Poslední čistění odpadu bylo %1 zpátky. Dávejte si na to pozor. Vynucené čistení odpadu za %2.</Czech>
         <Portuguese>Última Limpeza de Lixo foi há %1. Relembra este valor. LL forçada em %2</Portuguese>
         <Turkish>Son Çöp Temizleme işlemi %1 önceydi. Takipte kalın. %2'de Çöp Temizleyici çalıştırıldı.</Turkish>
@@ -6292,7 +6293,7 @@
         <French>Le Suivi du Nettoyage Mémoire lance un nettoyage mémoire car le temps écoulé excède le seuil. Suivre le temps de nettoyage.</French>
         <Korean>쓰레기 청소 기록 프로그램이 임계값을 초과하여 쓰레기를 청소합니다. 쓰레기 청소 시간을 계속 기록합니다.</Korean>
         <Russian>Трекер очистки мусора запустил чистку из-за превышения порогового значения времени. Следите за трекером.</Russian>
-        <Polish>Skrypt do czyszczenia śmieci przeprowadziło czyszczenie, ponieważ czas przekroczył próg. Śledź czasy czyszczenia.</Polish>
+        <Polish>Skrypt do czyszczenia śmieci został uruchomiony, ponieważ minęło zbyt dużo czasu od ostatniego czyszczenia. Śledź czasy czyszczenia.</Polish>
         <Czech>Monitor čistení odpadků spustil sběr jelikož čas překročil časový práh. Hlídejte si čas sběru.</Czech>
         <Portuguese>O Rastreador de Limpeza de Lixo correu uma limpeza de lixo porque o tempo passou do limite. Relembra os tempos para LL.</Portuguese>
         <Turkish>Çöp Temizleyici İzcisi, zaman eşiği geçtiği için çöp temizliği gerçekleştirir. Çöp Temizleyici sürelerini takip edin.</Turkish>
@@ -6319,6 +6320,7 @@
         <Spanish>Limpieza automática de basura en %1</Spanish>
         <French>Nettoyage mémoire automatique dans %1</French>
         <Korean>쓰레기 자동 청소가 %1에 실행됩니다</Korean>
+        <Russian>Автоматическая очистка мусора произойдёт через %1</Russian>
         <Polish>Automatyczne usuwanie śmieci rozpocznie się za %1</Polish>
         <Czech>Automatické čistení odpadků za %1</Czech>
         <Turkish>%1'de Otomatik Çöp Temizleme geliyor.</Turkish>
@@ -6331,6 +6333,7 @@
         <Spanish>Último aviso</Spanish>
         <French>Dernier Avertissement</French>
         <Korean>최종 경고</Korean>
+        <Russian>Последнее предупреждение</Russian>
         <Polish>Ostatnie ostrzeżenie</Polish>
         <Czech>Poslední varování</Czech>
         <Portuguese>Último aviso</Portuguese>
@@ -6638,6 +6641,7 @@
         <Original>Garbage Cleaner Threshold for Automatic GC</Original>
         <French>Limite avant le Nettoyage de Memoire automatique</French>
         <Korean>자동 쓰레기 청소에 대한 쓰레기 청소 프로그램 임계점</Korean>
+        <Russian>Порог очистки мусора для автоматической очистки мусора</Russian>
       </Key>
       <Key ID="STR_A3A_Params_generic_10km">
         <Original>10 km</Original>
@@ -6838,6 +6842,8 @@
         <Original>Use In-Development UI Preview</Original>
         <French>Utiliser la Previsualisation de l'UI en Développement</French>
         <Korean>개발 중인 UI 미리보기 사용</Korean>
+        <Russian>Использовать предварительный просмотр пользовательского интерфейса в разработке</Russian>
+        <Czech>Použít náhled uživatelského rozhraní ve vývoji.</Czech>
       </Key>
       <Key ID="STR_A3A_Params_helmetLossChance_title">
         <Original>Chance of helmet loss on headshots</Original>
@@ -6897,21 +6903,28 @@
         <Original>Debug</Original>
         <French>Déboger</French>
         <Korean>디버그</Korean>
+        <Russian>Отладка</Russian>
+        <Czech>Ladění</Czech>
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_error">
         <Original>Error</Original>
         <French>Erreur</French>
         <Korean>오류</Korean>
+        <Russian>Ошибка</Russian>
+        <Czech>Chyba</Czech>
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_info">
         <Original>Info</Original>
         <French>Info</French>
         <Korean>정보</Korean>
+        <Russian>Информация</Russian>
+        <Czech>Informace</Czech>
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_title">
         <Original>Logging Level (Amount of detail in .rpt file)</Original>
         <French>Niveau de Logs (Quantité de détails dans le fichier .rpt)</French>
         <Korean>로그 작성 수준 (.rpt 파일의 세부정보량)</Korean>
+        <Russian>Уровень ведения логов (Количество деталей в файле .rpt)</Russian>
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_verbose">
         <Original>Verbose</Original>

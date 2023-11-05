@@ -105,6 +105,13 @@ class A3_Structures_F_Heli_Items_Luggage_PlasticCase_01_medium_F_p3d : TRIPLES(A
 {
     offset[] = {0,0,0.19};
     rotation[] = {1,0,0};
+    size = 1;
+};
+
+class A3_Structures_F_Heli_Items_Luggage_PlasticCase_01_large_F_p3d : TRIPLES(ADDON,Cargo,Base)
+{
+    offset[] = {0,0,0.39};
+    rotation[] = {0,1,0};
     size = 2;
 };
 

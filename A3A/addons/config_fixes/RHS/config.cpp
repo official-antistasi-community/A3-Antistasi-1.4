@@ -1,9 +1,13 @@
+//RHS - config.cpp
+
 #include "..\script_component.hpp"
 
 #if __has_include("\rhsgref\addons\rhsgref_main\config.bin")
 
-class CfgPatches {
-    class PATCHNAME(RHS) {
+class CfgPatches 
+{
+    class PATCHNAME(RHS) 
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};

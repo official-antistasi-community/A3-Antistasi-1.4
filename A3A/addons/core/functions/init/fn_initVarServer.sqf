@@ -104,6 +104,8 @@ DECLARE_SERVER_VAR(A3A_lastGarbageCleanTime, serverTime);
 DECLARE_SERVER_VAR(A3A_arsenalLimits, createHashMap);
 //Time of last garbage clean notification
 DECLARE_SERVER_VAR(A3A_lastGarbageCleanTimeNote, serverTime);
+// Under-construction objects
+DECLARE_SERVER_VAR(A3A_unbuiltObjects, []);
 
 ////////////////////////////////////
 //     SERVER ONLY VARIABLES     ///
@@ -164,6 +166,8 @@ testingTimerIsActive = false;
 
 A3A_tasksData = [];
 
+A3A_buildingsToSave = [];
+
 hcArray = [];					// array of headless client IDs
 
 membersX = [];					// These two published later by startGame
@@ -176,7 +180,7 @@ Info("Initialising item categories");
 
 //We initialise a LOT of arrays based on the categories. Every category gets a 'allX' variables and an 'unlockedX' variable.
 
-private _unlockableCategories = allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers", "ArmoredVests", "ArmoredHeadgear", "BackpacksCargo"];
+private _unlockableCategories = allCategoriesExceptSpecial + ["AA", "AT", "GrenadeLaunchers", "ArmoredVests", "ArmoredHeadgear"];
 
 //Build list of 'allX' variables, such as 'allWeapons'
 DECLARE_SERVER_VAR(allEquipmentArrayNames, allCategories apply {"all" + _x});
@@ -470,7 +474,7 @@ private _vehicleResourceCosts = createHashMap;
 { _vehicleResourceCosts set [_x, 50] } forEach FactionGet(all, "vehiclesLightArmed");
 { _vehicleResourceCosts set [_x, 60] } forEach FactionGet(all, "vehiclesLightAPCs");
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
-{ _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
+{ _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
 
 { _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
@@ -489,7 +493,7 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 80] } forEach FactionGet(Reb, "vehiclesAA") + FactionGet(Reb, "vehiclesAT");
 
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
-{ _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs");
+{ _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
 
 

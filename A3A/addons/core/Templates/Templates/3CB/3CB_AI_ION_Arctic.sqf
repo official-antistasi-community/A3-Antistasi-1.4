@@ -37,7 +37,7 @@
 ["vehiclesAmphibious", ["UK3CB_B_AAV_US_WDL"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["UK3CB_KDF_B_Su25SM_CAS"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["UK3CB_KDF_B_L39_PYLON"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["UK3CB_ADA_I_L39_PYLON"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_ION_B_Desert_Bell412_Utility", "UK3CB_ION_B_Desert_MELB_H6M", "UK3CB_ION_B_Desert_UH1H", "UK3CB_ION_B_Desert_Unarmed_MH9"]] call _fnc_saveToTemplate;

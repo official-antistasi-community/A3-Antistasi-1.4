@@ -189,6 +189,20 @@ class CfgFunctions
             class zoneCheck {};
         };
 
+        class Builder {
+            file = QPATHTOFOLDER(functions\Builder);
+            class addBuildingActions {};
+            class buildingComplete {};
+            class buildingPlacer {};
+            class buildingPlacerStart {};
+            class initBuildableObjects {};
+            class initBuilderMonitors {};
+            class initPlacerDB {};
+            class lockBuilderBox {};
+            class placeBuilderObjects {};
+            class processBuildingTimeouts {};
+        };
+
         class Collections {
             file = QPATHTOFOLDER(functions\Collections);
             class getNestedObject {};
@@ -528,6 +542,7 @@ class CfgFunctions
             class reDress {};
             class reinfPlayer {};
             class spawnHCGroup {};
+            class spawnHCVeh {};
             class vehiclePrice {};
             class vehStats {};
         };
@@ -536,11 +551,14 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\Revive);
             class actionRevive {};
             class carry {};
+            class calcVestDamageAdj {};
             class fatalWound {};
             class handleDamage {};
             class handleDamageAAF {};
             class initRevive {};
             class isMedic {};
+            class selfRevive {};
+            class selfReviveReset {};
             class respawn {};
             class unconscious {};
             class unconsciousAAF {};
@@ -733,12 +751,14 @@ class CfgFunctions
         class Utility {
             file = QPATHTOFOLDER(functions\Utility);
             class basicBackpack {};
+            class boxCollisionCheck {};
             class classNameToModel {};
             class countAttachedObjects {};
             class createDataObject {};
             class createNamespace {};
             class deleteNamespace {};
             class getAdmin {};
+            class isEngineer {};
             class localLog {};
             class log {};
             class setIdentity {};
@@ -757,7 +777,6 @@ class CfgFunctions
             class buyItem {};
             class carryItem {};
             class dropObject {};
-            class initMovableObject {};
             class initObject {};
             class initObjectRemote {};
             class remainingFuel {};

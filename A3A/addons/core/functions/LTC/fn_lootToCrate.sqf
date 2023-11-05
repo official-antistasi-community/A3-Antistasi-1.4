@@ -22,7 +22,9 @@
 params ["_container"];
 scopeName "Main";
 
-["Loot crate", "Looting..."] call A3A_fnc_customHint;
+private _titleStr = localize "STR_A3A_fn_ltc_title";
+
+[_titleStr, localize "STR_A3A_fn_ltc_ltc_looting"] call A3A_fnc_customHint;
 
 //break undercover
 player setCaptive false;
@@ -196,9 +198,9 @@ _allUnlockedArray = [];
 } forEach _weaponHolders;
 
 if ((_allUnlockedArray findIf {!_x} isEqualTo -1)) then {
-    ["Loot crate", "Nearby loot transfered to crate."] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_ltc_ltc_transfered"] call A3A_fnc_customHint;
 } else {
-    ["Loot crate", "Unable to transfer all nearby loot."] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_ltc_ltc_notrans"] call A3A_fnc_customHint;
 };
 
 [_container, clientOwner, true] remoteExecCall ["A3A_fnc_canLoot", 2];

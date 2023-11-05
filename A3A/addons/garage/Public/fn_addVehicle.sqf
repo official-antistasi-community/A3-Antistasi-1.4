@@ -164,6 +164,11 @@ private _addVehicle = {
     ];
     private _sourceIndex = _source find true;
 
+    //Disable locking if the player is already at the lock limit
+    if (_sourceIndex == -1 && _lockUID != "" && {[_lockUID] call HR_GRG_fnc_getLockCount >= _player call HR_GRG_getLockLimit}) then {
+        _lockUID = ""; _lockName = "";
+    };
+
     private _stateData = [_this] call HR_GRG_fnc_getState;
     private _customisation = [_this] call BIS_fnc_getVehicleCustomization;
 

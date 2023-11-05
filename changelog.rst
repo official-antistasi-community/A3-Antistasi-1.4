@@ -62,7 +62,7 @@ Version 3.4.0
    * :issue:`2960` Added vehiclesLightTanks template category
    * :issue:`2955` Updated RHS ChDKZ AI template with adjusted vehicle lineup and some gear changes
    * :issue:`2953` Updated 3CB FIA and TKM rebel templates with starting Enfields
-   * :issue:`2951` Updated 3CB CNM rebel template with starting Mosin and Shtgun
+   * :issue:`2951` Updated 3CB CNM rebel template with starting Mosin and Shotgun
    * :issue:`2928` Updated RHS ChDKZ AI template with retextured Mi8s
    * :issue:`2919` Added CUP Civilian Vehicles Pack
    * :issue:`2916` Added transport planes to Enoch and Arid CSAT templates

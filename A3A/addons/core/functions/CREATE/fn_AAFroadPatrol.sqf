@@ -25,7 +25,7 @@ private _bases = (seaports + airportsX + outposts) select {
 if (_bases isEqualTo []) exitWith {};
 Debug_1("Possible patrol bases %1", _bases);
 
-_base = selectRandom _startBases;
+_base = selectRandom _bases;
 
 _sideX = sidesX getVariable [_base,sideUnknown];
 private _faction = Faction(_sideX);

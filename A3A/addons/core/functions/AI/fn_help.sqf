@@ -2,6 +2,7 @@
 // Just for debugging probably
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+private _titleStr = localize "STR_A3A_fn_ai_help_title";
 
 // Both units must be local. Non-local unit might be resolved at some point.
 
@@ -65,7 +66,7 @@ if (_medicX != _unit) then
 
     // Actual helping hint for player
     if (player == _unit) then {
-        ["Medical", format ["%1 is on the way to help you.", name _medicX]] call A3A_fnc_customHint;
+        [_titleStr, format [localize "STR_A3A_fn_ai_help_onway", name _medicX]] call A3A_fnc_customHint;
     };
 
     Debug_2("Medic %1 helping %2", _medicX, _unit);

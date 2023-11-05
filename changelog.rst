@@ -41,14 +41,16 @@ Version 3.4.0
 
 .. admonition:: Minor
 
+   * :issue:`3027` Updated Arma version checking
    * :issue:`3012` & :issue:`3011` & :issue:`2978` Updated Antistasi based on ACE 3.16.0 / 3.16.1 updates
    * :issue:`2997` Fixed SPE Panterfaust and mortyAI issues
+   * :issue:`2975` Fixed High Command Squad Icons being visible in 3D Display
    * :issue:`2956` Moved Headless Clients with HQ to theoretically improve AI responses
    * :issue:`2930` Adds Global Mobilization radiotowers to be compatible with Antistasi
    * :issue:`2899` Enabled rebel AI to utilize rifle+muzzle combo grenade launchers
    * :issue:`2876` PATCOM Garrison adjustments and minor fixes
    * :issue:`2860` Improved Garage source checking
-   * :issue:`2842` Moved ACE Init
+   * :issue:`2842` Moved ACE Init and added ACE event handling for especially grenade throwing and injection
    * :issue:`2829` Added member & guest lock limits to garage
    * :issue:`2804` Unit names are being set according to their factions
    * :issue:`2686` Added ACE ropes to starting Arsenal
@@ -60,14 +62,14 @@ Version 3.4.0
    * :issue:`2960` Added vehiclesLightTanks template category
    * :issue:`2955` Updated RHS ChDKZ AI template with adjusted vehicle lineup and some gear changes
    * :issue:`2953` Updated 3CB FIA and TKM rebel templates with starting Enfields
-   * :issue:`2951` Updated RHS CNM rebel template with starting Mosin and Shtgun
+   * :issue:`2951` Updated 3CB CNM rebel template with starting Mosin and Shtgun
    * :issue:`2928` Updated RHS ChDKZ AI template with retextured Mi8s
    * :issue:`2919` Added CUP Civilian Vehicles Pack
    * :issue:`2916` Added transport planes to Enoch and Arid CSAT templates
    * :issue:`2910` Added APEX Jets and UAVs to CSAT and NATO templates
    * :issue:`2932` Added Marksmen DLC rifles and MGs to Vanilla templates when enabled
    * :issue:`2931` Added different DLC and WS CDLC assets to Vanilla templates when enabled
-   * :issue:`2885` Updated ChDKZ templates with retextured tanks
+   * :issue:`2885` Updated RHS ChDKZ templates with retextured tanks
 
 .. admonition:: Localization
 
@@ -76,18 +78,15 @@ Version 3.4.0
 
 .. admonition:: Bugfixes
 
-   * :issue:`3027` Updated Arma version checking
    * :issue:`3026` Fixed logistics JIP bugs
-   * :issue:`3021` Improved creteSupport logging
+   * :issue:`3021` Improved createSupport logging
    * :issue:`3016` Fixed broken UI config dependencies
    * :issue:`3013` Fixed basic/medical gear missing in SPE/IFA templates
    * :issue:`3008` & :issue:`3004` Fixed config errors for Vanilla/Mod assets
    * :issue:`3001` Map Fixes - Fixed vehicle markers on Livonia, removed seaport_6 on Malden and moved outposts _1 and _14 on Malden
-   * :issue:`2998` Fixed High Command being visible after leaving High Command mode
    * :issue:`2994` Fixed Spam in Zeus Logging
-   * :issue:`2987` Fixed theBoss war not being published in Autostart case
+   * :issue:`2987` Fixed theBoss var not being published in Autostart case
    * :issue:`2979` Fixed non-basic backpack in SPE rebel template
-   * :issue:`2975` Fixed High Command Squad Icons being visible in 3D Display
    * :issue:`2959` Fixed RPT error when admin disconnects
    * :issue:`2947` Fixed Huron not using gear on combat landing
    * :issue:`2945` Added missing Land_Cargo_HQ_V4_F building to array of static spawners

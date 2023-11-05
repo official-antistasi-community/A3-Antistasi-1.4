@@ -84,16 +84,16 @@ Version 3.4.0
    * :issue:`3013` Fixed basic/medical gear missing in SPE/IFA templates
    * :issue:`3008` & :issue:`3004` Fixed config errors for Vanilla/Mod assets
    * :issue:`3001` Map Fixes - Fixed vehicle markers on Livonia, removed seaport_6 on Malden and moved outposts _1 and _14 on Malden
-   * :issue:`2994` Fixed Spam in Zeus Logging
+   * :issue:`2994` Fixed spam in Zeus Logging
    * :issue:`2987` Fixed theBoss var not being published in Autostart case
    * :issue:`2979` Fixed non-basic backpack in SPE rebel template
    * :issue:`2959` Fixed RPT error when admin disconnects
    * :issue:`2947` Fixed Huron not using gear on combat landing
    * :issue:`2945` Added missing Land_Cargo_HQ_V4_F building to array of static spawners
-   * :issue:`2942` Autumn Cleaning - removed dead IFA templated, fixed a typo and small map issues on Anizay and Malden
+   * :issue:`2942` Autumn Cleaning - removed dead IFA templates, fixed a typo and small map issues on Anizay and Malden
    * :issue:`2922` Multiple Bug Fixes found by LordGolias using his sqf-analyzer
    * :issue:`2917` Fixed AI not being able to use light helis in QRFs
-    * [Multiple PRs] small typos, in-production fixes for new systems and such
+   * [Multiple PRs] small typos, in-production fixes for new systems and such
 
 .. warning::
 

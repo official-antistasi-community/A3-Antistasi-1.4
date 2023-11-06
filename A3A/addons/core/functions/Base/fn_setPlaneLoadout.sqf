@@ -19,6 +19,7 @@ if (_type == "CAS") then
     switch (typeOf _plane) do
     {
         //Vanilla NATO CAS (A-10)
+        case "B_D_Plane_CAS_01_dynamicLoadout_lxWS";
         case "B_Plane_CAS_01_dynamicLoadout_F":
         {
             _loadout = ["PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F"];
@@ -35,6 +36,7 @@ if (_type == "CAS") then
             _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
         };
         //Vanilla IND CAS
+        case "a3a_Plane_Fighter_03_grey_F";
         case "I_Plane_Fighter_03_dynamicLoadout_F":
         {
 //            _loadout = ["PylonRack_1Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","","PylonRack_3Rnd_LG_scalpel","PylonRack_3Rnd_LG_scalpel","PylonRack_1Rnd_LG_scalpel"];
@@ -123,6 +125,7 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["missiles_DAR"]];
             _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F"]];
         };
+        case "UK3CB_ADA_B_L39_PYLON";
         case "UK3CB_AAF_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";
         case "UK3CB_LDF_B_L39_PYLON":
@@ -147,7 +150,13 @@ if (_type == "CAS") then
             _plane setVariable ["bombRacks", ["UK3CB_Factions_Bomb_FAB250"]];
             _plane setVariable ["rocketLauncher", ["UK3CB_Factions_Rockets_S8KOM"]];
         };
-
+        case "UK3CB_AAF_B_Gripen_G";
+        case "UK3CB_AAF_B_Gripen_DG":
+        {
+            _loadout = ["","","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
+            _plane setVariable ["mainGun", "weapon_Fighter_Gun20mm_AA"];
+            _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher"]];
+        };
         // cup aircraft
         case "CUP_B_L39_CZ":
         {
@@ -273,6 +282,7 @@ if (_type == "AA") then
             _loadout = ["PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1","PylonMissile_Missile_AA_R77_INT_x1"];
         };
         //Vanilla IND Air superiority fighter
+        case "a3a_Plane_Fighter_04_grey_F";
         case "I_Plane_Fighter_04_F":
         {
             _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_BIM9X_x2","PylonRack_Missile_BIM9X_x2"];
@@ -307,13 +317,18 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"];
         };
         case "UK3CB_ANA_B_L39_PYLON";
-        case "UK3CB_KDF_B_L39_PYLON";
+        case "UK3CB_ADA_B_L39_PYLON";
         case "UK3CB_ADA_I_L39_PYLON";
         case "UK3CB_TKA_B_L39_PYLON";
         case "UK3CB_KRG_B_L39_PYLON";
         case "UK3CB_LDF_B_L39_PYLON":
         {
             _loadout = ["PylonRack_1Rnd_Missile_AA_04_F","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_GAA_missiles","PylonWeapon_300Rnd_20mm_shells","PylonRack_1Rnd_GAA_missiles","PylonRack_1Rnd_AAA_missiles","PylonRack_1Rnd_Missile_AA_04_F"];
+        };
+        case "UK3CB_AAF_B_Gripen_G";
+        case "UK3CB_AAF_B_Gripen_DG":
+        {
+            _loadout = ["PylonMissile_Missile_BIM9X_x1","PylonMissile_Missile_BIM9X_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x1","PylonRack_Missile_AMRAAM_C_x2","PylonRack_Missile_AMRAAM_C_x2"];
         };
         case "UK3CB_CW_SOV_O_LATE_MIG21_AA";
         case "UK3CB_CW_SOV_O_EARLY_MIG21_AA";

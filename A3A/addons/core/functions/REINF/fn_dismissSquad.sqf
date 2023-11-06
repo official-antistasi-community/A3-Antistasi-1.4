@@ -2,6 +2,7 @@
 FIX_LINE_NUMBERS()
 //if (!isServer) exitWith{};
 private ["_groups","_hr","_resourcesFIA","_wp","_groupX","_veh","_leave"];
+private _titleStr = localize "STR_A3A_fn_reinf_dissSquad_title";
 
 _groups = _this select 0;
 _hr = 0;
@@ -15,13 +16,13 @@ _leave = false;
 	exitWith { _leave = true; };
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss player led, Watchpost, Roadblocks or Minefield building squads."] call A3A_fnc_customHint;};
+if (_leave) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissSquad_no_player"] call A3A_fnc_customHint;};
 
 {
 if (_x getVariable ["esNATO",false]) then {_leave = true};
 } forEach _groups;
 
-if (_leave) exitWith {["Dismiss Squad", "You cannot dismiss NATO groups."] call A3A_fnc_customHint;};
+if (_leave) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissSquad_no_nato"] call A3A_fnc_customHint;};
 
 _pos = getMarkerPos respawnTeamPlayer;
 

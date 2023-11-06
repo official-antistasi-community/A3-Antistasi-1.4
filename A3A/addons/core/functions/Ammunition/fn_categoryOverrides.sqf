@@ -420,6 +420,10 @@ private _categoryOverrideTable = [
 
 //SPE
 
+["SPE_PzFaust_30m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_PzFaust_60m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_Faustpatrone", ["RocketLaunchers","Weapons","AT","Disposable"]],
+
 ["SPE_Lafette_Tripod", ["StaticWeaponParts","Items"]],
 ["SPE_M1_81_Barrel", ["StaticWeaponParts","Items"]],
 ["SPE_MLE_27_31_Barrel", ["StaticWeaponParts","Items"]],
@@ -435,6 +439,7 @@ private _categoryOverrideTable = [
 ["SPE_M1903A3_Springfield_M1_GL", ["Rifles","Weapons","GrenadeLaunchers"]],
 ["SPE_M1_Carbine_M8", ["Rifles","Weapons","GrenadeLaunchers"]],
 ["SPE_M1_Garand_M7", ["Rifles","Weapons","GrenadeLaunchers"]] ];
+
 
 //Create a local namespace.
 A3A_categoryOverrides = false call A3A_fnc_createNamespace;

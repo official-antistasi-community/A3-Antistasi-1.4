@@ -21,7 +21,7 @@ private _vehicleAA = [];
 
 private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["C_Heli_Light_01_civil_F", "a3a_C_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
@@ -71,17 +71,17 @@ if ("ws" in A3A_enabledDLC) then {
 
 private _initialRebelEquipment = [
 "hgun_Pistol_heavy_02_F","hgun_P07_F",
-"SMG_01_F","SMG_02_F",
+"SMG_01_F","hgun_PDW2000_F","SMG_02_F",
 "6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02","MiniGrenade","SmokeShell",
 ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
 "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
 "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr",
 "V_BandollierB_khk","V_BandollierB_oli","V_Rangemaster_belt",
-"Binocular",
+"Binocular","hgun_Pistol_Signal_F","6Rnd_GreenSignal_F","6Rnd_RedSignal_F",
 "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
 
 if ("expansion" in A3A_enabledDLC) then {
-    _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
+    _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45], "SMG_05_F", "hgun_Pistol_01_F", "10Rnd_9x21_Mag"];
 } else {
     _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
 };

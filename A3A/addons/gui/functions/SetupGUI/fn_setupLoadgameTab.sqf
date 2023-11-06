@@ -148,7 +148,7 @@ switch (_mode) do
             _saveData set ["startType", "new"];
             _saveData set ["name", ctrlText (_display displayCtrl A3A_IDC_SETUP_NAMEEDITBOX)];
             _saveData set ["startPos", markerPos "Synd_HQ"];
-            _confirmText = "Create new game with ";
+            _confirmText = "Create new game with "; //TODO: Localize
         } else {
             private _oldSave = A3A_setup_saveData select (_listboxCtrl getVariable "rowIndex");
             _saveData set ["gameID", _oldSave get "gameID"];
@@ -156,11 +156,11 @@ switch (_mode) do
             if (cbChecked _copyGameCtrl) then {
                 _saveData set ["startType", "copy"];
                 _saveData set ["name", ctrlText (_display displayCtrl A3A_IDC_SETUP_NAMEEDITBOX)];
-                _confirmText = format ["Copy game with ID %1, ", _oldSave get "gameID"];
+                _confirmText = format ["Copy game with ID %1, ", _oldSave get "gameID"]; //TODO: Localize
             } else {
                 _saveData set ["startType", "load"];
                 _saveData set ["name", _oldSave getOrDefault ["name", ""]];
-                _confirmText = format ["Load game with ID %1, ", _oldSave get "gameID"];
+                _confirmText = format ["Load game with ID %1, ", _oldSave get "gameID"]; //TODO: Localize
             };
         };
         if (_saveData get "name" != "") then {
@@ -176,7 +176,7 @@ switch (_mode) do
 
         private _occName = getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factionData#0#0/"name");
         private _invName = getText (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_factionData#0#1/"name");
-        _confirmText = _confirmText + endl + format ["%1 occupants and %2 invaders?", _occName, _invName];
+        _confirmText = _confirmText + endl + format ["%1 occupants and %2 invaders?", _occName, _invName]; //TODO: Localize
 
         // Params tab: Array of [name, value]
         private _paramsData = ["getParams"] call A3A_fnc_setupParamsTab;
@@ -185,7 +185,7 @@ switch (_mode) do
         // Set data & function for confirmation, then open confirmation box
         _display setVariable ["confirmData", [_confirmText, A3A_fnc_setupLoadgameTab, "startGameConfirm"]];
         _display setVariable ["newSaveData", _saveData];
-        diag_log format ["Prepared save data: %1", _saveData];
+        diag_log format ["Prepared save data: %1", _saveData]; //TODO: Localize
         createDialog "A3A_SetupConfirmDialog";
     };
 
@@ -232,7 +232,7 @@ switch (_mode) do
         if (_index == -1) exitWith {};
 
         private _saveData = A3A_setup_saveData select _index;
-        private _str = format ["Really delete game with ID %1 on %2?", _saveData get "gameID", _saveData get "mapStr"];
+        private _str = format ["Really delete game with ID %1 on %2?", _saveData get "gameID", _saveData get "mapStr"]; //TODO: Localize
         _display setVariable ["confirmData", [_str, A3A_fnc_setupLoadgameTab, "deleteGameConfirmed"]];
         createDialog "A3A_SetupConfirmDialog";
     };

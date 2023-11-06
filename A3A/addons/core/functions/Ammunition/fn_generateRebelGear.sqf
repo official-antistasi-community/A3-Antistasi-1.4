@@ -127,11 +127,21 @@ _rebelGear set ["ArmoredHeadgear", _aheadgear];
 
 // Backpack filtering
 private _backpacks = [];
+private _bpLoads = createHashMap;
 {
     _x params ["_class", "_amount"];
-    private _categories = _class call A3A_fnc_equipmentClassToCategories;
-    if ("BackpacksCargo" in _categories) then { [_backpacks, _class, _amount] call _fnc_addItem };
+    private _load = getNumber (configFile >> "CfgVehicles" >> _class >> "maximumLoad");
+    _bpLoads set [_class, _load];
+    if (_load > 160) then { [_backpacks, _class, _amount] call _fnc_addItem };
 } forEach (jna_datalist select IDC_RSCDISPLAYARSENAL_TAB_BACKPACK);
+
+if (_backpacks isEqualTo []) then {
+    // If we don't have any high-load backpacks (eg FFF), resort to largest one
+    private _maxLoad = -1;
+    private _class = "";
+    { if (_y > _maxLoad) then { _maxLoad = _y; _class = _x } } forEach _bpLoads;
+    if (_class != "") then { [_backpacks, _class, -1] call _fnc_addItem };
+};
 
 _rebelGear set ["BackpacksCargo", _backpacks];
 

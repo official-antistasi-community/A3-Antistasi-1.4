@@ -12,6 +12,7 @@ Info_1("Server version: %1", QUOTE(VERSION_FULL));
 // ********************** Pre-setup init ****************************************************
 
 if (isClass (missionConfigFile/"CfgFunctions"/"A3A")) exitWith {};          // Pre-mod mission will break. Messaging handled in initPreJIP
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 // hide all the HQ objects
@@ -175,20 +176,22 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 if (isPlayer A3A_setupPlayer) then {
     // Add current admin (setupPlayer) to members list and make them commander
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
-    theBoss = A3A_setupPlayer; publicVariable "theBoss";
+    theBoss = A3A_setupPlayer;
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];
 
 publicVariable "membersX";
+publicVariable "theBoss";       // need to publish this even if empty
 
 
 // Needs params + factions. Might depend on saved data in the future

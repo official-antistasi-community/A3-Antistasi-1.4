@@ -11,6 +11,7 @@ Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
@@ -86,6 +87,7 @@ if (!isServer) then {
 
 // Headless clients register with server and bail out at this point
 if (!isServer and !hasInterface) exitWith {
+    player setPosATL (markerPos respawnTeamPlayer vectorAdd [-100, -100, 0]);
     [clientOwner] remoteExecCall ["A3A_fnc_addHC",2];
 };
 
@@ -291,6 +293,12 @@ player addEventHandler ["GetInMan", {
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
 player addEventHandler ["HandleRating", {0}];
 
+// Prevent squad icons showing in 3d display in high command
+addMissionEventHandler ["CommandModeChanged", {
+    params ["_isHighCommand", "_isForced"];
+    if (_isHighCommand) then { setGroupIconsVisible [true, false] };
+}];
+
 call A3A_fnc_initUndercover;
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
@@ -385,16 +393,16 @@ fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
 mapX allowDamage false;
-mapX addAction ["Game Options", {
+mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
     [
-        "Game Options",
-        "Version: "+ QUOTE(VERSION_FULL) +
-        "<br/><br/>Enemy resource balance: "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +
-        "<br/>Unlock Weapon Number: "+ str minWeaps +
-        "<br/>Limited Fast Travel: "+ (["No","Yes"] select limitedFT) +
-        "<br/>Spawn Distance: "+ str distanceSPWN + "m" +
-        "<br/>Civilian Limit: "+ str globalCivilianMax +
-        "<br/>Time since GC: " + ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
+        localize "STR_A3A_fn_init_initclient_gameOpt_title",
+        localize "STR_A3A_fn_init_initclient_gameOpt_version"+" "+ QUOTE(VERSION_FULL) +"<br/><br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_resoBal"+" "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_unlockNo"+" "+ str minWeaps +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ (["No","Yes"] select limitedFT) +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_spawnDist"+" "+ str distanceSPWN + "m" +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_civLim"+" "+ str globalCivilianMax +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_timeGC"+" "+ ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
     ] call A3A_fnc_customHint;
 #ifdef UseDoomGUI
     ERROR("Disabled due to UseDoomGUI Switch.")
@@ -407,7 +415,15 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_mapinfo", A3A_fnc_ci
 mapX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction [localize "STR_A3A_fn_init_initclient_addact_ailoadinfo", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
-[] spawn A3A_fnc_unitTraits;
+[] call A3A_fnc_unitTraits;
+
+// Get list of buildable objects, has map (and template?) dependency
+call A3A_fnc_initBuildableObjects;
+
+// Start cursorObject monitor loop for adding removeStructure actions
+// Note: unitTraits must run first to add engineer trait to default commander
+0 spawn A3A_fnc_initBuilderMonitors;
+
 
 
 disableSerialization;
@@ -425,7 +441,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 
 if (A3A_hasACE) then {call A3A_fnc_initACE};
 
-[allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+[allCurators] call A3A_fnc_initZeusLogging;
 
 initClientDone = true;
 Info("initClient completed");

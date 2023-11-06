@@ -33,5 +33,6 @@ if (!alive _object) exitWith {
 
 if (([_object] call A3A_Logistics_fnc_getCargoNodeType) isEqualTo -1) exitWith {nil};
 
-[_object , _action] remoteExec ["A3A_Logistics_fnc_addAction", 0, _object];
+private _jipKey = "A3A_Logistics_" + _action + ((str _object splitString ":") joinString "");
+[_object, _action, _jipKey] remoteExec ["A3A_Logistics_fnc_addAction", 0, _jipKey];
 nil

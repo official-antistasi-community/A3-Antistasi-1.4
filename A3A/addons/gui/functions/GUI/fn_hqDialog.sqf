@@ -680,7 +680,7 @@ switch (_mode) do
         private _time = sliderPosition _restSlider;
 
         // TODO UI-update: Move all these checks to update and disable button etc
-        if (player!= theBoss) exitWith {["Skip Time / Rest", "Only the Commander can order to rest."] call A3A_fnc_customHint;};
+        if (player!= theBoss) exitWith {["Skip Time / Rest", "Only the Commander can order to rest."] call A3A_fnc_customHint;}; //TODO: Localize
         _enemiesNear = false;
 
         {
@@ -689,10 +689,10 @@ switch (_mode) do
             	if ([500,1,_x,teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
         	};
         } forEach allUnits;
-        if (_enemiesNear) exitWith {["Skip Time / Rest", "You cannot rest while enemies are near our units."] call A3A_fnc_customHint;};
-        if ("rebelAttack" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while the enemy is counterattacking."] call A3A_fnc_customHint;};
-        if ("invaderPunish" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while citizens are under attack."] call A3A_fnc_customHint;};
-        if ("DEF_HQ" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while your HQ is under attack."] call A3A_fnc_customHint;};
+        if (_enemiesNear) exitWith {["Skip Time / Rest", "You cannot rest while enemies are near our units."] call A3A_fnc_customHint;}; //TODO: Localize
+        if ("rebelAttack" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while the enemy is counterattacking."] call A3A_fnc_customHint;}; //TODO: Localize
+        if ("invaderPunish" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while citizens are under attack."] call A3A_fnc_customHint;}; //TODO: Localize
+        if ("DEF_HQ" in A3A_activeTasks) exitWith {["Skip Time / Rest", "You cannot rest while your HQ is under attack."] call A3A_fnc_customHint;}; //TODO: Localize
 
         _playersNotAtHq = false;
         _posHQ = getMarkerPos respawnTeamPlayer;
@@ -700,7 +700,7 @@ switch (_mode) do
             if ((_x distance _posHQ > 100) and (side _x == teamPlayer)) then {_checkX = true};
         } forEach (allPlayers - (entities "HeadlessClient_F"));
 
-        if (_playersNotAtHq) exitWith {["Skip Time / Rest", "All players must be in a 100m radius from HQ to be able to rest."] call A3A_fnc_customHint;};
+        if (_playersNotAtHq) exitWith {["Skip Time / Rest", "All players must be in a 100m radius from HQ to be able to rest."] call A3A_fnc_customHint;}; //TODO: Localize
 
         [_time] remoteExec ["A3A_fnc_resourceCheckSkipTime", 0];
 

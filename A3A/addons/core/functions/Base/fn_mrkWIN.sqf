@@ -92,7 +92,7 @@ A3A_isPlayerCapturingFlag = true;
 player playMove "MountSide";
 
 private _cancellationToken = [false];
-private _cancelActionID = player addAction ["Abort Outpost Capture",
+private _cancelActionID = player addAction [localize "STR_A3A_fn_base_mrkwin_addact_abortCapture",
 {
     params ["_target","_caller","_actionID","_cancellationToken"];
     _cancellationToken set [0, true];

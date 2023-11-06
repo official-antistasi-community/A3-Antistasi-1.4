@@ -1312,13 +1312,13 @@ class radio_comm 		{
 		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
-			text = $STR_antistasi_dialogs_radio_comm_construct;
+			text = "";		//$STR_antistasi_dialogs_radio_comm_construct;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
-			action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
+			//tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
+			//action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
 		};
 		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{

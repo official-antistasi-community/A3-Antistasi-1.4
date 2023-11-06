@@ -1,4 +1,3 @@
-
 class Single_Mode: Mode_SemiAuto
 {
 	showEmpty = 1;
@@ -16,7 +15,8 @@ class Single_Mode: Mode_SemiAuto
     maxRangeProbab = 0.05;
 	sounds[] = {};
 };
-class FullAuto_Mode: Single_Mode {
+class FullAuto_Mode: Single_Mode 
+{
 	aiRateOfFire = 10;
 	aiRateOfFireDistance = 800;
 	autoFire = 1;
@@ -24,10 +24,10 @@ class FullAuto_Mode: Single_Mode {
 	showToPlayer = 0;
 	textureType = "fullAuto";
 };
-
 class LauncherCore;
 class RocketPods: LauncherCore {};
-class Mk82BombLauncher: RocketPods {
+class Mk82BombLauncher: RocketPods 
+{
 	canLock = 0;
 	autoFire = 1;
 	ballisticsComputer = 0;
@@ -40,7 +40,6 @@ class Mk82BombLauncher: RocketPods {
 	class Single: Single_Mode {};
 	class FullAuto: FullAuto_Mode {};
 };
-
 class CUP_Vblauncher_Mk82_veh: RocketPods
 {
 	canLock = 0;

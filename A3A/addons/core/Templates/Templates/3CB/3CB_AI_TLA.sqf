@@ -24,7 +24,7 @@
 "UK3CB_CW_SOV_O_EARLY_UAZ_MG","UK3CB_CW_SOV_O_EARLY_UAZ_AGS30","UK3CB_CW_SOV_O_EARLY_UAZ_SPG9",
 "UK3CB_CW_SOV_O_EARLY_BRDM2_HQ","UK3CB_CW_SOV_O_EARLY_BTR40_MG",
 "UK3CB_CW_SOV_O_EARLY_Gaz66_ZU23"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
-["vehiclesTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered","UK3CB_CW_SOV_O_EARLY_Gaz66_Open","UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered","UK3CB_CW_SOV_O_EARLY_Gaz66_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered_Flatbed","UK3CB_CW_SOV_O_EARLY_Gaz66_Open_Flatbed","UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Repair","UK3CB_CW_SOV_O_EARLY_Ural_Repair"]] call _fnc_saveToTemplate;
@@ -62,7 +62,7 @@
 
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["UK3CB_CW_SOV_O_EARLY_UAZ_MG"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["UK3CB_CW_SOV_O_EARLY_Gaz66_Covered","UK3CB_CW_SOV_O_EARLY_Gaz66_Open","UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["UK3CB_CW_SOV_O_EARLY_Zil131_Covered"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["UK3CB_CW_SOV_O_EARLY_UAZ_Closed","UK3CB_CW_SOV_O_EARLY_UAZ_Open"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["UK3CB_ADP_O_Hilux_Closed","UK3CB_ADP_O_Hilux_Open","UK3CB_ADP_O_LandRover_Open","UK3CB_ADP_O_LandRover_Closed"]] call _fnc_saveToTemplate;

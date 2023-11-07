@@ -77,6 +77,7 @@ private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
     if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
     private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    if (getArray (_x/"values") isEqualTo [0,1]) then { _val = !(_val in [false, 0]) };         // number -> bool
     missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
 } forEach ("true" configClasses (configFile/"A3A"/"Params"));
 

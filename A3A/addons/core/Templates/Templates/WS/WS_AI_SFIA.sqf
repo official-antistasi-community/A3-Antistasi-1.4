@@ -1,8 +1,8 @@
 //////////////////////////
 //   Side Information   //
 //////////////////////////
-["name", "SIFA"] call _fnc_saveToTemplate;
-["spawnMarkerName", "SIFA Support Corridor"] call _fnc_saveToTemplate;
+["name", "SFIA"] call _fnc_saveToTemplate;
+["spawnMarkerName", "SFIA Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_SFIA_lxWS"] call _fnc_saveToTemplate;
 ["flagTexture", "\lxws\data_f_lxws\img\flags\flag_SFIA_CO.paa"] call _fnc_saveToTemplate;

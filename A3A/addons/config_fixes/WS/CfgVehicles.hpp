@@ -17,7 +17,8 @@ class CfgVehicles
     class O_Truck_02_transport_F;
     class O_Tura_Truck_02_aa_lxWS;
     class O_Tura_ZU23_lxWS;
-
+    
+    class O_APC_Tracked_02_30mm_lxWS;
     #include "ws_ion.hpp"
 
     //Tan

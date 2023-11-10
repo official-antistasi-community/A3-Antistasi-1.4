@@ -412,9 +412,10 @@ if ("expansion" in A3A_enabledDLC) then {
     _crewLoadoutData set ["carbines", [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""],
     ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]]];
-
-    _pilotLoadoutData set ["carbines", ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
     
+    (_pilotLoadoutData get "carbines") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]
+    ];
     _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
 };
 

@@ -61,7 +61,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["I_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["O_static_AT_F"]] call _fnc_saveToTemplate;
-["staticAA", ["O_static_AA_F"]] call _fnc_saveToTemplate;
+["staticAA", ["O_SFIA_ZU23_lxWS","O_static_AA_F"]] call _fnc_saveToTemplate;
 ["staticMortars", ["O_Mortar_01_F"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;

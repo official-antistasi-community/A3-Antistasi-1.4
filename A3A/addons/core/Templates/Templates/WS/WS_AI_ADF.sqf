@@ -30,7 +30,7 @@ private _LightArmed = ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
 ["vehiclesMedical", ["B_Truck_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_blufor_F","B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
 private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -80,7 +80,7 @@ if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesMilitiaCars append ["a3a_Offroad_01_covered_tan_F","a3a_Offroad_01_comms_tan_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
+    ["vehiclesLightTanks", ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["a3a_MRAP_03_grey_F","B_LSV_01_unarmed_F"];

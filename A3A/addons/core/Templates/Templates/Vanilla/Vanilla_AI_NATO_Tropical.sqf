@@ -86,7 +86,7 @@ if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-    _Tanks append ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]; //Wheeled tank destroyers
+    ["vehiclesLightTanks", ["B_T_AFV_Wheeled_01_cannon_F","B_T_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
 };
 if ("expansion" in A3A_enabledDLC) then {
     _LightUnarmed append ["B_T_MRAP_01_F", "B_T_LSV_01_unarmed_F"];

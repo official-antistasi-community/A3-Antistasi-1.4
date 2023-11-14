@@ -87,7 +87,7 @@ class a3a_E_APC_tracked_03_cannon_F : I_E_APC_tracked_03_cannon_F
 
 //Marid
 class O_APC_Wheeled_02_rcws_v2_F;
-class O_T_APC_Wheeled_02_rcws_v2_F;
+class O_T_APC_Wheeled_02_rcws_v2_ghex_F;
 class a3a_APC_Wheeled_02_rcws_v2_F : O_APC_Wheeled_02_rcws_v2_F
 {
     animationList[] = {"showBags",0.2,"showCanisters",0.2,"showTools",0.2,"showCamonetHull",0,"showSLATHull",1};
@@ -98,7 +98,7 @@ class a3a_APC_Wheeled_02_rcws_v2_F : O_APC_Wheeled_02_rcws_v2_F
         killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
 	};
 };
-class a3a_T_APC_Wheeled_02_rcws_v2_F : O_T_APC_Wheeled_02_rcws_v2_F
+class a3a_T_APC_Wheeled_02_rcws_v2_F : O_T_APC_Wheeled_02_rcws_v2_ghex_F
 {
     animationList[] = {"showBags",0.2,"showCanisters",0.2,"showTools",0.2,"showCamonetHull",0,"showSLATHull",1};
 	class EventHandlers
@@ -111,7 +111,7 @@ class a3a_T_APC_Wheeled_02_rcws_v2_F : O_T_APC_Wheeled_02_rcws_v2_F
 
 //Kamysh
 class O_APC_Tracked_02_cannon_F;
-class O_T_APC_Tracked_02_cannon_F;
+class O_T_APC_Tracked_02_cannon_ghex_F;
 class a3a_APC_Tracked_02_cannon_F : O_APC_Tracked_02_cannon_F
 {
     animationList[] = {"showTracks",0.5,"showCamonetHull",0,"showBags",0.5,"showSLATHull",1};
@@ -122,7 +122,7 @@ class a3a_APC_Tracked_02_cannon_F : O_APC_Tracked_02_cannon_F
         killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
 	};
 };
-class a3a_T_APC_Tracked_02_cannon_F : O_T_APC_Tracked_02_cannon_F
+class a3a_T_APC_Tracked_02_cannon_F : O_T_APC_Tracked_02_cannon_ghex_F
 {
     animationList[] = {"showTracks",0.5,"showCamonetHull",0,"showBags",0.5,"showSLATHull",1};
 	class EventHandlers

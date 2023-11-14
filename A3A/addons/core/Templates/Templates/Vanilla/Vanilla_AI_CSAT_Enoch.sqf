@@ -83,7 +83,7 @@ if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-    _Tanks append ["O_MBT_04_cannon_F","O_MBT_04_command_F"];
+    _Tanks append ["O_T_MBT_04_cannon_F","O_T_MBT_04_command_F"];
 };
 if ("expansion" in A3A_enabledDLC) then {
     _LightUnarmed append ["O_T_MRAP_02_ghex_F", "O_T_LSV_02_unarmed_F"];

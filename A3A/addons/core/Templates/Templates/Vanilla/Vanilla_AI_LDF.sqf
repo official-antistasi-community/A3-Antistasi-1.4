@@ -27,8 +27,8 @@ private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["I_E_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["I_E_APC_tracked_03_cannon_F", "B_T_APC_Wheeled_01_cannon_F", "B_T_APC_Tracked_01_rcws_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["a3a_E_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
 private _Tanks = ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_T_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -101,7 +101,8 @@ if ("orange" in A3A_enabledDLC) then {
 
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
-["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
+["vehiclesTanks", _Tanks] call _fnc_saveToTemplate; 
+["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;

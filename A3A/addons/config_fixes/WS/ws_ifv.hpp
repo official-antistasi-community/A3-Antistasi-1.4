@@ -4,7 +4,7 @@
 //Ion
 class B_ION_APC_Wheeled_01_command_lxWS;
 class B_ION_APC_Wheeled_01_cannon_lxWS;
-class B_ION_APC_Wheeled_01_command_lxWS : B_ION_APC_Wheeled_01_command_lxWS
+class a3a_ION_APC_Wheeled_01_command_lxWS : B_ION_APC_Wheeled_01_command_lxWS
 {
     animationList[] = {"showBags",0.5,"showCamonetHull",0,"showCamonetTurret",0,"showSLATHull",1,"showSLATTurret",1};
 	class EventHandlers
@@ -14,7 +14,7 @@ class B_ION_APC_Wheeled_01_command_lxWS : B_ION_APC_Wheeled_01_command_lxWS
         killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
 	};
 };
-class B_ION_APC_Wheeled_01_cannon_lxWS : B_ION_APC_Wheeled_01_cannon_lxWS
+class a3a_ION_APC_Wheeled_01_cannon_lxWS : B_ION_APC_Wheeled_01_cannon_lxWS
 {
     animationList[] = {"showBags",0.5,"showCamonetHull",0,"showCamonetTurret",0,"showSLATHull",1,"showSLATTurret",1};
 	class EventHandlers

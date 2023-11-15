@@ -28,7 +28,7 @@ private _vehiclesLightArmed = ["a3a_ION_Offroad_armor_armed","a3a_ION_Offroad_ar
 ["vehiclesFuelTrucks", ["a3a_ION_Truck_02_Fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["a3a_Van_02_black_medevac_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["B_ION_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["a3a_ION_APC_Wheeled_01_command_lxWS","a3a_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["a3a_ION_Truck_02_zu23_F"]] call _fnc_saveToTemplate;
@@ -36,7 +36,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F", "a3a_Boat_Armed_01_hmg_blufor_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["B_ION_APC_Wheeled_01_command_lxWS","B_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["a3a_ION_APC_Wheeled_01_command_lxWS","a3a_ION_APC_Wheeled_01_cannon_lxWS", "a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["a3a_Plane_Fighter_03_grey_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["a3a_Plane_Fighter_04_grey_F"]] call _fnc_saveToTemplate;

@@ -17,6 +17,7 @@ class a3a_ION_APC_Wheeled_01_command_lxWS : B_ION_APC_Wheeled_01_command_lxWS
 };
 class a3a_ION_APC_Wheeled_01_cannon_lxWS : B_ION_APC_Wheeled_01_cannon_lxWS
 {
+    scope = 2;
     animationList[] = {"showBags",0.5,"showCamonetHull",0,"showCamonetTurret",0,"showSLATHull",1,"showSLATTurret",1};
 	class EventHandlers
 	{

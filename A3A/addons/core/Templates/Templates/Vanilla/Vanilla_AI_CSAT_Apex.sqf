@@ -77,6 +77,8 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks append ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
     ["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
+    ["vehiclesLightAPCs", ["O_T_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;
+    _vehiclesIFVs append ["a3a_T_APC_Tracked_02_30mm_lxWS"];
 };
 if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];

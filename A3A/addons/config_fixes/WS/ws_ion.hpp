@@ -88,17 +88,6 @@ class a3a_ION_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
     textureList[] = {"Black", 1};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
-
-class a3a_ION_APC_Tracked_02_30mm : O_APC_Tracked_02_30mm_lxWS
-{
-    side = 1;
-    crew = "B_ION_Soldier_lxWS";
-    faction = "BLU_ION_lxWS";
-    animationList[] = {"showTracks",1,"showCamonetHull",0,"showBags",0.2,"showSLATHull",1};
-    textureList[] = {"Grey", 1};
-    hiddenSelectionsTextures[] = {"lxWS\vehicles_1_f_lxws\APC_Tracked_02\data\APC_Tracked_02_ext_01_black_CO.paa","lxWS\vehicles_1_f_lxws\APC_Tracked_02\data\APC_Tracked_02_ext_02_black_CO.paa","lxWS\vehicles_1_f_lxws\APC_Tracked_02\data\APC_Tracked_02_ext_03_black_CO.paa","lxWS\vehicles_1_f_lxws\APC_Tracked_02\data\APC_Tracked_02_30mm_black_co.paa","A3\Armor_F\Data\camonet_CSAT_Stripe_Desert_CO.paa","lxWS\vehicles_1_f_lxws\APC_Tracked_02\data\cage_black_CO.paa"};
-};
-
 class a3a_ION_APC_Wheeled_01_atgm : B_D_APC_Wheeled_01_atgm_lxWS{
     side = 1;
     crew = "B_ION_Soldier_lxWS";

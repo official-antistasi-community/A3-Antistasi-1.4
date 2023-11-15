@@ -88,9 +88,3 @@ class a3a_ION_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
     textureList[] = {"Black", 1};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
-class a3a_ION_APC_Wheeled_01_atgm : B_D_APC_Wheeled_01_atgm_lxWS{
-    side = 1;
-    crew = "B_ION_Soldier_lxWS";
-    faction = "BLU_ION_lxWS";
-    textureList[] = {"ION_BLACK", 1};
-    hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\APC_Wheeled_01\APC_Wheeled_ion_base_CO.paa","lxws\vehicles_f_lxws\data\APC_Wheeled_01\apc_wheeled_ion_adds_co.paa","lxws\vehicles_f_lxws\data\APC_Wheeled_01\apc_wheeled_ion_tows_co.paa","a3\armor_f\Data\camonet_AAF_stripe_desert_CO.paa","lxws\vehicles_f_lxws\data\APC_Wheeled_01\cage_black_CO.paa","lxws\vehicles_f_lxws\data\APC_Wheeled_01\APC_Wheeled_ion_lxws_CO.paa"};};

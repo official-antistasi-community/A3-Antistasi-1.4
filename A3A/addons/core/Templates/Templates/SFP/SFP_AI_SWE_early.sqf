@@ -143,6 +143,8 @@ _loadoutData set ["slBackpacks", ["sfp_ra180"]];
 _loadoutData set ["medBackpacks", ["sfp_backpack_sjvv9"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
+_loadoutData set ["slHats", ["sfp_army_beret"]];
+_loadoutData set ["sniHats", ["sfp_m90w_booniehat"]];
 
 _loadoutData set ["facewear", ["G_Bandanna_oli","G_Shades_Black", "", ""]];
 _loadoutData set ["medicFacewear", ["sfp_armband_medic","sfp_armband_medic_white"]];
@@ -180,6 +182,7 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["sfp_m90w_uniform"]];
 _sfLoadoutData set ["vests", ["sfp_stridsvast2000_light","sfp_stridsvast2000","sfp_kroppskydd94_sv2k_rifle1"]];
 _sfLoadoutData set ["helmets", ["sfp_m90w_booniehat","sfp_m90green_helmet_clean_peltor_nvg_velcro"]];
+_sfLoadoutData set ["slHats", ["sfp_kj_beret"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["rifles", [
@@ -234,7 +237,10 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak4_m203", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
 ["sfp_ak5_m203", "", "", "", ["sfp_30Rnd_556x45_Stanag"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
-_militaryLoadoutData set ["SMGs", ["sfp_kpistm45b"]];
+_militaryLoadoutData set ["SMGs", [
+"sfp_kpistm45", "sfp_kpistm45", "sfp_kpistm45",
+["sfp_kpistm45", "", "", "", ["sfp_71Rnd_9mm_kpistm45"], [], ""]
+]];
 _militaryLoadoutData set ["shotguns", [
 ["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
 ["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]
@@ -256,13 +262,14 @@ _militaryLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", 
 private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 
 
-_policeLoadoutData set ["uniforms", ["sfp_police_uniform_modern_reflective","sfp_police_uniform_modern"]];
-_policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
-_policeLoadoutData set ["helmets", ["sfp_police_hat"]];
+_policeLoadoutData set ["uniforms", ["sfp_m59w_uniform"]];
+_policeLoadoutData set ["vests", ["sfp_police_belt"]];
+_policeLoadoutData set ["helmets", ["sfp_m37w_helmet_mp_green"]];
 
-_policeLoadoutData set ["SMGs", ["sfp_kpistm45"]];
+_policeLoadoutData set ["SMGs", ["sfp_kpistm45b"]];
 _policeLoadoutData set ["shotguns", [["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]]];
-_policeLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]]];
+_policeLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""],
+["CUP_hgun_TaurusTracker455", "", "", "", ["CUP_6Rnd_45ACP_M"], [], ""]]];
 
 
 ////////////////////////////////
@@ -273,7 +280,8 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["sfp_m90w_uniform"]];
 _militiaLoadoutData set ["vests", ["sfp_stridssele","sfp_stridssele_extrabag"]];
 _militiaLoadoutData set ["medVests", ["sfp_stridssele_medic"]];
-_militiaLoadoutData set ["helmets", ["sfp_m90w_helmet_peltor"]];
+_militiaLoadoutData set ["helmets", ["sfp_m90w_cap", "sfp_m90w_cap_alt"]];
+_militiaLoadoutData set ["slHats", ["sfp_homeguard_beret"]];
 
 _militiaLoadoutData set ["rifles", [
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["sfp_riflegrenade_smoke_ak4"], ""]]];
@@ -282,7 +290,7 @@ _militiaLoadoutData set ["carbines", [
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["sfp_ak4_m203", "", "", "", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
-_militiaLoadoutData set ["SMGs", ["sfp_kpistm45"]];
+_militiaLoadoutData set ["SMGs", ["sfp_kpistm45b"]];
 _militiaLoadoutData set ["shotguns", [
 ["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
 ["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]
@@ -291,7 +299,7 @@ _militiaLoadoutData set ["machineGuns", ["sfp_ksp58a"]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4"], [], ""]
 ]];
-_militiaLoadoutData set ["sidearms", [["CUP_FlareWhite_265_M", "", "", "", ["CUP_FlareRed_265_M", "CUP_FlareWhite_265_M"], [], ""], "CUP_hgun_Glock17_blk"]];
+_militiaLoadoutData set ["sidearms", [["CUP_FlareWhite_265_M", "", "", "", ["CUP_FlareRed_265_M", "CUP_FlareWhite_265_M"], [], ""], ""]];
 
 //////////////////////////
 //    Misc Loadouts     //
@@ -320,7 +328,7 @@ _pilotLoadoutData set ["facewear", ["G_Bandanna_oli", "G_Aviator", "G_Squares_Ti
 //However, these exist in case you really do want to do a lot of custom alterations.
 
 private _squadLeaderTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    ["slHats"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
@@ -360,9 +368,6 @@ private _riflemanTemplate = {
     [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
     ["primary", 2] call _fnc_addAdditionalMuzzleMagazines;
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_rifleman_extras"] call _fnc_addItemSet;
@@ -412,9 +417,6 @@ private _grenadierTemplate = {
     ["grenadeLaunchers"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
     ["primary", 10] call _fnc_addAdditionalMuzzleMagazines;
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_grenadier_extras"] call _fnc_addItemSet;
@@ -510,9 +512,6 @@ private _latTemplate = {
 		["launcher", 1] call _fnc_addMagazines;
 	};
 
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
-
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_lat_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -540,9 +539,6 @@ private _atTemplate = {
     //TODO - Add a check if it's disposable.
     ["launcher", 4] call _fnc_addMagazines;
 
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
-
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_at_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -569,9 +565,6 @@ private _aaTemplate = {
     ["AALaunchers"] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_aa_extras"] call _fnc_addItemSet;
@@ -613,7 +606,7 @@ private _machineGunnerTemplate = {
 };
 
 private _marksmanTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    ["sniHats"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
@@ -640,7 +633,7 @@ private _marksmanTemplate = {
 };
 
 private _sniperTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    ["sniHats"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
@@ -668,6 +661,7 @@ private _sniperTemplate = {
 
 private _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
+    ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
@@ -696,9 +690,6 @@ private _crewTemplate = {
 
     ["SMGs"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
 
     ["items_medical_basic"] call _fnc_addItemSet;
     ["items_crew_extras"] call _fnc_addItemSet;

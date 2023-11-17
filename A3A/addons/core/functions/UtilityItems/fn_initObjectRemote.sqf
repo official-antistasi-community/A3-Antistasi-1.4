@@ -31,15 +31,39 @@ if (isNil "initClientDone") then {
 
 private _flags = (A3A_utilityItemHM get typeof _object) # 4;
 
-// movable object
-// TODO: Do we really want rotate on everything?
 if ("move" in _flags) then {
-    [_object] call A3A_fnc_initMovableObject;
+    _object addAction [
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_carry",
+        { [_this#3, true] call A3A_fnc_carryItem },
+        _object, 1.5, true, true, "",
+        "([_this] call A3A_fnc_countAttachedObjects == 0)
+            and (isNull attachedTo _originalTarget)", 8
+    ];
+};
+
+if ("rotate" in _flags) then {
+    _object addAction [
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_rotate",
+        { [_this#3] call A3A_fnc_rotateItem },
+        _object, 1.5, true, true, "",
+        "!(_originalTarget getVariable ['A3A_rotatingObject',false])
+            and (isNull attachedTo _originalTarget)", 8
+    ];
 };
 
 // loot crate object
 if ("loot" in _flags && lootToCrateRadius > 0) then {
     [_object] call A3A_fnc_initLootToCrate;
+};
+
+// building placer box
+if ("build" in _flags) then {
+    _object addAction [
+        localize "STR_A3A_fn_UtilItem_initObjRem_addact_build",
+        { [_this#0, 75, _this#0] spawn A3A_fnc_buildingPlacerStart },
+        nil, 1.5, true, true, "",
+        "(isNull attachedTo _originalTarget)", 4
+    ];
 };
 
 // packable object

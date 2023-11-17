@@ -38,7 +38,7 @@ _addon set ["vehiclesCivRepair", [
 	,"CUP_I_V3S_Repair_TKG" , 0.1
 ]];
 
-_addon set ["vehiclesCivIndustrial" [
+_addon set ["vehiclesCivIndustrial", [
 	"CUP_C_Ural_Open_Civ_01" , 0.5
 	,"CUP_C_Ural_Open_Civ_02" , 0.5
 	,"CUP_C_Ural_Civ_02" , 0.5

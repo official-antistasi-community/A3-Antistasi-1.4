@@ -22,3 +22,14 @@
     ["O_MBT_04_command_F", ["cost", 250], ["threat", 330]]    // -||-
 
 ]] call _fnc_saveToTemplate;
+
+//If Western Sahara DLC
+if ("ws" in A3A_enabledDLC) then {
+    (["attributesVehicles"] call _fnc_getFromTemplate) append
+    [
+        ["a3a_O_Truck_02_zu23_F", ["cost", 60]],
+        ["a3a_O_T_Truck_02_zu23_F", ["cost", 60]],
+        ["I_A_Truck_02_aa_lxWS", ["cost", 60]],
+        ["a3a_I_E_Truck_02_zu23_F", ["cost", 60]]
+    ];
+};

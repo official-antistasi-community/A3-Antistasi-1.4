@@ -11,6 +11,7 @@ Info_1("Client version: %1", QUOTE(VERSION_FULL));
 
 // *************************** Client pre-setup init *******************************
 
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 //Disables rabbits and snakes, because they cause the log to be filled with "20:06:39 Ref to nonnetwork object Agent 0xf3b4a0c0"
@@ -292,6 +293,12 @@ player addEventHandler ["GetInMan", {
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
 player addEventHandler ["HandleRating", {0}];
 
+// Prevent squad icons showing in 3d display in high command
+addMissionEventHandler ["CommandModeChanged", {
+    params ["_isHighCommand", "_isForced"];
+    if (_isHighCommand) then { setGroupIconsVisible [true, false] };
+}];
+
 call A3A_fnc_initUndercover;
 
 ["InitializePlayer", [player]] call BIS_fnc_dynamicGroups;//Exec on client
@@ -408,7 +415,15 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_mapinfo", A3A_fnc_ci
 mapX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction [localize "STR_A3A_fn_init_initclient_addact_ailoadinfo", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
-[] spawn A3A_fnc_unitTraits;
+[] call A3A_fnc_unitTraits;
+
+// Get list of buildable objects, has map (and template?) dependency
+call A3A_fnc_initBuildableObjects;
+
+// Start cursorObject monitor loop for adding removeStructure actions
+// Note: unitTraits must run first to add engineer trait to default commander
+0 spawn A3A_fnc_initBuilderMonitors;
+
 
 
 disableSerialization;
@@ -426,7 +441,7 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 
 if (A3A_hasACE) then {call A3A_fnc_initACE};
 
-[allCurators] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+[allCurators] call A3A_fnc_initZeusLogging;
 
 initClientDone = true;
 Info("initClient completed");

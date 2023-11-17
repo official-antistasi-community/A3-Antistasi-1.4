@@ -72,7 +72,7 @@ private _initialRebelEquipment = [
     "SPE_Fusil_Mle_208_12", "SPE_Fusil_Mle_208_12_Sawedoff", "SPE_K98",
     "SPE_2Rnd_12x65_Pellets", "SPE_2Rnd_12x65_Slug", "SPE_5Rnd_792x57",
     "SPE_P08", "SPE_8Rnd_9x19_P08",
-    ["SPE_PzFaust_30m", 50],
+    ["SPE_PzFaust_30m", 50], ["SPE_1Rnd_PzFaust_30m", 50],
     ["SPE_Ladung_Small_MINE_mag", 10], ["SPE_US_TNT_half_pound_mag", 10], ["SPE_US_TNT_4pound_mag", 3], ["SPE_Ladung_Big_MINE_mag", 3],
     "SPE_Shg24_Frag", "SPE_NB39", "SPE_US_Mk_1",
     "V_SPE_US_Vest_M1919", "V_SPE_DAK_VestKar98",
@@ -157,6 +157,9 @@ private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["facewear"] call _fnc_setFacewear;
 
+    ["items_medical_standard"] call _fnc_addItemSet;
+    ["items_miscEssentials"] call _fnc_addItemSet;
+
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
@@ -166,6 +169,9 @@ private _squadLeaderTemplate = {
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["facewear"] call _fnc_setFacewear;
+
+    ["items_medical_standard"] call _fnc_addItemSet;
+    ["items_miscEssentials"] call _fnc_addItemSet;
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

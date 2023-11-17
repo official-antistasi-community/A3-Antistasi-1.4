@@ -1,9 +1,13 @@
+//CUP - config.cpp
+
 #include "..\script_component.hpp"
 
 #if __has_include("\CUP\Vehicles\CUP_Vehicles_LoadOrder\config.bin")
 
-class CfgPatches {
-    class PATCHNAME(CUP) {
+class CfgPatches 
+{
+    class PATCHNAME(CUP) 
+    {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};

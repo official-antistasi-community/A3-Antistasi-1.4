@@ -105,8 +105,11 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", ["sfp_pskott86"]];
-_loadoutData set ["ATLaunchers", ["sfp_grg86"]];
+_loadoutData set ["lightATLaunchers", ["CUP_launch_M136_Loaded"]];
+_loadoutData set ["ATLaunchers", [
+["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], ["sfp_grg_illum_mag"], ""],
+["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], ["sfp_grg_smoke_mag"], ""]
+]];
 _loadoutData set ["missileATLaunchers", ["sfp_rb57"]];
 _loadoutData set ["AALaunchers", ["sfp_rbs69"]];
 _loadoutData set ["sidearms", []];
@@ -270,7 +273,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData set ["uniforms", ["sfp_m90w_uniform_long_m08"]];
 _policeLoadoutData set ["vests", ["sfp_police_belt","sfp_police_tacVest"]];
 _policeLoadoutData set ["helmets", ["sfp_lgmp_beret"]];
-_policeLoadoutData set ["facewear", ["sfp_armband_mp_green", "sfp_armband_mp_black", "sfp_armband_mp"]];
+_policeLoadoutData set ["facewear", ["sfp_armband_mp"]];
 
 _policeLoadoutData set ["antiInfantryGrenades", ["sfp_FlashBang"]];
 _policeLoadoutData set ["carbines", [["sfp_cga5p", "", "", "", ["CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag_Tracer_Red"], [], ""]]];
@@ -298,6 +301,11 @@ _militiaLoadoutData set ["helmets", ["sfp_m90w_cap", "sfp_m90w_cap_alt"]];
 _militiaLoadoutData set ["slHats", ["sfp_homeguard_beret"]];
 
 _militiaLoadoutData set ["antiInfantryGrenades", ["sfp_handgrenade_shgr56"]];
+
+_militiaLoadoutData set ["ATLaunchers", [
+["CUP_launch_MAAWS", "", "", "", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M", "CUP_MAAWS_HEDP_M"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""],
+["CUP_launch_MAAWS", "", "", "", ["CUP_MAAWS_HEDP_M","CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""]
+]];
 
 _militiaLoadoutData set ["rifles", [
 ["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""],
@@ -557,13 +565,14 @@ private _atTemplate = {
 	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["carbines"] call _fnc_setPrimary;
-    ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addMagazines;
 
 	private _at = selectRandom ["missileATLaunchers", "ATLaunchers"];
     [_at] call _fnc_setLauncher;
 	if (_at == "ATLaunchers") then {
 		["atBackpacks"] call _fnc_setBackpack; //use the grg pack if grg gunner
-		["launcher", 4] call _fnc_addMagazines;
+		["launcher", selectRandom[3,4]] call _fnc_addMagazines;
+        ["launcher", 1] call _fnc_addAdditionalMuzzleMagazines;
 	} else{
 		["launcher", 2] call _fnc_addMagazines;
 	};

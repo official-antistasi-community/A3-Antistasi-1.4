@@ -223,13 +223,9 @@ _militaryLoadoutData set ["medVests", ["sfp_stridsbalte_304k_medic"]];
 _militaryLoadoutData set ["helmets", ["sfp_m90s_helmet_headset"]];
 
 _militaryLoadoutData set ["rifles", [
-["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["sfp_riflegrenade_smoke_ak4"], ""],
-["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["sfp_riflegrenade_smoke_ak4"], ""],
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["sfp_riflegrenade_smoke_ak4"], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["sfp_ak5b", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag_tracer"], [], ""],
 ["sfp_ak5b", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
 ["sfp_ak5_snow", "", "", "", ["sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag_tracer"], [], ""],
 ["sfp_ak5d", "", "", "", ["sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag_tracer"], [], ""]

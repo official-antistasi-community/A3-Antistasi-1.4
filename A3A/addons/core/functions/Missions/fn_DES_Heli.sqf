@@ -97,8 +97,8 @@ private _dateLimitNum = dateToNumber _dateLimit;
 Info("Creating Helicopter Down mission");
 private _location = [_missionOrigin] call A3A_fnc_localizar;
 private _taskId = "DES" + str A3A_taskCount;
-private _text = format ["We have downed a helicopter. There is a good chance to destroy or capture it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY",_location];
-[[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+private _text = format [localize "STR_A3A_fn_mission_des_heli_text",_location];
+[[teamPlayer,civilian],_taskId,[_text,localize "STR_A3A_fn_mission_des_heli_titel",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ////////////////
@@ -351,16 +351,15 @@ if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100)
     };
     [_taskId, "DES", "SUCCEEDED"] call A3A_fnc_taskSetState;
     [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-    [1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     {if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-    [5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_isAttackHeli) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    [10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 } else {
     Debug_2("%1 was successfully recovered by %2, mission failed", _heli, _sideX);
     [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
-    [-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     [-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_isAttackHeli) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (_isAttackHeli) then {[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 };
 Info("Downed Heli mission completed");
 ////////////

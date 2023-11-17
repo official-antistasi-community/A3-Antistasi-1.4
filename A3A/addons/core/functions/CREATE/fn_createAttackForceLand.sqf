@@ -45,7 +45,7 @@ for "_i" from 1 to _vehCount do {
 
     private _vehData = [_vehType, "Normal", _resPool, _landPosBlacklist, _side, _base, _targPos] call A3A_fnc_createAttackVehicle;
     if !(_vehData isEqualType []) exitWith {
-        Error_1("Failed to spawn land vehicle at marker %1" _base);
+        Error_1("Failed to spawn land vehicle at marker %1", _base);
     };          // couldn't create for some reason, assume we're out of spawn places?
 
     _vehicles pushBack (_vehData#0);

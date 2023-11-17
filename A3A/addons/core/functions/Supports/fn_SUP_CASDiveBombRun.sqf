@@ -62,6 +62,7 @@ private _firedEH = _plane addEventHandler ["Fired", {
 
 driver _plane disableAI "All";
 _plane setVariable ["A3A_diveLastDir", vectorDir _plane];
+_plane setVariable ["A3A_diveLastPos", getPosASL _plane];
 
 private _ehID = addMissionEventHandler ["EachFrame", {
     _thisArgs params ["_plane", "_target", "_endAlt", "_diveSpeed", "_turnRate", "_bombDrag"];
@@ -93,10 +94,14 @@ private _ehID = addMissionEventHandler ["EachFrame", {
 //        Debug_2("Old dir %1, new dir %2", _dir, _newDir);
     };
 
-    // velocity and upvec are just cheated atm
-    _plane setVectorDirAndUp [_dir, _dir vectorCrossProduct [0,0,1] vectorCrossProduct _dir];
-    _plane setVelocity (_dir vectorMultiply _diveSpeed);        // might need smoother adjustment
+    // Need to force position for "airplanex" simulation. "airplane" is fine without it.
+    private _nextPos = (_plane getVariable "A3A_diveLastPos") vectorAdd (_dir vectorMultiply _diveSpeed*diag_deltaTime);
     _plane setVariable ["A3A_diveLastDir", _dir];
+    _plane setVariable ["A3A_diveLastPos", _nextPos];
+
+    _plane setPosASL _nextPos;
+    _plane setVectorDirAndUp [_dir, _dir vectorCrossProduct [0,0,1] vectorCrossProduct _dir];
+    _plane setVelocity (_dir vectorMultiply _diveSpeed);
 
     if (getPosATL _plane#2 < _endAlt) exitWith {
         removeMissionEventHandler ["EachFrame", _thisEventHandler];

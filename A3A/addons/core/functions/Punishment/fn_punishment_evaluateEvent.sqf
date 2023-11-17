@@ -75,12 +75,12 @@ _instigator setVariable ["A3A_FFPun_CD", servertime + 1, false]; // Local Exec f
 private _victimStats = ["damaged ",["systemPunished",name _victim] select (_victim isKindOf "Man")," "] joinString "";
 _victimStats = [_victimStats,"[",["AI",getPlayerUID _victim] select (isPlayer _victim),"]"] joinString "";
 private _notifyVictim = {
-    if (isPlayer _victim) then {["FF Notification", format["%1 hurt you!",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
+    if (isPlayer _victim) then {[localize "STR_A3A_fn_punish_ff_noti", format[localize "STR_A3A_fn_punish_punEval_hurt",name _instigator]] remoteExec ["A3A_fnc_customHint", _victim, false];};
 };
 private _notifyInstigator = {
     params ["_exempMessage"];
-    private _comradeStats = ["",["Injured comrade: ",name _victim,""] joinString ""] select (_victim isKindOf "Man");
-    ["FF Warning", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["A3A_fnc_customHint", _instigator, false];
+    private _comradeStats = ["",[localize "STR_A3A_fn_punish_punEval_injured"," ",name _victim,""] joinString ""] select (_victim isKindOf "Man");
+    [localize "STR_A3A_fn_punish_punEval_warning", [_exempMessage,_comradeStats,_customMessage] joinString "<br/>"] remoteExec ["A3A_fnc_customHint", _instigator, false];
 };
 private _logPvPHurt = {
     if (!(_victim isKindOf "Man")) exitWith {};

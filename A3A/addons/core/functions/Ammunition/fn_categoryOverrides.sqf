@@ -416,10 +416,50 @@ private _categoryOverrideTable = [
 ["gm_g3a3_dmr_des",["SniperRifles","Weapons"]],
 ["gm_svd_wud",["SniperRifles","Weapons"]],
 ["gm_hk69a1_blk", ["GrenadeLaunchers","Weapons"]],
-["gm_pallad_d_brn", ["GrenadeLaunchers","Weapons"]]	];
+["gm_pallad_d_brn", ["GrenadeLaunchers","Weapons"]],
+
+//SPE
+
+["SPE_PzFaust_30m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_PzFaust_60m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_Faustpatrone", ["RocketLaunchers","Weapons","AT","Disposable"]],
+
+["SPE_Lafette_Tripod", ["StaticWeaponParts","Items"]],
+["SPE_M1_81_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_MLE_27_31_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_M1_81_Stand", ["StaticWeaponParts","Items"]],
+["SPE_GrW278_1_Stand", ["StaticWeaponParts","Items"]],
+["SPE_M2_Tripod", ["StaticWeaponParts","Items"]],
+["SPE_GrW278_1_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_MLE_27_31_Stand", ["StaticWeaponParts","Items"]],
+["SPE_Flammenwerfer41", ["Unknown", "Weapons"]],
+["SPE_M2_Flamethrower", ["Unknown", "Weapons"]],
+["SPE_K98_GW", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_K98_Late_GW", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1903A3_Springfield_M1_GL", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1_Carbine_M8", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1_Garand_M7", ["Rifles","Weapons","GrenadeLaunchers"]] ];
+
 
 //Create a local namespace.
 A3A_categoryOverrides = false call A3A_fnc_createNamespace;
 {
 	A3A_categoryOverrides setVariable [_x select 0, _x select 1];
 } forEach _categoryOverrideTable;
+
+
+A3A_specialGrenadeLaunchers = createHashMap;
+{
+	private _class = _x#0;
+	private _config = configFile >> "CfgWeapons" >> _class;
+	if !(isClass _config) then { continue };
+
+	private _baseWeapon = getText (_config >> "baseWeapon");
+	if (_baseWeapon == "") then { continue };
+
+	private _muzzle = getText (_config >> "LinkedItems" >> "LinkedItemsMuzzle" >> "item");
+	if (_muzzle == "") then { continue };
+
+	A3A_specialGrenadeLaunchers set [_class, [_baseWeapon, _muzzle]];
+
+} forEach (_categoryOverrideTable select { "GrenadeLaunchers" in _x#1 });

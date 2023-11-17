@@ -14,6 +14,12 @@ FIX_LINE_NUMBERS()
 params ["_veh", "_side", "_resPool"];
 if (isNil "_veh") exitWith {};
 
+// Not a crewed vehicle, nothing to do here
+if (fullCrew [_veh, "", true] isEqualTo []) exitWith {
+	// buyable item, use initObject. Happens on game loading at the moment
+	if (typeof _veh in A3A_utilityItemHM) then { _veh call A3A_fnc_initObject };
+};
+
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
 	// vehicle already initialized, just swap side and exit
@@ -25,10 +31,6 @@ _veh setVariable ["ownerSide", _side, true];
 
 if (isNil "_resPool") then { _resPool = "legacy" };
 _veh setVariable ["A3A_resPool", _resPool, true];
-
-// probably just shouldn't be called for these
-if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
-//if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later
 if (_side == teamPlayer) then
@@ -87,7 +89,7 @@ else
 			if ((!isPlayer _unit) and (_unit getVariable ["spawner",false]) and (side group _unit == teamPlayer)) then
 			{
 				moveOut _unit;
-				["General", "Only Humans can pilot an air vehicle"] call A3A_fnc_customHint;
+				[localize "STR_A3A_fn_create_aivehinit_general", localize "STR_A3A_fn_create_aivehinit_no_human"] call A3A_fnc_customHint;
 			};
 		}];
 

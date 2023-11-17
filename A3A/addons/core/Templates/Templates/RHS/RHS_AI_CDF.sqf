@@ -7,7 +7,7 @@
 
 ["flag", "Flag_AltisColonial_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhs_flag_insurgents"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_cdf"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -86,6 +86,7 @@
 "WhiteHead_13", "WhiteHead_15", "WhiteHead_16", "WhiteHead_17", "WhiteHead_18",
 "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+"CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

@@ -4,12 +4,13 @@ FIX_LINE_NUMBERS()
 
 params ["_marker", "_placementMarker"];
 
-private ["_vehicleMarker", "_heliMarker", "_hangarMarker", "_mortarMarker", "_markerPrefix", "_markerSplit", "_first", "_fullName"];
+private ["_vehicleMarker", "_heliMarker", "_hangarMarker", "_mortarMarker", "_planeMarker", "_markerPrefix", "_markerSplit", "_first", "_fullName"];
 
 _vehicleMarker = [];
 _heliMarker = [];
 _hangarMarker = [];
 _mortarMarker = [];
+_planeMarker = [];
 
 //Calculating marker prefix
 _markerPrefix = "";
@@ -41,6 +42,7 @@ _mainMarker = getMarkerPos _marker;
     case ("vehicle"): {_vehicleMarker pushBack _fullName;};
     case ("helipad"): {_heliMarker pushBack _fullName;};
     case ("hangar"): {_hangarMarker pushBack _fullName;};
+    case ("plane"): {_planeMarker pushBack _fullName;};
     case ("mortar"): {_mortarMarker pushBack _fullName;};
   };
   _fullName setMarkerAlpha 0;
@@ -200,6 +202,10 @@ _planeSpawns = [];
     };
     _planeSpawns pushBack [_pos, _dir];
 } forEach _hangars;
+
+{
+  _planeSpawns pushBack [markerPos _x, markerDir _x];
+} forEach _planeMarker;
 
 _mortarSpawns = [];
 {

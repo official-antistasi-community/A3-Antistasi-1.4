@@ -30,7 +30,14 @@ aceItems = [
 	"ACE_Chemlight_HiYellow",
 	"ACE_Chemlight_Orange",
 	"ACE_Chemlight_UltraHiOrange",
-	"ACE_Chemlight_White"
+	"ACE_Chemlight_White",
+	"ACE_rope3",
+	"ACE_rope6", 
+	"ACE_rope12", 
+	"ACE_rope15", 
+	"ACE_rope18", 
+	"ACE_rope27", 
+	"ACE_rope36"
 ];
 
 aceMedItems = [
@@ -51,7 +58,8 @@ aceMedItems = [
 	"ACE_adenosine",
 	"ACE_splint",
 	"ACE_bodyBag",
-	"ACE_personalAidKit"
+	"ACE_personalAidKit",
+	"ACE_suture"
 ];
 
 aceMedItemsBlood = [

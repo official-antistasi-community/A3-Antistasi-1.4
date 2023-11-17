@@ -189,32 +189,32 @@ _sfLoadoutData set ["slHats", ["sfp_sf_beret"]];
 _sfLoadoutData set ["antiInfantryGrenades", ["sfp_handgrenade_shgr07"]];
 
 _sfLoadoutData set ["rifles", [
-["sfp_ak5c_blk", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5c_blk", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5c", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
+["sfp_ak5c_blk", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5c_blk", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5c", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-["sfp_ak5dmk2", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5dmk2", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_g36c", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_g36"], [], ""],
-["sfp_g36c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_g36"], [], ""]
+["sfp_ak5dmk2", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5dmk2", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_g36c", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_g36", "sfp_30Rnd_556x45_Stanag_g36","sfp_30Rnd_556x45_Stanag_g36" ], [], ""],
+["sfp_g36c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_g36", "sfp_30Rnd_556x45_Stanag_g36","sfp_30Rnd_556x45_Stanag_g36" ], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["sfp_ak5c_m203_blk", "muzzle_snds_M", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
-["sfp_ak5c_m203", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
+["sfp_ak5c_m203_blk", "muzzle_snds_M", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
+["sfp_ak5c_m203", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
 ["sfp_mp5_rail", "muzzle_snds_L", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_9mm_mp5"], [], ""],
-["sfp_cbj_ms", "sfp_muzzle_snds_cbj", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_650x25mag", "sfp_30Rnd_650x25mag_subsonic"], [], ""]
+["sfp_cbj_ms", "sfp_muzzle_snds_cbj", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_650x25mag_subsonic", "sfp_30Rnd_650x25mag"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
 ["sfp_ksp90b", "", "", "sfp_optic_aimpoint", ["sfp_200Rnd_556x45_ksp90"], [], ""],
 ["sfp_ksp58B2", "muzzle_snds_H_MG_blk_F", "", "sfp_optic_3x_aimpoint", ["sfp_50Rnd_762x51_ksp58"], [], ""]
 ]];
 _sfLoadoutData set ["marksmanRifles", [
-["sfp_ak4d", "muzzle_snds_B", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], "bipod_01_F_blk"],
-["sfp_ak5c_blk", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_3x_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
+["sfp_ak4d", "muzzle_snds_B", "", "sfp_optic_kikarsikte09_4x", ["sfp_20Rnd_762x51_ak4_ap", "sfp_20Rnd_762x51_ak4_irtracer"], [], "bipod_01_F_blk"],
+["sfp_ak5c_blk", "muzzle_snds_M", "acc_pointer_IR", "sfp_optic_3x_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["sfp_psg90_base", "muzzle_snds_B", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""],
@@ -236,14 +236,14 @@ _militaryLoadoutData set ["medVests", ["sfp_kroppsskydd12_medic"]];
 _militaryLoadoutData set ["helmets", ["sfp_m90w_helmet_peltor","sfp_m90w_helmet_peltor_nvg","sfp_m90w_helmet_peltor_nomic"]];
 
 _militaryLoadoutData set ["rifles", [
-["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
-["sfp_ak5c_alt", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
+["sfp_ak5c", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5c_alt", "", "acc_pointer_IR", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["sfp_ak5dmk2", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
+["sfp_ak5dmk2", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["sfp_ak5c_m203", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
+["sfp_ak5c_m203", "", "", "sfp_optic_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["sfp_kpistm45b", 
 ["sfp_mp5_rail", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_9mm_mp5"], [], ""]]];
@@ -252,8 +252,8 @@ _militaryLoadoutData set ["machineGuns", [
 ["sfp_ksp58B2", "", "", "sfp_optic_3x_aimpoint", ["sfp_50Rnd_762x51_ksp58"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["sfp_ak4d", "", "", "optic_KHS_blk", ["sfp_20Rnd_762x51_ak4"], [], "bipod_01_F_blk"],
-["sfp_ak5c_alt", "", "acc_pointer_IR", "sfp_optic_3x_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
+["sfp_ak4d", "", "", "sfp_optic_kikarsikte09_4x", ["sfp_20Rnd_762x51_ak4_ap", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], "bipod_01_F_blk"],
+["sfp_ak5c_alt", "", "acc_pointer_IR", "sfp_optic_3x_aimpoint", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["sfp_psg90_base", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_9Rnd_762x51_psg90"], [], ""],
@@ -273,13 +273,11 @@ _policeLoadoutData set ["helmets", ["sfp_lgmp_beret"]];
 _policeLoadoutData set ["facewear", ["sfp_armband_mp_green", "sfp_armband_mp_black", "sfp_armband_mp"]];
 
 _policeLoadoutData set ["antiInfantryGrenades", ["sfp_FlashBang"]];
-_policeLoadoutData set ["carbines", [["sfp_cga5p", "", "", "", ["CUP_20Rnd_556x45_Stanag"], [], ""]]];
-_policeLoadoutData set ["SMGs", ["sfp_mp5"]];
+_policeLoadoutData set ["carbines", [["sfp_cga5p", "", "", "", ["CUP_20Rnd_556x45_Stanag", "CUP_20Rnd_556x45_Stanag_Tracer_Red"], [], ""]]];
+_policeLoadoutData set ["SMGs", [["sfp_mp5", "", "", "", ["sfp_30Rnd_9mm_mp5_JHP"], [], ""]]];
 _policeLoadoutData set ["shotguns", [
 ["sfp_remington870", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
-["sfp_remington870_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
-["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],
-["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]
+["sfp_remington870_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [["CUP_hgun_Glock17_blk", "", "sfp_tlr2", "", ["CUP_17Rnd_9x19_glock17"], [], ""]]];
 
@@ -302,25 +300,25 @@ _militiaLoadoutData set ["slHats", ["sfp_homeguard_beret"]];
 _militiaLoadoutData set ["antiInfantryGrenades", ["sfp_handgrenade_shgr56"]];
 
 _militiaLoadoutData set ["rifles", [
-["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""],
-["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""],
-["sfp_ak4c", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""]
+["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""],
+["sfp_ak4b", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""],
+["sfp_ak4c", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", ["sfp_ak5d"]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
-["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
-["sfp_ak5_m203", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
+["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
+["sfp_ak4b_m203", "", "", "sfp_optic_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""],
+["sfp_ak5_m203", "", "", "", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", ["sfp_kpistm45", "sfp_kpistm45b"]];
 _militiaLoadoutData set ["machineGuns", ["sfp_ksp58"]];
 _militiaLoadoutData set ["marksmanRifles", [
-["sfp_ak4b", "", "", "sfp_optic_3x_aimpoint", ["sfp_20Rnd_762x51_ak4"], [], ""],
-["sfp_ak4c", "", "", "sfp_optic_kikarsikte09_4x", ["sfp_20Rnd_762x51_ak4"], [], ""],
-["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4"], [], ""]
+["sfp_ak4b", "", "", "sfp_optic_3x_aimpoint", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""],
+["sfp_ak4c", "", "", "sfp_optic_kikarsikte09_4x", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""],
+["sfp_ak4", "", "", "sfp_optic_hensoldt_4x", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["sfp_ak4d", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_20Rnd_762x51_ak4"], [], "bipod_01_F_blk"]
+["sfp_ak4d", "", "", "sfp_optic_kikarsikte90b_10x", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], [], "bipod_01_F_blk"]
 ]];
 _militiaLoadoutData set ["sidearms", []];
 

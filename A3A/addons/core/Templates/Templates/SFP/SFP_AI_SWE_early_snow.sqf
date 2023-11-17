@@ -104,8 +104,12 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", ["sfp_pskott86","sfp_pskott68"]];
-_loadoutData set ["ATLaunchers", ["sfp_grg86"]];
+_loadoutData set ["lightATLaunchers", ["CUP_launch_M136_Loaded"]];
+_loadoutData set ["ATLaunchers", [
+["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["sfp_grg_heat_mag", "sfp_grg_heat_mag", "sfp_grg_he_mag"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""],
+["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["sfp_grg_heat_66_mag", "sfp_grg_heat_66_mag", "sfp_grg_he_mag"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""],
+["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["sfp_grg_heat_62_mag","sfp_grg_heat_62_mag", "sfp_grg_he_mag"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""]
+]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", ["sfp_rbs69"]];
 _loadoutData set ["sidearms", []];
@@ -260,6 +264,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _policeLoadoutData set ["uniforms", ["sfp_m58w_uniform"]];
 _policeLoadoutData set ["vests", ["sfp_police_belt"]];
 _policeLoadoutData set ["helmets", ["sfp_m37w_helmet_mp"]];
+_policeLoadoutData set ["facewear", ["sfp_armband_mp"]];
 
 _policeLoadoutData set ["SMGs", ["sfp_kpistm45b"]];
 _policeLoadoutData set ["shotguns", [["sfp_remington870_wood_chrome", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""],["sfp_remington870_wood_blue", "", "acc_flashlight", "", ["sfp_12Gauge_8rd_Slug","sfp_12Gauge_8rd_Pellets"], [], ""]]];
@@ -276,6 +281,11 @@ _militiaLoadoutData set ["vests", ["sfp_stridssele","sfp_stridssele_extrabag"]];
 _militiaLoadoutData set ["medVests", ["sfp_stridssele_medic"]];
 _militiaLoadoutData set ["helmets", ["sfp_m90w_cap", "sfp_m90w_cap_alt"]];
 _militiaLoadoutData set ["slHats", ["sfp_homeguard_beret"]];
+
+_militiaLoadoutData set ["ATLaunchers", [
+["CUP_launch_MAAWS", "", "", "", ["sfp_grg_heat_66_mag", "sfp_grg_heat_66_mag", "sfp_grg_he_mag"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""],
+["CUP_launch_MAAWS", "", "", "", ["sfp_grg_heat_62_mag","sfp_grg_heat_62_mag", "sfp_grg_he_mag"], ["sfp_grg_smoke_mag", "sfp_grg_illum_mag"], ""]
+]];
 
 _militiaLoadoutData set ["rifles", [
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["sfp_riflegrenade_smoke_ak4"], ""]]];
@@ -525,11 +535,12 @@ private _atTemplate = {
     ["atBackpacks"] call _fnc_setBackpack;
 
     [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
-    ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addMagazines;
 
     ["ATLaunchers"] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
-    ["launcher", 4] call _fnc_addMagazines;
+    ["launcher", selectRandom[3,4]] call _fnc_addMagazines;
+    ["launcher", 1] call _fnc_addAdditionalMuzzleMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_at_extras"] call _fnc_addItemSet;

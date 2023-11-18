@@ -27,7 +27,7 @@
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["sfp_pbv302_mounted"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["sfp_pbv302_mounted", "sfp_pbv302", "sfp_pbv302"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["sfp_ikv91"]] call _fnc_saveToTemplate;
@@ -39,7 +39,7 @@
 ["vehiclesGunBoats", ["sfp_strb90"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["sfp_pbv302_mounted", "sfp_pbv302", "sfp_pbv302"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["sfp_jas39"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 

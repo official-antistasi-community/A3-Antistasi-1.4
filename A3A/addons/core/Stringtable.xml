@@ -857,7 +857,7 @@
         <Chinesesimp>释放战俘</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_firex_fog">
-        <Original>Clear fog</Original>
+        <Original>I hate the fog</Original>
         <German>Der Nebel nervt</German>
         <Italian>Odio la nebbia</Italian>
         <Spanish>Odio la niebla</Spanish>
@@ -883,7 +883,7 @@
         <Chinesesimp>清除附近的森林</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_firex_rain">
-        <Original>Clear rain</Original>
+        <Original>Rain rain go away</Original>
         <German>Nicht so nass und so sibirisch</German>
         <Italian>Che voglia piovere merda</Italian>
         <Spanish>Lluvia lluvia vete ya</Spanish>
@@ -2027,7 +2027,7 @@
         <Chinesesimp>敌方增援车队</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_supply_text">
-        <Original>A truck with medical supplies, destination %3, is about to depart at %2 from %1. Intercept the convoy, steal the truck, and bring it to %3, and let the people know the %4 is giving the aid they need.</Original>
+        <Original>A truck with medical supplies, destination %3, is about to depart at %2 from %1. Intercept the convoy, steal the truck, bring it to %3, and let the people know the %4 is giving the aid they need.</Original>
         <Italian>Un veicolo carico di rifornimenti medici rifornirà %3  partirà per le %2 da %1. Ruba il veicolo e portalo a %3 e fai in modo che la gente sappia che %4 sta portanto i rifornimenti.</Italian>
         <Spanish>Un camión con suministros médicos con destino %3 saldrá a las %2 desde %1. Robe ese camión y tráigalo a %3, asegúrese que la gente sabe que es %4 quién les ha entregado esos suministros.</Spanish>
         <French>Un camion avec des fournitures médicales à destination %3 est sur le point de partir à %2 de %1. Volez ce camion, amenez le à %3 et faites savoir aux gens que c'est %4 qui donne ces fournitures.</French>
@@ -3741,7 +3741,7 @@
         <Czech>Zřícený vrtulník</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_veh_text">
-        <Original>We know an enemy armor (%3) is stationed in %1. We have a unique opportunity to steal or destroy the armor before it becomes a issue later on. Do it before %2.</Original>
+        <Original>We know an enemy armor (%3) is stationed in %1. We have a unique opportunity to steal or destroy the armor before it becomes an issue later on. Do it before %2.</Original>
         <Italian>Sappiamo che un blindato nemico (%3) è stazionato a %1. Possiamo distruggerlo o rubarlo prima che possa causare danni. Fallo entro %2.</Italian>
         <French>Nous savons qu'un blindé ennemi (%3) est en poste à %1. C'est une bonne opportunité de le détruire ou le capturer avant qu'il ne cause plus de dégats. Faites le avant %2.</French>
         <Korean>%1에 적 기갑(%3)이 배치되었다는 걸 알고 있습니다. 더 큰 피해를 입기 전에 파괴하거나 훔칠 수 있는 좋은 기회입니다. %2 전까지 수행하십시오.</Korean>
@@ -3805,7 +3805,7 @@
         <Czech>Bankovní mise</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_text">
-        <Original>A squad of Gendarmeries are guarding a large amount of money in the bank of %1. Take the Box Truck and go there before %2. Once you're there, hold the truck next to the bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring the truck back to HQ and the money will be ours.</Original>
+        <Original>A squad of Gendarmeries are guarding a large amount of money in the bank of %1. Take the Truck at HQ and go there before %2. Once you're there, hold the truck next to the bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring the truck back to HQ and the money will be ours.</Original>
         <Italian>Sappiamo che i Gendarmi sono  a guardia di una grossa somma di denaro nella banca di %1. Prendi questo camion e recati lì entro %2, mantieni il camion nei pressi dell'entrata principale della banca per 2 minuti e il denaro verrà trasferito al veicolo. Riportalo al QG e il denaro sarà nostro.</Italian>
         <French>Nous savons que les Gendarmes gardent une grande quantité d'argent dans la banque de %1. Prenez ce camion et allez y avant %2, maintenez le camion proche de l'entrée principale de la banque pendant 2 minutes et l'argent sera transféré dedans. Ramenez le au QG et l'argent sera à nous.</French>
         <Korean>우린 적 헌병대가 %1의 은행에 거금을 지키고 있다는 걸 알고 있습니다. 이 트럭을 타고 %2 전까지 그 곳으로 가서 트럭을 2분간 주차하고 있으면 돈이 트럭으로 옮겨질 것입니다. 그 돈을 본부로 가져오면 돈은 우리의 것이 될 것입니다.</Korean>
@@ -4420,7 +4420,7 @@
         <Czech>Vraťte se do operační oblasti, než budete vyhozeni do povětří, máte %1 sekund.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_titel">
-        <Original>We can't cover you there!</Original>
+        <Original>Out of bounds</Original>
         <Italian>Fuori dai confini</Italian>
         <French>Hors des limites</French>
         <Korean>경계를 벗어남</Korean>
@@ -8669,7 +8669,7 @@
         <Chinesesimp>将总部转移到其他区域</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
-        <Original>Petros will join your group. The arsenal box must be empty to move HQ. To rebuild, select the Build HQ here option on Petros.</Original>
+        <Original>Petros will join your group. The inventory of the arsenal box must be empty to move HQ. To rebuild, select the Build HQ here option on Petros.</Original>
         <German>Petros tritt deiner Gruppe bei. Munitionskiste muss leer sein. Zur Neuerrichtung die Bauaktion in der Nähe von Petros auswählen.</German>
         <Italian>Petros si unirà al tuo gruppo. La cassa di munizioni deve essere vuota. Per ricostruirla, seleziona la voce Costruisci, stando vicino a Petros</Italian>
         <Spanish>Pertos se unirá a tu grupo. La caja de munición debe estar vacía. Para reconstruir, selecciona la acción Construir cerca de Petros</Spanish>
@@ -10742,7 +10742,7 @@
         <Chinesesimp>选择单位并使用"解散班组成员"来将他们送回总部。你将回收部分开销。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_1">
-        <Original>Having a commander is necessary because they are the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play multiplayer, the most experienced player will usually occupy this position.</Original>
+        <Original>Having a commander is necessary because he is the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play multiplayer, the most experienced player will usually occupy this position.</Original>
         <German>Einen Kommandanten zu haben ist unumgänglich, da er die Bodentruppen der Fraktion befehligt. Viele Optionen und Möglichkeiten stehen nur dem Kommandanten zur Verfügung. Je nach deinen gewählten Einstellungen, wenn du im Multiplayer spielst, wird der Spieler mit der meisten Erfahrung den Platz des Kommandanten einnehmen.</German>
         <Italian>Avere un comandante è necessario perché è il comandante delle forze offensive di terra della fazione. Molte opzioni sono disponibili solo per il comandante e, a seconda delle tue impostazioni, se giochi in multigiocatore, il giocatore più esperto di solito occuperà questa posizione.</Italian>
         <Spanish>Tener un comandante es necesario ya que es el comandante de las fuerzas terrestres de la Facción. El comandante tiene muchas opciones únicas y, dependiendo de tus ajustes, si juegas online, el jugador más experto suele ocpuar el puesto.</Spanish>

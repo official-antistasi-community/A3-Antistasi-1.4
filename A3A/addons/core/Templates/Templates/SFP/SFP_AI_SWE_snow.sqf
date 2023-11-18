@@ -39,7 +39,13 @@
 ["vehiclesGunBoats", ["sfp_strb90","sfp_strb90_rws"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_B_LAV25_HQ_green","CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+private _vehiclesPlanesCAS = ["sfp_jas39"];
+
+if (allowUnfairSupports) then {
+_vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_bk90"];
+};
+
+["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;            // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 

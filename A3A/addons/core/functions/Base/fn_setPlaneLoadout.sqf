@@ -161,8 +161,7 @@ if (_type == "CAS") then
         {
             _loadout = ["sfp_1x_rb98","sfp_1x_rb98","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_1Rnd_Missile_AGM_02_F","sfp_1rnd_bk90"];
             _plane setVariable ["mainGun", "sfp_mauser_bk27_27mm"];
-            _plane setVariable ["bombRacks", ["sfp_bk90_launcher"]];
-            _plane setVariable ["missileLauncher", ["Missile_AGM_02_Plane_CAS_01_F","missiles_SCALPEL"]];
+            _plane setVariable ["missileLauncher", ["sfp_bk90_launcher","Missile_AGM_02_Plane_CAS_01_F","missiles_SCALPEL"]];
         };
         case "sfp_jas39_rb15":
         {

@@ -27,7 +27,7 @@
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["sfp_tgb1314","I_E_Truck_02_Medical_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_B_LAV25_HQ_green"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesLightAPCs", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_B_LAV25_HQ_green","CUP_B_LAV25_HQ_green"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["sfp_patgb360","CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["sfp_strf90c"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesLightTanks", ["sfp_ikv91"]] call _fnc_saveToTemplate;
@@ -39,7 +39,13 @@
 ["vehiclesGunBoats", ["sfp_strb90","sfp_strb90_rws"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["sfp_pbv302_mounted", "sfp_pbv302","CUP_B_LAV25_HQ_green","CUP_B_LAV25M240_green"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_bk90", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+private _vehiclesPlanesCAS = ["sfp_jas39"];
+
+if (allowUnfairSupports) then {
+_vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_bk90"];
+};
+
+["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;            // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 

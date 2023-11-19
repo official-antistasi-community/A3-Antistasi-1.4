@@ -496,6 +496,13 @@ class Templates
         name = "3CB FIA Rebels";
         file = "3CB_Reb_FIA";
     };
+    class 3CB_Reb_LSM : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_LSM\Flag\LSM_flag_co.paa";
+        name = "3CB LSM Rebels";
+        file = "3CB_Reb_LSM";
+    };
     class 3CBF_CHC : 3CBF_Base
     {
         side = "Civ";

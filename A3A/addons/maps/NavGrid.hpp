@@ -7,7 +7,7 @@ class NavGrid {
     Enoch = QPATHTOFOLDER(Antistasi_Enoch.Enoch\navGrid.sqf);
     Kunduz = QPATHTOFOLDER(Antistasi_Kunduz.Kunduz\navGrid.sqf);
     Malden = QPATHTOFOLDER(Antistasi_Malden.Malden\navGrid.sqf);
-    regero = QPATHTOFOLDER(Antistasi_Regero.regero\navGrid.sqf);
+    regero = QPATHTOFOLDER(Antistasi_regero.regero\navGrid.sqf);
     sara = QPATHTOFOLDER(Antistasi_sara.sara\navGrid.sqf);
     Stratis = QPATHTOFOLDER(Antistasi_Stratis.Stratis\navGrid.sqf);
     takistan = QPATHTOFOLDER(Antistasi_takistan.takistan\navGrid.sqf);

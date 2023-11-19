@@ -7,7 +7,7 @@ class mapInfo {
     #include "Antistasi_Enoch.Enoch\mapInfo.hpp"
     #include "Antistasi_Kunduz.Kunduz\mapInfo.hpp"
     #include "Antistasi_Malden.Malden\mapInfo.hpp"
-    #include "Antistasi_Regero.regero\mapInfo.hpp"
+    #include "Antistasi_regero.regero\mapInfo.hpp"
     #include "Antistasi_sara.sara\mapInfo.hpp"
     #include "Antistasi_Stratis.Stratis\mapInfo.hpp"
     #include "Antistasi_takistan.takistan\mapInfo.hpp"

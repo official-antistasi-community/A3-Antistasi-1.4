@@ -3527,7 +3527,7 @@
     </Container>
     <Container name="A3A_fn_mission">
       <Key ID="STR_A3A_fn_mission_as_off_text">
-        <Original>A %4 officer is inspecting %1. Go there and kill him before %2:%3.</Original>
+        <Original>A %3 officer is inspecting %1. Go there and kill him before %2:%3.</Original>
         <Italian>Un ufficiale %4 sta ispezionando %1. Recati lì ed uccidilo entro %2:%3</Italian>
         <French>Un officier de %4 est en train d'inspecter %1. Allez-y et tuez le avant %2:%3.</French>
         <Czech>Důstojník %4 kontroluje %1. Jděte tam a zabijte ho před %2:%3.</Czech>
@@ -3541,7 +3541,7 @@
         <Czech>Zabít důstojníka.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
-        <Original>We have spotted a %3 SpecOp team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
+        <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
         <Italian>Abbiamo avvistato una squadra di FS %3 in pattugliamento intorno a %1. Tendi un'imboscata e avremo un problema in meno. Fallo entro %2. Sii cauto, sono uomini duri.</Italian>
         <French>Nous avons repéré une équipe des Forces Spéciales de %3 en train de patrouiller autours d'un %1. Prenez les en embuscade et ça nous fera un problème de moins. Faites-le avant %2. Soyez prudents, c'est des durs.</French>
         <Korean>%1 인근을 순찰하는 %3 소속 특수작전조를 발견했습니다. 그들을 기습하면 골치아픈 문제가 하나 줄어들 것입니다. %2 이전까지 이 작업을 수행하십시오. 조심하세요. 그들은 고도로 훈련된 녀석들입니다.</Korean>
@@ -3549,7 +3549,7 @@
         <Czech>Zpozorovali jsme tým speciálních jednotek %3, který hlídá okolí %1. Přepadněte je a budeme mít o jeden problém méně. Udělejte to před %2. Buďte opatrní, jsou to tvrdí borci.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_titel">
-        <Original>SpecOps</Original>
+        <Original>Special Forces</Original>
         <German>Spezialkräfte</German>
         <Italian>FS</Italian>
         <French>Forces Spéciales</French>
@@ -3566,7 +3566,7 @@
         <Czech>Někdo našel informace o rodině zrádce. Další problémy už působit nebude.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_text">
-        <Original>A traitor has scheduled a meeting with %4 in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't where exactly this meeting will happen. You will recognise the building by the nearby Offroad and %3 presence.</Original>
+        <Original>A traitor has scheduled a meeting with %3 forces in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't know where exactly this meeting will happen. You will recognize the building by the nearby camo-painted Offroad and %3 presence.</Original>
         <Italian>Un traditore si incontrerà con %4 a %1. Uccidilo prima che possa fornirgli intelligence e crearci problemi. Fallo entro %2. Non sappiamo dove avverrà l'incontro. Riconoscerai l'edificio dal Fuoristrada parcheggiato e dalla presenza di %3.</Italian>
         <French>Un traitre va rencontrer %4 dans %1. Tuez-le avant qu'il ne divulge assez de renseignements pour nous causer des problèmes. Faites-le avant %2. Nous ne savons pas exactement où cette rencontre aura lieu. Vous reconnaitrez le batiment grâce au Tout-Terrain proche et la présence de %3.</French>
         <Korean>한 배신자가 %1에서 %4와(과) 만남을 가지기로 일정을 잡았습니다. 그가 우리에게 문제를 일으킬 수 있는 정보를 제공하기 전에 그를 사살하십시오. %2 전에 수행하십시오. 이 만남이 어디서 일어나는지는 정확히 알 수 없습니다. 근처에 있는 오프로드와 %3의 존재로 알 수 있습니다.</Korean>

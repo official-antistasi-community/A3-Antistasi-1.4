@@ -5,11 +5,6 @@ FIX_LINE_NUMBERS()
 _markerX = _this select 0;
 
 _difficultX = if (random 10 < tierWar) then {true} else {false};
-_leave = false;
-_contactX = objNull;
-_groupContact = grpNull;
-_tsk = "";
-_tsk1 = "";
 
 _positionX = getMarkerPos _markerX;
 
@@ -57,8 +52,7 @@ _groupTraitor selectLeader _traitor;
 _posTsk = (position _houseX) getPos [random 100, random 360];
 
 private _taskId = "AS" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskID,[format [localize "STR_A3A_fn_mission_as_traitor_text",_nameDest,_displayTime,FactionGet(occ,"name")],localize "STR_A3A_fn_mission_as_traitor_titel",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;//old pvp blufor mission - won't localize
-[[Occupants],_taskID+"B",[format ["We arranged a meeting in %1 with a %3 contact who may have vital information about their Headquarters position. Protect him until %2.",_nameDest,_displayTime,FactionGet(reb,"name")],"Protect Contact",_markerX],getPos _houseX,false,0,true,"Defend",true] call BIS_fnc_taskCreate;//old pvp blufor mission - won't localize
+[[teamPlayer,civilian],_taskID,[format [localize "STR_A3A_fn_mission_as_traitor_text",_nameDest,_displayTime,FactionGet(occ,"name")],localize "STR_A3A_fn_mission_as_traitor_titel",_markerX],_posTsk,false,0,true,"Kill",true] call BIS_fnc_taskCreate;
 [_taskId, "AS", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 traitorIntel = false; publicVariable "traitorIntel";

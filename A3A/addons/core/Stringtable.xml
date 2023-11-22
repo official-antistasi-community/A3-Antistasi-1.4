@@ -3527,7 +3527,7 @@
     </Container>
     <Container name="A3A_fn_mission">
       <Key ID="STR_A3A_fn_mission_as_off_text">
-        <Original>A %3 officer is inspecting %1. Go there and kill him before %2:%3.</Original>
+        <Original>A %3 officer is inspecting %1. Go there and kill him before %2.</Original>
         <Italian>Un ufficiale %4 sta ispezionando %1. Recati lì ed uccidilo entro %2:%3</Italian>
         <French>Un officier de %4 est en train d'inspecter %1. Allez-y et tuez le avant %2:%3.</French>
         <Czech>Důstojník %4 kontroluje %1. Jděte tam a zabijte ho před %2:%3.</Czech>

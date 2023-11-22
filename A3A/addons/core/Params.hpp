@@ -110,7 +110,7 @@ class Params
         title = $STR_A3A_Params_GCThreshold_title;
         values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", $STR_A3A_Params_generic_disabled};
-        Default = 0;
+        Default = 14400;
     };
     class A3A_reviveTime
     {
@@ -124,7 +124,7 @@ class Params
         title = $STR_A3A_Params_selfReviveMethods_title;
         values[] = {0,1};
         texts[] = {$STR_A3A_Params_generic_disabled, $STR_A3A_Params_selfReviveMethods_withstand};
-        default = 0;
+        default = 1;
     };
     class A3A_builderPermissions
     {
@@ -153,7 +153,7 @@ class Params
         title = $STR_A3A_Params_membershipEnabled_title;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 1;
+        default = 0;
     };
     class A3A_guestCommander
     {

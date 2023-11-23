@@ -132,7 +132,7 @@ waitUntil  {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {
 
 if (not alive _traitor || traitorIntel) then
 {
-	[_taskId, "AS", "SUCCEEDED", true] call A3A_fnc_taskSetState;
+	[_taskId, "AS", "SUCCEEDED", false] call A3A_fnc_taskSetState;
 	if(traitorIntel && (alive _traitor)) then
 	{
 		{[petros,"hint",localize "STR_A3A_fn_mission_as_traitor_hint"] remoteExec ["A3A_fnc_commsMP",_x]} forEach ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits);
@@ -171,7 +171,7 @@ if (not alive _traitor || traitorIntel) then
 }
 else
 {
-	[_taskId, "AS", "FAILED", true] call A3A_fnc_taskSetState;
+	[_taskId, "AS", "FAILED", false] call A3A_fnc_taskSetState;
 	if (_difficultX) then {[-10,theBoss] call A3A_fnc_playerScoreAdd} else {[-10,theBoss] call A3A_fnc_playerScoreAdd};
 	if (dateToNumber date > _dateLimitNum) then
 	{

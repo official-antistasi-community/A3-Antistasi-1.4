@@ -1,4 +1,7 @@
+#include "..\..\script_component.hpp"
 //Mission: Assassinate a SpecOp team
+FIX_LINE_NUMBERS()
+
 if (!isServer and hasInterface) exitWith{};
 
 _markerX = _this select 0;

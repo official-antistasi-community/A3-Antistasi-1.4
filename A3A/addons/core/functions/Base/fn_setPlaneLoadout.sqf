@@ -144,10 +144,9 @@ if (_type == "CAS") then
             _plane setVariable ["missileLauncher", ["uk3cb_weap_kh25ma_Launcher"]];
         };
         case "UK3CB_CW_SOV_O_EARLY_LI2_ARMED": {
-            _loadout = ["UK3CB_Factions_PylonPod_16Rnd_S8KOM","UK3CB_Factions_PylonMissile_1Rnd_FAB250","UK3CB_Factions_PylonPod_16Rnd_S8KOM","UK3CB_Factions_PylonMissile_1Rnd_FAB250"];
-            _plane addMagazine "FakeMagazine";
-            _plane addWeapon "FakeWeapon";  //bug circumvention, LI2 lacks the fake weapon & magazine to function
-            _plane setVariable ["bombRacks", ["UK3CB_Factions_Bomb_FAB250"]];
+            _loadout = ["UK3CB_Factions_PylonPod_16Rnd_S8KOM","UK3CB_Factions_PylonPod_16Rnd_S8KOM","UK3CB_Factions_PylonPod_16Rnd_S8KOM","UK3CB_Factions_PylonPod_16Rnd_S8KOM"];
+            _plane addMagazine "FakeMagazine";  //bug circumvention, LI2 lacks the fake weapon & magazine to function
+            _plane addWeapon "FakeWeapon";      //  -||-
             _plane setVariable ["rocketLauncher", ["UK3CB_Factions_Rockets_S8KOM"]];
         };
         case "UK3CB_AAF_B_Gripen_G";

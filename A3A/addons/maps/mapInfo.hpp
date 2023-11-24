@@ -17,4 +17,6 @@ class mapInfo {
     #include "Antistasi_vn_khe_sanh.vn_khe_sanh\mapInfo.hpp"
     #include "Antistasi_cup_chernarus_A3.cup_chernarus_A3\mapInfo.hpp"
     #include "Antistasi_SPE_Normandy.SPE_Normandy\mapInfo.hpp"
+    #include "Antistasi_gm_weferlingen_summer.gm_weferlingen_summer\mapInfo.hpp"
+    #include "Antistasi_gm_weferlingen_winter.gm_weferlingen_winter\mapInfo.hpp"
 };

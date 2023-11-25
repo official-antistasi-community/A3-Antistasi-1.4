@@ -110,6 +110,7 @@ else
     _damageDealt = 0.15 + random 0.15;
 };
 
+_caller setCaptive false;
 _caller setVariable ["timeToBreach",time + _time];
 _caller playMoveNow selectRandom medicAnims;
 _caller setVariable ["breachVeh", _vehicle];
@@ -162,6 +163,14 @@ if
   if(alive _vehicle) then {
 	_vehicle call A3A_fnc_addActionBreachVehicle;
   };
+};
+//Check the explosives are still there
+if ({_x == _explosive} count magazines _caller < _explosiveCount) exitWith {
+    [_titleStr, localize "STR_A3A_fn_base_breachveh_no_noexpl"] call A3A_fnc_customHint; //This should probably get its own string for clarity
+    _caller setVariable ["cancelBreach",nil];
+    if(alive _vehicle) then {
+	_vehicle call A3A_fnc_addActionBreachVehicle;
+    };
 };
 
 //Remove the correct amount of explosives

@@ -68,14 +68,14 @@ class Params
         title = $STR_A3A_Params_globalCivilianMax_title;
         values[] = {0,2,5,10,15,20};
         texts[] = {"0","2","5","10","15","20"};
-        default = 5;
+        default = 10;
     };
     class maxCiviliansPerTown
     {
         title = $STR_A3A_Params_maxCiviliansPerTown_title;
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
-        default = 2;
+        default = 5;
     };
     class initialPlayerMoney
     {

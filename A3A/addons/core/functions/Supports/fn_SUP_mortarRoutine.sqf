@@ -31,6 +31,55 @@ if((30 + random 40) >_sideAggression) then
     _numberOfRounds = 12;
     _timeAlive = 1800;
 };
+
+if(_suppType == "ARTILLERY") then
+{
+    //Values derrived from vanilla 155mm artillery
+    private _expectedArea = 30 * 30 * 3.14;
+    private _expectedIndirect = 125;
+    private _expectedHit = 340;
+    private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+    
+    private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
+    private _subMunitionMult = 1;
+    if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "") then 
+    {
+        private _submunitionAmmo = (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo");
+        if (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType") select 0 == "custom") then 
+        {
+            _subMunitionMult = count ((getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1); //If custom, the number of pairs should be the number of munitions
+        } else 
+        {
+            _subMunitionMult = (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1;
+        };
+        systemChat format["number of submunition: %1", _subMunitionMult];
+        if (isArray (_submunitionAmmo)) then 
+        {
+            _ammo = getText ((_submunitionAmmo) select 0); //Take the first ammo used, not ideal but don't have many assumptions to go on here
+        } else 
+        {
+            _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster
+        };
+    };
+    
+    private _radius = getNumber (configfile >> "CfgAmmo" >> _ammo >> "indirectHitRange");
+    private _area = _radius * _radius * 3.14;
+    private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
+    private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
+    private _value = (_hit + _indirect + _area) * _subMunitionMult;
+    
+    systemChat format["%4 : _radius is %5, _area is %1, _hit is %2, _indirect is %3", _area, _hit, _indirect, _ammo, _radius];
+    systemChat format["Evaluatd value is: %1, shot multiplier: %2", _value, _expectedValue / _value];
+    
+} else
+{
+    //Values derrived from vanilla 81mm mortar
+    private _expectedArea = 30 * 30 * 3.14;
+    private _expectedIndirect = 125;
+    private _expectedHit = 340;
+    private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+};
+
 private _shotsPerVolley = _numberOfRounds / 3;
 
 //A function to repeatedly fire onto a target without loops by using an EH

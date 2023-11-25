@@ -66,7 +66,7 @@ if(_suppType == "ARTILLERY") then
     private _area = _radius * _radius * 3.14;
     private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
     private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
-    private _value = (_hit + _indirect + _area) * _subMunitionMult;
+    private _value = ((_hit + _indirect + _area) * _subMunitionMult);
     
     systemChat format["%4 : _radius is %5, _area is %1, _hit is %2, _indirect is %3", _area, _hit, _indirect, _ammo, _radius];
     systemChat format["Evaluatd value is: %1, shot multiplier: %2", _value, _expectedValue / _value];

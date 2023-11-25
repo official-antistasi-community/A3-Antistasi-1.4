@@ -821,6 +821,27 @@
         <Turkish>Esirleri serbest bırak</Turkish>
         <Chinesesimp>释放战俘</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_captureX_recr1">
+        <Original>How about joining the good guys?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_captureX_recr_yes1">
+        <Original>Why not? It can't be any worse.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_recr_no1">
+        <Original>Screw you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_captureX_dismiss">
+        <Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_captureX_libresponse1">
+        <Original>Okay, thank you. I owe you my life!</Original>
+      </Key>
+       <Key ID="STR_A3A_fn_captureX_libresponse2">
+        <Original>Thank you. I swear you won't regret it!</Original>
+      </Key>
+       <Key ID="STR_A3A_fn_captureX_libresponse3">
+        <Original>Thank you, I won't forget this!</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_flagaction_firex_fog">
         <Original>I hate the fog</Original>
         <German>Der Nebel nervt</German>

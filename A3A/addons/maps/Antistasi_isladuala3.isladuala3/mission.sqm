@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=5159;
+		nextID=5166;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=4794;
+		nextID=4899;
 	};
 	class Camera
 	{
-		pos[]={5884.6733,61.956573,6249.4697};
-		dir[]={-0.49711931,-0.53951776,-0.67956281};
-		up[]={-0.31854269,0.84196991,-0.43544766};
-		aside[]={-0.80710316,-1.1496013e-009,0.59041911};
+		pos[]={8162.5107,204.77312,1826.0111};
+		dir[]={0.020286744,-0.71955729,0.69413674};
+		up[]={0.021020705,0.69443303,0.71925014};
+		aside[]={0.99957323,9.3132257e-010,-0.029213388};
 	};
 };
 binarizationWanted=0;
@@ -288,7 +288,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=7;
+		items=14;
 		class Item0
 		{
 			dataType="Layer";
@@ -13941,6 +13941,7 @@ class Mission
 											{
 												name="commanderX";
 												description="Default Commander";
+												isPlayer=1;
 												isPlayable=1;
 												class Inventory
 												{
@@ -37486,6 +37487,7 @@ class Mission
 									};
 									id=5089;
 									type="Wire";
+									atlOffset=-1.9073486e-006;
 								};
 								class Item24
 								{
@@ -50153,6 +50155,90 @@ class Mission
 			};
 			id=2;
 			atlOffset=3.300489e+008;
+		};
+		class Item7
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8164.647,18.526749,1865.7419};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 150];};";
+			id=5159;
+			type="Logic";
+			atlOffset=21.042;
+		};
+		class Item8
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={2547.2429,12.042,2800.083};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 250];};";
+			id=5160;
+			type="Logic";
+			atlOffset=21.042;
+		};
+		class Item9
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1105.2913,20.389931,4761.9238};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 150];};";
+			id=5161;
+			type="Logic";
+			atlOffset=4.6528444;
+		};
+		class Item10
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={1802.8314,13.242,7210.8584};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 250];};";
+			id=5162;
+			type="Logic";
+			atlOffset=21.042;
+		};
+		class Item11
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={3873.3459,10.376888,7937.2017};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 250];};";
+			id=5163;
+			type="Logic";
+			atlOffset=20.96817;
+		};
+		class Item12
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={7810.2246,10.504017,8393.9834};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 250];};";
+			id=5164;
+			type="Logic";
+			atlOffset=21.042;
+		};
+		class Item13
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8666.0107,20.220142,2360.2324};
+			};
+			init="if (isServer) then {{_x allowDamage false;} forEach nearestObjects [this, [""Land_ibr_mostd_bez_lamp"", ""Land_ibr_mostd_stred30""], 150];};";
+			id=5165;
+			type="Logic";
+			atlOffset=3.9856358;
 		};
 	};
 	class Connections

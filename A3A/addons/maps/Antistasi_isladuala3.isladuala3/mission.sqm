@@ -267,7 +267,7 @@ dlcs[]=
 	"Contact"
 };
 randomSeed=7848077;
-class ScenarioData
+
 class Mission
 {
 	class Intel

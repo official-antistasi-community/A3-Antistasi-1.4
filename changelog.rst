@@ -24,13 +24,13 @@ Version 3.4.1
    * :issue:`3066` Fixed multiple minor template issues, mostly incorrect scopes, nothing critical
    * :issue:`3064` Fixed multiple Assassination missions related issues where hints where not displayed correctly
    * :issue:`3063` Fixed minor issues with multiple hints where titles where not displayed correclty
-   * :issue:`3059` Fixed issues with the new revive system like revive being disabled due to being killed by damage while downed
+   * :issue:`3059` Fixed revive system being disabled after a player was killed by damage when downed
    * :issue:`3055` Added missing condition check on Vanilla CSAT templates leading to marksmen dlc content not being loaded
    * :issue:`3051` Fixed multiple strings in regard to typos, wording and such
    * :issue:`3041` Fixed SFIA faction name in relevant files
-   * :issue:`3044` Fixed issue with double-revive cases solved where players got stuck in the revive-animation
+   * :issue:`3044` Fixed units continuing revive attempts after their target was revived by someone else.
    * :issue:`3043` Fixed issue with garrison spawning when no buildings are present which led to garrisons being broken/deleted
-   * :issue:`3042` Fixed issue where autoloading an old save with a newer version could break
+   * :issue:`3042` Fixed issue where autoloading an old save with a newer version could break respawns
    * :issue:`3031` Fixed patrol starting locations being too close to players by implementing min distance check
 
 .. admonition:: Localization

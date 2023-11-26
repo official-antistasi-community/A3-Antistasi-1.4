@@ -652,6 +652,7 @@
       <Key ID="STR_A3A_fn_base_canmovehq_petros_pickedup">
         <Original>Petros is already picked up.</Original>
         <Korean>페트로스는 이미 픽업된 상태입니다.</Korean>
+        <Czech>Petros sebrán.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_title">
         <Original>Move HQ</Original>
@@ -927,6 +928,7 @@
         <Original>Decipher Intel</Original>
         <German>Intel entschlüsseln</German>
         <Korean>군사정보 해독</Korean>
+        <Czech>Dešifrovat Intel</Czech>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_intel_download">
         <Original>Download Intel</Original>
@@ -1045,6 +1047,7 @@
       <Key ID="STR_A3A_fn_base_flagaction_static_prevent">
         <Original>Prevent AIs from using this weapon</Original>
         <Korean>AI가 이 무기를 사용하는것을 막기</Korean>
+        <Czech>Zakázat AI používat tuto zbraň</Czech>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_take">
         <Original>Take the Flag</Original>
@@ -1828,6 +1831,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_text">
         <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches it's destination.</Original>
+        <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_title">
         <Original>Armored Convoy</Original>
@@ -1883,6 +1887,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_reinf_text">
         <Original>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Intercept the convoy, kill all the troops, and destroy their vehicles.</Original>
+        <French>Des renforts sont envoyés de %1 à %3 dans un convoi, et il est sur le point de partir à %2. Essayez d'intercepter et éliminer tout les objectifs.</French>
         <Korean>%1의 증원군이 호송대로 %3(으)로 보내지는 중이며, %2에서 출발하려고 합니다. 호송대를 방해하여 모든 병력을 사살하고 차량을 파괴하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_reinf_title">
@@ -1899,6 +1904,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_supply_text">
         <Original>A truck with medical supplies, destination %3, is about to depart at %2 from %1. Intercept the convoy, steal the truck, bring it to %3, and let the people know the %4 is giving the aid they need.</Original>
+        <French>Un camion avec des fournitures médicales à destination %3, est sur le point de partir à %2 depuis %1. Volez ce camion, amenez le à %3 et faites savoir aux gens que c'est %4 qui donne ces fournitures.</French>
         <Korean>%1의 목적지가 %3인 의료 보급 트럭이 %2에서 출발하려고 합니다. 호송대를 방해하여 해당 트럭을 훔쳐 %3에게 가져간 다음 그들이 필요한 자원을 %4가 제공하고 있다는 사실을 사람들에게 알리십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_supply_title">
@@ -2064,6 +2070,8 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_attack2">
         <Original>You cannot Fast Travel to an area under attack or with enemies nearby.</Original>
+        <French>Vous ne pouvez pas voyager rapidement vers une zone attaquée ou avec des ennemis à proximité.</French>
+        <Korean>적에게 공격당하거나 근처에 있는 곳으로 빠른 이동을 할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_command">
         <Original>You cannot Fast Travel groups commanded by players.</Original>
@@ -2113,6 +2121,8 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_ff">
         <Original>You cannot fast travel while being punished for friendly fire.</Original>
+        <French>Vous ne pouvez pas voyager rapidement en étant puni pour tir-ami.</French>
+        <Korean>아군오사 처벌을 받는 동안에는 빠른 이동을 할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_members">
         <Original>There are no members near the target location. You need to be within %1 km of HQ, an attack, commander or a member.</Original>
@@ -2311,6 +2321,7 @@
         <Italian>Questa risorsa non può essere spostata più lontano di così dal suo centro di zona.</Italian>
         <Spanish>Este objeto no puede alejarse más de la zona central.</Spanish>
         <French>Cet élément ne peut pas être déplacé plus loin du centre de sa zone.</French>
+        <Korean>이 에셋은 해당 구역 중심에서 멀리 떨어질 수 없습니다.</Korean>
         <Czech>Tento asset nemůže být posunut dále od centra zóny.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_movehqobj_no_vehicle">
@@ -2549,6 +2560,7 @@
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_1">
         <Original>%7&lt;br/&gt;&lt;br/&gt;Total population: %1&lt;br/&gt;%6 Support: %2&lt;br/&gt;%5 Support: %3&lt;br/&gt;&lt;br/&gt;Murdered Population: %4&lt;br/&gt;&lt;br/&gt;Click on a zone for a detailed view</Original>
+        <Korean>%7&lt;br/&gt;&lt;br/&gt;총 인구: %1&lt;br/&gt;%6 지지도: %2&lt;br/&gt;%5 지지도: %3&lt;br/&gt;&lt;br/&gt;죽은 인구: %4&lt;br/&gt;&lt;br/&gt;원하는 구역을 클릭하십시오</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_2">
         <Original>%1&lt;br/&gt;&lt;br/&gt;Pop %2&lt;br/&gt;%6 Support: %3 %5&lt;br/&gt;%7 Support: %4 %5</Original>
@@ -2949,6 +2961,7 @@
         <Original>Reference to unknown location, need to locate location to continue deciphering.</Original>
         <Italian>Riferimento a locazione sconosciuta, devi trovare la locazione prima di continuare il decifraggio.</Italian>
         <French>Fait référence à un lieu inconnu, il faut le localiser avant de continuer le décryptage.</French>
+        <Korean>알 수 없는 위치를 참조하고 있으며, 계속 해독하려면 위치를 특정해야 합니다.</Korean>
         <Czech>Zmínka o neznámé lokaci, budeš muset lokalizovat danou lokaci abys mohl dokončit dešifrování.</Czech>
         <Chinesesimp>坐标指向一个未知的地点, 需要锁定位置才能进一步解码. </Chinesesimp>
       </Key>
@@ -2956,21 +2969,25 @@
         <Original>Decipher meaning</Original>
         <Italian>Decifra il significato</Italian>
         <French>Décrypter le sens</French>
+        <Korean>의미 해독하기</Korean>
         <Czech>Dešifrovat význam</Czech>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_err">
         <Original>Illegible text encountered, need to decipher meaning from context.</Original>
+        <Korean>읽을 수 없는 텍스트가 발견되었습니다. 문맥에서 의미를 해독해야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_act">
         <Original>Decipher codename</Original>
         <Italian>Decifra il nome in codice</Italian>
         <French>Décrypter le nom de code</French>
+        <Korean>코드네임 해독하기</Korean>
         <Czech>Dešifrovat kódové označení</Czech>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_err">
         <Original>Unknown codename encountered, need to decipher the codename reference.</Original>
         <Italian>Nome in codice sconosciuto pervenuto, necessità di decifrare il riferimento al nome in codice.</Italian>
         <French>Nom de code inconnu rencontré, il faut décrypter la référence du nom de code.</French>
+        <Korean>알 수 없는 코드네임이 있습니다. 코드네임 참조를 통해 해독해야 합니다.</Korean>
         <Czech>Objevil se neznámý kódový název, je třeba dešifrovat odkaz na kódové označení.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_4_act">
@@ -3057,12 +3074,14 @@
         <Original>Restart Network Adapter</Original>
         <Italian>Riavvia la Scheda di Rete</Italian>
         <French>Redémarrer l'Adaptateur Réseau</French>
+        <Korean>네트워크 어댑터 재시작</Korean>
         <Czech>Restartujte síťový adaptér</Czech>
       </Key>
       <Key ID="STR_A3A_fn_intel_laptop_err_me_2_err">
         <Original>Error in Network Adapter. Hardware not responding. Restart now?</Original>
         <Italian>Errore Scheda di Rete. Hardware non risponde. Riavvia ora?</Italian>
         <French>Erreur dans l'adaptateur réseau. Le matériel ne répond pas. Redémarrer maintenant?</French>
+        <Korean>네트워크 어댑터 오류. 하드웨어가 반응하지 않습니다. 재시작할까요?</Korean>
         <Czech>Chyba v síťovém adaptéru. Hardware nereaguje. Restartovat nyní?</Czech>
       </Key>
       <Key ID="STR_A3A_fn_intel_laptop_err_sm_1_act">
@@ -3425,9 +3444,6 @@
     <Container name="A3A_fn_mission">
       <Key ID="STR_A3A_fn_mission_as_off_text">
         <Original>A %3 officer is inspecting %1. Go there and kill him before %2.</Original>
-        <Italian>Un ufficiale %4 sta ispezionando %1. Recati lì ed uccidilo entro %2:%3</Italian>
-        <French>Un officier de %4 est en train d'inspecter %1. Allez-y et tuez le avant %2:%3.</French>
-        <Czech>Důstojník %4 kontroluje %1. Jděte tam a zabijte ho před %2:%3.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_off_titel">
         <Original>Kill the Officer</Original>
@@ -3440,21 +3456,9 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
         <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
-        <Italian>Abbiamo avvistato una squadra di FS %3 in pattugliamento intorno a %1. Tendi un'imboscata e avremo un problema in meno. Fallo entro %2. Sii cauto, sono uomini duri.</Italian>
-        <French>Nous avons repéré une équipe des Forces Spéciales de %3 en train de patrouiller autours d'un %1. Prenez les en embuscade et ça nous fera un problème de moins. Faites-le avant %2. Soyez prudents, c'est des durs.</French>
-        <Korean>%1 인근을 순찰하는 %3 소속 특수작전조를 발견했습니다. 그들을 기습하면 골치아픈 문제가 하나 줄어들 것입니다. %2 이전까지 이 작업을 수행하십시오. 조심하세요. 그들은 고도로 훈련된 녀석들입니다.</Korean>
-        <Polish>Zauważyliśmy zespół %3 sił specjalnych patrolujący okolice %1. Przeprowadź na nich skuteczną zasadzkę, a będziemy mieli jeden problem mniej. Zrób to przed %2. Uważaj, to twardziele.</Polish>
-        <Czech>Zpozorovali jsme tým speciálních jednotek %3, který hlídá okolí %1. Přepadněte je a budeme mít o jeden problém méně. Udělejte to před %2. Buďte opatrní, jsou to tvrdí borci.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_titel">
         <Original>Special Forces</Original>
-        <German>Spezialkräfte</German>
-        <Italian>FS</Italian>
-        <French>Forces Spéciales</French>
-        <Korean>특수부대</Korean>
-        <Polish>Siły Specjalne</Polish>
-        <Czech>Speciální jednotka</Czech>
-        <Chinesesimp>敌方特种部队</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_hint">
         <Original>Someone found some intel on the traitors family, he will not cause any problems any more!</Original>
@@ -3467,11 +3471,6 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_text">
         <Original>A traitor has scheduled a meeting with %3 forces in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't know where exactly this meeting will happen. You will recognize the building by the nearby parked vehicle and %3 presence.</Original>
-        <Italian>Un traditore si incontrerà con %4 a %1. Uccidilo prima che possa fornirgli intelligence e crearci problemi. Fallo entro %2. Non sappiamo dove avverrà l'incontro. Riconoscerai l'edificio dal Fuoristrada parcheggiato e dalla presenza di %3.</Italian>
-        <French>Un traitre va rencontrer %4 dans %1. Tuez-le avant qu'il ne divulge assez de renseignements pour nous causer des problèmes. Faites-le avant %2. Nous ne savons pas exactement où cette rencontre aura lieu. Vous reconnaitrez le batiment grâce au Tout-Terrain proche et la présence de %3.</French>
-        <Korean>한 배신자가 %1에서 %4와(과) 만남을 가지기로 일정을 잡았습니다. 그가 우리에게 문제를 일으킬 수 있는 정보를 제공하기 전에 그를 사살하십시오. %2 전에 수행하십시오. 이 만남이 어디서 일어나는지는 정확히 알 수 없습니다. 근처에 있는 오프로드와 %3의 존재로 알 수 있습니다.</Korean>
-        <Polish>Zdrajca zaplanował spotkanie z %4 w %1. Zabij go, zanim przekaże im wystarczająco dużo informacji przez którę będziemy mieli kłopoty. Zrób to przed %2. Nie wiemy, gdzie dokładnie odbędzie się to spotkanie. Budynek rozpoznasz po pobliskim Offroadzie i obecności %3.</Polish>
-        <Czech>Zrádce naplánoval setkání s %4 v %1. Zabijte ho dříve, než poskytne dost informací, které by nám způsobily problémy. Udělejte to před %2. Nevíme přesně, kde to setkání proběhne. Budovu poznáte podle nedalekého Offroadu a přítomnosti %3.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_titel">
         <Original>Kill the Traitor</Original>
@@ -3518,6 +3517,7 @@
       <Key ID="STR_A3A_fn_mission_conv_ammo_text">
         <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches its destination.</Original>
         <Spanish>Un convoy de %1 saldrá a las %2. Lleva munición munición a %3. Intente interceptarlo. Robe o destruya ese camión antes de que llegue a su destino.</Spanish>
+        <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3에게 탄약을 제공할 것입니다. 수송을 방해하여 해당 트럭이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
         <Portuguese>A coluna de %1 está prestes a partir a %2. Vai providenciar munições para %3. Tenta interceptar. Rouba ou destrói a carrinha antes que chegue ao seu destino.</Portuguese>
         <Turkish>%1 'den bir Konvoy %2 'ye gitmek üzere. %3 'e mühimmat sevkiyatı yapacak. Hedefine ulaşamadan aracı çalın ya da yok edin.</Turkish>
       </Key>
@@ -3534,6 +3534,7 @@
       <Key ID="STR_A3A_fn_mission_conv_armor_text">
         <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches it's destination.</Original>
         <Spanish>Un convoy de %1 saldrá a las %2. Reforzará %3 con vehículos blindados. Intente interceptarlo. Robe o destruya esa cosa antes de que alcance su destino.</Spanish>
+        <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
         <Portuguese>A coluna de %1 está prestes a partir a %2. Vai reforçar %3 com veículos blindados. Tenta interceptar. Rouba ou destrói a coisa antes que chegue ao seu destino.</Portuguese>
         <Turkish>%1 'den bir Konvoy %2 'ye gitmek üzere. %3 'e Zırhlı birlik kaydıracak. Hedefine ulaşamadan aracı çalın ya da yok edin.</Turkish>
       </Key>
@@ -3620,6 +3621,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_text">
         <Original>We need to destroy or take a Radio Tower in %1. This will interrupt the coverage of %3 radio propaganda. Do it before %2.</Original>
+        <Korean>%1에 있는 파괴하거나 점령해야 합니다. 그러면 %3의 프로파간다 네트워크 송신이 중단됩니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_titel">
         <Original>Destroy Radio Tower</Original>
@@ -3649,6 +3651,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_des_veh_text">
         <Original>We know an enemy armor (%3) is stationed in %1. We have a unique opportunity to steal or destroy the armor before it becomes an issue later on. Do it before %2.</Original>
+        <Korean>%1에 적 기갑(%3)이 배치되었다는 걸 알고 있습니다. 나중에 더 큰 문제가 되기 전에 파괴하거나 훔칠 수 있는 좋은 기회입니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_veh_titel">
         <Original>Steal or Destroy Armor</Original>
@@ -3686,6 +3689,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text2">
         <Original>Don't get the truck far from the bank or the countdown will restart.</Original>
+        <Korean>트럭을 은행에서 멀리 두지 마십시오. 멀리 두면 카운트가 초기화됩니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text3">
         <Original>Drive the Truck back to base to finish this mission.</Original>
@@ -3706,6 +3710,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_text">
         <Original>A squad of Gendarmeries are guarding a large amount of money in the bank of %1. Take the Truck at HQ and go there before %2. Once you're there, hold the truck next to the bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring the truck back to HQ and the money will be ours.</Original>
+        <Korean>우린 적 헌병대가 %1의 은행에 거금을 지키고 있다는 걸 알고 있습니다. 이 트럭을 타고 %2 전까지 그 곳으로 가서 트럭을 2분간 주차하고 있으면 돈이 트럭으로 옮겨질 것입니다. 그 돈을 본부로 가져오면 돈은 우리의 것이 될 것입니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_titel">
         <Original>Bank Robbery</Original>
@@ -3777,6 +3782,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_text">
         <Original>%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. A crate with enough supplies for the whole town has been placed near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.</Original>
+        <Korean>%1의 주민들은 보급품이 필요합니다. 우리가 보급품을 제공할 수 있는 존재라면 그들과의 관계를 개선할 수 있을 것입니다. 본부 근처에 보급품이 있는 상자를 놓았습니다. 상자를 %1의 도심에 배달하여 %3분 동안 그 곳에 두면 완료됩니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_titel">
         <Original>City Supplies</Original>
@@ -3835,6 +3841,7 @@
         <Italian>Un gruppo di sostenitori %3 sono nascosti a %1 in attesa di essere evacuati. Dobbiamo trovarli prima che lo faccia %2. Se non ci riusciremo verranno sicuramente giustiziati. Portali al QG.</Italian>
         <Spanish>Un grupo de seguidores de %3 están escondidos en %1 esperando una evacuación. Tenemos que encontrares antes de que %2 lo haga. De lo contrario, su muerte está asegurada. Traedlos  de vuelta al CG.</Spanish>
         <French>Un groupe de %3 partisans sont cachés à %1 et attendent une evacuation. Nous devons les trouver avant que %2 ne le fasse. Sinon leur mort est certaine. Ramenez les au QG.</French>
+        <Korean>%1에 %3의 지지자들이 숨어서 후송을 기다리고 있습니다. %2 전까지 그들을 찾아야 합니다. 그렇지 않으면 그들은 확실히 죽을 것입니다. 본부로 데려오십시오.</Korean>
         <Czech>Skupina podporovatelů %3 se skrývá v %1 a čeká na evakuaci. Musíme je najít dříve než %2. Jinak je čeká jistá smrt. Přiveďte je zpět do základny.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_titel">
@@ -3987,11 +3994,13 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_pointing">
         <Original>You are not looking at anyone.</Original>
+        <French>Vous ne pointez personne.</French>
         <Korean>당신은 누구도 보고 있지 않습니다.</Korean>
+        <Czech>Neukazuješ na nikoho.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_removed_other">
         <Original>%1 has been removed from the Server Members List.</Original>
-        <Italian>"%1 è stato rimosso alla Lista dei Membri del Server</Italian>
+        <Italian>%1 è stato rimosso alla Lista dei Membri del Server</Italian>
         <Spanish>%1 ha sido eliminado de la lista de miembros del servidor.</Spanish>
         <French>%1 a été retiré de la liste des Membres du Serveur.</French>
         <Korean>%1이(가) 서버 멤버 목록에서 제외되었습니다.</Korean>
@@ -4201,7 +4210,9 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_engi2">
         <Original>Engineers do not have any bonus or penalties, but have the ability to use Toolkits for vehicle repair.</Original>
+        <French>Les Ingénieurs n'ont pas de bonus ou de malus, mais ils ont la capacité d'utiliser des Kits de Réparation pour restaurer les véhicules.</French>
         <Korean>공병은 아무 보너스나 패널티가 없지만, 차량 수리를 위해 도구모음을 사용할 수 있는 능력이 있습니다.</Korean>
+        <Czech>Inženýři nemají žádné bonusy ani penalizace, ale můžou používat opravovací sady na opravení vozidel.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier1">
         <Original>Grenadier role.</Original>
@@ -4438,6 +4449,7 @@
       </Key>
       <Key ID="STR_A3A_fn_punish_punRel_enough">
         <Original>You have been released from the sea, think before you shoot next time.</Original>
+        <French>Vous avez été libéré de votre punition, réfléchissez la prochaine fois que vous tirez.</French>
         <Korean>당신은 바다에 풀려났습니다. 다음부턴 쏘기 전에 생각을 하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_punish_punSenCl_text">
@@ -4721,7 +4733,9 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_increased">
         <Original>Available Air Support has been increased by %1 points.</Original>
+        <French>Le Support Aérien a augmenté de %1 points.</French>
         <Korean>사용 가능한 항공 지원이 %1 포인트 상승했습니다.</Korean>
+        <Czech>Letecká podpora se zvýšila o %1 bodů.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_airveh">
         <Original>Only Air Vehicles can be used to increase Airstrike points.</Original>
@@ -5239,7 +5253,9 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_lack_supp">
         <Original>You lack the Air Support points needed to fulfill this request.</Original>
+        <French>Vous manquez de Support Aérien pour faire cette requête.</French>
         <Korean>이 요청을 수행하는 데 필요한 항공 지원 포인트가 부족합니다.</Korean>
+        <Czech>Nemáš dostatek Letecké podpory, aby jsi toto mohl vyžádat.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_no_control">
         <Original>You need to control an airport in order to fulfill this request.</Original>
@@ -5365,6 +5381,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
         <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Management option in Y menu.</Original>
+        <French>Groupe %1 à votre commandement.&lt;br/&gt;&lt;br/&gt;Les Groupes sont gérer depuis la barre HC (Par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe est coincé, utilisez la fonction de Contrôle d'IA afin de les faire bouger. Les équipes d'armes statiques montés ont tendance à se bloquer (la résolution est en cours)&lt;br/&gt;&lt;br/&gt;Pour assigner un véhicule pour ce groupe, regardez un véhicule et utiliser l'option de Gestion de Véhicule d'Escouade dans le menu Y.</French>
         <Korean>당신의 명령으로 %1 그룹을 생성하십시오.&lt;br/&gt;&lt;br/&gt;그룹은 하이 커맨드 표시줄(기본값: 컨트롤 + 스페이스 키)에서 관리됩니다.&lt;br/&lt;br/&gt;그룹이 끼었다면 AI 조종 기능을 사용하여 이동을 시작하십시오. 고정화기 탑승 팀은 자주 끼이는 경향이 있습니다 (아직 해결 중).&lt;br/&gt;&lt;br/&gt;그룹에 차량을 할당하려면 이 차량을 보고 Y 메뉴의 차량 분대 관리 옵션을 사용하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_purchased">
@@ -5518,9 +5535,6 @@
         <Original>We lost %1. There's nothing you could have done, we need to keep fighting.</Original>
         <Korean>%1을(를) 잃었습니다. 당신이 할 수 있는 일은 아무것도 없었지만, 계속 싸워야 합니다.</Korean>
       </Key>
-      <Key ID="STR_A3A_fn_revive_actRev_other">
-        <Original>%1 has been revived by someone else.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_able">
         <Original>You are not able to revive anyone.</Original>
         <Italian>Non sei in grado di rianimare nessuno.</Italian>
@@ -5559,6 +5573,9 @@
         <French>%1 n'a plus besoin de votre aide.</French>
         <Korean>%1은(는) 더 이상 당신의 도움이 필요하지 않습니다.</Korean>
         <Czech>%1 již nepotřebuje tvojí pomoc.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_other">
+        <Original>%1 has been revived by someone else.</Original>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_rev_cancel">
         <Original>Revive cancelled.</Original>
@@ -6003,9 +6020,11 @@
       </Key>
       <Key ID="STR_A3A_garrison_error_enemies_near">
         <Original>You can't recruit units into a garrison when enemies are near the zone.</Original>
+        <Korean>적들이 근처에 있을 때는 주둔지에 유닛을 모집할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_hr">
         <Original>You lack the HR necessary to recruit these units.</Original>
+        <Korean>유닛을 모집할 인력이 부족합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_money">
         <Original>You don't have enough money for adding this kind of unit (%1€ needed).</Original>
@@ -6047,6 +6066,7 @@
       </Key>
       <Key ID="STR_A3A_garrison_exceed_limit">
         <Original>Adding this squad to the garrison will exceed the garrison limit. Some of the units will join the garrison, and the rest will be dismissed and their cost refunded.</Original>
+        <Korean>이 분대를 주둔지에 추가하면 주둔군 제한을 초과하게 됩니다. 그들 중 일부는 주둔지에 합류할 것이고, 나머지는 해산되며 비용은 환불될 것입니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_fail_already_in_garrison">
         <Original>Selected units are already in garrison.</Original>
@@ -6101,6 +6121,7 @@
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_markerzone">
         <Original>You must select any %1 zone with a marker.</Original>
+        <Korean>마커가 있는 아무 %1 구역을 선택해야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_teamplayer">
         <Original>Selected zone does not belong to %1.</Original>
@@ -6130,9 +6151,11 @@
       </Key>
       <Key ID="STR_A3A_garrison_fail_zone_lost">
         <Original>You have regained control of the %1 group as the zone where the group was going to be garrisoned has been lost.</Original>
+        <Korean>%1 그룹은 주둔할 예정이었던 구역을 잃었기 때문에 하이 커맨드 통제로 들어갔습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_full_limit">
         <Original>This garrison is full, choose another zone to add this HC squad into its garrison.</Original>
+        <Korean>이 주둔지는 꽉 찼으므로, 이 하이 커맨드 분대를 주둔지에 추가하려면 다른 구역을 선택하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_header">
         <Original>Garrison</Original>
@@ -6207,11 +6230,13 @@
         <Original>Last Garbage Clean was %1 ago. Keep track of it. The server will automatically GC in %2.</Original>
         <German>Letzte Müll-Löschung war vor %1, behalte das im Auge. Müll-Löschung wird automatisch in %2 durchgeführt.</German>
         <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 쓰레기 청소 시간을 추적합니다. 서버는 %2 후에 자동으로 쓰레기 청소를 수행할 것입니다.</Korean>
+        <Czech>Poslední čistění odpadu bylo %1 zpátky. Dávejte si na to pozor. Vynucené čistění odpadu za %2.</Czech>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>Garbage Cleaner Tracker has ran a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
         <German>Müll-Löscher hat Löschung durchgeführt, weil der Zeitraum abgelaufen ist. Beachte die Fristen.</German>
         <Korean>쓰레기 청소 기록 프로그램이 임계값을 초과하여 쓰레기를 청소합니다. 쓰레기 청소 시간을 추적합니다.</Korean>
+        <Czech>Monitor čistení odpadků spustil sběr, jelikož čas překročil časový práh. Hlídejte si čas sběru.</Czech>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_title">
         <Original>Garbage Cleaner Tracker</Original>
@@ -6266,6 +6291,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_tip">
         <Original>Opens the Antistasi artillery support menu (commander only).</Original>
+        <Korean>안티스타시의 포병 지원 메뉴를 엽니다 (지휘관 전용).</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_DN">
         <Original>Battle menu</Original>
@@ -6276,6 +6302,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_tip">
         <Original>Opens the Antistasi battle menu.</Original>
+        <Korean>안티스타시의 전투 메뉴를 엽니다.</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
         <Original>Dismiss Previous Hint</Original>
@@ -6300,6 +6327,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_tip">
         <Original>Toggles the ear plugs (no effect when using ACE).</Original>
+        <Korean>귀마개를 토글합니다(ACE 사용 시 효과 없음).</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_DN">
         <Original>Toggle info bar</Original>
@@ -6310,6 +6338,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_tip">
         <Original>Toggles the visibility of the Antistasi information bar at the top of the screen.</Original>
+        <Korean>화면 상단에 있는 안티스타시 전용 정보 표시줄의 표시 여부를 전환합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_keyAcc_earplugs_in">
         <Original>You've inserted your ear plugs.</Original>
@@ -6617,19 +6646,19 @@
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvG">
         <Original>Reb vs Gov</Original>
-        <French>Reb vs Gov</French>
+        <French>Reb vs Gouv</French>
         <Korean>반군 Vs 정부군</Korean>
         <Chinesesimp>起义军 vs 政府军</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvGaI">
         <Original>Reb vs Gov + Inv</Original>
-        <French>Reb vs Gov + Envahisseur</French>
+        <French>Reb vs Gouv + Envahisseur</French>
         <Korean>반군 Vs 정부군과 침략군</Korean>
         <Chinesesimp>起义军 vs 政府军 + 侵略者</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvGvI">
         <Original>Reb vs Gov vs Inv</Original>
-        <French>Reb vs Gov vs Envahisseur</French>
+        <French>Reb vs Gouv vs Envahisseur</French>
         <Korean>반군 Vs 정부군 Vs 침략군</Korean>
         <Chinesesimp>起义军 vs 政府军 vs 侵略者</Chinesesimp>
       </Key>
@@ -6914,7 +6943,7 @@
       <Key ID="STR_A3A_Params_guestItemLimit_title">
         <Original>Default number of items needed for guests to be able to use them</Original>
         <Italian>Numero predefinito di oggetti necessari perchè gli ospiti possano usarli </Italian>
-        <French>Quantité  par defaut d'objets necessaire avant que les invités puissent s'en servir</French>
+        <French>Quantité  par defaut d'objets nécessaire avant que les invités puissent s'en servir</French>
         <Korean>게스트가 사용하는 데 필요한 기본 아이템 수</Korean>
         <Chinesesimp>允许游客玩家使用限制物品的最低限额</Chinesesimp>
       </Key>
@@ -6976,7 +7005,7 @@
       <Key ID="STR_A3A_Params_limitedFT_hq">
         <Original>Only Airports + HQ</Original>
         <Italian>Solo aeroporti + QG</Italian>
-        <French>Seulement Aéroports + QG</French>
+        <French>Seulement les Aéroports + QG</French>
         <Korean>공항과 본부만</Korean>
         <Chinesesimp>只允许快速旅行至友军机场 + 总部</Chinesesimp>
       </Key>
@@ -7077,6 +7106,10 @@
       </Key>
       <Key ID="STR_A3A_Params_minWeaps_title">
         <Original>Number of the same item required to unlock</Original>
+        <Italian>Quantità dello stesso oggetto richiesta per sbloccarlo</Italian>
+        <French>Nombre d'exemplaire d'un objet pour le débloquer</French>
+        <Korean>해금에 필요한 동일 아이템의 갯수</Korean>
+        <Chinesesimp>解锁物件所需要的物品数量</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_napalmEnabled_title">
         <Original>Enable Napalm Bombing for AI</Original>
@@ -7195,15 +7228,15 @@
         <Korean>-멤버십 설정-</Korean>
         <Chinesesimp>白名单设置</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Params_tkPunish_logonly">
+        <Original>Notify only</Original>
+      </Key>
       <Key ID="STR_A3A_Params_tkPunish_title">
         <Original>Enable Teamkill Punish</Original>
         <Italian>Abilità punizione per Teamkill</Italian>
         <French>Activer la Punition pour le Teamkill</French>
         <Korean>팀킬 처벌 활성화</Korean>
         <Chinesesimp>启用友军伤害处罚</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_Params_tkPunish_logonly">
-        <Original>Notify only</Original>
       </Key>
       <Key ID="STR_A3A_Params_unlockedUnlimitedAmmo_title">
         <Original>Do Unlocked Weapons Automatically Unlock Their Standard Magazine?</Original>
@@ -7224,7 +7257,7 @@
         <Polish>Przymocuj do linki holowniczej</Polish>
         <Czech>Přivázat k tažnému lanu</Czech>
         <Portuguese>Prender nas cordas de reboque</Portuguese>
-        <Turkish>"Çekme halatlarına bağla"</Turkish>
+        <Turkish>Çekme halatlarına bağla</Turkish>
         <Chinesesimp>系扣拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_scripts_advTowInit_addact_deploy">
@@ -7499,6 +7532,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control_tooltip">
         <Original>Take control of a selected AI squad member or High Command Squad Leader. All actions can be performed through the AI for 60 seconds. You will lose control if the player or unit receives any damage</Original>
+        <Korean>선택된 분대원 또는 하이 커맨드 분대장을 개인적으로 통제하고 60초 동안 어떠한 종류의 행동이든 수행할 수 있습니다. 플레이어 또는 조종하는 유닛에게 어떠한 종류든 데미지를 입으면 조종 상태가 취소됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal">
         <Original>Auto Heal</Original>
@@ -7516,11 +7550,13 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal_tooltip">
         <Original>AI squad mates will proactively heal each other</Original>
+        <Korean>AI 분대원들은 서로를 적극적으로 치료할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm">
         <Original>Auto Rearm / Loot</Original>
         <German>Automatisches Aufmunitionieren/Plündern</German>
         <French>Réarmement automatique \ Loot</French>
+        <Korean>자동 재무장 / 노획</Korean>
         <Czech>Automatické přezbrojování / Rabování</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm_tooltip">
@@ -7622,6 +7658,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Gets a situation report from the selected HC squad.</Original>
+        <Korean>하이 커맨드 분대로부터 상황 보고를 받습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle">
         <Original>Squad Add Vehicle</Original>
@@ -7637,6 +7674,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for its use</Original>
+        <Korean>차량을 보고 선택된 분대에 차량을 할당합니다.</Korean>
       </Key>
     </Container>
     <Container name="Base">
@@ -7802,6 +7840,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add_tooltip">
         <Original>Gain air support points by sacrificing the aircraft you're looking at. Use these points to call in HE, Cluster, and Napalm strikes.</Original>
+        <Korean>현재 보고 있는 항공기를 희생하고 항공 지원 포인트를 얻습니다. 이 포인트를 사용하여 고폭, 집속, 네이팜 폭격을 요청하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_cluster">
         <Original>Cluster Bombs</Original>
@@ -7903,6 +7942,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
         <Original>Cleans dead bodies, dropped gear, destroyed vehicles and similar entities. Helps massively with client and server performance, and running this every hour is recommended.</Original>
+        <Korean>시체, 떨어진 장비, 파괴된 차량 및 이와 유사한 개체들을 청소합니다. 클라이언트 및 서버 성능에 큰 도움이 되며 매 시간 실행하는 것이 좋습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage">
         <Original>Faction Garage</Original>
@@ -7992,10 +8032,12 @@
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
         <Original>Outpost-Roadblock Delete</Original>
         <French>Suppression de Poste d'Obs. - Barrage routier</French>
+        <Korean>감시초소 - 검문소 제거</Korean>
         <Czech>O.Post-Odstranit zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
         <Original>Remove selected observation post or roadblock, the money spent will be refunded</Original>
+        <Korean>선택한 감시초소 또는 검문소를 제거하면 자금으로 환불됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
         <Original>Establish a new watchpost or roadblock depending on the type of terrain you select</Original>
@@ -8224,6 +8266,7 @@
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build your rebellion from scratch and defeat the occupants and invading forces in a persistent whole map Dynamic Mission.</Original>
         <German>Formiere deine Rebellen-Armee und bezwinge die Besatzer und die eindringenden Kräfte in einer dynamischen Mission auf der gesamten Karte.</German>
+        <Korean>기초부터 반군을 일으켜 지도 전체에서 일어나는 다이나믹한 임무와 함께 점령군과 침략군을 물리치십시오.</Korean>
       </Key>
     </Container>
     <Container name="dialog_build_menu">
@@ -8469,18 +8512,21 @@
         <Original>Recruit AA Missile Unit</Original>
         <Italian>Recluta Unità Missilistica AA</Italian>
         <Spanish>Reclutar Unidad con lanzacohetes AA</Spanish>
+        <Korean>대공미사일전문가 모집</Korean>
         <Czech>Rekrutovat AA jednotku.</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT Unit</Original>
         <German>Panzerabwehreinheit rekrutieren</German>
         <French>Recruter un AT</French>
+        <Korean>대전차병 모집</Korean>
         <Czech>Rekrutovat Raketometčíka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_atmissile_text">
         <Original>Recruit AT Missile Unit</Original>
         <Italian>Recluta Unità Missilistica AT</Italian>
         <Spanish>Reclutar Unidad con lanzacohetes AT</Spanish>
+        <Korean>대전차미사일전문가 모집</Korean>
         <Czech>Rekrutovat Raketometnou jednotku</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_autorifleman_text">
@@ -8539,6 +8585,7 @@
         <Original>Recruit Mortar Unit</Original>
         <German>Mörsereinheit rekrutieren</German>
         <French>Recruter un Mortier</French>
+        <Korean>박격포병 모집</Korean>
         <Czech>Rekrutovat Minometčíka</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_garrison_spawn_rifleman_text">
@@ -8756,6 +8803,7 @@
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
         <Original>Petros will join your group. The inventory of the arsenal box must be empty to move HQ. To rebuild, select the Build HQ here option on Petros.</Original>
         <German>Petros tritt deiner Gruppe bei. Inventar der Arsenal-Kiste muss leer sein um das HQ versetzen zu können. Zur Neuerrichtung die Bauaktion an Petros auswählen.</German>
+        <Korean>페트로스가 당신의 그룹에 합류할 것입니다. 본부를 이동시키려면 탄약상자는 비워져 있어야 합니다. 재건축하려면 페트로스에게서 여기에 본부 건설하기를 선택하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
@@ -8787,6 +8835,7 @@
         <Original>Train your Troops</Original>
         <German>Bilde deine Truppen aus</German>
         <French>Entrainer les troupes</French>
+        <Korean>아군 병사 훈련</Korean>
         <Czech>Vycvičit vaše jednotky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_tooltip">
@@ -9042,7 +9091,8 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
         <Original>Civilian vehicles allow you to travel in Undercover mode. You will be spotted if you stray too far from the road, as well as if you get too close to outposts, seaports, roadblocks, or airbases</Original>
-        <German>Zivilfahrzeuge erlaube dir unentdeckt zu reisen. Du wirst entdeckt sofern du dich zu weit von Straßen entfernst und wenn du zu nah Basen, Außenposten oder Straßensperren gerätst.</German>
+        <German>Zivilfahrzeuge erlauben dir unentdeckt zu reisen. Du wirst entdeckt sofern du dich zu weit von Straßen entfernst und wenn du zu nah Basen, Außenposten oder Straßensperren gerätst.</German>
+        <Korean>민간 차량을 사용하면 위장 모드로 여행이 가능합니다. 도로에서 너무 멀리 벗어나거나 전초 기지, 항구, 검문소 또는 공군 기지에 너무 가까이 다가가면 발각될 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
         <Original>Military Vehicle</Original>
@@ -9630,6 +9680,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
         <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running poorly.</Original>
+        <Korean>성능에 영향을 미칩니다. 주의하여 사용하십시오. 안티스타시가 작동하지 않는 것 같으면 더 낮은 거리로 조정하십시오.</Korean>
       </Key>
     </Container>
     <Container name="gameMode_menu">
@@ -10228,6 +10279,7 @@
       <Key ID="STR_antistasi_journal_entry_header_Features_10">
         <Original>Arsenal transfer</Original>
         <German>Arsenal Transfer</German>
+        <Korean>아스널 전송</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_11">
         <Original>Fast Travel</Original>
@@ -10747,9 +10799,11 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_4">
         <Original>AI Medic squad-mates will heal other AI’s automatically without the need to give any orders. If in combat, your AI will use smoke grenades for cover. If there is no medic in the group, the AI will use their own first aid kits.</Original>
+        <Korean>AI 의무병 분대원은 명령을 내릴 필요 없이 자동으로 다른 AI을 치료할 것입니다. 만약 전투 중이라면 당신의 AI은 엄호를 위해 연막탄을 사용할 것입니다. 그룹에 AI 의무병이 없다면 AI은 자신들의 메디킷을 사용할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_5">
         <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles, and loot boxes if needed. They will also try to improve their weapons if given the chance. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>
+        <Korean>당신의 AI 분대원들은 필요에 따라 근처의 시체, 차량 또는 전리품 상자에서 탄약을 자동으로 찾고 노획할 것입니다. 또한 그들은 더 강력한 무기로 무기를 재무장할 것입니다. 만약 AI가 차량 안에 있다면, 그들은 무기와 발사기를 노획하고, 그 지역에 아무것도 남지 않을 때까지 그것들을 그들의 트럭에 놓을 것입니다. 바닐라 재무장 무전 대신 이 옵션을 사용하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_6">
         <Original>Commander Only. Use this option to assign the vehicle you are looking at to any HC squad. Check vehicle status, order them to mount or disembark, and automate mounted static squads.</Original>
@@ -10765,9 +10819,11 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_7">
         <Original>Select the unit and use the 'Dismiss AI/Group' option to send them back to HQ. You will recover some of the money you spent on them.</Original>
+        <Korean>유닛을 선택하고 '분대원 해산' 설정을 사용하여 본부로 돌려보냅니다. 그들에게 쓴 돈의 일부를 되찾을 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_1">
         <Original>Having a commander is necessary because he is the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play multiplayer, the most experienced player will usually occupy this position.</Original>
+        <Korean>지상군을 공격하는 팩션의 지휘관이기 때문에 지휘관이 필요할 것입니다. 많은 옵션은 지휘관만 사용할 수 있으며, 설정에 따라 멀티 플레이로 플레이하는 경우 일반적으로 가장 경험이 많은 플레이어가 이 위치를 차지하게 됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_10">
         <Original>Take the engineers truck to the desired position to build a minefield. Cover them while they deploy mines. From then on, no one will be able to pass the area safely (even your own units - so use with caution). Mines (AT and AP) are taken from your Ammobox. The quantity of mines in the field will depend on the contents of your ammobox, up to a max. number depending on the type of minefield. Delete those minefields to recover the mines.</Original>
@@ -10795,6 +10851,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_12">
         <Original>Use the radio and select a spot on the map with a good line of sight to enemy roads and markers. A group of snipers will join you. Send them to the selected place and they will spot for you, attempting to remain hidden and not engaging enemies upon contact.</Original>
+        <Korean>무전기를 사용하여 지도에서 시야가 트인 곳을 선택합니다. 그러면 저격 팀이 합류할 것입니다. 선택한 위치에 그들을 보내면, 그들은 당신을 대신해 숨어 있는 상태를 유지하고 접촉 시 적과 교전하지 않으려고 할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_13">
         <Original>Use the menu and select a spot on the map. Click where a road is. A group of AT soldiers will join you. Send them to the selected place and they will establish a roadblock there.</Original>
@@ -10834,6 +10891,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_2">
         <Original>The Commander is responsible for assigning units as garrisons in conquered areas. Use the Garrison Management option inside the HQ Management action on Petros in order to add or remove garrison troops at each zone. Check Map Info screen for a quick overview of how many soldiers are assigned to each zone.</Original>
+        <Korean>정복된지역에부대를 주둔지로 배치할 책임이 있습니다. 각 지역에 수비대 병력을 추가하거나 제거하려면 페트로스의 본부 관리 행동 내에서 주둔지 관리 옵션을 사용하십시오. 각 구역에 할당된 병사 수에 대한 간략한 개요를 보려면 지도 정보 화면을 확인하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_3">
         <Original>For a price, you can upgrade Faction training so that future recruits will have better skills.</Original>
@@ -10861,9 +10919,11 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_5">
         <Original>The Commander may select this option on Petros in order to move the HQ emplacement to another spot. This will allow you to move your HQ to a safer location or move closer to the front-lines. The closer your HQ is to the enemy, the greater the number of possibile side-missions you will have available. Remember! Keep Petros Safe or you will lose the game!</Original>
+        <Korean>지휘관은 본부를 다른 장소로 이동하기 위해 본부 깃발에서 본부 옮기기를 사용할 수 있습니다. 본부를 더 안전한 곳으로 혹은 최전방으로 이동시킬 수 있습니다. 만약 본부가 적과 가깝다면 더 많은 사이드 임무가 가능합니다. 기억하십시오! 페트로스를 지키지 않으면 게임에서 패배합니다!</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_6">
         <Original>Use the action menu on the tent at HQ to rest for 8 hours.</Original>
+        <Korean>본부 텐트에서 행동 메뉴를 사용해 8시간 동안 휴식을 취합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_7">
         <Original>Use your Airstrike points to perform a bombing run of the specified type.</Original>
@@ -10938,15 +10998,19 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_1">
         <Original>Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is a long term, step-by-step mission with LOTS of features and enhanced AI.</Original>
+        <Korean>아르마 3 - %1에 오신 것을 환영합니다. 이 임무는 게릴라전, 전술, 전략적 상황을 시뮬레이션하는 것을 목표로 합니다. 이 임무는 빠르고 쉬운 모드가 아니라 많은 기능과 향상된 AI 가진 장기적이고 단계적인 임무입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_2">
         <Original>You will win the game when most of the population supports the rebellion and you have conquered all the Airbases.</Original>
+        <Korean>인구의 대부분이 당신의 팩션을 지지하고 당신이 모든 공군 기지를 점령했을 때 게임에서 승리할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_3">
         <Original>You will lose the game if %1 murders 1/3 of the total population. To prevent this, respond to %1 punishment attacks against civilians.</Original>
+        <Korean>%1이(가) 전체 인구의 1/3을 학살할 경우 게임에서 패배합니다. 이를 방지하려면 민간인을 대상으로 한 %1의 학살에 대응하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_1">
         <Original>There is a total war on %4. The three factions competing for total control of the island are the rogue occupant military of %1, the ruthless invaders of %2, and the emerging rebellion of %3. %1 and %2 are constantly fighting, but also shoot %3 members on sight.&lt;br/&gt;&lt;br/&gt;%1 and %2 Aggro points represent how much threat they see in %3 faction.&lt;br/&gt;&lt;br/&gt;Generally speaking those points will low or raise depending on your actions against them and civilians.</Original>
+        <Korean>%4는 총력전입니다. 영토의 완전한 지배권을 놓고 경쟁하는 세 세력은 %1인 불량 점령군, %2인 무자비한 침략자, %3인 새 반군입니다.&lt;br/&gt;&lt;br/&gt;%1과(와) %2은(는) 서로 끊임없이 싸우지만 %3 소속의 사람이 눈에 띄면 총격을 가하기도 합니다.&lt;br/&gt;&lt;br/&gt;%1과(와) %2의 공격성 포인트는 %3 세력에서 얼마나 많은 위협을 받는지를 나타냅니다.&lt;br/&gt;&lt;br/&gt;일반적으로 말하면 그들과 민간인에 대한 당신의 행동에 따라 해당 포인트는 낮아지거나 높아질 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_2">
         <Original>HR or Manpower comes from citizen support on each city. Manpower is needed to recruit more units (1 HR Point = 1 Soldier)</Original>
@@ -10998,6 +11062,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_6">
         <Original>Flag: Squad Unit Recruitment. Commander Options.&lt;br/&gt;Petros: Side-missions (Commander Only) and other actions related to managing HQ.&lt;br/&gt;Map: Game Options.&lt;br/&gt;Tent: Rest for 8 hours and Clear Forest (Commander Only)</Original>
+        <Korean>깃발: 차량 및 분대원 모집. 지휘관 옵션.&lt;br/&gt;페트로스 : 사이드 임무(지휘관 전용) 및 본부 관리와 관련된 기타 작업.&lt;br/&gt;지도: 게임 설정.&lt;br/&gt;텐트: 8시간 동안 휴식을 취하거나 숲을 없앱니다(지휘관 전용).</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_1">
         <Original>Just as with any resistance movement, leadership is not as stable as in organised states. Any player can take the role of Faction Force Commander if the current one is not very popular... Demonstrate your skill while accomplishing missions and killing enemies and maybe you will become the next leader.</Original>
@@ -11037,9 +11102,11 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_12">
         <Original>Purchased static weapons won't despawn if you leave them in a base or zone, the AI garrison will instead man them. Reinforce places as you desire.</Original>
+        <Korean>구매한 고정화기는 기지나 구역에 놓아두면 사라지지 않으며, AI 주둔군이 관리할 것입니다. 원하는 장소에 놓아서 방어를 강화하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_13">
         <Original>You can build groups with human players to organize different squads for different tasks.</Original>
+        <Korean>플레이어로 그룹을 구성하여 다양한 작업을 위한 다양한 분대를 구성할 수 있습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_14">
         <Original>If enabled, this feature will exclude all non-members from using the HQ Ammobox and become Commander. This feature is intended to avoid having your game ruined by the casual troll in open server environments. Commanders may add or remove players from the Server Members List if the feature is enabled.</Original>
@@ -11067,6 +11134,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_16">
         <Original>Armored vehicles can be breached by engineers with shaped charges to make the crew surrender and capture the vehicle for the rebellion. Look at the 'Breaching charges' section for a detailed description of what charges you need. If you are an engineer and have the charges, you simply need to approach the vehicle and select the breaching option.</Original>
+        <Korean>장갑 차량은 공병이 성형작약 폭탄을 이용하고 파괴하여 승무원이 항복하고 반란을 위해 차량을 탈취할 수 있습니다. 어떤 폭탄이 필요한지에 대한 자세한 설명은 '브리칭 전용 폭발물' 섹션을 참조하십시오. 당신이 공병이고 폭탄을 가지고 있다면, 차량에 접근하여 브리칭 옵션을 선택하기만 하면 됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_17">
         <Original>To breach an APC you need %1 %2To breach a tank you need %3</Original>
@@ -11166,6 +11234,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_9">
         <Original>Once you have defeated the enemy garrison, you can go to the marker and select the "Take the Flag" option to convert the outpost to your faction. Roadblock flags are cosmetic and cannot be taken.</Original>
+        <Korean>적 주둔군을 물리치고 나면 마커로 가서 "깃발 올리기" 옵션을 선택하여 전초 기지를 자신의 팩션으로 전환할 수 있습니다. 검문소 깃발은 장식용이므로 사용할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_1">
         <Original>%2 vs %1 war.</Original>
@@ -11324,6 +11393,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_2">
         <Original>When you are the Commander, hit CTRL + SPACE to give way-points and other orders to your AI squads using the HC mode.</Original>
+        <Korean>당신이 지휘관일 때 컨트롤 + 스페이스를 눌러 하이 커맨드 모드를 사용하여 AI 분대에 경유지 및 기타 명령을 제공하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
         <Original>Press SHIFT + Y in-game while having an artillery squad selected on the HC bar.</Original>
@@ -11386,6 +11456,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_2">
         <Original>Keep an eye on both faction's Aggro level. A higher level means more attacks with more powerful weaponry.</Original>
+        <Korean>두 팩션의 공격성 레벨을 주시하십시오. 레벨이 높을 수록 더 강력한 무기로 더 많은 공격을 가할 수 있습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
         <Original>Once you have a nice amount of resources, focus on enemy communications. If you disturb them enough, you won't have to face big counter-attacks.</Original>
@@ -11819,9 +11890,11 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off the top information bar. To enable it, press %1.</Original>
+        <Korean>상단의 정보 표시줄을 껐습니다. 활성화하려면 %1 키를 누르십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on the top information bar. To disable it, press %1.</Original>
+        <Korean>상단의 정보 표시줄을 켰습니다. 비활성화하려면 %1 키를 누르십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
         <Original>Information Bar</Original>
@@ -12818,6 +12891,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
         <Original>Gain air support points by sacrificing the aircraft you're looking at. Use these points to call in HE, Cluster, and Napalm strikes.</Original>
+        <Korean>현재 보고 있는 항공기를 희생하고 항공 지원 포인트를 얻습니다. 이 포인트를 사용하여 고폭, 집속, 네이팜 폭격을 요청하십시오.</Korean>
         <Turkish>Bu uçağı Hava Havuzu grubuna vererek Hava Saldırısı puanları kazanın</Turkish>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_garage_sell_vehicle">

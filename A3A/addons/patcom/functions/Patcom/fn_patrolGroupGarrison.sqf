@@ -9,7 +9,7 @@
         <Number> How far you want to look for potential positions
 
     Return Value:
-        <Group> Returns group if not enough buildings or positions are found.
+        <Group> Returns array of new groups created by the function (for leftover units).
 
     Scope: Any
     Environment: Any
@@ -33,6 +33,7 @@ private _minimumUnits = 2; // Minimum units per building.
 
 if (count _units == 0) exitwith {
     Debug_1("PATCOM | No units found in group (%1). Exiting", _group);
+    _newGroups;
 };
 
 _group lockWP true;
@@ -41,7 +42,7 @@ _buildings = [_position, _radius] call A3A_fnc_patrolEnterableBuildings;
 if (count _buildings == 0) exitWith {
     Debug_1("PATCOM | No Valid Garrison buildings found near group: %1 | Defaulting to Defend.", _group);
     [_group, "Patrol_Defend", 0, 100, -1, true, _position, false] call A3A_fnc_patrolLoop;
-    _group
+    _newGroups;
 };
 
 // Don't place units in destroyed buildings

@@ -3,6 +3,53 @@ Changelog
 ==========
 
 
+Version 3.4.1
+===============
+
+.. note::
+   26th November 2023
+
+.. admonition:: Minor
+
+   * :issue:`3061` Added additional params options for the Friendly Fire Punishment System
+   * :issue:`3058` Updated default values of some parameters to give a better experience when starting a mission without any params adjustment
+
+ .. admonition:: Template updates
+
+   * :issue:`3018` Adds Kozlice 12G rebel equipment when Contact DLC is loaded
+
+.. admonition:: Bugfixes
+
+   * :issue:`3068` Fixed magazine for RHS 2S1 Artillery
+   * :issue:`3066` Fixed multiple minor template issues
+   * :issue:`3064` Fixed multiple Assassination missions related issues
+   * :issue:`3063` Fixed minor issues with multiple hints
+   * :issue:`3059` Fixed issues with the new revive system
+   * :issue:`3055` Added missing condition check on Vanilla CSAT templates
+   * :issue:`3051` Fixed multiple strings in regard to typos, wording and such
+   * :issue:`3041` Fixed SFIA faction name in relevant files
+   * :issue:`3044` Fixed issue with double-revive cases
+   * :issue:`3043` Fixed issue with garrison spawning when no buildings are present
+   * :issue:`3042` Fixed issue wwhere autoloading an old save could break
+   * :issue:`3031` Fixed patrol starting locations being too close to players by implementing min distance check
+
+.. admonition:: Localization
+
+   * [Multiple PRs] - Multiple hundred new translations accumulative for all the supported languages
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
+
 Version 3.4.0
 ===============
 

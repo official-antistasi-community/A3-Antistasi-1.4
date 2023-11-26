@@ -42,7 +42,8 @@ private _makeUnconscious =
     _unit setVariable ["incapacitated",true,true];
     _unit setVariable ["helpFailed", 0];
     _unit setUnconscious true;
-    _unit setVariable ["incapFrame", diag_frameno+1];
+    _unit setVariable ["incapImmuneTime", time + 0.2];
+    _unit setVariable ["overallDamage", 0];
 
     // Assume killed handler will be local as well
     // TODO: Check killed/instigator stuff?
@@ -78,7 +79,7 @@ if (_part == "") then
         };
 
         // Don't double-tap with one projectile
-        if (diag_frameno <= _unit getVariable "incapFrame") exitWith {_damage = 0.9};
+        if (time < _unit getVariable "incapImmuneTime") exitWith {_damage = 0.9};
 
         // already unconscious, check whether we're pushed into death
         _overall = (_unit getVariable ["overallDamage",0]) + (_damage - 0.9);

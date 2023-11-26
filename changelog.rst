@@ -3,6 +3,157 @@ Changelog
 ==========
 
 
+Version 3.4.1
+===============
+
+.. note::
+   26th November 2023
+
+.. admonition:: Minor
+
+   * :issue:`3061` Added additional params options for the Friendly Fire Punishment System
+   * :issue:`3058` Updated default values of some parameters to give a better experience when starting a mission without any params adjustment
+
+ .. admonition:: Template updates
+
+   * :issue:`3018` Adds Kozlice 12G rebel equipment when Contact DLC is loaded
+
+.. admonition:: Bugfixes
+
+   * :issue:`3068` Fixed magazine for RHS 2S1 Artillery which caused it simply not firing
+   * :issue:`3066` Fixed multiple minor template issues, mostly incorrect scopes, nothing critical
+   * :issue:`3064` Fixed multiple Assassination missions related issues where hints where not displayed correctly
+   * :issue:`3063` Fixed minor issues with multiple hints where titles where not displayed correclty
+   * :issue:`3059` Fixed revive system being disabled after a player was killed by damage when downed
+   * :issue:`3055` Added missing condition check on Vanilla CSAT templates leading to marksmen dlc content not being loaded
+   * :issue:`3051` Fixed multiple strings in regard to typos, wording and such
+   * :issue:`3041` Fixed SFIA faction name in relevant files
+   * :issue:`3044` Fixed units continuing revive attempts after their target was revived by someone else.
+   * :issue:`3043` Fixed issue with garrison spawning when no buildings are present which led to garrisons being broken/deleted
+   * :issue:`3042` Fixed issue where autoloading an old save with a newer version could break respawns
+   * :issue:`3031` Fixed patrol starting locations being too close to players by implementing min distance check
+
+.. admonition:: Localization
+
+   * [Multiple PRs] - Multiple hundred new translations accumulative for all the supported languages
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
+
+Version 3.4.0
+===============
+
+.. note::
+   05th November 2023
+
+.. admonition:: Major
+
+   .. rubric:: :issue:`2384` Added Base Building Tool "Teamleader Base Placer"
+
+
+   * Buyable and transportable boxes which allow building of assets in a set radius
+   * Can be set to Teamleader only, Engineer only or available for both
+   * Different sets of buildable assets based on the map
+   * System also allows to repair already existing buildings
+   * Variable build time based on asset
+   * Allows to deconstruct built assets
+
+   .. rubric:: :issue:`2890` Added Self-Revive Feature and modified damage system
+
+
+   * Self-revive option for when playing without ACE
+   * Uses first aid kit and has 5 minute cooldown
+   * During 5min timeout, adds desaturation effect and increased sway
+   * Multiple modifications to Antistasi damage system which allows this system to work properly
+
+   .. rubric:: Western Sahara Templates
+
+
+   * [Added] - :issue:`2935` WS Civs and Tura Rebels
+   * [Added] - :issue:`2939` WS ION AI template
+   * [Added] - :issue:`2938` WS SFIA AI template
+   * [Added] - :issue:`2937` WS Arganian Defence Force template
+   * [Added] - :issue:`2936` WS North African CSAT template
+   * [Added] - :issue:`2934` WS NATO-Desert template
+
+.. admonition:: Minor
+
+   * :issue:`3027` Updated Arma version checking
+   * :issue:`3012` & :issue:`3011` & :issue:`2978` Updated Antistasi based on ACE 3.16.0 / 3.16.1 updates
+   * :issue:`2997` Fixed SPE Panterfaust and mortyAI issues
+   * :issue:`2975` Fixed High Command Squad Icons being visible in 3D Display
+   * :issue:`2956` Moved Headless Clients with HQ to theoretically improve AI responses
+   * :issue:`2930` Adds Global Mobilization radiotowers to be compatible with Antistasi
+   * :issue:`2899` Enabled rebel AI to utilize rifle+muzzle combo grenade launchers
+   * :issue:`2876` PATCOM Garrison adjustments and minor fixes
+   * :issue:`2860` Improved Garage source checking
+   * :issue:`2842` Moved ACE Init and added ACE event handling for especially grenade throwing and injection
+   * :issue:`2829` Added member & guest lock limits to garage
+   * :issue:`2804` Unit names are being set according to their factions
+   * :issue:`2686` Added ACE ropes to starting Arsenal
+
+.. admonition:: Template updates
+
+   * :issue:`2933` Militia offroads and Civilian CH-49 config entries and additions for Vanilla templates
+   * :issue:`2811` Added new 3CB AAF Desert/Brown template
+   * :issue:`2960` Added vehiclesLightTanks template category
+   * :issue:`2955` Updated RHS ChDKZ AI template with adjusted vehicle lineup and some gear changes
+   * :issue:`2953` Updated 3CB FIA and TKM rebel templates with starting Enfields
+   * :issue:`2951` Updated 3CB CNM rebel template with starting Mosin and Shotgun
+   * :issue:`2928` Updated RHS ChDKZ AI template with retextured Mi8s
+   * :issue:`2919` Added CUP Civilian Vehicles Pack
+   * :issue:`2916` Added transport planes to Enoch and Arid CSAT templates
+   * :issue:`2910` Added APEX Jets and UAVs to CSAT and NATO templates
+   * :issue:`2932` Added Marksmen DLC rifles and MGs to Vanilla templates when enabled
+   * :issue:`2931` Added different DLC and WS CDLC assets to Vanilla templates when enabled
+   * :issue:`2885` Updated RHS ChDKZ templates with retextured tanks
+
+.. admonition:: Localization
+
+   * [Multiple PRs] - Multiple hundreds of hard coded strings converted into strings
+   * [Multiple PRs] - Multiple thousand new translations accumulative for all the supported languages
+
+.. admonition:: Bugfixes
+
+   * :issue:`3026` Fixed logistics JIP bugs
+   * :issue:`3021` Improved createSupport logging
+   * :issue:`3016` Fixed broken UI config dependencies
+   * :issue:`3013` Fixed basic/medical gear missing in SPE/IFA templates
+   * :issue:`3008` & :issue:`3004` Fixed config errors for Vanilla/Mod assets
+   * :issue:`3001` Map Fixes - Fixed vehicle markers on Livonia, removed seaport_6 on Malden and moved outposts _1 and _14 on Malden
+   * :issue:`2994` Fixed spam in Zeus Logging
+   * :issue:`2987` Fixed theBoss var not being published in Autostart case
+   * :issue:`2979` Fixed non-basic backpack in SPE rebel template
+   * :issue:`2959` Fixed RPT error when admin disconnects
+   * :issue:`2947` Fixed Huron not using gear on combat landing
+   * :issue:`2945` Added missing Land_Cargo_HQ_V4_F building to array of static spawners
+   * :issue:`2942` Autumn Cleaning - removed dead IFA templates, fixed a typo and small map issues on Anizay and Malden
+   * :issue:`2922` Multiple Bug Fixes found by LordGolias using his sqf-analyzer
+   * :issue:`2917` Fixed AI not being able to use light helis in QRFs
+   * [Multiple PRs] small typos, in-production fixes for new systems and such
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
 Version 3.3.3
 ===============
 

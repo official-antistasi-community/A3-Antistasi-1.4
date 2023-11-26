@@ -37,7 +37,7 @@ _eh1 = player addEventHandler ["HandleDamage",
 	selectPlayer _unit;
 	(units group player) joinsilent group player;
 	group player selectLeader player;
-	[_titleStr, localize "STR_A3A_fn_reinf_controlHQSquad_return_damage"] call A3A_fnc_customHint;
+	[localize "STR_A3A_fn_reinf_controlHQSquad_title", localize "STR_A3A_fn_reinf_controlHQSquad_return_damage"] call A3A_fnc_customHint;
 	nil;
 	}];
 _eh2 = _unit addEventHandler ["HandleDamage",
@@ -48,7 +48,7 @@ _eh2 = _unit addEventHandler ["HandleDamage",
 	selectPlayer (_unit getVariable "owner");
 	(units group player) joinsilent group player;
 	group player selectLeader player;
-	[_titleStr, localize "STR_A3A_fn_reinf_controlHQSquad_return_damage_ai"] call A3A_fnc_customHint;
+	[localize "STR_A3A_fn_reinf_controlHQSquad_title", localize "STR_A3A_fn_reinf_controlHQSquad_return_damage_ai"] call A3A_fnc_customHint;
 	nil;
 	}];
 selectPlayer _unit;

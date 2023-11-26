@@ -103,7 +103,7 @@ if (_victim isKindOf "Man") then {
     };
 };
 _exemption = switch (true) do {  // ~0.012 ms for all false cases
-    case (!tkPunish):                                       {"FF PUNISH IS DISABLED"};
+    case (tkPunish == 0):                                   {"FF PUNISH IS DISABLED"};
     case (!isMultiplayer):                                  {"IS NOT MULTIPLAYER"};
     case ("HC" in (getPlayerUID _instigator)):              {"FF BY HC"};  // Quick & reliable check
     case (!(isPlayer _instigator)):                         {"FF BY AI"};
@@ -151,6 +151,8 @@ if (!(_exemption isEqualTo "")) exitWith {
     Info_2("%1 | %2", _exemption, _playerStats);
     _exemption;
 };
+
+if (tkPunish == 2) exitWith {"NOTIFYONLY"};
 
 ///////////////Drop The Hammer//////////////
 [_instigator,_timeAdded,_offenceAdded,_victim,_customMessage] call A3A_fnc_punishment;

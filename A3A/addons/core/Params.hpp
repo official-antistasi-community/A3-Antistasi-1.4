@@ -68,14 +68,14 @@ class Params
         title = $STR_A3A_Params_globalCivilianMax_title;
         values[] = {0,2,5,10,15,20};
         texts[] = {"0","2","5","10","15","20"};
-        default = 5;
+        default = 10;
     };
     class maxCiviliansPerTown
     {
         title = $STR_A3A_Params_maxCiviliansPerTown_title;
         values[] = {0,2,5,10,15};
         texts[] = {"0","2","5","10","15"};
-        default = 2;
+        default = 5;
     };
     class initialPlayerMoney
     {
@@ -110,7 +110,7 @@ class Params
         title = $STR_A3A_Params_GCThreshold_title;
         values[] = {3600, 7200, 10800, 14400, 0};
         texts[] = {"1hr", "2hrs", "3hrs", "4hrs", $STR_A3A_Params_generic_disabled};
-        Default = 0;
+        Default = 14400;
     };
     class A3A_reviveTime
     {
@@ -124,7 +124,7 @@ class Params
         title = $STR_A3A_Params_selfReviveMethods_title;
         values[] = {0,1};
         texts[] = {$STR_A3A_Params_generic_disabled, $STR_A3A_Params_selfReviveMethods_withstand};
-        default = 0;
+        default = 1;
     };
     class A3A_builderPermissions
     {
@@ -153,7 +153,7 @@ class Params
         title = $STR_A3A_Params_membershipEnabled_title;
         values[] = {0,1};
         texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 1;
+        default = 0;
     };
     class A3A_guestCommander
     {
@@ -165,9 +165,9 @@ class Params
     class tkPunish
     {
         title = $STR_A3A_Params_tkPunish_title;
-        values[] = {0,1};
-        texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text};
-        default = 1;
+        values[] = {0,1,2};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text,$STR_A3A_Params_tkPunish_logonly};
+        default = 2;
     };
     class memberSlots
     {

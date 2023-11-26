@@ -11,7 +11,6 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 */
 #include "..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _titleStr = localize "STR_A3A_scripts_advTowInit_title";
 
 #define SA_Find_Surface_ASL_Under_Position(_object,_positionAGL,_returnSurfaceASL,_canFloat) \
 _objectASL = AGLToASL (_object modelToWorldVisual (getCenterOfMass _object)); \
@@ -725,7 +724,7 @@ SA_Hint = {
 			[localize "STR_A3A_scripts_advTowInit_fail", [_msg]] call ExileClient_gui_notification_event_addNotification;
 		};
     } else {
-		[_titleStr, _msg] call A3A_fnc_customHint;
+		[localize "STR_A3A_scripts_advTowInit_title", _msg] call A3A_fnc_customHint;
     };
 };
 

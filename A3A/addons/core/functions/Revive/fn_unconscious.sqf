@@ -131,7 +131,6 @@ else
 		};
 	};
 
-_unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
 if (time > _bleedOut) exitWith

@@ -32,57 +32,59 @@ if((30 + random 40) >_sideAggression) then
     _timeAlive = 1800;
 };
 
-if(_suppType == "ARTILLERY") then
+private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
+private _subMunitionMult = 1;
+if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isArray(configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo")) then 
 {
-    //Values derrived from vanilla 155mm artillery
-    private _expectedRadius = 30;
-    private _expectedArea = 30 * 30 * 3.14;
-    private _expectedIndirect = 125;
-    private _expectedHit = 340;
-    private _expectedValue = _expectedHit + _expectedIndirect + _expectedRadius;
-    
-    private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
-    private _subMunitionMult = 1;
-    if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isArray(configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo")) then 
+    private _submunitionAmmo = (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo");
+    if (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType") select 0 == "custom") then 
     {
-        private _submunitionAmmo = (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo");
-        if (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType") select 0 == "custom") then 
-        {
-            _subMunitionMult = count ((getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1); //If custom, the number of pairs should be the number of munitions
-        } else 
-        {
-            _subMunitionMult = (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1;
-        };
-        systemChat format["number of submunition: %1", _subMunitionMult];
-        if (isArray (_submunitionAmmo)) then 
-        {
-            _ammo = (getArray(_submunitionAmmo) select 0); //Take the first ammo used, not ideal but don't have many assumptions to go on here, the cluster might be mixed or it's just the UXO entry
-        } else 
-        {
-            _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster, ie 230mm HE rocket
-        };
+        _subMunitionMult = count ((getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1); //If custom, the number of pairs should be the number of munitions
+    } else 
+    {
+        _subMunitionMult = (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType")) select 1;
     };
-    
-    private _radius = getNumber (configfile >> "CfgAmmo" >> _ammo >> "indirectHitRange");
-    private _area = _radius * _radius * 3.14;
-    private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
-    private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
-    private _value = ((_hit + _indirect + _radius) * _subMunitionMult);
-    
-    systemChat format["%4 : _radius is %5, _area is %1, _hit is %2, _indirect is %3", _area, _hit, _indirect, _ammo, _radius];
-    systemChat format["Evaluatd value is: %1, shot multiplier: %2", _value, _expectedValue / _value];
-    
-} else
-{
-    //Values derrived from vanilla 81mm mortar
-    private _expectedRadius = 30;
-    private _expectedArea = 30 * 30 * 3.14;
-    private _expectedIndirect = 125;
-    private _expectedHit = 340;
-    private _expectedValue = _expectedHit + _expectedIndirect + _expectedRadius;
+    systemChat format["number of submunition: %1", _subMunitionMult];
+    if (isArray (_submunitionAmmo)) then 
+    {
+        _ammo = (getArray(_submunitionAmmo) select 0); //Take the first ammo used, not ideal but don't have many assumptions to go on here, the cluster might be mixed or it's just the UXO entry
+    } else 
+    {
+        _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster, ie 230mm HE rocket
+    };
 };
 
-private _shotsPerVolley = _numberOfRounds / 3;
+private _radius = getNumber (configfile >> "CfgAmmo" >> _ammo >> "indirectHitRange");
+private _area = _radius * _radius * 3.14;
+private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
+private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
+private _value = ((_hit + _indirect + _area) * _subMunitionMult);
+
+//Values derrived from vanilla 81mm mortar "Sh_82mm_AMOS"
+private _expectedRadius = 18;
+private _expectedArea = 18 * 18 * 3.14;
+private _expectedIndirect = 52;
+private _expectedHit = 165;
+private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+
+if(_suppType == "ARTILLERY") then
+{
+    //Values derrived from vanilla 155mm artillery "Sh_155mm_AMOS"
+    _expectedRadius = 30;
+    _expectedArea = 30 * 30 * 3.14;
+    _expectedIndirect = 125;
+    _expectedHit = 340;
+    _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+};
+
+
+_numberOfRounds = round(_numberOfRounds * (_expectedValue / _value)) max 1;
+
+private _shotsPerVolley = round(_numberOfRounds / 3) max 1;
+
+systemChat format["%4 : _hit is %2, _indirect is %3 _radius is %5, _area is %1", _area, _hit, _indirect, _ammo, _radius];
+systemChat format["Evaluatd value is: %1, shot multiplier: %2", _value, _expectedValue / _value];
+systemChat format["_numberOfRounds: %1, _shotsPerVolley: %2", _numberOfRounds, _shotsPerVolley];
 
 //A function to repeatedly fire onto a target without loops by using an EH
 _fn_executeMortarFire =

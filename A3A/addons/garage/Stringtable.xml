@@ -75,7 +75,7 @@
       <Key ID="STR_HR_GRG_Feedback_addVehicle_commander_only">
         <Original>This object can only be garaged by the commander</Original>
         <German>Dieses Objekt kann nur vom Kommandanten in die Garage gestellt werden.</German>
-        <Italian>Quest'oggetto può essere conservato solo dal comandante</Italian>
+        <Italian>Quest'oggetto può essere messo nel garage solo dal comandante</Italian>
         <Spanish>Los puntos de combustible solo pueden ser almacenados por el comandante</Spanish>
         <French>Cet objet ne peut être entreposé que par le commandant</French>
         <Korean>유류차량은 지휘관만 차고에 넣을 수 있습니다.</Korean>
@@ -439,7 +439,7 @@
       <Key ID="STR_HR_GRG_Feedback_toggleLock_limit">
         <Original>You have too many vehicles locked</Original>
         <German>Du hast zu viele Fahrzeuge abgeschlossen</German>
-        <Italian>Hai troppi veicoli chiusi</Italian>
+        <Italian>Hai troppi veicoli chiusi a chiave</Italian>
         <Spanish>Tiene demasiados vehículos cerrados</Spanish>
         <French>Vous avez trop de véhicules verrouillés</French>
         <Korean>너무 많은 차량을 잠갔습니다</Korean>
@@ -495,7 +495,7 @@
       <Key ID="STR_HR_GRG_Generic_Armored">
         <Original>Armor</Original>
         <German>Panzerung</German>
-        <Italian>Corazza</Italian>
+        <Italian>Corazzati</Italian>
         <Spanish>Blindados</Spanish>
         <French>Blindés</French>
         <Korean>기갑</Korean>
@@ -874,7 +874,7 @@
       <Key ID="STR_HR_GRG_Pylons_Driver">
         <Original>Driver</Original>
         <German>Fahrer</German>
-        <Italian>Conduttore</Italian>
+        <Italian>Guidatore</Italian>
         <Spanish>Conductor</Spanish>
         <French>Pilote</French>
         <Korean>운전수</Korean>

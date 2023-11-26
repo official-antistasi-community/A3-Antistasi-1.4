@@ -47,7 +47,7 @@
 
 ["vehiclesArtillery", ["rhsgref_cdf_b_2s1", "rhsgref_cdf_b_reg_d30", "rhsgref_cdf_b_reg_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_cdf_b_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_cdf_b_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_cdf_b_reg_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_cdf_b_reg_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate;

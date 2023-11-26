@@ -42,7 +42,7 @@ if(_suppType == "ARTILLERY") then
     
     private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
     private _subMunitionMult = 1;
-    if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "") then 
+    if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isArray(configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo")) then 
     {
         private _submunitionAmmo = (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo");
         if (getArray (configfile >> "CfgAmmo" >> _ammo >> "submunitionConeType") select 0 == "custom") then 
@@ -55,10 +55,10 @@ if(_suppType == "ARTILLERY") then
         systemChat format["number of submunition: %1", _subMunitionMult];
         if (isArray (_submunitionAmmo)) then 
         {
-            _ammo = getText ((_submunitionAmmo) select 0); //Take the first ammo used, not ideal but don't have many assumptions to go on here
+            _ammo = (getArray(_submunitionAmmo) select 0); //Take the first ammo used, not ideal but don't have many assumptions to go on here, the cluster might be mixed or it's just the UXO entry
         } else 
         {
-            _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster
+            _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster, ie 230mm HE rocket
         };
     };
     

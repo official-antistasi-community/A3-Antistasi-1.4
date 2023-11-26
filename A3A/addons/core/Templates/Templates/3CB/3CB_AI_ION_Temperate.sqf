@@ -27,7 +27,7 @@
 ["vehiclesFuelTrucks", ["UK3CB_ION_B_Desert_T810_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_ION_B_Desert_Hilux_Ambulance", "UK3CB_ION_B_Desert_M113_AMB", "UK3CB_ION_B_Desert_Transit_Medevac"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["UK3CB_B_LAV25_HQ_US_WDL", "UK3CB_ION_B_Desert_M113_M2", "UK3CB_ION_B_Desert_M113_MK19", "UK3CB_KDF_B_MTLB_KPVT", "UK3CB_KRG_B_MTLB_PKT"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_B_LAV25_US_WDL", "UK3CB_B_LAV25_US_WDL", "UK3CB_B_AAV_US_WDL", "UK3CB_B_AAV_US_WDL", "RHS_M2A2_wd", "UK3CB_KDF_B_MTLB_BMP", "UK3CB_KDF_B_MTLB_Cannon",]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_B_LAV25_US_WDL", "UK3CB_B_LAV25_US_WDL", "UK3CB_B_AAV_US_WDL", "UK3CB_B_AAV_US_WDL", "RHS_M2A2_wd", "UK3CB_KDF_B_MTLB_BMP", "UK3CB_KDF_B_MTLB_Cannon"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["RHS_M2A2_wd"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_KDF_B_T55", "UK3CB_KDF_B_T72A", "UK3CB_KDF_B_T72BM"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd", "UK3CB_KRG_B_M270_Avenger"]] call _fnc_saveToTemplate;
@@ -37,7 +37,7 @@
 ["vehiclesAmphibious", ["UK3CB_B_AAV_US_WDL"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["UK3CB_KDF_B_Su25SM_CAS"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["UK3CB_KDF_B_L39_PYLON"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["UK3CB_KDF_B_MIG29SM"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_ION_B_Desert_Bell412_Utility", "UK3CB_ION_B_Desert_MELB_H6M", "UK3CB_ION_B_Desert_UH1H", "UK3CB_ION_B_Desert_Unarmed_MH9"]] call _fnc_saveToTemplate;

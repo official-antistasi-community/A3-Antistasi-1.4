@@ -35,10 +35,11 @@ if((30 + random 40) >_sideAggression) then
 if(_suppType == "ARTILLERY") then
 {
     //Values derrived from vanilla 155mm artillery
+    private _expectedRadius = 30;
     private _expectedArea = 30 * 30 * 3.14;
     private _expectedIndirect = 125;
     private _expectedHit = 340;
-    private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+    private _expectedValue = _expectedHit + _expectedIndirect + _expectedRadius;
     
     private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
     private _subMunitionMult = 1;
@@ -66,7 +67,7 @@ if(_suppType == "ARTILLERY") then
     private _area = _radius * _radius * 3.14;
     private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
     private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
-    private _value = ((_hit + _indirect + _area) * _subMunitionMult);
+    private _value = ((_hit + _indirect + _radius) * _subMunitionMult);
     
     systemChat format["%4 : _radius is %5, _area is %1, _hit is %2, _indirect is %3", _area, _hit, _indirect, _ammo, _radius];
     systemChat format["Evaluatd value is: %1, shot multiplier: %2", _value, _expectedValue / _value];
@@ -74,10 +75,11 @@ if(_suppType == "ARTILLERY") then
 } else
 {
     //Values derrived from vanilla 81mm mortar
+    private _expectedRadius = 30;
     private _expectedArea = 30 * 30 * 3.14;
     private _expectedIndirect = 125;
     private _expectedHit = 340;
-    private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
+    private _expectedValue = _expectedHit + _expectedIndirect + _expectedRadius;
 };
 
 private _shotsPerVolley = _numberOfRounds / 3;

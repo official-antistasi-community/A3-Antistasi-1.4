@@ -226,6 +226,10 @@ _militaryLoadoutData set ["vests", ["sfp_stridsbalte_304k","sfp_stridsbalte_304k
 _militaryLoadoutData set ["medVests", ["sfp_stridsbalte_304k_medic"]];
 _militaryLoadoutData set ["helmets", ["sfp_m90s_helmet_headset"]];
 
+_militaryLoadoutData set ["slRifles", [
+["sfp_ak5b", "", "", "sfp_optic_aimpoint_t1", ["sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic", "sfp_30Rnd_556x45_Stanag_plastic"], [], ""],
+["sfp_ak5_m203", "", "", "", ["sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag", "sfp_30Rnd_556x45_Stanag_tracer"], ["1Rnd_HE_Grenade_shell","1Rnd_HE_Grenade_shell"], ""]
+]];
 _militaryLoadoutData set ["rifles", [
 ["sfp_ak4", "", "", "", ["sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4", "sfp_20Rnd_762x51_ak4_tracer"], ["sfp_riflegrenade_smoke_ak4"], ""]
 ]];
@@ -279,7 +283,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["sfp_m90s_uniform_ws","sfp_m90s_uniform_sw"]];
 _militiaLoadoutData set ["vests", ["sfp_stridssele","sfp_stridssele_extrabag"]];
 _militiaLoadoutData set ["medVests", ["sfp_stridssele_medic"]];
-_militiaLoadoutData set ["helmets", ["sfp_m90w_cap", "sfp_m90w_cap_alt"]];
+_militiaLoadoutData set ["helmets", ["sfp_ollesbrorsa_gray", "sfp_ollesbrorsa_gray_alt", "sfp_ollesbrorsa_green", "sfp_ollesbrorsa_green_alt"]];
 _militiaLoadoutData set ["slHats", ["sfp_homeguard_beret"]];
 
 _militiaLoadoutData set ["ATLaunchers", [
@@ -337,7 +341,7 @@ private _squadLeaderTemplate = {
 
     ["slBackpacks"] call _fnc_setBackpack;
 
-    [selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_setPrimary;
+    [["slRifles", selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
     ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
@@ -440,7 +444,7 @@ private _explosivesExpertTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["hvBackpacks"] call _fnc_setBackpack;
 
-    [selectRandom ["SMGs", ["shotguns", "carbines"] call _fnc_fallback]] call _fnc_setPrimary;
+    [selectRandom ["SMGs","shotguns", "carbines"], selectRandom ["SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -473,7 +477,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["hvBackpacks"] call _fnc_setBackpack;
 
-    [selectRandom [["shotguns", "carbines"] call _fnc_fallback, "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["SMGs","shotguns", "carbines"], selectRandom ["SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

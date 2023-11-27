@@ -473,7 +473,7 @@ private _explosivesExpertTemplate = {
     ["uniforms"] call _fnc_setUniform;
 	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
-    [selectRandom ["rifles", "carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -506,7 +506,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
 	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
-    [selectRandom ["rifles", "carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -724,7 +724,9 @@ private _policeTemplate = {
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_police_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
+    ["antiInfantryGrenades", 1] call _fnc_addItem;
     ["smokeGrenades", 1] call _fnc_addItem;
+    
 
     ["maps"] call _fnc_addMap;
     ["watches"] call _fnc_addWatch;

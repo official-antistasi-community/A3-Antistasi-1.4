@@ -173,6 +173,7 @@
         <Italian>&lt;t color='#00fff3'&gt;"%1" è caricato in "%2" Non c'è più spazio.&lt;/t&gt;</Italian>
         <Spanish>&lt;t color='#00fff3'&gt;"%1" está siendo cargado en "%2" No queda más espacio.&lt;/t&gt;</Spanish>
         <French>&lt;t color='#00fff3'&gt;"%1" est chargé sur "%2" Il n'y a plus de place.&lt;/t&gt;</French>
+        <Korean>&lt;t color='#00fff3'&gt;"%1"이(가) "%2"에 적재되었습니다. 더 이상 공간이 없습니다.&lt;/t&gt;</Korean>
         <Czech>&lt;t color='#00fff3'&gt;"%1" je nakládáno do "%2" Už nezbylo žádné další místo.&lt;/t&gt;</Czech>
         <Portuguese>&lt;t color='#00fff3'&gt;"%1" foi carregado em "%2". Não há mais espaço.&lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00fff3'&gt;"%1" , "%2"'ye yüklendi. Boş yer kalmadı.&lt;/t&gt;</Turkish>

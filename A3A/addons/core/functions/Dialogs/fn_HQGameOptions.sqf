@@ -31,12 +31,12 @@ FIX_LINE_NUMBERS()
 ////////////////////
 // Authentication //
 ////////////////////
-private _optionLocalisationTable = [["maxUnits","distanceSPWN","globalCivilianMax"],["AI Limit","Spawn Distance","Civilian Limit"]];
-private _hintTitle = "HQ Spawn Options";
+private _optionLocalisationTable = [["maxUnits","distanceSPWN","globalCivilianMax"],[localize "STR_A3A_fn_HQGameOptions_AILimit",localize "STR_A3A_fn_HQGameOptions_spwnDistance",localize "STR_A3A_fn_HQGameOptions_civLimit"]];
+private _hintTitle = localize "STR_A3A_fn_HQGameOptions_title";
 private _authenticate = _option in ["maxUnits","distanceSPWN","globalCivilianMax"];
 
 if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
-    [_hintTitle, "Only our Commander or admin has access to "+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player]; //TODO: localisation
+    [_hintTitle, localize "STR_A3A_fn_HQGameOptions_commOnly"+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player]; //TODO: localisation
     Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
     nil;
 };
@@ -79,7 +79,7 @@ private _processAction = {
         _hintText = " set to "+str _finalAmount;
         Info("SET | "+name _player+" ["+ getPlayerUID _player +"] ["+ str owner _player +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount);
     } else {
-        _hintText = " is already at "+(["lower","upper"] select _inRange)+" limit of "+str _originalAmount;
+        _hintText = " " + [localize "STR_A3A_fn_HQGameOptions_lower", localize "STR_A3A_fn_HQGameOptions_upper"] select _inRange + str _originalAmount;
     };
 
     private _graphic = "--------------------------------------------------";

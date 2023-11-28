@@ -29,38 +29,38 @@ if (str (_display) != "no display") then
 	_costs = 0;
 	_costHR = 0;
 	{_costs = _costs + (server getVariable _x); _costHR = _costHR +1} forEach FactionGet(reb,"groupMedium");
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 106;
 	_costs = 0;
 	_costHR = 0;
 	{_costs = _costs + (server getVariable _x); _costHR = _costHR +1} forEach FactionGet(reb,"groupAT");
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 107;
 	_costs = 0;
 	_costHR = 0;
 	{_costs = _costs + (server getVariable _x); _costHR = _costHR +1} forEach FactionGet(reb,"groupSniper");
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 
 	_ChildControl = _display displayCtrl 108;
 	_costHR = 2;
 	_costs = 2*_crewCost + ([(FactionGet(reb, "staticMGs")) # 0] call A3A_fnc_vehiclePrice);
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 109;
 	_costHR = 2;
 	_costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesAT")) # 0] call A3A_fnc_vehiclePrice);
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 110;
 	_costHR = 2;
 	_costs = 2*_crewCost + ([(FactionGet(reb,"vehiclesTruck")) # 0] call A3A_fnc_vehiclePrice) + ([(FactionGet(reb,"staticAA")) # 0] call A3A_fnc_vehiclePrice);
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 
 	_ChildControl = _display displayCtrl 111;
 	_costHR = 2;
 	_costs = 2*_crewCost + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice);
-	_ChildControl  ctrlSetTooltip format ["Cost: %1 €. HR: %2",_costs,_costHR]; //TODO: Localize
+	_ChildControl  ctrlSetTooltip format [localize "STR_A3A_fn_squadOptions",_costs,_costHR];
 };

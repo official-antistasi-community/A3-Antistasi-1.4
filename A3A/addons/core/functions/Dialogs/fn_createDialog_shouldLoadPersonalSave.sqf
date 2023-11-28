@@ -1,11 +1,18 @@
 //TODO: add header
 
-private _saveString = ["Antistasi has a custom save system similar to other CTIs.<br/><br/>",
-    "To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>""Persistent Save""</t> button.<br/><br/>"] joinString ""; //TODO: Localize
-_saveString = if (autoSave) then { [_saveString,"Current parameters are configured to auto-save every <t color='#f0d498'>",(autoSaveInterval/60) toFixed 0," minutes</t>."] joinString "" } //TODO: Localize
-    else { [_saveString,"Auto-save is currently disabled"] joinString "" }; //TODO: Localize
+private _saveString = [localize "STR_A3A_createDialog_SLPS_line1" + "<br/><br/>",
+    [localize "STR_A3A_createDialog_SLPS_line2"] + 
+    "<t color='#f0d498'>" + [localize "STR_A3A_createDialog_SLPS_line3"]  + "</t>, " + 
+    [localize "STR_A3A_createDialog_SLPS_line4"] + "<t color='#f0d498'>" + 
+    [localize "STR_A3A_createDialog_SLPS_line5"] + "</t> " + 
+    [localize "STR_A3A_createDialog_SLPS_line6"] + " <t color='#f0d498'>" + 
+    [localize "STR_A3A_createDialog_SLPS_line7"] +"</t> " + 
+    [localize "STR_A3A_createDialog_SLPS_line8"] + 
+    ".<br/><br/>"] joinString "";
+_saveString = if (autoSave) then { [_saveString,[localize "STR_A3A_createDialog_SLPS_line9"] + "<t color='#f0d498'>",(autoSaveInterval/60) toFixed 0," " + [localize "STR_A3A_createDialog_SLPS_line10"] + "</t>."] joinString "" }
+    else { [_saveString,[localize "STR_A3A_createDialog_SLPS_line11"]] joinString "" };
 
-["W A R N I N G ", _saveString] call A3A_fnc_customHint; //TODO: Localize
+[[localize "STR_A3A_createDialog_SLPS_line12"], _saveString] call A3A_fnc_customHint;
 
 [true] call A3A_fnc_loadPreviousSession;
 

@@ -125,7 +125,7 @@ while {alive _veh} do
 	{
 	if (count _arrayDestinations < 2) exitWith {};
 	_destinationX = selectRandom _arrayDestinations;
-	if (debug) then {player globalChat format ["Patrulla AI generada. originX: %2 destinationX %1", _destinationX, _base]; sleep 3};
+	if (debug) then {player globalChat format ["Generated AI patrol. Origin %1, destination %2.", _destinationX, _base]; sleep 3};
 	_posDestination = getMarkerPos _destinationX;
 	if (_typePatrol == "LAND") then
 		{

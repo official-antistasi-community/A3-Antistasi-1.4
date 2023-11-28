@@ -231,6 +231,7 @@
         <Italian>Questi oggetti non erano nell'Arsenale:&lt;br/&gt;</Italian>
         <Spanish>Estos objetos no estaban en el Arsenal:&lt;br/&gt;</Spanish>
         <French>Ces objets n'étaient pas dans l'Arsenal:&lt;br/&gt;</French>
+        <Korean>이 아이템들은 무기고에 없었습니다:&lt;br/&gt;</Korean>
         <Russian>Этих предметов не было в Арсенале:&lt;br/&gt;</Russian>
         <Czech>Tyto věci v Arzenálu nejsoul:&lt;br/&gt;</Czech>
         <Chinesesimp>这些物品之前并不在武器库内:&lt;br/&gt;</Chinesesimp>
@@ -240,6 +241,7 @@
         <Italian>Questi oggetti non erano nell'Arsenale, quindi sono stati mantenuti gli originali:&lt;br/&gt;</Italian>
         <Spanish>Estos objetos no estaban en el Arsenal, asi que se mantuvieron los originales:&lt;br/&gt;</Spanish>
         <French>Ces objets n'étaient pas dans l'Arsenal, les originaux ont donc été conservés:&lt;br/&gt;</French>
+        <Korean>이 아이템들은 무기고에 없었기 때문에, 다음 원본들이 보관되었습니다:&lt;br/&gt;</Korean>
         <Russian>Этих предметов не было в Арсенале, поэтому были сохранены оригиналы:&lt;br/&gt;</Russian>
         <Czech>Tyto věci v arzenálu nejsou, takže původní byli ponechány:&lt;br/&gt;</Czech>
         <Chinesesimp>这些物品之前不在武器库内, 所以原物件将被保留下来:&lt;br/&gt;</Chinesesimp>
@@ -261,6 +263,7 @@
       <Key ID="STR_A3A_JNA_rhs_error">
         <Original>ERROR - Please report RPT to Antistasi Devs.</Original>
         <French>ERREUR - Veuillez signaler le RPT aux développeurs d'Antistasi.</French>
+        <Korean>오류 - 안티스타시 개발진에게 RPT 보고할 것</Korean>
         <Russian>ОШИБКА - Отправьте RPT разработчикам Antistasi.</Russian>
         <Czech>CHYBA - Prosím nahlašte RPT Antistasi Dev's</Czech>
       </Key>
@@ -268,6 +271,7 @@
         <Original>&lt;br/&gt;(Not compatible with currently equipped weapons)</Original>
         <Italian>&lt;br/&gt;(Non compatibile con le armi equipaggiate)</Italian>
         <French>&lt;br/&gt;(Pas compatible avec les armes actuellement équipées)</French>
+        <Korean>&lt;br/&gt;(현재 장착한 무기와 호환되지 않음)</Korean>
         <Russian>&lt;br/&gt;(Несовместимо с имеющимся в данный момент оружием)</Russian>
         <Czech>&lt;br/&gt;(Nekompatibilní s aktuálně vybavenými zbraněmi)</Czech>
         <Chinesesimp>&lt;br/&gt;(与当前所装备的武器不兼容)</Chinesesimp>
@@ -503,6 +507,7 @@
         <Italian>Console di Debug Ultra Wide con Bottoni di Salvataggio Extra!</Italian>
         <Spanish>Super Amplia y Extendida Consola de Debug con Extra Butones de Guardado!</Spanish>
         <French>Console de débogage étendue ultra large avec boutons de sauvegarde supplémentaires !</French>
+        <Korean>추가적인 저장 버튼이 있는 울트라 와이드로 확장된 디버그 콘솔!</Korean>
         <Russian>Сверхширокая Расширенная Консоль Отладки с Дополнительными Кнопками Сохранения!</Russian>
         <Czech>Ultra Široká Rozšířená Debug Konzole S Extra Ukládacíma Tlačítkama!</Czech>
         <Chinesesimp>宇宙究极无敌扩展调试控制台 (搭载额外保存按钮)</Chinesesimp>

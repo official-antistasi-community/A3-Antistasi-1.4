@@ -65,7 +65,7 @@
 
 ["vehiclesArtillery", ["rhsgref_ins_2s1","rhsgref_ins_d30","rhsgref_ins_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_ins_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_ins_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_ins_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_ins_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]

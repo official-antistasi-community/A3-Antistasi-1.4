@@ -341,6 +341,7 @@
         <Italian>Quest'oggetto può accumulare loot&lt;br/&gt;il carico massimo di %1 è %2</Italian>
         <Spanish>Este objeto puede recolectar loot&lt;br/&gt;La carga máxima de %1 es %2</Spanish>
         <French>Cet objet peut collecter du butin&lt;br/&gt;%1 charge max est %2</French>
+        <Korean>이 아이템은 전리품을 수집할 수 있습니다.&lt;br/&gt;%1의 최대 수용량은 %2입니다.</Korean>
         <Czech>Tento předmět může sbírat loot&lt;br/&gt;%1 maximální kapacita je %2</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
@@ -391,6 +392,7 @@
         <Italian>Questo oggetto può rifornire altri&lt;br/&gt;%1 massimo carburante è %2</Italian>
         <Spanish>Este objeto puede repostar a otros&lt;br/&gt;El combustible máximo de %1 es %2</Spanish>
         <French>Cet objet peut ravitailler les autres&lt;br/&gt;%1 carburant max est %2</French>
+        <Korean>이 아이템은 다른 차량을 재급유할 수 있습니다.&lt;br/&gt;%1의 최대 연료량은 %2입니다.</Korean>
         <Czech>Tento předmět může tankovat ostatní&lt;br/&gt;%1 maximální palivo je %2</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
@@ -639,6 +641,7 @@
         <Italian>Popolazione morta&lt;br/&gt;Perderai se raggiungerà il 33%</Italian>
         <Spanish>Población fallecida&lt;br/&gt;Cuando llegue al 33% fracasará la misión</Spanish>
         <French>Population morte&lt;br/&gt;Vous perdez quand cela atteint 33%</French>
+        <Korean>사망한 인구&lt;br/&gt;33% 이상 잃으면 패배합니다</Korean>
         <Czech>Mrtvá populace&lt;br/&gt; prohrajete, pokud bude 33%</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
@@ -759,6 +762,7 @@
         <Italian>Supporto della popolazione&lt;br/&gt;Hai bisogno del 50% per vincere</Italian>
         <Spanish>Apoyo Popular&lt;br/&gt;Necesita el 50% para ganar</Spanish>
         <French>Support populaire&lt;br/&gt;Vous avez besoin de 50% pour gagner</French>
+        <Korean>시민의 지지율&lt;br/&gt;50%를 넘으면 이깁니다</Korean>
         <Czech>Popularita&lt;br/&gt; K vítezství potřebujete 50%</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_button">
@@ -1741,6 +1745,7 @@
         <Italian>Puoi controllare remotamente solo singole unità&lt;br/&gt;Seleziona esattamente un'IA dalla lista</Italian>
         <Spanish>Sólo puede contorlar una unidad de forma remota&lt;br/&gt;Seleccione exactamente una en la lista de la IA</Spanish>
         <French>Vous ne pouvez contrôler à distance que des unités individuelles&lt;br/&gt;Sélectionnez exactement une IA dans la liste</French>
+        <Korean>단일 유닛만 원격 조종 가능합니다&lt;br/&gt;목록에서 인공지능을 정확히 하나만 선택하십시오</Korean>
         <Czech>Můžete ovládat pouze jednotlivé jednotky&lt;br/&gt;Vyber přesně jedno AI z listu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
@@ -2478,6 +2483,7 @@
         <Italian>Numero di unità nel gruppo&lt;br/&gt;Abili al combattimento / Numero totale di unità</Italian>
         <Spanish>Número de unidades en el grupo&lt;br/&gt;Capaces de combatir / Total número de unidades</Spanish>
         <French>Unités dans le groupe&lt;br/&gt;Prêtes au combat / Nombre totale d'unités</French>
+        <Korean>해당 그룹 내 유닛 수&lt;br/&gt;전투 가능 / 총 유닛 수</Korean>
         <Czech>Počet jednotek ve skupině&lt;br/&gt;Bojeschopných / celkový počet jednotek</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
@@ -2688,6 +2694,7 @@
         <Italian>Necessita membri del gruppo IA&lt;br/&gt;Puoi reclutarli alla bandiera</Italian>
         <Spanish>Necesita grupo de miembros de la IA&lt;br/&gt;Puede reclutarlos en la bandera</Spanish>
         <French>Nécessite des membres du groupe IA&lt;br/&gt;Vous pouvez les recruter au drapeau</French>
+        <Korean>인공지능 분대원 필요&lt;br/&gt;깃발에서 모집할 수 있습니다.</Korean>
         <Czech>Potřebuje AI členy skupiny&lt;br/&gt;Můžete je narekrutovat u vlajky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
@@ -2948,6 +2955,7 @@
         <Italian>Denaro attuale:&lt;br/&gt;€ %1</Italian>
         <Spanish>Dinero:&lt;br/&gt;€ %1</Spanish>
         <French>Argent actuel :&lt;br/&gt;€ %1</French>
+        <Korean>현재 자금:&lt;br/&gt;%1€</Korean>
         <Czech>Aktuální peníze:&lt;br/&gt;€ %1</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_sell_vehicle">

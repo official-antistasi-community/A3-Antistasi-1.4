@@ -33,7 +33,7 @@ class umb_colombia {
 	fuelStationTypes[] = {
 		"Land_Fuelstation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_03_pump_F","Land_FuelStation_02_pump_F"
 	};
-	climate = "arid";
+	climate = "tropical";
 	buildObjects[] = {
 		// Large vanilla tropical structures
 		{"Land_BagBunker_01_large_green_F", 300}, {"Land_HBarrier_01_tower_green_F", 300}, {"Land_BagBunker_01_small_green_F", 60},

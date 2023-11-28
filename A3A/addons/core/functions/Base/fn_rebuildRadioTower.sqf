@@ -19,7 +19,7 @@ private _mrkFinal = createMarker [format ["Ant%1", mapGridPosition _antenna], ge
 _mrkFinal setMarkerShape "ICON";
 _mrkFinal setMarkerType "loc_Transmitter";
 _mrkFinal setMarkerColor "ColorBlack";
-_mrkFinal setMarkerText "Radio Tower";
+_mrkFinal setMarkerText (localize "fn_rebuildRadioTower_marker");
 mrkAntennas pushBack _mrkFinal;
 publicVariable "mrkAntennas";
 
@@ -32,7 +32,7 @@ _antenna addEventHandler ["Killed",
 	mrkAntennas = mrkAntennas - [_mrk]; deleteMarker _mrk;
 	antennas = antennas - [_antenna]; antennasDead = antennasDead + [_antenna];
 	publicVariable "antennas"; publicVariable "antennasDead"; publicVariable "mrkAntennas";
-	["TaskSucceeded",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
-	["TaskFailed",["", "Radio Tower Destroyed"]] remoteExec ["BIS_fnc_showNotification",Occupants];
+	["TaskSucceeded",["", localize "fn_rebuildRadioTower_destr"]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+	["TaskFailed",["", localize "fn_rebuildRadioTower_destr"]] remoteExec ["BIS_fnc_showNotification",Occupants];
 	}
 	];

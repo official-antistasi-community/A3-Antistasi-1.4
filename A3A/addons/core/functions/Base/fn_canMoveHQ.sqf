@@ -26,8 +26,7 @@ private _titleStr = localize "STR_A3A_fn_base_canmovehq_title";
 if (player != theBoss) then
 {
     [_titleStr, localize "STR_A3A_fn_base_canmovehq_no_comm"] call A3A_fnc_customHint;
-    _result pushBack "Commander only";// TODO: localize "STR_A3A_fn_base_canmovehq_comm_only"
-};
+    _result pushBack [localize "STR_A3A_fn_base_canmovehq_comm_only"];
 
 if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) then
 {
@@ -35,7 +34,7 @@ if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemC
     {
         [_titleStr, localize "STR_A3A_fn_base_canmovehq_no_empty1"] call A3A_fnc_customHint;
     };
-    _result pushBack "Arsenal inventory must be empty";// TODO: localize "STR_A3A_fn_base_canmovehq_no_empty2"
+    _result pushBack [localize "STR_A3A_fn_base_canmovehq_no_empty2"];
 };
 
 if !(isNull attachedTo petros) then
@@ -44,7 +43,7 @@ if !(isNull attachedTo petros) then
     {
         [_titleStr, localize "STR_A3A_fn_base_canmovehq_petros_down"] call A3A_fnc_customHint;
     };
-    _result pushBack "Petros currently picked up";// TODO: localize "STR_A3A_fn_base_canmovehq_petros_pickedup"
+    _result pushBack [localize "STR_A3A_fn_base_canmovehq_petros_pickedup"];
 };
 
 if(count _result != 1) exitWith

@@ -11,7 +11,7 @@ if (_owner in hcArray) then
 		A3A_HCErrorHandle = [] spawn {
 			while {true} do
 			{
-				[petros,"hint","A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask and Admin for a restart", "Headless Client"] remoteExec ["A3A_fnc_commsMP"];
+				[petros,"hint", localize "STR_A3A_fn_base_hcdics_warning", localize "STR_A3A_fn_base_hcdics_hc"] remoteExec ["A3A_fnc_commsMP"];
 				sleep 30;
 			};
 		};

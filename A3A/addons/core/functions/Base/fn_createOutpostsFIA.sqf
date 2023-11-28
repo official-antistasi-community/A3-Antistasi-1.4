@@ -15,11 +15,17 @@ _textX = format ["%1 Observation Post",FactionGet(reb,"name")];
 _typeGroup = FactionGet(reb,"groupSniper");
 _typeVehX = (FactionGet(reb,"vehiclesBasic")) # 0;
 private _tsk = "";
+
 if (_isRoad) then
 	{
 	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
 	_typeGroup = FactionGet(reb,"groupAT");
 	_typeVehX = (FactionGet(reb,"vehiclesTruck")) # 0;
+	_taskData = [localize "STR_A3A_fn_createOutpostsFIA_RB_data"]
+	_taskTitle = [localize "STR_A3A_fn_createOutpostsFIA_RB_title"]
+	} else {
+	_taskData = [localize "STR_A3A_fn_createOutpostsFIA_RB_data"]
+	_taskTitle = [localize "STR_A3A_fn_createOutpostsFIA_RB_title"]
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];
@@ -28,7 +34,7 @@ _mrk setMarkerShape "ICON";
 _dateLimit = [date select 0, date select 1, date select 2, date select 3, (date select 4) + 60];
 _dateLimitNum = dateToNumber _dateLimit;
 private _taskId = "outpostsFIA" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,["We are sending a team to establish a Watchpost/Roadblock. Use HC to send the team to their destination.","Post \ Roadblock Deploy",_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_taskData,_taskTitle,_mrk],_positionTel,false,0,true,"Move",true] call BIS_fnc_taskCreate;
 [_taskId, "outpostsFIA", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groupX = [getMarkerPos respawnTeamPlayer, teamPlayer, _typeGroup] call A3A_fnc_spawnGroup;

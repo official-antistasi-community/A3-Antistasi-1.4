@@ -409,7 +409,7 @@
         <Czech>Antistasi - Další osvobození Černa</Czech>
         <Portuguese>Antistasi - Outra Libertação de Cherno</Portuguese>
         <Turkish>Antistasi - Cherno'nun Başka Bir Kurtuluşu</Turkish>
-        <Chinesesimp>Antistasi - 另一个切尔诺贝利的解放</Chinesesimp>
+        <Chinesesimp>Antistasi - 切尔诺贝利的二次解放</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_Enoch_blurb_text">
         <Original>Stuck between two fronts.</Original>
@@ -1039,52 +1039,94 @@
       <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_text">
         <Original>Antistasi - Liberation of Colombia</Original>
       </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_blurb_text">
+        <Original>Placeholder</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_short_text">
+        <Original>Antistasi Isla Duala</Original>
+     </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_text">
+        <Original>Antistasi - Liberation of Isla Duala</Original>
+      <Key ID="STR_antistasi_mission_info_kujari_blurb_text">
+        <Original>African Action</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_mapname_short_text">
+        <Original>Antistasi Kujari</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_mapname_text">
+        <Original>Antistasi - Liberation of Kujari</Original>
+      </Key>
     </Container>
     <Container name="Mission_Params">
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_10min">
         <Original>10 minutes</Original>
+        <Italian>10 minuti </Italian>
+        <Spanish>10 minutos</Spanish>
         <French>10 minutes</French>
         <Korean>10분</Korean>
         <Czech>10 minut</Czech>
+        <Chinesesimp>10 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_1min">
         <Original>1 minute</Original>
+        <Italian>1 minuto</Italian>
+        <Spanish>1 minuto</Spanish>
         <French>1 minute</French>
         <Korean>1분</Korean>
         <Czech>1 minuta</Czech>
+        <Chinesesimp>1 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_2min">
         <Original>2 minutes</Original>
+        <Italian>2 minuti</Italian>
+        <Spanish>2 minutos</Spanish>
         <French>2 minutes</French>
         <Korean>2분</Korean>
         <Czech>2 minuty</Czech>
+        <Chinesesimp>2 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_3min">
         <Original>3 minutes</Original>
+        <Italian>3 minuti</Italian>
+        <Spanish>3 minutos</Spanish>
         <French>3 minutes</French>
         <Korean>3분</Korean>
         <Czech>3 minuty</Czech>
+        <Chinesesimp>3 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_5min">
         <Original>5 minutes</Original>
+        <Italian>5 minuti</Italian>
+        <Spanish>5 minutos</Spanish>
         <French>5 minutes</French>
         <Korean>5분</Korean>
         <Czech>5 minut</Czech>
+        <Chinesesimp>5 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_noautoload">
         <Original>No automatic load</Original>
         <French>Pas de chargement automatique</French>
         <Korean>자동 로드 없음</Korean>
         <Czech>Žádné automatické načtění</Czech>
+        <Chinesesimp>取消自动读取最近的存档</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_title">
         <Original>Automatically load last valid save after delay</Original>
+        <Spanish>Cargar el último guardado válido después del retraso</Spanish>
         <French>Chargement automatique de la dernière sauvegarde valide après un délai</French>
         <Korean>딜레이 후 마지막으로 유효한 저장을 자동으로 로드</Korean>
         <Czech>Automaticky načíst poslední platné uložení po zpoždění</Czech>
+        <Chinesesimp>自动读取最近的有效存档</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_all">
         <Original>All</Original>
+        <Spanish>Todos</Spanish>
         <French>Tout</French>
         <Korean>모두</Korean>
         <Czech>Vše</Czech>
@@ -1097,6 +1139,7 @@
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_none">
         <Original>None</Original>
+        <Spanish>Ninguno</Spanish>
         <French>Aucun</French>
         <Korean>없음</Korean>
         <Czech>Nic</Czech>
@@ -1106,24 +1149,31 @@
         <French>Enregistrer l'usage de la console de débogage pendant la préparration</French>
         <Korean>설정 중 디버그 콘솔 사용 로그 작성</Korean>
         <Czech>Zapsat konzoli ladění při nastavování</Czech>
+        <Chinesesimp>在设立过程中保存调试台使用记录</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_debug">
         <Original>Debug</Original>
+        <Spanish>Debug</Spanish>
         <French>Déboguer</French>
         <Korean>디버그</Korean>
         <Czech>Ladění</Czech>
+        <Chinesesimp>调试</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_error">
         <Original>Error</Original>
+        <Spanish>Error</Spanish>
         <French>Erreur</French>
         <Korean>오류</Korean>
         <Czech>Chyba</Czech>
+        <Chinesesimp>错误</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_info">
         <Original>Info</Original>
+        <Spanish>Info</Spanish>
         <French>Info</French>
         <Korean>정보</Korean>
         <Czech>Informace</Czech>
+        <Chinesesimp>信息</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_title">
         <Original>Logging Level during setup</Original>
@@ -1133,6 +1183,7 @@
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_verbose">
         <Original>Verbose</Original>
+        <Spanish>Verbose</Spanish>
         <French>Verbeux</French>
         <Korean>세부 정보</Korean>
         <Czech>Podrobný</Czech>

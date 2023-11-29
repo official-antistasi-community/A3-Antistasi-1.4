@@ -117,7 +117,7 @@ _loadoutData set ["ATLaunchers", [
 ["CUP_launch_MAAWS", "", "", "CUP_optic_MAAWS_Scope", ["CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEAT_M", "CUP_MAAWS_HEDP_M"], ["sfp_grg_smoke_mag"], ""]
 ]];
 _loadoutData set ["missileATLaunchers", ["sfp_rb57"]];
-_loadoutData set ["AALaunchers", ["sfp_rbs69"]];
+_loadoutData set ["AALaunchers", ["CUP_launch_FIM92Stinger"]];
 _loadoutData set ["sidearms", []];
 
 _loadoutData set ["ATMines", ["ATMine_Range_Mag"]];
@@ -361,7 +361,7 @@ _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_B"]];
 //However, these exist in case you really do want to do a lot of custom alterations.
 
 private _squadLeaderTemplate = {
-	[["slHats", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
+    [["slHats", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
@@ -396,7 +396,6 @@ private _riflemanTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -420,7 +419,7 @@ private _medicTemplate = {
     [["medVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["medBackpacks"] call _fnc_setBackpack;
-	[selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
+    [selectRandom ["carbines", "SMGs"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -471,9 +470,9 @@ private _explosivesExpertTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    [["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
-    [selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
+    [[selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
 
@@ -504,9 +503,9 @@ private _engineerTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    [["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
-    [selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
+    [[selectRandom ["rifles", "SMGs","shotguns", "carbines"], selectRandom ["rifles", "SMGs","carbines"]] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -533,19 +532,16 @@ private _latTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-	
-	private _at = selectRandom ["lightATLaunchers", "ATLaunchers"];
+    
+    private _at = selectRandom ["lightATLaunchers", "ATLaunchers"];
     [_at] call _fnc_setLauncher;
-	if (_at == "ATLaunchers") then {
-		["latBackpacks"] call _fnc_setBackpack; //use the light grg pack if grg gunner
-		["launcher", 2] call _fnc_addMagazines;
-	} else{
-		["launcher", 1] call _fnc_addMagazines;
-	};
+    if (_at == "ATLaunchers") then {
+        ["latBackpacks"] call _fnc_setBackpack; //use the light grg pack if grg gunner
+        ["launcher", 2] call _fnc_addMagazines;
+    };
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -568,20 +564,18 @@ private _atTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    [["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["carbines"] call _fnc_setPrimary;
     ["primary", 4] call _fnc_addMagazines;
 
-	private _at = selectRandom ["missileATLaunchers", "ATLaunchers"];
+    private _at = selectRandom ["missileATLaunchers", "ATLaunchers"];
     [_at] call _fnc_setLauncher;
-	if (_at == "ATLaunchers") then {
-		["atBackpacks"] call _fnc_setBackpack; //use the grg pack if grg gunner
-		["launcher", selectRandom[3,4]] call _fnc_addMagazines;
-        ["launcher", 1] call _fnc_addAdditionalMuzzleMagazines;
-	} else{
-		["launcher", 2] call _fnc_addMagazines;
-	};
+    if (_at == "ATLaunchers") then {
+        ["atBackpacks"] call _fnc_setBackpack; //use the grg pack if grg gunner
+        ["launcher", 2 + round(random 2)] call _fnc_addMagazines;
+        ["launcher", round(random 1)] call _fnc_addAdditionalMuzzleMagazines;
+    };
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -604,14 +598,13 @@ private _aaTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    [["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["AALaunchers"] call _fnc_setLauncher;
-    //TODO - Add a check if it's disposable.
-    ["launcher", 2] call _fnc_addMagazines;
+
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -634,7 +627,7 @@ private _machineGunnerTemplate = {
     ["facewear"] call _fnc_setFacewear;
     [["mgVests", "vests"] call _fnc_fallback] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+    [["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["machineGuns"] call _fnc_setPrimary;
     ["primary", 4] call _fnc_addMagazines;
@@ -656,11 +649,10 @@ private _machineGunnerTemplate = {
 };
 
 private _marksmanTemplate = {
-	["sniHats"]call _fnc_setHelmet;
+    ["sniHats"]call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["marksmanRifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -683,13 +675,13 @@ private _marksmanTemplate = {
 };
 
 private _sniperTemplate = {
-	["sniHats"]call _fnc_setHelmet;
+    ["sniHats"]call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
-	
-	[["sniperRifles", "marksmanRifles"] call _fnc_fallback] call _fnc_setPrimary;
+    
+    [["sniperRifles", "marksmanRifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 7] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

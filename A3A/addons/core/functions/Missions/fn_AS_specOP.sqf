@@ -43,7 +43,7 @@ else
 	{if (isPlayer _x) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach ([500,0,_positionX,teamPlayer] call A3A_fnc_distanceUnits);
 	[10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
     [_sideX, 10, 60] remoteExec ["A3A_fnc_addAggression", 2];
-	["TaskFailed", ["", format ["SpecOp Team decimated at a %1",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
+	["TaskFailed", ["", format [localize "STR_A3A_fn_AS_specOP_dec",_nameDest]]] remoteExec ["BIS_fnc_showNotification",_sideX];
 };
 
 [_taskId, "AS", 1200] spawn A3A_fnc_taskDelete;

@@ -29,7 +29,7 @@ private _sideName = if(_side == Occupants) then {FactionGet(occ,"name")} else {F
 if (_reveal <= 0.5) then
 {
     //Side and call is reveal
-    _text = format ["%1 is executing an unknown support now", _sideName]; //TODO: Localize
+    _text = format [localize "STR_A3A_fn_swIntSpTCll_execute", _sideName];
 }
 else
 {
@@ -37,74 +37,74 @@ else
     {
         case ("QRFLAND"):
         {
-            _text = format ["A %1 land QRF just arrived", _sideName]; //TODO: Localize
-            _markerText = "Land QRF"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_QRFLANDLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_QRFLANDTITLE";
         };
         case ("QRFAIR"):
         {
-            _text = format ["A %1 air QRF just arrived", _sideName]; //TODO: Localize
-            _markerText = "Air QRF"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_QRFAIRLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_QRFAIRTITLE";
         };
         case ("AIRSTRIKE"):
         {
-            _text = format ["%1 is about to execute an airstrike", _sideName]; //TODO: Localize
-            _markerText = "Airstrike"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_AIRSTRIKELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_AIRSTRIKETITLE";
         };
         case ("ARTILLERY"):
         {
-            _text = format ["A %1 artillery piece has opened fire", _sideName]; //TODO: Localize
-            _markerText = "Artillery strike"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_ARTILLERYLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_ARTILLERYTITLE";
         };
         case ("MORTAR"):
         {
-            _text = format ["A %1 mortar has opened fire", _sideName]; //TODO: Localize
-            _markerText = "Mortar strike"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_MORTARLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_MORTARTITLE";
         };
         case ("ORBITALSTRIKE"):
         {
-            _text = format ["A %1 satellite has fired the orbital strike", _sideName]; //TODO: Localize
-            _markerText = "Orbital strike"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_ORBITALSTRIKELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_ORBITALSTRIKETITLE";
         };
         case ("CRUISEMISSILE"):
         {
-            _text = format ["%1 cruise missile launched", _sideName]; //TODO: Localize
-            _markerText = "Cruise missile"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_CRUISEMISSILELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_CRUISEMISSILETITLE";
         };
         case ("SAM"):
         {
-            _text = format ["%1 SAM launcher is acquiring a target", _sideName]; //TODO: Localize
-            _markerText = "SAM target"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_SAMLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_SAMTITLE";
         };
         case ("CARPETBOMBS"):
         {
-            _text = format ["%1 bomber is carrying out a carpet bombing", _sideName]; //TODO: Localize
-            _markerText = "Carpet bombing"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_CARPETBOMBSLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_CARPETBOMBSTITLE";
         };
         case ("ASF"):
         {
-            _text = format ["%1 fighter started chasing a target", _sideName]; //TODO: Localize
-            _markerText = "Air superiority target"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_ASFLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_ASFTITLE";
         };
         case ("CAS"):
         {
-            _text = format ["A %1 CAS bomber is acquiring a target", _sideName]; //TODO: Localize
-            _markerText = "CAS target"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_CASLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_CASTITLE";
         };
         case ("GUNSHIP"):
         {
-            _text = format ["A %1 heavy gunship started circling the area", _sideName]; //TODO: Localize
-            _markerText = "Gunship"; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_GUNSHIPLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_swIntSpTCll_GUNSHIPTITLE";
         };
         default
         {
-            _text = format ["%1 is executing %2 support now", _sideName, _supportType]; //TODO: Localize
-            _markerText = format ["%1 support", _supportType]; //TODO: Localize
+            _text = format [localize "STR_A3A_fn_swIntSpTCll_UNKNOWNLONG", _sideName, _supportType];
+            _markerText = format [localize "STR_A3A_fn_swIntSpTCll_UNKNOWNTITLE", _supportType];
         };
     };
 
     if(_reveal < 0.8) exitWith {};
 
-    _text = format ["%1. Target marked on map!", _text]; //TODO: Localize
+    _text = format ["%1. " + localize "STR_A3A_fn_swIntSptCll_TARGET", _text];
     private _targetMarker = format ["%1_target_%2", _supportType, A3A_supportMarkerCount];
     private _textMarker = format ["%1_text_%2", _supportType, A3A_supportMarkerCount];
     A3A_supportMarkerCount = A3A_supportMarkerCount + 1;

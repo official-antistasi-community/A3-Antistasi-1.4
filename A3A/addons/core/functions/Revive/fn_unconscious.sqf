@@ -91,13 +91,13 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 
 	if (_isPlayer) then	{
 		private _helpText = "<t size='0.8'>" + call {
-			if (isNull _helper) exitWith { "There is no AI near to help you." };
-			if (_helper distance _unit < 3) exitWith { format ["%1 is helping you.", name _helper] };
-			format ["%1 is on the way to help you.", name _helper];
+			if (isNull _helper) exitWith {localize "STR_A3A_fn_unconscious_noAI"};
+			if (_helper distance _unit < 3) exitWith { format [localize "STR_A3A_fn_unconscious_helping", name _helper] };
+			format [localize "STR_A3A_fn_unconscious_onTheWay", name _helper];
 		};
-		private _respawnText = "<t size='0.6'><br/>Hit R to Respawn";
+		private _respawnText = "<t size='0.6'><br/>" + localize "STR_A3A_fn_unconscious_respawn";
 		private _reviveText = call {
-			if (A3A_selfReviveMethods) exitWith { "<br/>Hit H to Withstand Injury" };
+			if (A3A_selfReviveMethods) exitWith { "<br/>" + localize "STR_A3A_fn_unconscious_selfRevive" };
 			//if (A3A_selfReviveMethods == 2) exitWith { "<br/>Hit H to take over nearest AI ally" };
 			""
 		};

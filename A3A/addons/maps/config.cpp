@@ -28,26 +28,26 @@ class CfgMissions
     class MPMissions
     { // mission folder names need to be `Antistasi_{Map name}.{Map name}`
         A3A_Mission(Altis)
-        A3A_Mission(cam_lao_nam)
-        A3A_Mission(vn_khe_sanh)
-        A3A_Mission(chernarus_summer)
-        A3A_Mission(chernarus_winter)
-        A3A_Mission(chernarus)
         A3A_Mission(Enoch)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
-        A3A_Mission(sara)
         A3A_Mission(SPE_Normandy)
-#if __A3_DEBUG__
-        A3A_Mission(Stratis)
-#endif
-        A3A_Mission(takistan)
         A3A_Mission(Tanoa)
+        A3A_Mission(Tembelan)
+        A3A_Mission(cam_lao_nam)
+        A3A_Mission(chernarus)
+        A3A_Mission(chernarus_summer)
+        A3A_Mission(chernarus_winter)
+        A3A_Mission(cup_chernarus_A3)
+        A3A_Mission(sara)
+        A3A_Mission(takistan)
         A3A_Mission(tem_anizay)
         A3A_Mission(tem_kujari)
-        A3A_Mission(Tembelan)
+        A3A_Mission(vn_khe_sanh)
         A3A_Mission(vt7)
-        A3A_Mission(cup_chernarus_A3)
-        A3A_Mission(isladuala3)
+#if __A3_DEBUG__
+        A3A_Mission(Stratis)
+        A3A_Mission(isladuala3)//set to debug only until map is fixed
+#endif
     };
 };

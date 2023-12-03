@@ -113,7 +113,7 @@ class Templates
         side = "Reb";
         flagTexture = "\A3\Data_F_Enoch\Flags\flag_looters_co.paa";
         name = "A3 LFF";
-        file = "Vanilla_Reb_LLF";
+        file = "Vanilla_Reb_LFF";
         maps[] = {"enoch","vt7"};
         climate[] = {"temperate"};
         forceDLC[] = {"enoch"};

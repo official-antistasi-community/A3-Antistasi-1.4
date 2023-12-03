@@ -44,6 +44,7 @@ private _shotgun = [];
 private _sniper = [];
 private _mg = [];
 private _gl = [];
+private _handgun = [];
 {
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
@@ -57,6 +58,15 @@ private _gl = [];
         if ("Shotguns" in _categories) exitWith { [_shotgun, _class, _amount] call _fnc_addItem };
     };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_PRIMARYWEAPON);
+
+{
+    _x params ["_class", "_amount"];
+    private _categories = _class call A3A_fnc_equipmentClassToCategories;
+
+    call {
+        if ("Handguns" in _categories) exitWith { [_handgun, _class, _amount] call _fnc_addItem };
+    };
+} forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
 
 if (count A3A_specialGrenadeLaunchers > 0) then {
     // muzzle + base grenade launchers, broken down in the arsenal
@@ -75,6 +85,7 @@ _rebelGear set ["Shotguns", _shotgun];
 _rebelGear set ["MachineGuns", _mg];
 _rebelGear set ["SniperRifles", _sniper];
 _rebelGear set ["GrenadeLaunchers", _gl];
+_rebelGear set ["Handguns", _handgun];
 
 // Secondary weapon filtering
 private _rlaunchers = [];

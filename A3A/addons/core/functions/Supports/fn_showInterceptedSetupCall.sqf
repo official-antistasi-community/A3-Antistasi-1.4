@@ -30,7 +30,7 @@ private _sideName = Faction(_side) get "name";
 if (_reveal <= 0.5) then
 {
     //Side and setup is revealed
-    _text = format [localize "STR_A3A_fn_swIntStpCll_unknown", _sideName]; //TODO: Localize
+    _text = format [localize "STR_A3A_fn_support_showIntStpCll_unknown", _sideName]; //TODO: Localize
 }
 else
 {
@@ -38,67 +38,67 @@ else
     {
         case ("MAJORATTACK"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_MAJORATTACK", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MAJORATTACK", _sideName];
         };
         case ("COUNTERATTACK"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_COUNTERATTACK", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_COUNTERATTACK", _sideName];
         };
         case ("QRFAIR"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_QRFAIR", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFAIR", _sideName];
         };
         case ("QRFLAND"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_QRFLAND", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFLAND", _sideName];
         };
         case ("AIRSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_AIRSTRIKE", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_AIRSTRIKE", _sideName];
         };
         case ("MORTAR"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_MORTAR", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MORTAR", _sideName];
         };
         case ("ARTILLERY"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_ARTILLERY", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ARTILLERY", _sideName];
         };
         case ("ORBITALSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_ORBITALSTRIKE", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE", _sideName];
         };
         case ("CRUISEMISSILE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_CRUISEMISSILE", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE", _sideName];
         };
         case ("SAM"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_SAM", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_SAM", _sideName];
         };
         case ("CARPETBOMBS"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_CARPETBOMBS", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CARPETBOMBS", _sideName];
         };
         case ("ASF"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_ASF", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ASF", _sideName];
         };
         case ("CAS"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_CAS", _sideName]; 
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CAS", _sideName]; 
         };
         case ("GUNSHIP"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_GUNSHIP", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_GUNSHIP", _sideName];
         };
         case ("UAV"):
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_UAV", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_UAV", _sideName];
         };
         default
         {
-            _text = format [localize "STR_A3A_fn_swIntStpCll_default", _sideName, _supportType];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_default", _sideName, _supportType];
         };
     };
 };
@@ -111,11 +111,11 @@ if(_reveal >= 0.8) then
 {
     if(toupper _supportType in ["QRFLAND", "QRFAIR", "COUNTERATTACK", "MAJORATTACK"]) then
     {
-        _text = format [localize "STR_A3A_fn_swIntStpCll_arrivalTime", _text, _timeStr];
+        _text = format [localize "STR_A3A_fn_support_showIntStpCll_arrivalTime", _text, _timeStr];
     }
     else
     {
-        _text = format [localize "STR_A3A_fn_swIntStpCll_setupTime", _text, _timeStr];
+        _text = format [localize "STR_A3A_fn_support_showIntStpCll_setupTime", _text, _timeStr];
     };
 };
 

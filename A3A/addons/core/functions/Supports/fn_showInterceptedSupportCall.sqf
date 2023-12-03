@@ -29,7 +29,7 @@ private _sideName = if(_side == Occupants) then {FactionGet(occ,"name")} else {F
 if (_reveal <= 0.5) then
 {
     //Side and call is reveal
-    _text = format [localize "STR_A3A_fn_swIntSpTCll_execute", _sideName];
+    _text = format [localize "STR_A3A_fn_support_showIntSPTCll_execute", _sideName];
 }
 else
 {
@@ -37,74 +37,74 @@ else
     {
         case ("QRFLAND"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_QRFLANDLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_QRFLANDTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE";
         };
         case ("QRFAIR"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_QRFAIRLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_QRFAIRTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE";
         };
         case ("AIRSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_AIRSTRIKELONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_AIRSTRIKETITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE";
         };
         case ("ARTILLERY"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_ARTILLERYLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_ARTILLERYTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE";
         };
         case ("MORTAR"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_MORTARLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_MORTARTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_MORTARLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_MORTARTITLE";
         };
         case ("ORBITALSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_ORBITALSTRIKELONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_ORBITALSTRIKETITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE";
         };
         case ("CRUISEMISSILE"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_CRUISEMISSILELONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_CRUISEMISSILETITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE";
         };
         case ("SAM"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_SAMLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_SAMTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_SAMLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_SAMTITLE";
         };
         case ("CARPETBOMBS"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_CARPETBOMBSLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_CARPETBOMBSTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE";
         };
         case ("ASF"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_ASFLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_ASFTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_ASFLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_ASFTITLE";
         };
         case ("CAS"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_CASLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_CASTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_CASLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_CASTITLE";
         };
         case ("GUNSHIP"):
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_GUNSHIPLONG", _sideName];
-            _markerText = localize "STR_A3A_fn_swIntSpTCll_GUNSHIPTITLE";
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG", _sideName];
+            _markerText = localize "STR_A3A_fn_support_showIntSPTCll_GUNSHIPTITLE";
         };
         default
         {
-            _text = format [localize "STR_A3A_fn_swIntSpTCll_UNKNOWNLONG", _sideName, _supportType];
-            _markerText = format [localize "STR_A3A_fn_swIntSpTCll_UNKNOWNTITLE", _supportType];
+            _text = format [localize "STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG", _sideName, _supportType];
+            _markerText = format [localize "STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE", _supportType];
         };
     };
 
     if(_reveal < 0.8) exitWith {};
 
-    _text = format ["%1. " + localize "STR_A3A_fn_swIntSptCll_TARGET", _text];
+    _text = format ["%1. " + localize "STR_A3A_fn_support_showIntSPTCll_TARGET", _text];
     private _targetMarker = format ["%1_target_%2", _supportType, A3A_supportMarkerCount];
     private _textMarker = format ["%1_text_%2", _supportType, A3A_supportMarkerCount];
     A3A_supportMarkerCount = A3A_supportMarkerCount + 1;

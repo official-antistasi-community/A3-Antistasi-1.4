@@ -12,7 +12,7 @@ sleep 1;
 disableSerialization;
 
 _display = findDisplay 100;
-_unitCost = localize "STR_A3A_fn_unit_recruit"
+_unitCost = localize "STR_A3A_fn_dialogs_unit_recruit"
 
 if (str (_display) != "no display") then
 {
@@ -28,7 +28,7 @@ if (str (_display) != "no display") then
 	_ChildControl  ctrlSetTooltip format [_unitCost,server getVariable FactionGet(reb,"unitExp")];
 	_ChildControl = _display displayCtrl 109;
 	_ChildControl  ctrlSetTooltip format [_unitCost,server getVariable FactionGet(reb,"unitGL")];
-	if (A3A_hasIFA) then {_childControl ctrlSetText localize "STR_A3A_fn_unit_recruit_radioOP"};
+	if (A3A_hasIFA) then {_childControl ctrlSetText localize "STR_A3A_fn_dialogs_unit_recruit_radioOP"};
 	_ChildControl = _display displayCtrl 110;
 	_ChildControl  ctrlSetTooltip format [_unitCost,server getVariable FactionGet(reb,"unitSniper")];
 	_ChildControl = _display displayCtrl 111;

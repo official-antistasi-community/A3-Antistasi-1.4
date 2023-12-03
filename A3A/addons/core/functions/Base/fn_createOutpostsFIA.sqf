@@ -24,8 +24,8 @@ if (_isRoad) then
 	_taskData = [localize "STR_A3A_fn_createOutpostsFIA_RB_data"]
 	_taskTitle = [localize "STR_A3A_fn_createOutpostsFIA_RB_title"]
 	} else {
-	_taskData = [localize "STR_A3A_fn_createOutpostsFIA_RB_data"]
-	_taskTitle = [localize "STR_A3A_fn_createOutpostsFIA_RB_title"]
+	_taskData = [localize "STR_A3A_fn_createOutpostsFIA_OP_data"]
+	_taskTitle = [localize "STR_A3A_fn_createOutpostsFIA_OP_title"]
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];

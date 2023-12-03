@@ -60,7 +60,7 @@ while {true} do
 		// revuelta civil!!
 		if ((_supportGov < _supportReb) and (sidesX getVariable [_city,sideUnknown] == Occupants)) then
 		{
-			["TaskSucceeded", ["", format [localize "STR_A3A_fn_resourceCheck_cityChange",_city,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+			["TaskSucceeded", ["", format [localize "STR_A3A_fn_init_resourceCheck_cityChange",_city,FactionGet(reb,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,teamPlayer,true];
 			[Occupants, 10, 60] remoteExec ["A3A_fnc_addAggression",2];
 			garrison setVariable [_city,[],true];
@@ -71,7 +71,7 @@ while {true} do
 		};
 		if ((_supportGov > _supportReb) and (sidesX getVariable [_city,sideUnknown] == teamPlayer)) then
 		{
-			["TaskFailed", ["", format [localize "STR_A3A_fn_resourceCheck_cityChange",_city,FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+			["TaskFailed", ["", format [localize "STR_A3A_fn_init_resourceCheck_cityChange",_city,FactionGet(occ,"name")]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
 			sidesX setVariable [_city,Occupants,true];
 			[Occupants, -10, 45] remoteExec ["A3A_fnc_addAggression",2];
 			garrison setVariable [_city,[],true];
@@ -116,9 +116,9 @@ while {true} do
 		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
 	} forEach (A3A_faction_reb get "initialRebelEquipment");
 
-	private _textX = format ["<t size='0.6' color='#C1C0BB'>" + [localize "STR_A3A_fn_resourceCheck_income"] ".<br/> <t size='0.5' color='#C1C0BB'><br/>" + [localize "STR_A3A_fn_resourceCheck_manPower"] + "<br/>"+ [localize "STR_A3A_fn_resourceCheck_money"], _hrAdd, _resAdd];
+	private _textX = format ["<t size='0.6' color='#C1C0BB'>" + [localize "STR_A3A_fn_init_resourceCheck_income"] ".<br/> <t size='0.5' color='#C1C0BB'><br/>" + [localize "STR_A3A_fn_init_resourceCheck_manPower"] + "<br/>"+ [localize "STR_A3A_fn_init_resourceCheck_money"], _hrAdd, _resAdd];
 	private _textArsenal = [] call A3A_fnc_arsenalManage;
-	if (_textArsenal != "") then {_textX = format ["%1<br/>" + [localize "STR_A3A_fn_resourceCheck_arsenal"] + "<br/><br/>%2", _textX, _textArsenal]};
+	if (_textArsenal != "") then {_textX = format ["%1<br/>" + [localize "STR_A3A_fn_init_resourceCheck_arsenal"] + "<br/><br/>%2", _textX, _textArsenal]};
 	[petros, "taxRep", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
 	[] call A3A_fnc_generateRebelGear;
@@ -192,7 +192,7 @@ while {true} do
 			_changingX = true;
 			destroyedSites = destroyedSites - [_x];
 			_nameX = [_x] call A3A_fnc_localizar;
-			["TaskSucceeded", ["", format [localize "STR_A3A_fn_resourceCheck_rebuilt",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
+			["TaskSucceeded", ["", format [localize "STR_A3A_fn_init_resourceCheck_rebuilt",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
 			sleep 2;
 			};
 		} forEach ((destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer});

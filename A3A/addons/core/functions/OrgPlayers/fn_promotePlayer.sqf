@@ -35,7 +35,7 @@ Debug(_textX);
 
 if (_promoted) then
 {
-	private _congrats = if ((random 100) = 69) then ["localize STR_A3A_fn_promotePlayer_no"] else [localize "STR_A3A_fn_promotePlayer_yes"] //nice
+	private _congrats = if ((random 100) = 69) then ["localize STR_A3A_fn_orgp_promotePlayer_no"] else [localize "STR_A3A_fn_orgp_promotePlayer_yes"] //nice
 	_textX = format ["%1<br/><br/>" + _congrats,_textX];
-	[petros,"hint",_textX, localize "STR_A3A_fn_promotePlayer_promotion"] remoteExec ["A3A_fnc_commsMP"];
+	[petros,"hint",_textX, localize "STR_A3A_fn_orgp_promotePlayer_promotion"] remoteExec ["A3A_fnc_commsMP"];
 };

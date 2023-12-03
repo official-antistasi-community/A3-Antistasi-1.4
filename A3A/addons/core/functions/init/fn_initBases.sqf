@@ -48,10 +48,10 @@ private _controlsNATO = controlsX - _controlsCSAT;
 
 private _roadblockPositions = controlsX apply { markerPos _x };
 
-[_mrkCSAT, airportsX, "flag_NATO", localize "STR_A3A_fn_initBases_airbase", true] call _fnc_initMarkerList;
-[_mrkCSAT, resourcesX, "loc_rock", localize "STR_A3A_fn_initBases_resources"] call _fnc_initMarkerList;
-[_mrkCSAT, factories, "u_installation", localize "STR_A3A_fn_initBases_factory"] call _fnc_initMarkerList;
-[_mrkCSAT, outposts, "loc_bunker", localize "STR_A3A_fn_initBases_outpost", true] call _fnc_initMarkerList;
-[_mrkCSAT, seaports, "b_naval", localize "STR_A3A_fn_initBases_seaPort"] call _fnc_initMarkerList;
+[_mrkCSAT, airportsX, "flag_NATO", localize "STR_A3A_fn_init_initBases_airbase", true] call _fnc_initMarkerList;
+[_mrkCSAT, resourcesX, "loc_rock", localize "STR_A3A_fn_init_initBases_resources"] call _fnc_initMarkerList;
+[_mrkCSAT, factories, "u_installation", localize "STR_A3A_fn_init_initBases_factory"] call _fnc_initMarkerList;
+[_mrkCSAT, outposts, "loc_bunker", localize "STR_A3A_fn_init_initBases_outpost", true] call _fnc_initMarkerList;
+[_mrkCSAT, seaports, "b_naval", localize "STR_A3A_fn_init_initBases_seaPort"] call _fnc_initMarkerList;
 
 Info("InitBases completed");

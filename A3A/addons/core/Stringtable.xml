@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi core">
+    <Container name="A3A_undercover">
+      <Key ID="STR_A3A_fn_undercover_goUn_on">
+        <Original>Undercover ON</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_off">
+        <Original>undercover OFF</Original>
+      </Key>
+    </Container>
     <Container name="A3A_actions">
       <Key ID="STR_A3A_actions_restore_units">
         <Original>Restore nearby units</Original>
@@ -157,6 +165,30 @@
         <Turkish>Topçu desteği</Turkish>
         <Chinesesimp>火炮支援</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal">
+        <Original>Artillery Barrage Begin</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal2">
+        <Original>Artillery Barrage End</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_fireMission">
+        <Original>Requesting a mortar strike on Grid %1. %2 %3.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_singleRound">
+        <Original>Round</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_multiRound">
+        <Original>Rounds</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_yesBarrage">
+        <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_yesSingle">
+        <Original>Acknowledged. Fire mission is inbound. %2 %3 fired. ETA %1 secs.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_splash">
+        <Original>Splash. Out.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_autoheal_mustleader">
         <Original>You must be leader of your group to enable Auto Heal.</Original>
         <Italian>Devi essere il leader del tuo gruppo per abilitare l'Auto Cura.</Italian>
@@ -209,6 +241,123 @@
         <French>Medical</French>
         <Korean>의료</Korean>
         <Czech>Zdravotnické</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_ready">
+        <Original>You are ready %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_hurt">
+        <Original>Comrades, this is %1. I'm hurt!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_support">
+        <Original>Wait a minute comrade %1, I will patch you up.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noHelping">
+        <Original>I cannot rearm right now. I'm healing a comrade</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noDoing">
+        <Original>I am currently rearming. Cancelling.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noStatic">
+        <Original>I cannot rearm right now. I'm manning this gun</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noRepairs">
+        <Original>It is useless to load my vehicle, as it needs repairs</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noCorpses">
+        <Original>"I see no corpses here to loot</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noLoot">
+        <Original>There is nothing to loot</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_startLoot">
+        <Original>Starting Looting</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noWeapons">
+        <Original>No more weapons to loot</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getGun">
+        <Original>Picking a better weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_haveGun">
+        <Original>I have a better weapon now</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_rearming">
+        <Original>Rearming</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_rearmed">
+        <Original>Rearmed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_partRearmed">
+        <Original>Partially Rearmed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noSourcePrim">
+        <Original>No source to rearm my primary weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getSec">
+        <Original>Picking a secondary weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_haveSec">
+        <Original>I have a secondary weapon now</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noSourceSec">
+        <Original>No source to rearm my secondary weapon</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getRadio">
+        <Original>Picking a Radio</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getNVGs">
+        <Original>Picking NV Goggles</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getHelm">
+        <Original>Picking a Helmet</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getFAK">
+        <Original>Picking a First Ait Kit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getVest">
+        <Original>Picking a better vest</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getPack">
+        <Original>Picking a Backpack</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noNeed">
+        <Original>No need to rearm</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_done">
+        <Original>Rearming Done</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr1">
+        <Original>How about joining the good guys?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr_yes1">
+        <Original>Why not? It can't be any worse.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr_no1">
+        <Original>Screw you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse1">
+        <Original>Okay, thank you. I owe you my life.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse2">
+        <Original>Thank you. I swear you won't regret it!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse3">
+        <Original>Thank you, I won't forget this!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_interrogate_ask">
+        <Original>You imperialist! Tell me what you know!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_interrogate_yes">
+        <Original>Okay, I'll tell you what I know</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_interrogate_noSL">
+        <Original>I don't know anything. Maybe my squad leader does.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_interrogate_no">
+        <Original>Screw you, I am not telling you anything!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_libPOW">
+        <Original>You are free. Come with us!</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_staticautot_autotarget_off">
         <Original>Mounted Static Squad %1 set to Auto Target Mode OFF.</Original>
@@ -374,6 +523,18 @@
         <French>Forcer Véhicule</French>
         <Korean>차량 브리칭</Korean>
         <Chinesesimp>强攻载具</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_noHeadless">
+        <Original>No Headless Client Detected</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_loadInfo">
+        <Original>AI Load Information</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_HCAI">
+        <Original>%1HC %2 AI<br/><br/></Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_count">
+        <Original>%1Reb: %2<br/>Occ:%3<br/>Inv:%4<br/>Civ:%5<br/>TOTAL:%6<br/><br/></Original>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_undercover">
         <Original>Undercover</Original>
@@ -743,6 +904,24 @@
         <Turkish>Geçersiz opsiyon. Garnizonu Karargahtan ayırmayı deneyin..</Turkish>
         <Chinesesimp>该选项已被弃用. 用总部功能 移除驻军 来替代.</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_data">
+        <Original>We are sending a squad to establish a roadblock. The commander must use HC to move the squad to its destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
+        <Original>Roadblock Deploy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_data">
+        <Original>A small team is being sent to establish an overwatch point. The commander must use HC to move the team to their destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_title">
+        <Original>Watchpost Deploy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_FIARadio_yes">
+        <Original>Enemy Comms Intercepted</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_FIARadio_no">
+        <Original>Enemy Comms Lost</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_flagaction_asset_move">
         <Original>Move this asset</Original>
         <German>Diesen Gegenstand bewegen</German>
@@ -821,27 +1000,6 @@
         <Portuguese>Libertar PdG</Portuguese>
         <Turkish>Esirleri serbest bırak</Turkish>
         <Chinesesimp>释放战俘</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_captureX_recr1">
-        <Original>How about joining the good guys?</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_captureX_recr_yes1">
-        <Original>Why not? It can't be any worse.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_recr_no1">
-        <Original>Screw you!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_captureX_dismiss">
-        <Original>Go back to your base and tell your comrades we are not enemies. We just want to live in peace.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_captureX_libresponse1">
-        <Original>Okay, thank you. I owe you my life!</Original>
-      </Key>
-       <Key ID="STR_A3A_fn_captureX_libresponse2">
-        <Original>Thank you. I swear you won't regret it!</Original>
-      </Key>
-       <Key ID="STR_A3A_fn_captureX_libresponse3">
-        <Original>Thank you, I won't forget this!</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_firex_fog">
         <Original>I hate the fog</Original>
@@ -1120,6 +1278,9 @@
         <Turkish>Yakınında düşmanlar varken araç satın alamazsınız.</Turkish>
         <Chinesesimp>你无法在附近存在敌人的情况下购买武器</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_base_garrisonInfo_stats">
+        <Original><br/><br/>Garrison units: %1%15<br/><br/>Squad Leaders: %2<br/>%14: %3<br/>Riflemen: %4<br/>Autoriflemen: %5<br/>Medics: %6<br/>Grenadiers: %7<br/>Marksmen: %8<br/>AT Men: %9<br/>AT Missile Men: %10<br />AA Missile Men: %11<br />Other: %12<br/>Static Weap: %13</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_gc_deleted">
         <Original>Garbage Deleted.&lt;br/&gt;Last GC was %1 ago.</Original>
         <Italian>Immondizia Eliminata.&lt;br/&gt;Ultimo PI è stato %1 fa.</Italian>
@@ -1158,6 +1319,21 @@
         <Turkish>Lütfen ÇT'nin bitmesini bekleyin.&lt;br/&gt;Son ÇT %1 kadar önceydi</Turkish>
         <Chinesesimp>请等待杂物清理完成&lt;br/&gt;距离上次杂物清理已过去 %1.</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_1">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_2">
+        <Original>Medium</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_3">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_4">
+        <Original>Very High</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_5">
+        <Original>Extreme</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_hcdics_hc">
         <Original>Headless Client</Original>
         <German>Headless Client</German>
@@ -1172,6 +1348,75 @@
       <Key ID="STR_A3A_fn_base_hcdics_warning">
         <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask an Admin for a restart.</Original>
         <Korean>헤드리스 클라이언트의 연결이 끊어졌습니다. 이로 인해 오작동이 발생할 수 있습니다. 본부로 돌아가 최대한 빨리 저장한 후, 관리자에게 재시작을 요청하십시오.</Korean>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_airport">
+        <Original>%1 Airbase</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_resource">
+        <Original>Resource near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_factory">
+        <Original>Factory near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_outpost">
+        <Original>Outpost near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_seaport">
+        <Original>Seaport near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_roadblock">
+        <Original>Roadblock near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_forest">
+        <Original>Forest near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_supCor">
+        <Original>their Support Corridor</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesOutpost">
+        <Original>Outpost Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_noOutpost">
+        <Original>Outpost Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherOutpost">
+        <Original>%1 lost an Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesResource">
+        <Original>Resource Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_noResource">
+        <Original>Resource Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherResource">
+        <Original>%1 lost a Resource</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesAirbase">
+        <Original>Airbase Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_noAirbase">
+        <Original>Airbase Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherAirbase">
+        <Original>%1 lost an Airbase</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesFactoy">
+        <Original>Factory Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_noFactory">
+        <Original>Factory Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherFactory">
+        <Original>%1 lost a Factory</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesSeaport">
+        <Original>Seaport Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_noSeaport">
+        <Original>Seaport Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherSeaport">
+        <Original>%1 lost a Seaport</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_movehq_garrison">
         <Original>Garrison</Original>
@@ -1614,6 +1859,27 @@
         <Turkish>Varlıkları Yrniden Oluştur</Turkish>
         <Chinesesimp>重建资产</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_base_rebuildRadioTower_marker">
+        <Original>Radio Tower</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_rebuildRadioTower_destr">
+        <Original>Radio Tower Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_begin">
+        <Original>You decided to rest for some time.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_end">
+        <Original>Back at it, soldier. The rebellion needs you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_resourcesFIA_resources">
+        <Original>%1 Resources</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_resourcesFIA_hr">
+        <Original>HR: %4%2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_resourcesFIA_money">
+        <Original>Money: %5%3</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_closer">
         <Original>Vehicle must be closer than 50 meters to the HQ marker.</Original>
         <Korean>차량이 본부 마커에서 50미터 이내로 들어와야 합니다.</Korean>
@@ -1702,6 +1968,12 @@
         <Portuguese>Veículo vendido</Portuguese>
         <Turkish>Araç satıldı.</Turkish>
         <Chinesesimp>载具已出售</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_base_statistics_notComm">
+        <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_statistics_isComm">
+        <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_locked">
         <Original>Vehicle locked.</Original>
@@ -1968,6 +2240,36 @@
         <Turkish>Hava araçlarını sadece insanlar kullanabilir.</Turkish>
         <Chinesesimp>只有人类才能驾驶飞行器</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_base_attackHQ_defendLong">
+        <Original>The enemy has sent Special Forces to our HQ to assassinate Petros. Stop them, or move HQ before they get here.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_attackHQ_defendTitle">
+        <Original>Defend Petros</Original>
+      </Key>c
+      <Key ID="STR_A3A_fn_base_craicts_rbDestr">
+        <Original>Roadblock Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_roadblockFight_lost">
+        <Original>Roadblock Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_crfiaOP2_lostWatchpost">
+        <Original>Watchpost Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_invaderPunish_long">
+        <Original>%2 is attacking the civilians in %1 to punish them for their support of the rebellion. Defend the city at all costs!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_invaderPunish_title">
+        <Original>%1 Punishment</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_long">
+        <Original>%1 is launching a major attack against our garrison at %2. Stop them if you can, or live to fight another day.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_title">
+        <Original>%1 Attack</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_other">
+        <Original>"%1 is attacking the %2 garrison at %3.</Original>
+      </Key>
     </Container>
     <Container name="A3A_fn_dialogs">
       <Key ID="STR_A3A_fn_dialogs_clrforest_cleared">
@@ -2005,6 +2307,64 @@
         <Portuguese>Limpar Floresta</Portuguese>
         <Turkish>Yakındaki ağaçları temizle</Turkish>
         <Chinesesimp>清除树林</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_movehqobj_title">
+        <Original>Move HQ</Original>
+        <German>HQ verlegen</German>
+        <Italian>Muovi Quartier Generale</Italian>
+        <Spanish>Mover CG</Spanish>
+        <French>Déplacer le QG</French>
+        <Korean>본부 옮기기</Korean>
+        <Russian>Переместить штаб</Russian>
+        <Polish>Przenieś Kwaterę Główną</Polish>
+        <Czech>Přesunout HQ</Czech>
+        <Turkish>Karargahı Taşı</Turkish>
+        <Chinesesimp>转移总部</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
+        <Original>Antistasi has a custom save system similar to other CTIs.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
+        <Original>To Save: Your commander needs to go to the </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line3">
+        <Original>Map Board</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
+        <Original>scroll-select </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line5">
+        <Original>""Game Options""</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line6">
+        <Original>and click on the</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line7">
+        <Original>""Persistent Save""</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line8">
+        <Original>button.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line9">
+        <Original>Current parameters are configured to auto-save every </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line10">
+        <Original> minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line11">
+        <Original>Auto-save is currently disabled.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line12">
+        <Original>"W A R N I N G </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_dialogHQ_upgrade">
+        <Original>Current level: %2. Next Level Training Cost: %1 € </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_begin">
+        <Original>Fast traveling, travel time: %1s , please wait.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
+        <Original>"You arrived at the destination.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_cancelled">
         <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase.</Original>
@@ -2199,6 +2559,27 @@
         <Portuguese>Viagem Rápida</Portuguese>
         <Turkish>Hızlı Seyahat</Turkish>
         <Chinesesimp>快速旅行</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_AILimit">
+        <Original>AI Limit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_spwnDistance">
+        <Original>Spawn Distance</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_civLimit">
+        <Original>Civilian Limit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_title">
+        <Original>HQ Spawn Options</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_commOnly">
+        <Original>Only our Commander or admin has access to </Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_lower">
+        <Original>is already at lower limit of</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_upper">
+        <Original>is already at upper limit of</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_minediag_available">
         <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle.</Original>
@@ -2434,6 +2815,9 @@
         <Turkish>Zamanı atla / Dinlen</Turkish>
         <Chinesesimp>跳过时间段 / 休息</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_dialogs_squadOptions">
+        <Original>Cost: %1 €. HR: %2</Original>
+      </Key>
       <Key ID="STR_A3A_fn_dialogs_sqopt_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
         <Italian>Necessiti di una radio nel tuo inventario per dare ordini alle altre squadre.</Italian>
@@ -2499,7 +2883,24 @@
         <Turkish>Birliği Göreve Al</Turkish>
         <Chinesesimp>招募班组</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_dialogs_unit_recruit">
+        <Original>Cost: %1 €</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_unit_recruit_radioOP">
+        <Original>Radio Operator</Original>
+      </Key>
     </Container>
+    <Container name="A3A_fn_garrison">
+      <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_decimated">
+        <Original>Decimated</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_good">
+        <Original>Good</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_weakened">
+        <Original>Weakened</Original>
+      </Key>
+    </Garrison>
     <Container name="A3A_fn_init">
       <Key ID="STR_A3A_fn_init_cityinfo_airp_1">
         <Original>%1 Airport</Original>
@@ -2642,6 +3043,21 @@
         <Italian>Posti di Osservazione %1</Italian>
         <French>%1 Poste d'Observation</French>
         <Korean>%1 관측초소</Korean>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_airbase">
+        <Original>%1 Airbase</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_factory">
+        <Original>Factory</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_resources">
+        <Original>Resources</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_outpost">
+        <Original>%1 Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_seaPort">
+        <Original>Sea Port</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_clientidle_title">
         <Original>Client idle checker</Original>
@@ -2957,6 +3373,21 @@
         <Czech>Varování</Czech>
         <Turkish>Uyarı</Turkish>
         <Chinesesimp>警告</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_cityChange">
+        <Original>%1 joined %2</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_income">
+        <Original>Taxes Income</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_manPower">
+        <Original>Manpower: %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_money">
+        <Original>Money: +%2 €</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
+        <Original>Arsenal Updated</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_intel">
@@ -3347,6 +3778,9 @@
         <Polish>Znaleziono dane zaopatrzenia dla broni&lt;br/&gt; %1&lt;br/&gt; Odblokowano tę broń!</Polish>
         <Czech>Nalezli jste zásobovací data pro&lt;br/&gt;%1&lt;br/&gt;Odemknul sis tuto zbraň!</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_intel_showIntel_found">
+        <Original>Intel Found</Original>
+      </Key>    
       <Key ID="STR_A3A_fn_intel_title1">
         <Original>Intel</Original>
         <German>Intel</German>
@@ -3474,6 +3908,9 @@
         <Polish>Zabij oficera</Polish>
         <Czech>Zabít důstojníka.</Czech>
         <Chinesesimp>消灭敌方军官</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_AS_specOP_dec">
+        <Original>Special Forces team decimated at a %1</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
         <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
@@ -4104,6 +4541,15 @@
         <Polish>Odwrót &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt;, w ciągu &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Pozostań w odległości %4 km od kwatery głównej lub członka. Niezastosowanie się do tego polecenia spowoduje teleportacje do kwatery głównej.</Polish>
         <Czech>Stáhněte se &lt;t color='#f0d498'&gt;%1 m %2&lt;/t&gt; zpět, do &lt;t color='#f0d498'&gt;%3 s&lt;/t&gt;.&lt;br/&gt;Zůstaňte v okolí %4 km od základny nebo od člena týmu. Nedodržení tohoto nařízení vás převede zpět na základnu.</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_orgp_playerScoreAdd_money">
+        <Original>Money +%1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_promotePlayer_yes">
+        <Original>Congratulations!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_promotePlayer_no">
+        <Original>We are sorry for your loss.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
         <Italian>%1 non ha abbastanza risorse per poter prendere.</Italian>
@@ -4182,6 +4628,15 @@
         <Czech>Velitel</Czech>
         <Turkish>Komutan</Turkish>
         <Chinesesimp>指挥官</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTransfer_noEligible">
+        <Original>The commander has resigned. There is no eligible commander.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTransfer_newCommTitle">
+        <Original>New Commander</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_tBTransfer_newCommLong">
+        <Original>%1 is the new commander of our forces. Greet them!</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle1">
         <Original>Autorifleman role.</Original>
@@ -4371,6 +4826,9 @@
       </Key>
     </Container>
     <Container name="A3A_fn_Punishment">
+      <Key ID="STR_A3A_fn_punishment_FF_addAcFor">
+        <Original>Forgive FF</Original>
+      </Key>
       <Key ID="STR_A3A_fn_punish_ff_noti">
         <Original>FF Notification</Original>
         <Italian>Notifica FA</Italian>
@@ -4388,6 +4846,9 @@
         <Polish>Kara za ogień sojuszniczy</Polish>
         <Czech>Trest za střelbu do vlastních</Czech>
         <Chinesesimp>友军伤害处罚</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_FF_checkNearHQ">
+        <Original>You cannot throw grenades or place explosives within 75m of base.</Original>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_text">
         <Original>Return to the AO ASAP! You have %1 seconds before you're shredded by enemy defenses.</Original>
@@ -4458,6 +4919,15 @@
         <Polish>Ostrzeżenie o ogień sojuszniczy</Polish>
         <Czech>Varování za střelbu do vlastních</Czech>
         <Chinesesimp>友军伤害警告</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_driver">
+        <Original>You hit a friendly while driving.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_CAS">
+        <Original>You damaged a friendly as an air asset.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_arty">
+        <Original>You damaged a friendly as artillery support.</Original>
       </Key>
       <Key ID="STR_A3A_fn_punish_punRel_admin">
         <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
@@ -4828,6 +5298,12 @@
         <Czech>Letecký úder</Czech>
         <Chinesesimp>空袭</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_long">
+        <Original>An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_title">
+        <Original>Minefield Deploy</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_build_humanEngi">
         <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
         <Italian>Vi è un geniere umano nella tua squadra. Chiedigli di costruire.&lt;br/&gt;</Italian>
@@ -5129,6 +5605,12 @@
         <Polish>Zwolnij grupę</Polish>
         <Chinesesimp>解散班组</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_dismissPlayerGroup_GTFO">
+        <Original>Get out of my sight you useless scum!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dismissSquad_RTB">
+        <Original>Petros, I'm sending %1 back to base.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_dissSquad_no_nato">
         <Original>You cannot dismiss NATO groups.</Original>
         <Italian>Non congedare gruppi NATO.</Italian>
@@ -5208,6 +5690,9 @@
         <Korean>%2의 능력이 업그레이드 되었습니다.&lt;br/&gt;현재 레벨은 %1입니다.</Korean>
         <Polish>Podniesiono poziom umiejętności %2.&lt;br/&gt;Obecny poziom to %1.</Polish>
         <Czech>%2 Dovednost byla vylepšena.&lt;br/&gt;Aktuální úroveň je %1.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_garrisonDialog_cost">
+        <Original>Cost</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_att">
         <Original>You cannot manage this garrison when there's a major attack incoming.</Original>
@@ -5328,6 +5813,15 @@
         <Polish>Wsparcie lotnicze</Polish>
         <Czech>Letecká podpora</Czech>
         <Chinesesimp>空中支援</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_init">
+        <Original>Bomb Run Init</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_exit">
+        <Original>Bomb Run Exit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_run">
+        <Original>Friendly airstrike is inbound. ETA 30 seconds.</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_controlling">
         <Original>You cannot buy units while you are controlling AI.</Original>
@@ -5506,6 +6000,9 @@
         <Korean>당신은 하이 커맨드 표시줄에서 한 개의 그룹을 선택해야 합니다.</Korean>
         <Czech>Musíte vybrat pouze jednu skupinu v HC listě.</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_vehStats_sitrep">
+        <Original>%1, SITREP, over.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_static_no">
         <Original>%1Static not deployed&lt;br/&gt;</Original>
         <Italian>%1Statica non dispiegata&lt;br/&gt;</Italian>
@@ -5553,8 +6050,8 @@
         <Chinesesimp>取消复活</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_lost">
-        <Original>We lost %1. There's nothing you could have done, we need to keep fighting.</Original>
-        <Korean>%1을(를) 잃었습니다. 당신이 할 수 있는 일은 아무것도 없었지만, 계속 싸워야 합니다.</Korean>
+        <Original>We lost %1.</Original>
+        <Korean>%1을(를) 잃었습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_able">
         <Original>You are not able to revive anyone.</Original>
@@ -5578,8 +6075,8 @@
         <Czech>%1 je nesen nebo transportován a nemůžeš ho léčit.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_dead">
-        <Original>%1 is already dead. Keep moving, soldier.</Original>
-        <Korean>%1은(는) 이미 죽었습니다. 계속 움직이십시오.</Korean>
+        <Original>%1 is already dead.</Original>
+        <Korean>%1은(는) 이미 죽었습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_meds">
         <Original>You or %1 need a First Aid Kit or Medikit to be able to revive.</Original>
@@ -5588,12 +6085,18 @@
         <Korean>소생하려면 당신 또는 %1에게 구급상자 또는 응급처치도구가 필요합니다.</Korean>
         <Czech>Ty nebo %1 potřebuje Soupravu první pomoci nebo Zdravotnickou soupravu aby jsi mohl oživovat.</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_actRev_no_meds_AI">
+        <Original>I'm out of First Aid Kits and I have no Medikit!</Original>
+      </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_up">
         <Original>%1 no longer needs your help.</Original>
         <Italian>%1 non necessita più del tuo aiuto.</Italian>
         <French>%1 n'a plus besoin de votre aide.</French>
         <Korean>%1은(는) 더 이상 당신의 도움이 필요하지 않습니다.</Korean>
         <Czech>%1 již nepotřebuje tvojí pomoc.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_actRev_no_up">
+        <Original>%1 no longer needs my help.</Original>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_other">
         <Original>%1 has been revived by someone else.</Original>
@@ -5649,6 +6152,21 @@
         <French>Porter/Traîner</French>
         <Korean>업기/끌기</Korean>
         <Czech>Nést/Táhnout</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_noAI">
+        <Original>There is no AI nearby to help you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_helping">
+        <Original>%1 is helping you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_onTheWay">
+        <Original>%1 is on the way to help you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_respawn">
+        <Original>Press R to respawn</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_selfRevive">
+        <Original>Press H to shake off the injury</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_SalvageRope">
@@ -6010,6 +6528,149 @@
         <French>Déballer objet</French>
         <Korean>물건 풀기</Korean>
         <Czech>Rozbalit objekt</Czech>
+      </Key>
+    </Container>
+    <Container name="A3A_supports">
+      <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
+        <Original>%1 is setting up an unknown support</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_MAJORATTACK">
+        <Original>%1 just sent a major attack wave</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_COUNTERATTACK">
+        <Original>%1 just send a counterattack force</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFAIR">
+        <Original>%1 just sent an airborne QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFLAND">
+        <Original>%1 just sent a land QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_AIRSTRIKE">
+        <Original>%1 is preparing an airstrike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_MORTAR">
+        <Original>%1 is setting up a mortar position</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
+        <Original>%1 is preparing a heavy artillery position</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE">
+        <Original>A %1 satellite is charging an orbital strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
+        <Original>A %1 cruiser is preparing to launch a cruise missile</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
+        <Original>A %1 heavy bomber is on the way</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
+        <Original>%1 is scrambling an air superiority fighter</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
+        <Original>%1 is preparing fixed-wing CAS</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_GUNSHIP">
+        <Original>%1 is loading up a heavy gunship</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
+        <Original>%1 is sending a spotting UAV</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_default">
+        <Original>%1 is setting up a %2 support</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
+        <Original>%1. Estimated arrival in %2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
+        <Original>%1. Estimated setup: %2 minutes</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
+        <Original>%1 is setting up a SAM launcher</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_execute">
+        <Original>%1 is executing an unknown support now</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG">
+        <Original>A %1 land QRF just arrived</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE">
+        <Original>Land QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
+        <Original>A %1 air QRF is landing</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
+        <Original>Air QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG">
+        <Original>%1 is about to execute an airstrike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE">
+        <Original>Airstrike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG">
+        <Original>A %1 heavy artillery piece has opened fire</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE">
+        <Original>Artillery strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARLONG">
+        <Original>A %1 mortar has opened fire</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARTITLE">
+        <Original>Mortar strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG">
+        <Original>A %1 satellite has fired an orbital strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
+        <Original><Orbital strike/Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
+        <Original>Confirmed launch of %1 cruise missile</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE">
+        <Original>Projected missile impact</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMLONG">
+        <Original>Confirmed launch of %1 SAM</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMTITLE">
+        <Original>Projected SAM target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG">
+        <Original>A %1 heavy bomber is about to perform a carpet bombing</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE">
+        <Original>Carpet bombing</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFLONG">
+        <Original>A %1 fighter started chasing a target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFTITLE">
+        <Original>Air superiority target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
+        <Original>A %1 fixed-wing CAS has visual on target and is preparing for run</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
+        <Original>CASTITLE</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG">
+        <Original>A %1 heavy gunship started circling the area.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPTITLE">
+        <Original>Gunship</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG">
+        <Original>%1 is executing a %2 support now</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE">
+        <Original>%1 support</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_TARGET">
+        <Original>Target marked on map!</Original>
       </Key>
     </Container>
     <Container name="A3A_garrisons">

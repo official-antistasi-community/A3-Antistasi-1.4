@@ -69,7 +69,7 @@ if (_this select 0 == "mount") exitWith
 	};
 _textX = "";
 _groupX = (hcSelected player select 0);
-player sideChat format [localize "STR_A3A_fn_vehStats_sitrep",groupID _groupX];
+player sideChat format [localize "STR_A3A_fn_reinf_vehStats_sitrep",groupID _groupX];
 _unitsX = units _groupX;
 _textX = format [localize "STR_A3A_fn_reinf_vehStats_status",groupID _groupX,{alive _x} count _unitsX,{[_x] call A3A_fnc_canFight} count _unitsX,_groupX getVariable ["taskX","Patrol"],behaviour (leader _groupX)];
 if ({[_x] call A3A_fnc_isMedic} count _unitsX > 0) then {_textX = format [localize "STR_A3A_fn_reinf_vehStats_medic_yes",_textX]} else {_textX = format [localize "STR_A3A_fn_reinf_vehStats_medic_no",_textX]};

@@ -29,12 +29,12 @@ if (_resourcesFIA > 0) then {_resourcesFIASim = "+"};
 
 _textX = 
 format ["<t size='0.6' color='#C1C0BB'>" + 
-[localize "A3A_fn_resourcesFIA_resources"] + 
+[localize "STR_A3A_fn_base_resourcesFIA_resources"] + 
 ".<br/> <t size='0.5' color='#C1C0BB'><br/>" + 
-[localize "A3A_fn_resourcesFIA_hr"] + "<br/>" + 
-[localize "A3A_fn_resourcesFIA_money"]
+[localize "STR_A3A_fn_base_resourcesFIA_hr"] + "<br/>" + 
+[localize "STR_A3A_fn_base_resourcesFIA_money"] + 
 " €"
-,FactionGet(reb,"name"),_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,] 
+,FactionGet(reb,"name"),_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,];
 
 if (_textX != "") then
 	{

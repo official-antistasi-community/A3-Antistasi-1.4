@@ -44,7 +44,7 @@ if(_newOccupantsValue < (_levelBoundsOccupants select 0)) then
 {
     aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
     publicVariable "aggressionLevelOccupants";
-    _notificationText = format [localize "STR_A3A_fn_calcAggro_decOcc", FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];// TODO: localize "STR_A3A_fn_base_caclaggro_occ_red"
+    _notificationText = format [localize "STR_A3A_fn_base_caclaggro_occ_red", FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
     _levelsChanged = true;
 }
 else
@@ -53,7 +53,7 @@ else
     {
         aggressionLevelOccupants = ((ceil (_newOccupantsValue / 20)) min 5) max 1;
         publicVariable "aggressionLevelOccupants";
-        _notificationText = format [localize "STR_A3A_fn_calcAggro_incOcc", FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];// TODO: localize "STR_A3A_fn_base_caclaggro_occ_inc"
+        _notificationText = format [localize "STR_A3A_fn_base_caclaggro_occ_inc", FactionGet(occ,"name"), [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
 };
@@ -62,7 +62,7 @@ if(_newInvadersValue < (_levelBoundsInvaders select 0)) then
 {
     aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
     publicVariable "aggressionLevelInvaders";
-    _notificationText = format [localize "STR_A3A_fn_calcAggro_decInv", _notificationText, FactionGet(inv,"name"), [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];// TODO: localize "STR_A3A_fn_base_caclaggro_inv_red"
+    _notificationText = format [localize "STR_A3A_fn_base_caclaggro_inv_red", _notificationText, FactionGet(inv,"name"), [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
     _levelsChanged = true;
 }
 else
@@ -71,7 +71,7 @@ else
     {
         aggressionLevelInvaders = ((ceil (_newInvadersValue / 20)) min 5) max 1;
         publicVariable "aggressionLevelInvaders";
-        _notificationText = format [localize "STR_A3A_fn_calcAggro_incInv", _notificationText, FactionGet(inv,"name"), [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];// TODO: localize "STR_A3A_fn_base_caclaggro_inv_inc"
+        _notificationText = format [localize "STR_A3A_fn_base_caclaggro_inv_inc", _notificationText, FactionGet(inv,"name"), [aggressionLevelInvaders] call A3A_fnc_getAggroLevelString];
         _levelsChanged = true;
     };
 };
@@ -83,7 +83,7 @@ if(_levelsChanged) then
     if(!_silent) then
     {
         //If not load progress, show message for everyone
-        _notificationText = format ["<t size='0.6' color='#C1C0BB'>"+localize"STR_A3A_calcAggro_changeWL"+"<br/> <t size='0.5' color='#C1C0BB'><br/>%1", _notificationText];// TODO: localize "STR_A3A_fn_base_caclaggro_levelchange" for the "Aggression level changed" part
+        _notificationText = format ["<t size='0.6' color='#C1C0BB'>" + localize "STR_A3A_fn_base_caclaggro_levelchange" + "<br/> <t size='0.5' color='#C1C0BB'><br/>%1", _notificationText];
         [petros, "income", _notificationText] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
     };
 };

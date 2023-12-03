@@ -33,11 +33,11 @@ private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _nameEnemy = _faction get "name";
 private _taskId = "wavedAttack" + str A3A_taskCount;
 if (_targside == teamPlayer) then {
-    private _taskStr = format [localize "STR_A3A_fn_wavedAttack_long", _nameEnemy, _nameDest];
-    [true,_taskId,[_taskStr,format [localize "STR_A3A_fn_wavedAttack_title",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+    private _taskStr = format [localize "STR_A3A_fn_base_wavedAttack_long", _nameEnemy, _nameDest];
+    [true,_taskId,[_taskStr,format [localize "STR_A3A_fn_base_wavedAttack_title",_nameEnemy],_mrkDest],markerPos _mrkDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
     [_taskId, "rebelAttack", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 } else {
-    private _text = format [localize "STR_A3A_fn_wavedAttack_other", _nameEnemy, Faction(_targside) get "name", _nameDest];
+    private _text = format [localize "STR_A3A_fn_base_wavedAttack_other", _nameEnemy, Faction(_targside) get "name", _nameDest];
     ["RadioIntercepted", [_text]] remoteExec ["BIS_fnc_showNotification", 0];
 };
 

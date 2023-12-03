@@ -122,7 +122,7 @@ else
 
 	if (str (_display) != "no display") then
 		{
-		private _unitCost = localize "STR_A3A_fn_garrisonDialog_cost"
+		private _unitCost = localize "STR_A3A_fn_reinf_garrisonDialog_cost"
 		private _unitCostFull = [_unitCost + ": %1 €"]
 		_ChildControl = _display displayCtrl 104;
 		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitRifle")];

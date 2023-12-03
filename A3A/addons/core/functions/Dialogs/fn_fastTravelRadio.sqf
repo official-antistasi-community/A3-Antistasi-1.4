@@ -82,7 +82,7 @@ if (count _positionTel > 0) then
  			_timePassed = 0;
  			while {_timePassed < _distanceX} do
  				{
- 				cutText [format [localize "STR_A3A_fn_fastTravelRadio_begin", (_distanceX - _timePassed)],"BLACK",0.0001];
+ 				cutText [format [localize "STR_A3A_fn_dialogs_fastTravelRadio_begin", (_distanceX - _timePassed)],"BLACK",0.0001];
  				sleep 1;
  				_timePassed = _timePassed + 1;
  				}
@@ -144,7 +144,7 @@ if (count _positionTel > 0) then
 			//_unit hideObject false;
 		} forEach units _groupX;
 		//if (!_esHC) then {sleep _distanceX};
-		if (!_esHC) then {disableUserInput false;cutText [localize "STR_A3A_fn_fastTravelRadio_begin","BLACK IN",1]}
+		if (!_esHC) then {disableUserInput false;cutText [localize "STR_A3A_fn_dialogs_fastTravelRadio_begin","BLACK IN",1]}
 		else {[_titleStr, format [localize "STR_A3A_fn_dialogs_ftradio_grp_arrived",groupID _groupX]] call A3A_fnc_customHint;};
 		if (_forcedX) then {forcedSpawn = forcedSpawn - [_base]};
 		[] call A3A_fnc_playerLeashRefresh;

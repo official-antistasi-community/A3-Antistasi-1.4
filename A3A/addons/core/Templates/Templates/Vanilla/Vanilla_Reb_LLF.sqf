@@ -83,7 +83,7 @@ private _initialRebelEquipment = [
 if ("expansion" in A3A_enabledDLC) then {
     _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45], "hgun_Pistol_01_F", "10Rnd_9x21_Mag"];
 } else {
-    _initialRebelEquipment append [["launch_RPG32_F", 15], ["RPG32_F", 30]];
+    _initialRebelEquipment append [["launch_RPG32_green_F", 15], ["RPG32_F", 30]];
 };
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};

@@ -2,7 +2,7 @@
 //   Rebel Information   //
 ///////////////////////////
 
-["name", "FIA"] call _fnc_saveToTemplate;
+["name", "LSM"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\UK3CB_Factions\addons\UK3CB_Factions_LSM\Flag\LSM_flag_co.paa"] call _fnc_saveToTemplate;

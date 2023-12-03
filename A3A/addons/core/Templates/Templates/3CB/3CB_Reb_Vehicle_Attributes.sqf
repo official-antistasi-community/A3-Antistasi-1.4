@@ -31,5 +31,6 @@
 	//Rebel Static
     ["UK3CB_FIA_I_M240_High", ["rebCost", 300]],
     ["UK3CB_FIA_I_M240_Low", ["rebCost", 300]],
-    ["UK3CB_MEI_I_PKM_Low", ["rebCost", 300]]
+    ["UK3CB_MEI_I_PKM_Low", ["rebCost", 300]],
+    ["UK3CB_MEI_I_PKM_High", ["rebCost", 300]]
 ]] call _fnc_saveToTemplate;

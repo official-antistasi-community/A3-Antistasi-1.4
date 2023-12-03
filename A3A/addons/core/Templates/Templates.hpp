@@ -108,11 +108,11 @@ class Templates
         forceDLC[] = {"expansion"};
     };
 
-    class Vanilla_LLF : Vanilla_Base
+    class Vanilla_LFF : Vanilla_Base
     {
         side = "Reb";
         flagTexture = "\A3\Data_F_Enoch\Flags\flag_looters_co.paa";
-        name = "A3 LLF";
+        name = "A3 LFF";
         file = "Vanilla_Reb_LLF";
         maps[] = {"enoch","vt7"};
         climate[] = {"temperate"};

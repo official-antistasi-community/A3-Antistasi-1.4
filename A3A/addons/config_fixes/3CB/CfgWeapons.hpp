@@ -1,4 +1,4 @@
-//3CB - CfgVehicles.hpp
+//3CB - CfgWeapons.hpp
 
 class CfgWeapons 
 {

@@ -59,7 +59,11 @@ private _magazine = compatibleMagazines _weapon select 0;
 private _magweight = 5 max getNumber (configFile >> "CfgMagazines" >> _magazine >> "mass");
 
 _unit addWeapon _weapon;
-_unit addPrimaryWeaponItem _magazine;
+if ("Handguns" in _categories) then {
+    _unit addHandgunItem _magazine;
+} else {
+    _unit addPrimaryWeaponItem _magazine;
+};
 _unit addMagazines [_magazine, round (random 0.5 + _totalMagWeight / _magWeight)];
 
 

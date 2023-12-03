@@ -12,7 +12,7 @@
 ["vehiclesLightUnarmed", ["UK3CB_LSM_B_LR_Open", "UK3CB_LSM_B_LR_Closed", "UK3CB_LSM_B_Hilux_Open"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["UK3CB_LSM_B_LR_M2", "UK3CB_LSM_B_LR_SF_M2", "UK3CB_LSM_B_BTR40_MG", "UK3CB_LSM_B_Hilux_Pkm"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["UK3CB_LSM_B_Gaz66_Open", "UK3CB_LSM_B_Gaz66_Covered", "UK3CB_LSM_B_BTR40"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["UK3CB_LSM_B_LR_SPG9"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["UK3CB_LSM_B_LR_SPG9", "UK3CB_LSM_B_Hilux_Mortar"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_LSM_B_Gaz66_ZU23"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_C_Boat_Transport_02_F", "UK3CB_I_G_Fishing_Boat_SPG9", "UK3CB_CHD_I_Fishing_Boat_Zu23_front"]] call _fnc_saveToTemplate;
@@ -29,7 +29,7 @@
 ["staticMGs", ["UK3CB_NAP_I_DSHKM", "UK3CB_FIA_I_M240_Low", "UK3CB_FIA_I_M240_High", "UK3CB_MEI_I_PKM_Low", "UK3CB_MEI_I_DSHkM_Mini_TriPod"]] call _fnc_saveToTemplate;
 ["staticAT", ["UK3CB_UN_I_SPG9"]] call _fnc_saveToTemplate;
 ["staticAA", ["UK3CB_UN_I_ZU23"]] call _fnc_saveToTemplate;
-["staticMortars", ["UK3CB_FIA_I_M252", "UK3CB_LSM_B_Hilux_Mortar"]] call _fnc_saveToTemplate;
+["staticMortars", ["UK3CB_FIA_I_M252"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 ["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;

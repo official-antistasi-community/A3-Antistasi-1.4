@@ -502,8 +502,7 @@ class Templates
         flagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_LSM\Flag\LSM_flag_co.paa";
         name = "3CB LSM Rebels";
         file = "3CB_Reb_LSM";
-        climate[] = {"temperate"};
-        forceDLC[] = {"enoch"};
+        maps[] = {"enoch"};
     };
     class 3CBF_CHC : 3CBF_Base
     {

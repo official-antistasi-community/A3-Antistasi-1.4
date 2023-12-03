@@ -28,6 +28,9 @@ if (_pool isEqualTo []) then {
         _pool = A3A_rebelGear get "SMGs";
         if (_pool isEqualTo []) then {
             _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles");
+            if ((A3A_rebelGear get "SniperRifles") isEqualTo []) then {
+                _pool = _pool + (A3A_rebelGear get "Handguns");
+            };
         };
     };
 };

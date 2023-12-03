@@ -7,11 +7,11 @@ Version 3.4.1
 ===============
 
 .. note::
-   26th November 2023
+   03rd December 2023
 
 .. admonition:: Minor
 
-   * :issue:`3061` Added additional params options for the Friendly Fire Punishment System
+   * :issue:`3061` & :issue:`3078` Added additional params options for the Friendly Fire Punishment System
    * :issue:`3058` Updated default values of some parameters to give a better experience when starting a mission without any params adjustment
 
  .. admonition:: Template updates

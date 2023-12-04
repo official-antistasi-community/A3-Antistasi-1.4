@@ -55,19 +55,19 @@ if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isA
     };
     if (_sim == "shotSubmunitions" && _subMunitionMult == 1) then 
     {
-        _subMunitionMult = _subMunitionMult * 0.6; //Compensation for some fudging Arma does to make MLRS weapons have their desired effect on target
+        _subMunitionMult = _subMunitionMult * 0.75; //Compensation for some fudging Arma does to make MLRS weapons have their desired effect on target
     };
 };
 
 private _radius = getNumber (configfile >> "CfgAmmo" >> _ammo >> "indirectHitRange");
-private _area = _radius * _radius * 3.14;
+private _area = _radius * _radius * 0.314;
 private _indirect = getNumber  (configfile >> "CfgAmmo" >> _ammo >> "indirectHit");
 private _hit = getNumber (configfile >> "CfgAmmo" >> _ammo >> "hit");
 private _value = ((_hit + _indirect + _area) * _subMunitionMult);
 
 //Values derrived from vanilla 81mm mortar "Sh_82mm_AMOS"
 private _expectedRadius = 18;
-private _expectedArea = 18 * 18 * 3.14;
+private _expectedArea = 18 * 18 * 0.314;
 private _expectedIndirect = 52;
 private _expectedHit = 165;
 private _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;
@@ -76,7 +76,7 @@ if(_suppType == "ARTILLERY") then
 {
     //Values derrived from vanilla 155mm artillery "Sh_155mm_AMOS"
     _expectedRadius = 30;
-    _expectedArea = 30 * 30 * 3.14;
+    _expectedArea = 30 * 30 * 0.314;
     _expectedIndirect = 125;
     _expectedHit = 340;
     _expectedValue = _expectedHit + _expectedIndirect + _expectedArea;

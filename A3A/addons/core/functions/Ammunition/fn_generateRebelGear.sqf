@@ -63,9 +63,7 @@ private _handgun = [];
     _x params ["_class", "_amount"];
     private _categories = _class call A3A_fnc_equipmentClassToCategories;
 
-    call {
-        if ("Handguns" in _categories) exitWith { [_handgun, _class, _amount] call _fnc_addItem };
-    };
+    if ("Handguns" in _categories) exitWith { [_handgun, _class, _amount] call _fnc_addItem };
 } forEach (jna_dataList select IDC_RSCDISPLAYARSENAL_TAB_HANDGUN);
 
 if (count A3A_specialGrenadeLaunchers > 0) then {

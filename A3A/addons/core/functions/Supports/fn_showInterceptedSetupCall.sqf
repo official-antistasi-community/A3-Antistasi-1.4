@@ -30,7 +30,7 @@ private _sideName = Faction(_side) get "name";
 if (_reveal <= 0.5) then
 {
     //Side and setup is revealed
-    _text = format [localize "STR_A3A_fn_support_showIntStpCll_unknown", _sideName]; //TODO: Localize
+    _text = format [localize "STR_A3A_fn_support_showIntStpCll_unknown", _sideName];
 }
 else
 {

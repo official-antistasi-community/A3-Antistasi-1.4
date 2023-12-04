@@ -75,7 +75,7 @@ if (count _positionTel > 0) then
 		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _distanceX;};
 		_forcedX = false;
 		if (!isMultiplayer) then {if (not(_base in forcedSpawn)) then {_forcedX = true; forcedSpawn = forcedSpawn + [_base]}};
-		if (!_esHC) then {disableUserInput true; cutText [format ["Fast traveling, travel time: %1s , please wait", _distanceX],"BLACK",1]; sleep 1;}  //TODO: Localize
+		if (!_esHC) then {disableUserInput true; cutText [format [localize "STR_A3A_fn_dialogs_fastTravelRadio_begin", _distanceX],"BLACK",1]; sleep 1;}
 			else {[_titleStr, format [localize "STR_A3A_fn_dialogs_ftradio_grp_moving",groupID _groupX]] call A3A_fnc_customHint; sleep _distanceX;};
  		if (!_esHC) then
  			{

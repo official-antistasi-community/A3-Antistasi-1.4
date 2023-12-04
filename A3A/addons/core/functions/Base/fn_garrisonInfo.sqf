@@ -44,6 +44,6 @@ _textX = format [
     , {_x distance _positionX < _size} count staticsToSave
     , _estatic
     , if (_limit != -1) then {format ["/%1", _limit]} else {""}
-]; //TODO: Localize
+];
 
 _textX

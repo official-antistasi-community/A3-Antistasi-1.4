@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi core">
-    <Container name="A3A_undercover">
-      <Key ID="STR_A3A_fn_undercover_goUn_on">
-        <Original>Undercover ON</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_undercover_goUn_off">
-        <Original>undercover OFF</Original>
-      </Key>
-    </Container>
     <Container name="A3A_actions">
       <Key ID="STR_A3A_actions_restore_units">
         <Original>Restore nearby units</Original>
@@ -514,6 +506,9 @@
         <Portuguese>Carrinha a carregar. &lt;br/&gt;&lt;br/&gt; Tempo restante: %1 secs.</Portuguese>
         <Turkish>Kamyon yükleniyor. &lt;br/&gt;&lt;br/&gt;Kalan süre: %1 saniye.</Turkish>
         <Chinesesimp>运输载具装载中. &lt;br/&gt;&lt;br/&gt;剩余时间: %1 秒.</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_ammo_truckLoaded">
+        <Original>Truck Loaded</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_base">
@@ -2322,46 +2317,29 @@
         <Chinesesimp>转移总部</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
-        <Original>Antistasi has a custom save system similar to other CTIs.</Original>
+        <Original>Antistasi has a custom save system similar to other CTIs.<br/><br/>
+        To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, 
+        scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>
+        ""Persistent Save""</t> button.<br/><br/></Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
-        <Original>To Save: Your commander needs to go to the </Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line3">
-        <Original>Map Board</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
-        <Original>scroll-select </Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line5">
-        <Original>""Game Options""</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line6">
-        <Original>and click on the</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line7">
-        <Original>""Persistent Save""</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line8">
-        <Original>button.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line9">
         <Original>Current parameters are configured to auto-save every </Original>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line10">
-        <Original> minutes</Original>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line3">
+        <Original> minutes.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line11">
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
         <Original>Auto-save is currently disabled.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line12">
-        <Original>"W A R N I N G </Original>
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line5">
+        <Original>W A R N I N G</Original>
+      </Key>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_dialogHQ_upgrade">
         <Original>Current level: %2. Next Level Training Cost: %1 € </Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_begin">
-        <Original>Fast traveling, travel time: %1s , please wait.</Original>
+        <Original>Fast traveling, travel time: %1s, please wait.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
         <Original>"You arrived at the destination.</Original>
@@ -4331,6 +4309,63 @@
         <Czech>Hlášení o kontaktu v %1.</Czech>
         <Chinesesimp>%1 交战报告</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_mission_request_title">
+        <Original>Missions</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noAS">
+        <Original>I have no Assassination missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noASHint">
+      <Original>Assassination missions require cities, airbases, or SF-patrolled areas within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConquest">
+        <Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConquestHint">
+        <Original>Conquest missions require outposts, roadblocks, or resource markers within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noDestroy">
+        <Original>I have no Destroy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noDestroyHint">
+        <Original>Destroy missions require airbases or enemy radio towers within 4km of HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noLogi">
+        <Original>I have no Logistics missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noLogiHint">
+        <Original>Logistics missions require outposts, seaports, or banks within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noSupport">
+        <Original>I have no Support missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noSupportHint">
+        <Original>Support missions require cities within 4km of HQ</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noRescue">
+        <Original>I have no Rescue missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noRescueHint">
+        <Original>Rescue missions are random, but you need cities or outposts within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyAttack">
+        <Original>No Convoys around here, there's too much fighting going on.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyAttackHint">
+        <Original>With a major attack happening, the enemy doesn't have the resources to send convoys.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoy">
+        <Original>I have no Convoy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyHint">
+        <Original>Convoy missions require two idle bases with a road route, within 3km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_addMission">
+        <Original>I have a mission for you, check the task menu for details.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_existing">
+        <Original>I already gave you that type of mission, check your task menu.</Original>
+      </Key>
     </Container>
     <Container name="A3A_fn_OrgPlayers">
       <Key ID="STR_A3A_fn_orgp_donMon_donated_faction">
@@ -5304,6 +5339,12 @@
       <Key ID="STR_A3A_fn_reinf_buildMinefield_title">
         <Original>Minefield Deploy</Original>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_building">
+        <Original>Engineer Team deploying mines</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_buildingTitle">
+        <Original>Minefield</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_build_humanEngi">
         <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
         <Italian>Vi è un geniere umano nella tua squadra. Chiedigli di costruire.&lt;br/&gt;</Italian>
@@ -6248,6 +6289,12 @@
       </Key>
     </Container>
     <Container name="A3A_fn_Undercover">
+      <Key ID="STR_A3A_fn_undercover_goUn_on">
+        <Original>Undercover ON</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_off">
+        <Original>Undercover OFF</Original>
+      </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_already">
         <Original>You are Undercover already.</Original>
         <Italian>Sei già sotto copertura.</Italian>
@@ -6531,6 +6578,15 @@
       </Key>
     </Container>
     <Container name="A3A_supports">
+      <Key ID="STR_A3A_fn_supports_CASDown">
+        <Original>CAS Plane Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_airStrikeVesselDown">
+        <Original>Airstrike Vessel Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_ASFDown">
+        <Original>Fighter Destroyed</Original>
+      </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
         <Original>%1 is setting up an unknown support</Original>
       </Key>

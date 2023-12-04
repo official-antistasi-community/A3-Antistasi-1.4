@@ -33,6 +33,7 @@ if((30 + random 40) >_sideAggression) then
 };
 
 private _ammo = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "ammo");
+private _sim = getText(configfile >> "CfgMagazines" >> _mortar getVariable ["shellType", []] >> "simulation");
 private _subMunitionMult = 1;
 if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isArray(configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo")) then 
 {
@@ -51,6 +52,10 @@ if (getText (configfile >> "CfgAmmo" >> _ammo >> "submunitionAmmo") != "" || isA
     } else 
     {
         _ammo = getText (_submunitionAmmo); //The ammo only transforms midflight, not cluster, ie 230mm HE rocket
+    };
+    if (_sim == "shotSubmunitions" && _subMunitionMult == 1) then 
+    {
+        _subMunitionMult = _subMunitionMult * 0.6; //Compensation for some fudging Arma does to make MLRS weapons have their desired effect on target
     };
 };
 

@@ -70,7 +70,7 @@ if ("ws" in A3A_enabledDLC) then {
 ///////////////////////////
 
 private _initialRebelEquipment = [
-"hgun_Pistol_heavy_02_F","hgun_P07_F","hgun_Rook40_F",
+"hgun_Pistol_heavy_02_F","hgun_P07_blk_F","hgun_Rook40_F",
 "sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug",
 "6Rnd_45ACP_Cylinder","16Rnd_9x21_Mag","MiniGrenade","SmokeShell",
 ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
@@ -148,11 +148,12 @@ if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
     "H_Cap_tan",
     "H_Cap_oli_hs",
     "H_Cap_blk",
+    "H_Cap_Lyfe",
+    "H_Cap_red",
+    "H_Cap_blu",
     "H_Cap_headphones",
-    "H_ShemagOpen_tan",
-    "H_Shemag_olive_hs",
     "H_Bandanna_khk_hs",
-    "H_Bandanna_sand",
+    "H_Bandanna_blu",
     "H_Bandanna_cbr"
 ]] call _fnc_saveToTemplate;
 
@@ -178,7 +179,9 @@ _loadoutData set ["uniforms", _rebUniforms];
 
 _loadoutData set ["glasses", ["G_Shades_Black", "G_Shades_Blue", "G_Shades_Green", "G_Shades_Red", "G_Aviator", "G_Spectacles", "G_Spectacles_Tinted", "G_Sport_BlackWhite", "G_Sport_Blackyellow", "G_Sport_Greenblack", "G_Sport_Checkered", "G_Sport_Red", "G_Squares", "G_Squares_Tinted"]];
 _loadoutData set ["goggles", ["G_Lowprofile"]];
+_loadoutData set ["balaclavas", ["G_Balaclava_blk", "G_Balaclava_BlueStrips", "G_Balaclava_Flecktarn", "G_Balaclava_Halloween_01", "G_Balaclava_lowprofile", "G_Balaclava_oli", "G_Balaclava_Flames1", "G_Balaclava_Scarecrow_01", "G_Balaclava_Skull1", "G_Balaclava_Tropentarn"]];
 _loadoutData set ["facemask", ["G_Bandanna_blk", "G_Bandanna_oli", "G_Bandanna_khk", "G_Bandanna_tan", "G_Bandanna_beast", "G_Bandanna_shades", "G_Bandanna_sport", "G_Bandanna_aviator"]];
+_loadoutData set ["argoFacemask", ["G_Bandanna_BlueFlame1", "G_Bandanna_BlueFlame2", "G_Bandanna_CandySkull", "G_Bandanna_OrangeFlame1", "G_Bandanna_RedFlame1", "G_Bandanna_Skull1", "G_Bandanna_Syndikat1", "G_Bandanna_Syndikat2","G_Bandanna_Skull2", "G_Bandanna_Vampire_01"]];
 
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
 _loadoutData set ["items_medical_standard", ["STANDARD"] call A3A_fnc_itemset_medicalSupplies];
@@ -191,7 +194,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 
 private _squadLeaderTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1]] call _fnc_setFacewear;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
@@ -204,7 +207,7 @@ private _squadLeaderTemplate = {
 
 private _riflemanTemplate = {
     ["uniforms"] call _fnc_setUniform;
-    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1]] call _fnc_setFacewear;
+    [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75, "facemask", 1, "balaclavas", 1, "argoFacemask", 1]] call _fnc_setFacewear;
     
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;

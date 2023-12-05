@@ -2303,19 +2303,6 @@
         <Turkish>Yakındaki ağaçları temizle</Turkish>
         <Chinesesimp>清除树林</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_movehqobj_title">
-        <Original>Move HQ</Original>
-        <German>HQ verlegen</German>
-        <Italian>Muovi Quartier Generale</Italian>
-        <Spanish>Mover CG</Spanish>
-        <French>Déplacer le QG</French>
-        <Korean>본부 옮기기</Korean>
-        <Russian>Переместить штаб</Russian>
-        <Polish>Przenieś Kwaterę Główną</Polish>
-        <Czech>Přesunout HQ</Czech>
-        <Turkish>Karargahı Taşı</Turkish>
-        <Chinesesimp>转移总部</Chinesesimp>
-      </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
         <Original>Antistasi has a custom save system similar to other CTIs.<br/><br/>
         To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, 
@@ -3356,13 +3343,7 @@
         <Original>%1 joined %2</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_income">
-        <Original>Taxes Income</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_resourceCheck_manPower">
-        <Original>Manpower: %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_resourceCheck_money">
-        <Original>Money: +%2 €</Original>
+        <Original><t size='0.6' color='#C1C0BB'>Taxes Income<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
         <Original>Arsenal Updated</Original>
@@ -4582,8 +4563,8 @@
       <Key ID="STR_A3A_fn_orgp_promotePlayer_yes">
         <Original>Congratulations!</Original>
       </Key>
-      <Key ID="STR_A3A_fn_orgp_promotePlayer_no">
-        <Original>We are sorry for your loss.</Original>
+      <Key ID="STR_A3A_fn_orgp_promotedPlayers">
+        <Original>Promoted Players:</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
@@ -6136,7 +6117,7 @@
         <Korean>%1은(는) 더 이상 당신의 도움이 필요하지 않습니다.</Korean>
         <Czech>%1 již nepotřebuje tvojí pomoc.</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_revive_actRev_no_up">
+      <Key ID="STR_A3A_fn_revive_actRev_no_up_AI">
         <Original>%1 no longer needs my help.</Original>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_other">
@@ -6681,7 +6662,7 @@
         <Original>A %1 satellite has fired an orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
-        <Original><Orbital strike/Original>
+        <Original>Orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
         <Original>Confirmed launch of %1 cruise missile</Original>

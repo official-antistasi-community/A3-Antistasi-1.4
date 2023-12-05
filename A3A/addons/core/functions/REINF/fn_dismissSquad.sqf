@@ -27,7 +27,7 @@ if (_leave) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissSquad_no_nato"]
 _pos = getMarkerPos respawnTeamPlayer;
 
 {
-	theBoss sideChat format [localize "STR_A3A_fn_reinf_dismissSquad_RTB", _x,];
+	theBoss sideChat format [localize "STR_A3A_fn_reinf_dismissSquad_RTB", _x];
 	theBoss hcRemoveGroup _x;
 	_wp = _x addWaypoint [_pos, 0];
 	_wp setWaypointType "MOVE";

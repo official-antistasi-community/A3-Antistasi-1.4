@@ -29,7 +29,7 @@ private _findIfNearAndHostile = {
 	_Markers
 };
 
-private _titleStr = localize "STR_A3A_fn_mission_request_title"
+private _titleStr = localize "STR_A3A_fn_mission_request_title";
 private _possibleMarkers = [];
 switch (_type) do {
 	case "AS": {

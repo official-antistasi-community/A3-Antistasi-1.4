@@ -124,6 +124,7 @@ if ((_foundItem) && (_unit getVariable "rearming")) then {
 		};
 	};
 	_selectedContainer setVariable ["busy",false];
+	};
 } else {
 	if (_inPlayerGroup) then {_unit groupChat [localize "STR_A3A_fn_ai_autoRearm_noSourcePrim"]};
 };

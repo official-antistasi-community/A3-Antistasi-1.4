@@ -5,9 +5,7 @@ private _disabledPlayerDamage = false;
 private _titleStr = localize "STR_A3A_fn_base_placeselec_title";
 
 player allowDamage false;
-format [localize "STR_A3A_fn_base_placeselec_petros_dead",] hintC format ["STR_A3A_fn_base_placeselec_petros_dead_long"];
-// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead" - implement into line 8
-// TODO: localize "STR_A3A_fn_base_placeselec_petros_dead_long" - implement into line 8
+format [localize "STR_A3A_fn_base_placeselec_petros_dead"] hintC format ["STR_A3A_fn_base_placeselec_petros_dead_long"];
 
 hintC_arr_EH = findDisplay 72 displayAddEventHandler ["unload",{
 	_this spawn {

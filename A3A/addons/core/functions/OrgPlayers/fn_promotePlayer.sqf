@@ -5,7 +5,7 @@ private ["_puntMax","_textX","_multiplier","_newRank","_selectable","_disconnect
 _puntMax = 0;
 _multiplier = 1;
 
-private _textX = "Promoted Players:<br/><br/>";
+private _textX = localize "STR_A3A_fn_orgp_promotedPlayers" + ":<br/><br/>";
 
 _promoted = false;
 {
@@ -35,7 +35,7 @@ Debug(_textX);
 
 if (_promoted) then
 {
-	private _congrats = if ((random 100) = 69) then ["localize STR_A3A_fn_orgp_promotePlayer_no"] else [localize "STR_A3A_fn_orgp_promotePlayer_yes"] //nice
-	_textX = format ["%1<br/><br/>" + _congrats,_textX];
+	_congrats = "<br/><br/>" + localize "STR_A3A_fn_orgp_promotePlayer_yes";
+	_textX = [_textX] joinString [_congrats];
 	[petros,"hint",_textX, localize "STR_A3A_fn_orgp_promotePlayer_promotion"] remoteExec ["A3A_fnc_commsMP"];
 };

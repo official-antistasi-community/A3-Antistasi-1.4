@@ -135,7 +135,7 @@ _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal [localize "STR_A3A_fn_ai_artySupport_mrkFinal"];
+	_mrkFinal setMarkerTextLocal (localize "STR_A3A_fn_ai_artySupport_mrkFinal");
 	positionTel = [];
 
 	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
@@ -195,7 +195,7 @@ if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _mar
 	publicVariable "forcedSpawn";
 	};
 
-_roundPlural = [if (round _rounds == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"}];
+_roundPlural = if (round _rounds == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
 _textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPosition _positionTel, round _rounds, _roundPlural];
 [theBoss,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 
@@ -276,7 +276,7 @@ if (_typeArty != "BARRAGE") then
         #define ARTILLERY_ERROR_INFORMATION [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)]
         Error_4("Params: %1,%2,%3,%4,%5",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA ARTILLERY_ERROR_INFORMATION);
     };
-	_roundPlural = [if ([_roundsMax - _rounds] == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"}];
+	_roundPlural = if ([_roundsMax - _rounds] == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else localize {"STR_A3A_fn_ai_artySupport_multiRound"};
 	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesSingle",round _eta,_roundsMax - _rounds, _roundPlural];
 	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};

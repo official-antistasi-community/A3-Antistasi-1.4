@@ -34,7 +34,7 @@ format ["<t size='0.6' color='#C1C0BB'>" +
 [localize "STR_A3A_fn_base_resourcesFIA_hr"] + "<br/>" + 
 [localize "STR_A3A_fn_base_resourcesFIA_money"] + 
 " €"
-,FactionGet(reb,"name"),_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,];
+,FactionGet(reb,"name"),_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim];
 
 if (_textX != "") then
 	{

@@ -27,6 +27,7 @@ if (player != theBoss) then
 {
     [_titleStr, localize "STR_A3A_fn_base_canmovehq_no_comm"] call A3A_fnc_customHint;
     _result pushBack [localize "STR_A3A_fn_base_canmovehq_comm_only"];
+};
 
 if ((count weaponCargo boxX >0) or (count magazineCargo boxX >0) or (count itemCargo boxX >0) or (count backpackCargo boxX >0)) then
 {

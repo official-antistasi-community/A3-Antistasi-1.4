@@ -230,6 +230,9 @@
         <Korean>%1이(가) 당신을 도와주기 위해 가는 중입니다.</Korean>
         <Czech>%1 je na cestě vám pomoct.</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_ai_help_ready">
+        <Original>You are ready, %1.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_help_title">
         <Original>Medical</Original>
         <Italian>Medico</Italian>
@@ -2323,7 +2326,6 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line5">
         <Original>W A R N I N G</Original>
-      </Key>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_dialogHQ_upgrade">
         <Original>Current level: %2. Next Level Training Cost: %1 € </Original>

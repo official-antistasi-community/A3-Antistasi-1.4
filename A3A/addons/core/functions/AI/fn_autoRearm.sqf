@@ -5,7 +5,7 @@ if (isPlayer _unit) exitWith {};
 if !([_unit] call A3A_fnc_canFight) exitWith {};
 
 private _inPlayerGroup = (isPlayer (leader _unit));
-if (_unit getVariable ["helping",false]) exitWith {if (_inPlayerGroup) then {_unit groupChat "I cannot rearm right now. I'm healing a comrade"}};
+if (_unit getVariable ["helping",false]) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_ai_autoLoot_noHelping"}};
 
 private _rearming = _unit getVariable ["rearming",false];
 if (_rearming) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_loot_noDoing"; _unit setVariable ["rearming",false]}};
@@ -32,7 +32,7 @@ private _primaryMagazines = [];
 private _bodyEquipment = [];
 private _selectedEquipment = objNull;
 
-_nearbyContainers = nearestObjects [_unit, ["ReammoBox_F","LandVehicle","WeaponHolderSimulated","GroundWeaponHolder","WeaponHolder", _maxDistance]];
+_nearbyContainers = nearestObjects [_unit, ["ReammoBox_F","LandVehicle","WeaponHolderSimulated","GroundWeaponHolder","WeaponHolder"], _maxDistance];
 if (boxX in _nearbyContainers) then {_nearbyContainers = _nearbyContainers - [boxX]};
 
 

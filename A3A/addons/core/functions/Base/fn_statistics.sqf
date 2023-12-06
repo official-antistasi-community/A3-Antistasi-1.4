@@ -22,11 +22,11 @@ if (_player getVariable ["isAFK", false]) then { _ucovertxt = _ucovertxt + " | <
 if (_player != theBoss) then
 	{
 	private _nameC = if !(isNull theBoss) then {name theBoss} else {"None"};
-	_textX = format ["<t size='0.67' shadow='2'>" + [localize "STR_A3A_fn_base_statistics_notComm", (server getVariable "hr") toFixed 0, rank _player, _nameC, (_player getVariable "moneyX") toFixed 0,[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),_ucovertxt]];
+	_textX = format ["<t size='0.67' shadow='2'>" + (localize "STR_A3A_fn_base_statistics_notComm", (server getVariable "hr") toFixed 0, rank _player, _nameC, (_player getVariable "moneyX") toFixed 0,[aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),_ucovertxt)];
 	}
 else
 	{
-	_textX = format ["<t size='0.67' shadow='2'>" + [localize "STR_A3A_fn_base_statistics_notComm", (server getVariable "hr") toFixed 0, (server getVariable "resourcesFIA") toFixed 0, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, (_player getVariable "moneyX") toFixed 0,floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt]];
+	_textX = format ["<t size='0.67' shadow='2'>" + (localize "STR_A3A_fn_base_statistics_isComm", (server getVariable "hr") toFixed 0, (server getVariable "resourcesFIA") toFixed 0, [aggressionLevelOccupants] call A3A_fnc_getAggroLevelString,[aggressionLevelInvaders] call A3A_fnc_getAggroLevelString,rank _player, (_player getVariable "moneyX") toFixed 0,floor bombRuns,tierWar,FactionGet(occ,"name"),FactionGet(inv,"name"),FactionGet(reb,"name"),_ucovertxt)];
 	};
 
 //if (captive player) then {_textX = format ["%1 ON",_textX]} else {_textX = format ["%1 OFF",_textX]};

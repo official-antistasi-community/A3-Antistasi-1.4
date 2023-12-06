@@ -101,6 +101,9 @@
         <Turkish>Seçili pozisyon bu bataryanın menzili dışında.</Turkish>
         <Chinesesimp>你所标记的位置位于该炮组射程之外.</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_mortarStrike">
+        <Original>Mortar Strike</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_select">
         <Original>You must select an artillery group.</Original>
         <Italian>Devi selezionare un gruppo d'artiglieria.</Italian>

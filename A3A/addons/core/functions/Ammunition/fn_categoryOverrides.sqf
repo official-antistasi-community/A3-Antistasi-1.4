@@ -385,6 +385,7 @@ private _categoryOverrideTable = [
 ["ACRE_VHF30108MAST", ["Gadgets","items"]],
 ["ACRE_PRC117F", ["Gadgets","items"]],
 
+["LIB_Webley_Flare", ["Unknown", "Weapons"]],
 ["LIB_PTRD", ["Unknown", "Weapons"]],
 ["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
 ["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat

@@ -38,4 +38,4 @@ isNil {
 };
 
 [_package] call A3A_fnc_initObject;
-_package setVariable ["A3A_itemPrice", _objectPrice]; 
+_package setVariable ["A3A_itemPrice", _objectPrice, true]; 

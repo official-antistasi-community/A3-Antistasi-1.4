@@ -197,9 +197,6 @@ aceCoolingItems = [
 ];
 
 aceFoodItems = [
-	"ACE_Banana",
-	"ACE_Sunflower_Seeds",
-	"ACE_Humanitarian_Ration",
 	"ACE_MRE_BeefStew",
 	"ACE_MRE_ChickenTikkaMasala",
 	"ACE_MRE_ChickenHerbDumplings",

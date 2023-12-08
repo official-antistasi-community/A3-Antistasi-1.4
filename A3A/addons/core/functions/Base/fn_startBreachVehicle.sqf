@@ -165,7 +165,7 @@ if
   };
 };
 //Check the explosives are still there
-if ( _explosive count magazines _caller < _explosiveCount) exitWith {
+if ({_x == _explosive} count magazines _caller < _explosiveCount) exitWith {
     [_titleStr, localize "STR_A3A_fn_base_breachveh_no_noexpl"] call A3A_fnc_customHint;
     _caller setVariable ["cancelBreach",nil];
     if(alive _vehicle) then {

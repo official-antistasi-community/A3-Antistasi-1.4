@@ -15,7 +15,7 @@ private _response = "";
 private _fleeSide = _sideX;
 
 if (_recruiting) then {
-	_playerX globalChat [localize "STR_A3A_fn_ai_captureX_recr1"];
+	_playerX globalChat localize "STR_A3A_fn_ai_captureX_recr1";
 
 	private _chance = 0;
 	if (_sideX == Occupants) then
@@ -44,9 +44,9 @@ if (_recruiting) then {
 	};
 }
 else {
-	_playerX globalChat {localize "STR_A3A_fn_ai_captureX_dismiss"};
-	private _responseNum = str[(random 3) + 1];
-	_response = localize {"STR_A3A_fn_ai_captureX_libresponse" + _responseNum};
+	_playerX globalChat localize "STR_A3A_fn_ai_captureX_dismiss";
+	private _responseNum = str(round(random 2) + 1);
+	_response = localize ("STR_A3A_fn_ai_captureX_libresponse" + _responseNum);
     _modAggro = [-3, 30];
 };
 
@@ -66,3 +66,4 @@ if (alive _unit && {!(_unit getVariable ["incapacitated", false])}) then
 
 deleteVehicle _unit;
 deleteGroup _group;
+	

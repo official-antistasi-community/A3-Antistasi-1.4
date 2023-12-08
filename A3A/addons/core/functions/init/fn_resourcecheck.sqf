@@ -117,7 +117,7 @@ while {true} do
 	} forEach (A3A_faction_reb get "initialRebelEquipment");
     private _textX = format [localize "STR_A3A_fn_init_resourceCheck_income", _hrAdd, _resAdd];
 	private _textArsenal = [] call A3A_fnc_arsenalManage;
-	if (_textArsenal != "") then {_textX = format ["%1<br/>" + [localize "STR_A3A_fn_init_resourceCheck_arsenal"] + "<br/><br/>%2", _textX, _textArsenal]};
+	if (_textArsenal != "") then {_textX = format ["%1<br/>" + localize "STR_A3A_fn_init_resourceCheck_arsenal" + "<br/><br/>%2", _textX, _textArsenal]};
 	[petros, "taxRep", _textX] remoteExec ["A3A_fnc_commsMP", [teamPlayer, civilian]];
 
 	[] call A3A_fnc_generateRebelGear;

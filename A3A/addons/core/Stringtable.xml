@@ -230,9 +230,6 @@
         <Korean>%1이(가) 당신을 도와주기 위해 가는 중입니다.</Korean>
         <Czech>%1 je na cestě vám pomoct.</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_ai_help_ready">
-        <Original>You are ready, %1.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_ai_help_title">
         <Original>Medical</Original>
         <Italian>Medico</Italian>
@@ -324,6 +321,9 @@
       <Key ID="STR_A3A_fn_ai_autoRearm_done">
         <Original>Rearming Done</Original>
       </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_dismiss">
+        <Original>Go back to your base and tell your comrades we are not your enemies. We just want to live in peace.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_captureX_recr1">
         <Original>How about joining the good guys?</Original>
       </Key>
@@ -348,7 +348,7 @@
       <Key ID="STR_A3A_fn_ai_interrogate_yes">
         <Original>Okay, I'll tell you what I know</Original>
       </Key>
-      <Key ID="STR_A3A_fn_ai_interrogate_noSL">
+      <Key ID="STR_A3A_fn_ai_interrogate_notSL">
         <Original>I don't know anything. Maybe my squad leader does.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_no">

@@ -39,7 +39,7 @@ private _curedFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items 
 if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_no_meds",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat [localize "STR_A3A_fn_revive_actRev_no_meds_AI"]};
+    if (_inPlayerGroup) then {_medic groupChat localize "STR_A3A_fn_revive_actRev_no_meds_AI"};
     false
 };
 

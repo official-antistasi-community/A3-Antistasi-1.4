@@ -15,7 +15,7 @@ _hasBox = false;
 _weaponX = "";
 _weaponsX = [];
 _bigTimeOut = time + 120;
-_objectsX = nearestObjects [_unit, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder", 50]];
+_objectsX = nearestObjects [_unit, ["WeaponHolderSimulated", "GroundWeaponHolder", "WeaponHolder"], 50];
 if (count _objectsX == 0) exitWith {_unit groupChat localize "STR_A3A_fn_ai_autoLoot_noCorpses"};
 
 _target = objNull;

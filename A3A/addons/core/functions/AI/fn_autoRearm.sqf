@@ -270,13 +270,12 @@ if (hmd _unit == "") then {
 			_foundItem = true;
 		};
 	} forEach _deadBodies;
-};
 	if ((_foundItem) && (_unit getVariable "rearming")) then {
 		_unit stop false;
 		_selectedContainer setVariable ["busy",true];
 		private _hmd = hmd _selectedContainer;
 		_unit doMove (getPosATL _selectedContainer);
-		if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_ai_autoRearm_getNVGs";
+		if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_ai_autoRearm_getNVGs"};
 		_timeOut = time + 60;
 		waitUntil {sleep 1; !([_unit] call A3A_fnc_canFight) || (isNull _selectedContainer) || (_unit distance _selectedContainer < 3) || (_timeOut < time) || (unitReady _unit)};
 		if (_unit distance _selectedContainer < 3) then {

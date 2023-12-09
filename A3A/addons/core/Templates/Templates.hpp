@@ -513,7 +513,7 @@ class Templates
             class Takistani {};
 
             class AAF {};
-            class Israel {};
+            class Israel {}; // Not on any map yet
             class LDF {};
 
             class ADF

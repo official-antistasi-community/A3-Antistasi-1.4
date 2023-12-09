@@ -28,7 +28,7 @@ private _units = [ [],[],[],[],[],[],[],[],[],[],[] ];
 } forEach _garrison;
 
 _textX = format [
-    localize "STR_A3A_fn_base_garrisonInfo_stats"
+    "<br/><br/>" + (localize "STR_A3A_fn_base_garrisonInfo_stats")
     , count _garrison
     , count (_units#0)
     , count (_units#1)

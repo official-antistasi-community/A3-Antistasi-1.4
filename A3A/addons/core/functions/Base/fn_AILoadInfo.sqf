@@ -4,7 +4,7 @@ _textX = "";
 
 for "_i" from 0 to (count hcArray) - 1 do
 	{
-	_textX = format [localize "STR_A3A_fn_base_AILoadInfo_HCAI",_textX, _i];
+	_textX = format [localize "STR_A3A_fn_base_AILoadInfo_HCAI" + "<br/><br/>",_textX, _i];
 	_west = 0;
 	_east = 0;
 	_indep = 0;
@@ -24,6 +24,6 @@ for "_i" from 0 to (count hcArray) - 1 do
 			};
 		};
 	} forEach allUnits select {alive _x};
-	_textX = format [localize "STR_A3A_fn_base_AILoadInfo_count",_textX,_indep,_west,_east,_civ,_total];
+	_textX = format [localize "STR_A3A_fn_base_AILoadInfo_count" + "<br/><br/>",_textX,_indep,_west,_east,_civ,_total];
 	};
 [petros, "hint", _textX,localize "STR_A3A_fn_base_AILoadInfo_loadInfo"] remoteExec ["A3A_fnc_commsMP",remoteExecutedOwner];

@@ -535,7 +535,7 @@
         <Original>%1HC %2 AI</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_count">
-        <Original>%1Reb: %2<br/>Occ:%3<br/>Inv:%4<br/>Civ:%5<br/>TOTAL:%6</Original>
+        <Original>%1Reb: %2&lt;br/&gt;Occ:%3&lt;br/&gt;Inv:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_undercover">
         <Original>Undercover</Original>
@@ -1280,7 +1280,7 @@
         <Chinesesimp>你无法在附近存在敌人的情况下购买武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_garrisonInfo_stats">
-        <Original>Garrison units: %1%15<br/><br/>Squad Leaders: %2<br/>%14: %3<br/>Riflemen: %4<br/>Autoriflemen: %5<br/>Medics: %6<br/>Grenadiers: %7<br/>Marksmen: %8<br/>AT Men: %9<br/>AT Missile Men: %10<br />AA Missile Men: %11<br />Other: %12<br/>Static Weap: %13</Original>
+        <Original>Garrison units: %1%15&lt;br/&gt;&lt;br/&gt;Squad Leaders: %2&lt;br/&gt;%14: %3&lt;br/&gt;Riflemen: %4&lt;br/&gt;Autoriflemen: %5&lt;br/&gt;Medics: %6&lt;br/&gt;Grenadiers: %7&lt;br/&gt;Marksmen: %8&lt;br/&gt;AT Men: %9&lt;br/&gt;AT Missile Men: %10&lt;br/&gt;AA Missile Men: %11&lt;br/&gt;Other: %12&lt;br/&gt;Static Weap: %13</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_gc_deleted">
         <Original>Garbage Deleted.&lt;br/&gt;Last GC was %1 ago.</Original>
@@ -2310,7 +2310,7 @@
         <Chinesesimp>清除树林</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
-        <Original>Antistasi has a custom save system similar to other CTIs.<br/><br/>
+        <Original>Antistasi has a custom save system similar to other CTIs.&lt;br/&gt;&lt;br/&gt;
         To Save: Your commander needs to go to the <t color='#f0d498'>Map Board</t>, 
         scroll-select <t color='#f0d498'>""Game Options""</t> and click on the <t color='#f0d498'>
         ""Persistent Save""</t> button.</Original>
@@ -3348,7 +3348,7 @@
         <Original>%1 joined %2</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_income">
-        <Original>Taxes Income<br/> <t size='0.5' color='#C1C0BB'><br/>Manpower: +%1<br/>Money: +%2 €</Original>
+        <Original>Taxes Income&lt;br/&gt; <t size='0.5' color='#C1C0BB'>&lt;br/&gt;Manpower: +%1&lt;br/&gt;Money: +%2 €</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
         <Original>Arsenal Updated</Original>

@@ -14,6 +14,7 @@ if (_siteX in citiesX) then
 else
 	{
 	_city = [citiesX,_pos] call BIS_fnc_nearestPosition;
+	if (isOnRoad _pos) then {_textX = format [localize "STR_A3A_fn_base_localizar_roadblock",_city]}; //For friendly roadblocks, next checks will overwrite it if neccesary
 	if (_siteX in airportsX) then {_textX = format [localize "STR_A3A_fn_base_localizar_airport",_city]};
 	if (_siteX in resourcesX) then {_textX = format [localize "STR_A3A_fn_base_localizar_resource",_city]};
 	if (_siteX in factories) then {_textX = format [localize "STR_A3A_fn_base_localizar_factory",_city]};
@@ -21,7 +22,7 @@ else
 	if (_siteX in seaports) then {_textX = format [localize "STR_A3A_fn_base_localizar_seaport",_city]};
 	if (_siteX in controlsX) then
 		{
-		if (isOnRoad getMarkerPos _siteX) then
+		if (isOnRoad _pos) then
 			{
 			_textX = format [localize "STR_A3A_fn_base_localizar_roadblock",_city]
 			}

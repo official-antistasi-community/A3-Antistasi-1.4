@@ -905,6 +905,12 @@
         <Turkish>Geçersiz opsiyon. Garnizonu Karargahtan ayırmayı deneyin..</Turkish>
         <Chinesesimp>该选项已被弃用. 用总部功能 移除驻军 来替代.</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_base_croutpFIA_watchpost">
+        <Original>%1 Watchpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_croutpFIA_roadblock">
+        <Original>%1 Roadblock</Original>
+      </Key>
       <Key ID="STR_A3A_fn_createOutpostsFIA_RB_data">
         <Original>We are sending a squad to establish a roadblock. The commander must use HC to move the squad to its destination.</Original>
       </Key>
@@ -1371,8 +1377,8 @@
       <Key ID="STR_A3A_fn_base_localizar_forest">
         <Original>Forest near %1</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_localizar_supCor">
-        <Original>their Support Corridor</Original>
+      <Key ID="STR_A3A_fn_base_localizar_watchpost">
+        <Original>Watchpost near %1</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesOutpost">
         <Original>Outpost Taken</Original>
@@ -6703,7 +6709,7 @@
         <Original>A %1 fixed-wing CAS has visual on target and is preparing for run</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
-        <Original>CASTITLE</Original>
+        <Original>CAS Target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG">
         <Original>A %1 heavy gunship started circling the area.</Original>

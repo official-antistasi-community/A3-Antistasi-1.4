@@ -11,21 +11,20 @@ if (_typeX == "delete") exitWith {[localize "STR_A3A_fn_base_createoutpfia_creat
 
 _isRoad = isOnRoad _positionTel;
 
-_textX = format ["%1 Observation Post",FactionGet(reb,"name")];
+_textX = format [localize "STR_A3A_fn_base_croutpFIA_watchpost",FactionGet(reb,"name")];
 _typeGroup = FactionGet(reb,"groupSniper");
 _typeVehX = (FactionGet(reb,"vehiclesBasic")) # 0;
+_taskData = localize "STR_A3A_fn_createOutpostsFIA_OP_data";
+_taskTitle = localize "STR_A3A_fn_createOutpostsFIA_OP_title";
 private _tsk = "";
 
 if (_isRoad) then
 	{
-	_textX = format ["%1 Roadblock",FactionGet(reb,"name")];
+	_textX = format [localize "STR_A3A_fn_base_croutpFIA_roadblock",FactionGet(reb,"name")];
 	_typeGroup = FactionGet(reb,"groupAT");
 	_typeVehX = (FactionGet(reb,"vehiclesTruck")) # 0;
 	_taskData = localize "STR_A3A_fn_createOutpostsFIA_RB_data";
 	_taskTitle = localize "STR_A3A_fn_createOutpostsFIA_RB_title";
-	} else {
-	_taskData = localize "STR_A3A_fn_createOutpostsFIA_OP_data";
-	_taskTitle = localize "STR_A3A_fn_createOutpostsFIA_OP_title";
 	};
 
 _mrk = createMarker [format ["FIAPost%1", random 1000], _positionTel];

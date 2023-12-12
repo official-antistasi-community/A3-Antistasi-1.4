@@ -63,7 +63,7 @@ private _refreshCode = {
     call HR_GRG_fnc_updateVehicleCount;
 };
 
-if !(isNil "HR_GRG_Users" || {HR_GRG_Users isEqualTo []}) then {
+if !(HR_GRG_Users isEqualTo []) then {
     [ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
 };
 

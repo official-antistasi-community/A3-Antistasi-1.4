@@ -29,8 +29,8 @@ if (_resourcesFIA > 0) then {_resourcesFIASim = "+"};
 
 _faction = format ["<t size='0.6' color='#C1C0BB'>" + localize "STR_A3A_fn_base_resourcesFIA_resources" + ".<br/> ", FactionGet(reb,"name")];
 _hr = format ["<t size='0.5' color='#C1C0BB'><br/>" + localize "STR_A3A_fn_base_resourcesFIA_hr" + "<br/>", _hr toFixed 0, _hrSim];
-_money = format [localize "STR_A3A_fn_base_resourcesFIA_money", _resourcesFIA toFixed 0, _resourcesFIASim]
-_textX = _faction + _hr + _money
+_money = format [localize "STR_A3A_fn_base_resourcesFIA_money", _resourcesFIA toFixed 0, _resourcesFIASim];
+_textX = _faction + _hr + _money;
 
 if (_textX != "") then
 	{

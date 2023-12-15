@@ -1882,10 +1882,10 @@
         <Original>%1 Resources</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_hr">
-        <Original>HR: %4%2</Original>
+        <Original>HR: %1%2</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_money">
-        <Original>Money: %5%3</Original>
+        <Original>Money: %1%2 €</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_closer">
         <Original>Vehicle must be closer than 50 meters to the HQ marker.</Original>

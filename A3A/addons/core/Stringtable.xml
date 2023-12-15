@@ -2873,7 +2873,7 @@
       <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_weakened">
         <Original>Weakened</Original>
       </Key>
-    </Garrison>
+    </Container>
     <Container name="A3A_fn_init">
       <Key ID="STR_A3A_fn_init_cityinfo_airp_1">
         <Original>%1 Airport</Original>

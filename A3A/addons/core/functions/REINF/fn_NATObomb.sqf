@@ -75,7 +75,7 @@ _plane flyInHeight 100;
 private _minAltASL = ATLToASL [_pos1 select 0, _pos1 select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
-driver _plane sideChat [localize "STR_A3A_fn_reinf_NATObomb_run"];
+driver _plane sideChat localize "STR_A3A_fn_reinf_NATObomb_run";
 _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 if (!_isHelicopter) then { _wp1 setWaypointSpeed "LIMITED" };

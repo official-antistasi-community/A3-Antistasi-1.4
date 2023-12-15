@@ -678,10 +678,10 @@ switch (_mode) do
     {
         private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
         private _time = sliderPosition _restSlider;
-        private _titleStr = localize "STR_A3A_fn_GUI_hqDialog_title"
+        private _titleStr = localize "STR_A3A_fn_GUI_hqDialog_title";
 
         // TODO UI-update: Move all these checks to update and disable button etc
-        if (player!= theBoss) exitWith {[_titleStr, localize "STR_A3A_fn_GUI_hqDialog_notBoss"] call A3A_fnc_customHint;};
+        if (player!= theBoss) exitWith [_titleStr, localize "STR_A3A_fn_GUI_hqDialog_notBoss"] call A3A_fnc_customHint;
         _enemiesNear = false;
 
         {
@@ -690,9 +690,9 @@ switch (_mode) do
             	if ([500,1,_x,teamPlayer] call A3A_fnc_distanceUnits) then {_presente = true};
         	};
         } forEach allUnits;
-        if (_enemiesNear) exitWith {[_titleStr, format localize "STR_A3A_fn_GUI_hqDialog_enemiesNear"] call A3A_fnc_customHint;};
+        if (_enemiesNear) exitWith {[_titleStr, localize "STR_A3A_fn_GUI_hqDialog_enemiesNear"] call A3A_fnc_customHint;};
         if ("rebelAttack" in A3A_activeTasks) exitWith {[_titleStr, localize "STR_A3A_fn_GUI_hqDialog_rebelAttack"] call A3A_fnc_customHint;};
-        if ("invaderPunish" in A3A_activeTasks) exitWith {[_titleStr, format [localize "STR_A3A_fn_GUI_hqDialog_invaderPunish", {FactionGet(inv,"name")}]] call A3A_fnc_customHint;};
+        if ("invaderPunish" in A3A_activeTasks) exitWith {[_titleStr, format [localize "STR_A3A_fn_GUI_hqDialog_invaderPunish", FactionGet(inv,"name")]] call A3A_fnc_customHint;};
         if ("DEF_HQ" in A3A_activeTasks) exitWith {[_titleStr, localize "STR_A3A_fn_GUI_hqDialog_DEF_HQ"] call A3A_fnc_customHint;};
 
         _playersNotAtHq = false;

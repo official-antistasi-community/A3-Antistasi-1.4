@@ -1212,6 +1212,7 @@
     </Key>
     <Key ID="STR_A3A_inc_public_config_placeRaysLong">
       <Original>Debug setting: Enables the placement rays used to check for vehicle collision</Original>
+    </Key>
     </Container>
   </Package>
 </Project>

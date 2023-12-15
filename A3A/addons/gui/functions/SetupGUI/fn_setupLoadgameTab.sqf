@@ -148,7 +148,7 @@ switch (_mode) do
             _saveData set ["startType", "new"];
             _saveData set ["name", ctrlText (_display displayCtrl A3A_IDC_SETUP_NAMEEDITBOX)];
             _saveData set ["startPos", markerPos "Synd_HQ"];
-            _confirmText = localize "STR_A3A_fn_GUI_setupLoadgameTab_create"+ " ";
+            _confirmText = localize "STR_A3A_fn_GUI_setupLoadgameTab_create" + " ";
         } else {
             private _oldSave = A3A_setup_saveData select (_listboxCtrl getVariable "rowIndex");
             _saveData set ["gameID", _oldSave get "gameID"];

@@ -19,7 +19,7 @@ private _mrkFinal = createMarker [format ["Ant%1", mapGridPosition _antenna], ge
 _mrkFinal setMarkerShape "ICON";
 _mrkFinal setMarkerType "loc_Transmitter";
 _mrkFinal setMarkerColor "ColorBlack";
-_mrkFinal setMarkerText (localize "STR_A3A_fn_base_rebuildRadioTower_marker");
+_mrkFinal setMarkerText localize "STR_A3A_fn_base_rebuildRadioTower_marker";
 mrkAntennas pushBack _mrkFinal;
 publicVariable "mrkAntennas";
 

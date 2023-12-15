@@ -5332,7 +5332,7 @@
         <Chinesesimp>空袭</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildMinefield_long">
-        <Original>An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.</Original>
+        <Original>An Engineer Team has been deployed at your command. You can use the High Command menu to move them to their destination. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_buildMinefield_title">
         <Original>Minefield Deploy</Original>
@@ -6613,7 +6613,7 @@
         <Original>A %1 satellite is charging an orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
-        <Original>A %1 cruiser is preparing to launch a cruise missile</Original>
+        <Original>A %1 launcher is preparing to launch a cruise missile</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
         <Original>A %1 heavy bomber is on the way</Original>

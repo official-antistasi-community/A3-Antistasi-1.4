@@ -93,39 +93,39 @@ HR_GRG_onCloseEvent = {
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 
-    ["HR_GRG_dLock", "CHECKBOX", localize "STR_A3A_inc_public_config_lockOnGarageTitle", localize "STR_A3A_inc_public_config_lockOnGarageLong", [HR_GRG_Prefix,"Garage"], (HR_GRG_dLock isEqualTo {getPlayerUID player}), false, {
+    ["HR_GRG_dLock", "CHECKBOX", [localize "STR_A3A_inc_public_config_lockOnGarageTitle", localize "STR_A3A_inc_public_config_lockOnGarageLong"], [HR_GRG_Prefix,"Garage"], (HR_GRG_dLock isEqualTo {getPlayerUID player}), false, {
         HR_GRG_dLock = [{""}, { getPlayerUID player }] select _this;
     }] call CBA_fnc_addSetting;
 
-    ["HR_GRG_LockLimit_Member", "SLIDER", localize "STR_A3A_inc_public_config_memberLimitTitle", localize "STR_A3A_inc_public_config_memberLimitLong", [HR_GRG_Prefix,"Garage"],
+    ["HR_GRG_LockLimit_Member", "SLIDER", [localize "STR_A3A_inc_public_config_memberLimitTitle", localize "STR_A3A_inc_public_config_memberLimitLong"], [HR_GRG_Prefix,"Garage"],
         [0, 10, HR_GRG_LockLimit_Member, 0], true] call CBA_fnc_addSetting;
-    ["HR_GRG_LockLimit_Guest", "SLIDER", localize "STR_A3A_inc_public_config_guestLimitTitle", localize "STR_A3A_inc_public_config_guestLimitLong, [HR_GRG_Prefix,"Garage"],
+    ["HR_GRG_LockLimit_Guest", "SLIDER", [localize "STR_A3A_inc_public_config_guestLimitTitle", localize "STR_A3A_inc_public_config_guestLimitLong"], [HR_GRG_Prefix,"Garage"],
         [0, 10, HR_GRG_LockLimit_Guest, 0], true] call CBA_fnc_addSetting;
 
-    ["HR_GRG_Pylons_Enabled", "CHECKBOX", localize "STR_A3A_inc_public_config_pylonEditingTitle", localize "STR_A3A_inc_public_config_pylonEditingLong", [HR_GRG_Prefix,"Garage"], true, true, {
+    ["HR_GRG_Pylons_Enabled", "CHECKBOX", [localize "STR_A3A_inc_public_config_pylonEditingTitle", localize "STR_A3A_inc_public_config_pylonEditingLong"], [HR_GRG_Prefix,"Garage"], true, true, {
         HR_GRG_Pylons_Enabled = _this;
     }] call CBA_fnc_addSetting;
 
     //Service disablers
-    ["HR_GRG_ServiceDisabled_Rearm", "CHECKBOX", localize "STR_A3A_inc_public_config_disableRearmTitle", localize "STR_A3A_inc_public_config_disableRearmLong", [HR_GRG_Prefix,"Garage"], false, true, {
+    ["HR_GRG_ServiceDisabled_Rearm", "CHECKBOX", [localize "STR_A3A_inc_public_config_disableRearmTitle", localize "STR_A3A_inc_public_config_disableRearmLong"], [HR_GRG_Prefix,"Garage"], false, true, {
         HR_GRG_ServiceDisabled_Rearm = _this;
     }] call CBA_fnc_addSetting;
-    ["HR_GRG_ServiceDisabled_Refuel", "CHECKBOX", localize "STR_A3A_inc_public_config_disableRefuelTitle", localize "STR_A3A_inc_public_config_disableRefuelLong, [HR_GRG_Prefix,"Garage"], false, true, {
+    ["HR_GRG_ServiceDisabled_Refuel", "CHECKBOX", [localize "STR_A3A_inc_public_config_disableRefuelTitle", localize "STR_A3A_inc_public_config_disableRefuelLong"], [HR_GRG_Prefix,"Garage"], false, true, {
         HR_GRG_ServiceDisabled_Refuel = _this;
     }] call CBA_fnc_addSetting;
-    ["HR_GRG_ServiceDisabled_Repair", "CHECKBOX", localize "STR_A3A_inc_public_config_disableRepairTitle", localize "STR_A3A_inc_public_config_disableRepairLong", [HR_GRG_Prefix,"Garage"], false, true, {
+    ["HR_GRG_ServiceDisabled_Repair", "CHECKBOX", [localize "STR_A3A_inc_public_config_disableRepairTitle", localize "STR_A3A_inc_public_config_disableRepairLong"], [HR_GRG_Prefix,"Garage"], false, true, {
         HR_GRG_ServiceDisabled_Repair = _this;
     }] call CBA_fnc_addSetting;
 
-    ["HR_GRG_PoolBase", "SLIDER", localize "STR_A3A_inc_public_config_baseCapTitle", localize "STR_A3A_inc_public_config_baseCapTitle, [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
+    ["HR_GRG_PoolBase", "SLIDER", [localize "STR_A3A_inc_public_config_baseCapTitle", localize "STR_A3A_inc_public_config_baseCapTitle"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
         HR_GRG_PoolBase = round _this;
     }] call CBA_fnc_addSetting;
 
-    ["HR_GRG_PoolIncr", "SLIDER", localize "STR_A3A_inc_public_config_capIncTitle", localize "STR_A3A_inc_public_config_capIncLong", [HR_GRG_Prefix,"Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
+    ["HR_GRG_PoolIncr", "SLIDER", [localize "STR_A3A_inc_public_config_capIncTitle", localize "STR_A3A_inc_public_config_capIncLong"], [HR_GRG_Prefix,"Garage"], [0, 10, HR_GRG_PoolIncr, 0], true, {
         HR_GRG_PoolIncr = round _this;
     }] call CBA_fnc_addSetting;
 
-    ["HR_GRG_renderPlacementRays", "CHECKBOX", localize "STR_A3A_inc_public_config_placeRaysTitle", localize "STR_A3A_inc_public_config_placeRaysLong", [HR_GRG_Prefix,"Garage"], false, false, {
+    ["HR_GRG_renderPlacementRays", "CHECKBOX", [localize "STR_A3A_inc_public_config_placeRaysTitle", localize "STR_A3A_inc_public_config_placeRaysLong"], [HR_GRG_Prefix,"Garage"], false, false, {
         HR_GRG_renderPlacementRays = _this;
     }] call CBA_fnc_addSetting;
 

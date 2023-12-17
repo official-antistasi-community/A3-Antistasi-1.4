@@ -26,8 +26,8 @@
 ["vehiclesFuelTrucks", ["O_SFIA_Truck_02_fuel_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["a3a_SIFA_Truck_02_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["O_SFIA_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", []] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["O_SFIA_APC_Tracked_02_cannon_lxWS", "O_SFIA_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["O_SFIA_APC_Tracked_02_cannon_lxWS", "O_SFIA_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["O_SFIA_MBT_02_cannon_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["O_SFIA_APC_Tracked_02_AA_lxWS"]] call _fnc_saveToTemplate; 
 

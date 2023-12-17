@@ -21,7 +21,7 @@
 //A number of these vehicles could be replaced with simple retextures
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["a3a_MRAP_03_grey_F"];
-private _LightArmed = ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
+private _LightArmed = ["a3a_MRAP_03_hmg_grey_F","a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
 ["vehiclesTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate;
@@ -84,7 +84,7 @@ if ("tanks" in A3A_enabledDLC) then {
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["a3a_MRAP_03_grey_F","B_LSV_01_unarmed_F"];
-	_LightArmed append ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
+	_LightArmed append ["B_LSV_01_AT_F","B_LSV_01_armed_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];

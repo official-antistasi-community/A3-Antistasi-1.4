@@ -137,16 +137,17 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
-_loadoutData set ["lightATLaunchers", [
+_loadoutData set ["lightATLaunchers", ["launch_NLAW_F"]];
+_loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
 ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
-]];
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]]];
 _loadoutData set ["missileATLaunchers", [
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT", "Titan_AP"], [], ""],
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
 ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
@@ -485,9 +486,9 @@ _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]]
 _pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo", "U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
+_officerLoadoutData set ["slUniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
 _officerLoadoutData set ["vests", ["V_TacVest_oli", "V_Rangemaster_belt"]];
-_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F", "H_Beret_Colonel"]];
+_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F", "H_Beret_Colonel", "lxWS_H_MilCap_desert"]];
 _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["slRifles", [
 ["arifle_MXC_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""],

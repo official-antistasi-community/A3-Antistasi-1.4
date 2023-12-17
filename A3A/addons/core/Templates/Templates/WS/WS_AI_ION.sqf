@@ -132,7 +132,9 @@ _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT55_F", "MRAWS_HE_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F","MRAWS_HEAT55_F"], [], ""]
+["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F","MRAWS_HEAT55_F"], [], ""],
+"launch_NLAW_F",
+"launch_NLAW_F"
 ]];
 _loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
@@ -140,7 +142,9 @@ _loadoutData set ["ATLaunchers", [
 ]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT", "Titan_AP"], [], ""],
-["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""]
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
+["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
 ["launch_B_Titan_F", "", "acc_pointer_IR", "", ["Titan_AA"], [], ""]
@@ -498,7 +502,6 @@ private _squadLeaderTemplate = {
 
     ["backpacks"] call _fnc_setBackpack;
 
-    //[["slRifles", selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_fallback] call _fnc_setPrimary;
     [ selectRandom [["slRifles", "rifles"] call _fnc_fallback,"grenadeLaunchers", "rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
     ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;

@@ -12,9 +12,11 @@ class NavGrid {
     takistan = QPATHTOFOLDER(Antistasi_takistan.takistan\navGrid.sqf);
     Tanoa = QPATHTOFOLDER(Antistasi_Tanoa.Tanoa\navGrid.sqf);
     tem_anizay = QPATHTOFOLDER(Antistasi_tem_anizay.tem_anizay\navGrid.sqf);
+    tem_kujari = QPATHTOFOLDER(Antistasi_tem_kujari.tem_kujari\navGrid.sqf);
     Tembelan = QPATHTOFOLDER(Antistasi_Tembelan.Tembelan\navGrid.sqf);
     vt7 = QPATHTOFOLDER(Antistasi_vt7.vt7\navGrid.sqf);
     vn_khe_sanh = QPATHTOFOLDER(Antistasi_vn_khe_sanh.vn_khe_sanh\navGrid.sqf);
     cup_chernarus_A3 = QPATHTOFOLDER(Antistasi_cup_chernarus_A3.cup_chernarus_A3\navGrid.sqf);
     SPE_Normandy = QPATHTOFOLDER(Antistasi_SPE_Normandy.SPE_Normandy\navGrid.sqf);
+    isladuala3 = QPATHTOFOLDER(Antistasi_isladuala3.isladuala3\navGrid.sqf);
 };

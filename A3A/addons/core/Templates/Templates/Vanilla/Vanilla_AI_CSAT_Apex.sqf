@@ -257,9 +257,9 @@ _sfLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "muzzle_snds_B", "", "optic_DMS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "muzzle_snds_B", "", "optic_Arco", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "muzzle_snds_B", "", "optic_SOS", [], [], "bipod_02_F_hex"],
-["srifle_DMR_07_ghex_F", "muzzle_snds_H", "acc_pointer_IR", "optic_DMS_ghex_F", [], [], ""],
-["srifle_DMR_07_ghex_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Arco_ghex_F", [], [], ""],
-["srifle_DMR_07_ghex_F", "muzzle_snds_H", "acc_pointer_IR", "optic_SOS", [], [], ""]
+["srifle_DMR_07_ghex_F", "muzzle_snds_H", "", "optic_DMS_ghex_F", [], [], ""],
+["srifle_DMR_07_ghex_F", "muzzle_snds_H", "", "optic_Arco_ghex_F", [], [], ""],
+["srifle_DMR_07_ghex_F", "muzzle_snds_H", "", "optic_SOS", [], [], ""]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_GM6_ghex_F", "", "", "optic_LRPS_ghex_F", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
@@ -317,9 +317,9 @@ _militaryLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "", "", "optic_DMS", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "", "", "optic_Arco", [], [], "bipod_02_F_hex"],
 ["srifle_DMR_01_F", "", "", "optic_SOS", [], [], "bipod_02_F_hex"],
-["srifle_DMR_07_ghex_F", "", "acc_pointer_IR", "optic_DMS_ghex_F", [], [], ""],
-["srifle_DMR_07_ghex_F", "", "acc_pointer_IR", "optic_Arco_ghex_F", [], [], ""],
-["srifle_DMR_07_ghex_F", "", "acc_pointer_IR", "optic_SOS", [], [], ""]
+["srifle_DMR_07_ghex_F", "", "", "optic_DMS_ghex_F", [], [], ""],
+["srifle_DMR_07_ghex_F", "", "", "optic_Arco_ghex_F", [], [], ""],
+["srifle_DMR_07_ghex_F", "", "", "optic_SOS", [], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["srifle_GM6_ghex_F", "", "", "optic_LRPS_ghex_F", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
@@ -337,14 +337,14 @@ _policeLoadoutData set ["vests", ["V_TacVest_gen_F"]];
 _policeLoadoutData set ["helmets", ["H_Beret_gen_F"]];
 _policeLoadoutData set ["SMGs", [
 ["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
-["SMG_01_F", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""],
+["SMG_01_F", "", "acc_flashlight_smg_01", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_03C_TR_black", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-["SMG_03C_TR_black", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
+["SMG_03C_TR_black", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_05_F", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-["SMG_05_F", "", "acc_flashlight", "optic_Yorris", [], [], ""],
-["SMG_05_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
+["SMG_05_F", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""],
+["SMG_05_F", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_02_F", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
+["SMG_02_F", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 

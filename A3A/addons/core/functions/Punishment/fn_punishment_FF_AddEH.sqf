@@ -33,7 +33,7 @@ params [ ["_unit",objNull,[objNull]], ["_addToAI",false,[false]] ];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-if (!tkPunish) exitWith {false};
+if (tkPunish == 0) exitWith {false};
 if (!(_unit isKindOf "Man")) exitWith {
     Error("No unit given");
     false;
@@ -84,8 +84,8 @@ true;
 All other public variables referenced:
 | Name              | Type          | Machine   | Domain            | Description                                                           |
 |-------------------|---------------|-----------|-------------------|-----------------------------------------------------------------------|
-| A3A_hasACE            | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
-| tkPunish          | BOOLEAN       | Public    | missionNamespace  | Parameter. If the FF system should be enabled.                        |
+| A3A_hasACE        | BOOLEAN       | Public    | missionNamespace  | If ACE is loaded.                                                     |
+| tkPunish          | SCALAR        | Public    | missionNamespace  | Parameter. 0 - disabled, 1 - enabled, 2 - log/notify only             |
 | petros            | OBJECT        | Public    | missionNamespace  | AI that rebels need to protect and access.                            |
 | posHQ             | POS3D<AGL>    | Public    | missionNamespace  | getMarkerPos respawnTeamPlayer. The position of the HQ marker.        |
 

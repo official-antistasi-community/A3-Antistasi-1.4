@@ -3,6 +3,53 @@ Changelog
 ==========
 
 
+Version 3.4.1
+===============
+
+.. note::
+   03rd December 2023
+
+.. admonition:: Minor
+
+   * :issue:`3061` & :issue:`3078` Added additional params options for the Friendly Fire Punishment System
+   * :issue:`3058` Updated default values of some parameters to give a better experience when starting a mission without any params adjustment
+
+ .. admonition:: Template updates
+
+   * :issue:`3018` Adds Kozlice 12G rebel equipment when Contact DLC is loaded
+
+.. admonition:: Bugfixes
+
+   * :issue:`3068` Fixed magazine for RHS 2S1 Artillery which caused it simply not firing
+   * :issue:`3066` Fixed multiple minor template issues, mostly incorrect scopes, nothing critical
+   * :issue:`3064` Fixed multiple Assassination missions related issues where hints where not displayed correctly
+   * :issue:`3063` Fixed minor issues with multiple hints where titles where not displayed correclty
+   * :issue:`3059` Fixed revive system being disabled after a player was killed by damage when downed
+   * :issue:`3055` Added missing condition check on Vanilla CSAT templates leading to marksmen dlc content not being loaded
+   * :issue:`3051` Fixed multiple strings in regard to typos, wording and such
+   * :issue:`3041` Fixed SFIA faction name in relevant files
+   * :issue:`3044` Fixed units continuing revive attempts after their target was revived by someone else.
+   * :issue:`3043` Fixed issue with garrison spawning when no buildings are present which led to garrisons being broken/deleted
+   * :issue:`3042` Fixed issue where autoloading an old save with a newer version could break respawns
+   * :issue:`3031` Fixed patrol starting locations being too close to players by implementing min distance check
+
+.. admonition:: Localization
+
+   * [Multiple PRs] - Multiple hundred new translations accumulative for all the supported languages
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
+
 Version 3.4.0
 ===============
 

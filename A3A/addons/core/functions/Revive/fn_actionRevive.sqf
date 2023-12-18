@@ -75,6 +75,7 @@ waitUntil {
     or (time > _timer)
     or (_medic getVariable ["cancelRevive", false])		// medic might get deleted
     or !(alive _cured)
+    or !(_cured getVariable ["incapacitated", false])   // other unit (or self) might revive the target
 };
 
 if (isNull _medic) exitWith { false };
@@ -113,6 +114,10 @@ if (!([_medic] call A3A_fnc_canFight)) exitWith
 {
     if (_player) then {[_titleStr, localize "STR_A3A_fn_revive_actRev_rev_cancel"] call A3A_fnc_customHint;};
     false;
+};
+if !(_cured getVariable ["incapacitated", false]) exitWith {
+    if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_other",name _cured]] call A3A_fnc_customHint;};
+    true;
 };
 
 // Successful revive

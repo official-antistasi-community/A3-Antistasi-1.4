@@ -56,13 +56,13 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["B_G_Offroad_01_armed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["sfp_tgb16_ksp58_mp"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["sfp_tgb20"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["sfp_tgb11"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["sfp_police_offroad"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
+["staticMGs", ["CUP_B_M2StaticMG_US"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 ["staticMortars", ["CUP_B_M252_US"]] call _fnc_saveToTemplate;

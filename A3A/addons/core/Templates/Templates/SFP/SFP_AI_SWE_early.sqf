@@ -568,7 +568,6 @@ private _aaTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    [selectRandom ["latBackpacks", "atBackpacks"]] call _fnc_setBackpack;
 
     [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;

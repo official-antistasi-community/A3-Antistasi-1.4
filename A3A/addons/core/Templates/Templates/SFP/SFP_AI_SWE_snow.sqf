@@ -69,7 +69,7 @@ _vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_rb15", "sfp_jas39_bk90"];
 
 ["vehiclesPolice", ["sfp_police_offroad"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["I_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
+["staticMGs", ["CUP_B_M2StaticMG_US"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_B_TOW_TriPod_US"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_B_RBS70_ACR"]] call _fnc_saveToTemplate;
 ["staticMortars", ["CUP_B_M252_US"]] call _fnc_saveToTemplate;
@@ -597,7 +597,6 @@ private _aaTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-	[["hvBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;

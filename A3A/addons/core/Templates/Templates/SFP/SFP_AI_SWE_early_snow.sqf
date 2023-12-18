@@ -43,11 +43,11 @@
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
-["vehiclesHelisTransport", ["sfp_hkp4","CUP_B_UH1D_GER_KSK_Des","CUP_B_SA330_Puma_HC1_BAF"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["CUP_B_CH47F_GB"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
-["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_UH1D_armed_GER_KSK_Des"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", ["CUP_B_UH1D_gunship_GER_KSK_Des"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_UH1D_armed_GER_KSK_Des"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["sfp_fh77"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["sfp_fh77",["32Rnd_155mm_Mo_shells"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]

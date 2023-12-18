@@ -52,9 +52,8 @@ _vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_rb15", "sfp_jas39_bk90"];
 ["vehiclesHelisLight", ["sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
 ["vehiclesHelisTransport", ["a3a_SFP_MH60S_Unarmed_FFV_USN","a3a_SFP_MH60S_Unarmed_USN","a3a_SFP_B_UH60S_USN"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
-//hkp9 rb55 is ATGM only, AW159 is a stand in for AW109, used as an attack helicopter here in lieu of anything more fitting
 ["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_AW159_GB"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", ["CUP_B_AW159_GB"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["sfp_fh77","sfp_grkpbv90120"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["sfp_fh77",["32Rnd_155mm_Mo_shells"]],["sfp_grkpbv90120",["sfp_2Rnd_120mm_Mo_shells"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]

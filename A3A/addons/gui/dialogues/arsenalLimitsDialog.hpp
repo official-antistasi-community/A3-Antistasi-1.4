@@ -6,10 +6,10 @@
 
 #include "ids.inc"
 
-import RscText;
-import RscButton;
-import RscListNBox;
-import RscControlsGroup;
+class RscText;
+class RscButton;
+class RscListNBox;
+class RscControlsGroup;
 
 class A3A_ArsenalLimitsDialog {
     idd = A3A_IDD_ARSENALLIMITSDIALOG;

@@ -47,7 +47,7 @@
 
 ["vehiclesArtillery", ["rhsgref_cdf_b_2s1", "rhsgref_cdf_b_reg_d30", "rhsgref_cdf_b_reg_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_cdf_b_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_cdf_b_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_cdf_b_reg_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_cdf_b_reg_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate;
@@ -86,6 +86,7 @@
 "WhiteHead_13", "WhiteHead_15", "WhiteHead_16", "WhiteHead_17", "WhiteHead_18",
 "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+"CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

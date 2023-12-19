@@ -12,6 +12,7 @@ Info_1("Server version: %1", QUOTE(VERSION_FULL));
 // ********************** Pre-setup init ****************************************************
 
 if (isClass (missionConfigFile/"CfgFunctions"/"A3A")) exitWith {};          // Pre-mod mission will break. Messaging handled in initPreJIP
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 // hide all the HQ objects
@@ -76,6 +77,11 @@ private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
     if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
     private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    if (getArray (_x/"values") isEqualTo [0,1]) then {
+        if (_val isEqualType 0) then { _val = _val != 0 };                      // number -> bool
+    } else {
+        if (_val isEqualType false) then { _val = [0, 1] select _val };         // bool -> number
+    };
     missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
 } forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
@@ -175,20 +181,22 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 if (isPlayer A3A_setupPlayer) then {
     // Add current admin (setupPlayer) to members list and make them commander
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
-    theBoss = A3A_setupPlayer; publicVariable "theBoss";
+    theBoss = A3A_setupPlayer;
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];
 
 publicVariable "membersX";
+publicVariable "theBoss";       // need to publish this even if empty
 
 
 // Needs params + factions. Might depend on saved data in the future
@@ -241,6 +249,45 @@ addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
+};
+
+// Could replace these with entityCreated handler instead...
+if(A3A_hasZen) then {
+    ["zen_common_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if (A3A_hasACE) then {
+    ["ace_zeus_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
 
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
@@ -289,46 +336,5 @@ savingServer = false;           // enable saving
     };
 };
 
-if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
-    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
-    // disable lambs danger fsm entrypoint
-    ["CAManBase", "InitPost", {
-        params ["_unit"];
-        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
-        _unit setVariable ["lambs_danger_disableAI", true];
-    }] call CBA_fnc_addClassEventHandler;
-};
-
-
-
-if(A3A_hasZen) then 
-{
-    ["zen_common_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
-
-if(A3A_hasACE) then 
-{
-    ["ace_zeus_createZeus", {
-        [_this] spawn {
-            params ["_unit"];
-
-            // wait in case our event was called first
-            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
-
-            //now add the logging to the module
-            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
-        };
-    }] call CBA_fnc_addEventHandler;
-};
 
 Info("initServer completed");

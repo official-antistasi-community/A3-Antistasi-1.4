@@ -139,6 +139,9 @@ while {true} do
 		[] call A3A_fnc_assignBossIfNone;
 	};
 
+	// Clear out plank objects that haven't been constructed and have exceeded the timeout
+	call A3A_fnc_processBuildingTimeouts;
+
 	// Decrease HQ knowledge values, old ones faster than current
 	if (A3A_curHQInfoOcc < 1) then { A3A_curHQInfoOcc = 0 max (A3A_curHQInfoOcc - 0.01) };
 	if (A3A_curHQInfoInv < 1) then { A3A_curHQInfoInv = 0 max (A3A_curHQInfoInv - 0.01) };
@@ -192,7 +195,7 @@ while {true} do
 			["TaskSucceeded", ["", format ["%1 Rebuilt",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
 			sleep 2;
 			};
-		} forEach (destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer};
+		} forEach ((destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer});
 		if (_changingX) then {publicVariable "destroyedSites"};
 		};
 

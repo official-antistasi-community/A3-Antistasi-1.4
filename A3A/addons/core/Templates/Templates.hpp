@@ -824,7 +824,7 @@ class Templates
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
         name = "GM Nationale Volksarmee Temperate";
         file = "GM_AI_NVA";
-        climate[] = {"temperate","tropical","arid"};
+        climate[] = {"temperate","tropical"};
     };
 
     class GM_NVA_Arctic : GM_Base
@@ -834,6 +834,15 @@ class Templates
         name = "GM Nationale Volksarmee Arctic";
         file = "GM_AI_NVA_arctic";
         climate[] = {"arctic"};
+    };
+
+    class GM_NVA_Desert : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
+        name = "GM Nationale Volksarmee Desert";
+        file = "GM_AI_NVA_desert";
+        climate[] = {"arid"};
     };
 
     class GM_BW : GM_Base

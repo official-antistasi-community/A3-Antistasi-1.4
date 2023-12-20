@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo_des", "gm_ge_army_typ1200_cargo_des", "gm_ge_army_typ253_cargo_des", "gm_ge_army_typ253_mp_des", 
-    "gm_ge_army_typ247_cargo_des", "gm_ge_army_typ247_firefighter_des", "gm_ge_bgs_w123_cargo", "gm_ge_bgs_typ253_cargo_des", "gm_ge_army_w123_cargo"]] call _fnc_saveToTemplate;
+    "gm_ge_army_typ247_cargo_des", "gm_ge_army_typ247_firefighter_des", "gm_ge_bgs_w123_cargo", "gm_ge_bgs_typ253_cargo", "gm_ge_army_w123_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["gm_ge_army_iltis_milan_des", "gm_ge_army_iltis_mg3_des", "gm_ge_army_iltis_mg3_des", "gm_ge_army_luchsa1_des", "gm_ge_army_luchsa2_des"]] call _fnc_saveToTemplate; //this line determines light and armed vehicles -- Example: ["vehiclesLightArmed", ["B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"]] -- Array, can contain multiple assets
 ["vehiclesTrucks", ["gm_ge_army_u1300l_cargo_des", "gm_ge_army_u1300l_container_des", "gm_ge_army_kat1_451_cargo_des", "gm_ge_army_kat1_451_container_des"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["gm_ge_army_kat1_454_cargo_des", "gm_ge_army_u1300l_container_des", "gm_ge_army_kat1_452_container_des", "gm_ge_army_kat1_451_container_des"]] call _fnc_saveToTemplate;
@@ -291,7 +291,7 @@ _militaryLoadoutData set ["rifles", [
 ]];
 _militaryLoadoutData set ["carbines", [
     ["gm_g3a4_oli", "", "", "", ["gm_20Rnd_762x51mm_B_DM41_g3_blk", "gm_20Rnd_762x51mm_B_T_DM21A1_g3_blk"], [], ""],
-    ["gm_sg550_blk", "", "", "", ["gm_20Rnd_762x51mm_B_T_DM21_sg542_blk", "gm_20Rnd_762x51mm_B_DM111_sg542_blk", "gm_20Rnd_762x51mm_B_DM111_sg542_blk"], [], ""],
+    ["gm_sg550_blk", "", "", "", ["gm_30Rnd_556x45mm_B_T_DM21_sg550_brn", "gm_30Rnd_556x45mm_B_DM11_sg550_brn", "gm_30Rnd_556x45mm_B_DM11_sg550_brn"], [], ""],
     ["gm_hk33a3_blk", "", "", "", ["gm_30Rnd_556x45mm_B_DM11_hk33_blk", "gm_30Rnd_556x45mm_B_T_DM21_hk33_blk"], [], ""],
     ["gm_hk33ka3_blk", "", "", "", ["gm_30Rnd_556x45mm_B_DM11_hk33_blk", "gm_30Rnd_556x45mm_B_T_DM21_hk33_blk"], [], ""],
     ["gm_gvm75carb_oli", "", "", "", ["gm_20Rnd_762x51mm_B_DM41_g3_blk", "gm_20Rnd_762x51mm_B_T_DM21A1_g3_blk"], [], ""]
@@ -304,7 +304,7 @@ _militaryLoadoutData set ["SMGs", [
     ["gm_mp2a1_blk", "", "", "", ["gm_32Rnd_9x19mm_B_DM11_mp2_blk", "gm_32Rnd_9x19mm_B_DM51_mp2_blk", "gm_32Rnd_9x19mm_AP_DM91_mp2_blk"], [], ""],
     ["gm_mp5a2_blk", "", "", "", ["gm_30Rnd_9x19mm_AP_DM91_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM11_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM51_mp5a3_blk"], [], ""],
     ["gm_mp5a3_blk", "", "", "", ["gm_30Rnd_9x19mm_AP_DM91_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM11_mp5a3_blk", "gm_30Rnd_9x19mm_B_DM51_mp5a3_blk"], [], ""],
-    ["gm_sg551_blk", "", "", "", ["gm_20Rnd_762x51mm_B_T_DM21_sg542_blk", "gm_20Rnd_762x51mm_B_DM111_sg542_blk", "gm_20Rnd_762x51mm_B_DM111_sg542_blk"], [], ""]
+    ["gm_sg551_blk", "", "", "", ["gm_30Rnd_556x45mm_B_T_DM21_sg550_brn", "gm_30Rnd_556x45mm_B_DM11_sg550_brn", "gm_30Rnd_556x45mm_B_DM11_sg550_brn"], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
     ["gm_mg3_blk", "", "", "", ["gm_120Rnd_762x51mm_B_T_DM21A1_mg3_grn", "gm_120Rnd_762x51mm_B_T_DM21A2_mg3_grn", "gm_120Rnd_762x51mm_B_T_DM21_mg3_grn"], [], ""],

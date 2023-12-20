@@ -26,7 +26,7 @@
 ["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["gm_gc_army_uaz469_dshkm"]] call _fnc_saveToTemplate;
-["vehiclesTruck", ["gm_ge_army_kat1_451_cargo"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["gm_ge_army_kat1_451_container"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["gm_gc_army_uaz469_spg9"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;
 

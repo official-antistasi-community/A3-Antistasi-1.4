@@ -8,16 +8,16 @@
 ["flagTexture", "\A3\ui_f\data\map\markers\flags\France_ca.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_France"] call _fnc_saveToTemplate;
 
-["vehiclesBasic", []] call _fnc_saveToTemplate;
+["vehiclesBasic", ["LIB_GazM1_FFI"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_GazM1_FFI"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", []] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["LIB_CIV_FFI_CitC4_5"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate;
 ["vehiclesAA", [""]] call _fnc_saveToTemplate;
 
-["vehiclesBoat", []] call _fnc_saveToTemplate;
+["vehiclesBoat", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
 
-["vehiclesPlane", []] call _fnc_saveToTemplate;
+["vehiclesPlane", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
 
 ["vehiclesCivCar", ["LIB_GazM1_dirty"]] call _fnc_saveToTemplate;
@@ -37,8 +37,8 @@
 ["mineAT", ""] call _fnc_saveToTemplate;
 ["mineAPERS", ""] call _fnc_saveToTemplate;
 
-["breachingExplosivesAPC", []] call _fnc_saveToTemplate;
-["breachingExplosivesTank", []] call _fnc_saveToTemplate;
+["breachingExplosivesAPC", [["LIB_Ladung_Small_MINE_mag", 1]]] call _fnc_saveToTemplate;
+["breachingExplosivesTank", [["LIB_Ladung_Big_MINE_mag", 1], ["LIB_Ladung_Small_MINE_mag", 2]]] call _fnc_saveToTemplate;
 
 //Enter #include "Modset_Reb_Vehicle_Attributes.sqf" here
 

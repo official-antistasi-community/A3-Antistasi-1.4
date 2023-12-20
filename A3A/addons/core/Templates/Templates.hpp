@@ -939,6 +939,30 @@ class Templates
         file = "SPE_CIV";
     };
 */
+    // ***************************** IFA *****************************
+    class IFA_Base
+    {
+        requiredAddons[] = {"IFA3_Core"};
+        basepath = QPATHTOFOLDER(Templates\Templates\IFA);
+        logo = "";
+        priority = 60;
+        equipFlags[] = {"lowTech"};
+        forceDLC[] = {};
+    };
+    class IFA_WEH : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "\WW2\Core_t\IF_Decals_t\German\flag_GER_co.paa";
+        name = "IFA WEH";
+        file = "IFA_AI_WEH";
+    };
+    class IFA_FFI : IFA_Base
+    {
+        side = "Reb";
+        flagTexture = "\A3\ui_f\data\map\markers\flags\France_ca.paa";
+        name = "IFA FFI";
+        file = "IFA_REB_FFI";
+    };
     // ***************************** SPE with IFA *****************************
 
     class SPE_IFA_Base

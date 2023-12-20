@@ -19,6 +19,7 @@ class DOUBLES(ADDON,Nodes)
     #include "Nodes\Vanilla.hpp"
     #include "Nodes\VN.hpp"
     #include "Nodes\WS.hpp"
+    #include "Nodes\IFA.hpp"
 
 };
 

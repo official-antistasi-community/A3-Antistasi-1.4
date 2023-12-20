@@ -3,7 +3,7 @@
 //////////////////////////
 
 ["name", "WEH"] call _fnc_saveToTemplate;
-["spawnMarkerName", "WEH"] call _fnc_saveToTemplate;
+["spawnMarkerName", "WEH Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\WW2\Core_t\IF_Decals_t\German\flag_GER_co.paa"] call _fnc_saveToTemplate;
@@ -36,7 +36,7 @@
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", []] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_Ju87","LIB_FW190F8_2"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -72,8 +72,8 @@
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
-["minefieldAT", []] call _fnc_saveToTemplate;
-["minefieldAPERS", []] call _fnc_saveToTemplate;
+["minefieldAT", ["LIB_TMI42_ammo"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["LIB_SMI35_1_ammo","LIB_SMI35_ammo", "LIB_shumine42_ammo"]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///
@@ -103,10 +103,10 @@ _loadoutData set ["AALaunchers", []];
 _loadoutData set ["sidearms", ["LIB_P38"]];
 _loadoutData set ["slSidearms", ["LIB_P08", "LIB_M1896", "LIB_FLARE_PISTOL"]];
 
-_loadoutData set ["ATMines", []];
-_loadoutData set ["APMines", []];
-_loadoutData set ["lightExplosives", []];
-_loadoutData set ["heavyExplosives", []];
+_loadoutData set ["ATMines", ["LIB_TMI_42_MINE_mag"]];
+_loadoutData set ["APMines", ["LIB_shumine_42_MINE_mag","LIB_SMI_35_MINE_mag","LIB_SMI_35_1_MINE_mag"]];
+_loadoutData set ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
+_loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
 
 _loadoutData set ["antiTankGrenades", ["LIB_Shg24x7", "LIB_Pwm"]];
 _loadoutData set ["antiInfantryGrenades", ["LIB_Shg24", "LIB_M39"]];

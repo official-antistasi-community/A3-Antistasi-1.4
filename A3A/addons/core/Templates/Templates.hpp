@@ -951,10 +951,17 @@ class Templates
     };
     class IFA_WEH : IFA_Base
     {
-        side = "Occ";
+        side = "Inv";
         flagTexture = "\WW2\Core_t\IF_Decals_t\German\flag_GER_co.paa";
         name = "IFA WEH";
         file = "IFA_AI_WEH";
+    };
+    class IFA_ALLIES : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "IFA ALLIES";
+        file = "IFA_AI_ALLIES";
     };
     class IFA_FFI : IFA_Base
     {

@@ -851,7 +851,7 @@ class Templates
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
         name = "GM Bundeswehr Temperate";
         file = "GM_AI_BW";
-        climate[] = {"temperate","arid"};
+        climate[] = {"temperate","tropical"};
     };
 
     class GM_BW_Arctic : GM_Base

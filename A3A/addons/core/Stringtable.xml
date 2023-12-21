@@ -12753,6 +12753,21 @@
         <Turkish>Cephane İstasyonu</Turkish>
         <Chinesesimp>弹药站</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxcolossal">
+        <Original>Colossal construction kit</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxenormous">
+        <Original>Enormous construction kit</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxextralarge">
+        <Original>Extra Large construction kit</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxgargantuan">
+        <Original>Gargantuan construction kit</Original>
+      </Key>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxhumongous">
+        <Original>Humongous construction kit</Original>
+      </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxlarge">
         <Original>Large construction kit</Original>
         <Italian>Kit di costruzioni grande</Italian>

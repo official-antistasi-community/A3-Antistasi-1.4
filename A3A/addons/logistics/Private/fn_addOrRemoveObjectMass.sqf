@@ -38,6 +38,31 @@ private _currentMass = getMass _vehicle;
 
 private _newMass = _currentMass;
 
+
+//calculate the spring system mass
+private _wheelsConfigs = "true" configClasses (configFile >> "CfgVehicles" >> typeOf TRUCK >> "Wheels");
+private _sprungMasses = [];
+private _suspensionForces = [];
+
+{_sprungMasses pushBack getNumber (_x >> "sprungMass")} forEach _wheelsConfigs;
+{_suspensionForces pushBack( getNumber (_x >> "maxCompression") * getNumber( _x >> "springStrength"))} forEach _wheelsConfigs;
+
+private _sprungMassLoad = 0; 
+{_sprungMassLoad = _sprungMassLoad + _x} forEach _sprungMasses;
+_sprungMassLoad = _sprungMassLoad - _defaultMass;
+
+// In Newtons, needs to be in Kilograms. Convert here.
+private _maxSupportedLoad = 0; 
+{_maxSupportedLoad = _maxSupportedLoad + _x} forEach _suspensionForces;
+_maxSupportedLoad = _maxSupportedLoad / 9.81;
+_maxSupportedLoad = _maxSupportedLoad + _sprungMassLoad;
+
+private _attachedMass = _currentMass - _defaultMass;
+private _currentSupportedLoad = _maxSupportedLoad - _attachedMass;
+
+// object mass can not exceed the current supported load or physx will start breaking.
+_objectMass = if(_currentSupportedLoad - _objectMass > 0) then {_objectMass} else {_currentSupportedLoad};
+
 //Figure out our new mass value
 if (_removeObject) then {
     //Never go lower than the base vehicle's mass.

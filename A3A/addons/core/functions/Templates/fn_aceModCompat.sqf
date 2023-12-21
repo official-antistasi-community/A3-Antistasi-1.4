@@ -72,7 +72,7 @@ advItems = [
 	"adv_aceCPR_AED"
 ];
 
-katMedItems = [ //Support and tested with KAM 2.13.3rc2
+katMedItems = [ //Support and tested with KAM 2.13.3 Stable
 	"kat_accuvac",	//KAT Airway - Item
 	"kat_guedel",	//KAT Airway - Item
 	"kat_larynx",	//KAT Airway - Item

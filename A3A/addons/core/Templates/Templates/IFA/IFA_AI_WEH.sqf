@@ -18,7 +18,7 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
-["vehiclesBasic", []] call _fnc_saveToTemplate;
+["vehiclesBasic", ["LIB_Kfz1_Hood"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_Kfz1", "LIB_Kfz1_Hood"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["LIB_Kfz1_MG42", "LIB_Kfz1_MG42", "LIB_SdKfz_7_AA"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["LIB_OpelBlitz_Open_Y_Camo","LIB_OpelBlitz_Tent_Y_Camo","LIB_SdKfz_7"]] call _fnc_saveToTemplate;
@@ -29,7 +29,7 @@
 ["vehiclesMedical", ["LIB_OpelBlitz_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["LIB_SdKfz251","LIB_SdKfz251_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
-["vehiclesIFVs", ["LIB_T34_76_captured", "LIB_StuG_III_G", "LIB_StuG_III_G"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
+["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesLightTanks", ["LIB_T34_76_captured","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d", "LIB_StuG_III_G", "LIB_StuG_III_G"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["LIB_T34_76_captured","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d","LIB_PzKpfwV","LIB_PzKpfwVI_B","LIB_PzKpfwVI_B_tarn51c","LIB_PzKpfwVI_B_tarn51d","LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_2","LIB_PzKpfwVI_E_tarn51c","LIB_PzKpfwVI_E_tarn51d","LIB_PzKpfwVI_E_tarn52c","LIB_PzKpfwVI_E_tarn52d","LIB_PzKpfwVI_E_1","LIB_StuG_III_G"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
@@ -79,11 +79,13 @@
 ///  Identities   ///
 /////////////////////
 //Faces and Voices given to AI Factions.
-["faces", []] call _fnc_saveToTemplate;
-["voices", []] call _fnc_saveToTemplate;
-//SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
-["milVoices", []] call _fnc_saveToTemplate;
-["milFaces", []] call _fnc_saveToTemplate;
+["faces", ["WhiteHead_01","WhiteHead_02",
+"WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07",
+"WhiteHead_08","WhiteHead_09","WhiteHead_11","WhiteHead_12","WhiteHead_14",
+"WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19","WhiteHead_20",
+"WhiteHead_21"]] call _fnc_saveToTemplate;
+["voices", ["male01ger", "male02ger", "male03ger", "male04ger", "male05ger", "male06ger"]] call _fnc_saveToTemplate;
+"LIB_GermanMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -111,7 +113,7 @@ _loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
 _loadoutData set ["antiTankGrenades", ["LIB_Shg24x7", "LIB_Pwm"]];
 _loadoutData set ["antiInfantryGrenades", ["LIB_Shg24", "LIB_M39"]];
 _loadoutData set ["smokeGrenades", ["LIB_NB39"]];
-_loadoutData set ["signalsmokeGrenades", []];
+_loadoutData set ["signalsmokeGrenades", ["LIB_NB39"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -575,7 +577,7 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         ["SMGs"] call _fnc_setPrimary;
-        ["primary", 1] call _fnc_addMagazines;
+        ["primary", 2] call _fnc_addMagazines;
     };
 
     ["sidearms"] call _fnc_setHandgun;

@@ -95,6 +95,30 @@ _rebUniforms = [
     "U_I_L_Uniform_01_deserter_F"
     ];
 
+//for later if i also add RHS to the options for GM-Templates
+_rebUniforms append [
+    "CUP_I_B_PARA_Unit_2",
+    "CUP_I_B_PARA_Unit_6",
+    "CUP_I_B_PARA_Unit_9",
+    "CUP_U_I_GUE_Anorak_01",
+    "CUP_U_I_GUE_Anorak_03",
+    "CUP_U_I_GUE_Anorak_02",
+    "CUP_U_I_GUE_WorkU_01",
+    "CUP_U_I_GUE_WorkU_02",
+    "CUP_U_I_GUE_Flecktarn2",
+    "CUP_U_I_GUE_Flecktarn3",
+    "CUP_U_I_GUE_Flecktarn",
+    "CUP_U_I_GUE_Flecktarn4",
+    "CUP_U_I_GUE_Woodland1",
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F"
+]
 
 private _dlcUniforms = [];
 

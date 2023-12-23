@@ -20,7 +20,7 @@
 ["vehiclesBasic", ["I_E_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["B_T_MRAP_01_F"];
 private _LightArmed = ["B_T_MRAP_01_hmg_F", "B_T_MRAP_01_hmg_F", "B_T_MRAP_01_gmg_F"];
-["vehiclesTrucks", ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["I_E_Truck_02_transport_F"]] call _fnc_saveToTemplate;
 private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesAmmoTrucks", ["I_E_Truck_02_Ammo_F"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["I_E_Truck_02_Box_F"]] call _fnc_saveToTemplate;
@@ -56,7 +56,7 @@ private _HelisTransport = ["B_Heli_Transport_01_camo_F"];
 
 //Config special vehicles
 private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_ldf_armed_F", "a3a_Offroad_01_ldf_AT_F"];
-["vehiclesMilitiaTrucks", ["I_E_Van_02_transport_F", "I_E_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["I_E_Truck_02_F"]] call _fnc_saveToTemplate;
 private _vehiclesMilitiaCars = ["I_E_Offroad_01_F", "I_E_Offroad_01_comms_F", "I_E_Offroad_01_covered_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
@@ -92,6 +92,7 @@ if ("heli" in A3A_enabledDLC) then {
 };
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["I_E_Van_02_transport_MP_F"];
+    ["vehiclesMilitiaTrucks", ["I_E_Van_02_transport_F", "I_E_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 

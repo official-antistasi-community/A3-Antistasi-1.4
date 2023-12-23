@@ -30,7 +30,7 @@ class a3a_MRAP_03_hmg_grey_F : I_MRAP_03_hmg_F
 //Olive
 class a3a_APC_Wheeled_03_cannon_blufor_F : I_APC_Wheeled_03_cannon_F
 {
-    animationList[] = {"showCamonetHull",0,"showBags",0.25,"showBags2",0.5,"showTools",0.25,"showSLATHull",0.75};
+    animationList[] = {"showCamonetHull",0,"showBags",0.25,"showBags2",0.5,"showTools",0.25,"showSLATHull",1};
     textureList[] = {};
     hiddenSelectionsTextures[] = {"a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext2_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\RCWS30_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext_alpha_CO.paa","a3\armor_f\data\camonet_aaf_fia_desert_co.paa","a3\armor_f\data\cage_sand_co.paa"};
 };

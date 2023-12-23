@@ -34,4 +34,30 @@ class CfgMarkers
         icon = "\A3\Data_F\Flags\flag_ion_CO.paa";
         texture = "\A3\Data_F\Flags\flag_ion_CO.paa"; //TODO: rectangularize marker texture
     };
+    
+    //TODO: makes these only load when IFA is loaded?
+    class a3a_flag_FFI : flag_NATO 
+    {
+        name = "FFI";
+        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
+        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
+    };
+    class a3a_flag_ALLIES : flag_NATO 
+    {
+        name = "ALLIES";
+        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
+        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
+    };
+    class a3a_flag_WEH : flag_NATO 
+    {
+        name = "WEH";
+        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
+        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
+    };
+    class a3a_flag_SOV : flag_NATO 
+    {
+        name = "SOV";
+        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
+        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
+    };
 };

@@ -241,7 +241,7 @@ if (_type == "CAS") then
             _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [3, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
-        case "LIB_P39": {
+        case "LIB_RAF_P39": {
             _loadout = ["LIB_1Rnd_FAB250"];
             _plane setVariable ["mainGun", "LIB_4xM2_P39"];
             _plane setVariable ["rocketLauncher", ["LIB_M4_P39"]]; //Cannon, idk where to put this as mainGun does not take an array
@@ -433,6 +433,13 @@ if (_type == "AA") then
             _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_type2_P_3rnd_M","FIR_Brimstone_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
         };
         //AA Planes to be used as-is
+        case "LIB_P39";
+        case "LIB_RA_P39_2";
+        case "LIB_RA_P39_3";
+        case "LIB_RAF_P39";
+        case "LIB_US_P39";
+        case "LIB_US_P39_2";
+        case "LIB_P47";
         case "LIB_FW190F8";
         case "LIB_FW190F8_2";
         case "LIB_FW190F8_3";
@@ -441,6 +448,7 @@ if (_type == "AA") then
         case "SPE_P47";
         case "SPE_FW190F8":
         {
+            { _plane removeWeaponGlobal getText (configFile >> "CfgMagazines" >> _x >> "pylonWeapon") } forEach getPylonMagazines _plane;
         };
         default
         {

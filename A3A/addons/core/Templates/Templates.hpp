@@ -952,23 +952,44 @@ class Templates
     class IFA_WEH : IFA_Base
     {
         side = "Inv";
-        flagTexture = "\WW2\Core_t\IF_Decals_t\German\flag_GER_co.paa";
-        name = "IFA WEH";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
+        name = "IFA WEHRMACHT";
         file = "IFA_AI_WEH";
     };
     class IFA_ALLIES : IFA_Base
     {
         side = "Occ";
-        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
         name = "IFA ALLIES";
         file = "IFA_AI_ALLIES";
+    };
+    class IFA_SOV : IFA_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
+        name = "IFA SOVIETS";
+        file = "IFA_AI_SOV";
     };
     class IFA_FFI : IFA_Base
     {
         side = "Reb";
-        flagTexture = "\A3\ui_f\data\map\markers\flags\France_ca.paa";
-        name = "IFA FFI";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
+        name = "IFA French Resistance";
         file = "IFA_REB_FFI";
+    };
+    class IFA_CIV_FR : IFA_Base
+    {
+        side = "Civ";
+        flagTexture = "\A3\Ui_f\data\Map\Markers\Flags\france_ca.paa";
+        name = "IFA French";
+        file = "IFA_CIV_FR";
+    };
+    class IFA_CIV_PL : IFA_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_pl.paa);
+        name = "IFA Polish";
+        file = "IFA_CIV_PL";
     };
     // ***************************** SPE with IFA *****************************
 

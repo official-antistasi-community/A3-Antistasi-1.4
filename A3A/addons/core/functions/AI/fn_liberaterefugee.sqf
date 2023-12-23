@@ -12,7 +12,7 @@ if (_timeout < 0) exitWith {};
 
 [_unit,"remove"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_unit];
 
-private _responseNum = str[(random 2) + 1];
+private _responseNum = str selectRandom [1,2,3];
 _response = localize ("STR_A3A_fn_ai_captureX_libresponse" + _responseNum);
 _unit globalChat _response;
 _unit enableAI "MOVE";

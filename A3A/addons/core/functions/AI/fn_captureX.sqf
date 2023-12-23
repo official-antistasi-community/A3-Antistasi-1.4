@@ -45,7 +45,7 @@ if (_recruiting) then {
 }
 else {
 	_playerX globalChat localize "STR_A3A_fn_ai_captureX_dismiss";
-	private _responseNum = str(round(random 2) + 1);
+	private _responseNum = str selectRandom [1,2,3];
 	_response = localize ("STR_A3A_fn_ai_captureX_libresponse" + _responseNum);
     _modAggro = [-3, 30];
 };

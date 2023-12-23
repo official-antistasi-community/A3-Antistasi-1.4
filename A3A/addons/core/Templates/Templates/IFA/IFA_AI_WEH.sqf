@@ -2,20 +2,20 @@
 //   Side Information   //
 //////////////////////////
 
-["name", "WEH"] call _fnc_saveToTemplate;
-["spawnMarkerName", "WEH Support Corridor"] call _fnc_saveToTemplate;
+["name", "Wehrmacht"] call _fnc_saveToTemplate;
+["spawnMarkerName", "Wehrmacht Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\WW2\Core_t\IF_Decals_t\German\flag_GER_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "LIB_Faction_WEHRMACHT"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\marker_weh.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_WEH"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
 
-["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
+["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_Kfz1_Hood"]] call _fnc_saveToTemplate;
@@ -30,8 +30,33 @@
 ["vehiclesLightAPCs", ["LIB_SdKfz251","LIB_SdKfz251_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesLightTanks", ["LIB_T34_76_captured","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d", "LIB_StuG_III_G", "LIB_StuG_III_G"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["LIB_T34_76_captured","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d","LIB_PzKpfwV","LIB_PzKpfwVI_B","LIB_PzKpfwVI_B_tarn51c","LIB_PzKpfwVI_B_tarn51d","LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_2","LIB_PzKpfwVI_E_tarn51c","LIB_PzKpfwVI_E_tarn51d","LIB_PzKpfwVI_E_tarn52c","LIB_PzKpfwVI_E_tarn52d","LIB_PzKpfwVI_E_1","LIB_StuG_III_G"]] call _fnc_saveToTemplate;
+
+//Some shenanigans to ensure the player doesn't only face Tigers
+["vehiclesLightTanks", ["LIB_StuG_III_G_WS"]] call _fnc_saveToTemplate;
+
+private _mediumTanks = [
+"LIB_T34_76_captured3","LIB_T34_76_captured","LIB_StuG_III_G_WS",
+"LIB_StuG_III_G","LIB_StuG_III_G","LIB_StuG_III_G",
+"LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d"];
+
+private _heavyTanks = [
+"LIB_PzKpfwVI_B","LIB_PzKpfwVI_B_tarn51c","LIB_PzKpfwVI_B_tarn51d",
+"LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_2","LIB_PzKpfwVI_E_tarn51c","LIB_PzKpfwVI_E_tarn51d","LIB_PzKpfwVI_E_tarn52c","LIB_PzKpfwVI_E_tarn52d","LIB_PzKpfwVI_E_1"
+];
+
+private _heavyCount = count _heavyTanks;
+
+for "_i" from 1 to _heavyCount do { _heavyTanks pushBack "LIB_PzKpfwV"; }; //50/50 Panzer V & Panzer VI variants
+_heavyCount = count _heavyTanks;
+private _mediumCount = count _mediumTanks;
+
+//We want roughly 2/3rds mediums and 1/3rd heavy, constant is how many times more than the heavies that we want to add ie 2:1
+private _tankRatio = round (2/(_mediumCount / _heavyCount)); 
+
+private _tanks = _heavyTanks;
+for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
+
+["vehiclesTanks", _tanks] call _fnc_saveToTemplate;
 ["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 
@@ -50,7 +75,12 @@
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["LIB_Nebelwerfer41","LIB_FlaK_36_ARTY","LIB_leFH18","LIB_SdKfz124"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray []] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
+["magazines", createHashMapFromArray [
+["LIB_Nebelwerfer41", ["LIB_6Rnd_NbW41"]],
+["LIB_FlaK_36_ARTY", ["LIB_45x_SprGr_KwK36_HE"]],
+["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]],
+["LIB_SdKfz124", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]]
+]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
 ["uavsPortable", []] call _fnc_saveToTemplate;
@@ -62,9 +92,9 @@
 
 ["vehiclesPolice", ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt", "LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_MG34_Lafette_Deployed","LIB_MG42_Lafette_Deployed"]] call _fnc_saveToTemplate;
-["staticAT", ["LIB_Pak40","LIB_Pak40","LIB_FlaK_36","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
-["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_30","LIB_FlaK_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_MG34_Lafette_Deployed","LIB_MG42_Lafette_Deployed","LIB_MG42_Lafette_Deployed"]] call _fnc_saveToTemplate;
+["staticAT", ["LIB_Pak40","LIB_Pak40_g","LIB_FlaK_36","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
+["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_30","LIB_FlaK_30","LIB_FlaK_38","LIB_FlaK_38","LIB_Flakvierling_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_GrWr34","LIB_GrWr34_g"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "LIB_8Rnd_81mmHE_GRWR34"] call _fnc_saveToTemplate;
@@ -108,7 +138,7 @@ _loadoutData set ["slSidearms", ["LIB_P08", "LIB_M1896", "LIB_FLARE_PISTOL"]];
 _loadoutData set ["ATMines", ["LIB_TMI_42_MINE_mag"]];
 _loadoutData set ["APMines", ["LIB_shumine_42_MINE_mag","LIB_SMI_35_MINE_mag","LIB_SMI_35_1_MINE_mag"]];
 _loadoutData set ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
-_loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
+_loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag", "LIB_US_TNT_4pound_mag"]];
 
 _loadoutData set ["antiTankGrenades", ["LIB_Shg24x7", "LIB_Pwm"]];
 _loadoutData set ["antiInfantryGrenades", ["LIB_Shg24", "LIB_M39"]];
@@ -348,7 +378,7 @@ private _grenadierTemplate = {
 
     [["grenadeLaunchers", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-    ["primary", 10] call _fnc_addAdditionalMuzzleMagazines;
+    ["primary", selectRandom [3,4,5]] call _fnc_addAdditionalMuzzleMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_grenadier_extras"] call _fnc_addItemSet;
@@ -441,7 +471,7 @@ private _latTemplate = {
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_lat_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
-    ["antiTankGrenades", 1] call _fnc_addItem;
+    ["antiTankGrenades", 2] call _fnc_addItem;
     ["smokeGrenades", 1] call _fnc_addItem;
 
     ["maps"] call _fnc_addMap;

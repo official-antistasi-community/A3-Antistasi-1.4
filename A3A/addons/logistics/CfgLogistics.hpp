@@ -42,6 +42,7 @@ class DOUBLES(ADDON,Cargo)
     #include "Cargo\GM.hpp"
     #include "Cargo\RHS.hpp"
     #include "Cargo\SPE.hpp"
+    #include "Cargo\IFA.hpp"
     #include "Cargo\UNS.hpp"
     #include "Cargo\Vanilla.hpp"
     #include "Cargo\VN.hpp"

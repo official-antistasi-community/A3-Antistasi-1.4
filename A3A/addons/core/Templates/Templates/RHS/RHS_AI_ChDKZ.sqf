@@ -492,20 +492,32 @@ _officerLoadoutData set ["slRifles", [
 
 if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 
-    private _uniforms3cb = ["rhsgref_uniform_reed","UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03"];
-    _militiaLoadoutData set ["uniforms", _uniforms3cb];
+    private _uniforms3cb = [];
+    private _uniformsmilitia3cb = [];
+    switch (A3A_climate) do 
+    {
+        case "tropical": {
+            _uniformsmilitia3cb = ["UK3CB_CHD_B_U_H_Pilot_Uniform_03", "UK3CB_CHD_B_U_CombatUniform_04","UK3CB_CHD_B_U_CombatUniform_07"];
+            _uniforms3cb = _uniformsmilitia3cb + ["UK3CB_CHD_B_U_CombatSmock_09", "UK3CB_CHD_B_U_CombatSmock_03", "UK3CB_CHD_B_U_CombatSmock_07"];
+        };
+        case "temperate":{
+            _uniforms3cb = ["UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03"];
+            _uniformsmilitia3cb = _uniforms3cb;
+        };
+        case "arctic":   {
+            _uniforms3cb = ["UK3CB_CHD_B_U_CombatSmock_01", "UK3CB_CHD_B_U_CombatSmock_02","UK3CB_CHD_W_B_U_CombatSmock_06","UK3CB_CHD_B_U_CombatSmock_11","UK3CB_CHD_W_B_U_CombatSmock_04"];
+            _uniformsmilitia3cb = _uniforms3cb;
+        };
+        default          {  //Unknown or arid, probably arid
+            _uniformsmilitia3cb = ["UK3CB_CHD_B_U_H_Pilot_Uniform_03", "UK3CB_CHD_B_U_H_Pilot_Uniform_02","UK3CB_CHD_B_U_H_Pilot_Uniform_01"];
+            _uniforms3cb = _uniformsmilitia3cb + ["UK3CB_CHD_B_U_CombatSmock_06"];
+        };
+    };
+    _militiaLoadoutData set ["uniforms", _uniformsmilitia3cb];
     _militaryLoadoutData set ["uniforms", _uniforms3cb];
     
     _officerLoadoutData set ["uniforms", ["UK3CB_CHD_B_U_CombatUniform_09"]];
     _officerLoadoutData set ["slHat", ["UK3CB_H_Civ_Beret"]];
-};
-
-////////////////////////////////
-//    Additional uniforms     //
-////////////////////////////////
-
-
-if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 };
 
 /////////////////////////////////

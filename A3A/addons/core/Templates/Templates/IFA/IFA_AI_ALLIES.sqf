@@ -6,16 +6,16 @@
 ["spawnMarkerName", "Allies Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "a3\data_f\flags\flag_us_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_USA"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\marker_allies.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_ALLIES"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
 
-["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
-["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
-["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
+["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
+["surrenderCrate", "LIB_BasicAmmunitionBox_US"] call _fnc_saveToTemplate;
+["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate;
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_US_Willys_MB"]] call _fnc_saveToTemplate;
@@ -27,9 +27,9 @@
 ["vehiclesCargoTrucks", ["LIB_US_GMC_Tent","LIB_US_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US_GMC_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["LIB_US_GMC_Parm"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["LIB_OpelBlitz_Fuel"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["LIB_US_GMC_Fuel"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["LIB_US_M3_Halftrack", "LIB_UK_M3_Halftrack"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesFuelTrucks", ["LIB_US_GMC_Fuel"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["LIB_US_GMC_Ambulance"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["LIB_US_M3_Halftrack", "LIB_UK_M3_Halftrack", "LIB_US_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesLightTanks", ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
@@ -55,7 +55,10 @@
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["LIB_FlaK_36_ARTY","LIB_leFH18"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray []] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
+["magazines", createHashMapFromArray [
+["LIB_FlaK_36_ARTY", ["LIB_45x_SprGr_KwK36_HE"]],
+["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]]
+]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
 ["uavsPortable", []] call _fnc_saveToTemplate;
@@ -71,15 +74,15 @@
 ["staticMGs", ["LIB_MG34_Lafette_Deployed"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
-["staticMortars", ["LIB_GrWr34","LIB_GrWr34_g"]] call _fnc_saveToTemplate;
+["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "LIB_8Rnd_81mmHE_GRWR34"] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", "LIB_81mm_GRWR34_SmokeShell"] call _fnc_saveToTemplate;
+["mortarMagazineHE", "LIB_8Rnd_60mmHE_M2"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", ""] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
-["minefieldAT", ["LIB_TMI42_ammo"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["LIB_SMI35_1_ammo","LIB_SMI35_ammo", "LIB_shumine42_ammo"]] call _fnc_saveToTemplate;
+["minefieldAT", ["LIB_US_M1A1_ATMINE_ammo"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["LIB_M3_ammo","LIB_US_M3_ammo"]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///
@@ -119,7 +122,7 @@ _loadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Colt_M1911", "LIB_FLARE_
 _loadoutData set ["ATMines", ["LIB_US_M1A1_ATMINE_mag"]];
 _loadoutData set ["APMines", ["LIB_M3_MINE_mag","LIB_US_M3_MINE_mag"]];
 _loadoutData set ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
-_loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag"]];
+_loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag", "LIB_US_TNT_4pound_mag"]];
 
 _loadoutData set ["antiTankGrenades", ["LIB_No82"]];
 _loadoutData set ["antiInfantryGrenades", ["LIB_US_Mk_2"]];
@@ -369,7 +372,7 @@ private _grenadierTemplate = {
 
     [["grenadeLaunchers", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-    ["primary", 10] call _fnc_addAdditionalMuzzleMagazines;
+    ["primary", selectRandom [3,4,5]] call _fnc_addAdditionalMuzzleMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_grenadier_extras"] call _fnc_addItemSet;
@@ -455,14 +458,19 @@ private _latTemplate = {
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
-    [["lightATLaunchers", "ATLaunchers"] call _fnc_fallback] call _fnc_setLauncher;
-    //TODO - Add a check if it's disposable.
-    ["launcher", 1] call _fnc_addMagazines;
+    if(random 10 > 5) then 
+    {
+        ["ATLaunchers"] call _fnc_setLauncher;
+        ["atBackpacks"] call _fnc_setBackpack;
+        ["launcher", 1] call _fnc_addMagazines;
+        ["antiInfantryGrenades", 1] call _fnc_addItem;
+    } else {
+        ["antiTankGrenades", 4] call _fnc_addItem;
+    };
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_lat_extras"] call _fnc_addItemSet;
     ["items_miscEssentials"] call _fnc_addItemSet;
-    ["antiTankGrenades", 2] call _fnc_addItem;
     ["smokeGrenades", 1] call _fnc_addItem;
 
     ["maps"] call _fnc_addMap;
@@ -573,9 +581,6 @@ private _policeTemplate = {
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
-
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 2] call _fnc_addMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_police_extras"] call _fnc_addItemSet;

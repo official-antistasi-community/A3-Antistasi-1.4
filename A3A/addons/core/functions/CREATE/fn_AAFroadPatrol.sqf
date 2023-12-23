@@ -14,7 +14,8 @@ _roads = [];
 private _players = allPlayers - entities "HeadlessClient_F";
 private _bases = (seaports + airportsX + outposts) select {
 	call {
-		if ((_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo []) && !(_players inAreaArray [markerPos _x, 350, 350] isEqualTo [])) exitWith {false};
+		if ((_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo [])) exitWith {false};
+		if (!(_players inAreaArray [markerPos _x, 350, 350] isEqualTo [])) exitWith {false};
 		private _side = sidesX getVariable [_x, sideUnknown];
 		if (_side == teamPlayer) exitWith {false};
 		if (_x in seaports and Faction(_side) get "vehiclesGunBoats" isEqualTo []) exitWith {false};

@@ -20,9 +20,9 @@
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_US_Willys_MB"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_US_Willys_MB", "LIB_US_Willys_MB_Hood", "LIB_UK_Willys_MB","LIB_UK_Willys_MB_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3_FFV", "LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3_FFV", "LIB_UK_Willys_MB_M1919", "LIB_US_NAC_Scout_M3"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", [
-"LIB_US_GMC_Tent","LIB_US_GMC_Tent","LIB_US_GMC_Open", 
+"LIB_US_GMC_Tent","LIB_US_GMC_Tent","LIB_US_GMC_Open","LIB_US_GMC_Open", 
 "LIB_UniversalCarrier", "LIB_UK_M3_Halftrack", "LIB_US_NAC_GMC_Tent","LIB_US_NAC_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_US_GMC_Tent","LIB_US_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US_GMC_Ammo"]] call _fnc_saveToTemplate;
@@ -32,6 +32,7 @@
 ["vehiclesLightAPCs", ["LIB_US_M3_Halftrack"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
+
 ["vehiclesLightTanks", ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", [
 "LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_76", "LIB_M4A3_76_HVSS",
@@ -65,7 +66,7 @@
 
 //Config special vehicles
 //These intentionally appear again above among the regular 'military' vehile, to inject some british (militia) troops into the mix
-["vehiclesMilitiaLightArmed", ["LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919", "LIB_US_NAC_Scout_M3"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["LIB_UniversalCarrier", "LIB_UK_M3_Halftrack", "LIB_US_NAC_GMC_Tent","LIB_US_NAC_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["LIB_UK_Willys_MB","LIB_UK_Willys_MB_Hood"]] call _fnc_saveToTemplate;
 

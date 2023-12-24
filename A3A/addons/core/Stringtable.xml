@@ -2319,15 +2319,12 @@
         <Original>Antistasi has a custom save system similar to other CTIs.&lt;br/&gt;&lt;br/&gt;To Save: Your commander needs to go to the &lt;t color='#f0d498'&gt;Map Board&lt;/t&gt;, scroll-select &lt;t color='#f0d498'&gt;""Game Options""&lt;/t&gt; and click on the &lt;t color='#f0d498'&gt;""Persistent Save""&lt;/t&gt; button.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
-        <Original>Current parameters are configured to auto-save every </Original>
+        <Original>Current parameters are configured to auto-save every %1 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line3">
-        <Original> minutes.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
         <Original>Auto-save is currently disabled.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line5">
+      <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
         <Original>W A R N I N G</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_dialogHQ_upgrade">
@@ -4958,6 +4955,9 @@
       </Key>
       <Key ID="STR_A3A_fn_punishment_evalEvent_driver">
         <Original>You hit a friendly while driving.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_admin">
+        <Original>You damaged a friendly as an admin.</Original>
       </Key>
       <Key ID="STR_A3A_fn_punishment_evalEvent_CAS">
         <Original>You damaged a friendly as an air asset.</Original>

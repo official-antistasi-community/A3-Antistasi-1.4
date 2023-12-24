@@ -173,7 +173,7 @@ if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal 
 
 if (_typeArty != "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mortarStrike";
+	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_artyStrike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;

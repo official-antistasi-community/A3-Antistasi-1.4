@@ -8,7 +8,7 @@ private _inPlayerGroup = (isPlayer (leader _unit));
 if (_unit getVariable ["helping",false]) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_ai_autoLoot_noHelping"}};
 
 private _rearming = _unit getVariable ["rearming",false];
-if (_rearming) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_loot_noDoing"; _unit setVariable ["rearming",false]}};
+if (_rearming) exitWith {if (_inPlayerGroup) then {_unit groupChat localize "STR_A3A_fn_ai_autoLoot_noDoing"; _unit setVariable ["rearming",false]}};
 if (vehicle _unit != _unit) exitWith {};
 _unit setVariable ["rearming",true];
 

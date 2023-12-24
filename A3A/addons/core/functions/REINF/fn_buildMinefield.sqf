@@ -106,7 +106,7 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 		waitUntil {!(isPlayer leader _groupX)};
 		};
 	theBoss hcRemoveGroup _groupX;
-	[petros,"hint",localize "STR_A3A_fn_reinf_buildMinefield_buildingLong", localize "STR_A3A_fn_reinf_buildMinefield_buildingTitle"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"hint",localize "STR_A3A_fn_reinf_buildMinefield_long", localize "STR_A3A_fn_reinf_buildMinefield_buildingTitle"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 
 	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionTel, true] call A3A_fnc_patrolLoop;
 

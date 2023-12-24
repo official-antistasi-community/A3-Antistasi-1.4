@@ -2,7 +2,7 @@ params ["_unit", "_playerX"];
 
 if (captive _playerX) then { _playerX setCaptive false };
 
-_playerX globalChat localize "STR_A3A_fn_libPOW";
+_playerX globalChat localize "STR_A3A_fn_ai_libPOW";
 _unit setDir (getDir _playerX);
 _playerX playMove "MountSide";
 sleep 5;

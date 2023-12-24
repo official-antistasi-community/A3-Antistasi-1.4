@@ -101,8 +101,8 @@
         <Turkish>Seçili pozisyon bu bataryanın menzili dışında.</Turkish>
         <Chinesesimp>你所标记的位置位于该炮组射程之外.</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_mortarStrike">
-        <Original>Mortar Strike</Original>
+      <Key ID="STR_A3A_fn_ai_artySupport_artyStrike">
+        <Original>Artillery Strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_select">
         <Original>You must select an artillery group.</Original>
@@ -1407,7 +1407,7 @@
       <Key ID="STR_A3A_fn_base_markerChange_otherAirbase">
         <Original>%1 lost an Airbase</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesFactoy">
+      <Key ID="STR_A3A_fn_base_markerChange_yesFactory">
         <Original>Factory Taken</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noFactory">
@@ -2337,7 +2337,7 @@
         <Original>Fast traveling, travel time: %1s, please wait.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
-        <Original>"You arrived at the destination.</Original>
+        <Original>You arrived at the destination.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_cancelled">
         <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase.</Original>
@@ -4583,6 +4583,9 @@
       <Key ID="STR_A3A_fn_orgp_promotedPlayers">
         <Original>Promoted Players:</Original>
       </Key>
+      <Key ID="STR_A3A_fn_orgp_promotePlayer_promotion">
+        <Original>Promotion</Original>
+      </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
         <Italian>%1 non ha abbastanza risorse per poter prendere.</Italian>
@@ -6124,7 +6127,7 @@
         <Korean>소생하려면 당신 또는 %1에게 구급상자 또는 응급처치도구가 필요합니다.</Korean>
         <Czech>Ty nebo %1 potřebuje Soupravu první pomoci nebo Zdravotnickou soupravu aby jsi mohl oživovat.</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_actRev_no_meds_AI">
+      <Key ID="STR_A3A_fn_revive_actRev_no_meds_AI">
         <Original>I'm out of First Aid Kits and I have no Medikit!</Original>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_up">
@@ -6652,7 +6655,7 @@
         <Original>Land QRF</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
-        <Original>A %1 air QRF is landing</Original>
+        <Original>A %1 air QRF is arriving</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
         <Original>Air QRF</Original>
@@ -6706,7 +6709,7 @@
         <Original>Air superiority target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
-        <Original>A %1 fixed-wing CAS has visual on target and is preparing for run</Original>
+        <Original>A %1 CAS aircraft has visual on target and is preparing for run</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
         <Original>CAS Target</Original>

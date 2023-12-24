@@ -219,7 +219,7 @@ _militaryLoadoutData set ["vests", ["V_LIB_US_Vest_Garand"]];
 _militaryLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
 _militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet"]];
 
-_militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine"]];
+_militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine", "LIB_M1_Carbine"]];
 _militaryLoadoutData set ["rifles", ["LIB_M1_Garand"]];
 _militaryLoadoutData set ["carbines", ["LIB_M1_Carbine"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
@@ -250,7 +250,7 @@ _militiaLoadoutData set ["antiInfantryGrenades", ["LIB_MillsBomb"]];
 _militiaLoadoutData set ["smokeGrenades", ["LIB_No77"]];
 
 _militiaLoadoutData set ["ATLaunchers", ["LIB_PIAT"]];
-_militiaLoadoutData set ["slWeapons", ["LIB_M1928A1_Thompson", "LIB_Sten_Mk5", "LIB_Sten_Mk2"]];
+_militiaLoadoutData set ["slWeapons", ["LIB_M1928A1_Thompson", "LIB_Sten_Mk5", "LIB_Sten_Mk2", "LIB_Sten_Mk5", "LIB_Sten_Mk2"]];
 _militiaLoadoutData set ["rifles", ["LIB_LeeEnfield_No4"]];
 _militiaLoadoutData set ["carbines", ["LIB_M1_Carbine", "LIB_LeeEnfield_No4"]];
 _militiaLoadoutData set ["grenadeLaunchers", [

@@ -93,7 +93,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 ["vehiclesPolice", ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt", "LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["LIB_MG34_Lafette_Deployed","LIB_MG42_Lafette_Deployed","LIB_MG42_Lafette_Deployed"]] call _fnc_saveToTemplate;
-["staticAT", ["LIB_Pak40","LIB_Pak40_g","LIB_FlaK_36","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
+["staticAT", ["LIB_Pak40_g","LIB_Pak40_g","LIB_FlaK_36","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_30","LIB_FlaK_30","LIB_FlaK_38","LIB_FlaK_38","LIB_Flakvierling_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_GrWr34","LIB_GrWr34_g"]] call _fnc_saveToTemplate;
 

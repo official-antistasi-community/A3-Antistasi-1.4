@@ -34,10 +34,22 @@
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 
 ["vehiclesLightTanks", ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
-["vehiclesTanks", [
-"LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_76", "LIB_M4A3_76_HVSS",
-"LIB_Churchill_Mk7","LIB_Cromwell_Mk4","LIB_Churchill_Mk7","LIB_Cromwell_Mk4","LIB_M4A4_FIREFLY"
-]] call _fnc_saveToTemplate;
+
+private _mediumTanks = [
+"LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_75","LIB_Cromwell_Mk4","LIB_Cromwell_Mk4"
+];
+private _heavyTanks = [
+"LIB_Churchill_Mk7","LIB_Churchill_Mk7","LIB_Churchill_Mk7_Howitzer","LIB_Churchill_Mk7_AVRE","LIB_Churchill_Mk7_Crocodile",
+"LIB_M4A4_FIREFLY", "LIB_M4A4_FIREFLY", "LIB_M4A3_76", "LIB_M4A3_76_HVSS", "LIB_M4A3_76", "LIB_M4A3_76_HVSS"
+];
+private _heavyCount = count _heavyTanks;
+private _mediumCount = count _mediumTanks;
+//We want roughly 2/3rds mediums and 1/3rd heavy, constant is how many times more than the heavies that we want to add ie 2:1
+private _tankRatio = round (2/(_mediumCount / _heavyCount)); 
+private _tanks = _heavyTanks;
+for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
+["vehiclesTanks", _tanks] call _fnc_saveToTemplate;
+
 ["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 

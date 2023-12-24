@@ -27,10 +27,11 @@ if (_pool isEqualTo []) then {
     if (_pool isEqualTo []) then {
         _pool = A3A_rebelGear get "SMGs";
         if (_pool isEqualTo []) then {
-            _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles");
-            if ((A3A_rebelGear get "SniperRifles") isEqualTo []) then {
-                _pool = _pool + (A3A_rebelGear get "Handguns");
+            private _pistolPool = (A3A_rebelGear get "Handguns");
+            for "_i" from 1 to (count _pistolPool) step 2 do { 
+                _pistolPool  set [_i, 0.5]
             };
+            _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles") + _pistolPool;
         };
     };
 };

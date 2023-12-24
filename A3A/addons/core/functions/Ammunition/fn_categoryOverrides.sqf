@@ -393,6 +393,12 @@ private _categoryOverrideTable = [
 ["LIB_GrWr34_Barrel_g", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_M2_60_Barrel", ["StaticWeaponParts","Items"]],
+["LIB_FG42G", ["SniperRifles","MachineGuns","Rifles","Weapons"]],
+["LIB_MP44", ["SMGs","Rifles","Weapons"]],
+["LIB_Faustpatrone", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["LIB_PzFaust_30m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["LIB_PzFaust_60m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["LIB_M1A1_Bazooka", ["RocketLaunchers","Weapons","AT","MissileLaunchers"]],
 
 //GM wrong listed stuff
 ["gm_m72a3_oli", ["RocketLaunchers","Weapons","AT","Disposable"]],
@@ -438,7 +444,9 @@ private _categoryOverrideTable = [
 ["SPE_K98_Late_GW", ["Rifles","Weapons","GrenadeLaunchers"]],
 ["SPE_M1903A3_Springfield_M1_GL", ["Rifles","Weapons","GrenadeLaunchers"]],
 ["SPE_M1_Carbine_M8", ["Rifles","Weapons","GrenadeLaunchers"]],
-["SPE_M1_Garand_M7", ["Rifles","Weapons","GrenadeLaunchers"]] ];
+["SPE_M1_Garand_M7", ["Rifles","Weapons","GrenadeLaunchers"]] 
+
+];
 
 
 //Create a local namespace.

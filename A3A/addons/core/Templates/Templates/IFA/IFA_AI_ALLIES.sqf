@@ -239,10 +239,10 @@ _militaryLoadoutData set ["machineGuns", [
 private _policeLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
 _policeLoadoutData set ["vests", ["V_LIB_SOV_RA_Belt"]];
-_policeLoadoutData set ["helmets", ["H_LIB_SOV_RA_PrivateCap"]];
+_policeLoadoutData set ["helmets", ["H_LIB_SOV_RA_PrivateCap"]]; //I did want a US Garrison/Side cap
 
 _policeLoadoutData set ["rifles", [
-["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""], "LIB_M44", "LIB_M38"
+["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1903A3_Springfield" //The one gun worse than an enfield for the allies
 ]];
 
 ////////////////////////////////

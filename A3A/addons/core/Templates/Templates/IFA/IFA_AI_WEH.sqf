@@ -629,6 +629,7 @@ private _pilotTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
+    ["backpacks"] call _fnc_setBackpack;
     ["uniforms"] call _fnc_setUniform;
 
     ["sidearms"] call _fnc_setHandgun;

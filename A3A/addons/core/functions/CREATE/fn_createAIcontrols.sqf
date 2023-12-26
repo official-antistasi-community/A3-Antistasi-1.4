@@ -73,13 +73,32 @@ if (_isControl) then
 		_groupE = grpNull;
 		if !(A3A_hasIFA) then
 			{
+            private _IFAMaps = ["Hyde_Sark"];
+            private _ifLowMGs = false;
+            private _bunkerClass = "Land_BagBunker_01_Small_green_F";
+            private _offset = [0,0, 0];
+			if (worldname == "SPE_Normandy" || worldname in _IFAMaps) then {
+                _ifLowMGs = true;
+                if (worldname == "SPE_Normandy") then {
+                    _bunkerClass = "Land_SPE_Sandbag_Nest";
+                    _offset = [-0.200684,-0.91333,-0.421184]
+                } else {
+                    _bunkerClass = "Fort_EnvelopeSmall";
+                    _offset = [0,1.5,0]
+                };
+            } else {
+                if (A3A_climate == "arid") then 
+                {
+                    _bunkerClass = "Land_BagBunker_Small_F";
+                };
+            };
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-			if (worldname == "SPE_Normandy") then {
-				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+			if (_ifLowMGs) then {
+				_bunker = _bunkerClass createVehicle _pos;
 				_bunker setDir _dirveh;
-				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+				_pos = _bunker modelToWorld _offset;
 			} else {
-				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker = _bunkerClass createVehicle _pos;
 				_bunker setDir _dirveh;
 				_pos = getPosATL _bunker;
 			};
@@ -97,15 +116,15 @@ if (_isControl) then
 			_soldiers pushBack _unit;
 			sleep 1;
 			_pos = [getPos (_roads select 0), 7, _dirveh + 90] call BIS_Fnc_relPos;
-			if (worldname == "SPE_Normandy") then {
-				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+			if (_ifLowMGs) then {
+				_bunker = _bunkerClass createVehicle _pos;
 				_bunker setDir _dirveh + 180;
-				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+				_pos = _bunker modelToWorld _offset;
 				_vehiclesX pushBack _bunker;
 				_typeVehX = selectRandom (_faction get "staticMGs");
 				_veh = _typeVehX createVehicle _positionX;
 				_vehiclesX pushBack _veh;
-				_veh setPosATL _pos;
+                _veh setPosATL _pos;
 				_veh setDir _dirVeh + 180;
 
 				_typeUnit = _faction get "unitStaticCrew";
@@ -113,7 +132,7 @@ if (_isControl) then
 				_unit moveInGunner _veh;
 				_soldiers pushBack _unit;
 			} else {
-				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker = _bunkerClass createVehicle _pos;
 				_bunker setDir _dirveh + 180;
 				_pos = getPosATL _bunker;
 				_vehiclesX pushBack _bunker;

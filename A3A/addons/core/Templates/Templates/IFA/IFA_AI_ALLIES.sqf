@@ -84,7 +84,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_MG34_Lafette_Deployed"]] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
@@ -95,7 +95,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["LIB_US_M1A1_ATMINE_ammo"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["LIB_M3_ammo","LIB_US_M3_ammo"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["LIB_US_M3_ammo"]] call _fnc_saveToTemplate;
 
 /////////////////////
 ///  Identities   ///
@@ -133,7 +133,7 @@ _loadoutData set ["sidearms", ["LIB_Colt_M1911"]];
 _loadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Colt_M1911", "LIB_FLARE_PISTOL"]];
 
 _loadoutData set ["ATMines", ["LIB_US_M1A1_ATMINE_mag"]];
-_loadoutData set ["APMines", ["LIB_M3_MINE_mag","LIB_US_M3_MINE_mag"]];
+_loadoutData set ["APMines", ["LIB_US_M3_MINE_mag"]];
 _loadoutData set ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
 _loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag", "LIB_US_TNT_4pound_mag"]];
 
@@ -753,7 +753,7 @@ private _unitTypes = [
     ["Standard", _policeTemplate]
 ];
 
-[_prefix, _unitTypes, _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+[_prefix, _unitTypes, _policeLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 
 ////////////////////////
 //    Militia Units    //

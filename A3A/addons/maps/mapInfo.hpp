@@ -5,6 +5,7 @@ class mapInfo {
     #include "Antistasi_chernarus_winter.chernarus_winter\mapInfo.hpp"
     #include "Antistasi_chernarus.chernarus\mapInfo.hpp"
     #include "Antistasi_Enoch.Enoch\mapInfo.hpp"
+    #include "Antistasi_Hyde_Sark.Hyde_Sark\mapInfo.hpp"
     #include "Antistasi_Kunduz.Kunduz\mapInfo.hpp"
     #include "Antistasi_Malden.Malden\mapInfo.hpp"
     #include "Antistasi_sara.sara\mapInfo.hpp"

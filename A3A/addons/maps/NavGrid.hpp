@@ -5,6 +5,7 @@ class NavGrid {
     chernarus_winter = QPATHTOFOLDER(Antistasi_chernarus_winter.chernarus_winter\navGrid.sqf);
     chernarus = QPATHTOFOLDER(Antistasi_chernarus.chernarus\navGrid.sqf);
     Enoch = QPATHTOFOLDER(Antistasi_Enoch.Enoch\navGrid.sqf);
+    Hyde_Sark = QPATHTOFOLDER(Antistasi_Hyde_Sark.Hyde_Sark\navGrid.sqf);
     Kunduz = QPATHTOFOLDER(Antistasi_Kunduz.Kunduz\navGrid.sqf);
     Malden = QPATHTOFOLDER(Antistasi_Malden.Malden\navGrid.sqf);
     sara = QPATHTOFOLDER(Antistasi_sara.sara\navGrid.sqf);

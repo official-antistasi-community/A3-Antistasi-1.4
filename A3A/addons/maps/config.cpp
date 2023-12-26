@@ -34,6 +34,9 @@ class CfgMissions
         A3A_Mission(chernarus_winter)
         A3A_Mission(chernarus)
         A3A_Mission(Enoch)
+#if __A3_DEBUG__
+        A3A_Mission(Hyde_Sark)
+#endif
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
         A3A_Mission(sara)

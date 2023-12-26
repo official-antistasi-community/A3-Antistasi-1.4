@@ -118,7 +118,7 @@ _rebUniforms append [
     "U_IG_leader",
     "U_IG_Guerrilla_6_1",
     "U_I_G_resistanceLeader_F"
-]
+];
 
 private _dlcUniforms = [];
 

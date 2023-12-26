@@ -200,8 +200,8 @@ _sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_M1928A1_Thompson", "LIB_M1_Garand", "LIB_M1A1_Carbine"]];
-_sfLoadoutData set ["rifles", ["LIB_M1_Garand"]];
+_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_M1928A1_Thompson", "LIB_M1_Garand", "LIB_M1A1_Carbine", "LIB_M1A1_Carbine"]];
+_sfLoadoutData set ["rifles", ["LIB_M1_Garand", "LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["LIB_M1_Garand_M7", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
@@ -231,6 +231,19 @@ _militaryLoadoutData set ["machineGuns", [
 ["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], "LIB_M1918A2_BAR_Bipod"],
 ["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], "LIB_M1918A2_BAR_Bipod"],
 "LIB_M1919A4", "LIB_M1919A6"]];
+
+///////////////////////////////
+//    Police Loadout Data    //
+///////////////////////////////
+
+private _policeLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+_policeLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
+_policeLoadoutData set ["vests", ["V_LIB_SOV_RA_Belt"]];
+_policeLoadoutData set ["helmets", ["H_LIB_SOV_RA_PrivateCap"]];
+
+_policeLoadoutData set ["rifles", [
+["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""], "LIB_M44", "LIB_M38"
+]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //

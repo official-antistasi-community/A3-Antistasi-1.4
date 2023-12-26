@@ -243,8 +243,8 @@ if (_type == "CAS") then
         };
         case "LIB_RAF_P39": {
             _loadout = ["LIB_1Rnd_US_500lb","LIB_30Rnd_M4_P39","LIB_1000Rnd_M2_P39"];
-            _plane setVariable ["mainGun", "LIB_4xM2_P39"];
-            _plane setVariable ["rocketLauncher", ["LIB_M4_P39"]]; //Cannon, idk where to put this as mainGun does not take an array
+            _plane setVariable ["mainGun", "LIB_M4_P39"];
+            _plane setVariable ["rocketLauncher", ["LIB_4xM2_P39"]]; //I'd like it to do more than one gun run
             _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };

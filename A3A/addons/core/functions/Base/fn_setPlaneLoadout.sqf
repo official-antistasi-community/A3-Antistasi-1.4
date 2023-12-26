@@ -226,16 +226,38 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "Tornado_AWS_CANNON_W"];
             _plane setVariable ["missileLauncher", ["FIR_Brimstone"]];
         };
-        // IFA test planes
+        // IFA planes
+        case "LIB_FW190F8_2": {
+            _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC250","LIB_1Rnd_SC50","LIB_1Rnd_SC50", "LIB_2000Rnd_MG131_FW190","LIB_500Rnd_MG151_FW190"];
+            _plane setVariable ["mainGun", "LIB_2xMG131_FW190"];
+            _plane setVariable ["rocketLauncher", ["LIB_2xMG151_FW190"]]; //Cannon, idk where to put this as mainGun does not take an array
+            _plane setVariable ["bombRacks", ["LIB_SC250_Bomb_Mount","LIB_SC50_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
+        case "LIB_P47": {
+            _loadout = ["LIB_1Rnd_US_500lb","LIB_1Rnd_US_500lb","LIB_1Rnd_US_500lb", "LIB_6Rnd_M8_P47", "LIB_6Rnd_M8_P47", "LIB_4000Rnd_M2_P47"];
+            _plane setVariable ["mainGun", "LIB_8xM2_P47"];
+            _plane setVariable ["rocketLauncher", ["LIB_M8_Launcher_P47"]];
+            _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
+        case "LIB_RAF_P39": {
+            _loadout = ["LIB_1Rnd_US_500lb","LIB_30Rnd_M4_P39","LIB_1000Rnd_M2_P39"];
+            _plane setVariable ["mainGun", "LIB_M4_P39"];
+            _plane setVariable ["rocketLauncher", ["LIB_4xM2_P39"]]; //I'd like it to do more than one gun run
+            _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
+            _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+        };
         case "LIB_Ju87": {
-            _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50"];
+            _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50", "LIB_500Rnd_MG151_JU87"];
             _plane setVariable ["mainGun", "LIB_2xMG151_JU87"];
             _plane setVariable ["bombRacks", ["LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"]];
-            _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [15, -2]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
+            _plane setVariable ["diveParams", [1200, 400, 110, 55, 15, [15, -2]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
         case "LIB_Pe2": {
-            _loadout = ["LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250"];
-            _plane setVariable ["mainGun", "LIB_UBK_PE2"];
+            _loadout = ["LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250", "LIB_450Rnd_ShKAS_PE2","LIB_150Rnd_UBK_PE2"];
+            _plane setVariable ["mainGun", "LIB_ShKAS_PE2"];
+            _plane setVariable ["rocketLauncher", ["LIB_UBK_PE2"]]; //Cannon, idk where to put this as mainGun does not take an array
             _plane setVariable ["bombRacks", ["LIB_FAB250_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 300, 110, 55, 15, [12, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
@@ -410,6 +432,26 @@ if (_type == "AA") then
         case "Tornado_AWS_GER":
         {
             _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_type2_P_3rnd_M","FIR_Brimstone_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
+        };
+        //AA Planes to be used without pylons, ie ww2
+        case "LIB_P39";
+        case "LIB_RA_P39_2";
+        case "LIB_RA_P39_3";
+        case "LIB_RAF_P39";
+        case "LIB_US_P39";
+        case "LIB_US_P39_2";
+        case "LIB_P47";
+        case "LIB_FW190F8";
+        case "LIB_FW190F8_2";
+        case "LIB_FW190F8_3";
+        case "LIB_FW190F8_4";
+        case "LIB_FW190F8_5";
+        case "SPE_P47";
+        case "SPE_FW190F8":
+        {
+            {
+                _plane setPylonLoadout [_forEachIndex + 1, "", true];
+            } forEach getPylonMagazines _plane;
         };
         default
         {

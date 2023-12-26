@@ -29,6 +29,9 @@ class CfgMissions
     { // mission folder names need to be `Antistasi_{Map name}.{Map name}`
         A3A_Mission(Altis)
         A3A_Mission(Enoch)
+#if __A3_DEBUG__
+        A3A_Mission(Hyde_Sark)
+#endif
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
         A3A_Mission(SPE_Normandy)

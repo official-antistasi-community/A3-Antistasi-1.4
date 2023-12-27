@@ -14,7 +14,7 @@
 
 // All of bellow are optional overrides.
 ["diveGear", [""]] call _fnc_saveToTemplate;
-["flyGear", ["U_LIB_US_Bomber_Pilot", "U_LIB_GER_LW_pilot"]] call _fnc_saveToTemplate;
+["flyGear", ["U_LIB_US_Bomber_Pilot"]] call _fnc_saveToTemplate;
 ["vehiclesCivSupply", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate;
 
 ["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate; //WIP
@@ -30,7 +30,7 @@
 ["vehiclesAT", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;
 ["vehiclesAA", []] call _fnc_saveToTemplate;
 
-["vehiclesBoat", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesBoat", ["LIB_LCA"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate;
@@ -41,7 +41,7 @@
 ["vehiclesCivBoat", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", []] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_MG34_Lafette_Deployed"]] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_FlaK_30"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
@@ -54,7 +54,7 @@
 ["breachingExplosivesAPC", [["LIB_Ladung_Big_MINE_mag", 1], ["LIB_Ladung_Small_MINE_mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["LIB_US_TNT_4pound_mag", 1], ["LIB_Ladung_Big_MINE_mag", 2]]] call _fnc_saveToTemplate;
 
-//Enter #include "Modset_Reb_Vehicle_Attributes.sqf" here
+#include "IFA_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //

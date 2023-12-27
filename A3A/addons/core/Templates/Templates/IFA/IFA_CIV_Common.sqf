@@ -59,7 +59,11 @@ private _civUniforms = [
 "U_LIB_CIV_Woodlander_1",
 "U_LIB_CIV_Woodlander_2",
 "U_LIB_CIV_Woodlander_3",
-"U_LIB_CIV_Woodlander_4"
+"U_LIB_CIV_Woodlander_4",
+"U_LIB_CIV_Worker_1",
+"U_LIB_CIV_Worker_2",
+"U_LIB_CIV_Worker_3",
+"U_LIB_CIV_Worker_4"
 ];          //Uniforms given to Normal Civs
 
 private _workerUniforms = [

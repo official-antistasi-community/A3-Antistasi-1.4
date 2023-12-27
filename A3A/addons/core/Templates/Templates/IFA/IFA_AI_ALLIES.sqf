@@ -111,7 +111,6 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 //SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
 //UK Forces
 ["milVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
-["polVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
 "EnglishMen" call _fnc_saveNames;
 
 //////////////////////////

@@ -1,10 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private ["_hr","_resourcesFIA","_hrT","_resourcesFIAT"];
+params["_hr","_resourcesFIA",["_silent", false]];
+private ["_hrT","_resourcesFIAT"];
 waitUntil {!resourcesIsChanging};
 resourcesIsChanging = true;
-_hr = _this select 0;
-_resourcesFIA = _this select 1;
 if (isNil "_resourcesFIA") then {Error("_resourceFIA is nil");};
 if ((isNil "_hr") or (isNil "_resourcesFIA")) exitWith {resourcesIsChanging = false};
 if ((floor _resourcesFIA == 0) and (floor _hr == 0)) exitWith {resourcesIsChanging = false};
@@ -20,6 +19,7 @@ if (_resourcesFIAT < 0) then {_resourcesFIAT = 0};
 server setVariable ["hr",_hrT,true];
 server setVariable ["resourcesFIA",_resourcesFIAT,true];
 resourcesIsChanging = false;
+[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
 
 _textX = "";
 _hrSim = "";
@@ -35,8 +35,6 @@ else
 	if (_hr != 0) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>HR: %3%1",_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,FactionGet(reb,"name")]} else {if (_resourcesFIA != 5) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>Money: %4%2 €",_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,FactionGet(reb,"name")]}}; //TODO: Localize
 	};
 
-if (_textX != "") then
-	{
-	[petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",theBoss];
-	//[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
-	};
+if (_textX isEqualTo "") exitWith {};
+if (_silent) exitWith {_textX;};
+[petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",theBoss];

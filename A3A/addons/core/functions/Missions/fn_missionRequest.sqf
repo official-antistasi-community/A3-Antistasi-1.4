@@ -158,6 +158,7 @@ switch (_type) do {
 
 	case "RES": {
 		_possibleMarkers = [citiesX] call _findIfNearAndHostile;
+		_possibleMarkers = _possibleMarkers select {spawner getVariable _x != 0}; // so refugee missions don't get spawned on top of people -- might need to tweak if there arent enough unspawned sites
 		{
 			private _spawner = spawner getVariable _x;
 			if (_spawner != 0) then {_possibleMarkers pushBack _x};

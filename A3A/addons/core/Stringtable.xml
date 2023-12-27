@@ -4307,11 +4307,11 @@
         <Czech>Vlastnosti jednotky</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_you">
-        <Original>You have selected %1.</Original>
-        <Italian>Hai selezionato %1.</Italian>
-        <French>Vous avez sélectionné %1.</French>
-        <Korean>당신은 %1을(를) 선택했습니다.</Korean>
-        <Polish>Wybrałeś %1.</Polish>
+        <Original>You have selected %1</Original>
+        <Italian>Hai selezionato %1</Italian>
+        <French>Vous avez sélectionné %1</French>
+        <Korean>당신은 %1을(를) 선택했습니다</Korean>
+        <Polish>Wybrałeś %1</Polish>
         <Czech>Zvolil jsi %1</Czech>
       </Key>
     </Container>
@@ -4461,8 +4461,16 @@
         <Czech>Prosím nezabíjej členy svého týmu. Dívej se na želvičky ještě 1% sekund.</Czech>
         <Chinesesimp>好好好，喜欢欺负队友是吧. 那你就盯着这个乌龟 %1 秒.</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_punish_punSenSv_text">
-        <Original>has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
+      <Key ID="STR_A3A_fn_punish_punSenSv_text1">
+        <Original>%1 has been found guilty of FF (3+ Strikes). Last hit was against %2.&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
+        <Italian>è stato riconosciuto colpevole di FA (3+ Falli).&lt;br/&gt;&lt;br/&gt;</Italian>
+        <French>a été reconnu coupable de tir ami (3+ reprises).&lt;br/&gt;&lt;br/&gt; Si vous pensez que c'est une erreur, vous pouvez le pardonner avec le menu déroulant adéquat.</French>
+        <Korean>아군 오사(3번 이상 공격)에 대해 유죄가 인정되었습니다.&lt;br/&gt;&lt;br/&gt;실수라고 판단된다면 해당 스크롤 메뉴 행동으로 용서할 수 있습니다.</Korean>
+        <Polish>został uznany za winnego zabijania swoich (3+ Strikes).&lt;br/&gt;&lt;br/&gt;Jeśli uważasz, że to pomyłka, możesz mu wybaczyć za pomocą odpowiedniej akcji w menu pod rolką myszki.</Polish>
+        <Czech> byl obviněn ze střelby do vlastních (3+ varování).&lt;br/&gt;&lt;br/&gt;Pokud si myslíš že je to omyl, můžeš mu odpustit v příslušném scrollovacím menu.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_punish_punSenSv_text2">
+        <Original>%1 has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
         <Italian>è stato riconosciuto colpevole di FA (3+ Falli).&lt;br/&gt;&lt;br/&gt;</Italian>
         <French>a été reconnu coupable de tir ami (3+ reprises).&lt;br/&gt;&lt;br/&gt; Si vous pensez que c'est une erreur, vous pouvez le pardonner avec le menu déroulant adéquat.</French>
         <Korean>아군 오사(3번 이상 공격)에 대해 유죄가 인정되었습니다.&lt;br/&gt;&lt;br/&gt;실수라고 판단된다면 해당 스크롤 메뉴 행동으로 용서할 수 있습니다.</Korean>
@@ -4754,12 +4762,15 @@
         <Czech>Ty a letecké vozidlo musí být v oblasti %1 letiště nebo HQ aby jsi ho mohl převést na body leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_destr">
-        <Original>You can't convert destroyed Air vehicle to Airstrikes.</Original>
+        <Original>You can't convert a destroyed Air vehicle to Airstrikes.</Original>
         <Italian>Non puoi convertire Velivoli distrutt in Attacchi Aerei.</Italian>
         <French>Vous ne pouvez pas convertir de véhicules aérien détruit en Frappes Aériennes.</French>
         <Korean>파괴된 항공기는 공습 포인트로 전환할 수 없습니다.</Korean>
         <Polish>Nie można przekształcić zniszczonego pojazdu powietrznego w "wsparcie z powietrza".</Polish>
         <Czech>Zničené letecké vozidla nemůžeš převést na body leteckého úderu.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_distance">
+        <Original>You can't convert vehicles further than 25m away to Air Support.</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_drone">
         <Original>Backpack drones can't be used to increase Airstrike points.</Original>
@@ -4772,6 +4783,12 @@
       <Key ID="STR_A3A_fn_reinf_bombrun_no_empty">
         <Original>In order to convert a vehicle to Air Support, the vehicle must be empty.</Original>
         <Korean>해당 항공기를 항공 지원으로 전환하려면 항공기가 비어 있어야 합니다.</Korean>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_inVehicle">
+        <Original>You can't convert vehicles to Air Support while in a vehicle.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_bombrun_no_locked">
+        <Original>You can't convert a locked vehicle to Air Support</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_looking">
         <Original>You are not looking at a vehicle.</Original>

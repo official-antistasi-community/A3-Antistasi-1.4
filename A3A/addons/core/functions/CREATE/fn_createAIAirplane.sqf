@@ -11,6 +11,7 @@ if(spawner getVariable _markerX == 2) exitWith {};
 ServerDebug_1("Spawning Airbase %1", _markerX);
 
 _vehiclesX = [];
+_AAvehicles = []; // to disable AA driver AI until everything else is dealt with
 _groups = [];
 _soldiers = [];
 private _dogs = [];
@@ -45,10 +46,11 @@ for "_i" from 1 to _max do
 	_groupVeh = [_sideX, _veh] call A3A_fnc_createVehicleCrew;
 	{[_x,_markerX] call A3A_fnc_NATOinit} forEach units _groupVeh;
 	[_veh, _sideX] call A3A_fnc_AIVEHinit;
+	driver _veh disableAI "MOVE";
 	_soldiers append units _groupVeh;
 	_groups pushBack _groupVeh;
-  	[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop;
 	_vehiclesX pushBack _veh;
+	_AAvehicles pushBack _veh;
 	sleep 1;
 };
 
@@ -343,6 +345,11 @@ for "_i" from 0 to (count _array - 1) do {
 
 ["locationSpawned", [_markerX, "Airport", true]] call EFUNC(Events,triggerEvent);
 
+sleep 5;
+{
+	driver _x enableAI "MOVE"; // reenable movement for spawned AA vehicles
+	[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop; // start patrol
+} forEach _AAvehicles;
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 

@@ -114,6 +114,9 @@ if (!(_exemption isEqualTo "")) exitWith {
     format["NOT FF, %1", _exemption];
 };
 
+// Case of FF is confirmed -- attach the name to the client for future
+_instigator setVariable ["_lastFriendlyHit", name _victim, true];
+
 /////////////Acts on Collision//////////////
 if (_isCollision) then {
     _customMessage = [_customMessage,"You damaged a friendly as a driver."] joinString "<br/>";

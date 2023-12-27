@@ -1,10 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
-private ["_subObject","_ammunition","_originX","_destinationX"];
-_originX = _this select 0;
+params["_originX","_destinationX","_deleteOrigin",["_silent",false]];
+private ["_subObject","_ammunition"];
 if (isNull _originX) exitWith {};
-_destinationX = _this select 1;
 
 if (isNil {	// Run in unschedule scope.
 	if (_originX getVariable ["A3A_JNA_ammunitionTransfer_busy",false]) then {
@@ -154,7 +153,7 @@ if (count _backpcksFinal > 0) then
 		};
 	};
 
-if (count _this == 3) then
+if (_deleteOrigin) then
 	{
 	deleteVehicle _originX;
 	}
@@ -174,7 +173,10 @@ if (_destinationX == boxX) then
 	if (_updated != "") then
 		{
 		_updated = format ["<t size='0.5' color='#C1C0BB'>Arsenal Updated<br/><br/>%1</t>",_updated];
-		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		if !(_silent) then 
+			{
+			[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+			}
 		};
 	}
 else
@@ -185,3 +187,5 @@ else
 if (!isNull _originX) then {
 	_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",false];
 };
+
+_updated;

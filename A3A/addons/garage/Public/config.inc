@@ -69,6 +69,9 @@ HR_GRG_blackListCamo = ["IDAP", "African Desert Extremists", "African Desert Ext
 "Middle East Extremists 01", "Middle East Extremists 02", "Middle East Extremists 03", "Middle East Extremists 04", "Middle East Extremists 05", "Middle East Extremists 06"];
 //proxies"Middle East Extremists 01"
 
+// Banned vehicles. These will be deleted instead of being added to the garage. Internal name, case sensitive
+HR_GRG_blacklistVehicles = ["rhs_rhino_trigger","ACE_I_SpottingScope","ACE_O_SpottingScope","ACE_O_T_SpottingScope","ACE_B_SpottingScope","ACE_B_T_SpottingScope","ACE_SpottingScopeObject"];
+
 HR_GRG_fnc_Hint = {
     params ["_key", ["_arguments", []]];
     ["Garage",

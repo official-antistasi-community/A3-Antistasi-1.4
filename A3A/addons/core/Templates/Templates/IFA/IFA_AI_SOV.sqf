@@ -6,7 +6,7 @@
 ["spawnMarkerName", "Soviet Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\marker_sov.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\flag_sov.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3a_flag_SOV"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -20,7 +20,7 @@
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_Willys_MB", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_Scout_M3_FFV", "LIB_Scout_M3_FFV", "LIB_Zis5v_61K"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightArmed", ["LIB_Scout_M3_FFV", "LIB_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["LIB_US6_Open","LIB_US6_Tent_Cargo"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_US6_Open_Cargo","LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US6_Ammo"]] call _fnc_saveToTemplate;
@@ -30,7 +30,7 @@
 ["vehiclesLightAPCs", ["LIB_SOV_M3_Halftrack", "LIB_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["LIB_SOV_M3_Halftrack", "LIB_SdKfz251_captured_FFV"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesLightTanks", ["LIB_T34_76", "LIB_M4A2_SOV"]] call _fnc_saveToTemplate;
+["vehiclesLightTanks", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", [
 "LIB_T34_76", "LIB_T34_76", "LIB_T34_76", "LIB_M4A2_SOV", "LIB_M4A2_SOV",
 "LIB_T34_85","LIB_SU85","LIB_JS2_43"
@@ -78,8 +78,10 @@
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
-["minefieldAT", ["LIB_TM44_ammo"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["LIB_pomzec_ammo","LIB_PMD6_ammo"]] call _fnc_saveToTemplate;
+["minefieldAT", ["LIB_TM44_MINE"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["LIB_pomzec_MINE","LIB_PMD6_MINE"]] call _fnc_saveToTemplate;
+
+#include "IFA_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -110,8 +112,8 @@ _loadoutData set ["lightATLaunchers", []];
 _loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka"]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", []];
-_loadoutData set ["sidearms", ["LIB_M1895", "LIB_TT33"]];
-_loadoutData set ["slSidearms", ["LIB_M1895", "LIB_TT33", "LIB_FLARE_PISTOL"]];
+_loadoutData set ["sidearms", []];
+_loadoutData set ["slSidearms", []];
 
 _loadoutData set ["ATMines", ["LIB_TM44_MINE_mag"]];
 _loadoutData set ["APMines", ["LIB_PMD6_MINE_mag","LIB_pomzec_MINE_mag"]];
@@ -200,6 +202,8 @@ _sfLoadoutData set ["SMGs", [
 _sfLoadoutData set ["machineGuns", [
 "LIB_DT", "LIB_DT_OPTIC", 
 ["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
+_sfLoadoutData set ["sidearms", ["LIB_TT33"]];
+_sfLoadoutData set ["slSidearms", ["LIB_TT33", "LIB_TT33", "LIB_FLARE_PISTOL"]];
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
@@ -223,6 +227,8 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_PPSh41_m"]];
 _militaryLoadoutData set ["machineGuns", ["LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DT", "LIB_DT", "LIB_DT_OPTIC"]];
+_militaryLoadoutData set ["sidearms", ["LIB_M1895", "LIB_TT33"]];
+_militaryLoadoutData set ["slSidearms", ["LIB_M1895", "LIB_TT33", "LIB_FLARE_PISTOL"]];
 
 ///////////////////////////////
 //    Police Loadout Data    //

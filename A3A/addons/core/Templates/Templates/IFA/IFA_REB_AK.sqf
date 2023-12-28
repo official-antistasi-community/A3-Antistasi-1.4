@@ -17,18 +17,18 @@
 ["flyGear", ["U_LIB_US_Bomber_Pilot"]] call _fnc_saveToTemplate;
 ["vehiclesCivSupply", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate;
 
-["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate; //WIP
+["surrenderCrate", "LIB_Lone_Big_Box"] call _fnc_saveToTemplate; //WIP
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
 
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_GazM1_FFI"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["LIB_GazM1_SOV"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;
-["vehiclesTruck", ["LIB_CIV_FFI_CitC4_5"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;
-["vehiclesAA", []] call _fnc_saveToTemplate;
+["vehiclesTruck", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
+["vehiclesAT", []] call _fnc_saveToTemplate;
+["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["LIB_LCA"]] call _fnc_saveToTemplate;
 
@@ -41,9 +41,9 @@
 ["vehiclesCivBoat", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", []] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_Maxim_M30_base"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3"]] call _fnc_saveToTemplate;
-["staticAA", ["LIB_FlaK_30"]] call _fnc_saveToTemplate;
+["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "LIB_8Rnd_60mmHE_M2"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;
@@ -66,8 +66,11 @@ private _initialRebelEquipment = [
 "LIB_FLARE_PISTOL", "LIB_1Rnd_flare_white",
 "V_LIB_SOV_RA_Belt", "V_LIB_UK_P37_Crew", 
 ["LIB_Ladung_Small_MINE_mag", 10],
-"B_LIB_US_Bandoleer",
-"LIB_Binocular_GER"
+"B_LIB_DAK_A_frame",
+"LIB_Binocular_GER",
+["H_LIB_WP_Helmet", 1],
+["H_LIB_WP_Helmet_camo", 1],
+["H_LIB_WP_Helmet_med", 1]
 ];
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -78,6 +81,12 @@ if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment app
 
 
 private _rebUniforms = [
+"U_LIB_WP_Soldier_camo_1",
+"U_LIB_WP_Soldier_camo_2",
+"U_LIB_WP_Soldier_camo_3"
+];          //Uniforms given to Normal Rebels
+
+private _civUniforms = [
 "U_LIB_CIV_Citizen_1",
 "U_LIB_CIV_Citizen_2",
 "U_LIB_CIV_Citizen_3",
@@ -94,20 +103,19 @@ private _rebUniforms = [
 "U_LIB_CIV_Woodlander_2",
 "U_LIB_CIV_Woodlander_3",
 "U_LIB_CIV_Woodlander_4"
-];          //Uniforms given to Normal Rebels
+];
 
-["uniforms", _rebUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
+["uniforms", _rebUniforms + _civUniforms] call _fnc_saveToTemplate;         //These Items get added to the Arsenal
 
-["headgear", ["H_LIB_CIV_Villager_Cap_1","H_LIB_CIV_Villager_Cap_2","H_LIB_CIV_Villager_Cap_3","H_LIB_CIV_Villager_Cap_4"]] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
+["headgear", ["H_LIB_WP_Cap"]] call _fnc_saveToTemplate;          //Headgear used by Rebell Ai until you have Armored Headgear.
 
 /////////////////////
 ///  Identities   ///
 /////////////////////
 
-//Faces and Voices given to Rebell AI
-["faces", ["LivonianHead_6","WhiteHead_01","WhiteHead_02","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_12","WhiteHead_15","WhiteHead_18"]] call _fnc_saveToTemplate;
-["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
-"RussianMen" call _fnc_saveNames;
+["faces", ["LivonianHead_1","LivonianHead_10","LivonianHead_2","LivonianHead_3","LivonianHead_4","LivonianHead_6","LivonianHead_9","Sturrock","WhiteHead_01","WhiteHead_02","WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_11","WhiteHead_13","WhiteHead_14","WhiteHead_15","WhiteHead_17","WhiteHead_18","WhiteHead_20","WhiteHead_21","WhiteHead_30"]] call _fnc_saveToTemplate;
+["voices", ["Male01pol","Male02pol","Male03pol"]] call _fnc_saveToTemplate;
+"EnochMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

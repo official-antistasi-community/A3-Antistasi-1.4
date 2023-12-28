@@ -23,12 +23,17 @@ _civhats = [
 "H_LIB_CIV_Villager_Cap_1",
 "H_LIB_CIV_Villager_Cap_2",
 "H_LIB_CIV_Villager_Cap_3",
-"H_LIB_CIV_Villager_Cap_4",
-"H_LIB_CIV_Worker_Cap_1",
-"H_LIB_CIV_Worker_Cap_2",
-"H_LIB_CIV_Worker_Cap_3",
-"H_LIB_CIV_Worker_Cap_4"
+"H_LIB_CIV_Villager_Cap_4"
 ];
+
+if(A3A_climate == "arctic") then {
+    _civhats append [
+    "H_LIB_CIV_Worker_Cap_1",
+    "H_LIB_CIV_Worker_Cap_2",
+    "H_LIB_CIV_Worker_Cap_3",
+    "H_LIB_CIV_Worker_Cap_4"
+    ];
+};
 
 ["headgear", _civHats] call _fnc_saveToTemplate;            //Headgear given to Normal Civs, Workers, Undercover Rebels.
 

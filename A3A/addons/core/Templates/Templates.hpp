@@ -952,38 +952,59 @@ class Templates
     class IFA_WEH : IFA_Base
     {
         side = "Inv";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_weh.paa);
         name = "IFA WEHRMACHT";
         priority = 65;
         file = "IFA_AI_WEH";
     };
+    class IFA_SOV : IFA_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_sov.paa);
+        name = "IFA SOVIET ARMY";
+        file = "IFA_AI_SOV";
+    };
     class IFA_ALLIES : IFA_Base
     {
         side = "Occ";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_allies.paa);
         name = "IFA ALLIES";
         priority = 65;
         file = "IFA_AI_ALLIES";
     };
-    class IFA_SOV : IFA_Base
+    class IFA_US : IFA_Base
     {
-        side = "Inv";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
-        name = "IFA SOVIETS";
-        file = "IFA_AI_SOV";
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "IFA US ARMY";
+        file = "IFA_AI_US";
+    };
+    class IFA_UK : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
+        name = "IFA UK ARMY";
+        file = "IFA_AI_UK";
     };
     class IFA_FFI : IFA_Base
     {
         side = "Reb";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ffi.paa);
         name = "IFA French Resistance";
         priority = 65;
         file = "IFA_REB_FFI";
     };
+    class IFA_AK : IFA_Base
+    {
+        side = "Reb";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ak.paa);
+        name = "IFA Polish Resistance";
+        file = "IFA_REB_AK";
+    };
     class IFA_CIV_FR : IFA_Base
     {
         side = "Civ";
-        flagTexture = "\A3\Ui_f\data\Map\Markers\Flags\france_ca.paa";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_fr.paa);
         name = "IFA French";
         priority = 65;
         file = "IFA_CIV_FR";
@@ -991,7 +1012,7 @@ class Templates
     class IFA_CIV_PL : IFA_Base
     {
         side = "Civ";
-        //flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\marker_pl.paa);
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_pl.paa);
         name = "IFA Polish";
         file = "IFA_CIV_PL";
     };

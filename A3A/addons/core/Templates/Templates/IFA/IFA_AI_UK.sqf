@@ -19,24 +19,37 @@
 
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_US_Willys_MB"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_US_Willys_MB", "LIB_US_Willys_MB_Hood", "LIB_UK_Willys_MB","LIB_UK_Willys_MB_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3_FFV", "LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+["vehiclesLightUnarmed", ["LIB_US_Willys_MB", "LIB_US_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", [
-"LIB_US_GMC_Tent","LIB_US_GMC_Tent","LIB_US_GMC_Open","LIB_US_M3_Halftrack", 
-"LIB_UniversalCarrier", "LIB_UK_M3_Halftrack", "LIB_US_NAC_GMC_Tent","LIB_US_NAC_GMC_Open"]] call _fnc_saveToTemplate;
+"LIB_US_GMC_Tent","LIB_US_GMC_Open","LIB_UniversalCarrier", "LIB_UK_M3_Halftrack"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_US_GMC_Tent","LIB_US_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US_GMC_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["LIB_US_GMC_Parm"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["LIB_US_GMC_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["LIB_US_GMC_Ambulance"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["LIB_US_M3_Halftrack", "LIB_UK_M3_Halftrack", "LIB_US_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesLightAPCs", ["LIB_US_M3_Halftrack"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesLightTanks", ["LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
-["vehiclesTanks", [
-"LIB_M4A3_75", "LIB_M4A3_75", "LIB_Cromwell_Mk4", "LIB_Cromwell_Mk4", "LIB_Cromwell_Mk4",
-"LIB_Churchill_Mk7","LIB_Churchill_Mk7","LIB_M4A4_FIREFLY"
-]] call _fnc_saveToTemplate;
+
+["vehiclesLightTanks", ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
+
+private _mediumTanks = [
+"LIB_Cromwell_Mk4", "LIB_Cromwell_Mk4", "LIB_Cromwell_Mk4", "LIB_M4A3_75"
+];
+private _heavyTanks = [
+"LIB_Churchill_Mk7","LIB_Churchill_Mk7",
+"LIB_M4A4_FIREFLY", "LIB_M4A4_FIREFLY",
+"LIB_Churchill_Mk7_Howitzer","LIB_Churchill_Mk7_AVRE","LIB_Churchill_Mk7_Crocodile"
+];
+private _heavyCount = count _heavyTanks;
+private _mediumCount = count _mediumTanks;
+//We want roughly 2/3rds mediums and 1/3rd heavy, constant is how many times more than the heavies that we want to add ie 2:1
+private _tankRatio = round (2/(_mediumCount / _heavyCount)); 
+private _tanks = _heavyTanks;
+for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
+["vehiclesTanks", _tanks] call _fnc_saveToTemplate;
+
 ["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 
@@ -44,8 +57,8 @@
 ["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["LIB_P47","LIB_P47","LIB_RAF_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
-["vehiclesPlanesAA", ["LIB_P47","LIB_RAF_P39","LIB_US_P39","LIB_US_P39_2"]] call _fnc_saveToTemplate;              // 
+["vehiclesPlanesCAS", ["LIB_RAF_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesAA", ["LIB_RAF_P39"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", []] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
@@ -71,7 +84,7 @@
 
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_MG34_Lafette_Deployed"]] call _fnc_saveToTemplate;
+["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
@@ -84,40 +97,39 @@
 ["minefieldAT", ["LIB_US_M1A1_ATMINE_ammo"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["LIB_M3_ammo","LIB_US_M3_ammo"]] call _fnc_saveToTemplate;
 
+#include "IFA_Vehicle_Attributes.sqf"
+
 /////////////////////
 ///  Identities   ///
 /////////////////////
 //Faces and Voices given to AI Factions.
-["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+["voices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
 ["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem",
 "GreekHead_A3_05","GreekHead_A3_07","Sturrock","WhiteHead_01","WhiteHead_02",
 "WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07",
 "WhiteHead_08","WhiteHead_09","WhiteHead_11","WhiteHead_12","WhiteHead_14",
-"WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19","WhiteHead_20",
-"WhiteHead_21"]] call _fnc_saveToTemplate;
-//SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
-//UK Forces
-["milVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
-["polVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
+"WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
 "EnglishMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;
-_loadoutData set ["rifles", []];
+_loadoutData set ["rifles", ["LIB_LeeEnfield_No4"]];
 _loadoutData set ["carbines", []];
-_loadoutData set ["grenadeLaunchers", []];
+_loadoutData set ["grenadeLaunchers", [
+["LIB_LeeEnfield_No4", "LIB_ACC_GL_Enfield_CUP_Empty", "", "", [], ["LIB_1Rnd_G_MillsBomb"], ""]
+]];
 _loadoutData set ["SMGs", []];
-_loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", ["LIB_M1903A4_Springfield"]];
+_loadoutData set ["machineGuns", ["LIB_Bren_Mk2"]];
+_loadoutData set ["marksmanRifles", ["LIB_LeeEnfield_No4_Scoped"]];
 
 _loadoutData set ["lightATLaunchers", []];
-_loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka"]];
+_loadoutData set ["ATLaunchers", ["LIB_PIAT"]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", []];
-_loadoutData set ["sidearms", ["LIB_Colt_M1911"]];
-_loadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Colt_M1911", "LIB_FLARE_PISTOL"]];
+_loadoutData set ["sidearms", ["LIB_Webley_mk6"]];
+_loadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6", "LIB_Webley_Flare"]];
 
 _loadoutData set ["ATMines", ["LIB_US_M1A1_ATMINE_mag"]];
 _loadoutData set ["APMines", ["LIB_M3_MINE_mag","LIB_US_M3_MINE_mag"]];
@@ -125,8 +137,8 @@ _loadoutData set ["lightExplosives", ["LIB_Ladung_Small_MINE_mag"]];
 _loadoutData set ["heavyExplosives", ["LIB_Ladung_Big_MINE_mag", "LIB_US_TNT_4pound_mag"]];
 
 _loadoutData set ["antiTankGrenades", ["LIB_No82"]];
-_loadoutData set ["antiInfantryGrenades", ["LIB_US_Mk_2"]];
-_loadoutData set ["smokeGrenades", ["LIB_US_M18"]];
+_loadoutData set ["antiInfantryGrenades", ["LIB_MillsBomb"]];
+_loadoutData set ["smokeGrenades", ["LIB_No77"]];
 _loadoutData set ["signalsmokeGrenades", ["LIB_US_M18_Green","LIB_US_M18_Red","LIB_US_M18_Yellow"]];
 
 
@@ -138,13 +150,13 @@ _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", []];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
-_loadoutData set ["binoculars", ["LIB_Binocular_US"]];
-_loadoutData set ["rangefinders", ["LIB_Binocular_US"]];
+_loadoutData set ["binoculars", ["LIB_Binocular_UK"]];
+_loadoutData set ["rangefinders", ["LIB_Binocular_UK"]];
 
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["backpacks", []];
-_loadoutData set ["atBackpacks", ["B_LIB_US_RocketBag_Empty"]];
+_loadoutData set ["atBackpacks", ["B_LIB_UK_HSack"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
 
@@ -180,44 +192,29 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_LIB_US_Rangers_Uniform"]];
-_sfLoadoutData set ["vests", ["V_LIB_US_Assault_Vest"]];
-_sfLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
-_sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet"]];
-_sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
+_sfLoadoutData set ["uniforms", ["U_LIB_UK_DenisonSmock"]];
+_sfLoadoutData set ["vests", ["V_LIB_UK_P37_Rifleman"]];
+_sfLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
+_sfLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_M1928A1_Thompson", "LIB_M1_Garand", "LIB_M1A1_Carbine"]];
-_sfLoadoutData set ["rifles", ["LIB_M1_Garand"]];
+_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
 _sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
-_sfLoadoutData set ["grenadeLaunchers", [
-["LIB_M1_Garand_M7", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
-["LIB_M1_Garand_M7", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
-]];
-_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_M1A1_Thompson"]];
-_sfLoadoutData set ["machineGuns", ["LIB_M1918A2_BAR", "LIB_M1919A6"]];
+_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
-_militaryLoadoutData set ["vests", ["V_LIB_US_Vest_Garand"]];
-_militaryLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
-_militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet"]];
+_militaryLoadoutData set ["uniforms", ["U_LIB_UK_P37"]];
+_militaryLoadoutData set ["vests", ["V_LIB_UK_P37_Rifleman"]];
+_militaryLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
+_militaryLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
 
-_militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine"]];
-_militaryLoadoutData set ["rifles", ["LIB_M1_Garand"]];
+_militaryLoadoutData set ["slWeapons", ["LIB_M1_Carbine", "LIB_M1928A1_Thompson", "LIB_Sten_Mk5", "LIB_Sten_Mk5", "LIB_Sten_Mk2", "LIB_Sten_Mk2"]];
 _militaryLoadoutData set ["carbines", ["LIB_M1_Carbine"]];
-_militaryLoadoutData set ["grenadeLaunchers", [
-["LIB_M1_Garand_M7", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
-["LIB_M1_Garand_M7", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
-]];
-_militaryLoadoutData set ["SMGs", ["LIB_M3_GreaseGun", "LIB_M3_GreaseGun", "LIB_M1A1_Thompson"]];
-_militaryLoadoutData set ["machineGuns", [
-["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], "LIB_M1918A2_BAR_Bipod"],
-["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], "LIB_M1918A2_BAR_Bipod"],
-"LIB_M1919A4", "LIB_M1919A6"]];
+_militaryLoadoutData set ["SMGs", ["LIB_Sten_Mk2", "LIB_Sten_Mk2", "LIB_M1928A1_Thompson"]];
+
 
 ////////////////////////////////
 //    Militia Loadout Data    //
@@ -230,34 +227,25 @@ _militiaLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
 _militiaLoadoutData set ["atBackpacks", ["B_LIB_UK_HSack"]];
 _militiaLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
 
-_militiaLoadoutData set ["binoculars", ["LIB_Binocular_UK"]];
-_militiaLoadoutData set ["rangefinders", ["LIB_Binocular_UK"]];
-
-_militiaLoadoutData set ["antiInfantryGrenades", ["LIB_MillsBomb"]];
-_militiaLoadoutData set ["smokeGrenades", ["LIB_No77"]];
-
 _militiaLoadoutData set ["ATLaunchers", ["LIB_PIAT"]];
-_militiaLoadoutData set ["slWeapons", ["LIB_M1928A1_Thompson", "LIB_Sten_Mk5", "LIB_Sten_Mk2"]];
-_militiaLoadoutData set ["rifles", ["LIB_LeeEnfield_No4"]];
-_militiaLoadoutData set ["carbines", ["LIB_M1_Carbine", "LIB_LeeEnfield_No4"]];
-_militiaLoadoutData set ["grenadeLaunchers", [
-["LIB_LeeEnfield_No4_CUP", "LIB_ACC_GL_Enfield_CUP_Empty", "", "", [], ["LIB_1Rnd_G_MillsBomb"], ""]
-]];
+_militiaLoadoutData set ["slWeapons", ["LIB_Sten_Mk2"]];
 _militiaLoadoutData set ["SMGs", ["LIB_Sten_Mk2"]];
 _militiaLoadoutData set ["machineGuns", ["LIB_Bren_Mk2"]];
 _militiaLoadoutData set ["marksmanRifles", ["LIB_LeeEnfield_No4_Scoped"]];
 
-_militiaLoadoutData set ["sidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6"]];
-_militiaLoadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6", "LIB_Webley_Flare"]];
+_militiaLoadoutData set ["sidearms", ["LIB_Webley_mk6"]];
+_militiaLoadoutData set ["slSidearms", ["LIB_Webley_Flare"]];
 
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["U_LIB_US_Tank_Crew", "U_LIB_US_Tank_Crew2"]];
-_crewLoadoutData set ["vests", ["V_LIB_US_Vest_Carbine"]];
-_crewLoadoutData set ["helmets", ["H_LIB_US_Helmet_Tank"]];
+_crewLoadoutData set ["uniforms", ["U_LIB_UK_P37_Sergeant", "U_LIB_UK_P37"]];
+_crewLoadoutData set ["vests", ["V_LIB_UK_P37_Crew"]];
+_crewLoadoutData set ["helmets", ["H_LIB_UK_Beret_Tankist", "H_LIB_UK_Beret_Headset"]];
+
+_crewLoadoutData set ["sidearms", ["LIB_Webley_mk6"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_LIB_US_Pilot", "U_LIB_US_Pilot_2"]];
@@ -268,12 +256,12 @@ _pilotLoadoutData set ["helmets", ["H_LIB_US_Helmet_Pilot"]];
 _pilotLoadoutData set ["sidearms", ["LIB_Colt_M1911"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["uniforms", ["U_LIB_US_Cap"]];
-_officerLoadoutData set ["vests", ["V_LIB_US_Vest_Carbine_nco"]];
-_officerLoadoutData set ["helmets", ["H_LIB_US_Helmet_Cap"]];
+_officerLoadoutData set ["uniforms", ["U_LIB_UK_DenisonSmock"]];
+_officerLoadoutData set ["vests", ["V_LIB_UK_P37_Crew"]];
+_officerLoadoutData set ["helmets", ["H_LIB_UK_Beret"]];
 
-_officerLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1_Carbine"]];
-_officerLoadoutData set ["slSidearms", ["LIB_Colt_M1911"]];
+_officerLoadoutData set ["slWeapons", ["LIB_Sten_Mk2", "LIB_Sten_Mk5"]];
+_officerLoadoutData set ["slSidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6"]];
 
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -427,7 +415,7 @@ private _engineerTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-    [selectRandom["SMGs", "carbines"]] call _fnc_setPrimary;
+    [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -488,13 +476,10 @@ private _atTemplate = {
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-    private _launch = ["ATLaunchers", "lightATLaunchers"] call _fnc_fallback;
+
+    ["atBackpacks"] call _fnc_setBackpack;
     
-    if (_launch == "ATLaunchers") then {
-        ["atBackpacks"] call _fnc_setBackpack;
-    };
-    
-    [_launch] call _fnc_setLauncher;
+    ["ATLaunchers"] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
 

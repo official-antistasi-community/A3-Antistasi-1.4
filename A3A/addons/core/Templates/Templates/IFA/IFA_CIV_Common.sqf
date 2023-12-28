@@ -4,17 +4,15 @@
 ["vehiclesCivCar", [ 
     "LIB_GazM1", 1.5, 
     "LIB_GazM1_dirty", 2.5,
-    "LIB_CIV_FFI_CitC4", 0.5, 
-    "LIB_CIV_FFI_CitC4_2", 0.5, 
-    "LIB_CIV_FFI_CitC4_3", 0.5, 
-    "LIB_Zis5v", 0.25
+    "LIB_CIV_FFI_CitC4", 0.25, 
+    "LIB_CIV_FFI_CitC4_2", 0.25, 
+    "LIB_CIV_FFI_CitC4_3", 0.25
     ]] call _fnc_saveToTemplate;             //this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivIndustrial", [
     "LIB_CIV_FFI_CitC4", 0.25, 
     "LIB_CIV_FFI_CitC4_2", 0.25, 
-    "LIB_CIV_FFI_CitC4_3", 0.25, 
-    "LIB_Zis5v", 0.125
+    "LIB_CIV_FFI_CitC4_3", 0.25
 ]] call _fnc_saveToTemplate;             //this line determines civilian trucks -- Example: ["vehiclesCivIndustrial", ["C_Truck_02_transport_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivHeli", []] call _fnc_saveToTemplate;             //this line determines civilian helis -- Example: ["vehiclesCivHeli", ["C_Heli_Light_01_civil_F"]] -- Array, can contain multiple assets
@@ -22,15 +20,15 @@
 ["vehiclesCivBoat", ["B_Boat_Transport_01_F", 0.2]] call _fnc_saveToTemplate;             //this line determines civilian boats -- Example: ["vehiclesCivBoat", ["C_Boat_Civil_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivRepair", [
-    "LIB_Zis6_Parm", 0.075
+    "LIB_Zis6_Parm", 0.0375
 ]] call _fnc_saveToTemplate;            //this line determines civilian repair vehicles
 
 ["vehiclesCivMedical", [
-    "LIB_Zis5v_Med", 0.075
+    "LIB_Zis5v_Med", 0.0375
 ]] call _fnc_saveToTemplate;        //this line determines civilian medic vehicles
 
 ["vehiclesCivFuel", [
-    "LIB_Zis5v_Fuel", 0.075
+    "LIB_Zis5v_Fuel", 0.0375
 ]] call _fnc_saveToTemplate;            //this line determines civilian fuel vehicles
 
 /////////////////////

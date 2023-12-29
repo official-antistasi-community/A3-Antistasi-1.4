@@ -4,6 +4,11 @@ class DOUBLES(ADDON,Nodes)
     {
         class Nodes {};
         canLoadWeapon = 1; //if the vehicle can load weapons
+        canLoadMortar = 1; //if the vehicle can load a mortar
+        canLoadMG = 1; //if the vehicle can load an machinegun
+        canLoadAT = 1; //if the vehicle can load an AT-Weapon
+        canLoadLowWeapons = 1; //if the vehicle can load weapons with a low profile (e.g. M2 Low Mount)
+        isBoat = 1; //if the vehicle is a boat
     };
 
     #include "Nodes\3CBBAF.hpp"
@@ -32,6 +37,8 @@ class DOUBLES(ADDON,Cargo)
         recoil = 0; //the recoil a weapon impacts on the vehicle when fired (per projectile)
         isWeapon = 0; //if the cargo is a weapon (needed for proper handling of mounted weapon)
         blackList[] = {}; //specific vehicles or models to blacklist from loading this weapon/cargo
+        isLow = 0; // if the weapon has low silohuette (e.g. M2 Low Mount)
+        disallowOnBoat = 0; // if the weapon is allowed in boats (0 - default behaviour, 1 - explizit allow)
     };
 
     #include "Cargo\3CBFactions.hpp"

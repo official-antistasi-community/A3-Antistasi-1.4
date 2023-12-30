@@ -31,9 +31,9 @@
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 
-//Some shenanigans to ensure the player doesn't only face Tigers
-["vehiclesLightTanks", ["LIB_StuG_III_G_WS"]] call _fnc_saveToTemplate;
+["vehiclesLightTanks", ["LIB_StuG_III_G_WS"]] call _fnc_saveToTemplate; //Add Panzer 4 without shield, needs to be added to configs
 
+//Some shenanigans to ensure the player doesn't only face Tigers/King tigers
 private _mediumTanks = [
 "LIB_T34_76_captured3","LIB_T34_76_captured","LIB_StuG_III_G_WS",
 "LIB_StuG_III_G","LIB_StuG_III_G","LIB_StuG_III_G",

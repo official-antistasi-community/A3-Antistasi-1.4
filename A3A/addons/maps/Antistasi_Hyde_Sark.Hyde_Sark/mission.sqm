@@ -8,7 +8,7 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=1736;
+		nextID=1739;
 	};
 	class LayerIndexProvider
 	{
@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2395.0007,52.842876,1319.9373};
-		dir[]={-0.71963972,-0.36962578,0.58779031};
-		up[]={-0.28627124,0.92918003,0.23382197};
-		aside[]={0.63259017,5.212496e-008,0.77448845};
+		pos[]={3712.564,91.307106,2795.7703};
+		dir[]={0.36736056,-0.89966047,0.23594175};
+		up[]={0.7569837,0.43658346,0.4861818};
+		aside[]={0.54040611,1.7607817e-008,-0.84141189};
 	};
 };
 binarizationWanted=0;
@@ -238,33 +238,34 @@ class Mission
 								class Item0
 								{
 									dataType="Marker";
-									position[]={2397.9312,12.479553,2720.9055};
-									name="reso_2_vehicle";
+									position[]={2397.9309,12.48,2720.906};
+									name="outp_2_vehicle";
 									markerType="RECTANGLE";
 									type="rectangle";
 									colorName="ColorGreen";
 									a=5;
 									b=5;
-									angle=218.43063;
+									angle=218.43098;
 									id=297;
-									atlOffset=1.7371464;
+									atlOffset=1.7375927;
 								};
 								class Item1
 								{
 									dataType="Marker";
-									position[]={2395.343,10.742407,2725.9417};
-									name="resource_2";
+									position[]={2395.343,10.742,2725.9419};
+									name="outpost_2";
 									markerType="RECTANGLE";
 									type="rectangle";
 									colorName="ColorOrange";
-									a=57.865433;
-									b=62.470619;
-									angle=152.41699;
+									a=57.865002;
+									b=62.471001;
+									angle=152.41701;
 									id=298;
+									atlOffset=-0.00040721893;
 								};
 							};
 							id=295;
-							atlOffset=0.86857319;
+							atlOffset=0.86859322;
 						};
 						class Item2
 						{
@@ -389,7 +390,7 @@ class Mission
 						};
 					};
 					id=290;
-					atlOffset=-13.016344;
+					atlOffset=-13.016341;
 				};
 				class Item1
 				{
@@ -467,7 +468,7 @@ class Mission
 							name="airport_1";
 							class Entities
 							{
-								items=9;
+								items=8;
 								class Item0
 								{
 									dataType="Marker";
@@ -584,7 +585,7 @@ class Mission
 									name="outpost_3";
 									class Entities
 									{
-										items=3;
+										items=6;
 										class Item0
 										{
 											dataType="Marker";
@@ -623,18 +624,50 @@ class Mission
 											angle=156.8242;
 											id=180;
 										};
+										class Item3
+										{
+											dataType="Marker";
+											position[]={3737.2522,10.738824,2813.8184};
+											name="outpost_4";
+											markerType="RECTANGLE";
+											type="rectangle";
+											colorName="ColorGUER";
+											a=55.983326;
+											b=39.155014;
+											angle=245.53098;
+											id=1736;
+											atlOffset=-0.0039234161;
+										};
+										class Item4
+										{
+											dataType="Marker";
+											position[]={3725.396,10.75,2845.907};
+											name="outp_4_vehicle";
+											markerType="RECTANGLE";
+											type="rectangle";
+											colorName="ColorGreen";
+											a=5;
+											b=5;
+											angle=274.33557;
+											id=1737;
+										};
+										class Item5
+										{
+											dataType="Marker";
+											position[]={3761.937,10.63,2846.2539};
+											name="outp_4_mortar";
+											markerType="ELLIPSE";
+											type="ellipse";
+											colorName="ColorYellow";
+											a=3;
+											b=3;
+											id=1738;
+										};
 									};
 									id=176;
-									atlOffset=-0.5;
+									atlOffset=-0.12389755;
 								};
 								class Item7
-								{
-									dataType="Layer";
-									name="airport_3";
-									id=17;
-									atlOffset=19.091471;
-								};
-								class Item8
 								{
 									dataType="Marker";
 									position[]={1393.5914,4.6909261,3226.6265};
@@ -649,11 +682,11 @@ class Mission
 								};
 							};
 							id=1;
-							atlOffset=23.765987;
+							atlOffset=26.679533;
 						};
 					};
 					id=0;
-					atlOffset=23.765987;
+					atlOffset=26.679533;
 				};
 				class Item3
 				{

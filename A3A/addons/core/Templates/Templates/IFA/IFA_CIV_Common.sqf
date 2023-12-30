@@ -19,6 +19,7 @@
 
 ["vehiclesCivBoat", ["B_Boat_Transport_01_F", 0.2]] call _fnc_saveToTemplate;             //this line determines civilian boats -- Example: ["vehiclesCivBoat", ["C_Boat_Civil_01_F"]] -- Array, can contain multiple assets
 
+//Do we want vehicles of these kinds in this modset?
 ["vehiclesCivRepair", [
     "LIB_Zis6_Parm", 0.0375
 ]] call _fnc_saveToTemplate;            //this line determines civilian repair vehicles

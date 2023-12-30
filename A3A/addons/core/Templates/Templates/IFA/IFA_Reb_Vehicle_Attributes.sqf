@@ -3,6 +3,7 @@
     //Cars
     ["LIB_Willys_MB", ["rebCost", 200]],
     ["LIB_UK_Willys_MB_M1919", ["rebCost", 1000]],
+    ["LIB_GazM1", ["rebCost", 400]],
     ["LIB_GazM1_dirty", ["rebCost", 400]],
     ["LIB_Zis5v_61K", ["rebCost", 2000]], //Alternatively we'd make this not purchable?
     

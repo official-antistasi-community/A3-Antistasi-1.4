@@ -2,6 +2,7 @@ class mapInfo {
     #include "Antistasi_Altis.Altis\mapInfo.hpp"
     #include "Antistasi_Enoch.Enoch\mapInfo.hpp"
     #include "Antistasi_Hyde_Sark.Hyde_Sark\mapInfo.hpp"
+    #include "Antistasi_iron_excelsior_Tobruk.iron_excelsior_Tobruk\mapInfo.hpp"
     #include "Antistasi_Kunduz.Kunduz\mapInfo.hpp"
     #include "Antistasi_Malden.Malden\mapInfo.hpp"
     #include "Antistasi_SPE_Normandy.SPE_Normandy\mapInfo.hpp"

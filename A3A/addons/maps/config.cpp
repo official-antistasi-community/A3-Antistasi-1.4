@@ -32,6 +32,7 @@ class CfgMissions
 #if __A3_DEBUG__
         A3A_Mission(Hyde_Sark)
 #endif
+        A3A_Mission(iron_excelsior_Tobruk)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
         A3A_Mission(SPE_Normandy)

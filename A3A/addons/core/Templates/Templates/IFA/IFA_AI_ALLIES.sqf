@@ -270,8 +270,8 @@ _militiaLoadoutData set ["slWeapons", [
 ["LIB_Sten_Mk5", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["rifles", [
-["LIB_LeeEnfield_No4", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""],
-["LIB_LeeEnfield_No1", "LIB_ACC_P1903_Bayo", "", "", [], [], ""]
+["LIB_LeeEnfield_No4", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""]
+//["LIB_LeeEnfield_No1", "LIB_ACC_P1903_Bayo", "", "", [], [], ""] //Moving to desert templates
 ]];
 _militiaLoadoutData set ["carbines", ["LIB_M1_Carbine", "LIB_LeeEnfield_No4"]];
 _militiaLoadoutData set ["grenadeLaunchers", [

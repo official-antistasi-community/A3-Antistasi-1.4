@@ -4,7 +4,7 @@ class DOUBLES(ADDON,Nodes)
     {
         class Nodes {};
         canLoadWeapon = 1; //if the vehicle can load weapons
-        weaponBlackList = __EVAL(8); //blacklist Weaponstypes (Bitwise 8 - everything allowed, 1 - mortar, 2 - MG, 4 - Artillery) )
+        weaponBlackList = __EVAL(16); //blacklist Weaponstypes (Bitwise 16 - everything allowed, 1 - mortar, 2 - MG, 4 - AT, 8 - AA) )
         canLoadLowWeapons = 1; //if the vehicle can load weapons with a low profile (e.g. M2 Low Mount)
         isBoat = 0; //if the vehicle is a boat
     };
@@ -37,7 +37,7 @@ class DOUBLES(ADDON,Cargo)
         blackList[] = {}; //specific vehicles or models to blacklist from loading this weapon/cargo
         isLow = 0; // if the weapon has low silohuette (e.g. M2 Low Mount)
         disallowOnBoat = 0; // if the weapon is allowed in boats (0 - default behaviour, 1 - explizit allow)
-        weaponType = -1; // defines type of weapon if it is an weapon ( 0 - undefined, 1 - mortar, 2 - MG, 3 - Artillery)
+        weaponType = 0; // defines type of weapon if it is an weapon ( 0 - undefined, 1 - mortar, 2 - MG, 3 - AT, 4 - AA)
     };
 
     #include "Cargo\3CBFactions.hpp"

@@ -6,6 +6,7 @@ class CfgFunctions {
             class convertNodesToNew {};
             class generateCargoOffset {};
             class generateHardPoints {};
+            class getCargoClassName {};
         };
 
         class Public {

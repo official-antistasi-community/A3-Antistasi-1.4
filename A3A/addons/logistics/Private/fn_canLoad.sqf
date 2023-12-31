@@ -56,16 +56,21 @@ private _allowed = if (!_weapon) then {true} else {
 
     // check wepon allow more
     private _weaponType = (getNumber (_cargoConfig/"weaponType")) - 1 ;
+
+    // generally disallow mortars on boats
+    if (1 == getNumber(_vehConfig/"isBoat") && 0 == _weaponType) exitWith {false};
+
     private _typeAllowed = if (_weaponType isNotEqualTo -1) then {
-        !( _weaponType in (getNumber (_vehConfig/"weaponBlackList") call BIS_fnc_decodeFlags));
+        !( _weaponType in (getNumber (_vehConfig/"weaponBlackList") call BIS_fnc_decodeFlags))
     } else { true };
     if (!_typeAllowed) exitwith {false};
 
     // check if weapon is allowed on boat
     if (1 == getNumber(_vehConfig/"isBoat") && 1 == getNumber(_cargoConfig/"disallowOnBoat")) exitWith {false};
     // check if weapon is low and if the vehicle can then load it
-    if (1 == getNumber(_vehConfig/"canLoadLowWeapons") && 1 == getNumber(_cargoConfig/"isLow")) exitWith {false};
+    if (0 == getNumber(_vehConfig/"canLoadLowWeapons") && 1 == getNumber(_cargoConfig/"isLow")) exitWith {false};
 
+    // could be obsolete once all logistic stuff is converted
     private _vehModel = getText (configFile/"CfgVehicles"/typeOf _vehicle/"model");
     private _blackList = getArray (_cargoConfig/"blackList");
     !(

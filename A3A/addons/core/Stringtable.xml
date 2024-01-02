@@ -613,30 +613,6 @@
         <Turkish>Sadece Komutan'ın bu fonsiyona erişimi var.</Turkish>
         <Chinesesimp>只有我们的指挥官才能使用该功能</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_canmovehq_no_empty1">
-        <Original>You must first empty your Arsenal inventory in order to move the HQ.</Original>
-        <Italian>Devi prima svuotare l'inventario dell'Arsenale per muovere il QG.</Italian>
-        <Spanish>Debe vaciar primero el inventario del Arsenal para poder mover el CG. </Spanish>
-        <French>Vous devez d'abord vider l'inventaire de votre Arsenal afin de pouvoir deplacer le QG.</French>
-        <Korean>무기고의 인벤토리를 비워야 본부를 옮길 수 있습니다.</Korean>
-        <Polish>Aby przenieść kwaterę główną, należy najpierw opróżnić ekwipunek Arsenału.</Polish>
-        <Czech>Musíš nejdříve vyprázdnit inventář arzenálu aby jsi mohl přesunout HQ.</Czech>
-        <Portuguese>Primeiro, tens de esvaziar o inventário do Arsenal antes de mover o QG.</Portuguese>
-        <Turkish>Karargahı taşımak için öncelikle Sanal Cephanelik boşaltılmalı.</Turkish>
-        <Chinesesimp>你必须先清空弹药库的库存才能转移总部</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_base_canmovehq_no_empty2">
-        <Original>Arsenal inventory must be empty.</Original>
-        <Italian>L'inventario dell'Arsenale deve essere vuoto.</Italian>
-        <Spanish>El inventario del arsenal debe estar vacío. </Spanish>
-        <French>L'inventaire de l'Arsenal doit être vide.</French>
-        <Korean>무기고 인벤토리는 비어 있어야 합니다.</Korean>
-        <Polish>Inwentarz arsenału musi być pusty.</Polish>
-        <Czech>Inventář arzenálu musí být prázdný.</Czech>
-        <Portuguese>Inventário do Arsenal tem que estar vazio.</Portuguese>
-        <Turkish>Cephanelik envanteri boş olmalı.</Turkish>
-        <Chinesesimp>弹药库的库存(Arma 3库存)必须被清空</Chinesesimp>
-      </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_petros_down">
         <Original>Put Petros down before you move the HQ!</Original>
         <Italian>Lascia Petros prima di muovere il QG!</Italian>
@@ -8818,7 +8794,7 @@
         <Chinesesimp>将总部转移到其他区域</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
-        <Original>Petros will join your group. The inventory of the arsenal box must be empty to move HQ. To rebuild, select the Build HQ here option on Petros.</Original>
+        <Original>Petros will join your group. To rebuild, select the Build HQ here option on Petros.</Original>
         <German>Petros tritt deiner Gruppe bei. Inventar der Arsenal-Kiste muss leer sein um das HQ versetzen zu können. Zur Neuerrichtung die Bauaktion an Petros auswählen.</German>
         <Korean>페트로스가 당신의 그룹에 합류할 것입니다. 본부를 이동시키려면 탄약상자는 비워져 있어야 합니다. 재건축하려면 페트로스에게서 여기에 본부 건설하기를 선택하십시오.</Korean>
       </Key>

@@ -89,13 +89,12 @@ private _utilityRefund = {
     private _nonBossPlayers = allPlayers - (entities "HeadlessClient_F") - [theBoss];
     private _bossComms = if (_resourcesFIA isNotEqualTo "") then {_resourcesFIA;} else {""};
     private _nonBossComms = if (_updated isNotEqualTo "") then {_updated;} else {""};
-    if (_updated isNotEqualTo "") then 
-        {
+    if (_updated isNotEqualTo "") then {
         _nonBossComms = _updated;
         _bossComms = _bossComms + "<br/><br/>" + _updated;
-        } else {
+    } else {
         _nonBossComms = "";
-        };
+    };
     diag_log str _bossComms;
     diag_log str _nonBossComms;
     if (_nonBossPlayers isNotEqualTo []) then {[petros,"income",_nonBossComms] remoteExec ["A3A_fnc_commsMP",_nonBossPlayers];};

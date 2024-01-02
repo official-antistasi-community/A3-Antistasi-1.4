@@ -139,6 +139,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     sidesX setVariable [_mrkDest, Invaders, true];
     garrison setVariable [_mrkDest, [], true];
     [_mrkDest] call A3A_fnc_mrkUpdate;
+    [] spawn A3A_fnc_checkCampaignEnd; // If a town is destroyed, check for loss
 };
 
 sleep 60;

@@ -151,6 +151,7 @@ if (_markerX in airportsX) then
 			_prestigeOccupants = [-25, 90];
 			_prestigeInvaders = [50, 150];
 		};
+		[] spawn A3A_fnc_checkCampaignEnd; // If an airport is taken by rebels, check for victory
 	}
 	else
 	{

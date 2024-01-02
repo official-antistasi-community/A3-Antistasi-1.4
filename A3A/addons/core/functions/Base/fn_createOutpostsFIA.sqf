@@ -36,6 +36,7 @@ _groupX setGroupId ["Post"];
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
 _pos = position _road findEmptyPosition [1,30,"B_G_Van_01_transport_F"];
 _truckX = _typeVehX createVehicle _pos;
+[_truckX, teamPlayer] call A3A_fnc_AIVEHinit;
 //_nul = [_groupX] spawn dismountFIA;
 _groupX addVehicle _truckX;
 {[_x] call A3A_fnc_FIAinit} forEach units _groupX;

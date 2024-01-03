@@ -1,7 +1,7 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
-params["_originX","_destinationX","_deleteOrigin",["_silent",false]];
+params["_originX","_destinationX",["_deleteOrigin",false],["_silent",false]];
 private ["_subObject","_ammunition"];
 if (isNull _originX) exitWith {};
 
@@ -22,6 +22,7 @@ _items = itemCargo _originX;
 _weaponsX = [];
 _weaponsItemsCargo = weaponsItemsCargo _originX;
 _backpcks = [];
+_updated = "";
 
 if (count backpackCargo _originX > 0) then
 	{

@@ -15,8 +15,6 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-sleep 5; //This lets players have a few seconds after an event before the win/loss screen shows
-
 private _popReb = 0;
 private _popGov = 0;
 private _popKilled = 0;
@@ -34,7 +32,10 @@ private _popTotal = 0;
 	};
 } forEach citiesX;
 
-Info(format["fn_checkCampaignEnd | Total Pop: %1, Dead Pop: %2, Rebel Support: %3, Gov Support: %4"]);
+_popReport = format["Total Pop: %1, Dead Pop: %2, Rebel Support: %3, Gov Support: %4", _popTotal, _popKilled, _popReb, _popGov];
+Info(_popReport);
+
+sleep 5; //This lets players have a few seconds after an event before the win/loss screen shows
 
 if (_popKilled > (_popTotal / 3)) then {
 	isNil { ["ended", true] call A3A_fnc_writebackSaveVar };

@@ -6622,7 +6622,7 @@
         <Original>A %1 heavy bomber is on the way</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
-        <Original>%1 is scrambling an air superiority fighter</Original>
+        <Original>%1 is preparing an air superiority fighter</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
         <Original>%1 is preparing fixed-wing CAS</Original>

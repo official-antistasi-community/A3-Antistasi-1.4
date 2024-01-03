@@ -117,7 +117,7 @@ if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
         HR_GRG_ServiceDisabled_Repair = _this;
     }] call CBA_fnc_addSetting;
 
-    ["HR_GRG_PoolBase", "SLIDER", [localize "STR_A3A_inc_public_config_baseCapTitle", localize "STR_A3A_inc_public_config_baseCapTitle"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
+    ["HR_GRG_PoolBase", "SLIDER", [localize "STR_A3A_inc_public_config_baseCapTitle", localize "STR_A3A_inc_public_config_baseCapLong"], [HR_GRG_Prefix,"Garage"], [0, 50, HR_GRG_PoolBase, 0], true, {
         HR_GRG_PoolBase = round _this;
     }] call CBA_fnc_addSetting;
 

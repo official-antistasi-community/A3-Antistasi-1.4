@@ -24,7 +24,7 @@
 //////////////////////////
 
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_GazM1_SOV"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["LIB_GazM1_SOV", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
 ["vehiclesTruck", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate;
@@ -53,6 +53,24 @@
 
 ["breachingExplosivesAPC", [["LIB_Ladung_Big_MINE_mag", 1], ["LIB_Ladung_Small_MINE_mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["LIB_US_TNT_4pound_mag", 1], ["LIB_Ladung_Big_MINE_mag", 2]]] call _fnc_saveToTemplate;
+
+switch (A3A_climate) do
+{
+	case "arid": { 
+        ["vehiclesBasic", ["LIB_US_NAC_Willys_MB"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_SOV_camo_sand", "LIB_US_NAC_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+        ["vehiclesLightArmed", ["LIB_US_NAC_Willys_MB_M1919"]] call _fnc_saveToTemplate;
+    };
+	case "arctic": { 
+        ["vehiclesBasic", ["LIB_Willys_MB_w"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_SOV", "LIB_Willys_MB_Hood_w"]] call _fnc_saveToTemplate;
+        ["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919_w"]] call _fnc_saveToTemplate;
+        ["vehiclesTruck", ["LIB_Zis5v_w"]] call _fnc_saveToTemplate;
+        ["vehiclesMedical", ["LIB_Zis5v_med_w"]] call _fnc_saveToTemplate;
+        
+        ["staticAT", ["LIB_Zis3_w"]] call _fnc_saveToTemplate;
+    };
+};
 
 #include "IFA_Reb_Vehicle_Attributes.sqf"
 

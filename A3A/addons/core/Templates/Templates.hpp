@@ -944,9 +944,10 @@ class Templates
     {
         requiredAddons[] = {"IFA3_Core"};
         basepath = QPATHTOFOLDER(Templates\Templates\IFA);
-        logo = "";
+        logo = ""; //Can't figure out how to path to the logo at the base of the IFA AiO mod??
         priority = 60;
         equipFlags[] = {"lowTech"};
+        //climate[] = {"temperate","tropical"};
         forceDLC[] = {};
     };
     class IFA_WEH : IFA_Base
@@ -993,6 +994,17 @@ class Templates
         name = "IFA French Resistance";
         priority = 65;
         file = "IFA_REB_FFI";
+        maps[] = {};
+        climate[] = {};
+    };
+    class IFA_AK : IFA_Base
+    {
+        side = "Reb";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ak.paa);
+        name = "IFA Polish Resistance";
+        file = "IFA_REB_AK";
+        maps[] = {"Staszow"};
+        climate[] = {};
     };
     class IFA_AK : IFA_Base
     {
@@ -1008,6 +1020,7 @@ class Templates
         name = "IFA French";
         priority = 65;
         file = "IFA_CIV_FR";
+        climate[] = {};
     };
     class IFA_CIV_PL : IFA_Base
     {
@@ -1015,6 +1028,8 @@ class Templates
         flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_pl.paa);
         name = "IFA Polish";
         file = "IFA_CIV_PL";
+        maps[] = {"Staszow"};
+        climate[] = {};
     };
     // ***************************** SPE with IFA *****************************
 

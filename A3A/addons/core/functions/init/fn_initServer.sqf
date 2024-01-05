@@ -22,6 +22,7 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];
 
 switch (toLower worldname) do {
+	case "Staszow";
 	case "cam_lao_nam": {};
 	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
 	case "spe_normandy": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};

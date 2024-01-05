@@ -157,6 +157,7 @@ _loadoutData set ["rangefinders", ["LIB_Binocular_US"]];
 _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["backpacks", []];
+_loadoutData set ["lightBackpacks", ["B_LIB_US_Bandoleer"]];
 _loadoutData set ["atBackpacks", ["B_LIB_US_RocketBag_Empty"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
@@ -193,10 +194,17 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_LIB_US_Rangers_Uniform"]];
-_sfLoadoutData set ["vests", ["V_LIB_US_Assault_Vest"]];
-_sfLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
-_sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet"]];
+_sfLoadoutData set ["uniforms", ["U_LIB_US_Rangers_Uniform", "U_LIB_US_Rangers_Private_1st"]];
+_sfLoadoutData set ["engUniforms", ["U_LIB_US_Rangers_Eng"]];
+_sfLoadoutData set ["medUniforms", ["U_LIB_US_Rangers_Med"]];
+
+_sfLoadoutData set ["vests", ["V_LIB_US_Assault_Vest", "V_LIB_US_Assault_Vest_dday"]];
+_sfLoadoutData set ["medVests", ["V_LIB_US_Assault_Vest_Light"]];
+_sfLoadoutData set ["slVests", ["V_LIB_US_Assault_Vest_Thompson"]];
+
+_sfLoadoutData set ["backpacks", ["B_LIB_US_M36_Bandoleer"]];
+_sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns"]];
+_sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -214,10 +222,18 @@ _sfLoadoutData set ["machineGuns", ["LIB_M1918A2_BAR", "LIB_M1919A6"]];
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
-_militaryLoadoutData set ["vests", ["V_LIB_US_Vest_Garand"]];
+_militaryLoadoutData set ["uniforms", ["U_LIB_US_Private", "U_LIB_US_Private_1st"]];
+_militaryLoadoutData set ["engUniforms", ["U_LIB_US_Eng"]];
+_militaryLoadoutData set ["medUniforms", ["U_LIB_US_Med"]];
+
+_militaryLoadoutData set ["vests", ["V_LIB_US_Vest_Garand", "V_LIB_US_Vest_Bar"]];
+_militaryLoadoutData set ["medVests", ["V_LIB_US_Vest_Medic", "V_LIB_US_Vest_Medic2"]];
+_militaryLoadoutData set ["slVests", ["V_LIB_US_Vest_Thompson_nco_Radio", "V_LIB_US_Vest_Carbine_nco_Radio"]];
+
 _militaryLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
-_militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet"]];
+_militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet_ns"]];
+_militaryLoadoutData set ["slHelmets", ["H_LIB_US_Helmet_CO"]];
+_militaryLoadoutData set ["medHelmets", ["H_LIB_US_Helmet_Med_ns"]];
 
 _militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine", "LIB_M1_Carbine"]];
 _militaryLoadoutData set ["rifles", [["LIB_M1_Garand", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1_Garand" ]];
@@ -250,11 +266,20 @@ _policeLoadoutData set ["rifles", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["U_LIB_UK_P37"]];
+_militiaLoadoutData set ["uniforms", ["U_LIB_UK_P37", "U_LIB_UK_P37Jerkins"]];
+_militiaLoadoutData set ["engUniforms", ["U_LIB_UK_P37_Corporal", "U_LIB_UK_P37Jerkins_Corporal"]];
+_militiaLoadoutData set ["medUniforms", []];
+
 _militiaLoadoutData set ["vests", ["V_LIB_UK_P37_Rifleman"]];
+_militiaLoadoutData set ["medVests", ["V_LIB_UK_P37_Gasmask", "V_LIB_UK_P37_Heavy"]];
+_militiaLoadoutData set ["slVests", ["V_LIB_UK_P37_Holster", "V_LIB_UK_P37_Officer", "V_LIB_UK_P37_Sten"]];
+
 _militiaLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
 _militiaLoadoutData set ["atBackpacks", ["B_LIB_UK_HSack"]];
+
 _militiaLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
+_militiaLoadoutData set ["slHelmets", ["H_LIB_UK_Beret"]];
+_militiaLoadoutData set ["medHelmets", ["H_LIB_UK_Helmet_Mk2_FAK"]];
 
 _militiaLoadoutData set ["binoculars", ["LIB_Binocular_UK"]];
 _militiaLoadoutData set ["rangefinders", ["LIB_Binocular_UK"]];
@@ -302,7 +327,7 @@ _pilotLoadoutData set ["helmets", ["H_LIB_US_Helmet_Pilot"]];
 _pilotLoadoutData set ["sidearms", ["LIB_Colt_M1911"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["uniforms", ["U_LIB_US_Cap"]];
+_officerLoadoutData set ["slUniforms", ["U_LIB_US_Cap"]];
 _officerLoadoutData set ["vests", ["V_LIB_US_Vest_Carbine_nco"]];
 _officerLoadoutData set ["helmets", ["H_LIB_US_Helmet_Cap"]];
 
@@ -319,10 +344,9 @@ _officerLoadoutData set ["slSidearms", ["LIB_Colt_M1911"]];
 //However, these exist in case you really do want to do a lot of custom alterations.
 
 private _squadLeaderTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    [["slHelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
+    ["slVests"] call _fnc_setVest;
 
     ["backpacks"] call _fnc_setBackpack;
 
@@ -355,6 +379,8 @@ private _riflemanTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
+    ["lightBackpacks"] call _fnc_setBackpack;
+    
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
@@ -372,13 +398,13 @@ private _riflemanTemplate = {
 };
 
 private _medicTemplate = {
-    ["helmets"] call _fnc_setHelmet;
+    [["medHelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
+    ["medVests"] call _fnc_setVest;
+    [["medUniforms", "engUniforms"] call _fnc_fallback] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
     
-    [[selectRandom ["SMGs", "carbines", "rifles"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
+    [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
@@ -425,7 +451,7 @@ private _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
+    ["engUniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
@@ -458,7 +484,7 @@ private _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
+    ["engUniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
     [selectRandom["SMGs", "carbines"]] call _fnc_setPrimary;
@@ -499,6 +525,7 @@ private _latTemplate = {
         ["launcher", 1] call _fnc_addMagazines;
         ["antiInfantryGrenades", 1] call _fnc_addItem;
     } else {
+        ["lightBackpacks"] call _fnc_setBackpack;
         ["antiTankGrenades", 4] call _fnc_addItem;
     };
 
@@ -583,6 +610,7 @@ private _marksmanTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
+    ["lightBackpacks"] call _fnc_setBackpack;
 
     ["marksmanRifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -632,6 +660,7 @@ private _crewTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
+    ["lightBackpacks"] call _fnc_setBackpack;
 
     if(random 10 > 5) then 
     {

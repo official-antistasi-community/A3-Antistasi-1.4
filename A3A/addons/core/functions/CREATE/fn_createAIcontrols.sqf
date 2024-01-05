@@ -73,10 +73,11 @@ if (_isControl) then
 		_groupE = grpNull;
 		if !(A3A_hasIFA) then
 			{
-            private _IFAMaps = ["Hyde_Sark"];
+            private _IFAMaps = ["Hyde_Sark", "iron_excelsior_Tobruk"];
             private _ifLowMGs = false;
             private _bunkerClass = "Land_BagBunker_01_Small_green_F";
-            private _offset = [0,0, 0];
+            private _offset = [0, 0, 0];
+			_typeVehX = selectRandom (_faction get "staticMGs");
 			if (worldname == "SPE_Normandy" || worldname in _IFAMaps) then {
                 _ifLowMGs = true;
                 if (worldname == "SPE_Normandy") then {
@@ -84,7 +85,8 @@ if (_isControl) then
                     _offset = [-0.200684,-0.91333,-0.421184]
                 } else {
                     _bunkerClass = "Fort_EnvelopeSmall";
-                    _offset = [0,1.5,0]
+                    _offset = [0,1.5,-0.15];
+					_offset = _offset vectorAdd ([[0,0,0], [0,0.2,0.17]] select (_typeVehX == "LIB_M1919_M2"));
                 };
             } else {
                 if (A3A_climate == "arid") then 
@@ -103,7 +105,6 @@ if (_isControl) then
 				_pos = getPosATL _bunker;
 			};
 			_vehiclesX pushBack _bunker;
-			_typeVehX = selectRandom (_faction get "staticMGs");
 			_veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
 			_veh setPosATL _pos;
@@ -121,7 +122,7 @@ if (_isControl) then
 				_bunker setDir _dirveh + 180;
 				_pos = _bunker modelToWorld _offset;
 				_vehiclesX pushBack _bunker;
-				_typeVehX = selectRandom (_faction get "staticMGs");
+				//_typeVehX = selectRandom (_faction get "staticMGs");
 				_veh = _typeVehX createVehicle _positionX;
 				_vehiclesX pushBack _veh;
                 _veh setPosATL _pos;

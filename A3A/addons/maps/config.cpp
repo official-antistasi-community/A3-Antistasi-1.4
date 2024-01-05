@@ -29,9 +29,6 @@ class CfgMissions
     { // mission folder names need to be `Antistasi_{Map name}.{Map name}`
         A3A_Mission(Altis)
         A3A_Mission(Enoch)
-#if __A3_DEBUG__
-        A3A_Mission(Hyde_Sark)
-#endif
         A3A_Mission(iron_excelsior_Tobruk)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
@@ -44,12 +41,14 @@ class CfgMissions
         A3A_Mission(chernarus_winter)
         A3A_Mission(cup_chernarus_A3)
         A3A_Mission(sara)
+        A3A_Mission(Staszow)
         A3A_Mission(takistan)
         A3A_Mission(tem_anizay)
         A3A_Mission(tem_kujari)
         A3A_Mission(vn_khe_sanh)
         A3A_Mission(vt7)
 #if __A3_DEBUG__
+        A3A_Mission(Hyde_Sark)
         A3A_Mission(Stratis)
         A3A_Mission(isladuala3)//set to debug only until map is fixed
 #endif

@@ -129,12 +129,17 @@ Info("Creating building arrays");
 
 A3A_buildingWhitelist = [
 	"Land_Cargo_Tower_V1_F","Land_Cargo_Tower_V1_No1_F","Land_Cargo_Tower_V1_No2_F","Land_Cargo_Tower_V1_No3_F","Land_Cargo_Tower_V1_No4_F","Land_Cargo_Tower_V1_No5_F","Land_Cargo_Tower_V1_No6_F","Land_Cargo_Tower_V1_No7_F","Land_Cargo_Tower_V2_F", "Land_Cargo_Tower_V3_F", "Land_Cargo_Tower_V4_F"
+    
 ];
 A3A_milBuildingWhitelist = A3A_buildingWhitelist + [
 	"Land_Radar_01_HQ_F","Land_Cargo_HQ_V1_F","Land_Cargo_HQ_V2_F","Land_Cargo_HQ_V3_F","Land_Cargo_HQ_V4_F","Land_Cargo_Patrol_V1_F","Land_Cargo_Patrol_V2_F","Land_Cargo_Patrol_V3_F", "Land_Cargo_Patrol_V4_F","Land_HelipadSquare_F","Land_Posed","Land_Hlaska","Land_fortified_nest_small_EP1",
 	"Land_fortified_nest_small","Fort_Nest","Fortress1","Land_GuardShed","Land_BagBunker_Small_F","Land_BagBunker_01_small_green_F","Land_vn_b_tower_01","Land_vn_o_shelter_05","Land_vn_bagbunker_01_small_green_f","Land_vn_bagbunker_small_f", "Land_vn_o_tower_01","Land_vn_o_tower_02", "Land_vn_o_tower_03","Land_vn_hut_tower_01", 
 	"Land_vn_o_platform_05","Land_vn_o_platform_06","Land_vn_o_snipertree_01","Land_vn_o_snipertree_02","Land_vn_o_snipertree_03","Land_vn_o_snipertree_04","Land_vn_o_platform_01","Land_vn_o_platform_02","Land_vn_o_platform_03", "Land_vn_hlaska", "Land_vn_b_trench_bunker_04_01", "Land_vn_pillboxbunker_02_hex_f", "Land_vn_guardtower_01_f",
-	"Land_vn_strazni_vez", "Land_vn_b_trench_firing_05", "Land_vn_cementworks_01_grey_f", "Land_vn_cementworks_01_brick_f", "Land_vn_radar_01_hq_f", "Land_vn_a_office01", "Land_SPE_Sandbag_Nest"
+	"Land_vn_strazni_vez", "Land_vn_b_trench_firing_05", "Land_vn_cementworks_01_grey_f", "Land_vn_cementworks_01_brick_f", "Land_vn_radar_01_hq_f", "Land_vn_a_office01", "Land_SPE_Sandbag_Nest",
+	"Land_WW2_Trench_MG_Low","Fort_EnvelopeSmall","Fort_EnvelopeSmall_EP1","Land_WW2_BET_MG_Nest","Land_WW2_BET_MG_Nest_Splinter_A","Land_WW2_BET_MG_Nest_Splinter_B",
+    "Land_WW2_TrenchTank","Land_WW2_BET_Flak_Bettung","Land_I44_Buildings_Bunker_AA",
+    "Land_WW2_BET_RGB669_Pak_L","Land_WW2_BET_RGB669_Pak_R","Land_WW2_BET_RGB669_Pak_L_Splinter","Land_WW2_BET_RGB669_Pak_R_Splinter",
+    "Land_Fort_Bagfence_Bunker","Land_WW2_LAWZ_Tobruk_Trench_gunposition","Land_WW2_Trench76","Land_Setka_Car"
 ];
 A3A_buildingBlacklist = [
 	"Bridge_PathLod_base_F","Land_Slum_House03_F","Land_Bridge_01_PathLod_F","Land_Bridge_Asphalt_PathLod_F","Land_Bridge_Concrete_PathLod_F","Land_Bridge_HighWay_PathLod_F","Land_Bridge_01_F","Land_Bridge_Asphalt_F","Land_Bridge_Concrete_F","Land_Bridge_HighWay_F","Land_Canal_Wall_Stairs_F","warehouse_02_f",

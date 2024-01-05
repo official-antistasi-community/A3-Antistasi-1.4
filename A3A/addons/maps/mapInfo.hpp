@@ -6,6 +6,7 @@ class mapInfo {
     #include "Antistasi_Kunduz.Kunduz\mapInfo.hpp"
     #include "Antistasi_Malden.Malden\mapInfo.hpp"
     #include "Antistasi_SPE_Normandy.SPE_Normandy\mapInfo.hpp"
+    #include "Antistasi_Staszow.Staszow\mapInfo.hpp"
     #include "Antistasi_Stratis.Stratis\mapInfo.hpp"
     #include "Antistasi_Tanoa.Tanoa\mapInfo.hpp"
     #include "Antistasi_Tembelan.Tembelan\mapInfo.hpp"

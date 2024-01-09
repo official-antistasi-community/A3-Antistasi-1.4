@@ -119,7 +119,7 @@ _instigator setVariable ["_lastFriendlyHit", name _victim, true];
 
 /////////////Acts on Collision//////////////
 if (_isCollision) then {
-    _customMessage = [_customMessage,"You damaged a friendly as a driver."] joinString "<br/>";
+    _customMessage = [_customMessage, localize "STR_A3A_fn_punishment_evalEvent_driver"] joinString "<br/>";
     _timeAdded = 27;
     _offenceAdded = 0.15;
     Info_4("COLLISION | %1 [%2]'s %3 %4", name _instigator, getPlayerUID _instigator, _vehicleType, _victimStats);
@@ -128,12 +128,12 @@ if (_isCollision) then {
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
     case (!(admin owner _instigator isEqualTo 0) || player isEqualTo _instigator): {  // Local host included.
-        ["You damaged a friendly as admin."] call _notifyInstigator; // Admin not reported to victim in case of Zeus remote control.
+        [localize "STR_A3A_fn_punishment_evalEvent_admin"] call _notifyInstigator; // Admin not reported to victim in case of Zeus remote control.
         format ["ADMIN, %1", ["Server","Voted","Logged"] select (admin owner _instigator)];
     };
     case (_vehicle isKindOf "Air"): {
         call _notifyVictim;
-        ["You damaged a friendly as CAS support."] call _notifyInstigator;
+        [localize "STR_A3A_fn_punishment_evalEvent_CAS"] call _notifyInstigator;
         format["AIRCRAFT, %1", _vehicleType];
     };
     case (
@@ -141,7 +141,7 @@ _exemption = switch (true) do {
         {!(getNumber (configFile >> "CfgVehicles" >> _vehicleType >> "artilleryScanner") isEqualTo 0)}
     ): {
         call _notifyVictim;
-        ["You damaged a friendly as arty support."] call _notifyInstigator;
+        [localize "STR_A3A_fn_punishment_evalEvent_arty"] call _notifyInstigator;
         format ["ARTY, %1", _vehicleType];
     };
     // TODO: if( remoteControlling(_instigator) ) exitWith

@@ -180,9 +180,9 @@ if (_markerX in airportsX) then
             };
 		};
 	};
-	["TaskSucceeded", ["", "Airbase Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Airbase Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
-	["TaskUpdated",["",format ["%1 lost an Airbase",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
+	["TaskSucceeded", ["", localize "STR_A3A_fn_base_markerChange_yesAirbase"]] remoteExec ["BIS_fnc_showNotification",_winner];
+	["TaskFailed", ["", localize "STR_A3A_fn_base_markerChange_noAirbase"]] remoteExec ["BIS_fnc_showNotification",_loser];
+	["TaskUpdated",["",format [localize "STR_A3A_fn_base_markerChange_otherAirbase",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
 };
 if (_markerX in outposts) then
@@ -218,9 +218,9 @@ if (_markerX in outposts) then
             _prestigeInvaders = [30, 150];
         };
 	};
-	["TaskSucceeded", ["", "Outpost Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Outpost Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
-	["TaskUpdated",["",format ["%1 lost an Outpost",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
+	["TaskSucceeded", ["", localize "STR_A3A_fn_base_markerChange_yesOutpost"]] remoteExec ["BIS_fnc_showNotification",_winner];
+	["TaskFailed", ["", localize "STR_A3A_fn_base_markerChange_noOutpost"]] remoteExec ["BIS_fnc_showNotification",_loser];
+	["TaskUpdated",["",format [localize "STR_A3A_fn_base_markerChange_otherOutpost",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	killZones setVariable [_markerX,[],true];
 	};
 if (_markerX in seaports) then
@@ -237,9 +237,9 @@ if (_markerX in seaports) then
             _prestigeInvaders = [20, 120];
         };
 	};
-	["TaskSucceeded", ["", "Seaport Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Seaport Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
-	["TaskUpdated",["",format ["%1 lost a Seaport",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
+	["TaskSucceeded", ["", localize "STR_A3A_fn_base_markerChange_yesSeaport"]] remoteExec ["BIS_fnc_showNotification",_winner];
+	["TaskFailed", ["", localize "STR_A3A_fn_base_markerChange_noSeaport"]] remoteExec ["BIS_fnc_showNotification",_loser];
+	["TaskUpdated",["",format [localize "STR_A3A_fn_base_markerChange_otherSeaport",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 	};
 if (_markerX in factories) then
 {
@@ -255,9 +255,9 @@ if (_markerX in factories) then
             _prestigeInvaders = [20, 120];
         };
 	};
-	["TaskSucceeded", ["", "Factory Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Factory Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
-	["TaskUpdated",["",format ["%1 lost a Factory",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
+	["TaskSucceeded", ["", localize "STR_A3A_fn_base_markerChange_yesFactory"]] remoteExec ["BIS_fnc_showNotification",_winner];
+	["TaskFailed", ["", localize "STR_A3A_fn_base_markerChange_noFactory"]] remoteExec ["BIS_fnc_showNotification",_loser];
+	["TaskUpdated",["",format [localize "STR_A3A_fn_base_markerChange_otherFactory",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 };
 if (_markerX in resourcesX) then
 {
@@ -273,9 +273,9 @@ if (_markerX in resourcesX) then
             _prestigeInvaders = [20, 120];
         };
 	};
-	["TaskSucceeded", ["", "Resource Taken"]] remoteExec ["BIS_fnc_showNotification",_winner];
-	["TaskFailed", ["", "Resource Lost"]] remoteExec ["BIS_fnc_showNotification",_loser];
-	["TaskUpdated",["",format ["%1 lost a Resource",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
+	["TaskSucceeded", ["", localize "STR_A3A_fn_base_markerChange_yesResource"]] remoteExec ["BIS_fnc_showNotification",_winner];
+	["TaskFailed", ["", localize "STR_A3A_fn_base_markerChange_noResource"]] remoteExec ["BIS_fnc_showNotification",_loser];
+	["TaskUpdated",["",format [localize "STR_A3A_fn_base_markerChange_otherResource",_textX]]] remoteExec ["BIS_fnc_showNotification",_other];
 };
 
 Debug_1("Notification and points done for marker change at %1", _markerX);

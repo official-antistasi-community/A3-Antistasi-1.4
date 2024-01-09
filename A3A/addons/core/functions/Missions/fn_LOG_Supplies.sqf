@@ -113,9 +113,6 @@ else
 			};
 	};
 
-_ecpos = getpos _truckX;
-deleteVehicle _truckX;
-_emptybox = "Land_Pallet_F" createVehicle _ecpos;
-[_emptybox] spawn A3A_fnc_postmortem;
+deleteVehicle _truckX; // Previously an empty pallet was spawned here, but it has been removed. RIP
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

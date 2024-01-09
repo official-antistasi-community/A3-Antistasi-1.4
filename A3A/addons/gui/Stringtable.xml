@@ -3273,7 +3273,7 @@
     </Container>
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
-        <Original>Antitank</Original>
+        <Original>Anti-Tank</Original>
         <German>Antipanzer</German>
         <Italian>Anticarro</Italian>
         <Spanish>Antitanque</Spanish>

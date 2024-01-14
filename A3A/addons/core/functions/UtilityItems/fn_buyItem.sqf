@@ -17,7 +17,6 @@ Example:
 FIX_LINE_NUMBERS()
 
 params ["_unit", "_itemClass"];
-private _titleStr = localize "STR_A3A_Utility_Items_Purchase_Title";
 
 if (isNull _unit) exitwith { Error("Unit is null") };
 if (!isClass (configFile/"CfgVehicles"/_itemClass)) exitwith { Error_1("Class %1 does not exist", _itemClass) };
@@ -28,7 +27,7 @@ private _fnc_placed = {
     if (isNull _item) exitWith {};          // placement cancelled
 
     if ((_unit == theBoss && server getVariable ["resourcesFIA", 0] < _price) || (_unit != theBoss && _unit getVariable ["moneyX", 0] < _price)) exitWith {
-        [_titleStr, localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
+        [localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
         deleteVehicle _item;
     };
 
@@ -47,7 +46,7 @@ private _fnc_placed = {
 
 private _lastItemPurchase = _unit getVariable ["A3A_spawnItem_cooldown", 0];
 if (_lastItemPurchase > time) exitwith {
-    [_titleStr, format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastItemPurchase - time)]] call A3A_fnc_customHint;
+    [localize "STR_A3A_Utility_Items_Purchase_Title", format [localize "STR_A3A_Utility_Items_Last_Time_Purchase", ceil (_lastItemPurchase - time)]] call A3A_fnc_customHint;
 };
 
 if (("cmmdr" in _flags) && player isNotEqualTo theBoss) exitwith {
@@ -55,7 +54,7 @@ if (("cmmdr" in _flags) && player isNotEqualTo theBoss) exitwith {
 };
 
 if ((_unit == theBoss && server getVariable ["resourcesFIA", 0] < _price) || (_unit != theBoss && _unit getVariable ["moneyX", 0] < _price)) exitWith {
-    [_titleStr, localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
+    [localize "STR_A3A_Utility_Items_Purchase_Title", localize "STR_A3A_Utility_Items_Insufficient_Funds"] call A3A_fnc_customHint;
 };
 
 // Simple random placement

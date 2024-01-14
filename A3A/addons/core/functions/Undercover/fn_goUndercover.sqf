@@ -61,7 +61,7 @@ if(!(_result select 0)) exitWith
 };
 
 private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
-[localize "STR_A3A_fn_undercover_goUn_on", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
+["Undercover ON", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 
 player setCaptive true;
 [] spawn A3A_fnc_statistics;
@@ -219,7 +219,7 @@ if !(isNull (objectParent player)) then
 };
 
 private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
-[localize "STR_A3A_fn_undercover_goUn_off", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
+["Undercover OFF", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 [] spawn A3A_fnc_statistics;
 
 switch (_reason) do

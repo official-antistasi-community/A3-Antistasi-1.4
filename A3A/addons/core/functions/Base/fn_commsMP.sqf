@@ -55,7 +55,7 @@ if (_typeX == "tier") then
 	//playSound3D ["a3\sounds_f\sfx\beep_target.wss", player];
 	playSound "3DEN_notificationDefault";
 	//[_textX,0.8,0.5,5,0,0,2] spawn bis_fnc_dynamicText;
-	_textX = format [localize "STR_A3A_fn_base_commsmp_warlvlchange",tierWar];
+	_textX = format ["War Level Changed<br/><br/>Current Level: %1",tierWar]; // TODO: localize "STR_A3A_fn_base_commsmp_warlvlchange"
 	[_textX, [safeZoneX + (0.8 * safeZoneW), (0.2 * safeZoneW)], 0.5, 5, 0, 0, _layer] spawn bis_fnc_dynamicText;
 	incomeRep = false;
 	[] spawn A3A_fnc_statistics;

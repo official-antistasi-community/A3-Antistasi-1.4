@@ -44,5 +44,5 @@ private _distancePetros = _unit distance petros;
 if !(_distancePetros <= 75) exitWith {false};
 
 deleteVehicle _projectile;
-[_unit, 60, 0.4, objNull, localize "STR_A3A_fn_punishment_FF_checkNearHQ"] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false];
+[_unit, 60, 0.4, objNull, "You cannot throw grenades or place explosives within 75m of base."] remoteExec ["A3A_fnc_punishment_evaluateEvent",2,false];
 true;

@@ -12,7 +12,7 @@ _units = _units - [player];
 _units = _units select { !(isPlayer _x) && { !(_x == petros) } };
 if (_units isEqualTo []) exitWith {};
 if (_units findIf {!([_x] call A3A_fnc_canFight)} != -1) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_dissPlaGro_no_uncon"] call A3A_fnc_customHint;};
-player globalChat localize "STR_A3A_fn_reinf_dismissPlayerGroup_GTFO";
+player globalChat "Get out of my sight you useless scum!";
 
 _newGroup = createGroup teamPlayer;
 //if ({isPlayer _x} count units group player == 1) then {_ai = true; _newGroup = createGroup teamPlayer};

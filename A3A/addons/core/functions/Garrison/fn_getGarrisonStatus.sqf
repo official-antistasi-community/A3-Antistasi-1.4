@@ -16,16 +16,16 @@ private ["_ratio", "_result"];
 
 _ratio = ["_marker"] call A3A_fnc_getGarrisonRatio;
 
-_result = localize "STR_A3A_fn_garrison_getGarrisonStatus_decimated";
+_result = "Decimated";
 if(_ratio > 0.9) then
 {
-  _result = localize "STR_A3A_fn_garrison_getGarrisonStatus_good"
+  _result = "Good"
 }
 else
 {
   if(_ratio > 0.4) then
   {
-    _result = localize "STR_A3A_fn_garrison_getGarrisonStatus_weakened"
+    _result = "Weakened"
   };
 };
 

@@ -30,7 +30,7 @@ private _sideName = Faction(_side) get "name";
 if (_reveal <= 0.5) then
 {
     //Side and setup is revealed
-    _text = format [localize "STR_A3A_fn_support_showIntStpCll_unknown", _sideName];
+    _text = format ["%1 is setting up an unknown support", _sideName]; //TODO: Localize
 }
 else
 {
@@ -38,67 +38,67 @@ else
     {
         case ("MAJORATTACK"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MAJORATTACK", _sideName];
+            _text = format ["%1 just sent a major attack wave", _sideName]; //TODO: Localize
         };
         case ("COUNTERATTACK"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_COUNTERATTACK", _sideName];
+            _text = format ["%1 just sent a counterattack force", _sideName]; //TODO: Localize
         };
         case ("QRFAIR"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFAIR", _sideName];
+            _text = format ["%1 just sent an airborne QRF", _sideName]; //TODO: Localize
         };
         case ("QRFLAND"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFLAND", _sideName];
+            _text = format ["%1 just sent a land QRF", _sideName]; //TODO: Localize
         };
         case ("AIRSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_AIRSTRIKE", _sideName];
+            _text = format ["%1 is preparing an airstrike", _sideName]; //TODO: Localize
         };
         case ("MORTAR"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MORTAR", _sideName];
+            _text = format ["%1 is setting up a mortar position", _sideName]; //TODO: Localize
         };
         case ("ARTILLERY"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ARTILLERY", _sideName];
+            _text = format ["%1 is preparing an artillery position", _sideName]; //TODO: Localize
         };
         case ("ORBITALSTRIKE"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE", _sideName];
+            _text = format ["A %1 satellite is preparing an orbital strike", _sideName]; //TODO: Localize
         };
         case ("CRUISEMISSILE"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE", _sideName];
+            _text = format ["A %1 cruiser is readying a cruise missile", _sideName]; //TODO: Localize
         };
         case ("SAM"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_SAM", _sideName];
+            _text = format ["%1 is setting up a SAM launcher", _sideName]; //TODO: Localize
         };
         case ("CARPETBOMBS"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CARPETBOMBS", _sideName];
+            _text = format ["A %1 heavy bomber is on the way", _sideName]; //TODO: Localize
         };
         case ("ASF"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ASF", _sideName];
+            _text = format ["%1 is readying an air superiority fighter", _sideName]; //TODO: Localize
         };
         case ("CAS"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CAS", _sideName]; 
+            _text = format ["%1 is readying a CAS bomber", _sideName]; //TODO: Localize
         };
         case ("GUNSHIP"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_GUNSHIP", _sideName];
+            _text = format ["%1 is loading up a heavy gunship", _sideName]; //TODO: Localize
         };
         case ("UAV"):
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_UAV", _sideName];
+            _text = format ["%1 is sending a spotting UAV", _sideName]; //TODO: Localize
         };
         default
         {
-            _text = format [localize "STR_A3A_fn_support_showIntStpCll_default", _sideName, _supportType];
+            _text = format ["%1 is setting up %2 support", _sideName, _supportType]; //TODO: Localize
         };
     };
 };
@@ -111,11 +111,11 @@ if(_reveal >= 0.8) then
 {
     if(toupper _supportType in ["QRFLAND", "QRFAIR", "COUNTERATTACK", "MAJORATTACK"]) then
     {
-        _text = format [localize "STR_A3A_fn_support_showIntStpCll_arrivalTime", _text, _timeStr];
+        _text = format ["%1. Estimated arrival in %2 minutes", _text, _timeStr]; //TODO: Localize
     }
     else
     {
-        _text = format [localize "STR_A3A_fn_support_showIntStpCll_setupTime", _text, _timeStr];
+        _text = format ["%1. Estimated setup: %2 minutes", _text, _timeStr]; //TODO: Localize
     };
 };
 

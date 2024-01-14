@@ -12053,7 +12053,7 @@
         <Chinesesimp>面向玩家并与其互动</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
-        <Original>Undercover ON</Original>
+        <Original>Undercover Toggle</Original>
         <Italian>Sotto Copertura ON</Italian>
         <Spanish>Encubierto ON</Spanish>
         <French>Incognito ON</French>
@@ -12064,7 +12064,7 @@
         <Chinesesimp>启用伪装</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
-        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you</Original>
+        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you. Using this while undercover will remove your undercover status.</Original>
         <Italian>Vai sotto copertura se soddisfi i requisiti. I nemici non ti attaccheranno finché verrai scoperto</Italian>
         <Spanish>Pasa a Encubierto si cumples los requisitos. La IA enemiga no te atacará hasta que te descubra.</Spanish>
         <French>Devenez Incognito si vous remplissez les conditions. L'IA ennemie ne vous attaquera pas tant qu'elle ne vous aura pas découverte</French>

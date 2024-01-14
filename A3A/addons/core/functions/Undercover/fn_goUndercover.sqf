@@ -60,7 +60,6 @@ if(!(_result select 0)) exitWith
     };
 };
 
-private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
 ["Undercover ON", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 
 player setCaptive true;
@@ -218,7 +217,6 @@ if !(isNull (objectParent player)) then
     } forEach((assignedCargo(vehicle player)) + (crew(vehicle player)) - [player]);
 };
 
-private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
 ["Undercover OFF", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 [] spawn A3A_fnc_statistics;
 

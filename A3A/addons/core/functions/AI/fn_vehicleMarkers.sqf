@@ -8,7 +8,7 @@ _side = side (group (driver _veh));
 _typeX = "_unknown";
 _formatX = "";
 _color = colorOccupants;
-_typeX = switch (!false) do {
+_typeX = switch (true) do {
 	case (_veh isKindOf "Wheeled_APC_F"): {"_mech_inf"};
 	case (_veh isKindOf "Tank"): {"_armor"};
 	case (_veh isKindOf "Plane_Base_F"): {"_plane"};

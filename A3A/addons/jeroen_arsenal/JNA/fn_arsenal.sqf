@@ -2134,19 +2134,6 @@ switch _mode do {
 		//remove or add
 		_count = 1;
 
-		private _shift = uiNamespace getVariable ["arsenalShift", false];
-		private _ctrl = uiNamespace getVariable ["arsenalCtrl", false];
-
-		if(_shift && !_ctrl) then {
-			_count = _count * 5;
-		};
-		if(!_shift && _ctrl) then {
-			_count = _count * 10;
-		};
-		if(_shift && _ctrl) then {
-			_count = _count * 25;
-		};
-
 		if(((_amount > 0 || _amount == -1) || _add < 0) && (_add != 0))then{
 
 			if (_add > 0) then {//add

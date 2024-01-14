@@ -1,16 +1,20 @@
 /*
-Maintainer: Tiny
+Author: [Tiny]
     Checks current server variables to see if a win or loss is in order, and executes immediately.
 	If future changes are made to the win/loss routine, they should be done here.
 	This check is run in three places: 
 		invaderPunish (to check for loss when a town is destroyed)
 		markerChange (to check for win on airbase capture)
 		resourceCheck (if either previous check messes up, or in the edge case that 50% support is achieved after all airbases)
-Scope: Server
-Environment: Scheduled
 
-Arguments:
-    None
+Arguments:None
+
+Return Value: None
+
+Scope: Server
+
+Example:
+	[] spawn A3A_fnc_checkCampaignEnd;
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

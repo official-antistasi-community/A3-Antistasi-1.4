@@ -74,14 +74,12 @@ private _utilityRefund = {
     if ("loot" in _flags) then {
         _feedBack = "STR_HR_GRG_Feedback_addVehicle_LTC";
         _updated = [_object, boxX, true, true] call A3A_fnc_ammunitionTransfer;
-        diag_log str _updated;
     };
 
     deleteVehicle _object;
     if (_instantRefund) then {
         if (_toRefund > 0) then {
             _resourcesFIA = [0,_toRefund,true] call A3A_fnc_resourcesFIA;
-            diag_log str _resourcesFIA;
         };
         [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
         true;
@@ -95,8 +93,6 @@ private _utilityRefund = {
     } else {
         _nonBossComms = "";
     };
-    diag_log str _bossComms;
-    diag_log str _nonBossComms;
     if (_nonBossPlayers isNotEqualTo []) then {[petros,"income",_nonBossComms] remoteExec ["A3A_fnc_commsMP",_nonBossPlayers];};
     if !(isNull theBoss) then {[petros,"income",_bossComms] remoteExec ["A3A_fnc_commsMP",theBoss];};
     if (_instantRefund) exitWith {};

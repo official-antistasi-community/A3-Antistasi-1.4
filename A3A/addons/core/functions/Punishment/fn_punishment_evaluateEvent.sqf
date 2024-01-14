@@ -115,7 +115,7 @@ if (!(_exemption isEqualTo "")) exitWith {
 };
 
 // Case of FF is confirmed -- attach the name to the client for future
-_instigator setVariable ["_lastFriendlyHit", name _victim, true];
+_instigator setVariable ["_lastFriendlyHit", name _victim, 2];
 
 /////////////Acts on Collision//////////////
 if (_isCollision) then {

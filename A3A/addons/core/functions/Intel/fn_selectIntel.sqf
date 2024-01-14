@@ -200,14 +200,8 @@ if (_intelType == "Large") then
         };
         case (WEAPON):
         {
-            private _notYetUnlocked = allWeapons - unlockedWeapons;
-            private _noLaunchers = [];
-            { 
-                _categories = _x call A3A_fnc_equipmentClassToCategories;
-                //if !("MissileLaunchers" in _categories && {allowGuidedLaunchers == 1}) then {_noLaunchers pushBack _x}; 
-                if !("MissileLaunchers" in _categories) then {_noLaunchers pushBack _x}; 
-            } forEach _notYetUnlocked; // to filter out missile launchers. launchers are not unlocked even if allowGuidedLaunchers for balance reasons, but the line can be reenabled if needed.
-            _newWeapon = selectRandom _noLaunchers;
+            private _notYetUnlocked = allWeapons - unlockedWeapons - allMissileLaunchers; // to prevent guided launchers from being unlocked by large intel
+            _newWeapon = selectRandom _notYetUnlocked;
             [_newWeapon] remoteExec ["A3A_fnc_unlockEquipment", 2];
 
             private _weaponName = getText (configFile >> "CfgWeapons" >> _newWeapon >> "displayName");

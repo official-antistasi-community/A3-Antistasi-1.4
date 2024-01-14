@@ -4,7 +4,7 @@ class DOUBLES(ADDON,Nodes)
     {
         class Nodes {};
         canLoadWeapon = 1; //if the vehicle can load weapons
-        weaponBlackList = __EVAL(16); //blacklist Weaponstypes (Bitwise 16 - everything allowed, 1 - mortar, 2 - MG, 4 - AT, 8 - AA) )
+        weaponBlackList = __EVAL(0); //blacklist Weaponstypes (Bitwise 16 - everything allowed, 1 - mortar, 2 - MG, 4 - AT, 8 - AA) )
         canLoadLowWeapons = 1; //if the vehicle can load weapons with a low profile (e.g. M2 Low Mount)
         isBoat = 0; //if the vehicle is a boat
     };

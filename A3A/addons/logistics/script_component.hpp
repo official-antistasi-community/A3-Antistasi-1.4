@@ -10,24 +10,24 @@
 #define TYPE_AA 4
 
 //Basic Variantes
-#define BL_MG __EVAL(2)
-#define BL_AT __EVAL(4)
-#define BL_AA __EVAL(8)
-#define BL_MORTAR __EVAL(1)
+#define BL_MORTAR {1}
+#define BL_MG {2}
+#define BL_AT {3}
+#define BL_AA {4}
 
 // Variants with 2 Blacklisted weapon types
-#define BL_MORTAR_MG __EVAL(1+2)
-#define BL_MORTAR_AT __EVAL(1+4)
-#define BL_MORTAR_AA __EVAL(1+8)
-#define BL_MG_AT __EVAL(2+4)
-#define BL_MG_AA __EVAL(2+8)
-#define BL_AT_AA __EVAL(4+8)
+#define BL_MORTAR_MG {1,2}
+#define BL_MORTAR_AT {1,3}
+#define BL_MORTAR_AA {1,4}
+#define BL_MG_AT {2,3}
+#define BL_MG_AA {2,4}
+#define BL_AT_AA {3,4}
 
 // Variants with 3 Blacklisted Weapon Types
-#define BL_MORTAR_MG_AT __EVAL(1+2+4)
-#define BL_MORTAR_MG_AA __EVAL(1+2+8)
-#define BL_MORTAR_AT_AA __EVAL(1+4+8)
-#define BL_MG_AT_AA __EVAL(2+4+8)
+#define BL_MORTAR_MG_AT {1,2,3}
+#define BL_MORTAR_MG_AA {1,2,4}
+#define BL_MORTAR_AT_AA {1,3,4}
+#define BL_MG_AT_AA {2,3,4}
 
 // Variants with 4 Blacklisted Weapon Types
-#define BL_MORTAR_MG_AT_AA __EVAL(1+2+4+8)
+#define BL_ALL {1,2,3,4}

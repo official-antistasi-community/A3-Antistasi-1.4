@@ -30,23 +30,23 @@
         -9: Units in cargo seats blocking loading
 */
 #include "..\script_component.hpp"
-params [ ["_vehicle", objNull, [objNull] ], ["_object", objNull, [objNull] ] ];
+params [ ["_vehicle", objNull, [objNull] ], ["_cargoObject", objNull, [objNull] ] ];
 if !(alive _vehicle) exitWith {-1}; //vehicle destroyed
-if !(alive _object) exitWith {-2}; //cargo destroyed
+if !(alive _cargoObject) exitWith {-2}; //cargo destroyed
 
 //check if vehicle can load cargo
 private _vehConfig = [_vehicle] call A3A_Logistics_fnc_getNodeConfig;
 if (isNull _vehConfig) exitWith {-7};
 
 //get cargo node size
-private _cargoConfig = [_object] call A3A_Logistics_fnc_getCargoConfig;
+private _cargoConfig = [_cargoObject] call A3A_Logistics_fnc_getCargoConfig;
 if (isNull _cargoConfig) exitWith {-3};
-private _objNodeType = [_object] call A3A_Logistics_fnc_getCargoNodeType;
+private _objNodeType = [_cargoObject] call A3A_Logistics_fnc_getCargoNodeType;
 if (_objNodeType isEqualTo -1) exitWith {-3}; //invalid cargo
 
 if !(
-    ((gunner _object) isEqualTo _object)
-    or ((gunner _object) isEqualTo objNull)
+    ((gunner _cargoObject) isEqualTo _cargoObject)
+    or ((gunner _cargoObject) isEqualTo objNull)
 ) exitWith {-4}; //gunner in static
 
 //is weapon? and weapon allowed
@@ -54,16 +54,35 @@ private _weapon = 1 == getNumber (_cargoConfig/"isWeapon");
 private _allowed = if (!_weapon) then {true} else {
     if (0 == getNumber (_vehConfig/"canLoadWeapon")) exitWith {false};
 
-    // check wepon allow more
-    private _weaponType = (getNumber (_cargoConfig/"weaponType")) - 1 ;
+    // check weapon allow more
+    private _weaponType = getNumber (_cargoConfig/"weaponType");
+    private _weaponBlacklist = getArray (_vehConfig/"weaponBlackList");
 
-    // generally disallow mortars on boats
+    private _typeForbidden = if (_weaponType isNotEqualTo 0) then {
+        ( _weaponType in _weaponBlacklist)
+    } else {
+        switch (true) do {
+        // Mortar is kind of  "StaticMortar"
+            case ( _cargoObject isKindOf "StaticMortar"): { //blacklist mortar and implizit mortar on boat check
+                ( 1 in _weaponBlacklist || _vehicle isKindOf "Ship")
+            };
+            case (_cargoObject isKindOf "StaticMGWeapon" ||  _cargoObject isKindOf "StaticGrenadeLauncher"): {
+                // Mg may be kind of "StaticMGWeapon" as well as AT-Launcher as well as Vanilla AA also place here "StaticGrenadeLauncher"
+                ( 2 in _weaponBlacklist)
+            };
+            case ( _cargoObject isKindOf "StaticATWeapon"): { // AT may be kind of  "StaticATWeapon"
+                ( 3 in _weaponBlacklist)
+            };
+            case ( _cargoObject isKindOf "StaticAAWeapon"): { // AA may be kind of "StaticAAWeapon"
+                ( 4 in _weaponBlacklist)
+            };
+            default {false};
+        };
+    };
+    if (_typeForbidden) exitwith {false};
+    
+    // explizt Mortar Boar Check
     if (1 == getNumber(_vehConfig/"isBoat") && 0 == _weaponType) exitWith {false};
-
-    private _typeAllowed = if (_weaponType isNotEqualTo -1) then {
-        !( _weaponType in (getNumber (_vehConfig/"weaponBlackList") call BIS_fnc_decodeFlags))
-    } else { true };
-    if (!_typeAllowed) exitwith {false};
 
     // check if weapon is allowed on boat
     if (1 == getNumber(_vehConfig/"isBoat") && 1 == getNumber(_cargoConfig/"disallowOnBoat")) exitWith {false};
@@ -80,10 +99,10 @@ private _allowed = if (!_weapon) then {true} else {
 };
 if !(_allowed) exitWith {-5}; //weapon not allowed on vehicle
 
-if ((_object isKindOf "CAManBase") and (
-    ( [_object] call A3A_fnc_canFight )
-    or !( isNull (_object getVariable ["helped",objNull]) )
-    or !( isNull attachedTo _object )
+if ((_cargoObject isKindOf "CAManBase") and (
+    ( [_cargoObject] call A3A_fnc_canFight )
+    or !( isNull (_cargoObject getVariable ["helped",objNull]) )
+    or !( isNull attachedTo _cargoObject )
 )) exitWith {-6}; //conscious man
 
 //get vehicle nodes
@@ -121,4 +140,4 @@ if ((_node#0) isEqualType []) then {
 };
 if !(_fullCrew findIf {_x#2 in _seats} isEqualTo -1) exitWith {-9};
 
-[_object, _vehicle, _node, _weapon]
+[_cargoObject, _vehicle, _node, _weapon]

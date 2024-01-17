@@ -5,10 +5,10 @@
 
     Arguments:
     0. <Object> Vehicle which would be cargo
-    3. <Bool>   definition if model instead of class based (default modelbased)
+    1. <Bool>   definition if model instead of class based (default modelbased)
 
     Return Value:
-    <Array> vehicle hardpoint point [model, node array]
+    <string> cargo-classname
 
     Scope: Clients
     Environment: unscheduled

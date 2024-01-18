@@ -81,7 +81,7 @@ private _allowed = if (!_weapon) then {true} else {
     };
     if (_typeForbidden) exitwith {false};
     
-    // explizt Mortar Boar Check
+    // explicit Mortar Boat check
     if (1 == getNumber(_vehConfig/"isBoat") && 0 == _weaponType) exitWith {false};
 
     // check if weapon is allowed on boat

@@ -12,7 +12,7 @@
     Public: [Yes]
     Dependencies:
 
-    Example: [] call A3A_Logistics_fnc_testCargo;
+    Example: [] call A3A_Logistics_fnc_checkDefinedCargoNodes;
 */
 #include "..\script_component.hpp"
 

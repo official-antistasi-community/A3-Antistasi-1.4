@@ -63,7 +63,7 @@ private _allowed = if (!_weapon) then {true} else {
     } else {
         switch (true) do {
         // Mortar is kind of  "StaticMortar"
-            case ( _cargoObject isKindOf "StaticMortar"): { //blacklist mortar and implizit mortar on boat check
+            case ( _cargoObject isKindOf "StaticMortar"): { //blacklist mortar and implicit mortar-on-boat check
                 ( 1 in _weaponBlacklist || _vehicle isKindOf "Ship")
             };
             case (_cargoObject isKindOf "StaticMGWeapon" ||  _cargoObject isKindOf "StaticGrenadeLauncher"): {

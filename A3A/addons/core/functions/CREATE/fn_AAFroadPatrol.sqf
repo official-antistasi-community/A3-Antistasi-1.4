@@ -14,7 +14,8 @@ _roads = [];
 private _players = allPlayers - entities "HeadlessClient_F";
 private _bases = (seaports + airportsX + outposts) select {
 	call {
-		if ((_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo []) && !(_players inAreaArray [markerPos _x, 350, 350] isEqualTo [])) exitWith {false};
+		if ((_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo [])) exitWith {false};
+		if (!(_players inAreaArray [markerPos _x, 350, 350] isEqualTo [])) exitWith {false};
 		private _side = sidesX getVariable [_x, sideUnknown];
 		if (_side == teamPlayer) exitWith {false};
 		if (_x in seaports and Faction(_side) get "vehiclesGunBoats" isEqualTo []) exitWith {false};
@@ -125,7 +126,7 @@ while {alive _veh} do
 	{
 	if (count _arrayDestinations < 2) exitWith {};
 	_destinationX = selectRandom _arrayDestinations;
-	if (debug) then {player globalChat format ["Patrulla AI generada. originX: %2 destinationX %1", _destinationX, _base]; sleep 3};
+	if (debug) then {player globalChat format ["Generated AI patrol. Origin %2, destination %1.", _destinationX, _base]; sleep 3};
 	_posDestination = getMarkerPos _destinationX;
 	if (_typePatrol == "LAND") then
 		{

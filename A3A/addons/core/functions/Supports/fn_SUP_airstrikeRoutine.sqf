@@ -42,7 +42,7 @@ _group deleteGroupWhenEmpty true;
 // Should we really have these?
 _plane addEventHandler ["Killed", {
     params ["_plane"];
-    ["TaskSucceeded", ["", "Airstrike Vessel Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer]; //TODO: Localize
+    ["TaskSucceeded", ["", localize "STR_A3A_fn_supports_airStrikeVesselDown"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
 }];
 
 //["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]

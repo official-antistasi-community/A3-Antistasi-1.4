@@ -122,25 +122,27 @@ else
 
 	if (str (_display) != "no display") then
 		{
+		private _unitCost = localize "STR_A3A_fn_reinf_garrisonDialog_cost";
+		private _unitCostFull = [_unitCost + ": %1 €"];
 		_ChildControl = _display displayCtrl 104;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitRifle")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitRifle")];
 		_ChildControl = _display displayCtrl 105;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitMG")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitMG")];
 		_ChildControl = _display displayCtrl 126;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitMedic")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitMedic")];
 		_ChildControl = _display displayCtrl 107;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitSL")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitSL")];
 		_ChildControl = _display displayCtrl 108;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",(server getVariable FactionGet(reb,"unitCrew")) + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,(server getVariable FactionGet(reb,"unitCrew")) + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)];
 		_ChildControl = _display displayCtrl 109;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitGL")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitGL")];
 		_ChildControl = _display displayCtrl 110;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitSniper")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitSniper")];
 		_ChildControl = _display displayCtrl 111;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitLAT")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitLAT")];
 		_ChildControl = _display displayCtrl 112;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitAT")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitAT")];
 		_ChildControl = _display displayCtrl 113;
-		_ChildControl  ctrlSetTooltip format ["Cost: %1 €",server getVariable FactionGet(reb,"unitAA")];
+		_ChildControl  ctrlSetTooltip format [_unitCostFull,server getVariable FactionGet(reb,"unitAA")];
 		};
 	};

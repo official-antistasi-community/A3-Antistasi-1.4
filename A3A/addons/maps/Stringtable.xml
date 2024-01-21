@@ -1047,9 +1047,10 @@
       </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_mapname_short_text">
         <Original>Antistasi Isla Duala</Original>
-     </Key>
+      </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_mapname_text">
         <Original>Antistasi - Liberation of Isla Duala</Original>
+      </Key>
       <Key ID="STR_antistasi_mission_info_kujari_blurb_text">
         <Original>African Action</Original>
       </Key>

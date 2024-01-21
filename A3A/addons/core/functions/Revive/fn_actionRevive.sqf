@@ -9,7 +9,7 @@ if (captive _medic) then { _medic setCaptive false };         // medic is will b
 if !(alive _cured) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_no_dead",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 is already dead.",name _cured]};
+    if (_inPlayerGroup) then {_medic groupChat format ["STR_A3A_fn_revive_actRev_no_dead",name _cured]};
     false
 };
 if !([_medic] call A3A_fnc_canFight) exitWith
@@ -26,7 +26,7 @@ if !(isNull attachedTo _cured) exitWith
 if !(_cured getVariable ["incapacitated",false]) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_no_up",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["%1 no longer needs my help.",name _cured]};
+    if (_inPlayerGroup) then {_medic groupChat format [localize "STR_A3A_fn_revive_actRev_no_up_AI",name _cured]};
     false
 };
 
@@ -39,7 +39,7 @@ private _curedFAKs = if (!_hasMedkit) then { _firstAidKits arrayIntersect items 
 if (!_hasMedkit && {count _medicFAKs == 0 && count _curedFAKs == 0}) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_no_meds",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat "I'm out of FA kits and I have no Medikit!"};
+    if (_inPlayerGroup) then {_medic groupChat localize "STR_A3A_fn_revive_actRev_no_meds_AI"};
     false
 };
 
@@ -107,7 +107,7 @@ if (_medic getVariable ["cancelRevive",false]) exitWith
 if !(alive _cured) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_lost",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["We lost %1.",name _cured]};
+    if (_inPlayerGroup) then {_medic groupChat format [localize "STR_A3A_fn_revive_actRev_lost",name _cured]};
     false;
 };
 if (!([_medic] call A3A_fnc_canFight)) exitWith

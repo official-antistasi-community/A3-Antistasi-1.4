@@ -61,7 +61,7 @@ if (player == leader _unit) then {
 	if ((!haveRadio) and !(A3A_hasIFA)) then {
 		while {alive _unit} do {
 			sleep 10;
-			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_hasARadio)) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]};
+			if (([player] call A3A_fnc_hasRadio) && (_unit call A3A_fnc_hasARadio)) exitWith {_unit groupChat format ["This is %1, radiocheck OK",name _unit]}; //TODO: Obsolete?
 			if (unitReady _unit) then {
 				if ((alive _unit) and (_unit distance (getMarkerPos respawnTeamPlayer) > 50) and (_unit distance leader group _unit > 500) and ((vehicle _unit == _unit) or ((typeOf (vehicle _unit)) in arrayCivVeh))) then {
 					["", format [localize "STR_A3A_fn_reinf_FIAinit_lost", name _unit]] call A3A_fnc_customHint;

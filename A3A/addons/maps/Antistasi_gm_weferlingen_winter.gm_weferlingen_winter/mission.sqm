@@ -8,7 +8,7 @@ class EditorData
 	toggles=1025;
 	class ItemIDProvider
 	{
-		nextID=3251;
+		nextID=3252;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=964;
+		nextID=1015;
 	};
 	class Camera
 	{
-		pos[]={19472.535,156.16966,17356.703};
-		dir[]={0,-0.70710683,0.70710683};
-		up[]={0,0.70710677,0.70710677};
-		aside[]={0.99999994,0,-0};
+		pos[]={5811.5156,142.77103,3766.783};
+		dir[]={-0.81646478,-0.27529797,0.50755101};
+		up[]={-0.23380755,0.96135843,0.14534479};
+		aside[]={0.5279513,-5.8600563e-008,0.84928226};
 	};
 };
 binarizationWanted=0;
@@ -198,7 +198,7 @@ class Mission
 {
 	class Intel
 	{
-		briefingName=$STR_antistasi_mission_info_Enoch_mapname_text;
+		briefingName=$STR_antistasi_mission_info_gm_weferlingen_winter_mapname_text;
 		resistanceWest=0;
 		startWind=0.1;
 		forecastWind=0.1;
@@ -213,7 +213,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=6;
+		items=7;
 		class Item0
 		{
 			dataType="Layer";
@@ -13819,7 +13819,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=216.77899;
+							angle=216.77898;
 							id=1350;
 							atlOffset=-0.00025177002;
 						};
@@ -14913,7 +14913,7 @@ class Mission
 							colorName="ColorGreen";
 							a=15;
 							b=5;
-							angle=216.77899;
+							angle=216.77898;
 							id=2092;
 							atlOffset=0.00032043457;
 						};
@@ -16337,7 +16337,7 @@ class Mission
 							colorName="ColorEAST";
 							a=320;
 							b=160;
-							angle=6.9159956;
+							angle=6.9159951;
 							id=1362;
 							atlOffset=-0.00012207031;
 						};
@@ -17556,7 +17556,7 @@ class Mission
 							type="";
 							a=101.18;
 							b=66.612;
-							angle=6.2099991;
+							angle=6.2099986;
 							id=2211;
 							atlOffset=-0.00022125244;
 						};
@@ -17569,7 +17569,7 @@ class Mission
 							type="";
 							a=101.18;
 							b=66.612;
-							angle=6.8419991;
+							angle=6.8419986;
 							id=2212;
 						};
 					};
@@ -17593,7 +17593,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=258.10397;
+							angle=258.10394;
 							id=1367;
 							atlOffset=-0.00030517578;
 						};
@@ -18688,7 +18688,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=253.20198;
+							angle=253.20195;
 							id=2120;
 							atlOffset=3.0517578e-005;
 						};
@@ -18702,7 +18702,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=79.539993;
+							angle=79.539986;
 							id=2121;
 							atlOffset=0.00036621094;
 						};
@@ -18805,7 +18805,7 @@ class Mission
 							type="";
 							a=101.18;
 							b=66.612;
-							angle=78.755981;
+							angle=78.755974;
 							id=2209;
 							atlOffset=0.00030517578;
 						};
@@ -18818,7 +18818,7 @@ class Mission
 							type="";
 							a=101.18;
 							b=66.612;
-							angle=78.755981;
+							angle=78.755974;
 							id=2210;
 							atlOffset=-0.00033569336;
 						};
@@ -18904,6 +18904,7 @@ class Mission
 							{
 							};
 							id=1285;
+							atlOffset=-116.76;
 						};
 						class Item1
 						{
@@ -19712,7 +19713,7 @@ class Mission
 							{
 							};
 							id=1287;
-							atlOffset=0.57569885;
+							atlOffset=-116.76;
 						};
 						class Item2
 						{
@@ -20145,7 +20146,7 @@ class Mission
 						};
 					};
 					id=1168;
-					atlOffset=1.3518803e+012;
+					atlOffset=-116.76;
 				};
 				class Item1
 				{
@@ -20315,7 +20316,7 @@ class Mission
 						};
 					};
 					id=1233;
-					atlOffset=19.28582;
+					atlOffset=-116.76;
 				};
 				class Item2
 				{
@@ -22650,7 +22651,7 @@ class Mission
 						};
 					};
 					id=1235;
-					atlOffset=1.5378494;
+					atlOffset=-116.76;
 				};
 				class Item3
 				{
@@ -23036,7 +23037,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=201.42783;
+							angle=201.42781;
 							id=2587;
 							atlOffset=0.60869598;
 						};
@@ -23151,7 +23152,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=45.467587;
+							angle=45.467583;
 							id=2586;
 						};
 					};
@@ -23505,7 +23506,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=117.04994;
+							angle=117.04993;
 							id=1859;
 							atlOffset=10.456795;
 						};
@@ -23607,13 +23608,13 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=117.04993;
+							angle=117.04991;
 							id=3243;
 							atlOffset=10.456741;
 						};
 					};
 					id=892;
-					atlOffset=7.9196854;
+					atlOffset=-116.76;
 				};
 				class Item1
 				{
@@ -24479,7 +24480,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=356.3674;
+							angle=356.36737;
 							id=3235;
 						};
 						class Item30
@@ -24492,12 +24493,12 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=356.36737;
+							angle=356.36734;
 							id=3236;
 						};
 					};
 					id=897;
-					atlOffset=-0.20262146;
+					atlOffset=-116.76;
 				};
 				class Item2
 				{
@@ -24619,7 +24620,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=215.32672;
+							angle=215.32671;
 							id=2628;
 						};
 						class Item8
@@ -24650,7 +24651,7 @@ class Mission
 						};
 					};
 					id=902;
-					atlOffset=-0.094985962;
+					atlOffset=-116.76;
 				};
 				class Item3
 				{
@@ -24669,7 +24670,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=205.41531;
+							angle=205.4153;
 							id=1895;
 						};
 						class Item1
@@ -24802,7 +24803,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=168.02145;
+							angle=168.02144;
 							id=2620;
 							atlOffset=-7.6293945e-006;
 						};
@@ -24877,7 +24878,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=17.000065;
+							angle=17.000063;
 							id=3219;
 							atlOffset=-7.6293945e-006;
 						};
@@ -24891,12 +24892,12 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=17.000063;
+							angle=17.000061;
 							id=3220;
 						};
 					};
 					id=907;
-					atlOffset=-0.081100464;
+					atlOffset=-116.76;
 				};
 				class Item4
 				{
@@ -25153,9 +25154,9 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=233.79578;
+							angle=233.79575;
 							id=3221;
-							atlOffset=8.3115997;
+							atlOffset=8.3115921;
 						};
 						class Item13
 						{
@@ -25173,7 +25174,7 @@ class Mission
 						};
 					};
 					id=912;
-					atlOffset=5.7677155;
+					atlOffset=-116.76;
 				};
 				class Item5
 				{
@@ -25407,7 +25408,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=113.78966;
+							angle=113.78965;
 							id=3228;
 						};
 						class Item13
@@ -25420,7 +25421,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=293.34122;
+							angle=293.34119;
 							id=3229;
 						};
 						class Item14
@@ -25438,7 +25439,7 @@ class Mission
 						};
 					};
 					id=917;
-					atlOffset=0.12164307;
+					atlOffset=-116.76;
 				};
 				class Item6
 				{
@@ -25577,7 +25578,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=51.269997;
+							angle=51.269993;
 							id=3239;
 						};
 						class Item9
@@ -25671,7 +25672,7 @@ class Mission
 						};
 					};
 					id=922;
-					atlOffset=0.011611938;
+					atlOffset=-116.76;
 				};
 				class Item7
 				{
@@ -25690,7 +25691,7 @@ class Mission
 							colorName="ColorGreen";
 							a=20;
 							b=5;
-							angle=185.79485;
+							angle=185.79483;
 							id=1912;
 						};
 						class Item1
@@ -25787,7 +25788,7 @@ class Mission
 						};
 					};
 					id=927;
-					atlOffset=0.022613525;
+					atlOffset=-116.76;
 				};
 				class Item8
 				{
@@ -25806,7 +25807,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=94.831993;
+							angle=94.831985;
 							id=1916;
 						};
 						class Item1
@@ -25957,12 +25958,12 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=94.831985;
+							angle=94.831978;
 							id=3244;
 						};
 					};
 					id=932;
-					atlOffset=-0.11200714;
+					atlOffset=-116.76;
 				};
 				class Item9
 				{
@@ -25981,7 +25982,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=184.66782;
+							angle=184.6678;
 							id=1919;
 						};
 						class Item1
@@ -26151,12 +26152,12 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=184.6678;
+							angle=184.66779;
 							id=3245;
 						};
 					};
 					id=937;
-					atlOffset=-0.14306641;
+					atlOffset=-116.76;
 				};
 				class Item10
 				{
@@ -26175,7 +26176,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=152.56857;
+							angle=152.56856;
 							id=1923;
 							atlOffset=9.8995209;
 						};
@@ -26285,7 +26286,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=151.86884;
+							angle=151.86882;
 							id=2745;
 							atlOffset=10.366539;
 						};
@@ -26299,7 +26300,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=152.56856;
+							angle=152.56854;
 							id=3246;
 							atlOffset=9.9073868;
 						};
@@ -26313,13 +26314,13 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=152.56856;
+							angle=152.56854;
 							id=3247;
 							atlOffset=9.899559;
 						};
 					};
 					id=942;
-					atlOffset=4.0706558;
+					atlOffset=-116.76;
 				};
 				class Item11
 				{
@@ -26443,7 +26444,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=277.6817;
+							angle=277.68167;
 							id=3231;
 							atlOffset=5.9995575;
 						};
@@ -26457,13 +26458,13 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=275.12012;
+							angle=275.12009;
 							id=3232;
 							atlOffset=5.9995575;
 						};
 					};
 					id=947;
-					atlOffset=4.7507782;
+					atlOffset=-116.76;
 				};
 				class Item12
 				{
@@ -26695,6 +26696,7 @@ class Mission
 							b=5;
 							angle=356.23157;
 							id=2656;
+							atlOffset=-7.6293945e-006;
 						};
 						class Item11
 						{
@@ -27538,7 +27540,7 @@ class Mission
 							colorName="ColorGreen";
 							a=10;
 							b=5;
-							angle=174.42798;
+							angle=174.42796;
 							id=3233;
 						};
 						class Item36
@@ -27588,7 +27590,7 @@ class Mission
 						};
 					};
 					id=952;
-					atlOffset=1.6071243;
+					atlOffset=-116.76;
 				};
 				class Item13
 				{
@@ -27713,7 +27715,7 @@ class Mission
 							colorName="ColorGreen";
 							a=15;
 							b=5;
-							angle=348.02496;
+							angle=348.02493;
 							id=2748;
 							atlOffset=1.1076584;
 						};
@@ -27805,7 +27807,7 @@ class Mission
 						};
 					};
 					id=957;
-					atlOffset=0.10485077;
+					atlOffset=-116.76;
 				};
 				class Item14
 				{
@@ -27990,7 +27992,7 @@ class Mission
 							colorName="ColorGreen";
 							a=15;
 							b=5;
-							angle=334.69897;
+							angle=334.69894;
 							id=2659;
 							atlOffset=-0.0001449585;
 						};
@@ -28488,7 +28490,7 @@ class Mission
 						};
 					};
 					id=962;
-					atlOffset=0.041145325;
+					atlOffset=-116.76;
 				};
 				class Item15
 				{
@@ -28663,7 +28665,7 @@ class Mission
 						};
 					};
 					id=967;
-					atlOffset=2.7062607;
+					atlOffset=-116.76;
 				};
 				class Item16
 				{
@@ -28815,7 +28817,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=280.69379;
+							angle=280.69376;
 							id=3248;
 						};
 						class Item10
@@ -28828,7 +28830,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=280.69376;
+							angle=280.69373;
 							id=3249;
 						};
 						class Item11
@@ -28841,12 +28843,12 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=280.69376;
+							angle=280.69373;
 							id=3250;
 						};
 					};
 					id=972;
-					atlOffset=0.040863037;
+					atlOffset=-116.76;
 				};
 				class Item17
 				{
@@ -28865,9 +28867,9 @@ class Mission
 							colorName="ColorGreen";
 							a=20;
 							b=5;
-							angle=236.00897;
+							angle=236.00896;
 							id=1951;
-							atlOffset=7.6293945e-006;
+							atlOffset=1.5258789e-005;
 						};
 						class Item1
 						{
@@ -28879,7 +28881,7 @@ class Mission
 							colorName="ColorGUER";
 							a=75;
 							b=62.627659;
-							angle=56.348869;
+							angle=56.348866;
 							id=1952;
 							atlOffset=-7.6293945e-006;
 						};
@@ -30567,7 +30569,7 @@ class Mission
 						};
 					};
 					id=977;
-					atlOffset=0.26400757;
+					atlOffset=-116.76;
 				};
 				class Item18
 				{
@@ -30586,7 +30588,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=183.98268;
+							angle=183.98267;
 							id=1955;
 						};
 						class Item1
@@ -30599,7 +30601,7 @@ class Mission
 							colorName="ColorGUER";
 							a=76.570068;
 							b=69.102295;
-							angle=27.628752;
+							angle=27.62875;
 							id=1956;
 							atlOffset=0.002281189;
 						};
@@ -31500,7 +31502,7 @@ class Mission
 						};
 					};
 					id=982;
-					atlOffset=-0.13827515;
+					atlOffset=-116.76;
 				};
 			};
 			id=891;
@@ -31729,7 +31731,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=228.87515;
+							angle=228.87514;
 							id=1866;
 						};
 						class Item1
@@ -31965,7 +31967,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=269.78857;
+							angle=269.78854;
 							id=1888;
 							atlOffset=4.5352325;
 						};
@@ -31991,7 +31993,7 @@ class Mission
 							colorName="ColorGreen";
 							a=5;
 							b=5;
-							angle=269.78854;
+							angle=269.78851;
 							id=2591;
 							atlOffset=4.5352325;
 						};
@@ -32002,6 +32004,51 @@ class Mission
 			};
 			id=992;
 			atlOffset=-13.804932;
+		};
+		class Item6
+		{
+			dataType="Logic";
+			class PositionInfo
+			{
+				position[]={8172.2339,95.959999,13971.856};
+				angles[]={0.0019834081,5.8956175,6.2731848};
+			};
+			areaSize[]={60.595909,0,6.6209078};
+			areaIsRectangle=1;
+			flags=1;
+			id=3251;
+			type="ModuleHideTerrainObjects_F";
+			atlOffset=0.050437927;
+			class CustomAttributes
+			{
+				class Attribute0
+				{
+					property="#filter";
+					expression="_this setVariable [""#filter"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="SCALAR";
+							value=7;
+						};
+					};
+				};
+				class Attribute1
+				{
+					property="#hideLocally";
+					expression="_this setVariable [""#hideLocally"",_value]";
+					class Value
+					{
+						class data
+						{
+							singleType="BOOL";
+							value=0;
+						};
+					};
+				};
+				nAttributes=2;
+			};
 		};
 	};
 	class Connections

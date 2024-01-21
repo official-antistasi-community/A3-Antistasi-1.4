@@ -26,7 +26,7 @@ private _titleStr = localize "STR_A3A_fn_base_canmovehq_title";
 if (player != theBoss) then
 {
     [_titleStr, localize "STR_A3A_fn_base_canmovehq_no_comm"] call A3A_fnc_customHint;
-    _result pushBack "Commander only";// TODO: localize "STR_A3A_fn_base_canmovehq_comm_only"
+    _result pushBack localize "STR_A3A_fn_base_canmovehq_comm_only";
 };
 
 if !(isNull attachedTo petros) then
@@ -35,7 +35,7 @@ if !(isNull attachedTo petros) then
     {
         [_titleStr, localize "STR_A3A_fn_base_canmovehq_petros_down"] call A3A_fnc_customHint;
     };
-    _result pushBack "Petros currently picked up";// TODO: localize "STR_A3A_fn_base_canmovehq_petros_pickedup"
+    _result pushBack localize "STR_A3A_fn_base_canmovehq_petros_pickedup";
 };
 
 if(count _result != 1) exitWith

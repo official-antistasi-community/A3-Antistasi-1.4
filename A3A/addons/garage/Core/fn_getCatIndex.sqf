@@ -7,7 +7,7 @@
     0. <String> Class you want to know the category index of
 
     Return Value:
-    <Int> category index, -1 if it has no category, and -2 if it is found on the blacklist. Used for deleting the vehicle after being found on the blacklist.
+    <Int> category index; -1 if it has no category, and -2 if it is found on the blacklist. Used for deleting the vehicle after being found on the blacklist.
 
     Scope: Any
     Environment: unscheduled

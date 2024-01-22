@@ -5752,6 +5752,9 @@
         <Korean>그 곳에는 제거할 주둔군이 없습니다.</Korean>
         <Chinesesimp>这地方不存在可以调除的驻军</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_garrDia_no_wPost">
+        <Original>Additional garrison units cannot be added to observation posts.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_removed">
         <Original>Garrison removed&lt;br/&gt;&lt;br/&gt;Recovered Money: %1 €&lt;br/&gt;Recovered HR: %2</Original>
         <Italian>Guarnigione rimossa&lt;br/&gt;&lt;br/&gt;Soldi Recuperati: %1 €&lt;br/&gt; HR recuperate: %2</Italian>
@@ -6582,7 +6585,7 @@
         <Original>Fighter Destroyed</Original>
       </Key>
       <Key ID="STR_A3A_fn_supports_cityDestroyed">
-        <Original>%1 Obliterated</Original>
+        <Original>%1 Destroyed</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
         <Original>%1 is setting up an unknown support</Original>

@@ -59,9 +59,18 @@ _nul=CreateDialog "build_menu";
 };
 
 //if (((_nearX in outpostsFIA) and !(isOnRoad _positionX)) /*or (_nearX in citiesX)*/ or (_nearX in controlsX)) exitWith {hint "You cannot manage garrisons on this kind of zone"; _nul=CreateDialog "garrison_menu"};
-_outpostFIA = if (_nearX in outpostsFIA) then {true} else {false};
-_wPost = if (_outpostFIA and !(isOnRoad getMarkerPos _nearX)) then {true} else {false};
+_outpostFIA = (_nearX in outpostsFIA);
+_wPost = (_outpostFIA and !(isOnRoad getMarkerPos _nearX));
 _garrison = if (! _wpost) then {garrison getVariable [_nearX,[]]} else {FactionGet(reb,"groupSniper")};
+
+if (_wPost && (_typeX isNotEqualTo "rem")) exitWith {
+	[_titleStr, localize "STR_A3A_fn_reinf_garrDia_no_wPost"] call A3A_fnc_customHint;
+#ifdef UseDoomGUI
+	ERROR("Disabled due to UseDoomGUI Switch.")
+#else
+	_nul=CreateDialog "build_menu";
+#endif
+};
 
 if (_typeX == "rem") then
 	{

@@ -3,6 +3,7 @@ _veh = cursortarget;
 FIX_LINE_NUMBERS()
 #define OccAndInv(VEH) (FactionGet(occ, VEH) + FactionGet(inv, VEH))
 private _titleStr = localize "STR_A3A_fn_reinf_bombrun_title";
+private _owner = _veh getVariable "ownerX";
 private _wrongOwner = !(isNil "_owner" && {_owner isEqualType ""} && {getPlayerUID player != _owner});
 
 private _exitReason = switch (true) do {

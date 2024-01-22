@@ -1,9 +1,10 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 if (!isServer) exitWith {};
-params["_originX","_destinationX",["_deleteOrigin",false],["_silent",false]];
-private ["_subObject","_ammunition"];
+private ["_subObject","_ammunition","_originX","_destinationX"];
+_originX = _this select 0;
 if (isNull _originX) exitWith {};
+_destinationX = _this select 1;
 
 if (isNil {	// Run in unschedule scope.
 	if (_originX getVariable ["A3A_JNA_ammunitionTransfer_busy",false]) then {
@@ -22,7 +23,6 @@ _items = itemCargo _originX;
 _weaponsX = [];
 _weaponsItemsCargo = weaponsItemsCargo _originX;
 _backpcks = [];
-_updated = "";
 
 if (count backpackCargo _originX > 0) then
 	{
@@ -154,7 +154,7 @@ if (count _backpcksFinal > 0) then
 		};
 	};
 
-if (_deleteOrigin) then
+if (count _this == 3) then
 	{
 	deleteVehicle _originX;
 	}
@@ -174,10 +174,7 @@ if (_destinationX == boxX) then
 	if (_updated != "") then
 		{
 		_updated = format ["<t size='0.5' color='#C1C0BB'>" + localize "STR_A3A_fn_init_resourceCheck_arsenal" + "<br/><br/>%1</t>",_updated];
-		if !(_silent) then 
-			{
-			[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-			};
+		[petros,"income",_updated] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	}
 else
@@ -188,5 +185,3 @@ else
 if (!isNull _originX) then {
 	_originX setVariable ["A3A_JNA_ammunitionTransfer_busy",false];
 };
-
-_updated;

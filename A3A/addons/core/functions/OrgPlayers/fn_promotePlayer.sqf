@@ -36,6 +36,6 @@ Debug(_textX);
 if (_promoted) then
 {
 	_congrats = "<br/><br/>" + localize "STR_A3A_fn_orgp_promotePlayer_yes";
-	_textX = [_textX] joinString [_congrats];
+	_textX = [_textX, _congrats] joinString "";
 	[petros,"hint",_textX, localize "STR_A3A_fn_orgp_promotePlayer_promotion"] remoteExec ["A3A_fnc_commsMP"];
 };

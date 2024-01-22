@@ -88,6 +88,6 @@ private _bodyText = (
 _bodyText = _bodyText + _msg;
 
 [localize "STR_A3A_logi_title", _bodyText] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
-[localize "STR_A3A_logi_title", _bodyText] remoteExec ["A3A_fnc_customHint", crew _vehicle];
+if (crew _vehicle isNotEqualTo []) then [localize "STR_A3A_logi_title", _bodyText] remoteExec ["A3A_fnc_customHint", crew _vehicle];
 
 nil;

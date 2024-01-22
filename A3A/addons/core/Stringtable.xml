@@ -6573,136 +6573,139 @@
     </Container>
     <Container name="A3A_supports">
       <Key ID="STR_A3A_fn_supports_CASDown">
-        <Original>CAS Plane Destroyed.</Original>
+        <Original>CAS Plane Destroyed</Original>
       </Key>
       <Key ID="STR_A3A_fn_supports_airStrikeVesselDown">
-        <Original>Airstrike Vessel Destroyed.</Original>
+        <Original>Airstrike Vessel Destroyed</Original>
       </Key>
       <Key ID="STR_A3A_fn_supports_ASFDown">
-        <Original>Fighter Destroyed.</Original>
+        <Original>Fighter Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_cityDestroyed">
+        <Original>%1 Obliterated</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
-        <Original>%1 is setting up an unknown support.</Original>
+        <Original>%1 is setting up an unknown support</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_MAJORATTACK">
-        <Original>%1 just sent a major attack wave.</Original>
+        <Original>%1 just sent a major attack wave</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_COUNTERATTACK">
-        <Original>%1 just send a counterattack force.</Original>
+        <Original>%1 just send a counterattack force</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_QRFAIR">
-        <Original>%1 just sent an airborne QRF.</Original>
+        <Original>%1 just sent an airborne QRF</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_QRFLAND">
-        <Original>%1 just sent a land QRF.</Original>
+        <Original>%1 just sent a land QRF</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_AIRSTRIKE">
-        <Original>%1 is preparing an airstrike.</Original>
+        <Original>%1 is preparing an airstrike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_MORTAR">
-        <Original>%1 is setting up a mortar position.</Original>
+        <Original>%1 is setting up a mortar position</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
-        <Original>%1 is preparing a heavy artillery position.</Original>
+        <Original>%1 is preparing a heavy artillery position</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE">
-        <Original>A %1 satellite is charging an orbital strike.</Original>
+        <Original>A %1 satellite is charging an orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
-        <Original>A %1 launcher is preparing to launch a cruise missile.</Original>
+        <Original>A %1 launcher is preparing to launch a cruise missile</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
-        <Original>A %1 heavy bomber is on the way.</Original>
+        <Original>A %1 heavy bomber is on the way</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
-        <Original>%1 is preparing an air superiority fighter.</Original>
+        <Original>%1 is preparing an air superiority fighter</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
-        <Original>%1 is preparing fixed-wing CAS.</Original>
+        <Original>%1 is preparing fixed-wing CAS</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_GUNSHIP">
-        <Original>%1 is loading up a heavy gunship.</Original>
+        <Original>%1 is loading up a heavy gunship</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
-        <Original>%1 is sending a spotting UAV.</Original>
+        <Original>%1 is sending a spotting UAV</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_default">
-        <Original>%1 is setting up a %2 support.</Original>
+        <Original>%1 is setting up a %2 support</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
-        <Original>%1. Estimated arrival in %2 minutes.</Original>
+        <Original>%1. Estimated arrival in %2 minutes</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
-        <Original>%1. Estimated setup: %2 minutes.</Original>
+        <Original>%1. Estimated setup: %2 minutes</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
-        <Original>%1 is setting up a SAM launcher.</Original>
+        <Original>%1 is setting up a SAM launcher</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_execute">
-        <Original>%1 is executing an unknown support now.</Original>
+        <Original>%1 is executing an unknown support now</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG">
-        <Original>A %1 land QRF just arrived.</Original>
+        <Original>A %1 land QRF just arrived</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE">
         <Original>Land QRF</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
-        <Original>A %1 air QRF is arriving.</Original>
+        <Original>A %1 air QRF is arriving</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
         <Original>Air QRF</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG">
-        <Original>%1 is about to execute an airstrike.</Original>
+        <Original>%1 is about to execute an airstrike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE">
         <Original>Airstrike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG">
-        <Original>A %1 heavy artillery piece has opened fire.</Original>
+        <Original>A %1 heavy artillery piece has opened fire</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE">
         <Original>Artillery strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARLONG">
-        <Original>A %1 mortar has opened fire.</Original>
+        <Original>A %1 mortar has opened fire</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARTITLE">
         <Original>Mortar strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG">
-        <Original>A %1 satellite has fired an orbital strike.</Original>
+        <Original>A %1 satellite has fired an orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
         <Original>Orbital strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
-        <Original>Confirmed launch of %1 cruise missile.</Original>
+        <Original>Confirmed launch of %1 cruise missile</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE">
         <Original>Projected missile impact</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMLONG">
-        <Original>Confirmed launch of %1 SAM.</Original>
+        <Original>Confirmed launch of %1 SAM</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMTITLE">
         <Original>Projected SAM target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG">
-        <Original>A %1 heavy bomber is about to perform a carpet bombing.</Original>
+        <Original>A %1 heavy bomber is performing a carpet bombing</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE">
         <Original>Carpet bombing</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFLONG">
-        <Original>A %1 fighter started chasing a target.</Original>
+        <Original>A %1 fighter started chasing a target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFTITLE">
         <Original>Air superiority target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
-        <Original>A %1 CAS aircraft has visual on target and is preparing for run.</Original>
+        <Original>A %1 CAS aircraft is attacking a target</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
         <Original>CAS Target</Original>
@@ -6714,7 +6717,7 @@
         <Original>Gunship</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG">
-        <Original>%1 is executing a %2 support now.S</Original>
+        <Original>%1 is executing a %2 support now</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE">
         <Original>%1 support</Original>

@@ -63,8 +63,6 @@ private _utilityRefund = {
 
     private _toRefund = 0;
     private _feedBack = "STR_HR_GRG_Feedback_addVehicle_Item_Stored";
-    private _updated = "";
-    private _resourcesFIA = "";
     if ("fuel" in _flags) then {
         _toRefund = floor (([_object] call A3A_fnc_remainingFuel) * (_object getVariable ['A3A_itemPrice', 0]));
         _feedBack = "STR_HR_GRG_Feedback_addVehicle_Fuel_sold";
@@ -73,29 +71,17 @@ private _utilityRefund = {
     };
     if ("loot" in _flags) then {
         _feedBack = "STR_HR_GRG_Feedback_addVehicle_LTC";
-        _updated = [_object, boxX, true, true] call A3A_fnc_ammunitionTransfer;
+        [_object, boxX, true] call A3A_fnc_ammunitionTransfer;
     };
 
     deleteVehicle _object;
-    if (_instantRefund) then {
+    if (_instantRefund) exitWith {
         if (_toRefund > 0) then {
-            _resourcesFIA = [0,_toRefund,true] call A3A_fnc_resourcesFIA;
+            [0,_toRefund] spawn A3A_fnc_resourcesFIA;
         };
         [_feedBack] remoteExec ["HR_GRG_fnc_Hint", _client];
         true;
     };
-    private _nonBossPlayers = allPlayers - (entities "HeadlessClient_F") - [theBoss];
-    private _bossComms = if (_resourcesFIA isNotEqualTo "") then {_resourcesFIA;} else {""};
-    private _nonBossComms = if (_updated isNotEqualTo "") then {_updated;} else {""};
-    if (_updated isNotEqualTo "") then {
-        _nonBossComms = _updated;
-        _bossComms = _bossComms + "<br/><br/>" + _updated;
-    } else {
-        _nonBossComms = "";
-    };
-    if (_nonBossPlayers isNotEqualTo []) then {[petros,"income",_nonBossComms] remoteExec ["A3A_fnc_commsMP",_nonBossPlayers];};
-    if !(isNull theBoss) then {[petros,"income",_bossComms] remoteExec ["A3A_fnc_commsMP",theBoss];};
-    if (_instantRefund) exitWith {};
     _toRefund
 };
 if (_vehicle getVariable ['A3A_canGarage', false]) exitwith { [_vehicle] call _utilityRefund };
@@ -168,7 +154,7 @@ private _addVehicle = {
     //check if compatible with garage
     private _class = typeOf _this;
     private _cat = [_class] call HR_GRG_fnc_getCatIndex;
-    if (_cat isEqualTo -2) exitWith {deleteVehicle _this;}; // deletes any stupid shit caught by the blacklist
+    if (_cat isEqualTo -2) exitWith {deleteVehicle _this;}; // deletes anything caught by the blacklist
     if (_cat isEqualTo -1) exitWith {};
     _catsRequiringUpdate pushBackUnique _cat;
 

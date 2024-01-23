@@ -104,7 +104,7 @@ else
 
     if(_reveal < 0.8) exitWith {};
 
-    _text = format ["%1. " + localize "STR_A3A_fn_support_showIntSPTCll_TARGET", _text];
+    _text = [_text,localize "STR_A3A_fn_support_showIntSPTCll_TARGET"] joinString " ";
     private _targetMarker = format ["%1_target_%2", _supportType, A3A_supportMarkerCount];
     private _textMarker = format ["%1_text_%2", _supportType, A3A_supportMarkerCount];
     A3A_supportMarkerCount = A3A_supportMarkerCount + 1;

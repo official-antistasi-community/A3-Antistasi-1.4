@@ -34,8 +34,8 @@ private _popTotal = 0;
     _popTotal = _popTotal + _numCiv;
     if (_city in destroyedSites) then { _popKilled = _popKilled + _numCiv} else 
     {
-    _popReb = _popReb + (_numCiv * (_supportReb / 100));
-    _popGov = _popGov + (_numCiv * (_supportGov / 100)); // support only matters if the city isn't destroyed
+        _popReb = _popReb + (_numCiv * (_supportReb / 100));
+        _popGov = _popGov + (_numCiv * (_supportGov / 100)); // support only matters if the city isn't destroyed
     };
 } forEach citiesX;
 

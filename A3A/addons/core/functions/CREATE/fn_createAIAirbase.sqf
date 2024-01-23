@@ -343,13 +343,12 @@ for "_i" from 0 to (count _array - 1) do {
 	};
 };
 
-["locationSpawned", [_markerX, "Airport", true]] call EFUNC(Events,triggerEvent);
-
-sleep 5;
 {
 	driver _x enableAI "MOVE"; // reenable movement for spawned AA vehicles
 	[_groupVeh, "Patrol_Area", 25, 100, 250, true, _positionX, false] call A3A_fnc_patrolLoop; // start patrol
 } forEach _AAvehicles;
+
+["locationSpawned", [_markerX, "Airport", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 

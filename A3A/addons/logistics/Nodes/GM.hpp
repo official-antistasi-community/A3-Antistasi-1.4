@@ -100,7 +100,7 @@ class gm_ge_army_kat1_451_container : TRIPLES(ADDON,Nodes,Base)
 {
     class Nodes
     {
-       class Node1
+        class Node1
         {
             offset[] = {0,0.6,-0.85};
             seats[] = {2,3};

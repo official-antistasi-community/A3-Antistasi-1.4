@@ -64,7 +64,7 @@
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 ["vehiclesMilitiaLightArmed", ["gm_ge_army_iltis_mg3"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["gm_ge_army_u1300l_cargo"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["gm_ge_army_u1300l_cargo", "gm_ge_army_u1300l_container"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["gm_ge_pol_typ1200", "gm_ge_pol_w123", "gm_ge_pol_typ253"]] call _fnc_saveToTemplate;

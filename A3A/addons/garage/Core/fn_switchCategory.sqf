@@ -54,3 +54,15 @@ private _text = switch _index do {
 };
 _textCtrl = _disp displayCtrl HR_GRG_IDC_CatText;
 _textCtrl ctrlSetStructuredText text _text;
+
+private _confirmBttn = _disp displayCtrl HR_GRG_IDC_Confirm;
+
+if (_index == 2 && !{call HR_GRG_Cnd_canAccessAir}) then {
+    _confirmBttn ctrlEnable false;
+    _confirmBttn ctrlSetTextColor [0.7,0,0,1];
+    _confirmBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_AirDisabled";
+} else {
+    _confirmBttn ctrlEnable true;
+    _confirmBttn ctrlSetTextColor [1,1,1,1];
+    _confirmBttn ctrlSetTooltip "";
+};

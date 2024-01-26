@@ -98,13 +98,6 @@ HR_GRG_Cats = [HR_GRG_IDC_CatCar,HR_GRG_IDC_CatArmored,HR_GRG_IDC_CatAir,HR_GRG_
 } forEach HR_GRG_Cats;
 [0] call HR_GRG_fnc_switchCategory;
 
-if !(call HR_GRG_Cnd_canAccessAir) then {
-    private _airBttn = _disp displayCtrl HR_GRG_IDC_BttnAir;
-    _airBttn ctrlEnable false;
-    _airBttn ctrlSetTextColor [0.7,0,0,1];
-    _airBttn ctrlSetTooltip localize "STR_HR_GRG_Generic_AirDisabled";
-};
-
 //extras list init
 if (
     !HR_GRG_Pylons_Enabled //Pylon editing disabled

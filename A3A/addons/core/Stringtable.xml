@@ -6631,10 +6631,10 @@
         <Original>%1 is setting up a %2 support.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
-        <Original>%1. Estimated arrival in %2 minutes.</Original>
+        <Original>Estimated arrival in %2 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
-        <Original>%1. Estimated setup: %2 minutes.</Original>
+        <Original>Estimated setup: %2 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
         <Original>%1 is setting up a SAM launcher.</Original>
@@ -7748,6 +7748,9 @@
         <French>Cibles de Voyage Rapide Autorisées</French>
         <Korean>빠른 이동 타겟 허용</Korean>
         <Chinesesimp>快速旅行可以到达的目标地点</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_Params_lockCommandSlot_title">
+        <Original>Lock commander role to server Default Commander slot</Original>
       </Key>
       <Key ID="STR_A3A_Params_logDebugConsole_nondev">
         <Original>All non-dev</Original>

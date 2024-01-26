@@ -439,6 +439,9 @@ _layer = ["statisticsX"] call bis_fnc_rscLayer;
 //Load the player's personal save.
 [] spawn A3A_fnc_createDialog_shouldLoadPersonalSave;
 
+// If the commander role is locked to the slot, transfer commander
+if (A3A_lockCommandSlot && {roleDescription player == "Default Commander"}) then {[player] remoteExec ["A3A_fnc_theBossTransfer", 2]};
+
 if (A3A_hasACE) then {call A3A_fnc_initACE};
 
 [allCurators] call A3A_fnc_initZeusLogging;

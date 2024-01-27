@@ -45,7 +45,7 @@ else
 private _outpostDetectionRange = [300, 500, 750] select _airType;
 private _outpostDetectionHeight = [150, 250, 500] select _airType;
 
-//Select height and range for outposts, numbers are values for [CIV_HELI, MIL_HELI, JET]
+//Select height and range for airports, numbers are values for [CIV_HELI, MIL_HELI, JET]
 private _airportDetectionRange = [500, 750, 1500] select _airType;
 private _airportDetectionHeight = [500, 500, 2500] select _airType;
 

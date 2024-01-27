@@ -12,7 +12,8 @@ if (isNil "_costs") then
 	}
 else
 	{
-	_costs = round (_costs - (_costs * (0.1 * ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports))));
+	private _numFriendlySeaports = ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count seaports) min 6;
+	_costs = round (_costs - (_costs * 0.05 * _numFriendlySeaports));
 	};
 
 _costs

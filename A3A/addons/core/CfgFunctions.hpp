@@ -239,7 +239,7 @@ class CfgFunctions
             class cargoSeats {};
             class cleanserVeh {};
             class countFreeSpawnPositions {};
-            class createAIAirplane {};
+            class createAIAirbase {};
             class createAICities {};
             class createAIcontrols {};
             class createAIOutposts {};
@@ -381,6 +381,7 @@ class CfgFunctions
             class prepareMarkerArrays {};
             class resourcecheck {};
             class tags {};
+            class checkCampaignEnd {};
         };
 
         class Intel {

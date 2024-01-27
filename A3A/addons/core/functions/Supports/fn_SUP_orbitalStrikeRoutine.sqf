@@ -121,12 +121,15 @@ deleteVehicle _strikeObject;
 
 private _citiesInRange = (citiesX - destroyedSites) select {((getMarkerPos _x) distance2D _impactPosition) < 200};
 {
-    ["TaskFailed", ["", format ["%1 destroyed", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+    ["TaskFailed", ["", format [localize "STR_A3A_fn_supports_cityDestroyed", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
     destroyedSites = destroyedSites + [_x];
 	publicVariable "destroyedSites";
+    [_x] call A3A_fnc_destroyCity;
     sidesX setVariable [_x, Invaders, true];
     garrison setVariable [_x, [], true];
     [_x] call A3A_fnc_mrkUpdate;
     sleep 10;
 } forEach _citiesInRange;
+
+if (_citiesInRange isNotEqualTo []) then {[] spawn A3A_fnc_checkCampaignEnd;}; // If a town is destroyed, check for loss
 

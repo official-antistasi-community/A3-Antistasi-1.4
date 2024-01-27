@@ -1,6 +1,5 @@
 //Vanilla - armor.hpp
 
-class I_APC_Wheeled_03_cannon_F;
 class I_MRAP_03_F;
 class I_MRAP_03_gmg_F;
 class I_MRAP_03_hmg_F;
@@ -28,7 +27,7 @@ class a3a_MRAP_03_hmg_grey_F : I_MRAP_03_hmg_F
 };
 
 //Olive
-class a3a_APC_Wheeled_03_cannon_blufor_F : I_APC_Wheeled_03_cannon_F
+class a3a_APC_Wheeled_03_cannon_blufor_F : a3a_APC_Wheeled_03_cannon_F
 {
     animationList[] = {"showCamonetHull",0,"showBags",0.25,"showBags2",0.5,"showTools",0.25,"showSLATHull",1};
     textureList[] = {};

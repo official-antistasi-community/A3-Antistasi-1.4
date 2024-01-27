@@ -29,14 +29,14 @@ private _LightArmed = ["a3a_MRAP_03_hmg_grey_F","a3a_MRAP_03_gmg_grey_F", "a3a_M
 ["vehiclesFuelTrucks", ["B_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_Truck_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_blufor_F","B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["a3a_APC_Wheeled_03_cannon_blufor_F"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_blufor_F","a3a_B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "APC_Wheeled_01_atgm_base_lxWS", "a3a_APC_Wheeled_01_command_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F", "a3a_Boat_Armed_01_hmg_blufor_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["a3a_APC_Wheeled_03_cannon_blufor_F","B_APC_Wheeled_01_cannon_F", "APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["a3a_APC_Wheeled_03_cannon_blufor_F","a3a_B_APC_Wheeled_01_cannon_F", "APC_Wheeled_01_atgm_base_lxWS", "a3a_APC_Wheeled_01_command_lxWS"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["B_D_Plane_CAS_01_dynamicLoadout_lxWS", "a3a_Plane_Fighter_03_grey_F"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["a3a_Plane_Fighter_04_grey_F"]] call _fnc_saveToTemplate;              // 

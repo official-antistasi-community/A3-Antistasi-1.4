@@ -27,8 +27,8 @@ private _cargoTrucks = ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
 ["vehiclesFuelTrucks", ["I_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_Truck_02_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["I_APC_tracked_03_cannon_F", "I_APC_Wheeled_03_cannon_F"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_F", "a3a_APC_Wheeled_03_cannon_F", "I_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["a3a_APC_tracked_03_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["I_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 private _AA = ["I_LT_01_AA_F"];
 
@@ -56,7 +56,7 @@ private _AA = ["I_LT_01_AA_F"];
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_green_armed_F", "a3a_Offroad_01_green_AT_F"];
-["vehiclesMilitiaTrucks", ["I_Truck_02_transport_F", "I_Truck_02_covered_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
 private _vehiclesMilitiaCars = ["a3a_Offroad_01_green_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
@@ -81,7 +81,7 @@ if ("tanks" in A3A_enabledDLC) then {
 };
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
-    _cargoTrucks = ["I_Truck_02_flatbed_lxWS", "I_Truck_02_cargo_lxWS"];
+    _cargoTrucks append ["I_Truck_02_flatbed_lxWS", "I_Truck_02_cargo_lxWS"];
     _AA append ["I_A_Truck_02_aa_lxWS"];
     ["uavsPortable", ["I_UAV_01_F", "I_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };

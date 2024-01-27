@@ -495,6 +495,27 @@
       </Key>
     </Container>
     <Container name="dialog_hq">
+      <Key ID="STR_A3A_fn_GUI_hqDialog_title">
+        <Original>Skip Time / Rest</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_notBoss">
+        <Original>Only the commander can skip time.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_enemiesNear">
+        <Original>You cannot rest while enemies are near our HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_rebelAttack">
+        <Original>You cannot rest while the enemy is launching a major attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_invaderPunish">
+        <Original>You cannot rest while %1 is attacking civilians.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_DEF_HQ">
+        <Original>You cannot rest while our HQ is under attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_playersNotAtHQ">
+        <Original>All players must be within 100m of the HQ marker to skip time.</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_aggression">
         <Original>Aggression:</Original>
         <German>Agression:</German>
@@ -1682,6 +1703,9 @@
         <Portuguese>Cura Automática</Portuguese>
         <Turkish>Otomatik Tedavi</Turkish>
         <Chinesesimp>自动治疗</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_aiManaagement_noAI">
+        <Original>No AIs in group. Recruit some at an allied marker's flag.</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
         <Original>Auto Rearm / Loot</Original>
@@ -3273,7 +3297,7 @@
     </Container>
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
-        <Original>Antitank</Original>
+        <Original>Anti-Tank</Original>
         <German>Antipanzer</German>
         <Italian>Anticarro</Italian>
         <Spanish>Antitanque</Spanish>
@@ -3854,6 +3878,24 @@
       </Key>
     </Container>
     <Container name="setup_dialog">
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_create">
+        <Original>Create new game with</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_copy">
+        <Original>Copy game with ID %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_load">
+        <Original>Load game with ID %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_occInv">
+        <Original>%1 occupants and %2 invaders?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_delete">
+        <Original>Are you sure you want to delete game ID %1 on %2?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_loadName">
+        <Original>name ""%1""</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_setup_addonvics">
         <Original>Addon vehicles</Original>
         <German>Zusätzliche Fahrzeuge</German>

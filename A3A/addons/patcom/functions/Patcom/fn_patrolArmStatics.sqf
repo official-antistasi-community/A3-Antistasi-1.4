@@ -72,7 +72,14 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
     _x spawn {
         params ["_unit", "_static", "_group"];
         private _assignedGunner = assignedGunner _static;
-        if ((isNull _assignedGunner) && ((_static getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false)) then {
+        private _noPlayersNearby = false;
+        while {!_noPlayersNearby} do {
+            {
+                if ((_x distance getPos _static < 50) and (side _x == teamPlayer)) then {_noPlayerNearby = false;};
+            } forEach (allPlayers - (entities "HeadlessClient_F"));
+            if (!_noPlayersNearby) then {sleep 60;};
+        };
+        if ((isNull _assignedGunner) && ((_static getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false) && _noPlayersNearby) then {
             [_unit] joinSilent grpnull;
             _static setVariable ["PATCOM_STATIC_ASSIGNED", true];
             _unit setCombatBehaviour "SAFE"; 

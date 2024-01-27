@@ -5,7 +5,7 @@ private ["_puntMax","_textX","_multiplier","_newRank","_selectable","_disconnect
 _puntMax = 0;
 _multiplier = 1;
 
-private _textX = localize "STR_A3A_fn_orgp_promotedPlayers" + ":<br/><br/>";
+private _textX = localize "STR_A3A_fn_orgp_promotedPlayers" + "<br/><br/>";
 
 _promoted = false;
 {

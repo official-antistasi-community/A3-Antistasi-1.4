@@ -2251,7 +2251,7 @@
         <Original>%1 Attack</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_other">
-        <Original>"%1 is attacking the %2 garrison at %3.</Original>
+        <Original>%1 is attacking the %2 garrison at %3.</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_dialogs">

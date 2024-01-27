@@ -1,5 +1,5 @@
 //TODO: add header
-private _autoSaveInterval = [false,str (autoSaveInterval/60)] select autoSave;
+private _autoSaveInterval = [false,(autoSaveInterval/60)] select autoSave;
 _autoSaveInterval = "<t color='#f0d498'>" + str _autoSaveInterval + "</t>";
 
 private _saveString = (localize "STR_A3A_fn_dialogs_createDialog_SLPS_line1") + "<br/><br/>";

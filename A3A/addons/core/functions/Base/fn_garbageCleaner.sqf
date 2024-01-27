@@ -13,6 +13,12 @@ private _fnc_distCheck = {
 	if (_rebelSpawners inAreaArray [getPosATL _object, _dist, _dist] isEqualTo []) then { deleteVehicle _object };
 };
 
+Debug("Moving dead solders out of vehicles...")
+{
+	if !(isNull objectParent _x) then { moveOut _x };
+} forEach allDead;
+Debug("Finished moving soldiers out of vehicles; deleting")
+sleep 0.5;
 
 { deleteVehicle _x } forEach allDead;
 { deleteVehicle _x } forEach (allMissionObjects "WeaponHolder");

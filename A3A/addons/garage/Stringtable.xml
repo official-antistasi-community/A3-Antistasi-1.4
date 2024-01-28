@@ -75,7 +75,7 @@
       <Key ID="STR_HR_GRG_Feedback_addVehicle_commander_only">
         <Original>This object can only be garaged by the commander</Original>
         <German>Dieses Objekt kann nur vom Kommandanten in die Garage gestellt werden.</German>
-        <Italian>Quest'oggetto può essere conservato solo dal comandante</Italian>
+        <Italian>Quest'oggetto può essere messo nel garage solo dal comandante</Italian>
         <Spanish>Los puntos de combustible solo pueden ser almacenados por el comandante</Spanish>
         <French>Cet objet ne peut être entreposé que par le commandant</French>
         <Korean>유류차량은 지휘관만 차고에 넣을 수 있습니다.</Korean>
@@ -439,7 +439,7 @@
       <Key ID="STR_HR_GRG_Feedback_toggleLock_limit">
         <Original>You have too many vehicles locked</Original>
         <German>Du hast zu viele Fahrzeuge abgeschlossen</German>
-        <Italian>Hai troppi veicoli chiusi</Italian>
+        <Italian>Hai troppi veicoli chiusi a chiave</Italian>
         <Spanish>Tiene demasiados vehículos cerrados</Spanish>
         <French>Vous avez trop de véhicules verrouillés</French>
         <Korean>너무 많은 차량을 잠갔습니다</Korean>
@@ -495,7 +495,7 @@
       <Key ID="STR_HR_GRG_Generic_Armored">
         <Original>Armor</Original>
         <German>Panzerung</German>
-        <Italian>Corazza</Italian>
+        <Italian>Corazzati</Italian>
         <Spanish>Blindados</Spanish>
         <French>Blindés</French>
         <Korean>기갑</Korean>
@@ -874,7 +874,7 @@
       <Key ID="STR_HR_GRG_Pylons_Driver">
         <Original>Driver</Original>
         <German>Fahrer</German>
-        <Italian>Conduttore</Italian>
+        <Italian>Guidatore</Italian>
         <Spanish>Conductor</Spanish>
         <French>Pilote</French>
         <Korean>운전수</Korean>
@@ -1151,6 +1151,68 @@
         <Turkish>Garajda bir tamir seti bulunmadığından, araçlar garajdan çıkarıldığında onarılmayacak</Turkish>
         <Chinesesimp>缺乏维修来源时从车库中被取出的载具不会被重新维修</Chinesesimp>
       </Key>
+    </Container>
+    <Container name="HR_GRG_settings">
+    <Key ID="STR_A3A_inc_public_config_lockOnGarageTitle">
+      <Original>Lock garaged vehicles</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_lockOnGarageLong">
+      <Original>Lock vehicles automatically when garaged.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_memberLimitTitle">
+      <Original>Member lock limit</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_memberLimitLong">
+      <Original>Maximum number of vehicles that can be locked by a member at once.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_guestLimitTitle">
+      <Original>Guest lock limit</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_guestLimitLong">
+      <Original>Maximum number of vehicles that can be locked by a guest at once.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_pylonEditingTitle">
+      <Original>Allow pylon editing</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_pylonEditingLong">
+      <Original>Allows pylons to be edited in the arsenal, as long as an ammo source is available.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRearmTitle">
+      <Original>Disable garage rearm</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRearmLong">
+      <Original>Vehicles won't be rearmed when taken from the garage.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRefuelTitle">
+      <Original>Disable garage refuel</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRefuelLong">
+      <Original>Vehicles won't be refueled when taken from the garage.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRepairTitle">
+      <Original>Disable garage repair</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_disableRepairLong">
+      <Original>Vehicles won't be repaired when taken from the garage.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_baseCapTitle">
+      <Original>Base Capacity</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_baseCapLong">
+      <Original>Base capacity of the garage at War Level 1.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_capIncTitle">
+      <Original>Capacity Increase</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_capIncLong">
+      <Original>Capacity increase per War Level for the garage.</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_placeRaysTitle">
+      <Original>Render placement rays</Original>
+    </Key>
+    <Key ID="STR_A3A_inc_public_config_placeRaysLong">
+      <Original>Debug setting: Enables the placement rays used to check for vehicle collision.</Original>
+    </Key>
     </Container>
   </Package>
 </Project>

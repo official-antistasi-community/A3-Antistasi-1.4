@@ -99,14 +99,14 @@ private _cancelActionID = player addAction [localize "STR_A3A_fn_base_mrkwin_add
     A3A_isPlayerCapturingFlag = nil;
     player switchMove "";
     player removeAction _actionID;
-    [_titleStr, localize "STR_A3A_fn_base_mrkwin_abort"] call A3A_fnc_customHint;
+    [localize "STR_A3A_fn_base_mrkwin_title", localize "STR_A3A_fn_base_mrkwin_abort"] call A3A_fnc_customHint;
 
 }, _cancellationToken];
 // returnflag Icon should be 1.5 tiems bigger than takeflag icon. 2 * 1.5 = 3
 player setUserActionText [_cancelActionID,"Aborted Outpost Capture","<img size='3' image='\A3\ui_f\data\igui\cfg\actions\returnflag_ca.paa'/>"];
 
 // Capturing
-sleep 8;
+sleep 7;
 
 if (_cancellationToken #0) exitWith {
     ServerInfo_3("Outpost at %1 (%2): Flag capture aborted by %3", _outpostGridSquare, _markerX, str player);

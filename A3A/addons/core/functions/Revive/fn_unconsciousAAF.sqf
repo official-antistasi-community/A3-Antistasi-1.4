@@ -58,7 +58,6 @@ if (alive _unit) then
 {
 	_unit setUnconscious false;
 	_unit playMoveNow "unconsciousoutprone";
-	_unit setVariable ["overallDamage",damage _unit];
 	_unit setVariable ["A3A_downedBy", nil];
 
 	if (_unit getVariable ["surrendering", false]) exitWith {

@@ -97,7 +97,7 @@ if (_exit) exitWith { ["STR_HR_GRG_Feedback_addVehicle_Crewed"] remoteExec ["HR_
 
     // valid vehicle for garage
 private _cat = [_class] call HR_GRG_fnc_getCatIndex;
-if (_cat isEqualTo -1) exitWith { ["STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
+if (_cat < 0) exitWith { ["STR_HR_GRG_Feedback_addVehicle_GenericFail"] remoteExec ["HR_GRG_fnc_Hint", _client]; false };
 
     //cap block
 private _capacity = 0;
@@ -154,6 +154,7 @@ private _addVehicle = {
     //check if compatible with garage
     private _class = typeOf _this;
     private _cat = [_class] call HR_GRG_fnc_getCatIndex;
+    if (_cat isEqualTo -2) exitWith {deleteVehicle _this;}; // deletes anything caught by the blacklist
     if (_cat isEqualTo -1) exitWith {};
     _catsRequiringUpdate pushBackUnique _cat;
 
@@ -216,7 +217,10 @@ private _refreshCode = {
     } forEach _cats;
     call HR_GRG_fnc_updateVehicleCount;
 };
-[ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
+
+if !(HR_GRG_Users isEqualTo []) then {
+    [ _catsRequiringUpdate, _refreshCode ] remoteExecCall ["call", HR_GRG_Users];
+};
 
 ["STR_HR_GRG_Feedback_addVehicle_Success", [cfgDispName(_class)] ] remoteExec ["HR_GRG_fnc_Hint", _client];
 true;

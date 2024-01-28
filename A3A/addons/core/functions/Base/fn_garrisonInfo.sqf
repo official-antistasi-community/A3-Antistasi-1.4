@@ -28,7 +28,7 @@ private _units = [ [],[],[],[],[],[],[],[],[],[],[] ];
 } forEach _garrison;
 
 _textX = format [
-    "<br/><br/>Garrison units: %1%15<br/><br/>Squad Leaders: %2<br/>%14: %3<br/>Riflemen: %4<br/>Autoriflemen: %5<br/>Medics: %6<br/>Grenadiers: %7<br/>Marksmen: %8<br/>AT Men: %9<br/>AT Missile Men: %10<br />AA Missile Men: %11<br />Other: %12<br/>Static Weap: %13"
+    "<br/><br/>" + (localize "STR_A3A_fn_base_garrisonInfo_stats")
     , count _garrison
     , count (_units#0)
     , count (_units#1)
@@ -44,6 +44,6 @@ _textX = format [
     , {_x distance _positionX < _size} count staticsToSave
     , _estatic
     , if (_limit != -1) then {format ["/%1", _limit]} else {""}
-]; //TODO: Localize
+];
 
 _textX

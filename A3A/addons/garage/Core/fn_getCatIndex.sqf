@@ -7,7 +7,7 @@
     0. <String> Class you want to know the category index of
 
     Return Value:
-    <Int> category index or -1 if it has no category
+    <Int> category index; -1 if it has no category, and -2 if it is found on the blacklist. Used for deleting the vehicle after being found on the blacklist.
 
     Scope: Any
     Environment: unscheduled
@@ -25,6 +25,8 @@ if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { Error_1("Inva
 
 private _editorCat = cfgEditorCat(_class);
 switch (true) do {
+    //filter blacklist first
+    case (_class in HR_GRG_blacklistVehicles): { -2 };
     //vanilla
     case (_editorCat isEqualTo "EdSubcat_Cars"): { 0 };
     case (_editorCat in ["EdSubcat_Tanks","EdSubcat_APCs","EdSubcat_AAs","EdSubcat_Artillery"]): { 1 };

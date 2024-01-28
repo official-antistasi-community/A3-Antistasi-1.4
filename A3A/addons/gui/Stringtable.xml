@@ -96,6 +96,7 @@
         <French>Alt:</French>
         <Korean>Alt:</Korean>
         <Czech>Alt:</Czech>
+        <Chinesesimp>Alt 键 :</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_c_key">
         <Original>C: Cancel %1</Original>
@@ -105,6 +106,7 @@
         <French>C: Annuler %1</French>
         <Korean>C: %1 취소</Korean>
         <Czech>C: Zrušit %1</Czech>
+        <Chinesesimp>C键: 取消 %1</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_e_key">
         <Original>E: Rotate counter-clockwise</Original>
@@ -114,6 +116,7 @@
         <French>E: Tourner dans le sens inverse des aiguilles</French>
         <Korean>E: 반시계 방향으로 돌리기</Korean>
         <Czech>E: Otočit protisměru ručiček</Czech>
+        <Chinesesimp>E键: 逆时针旋转</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_r_key">
         <Original>R: Rotate clockwise </Original>
@@ -123,6 +126,7 @@
         <French>R: Tourner dans le sens des aiguilles</French>
         <Korean>R: 시계 방향으로 돌리기</Korean>
         <Czech>R: Otočit po směru ručiček</Czech>
+        <Chinesesimp>R 键: 顺时针旋转</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_shift_key">
         <Original>SHIFT: Unsafe placement mode</Original>
@@ -131,6 +135,7 @@
         <French>SHIFT: Mode de placement non sécurisé</French>
         <Korean>쉬프트: 불안전한 배치 모드</Korean>
         <Czech>SHIFT: Nebezpečný mód položení</Czech>
+        <Chinesesimp>SHIFT: 自由放置模式</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_space_key">
         <Original>SPACE: Place object</Original>
@@ -140,6 +145,7 @@
         <French>ESPACE: Placer objet</French>
         <Korean>스페이스: 개체 놓기</Korean>
         <Czech>MEZERNÍK: Položit objekt</Czech>
+        <Chinesesimp>空格键: 放置物品</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_t_key">
         <Original>T: Rebuild for %1 €</Original>
@@ -148,6 +154,7 @@
         <French>T: Reconstruire pour %1 €</French>
         <Korean>T: %1€로 재건축하기</Korean>
         <Czech>T: Přestavět za %1 €</Czech>
+        <Chinesesimp>T: 耗费 %1 € 来重建</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_title">
         <Original>Teamleader Builder</Original>
@@ -156,6 +163,7 @@
         <French>Chef d'équipe de constructeurs</French>
         <Korean>조장 빌더</Korean>
         <Czech>Velitel týmu Stavitel</Czech>
+        <Chinesesimp>小组组长建造器</Chinesesimp>
       </Key>
     </Container>
     <Container name="dialog_buy_vehicle">
@@ -330,8 +338,11 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_loot_tooltip">
         <Original>This item can collect loot&lt;br/&gt;%1 max load is %2</Original>
         <German>Dieser Gegenstand kann Beute laden&lt;br/&gt;%1 maximale Kapazität ist %2</German>
+        <Italian>Quest'oggetto può accumulare loot&lt;br/&gt;il carico massimo di %1 è %2</Italian>
         <Spanish>Este objeto puede recolectar loot&lt;br/&gt;La carga máxima de %1 es %2</Spanish>
         <French>Cet objet peut collecter du butin&lt;br/&gt;%1 charge max est %2</French>
+        <Korean>이 아이템은 전리품을 수집할 수 있습니다.&lt;br/&gt;%1의 최대 수용량은 %2입니다.</Korean>
+        <Czech>Tento předmět může sbírat loot&lt;br/&gt;%1 maximální kapacita je %2</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_med_tooltip">
         <Original>This item has medical capability</Original>
@@ -378,8 +389,11 @@
       <Key ID="STR_antistasi_dialogs_buy_vehicle_refuel_tooltip">
         <Original>This item can refuel others&lt;br/&gt;%1 max fuel is %2</Original>
         <German>Dieser Gegenstand kann andere betanken&lt;br/&gt;%1 Maximaler Füllstand ist %2</German>
+        <Italian>Questo oggetto può rifornire altri&lt;br/&gt;%1 massimo carburante è %2</Italian>
         <Spanish>Este objeto puede repostar a otros&lt;br/&gt;El combustible máximo de %1 es %2</Spanish>
         <French>Cet objet peut ravitailler les autres&lt;br/&gt;%1 carburant max est %2</French>
+        <Korean>이 아이템은 다른 차량을 재급유할 수 있습니다.&lt;br/&gt;%1의 최대 연료량은 %2입니다.</Korean>
+        <Czech>Tento předmět může tankovat ostatní&lt;br/&gt;%1 maximální palivo je %2</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_buy_vehicle_repair_tooltip">
         <Original>This item can repair other vehicles</Original>
@@ -481,6 +495,27 @@
       </Key>
     </Container>
     <Container name="dialog_hq">
+      <Key ID="STR_A3A_fn_GUI_hqDialog_title">
+        <Original>Skip Time / Rest</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_notBoss">
+        <Original>Only the commander can skip time.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_enemiesNear">
+        <Original>You cannot rest while enemies are near our HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_rebelAttack">
+        <Original>You cannot rest while the enemy is launching a major attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_invaderPunish">
+        <Original>You cannot rest while %1 is attacking civilians.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_DEF_HQ">
+        <Original>You cannot rest while our HQ is under attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_playersNotAtHQ">
+        <Original>All players must be within 100m of the HQ marker to skip time.</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_hq_aggression">
         <Original>Aggression:</Original>
         <German>Agression:</German>
@@ -624,8 +659,11 @@
       <Key ID="STR_antistasi_dialogs_hq_dead_population_tooltip">
         <Original>Dead population&lt;br/&gt;You lose when this hits 33%</Original>
         <German>Tote Bevölkerung&lt;br/&gt;Du verlierst wenn es 33% erreicht</German>
+        <Italian>Popolazione morta&lt;br/&gt;Perderai se raggiungerà il 33%</Italian>
         <Spanish>Población fallecida&lt;br/&gt;Cuando llegue al 33% fracasará la misión</Spanish>
         <French>Population morte&lt;br/&gt;Vous perdez quand cela atteint 33%</French>
+        <Korean>사망한 인구&lt;br/&gt;33% 이상 잃으면 패배합니다</Korean>
+        <Czech>Mrtvá populace&lt;br/&gt; prohrajete, pokud bude 33%</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_faction_money_label">
         <Original>Faction money:</Original>
@@ -742,8 +780,11 @@
       <Key ID="STR_antistasi_dialogs_hq_popular_support_tooltip">
         <Original>Popular support&lt;br/&gt;You need 50% to win</Original>
         <German>Unterstützung der Bevölkerung&lt;br/&gt;Du brauchst 50% um zu gewinnen</German>
+        <Italian>Supporto della popolazione&lt;br/&gt;Hai bisogno del 50% per vincere</Italian>
         <Spanish>Apoyo Popular&lt;br/&gt;Necesita el 50% para ganar</Spanish>
         <French>Support populaire&lt;br/&gt;Vous avez besoin de 50% pour gagner</French>
+        <Korean>시민의 지지율&lt;br/&gt;50%를 넘으면 이깁니다</Korean>
+        <Czech>Popularita&lt;br/&gt; K vítezství potřebujete 50%</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_button">
         <Original>Rest</Original>
@@ -1663,6 +1704,9 @@
         <Turkish>Otomatik Tedavi</Turkish>
         <Chinesesimp>自动治疗</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_GUI_aiManaagement_noAI">
+        <Original>No AIs in group. Recruit some at an allied marker's flag.</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
         <Original>Auto Rearm / Loot</Original>
         <German>Automatisch nachfüllen / bergen</German>
@@ -1722,8 +1766,11 @@
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_control_tooltip">
         <Original>You can only remote control single units&lt;br/&gt;Select exactly one AI in the list</Original>
         <German>Du kannst nur einzelne Einheiten fernsteuern&lt;br/&gt;Wähle eine einzelne KI aus der Liste aus</German>
+        <Italian>Puoi controllare remotamente solo singole unità&lt;br/&gt;Seleziona esattamente un'IA dalla lista</Italian>
         <Spanish>Sólo puede contorlar una unidad de forma remota&lt;br/&gt;Seleccione exactamente una en la lista de la IA</Spanish>
         <French>Vous ne pouvez contrôler à distance que des unités individuelles&lt;br/&gt;Sélectionnez exactement une IA dans la liste</French>
+        <Korean>단일 유닛만 원격 조종 가능합니다&lt;br/&gt;목록에서 인공지능을 정확히 하나만 선택하십시오</Korean>
+        <Czech>Můžete ovládat pouze jednotlivé jednotky&lt;br/&gt;Vyber přesně jedno AI z listu</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_select_ai_tooltip">
         <Original>Select AI in the list</Original>
@@ -2457,8 +2504,11 @@
       <Key ID="STR_antistasi_dialogs_main_hc_unit_count_tooltip">
         <Original>Number of units in the group&lt;br/&gt;Able to combat / Total number of units</Original>
         <German>&lt;br/&gt;Anzahl der Saldaten in der Gruppe&lt;br/&gt;Fähig zu kämpfen / Gesammtanzahl der Soldaten</German>
+        <Italian>Numero di unità nel gruppo&lt;br/&gt;Abili al combattimento / Numero totale di unità</Italian>
         <Spanish>Número de unidades en el grupo&lt;br/&gt;Capaces de combatir / Total número de unidades</Spanish>
         <French>Unités dans le groupe&lt;br/&gt;Prêtes au combat / Nombre totale d'unités</French>
+        <Korean>해당 그룹 내 유닛 수&lt;br/&gt;전투 가능 / 총 유닛 수</Korean>
+        <Czech>Počet jednotek ve skupině&lt;br/&gt;Bojeschopných / celkový počet jednotek</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_vehicle">
         <Original>Vehicle</Original>
@@ -2665,8 +2715,11 @@
       <Key ID="STR_antistasi_dialogs_main_ai_management_no_ai_tooltip">
         <Original>Needs AI group members&lt;br/&gt;You can recruit them at the flag</Original>
         <German>Benötigt KI-Gruppenmitglieder&lt;br/&gt; Du kannst diese an der Flagge rekrutieren</German>
+        <Italian>Necessita membri del gruppo IA&lt;br/&gt;Puoi reclutarli alla bandiera</Italian>
         <Spanish>Necesita grupo de miembros de la IA&lt;br/&gt;Puede reclutarlos en la bandera</Spanish>
-        <French>Nécessite des membres du groupe AI&lt;br/&gt;Vous pouvez les recruter au drapeau</French>
+        <French>Nécessite des membres du groupe IA&lt;br/&gt;Vous pouvez les recruter au drapeau</French>
+        <Korean>인공지능 분대원 필요&lt;br/&gt;깃발에서 모집할 수 있습니다.</Korean>
+        <Czech>Potřebuje AI členy skupiny&lt;br/&gt;Můžete je narekrutovat u vlajky</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_sl_tooltip">
         <Original>Only available to squad leaders</Original>
@@ -2761,7 +2814,7 @@
         <Korean>자격 있음</Korean>
         <Russian>Доступно</Russian>
         <Polish>Odpowiedni</Polish>
-        <Czech>Vhodný</Czech>
+        <Czech>Způsobilý</Czech>
         <Portuguese>Elegível</Portuguese>
         <Turkish>Komutanlığa uygun</Turkish>
         <Chinesesimp>具有资格</Chinesesimp>
@@ -2923,8 +2976,11 @@
       <Key ID="STR_antistasi_dialogs_main_player_money_text">
         <Original>Current money:&lt;br/&gt;€ %1</Original>
         <German>Aktuelles Geld:&lt;br/&gt;€ %1</German>
+        <Italian>Denaro attuale:&lt;br/&gt;€ %1</Italian>
         <Spanish>Dinero:&lt;br/&gt;€ %1</Spanish>
         <French>Argent actuel :&lt;br/&gt;€ %1</French>
+        <Korean>현재 자금:&lt;br/&gt;%1€</Korean>
+        <Czech>Aktuální peníze:&lt;br/&gt;€ %1</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
         <Original>Sell</Original>
@@ -3241,7 +3297,7 @@
     </Container>
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
-        <Original>Antitank</Original>
+        <Original>Anti-Tank</Original>
         <German>Antipanzer</German>
         <Italian>Anticarro</Italian>
         <Spanish>Antitanque</Spanish>
@@ -3822,6 +3878,24 @@
       </Key>
     </Container>
     <Container name="setup_dialog">
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_create">
+        <Original>Create new game with</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_copy">
+        <Original>Copy game with ID %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_load">
+        <Original>Load game with ID %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_occInv">
+        <Original>%1 occupants and %2 invaders?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_delete">
+        <Original>Are you sure you want to delete game ID %1 on %2?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_loadName">
+        <Original>name ""%1""</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_setup_addonvics">
         <Original>Addon vehicles</Original>
         <German>Zusätzliche Fahrzeuge</German>

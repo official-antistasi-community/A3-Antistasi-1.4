@@ -13,7 +13,7 @@
         <Czech>Naložit %1 do nejbližšího vozidla.</Czech>
         <Portuguese>Carregar %1 no veículo mais próximo.</Portuguese>
         <Turkish>En yakın araca %1 yükleyin.</Turkish>
-        <Chinesesimp>将%1装载入附近的载具</Chinesesimp>
+        <Chinesesimp>将 %1 装载入附近的载具</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_addact_unload">
         <Original>Unload Cargo</Original>
@@ -82,7 +82,7 @@
         <Czech>Vozidlu chybí kapacita pro náklad této velikosti. Kapacita:</Czech>
         <Portuguese>O veículo não tem capacidade para uma carga deste tamanho. Capacidade:</Portuguese>
         <Turkish>Bu aracın kargo kapasitesi yetersiz. Kargo kapasitesi:</Turkish>
-        <Chinesesimp>载具的空间不足于装载这个尺寸的货物. 空间大小：</Chinesesimp>
+        <Chinesesimp>载具的空间不够装载这个尺寸的货物. 空间大小：</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_gencargo_lacknodes">
         <Original>Vehicle lacks nodes, define them or use a different vehicle.</Original>
@@ -157,7 +157,7 @@
       <Key ID="STR_A3A_logi_mass_loaded_freeslots">
         <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". Free slots: "%3".&lt;/t&gt;</Original>
         <German>&lt;t color='#00fff3'&gt;"%1" wird auf "%2" geladen. Frei verfügbare Plätze: "%3".&lt;/t&gt;</German>
-        <Italian>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". Slot liberi: "%3".&lt;/t&gt;</Italian>
+        <Italian>&lt;t color='#00fff3'&gt;"%1" è caricato in "%2". Slot liberi: "%3".&lt;/t&gt;</Italian>
         <Spanish>&lt;t color='#00fff3'&gt;"%1" está siendo cargado en "%2". Espacios libres: "%3".&lt;/t&gt;</Spanish>
         <French>&lt;t color='#00fff3'&gt;"%1" est chargé sur "%2". Emplacements libres : "%3".&lt;/t&gt;</French>
         <Korean>&lt;t color='#00fff3'&gt;"%1"이(가) "%2"에 적재되었습니다. 사용 가능 슬롯: "%3".&lt;/t&gt;</Korean>
@@ -170,16 +170,19 @@
       </Key>
       <Key ID="STR_A3A_logi_mass_nospace">
         <Original>&lt;t color='#00fff3'&gt;"%1" is loaded onto "%2". There is no more space.&lt;/t&gt;</Original>
+        <Italian>&lt;t color='#00fff3'&gt;"%1" è caricato in "%2" Non c'è più spazio.&lt;/t&gt;</Italian>
         <Spanish>&lt;t color='#00fff3'&gt;"%1" está siendo cargado en "%2" No queda más espacio.&lt;/t&gt;</Spanish>
         <French>&lt;t color='#00fff3'&gt;"%1" est chargé sur "%2" Il n'y a plus de place.&lt;/t&gt;</French>
+        <Korean>&lt;t color='#00fff3'&gt;"%1"이(가) "%2"에 적재되었습니다. 더 이상 공간이 없습니다.&lt;/t&gt;</Korean>
         <Czech>&lt;t color='#00fff3'&gt;"%1" je nakládáno do "%2" Už nezbylo žádné další místo.&lt;/t&gt;</Czech>
         <Portuguese>&lt;t color='#00fff3'&gt;"%1" foi carregado em "%2". Não há mais espaço.&lt;/t&gt;</Portuguese>
         <Turkish>&lt;t color='#00fff3'&gt;"%1" , "%2"'ye yüklendi. Boş yer kalmadı.&lt;/t&gt;</Turkish>
+        <Chinesesimp>&lt;t color='#00fff3'&gt;"%1" 已经被装载入 "%2" 已无可用空间.&lt;/t&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_mass_unloaded_freeslots">
         <Original>&lt;t color='#00fff3'&gt;"%1" was unloaded from "%2". Free slots: "%3".&lt;/t&gt;</Original>
         <German>&lt;t color='#00fff3'&gt;"%1" wurde entladen aus "%2". Frei verfügbare Plätze: "%3".&lt;/t&gt;</German>
-        <Italian>&lt;t color='#00fff3'&gt;"%1" was unloaded from "%2". Slot liberi: "%3".&lt;/t&gt;</Italian>
+        <Italian>&lt;t color='#00fff3'&gt;"%1" è stato scaricato da "%2". Slot liberi: "%3".&lt;/t&gt;</Italian>
         <Spanish>&lt;t color='#00fff3'&gt;"%1" fue descargado de "%2". Espacios libres: "%3".&lt;/t&gt;</Spanish>
         <French>&lt;t color='#00fff3'&gt;"%1" a été déchargé de "%2". Emplacements libres : "%3".&lt;/t&gt;</French>
         <Korean>&lt;t color='#00fff3'&gt;"%1"이(가) "%2"에 하역되었습니다. 사용 가능 슬롯: "%3".&lt;/t&gt;</Korean>
@@ -258,7 +261,7 @@
         <Czech>%1 nemůže naložit náklad pokud jednotky blokují nákladní letadlo.</Czech>
         <Portuguese>1% não pode carregar a carga enquanto unidades estão bloqueando o avião cargueiro.</Portuguese>
         <Turkish>%1, birimler kargo alanını bloke ederken yüklenemez.</Turkish>
-        <Chinesesimp>%1 无法在运输机被阻挡的情况下装载货物</Chinesesimp>
+        <Chinesesimp>%1 无法在运输机被单位阻挡的情况下装载货物</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_logi_tryload_no_mounted">
         <Original>Can't load a static that's mounted.</Original>

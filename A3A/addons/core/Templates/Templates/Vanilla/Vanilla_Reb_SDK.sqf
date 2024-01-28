@@ -73,6 +73,9 @@ private _initialRebelEquipment = [
 ];
 _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
 
+if ("enoch" in A3A_enabledDLC) then {
+    _initialRebelEquipment append ["sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
+};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
@@ -106,7 +109,7 @@ private _rebUniforms = [
 
 private _dlcUniforms = [];
 
-if (allowDLCEnoch) then {_dlcUniforms append [
+if ("enoch" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F"
 ];
 };

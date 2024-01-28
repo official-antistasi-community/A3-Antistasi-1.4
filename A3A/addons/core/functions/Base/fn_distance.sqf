@@ -15,7 +15,7 @@ Dependencies:
     Occupants, Invaders, teamPlayer, markersX, forcedSpawn, spawner,
     controlsX, airportsX, resourcesX, factories, outposts, seports,
     A3A_fnc_createAICities, A3A_fnc_createCIV, A3A_fnc_createAIcontrols,
-    A3A_fnc_createAIAirplane, A3A_fnc_createAIresources, A3A_fnc_createAIOutposts,
+    A3A_fnc_createAIAirbase, A3A_fnc_createAIresources, A3A_fnc_createAIOutposts,
     A3A_fnc_createFIAOutposts2, A3A_fnc_createSDKGarrisons
 
 Example: [] spawn A3A_fnc_distance;
@@ -124,7 +124,7 @@ private _processOccupantMarker = {
 
                 case (_marker in airportsX):
                 {
-                    [[_marker], "A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAIAirbase"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in resourcesX);
@@ -324,7 +324,7 @@ private _processInvaderMarker = {
 
                 case (_marker in airportsX):
                 {
-                    [[_marker], "A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAIAirbase"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in resourcesX);

@@ -32,6 +32,7 @@ _pos = (getMarkerPos respawnTeamPlayer) findEmptyPosition [1,50,"C_Van_01_box_F"
 _truckX = "Land_FoodSacks_01_cargo_brown_F" createVehicle _pos;
 _truckX enableRopeAttach true;
 _truckX allowDamage false;
+if (A3A_hasACE) then {[_truckX, _truckX] call ace_common_fnc_claim};
 [_truckX] call A3A_Logistics_fnc_addLoadAction;
 _truckX addAction [localize "STR_A3A_fn_mission_log_supply_addact_del_info",
 	{
@@ -112,9 +113,6 @@ else
 			};
 	};
 
-_ecpos = getpos _truckX;
-deleteVehicle _truckX;
-_emptybox = "Land_Pallet_F" createVehicle _ecpos;
-[_emptybox] spawn A3A_fnc_postmortem;
+deleteVehicle _truckX; // Previously an empty pallet was spawned here, but it has been removed. RIP
 
 [_taskId, "SUPP", 900] spawn A3A_fnc_taskDelete;

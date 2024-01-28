@@ -65,7 +65,7 @@
 
 ["vehiclesArtillery", ["rhsgref_ins_2s1","rhsgref_ins_d30","rhsgref_ins_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_ins_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_ins_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_ins_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_ins_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
@@ -463,9 +463,62 @@ _crewLoadoutData set ["helmets", ["rhs_tsh4", "rhs_tsh4_ess"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["rhs_uniform_df15","rhs_uniform_df15_tan"]];
-_pilotLoadoutData set ["vests", ["rhs_vest_commander"]];
+_pilotLoadoutData set ["vests", ["rhs_vest_commander", "rhs_gear_OFF"]];
 _pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_alt", "rhs_zsh7a_mike", "rhs_zsh7a_mike_green", "rhs_zsh7a_mike_green_alt"]];
 
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["uniforms", ["rhsgref_uniform_reed"]];
+_officerLoadoutData set ["slVests", ["rhs_vest_commander", "rhs_gear_OFF"]];
+_officerLoadoutData set ["slHat", ["rhs_beret_mvd"]];
+_officerLoadoutData set ["backpacks", []];
+_officerLoadoutData set ["facewear", ["G_Squares_Tinted","G_Aviator"]];
+
+_officerLoadoutData set ["slRifles", [
+["rhs_weap_akmn", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_aks74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74n_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_ak74n_2", "rhs_acc_dtk1983", "", "", ["rhs_30Rnd_545x39_7N6M_plum_AK","rhs_30Rnd_545x39_7N10_plum_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_akms", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_akms_folded", "rhs_acc_dtkakm", "", "", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74un_folded", "rhs_acc_pgs64_74u", "", "", ["rhs_30Rnd_545x39_7N6M_AK","rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+]];
+
+////////////////////////////////
+//    Additional uniforms     //
+////////////////////////////////
+
+
+if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
+
+    private _uniforms3cb = [];
+    private _uniformsmilitia3cb = [];
+    switch (A3A_climate) do 
+    {
+        case "tropical": {
+            _uniformsmilitia3cb = ["UK3CB_CHD_B_U_H_Pilot_Uniform_03", "UK3CB_CHD_B_U_CombatUniform_04","UK3CB_CHD_B_U_CombatUniform_07"];
+            _uniforms3cb = _uniformsmilitia3cb + ["UK3CB_CHD_B_U_CombatSmock_09", "UK3CB_CHD_B_U_CombatSmock_03", "UK3CB_CHD_B_U_CombatSmock_07"];
+        };
+        case "arid":{
+            _uniformsmilitia3cb = ["UK3CB_CHD_B_U_H_Pilot_Uniform_03", "UK3CB_CHD_B_U_H_Pilot_Uniform_02","UK3CB_CHD_B_U_H_Pilot_Uniform_01"];
+            _uniforms3cb = _uniformsmilitia3cb + ["UK3CB_CHD_B_U_CombatSmock_06"];
+        };
+        case "arctic":   {
+            _uniforms3cb = ["UK3CB_CHD_B_U_CombatSmock_01", "UK3CB_CHD_B_U_CombatSmock_02","UK3CB_CHD_W_B_U_CombatSmock_06","UK3CB_CHD_B_U_CombatSmock_11","UK3CB_CHD_W_B_U_CombatSmock_04"];
+            _uniformsmilitia3cb = _uniforms3cb;
+        };
+        default          {  //Unknown or temperate
+            _uniforms3cb = ["UK3CB_CHD_B_U_CombatUniform_01", "UK3CB_CHD_B_U_CombatUniform_02","UK3CB_CHD_B_U_CombatUniform_03"];
+            _uniformsmilitia3cb = _uniforms3cb;
+        };
+    };
+    _militiaLoadoutData set ["uniforms", _uniformsmilitia3cb];
+    _militaryLoadoutData set ["uniforms", _uniforms3cb];
+    
+    _officerLoadoutData set ["uniforms", ["UK3CB_CHD_B_U_CombatUniform_09"]];
+    _officerLoadoutData set ["slHat", ["UK3CB_H_Civ_Beret"]];
+};
 
 /////////////////////////////////
 //    Unit Type Definitions    //
@@ -979,7 +1032,7 @@ private _unitTypes = [
 //The following lines are determining the loadout of the pilots
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _squadLeaderTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

@@ -11,6 +11,9 @@ if (isClass (configFile >> "CfgPatches" >> "Vehicles_F_lxWS")) then {
     (["attributesVehicles"] call _fnc_getFromTemplate) append [
         ["I_G_Offroad_01_armor_base_lxWS", ["rebCost", 400], ["threat", 20]],
         ["I_G_Offroad_01_armor_armed_lxWS", ["rebCost", 900], ["threat", 60]],
-        ["I_G_Offroad_01_armor_AT_lxWS", ["rebCost", 900], ["threat", 60]]
+        ["I_G_Offroad_01_armor_AT_lxWS", ["rebCost", 900], ["threat", 60]],
+        ["a3a_ION_Offroad_armor", ["rebCost", 400], ["threat", 20]],
+        ["a3a_ION_Offroad_armor_armed", ["rebCost", 900], ["threat", 60]],
+        ["a3a_ION_Offroad_armor_at", ["rebCost", 900], ["threat", 60]]
     ];
 };

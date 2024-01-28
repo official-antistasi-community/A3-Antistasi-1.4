@@ -75,14 +75,14 @@ if (count _positionTel > 0) then
 		//if (!_esHC) then {disableUserInput true; cutText ["Fast traveling, please wait","BLACK",2]; sleep 2;} else {hcShowBar false;hcShowBar true;hint format ["Moving group %1 to destination",groupID _groupX]; sleep _distanceX;};
 		_forcedX = false;
 		if (!isMultiplayer) then {if (not(_base in forcedSpawn)) then {_forcedX = true; forcedSpawn = forcedSpawn + [_base]}};
-		if (!_esHC) then {disableUserInput true; cutText [format ["Fast traveling, travel time: %1s , please wait", _distanceX],"BLACK",1]; sleep 1;}  //TODO: Localize
+		if (!_esHC) then {disableUserInput true; cutText [format [localize "STR_A3A_fn_dialogs_fastTravelRadio_begin", _distanceX],"BLACK",1]; sleep 1;}
 			else {[_titleStr, format [localize "STR_A3A_fn_dialogs_ftradio_grp_moving",groupID _groupX]] call A3A_fnc_customHint; sleep _distanceX;};
  		if (!_esHC) then
  			{
  			_timePassed = 0;
  			while {_timePassed < _distanceX} do
  				{
- 				cutText [format ["Fast traveling, travel time: %1s , please wait", (_distanceX - _timePassed)],"BLACK",0.0001]; //TODO: Localize
+ 				cutText [format [localize "STR_A3A_fn_dialogs_fastTravelRadio_begin", (_distanceX - _timePassed)],"BLACK",0.0001];
  				sleep 1;
  				_timePassed = _timePassed + 1;
  				}
@@ -144,7 +144,7 @@ if (count _positionTel > 0) then
 			//_unit hideObject false;
 		} forEach units _groupX;
 		//if (!_esHC) then {sleep _distanceX};
-		if (!_esHC) then {disableUserInput false;cutText ["You arrived at the destination.","BLACK IN",1]}  //TODO: Localize
+		if (!_esHC) then {disableUserInput false;cutText [localize "STR_A3A_fn_dialogs_fastTravelRadio_end","BLACK IN",1]}
 		else {[_titleStr, format [localize "STR_A3A_fn_dialogs_ftradio_grp_arrived",groupID _groupX]] call A3A_fnc_customHint;};
 		if (_forcedX) then {forcedSpawn = forcedSpawn - [_base]};
 		[] call A3A_fnc_playerLeashRefresh;

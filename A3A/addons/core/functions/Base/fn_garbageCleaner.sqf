@@ -16,8 +16,8 @@ private _fnc_distCheck = {
 Debug("Moving dead solders out of vehicles...")
 {
 	if !(isNull objectParent _x) then { moveOut _x };
-} forEach allDead;
-Debug("Finished moving soldiers out of vehicles; deleting")
+} forEach allDeadMen;
+Debug("Finished moving soldiers out of vehicles; executing garbage clean.")
 sleep 0.5;
 
 { deleteVehicle _x } forEach allDead;

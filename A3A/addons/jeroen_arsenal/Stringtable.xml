@@ -238,6 +238,7 @@
       </Key>
       <Key ID="STR_A3A_JNA_loadinventory_notin_kept">
         <Original>These items were not in the Arsenal, so the originals have been kept:&lt;br/&gt;</Original>
+        <German>Diese Ausrüstungsgegenstände waren nicht im Arsenl, daher wurden die bereits ausgerüsteten Gegenstände beibehalten:</German>
         <Italian>Questi oggetti non erano nell'Arsenale, quindi sono stati mantenuti gli originali:&lt;br/&gt;</Italian>
         <Spanish>Estos objetos no estaban en el Arsenal, asi que se mantuvieron los originales:&lt;br/&gt;</Spanish>
         <French>Ces objets n'étaient pas dans l'Arsenal, les originaux ont donc été conservés:&lt;br/&gt;</French>
@@ -262,6 +263,7 @@
       </Key>
       <Key ID="STR_A3A_JNA_rhs_error">
         <Original>ERROR - Please report RPT to Antistasi Devs.</Original>
+        <Italian>ERRORE - Si prega di riportare l'RPT agli sviluppatori di Antistasi.</Italian>
         <French>ERREUR - Veuillez signaler le RPT aux développeurs d'Antistasi.</French>
         <Korean>오류 - 안티스타시 개발진에게 RPT 보고할 것</Korean>
         <Russian>ОШИБКА - Отправьте RPT разработчикам Antistasi.</Russian>
@@ -269,6 +271,7 @@
       </Key>
       <Key ID="STR_A3A_JNA_scope_incompatible">
         <Original>&lt;br/&gt;(Not compatible with currently equipped weapons)</Original>
+        <German>&lt;br/&gt; (Nicht kompatibel mit aktuell ausgerüsteten Waffen)</German>
         <Italian>&lt;br/&gt;(Non compatibile con le armi equipaggiate)</Italian>
         <French>&lt;br/&gt;(Pas compatible avec les armes actuellement équipées)</French>
         <Korean>&lt;br/&gt;(현재 장착한 무기와 호환되지 않음)</Korean>
@@ -391,7 +394,7 @@
       <Key ID="STR_A3A_JNA_tooltop_unload">
         <Original>Move items from car to arsenal</Original>
         <German>Bewege Gegenstände aus Fahrzeug ins Arsenal</German>
-        <Italian>Sposta gli oggetti dall'automobile all'arsenale</Italian>
+        <Italian>Sposta gli oggetti dal veicolo all'arsenale</Italian>
         <Spanish>Mover objetos del vehículo al arsenal</Spanish>
         <French>Déplacez les objets de la voiture vers l'arsenal</French>
         <Korean>차량의 아이템들을 무기고로 옮깁니다</Korean>
@@ -504,6 +507,7 @@
       </Key>
       <Key ID="STR_A3A_JND_title">
         <Original>Ultra Wide Extended Debug Console With Extra Save Buttons!</Original>
+        <German>Extrabreite Debug-Console mit zusätzlichen Speicherplätzen.</German>
         <Italian>Console di Debug Ultra Wide con Bottoni di Salvataggio Extra!</Italian>
         <Spanish>Super Amplia y Extendida Consola de Debug con Extra Butones de Guardado!</Spanish>
         <French>Console de débogage étendue ultra large avec boutons de sauvegarde supplémentaires !</French>

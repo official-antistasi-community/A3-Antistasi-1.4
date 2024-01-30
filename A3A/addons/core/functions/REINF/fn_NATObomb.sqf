@@ -41,8 +41,9 @@ if (!visibleMap) exitWith {deleteMarker _mrkOrig};
 _pos2 = positionTel;
 positionTel = [];
 
-_ang = [_pos1,_pos2] call BIS_fnc_dirTo;
+ServerInfo_6("Commander %1 [%2] called %3 airstrike from %4 to %5, %6m from HQ", name theBoss, getPlayerUID theBoss, _typeX, _pos1, _pos2, _pos1 distance markerPos "Synd_HQ");
 
+_ang = [_pos1,_pos2] call BIS_fnc_dirTo;
 
 bombRuns = bombRuns - 1;
 publicVariable "bombRuns";

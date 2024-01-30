@@ -43,7 +43,7 @@
         <Russian>Стань лидером Сопротивления. Сражайся против врага превосходящего в технологии, количестве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире с около 18 побочными заданиями, в любом месте, в любое время, против чего угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
-        <Portuguese>Seja o Líder da Resistência. Lute contra um inimigo superior em tecnologia, número, recursos e veículos. Use tácticas de guerrilha num mundo totalmente dinâmico, com cerca de 18 missões secundárias, em qualquer lado, a quaquer altura.</Portuguese>
+        <Portuguese>Seja o Líder da Resistência. Lute contra um inimigo superior em tecnologia, número, recursos e veículos. Use tácticas de guerrilha num mundo totalmente dinâmico, com cerca de 18 missões secundárias, em qualquer lado, a qualquer altura.</Portuguese>
         <Turkish>Direniş Lideri olun. Teknoloji, sayı, kaynak ve araçlarda üstün bir düşmana karşı savaşın. Her yerde ve her zaman yaklaşık 18 yan görevle tamamen dinamik bir dünyada gerilla taktiklerini kullanın.</Turkish>
         <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 在任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
@@ -190,7 +190,7 @@
       <Key ID="STR_antistasi_mission_info_chernarus_blurb_text">
         <Original>Revolution in a pile of leaves.</Original>
         <German>Revolution im Blätterhaufen</German>
-        <Italian>Rivoluzione in una mucchio di foglie.</Italian>
+        <Italian>Rivoluzione in un mucchio di foglie.</Italian>
         <Spanish>Revolución en una montaña de hojas.</Spanish>
         <French>La révolution au milieu des feuilles.</French>
         <Korean>나뭇잎 더미 속의 혁명</Korean>
@@ -466,6 +466,54 @@
         <Portuguese>Antistasi - A Revolução do Báltico</Portuguese>
         <Turkish>Antistasi - Baltık Devrimi</Turkish>
         <Chinesesimp>Antistasi - 波罗的海革命</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_blurb_text">
+        <Original>United Germany is Best Germany.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_short_text">
+        <Original>Antistasi Weferlingen Summer</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_text">
+        <Original>Antistasi - Liberation of Weferlingen - Summer</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_blurb_text">
+        <Original>United Germany is Best Germany, also in the winter.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_short_text">
+        <Original>Antistasi Weferlingen Winter</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_text">
+        <Original>Antistasi - Liberation of Weferlingen - Winter</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_blurb_text">
+        <Original>African Islands under siege</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_short_text">
+        <Original>Antistasi Isla Duala</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_text">
+        <Original>Antistasi - Liberation of Isla Duala</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_blurb_text">
+        <Original>African Action</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_mapname_short_text">
+        <Original>Antistasi Kujari</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_kujari_mapname_text">
+        <Original>Antistasi - Liberation of Kujari</Original>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
@@ -915,6 +963,18 @@
         <Turkish>Antistasi - Tembelan Adasının Kurtuluşu</Turkish>
         <Chinesesimp>Antistasi - 解放 Tembelan</Chinesesimp>
       </Key>
+      <Key ID="STR_antistasi_mission_info_umb_colombia_blurb_text">
+        <Original>Something with cocaine or such.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_umb_colombia_description_text">
+        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_short_text">
+        <Original>Antistasi Colombia</Original>
+      </Key>
+      <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_text">
+        <Original>Antistasi - Liberation of Colombia</Original>
+      </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_blurb_text">
         <Original>Another jungle, another fight.</Original>
         <German>Ein anderer Dschungel, ein anderer Kampf.</German>
@@ -1027,191 +1087,174 @@
         <Turkish>Antistasi - Virolahti'nin Kurtuluşu</Turkish>
         <Chinesesimp>Antistasi - 解放 Virolahti</Chinesesimp>
       </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_short_text">
-        <Original>Antistasi Weferlingen Summer</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_text">
-        <Original>Antistasi - Liberation of Weferlingen - Summer</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_blurb_text">
-        <Original>United Germany is Best Germany.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_short_text">
-        <Original>Antistasi Weferlingen Winter</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_text">
-        <Original>Antistasi - Liberation of Weferlingen - Winter</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_blurb_text">
-        <Original>United Germany is Best Germany, also in the winter.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_umb_colombia_blurb_text">
-        <Original>Something with cocaine or such.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_umb_colombia_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_short_text">
-        <Original>Antistasi Colombia</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_text">
-        <Original>Antistasi - Liberation of Colombia</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_isladuala3_blurb_text">
-        <Original>African Islands under siege</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_isladuala3_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_short_text">
-        <Original>Antistasi Isla Duala</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_isladuala3_mapname_text">
-        <Original>Antistasi - Liberation of Isla Duala</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_kujari_blurb_text">
-        <Original>African Action</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_kujari_description_text">
-        <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_kujari_mapname_short_text">
-        <Original>Antistasi Kujari</Original>
-      </Key>
-      <Key ID="STR_antistasi_mission_info_kujari_mapname_text">
-        <Original>Antistasi - Liberation of Kujari</Original>
-      </Key>
     </Container>
     <Container name="Mission_Params">
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_10min">
         <Original>10 minutes</Original>
+        <German>10 Minuten</German>
         <Italian>10 minuti </Italian>
         <Spanish>10 minutos</Spanish>
         <French>10 minutes</French>
         <Korean>10분</Korean>
         <Czech>10 minut</Czech>
+        <Portuguese>10 minutos</Portuguese>
         <Chinesesimp>10 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_1min">
         <Original>1 minute</Original>
+        <German>1 Minute</German>
         <Italian>1 minuto</Italian>
         <Spanish>1 minuto</Spanish>
         <French>1 minute</French>
         <Korean>1분</Korean>
         <Czech>1 minuta</Czech>
+        <Portuguese>1 minuto</Portuguese>
         <Chinesesimp>1 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_2min">
         <Original>2 minutes</Original>
+        <German>2 Minuten</German>
         <Italian>2 minuti</Italian>
         <Spanish>2 minutos</Spanish>
         <French>2 minutes</French>
         <Korean>2분</Korean>
         <Czech>2 minuty</Czech>
+        <Portuguese>2 minutos</Portuguese>
         <Chinesesimp>2 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_3min">
         <Original>3 minutes</Original>
+        <German>3 Minuten</German>
         <Italian>3 minuti</Italian>
         <Spanish>3 minutos</Spanish>
         <French>3 minutes</French>
         <Korean>3분</Korean>
         <Czech>3 minuty</Czech>
+        <Portuguese>3 minutos</Portuguese>
         <Chinesesimp>3 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_5min">
         <Original>5 minutes</Original>
+        <German>5 Minuten</German>
         <Italian>5 minuti</Italian>
         <Spanish>5 minutos</Spanish>
         <French>5 minutes</French>
         <Korean>5분</Korean>
         <Czech>5 minut</Czech>
+        <Portuguese>5 minutos</Portuguese>
         <Chinesesimp>5 分钟</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_noautoload">
         <Original>No automatic load</Original>
+        <German>Kein automatisches Laden</German>
+        <Italian>No caricamento automatico</Italian>
         <French>Pas de chargement automatique</French>
         <Korean>자동 로드 없음</Korean>
         <Czech>Žádné automatické načtění</Czech>
+        <Portuguese>Não carregar automaticamente</Portuguese>
         <Chinesesimp>取消自动读取最近的存档</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_autoLoadLastGame_title">
         <Original>Automatically load last valid save after delay</Original>
+        <German>Automatisch letzten gültigen Spielstand nach eingestellter Verzögerung laden</German>
+        <Italian>Caricato automaticamente l'ultimo salvataggio valido dopo il ritardo</Italian>
         <Spanish>Cargar el último guardado válido después del retraso</Spanish>
         <French>Chargement automatique de la dernière sauvegarde valide après un délai</French>
         <Korean>딜레이 후 마지막으로 유효한 저장을 자동으로 로드</Korean>
         <Czech>Automaticky načíst poslední platné uložení po zpoždění</Czech>
+        <Portuguese>Carregar ultimo save automaticamente depois de um intervalo</Portuguese>
         <Chinesesimp>自动读取最近的有效存档</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_all">
         <Original>All</Original>
+        <German>Alle</German>
+        <Italian>Tutto</Italian>
         <Spanish>Todos</Spanish>
         <French>Tout</French>
         <Korean>모두</Korean>
         <Czech>Vše</Czech>
+        <Portuguese>Todos</Portuguese>
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_nondev">
         <Original>All non-dev</Original>
+        <German>Alle nicht Entwickler</German>
+        <Italian>Tutto non-dev</Italian>
         <French>Tout les non-dév</French>
         <Korean>모두(개발자 버전 제외)</Korean>
         <Czech>Všechny non-dev</Czech>
+        <Portuguese>Todos exceto dev</Portuguese>
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_none">
         <Original>None</Original>
+        <German>Keiner</German>
+        <Italian>Nessuno</Italian>
         <Spanish>Ninguno</Spanish>
         <French>Aucun</French>
         <Korean>없음</Korean>
         <Czech>Nic</Czech>
+        <Portuguese>Nenhum</Portuguese>
       </Key>
       <Key ID="STR_A3A_Mission_Params_logDebugConsole_title">
         <Original>Log debug console use during setup</Original>
+        <German>Debzug Konsole während des Setups loggen</German>
+        <Italian>Registra la console di debug durante il setup</Italian>
         <French>Enregistrer l'usage de la console de débogage pendant la préparration</French>
         <Korean>설정 중 디버그 콘솔 사용 로그 작성</Korean>
         <Czech>Zapsat konzoli ladění při nastavování</Czech>
+        <Portuguese>Usar o console de debug durante o setup</Portuguese>
         <Chinesesimp>在设立过程中保存调试台使用记录</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_debug">
         <Original>Debug</Original>
+        <German>Debug</German>
+        <Italian>Debug</Italian>
         <Spanish>Debug</Spanish>
         <French>Déboguer</French>
         <Korean>디버그</Korean>
         <Czech>Ladění</Czech>
+        <Portuguese>Debug</Portuguese>
         <Chinesesimp>调试</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_error">
         <Original>Error</Original>
+        <German>Fehler</German>
+        <Italian>Errore</Italian>
         <Spanish>Error</Spanish>
         <French>Erreur</French>
         <Korean>오류</Korean>
         <Czech>Chyba</Czech>
+        <Portuguese>Erro</Portuguese>
         <Chinesesimp>错误</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_info">
         <Original>Info</Original>
+        <German>Info</German>
+        <Italian>Info</Italian>
         <Spanish>Info</Spanish>
         <French>Info</French>
         <Korean>정보</Korean>
         <Czech>Informace</Czech>
+        <Portuguese>Info</Portuguese>
         <Chinesesimp>信息</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_title">
         <Original>Logging Level during setup</Original>
+        <German>Logging-Level während des Setups</German>
+        <Italian>Registrando il Livello durante il setup</Italian>
         <French>Niveau de logs pendant la préparation</French>
         <Korean>설정 중 로그 작성 수준</Korean>
         <Czech>&lt;br/&gt;Úroveň záznamu během nastavování</Czech>
+        <Portuguese>Detalhes do Log durante o setup</Portuguese>
       </Key>
       <Key ID="STR_A3A_Mission_Params_LogLevel_verbose">
         <Original>Verbose</Original>
+        <German>Ausführlich</German>
+        <Italian>Verboso</Italian>
         <Spanish>Verbose</Spanish>
         <French>Verbeux</French>
         <Korean>세부 정보</Korean>
         <Czech>Podrobný</Czech>
+        <Portuguese>Completo</Portuguese>
       </Key>
     </Container>
   </Package>

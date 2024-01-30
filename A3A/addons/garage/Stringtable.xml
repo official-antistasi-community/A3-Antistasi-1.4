@@ -607,7 +607,7 @@
       </Key>
       <Key ID="STR_HR_GRG_Generic_Mounts">
         <Original>Mounts</Original>
-        <German>Reittier</German>
+        <German>Lafetten</German>
         <Italian>Ralle</Italian>
         <Spanish>Montadas</Spanish>
         <French>Montures</French>
@@ -1153,66 +1153,66 @@
       </Key>
     </Container>
     <Container name="HR_GRG_settings">
-    <Key ID="STR_A3A_inc_public_config_lockOnGarageTitle">
-      <Original>Lock garaged vehicles</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_lockOnGarageLong">
-      <Original>Lock vehicles automatically when garaged.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_memberLimitTitle">
-      <Original>Member lock limit</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_memberLimitLong">
-      <Original>Maximum number of vehicles that can be locked by a member at once.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_guestLimitTitle">
-      <Original>Guest lock limit</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_guestLimitLong">
-      <Original>Maximum number of vehicles that can be locked by a guest at once.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_pylonEditingTitle">
-      <Original>Allow pylon editing</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_pylonEditingLong">
-      <Original>Allows pylons to be edited in the arsenal, as long as an ammo source is available.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRearmTitle">
-      <Original>Disable garage rearm</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRearmLong">
-      <Original>Vehicles won't be rearmed when taken from the garage.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRefuelTitle">
-      <Original>Disable garage refuel</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRefuelLong">
-      <Original>Vehicles won't be refueled when taken from the garage.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRepairTitle">
-      <Original>Disable garage repair</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_disableRepairLong">
-      <Original>Vehicles won't be repaired when taken from the garage.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_baseCapTitle">
-      <Original>Base Capacity</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_baseCapLong">
-      <Original>Base capacity of the garage at War Level 1.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_capIncTitle">
-      <Original>Capacity Increase</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_capIncLong">
-      <Original>Capacity increase per War Level for the garage.</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_placeRaysTitle">
-      <Original>Render placement rays</Original>
-    </Key>
-    <Key ID="STR_A3A_inc_public_config_placeRaysLong">
-      <Original>Debug setting: Enables the placement rays used to check for vehicle collision.</Original>
-    </Key>
+      <Key ID="STR_A3A_inc_public_config_baseCapLong">
+        <Original>Base capacity of the garage at War Level 1.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_baseCapTitle">
+        <Original>Base Capacity</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_capIncLong">
+        <Original>Capacity increase per War Level for the garage.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_capIncTitle">
+        <Original>Capacity Increase</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRearmLong">
+        <Original>Vehicles won't be rearmed when taken from the garage.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRearmTitle">
+        <Original>Disable garage rearm</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRefuelLong">
+        <Original>Vehicles won't be refueled when taken from the garage.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRefuelTitle">
+        <Original>Disable garage refuel</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRepairLong">
+        <Original>Vehicles won't be repaired when taken from the garage.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRepairTitle">
+        <Original>Disable garage repair</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_guestLimitLong">
+        <Original>Maximum number of vehicles that can be locked by a guest at once.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_guestLimitTitle">
+        <Original>Guest lock limit</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_lockOnGarageLong">
+        <Original>Lock vehicles automatically when garaged.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_lockOnGarageTitle">
+        <Original>Lock garaged vehicles</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_memberLimitLong">
+        <Original>Maximum number of vehicles that can be locked by a member at once.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_memberLimitTitle">
+        <Original>Member lock limit</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_placeRaysLong">
+        <Original>Debug setting: Enables the placement rays used to check for vehicle collision.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_placeRaysTitle">
+        <Original>Render placement rays</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_pylonEditingLong">
+        <Original>Allows pylons to be edited in the arsenal, as long as an ammo source is available.</Original>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_pylonEditingTitle">
+        <Original>Allow pylon editing</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

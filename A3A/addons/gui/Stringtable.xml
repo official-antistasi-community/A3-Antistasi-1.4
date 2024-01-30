@@ -130,6 +130,7 @@
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_shift_key">
         <Original>SHIFT: Unsafe placement mode</Original>
+        <German>UMSCHALT: Unsicherer Platzierungsmodus </German>
         <Italian>SHIFT: Metodo di piazzamento non sicuro</Italian>
         <Spanish>SHIFT: Modo de colocación insegura</Spanish>
         <French>SHIFT: Mode de placement non sécurisé</French>
@@ -149,6 +150,7 @@
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_t_key">
         <Original>T: Rebuild for %1 €</Original>
+        <German>T: Wiederaufbau für %1 €</German>
         <Italian>T: Ricostruisci per %1 €</Italian>
         <Spanish>T: Reconstruir por %1 €</Spanish>
         <French>T: Reconstruire pour %1 €</French>
@@ -158,6 +160,7 @@
       </Key>
       <Key ID="STR_antistasi_teamleader_placer_title">
         <Original>Teamleader Builder</Original>
+        <German>Truppführer-Baukasten</German>
         <Italian>Costruttore Teamleader</Italian>
         <Spanish>Teamleader Builder</Spanish>
         <French>Chef d'équipe de constructeurs</French>
@@ -495,26 +498,26 @@
       </Key>
     </Container>
     <Container name="dialog_hq">
-      <Key ID="STR_A3A_fn_GUI_hqDialog_title">
-        <Original>Skip Time / Rest</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_GUI_hqDialog_notBoss">
-        <Original>Only the commander can skip time.</Original>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_DEF_HQ">
+        <Original>You cannot rest while our HQ is under attack.</Original>
       </Key>
       <Key ID="STR_A3A_fn_GUI_hqDialog_enemiesNear">
         <Original>You cannot rest while enemies are near our HQ.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_GUI_hqDialog_rebelAttack">
-        <Original>You cannot rest while the enemy is launching a major attack.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_GUI_hqDialog_invaderPunish">
         <Original>You cannot rest while %1 is attacking civilians.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_GUI_hqDialog_DEF_HQ">
-        <Original>You cannot rest while our HQ is under attack.</Original>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_notBoss">
+        <Original>Only the commander can skip time.</Original>
       </Key>
       <Key ID="STR_A3A_fn_GUI_hqDialog_playersNotAtHQ">
         <Original>All players must be within 100m of the HQ marker to skip time.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_rebelAttack">
+        <Original>You cannot rest while the enemy is launching a major attack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_hqDialog_title">
+        <Original>Skip Time / Rest</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_aggression">
         <Original>Aggression:</Original>
@@ -788,6 +791,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_button">
         <Original>Rest</Original>
+        <German>Ausruhen</German>
         <Italian>Riposa</Italian>
         <Spanish>Descansar</Spanish>
         <French>Se reposer</French>
@@ -801,7 +805,8 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_rest_environment">
         <Original>Rest &amp; Environment</Original>
-        <Italian>Riposa &amp; Ambiente</Italian>
+        <German>Ausruhen &amp; Umwelt</German>
+        <Italian>Riposo &amp; Ambiente</Italian>
         <Spanish>Descanso &amp; Ambiente</Spanish>
         <French>Se reposer &amp; Environnement</French>
         <Korean>휴식 &amp; 환경</Korean>
@@ -1026,6 +1031,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_garrisons_rebuild_assets_button">
         <Original>Rebuild Assets</Original>
+        <German>Anlagen wiederaufbauen</German>
         <Italian>Ricostruisci Risorse</Italian>
         <Spanish>Reconstruir Objetos</Spanish>
         <French>Rebâtir des biens</French>
@@ -1313,6 +1319,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_admin_ai_commit_button">
         <Original>Commit</Original>
+        <German>Speichern</German>
         <Italian>Commetti</Italian>
         <Spanish>Comprometerse</Spanish>
         <French>Commettre</French>
@@ -1676,6 +1683,9 @@
       </Key>
     </Container>
     <Container name="dialog_main_ai_management">
+      <Key ID="STR_A3A_fn_GUI_aiManaagement_noAI">
+        <Original>No AIs in group. Recruit some at an allied marker's flag.</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_ai_list_label">
         <Original>AI Group members</Original>
         <German>KI Gruppenmitglied</German>
@@ -1703,9 +1713,6 @@
         <Portuguese>Cura Automática</Portuguese>
         <Turkish>Otomatik Tedavi</Turkish>
         <Chinesesimp>自动治疗</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_GUI_aiManaagement_noAI">
-        <Original>No AIs in group. Recruit some at an allied marker's flag.</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_ai_management_auto_rearm_button">
         <Original>Auto Rearm / Loot</Original>
@@ -2198,6 +2205,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_fire_mission_position_not_set_tooltip">
         <Original>Strike position not set</Original>
+        <German>Startpunkt der Feuermission nicht gesetzt</German>
         <Italian>Posizione di bombardamento non settata</Italian>
         <Spanish>Posición del ataque no seleccionada</Spanish>
         <French>Position de frappe non définie</French>
@@ -2365,6 +2373,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_groups_label">
         <Original>High Command Groups</Original>
+        <German>Einheiten des Oberkommandos</German>
         <Italian>Gruppi Alto Comando</Italian>
         <Spanish>Grupos del Alto Mando</Spanish>
         <French>Groupes de Haut Commandement</French>
@@ -2490,6 +2499,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_hc_no_groups">
         <Original>&lt;t align='center'&gt;You have no high command groups.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;You can recruit them at the flag.&lt;/t&gt;</Original>
+        <German>&lt;t align='center'&gt;Du hast keine Einheiten des Oberkommandos.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Du kannst diese an der Flagge rekrutieren.&lt;/t&gt;</German>
         <Italian>&lt;t align='center'&gt;Non hai gruppi Alto Comando.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Puoi reclutarli alla bandiera.&lt;/t&gt;</Italian>
         <Spanish>&lt;t align='center'&gt;No tiene grupos del Alto Mando.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Puede reclutarlos en la bandera.&lt;/t&gt;</Spanish>
         <French>&lt;t align='center'&gt;Vous n'avez pas de groupes de haut commandement.&lt;/t&gt;&lt;br /&gt;&lt;t align='center'&gt;Vous pouvez les recruter au drapeau.&lt;/t&gt;</French>
@@ -3298,17 +3308,6 @@
     <Container name="dialog_recruit_units">
       <Key ID="STR_antistasi_dialogs_recruit_units_antitank">
         <Original>Anti-Tank</Original>
-        <German>Antipanzer</German>
-        <Italian>Anticarro</Italian>
-        <Spanish>Antitanque</Spanish>
-        <French>Anti-char</French>
-        <Korean>대전차병</Korean>
-        <Russian>Гранатометчик</Russian>
-        <Polish>Celowniczy PPANC</Polish>
-        <Czech>Protitankový střelec</Czech>
-        <Portuguese>Antitanque</Portuguese>
-        <Turkish>Anti-Tank</Turkish>
-        <Chinesesimp>反坦克手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_recruit_units_autorifleman">
         <Original>Autorifleman</Original>
@@ -3865,6 +3864,7 @@
       </Key>
       <Key ID="STR_antistasi_recruit_squad_spawn_message">
         <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Mngmt option in Y menu</Original>
+        <German>Einheit %1 zu Ihrer Verfügung.&lt;br/&gt;&lt;br/&gt;Die Einheit wird über die Oberkommando-Leiste kontrolliert (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;Falls die Einheit stecken bleibt, nutze das AI-Kontroll-Übernahme feature um sie wieder in bewegung zu versetzen. Teams welche statische Waffen verwenden bleiben oft stecken (beim Lösen des Wegpunktes)&lt;br/&gt;&lt;br/&gt;Um ein Fahrzeug einer EInheit hinzuzufügen, selektiere die Einheit Oberkommando-Leiste und schaue ein Fahrzeug an, anschließend Nutze das Z-Menu. </German>
         <Italian>Gruppo %1 al tuo comando.&lt;br/&gt;&lt;br/&gt;I gruppi vengono gestiti dalla barra dell'Alto Comando(Default: CTRL+SPAZIO)&lt;br/&gt;&lt;br/&gt;Se il gruppo si blocca, usa il controllo IA per farli muovere. Le squadre statiche motorizzate di solito si incastrano facilmente. (Stiamo cercando di risolvere questo problema)&lt;br/&gt;&lt;br/&gt;Per assegnare un veicolo a questo gruppo, guarda il veicolo, e usa l'opzione Gestione Veicolo di Squadra nel menu che apri con Y</Italian>
         <Spanish>Grupo %1 a sus órdenes.&lt;br/&gt;&lt;br/&gt;Los grupos son gestionados desde la barra de Alto Mando (Por defecto: CTRL+ESPACIO)&lt;br/&gt;&lt;br/&gt;Si el grupo queda atascado, use la opción de Control de IA para hacer que se muevan de nuevo. Los equipos Estáticos Montados tienden a atascarse (resolver esto es WiP)&lt;br/&gt;&lt;br/&gt;Para asignar un vehículo a este grupo, mire hacia un vehículo y use la opción de Gestión de Vehículo de Escuadra en el menú de Y</Spanish>
         <French>Groupe %1 à votre commande.&lt;br/&gt;&lt;br/&gt;Les groupes sont gérés depuis la barre de commande supérieure (par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe se coince, utilisez la fonction contrôle temporaire de l'IA pour les déplacer. Les équipes statiques montées ont tendance à rester bloquées (résoudre cela est WiP)&lt;br/&gt;&lt;br/&gt;Pour attribuer un véhicule à ce groupe, regardez un véhicule et utilisez l'option Vehicle Squad Mngmt dans le menu Y</French>
@@ -3878,23 +3878,23 @@
       </Key>
     </Container>
     <Container name="setup_dialog">
-      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_create">
-        <Original>Create new game with</Original>
-      </Key>
       <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_copy">
         <Original>Copy game with ID %1</Original>
       </Key>
-      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_load">
-        <Original>Load game with ID %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_occInv">
-        <Original>%1 occupants and %2 invaders?</Original>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_create">
+        <Original>Create new game with</Original>
       </Key>
       <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_delete">
         <Original>Are you sure you want to delete game ID %1 on %2?</Original>
       </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_load">
+        <Original>Load game with ID %1</Original>
+      </Key>
       <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_loadName">
         <Original>name ""%1""</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_occInv">
+        <Original>%1 occupants and %2 invaders?</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_addonvics">
         <Original>Addon vehicles</Original>

@@ -45,6 +45,9 @@
       </Key>
     </Container>
     <Container name="A3A_fn_ai">
+      <Key ID="STR_A3A_fn_ai_artySupport_artyStrike">
+        <Original>Artillery Strike</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_busy">
         <Original>Selected battery is busy right now.</Original>
         <Italian>La batteria selezionata è occupata.</Italian>
@@ -71,6 +74,9 @@
         <Turkish>Bu bataryadaki elementler ateş edemezler ya da etkisiz hale gelmişler.</Turkish>
         <Chinesesimp>该炮组中的所有单位均无法开火，或已被摧毁</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_fireMission">
+        <Original>Requesting a mortar strike on Grid %1. %2 %3.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_modno">
         <Original>Your current modset doesn't support this strike type.</Original>
         <Italian>Il set di mod corrente non supporta questo tipo di attacco.</Italian>
@@ -84,8 +90,18 @@
         <Turkish>Şu anki modlarınız bu tip saldırıyı desteklemiyor.</Turkish>
         <Chinesesimp>你当前的模式设定不支持这种类型的火力支援.</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal">
+        <Original>Artillery Barrage Begin</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal2">
+        <Original>Artillery Barrage End</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_multiRound">
+        <Original>Rounds</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_noammo">
         <Original>The mortar has run out of rounds. Wait a few minutes to restock it.</Original>
+        <Italian>Il mortaio non ha munizioni. Aspetta alcuni minuti per ricaricarlo.</Italian>
         <Korean>박격포에 탄약이 부족합니다. 다시 채우려면 몇 분 정도 기다리십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_oob">
@@ -100,9 +116,6 @@
         <Portuguese>A posição que marcaste está fora dos limites para esta bateria.</Portuguese>
         <Turkish>Seçili pozisyon bu bataryanın menzili dışında.</Turkish>
         <Chinesesimp>你所标记的位置位于该炮组射程之外.</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_artyStrike">
-        <Original>Artillery Strike</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_select">
         <Original>You must select an artillery group.</Original>
@@ -147,6 +160,12 @@
         <Turkish>Haritada top atışını başlatmak için pozisyon belirleyin.</Turkish>
         <Chinesesimp>在地图上选择炮火支援的初始位置</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_singleRound">
+        <Original>Round</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_splash">
+        <Original>Splash. Out.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_title">
         <Original>Artillery Support</Original>
         <Italian>Supporto d'artiglieria</Italian>
@@ -160,29 +179,11 @@
         <Turkish>Topçu desteği</Turkish>
         <Chinesesimp>火炮支援</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal">
-        <Original>Artillery Barrage Begin</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal2">
-        <Original>Artillery Barrage End</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_fireMission">
-        <Original>Requesting a mortar strike on Grid %1. %2 %3.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_singleRound">
-        <Original>Round</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_multiRound">
-        <Original>Rounds</Original>
-      </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_yesBarrage">
         <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_yesSingle">
         <Original>Acknowledged. Fire mission is inbound. %2 %3 fired. ETA %1 secs.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_artySupport_splash">
-        <Original>Splash. Out.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoheal_mustleader">
         <Original>You must be leader of your group to enable Auto Heal.</Original>
@@ -223,6 +224,111 @@
         <Turkish>Yapay Zeka'nın canını otomatik doldurma</Turkish>
         <Chinesesimp>AI 自动治疗</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noCorpses">
+        <Original>"I see no corpses here to loot.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noDoing">
+        <Original>I am currently rearming. Cancelling.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noHelping">
+        <Original>I cannot rearm right now. I'm healing a comrade.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noLoot">
+        <Original>There is nothing to loot.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noRepairs">
+        <Original>It is useless to load my vehicle, as it needs repairs.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noStatic">
+        <Original>I cannot rearm right now. I'm manning this gun.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_noWeapons">
+        <Original>No more weapons to loot.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoLoot_startLoot">
+        <Original>Starting to loot.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_done">
+        <Original>Rearming done.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getFAK">
+        <Original>Picking a first aid kit.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getGun">
+        <Original>Picking a better weapon.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getHelm">
+        <Original>Picking a helmet.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getNVGs">
+        <Original>Picking NV goggles.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getPack">
+        <Original>Picking a backpack.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getRadio">
+        <Original>Picking a radio.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getSec">
+        <Original>Picking a secondary weapon.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_getVest">
+        <Original>Picking a better vest.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_haveGun">
+        <Original>I have a better weapon now.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_haveSec">
+        <Original>I have a secondary weapon now.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noNeed">
+        <Original>No need to rearm.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noSourcePrim">
+        <Original>No source to rearm my primary weapon.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_noSourceSec">
+        <Original>No source to rearm my secondary weapon.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_partRearmed">
+        <Original>Partially rearmed.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_rearmed">
+        <Original>Rearmed.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_autoRearm_rearming">
+        <Original>Rearming.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_dismiss">
+        <Original>Go back to your base and tell your comrades we are not your enemies. We just want to live in peace.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse1">
+        <Original>Okay, thank you. I owe you my life.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse2">
+        <Original>Thank you. I swear you won't regret it!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_libresponse3">
+        <Original>Thank you, I won't forget this!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr_no1">
+        <Original>Screw you!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr_yes1">
+        <Original>Why not? It can't be any worse.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_captureX_recr1">
+        <Original>How about joining the good guys?</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_hurt">
+        <Original>Comrades, this is %1. I'm hurt!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_ready">
+        <Original>You are ready %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_heal_support">
+        <Original>Wait a minute comrade %1, I will patch you up.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_ai_help_onway">
         <Original>%1 is on the way to help you.</Original>
         <Italian>%1 è in arrivo per aiutarti.</Italian>
@@ -237,122 +343,17 @@
         <Korean>의료</Korean>
         <Czech>Zdravotnické</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_ai_heal_ready">
-        <Original>You are ready %1.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_heal_hurt">
-        <Original>Comrades, this is %1. I'm hurt!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_heal_support">
-        <Original>Wait a minute comrade %1, I will patch you up.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noHelping">
-        <Original>I cannot rearm right now. I'm healing a comrade.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noDoing">
-        <Original>I am currently rearming. Cancelling.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noStatic">
-        <Original>I cannot rearm right now. I'm manning this gun.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noRepairs">
-        <Original>It is useless to load my vehicle, as it needs repairs.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noCorpses">
-        <Original>"I see no corpses here to loot.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noLoot">
-        <Original>There is nothing to loot.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_startLoot">
-        <Original>Starting to loot.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoLoot_noWeapons">
-        <Original>No more weapons to loot.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getGun">
-        <Original>Picking a better weapon.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_haveGun">
-        <Original>I have a better weapon now.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_rearming">
-        <Original>Rearming.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_rearmed">
-        <Original>Rearmed.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_partRearmed">
-        <Original>Partially rearmed.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_noSourcePrim">
-        <Original>No source to rearm my primary weapon.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getSec">
-        <Original>Picking a secondary weapon.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_haveSec">
-        <Original>I have a secondary weapon now.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_noSourceSec">
-        <Original>No source to rearm my secondary weapon.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getRadio">
-        <Original>Picking a radio.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getNVGs">
-        <Original>Picking NV goggles.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getHelm">
-        <Original>Picking a helmet.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getFAK">
-        <Original>Picking a first aid kit.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getVest">
-        <Original>Picking a better vest.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_getPack">
-        <Original>Picking a backpack.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_noNeed">
-        <Original>No need to rearm.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_autoRearm_done">
-        <Original>Rearming done.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_dismiss">
-        <Original>Go back to your base and tell your comrades we are not your enemies. We just want to live in peace.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_recr1">
-        <Original>How about joining the good guys?</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_recr_yes1">
-        <Original>Why not? It can't be any worse.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_recr_no1">
-        <Original>Screw you!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_libresponse1">
-        <Original>Okay, thank you. I owe you my life.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_libresponse2">
-        <Original>Thank you. I swear you won't regret it!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_ai_captureX_libresponse3">
-        <Original>Thank you, I won't forget this!</Original>
-      </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_ask">
         <Original>You imperialist! Tell me what you know!</Original>
       </Key>
-      <Key ID="STR_A3A_fn_ai_interrogate_yes">
-        <Original>Okay, I'll tell you what I know.</Original>
+      <Key ID="STR_A3A_fn_ai_interrogate_no">
+        <Original>Screw you, I am not telling you anything!</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_notSL">
         <Original>I don't know anything. Maybe my squad leader does.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_ai_interrogate_no">
-        <Original>Screw you, I am not telling you anything!</Original>
+      <Key ID="STR_A3A_fn_ai_interrogate_yes">
+        <Original>Okay, I'll tell you what I know.</Original>
       </Key>
       <Key ID="STR_A3A_fn_ai_libPOW">
         <Original>You are free. Come with us!</Original>
@@ -525,17 +526,17 @@
         <Korean>차량 브리칭</Korean>
         <Chinesesimp>强攻载具</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_AILoadInfo_noHeadless">
-        <Original>No Headless Client Detected</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_AILoadInfo_loadInfo">
-        <Original>AI Load Information</Original>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_count">
+        <Original>%1Reb: %2&lt;br/&gt;Occ:%3&lt;br/&gt;Inv:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_HCAI">
         <Original>%1HC %2 AI</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_AILoadInfo_count">
-        <Original>%1Reb: %2&lt;br/&gt;Occ:%3&lt;br/&gt;Inv:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6</Original>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_loadInfo">
+        <Original>AI Load Information</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_AILoadInfo_noHeadless">
+        <Original>No Headless Client Detected</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_undercover">
         <Original>Undercover</Original>
@@ -553,10 +554,12 @@
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_undercover_text">
         <Original>Unidentified aircraft!&lt;br/&gt;&lt;br/&gt;You are closing in on the restricted airspace of %1.&lt;br/&gt;&lt;br/&gt; Change your course or we will take defensive actions!</Original>
+        <Italian>Velivolo non identificato&lt;br/&gt;&lt;br/&gt;Ti stai avvicinando allo spazio aereo di %1.&lt;br/&gt;&lt;br/&gt; Invertite la rotta o intraprenderemo azioni difensive!</Italian>
         <Korean>미확인 항공기!&lt;br/&gt;&lt;br/&gt;너는 %1 소속 영공을 침범했다.&lt;br/&gt;&lt;br/&gt;항로를 바꾸지 않으면 방어 조치를 취하겠다!</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_warning">
         <Original>Unidentified aircraft!&lt;br/&gt;&lt;br/&gt;You are closing in on the restricted airspace of %1.&lt;br/&gt;&lt;br/&gt; Change your course or we will take defensive actions!</Original>
+        <Italian>Velivolo non identificato&lt;br/&gt;&lt;br/&gt;Ti stai avvicinando allo spazio aereo di %1.&lt;br/&gt;&lt;br/&gt; Invertite la rotta o intraprenderemo azioni difensive!</Italian>
         <Korean>미확인 항공기!&lt;br/&gt;&lt;br/&gt;너는 %1 소속 영공을 침범했다.&lt;br/&gt;&lt;br/&gt;항로를 바꾸지 않으면 방어 조치를 취하겠다!</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_breachveh_breachveh">
@@ -789,6 +792,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_canmovehq_petros_pickedup">
         <Original>Petros is already picked up.</Original>
+        <Italian>Petros attualmente in spalla.</Italian>
         <Korean>페트로스는 이미 픽업된 상태입니다.</Korean>
         <Czech>Petros sebrán.</Czech>
       </Key>
@@ -881,29 +885,11 @@
         <Turkish>Geçersiz opsiyon. Garnizonu Karargahtan ayırmayı deneyin..</Turkish>
         <Chinesesimp>该选项已被弃用. 用总部功能 移除驻军 来替代.</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_croutpFIA_watchpost">
-        <Original>%1 Watchpost</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_croutpFIA_roadblock">
         <Original>%1 Roadblock</Original>
       </Key>
-      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_data">
-        <Original>We are sending a squad to establish a roadblock. The commander must use HC to move the squad to its destination.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
-        <Original>Roadblock Deploy</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_data">
-        <Original>A small team is being sent to establish an overwatch point. The commander must use HC to move the team to their destination.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_title">
-        <Original>Watchpost Deploy</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_FIARadio_yes">
-        <Original>Enemy Comms Intercepted</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_FIARadio_no">
-        <Original>Enemy Comms Lost</Original>
+      <Key ID="STR_A3A_fn_base_croutpFIA_watchpost">
+        <Original>%1 Watchpost</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_asset_move">
         <Original>Move this asset</Original>
@@ -1089,6 +1075,7 @@
       <Key ID="STR_A3A_fn_base_flagaction_intel_decifer">
         <Original>Decipher Intel</Original>
         <German>Intel entschlüsseln</German>
+        <Italian>Decifra Intelligence</Italian>
         <Korean>군사정보 해독</Korean>
         <Czech>Dešifrovat Intel</Czech>
       </Key>
@@ -1208,6 +1195,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_static_prevent">
         <Original>Prevent AIs from using this weapon</Original>
+        <Italian>Vieta all'IA di usare quest'arma</Italian>
         <Korean>AI가 이 무기를 사용하는것을 막기</Korean>
         <Czech>Zakázat AI používat tuto zbraň</Czech>
       </Key>
@@ -1302,21 +1290,6 @@
         <Turkish>Lütfen ÇT'nin bitmesini bekleyin.&lt;br/&gt;Son ÇT %1 kadar önceydi</Turkish>
         <Chinesesimp>请等待杂物清理完成&lt;br/&gt;距离上次杂物清理已过去 %1.</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_getAggroLevelString_1">
-        <Original>Low</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_getAggroLevelString_2">
-        <Original>Medium</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_getAggroLevelString_3">
-        <Original>High</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_getAggroLevelString_4">
-        <Original>Very High</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_getAggroLevelString_5">
-        <Original>Extreme</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_hcdics_hc">
         <Original>Headless Client</Original>
         <German>Headless Client</German>
@@ -1330,76 +1303,77 @@
       </Key>
       <Key ID="STR_A3A_fn_base_hcdics_warning">
         <Original>A Headless Client has been disconnected. This will cause malfunctions. Head back to HQ for saving ASAP and ask an Admin for a restart.</Original>
+        <Italian>L'Headless Client è stato disconnesso. Ciò causerà malfunzionamenti. Torna al QG per salvare il prima possibile e chiedi ad un Amministratore di riavviare.</Italian>
         <Korean>헤드리스 클라이언트의 연결이 끊어졌습니다. 이로 인해 오작동이 발생할 수 있습니다. 본부로 돌아가 최대한 빨리 저장한 후, 관리자에게 재시작을 요청하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_airport">
         <Original>%1 Airbase</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_localizar_resource">
-        <Original>Resource near %1</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_localizar_factory">
         <Original>Factory near %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_localizar_outpost">
-        <Original>Outpost near %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_localizar_seaport">
-        <Original>Seaport near %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_localizar_roadblock">
-        <Original>Roadblock near %1</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_forest">
         <Original>Forest near %1</Original>
       </Key>
+      <Key ID="STR_A3A_fn_base_localizar_outpost">
+        <Original>Outpost near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_resource">
+        <Original>Resource near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_roadblock">
+        <Original>Roadblock near %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_localizar_seaport">
+        <Original>Seaport near %1</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_localizar_watchpost">
         <Original>Watchpost near %1</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesOutpost">
-        <Original>Outpost Taken</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_noOutpost">
-        <Original>Outpost Lost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_otherOutpost">
-        <Original>%1 lost an Outpost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesResource">
-        <Original>Resource Taken</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_noResource">
-        <Original>Resource Lost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_otherResource">
-        <Original>%1 lost a Resource</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesAirbase">
-        <Original>Airbase Taken</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noAirbase">
         <Original>Airbase Lost</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_otherAirbase">
-        <Original>%1 lost an Airbase</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesFactory">
-        <Original>Factory Taken</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noFactory">
         <Original>Factory Lost</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_otherFactory">
-        <Original>%1 lost a Factory</Original>
+      <Key ID="STR_A3A_fn_base_markerChange_noOutpost">
+        <Original>Outpost Lost</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_markerChange_yesSeaport">
-        <Original>Seaport Taken</Original>
+      <Key ID="STR_A3A_fn_base_markerChange_noResource">
+        <Original>Resource Lost</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noSeaport">
         <Original>Seaport Lost</Original>
       </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherAirbase">
+        <Original>%1 lost an Airbase</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherFactory">
+        <Original>%1 lost a Factory</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherOutpost">
+        <Original>%1 lost an Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_otherResource">
+        <Original>%1 lost a Resource</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherSeaport">
         <Original>%1 lost a Seaport</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesAirbase">
+        <Original>Airbase Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesFactory">
+        <Original>Factory Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesOutpost">
+        <Original>Outpost Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesResource">
+        <Original>Resource Taken</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_markerChange_yesSeaport">
+        <Original>Seaport Taken</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_movehq_garrison">
         <Original>Garrison</Original>
@@ -1496,6 +1470,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_mrkwin_no_wl3">
         <Original>You cannot capture airbases until you reach War Level 3.</Original>
+        <Italian>Non puoi catturare gli Aeroporti prima del Livello di Guerra 3.</Italian>
         <Korean>워 레벨 3에 도달하기 전에는 공군 기지를 점령할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_mrkwin_title">
@@ -1615,6 +1590,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_no_resources">
         <Original>You lack the resources to build this Watchpost or Roadblock. &lt;br/&gt;&lt;br/&gt; %1 HR and %2 € needed.</Original>
+        <Italian>Ti mancano le risorse per costruire questo Posto di Guardia o Posto di Blocco. &lt;br/&gt;&lt;br/&gt; %1 HR e %2 € richiesti.</Italian>
         <Korean>당신은 감시초소나 검문소를 건설하기 위한 자원이 부족합니다.&lt;br/&gt;&lt;br/&gt; 인력 %1 포인트와 %2 €가 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_outpdiag_radio">
@@ -1668,6 +1644,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_placeselec_no_enemy_zone">
         <Original>Position selected is very close to an enemy zone.&lt;br/&gt;&lt;br/&gt; Please select another position.</Original>
+        <Italian>Il posto selezionato è molto vicino a zone nemiche.&lt;br/&gt;&lt;br/&gt; Selezionane un altro.</Italian>
         <Korean>선택한 장소가 적 구역과 매우 가깝습니다.&lt;br/&gt;&lt;br/&gt; 다른 장소를 선택해 주세요.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_placeselec_no_map">
@@ -1842,11 +1819,11 @@
         <Turkish>Varlıkları Yrniden Oluştur</Turkish>
         <Chinesesimp>重建资产</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_rebuildRadioTower_marker">
-        <Original>Radio Tower</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_rebuildRadioTower_destr">
         <Original>Radio Tower Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_rebuildRadioTower_marker">
+        <Original>Radio Tower</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_begin">
         <Original>You decided to rest for some time.</Original>
@@ -1854,17 +1831,18 @@
       <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_end">
         <Original>Back at it, soldier. The rebellion needs you.</Original>
       </Key>
-      <Key ID="STR_A3A_fn_base_resourcesFIA_resources">
-        <Original>%1 Resources</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_hr">
         <Original>HR: %1%2</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_money">
         <Original>Money: %1%2 €</Original>
       </Key>
+      <Key ID="STR_A3A_fn_base_resourcesFIA_resources">
+        <Original>%1 Resources</Original>
+      </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_closer">
         <Original>Vehicle must be closer than 50 meters to the HQ marker.</Original>
+        <Italian>Il veicolo deve essere entro 50 metri dal marcatore del quartier generale.</Italian>
         <Korean>차량이 본부 마커에서 50미터 이내로 들어와야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_empty">
@@ -1952,11 +1930,11 @@
         <Turkish>Araç satıldı.</Turkish>
         <Chinesesimp>载具已出售</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_statistics_notComm">
-        <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
-      </Key>
       <Key ID="STR_A3A_fn_base_statistics_isComm">
         <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_statistics_notComm">
+        <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_locked">
         <Original>Vehicle locked.</Original>
@@ -1973,6 +1951,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_destr">
         <Original>You cannot lock or unlock destroyed vehicles.</Original>
+        <Italian>Non puoi aprire/chiudere veicoli distrutti.</Italian>
         <Korean>파괴된 차량은 잠금/잠금 해제가 불가능합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_looking">
@@ -2023,6 +2002,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_no_owner2">
         <Original>You cannot lock or unlock vehicles which you do not own.</Original>
+        <Italian>Non puoi aprire/chiudere veicoli che non possiedi.</Italian>
         <Korean>당신의 소유가 아닌 차를 잠금/잠금 해제할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_unlocked">
@@ -2050,6 +2030,39 @@
         <Portuguese>Destrancar veículo.</Portuguese>
         <Turkish>Aracın kilidini açın</Turkish>
         <Chinesesimp>解锁载具</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_data">
+        <Original>A small team is being sent to establish an overwatch point. The commander must use HC to move the team to their destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_OP_title">
+        <Original>Watchpost Deploy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_data">
+        <Original>We are sending a squad to establish a roadblock. The commander must use HC to move the squad to its destination.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
+        <Original>Roadblock Deploy</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_FIARadio_no">
+        <Original>Enemy Comms Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_FIARadio_yes">
+        <Original>Enemy Comms Intercepted</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_1">
+        <Original>Low</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_2">
+        <Original>Medium</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_3">
+        <Original>High</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_4">
+        <Original>Very High</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_getAggroLevelString_5">
+        <Original>Extreme</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_convoy">
@@ -2091,6 +2104,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_ammo_text">
         <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches its destination.</Original>
+        <Italian>Un convoglio da %1 è in procinto di partire alle %2. Trasporta munizioni verso %3. Prova ad intercettarlo. Ruba o distruggi i veicoli prima che raggiungano la destinazione.</Italian>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3에게 탄약을 제공할 것입니다. 수송을 방해하여 해당 트럭이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_ammo_title">
@@ -2107,6 +2121,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_text">
         <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches it's destination.</Original>
+        <Italian>Un convoglio da %1 è in procinto di partire alle %2. Rinforzerà %3 con veicoli corazzati. Prova ad intercettarlo. Ruba o distruggi i veicoli prima che raggiungano la destinazione.</Italian>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_title">
@@ -2147,6 +2162,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_text">
         <Original>A group of POWs is being transported from %1 to %3, and it's about to depart at %2. Intercept the convoy and bring the POWs back to HQ, alive if possible.</Original>
+        <Italian>Un gruppo di PG sta per essere trasportato da %1 verso %3, partirà per le %2. Intercettalo e riporta i prigionieri al quartier generale, vivi se possibile.</Italian>
         <Korean>%1의 포로 무리가 %3(으)로 수송되는 중이며, %2에서 출발하려고 합니다. 수송을 방해하여 수송대를 가로채고 가능하다면 포로들을 살려서 본부로 데려오도록 하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_prison_title">
@@ -2163,6 +2179,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_reinf_text">
         <Original>Reinforcements are being sent from %1 to %3 in a convoy, and it's about to depart at %2. Intercept the convoy, kill all the troops, and destroy their vehicles.</Original>
+        <Italian>I rinforzi verranno mandati da %1 verso %3 in un convoglio, partiranno alle %2. Intercettali e distruggi le truppe e i veicoli.</Italian>
         <French>Des renforts sont envoyés de %1 à %3 dans un convoi, et il est sur le point de partir à %2. Essayez d'intercepter et éliminer tout les objectifs.</French>
         <Korean>%1의 증원군이 호송대로 %3(으)로 보내지는 중이며, %2에서 출발하려고 합니다. 호송대를 방해하여 모든 병력을 사살하고 차량을 파괴하십시오.</Korean>
       </Key>
@@ -2180,6 +2197,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_supply_text">
         <Original>A truck with medical supplies, destination %3, is about to depart at %2 from %1. Intercept the convoy, steal the truck, bring it to %3, and let the people know the %4 is giving the aid they need.</Original>
+        <Italian>Un veicolo carico di rifornimenti medici rifornirà %3  partirà per le %2 da %1.Intercetta il convoglio, ruba il veicolo e portalo a %3 e fai in modo che la gente sappia che %4 sta portando i rifornimenti.</Italian>
         <French>Un camion avec des fournitures médicales à destination %3, est sur le point de partir à %2 depuis %1. Volez ce camion, amenez le à %3 et faites savoir aux gens que c'est %4 qui donne ces fournitures.</French>
         <Korean>%1의 목적지가 %3인 의료 보급 트럭이 %2에서 출발하려고 합니다. 호송대를 방해하여 해당 트럭을 훔쳐 %3에게 가져간 다음 그들이 필요한 자원을 %4가 제공하고 있다는 사실을 사람들에게 알리십시오.</Korean>
       </Key>
@@ -2197,6 +2215,36 @@
       </Key>
     </Container>
     <Container name="A3A_fn_create">
+      <Key ID="STR_A3A_fn_base_attackHQ_defendLong">
+        <Original>The enemy has sent Special Forces to our HQ to assassinate Petros. Stop them, or move HQ before they get here.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_attackHQ_defendTitle">
+        <Original>Defend Petros</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_craicts_rbDestr">
+        <Original>Roadblock Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_crfiaOP2_lostWatchpost">
+        <Original>Watchpost Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_invaderPunish_long">
+        <Original>%2 is attacking the civilians in %1 to punish them for their support of the rebellion. Defend the city at all costs!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_invaderPunish_title">
+        <Original>%1 Punishment</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_roadblockFight_lost">
+        <Original>Roadblock Lost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_long">
+        <Original>%1 is launching a major attack against our garrison at %2. Stop them if you can, or live to fight another day.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_other">
+        <Original>"%1 is attacking the %2 garrison at %3.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_base_wavedAttack_title">
+        <Original>%1 Attack</Original>
+      </Key>
       <Key ID="STR_A3A_fn_create_aivehinit_general">
         <Original>General</Original>
         <German>Allgemein</German>
@@ -2222,36 +2270,6 @@
         <Portuguese>Apenas Humanos podem pilotar este veículo aéreo.</Portuguese>
         <Turkish>Hava araçlarını sadece insanlar kullanabilir.</Turkish>
         <Chinesesimp>只有人类才能驾驶飞行器</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_base_attackHQ_defendLong">
-        <Original>The enemy has sent Special Forces to our HQ to assassinate Petros. Stop them, or move HQ before they get here.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_attackHQ_defendTitle">
-        <Original>Defend Petros</Original>
-      </Key>c
-      <Key ID="STR_A3A_fn_base_craicts_rbDestr">
-        <Original>Roadblock Destroyed</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_roadblockFight_lost">
-        <Original>Roadblock Lost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_crfiaOP2_lostWatchpost">
-        <Original>Watchpost Lost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_invaderPunish_long">
-        <Original>%2 is attacking the civilians in %1 to punish them for their support of the rebellion. Defend the city at all costs!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_invaderPunish_title">
-        <Original>%1 Punishment</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_wavedAttack_long">
-        <Original>%1 is launching a major attack against our garrison at %2. Stop them if you can, or live to fight another day.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_wavedAttack_title">
-        <Original>%1 Attack</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_base_wavedAttack_other">
-        <Original>"%1 is attacking the %2 garrison at %3.</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_dialogs">
@@ -2397,6 +2415,7 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_attack2">
         <Original>You cannot Fast Travel to an area under attack or with enemies nearby.</Original>
+        <Italian>Non puoi effettuare il Viaggio Rapido verso un'area sotto attaco o con nemici nei paraggi.</Italian>
         <French>Vous ne pouvez pas voyager rapidement vers une zone attaquée ou avec des ennemis à proximité.</French>
         <Korean>적에게 공격당하거나 근처에 있는 곳으로 빠른 이동을 할 수 없습니다.</Korean>
       </Key>
@@ -2448,6 +2467,7 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_ff">
         <Original>You cannot fast travel while being punished for friendly fire.</Original>
+        <Italian>Non puoi effettuare il viaggio rapido mentre sei Ammonito per il FA</Italian>
         <French>Vous ne pouvez pas voyager rapidement en étant puni pour tir-ami.</French>
         <Korean>아군오사 처벌을 받는 동안에는 빠른 이동을 할 수 없습니다.</Korean>
       </Key>
@@ -2509,20 +2529,20 @@
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_AILimit">
         <Original>AI Limit</Original>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_spwnDistance">
-        <Original>Spawn Distance</Original>
-      </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_civLimit">
         <Original>Civilian Limit</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_title">
-        <Original>HQ Spawn Options</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_commOnly">
         <Original>Only our Commander or admin has access to </Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_lower">
         <Original>is already at lower limit of</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_spwnDistance">
+        <Original>Spawn Distance</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_HQGameOptions_title">
+        <Original>HQ Spawn Options</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_upper">
         <Original>is already at upper limit of</Original>
@@ -2761,9 +2781,6 @@
         <Turkish>Zamanı atla / Dinlen</Turkish>
         <Chinesesimp>跳过时间段 / 休息</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_dialogs_squadOptions">
-        <Original>Cost: %1 €. HR: %2</Original>
-      </Key>
       <Key ID="STR_A3A_fn_dialogs_sqopt_radio">
         <Original>You need a radio in your inventory to be able to give orders to other squads.</Original>
         <Italian>Necessiti di una radio nel tuo inventario per dare ordini alle altre squadre.</Italian>
@@ -2828,6 +2845,9 @@
         <Czech>Nábor družstva</Czech>
         <Turkish>Birliği Göreve Al</Turkish>
         <Chinesesimp>招募班组</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_squadOptions">
+        <Original>Cost: %1 €. HR: %2</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_unit_recruit">
         <Original>Cost: %1 €</Original>
@@ -2928,6 +2948,7 @@
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_1">
         <Original>%7&lt;br/&gt;&lt;br/&gt;Total population: %1&lt;br/&gt;%6 Support: %2&lt;br/&gt;%5 Support: %3&lt;br/&gt;&lt;br/&gt;Murdered Population: %4&lt;br/&gt;&lt;br/&gt;Click on a zone for a detailed view</Original>
+        <Italian>%7&lt;br/&gt;&lt;br/&gt;Popolazione totale:%1&lt;br/&gt;%6 Supporto:%2&lt;br/&gt;%5 Supporto %3:&lt;br/&gt;&lt;br/&gt;Popolazione uccisa: %4&lt;br/&gt;&lt;br/&gt;Clicca sulla zona per una vista dettagliata</Italian>
         <Korean>%7&lt;br/&gt;&lt;br/&gt;총 인구: %1&lt;br/&gt;%6 지지도: %2&lt;br/&gt;%5 지지도: %3&lt;br/&gt;&lt;br/&gt;죽은 인구: %4&lt;br/&gt;&lt;br/&gt;원하는 구역을 클릭하십시오</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_cityinfo_overview_2">
@@ -2990,21 +3011,6 @@
         <French>%1 Poste d'Observation</French>
         <Korean>%1 관측초소</Korean>
       </Key>
-      <Key ID="STR_A3A_fn_init_initBases_airbase">
-        <Original>%1 Airbase</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_initBases_factory">
-        <Original>Factory</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_initBases_resources">
-        <Original>Resources</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_initBases_outpost">
-        <Original>%1 Outpost</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_initBases_seaPort">
-        <Original>Sea Port</Original>
-      </Key>
       <Key ID="STR_A3A_fn_init_clientidle_title">
         <Original>Client idle checker</Original>
         <Italian>Controllore Client inattivo</Italian>
@@ -3022,6 +3028,21 @@
         <Korean>지금부터 당신은 잠수로 간주됩니다. 만약 지휘관 투표가 시작된다면 지휘관 권한을 잃을 수도 있습니다.</Korean>
         <Polish>Jesteś teraz uważany za AFK. Możesz stracić rolę dowódcy, jeśli zostaną uruchomione wybory.</Polish>
         <Czech>Nyní jsi AFK, můžeš ztratit roli Velitele pokud bude vyvoláno hlasování.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_airbase">
+        <Original>%1 Airbase</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_factory">
+        <Original>Factory</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_outpost">
+        <Original>%1 Outpost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_resources">
+        <Original>Resources</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_init_initBases_seaPort">
+        <Original>Sea Port</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_addact_ailoadinfo">
         <Original>AI Load Info</Original>
@@ -3320,14 +3341,14 @@
         <Turkish>Uyarı</Turkish>
         <Chinesesimp>警告</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
+        <Original>Arsenal Updated</Original>
+      </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_cityChange">
         <Original>%1 joined %2</Original>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_income">
         <Original>Taxes Income&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt;&lt;br/&gt;Manpower: +%1&lt;br/&gt;Money: +%2 €</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
-        <Original>Arsenal Updated</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_intel">
@@ -3366,6 +3387,7 @@
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_2_err">
         <Original>Illegible text encountered, need to decipher meaning from context.</Original>
+        <Italian>Testo illegibile pervenuto, necessità di decifrare il significato dal contesto.</Italian>
         <Korean>읽을 수 없는 텍스트가 발견되었습니다. 문맥에서 의미를 해독해야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_intel_encr_err_3_act">
@@ -3720,7 +3742,7 @@
       </Key>
       <Key ID="STR_A3A_fn_intel_showIntel_found">
         <Original>Intel Found</Original>
-      </Key>    
+      </Key>
       <Key ID="STR_A3A_fn_intel_title1">
         <Original>Intel</Original>
         <German>Intel</German>
@@ -3839,6 +3861,7 @@
     <Container name="A3A_fn_mission">
       <Key ID="STR_A3A_fn_mission_as_off_text">
         <Original>A %3 officer is inspecting %1. Go there and kill him before %2.</Original>
+        <Italian>Un ufficiale %3 sta ispezionando %1. Recati lì ed uccidilo entro %2.</Italian>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_off_titel">
         <Original>Kill the Officer</Original>
@@ -3854,6 +3877,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
         <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
+        <Italian>Abbiamo avvistato una squadra di FS %3 in pattugliamento intorno a %1. Tendi un'imboscata e avremo un problema in meno. Fallo entro %2. Sii cauto, sono uomini duri.</Italian>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_titel">
         <Original>Special Forces</Original>
@@ -3869,6 +3893,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_text">
         <Original>A traitor has scheduled a meeting with %3 forces in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't know where exactly this meeting will happen. You will recognize the building by the nearby parked vehicle and %3 presence.</Original>
+        <Italian>Un traditore si incontrerà con %4 a %1. Uccidilo prima che possa fornirgli intelligence e crearci problemi. Fallo entro %2. Non sappiamo dove avverrà l'incontro. Riconoscerai l'edificio dal Fuoristrada parcheggiato e dalla presenza di %3.</Italian>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_titel">
         <Original>Kill the Traitor</Original>
@@ -3923,6 +3948,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_conv_ammo_text">
         <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches its destination.</Original>
+        <Italian>Un convoglio da %1 è in procinto di partire alle %2. Trasporta munizioni verso %3. Prova ad intercettarlo. Ruba o distruggi i veicoli prima che raggiungano la destinazione.</Italian>
         <Spanish>Un convoy de %1 saldrá a las %2. Lleva munición munición a %3. Intente interceptarlo. Robe o destruya ese camión antes de que llegue a su destino.</Spanish>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3에게 탄약을 제공할 것입니다. 수송을 방해하여 해당 트럭이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
         <Portuguese>A coluna de %1 está prestes a partir a %2. Vai providenciar munições para %3. Tenta interceptar. Rouba ou destrói a carrinha antes que chegue ao seu destino.</Portuguese>
@@ -3940,6 +3966,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_conv_armor_text">
         <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches it's destination.</Original>
+        <Italian>Un convoglio da %1 è in procinto di partire alle %2. Rinforzerà %3 con veicoli corazzati. Prova ad intercettarlo. Ruba o distruggi i veicoli prima che raggiungano la destinazione.</Italian>
         <Spanish>Un convoy de %1 saldrá a las %2. Reforzará %3 con vehículos blindados. Intente interceptarlo. Robe o destruya esa cosa antes de que alcance su destino.</Spanish>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
         <Portuguese>A coluna de %1 está prestes a partir a %2. Vai reforçar %3 com veículos blindados. Tenta interceptar. Rouba ou destrói a coisa antes que chegue ao seu destino.</Portuguese>
@@ -4028,6 +4055,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_text">
         <Original>We need to destroy or take a Radio Tower in %1. This will interrupt the coverage of %3 radio propaganda. Do it before %2.</Original>
+        <Italian>Dobbiamo distruggere o catturare la Torre Radio a %1. Ciò interromperà la Rete di Propaganda %3. Falla entro %2.</Italian>
         <Korean>%1에 있는 파괴하거나 점령해야 합니다. 그러면 %3의 프로파간다 네트워크 송신이 중단됩니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_ante_titel">
@@ -4058,6 +4086,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_des_veh_text">
         <Original>We know an enemy armor (%3) is stationed in %1. We have a unique opportunity to steal or destroy the armor before it becomes an issue later on. Do it before %2.</Original>
+        <Italian>Sappiamo che un blindato nemico (%3) è stazionato a %1. Possiamo distruggerlo o rubarlo prima che possa causare danni. Fallo entro %2.</Italian>
         <Korean>%1에 적 기갑(%3)이 배치되었다는 걸 알고 있습니다. 나중에 더 큰 문제가 되기 전에 파괴하거나 훔칠 수 있는 좋은 기회입니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_des_veh_titel">
@@ -4096,6 +4125,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text2">
         <Original>Don't get the truck far from the bank or the countdown will restart.</Original>
+        <Italian>Non allontanre il camion dalla banca o il conto ricomincerà.</Italian>
         <Korean>트럭을 은행에서 멀리 두지 마십시오. 멀리 두면 카운트가 초기화됩니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_hint_text3">
@@ -4117,6 +4147,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_text">
         <Original>A squad of Gendarmeries are guarding a large amount of money in the bank of %1. Take the Truck at HQ and go there before %2. Once you're there, hold the truck next to the bank's main entrance for 2 minutes and the money will be transferred to the truck. Bring the truck back to HQ and the money will be ours.</Original>
+        <Italian>Sappiamo che i Gendarmi sono  a guardia di una grossa somma di denaro nella banca di %1. Prendi questo camion e recati lì entro %2, mantieni il camion nei pressi dell'entrata principale della banca per 2 minuti e il denaro verrà trasferito al veicolo. Riportalo al QG e il denaro sarà nostro.</Italian>
         <Korean>우린 적 헌병대가 %1의 은행에 거금을 지키고 있다는 걸 알고 있습니다. 이 트럭을 타고 %2 전까지 그 곳으로 가서 트럭을 2분간 주차하고 있으면 돈이 트럭으로 옮겨질 것입니다. 그 돈을 본부로 가져오면 돈은 우리의 것이 될 것입니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_bank_titel">
@@ -4189,6 +4220,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_text">
         <Original>%1 population is in need of supplies. We may improve our relationship with that city if we are the ones who provide them. A crate with enough supplies for the whole town has been placed near our HQ. Deliver the crate to %1 city center, hold it there for %3 minutes and it's done. Do this before %2.</Original>
+        <Italian>La popolazione di %1 necessita di approvvigionamenti. Possiamo migliorare il nostro rapporto con la città se siamo noi coloro che consegneranno i rifornimenti. Ho posizionato una cassa con i rifornimenti vicino al nostro QG. Consegna la cassa al centro di %1, mantieni la posizione per %3 minuti e sarà fatto. Fallo entro %2.</Italian>
         <Korean>%1의 주민들은 보급품이 필요합니다. 우리가 보급품을 제공할 수 있는 존재라면 그들과의 관계를 개선할 수 있을 것입니다. 본부 근처에 보급품이 있는 상자를 놓았습니다. 상자를 %1의 도심에 배달하여 %3분 동안 그 곳에 두면 완료됩니다. %2 전까지 수행하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_log_supply_titel">
@@ -4214,6 +4246,63 @@
         <Korean>송신탑 재건축 방해</Korean>
         <Polish>Zakłóć odbudowę wieży radiowej.</Polish>
         <Czech>Rušení obnovy věže</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_addMission">
+        <Original>I have a mission for you, check the task menu for details.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_existing">
+        <Original>I already gave you that type of mission, check your task menu.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noAS">
+        <Original>I have no Assassination missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noASHint">
+        <Original>Assassination missions require cities, airbases, or SF-patrolled areas within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConquest">
+        <Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConquestHint">
+        <Original>Conquest missions require outposts, roadblocks, or resource markers within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoy">
+        <Original>I have no Convoy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyAttack">
+        <Original>No Convoys around here, there's too much fighting going on.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyAttackHint">
+        <Original>With a major attack happening, the enemy doesn't have the resources to send convoys.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noConvoyHint">
+        <Original>Convoy missions require two idle bases with a road route, within 3km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noDestroy">
+        <Original>I have no Destroy missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noDestroyHint">
+        <Original>Destroy missions require airbases or enemy radio towers within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noLogi">
+        <Original>I have no Logistics missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noLogiHint">
+        <Original>Logistics missions require outposts, seaports, or banks within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noRescue">
+        <Original>I have no Rescue missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noRescueHint">
+        <Original>Rescue missions are random, but you need cities or outposts within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noSupport">
+        <Original>I have no Support missions for you. Move our HQ closer to the enemy.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_noSupportHint">
+        <Original>Support missions require cities within 4km of HQ.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_mission_request_title">
+        <Original>Missions</Original>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_prison_text">
         <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ.</Original>
@@ -4280,63 +4369,6 @@
         <Czech>Hlášení o kontaktu v %1.</Czech>
         <Chinesesimp>%1 交战报告</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_mission_request_title">
-        <Original>Missions</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noAS">
-        <Original>I have no Assassination missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noASHint">
-      <Original>Assassination missions require cities, airbases, or SF-patrolled areas within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConquest">
-        <Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConquestHint">
-        <Original>Conquest missions require outposts, roadblocks, or resource markers within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noDestroy">
-        <Original>I have no Destroy missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noDestroyHint">
-        <Original>Destroy missions require airbases or enemy radio towers within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noLogi">
-        <Original>I have no Logistics missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noLogiHint">
-        <Original>Logistics missions require outposts, seaports, or banks within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noSupport">
-        <Original>I have no Support missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noSupportHint">
-        <Original>Support missions require cities within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noRescue">
-        <Original>I have no Rescue missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noRescueHint">
-        <Original>Rescue missions are random, but you need cities or outposts within 4km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConvoyAttack">
-        <Original>No Convoys around here, there's too much fighting going on.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConvoyAttackHint">
-        <Original>With a major attack happening, the enemy doesn't have the resources to send convoys.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConvoy">
-        <Original>I have no Convoy missions for you. Move our HQ closer to the enemy.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_noConvoyHint">
-        <Original>Convoy missions require two idle bases with a road route, within 3km of HQ.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_addMission">
-        <Original>I have a mission for you, check the task menu for details.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_mission_request_existing">
-        <Original>I already gave you that type of mission, check your task menu.</Original>
-      </Key>
     </Container>
     <Container name="A3A_fn_OrgPlayers">
       <Key ID="STR_A3A_fn_orgp_donMon_donated_faction">
@@ -4371,6 +4403,7 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_no_looking">
         <Original>You must be looking at a player in order to give him money.</Original>
+        <Italian>Devi guardare un giocatore per dargli dei soldi.</Italian>
         <Spanish>Tiene que mirar a otro jugador para darle dinero.</Spanish>
         <French>Vous devez regarder un joueur pour pouvoir lui donner de l'argent.</French>
         <Korean>다른 플레이어에게 돈을 주려면 그 플레이어를 바라보고 있어야 합니다.</Korean>
@@ -4458,13 +4491,14 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_no_pointing">
         <Original>You are not looking at anyone.</Original>
+        <Italian>Non stai guardando nessuno.</Italian>
         <French>Vous ne pointez personne.</French>
         <Korean>당신은 누구도 보고 있지 않습니다.</Korean>
         <Czech>Neukazuješ na nikoho.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_memAdd_removed_other">
         <Original>%1 has been removed from the Server Members List.</Original>
-        <Italian>%1 è stato rimosso alla Lista dei Membri del Server</Italian>
+        <Italian>%1 è stato rimosso dalla Lista dei Membri del Server</Italian>
         <Spanish>%1 ha sido eliminado de la lista de miembros del servidor.</Spanish>
         <French>%1 a été retiré de la liste des Membres du Serveur.</French>
         <Korean>%1이(가) 서버 멤버 목록에서 제외되었습니다.</Korean>
@@ -4550,14 +4584,14 @@
       <Key ID="STR_A3A_fn_orgp_playerScoreAdd_money">
         <Original>Money +%1</Original>
       </Key>
-      <Key ID="STR_A3A_fn_orgp_promotePlayer_yes">
-        <Original>Congratulations!</Original>
-      </Key>
       <Key ID="STR_A3A_fn_orgp_promotedPlayers">
         <Original>Promoted Players:</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_promotePlayer_promotion">
         <Original>Promotion</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_orgp_promotePlayer_yes">
+        <Original>Congratulations!</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBSteal_grab_no">
         <Original>%1 has not enough resources to grab.</Original>
@@ -4638,14 +4672,14 @@
         <Turkish>Komutan</Turkish>
         <Chinesesimp>指挥官</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_orgp_tBTransfer_noEligible">
-        <Original>The commander has resigned. There is no eligible commander.</Original>
+      <Key ID="STR_A3A_fn_orgp_tBTransfer_newCommLong">
+        <Original>%1 is the new commander of our forces. Greet them!</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_tBTransfer_newCommTitle">
         <Original>New Commander</Original>
       </Key>
-      <Key ID="STR_A3A_fn_orgp_tBTransfer_newCommLong">
-        <Original>%1 is the new commander of our forces. Greet them!</Original>
+      <Key ID="STR_A3A_fn_orgp_tBTransfer_noEligible">
+        <Original>The commander has resigned. There is no eligible commander.</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle1">
         <Original>Autorifleman role.</Original>
@@ -4659,10 +4693,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_autorifle2">
         <Original>Autoriflemen have a slight bonus on carry capacity, but make more noise when they move</Original>
-        <French>Les Mitrailleurs ont un léger bonus de capacité de transport, mais sont plus bruyants quand ils se déplacent.</French>
-        <Korean>자동소총수는 운반 용량에 약간의 보너스를 가지지만, 이동할 때 더 큰 소리를 냅니다.</Korean>
-        <Czech>Kulometčíci mají menší bonus k maximální váze, kterou unesou, ale dělají větší hluk při pohybu.</Czech>
-        <Chinesesimp>自动步枪手在携带重量上略带优势, 但是在移动时会发出更大的动静.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_commander1">
         <Original>Commander role.</Original>
@@ -4676,12 +4706,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_commander2">
         <Original>The commander is a lightweight unit with increased camouflage, medical and engineering capabilities</Original>
-        <Italian>Il comandante è un'unità leggera con capacità mimetiche, mediche e di genio aumentate.</Italian>
-        <French>Le commandant est une unité légère avec des capacités de camouflage, médical et d'ingéniérie augmentées.</French>
-        <Korean>지휘관은 위장, 의료, 공병 능력이 향상된 경량 유닛입니다.</Korean>
-        <Polish>Dowódca jest lekką jednostką o zwiększonych możliwościach kamuflażu, medycznych i inżynieryjnych.</Polish>
-        <Czech>Velitel je lehká jednotka se zvýšenou kamufláží, a lékařskými a inženýrskými schopnostmi.</Czech>
-        <Chinesesimp>指挥官是一个高伪装，兼备医疗以及工程才能一体的轻量化单位</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_engi1">
         <Original>Engineer role.</Original>
@@ -4695,9 +4719,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_engi2">
         <Original>Engineers do not have any bonus or penalties, but have the ability to use Toolkits for vehicle repair</Original>
-        <French>Les Ingénieurs n'ont pas de bonus ou de malus, mais ils ont la capacité d'utiliser des Kits de Réparation pour restaurer les véhicules.</French>
-        <Korean>공병은 아무 보너스나 패널티가 없지만, 차량 수리를 위해 도구모음을 사용할 수 있는 능력이 있습니다.</Korean>
-        <Czech>Inženýři nemají žádné bonusy ani penalizace, ale můžou používat opravovací sady na opravení vozidel.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier1">
         <Original>Grenadier role.</Original>
@@ -4711,12 +4732,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_grenadier2">
         <Original>Grenadiers have a slight bonus on carry capacity, but are easy to spot</Original>
-        <Italian>I granatieri hanno un piccolo bonus sulla capacità di trasporto, ma sono facili da avvistare.</Italian>
-        <French>Les Grenadiers ont un léger bonus de capacité de transport, mais sont facile à réperer.</French>
-        <Korean>유탄수는 운반 용량에 보너스를 가지지만, 발견되기 더 쉬워집니다.</Korean>
-        <Polish>Grenadierzy mają niewielką premię do udźwigu, ale są łatwi do wykrycia.</Polish>
-        <Czech>Granátometčíci mají menší bonus k váze kterou unesou, ale dají se jednodušeji spatřit.</Czech>
-        <Chinesesimp>榴弹手在携带重量上略带优势, 但是更容易被敌人发现.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_medic1">
         <Original>Medic role.</Original>
@@ -4730,12 +4745,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_medic2">
         <Original>Medics do not have any bonus or penalties, but have the ability to use certain medical items for full health restoration</Original>
-        <Italian>I Medici non hanno bonus o penalità, sono in grado di usare determinati oggetti medici per rigenerare totalmente la salute.</Italian>
-        <French>Les Médecins n'ont pas de bonus ou de malus, mais ils ont la capacité d'utiliser certains objets médicaux afin de prodiguer des soins complets.</French>
-        <Korean>의무병은 보너스나 패널티가 없지만, 완치를 위해 특정한 의료품을 사용할 수 있는 능력이 있습니다.</Korean>
-        <Polish>Medycy nie mają żadnych premii ani kar, ale mają możliwość korzystania z niektórych przedmiotów medycznych w celu pełnego przywrócenia zdrowia.</Polish>
-        <Czech>Doktoři nemají žádné bonusy ani penalizace, ale můžou používat některé lékařské předměty k doplnění plného zdraví.</Czech>
-        <Chinesesimp>卫生员并没有什么额外的奖励或者处罚特长，但是他们可以使用特定的医疗物品进行全面的医疗救助.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_rifle1">
         <Original>Rifleman role.</Original>
@@ -4749,16 +4758,10 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_rifle2">
         <Original>Riflemen do not have any bonus or penalties but can hack drones</Original>
-        <Italian>I Fucilieri non hanno bonus o penalità ma possono hackerare i droni.</Italian>
-        <French>Les Fusiliers n'ont pas de bonus ou de malus mais ils peuvent hacker des drones.</French>
-        <Korean>소총수는 보너스나 패널티가 없지만, 무인기를 해킹할 수 있습니다.</Korean>
-        <Polish>Strzelcy nie mają żadnych premii ani kar, ale mogą hakować drony.</Polish>
-        <Czech>Střelci nemají žádné bonusy ani penalizace, ale můžou hackovat drony.</Czech>
-        <Chinesesimp>步枪兵并没什么额外的奖励以及处罚特长，但是他们可以骇入无人机.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead1">
         <Original>Teamleader role.</Original>
-        <Italian>Ruolo Teamleader.</Italian>
+        <Italian>Ruolo Caposquadra.</Italian>
         <French>Rôle de Chef d'équipe.</French>
         <Korean>조장 역할</Korean>
         <Polish>Rola - Dowódca sekcji</Polish>
@@ -4768,12 +4771,6 @@
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_teamlead2">
         <Original>Teamleader are more lightweight units with increased camouflage capabilities</Original>
-        <Italian>I Teamleader sono unità leggere con capacità mimetiche aumentate.</Italian>
-        <French>Les Chefs d'équipe sont des unités légères avec des capacités de camouflage augmentées.</French>
-        <Korean>조장은 위장 능력이 향상된 경량 유닛입니다.</Korean>
-        <Polish>Dowódcy sekcji to lżejsze jednostki o zwiększonych możliwościach kamuflażu.</Polish>
-        <Czech>Velitel týmu je lehká jednotka se zvýšenou kamufláží.</Czech>
-        <Chinesesimp>小组组长是一个高伪装的轻量化单位</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_unitTraits_titel">
         <Original>Unit Traits</Original>
@@ -4835,9 +4832,6 @@
       </Key>
     </Container>
     <Container name="A3A_fn_Punishment">
-      <Key ID="STR_A3A_fn_punishment_FF_addAcFor">
-        <Original>Forgive FF</Original>
-      </Key>
       <Key ID="STR_A3A_fn_punish_ff_noti">
         <Original>FF Notification</Original>
         <Italian>Notifica FA</Italian>
@@ -4856,11 +4850,9 @@
         <Czech>Trest za střelbu do vlastních</Czech>
         <Chinesesimp>友军伤害处罚</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_punishment_FF_checkNearHQ">
-        <Original>You cannot throw grenades or place explosives within 75m of base.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_punish_oob_text">
         <Original>Return to the AO ASAP! You have %1 seconds before you're shredded by enemy defenses.</Original>
+        <Italian>Ritorna alla AO prima che tu venga fatto esplodere, hai %1 secondi.</Italian>
         <Korean>최대한 빨리 작전 구역으로 돌아가십시오! 적의 방어에 압도되기 전까지 %1초의 시간이 남아 있습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_punish_oob_titel">
@@ -4929,18 +4921,6 @@
         <Czech>Varování za střelbu do vlastních</Czech>
         <Chinesesimp>友军伤害警告</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_punishment_evalEvent_driver">
-        <Original>You hit a friendly while driving.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_punishment_evalEvent_admin">
-        <Original>You damaged a friendly as an admin.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_punishment_evalEvent_CAS">
-        <Original>You damaged a friendly as an air asset.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_punishment_evalEvent_arty">
-        <Original>You damaged a friendly as artillery support.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_punish_punRel_admin">
         <Original>An admin looks with pity upon your soul.&lt;br/&gt;You have been forgiven.</Original>
         <Italian>Un admin prova pietà verso la tua anima.&lt;br/&gt;Sei stato perdonato.</Italian>
@@ -4952,6 +4932,7 @@
       </Key>
       <Key ID="STR_A3A_fn_punish_punRel_enough">
         <Original>You have been released from the sea, think before you shoot next time.</Original>
+        <Italian>Sei stato rilasciato dal mare, pensa prima di sparare la prossima volta.</Italian>
         <French>Vous avez été libéré de votre punition, réfléchissez la prochaine fois que vous tirez.</French>
         <Korean>당신은 바다에 풀려났습니다. 다음부턴 쏘기 전에 생각을 하십시오.</Korean>
       </Key>
@@ -4969,11 +4950,24 @@
       </Key>
       <Key ID="STR_A3A_fn_punish_punSenSv_text2">
         <Original>%1 has been found guilty of FF (3+ Strikes).&lt;br/&gt;&lt;br/&gt;If you believe this is a mistake, you can forgive him with the corresponding scroll-menu action.</Original>
-        <Italian>è stato riconosciuto colpevole di FA (3+ Falli).&lt;br/&gt;&lt;br/&gt;</Italian>
-        <French>a été reconnu coupable de tir ami (3+ reprises).&lt;br/&gt;&lt;br/&gt; Si vous pensez que c'est une erreur, vous pouvez le pardonner avec le menu déroulant adéquat.</French>
-        <Korean>아군 오사(3번 이상 공격)에 대해 유죄가 인정되었습니다.&lt;br/&gt;&lt;br/&gt;실수라고 판단된다면 해당 스크롤 메뉴 행동으로 용서할 수 있습니다.</Korean>
-        <Polish>został uznany za winnego zabijania swoich (3+ Strikes).&lt;br/&gt;&lt;br/&gt;Jeśli uważasz, że to pomyłka, możesz mu wybaczyć za pomocą odpowiedniej akcji w menu pod rolką myszki.</Polish>
-        <Czech> byl obviněn ze střelby do vlastních (3+ varování).&lt;br/&gt;&lt;br/&gt;Pokud si myslíš že je to omyl, můžeš mu odpustit v příslušném scrollovacím menu.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_admin">
+        <Original>You damaged a friendly as an admin.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_arty">
+        <Original>You damaged a friendly as artillery support.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_CAS">
+        <Original>You damaged a friendly as an air asset.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_evalEvent_driver">
+        <Original>You hit a friendly while driving.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_FF_addAcFor">
+        <Original>Forgive FF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_punishment_FF_checkNearHQ">
+        <Original>You cannot throw grenades or place explosives within 75m of base.</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_REINF">
@@ -5060,7 +5054,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_addSqdHC_no_distance">
         <Original>You cant place HC vehicles further than 50m from HQ</Original>
-        <Italian>Non puoi piazzare i veicolo HC oltre i 50m dal QG</Italian>
+        <Italian>Non puoi piazzare i veicoli AC oltre i 50m dal QG</Italian>
         <French>Vous ne pouvez pas placer de véhicules HC à plus de 50m du QG.</French>
         <Korean>본부에서 50m 이상 떨어진 곳에는 하이 커맨드 차량을 배치할 수 없습니다.</Korean>
         <Polish>Pojazdów HC nie można umieszczać dalej niż 50 m od kwatery głównej.</Polish>
@@ -5239,6 +5233,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_increased">
         <Original>Available Air Support has been increased by %1 points.</Original>
+        <Italian>Supporto Aereo incrementato in %1 punti.</Italian>
         <French>Le Support Aérien a augmenté de %1 points.</French>
         <Korean>사용 가능한 항공 지원이 %1 포인트 상승했습니다.</Korean>
         <Czech>Letecká podpora se zvýšila o %1 bodů.</Czech>
@@ -5261,11 +5256,6 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_destr">
         <Original>You can't convert a destroyed Air vehicle to Airstrikes.</Original>
-        <Italian>Non puoi convertire Velivoli distrutt in Attacchi Aerei.</Italian>
-        <French>Vous ne pouvez pas convertir de véhicules aérien détruit en Frappes Aériennes.</French>
-        <Korean>파괴된 항공기는 공습 포인트로 전환할 수 없습니다.</Korean>
-        <Polish>Nie można przekształcić zniszczonego pojazdu powietrznego w "wsparcie z powietrza".</Polish>
-        <Czech>Zničené letecké vozidla nemůžeš převést na body leteckého úderu.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_distance">
         <Original>You can't convert vehicles further than 25m away to Air Support.</Original>
@@ -5280,6 +5270,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_empty">
         <Original>In order to convert a vehicle to Air Support, the vehicle must be empty.</Original>
+        <Italian>Per essere convertito, il Velivolo deve essere vuoto.</Italian>
         <Korean>해당 항공기를 항공 지원으로 전환하려면 항공기가 비어 있어야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_reinf_bombrun_no_inVehicle">
@@ -5321,18 +5312,6 @@
         <Korean>공습</Korean>
         <Czech>Letecký úder</Czech>
         <Chinesesimp>空袭</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_buildMinefield_long">
-        <Original>An Engineering Team has been deployed at your command. You can use the High Command menu to move them to their destination. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_buildMinefield_title">
-        <Original>Minefield Deploy</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_buildMinefield_building">
-        <Original>Engineering Team deploying mines.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_buildMinefield_buildingTitle">
-        <Original>Minefield</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_build_humanEngi">
         <Original>There is a human engineer in your squad. Ask them to build.&lt;br/&gt;</Original>
@@ -5455,6 +5434,18 @@
         <Korean>건축 정보</Korean>
         <Polish>Stan budowy</Polish>
         <Chinesesimp>建筑信息</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_building">
+        <Original>Engineering Team deploying mines.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_buildingTitle">
+        <Original>Minefield</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_long">
+        <Original>An Engineering Team has been deployed at your command. You can use the High Command menu to move them to their destination. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_buildMinefield_title">
+        <Original>Minefield Deploy</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_controlHQSquad_no_commander">
         <Original>Only Commander has the ability to control HC units.</Original>
@@ -5612,6 +5603,12 @@
         <Korean>유닛 조종</Korean>
         <Chinesesimp>控制单位</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_dismissPlayerGroup_GTFO">
+        <Original>Get out of my sight you useless scum!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_dismissSquad_RTB">
+        <Original>Petros, I'm sending %1 back to base.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_dissPlaGro_no_sl">
         <Original>You cannot dismiss anyone if you are not the squad leader.</Original>
         <Italian>Non puoi congedare nessuno se non sei caposquadra.</Italian>
@@ -5634,12 +5631,6 @@
         <Korean>그룹 해산</Korean>
         <Polish>Zwolnij grupę</Polish>
         <Chinesesimp>解散班组</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_dismissPlayerGroup_GTFO">
-        <Original>Get out of my sight you useless scum!</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_dismissSquad_RTB">
-        <Original>Petros, I'm sending %1 back to base.</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_dissSquad_no_nato">
         <Original>You cannot dismiss NATO groups.</Original>
@@ -5721,9 +5712,6 @@
         <Polish>Podniesiono poziom umiejętności %2.&lt;br/&gt;Obecny poziom to %1.</Polish>
         <Czech>%2 Dovednost byla vylepšena.&lt;br/&gt;Aktuální úroveň je %1.</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_reinf_garrisonDialog_cost">
-        <Original>Cost</Original>
-      </Key>
       <Key ID="STR_A3A_fn_reinf_garrDia_no_att">
         <Original>You cannot manage this garrison when there's a major attack incoming.</Original>
         <Italian>Non puoi gestire questa guarnigione quando vi è un attacco principale in arrivo.</Italian>
@@ -5790,8 +5778,18 @@
         <Korean>주둔군을 제거할 구역을 선택하십시오.</Korean>
         <Chinesesimp>选中想要去除驻军的区域</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_garrisonDialog_cost">
+        <Original>Cost</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_exit">
+        <Original>Bomb Run Exit</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_init">
+        <Original>Bomb Run Init</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_lack_supp">
         <Original>You lack the Air Support points needed to fulfill this request.</Original>
+        <Italian>Non hai abbastanza punti Supporto Aereo per soddisfare questa richiesta.</Italian>
         <French>Vous manquez de Support Aérien pour faire cette requête.</French>
         <Korean>이 요청을 수행하는 데 필요한 항공 지원 포인트가 부족합니다.</Korean>
         <Czech>Nemáš dostatek Letecké podpory, aby jsi toto mohl vyžádat.</Czech>
@@ -5822,6 +5820,9 @@
         <Czech>Potřebuješ mít ve skupině Radistu, aby jsi mohl dávat rozkazy ostatním družstvům.</Czech>
         <Chinesesimp>你的班组需要有一个通信员才可以给其他班组下达命令</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_fn_reinf_NATObomb_run">
+        <Original>Friendly airstrike is inbound. ETA 30 seconds.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_reinf_NatoBomb_select_end">
         <Original>Select the map position to which the plane will exit to calculate plane's route vector.</Original>
         <Italian>Seleziona sulla mappa la posizione dove l'aereo esfiltrerà per calcolare la rotta.</Italian>
@@ -5846,15 +5847,6 @@
         <Polish>Wsparcie lotnicze</Polish>
         <Czech>Letecká podpora</Czech>
         <Chinesesimp>空中支援</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_NATObomb_init">
-        <Original>Bomb Run Init</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_NATObomb_exit">
-        <Original>Bomb Run Exit</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_reinf_NATObomb_run">
-        <Original>Friendly airstrike is inbound. ETA 30 seconds.</Original>
       </Key>
       <Key ID="STR_A3A_fn_reinf_reinfPlayer_no_controlling">
         <Original>You cannot buy units while you are controlling AI.</Original>
@@ -5929,6 +5921,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
         <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Management option in Y menu.</Original>
+        <Italian>Gruppo %1 a rapporto.&lt;br/&gt;&lt;br/&gt;I gruppi sono gestiti dalla barra dell'Alto Comando (Default: CTRL+SPAZIO)&lt;br/&gt;&lt;br/&gt;Se il gruppo rimane bloccato, usa la funzione di Controllo IA per farli muovere. I team di Statiche tendono a bloccarsi (stiamo cercando di risolvere)&lt;br/&gt;&lt;br/&gt;Per assegnare un veicolo a questo gruppo, guarda un veicolo e usa l'opzione Gestione Veicolo di Squadra nel menù Y.</Italian>
         <French>Groupe %1 à votre commandement.&lt;br/&gt;&lt;br/&gt;Les Groupes sont gérer depuis la barre HC (Par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe est coincé, utilisez la fonction de Contrôle d'IA afin de les faire bouger. Les équipes d'armes statiques montés ont tendance à se bloquer (la résolution est en cours)&lt;br/&gt;&lt;br/&gt;Pour assigner un véhicule pour ce groupe, regardez un véhicule et utiliser l'option de Gestion de Véhicule d'Escouade dans le menu Y.</French>
         <Korean>당신의 명령으로 %1 그룹을 생성하십시오.&lt;br/&gt;&lt;br/&gt;그룹은 하이 커맨드 표시줄(기본값: 컨트롤 + 스페이스 키)에서 관리됩니다.&lt;br/&lt;br/&gt;그룹이 끼었다면 AI 조종 기능을 사용하여 이동을 시작하십시오. 고정화기 탑승 팀은 자주 끼이는 경향이 있습니다 (아직 해결 중).&lt;br/&gt;&lt;br/&gt;그룹에 차량을 할당하려면 이 차량을 보고 Y 메뉴의 차량 분대 관리 옵션을 사용하십시오.</Korean>
       </Key>
@@ -6084,7 +6077,6 @@
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_lost">
         <Original>We lost %1.</Original>
-        <Korean>%1을(를) 잃었습니다. 당신이 할 수 있는 일은 아무것도 없었지만, 계속 싸워야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_able">
         <Original>You are not able to revive anyone.</Original>
@@ -6109,7 +6101,6 @@
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_dead">
         <Original>%1 is already dead.</Original>
-        <Korean>%1은(는) 이미 죽었습니다. 계속 움직이십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_meds">
         <Original>You or %1 need a First Aid Kit or Medikit to be able to revive.</Original>
@@ -6133,6 +6124,9 @@
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_other">
         <Original>%1 has been revived by someone else.</Original>
+        <Italian>%1 è stato rianimato da qualcun'altro.</Italian>
+        <French>%1 a été relevé par quelqu'un d'autre.</French>
+        <Korean>%1이(가) 누군가에 의해 소생되었습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_rev_cancel">
         <Original>Revive cancelled.</Original>
@@ -6186,11 +6180,11 @@
         <Korean>업기/끌기</Korean>
         <Czech>Nést/Táhnout</Czech>
       </Key>
-      <Key ID="STR_A3A_fn_revive_unconscious_noAI">
-        <Original>There is no AI nearby to help you.</Original>
-      </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_helping">
         <Original>%1 is helping you.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_revive_unconscious_noAI">
+        <Original>There is no AI nearby to help you.</Original>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_onTheWay">
         <Original>%1 is on the way to help you.</Original>
@@ -6281,12 +6275,6 @@
       </Key>
     </Container>
     <Container name="A3A_fn_Undercover">
-      <Key ID="STR_A3A_fn_undercover_goUn_on">
-        <Original>Undercover ON</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_undercover_goUn_off">
-        <Original>Undercover OFF</Original>
-      </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_already">
         <Original>You are Undercover already.</Original>
         <Italian>Sei già sotto copertura.</Italian>
@@ -6304,6 +6292,7 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_close">
         <Original>You cannot go Undercover near Airbases, Outposts, Seaports or Roadblocks.</Original>
+        <Italian>Non puoi andare Sotto Copertura vicino ad Aeroporti, Avamposti, Porti o Posti di blocco.</Italian>
         <Korean>공항, 전초기지, 항구 또는 검문소 근처에서는 위장할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_nociv">
@@ -6323,6 +6312,8 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_naked">
         <Original>%1&lt;br/&gt;Being naked. Put some civilian clothes on, Petros can't bear to watch.</Original>
+        <Italian>%1&lt;br/&gt;Nudo? Mettiti dei vestiti civili, Petros non riesce a guardarti.</Italian>
+        <French>%1&lt;br/&gt;Être nu. Mettez des vêtements civils, Petros ne supporte pas de regarder.</French>
         <Korean>%1&lt;br/&gt;알몸 상태. 민간인 복장을 착용하십시오, 페트로스가 차마 눈 뜨고 볼 수가 없어합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_ngv">
@@ -6397,6 +6388,7 @@
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_airspace">
         <Original>Unidentified aircraft, you have violated the restricted airspace of %1!</Original>
+        <Italian>Velivolo non identificato, hai violato lo spazio aereo di %1!</Italian>
         <Korean>미확인 항공기, 넌 %1 소속의 영공을 침범했다!</Korean>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_outp">
@@ -6496,6 +6488,12 @@
         <Korean>견인줄을 사용하면서 위장을 할 순 없습니다!</Korean>
         <Czech>V utajení nemůžeš používat tažné lano!</Czech>
       </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_off">
+        <Original>Undercover OFF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_undercover_goUn_on">
+        <Original>Undercover ON</Original>
+      </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_reported">
         <Original>You have been reported or spotted by the enemy!</Original>
         <Italian>Sei stato riportato o avvistato dal nemico!</Italian>
@@ -6569,161 +6567,6 @@
         <Czech>Rozbalit objekt</Czech>
       </Key>
     </Container>
-    <Container name="A3A_supports">
-      <Key ID="STR_A3A_fn_supports_CASDown">
-        <Original>CAS Plane Destroyed</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_supports_airStrikeVesselDown">
-        <Original>Airstrike Vessel Destroyed</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_supports_ASFDown">
-        <Original>Fighter Destroyed</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_supports_cityDestroyed">
-        <Original>%1 Destroyed</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
-        <Original>%1 is setting up an unknown support.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_MAJORATTACK">
-        <Original>%1 just sent a major attack wave.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_COUNTERATTACK">
-        <Original>%1 just sent a counterattack force.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFAIR">
-        <Original>%1 just sent an airborne QRF.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFLAND">
-        <Original>%1 just sent a land QRF.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_AIRSTRIKE">
-        <Original>%1 is preparing an airstrike.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_MORTAR">
-        <Original>%1 is setting up a mortar position.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
-        <Original>%1 is preparing a heavy artillery position.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE">
-        <Original>A %1 satellite is charging an orbital strike.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
-        <Original>A %1 launcher is preparing to launch a cruise missile.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
-        <Original>A %1 heavy bomber is on the way.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
-        <Original>%1 is preparing an air superiority fighter.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
-        <Original>%1 is preparing fixed-wing CAS.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_GUNSHIP">
-        <Original>%1 is loading up a heavy gunship.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
-        <Original>%1 is sending a spotting UAV.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_default">
-        <Original>%1 is setting up a %2 support.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
-        <Original>%1. Estimated arrival in %2 minutes.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
-        <Original>%1. Estimated setup: %2 minutes.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
-        <Original>%1 is setting up a SAM launcher.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_execute">
-        <Original>%1 is executing an unknown support now.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG">
-        <Original>A %1 land QRF just arrived.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE">
-        <Original>Land QRF</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
-        <Original>A %1 air QRF is arriving.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
-        <Original>Air QRF</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG">
-        <Original>%1 is about to execute an airstrike.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE">
-        <Original>Airstrike</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG">
-        <Original>A %1 heavy artillery piece has opened fire.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE">
-        <Original>Artillery strike</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARLONG">
-        <Original>A %1 mortar has opened fire.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARTITLE">
-        <Original>Mortar strike</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG">
-        <Original>A %1 satellite has fired an orbital strike.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
-        <Original>Orbital strike</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
-        <Original>Confirmed launch of %1 cruise missile.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE">
-        <Original>Projected missile impact</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMLONG">
-        <Original>Confirmed launch of %1 SAM.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMTITLE">
-        <Original>Projected SAM target</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG">
-        <Original>A %1 heavy bomber is performing a carpet bombing.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE">
-        <Original>Carpet bombing</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFLONG">
-        <Original>A %1 fighter started chasing a target.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFTITLE">
-        <Original>Air superiority target</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
-        <Original>A %1 CAS aircraft is attacking a target.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
-        <Original>CAS Target</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG">
-        <Original>A %1 heavy gunship started circling the area.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPTITLE">
-        <Original>Gunship</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG">
-        <Original>%1 is executing a %2 support now.</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE">
-        <Original>%1 support</Original>
-      </Key>
-      <Key ID="STR_A3A_fn_support_showIntSPTCll_TARGET">
-        <Original>Target marked on map!</Original>
-      </Key>
-    </Container>
     <Container name="A3A_garrisons">
       <Key ID="STR_A3A_garrison_adding_to_garrison">
         <Original>Adding units to garrison...</Original>
@@ -6753,10 +6596,12 @@
       </Key>
       <Key ID="STR_A3A_garrison_error_enemies_near">
         <Original>You can't recruit units into a garrison when enemies are near the zone.</Original>
+        <Italian>Non puoi reclutare unità nella guarnigione mentre vi sono nemici nelle vicinanze.</Italian>
         <Korean>적들이 근처에 있을 때는 주둔지에 유닛을 모집할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_hr">
         <Original>You lack the HR necessary to recruit these units.</Original>
+        <Italian>Non hai HR per reclutare unità.</Italian>
         <Korean>유닛을 모집할 인력이 부족합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_error_no_money">
@@ -6799,6 +6644,7 @@
       </Key>
       <Key ID="STR_A3A_garrison_exceed_limit">
         <Original>Adding this squad to the garrison will exceed the garrison limit. Some of the units will join the garrison, and the rest will be dismissed and their cost refunded.</Original>
+        <Italian>Aggiungere questa squadra alla guarnigione supererà il limite di guarnigione. Alcuni si aggiungeranno altri saranno dimessi e il loro costo rimborsato.</Italian>
         <Korean>이 분대를 주둔지에 추가하면 주둔군 제한을 초과하게 됩니다. 그들 중 일부는 주둔지에 합류할 것이고, 나머지는 해산되며 비용은 환불될 것입니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_fail_already_in_garrison">
@@ -6854,6 +6700,7 @@
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_markerzone">
         <Original>You must select any %1 zone with a marker.</Original>
+        <Italian>Devi selezionare qualunque zona %1 con un marcatore.</Italian>
         <Korean>마커가 있는 아무 %1 구역을 선택해야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_fail_not_teamplayer">
@@ -6884,10 +6731,12 @@
       </Key>
       <Key ID="STR_A3A_garrison_fail_zone_lost">
         <Original>You have regained control of the %1 group as the zone where the group was going to be garrisoned has been lost.</Original>
+        <Italian>Il gruppo %1 è ritornato sotto il controllo del AC poiché la zona da guarnire è stata perduta.</Italian>
         <Korean>%1 그룹은 주둔할 예정이었던 구역을 잃었기 때문에 하이 커맨드 통제로 들어갔습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_full_limit">
         <Original>This garrison is full, choose another zone to add this HC squad into its garrison.</Original>
+        <Italian>La guarnigione è piena, seleziona un'altra zona in cui mandare questa squadra dell'AC.</Italian>
         <Korean>이 주둔지는 꽉 찼으므로, 이 하이 커맨드 분대를 주둔지에 추가하려면 다른 구역을 선택하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_garrison_header">
@@ -6962,12 +6811,14 @@
       <Key ID="STR_A3A_GCTracker_tracker_notification">
         <Original>Last Garbage Clean was %1 ago. Keep track of it. The server will automatically GC in %2.</Original>
         <German>Letzte Müll-Löschung war vor %1, behalte das im Auge. Müll-Löschung wird automatisch in %2 durchgeführt.</German>
+        <Italian>L'ultimo Pulisci Immondizia è stato %1 fa. Tienilo d'occhio. PI forzato in %2.</Italian>
         <Korean>마지막 쓰레기 청소는 %1 전에 실행되었습니다. 쓰레기 청소 시간을 추적합니다. 서버는 %2 후에 자동으로 쓰레기 청소를 수행할 것입니다.</Korean>
         <Czech>Poslední čistění odpadu bylo %1 zpátky. Dávejte si na to pozor. Vynucené čistění odpadu za %2.</Czech>
       </Key>
       <Key ID="STR_A3A_GCTracker_tracker_ran_gc">
         <Original>Garbage Cleaner Tracker has ran a garbage clean because the time passed the threshold. Keep track of GC times.</Original>
         <German>Müll-Löscher hat Löschung durchgeführt, weil der Zeitraum abgelaufen ist. Beachte die Fristen.</German>
+        <Italian>Tracciatore Pulisci Immondizia ha eseguito una pulizia poiché il tempo trascorso ha superato la soglia. Tieni d'occhio i tempi del PI.</Italian>
         <Korean>쓰레기 청소 기록 프로그램이 임계값을 초과하여 쓰레기를 청소합니다. 쓰레기 청소 시간을 추적합니다.</Korean>
         <Czech>Monitor čistení odpadků spustil sběr, jelikož čas překročil časový práh. Hlídejte si čas sběru.</Czech>
       </Key>
@@ -7024,6 +6875,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_artyMenu_tip">
         <Original>Opens the Antistasi artillery support menu (commander only).</Original>
+        <Italian>Apre il menù del supporto d'artiglieria di Antistasi (solo comandante).</Italian>
         <Korean>안티스타시의 포병 지원 메뉴를 엽니다 (지휘관 전용).</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_DN">
@@ -7035,6 +6887,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_battleMenu_tip">
         <Original>Opens the Antistasi battle menu.</Original>
+        <Italian>Apre il menù di battaglia di Antistasi.</Italian>
         <Korean>안티스타시의 전투 메뉴를 엽니다.</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
@@ -7060,6 +6913,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_earPlugs_tip">
         <Original>Toggles the ear plugs (no effect when using ACE).</Original>
+        <Italian>Interruttore tappi per le orecchie (non serve se si utilizza l'ace).</Italian>
         <Korean>귀마개를 토글합니다(ACE 사용 시 효과 없음).</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_DN">
@@ -7071,6 +6925,7 @@
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_infoBar_tip">
         <Original>Toggles the visibility of the Antistasi information bar at the top of the screen.</Original>
+        <Italian>Interruttore visibilità della barra delle informazioni in alto.</Italian>
         <Korean>화면 상단에 있는 안티스타시 전용 정보 표시줄의 표시 여부를 전환합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_keybinds_keyAcc_earplugs_in">
@@ -7166,6 +7021,7 @@
       </Key>
       <Key ID="STR_A3A_Params_builderPermissions_both">
         <Original>Both</Original>
+        <Italian>Entrambe</Italian>
         <Spanish>Ambos</Spanish>
         <French>Les deux</French>
         <Korean>둘 다</Korean>
@@ -7180,6 +7036,7 @@
       </Key>
       <Key ID="STR_A3A_Params_builderPermissions_title">
         <Original>Player classes permitted to use the building placer</Original>
+        <Italian>Permesso di usare il piazza costruzioni per le classi giocatori</Italian>
         <Spanish>Clases de jugador que pueden usar el colocador de edificios</Spanish>
         <French>Classes joueur autorisée à utiliser le placeur de constructions</French>
         <Korean>건물 배치기를 사용할 수 있는 플레이어 병과</Korean>
@@ -7251,12 +7108,14 @@
       </Key>
       <Key ID="STR_A3A_Params_crateDeviceNumMax_title">
         <Original>Maximum Device Backpack Quantity in Crates</Original>
+        <Italian>Quantità massima di Zaini Dispositivi nelle Casse</Italian>
         <French>Maximum de Sacs à Dos avec Dispositifs dans les Caisses</French>
         <Korean>상자 내 최대 장비 가방 수량</Korean>
         <Chinesesimp>弹药箱中设备背包的数量已达最大值</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_crateDeviceTypeMax_title">
         <Original>Maximum Device Backpack Types in Crates</Original>
+        <Italian>Quantità massima di Tipi di Zaini Dispositivi nelle Casse</Italian>
         <French>Maximum de Types de Sacs à Dos avec Dispositifs dans les Caisses</French>
         <Korean>상자 내 최대 장비 가방 종류 수</Korean>
         <Chinesesimp>弹药箱中设备背包的种类已达最大值</Chinesesimp>
@@ -7366,6 +7225,7 @@
       </Key>
       <Key ID="STR_A3A_Params_enemyNearDistance_title">
         <Original>Distance used to check for nearby enemies</Original>
+        <Italian>Distanza usata per controllare se vi sono nemici nelle vicinanze</Italian>
         <French>Distance pour la vérification d'ennemis proches</French>
         <Korean>근처 적 존재 여부를 체크하는 거리</Korean>
         <Chinesesimp>用于探查附近敌情的距离</Chinesesimp>
@@ -7379,18 +7239,21 @@
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvG">
         <Original>Reb vs Gov</Original>
+        <Italian>Rib vs Gov</Italian>
         <French>Reb vs Gouv</French>
         <Korean>반군 Vs 정부군</Korean>
         <Chinesesimp>起义军 vs 政府军</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvGaI">
         <Original>Reb vs Gov + Inv</Original>
+        <Italian>Rib vs Gov + Inv</Italian>
         <French>Reb vs Gouv + Envahisseur</French>
         <Korean>반군 Vs 정부군과 침략군</Korean>
         <Chinesesimp>起义军 vs 政府军 + 侵略者</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_gameMode_RvGvI">
         <Original>Reb vs Gov vs Inv</Original>
+        <Italian>Rib vs Gov vs Inv</Italian>
         <French>Reb vs Gouv vs Envahisseur</French>
         <Korean>반군 Vs 정부군 Vs 침략군</Korean>
         <Chinesesimp>起义军 vs 政府军 vs 侵略者</Chinesesimp>
@@ -7404,6 +7267,7 @@
       </Key>
       <Key ID="STR_A3A_Params_GCThreshold_title">
         <Original>Garbage Cleaner Threshold for Automatic GC</Original>
+        <Italian>Soglia Pulisci Immondizia per PI Automatico</Italian>
         <Spanish>Límite de la limpieza de basura para el limpiador automático</Spanish>
         <French>Limite avant le Nettoyage de Memoire automatique</French>
         <Korean>자동 쓰레기 청소에 대한 쓰레기 청소 프로그램 임계점</Korean>
@@ -7411,6 +7275,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_10km">
         <Original>10 km</Original>
+        <German>10km</German>
         <Italian>10 km</Italian>
         <French>10 km</French>
         <Korean>10km</Korean>
@@ -7418,6 +7283,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_10m">
         <Original>10 meters</Original>
+        <German>10 Meter</German>
         <Italian>10 metri</Italian>
         <French>10 mètres</French>
         <Korean>10</Korean>
@@ -7432,6 +7298,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_15m">
         <Original>15 meters</Original>
+        <German>15 Meter</German>
         <Italian>15 metri </Italian>
         <French>15 mètres</French>
         <Korean>15m</Korean>
@@ -7446,6 +7313,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_16km">
         <Original>16 km</Original>
+        <German>16 km</German>
         <Italian>16 km</Italian>
         <French>16 km</French>
         <Korean>16km</Korean>
@@ -7453,6 +7321,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_20m">
         <Original>20 meters</Original>
+        <German>20 Meter</German>
         <Italian>20 metri </Italian>
         <French>20 mètres</French>
         <Korean>20m</Korean>
@@ -7481,6 +7350,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_4km">
         <Original>4 km</Original>
+        <German>4 km</German>
         <Italian>4 km</Italian>
         <French>4 km</French>
         <Korean>4km</Korean>
@@ -7488,6 +7358,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_5km">
         <Original>5 km</Original>
+        <German>5 km</German>
         <Italian>5 km</Italian>
         <French>5 km</French>
         <Korean>5km</Korean>
@@ -7502,6 +7373,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_6km">
         <Original>6 km</Original>
+        <German>6 km</German>
         <Italian>6 km</Italian>
         <French>6 km</French>
         <Korean>6km</Korean>
@@ -7509,6 +7381,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_7km">
         <Original>7 km</Original>
+        <German>7 km</German>
         <Italian>7 km</Italian>
         <French>7 km</French>
         <Korean>7km</Korean>
@@ -7516,6 +7389,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_8km">
         <Original>8 km</Original>
+        <German>8 km</German>
         <Italian>8 km</Italian>
         <French>8 km</French>
         <Korean>8km</Korean>
@@ -7523,12 +7397,14 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_all">
         <Original>All</Original>
+        <German>Alle</German>
         <Italian>Tutti </Italian>
         <French>Tout</French>
         <Korean>모두</Korean>
       </Key>
       <Key ID="STR_A3A_Params_generic_allowed">
         <Original>Allowed</Original>
+        <German>Erlaubt</German>
         <Italian>Permesso </Italian>
         <French>Autorisé</French>
         <Korean>허용</Korean>
@@ -7536,6 +7412,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_always">
         <Original>Always</Original>
+        <German>Immer</German>
         <Italian>Sempre</Italian>
         <French>Toujours</French>
         <Korean>항상</Korean>
@@ -7543,6 +7420,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_disabled">
         <Original>Disabled</Original>
+        <German>Deaktiviert</German>
         <Italian>Disabilitato</Italian>
         <French>Désactivé</French>
         <Korean>비활성화</Korean>
@@ -7550,6 +7428,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_enabled">
         <Original>Enabled</Original>
+        <German>Aktiviert</German>
         <Italian>Abilitato</Italian>
         <French>Activé</French>
         <Korean>활성화</Korean>
@@ -7557,6 +7436,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_high">
         <Original>High</Original>
+        <German>Hoch</German>
         <Italian>Alto </Italian>
         <French>Haut</French>
         <Korean>높음</Korean>
@@ -7564,6 +7444,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_low">
         <Original>Low</Original>
+        <German>Niedrig</German>
         <Italian>Basso </Italian>
         <French>Bas</French>
         <Korean>낮음</Korean>
@@ -7571,6 +7452,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_medium">
         <Original>Medium</Original>
+        <German>Mittel</German>
         <Italian>Medio</Italian>
         <French>Moyen</French>
         <Korean>중간</Korean>
@@ -7578,6 +7460,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_never">
         <Original>Never</Original>
+        <German>Nie</German>
         <Italian>Mai</Italian>
         <French>Jamais</French>
         <Korean>없음</Korean>
@@ -7585,6 +7468,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_nochange">
         <Original>No change</Original>
+        <German>Keine Änderung</German>
         <Italian>Nessun cambiamento</Italian>
         <French>Pas de changements</French>
         <Korean>변경 없음</Korean>
@@ -7592,6 +7476,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_nolimit">
         <Original>No limit</Original>
+        <German>Kein Limit</German>
         <Italian>Nessun limite</Italian>
         <French>Pas de limite</French>
         <Korean>무제한</Korean>
@@ -7599,12 +7484,14 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_none">
         <Original>None</Original>
+        <German>Nichts</German>
         <Italian>Nessuno</Italian>
         <French>Aucun</French>
         <Korean>없음</Korean>
       </Key>
       <Key ID="STR_A3A_Params_generic_normal">
         <Original>Normal</Original>
+        <German>Normal</German>
         <Italian>Normale</Italian>
         <French>Normal</French>
         <Korean>보통</Korean>
@@ -7612,6 +7499,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_notallowed">
         <Original>Not allowed</Original>
+        <German>Nicht Erlaubt</German>
         <Italian>Non permesso </Italian>
         <French>Interdit</French>
         <Korean>허용되지 않음</Korean>
@@ -7619,6 +7507,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_nounlocks">
         <Original>No unlocks</Original>
+        <German>Kein Freischalten</German>
         <Italian>Nessuno sblocco </Italian>
         <French>Pas de débloquage</French>
         <Korean>해금 없음</Korean>
@@ -7647,6 +7536,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_veryhigh">
         <Original>Very high</Original>
+        <German>Sehr hoch</German>
         <Italian>Molto alto </Italian>
         <French>Très haut</French>
         <Korean>매우 높음</Korean>
@@ -7654,6 +7544,7 @@
       </Key>
       <Key ID="STR_A3A_Params_generic_verylow">
         <Original>Very low</Original>
+        <German>Sehr niedrig</German>
         <Italian>Molto basso </Italian>
         <French>Très bas</French>
         <Korean>매우 낮음</Korean>
@@ -7682,6 +7573,7 @@
       </Key>
       <Key ID="STR_A3A_Params_GUIDevPreview_title">
         <Original>Use In-Development UI Preview</Original>
+        <Italian>Usa UI Sperimentale</Italian>
         <Spanish>Usar vista previa de la interfaz en desarrollo</Spanish>
         <French>Utiliser la Previsualisation de l'UI en Développement</French>
         <Korean>개발 중인 UI 미리보기 사용</Korean>
@@ -7711,6 +7603,7 @@
       </Key>
       <Key ID="STR_A3A_Params_initialHr_title">
         <Original>Initial Rebel Faction Manpower</Original>
+        <Italian>Manodopera iniziale Fazione Ribelle</Italian>
         <French>Effectifs Initial de la Faction Rebelle</French>
         <Korean>반란군 세력의 초기 인력</Korean>
         <Chinesesimp>抵抗军初始人力资源</Chinesesimp>
@@ -7730,6 +7623,7 @@
       </Key>
       <Key ID="STR_A3A_Params_limitedFT_any">
         <Original>Any friendly position</Original>
+        <German>Jede Position der eigenen Seite</German>
         <Italian>Qualsiasi posizione amica </Italian>
         <French>Toute position alliée</French>
         <Korean>모든 우호지역 위치</Korean>
@@ -7737,6 +7631,7 @@
       </Key>
       <Key ID="STR_A3A_Params_limitedFT_hq">
         <Original>Only Airports + HQ</Original>
+        <German>Nur Flughäfen und das HQ</German>
         <Italian>Solo aeroporti + QG</Italian>
         <French>Seulement les Aéroports + QG</French>
         <Korean>공항과 본부만</Korean>
@@ -7744,6 +7639,7 @@
       </Key>
       <Key ID="STR_A3A_Params_limitedFT_title">
         <Original>Fast Travel Targets Allowed</Original>
+        <German>Erlaubte Schnellreiseziele</German>
         <Italian>Obiettivi del viaggio rapido concessi </Italian>
         <French>Cibles de Voyage Rapide Autorisées</French>
         <Korean>빠른 이동 타겟 허용</Korean>
@@ -7757,11 +7653,13 @@
       </Key>
       <Key ID="STR_A3A_Params_logDebugConsole_title">
         <Original>Log debug console use</Original>
+        <Italian>Registra l'uso della console di debug</Italian>
         <French>Enregistrer l'usage de la console de debug</French>
         <Korean>디버그 콘솔 사용 로그 작성</Korean>
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_debug">
         <Original>Debug</Original>
+        <German>Debug</German>
         <Italian>Debug</Italian>
         <Spanish>Debug</Spanish>
         <French>Déboger</French>
@@ -7771,6 +7669,7 @@
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_error">
         <Original>Error</Original>
+        <German>Fehler</German>
         <Italian>Errore</Italian>
         <Spanish>Error</Spanish>
         <French>Erreur</French>
@@ -7780,6 +7679,7 @@
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_info">
         <Original>Info</Original>
+        <German>Info</German>
         <Italian>Informazione</Italian>
         <Spanish>Info</Spanish>
         <French>Info</French>
@@ -7789,6 +7689,7 @@
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_title">
         <Original>Logging Level (Amount of detail in .rpt file)</Original>
+        <Italian>Livello Registrazione (Quantità di dettagli nel file .rpt)</Italian>
         <Spanish>Nivel de log (Cantidad de detalle en el archivo .rpt)</Spanish>
         <French>Niveau de Logs (Quantité de détails dans le fichier .rpt)</French>
         <Korean>로그 작성 수준 (.rpt 파일의 세부정보량)</Korean>
@@ -7796,6 +7697,8 @@
       </Key>
       <Key ID="STR_A3A_Params_LogLevel_verbose">
         <Original>Verbose</Original>
+        <German>Ausführlich</German>
+        <Italian>Verboso</Italian>
         <Spanish>Verbose</Spanish>
         <French>Verbeux</French>
         <Korean>세부 정보</Korean>
@@ -7809,6 +7712,7 @@
       </Key>
       <Key ID="STR_A3A_Params_LTCLootUnlocked_title">
         <Original>Loot to crate transfers unlocked items</Original>
+        <Italian>Loot alla cassa trasferisce oggetti sbloccati</Italian>
         <French>Charger le butin vers la caisse transfère les armes debloquées</French>
         <Korean>해금된 아이템을 전리품 상자로 옮김</Korean>
       </Key>
@@ -7821,11 +7725,13 @@
       </Key>
       <Key ID="STR_A3A_Params_memberDistance_title">
         <Original>Max distance of guests from the closest member or HQ</Original>
+        <Italian>Massima distanza degli ospiti dal membro più vicino al QG</Italian>
         <French>Distance max des invités du membre ou QG le plus proche</French>
         <Korean>가장 가까운 멤버 또는 본부로부터 게스트의 최대 거리</Korean>
       </Key>
       <Key ID="STR_A3A_Params_membershipEnabled_title">
         <Original>Enable Server Membership</Original>
+        <Italian>Abilita Membri Server</Italian>
         <French>Activer l'Adhésion au Serveur</French>
         <Korean>서버 멤버십 활성화</Korean>
         <Chinesesimp>启用服务器白名单</Chinesesimp>
@@ -7860,18 +7766,21 @@
       </Key>
       <Key ID="STR_A3A_Params_rebelGarrisonLimit_title">
         <Original>How many rebels can be garrisoned (1.5x for airports, 0.5x for resources and factories)?</Original>
+        <Italian>Quanti ribelli possono essere messi a guarnigione (1.5x per aeroporti, 0.5x per risorse e fabbriche)?</Italian>
         <French>Combien de rebelles peuvent être en garnison (1.5x pour les aéroports, 0.5x pour les ressources et usines) ?</French>
         <Korean>얼마나 많은 반군을 주둔시킬 수 있는가? (공항은 1.5배, 자원채취소 및 공장은 0.5배)</Korean>
         <Chinesesimp>抵抗军驻军人数 (机场为1.5倍兵力 , 资源节点以及工厂为0.5倍兵力)?</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_rebelGarrisonLimit_tooltip">
         <Original>How many troops can be in garrison. Note that No limit option may affect performance as there might be too many troops for CPU to handle.</Original>
+        <Italian>Quante truppe possono esservi nella guarnigione. Nota che l'opzione Nessun limite potrebbe impattare sulle perfomance poiché potrebbero esserci troppe truppe da gestire per la CPU.</Italian>
         <French>Combien de troupes peuvent être en garnison. Notez que Aucune Limite risque d'affecter les performances car il y aura trop de troupes à gérer pour le CPU.</French>
         <Korean>주둔지에 얼마나 많은 병력을 배치하는 지 여부를 결정합니다. 무제한 옵션은 CPU가 처리할 병력이 너무 많으므로 성능에 영향을 미칠 수 있습니다.</Korean>
         <Chinesesimp>最高驻军人数. 请注意,无限制选项可能会导致CPU超载因而影响游戏体验.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_rebelSkillMul_title">
         <Original>Friendly AI skill (also affected by server skill)</Original>
+        <Italian>Abilità IA amica (l'abilità del server ha anche effetto)</Italian>
         <French>Compétence de l'IA alliée (affectée par le réglage serveur)</French>
         <Korean>아군 AI 숙련도 (서버 숙련도에 영향을 받음)</Korean>
         <Chinesesimp>友方AI能力水平 (会被服务器设定所影响)</Chinesesimp>
@@ -7913,12 +7822,14 @@
       </Key>
       <Key ID="STR_A3A_Params_selfReviveMethods_withstand">
         <Original>Withstand</Original>
+        <Italian>Resisti</Italian>
         <French>Endurer</French>
         <Korean>견디기</Korean>
         <Chinesesimp>自我复苏</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_startWithLongRangeRadio_title">
         <Original>[TFAR] Start with Long Range Radio?</Original>
+        <Italian>[TFAR] Inizia con la Radio a Lungo Raggio?</Italian>
         <French>[TFAR] Commencer avec une Radio Longue-Portée ? </French>
         <Korean>[TFAR] 장거리 무전기를 가지고 시작합니까?</Korean>
         <Chinesesimp>[TFAR] 开局拥有长途通讯无线电？</Chinesesimp>
@@ -7927,7 +7838,7 @@
         <Original>BALANCE OPTIONS</Original>
         <Italian>OPZIONI DI SALDO</Italian>
         <Spanish>OPCIONES DE EQUILIBRIO</Spanish>
-        <French>OPTIONS EQUILIBRAGE</French>
+        <French>OPTIONS D'EQUILIBRAGE</French>
         <Korean>-밸런스 설정-</Korean>
         <Chinesesimp>游戏平衡性选项</Chinesesimp>
       </Key>
@@ -7956,6 +7867,7 @@
       </Key>
       <Key ID="STR_A3A_Params_TitleMembership_title">
         <Original>MEMBERSHIP OPTIONS</Original>
+        <Italian>OPZIONI MEMBRI</Italian>
         <Spanish>OPCIONES DE MEMBRESÍA</Spanish>
         <French>OPTIONS ADHESION</French>
         <Korean>-멤버십 설정-</Korean>
@@ -7963,6 +7875,9 @@
       </Key>
       <Key ID="STR_A3A_Params_tkPunish_logonly">
         <Original>Notify only</Original>
+        <Italian>Notifica soltanto</Italian>
+        <French>Notifications seulement</French>
+        <Korean>알림만</Korean>
       </Key>
       <Key ID="STR_A3A_Params_tkPunish_title">
         <Original>Enable Teamkill Punish</Original>
@@ -8235,6 +8150,161 @@
         <Chinesesimp>自我复苏</Chinesesimp>
       </Key>
     </Container>
+    <Container name="A3A_supports">
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG">
+        <Original>%1 is about to execute an airstrike.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE">
+        <Original>Airstrike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG">
+        <Original>A %1 heavy artillery piece has opened fire.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE">
+        <Original>Artillery strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFLONG">
+        <Original>A %1 fighter started chasing a target.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFTITLE">
+        <Original>Air superiority target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG">
+        <Original>A %1 heavy bomber is performing a carpet bombing.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE">
+        <Original>Carpet bombing</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
+        <Original>A %1 CAS aircraft is attacking a target.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
+        <Original>CAS Target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
+        <Original>Confirmed launch of %1 cruise missile.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE">
+        <Original>Projected missile impact</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_execute">
+        <Original>%1 is executing an unknown support now.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG">
+        <Original>A %1 heavy gunship started circling the area.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPTITLE">
+        <Original>Gunship</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARLONG">
+        <Original>A %1 mortar has opened fire.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARTITLE">
+        <Original>Mortar strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG">
+        <Original>A %1 satellite has fired an orbital strike.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
+        <Original>Orbital strike</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
+        <Original>A %1 air QRF is arriving.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
+        <Original>Air QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG">
+        <Original>A %1 land QRF just arrived.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE">
+        <Original>Land QRF</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMLONG">
+        <Original>Confirmed launch of %1 SAM.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMTITLE">
+        <Original>Projected SAM target</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_TARGET">
+        <Original>Target marked on map!</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG">
+        <Original>%1 is executing a %2 support now.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE">
+        <Original>%1 support</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_AIRSTRIKE">
+        <Original>%1 is preparing an airstrike.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
+        <Original>%1. Estimated arrival in %2 minutes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
+        <Original>%1 is preparing a heavy artillery position.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
+        <Original>%1 is preparing an air superiority fighter.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
+        <Original>A %1 heavy bomber is on the way.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
+        <Original>%1 is preparing fixed-wing CAS.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_COUNTERATTACK">
+        <Original>%1 just sent a counterattack force.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
+        <Original>A %1 launcher is preparing to launch a cruise missile.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_default">
+        <Original>%1 is setting up a %2 support.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_GUNSHIP">
+        <Original>%1 is loading up a heavy gunship.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_MAJORATTACK">
+        <Original>%1 just sent a major attack wave.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_MORTAR">
+        <Original>%1 is setting up a mortar position.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE">
+        <Original>A %1 satellite is charging an orbital strike.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFAIR">
+        <Original>%1 just sent an airborne QRF.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_QRFLAND">
+        <Original>%1 just sent a land QRF.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
+        <Original>%1 is setting up a SAM launcher.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
+        <Original>%1. Estimated setup: %2 minutes.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
+        <Original>%1 is sending a spotting UAV.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
+        <Original>%1 is setting up an unknown support.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_airStrikeVesselDown">
+        <Original>Airstrike Vessel Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_ASFDown">
+        <Original>Fighter Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_CASDown">
+        <Original>CAS Plane Destroyed</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_supports_cityDestroyed">
+        <Original>%1 Destroyed</Original>
+      </Key>
+    </Container>
     <Container name="AI_management">
       <Key ID="STR_antistasi_dialogs_AI_management">
         <Original>Battle Options</Original>
@@ -8265,6 +8335,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_AI_control_tooltip">
         <Original>Take control of a selected AI squad member or High Command Squad Leader. All actions can be performed through the AI for 60 seconds. You will lose control if the player or unit receives any damage</Original>
+        <Italian>Prendi il controllo di un membro di squadra IA selezionato o un Capo squadra assegnato all'Alto Comando. Puoi compiere tutte le azioni che vuoi per 60 secondi. Il controllo verrà perso se il giocatore o l'IA controllata ricevono ogni tipo di danno</Italian>
         <Korean>선택된 분대원 또는 하이 커맨드 분대장을 개인적으로 통제하고 60초 동안 어떠한 종류의 행동이든 수행할 수 있습니다. 플레이어 또는 조종하는 유닛에게 어떠한 종류든 데미지를 입으면 조종 상태가 취소됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal">
@@ -8283,11 +8354,13 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_heal_tooltip">
         <Original>AI squad mates will proactively heal each other</Original>
+        <Italian>I compagni di squadra IA si cureranno attivamente tra di loro</Italian>
         <Korean>AI 분대원들은 서로를 적극적으로 치료할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_auto_rearm">
         <Original>Auto Rearm / Loot</Original>
         <German>Automatisches Aufmunitionieren/Plündern</German>
+        <Italian>Auto Riarmo / Saccheggio</Italian>
         <French>Réarmement automatique \ Loot</French>
         <Korean>자동 재무장 / 노획</Korean>
         <Czech>Automatické přezbrojování / Rabování</Czech>
@@ -8354,6 +8427,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount">
         <Original>Mount / Dismount</Original>
+        <German>Aufsitzen / Absitzen</German>
         <Italian>Monta / Smonta</Italian>
         <Spanish>Embarcar / Desembarcar</Spanish>
         <French>Monter / Descendre</French>
@@ -8366,6 +8440,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_mount_tooltips">
         <Original>Force squad to mount or dismount their assigned vehicle</Original>
+        <German>Gruppe von ihrem Fahrzeug auf- oder absitzen lassen.</German>
         <Italian>Forza la squadra a montare o smontare dal loro veicolo assegnato</Italian>
         <Spanish>Fuerza a una escuadra a embarcar o desembarcar su vehículo asignado</Spanish>
         <French>Forcer l'escouade à monter ou descendre de son véhicule assigné</French>
@@ -8391,6 +8466,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_SITREP_tooltip">
         <Original>Gets a situation report from the selected HC squad.</Original>
+        <Italian>Recupera info approposito lo stato della squadra selezionata in Alto Comando </Italian>
         <Korean>하이 커맨드 분대로부터 상황 보고를 받습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle">
@@ -8407,6 +8483,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_AI_management_squad_add_vehicle_tooltip">
         <Original>Look at some vehicle and assign it to the selected squad for its use</Original>
+        <Italian>Guarda qualche veicolo e assegnalo alla squadra selezionata in modo che possano usarlo</Italian>
         <Korean>차량을 보고 선택된 분대에 차량을 할당합니다.</Korean>
       </Key>
     </Container>
@@ -8573,6 +8650,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_add_tooltip">
         <Original>Gain air support points by sacrificing the aircraft you're looking at. Use these points to call in HE, Cluster, and Napalm strikes.</Original>
+        <Italian>Ottieni Punti Supporto Aereo consegnando questo veivolo alla fazione. Usa questi punti per richiedere bombardamenti.</Italian>
         <Korean>현재 보고 있는 항공기를 희생하고 항공 지원 포인트를 얻습니다. 이 포인트를 사용하여 고폭, 집속, 네이팜 폭격을 요청하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_carpet_bombing_cluster">
@@ -8675,6 +8753,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_clean_tooltip">
         <Original>Cleans dead bodies, dropped gear, destroyed vehicles and similar entities. Helps massively with client and server performance, and running this every hour is recommended.</Original>
+        <Italian>Pulisce corpi, equipaggiamento a terra, veicoli distrutti e entità simili. Aiuta massivamente con le performance di client e server, è raccomandato di eseguirlo una volta ogni ora.</Italian>
         <Korean>시체, 떨어진 장비, 파괴된 차량 및 이와 유사한 개체들을 청소합니다. 클라이언트 및 서버 성능에 큰 도움이 되며 매 시간 실행하는 것이 좋습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_faction_garage">
@@ -8764,12 +8843,14 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete">
         <Original>Outpost-Roadblock Delete</Original>
+        <Italian>Elimina Punto di osservazione - Posti di Blocco</Italian>
         <French>Suppression de Poste d'Obs. - Barrage routier</French>
         <Korean>감시초소 - 검문소 제거</Korean>
         <Czech>O.Post-Odstranit zátaras</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_delete_tooltip">
         <Original>Remove selected observation post or roadblock, the money spent will be refunded</Original>
+        <Italian>Rimuovi il posto di osservazione o il posto di blocco selezionato, i soldi verranno rimborsati</Italian>
         <Korean>선택한 감시초소 또는 검문소를 제거하면 자금으로 환불됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_commander_comm_roadblock_tooltip">
@@ -8999,6 +9080,7 @@
       <Key ID="STR_antistasi_credits_generic_overview_text">
         <Original>Build your rebellion from scratch and defeat the occupants and invading forces in a persistent whole map Dynamic Mission.</Original>
         <German>Formiere deine Rebellen-Armee und bezwinge die Besatzer und die eindringenden Kräfte in einer dynamischen Mission auf der gesamten Karte.</German>
+        <Italian>Costruisci la tua ribellione da zero e sconfiggi le forze occupanti e aggressori in una missione dinamica su tutta la mappa.</Italian>
         <Korean>기초부터 반군을 일으켜 지도 전체에서 일어나는 다이나믹한 임무와 함께 점령군과 침략군을 물리치십시오.</Korean>
       </Key>
     </Container>
@@ -9251,6 +9333,7 @@
       <Key ID="STR_antistasi_dialogs_garrison_spawn_at_text">
         <Original>Recruit AT Unit</Original>
         <German>Panzerabwehreinheit rekrutieren</German>
+        <Italian>Recluta unità Anti Carro</Italian>
         <French>Recruter un AT</French>
         <Korean>대전차병 모집</Korean>
         <Czech>Rekrutovat Raketometčíka</Czech>
@@ -9317,6 +9400,7 @@
       <Key ID="STR_antistasi_dialogs_garrison_spawn_mortar_text">
         <Original>Recruit Mortar Unit</Original>
         <German>Mörsereinheit rekrutieren</German>
+        <Italian>Recluta unità Mortaio</Italian>
         <French>Recruter un Mortier</French>
         <Korean>박격포병 모집</Korean>
         <Czech>Rekrutovat Minometčíka</Czech>
@@ -9535,8 +9619,6 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_move_headquarters_tooltip">
         <Original>Petros will join your group. To rebuild, select the Build HQ here option on Petros.</Original>
-        <German>Petros tritt deiner Gruppe bei. Inventar der Arsenal-Kiste muss leer sein um das HQ versetzen zu können. Zur Neuerrichtung die Bauaktion an Petros auswählen.</German>
-        <Korean>페트로스가 당신의 그룹에 합류할 것입니다. 본부를 이동시키려면 탄약상자는 비워져 있어야 합니다. 재건축하려면 페트로스에게서 여기에 본부 건설하기를 선택하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_hq_button_rebuild_assets_text">
         <Original>Rebuild Assets</Original>
@@ -9567,6 +9649,7 @@
       <Key ID="STR_antistasi_dialogs_hq_button_train_ai_text">
         <Original>Train your Troops</Original>
         <German>Bilde deine Truppen aus</German>
+        <Italian>Addestra le tue truppe</Italian>
         <French>Entrainer les troupes</French>
         <Korean>아군 병사 훈련</Korean>
         <Czech>Vycvičit vaše jednotky</Czech>
@@ -9655,16 +9738,6 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_antitank_text">
         <Original>Recruit Anti-Tank Soldier</Original>
-        <German>Panzerabwehrsoldat rekrutieren</German>
-        <Italian>Recluta Soldato Anticarro</Italian>
-        <Spanish>Reclutar AT</Spanish>
-        <French>Recruter un Soldat Antichar</French>
-        <Korean>대전차병 모집</Korean>
-        <Russian>Нанять ПТ стрелка</Russian>
-        <Polish>Rekrutuj Celowniczego PPANC</Polish>
-        <Czech>Rekrutovat Raketometčíka</Czech>
-        <Turkish>Anti-Tank Askeri Al</Turkish>
-        <Chinesesimp>招募反坦克手</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_unit_recruit_atmissile_text">
         <Original>Recruit AT Missile Soldier</Original>
@@ -9825,6 +9898,7 @@
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_civie_tooltip">
         <Original>Civilian vehicles allow you to travel in Undercover mode. You will be spotted if you stray too far from the road, as well as if you get too close to outposts, seaports, roadblocks, or airbases</Original>
         <German>Zivilfahrzeuge erlauben dir unentdeckt zu reisen. Du wirst entdeckt sofern du dich zu weit von Straßen entfernst und wenn du zu nah Basen, Außenposten oder Straßensperren gerätst.</German>
+        <Italian>I veicoli civili ti permetteranno di viaggiare in modalità Sotto copertura ma solo rimanendo vicino alle strade e non entrando in basi, avamposti e posti di blocco.</Italian>
         <Korean>민간 차량을 사용하면 위장 모드로 여행이 가능합니다. 도로에서 너무 멀리 벗어나거나 전초 기지, 항구, 검문소 또는 공군 기지에 너무 가까이 다가가면 발각될 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_purchase_military_text">
@@ -10413,6 +10487,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_maps_spawn_distance_tooltip">
         <Original>Affects performance. Please use this with caution. Set it to lower distances if you feel Antistasi is running poorly.</Original>
+        <Italian>Affligge le prestazioni. Usare con estrema cautela. Imposta distanze inferiori se ritieni che Antistasi stia girando male.</Italian>
         <Korean>성능에 영향을 미칩니다. 주의하여 사용하십시오. 안티스타시가 작동하지 않는 것 같으면 더 낮은 거리로 조정하십시오.</Korean>
       </Key>
     </Container>
@@ -11012,6 +11087,7 @@
       <Key ID="STR_antistasi_journal_entry_header_Features_10">
         <Original>Arsenal transfer</Original>
         <German>Arsenal Transfer</German>
+        <Italian>Trasferimento Arsenale</Italian>
         <Korean>아스널 전송</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_header_Features_11">
@@ -11532,10 +11608,12 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_4">
         <Original>AI Medic squad-mates will heal other AI’s automatically without the need to give any orders. If in combat, your AI will use smoke grenades for cover. If there is no medic in the group, the AI will use their own first aid kits.</Original>
+        <Italian>I compagni di squadra dell'IA Medici cureranno automaticamente le altre IA senza bisogno di dare ordini. In combattimento, la tua IA utilizzerà le granate fumogene come copertura. Se non ci sono medici nel gruppo, l'IA utilizzerà i propri medikit.</Italian>
         <Korean>AI 의무병 분대원은 명령을 내릴 필요 없이 자동으로 다른 AI을 치료할 것입니다. 만약 전투 중이라면 당신의 AI은 엄호를 위해 연막탄을 사용할 것입니다. 그룹에 AI 의무병이 없다면 AI은 자신들의 메디킷을 사용할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_5">
         <Original>Your AI squad-mates will automatically look for and scavenge any ammunition from nearby corpses, vehicles, and loot boxes if needed. They will also try to improve their weapons if given the chance. If AI is inside a vehicle, they will loot weapons and launchers, and drop them in their truck until there is nothing in the area. Use this instead of the vanilla Rearm radio option.</Original>
+        <Italian>I tuoi compagni di squadra IA cercheranno automaticamente tutte le munizioni dai cadaveri, dai veicoli e dalle scatole di munizioni nelle vicinanze, se necessario. Inoltre cercheranno di rinnovare le loro armi con armi migliori. Se l'IA si trova all'interno di un veicolo, saccheggeranno armi e lanciatori e li lasceranno nel loro veicolo finché non ci sarà nulla nell'area. Usa questo al posto dell'opzione radio di riarmo vanilla.</Italian>
         <Korean>당신의 AI 분대원들은 필요에 따라 근처의 시체, 차량 또는 전리품 상자에서 탄약을 자동으로 찾고 노획할 것입니다. 또한 그들은 더 강력한 무기로 무기를 재무장할 것입니다. 만약 AI가 차량 안에 있다면, 그들은 무기와 발사기를 노획하고, 그 지역에 아무것도 남지 않을 때까지 그것들을 그들의 트럭에 놓을 것입니다. 바닐라 재무장 무전 대신 이 옵션을 사용하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_6">
@@ -11552,10 +11630,12 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_AI_7">
         <Original>Select the unit and use the 'Dismiss AI/Group' option to send them back to HQ. You will recover some of the money you spent on them.</Original>
+        <Italian>Seleziona un'unità e usa l'opzione "Congeda IA/grupo" per rimandarli al quartier generale. Recupererai parte dei soldi che hai speso.</Italian>
         <Korean>유닛을 선택하고 '분대원 해산' 설정을 사용하여 본부로 돌려보냅니다. 그들에게 쓴 돈의 일부를 되찾을 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_1">
         <Original>Having a commander is necessary because he is the commander of the Faction attacking ground forces. Many options are available only to the commander and, depending on your settings, if you play multiplayer, the most experienced player will usually occupy this position.</Original>
+        <Italian>Avere un comandante è necessario perché è il comandante delle forze offensive di terra della fazione. Molte opzioni sono disponibili solo per il comandante e, a seconda delle tue impostazioni, se giochi in multigiocatore, il giocatore più esperto di solito occuperà questa posizione.</Italian>
         <Korean>지상군을 공격하는 팩션의 지휘관이기 때문에 지휘관이 필요할 것입니다. 많은 옵션은 지휘관만 사용할 수 있으며, 설정에 따라 멀티 플레이로 플레이하는 경우 일반적으로 가장 경험이 많은 플레이어가 이 위치를 차지하게 됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_10">
@@ -11584,6 +11664,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_12">
         <Original>Use the radio and select a spot on the map with a good line of sight to enemy roads and markers. A group of snipers will join you. Send them to the selected place and they will spot for you, attempting to remain hidden and not engaging enemies upon contact.</Original>
+        <Italian>Usa la radio e seleziona un punto sulla mappa con un buon campo visivo. Un gruppo di cecchini si unirà a te. Inviali nel luogo selezionato e individueranno i nemici per te, cercando di rimanere nascosti e non ingaggieranno al contatto.</Italian>
         <Korean>무전기를 사용하여 지도에서 시야가 트인 곳을 선택합니다. 그러면 저격 팀이 합류할 것입니다. 선택한 위치에 그들을 보내면, 그들은 당신을 대신해 숨어 있는 상태를 유지하고 접촉 시 적과 교전하지 않으려고 할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_13">
@@ -11624,6 +11705,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_2">
         <Original>The Commander is responsible for assigning units as garrisons in conquered areas. Use the Garrison Management option inside the HQ Management action on Petros in order to add or remove garrison troops at each zone. Check Map Info screen for a quick overview of how many soldiers are assigned to each zone.</Original>
+        <Italian>Il comandante è responsabile dell'assegnazione delle unità come guarnigioni in aree conquistate. Usa l'opzione gestione della guarnigione da Petros per aggiungere o rimuovere truppe di guarnigione in ogni zona. Controlla la schermata Informazioni alla mappa per una rapida panoramica di quanti soldati sono assegnati a ciascuna zona.</Italian>
         <Korean>정복된지역에부대를 주둔지로 배치할 책임이 있습니다. 각 지역에 수비대 병력을 추가하거나 제거하려면 페트로스의 본부 관리 행동 내에서 주둔지 관리 옵션을 사용하십시오. 각 구역에 할당된 병사 수에 대한 간략한 개요를 보려면 지도 정보 화면을 확인하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_3">
@@ -11652,10 +11734,12 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_5">
         <Original>The Commander may select this option on Petros in order to move the HQ emplacement to another spot. This will allow you to move your HQ to a safer location or move closer to the front-lines. The closer your HQ is to the enemy, the greater the number of possibile side-missions you will have available. Remember! Keep Petros Safe or you will lose the game!</Original>
+        <Italian>Il Comandante può selezionare questa opzione da Petros per spostare il Quartier Generale in un altro punto. Ciò ti consentirà di spostare il tuo QG in un luogo più sicuro o di avvicinarti alla prima linea. Più il tuo QG è vicino al nemico, maggiore sarà il numero di possibili missioni secondarie che avrai a disposizione. Ricorda! Tieni Petros al sicuro o perderai la partita!</Italian>
         <Korean>지휘관은 본부를 다른 장소로 이동하기 위해 본부 깃발에서 본부 옮기기를 사용할 수 있습니다. 본부를 더 안전한 곳으로 혹은 최전방으로 이동시킬 수 있습니다. 만약 본부가 적과 가깝다면 더 많은 사이드 임무가 가능합니다. 기억하십시오! 페트로스를 지키지 않으면 게임에서 패배합니다!</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_6">
         <Original>Use the action menu on the tent at HQ to rest for 8 hours.</Original>
+        <Italian>Interagisci con la tenda al quartier generale per riposare 8 ore.</Italian>
         <Korean>본부 텐트에서 행동 메뉴를 사용해 8시간 동안 휴식을 취합니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_commander_7">
@@ -11731,14 +11815,17 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_1">
         <Original>Welcome to Arma 3 - %1. This mission aims to simulate guerilla combat, tactics and strategic situations. It is not a quick and easy mod, it is a long term, step-by-step mission with LOTS of features and enhanced AI.</Original>
+        <Italian>Benvenuto in Arma 3 - %1. Questa missione cerca di simulare il combattimento da guerrilla, tattiche e situazioni strategiche. Non è una mod facile e veloce, è a lungo termine, una missione passo dopo passo con MOLTE caratteristiche e un IA migliorata.</Italian>
         <Korean>아르마 3 - %1에 오신 것을 환영합니다. 이 임무는 게릴라전, 전술, 전략적 상황을 시뮬레이션하는 것을 목표로 합니다. 이 임무는 빠르고 쉬운 모드가 아니라 많은 기능과 향상된 AI 가진 장기적이고 단계적인 임무입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_2">
         <Original>You will win the game when most of the population supports the rebellion and you have conquered all the Airbases.</Original>
+        <Italian>Vincerai una volta che la maggior parte della popolazione supporta la tua Fazione e quando avrai conquistato tutte le basi aeree</Italian>
         <Korean>인구의 대부분이 당신의 팩션을 지지하고 당신이 모든 공군 기지를 점령했을 때 게임에서 승리할 것입니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Default_3">
         <Original>You will lose the game if %1 murders 1/3 of the total population. To prevent this, respond to %1 punishment attacks against civilians.</Original>
+        <Italian>Perderai se il %1 ha ucciso 1/3 della popolazione totale. Per evitare questo, rispondi agli attacchi punitivi di %1 contro i civili.</Italian>
         <Korean>%1이(가) 전체 인구의 1/3을 학살할 경우 게임에서 패배합니다. 이를 방지하려면 민간인을 대상으로 한 %1의 학살에 대응하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_1">
@@ -11795,6 +11882,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Diary_6">
         <Original>Flag: Squad Unit Recruitment. Commander Options.&lt;br/&gt;Petros: Side-missions (Commander Only) and other actions related to managing HQ.&lt;br/&gt;Map: Game Options.&lt;br/&gt;Tent: Rest for 8 hours and Clear Forest (Commander Only)</Original>
+        <Italian>Bandiera: Reclutamento Squadre e Unità. Opzioni del Comandante. &lt;br/&gt;Petros: Missioni-Secondarie (Solo per il Comandante) e altre azioni riguardanti la gestione del QG.&lt;br/&gt;Mappa: Opzioni di Gioco.&lt;br/&gt;Tenda: Riposa per 8 ore e ripulisci la foresta (Solo per il Comandante).</Italian>
         <Korean>깃발: 차량 및 분대원 모집. 지휘관 옵션.&lt;br/&gt;페트로스 : 사이드 임무(지휘관 전용) 및 본부 관리와 관련된 기타 작업.&lt;br/&gt;지도: 게임 설정.&lt;br/&gt;텐트: 8시간 동안 휴식을 취하거나 숲을 없앱니다(지휘관 전용).</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_1">
@@ -11835,10 +11923,12 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_12">
         <Original>Purchased static weapons won't despawn if you leave them in a base or zone, the AI garrison will instead man them. Reinforce places as you desire.</Original>
+        <Italian>Le armi fisse acquistate non scompariranno se le lasci in una base o vicino a zone alleante, verranno utilizzate dall'IA, Rinforza come desideri.</Italian>
         <Korean>구매한 고정화기는 기지나 구역에 놓아두면 사라지지 않으며, AI 주둔군이 관리할 것입니다. 원하는 장소에 놓아서 방어를 강화하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_13">
         <Original>You can build groups with human players to organize different squads for different tasks.</Original>
+        <Italian>Puoi creare gruppi con giocatori umani per organizzare varie squadre per missioni differenti.</Italian>
         <Korean>플레이어로 그룹을 구성하여 다양한 작업을 위한 다양한 분대를 구성할 수 있습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_14">
@@ -11856,7 +11946,7 @@
       <Key ID="STR_antistasi_journal_entry_text_Features_15">
         <Original>Use this option to donate money to other players or your faction funds.</Original>
         <German>Mit dieser Funktion kannst du Geld an andere Spieler oder der Fraktionskasse spenden.</German>
-        <Italian>Usa questa opzione per donare fondi a giocatori o aggiungili alla cassa della fondazione</Italian>
+        <Italian>Usa questa opzione per donare fondi a giocatori o alla cassa della fazione </Italian>
         <Spanish>Usa esta opción para donar tu dinero a otros jugadores o a los fondos de la facción.</Spanish>
         <French>Utilisez cette option pour donner de l'argent à d'autres joueurs ou aux fonds de votre faction.</French>
         <Korean>다른 플레이어나 팩션 자금에 돈을 기부하려면 이 설정을 사용하십시오.</Korean>
@@ -11867,6 +11957,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_16">
         <Original>Armored vehicles can be breached by engineers with shaped charges to make the crew surrender and capture the vehicle for the rebellion. Look at the 'Breaching charges' section for a detailed description of what charges you need. If you are an engineer and have the charges, you simply need to approach the vehicle and select the breaching option.</Original>
+        <Italian>I veicoli corazzati possono essere violati dagli ingegneri con esplosivi per aprirli e far arrendere il loro equipaggio. Seleziona "Cariche da irruzione" per una descrizione accurata di quali cariche hai bisogno. Se sei un ingegnere e hai le cariche, devi semplicemente avvicinarti al veicolo e selezionare l'opzione di irruzione.</Italian>
         <Korean>장갑 차량은 공병이 성형작약 폭탄을 이용하고 파괴하여 승무원이 항복하고 반란을 위해 차량을 탈취할 수 있습니다. 어떤 폭탄이 필요한지에 대한 자세한 설명은 '브리칭 전용 폭발물' 섹션을 참조하십시오. 당신이 공병이고 폭탄을 가지고 있다면, 차량에 접근하여 브리칭 옵션을 선택하기만 하면 됩니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_17">
@@ -11956,7 +12047,7 @@
       <Key ID="STR_antistasi_journal_entry_text_Features_8">
         <Original>You may steal static weapons found in enemy airports. You must use the 'Steal Static' action to do so. DO NOT disassemble them before using the 'Steal Static' action!</Original>
         <German>Du kannst statische Geschütze von feindlichen Flugplätzen stehlen. Hierzu nutze die "Stehle Geschütz" Aktion. BEACHTE die Geschütze NICHT zu demontieren, bevor du nicht die "Stehle Geschütz" Aktion genutzt hast.</German>
-        <Italian>Puoi rubare armi fisse trovate negli aeroporti nemici. È necessario utilizzare l'azione "Ruba arma fissa" per farlo. Se smonterai l'arma fissa prima di usare l'azione non funzionerà!</Italian>
+        <Italian>Puoi rubare armi fisse trovate negli aeroporti nemici. È necessario utilizzare l'azione "Ruba arma fissa" per farlo. NON smontare l'arma fissa prima di usare l'opzione "Ruba arma fissa"!</Italian>
         <Spanish>Puedes robar armas estáticas que se encuentran en aeropuertos enemigos. Debes usar la acción de "Robar Estática" para ello. ¡NO las desmanteles antes de usar la acción "Robar Estática"!</Spanish>
         <French>Vous pouvez voler des armes statiques trouvées dans les aéroports ennemis. Vous devez utiliser l'action 'Steal Static' pour le faire. NE PAS les démonter avant d'utiliser l'action 'Voler l'arme statique" !</French>
         <Korean>적 공항에서 발견된 고정화기는 훔칠 수 있습니다. '고정화기 훔치기' 행동을 사용해야 합니다. '고정화기 훔치기' 행동을 사용하기 전엔 "절대" 분해하지 마십시오!</Korean>
@@ -11967,12 +12058,13 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_Features_9">
         <Original>Once you have defeated the enemy garrison, you can go to the marker and select the "Take the Flag" option to convert the outpost to your faction. Roadblock flags are cosmetic and cannot be taken.</Original>
+        <Italian>Una volta sconfitta la guarnigione nemica, puoi andare alla bandiera e selezionare l'opzione "Prendi la bandiera" per convertire l'outpost alla tua fazione. Le bandiere dei posti di blocco sono solamente ornamentali e non possono essere prese.</Italian>
         <Korean>적 주둔군을 물리치고 나면 마커로 가서 "깃발 올리기" 옵션을 선택하여 전초 기지를 자신의 팩션으로 전환할 수 있습니다. 검문소 깃발은 장식용이므로 사용할 수 없습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_gamemode_1">
         <Original>%2 vs %1 war.</Original>
         <German>Krieg %2 gegen %1</German>
-        <Italian>%2 vs %1 guerra.</Italian>
+        <Italian>Guerra %2 vs %1.</Italian>
         <Spanish>Guerra %2 vs %1.</Spanish>
         <French>Guerre %2 vs %1</French>
         <Korean>%2 대 %1 전쟁.</Korean>
@@ -11984,7 +12076,7 @@
       <Key ID="STR_antistasi_journal_entry_text_gamemode_2">
         <Original>%2 vs %1 war.</Original>
         <German>Krieg %2 gegen %1</German>
-        <Italian>%2 vs %1 guerra.</Italian>
+        <Italian>Guerra %2 vs %1.</Italian>
         <Spanish>Guerra %2 vs %1.</Spanish>
         <French>Guerre %2 vs %1</French>
         <Korean>%2 대 %1 전쟁.</Korean>
@@ -12067,7 +12159,7 @@
       <Key ID="STR_antistasi_journal_entry_text_Options_5">
         <Original>Increase or decrease the percentage of city civilian population that spawn. At 0% only one civilian will spawn in each city.</Original>
         <German>Erhöhe oder verringere den Prozentsatz der zu spawnenden Stadtbevölkerung. Bei 0% wird nur ein einzelner Zivilist pro Stadt gespawnt.</German>
-        <Italian>Aumenta o diminuisci la percentuale di popolazione civilie che spawnerà nelle città. Allo 0% verrà generato un solo civile in ogni città.</Italian>
+        <Italian>Aumenta o diminuisci la percentuale di popolazione civile che spawnerà nelle città. Allo 0% verrà generato un solo civile in ogni città.</Italian>
         <Spanish>Aumenta o disminuye el porcentaje de civiles que pueden aparecer en una ciudad. En el 0% sólo un civil aparecerá en cada ciudad</Spanish>
         <French>Augmentez ou diminuez le pourcentage de la population civile qui apparait dans les villes. À 0%, un seul civil apparaîtra dans chaque ville.</French>
         <Korean>도시의 민간인 스폰 비율을 늘리거나 줄입니다. 0%의 경우 각 도시에서 민간인이 1명만 스폰됩니다.</Korean>
@@ -12079,7 +12171,7 @@
       <Key ID="STR_antistasi_journal_entry_text_Options_6">
         <Original>Commander only. Increase or decrease general spawn and despawn distance. Use it carefully combined with other options.</Original>
         <German>Nur Kommandant. Erhöhe oder verringere die allgemeine Spawn/Despawn Entfernung. Beachte das Zusammenspiel mit den anderen Optionen.</German>
-        <Italian>Solo per il Comandante. Aumenta o diminuisci la distanza di spawn generale. Usa quest'opzione attentamente in</Italian>
+        <Italian>Solo per il Comandante. Aumenta o diminuisci la distanza di spawn generale. Usala con cautela in combinazione con altre opzioni </Italian>
         <Spanish>Solo para el comandante. Aumenta o disminuye la distancia de aparición y desaparición general. Úsalo con precaución con otras opciones.</Spanish>
         <French>Commandant seulement. Augmentez ou diminuez la distance d'apparition et de disparition générale. Utilisez-le soigneusement combiné avec d'autres options.</French>
         <Korean>지휘관 전용. 일반적인 스폰 및 제거 거리를 늘리거나 줄입니다. 다른 설정과 신중하게 조합하여 사용하십시오.</Korean>
@@ -12126,6 +12218,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_2">
         <Original>When you are the Commander, hit CTRL + SPACE to give way-points and other orders to your AI squads using the HC mode.</Original>
+        <Italian>Quando sei il comandante, premi CTRL+SPAZIO per dare direzioni e altri ordini alle squadre AI usando la modalità Alto Comando</Italian>
         <Korean>당신이 지휘관일 때 컨트롤 + 스페이스를 눌러 하이 커맨드 모드를 사용하여 AI 분대에 경유지 및 기타 명령을 제공하십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_SpecialK_3">
@@ -12189,6 +12282,7 @@
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_2">
         <Original>Keep an eye on both faction's Aggro level. A higher level means more attacks with more powerful weaponry.</Original>
+        <Italian>Tieni d'occhio il livello di aggressività delle fazioni. Più è alto e più attacchi dovrai affrontare con truppe migliori.</Italian>
         <Korean>두 팩션의 공격성 레벨을 주시하십시오. 레벨이 높을 수록 더 강력한 무기로 더 많은 공격을 가할 수 있습니다.</Korean>
       </Key>
       <Key ID="STR_antistasi_journal_entry_text_tutorial_3">
@@ -12323,7 +12417,7 @@
       <Key ID="STR_antistasi_dialogs_mission_menu_conquest_missions">
         <Original>Conquest Missions</Original>
         <German>Eroberungsmission</German>
-        <Italian>Missioni Conquista</Italian>
+        <Italian>Missioni di Conquista</Italian>
         <Spanish>Misiones de Conquista</Spanish>
         <French>Missions de conquête</French>
         <Korean>점령 임무</Korean>
@@ -12381,7 +12475,7 @@
       <Key ID="STR_antistasi_dialogs_mission_menu_rescue_missions">
         <Original>Rescue Missions</Original>
         <German>Rettungsmission</German>
-        <Italian>Missione di Recupero</Italian>
+        <Italian>Missione di Salvataggio</Italian>
         <Spanish>Misiones de Rescate</Spanish>
         <French>Missions de sauvetage</French>
         <Korean>구출 임무</Korean>
@@ -12601,7 +12695,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_player_money_remove_member">
         <Original>Remove Server Member</Original>
-        <Italian>Membro del Server</Italian>
+        <Italian>Rimuovi Membro del Server</Italian>
         <Spanish>Quitar Miembro de Servidor</Spanish>
         <French>Supprimer un membre du serveur</French>
         <Korean>서버 멤버에서 제거</Korean>
@@ -12623,10 +12717,12 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_off">
         <Original>You've turned off the top information bar. To enable it, press %1.</Original>
+        <Italian>Hai disabilitato la Barra Informazioni. Per abilitarla, premi %1.</Italian>
         <Korean>상단의 정보 표시줄을 껐습니다. 활성화하려면 %1 키를 누르십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_body_on">
         <Original>You've turned on the top information bar. To disable it, press %1.</Original>
+        <Italian>Hai abilitato la Barra Informazioni. Per disabilitarla, premi %1.</Italian>
         <Korean>상단의 정보 표시줄을 켰습니다. 비활성화하려면 %1 키를 누르십시오.</Korean>
       </Key>
       <Key ID="STR_antistasi_dialogs_toggle_info_bar_title">
@@ -12794,25 +12890,9 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
         <Original>Undercover Toggle</Original>
-        <Italian>Sotto Copertura ON</Italian>
-        <Spanish>Encubierto ON</Spanish>
-        <French>Incognito ON</French>
-        <Korean>위장 켜기</Korean>
-        <Russian>Скрытность ВКЛ</Russian>
-        <Polish>Tryb Incognito WŁ</Polish>
-        <Czech>Utajení ZAPNUTO</Czech>
-        <Chinesesimp>启用伪装</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
         <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you. Using this while undercover will remove your undercover status.</Original>
-        <Italian>Vai sotto copertura se soddisfi i requisiti. I nemici non ti attaccheranno finché verrai scoperto</Italian>
-        <Spanish>Pasa a Encubierto si cumples los requisitos. La IA enemiga no te atacará hasta que te descubra.</Spanish>
-        <French>Devenez Incognito si vous remplissez les conditions. L'IA ennemie ne vous attaquera pas tant qu'elle ne vous aura pas découverte</French>
-        <Korean>요구 사항과 일치하는 경우 위장이 시작됩니다. 적 AI는 당신을 알아볼 때까지 당신을 공격하지 않을 것입니다.</Korean>
-        <Russian>Станьте скрытным, если вы соответствуете требованиям. Вражеский ИИ не нападет на вас, пока не обнаружит вас</Russian>
-        <Polish>Stań się Incognito, jeśli spełniasz wymagania. Wrogowie nie zaatakuje cię, dopóki cię nie odkryją</Polish>
-        <Czech>Buď v utajení pokud splníš podmíky. Nepřátelské AI na tebe nebude útočit pokud tě neodhalí.</Czech>
-        <Chinesesimp>满足条件时可进入伪装状态。敌方AI在识破你之前不会攻击你</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>
@@ -13611,7 +13691,7 @@
       <Key ID="STR_antistasi_dialogs_vehicle_manager">
         <Original>Vehicle Manager</Original>
         <German>Fahrzeugmanager</German>
-        <Italian>Manager Veicoli</Italian>
+        <Italian>Gestore Veicoli</Italian>
         <Spanish>Gestionar vehículo</Spanish>
         <French>Gestionnaire de véhicules</French>
         <Korean>차량 관리자</Korean>
@@ -13633,6 +13713,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_add_air_support_tooltip">
         <Original>Gain air support points by sacrificing the aircraft you're looking at. Use these points to call in HE, Cluster, and Napalm strikes.</Original>
+        <Italian>Ottieni Punti Supporto Aereo consegnando questo velivolo alla fazione. Usa questi punti per chiamare bombardamenti.</Italian>
         <Korean>현재 보고 있는 항공기를 희생하고 항공 지원 포인트를 얻습니다. 이 포인트를 사용하여 고폭, 집속, 네이팜 폭격을 요청하십시오.</Korean>
         <Turkish>Bu uçağı Hava Havuzu grubuna vererek Hava Saldırısı puanları kazanın</Turkish>
       </Key>
@@ -13708,7 +13789,7 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_vehicle_manager_vehicles_squads_tooltip">
         <Original>Options related to vehicle management in HC controlled squads</Original>
-        <Italian>Opzioni relative alla gestione del veicoli delle squadre assegnate al Quartier Generale</Italian>
+        <Italian>Opzioni relative alla gestione del veicoli delle squadre assegnate all'Alto Comando</Italian>
         <Spanish>Opciones relacionadas a la gestion de vehículos en escuadras controladas por HC</Spanish>
         <French>Options liées à la gestion des véhicules dans les escouades contrôlées par HC</French>
         <Korean>하이 커맨드 휘하의 분대의 차량 관리와 관련된 설정입니다.</Korean>

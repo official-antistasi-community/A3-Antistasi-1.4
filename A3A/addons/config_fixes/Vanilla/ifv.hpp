@@ -61,6 +61,12 @@ class a3a_APC_Wheeled_03_cannon_F : I_APC_Wheeled_03_cannon_F
 	};
 };
 
+class a3a_APC_Wheeled_03_cannon_blufor_F : a3a_APC_Wheeled_03_cannon_F
+{
+    textureList[] = {};
+    hiddenSelectionsTextures[] = {"a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext2_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\RCWS30_CO.paa","a3\armor_f_gamma\APC_Wheeled_03\data\APC_Wheeled_03_Ext_alpha_CO.paa","a3\armor_f\data\camonet_aaf_fia_desert_co.paa","a3\armor_f\data\cage_sand_co.paa"};
+};
+
 //Mora
 class I_APC_tracked_03_cannon_F;
 class I_E_APC_tracked_03_cannon_F;

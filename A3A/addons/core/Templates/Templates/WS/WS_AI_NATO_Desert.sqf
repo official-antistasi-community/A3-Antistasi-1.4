@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["B_MRAP_01_F"];
-private _LightArmed = ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F"];
+private _LightArmed = ["B_MRAP_01_hmg_F","B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F"];
 ["vehiclesTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate;
@@ -78,11 +78,11 @@ if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesMilitiaCars append ["a3a_Offroad_01_covered_tan_F","a3a_Offroad_01_comms_tan_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
+    ["vehiclesLightTanks", ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["B_MRAP_01_F","B_LSV_01_unarmed_F"];
-	_LightArmed append ["B_MRAP_01_gmg_F", "B_MRAP_01_hmg_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
+	_LightArmed append ["B_LSV_01_AT_F","B_LSV_01_armed_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];
@@ -137,16 +137,17 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
-_loadoutData set ["lightATLaunchers", [
+_loadoutData set ["lightATLaunchers", ["launch_NLAW_F"]];
+_loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
 ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
-]];
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]]];
 _loadoutData set ["missileATLaunchers", [
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT", "Titan_AP"], [], ""],
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
 ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
@@ -483,6 +484,16 @@ _pilotLoadoutData set ["uniforms", ["U_B_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 _pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
+
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["slUniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
+_officerLoadoutData set ["vests", ["V_TacVest_oli", "V_Rangemaster_belt"]];
+_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F", "H_Beret_Colonel", "lxWS_H_MilCap_desert"]];
+_officerLoadoutData set ["backpacks", []];
+_officerLoadoutData set ["slRifles", [
+["arifle_MXC_F", "", "acc_pointer_IR", "optic_Holosight", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""],
+["arifle_MXC_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""]
+]];
 
 if ("mark" in A3A_enabledDLC) then {
 
@@ -1022,7 +1033,7 @@ private _unitTypes = [
 
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _squadLeaderTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _squadLeaderTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

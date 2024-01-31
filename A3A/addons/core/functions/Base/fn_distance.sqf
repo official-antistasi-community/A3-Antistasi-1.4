@@ -429,12 +429,14 @@ do
         // Add in rebel-controlled UAVs
         _teamplayer append (allUnitsUAV select { side group _x == teamPlayer });
 
-        // Players array is used to spawn civilians in cities and rebel garrisons, so ignore remote controlled and airborne units
-        _players = (allPlayers - entities "HeadlessClient_F") select {
-            private _veh = vehicle _x;
-            _x getVariable ["owner",objNull] == _x and _x == effectiveCommander _veh
-            and (_veh == _x or {!(_veh isKindOf "Air" and speed _veh > 50)})
-        };
+        // Players array is used to spawn civilians in cities and rebel garrisons, so ignore airborne units and translate remote-control
+        _players = [];
+        {
+            private _rp = _x getVariable ["owner", _x];         // real player unit in remote-control case
+            private _veh = vehicle _rp;
+            if (_rp != effectiveCommander _veh) then { continue };
+            if (_veh == _rp or {!(_veh isKindOf "Air" and speed _veh > 50)}) then { _players pushBack _rp };
+        } forEach (allPlayers - entities "HeadlessClient_F");
     };
 
     {

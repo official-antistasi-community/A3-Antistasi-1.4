@@ -18,7 +18,7 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["O_Tura_Offroad_armor_lxWS"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["O_Tura_Offroad_armor_AT_lxWS","O_Tura_Offroad_armor_armed_lxWS", "O_SFIA_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["O_Tura_Offroad_armor_AT_lxWS","O_Tura_Offroad_armor_armed_lxWS", "O_Tura_Offroad_armor_armed_lxWS", "O_SFIA_Truck_02_aa_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["O_SFIA_Truck_02_transport_lxWS","O_SFIA_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["O_SFIA_Truck_02_flatbed_lxWS","O_SFIA_Truck_02_cargo_lxWS","O_SFIA_Truck_02_transport_lxWS","O_SFIA_Truck_02_covered_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["O_SFIA_Truck_02_Ammo_lxWS"]] call _fnc_saveToTemplate;
@@ -55,9 +55,9 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_AT_lxWS"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_armed_lxWS", "O_SFIA_Offroad_AT_lxWS"];
 ["vehiclesMilitiaTrucks", ["I_C_Van_02_transport_F", "I_C_Van_01_transport_brown_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["O_SFIA_Offroad_lxWS"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["O_SFIA_Offroad_lxWS"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -70,6 +70,10 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 ["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
+if ("expansion" in A3A_enabledDLC) then {
+    _vehiclesMilitiaCars append ["I_C_Offroad_02_unarmed_F"];
+    _vehiclesMilitiaLightArmed append ["I_C_Offroad_02_AT_F","I_C_Offroad_02_LMG_F","I_C_Offroad_02_LMG_F"];
+};
 if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
@@ -77,6 +81,8 @@ if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 
 
 //Minefield definition
@@ -283,7 +289,9 @@ _militaryLoadoutData set ["slRifles", [
 ]];
 _militaryLoadoutData set ["rifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
-["arifle_SLR_V_lxWS", "", "", selectRandom _milSights, ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""]
+["arifle_SLR_lxWS", "", "acc_flashlight", selectRandom _milSights, ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
+["arifle_SLR_V_lxWS", "", "", selectRandom _milSights, ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
+["arifle_SLR_V_lxWS", "", "", "optic_MRCO", ["30Rnd_762x51_slr_reload_tracer_green_lxWS", "30Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["arifle_Galat_lxWS", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""],
@@ -299,11 +307,9 @@ _militaryLoadoutData set ["SMGs", [
 ["hgun_PDW2000_F", "", "", selectRandom _milSights, [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["LMG_S77_Desert_lxWS", "", "", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
+["LMG_S77_lxWS", "", "", "", ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
 ["LMG_S77_lxWS", "", "", selectRandom _milSights, ["100Rnd_762x51_S77_Green_lxWS", "100Rnd_762x51_S77_Green_Tracer_lxWS"], [], ""],
-["arifle_Velko_lxWS", "", "", "optic_MRCO", ["50Rnd_556x45_Velko_reload_tracer_green_lxWS", "50Rnd_556x45_Velko_tracer_green_lxWS"], [], ""],
-["arifle_Galat_lxWS", "", "", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""],
-["arifle_SLR_V_lxWS", "", "", "optic_MRCO", ["30Rnd_762x51_slr_reload_tracer_green_lxWS", "30Rnd_762x51_slr_tracer_green_lxWS"], [], ""]
+["arifle_Velko_lxWS", "", "", "optic_MRCO", ["50Rnd_556x45_Velko_reload_tracer_green_lxWS", "50Rnd_556x45_Velko_tracer_green_lxWS"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["arifle_SLR_lxWS", "", "acc_flashlight", "optic_SOS", ["20Rnd_762x51_slr_reload_tracer_green_lxWS"], [], ""],
@@ -373,15 +379,6 @@ _militiaLoadoutData set ["marksmanRifles", [
 _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 
-if ("expansion" in A3A_enabledDLC) then {
-    (_militiaLoadoutData get "rifles") append [
-    ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
-    (_militiaLoadoutData get "carbines") append [
-    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
-    
-    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
-};
-
 //////////////////////////
 //    Misc Loadouts     //
 //////////////////////////
@@ -398,13 +395,59 @@ _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_O","H_CrewHelmetHeli_O"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["slUniforms", ["U_lxWS_SFIA_Officer_1_O", "U_O_ParadeUniform_01_CSAT_F", "U_O_ParadeUniform_01_CSAT_decorated_F"]];
-_officerLoadoutData set ["vests", []];
+_officerLoadoutData set ["vests", ["V_TacVest_khk", "V_LegStrapBag_coyote_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_CSAT_F"]];
 _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["slRifles", [
 ["arifle_VelkoR5_lxWS", "", "saber_light_lxWS", "", ["35Rnd_556x45_Velko_reload_tracer_green_lxWS"], [], ""],
 ["arifle_Galat_lxWS", "", "saber_light_lxWS", "", ["30Rnd_762x39_Mag_Green_F"], [], ""]]];
 _officerLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
+
+
+if ("expansion" in A3A_enabledDLC) then {
+    (_militiaLoadoutData get "rifles") append [
+    ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
+    (_militiaLoadoutData get "carbines") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""],
+    ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]
+    ];
+    (_militiaLoadoutData get "SMGs") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+    (_officerLoadoutData get "slRifles") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+    _crewLoadoutData set ["carbines", [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""],
+    ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]]];
+    
+    (_pilotLoadoutData get "carbines") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]
+    ];
+    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+};
+
+if ("enoch" in A3A_enabledDLC) then {
+
+    (_militaryLoadoutData get "rifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+    (_militaryLoadoutData get "grenadeLaunchers") append [
+    ["arifle_AK12_GL_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+    ];
+    (_militaryLoadoutData get "carbines") append [
+    ["arifle_AK12U_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+    (_militaryLoadoutData get "machineGuns") append [
+    ["arifle_RPK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+    (_militaryLoadoutData get "marksmanRifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], "bipod_02_F_blk"]
+    ];
+    
+    (_pilotLoadoutData get "carbines") append [
+    ["arifle_AK12U_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+};
+
 
 /////////////////////////////////
 //    Unit Type Definitions    //

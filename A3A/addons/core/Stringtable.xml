@@ -2106,7 +2106,7 @@
         <Chinesesimp>弹药补给车队</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_text">
-        <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches it's destination.</Original>
+        <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches its destination.</Original>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_title">
@@ -5928,7 +5928,7 @@
         <Chinesesimp>招募AI </Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
-        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at some vehicle, and use Vehicle Squad Management option in Y menu.</Original>
+        <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving. Mounted Static teams tend to get stuck (solving this is WiP)&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at a vehicle and use the Add Vehicle option in the Y menu.</Original>
         <French>Groupe %1 à votre commandement.&lt;br/&gt;&lt;br/&gt;Les Groupes sont gérer depuis la barre HC (Par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe est coincé, utilisez la fonction de Contrôle d'IA afin de les faire bouger. Les équipes d'armes statiques montés ont tendance à se bloquer (la résolution est en cours)&lt;br/&gt;&lt;br/&gt;Pour assigner un véhicule pour ce groupe, regardez un véhicule et utiliser l'option de Gestion de Véhicule d'Escouade dans le menu Y.</French>
         <Korean>당신의 명령으로 %1 그룹을 생성하십시오.&lt;br/&gt;&lt;br/&gt;그룹은 하이 커맨드 표시줄(기본값: 컨트롤 + 스페이스 키)에서 관리됩니다.&lt;br/&lt;br/&gt;그룹이 끼었다면 AI 조종 기능을 사용하여 이동을 시작하십시오. 고정화기 탑승 팀은 자주 끼이는 경향이 있습니다 (아직 해결 중).&lt;br/&gt;&lt;br/&gt;그룹에 차량을 할당하려면 이 차량을 보고 Y 메뉴의 차량 분대 관리 옵션을 사용하십시오.</Korean>
       </Key>
@@ -7105,7 +7105,7 @@
         <Chinesesimp>[ACE] 开局拥有可食用物品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_Params_allowFuturisticSupports_title">
-        <Original>Experimental] Allow futuristic supports to be used by the enemy</Original>
+        <Original>[Experimental] Allow futuristic supports to be used by the enemy</Original>
         <Italian>Sperimentale] Permetti al nemico di usare supporti futuristici</Italian>
         <Spanish> [Experimental] Permitir al enemigo usar apoyos futuristas</Spanish>
         <French>&lt;br/&gt;[Expérimental] Autoriser des supports futuristes pour l'ennemi</French>
@@ -7748,9 +7748,6 @@
         <French>Cibles de Voyage Rapide Autorisées</French>
         <Korean>빠른 이동 타겟 허용</Korean>
         <Chinesesimp>快速旅行可以到达的目标地点</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_Params_lockCommandSlot_title">
-        <Original>Lock commander role to server Default Commander slot</Original>
       </Key>
       <Key ID="STR_A3A_Params_logDebugConsole_nondev">
         <Original>All non-dev</Original>

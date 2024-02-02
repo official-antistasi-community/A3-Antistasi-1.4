@@ -294,7 +294,7 @@ class CfgFunctions
             class prepFunctions {};
             class spawnDebuggingLoop {};
             class spawnSelectedTemplateAI {};
-            class DebugSpawnVics {};
+            class debugSpawnVics {};
         };
 
         class Dialogs {

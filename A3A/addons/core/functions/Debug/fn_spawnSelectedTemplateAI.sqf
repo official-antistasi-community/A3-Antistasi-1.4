@@ -12,10 +12,12 @@ Environment: Any
 Public: Yes
 Dependencies:
 
-Example: call A3A_fnc_spawnSelectedTemplateAI;
+Example: [] call A3A_fnc_spawnSelectedTemplateAI;
 
 License: MIT License
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 //All Loadouts with 15 meters in between with NatoInit 
  private _returnpos = getpos (player); 

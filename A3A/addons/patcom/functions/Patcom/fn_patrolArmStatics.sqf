@@ -39,6 +39,11 @@ _staticsNear = _staticsNear select {(crew _x) isequalto []};
 // Only get statics which are not current assigned.
 _staticsNear = _staticsNear select {(_x getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false};
 
+// Only get statics with no players nearby.
+if (side _leader != teamPlayer) then {
+    _staticsNear = _staticsNear select {allPlayers inAreaArray [getPosATL _x, 50, 50] isEqualTo [];};
+};
+
 // Exit if no statics are near.
 if (count _staticsNear == 0) exitWith {};
 
@@ -72,14 +77,7 @@ if (count _assignedPairs isEqualTo 0) exitWith {};
     _x spawn {
         params ["_unit", "_static", "_group"];
         private _assignedGunner = assignedGunner _static;
-        private _noPlayersNearby = false;
-        while {!_noPlayersNearby} do {
-            {
-                if ((_x distance getPos _static < 50) and (side _x == teamPlayer)) then {_noPlayerNearby = false;};
-            } forEach (allPlayers - (entities "HeadlessClient_F"));
-            if (!_noPlayersNearby) then {sleep 60;};
-        };
-        if ((isNull _assignedGunner) && ((_static getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false) && _noPlayersNearby) then {
+        if ((isNull _assignedGunner) && {(_static getVariable ["PATCOM_STATIC_ASSIGNED", false]) == false}) then {
             [_unit] joinSilent grpnull;
             _static setVariable ["PATCOM_STATIC_ASSIGNED", true];
             _unit setCombatBehaviour "SAFE"; 

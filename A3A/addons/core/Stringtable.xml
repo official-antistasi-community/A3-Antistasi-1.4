@@ -48,6 +48,7 @@
       <Key ID="STR_A3A_fn_ai_artySupport_artyStrike">
         <Original>Artillery Strike</Original>
         <Korean>포병 타격</Korean>
+        <Chinesesimp>重炮投送</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_busy">
         <Original>Selected battery is busy right now.</Original>
@@ -78,6 +79,7 @@
       <Key ID="STR_A3A_fn_ai_artySupport_fireMission">
         <Original>Requesting a mortar strike on Grid %1. %2 %3.</Original>
         <Korean>좌표 %1에 %2 %3의 박격포 포격을 요청한다.</Korean>
+        <Chinesesimp>请求迫击炮打击于坐标 %1.%2 %3.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_modno">
         <Original>Your current modset doesn't support this strike type.</Original>
@@ -95,20 +97,24 @@
       <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal">
         <Original>Artillery Barrage Begin</Original>
         <Korean>포병 연발타격 시작</Korean>
+        <Chinesesimp>重炮火力投送开始</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal2">
         <Original>Artillery Barrage End</Original>
         <Korean>포병 연발타격 끝</Korean>
+        <Chinesesimp>重炮火力投送结束</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_multiRound">
         <Original>Rounds</Original>
         <Korean>발</Korean>
+        <Chinesesimp>多发着弹</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_noammo">
         <Original>The mortar has run out of rounds. Wait a few minutes to restock it.</Original>
         <Italian>Il mortaio non ha munizioni. Aspetta alcuni minuti per ricaricarlo.</Italian>
         <Korean>박격포에 탄약이 부족합니다. 다시 채우려면 몇 분 정도 기다리십시오.</Korean>
         <Czech>Dělostřelectvu došla munice. Vyčkej pár minut než se doplní.</Czech>
+        <Chinesesimp>炮组弹药耗尽. 请等待几分钟以便弹药的重新装填</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_oob">
         <Original>The position you marked is out of bounds for that battery.</Original>
@@ -140,6 +146,7 @@
         <Original>You must select an artillery group or the mortar team you have selected hasn't placed down the mortar yet.</Original>
         <Korean>포병 그룹을 선택해야 하거나 선택한 박격포반이 아직 박격포를 배치하지 않았습니다.</Korean>
         <Czech>Musíte zvolit skupinu dělostřelectva, nebo mínometčíků ještě nerozložili své palebné postavení.</Czech>
+        <Chinesesimp>你必须选择一个炮群或者你选择的迫击炮小组尚未部署他们的迫击炮</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_selectposend">
         <Original>Select the position to finish the barrage on the map.</Original>
@@ -165,15 +172,17 @@
         <Czech>Vyberte počáteční pozici na mapě pro začátek baráže.</Czech>
         <Portuguese>Seleciona a posição onde começar a barragem de fogo no mapa.</Portuguese>
         <Turkish>Haritada top atışını başlatmak için pozisyon belirleyin.</Turkish>
-        <Chinesesimp>在地图上选择炮火支援的初始位置</Chinesesimp>
+        <Chinesesimp>在地图上选择炮火支援的起始位置</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_singleRound">
         <Original>Round</Original>
         <Korean>발</Korean>
+        <Chinesesimp>单发着弹</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_splash">
         <Original>Splash. Out.</Original>
         <Korean>착탄한다, 이상.</Korean>
+        <Chinesesimp>压制着弹完毕</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_title">
         <Original>Artillery Support</Original>
@@ -186,13 +195,17 @@
         <Czech>Dělostřelecká podpora</Czech>
         <Portuguese>Suporte de Artilharia.</Portuguese>
         <Turkish>Topçu desteği</Turkish>
-        <Chinesesimp>火炮支援</Chinesesimp>
+        <Chinesesimp>重炮火力支援</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_yesBarrage">
         <Original>Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact.</Original>
+        <Korean>확인. 사격 임무 시작. 초탄 착탄 예상 시간은 %1초다.</Korean>
+        <Chinesesimp>收到. 重炮火力投送中. 预计%1 秒后首发着弹.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_yesSingle">
         <Original>Acknowledged. Fire mission is inbound. %2 %3 fired. ETA %1 secs.</Original>
+        <Korean>확인. 사격 임무 시작. %2 %3 사격했다. 착탄 예상 시간은 %1초다.</Korean>
+        <Chinesesimp>收到. 重炮火力投送中.%2 %3 发射完毕. 预计%1 秒后着弹.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoheal_mustleader">
         <Original>You must be leader of your group to enable Auto Heal.</Original>
@@ -235,108 +248,178 @@
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noCorpses">
         <Original>"I see no corpses here to loot.</Original>
+        <Korean>여기엔 노획할 시체가 보이지 않습니다.</Korean>
+        <Chinesesimp>"我没看到这里有什么尸体可以收缴战利品.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noDoing">
         <Original>I am currently rearming. Cancelling.</Original>
+        <Korean>현재 재무장 중입니다. 취소합니다.</Korean>
+        <Chinesesimp>我当前正在补给中. 取消中.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noHelping">
         <Original>I cannot rearm right now. I'm healing a comrade.</Original>
+        <Korean>지금은 재무장할 수 없습니다. 전우를 치료 중입니다.</Korean>
+        <Chinesesimp>我现在没办法进行武器补给. 我正在抢救受伤的同志</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noLoot">
         <Original>There is nothing to loot.</Original>
+        <Korean>노획할 것이 없습니다.</Korean>
+        <Chinesesimp>周边没有战利品可以缴获</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noRepairs">
         <Original>It is useless to load my vehicle, as it needs repairs.</Original>
+        <Korean>수리가 필요해서 해당 차량에 짐을 싣는 것을 쓸데없는 행위입니다.</Korean>
+        <Chinesesimp>装载我的车辆毫无意义,它需要修理.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noStatic">
         <Original>I cannot rearm right now. I'm manning this gun.</Original>
+        <Korean>지금은 재무장할 수 없습니다. 현재 이 총을 관리하고 있습니다.</Korean>
+        <Chinesesimp>我现在没办法进行武器补给,我正在操作这挺武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_noWeapons">
         <Original>No more weapons to loot.</Original>
+        <Korean>노획할 무기가 더 이상 없습니다.</Korean>
+        <Chinesesimp>没有更多的武器以供收缴了</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoLoot_startLoot">
         <Original>Starting to loot.</Original>
+        <Korean>노획을 시작합니다.</Korean>
+        <Chinesesimp>开始收缴战利品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_done">
         <Original>Rearming done.</Original>
+        <Korean>재무장 완료.</Korean>
+        <Chinesesimp>武器补给完毕</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getFAK">
         <Original>Picking a first aid kit.</Original>
+        <Korean>구급상자 줍는 중.</Korean>
+        <Chinesesimp>正在拾取一包个人急救包</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getGun">
         <Original>Picking a better weapon.</Original>
+        <Korean>더 나은 무기 줍는 중.</Korean>
+        <Chinesesimp>正在拾取一支更好的武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getHelm">
         <Original>Picking a helmet.</Original>
+        <Korean>헬멧 줍는 중.</Korean>
+        <Chinesesimp>正在拾取一顶军用头盔</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getNVGs">
         <Original>Picking NV goggles.</Original>
+        <Korean>야시경 줍는 중.</Korean>
+        <Chinesesimp>正在拾取夜视仪</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getPack">
         <Original>Picking a backpack.</Original>
+        <Korean>가방 줍는 중.</Korean>
+        <Chinesesimp>正在拾取背包</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getRadio">
         <Original>Picking a radio.</Original>
+        <Korean>무전기 줍는 중.</Korean>
+        <Chinesesimp>正在拾取无线电</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getSec">
         <Original>Picking a secondary weapon.</Original>
+        <Korean>부무기 줍는 중.</Korean>
+        <Chinesesimp>正在拾取一把副武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_getVest">
         <Original>Picking a better vest.</Original>
+        <Korean>더 나은 조끼 줍는 중.</Korean>
+        <Chinesesimp>正在拾取一套更好的军用背心</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_haveGun">
         <Original>I have a better weapon now.</Original>
+        <Korean>이제 더 나은 무기를 가졌습니다.</Korean>
+        <Chinesesimp>我已经装备上了更好的武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_haveSec">
         <Original>I have a secondary weapon now.</Original>
+        <Korean>이제 더 나은 부무기를 가졌습니다.</Korean>
+        <Chinesesimp>我现在有副武器啦</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_noNeed">
         <Original>No need to rearm.</Original>
+        <Korean>재무장할 필요가 없습니다.</Korean>
+        <Chinesesimp>不需要进行武器补给</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_noSourcePrim">
         <Original>No source to rearm my primary weapon.</Original>
+        <Korean>내 주무기를 재무장할 탄약이 없습니다.</Korean>
+        <Chinesesimp>缺乏进行我主武器补给的源头</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_noSourceSec">
         <Original>No source to rearm my secondary weapon.</Original>
+        <Korean>내 부무기를 재무장할 탄약이 없습니다.</Korean>
+        <Chinesesimp>缺乏进行我副武器补给的源头</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_partRearmed">
         <Original>Partially rearmed.</Original>
+        <Korean>부분적으로 재무장했습니다.</Korean>
+        <Chinesesimp>多多少少补给了一点</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_rearmed">
         <Original>Rearmed.</Original>
+        <Korean>재무장했습니다.</Korean>
+        <Chinesesimp>补给完毕</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_autoRearm_rearming">
         <Original>Rearming.</Original>
+        <Korean>재무장 중.</Korean>
+        <Chinesesimp>正在补给中</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_dismiss">
         <Original>Go back to your base and tell your comrades we are not your enemies. We just want to live in peace.</Original>
+        <Korean>기지로 돌아가서 동료들에게 우린 적이 아니라고 전해라. 우린 단지 평화롭게 살고 싶을 뿐이다.</Korean>
+        <Chinesesimp>回去你的基地并告诉你的同志们我们并不是你们的敌人.我们只是想平静的活下去.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_libresponse1">
         <Original>Okay, thank you. I owe you my life.</Original>
+        <Korean>네, 감사합니다. 제 목숨을 빚졌습니다.</Korean>
+        <Chinesesimp>谢了伙计，我欠你一条命</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_libresponse2">
         <Original>Thank you. I swear you won't regret it!</Original>
+        <Korean>고맙습니다. 절대 후회하지 않을 겁니다!</Korean>
+        <Chinesesimp>多谢了,我保证你不会后悔的！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_libresponse3">
         <Original>Thank you, I won't forget this!</Original>
+        <Korean>고맙습니다, 절대 잊지 않겠습니다!</Korean>
+        <Chinesesimp>十分感谢,此恩我永世难忘！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_recr_no1">
         <Original>Screw you!</Original>
+        <Korean>좆까!</Korean>
+        <Chinesesimp>去你的！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_recr_yes1">
         <Original>Why not? It can't be any worse.</Original>
+        <Korean>안 될 거 뭐 있습니까? 이것보다 더 나쁠 순 없겠죠.</Korean>
+        <Chinesesimp>为什么不能呢？反正也糟糕不到哪里去了.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_captureX_recr1">
         <Original>How about joining the good guys?</Original>
+        <Korean>선한 이들과 함께하는 건 어떻소?</Korean>
+        <Chinesesimp>有没有想过加入正义的队伍啊？</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_heal_hurt">
         <Original>Comrades, this is %1. I'm hurt!</Original>
+        <Korean>여기는 %1이다, 부상당했다!</Korean>
+        <Chinesesimp>同志,这里是 %1. 我受伤了！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_heal_ready">
         <Original>You are ready %1.</Original>
+        <Korean>치료가 끝났다, %1.</Korean>
+        <Chinesesimp>你已经痊愈了%1</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_heal_support">
         <Original>Wait a minute comrade %1, I will patch you up.</Original>
+        <Korean>기다려라, %1. 치료하러 가겠다.</Korean>
+        <Chinesesimp>请等一下 %1 同志, 我能给你包扎伤口.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_help_onway">
         <Original>%1 is on the way to help you.</Original>
@@ -344,6 +427,7 @@
         <French>%1 est en route pour vous aider.</French>
         <Korean>%1이(가) 당신을 도와주기 위해 가는 중입니다.</Korean>
         <Czech>%1 je na cestě vám pomoct.</Czech>
+        <Chinesesimp>%1正在赶来救助你的路上</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_help_title">
         <Original>Medical</Original>
@@ -351,21 +435,32 @@
         <French>Medical</French>
         <Korean>의료</Korean>
         <Czech>Zdravotnické</Czech>
+        <Chinesesimp>医疗专职</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_ask">
         <Original>You imperialist! Tell me what you know!</Original>
+        <Korean>이 제국주의자놈! 알고 있는 걸 불어라!</Korean>
+        <Chinesesimp>好你个帝国主义份子！快点告诉我你所知道的一切！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_no">
         <Original>Screw you, I am not telling you anything!</Original>
+        <Korean>좆까라, 난 절대 입을 열지 않겠다!</Korean>
+        <Chinesesimp>去你的，我什么的都不会跟你说！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_notSL">
         <Original>I don't know anything. Maybe my squad leader does.</Original>
+        <Korean>전 아무것도 몰라요. 분대장이라면 알지도 모릅니다.</Korean>
+        <Chinesesimp>我什么也不知道.或许我的小队长知道点什么.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_interrogate_yes">
         <Original>Okay, I'll tell you what I know.</Original>
+        <Korean>네, 알고 있는 걸 다 말하겠습니다.</Korean>
+        <Chinesesimp>行行好，我这就把我知道的东西老实交代.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_libPOW">
         <Original>You are free. Come with us!</Original>
+        <Korean>당신은 자유입니다. 우리에게 오십시오!</Korean>
+        <Chinesesimp>你免费了. 快跟我们一起上路吧！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_staticautot_autotarget_off">
         <Original>Mounted Static Squad %1 set to Auto Target Mode OFF.</Original>
@@ -525,6 +620,7 @@
       </Key>
       <Key ID="STR_A3A_fn_ammo_truckLoaded">
         <Original>Truck Loaded</Original>
+        <Korean>트럭에 싣음</Korean>
       </Key>
     </Container>
     <Container name="A3A_fn_base">
@@ -537,15 +633,19 @@
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_count">
         <Original>%1Reb: %2&lt;br/&gt;Occ:%3&lt;br/&gt;Inv:%4&lt;br/&gt;Civ:%5&lt;br/&gt;TOTAL:%6</Original>
+        <Korean>%1반군: %2&lt;br/&gt;점령군:%3&lt;br/&gt;침략군:%4&lt;br/&gt;민간인:%5&lt;br/&gt;총합:%6</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_HCAI">
         <Original>%1HC %2 AI</Original>
+        <Korean>%1 하이 커맨드 %2 AI</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_loadInfo">
         <Original>AI Load Information</Original>
+        <Korean>AI 로드 정보</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_AILoadInfo_noHeadless">
         <Original>No Headless Client Detected</Original>
+        <Korean>헤드리스 클라이언트 감지되지 않음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_airspacecontrol_undercover">
         <Original>Undercover</Original>
@@ -897,9 +997,11 @@
       </Key>
       <Key ID="STR_A3A_fn_base_croutpFIA_roadblock">
         <Original>%1 Roadblock</Original>
+        <Korean>%1 검문소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_croutpFIA_watchpost">
         <Original>%1 Watchpost</Original>
+        <Korean>%1 관측초소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_flagaction_asset_move">
         <Original>Move this asset</Original>
@@ -1261,6 +1363,7 @@
       </Key>
       <Key ID="STR_A3A_fn_base_garrisonInfo_stats">
         <Original>Garrison units: %1%15&lt;br/&gt;&lt;br/&gt;Squad Leaders: %2&lt;br/&gt;%14: %3&lt;br/&gt;Riflemen: %4&lt;br/&gt;Autoriflemen: %5&lt;br/&gt;Medics: %6&lt;br/&gt;Grenadiers: %7&lt;br/&gt;Marksmen: %8&lt;br/&gt;AT Men: %9&lt;br/&gt;AT Missile Men: %10&lt;br/&gt;AA Missile Men: %11&lt;br/&gt;Other: %12&lt;br/&gt;Static Weap: %13</Original>
+        <Korean>주둔 중인 유닛: %1%15&lt;br/&gt;&lt;br/&gt;분대장: %2&lt;br/&gt;%14: %3&lt;br/&gt;소총수: %4&lt;br/&gt;자동소총수: %5&lt;br/&gt;의무병: %6&lt;br/&gt;유탄수: %7&lt;br/&gt;지정사수: %8&lt;br/&gt;대전차병: %9&lt;br/&gt;AT 대전차전문가: %10&lt;br/&gt;대공전문가: %11&lt;br/&gt;기타: %12&lt;br/&gt;고정화기: %13</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_gc_deleted">
         <Original>Garbage Deleted.&lt;br/&gt;Last GC was %1 ago.</Original>
@@ -1319,72 +1422,95 @@
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_airport">
         <Original>%1 Airbase</Original>
+        <Korean>%1 공군 기지</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_factory">
         <Original>Factory near %1</Original>
+        <Korean>%1 인근 공장</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_forest">
         <Original>Forest near %1</Original>
+        <Korean>%1 인근 숲</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_outpost">
         <Original>Outpost near %1</Original>
+        <Korean>%1 인근 전초기지</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_resource">
         <Original>Resource near %1</Original>
+        <Korean>%1 인근 자원채취소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_roadblock">
         <Original>Roadblock near %1</Original>
+        <Korean>%1 인근 검문소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_seaport">
         <Original>Seaport near %1</Original>
+        <Korean>%1 인근 항구</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_localizar_watchpost">
         <Original>Watchpost near %1</Original>
+        <Korean>%1 인근 관측초소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noAirbase">
         <Original>Airbase Lost</Original>
+        <Korean>공군 기지 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noFactory">
         <Original>Factory Lost</Original>
+        <Korean>공장 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noOutpost">
         <Original>Outpost Lost</Original>
+        <Korean>전초기지 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noResource">
         <Original>Resource Lost</Original>
+        <Korean>자원채취소 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_noSeaport">
         <Original>Seaport Lost</Original>
+        <Korean>항구 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherAirbase">
         <Original>%1 lost an Airbase</Original>
+        <Korean>%1 세력이 공군 기지를 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherFactory">
         <Original>%1 lost a Factory</Original>
+        <Korean>%1 세력이 공장을 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherOutpost">
         <Original>%1 lost an Outpost</Original>
+        <Korean>%1 세력이 전초기지를 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherResource">
         <Original>%1 lost a Resource</Original>
+        <Korean>%1 세력이 자원채취소를 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_otherSeaport">
         <Original>%1 lost a Seaport</Original>
+        <Korean>%1 세력이 항구를 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesAirbase">
         <Original>Airbase Taken</Original>
+        <Korean>공군 기지 점령</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesFactory">
         <Original>Factory Taken</Original>
+        <Korean>공장 점령</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesOutpost">
         <Original>Outpost Taken</Original>
+        <Korean>전초기지 점령</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesResource">
         <Original>Resource Taken</Original>
+        <Korean>자원채취소 점령</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_markerChange_yesSeaport">
         <Original>Seaport Taken</Original>
+        <Korean>항구 점령</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_movehq_garrison">
         <Original>Garrison</Original>
@@ -1835,24 +1961,31 @@
       </Key>
       <Key ID="STR_A3A_fn_base_rebuildRadioTower_destr">
         <Original>Radio Tower Destroyed</Original>
+        <Korean>통신탑 파괴함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_rebuildRadioTower_marker">
         <Original>Radio Tower</Original>
+        <Korean>통신탑</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_begin">
         <Original>You decided to rest for some time.</Original>
+        <Korean>잠시 쉬기로 결정했습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcecheckSkipTime_end">
         <Original>Back at it, soldier. The rebellion needs you.</Original>
+        <Korean>깨어나십시오 용사여, 반군에겐 당신이 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_hr">
         <Original>HR: %1%2</Original>
+        <Korean>인력 %1%2</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_money">
         <Original>Money: %1%2 €</Original>
+        <Korean>자금: %1%2 €</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_resourcesFIA_resources">
         <Original>%1 Resources</Original>
+        <Korean>%1 자원채취소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_no_closer">
         <Original>Vehicle must be closer than 50 meters to the HQ marker.</Original>
@@ -1947,9 +2080,11 @@
       </Key>
       <Key ID="STR_A3A_fn_base_statistics_isComm">
         <Original>Rank: %5 | HR: %1 | Your Money: %6 € | %11 Money: %2 € | Airstrikes: %7 | %9 Aggr: %3 | %10 Aggr: %4 | War Level: %8 | Undercover Mode: %12</Original>
+        <Korean>계급: %5 | 인력: %1 | 당신의 자금: %6 € | %11의 자금: %2 € | 공습: %7 | %9 공격성: %3 | %10 공격성: %4 | 전쟁 레벨: %8 | 위장 모드: %12</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_statistics_notComm">
         <Original>Commander: %3 | Rank: %2 | HR: %1 | Your Money: %4 € | %8 Aggr: %5 | %9 Aggr: %6 | War Level: %7 | Undercover Mode: %10</Original>
+        <Korean>지휘관: %3 | 계급: %2 | 인력: %1 | 당신의 자금: %4 € | %8 공격성: %5 | %9 공격성: %6 | 전쟁 레벨: %7 | 위장 모드: %10</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_unlockveh_locked">
         <Original>Vehicle locked.</Original>
@@ -2050,36 +2185,47 @@
       </Key>
       <Key ID="STR_A3A_fn_createOutpostsFIA_OP_data">
         <Original>A small team is being sent to establish an overwatch point. The commander must use HC to move the team to their destination.</Original>
+        <Korean>관측 지점을 구축하기 위해 소규모 팀이 파견되었습니다. 지휘관은 하이 커맨드를 사용해 팀을 목적지로 이동시켜야 합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_createOutpostsFIA_OP_title">
         <Original>Watchpost Deploy</Original>
+        <Korean>관측초소 배치</Korean>
       </Key>
       <Key ID="STR_A3A_fn_createOutpostsFIA_RB_data">
         <Original>We are sending a squad to establish a roadblock. The commander must use HC to move the squad to its destination.</Original>
+        <Korean>관측소를 설치하기 위해 분대를 보내고 있습니다. 지휘관은 하이 커맨드를 사용하여 분대를 목적지로 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
         <Original>Roadblock Deploy</Original>
+        <Korean>검문소 배치</Korean>
       </Key>
       <Key ID="STR_A3A_fn_FIARadio_no">
         <Original>Enemy Comms Lost</Original>
+        <Korean>적군 통신 놓침</Korean>
       </Key>
       <Key ID="STR_A3A_fn_FIARadio_yes">
         <Original>Enemy Comms Intercepted</Original>
+        <Korean>적군 통신 가로챔</Korean>
       </Key>
       <Key ID="STR_A3A_fn_getAggroLevelString_1">
         <Original>Low</Original>
+        <Korean>낮음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_getAggroLevelString_2">
         <Original>Medium</Original>
+        <Korean>중간</Korean>
       </Key>
       <Key ID="STR_A3A_fn_getAggroLevelString_3">
         <Original>High</Original>
+        <Korean>높음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_getAggroLevelString_4">
         <Original>Very High</Original>
+        <Korean>매우 높음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_getAggroLevelString_5">
         <Original>Extreme</Original>
+        <Korean>최대</Korean>
       </Key>
     </Container>
     <Container name="A3A_fn_convoy">
@@ -2239,33 +2385,43 @@
     <Container name="A3A_fn_create">
       <Key ID="STR_A3A_fn_base_attackHQ_defendLong">
         <Original>The enemy has sent Special Forces to our HQ to assassinate Petros. Stop them, or move HQ before they get here.</Original>
+        <Korean>적이 페트로스를 암살하기 위해 특수부대를 우리 본부로 보냈습니다. 그들을 막거나 본부로 오기 전에 본부를 옮기십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_attackHQ_defendTitle">
         <Original>Defend Petros</Original>
+        <Korean>페트로스 보호</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_craicts_rbDestr">
         <Original>Roadblock Destroyed</Original>
+        <Korean>검무소 파괴됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_crfiaOP2_lostWatchpost">
         <Original>Watchpost Lost</Original>
+        <Korean>관측초소 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_invaderPunish_long">
         <Original>%2 is attacking the civilians in %1 to punish them for their support of the rebellion. Defend the city at all costs!</Original>
+        <Korean>%2 세력이 반군을 지지한 사람들을 학살하기 위해 %1의 민간인을 공격하고 있습니다. 무슨 수를 써서라도 도시를 지켜내십시오!</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_invaderPunish_title">
         <Original>%1 Punishment</Original>
+        <Korean>%1의 학살</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_roadblockFight_lost">
         <Original>Roadblock Lost</Original>
+        <Korean>검문소 잃음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_long">
         <Original>%1 is launching a major attack against our garrison at %2. Stop them if you can, or live to fight another day.</Original>
+        <Korean>%1 세력이 %2에 있는 우리 주둔군을 상대로 대대적인 공격을 시작하고 있습니다. 가능하면 그들을 저지하거나, 살아남아 다른 날에 싸우십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_other">
         <Original>"%1 is attacking the %2 garrison at %3.</Original>
+        <Korean>%1 세력이 %3에 있는 %2의 주둔군을 공격하고 있습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_title">
         <Original>%1 Attack</Original>
+        <Korean>%1의 공격</Korean>
       </Key>
       <Key ID="STR_A3A_fn_create_aivehinit_general">
         <Original>General</Original>
@@ -2333,24 +2489,31 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
         <Original>Antistasi has a custom save system similar to other CTIs.&lt;br/&gt;&lt;br/&gt;To Save: Your commander needs to go to the &lt;t color='#f0d498'&gt;Map Board&lt;/t&gt;, scroll-select &lt;t color='#f0d498'&gt;""Game Options""&lt;/t&gt; and click on the &lt;t color='#f0d498'&gt;""Persistent Save""&lt;/t&gt; button.</Original>
+        <Korean>안티스타시에는 다른 CTI 모드와 유사한 사용자 정의 저장 시스템이 있습니다.&lt;br/&gt;&lt;br/&gt;저장 방법: 지휘관은 &lt;t color='#f0d498'&gt;지도 화이트보드&lt;/t&gt;로 이동하여 스크롤 선택으로&lt;t color='#f0d498'&gt;""게임 설정""&lt;/t&gt;을 선택하고 &lt;t color='#f0d498'&gt;""영구 저장""&lt;/t&gt; 버튼을 누르십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
         <Original>Current parameters are configured to auto-save every %1 minutes.</Original>
+        <Korean>현재 매개변수는 %1분마다 자동으로 저장하도록 설정되어 있습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line3">
         <Original>Auto-save is currently disabled.</Original>
+        <Korean>자동 저장이 현재 비활성화되어 있습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line4">
         <Original>W A R N I N G</Original>
+        <Korean>경   고</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_dialogHQ_upgrade">
         <Original>Current level: %2. Next Level Training Cost: %1 €.</Original>
+        <Korean>현재 레벨: %2. 다음 레벨 훈련 비용: %1 €.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_begin">
         <Original>Fast traveling, travel time: %1s, please wait.</Original>
+        <Korean>빠른 이동 중. 도착 시간까지: %1초, 잠시만 기다려 주십시오...</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
         <Original>You arrived at the destination.</Original>
+        <Korean>목적지에 도착했습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_cancelled">
         <Original>%1 Fast Travel has been cancelled because some player has boarded their vehicle and the destination is not HQ or an Airbase.</Original>
@@ -2552,24 +2715,31 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_AILimit">
         <Original>AI Limit</Original>
+        <Korean>AI 제한</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_civLimit">
         <Original>Civilian Limit</Original>
+        <Korean>민간인 제한</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_commOnly">
         <Original>Only our Commander or admin has access to </Original>
+        <Korean>지휘관이나 관리자만 다음 기능에 액세스할 수 있습니다</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_lower">
         <Original>is already at lower limit of</Original>
+        <Korean>이미 다음의 최소 한도에 도달했습니다:</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_spwnDistance">
         <Original>Spawn Distance</Original>
+        <Korean>스폰 거리</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_title">
         <Original>HQ Spawn Options</Original>
+        <Korean>본부 스폰 옵션</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_HQGameOptions_upper">
         <Original>is already at upper limit of</Original>
+        <Korean>이미 다음의 최대 한도에 도달했습니다:</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_minediag_available">
         <Original>An Explosive Specialist is available on your High Command bar.&lt;br/&gt;&lt;br/&gt;Send him anywhere on the map to deactivate mines. He will load his truck with mines he found.&lt;br/&gt;&lt;br/&gt;Upon returning back to HQ he will unload mines stored in his vehicle.</Original>
@@ -2872,23 +3042,29 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_squadOptions">
         <Original>Cost: %1 €. HR: %2</Original>
+        <Korean>비용: %1 €. 인력: %2</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_unit_recruit">
         <Original>Cost: %1 €</Original>
+        <Korean>비용: %1 €</Korean>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_unit_recruit_radioOP">
         <Original>Radio Operator</Original>
+        <Korean>무전병</Korean>
       </Key>
     </Container>
     <Container name="A3A_fn_garrison">
       <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_decimated">
         <Original>Decimated</Original>
+        <Korean>전멸</Korean>
       </Key>
       <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_good">
         <Original>Good</Original>
+        <Korean>좋음</Korean>
       </Key>
       <Key ID="STR_A3A_fn_garrison_getGarrisonStatus_weakened">
         <Original>Weakened</Original>
+        <Korean>약해짐</Korean>
       </Key>
     </Container>
     <Container name="A3A_fn_init">
@@ -3055,18 +3231,23 @@
       </Key>
       <Key ID="STR_A3A_fn_init_initBases_airbase">
         <Original>%1 Airbase</Original>
+        <Korean>%1 공군 기지</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_initBases_factory">
         <Original>Factory</Original>
+        <Korean>공장</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_initBases_outpost">
         <Original>%1 Outpost</Original>
+        <Korean>%1 전초기지</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_initBases_resources">
         <Original>Resources</Original>
+        <Korean>자원채취소</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_initBases_seaPort">
         <Original>Sea Port</Original>
+        <Korean>항구</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_initclient_addact_ailoadinfo">
         <Original>AI Load Info</Original>
@@ -3367,12 +3548,15 @@
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_arsenal">
         <Original>Arsenal Updated</Original>
+        <Korean>무기고 업데이트</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_cityChange">
         <Original>%1 joined %2</Original>
+        <Korean>%2 마을이 %1 세력을 지지함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_init_resourceCheck_income">
         <Original>Taxes Income&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt;&lt;br/&gt;Manpower: +%1&lt;br/&gt;Money: +%2 €</Original>
+        <Korean>세금 획득&lt;br/&gt; &lt;t size='0.5' color='#C1C0BB'&gt;&lt;br/&gt;인력: +%1&lt;br/&gt;자금: +%2 </Korean>
       </Key>
     </Container>
     <Container name="A3A_fn_intel">
@@ -3767,6 +3951,7 @@
       </Key>
       <Key ID="STR_A3A_fn_intel_showIntel_found">
         <Original>Intel Found</Original>
+        <Korean>정보 획득</Korean>
       </Key>
       <Key ID="STR_A3A_fn_intel_title1">
         <Original>Intel</Original>
@@ -3901,6 +4086,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_AS_specOP_dec">
         <Original>Special Forces team decimated at a %1.</Original>
+        <Korean>특수부대 팀이 %1에서 전멸하였습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
         <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
@@ -3955,6 +4141,7 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_text3">
         <Original>An enemy garrison here is disturbing our operations in the area. Go there and secure the area before %1.</Original>
+        <Korean>이 곳의 적 주둔군이 해당 지역에서 우리 작전을 방해하고 있습니다. 가서 %1 전까지 지역을 확보하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel1">
         <Original>Resource Acquisition</Original>
@@ -3975,9 +4162,11 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel3">
         <Original>Destroy Roadblock</Original>
+        <Korean>검문소 파괴</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel4">
         <Original>Secure the AO</Original>
+        <Korean>작전 구역 확보</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_conv_ammo_text">
         <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches its destination.</Original>
@@ -4289,60 +4478,79 @@
       </Key>
       <Key ID="STR_A3A_fn_mission_request_addMission">
         <Original>I have a mission for you, check the task menu for details.</Original>
+        <Korean>할 임무가 있습니다. 자세한 내용은 임무 메뉴를 확인하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_existing">
         <Original>I already gave you that type of mission, check your task menu.</Original>
+        <Korean>이미 해당 유형의 임무를 주었습니다. 임무 메뉴를 확인하십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noAS">
         <Original>I have no Assassination missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 암살 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noASHint">
         <Original>Assassination missions require cities, airbases, or SF-patrolled areas within 4km of HQ.</Original>
+        <Korean>암살 임무에는 본부로부터 4km 이내의 도시, 공군 기지 또는 특수부대 순찰 구역이 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConquest">
         <Original>I have no Conquest missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 점령 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConquestHint">
         <Original>Conquest missions require outposts, roadblocks, or resource markers within 4km of HQ.</Original>
+        <Korean>점령 임무는 본부로부터 4km 이내에 전초기지, 검문소 또는 자원채취소가 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConvoy">
         <Original>I have no Convoy missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 호송대 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConvoyAttack">
         <Original>No Convoys around here, there's too much fighting going on.</Original>
+        <Korean>너무 많은 전투가 벌어지고 있기 때문에 여기 주변에는 호송대가 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConvoyAttackHint">
         <Original>With a major attack happening, the enemy doesn't have the resources to send convoys.</Original>
+        <Korean>대규모 공격이 발생할 때는 적군은 호송대를 보낼 자원이 없습니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noConvoyHint">
         <Original>Convoy missions require two idle bases with a road route, within 3km of HQ.</Original>
+        <Korean>호송대 임무에는 본부로부터 3km 이내에 도로 경로가 있고 활동 중이지 않은 기지 2개가 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noDestroy">
         <Original>I have no Destroy missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 파괴 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noDestroyHint">
         <Original>Destroy missions require airbases or enemy radio towers within 4km of HQ.</Original>
+        <Korean>파괴 임무에는 본부로부터 4km 이내에 있는 공군 기지나 적 통신탑이 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noLogi">
         <Original>I have no Logistics missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 병참 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noLogiHint">
         <Original>Logistics missions require outposts, seaports, or banks within 4km of HQ.</Original>
+        <Korean>병참 임무에는 본부로부터 4km 이내에 전초기지, 항구 또는 은행이 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noRescue">
         <Original>I have no Rescue missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 구출 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noRescueHint">
         <Original>Rescue missions are random, but you need cities or outposts within 4km of HQ.</Original>
+        <Korean>구출 임무는 무작위이지만 본부로부터 4km 이내에 도시나 전초기지가 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noSupport">
         <Original>I have no Support missions for you. Move our HQ closer to the enemy.</Original>
+        <Korean>할 수 있는 지원 임무가 없습니다. 우리 본부를 적에게 더 가까이 이동시키십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_noSupportHint">
         <Original>Support missions require cities within 4km of HQ.</Original>
+        <Korean>지원 임무에는 본부로부터 4km 이내에 도시가 필요합니다.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_request_title">
         <Original>Missions</Original>
+        <Korean>임무</Korean>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_prison_text">
         <Original>A group of POWs is awaiting for execution in %1. We must rescue them before %2. Bring them to HQ.</Original>
@@ -6173,30 +6381,35 @@
         <Italian>%1 DISTRUTTO</Italian>
         <French>%1DETRUIT</French>
         <Korean>%1파괴됨</Korean>
+        <Chinesesimp>%1 已被摧毁</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_disab">
         <Original>%1DISABLED&lt;br/&gt;</Original>
         <Italian>%1IMMOBILIZATO&lt;br/&gt;</Italian>
         <French>%1INCAPACITÉ&lt;br/&gt;</French>
         <Korean>%1비활성화됨&lt;br/&gt;</Korean>
+        <Chinesesimp>%1 已失去行动能力&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_dismount">
         <Original>%2%1 dismounting&lt;br/&gt;</Original>
         <Italian>%2%1 Sta scendendo&lt;br/&gt;</Italian>
         <French>%2%1 débarquement&lt;br/&gt;</French>
         <Korean>%2%1 하차 중&lt;br/&gt;</Korean>
+        <Chinesesimp>%2正在从%1中脱离&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_medic_no">
         <Original>%1No operative Medic&lt;br/&gt;</Original>
         <Italian>%1Nessun Medico operativo&lt;br/&gt;</Italian>
         <French>%1Aucun médecin opérationnel&lt;br/&gt;</French>
         <Korean>%1활동 중인 의무병 없음&lt;br/&gt;</Korean>
+        <Chinesesimp>%1缺乏卫生员&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_medic_yes">
         <Original>%1Operative Medic&lt;br/&gt;</Original>
         <Italian>%1Medico operativo&lt;br/&gt;</Italian>
         <French>%1Médecin Opérationnel&lt;br/&gt;</French>
         <Korean>%1활동 중인 의무병 있음&lt;br/&gt;</Korean>
+        <Chinesesimp>%1拥有卫生员&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_mortar_no">
         <Original>%1Mortar not deployed&lt;br/&gt;</Original>
@@ -6204,6 +6417,7 @@
         <French>%1Mortier non déployé&lt;br/&gt;</French>
         <Korean>%1박격포 배치 안됨&lt;br/&gt;</Korean>
         <Czech>%1Minomet není rozložen&lt;br/&gt;</Czech>
+        <Chinesesimp>%1迫击炮未展开&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_mortar_yes">
         <Original>%1Mortar is deployed&lt;br/&gt;</Original>
@@ -6211,12 +6425,14 @@
         <French>%1Mortier déployé&lt;br/&gt;</French>
         <Korean>%1박격포 배치됨&lt;br/&gt;</Korean>
         <Czech>%1Minomet je rozložen&lt;br/&gt;</Czech>
+        <Chinesesimp>%1迫击炮已展开&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_munitioned">
         <Original>%1Munitioned&lt;br/&gt;</Original>
         <Italian>%1Rifornito di munizioni&lt;br/&gt;</Italian>
         <French>%1Approvisionné&lt;br/&gt;</French>
         <Korean>%1탄약 공급됨&lt;br/&gt;</Korean>
+        <Chinesesimp>%1弹药已补充&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_select">
         <Original>You must select one group on the HC bar.</Original>
@@ -6224,10 +6440,12 @@
         <French>Vous devez selectionner un groupe sur la barre HC.</French>
         <Korean>당신은 하이 커맨드 표시줄에서 한 개의 그룹을 선택해야 합니다.</Korean>
         <Czech>Musíte vybrat pouze jednu skupinu v HC listě.</Czech>
+        <Chinesesimp>你必须在HC 界面上选择一个群组</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_sitrep">
         <Original>%1, SITREP, over.</Original>
         <Korean>%1, 보고하라, 이상.</Korean>
+        <Chinesesimp>%1，报告情况，完毕</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_static_no">
         <Original>%1Static not deployed&lt;br/&gt;</Original>
@@ -6235,6 +6453,7 @@
         <French>%1Arme statique non déployée&lt;br/&gt;</French>
         <Korean>%1고정화기 배치 안됨&lt;br/&gt;</Korean>
         <Czech>%1Statická zbraň není rozložena&lt;br/&gt;</Czech>
+        <Chinesesimp>%1固定式武器未展开&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_static_yes">
         <Original>%1Static is deployed&lt;br/&gt;</Original>
@@ -6242,6 +6461,7 @@
         <French>%1Arme statique est déployée&lt;br/&gt;</French>
         <Korean>%1고정화기 배치됨&lt;br/&gt;</Korean>
         <Czech>%1Statická zbraň rozložena&lt;br/&gt;</Czech>
+        <Chinesesimp>%1固定式武器已展开&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_status">
         <Original>%1 Status&lt;br/&gt;&lt;br/&gt;Alive members: %2&lt;br/&gt;Able to combat: %3&lt;br/&gt;Current task: %4&lt;br/&gt;Combat Mode:%5&lt;br/&gt;</Original>
@@ -6249,6 +6469,7 @@
         <French>%1 Statut&lt;br/&gt;&lt;br/&gt;Membres en vie : %2&lt;br/&gt;Capables de combattre : %3&lt;br/&gt;Tâche actuelle : %4&lt;br/&gt;Mode de Combat :%5&lt;br/&gt;</French>
         <Korean>%1 상태&lt;br/&gt;&lt;br/&gt;살아 있는 멤버: %2&lt;br/&gt;전투가능인원: %3&lt;br/&gt;현재 임무: %4&lt;br/&gt;전투 모드: %5&lt;br/&gt;</Korean>
         <Czech>%1 Stav:&lt;br/&gt;&lt;br/&gt;Živí členové: %2&lt;br/&gt;Bojeschopní: %3&lt;br/&gt;Aktuální úkol: %4&lt;br/&gt;Bojový režim:%5&lt;br/&gt;</Czech>
+        <Chinesesimp>%1 状态&lt;br/&gt;&lt;br/&gt;存活队员: %2&lt;br/&gt;剩余作战人员: %3&lt;br/&gt;当前任务: %4&lt;br/&gt;战斗模式:%5&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_reinf_vehStats_title">
         <Original>Vehicle Info</Original>
@@ -6264,6 +6485,7 @@
         <French>%1ARME INUTILISABLE&lt;br/&gt;</French>
         <Korean>%1무기 비활성화됨&lt;br/&gt;</Korean>
         <Czech>%1ZBRAŇ VYŘAZENA&lt;br/&gt;</Czech>
+        <Chinesesimp>%1武器损坏&lt;br/&gt;</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_fn_Revive">
@@ -6279,6 +6501,7 @@
         <Original>We lost %1.</Original>
         <Korean>%1을(를) 잃었습니다.</Korean>
         <Czech>Ztratili jsme %1.</Czech>
+        <Chinesesimp>我们已失去%1.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_able">
         <Original>You are not able to revive anyone.</Original>
@@ -6286,6 +6509,7 @@
         <French>Vous ne pouvez réanimer personne.</French>
         <Korean>당신은 아무도 소생시킬 수 없습니다.</Korean>
         <Czech>Nemůžeš oživovat nikoho.</Czech>
+        <Chinesesimp>你不具备复活任何人的能力</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_carry1">
         <Original>%1 is being carried or transported and you cannot heal him.</Original>
@@ -6293,6 +6517,7 @@
         <French>%1 se fait porter ou est transporté, vous ne pouvez pas le soigner.</French>
         <Korean>%1이(가) 업혀지거나 수송되는 중이므로 치료할 수 없습니다.</Korean>
         <Czech>%1 je nesen nebo transportován a nemůžeš ho léčit.</Czech>
+        <Chinesesimp>%1正在被人扛着或者在运输途中因此你没有办法治疗他</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_carry2">
         <Original>%1 is being carried or transported and I cannot heal him.</Original>
@@ -6300,11 +6525,13 @@
         <French>%1 se fait porter ou est transporté, je ne peux pas le soigner.</French>
         <Korean>%1이(가) 업혀지거나 수송되는 중이므로 치료할 수 없습니다.</Korean>
         <Czech>%1 je nesen nebo transportován a nemůžeš ho léčit.</Czech>
+        <Chinesesimp>%1正在被人扛着或者在运输途中因此我没有办法治疗他</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_dead">
         <Original>%1 is already dead.</Original>
         <Korean>%1은(는) 이미 죽었습니다.</Korean>
         <Czech>%1 je již mrtvý.</Czech>
+        <Chinesesimp>%1已经阵亡了</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_meds">
         <Original>You or %1 need a First Aid Kit or Medikit to be able to revive.</Original>
@@ -6312,10 +6539,12 @@
         <French>Vous ou %1 avez besoin d'un Kit de Premier Secours ou Medikit pour pouvoir réanimer.</French>
         <Korean>소생하려면 당신 또는 %1에게 구급상자 또는 응급처치도구가 필요합니다.</Korean>
         <Czech>Ty nebo %1 potřebuje Soupravu první pomoci nebo Zdravotnickou soupravu aby jsi mohl oživovat.</Czech>
+        <Chinesesimp>你或者是%1需要一包个人急救包或者医疗包来进行复活</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_meds_AI">
         <Original>I'm out of First Aid Kits and I have no Medikit!</Original>
         <Korean>구급상자가 떨어졌고 응급처치도구도 없습니다!</Korean>
+        <Chinesesimp>我的个人急救包已经用光了而且我还没有医疗包！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_up">
         <Original>%1 no longer needs your help.</Original>
@@ -6323,16 +6552,19 @@
         <French>%1 n'a plus besoin de votre aide.</French>
         <Korean>%1은(는) 더 이상 당신의 도움이 필요하지 않습니다.</Korean>
         <Czech>%1 již nepotřebuje tvojí pomoc.</Czech>
+        <Chinesesimp>%1不再需要你的帮助</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_no_up_AI">
         <Original>%1 no longer needs my help.</Original>
         <Korean>%1은(는) 더 이상 내 도움이 필요하지 않다.</Korean>
+        <Chinesesimp>%1不再需要我的帮助</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_other">
         <Original>%1 has been revived by someone else.</Original>
         <Italian>%1 è stato rianimato da qualcun'altro.</Italian>
         <French>%1 a été relevé par quelqu'un d'autre.</French>
         <Korean>%1이(가) 누군가에 의해 소생되었습니다.</Korean>
+        <Chinesesimp>%1已经受到其他人的救助</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_actRev_rev_cancel">
         <Original>Revive cancelled.</Original>
@@ -6364,6 +6596,7 @@
         <French>%1 est mort.</French>
         <Korean>%1은(는) 죽었습니다.</Korean>
         <Czech>%1 je mrtvý.</Czech>
+        <Chinesesimp>%1阵亡了</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_no_carry">
         <Original>%1 is being carried or transported and you cannot carry him.</Original>
@@ -6371,6 +6604,7 @@
         <French>%1 se fait porter ou est transporté, vous ne pouvez pas le porter.</French>
         <Korean>%1이(가) 업혀지거나 수송되는 중이므로 업을 수 없습니다.</Korean>
         <Czech>%1 je nesen nebo transportován a nemůžeš ho nést.</Czech>
+        <Chinesesimp>%1正在被人扛着或者在运输途中因此你没有办法治疗他</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_nohelp">
         <Original>%1 no longer needs your help.</Original>
@@ -6378,6 +6612,7 @@
         <French>%1 n'a plus besoin de votre aide.</French>
         <Korean>%1은(는) 더 이상 당신의 도움이 필요하지 않습니다.</Korean>
         <Czech>%1 již nepotřebuje tvojí pomoc.</Czech>
+        <Chinesesimp>%1不再需要你的帮助</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_carry_title">
         <Original>Carry/Drag</Original>
@@ -6385,26 +6620,32 @@
         <French>Porter/Traîner</French>
         <Korean>업기/끌기</Korean>
         <Czech>Nést/Táhnout</Czech>
+        <Chinesesimp>扛起/拖拽</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_helping">
         <Original>%1 is helping you.</Original>
         <Korean>%1 님이 당신을 돕고 있습니다.</Korean>
+        <Chinesesimp>%1正在尝试帮助你</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_noAI">
         <Original>There is no AI nearby to help you.</Original>
         <Korean>근처에 당신을 도울 AI가 없습니다.</Korean>
+        <Chinesesimp>你的周边没有AI能够帮助你</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_onTheWay">
         <Original>%1 is on the way to help you.</Original>
         <Korean>%1이(가) 당신을 도와주기 위해 가는 중입니다.</Korean>
+        <Chinesesimp>%1正在赶来救助你的路上</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_respawn">
         <Original>Press R to respawn.</Original>
         <Korean>R 키를 눌러 리스폰합니다.</Korean>
+        <Chinesesimp>按R键重生</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_selfRevive">
         <Original>Press H to shake off the injury.</Original>
         <Korean>H 키를 눌러 부상을 떨쳐냅니다.</Korean>
+        <Chinesesimp>按H键来甩开疼痛</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_fn_SalvageRope">
@@ -6414,6 +6655,7 @@
         <French>Attacher Corde</French>
         <Korean>견인줄 걸기</Korean>
         <Czech>Přivázat lano</Czech>
+        <Chinesesimp>系扣绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_salvRope_addact_deploy">
         <Original>Deploy Winch</Original>
@@ -6421,6 +6663,7 @@
         <French>Déployer Treuil</French>
         <Korean>윈치 전개</Korean>
         <Czech>Rozvinout naviják</Czech>
+        <Chinesesimp>部署绞盘</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_salvRope_addact_stow">
         <Original>Stow Winch</Original>
@@ -6428,6 +6671,7 @@
         <French>Ranger Treuil</French>
         <Korean>윈치 싣기</Korean>
         <Czech>Připnout naviják</Czech>
+        <Chinesesimp>托起绞盘</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_fn_Save">
@@ -6453,6 +6697,7 @@
         <French>Objets :&lt;br/&gt;&lt;t color='#f0d498'&gt;RH :</French>
         <Korean>자산:&lt;br/&gt;&lt;t color='#f0d498'&gt;인력:</Korean>
         <Czech>Zdroje:&lt;br/&gt;&lt;t color='#f0d498'&gt;HR:</Czech>
+        <Chinesesimp>资产:&lt;br/&gt;&lt;t color='#f0d498'&gt;人力资源:</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_text_money">
         <Original>&lt;br/&gt;Money:</Original>
@@ -6460,6 +6705,7 @@
         <French>&lt;br/&gt;Argent :</French>
         <Korean>&lt;br/&gt;자금:</Korean>
         <Czech>&lt;br/&gt;Peníze:</Czech>
+        <Chinesesimp>&lt;br/&gt;资金:</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_text_options">
         <Original>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Further infomation is provided in &lt;t color='#f0d498'&gt;Map Screen &gt; Game Options &gt; Persistent Save-game&lt;/t&gt;.</Original>
@@ -6467,6 +6713,7 @@
         <French>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Informations complémentaires dans &lt;t color='#f0d498'&gt;Ecran Carte &gt; Options de jeu &gt; Sauvegarde Persistante&lt;/t&gt;.</French>
         <Korean>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;더 자세한 정보는&lt;t color='#f0d498'&gt;맵 스크린 &gt; 게임 옵션 &gt; 게임 영구 저장&lt;/t&gt;에서 제공됩니다.</Korean>
         <Czech>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;Další informace jsou v &lt;t color='#f0d498'&gt;Obrazovce mapy &gt; Možnosti hry &gt; Trvalé uložení&lt;/t&gt;.</Czech>
+        <Chinesesimp>€&lt;/t&gt;&lt;/t&gt;&lt;br/&gt;&lt;br/&gt;更多的信息将提供在&lt;t color='#f0d498'&gt;地图界面 &gt; 游戏选项 &gt; 持久化存档&lt;/t&gt;.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_save_saveLoop_title1">
         <Original>Save Game</Original>
@@ -6492,7 +6739,7 @@
         <French>Vous êtes déja Incognito.</French>
         <Korean>당신은 이미 위장 중입니다.</Korean>
         <Czech>Už jsi v utajení.</Czech>
-        <Chinesesimp>你已经进去伪装模式了.</Chinesesimp>
+        <Chinesesimp>你已经伪装过了</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_ai">
         <Original>You cannot go Undercover while you are controlling AI!</Original>
@@ -6500,12 +6747,14 @@
         <French>Vous ne pouvez pas être Incognito alors que vous contrôlez l'IA!</French>
         <Korean>AI를 조종하는 동안에는 위장을 할 수 없습니다!</Korean>
         <Czech>Nemůžeš jít do utajení když ovládáš AI!</Czech>
+        <Chinesesimp>你无法在伪装模式下控制AI！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_close">
         <Original>You cannot go Undercover near Airbases, Outposts, Seaports or Roadblocks.</Original>
         <Italian>Non puoi andare Sotto Copertura vicino ad Aeroporti, Avamposti, Porti o Posti di blocco.</Italian>
         <Korean>공항, 전초기지, 항구 또는 검문소 근처에서는 위장할 수 없습니다.</Korean>
         <Czech>Nemůžeš jít do utajení poblíž Letišť, Stanovišť, Přístavů a Zátarasů.</Czech>
+        <Chinesesimp>你无法在机场, 哨站, 港口以及路障附近进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_nociv">
         <Original>You are not in a civilian vehicle.</Original>
@@ -6521,6 +6770,7 @@
         <French>%1&lt;br/&gt;Port d'un casque.</French>
         <Korean>%1&lt;br/&gt;헬멧 착용 중.</Korean>
         <Czech>%1&lt;br/&gt;Máš na sobě helmu.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;正戴着一顶军用头盔</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_naked">
         <Original>%1&lt;br/&gt;Being naked. Put some civilian clothes on, Petros can't bear to watch.</Original>
@@ -6528,6 +6778,7 @@
         <French>%1&lt;br/&gt;Être nu. Mettez des vêtements civils, Petros ne supporte pas de regarder.</French>
         <Korean>%1&lt;br/&gt;알몸 상태. 민간인 복장을 착용하십시오, 페트로스가 차마 눈 뜨고 볼 수가 없어합니다.</Korean>
         <Czech>%1&lt;br/&gt;Jsi nahý. Vezmi si na sebe nějaké civilní oblečení, Petros na toto nesnese pohled.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;决定啥都不穿. 快拿点平民的衣服套上, Petros都快看不下去了.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_ngv">
         <Original>%1&lt;br/&gt;Wearing NVGs.</Original>
@@ -6535,6 +6786,7 @@
         <French>%1&lt;br/&gt;Porte des NVGs.</French>
         <Korean>%1&lt;br/&gt;야시경 착용 중.</Korean>
         <Czech>%1&lt;br/&gt;Máš na sobě noktovizor.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;正穿戴这一顶军用夜视仪</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_rope">
         <Original>%1&lt;br/&gt;Holding tow ropes.</Original>
@@ -6542,6 +6794,7 @@
         <French>%1&lt;br/&gt;Tient un treuil de remorquage.</French>
         <Korean>%1&lt;br/&gt;견인줄 잡는 중.</Korean>
         <Czech>%1&lt;br/&gt;Držíš tažné lano.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;手中正拿着拖车绳索</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_uniform">
         <Original>%1&lt;br/&gt;Wearing a suspicious uniform.</Original>
@@ -6549,6 +6802,7 @@
         <French>%1&lt;br/&gt;Porte un uniforme suspect.</French>
         <Korean>%1&lt;br/&gt;수상한 복장 착용 중.</Korean>
         <Czech>%1&lt;br/&gt;Máš na sobě podezřelou uniformu.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;身着可疑制服</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_vest">
         <Original>%1&lt;br/&gt;Wearing a vest.</Original>
@@ -6556,6 +6810,7 @@
         <French>%1&lt;br/&gt;Porte une veste.</French>
         <Korean>%1&lt;br/&gt;조끼 착용 중.</Korean>
         <Czech>%1&lt;br/&gt;Máš na sobě vestu.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;身上套有军用背心</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reason_weapon">
         <Original>%1&lt;br/&gt;A weapon is visible.</Original>
@@ -6563,6 +6818,7 @@
         <French>%1&lt;br/&gt;Une arme est visible.</French>
         <Korean>%1&lt;br/&gt;무기 보임.</Korean>
         <Czech>%1&lt;br/&gt;Zbraň je viditelná.</Czech>
+        <Chinesesimp>%1&lt;br/&gt;被目视到身上持有武器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported1">
         <Original>This vehicle has been reported to the enemy. Change or renew your vehicle in the Garage to go Undercover.</Original>
@@ -6570,6 +6826,7 @@
         <French>Ce véhicule a été signalé à l'ennemi. Changez-en ou prenez-en un nouvel exemplaire au garage pour devenir Icognito.</French>
         <Korean>이 차량은 적에게 보고되었습니다. 차고에서 차량을 바꾸거나 재도색하여 위장을 하십시오.</Korean>
         <Czech>Toto vozidlo bylo nahlášeno nepříteli. Změň nebo obnov bozidlo v Garáži aby jsi mohl jít do utajení.</Czech>
+        <Chinesesimp>该载具已经被上报给敌人.在车库中更变或者更新你的车辆以便再次进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_reported2">
         <Original>You have been reported in the last 30 minutes therefore you cannot go Undercover.</Original>
@@ -6577,6 +6834,7 @@
         <French>Vous avez été signalé dans les 30 dernières minutes, de fait vous ne pouvez pas devenir Incognito.</French>
         <Korean>지난 30분 동안 신고를 당했기 때문에 위장할 수 없습니다.</Korean>
         <Czech>Byl jsi nahlášen v posledních 30 minutách tudíž nemůžeš jít do utajení.</Czech>
+        <Chinesesimp>在过去的30分钟内你被上报给敌人因此你暂时无法进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_spotted">
         <Original>You cannot go Undercover while enemies are spotting you.</Original>
@@ -6584,6 +6842,7 @@
         <French>Vous ne pouvez pas devenir Incognito pendant que des ennemis vous observent.</French>
         <Korean>적이 당신을 발견한 동안에는 위장을 할 수 없습니다.</Korean>
         <Czech>Nemůžeš být v utajení když tě nepřátelé pozorují.</Czech>
+        <Chinesesimp>在敌人发现你的情况下你无法进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_towrope">
         <Original>This vehicle cannot go undercover while it has tow ropes attached.</Original>
@@ -6591,6 +6850,7 @@
         <French>Ce véhicule ne peut pas devenir Incognito pendant un remorquage.</French>
         <Korean>이 차량은 견인줄이 걸려 있는 동안에는 위장이 불가능합니다.</Korean>
         <Czech>Tohle vozidlo nemůže být v utajení když má připojené tažné lano.</Czech>
+        <Chinesesimp>在载具拖车绳索调用的情况下该载具无法进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_canGoUn_no_while">
         <Original>You cannot go Undercover while:&lt;br/&gt;</Original>
@@ -6598,12 +6858,14 @@
         <French>Vous ne pouvez pas devenir Incognito pendant :&lt;br/&gt;</French>
         <Korean>다음 사항이 있는 동안에는 위장을 할 수 없습니다:&lt;br/&gt;</Korean>
         <Czech>Nemůžeš být v utajení když:&lt;br/&gt;</Czech>
+        <Chinesesimp>你不能进行伪装，你正在:&lt;br/&gt;</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_airspace">
         <Original>Unidentified aircraft, you have violated the restricted airspace of %1!</Original>
         <Italian>Velivolo non identificato, hai violato lo spazio aereo di %1!</Italian>
         <Korean>미확인 항공기, 넌 %1 소속의 영공을 침범했다!</Korean>
         <Czech>Neidentifikované letadlo, narušil jsi vzdušný prostor %1!</Czech>
+        <Chinesesimp>不明飞行物,你已经侵犯了%1的空中管制区域</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_outp">
         <Original>An enemy outpost or seaport has detected you!</Original>
@@ -6611,6 +6873,7 @@
         <French>Un avant-poste ou port ennemi vous a detecté !</French>
         <Korean>적의 전초기지나 항구가 당신을 발견했습니다!</Korean>
         <Czech>Nepřátelské stanoviště nebo přístav tě zpozoroval!</Czech>
+        <Chinesesimp>敌人的哨站或港口已经察觉到你了！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_detect_roadb">
         <Original>An enemy roadblock has detected you!</Original>
@@ -6618,6 +6881,7 @@
         <French>Un barrage routier ennemi vous a detecté !</French>
         <Korean>적의 검문소가 당신을 발견했습니다!</Korean>
         <Czech>Nepřátelský zátaras tě zpozoroval!</Czech>
+        <Chinesesimp>敌人的阻击路障已经察觉到你了！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_entered_veh1">
         <Original>You entered a non civilian vehicle!</Original>
@@ -6625,6 +6889,7 @@
         <French>Vous êtes entré dans un véhicule non civil !</French>
         <Korean>민간 차량이 아닌 차량에 탑승했습니다!</Korean>
         <Czech>Nastoupil jsi do necivilního vozidla!</Czech>
+        <Chinesesimp>你进入了一辆非民用车辆！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_entered_veh2">
         <Original>You entered a reported vehicle!</Original>
@@ -6632,6 +6897,7 @@
         <French>Vous êtes entré dans un véhicule recherché !</French>
         <Korean>수배된 차량에 탑승했습니다!</Korean>
         <Czech>Nastoupil jsi do hledaného vozidla!</Czech>
+        <Chinesesimp>你进入了一辆已经被上报的车辆！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_Error">
         <Original>Unknown error occured in undercover execution routine!</Original>
@@ -6639,6 +6905,7 @@
         <French>Erreur inconnue survenue pendant le processus de devenir Incognito !</French>
         <Korean>위장 실행 루틴에서 알 수 없는 오류가 발생했습니다!</Korean>
         <Czech>Došlo k neznámé chybě při přepínání statusu do "v utajení"!</Czech>
+        <Chinesesimp>进行伪装的过程中出现了未知错误</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_leftveh">
         <Original>You left your vehicle and you are still on the Wanted List!</Original>
@@ -6646,6 +6913,7 @@
         <French>Vous avez quitté votre véhicule et êtes toujours recherchés !</French>
         <Korean>당신은 차량에서 내렸지만 여전히 수배 목록에 있습니다!</Korean>
         <Czech>Opustil jsi vozidlo ale stále jsi na listině hledaných!</Czech>
+        <Chinesesimp>你已从你的车辆中离开然而你仍然还在通缉名单上！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_distance">
         <Original>You went too far away from any roads and have been spotted!</Original>
@@ -6653,12 +6921,14 @@
         <French>Vous vous êtes trop éloigné des routes et vous avez été repéré !</French>
         <Korean>도로에서 너무 멀리 떨어졌기 때문에 발견되었습니다!</Korean>
         <Czech>Sjel jsi příliš daleko z cesty a byl jsi zpozorován!</Czech>
+        <Chinesesimp>你因过度开离任何公路而遭到了举报</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_explo">
         <Original>Explosives have been spotted on your vehicle!</Original>
         <Italian>Gli esplosivi sono stati visti sul tuo veicolo!</Italian>
         <French>Des Explosifs ont étés repérés sur votre véhicule !</French>
         <Korean>차량에서 폭발물이 발견되었습니다!</Korean>
+        <Chinesesimp>你车上的爆炸物被发现了！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_reason_1">
         <Original>You cannot stay Undercover while:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform!</Original>
@@ -6666,6 +6936,7 @@
         <French>Vous ne pouvez pas rester Incognito pendant que :&lt;br/&gt;&lt;br/&gt;Une arme est visible&lt;br/&gt;Vous portez une veste&lt;br/&gt;Vous portez un casque&lt;br/&gt;Vous portez des LVN&lt;br/&gt;Vous portez un uniforme militaire !</French>
         <Korean>다음과 같은 경우에는 위장을 유지할 수 없습니다:&lt;br/&gt;&lt;br/&gt;무기 보임&lt;br/&gt;조끼 착용&lt;br/&gt;헬멧 착용&lt;br/&gt;야시경 착용&lt;br/&gt;군복을 입음!</Korean>
         <Czech>Nemůžeš zůstat v utajení pokud:&lt;br/&gt;&lt;br/&gt;Zbraň je viditelná&lt;br/&gt;Máš na sobě vestu&lt;br/&gt;Máš na sobě helmu&lt;br/&gt;Máš na sobě noktovizor&lt;br/&gt;Máš na sobě vojenskou uniformu!</Czech>
+        <Chinesesimp>你不能进行伪装，因为你:&lt;br/&gt;&lt;br/&gt;被目视到身持武器&lt;br/&gt;正身着军用背心&lt;br/&gt;正穿戴一顶军用头盔&lt;br/&gt;正穿戴一顶军用夜视仪&lt;br/&gt;正身着军用制服！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_reason_2">
         <Original>You cannot stay Undercover while showing:&lt;br/&gt;&lt;br/&gt;A weapon is visible&lt;br/&gt;Wearing a vest&lt;br/&gt;Wearing a helmet&lt;br/&gt;Wearing NVGs&lt;br/&gt;Wearing a mil uniform&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List!</Original>
@@ -6673,6 +6944,7 @@
         <French>Vous ne pouvez pas rester Incognito pendant que vous montrez :&lt;br/&gt;&lt;br/&gt;Une arme est visible&lt;br/&gt;Vous portez une veste&lt;br/&gt;Vous portez un casque&lt;br/&gt;Vous portez des LVN&lt;br/&gt;Vous portez un uniforme militaire !</French>
         <Korean>다음과 같은 경우가 보여지는 동안에는 위장을 유지할 수 없습니다:&lt;br/&gt;&lt;br/&gt;무기 보임&lt;br/&gt;조끼 착용&lt;br/&gt;헬멧 착용&lt;br/&gt;야시경 착용&lt;br/&gt;군복을 입음&lt;br/&gt;적이 당신을 수배 목록에 추가했습니다!</Korean>
         <Czech>Nemůžeš zůstat v utajení pokud:&lt;br/&gt;&lt;br/&gt;Zbraň je viditelná&lt;br/&gt;Máš na sobě vestu&lt;br/&gt;Máš na sobě helmu&lt;br/&gt;Máš na sobě noktovizor&lt;br/&gt;Máš na sobě vojenskou uniformu&lt;br/&gt;&lt;br/&gt;Nepřítel tě přidal na listinu hledaných!</Czech>
+        <Chinesesimp>你不能进行伪装，因为你:&lt;br/&gt;&lt;br/&gt;被目视到身持武器&lt;br/&gt;正身着军用背心&lt;br/&gt;正穿戴一顶军用头盔&lt;br/&gt;正穿戴一顶军用夜视仪&lt;br/&gt;正身着军用制服！&lt;br/&gt;敌人已经把你拉入他们的通缉名单！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_reason_3">
         <Original>You cannot stay Undercover while healing a compromised resistance member!</Original>
@@ -6680,6 +6952,7 @@
         <French>Vous ne pouvez pas rester Incognito alors que vous soignez un membre de la résistance compromis !</French>
         <Korean>부상을 입은 저항군을 치료하는 동안에는 위장을 유지할 수 없습니다!</Korean>
         <Czech>Nemůžeš zůstat v utajení když léčíš prozrazeného člena odboje!</Czech>
+        <Chinesesimp>明目张胆的救助反抗军成员使得你退出了伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_reason_4">
         <Original>You cannot stay Undercover while healing a compromised resistance member&lt;br/&gt;&lt;br/&gt;The enemy added you to their Wanted List!</Original>
@@ -6687,6 +6960,7 @@
         <French>Vous ne pouvez pas rester Incognito alors que vous soignez un membre de la résistance compromis !&lt;br/&gt;&lt;br/&gt;L'ennemi vous a ajouté à leur liste de gens recherchés !</French>
         <Korean>부상을 입은 저항군을 치료하는 동안에는 위장을 유지할 수 없습니다!&lt;br/&gt;&lt;br/&gt;적이 당신을 수배 목록에 추가했습니다!</Korean>
         <Czech>Nemůžeš zůstat v utajení když léčíš prozrazeného člena odboje&lt;br/&gt;&lt;br/&gt;Nepřítel tě přidal na listinu hledaných!</Czech>
+        <Chinesesimp>明目张胆的救助反抗军成员使得你退出了伪装&lt;br/&gt;&lt;br/&gt;敌人已经把你拉入他们的通缉名单！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_towrope1">
         <Original>You cannot be undercover while tow ropes are attached to your vehicle!</Original>
@@ -6694,6 +6968,7 @@
         <French>Vous ne pouvez pas être Incognito pendant qu'un treuil de remorquage est attaché à votre véhicule !</French>
         <Korean>당신의 차량에 견인줄이 걸려 있는 동안에는 위장이 불가능합니다!</Korean>
         <Czech>Nemůžeš být v utajení když tažné lano je připojeno k tvému vozidlu!</Czech>
+        <Chinesesimp>在载具被其他车辆拖动的情况下该载具无法进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_no_towrope2">
         <Original>You cannot be undercover and use tow ropes!</Original>
@@ -6701,14 +6976,17 @@
         <French>Vous ne pouvez pas être Incognito et utiliser un treuil de remorquage !</French>
         <Korean>견인줄을 사용하면서 위장을 할 순 없습니다!</Korean>
         <Czech>V utajení nemůžeš používat tažné lano!</Czech>
+        <Chinesesimp>你不能在伪装模式下使用拖车绳索！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_off">
         <Original>Undercover OFF</Original>
         <Korean>위장 끔</Korean>
+        <Chinesesimp>退出伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_on">
         <Original>Undercover ON</Original>
         <Korean>위장 켬</Korean>
+        <Chinesesimp>进行伪装</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_reported">
         <Original>You have been reported or spotted by the enemy!</Original>
@@ -6716,6 +6994,7 @@
         <French>Vous avez été signalé ou détecté par l'ennemi !</French>
         <Korean>적에게 신고를 받았거나 발견되었습니다!</Korean>
         <Czech>Byl jsi nahlášen nebo zpozorován nepřítelem!</Czech>
+        <Chinesesimp>你已经被敌人举报或者发现了！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_goUn_trespass">
         <Original>You have trespassed on an enemy airbase!</Original>
@@ -6723,6 +7002,7 @@
         <French>Vous vous êtes introduit sur une base aérienne ennemie !</French>
         <Korean>적의 공군 기지에 무단 침입했습니다!</Korean>
         <Czech>Vkročil jsi na nepřátelské letiště!</Czech>
+        <Chinesesimp>你已经非法入侵敌人的空军基地！</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_undercover_title">
         <Original>Undercover</Original>
@@ -6730,6 +7010,7 @@
         <French>Incognito</French>
         <Korean>위장</Korean>
         <Czech>V utajení</Czech>
+        <Chinesesimp>伪装</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_fn_UtilityItems">
@@ -6739,6 +7020,7 @@
         <French>Poser l'objet</French>
         <Korean>물건 떨어뜨리기</Korean>
         <Czech>Položit objekt</Czech>
+        <Chinesesimp>放下物品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_build">
         <Original>Building placer</Original>
@@ -6746,6 +7028,7 @@
         <French>Placeur de Construction</French>
         <Korean>건물 배치기</Korean>
         <Czech>Umisťovač budov</Czech>
+        <Chinesesimp>建造工程放置器</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_carry">
         <Original>Carry object</Original>
@@ -6753,6 +7036,7 @@
         <French>Porter l'objet</French>
         <Korean>물건 끌기</Korean>
         <Czech>Nést objekt</Czech>
+        <Chinesesimp>扛起物品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_open">
         <Original>Open Doors</Original>
@@ -6760,6 +7044,7 @@
         <French>Ouvrir Portes</French>
         <Korean>문 열기</Korean>
         <Czech>Otevřít dveře</Czech>
+        <Chinesesimp>打开门</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_pack">
         <Original>Pack object</Original>
@@ -6767,6 +7052,7 @@
         <French>Emballer objet</French>
         <Korean>물건 포장</Korean>
         <Czech>Zabalit objekt</Czech>
+        <Chinesesimp>打包物品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_rotate">
         <Original>Rotate object</Original>
@@ -6774,6 +7060,7 @@
         <French>Pivoter l'objet</French>
         <Korean>물건 회전</Korean>
         <Czech>Rotovat objekt</Czech>
+        <Chinesesimp>旋转物品</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_UtilItem_initObjRem_addact_unpack">
         <Original>Unpack object</Original>
@@ -6781,6 +7068,7 @@
         <French>Déballer objet</French>
         <Korean>물건 풀기</Korean>
         <Czech>Rozbalit objekt</Czech>
+        <Chinesesimp>卸下物品</Chinesesimp>
       </Key>
     </Container>
     <Container name="A3A_garrisons">
@@ -8395,156 +8683,205 @@
     <Container name="A3A_supports">
       <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKELONG">
         <Original>%1 is about to execute an airstrike.</Original>
+        <Korean>%1 세력이 공습을 시작함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_AIRSTRIKETITLE">
         <Original>Airstrike</Original>
+        <Korean>공습</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYLONG">
         <Original>A %1 heavy artillery piece has opened fire.</Original>
+        <Korean>%1 세력의 대규모 야포 포격 발사가 시작됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ARTILLERYTITLE">
         <Original>Artillery strike</Original>
+        <Korean>포병 타격</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFLONG">
         <Original>A %1 fighter started chasing a target.</Original>
+        <Korean>%1 세력의 제공전투기가 목표를 추적하기 시작함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ASFTITLE">
         <Original>Air superiority target</Original>
+        <Korean>제공 목표물</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSLONG">
         <Original>A %1 heavy bomber is performing a carpet bombing.</Original>
+        <Korean>%1 세력의 중폭격기가 융단폭격을 수행함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CARPETBOMBSTITLE">
         <Original>Carpet bombing</Original>
+        <Korean>융단폭격</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASLONG">
         <Original>A %1 CAS aircraft is attacking a target.</Original>
+        <Korean>%1 세력의 근접지원항공기가 목표를 공격하기 시작함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CASTITLE">
         <Original>CAS Target</Original>
+        <Korean>CAS 목표물</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILELONG">
         <Original>Confirmed launch of %1 cruise missile.</Original>
+        <Korean>%1 세력의 순항 미사일 발사가 확인됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_CRUISEMISSILETITLE">
         <Original>Projected missile impact</Original>
+        <Korean>미사일 타격 예상</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_execute">
         <Original>%1 is executing an unknown support now.</Original>
+        <Korean>%1 세력이 지금 알 수 없는 지원을 실행함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPLONG">
         <Original>A %1 heavy gunship started circling the area.</Original>
+        <Korean>%1 세력의 중무장 건쉽이 해당 지역을 선회하기 시작함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_GUNSHIPTITLE">
         <Original>Gunship</Original>
+        <Korean>건쉽</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARLONG">
         <Original>A %1 mortar has opened fire.</Original>
+        <Korean>%1 세력의 박격포 사격이 시작됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_MORTARTITLE">
         <Original>Mortar strike</Original>
+        <Korean>박격포 포격</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKELONG">
         <Original>A %1 satellite has fired an orbital strike.</Original>
+        <Korean>%1 세력의 위성이 궤도 폭격을 수행함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_ORBITALSTRIKETITLE">
         <Original>Orbital strike</Original>
+        <Korean>궤도 폭격</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRLONG">
         <Original>A %1 air QRF is arriving.</Original>
+        <Korean>%1 세력의 공중 신속대응군이 도착</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFAIRTITLE">
         <Original>Air QRF</Original>
+        <Korean>공중 신속대응군</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDLONG">
         <Original>A %1 land QRF just arrived.</Original>
+        <Korean>%1 세력의 지상 신속대응군이 도착</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_QRFLANDTITLE">
         <Original>Land QRF</Original>
+        <Korean>지상 신속대응군</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMLONG">
         <Original>Confirmed launch of %1 SAM.</Original>
+        <Korean>%1 세력의 지대공미사일 발사가 확인됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_SAMTITLE">
         <Original>Projected SAM target</Original>
+        <Korean>지대공미사일 예상 표적</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_TARGET">
         <Original>Target marked on map!</Original>
+        <Korean>목표물이 지도에 표시됨!</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNLONG">
         <Original>%1 is executing a %2 support now.</Original>
+        <Korean>%1 세력이 지금 %2 지원을 실행함</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntSPTCll_UNKNOWNTITLE">
         <Original>%1 support</Original>
+        <Korean>%1 지원군</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_AIRSTRIKE">
         <Original>%1 is preparing an airstrike.</Original>
+        <Korean>%1 세력이 공습을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
         <Original>%1. Estimated arrival in %2 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
         <Original>%1 is preparing a heavy artillery position.</Original>
+        <Korean>%1 세력이 대규모 포격을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ASF">
         <Original>%1 is preparing an air superiority fighter.</Original>
+        <Korean>%1 세력이 제공전투기를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CARPETBOMBS">
         <Original>A %1 heavy bomber is on the way.</Original>
+        <Korean>%1 세력이 중폭격기를 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CAS">
         <Original>%1 is preparing fixed-wing CAS.</Original>
+        <Korean>%1 세력이 고정익 근접지원항공기를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_COUNTERATTACK">
         <Original>%1 just sent a counterattack force.</Original>
+        <Korean>%1 세력이 반격군을 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE">
         <Original>A %1 launcher is preparing to launch a cruise missile.</Original>
+        <Korean>%1 세력이 순항 미사일 발사를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_default">
         <Original>%1 is setting up a %2 support.</Original>
+        <Korean>%1 세력이 %2 지원을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_GUNSHIP">
         <Original>%1 is loading up a heavy gunship.</Original>
+        <Korean>%1 세력이 중무장 건쉽을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_MAJORATTACK">
         <Original>%1 just sent a major attack wave.</Original>
+        <Korean>%1 세력이 대규모 공격 웨이브를 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_MORTAR">
         <Original>%1 is setting up a mortar position.</Original>
+        <Korean>%1 세력이 박격포를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE">
         <Original>A %1 satellite is charging an orbital strike.</Original>
+        <Korean>%1 세력의 위성이 궤도 폭격을 충전 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_QRFAIR">
         <Original>%1 just sent an airborne QRF.</Original>
+        <Korean>%1 세력이 공중 신속대응군을 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_QRFLAND">
         <Original>%1 just sent a land QRF.</Original>
+        <Korean>%1 세력이 지상 신속대응군을 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_SAM">
         <Original>%1 is setting up a SAM launcher.</Original>
+        <Korean>%1 세력이 지대공미사일 발사기를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
         <Original>%1. Estimated setup: %2 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
         <Original>%1 is sending a spotting UAV.</Original>
+        <Korean>%1 세력이 감시형 UAV를 보냄</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_unknown">
         <Original>%1 is setting up an unknown support.</Original>
+        <Korean>%1 세력이 알 수 없는 지원을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_supports_airStrikeVesselDown">
         <Original>Airstrike Vessel Destroyed</Original>
+        <Korean>공습지원기 파괴됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_supports_ASFDown">
         <Original>Fighter Destroyed</Original>
+        <Korean>전투기 파괴됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_supports_CASDown">
         <Original>CAS Plane Destroyed</Original>
+        <Korean>근접지원항공기 파괴됨</Korean>
       </Key>
       <Key ID="STR_A3A_fn_supports_cityDestroyed">
         <Original>%1 Destroyed</Original>
+        <Korean>%1 파괴됨</Korean>
       </Key>
     </Container>
     <Container name="AI_management">
@@ -13833,12 +14170,15 @@
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxcolossal">
         <Original>Colossal construction kit</Original>
+        <Korean>거대 건설 도구</Korean>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxenormous">
         <Original>Enormous construction kit</Original>
+        <Korean>특대형 건설 도구</Korean>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxextralarge">
         <Original>Extra Large construction kit</Original>
+        <Korean>초대형 건설 도구</Korean>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxlarge">
         <Original>Large construction kit</Original>

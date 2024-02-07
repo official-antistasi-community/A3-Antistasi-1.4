@@ -293,6 +293,8 @@ class CfgFunctions
             class installSchrodingersBuildingFix {};
             class prepFunctions {};
             class spawnDebuggingLoop {};
+            class spawnSelectedTemplateAI {};
+            class debugSpawnVics {};
         };
 
         class Dialogs {

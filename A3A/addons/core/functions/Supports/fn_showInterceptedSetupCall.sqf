@@ -111,11 +111,11 @@ if(_reveal >= 0.8) then
 {
     if(toupper _supportType in ["QRFLAND", "QRFAIR", "COUNTERATTACK", "MAJORATTACK"]) then
     {
-        _text = [_text,localize "STR_A3A_fn_support_showIntStpCll_arrivalTime"] joinString " ";
+        _text = [_text,format[localize "STR_A3A_fn_support_showIntStpCll_arrivalTime",_timeStr]] joinString " ";
     }
     else
     {
-        _text = [_text,localize "STR_A3A_fn_support_showIntStpCll_setupTime"] joinString " ";
+        _text = [_text,format[localize "STR_A3A_fn_support_showIntStpCll_setupTime",_timeStr]] joinString " ";
     };
 };
 

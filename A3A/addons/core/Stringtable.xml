@@ -2285,6 +2285,7 @@
       </Key>
       <Key ID="STR_A3A_fn_convoy_craiact_armored_text">
         <Original>A convoy from %1 is about to depart at %2. It will reinforce %3 with armored vehicles. Try to intercept it. Steal or destroy the armor before it reaches its destination.</Original>
+        <Italian>Un convoglio da %1 è in procinto di partire alle %2. Rinforzerà %3 con veicoli corazzati. Prova ad intercettarlo. Ruba o distruggi i veicoli prima che raggiungano la destinazione.</Italian>
         <Korean>%1에서 온 수송대가 %2에서 출발하려고 하며, 이는 %3의 기갑 차량을 증원할 것입니다. 수송을 방해하여 그것이 목적지에 도달하기 전에 훔치거나 파괴하십시오.</Korean>
         <Czech>Konvoj z %1 bude odjíždět v %2. Posílí %3 obrněnými vozidly. Zkus ho zachytit. Ukradni nebo znič náklaďák než dosáhne cíle.</Czech>
       </Key>
@@ -6321,6 +6322,7 @@
       </Key>
       <Key ID="STR_A3A_fn_reinf_spawnHCGro_atCommand">
         <Original>Group %1 at your command.&lt;br/&gt;&lt;br/&gt;Groups are managed from the High Command bar (Default: CTRL+SPACE)&lt;br/&gt;&lt;br/&gt;If the group gets stuck, use the AI Control feature to make them start moving.&lt;br/&gt;&lt;br/&gt;To assign a vehicle for this group, look at a vehicle and use the Add Vehicle option in the Y menu.</Original>
+        <Italian>Gruppo %1 a rapporto.&lt;br/&gt;&lt;br/&gt;I gruppi sono gestiti dalla barra dell'Alto Comando (Default: CTRL+SPAZIO)&lt;br/&gt;&lt;br/&gt;Se il gruppo rimane bloccato, usa la funzione di Controllo IA per farli muovere. I team di Statiche tendono a bloccarsi (stiamo cercando di risolvere)&lt;br/&gt;&lt;br/&gt;Per assegnare un veicolo a questo gruppo, guarda un veicolo e usa l'opzione Gestione Veicolo di Squadra nel menù Y.</Italian>
         <French>Groupe %1 à votre commandement.&lt;br/&gt;&lt;br/&gt;Les Groupes sont gérer depuis la barre HC (Par défaut: CTRL+ESPACE)&lt;br/&gt;&lt;br/&gt;Si le groupe est coincé, utilisez la fonction de Contrôle d'IA afin de les faire bouger. Les équipes d'armes statiques montés ont tendance à se bloquer (la résolution est en cours)&lt;br/&gt;&lt;br/&gt;Pour assigner un véhicule pour ce groupe, regardez un véhicule et utiliser l'option de Gestion de Véhicule d'Escouade dans le menu Y.</French>
         <Korean>당신의 명령으로 %1 그룹을 생성하십시오.&lt;br/&gt;&lt;br/&gt;그룹은 하이 커맨드 표시줄(기본값: 컨트롤 + 스페이스 키)에서 관리됩니다.&lt;br/&lt;br/&gt;그룹이 끼었다면 AI 조종 기능을 사용하여 이동을 시작하십시오. 고정화기 탑승 팀은 자주 끼이는 경향이 있습니다 (아직 해결 중).&lt;br/&gt;&lt;br/&gt;그룹에 차량을 할당하려면 이 차량을 보고 Y 메뉴의 차량 분대 관리 옵션을 사용하십시오.</Korean>
         <Chinesesimp>班组%1听从您的指挥.&lt;br/&gt;&lt;br/&gt;班组可以通过高等指挥菜单进行管理（默认键位：CTRL+空格）&lt;br/&gt;&lt;br/&gt;如果该班组卡住了，可以用AI控制功能来督促他们前进.固定式武器班组很容易卡住（这个问题还在解决中）&lt;br/&gt;&lt;br/&gt;如果要分配载具给这个班组，请看着要用的载具然后按Y键来访问载具班组管理选项</Chinesesimp>
@@ -8796,7 +8798,7 @@
         <Korean>%1 세력이 공습을 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_arrivalTime">
-        <Original>%1. Estimated arrival in %2 minutes.</Original>
+        <Original>Estimated arrival in %1 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_ARTILLERY">
         <Original>%1 is preparing a heavy artillery position.</Original>
@@ -8855,7 +8857,7 @@
         <Korean>%1 세력이 지대공미사일 발사기를 준비 중</Korean>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_setupTime">
-        <Original>%1. Estimated setup: %2 minutes.</Original>
+        <Original>Estimated setup: %1 minutes.</Original>
       </Key>
       <Key ID="STR_A3A_fn_support_showIntStpCll_UAV">
         <Original>%1 is sending a spotting UAV.</Original>

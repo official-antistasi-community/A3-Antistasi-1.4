@@ -238,6 +238,7 @@
       </Key>
       <Key ID="STR_A3A_JNA_loadinventory_notin_kept">
         <Original>These items were not in the Arsenal, so the originals have been kept:</Original>
+        <German>Diese Ausrüstungsgegenstände waren nicht im Arsenl, daher wurden die bereits ausgerüsteten Gegenstände beibehalten:</German>
         <Italian>Questi oggetti non erano nell'Arsenale, quindi sono stati mantenuti gli originali:&lt;br/&gt;</Italian>
         <Spanish>Estos objetos no estaban en el Arsenal, asi que se mantuvieron los originales:&lt;br/&gt;</Spanish>
         <French>Ces objets n'étaient pas dans l'Arsenal, les originaux ont donc été conservés:&lt;br/&gt;</French>

@@ -270,10 +270,10 @@ _militaryLoadoutData set ["uniforms", ["CUP_U_B_GER_Tropentarn_1", "CUP_U_B_GER_
 _militaryLoadoutData set ["vests", ["CUP_V_B_GER_PVest_Trop_RFL", "CUP_V_B_GER_PVest_Trop_RFL_LT"]];
 _militaryLoadoutData set ["slVests", ["CUP_V_B_GER_PVest_Trop_TL", "CUP_V_B_GER_PVest_Trop_OFC"]];
 _militaryLoadoutData set ["medVests", ["CUP_V_B_GER_PVest_Trop_Med"]];
-_militaryLoadoutData set ["mgVests", ["gm_ge_vest_armor_90_machinegunner_flk"]];
-_militaryLoadoutData set ["glVests", ["CUP_V_B_GER_PVest_Trop_MG"]];
+_militaryLoadoutData set ["mgVests", ["CUP_V_B_GER_PVest_Trop_MG"]];
+_militaryLoadoutData set ["glVests", ["CUP_V_B_GER_PVest_Trop_Gren"]];
 _militaryLoadoutData set ["backpacks", ["CUP_B_GER_Pack_Tropentarn"]];
-_militaryLoadoutData set ["helmets", ["CUP_V_B_GER_PVest_Trop_Gren", "CUP_H_Ger_M92_Cover_Trop_GG_CB", "CUP_H_Ger_M92_Cover_Trop_GG_CF", "CUP_H_Ger_M92_Cover_Trop_GG"]];
+_militaryLoadoutData set ["helmets", ["CUP_H_Ger_M92_Cover_Trop_GG_CB", "CUP_H_Ger_M92_Cover_Trop_GG_CF", "CUP_H_Ger_M92_Cover_Trop_GG"]];
 _militaryLoadoutData set ["binoculars", ["Rangefinder"]];
 
 _militaryLoadoutData set ["slRifles", [

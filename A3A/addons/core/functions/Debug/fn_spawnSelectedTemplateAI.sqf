@@ -19,6 +19,8 @@ License: MIT License
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
+Info("Start spawning units");
+
 //All Loadouts with 15 meters in between with NatoInit 
  private _returnpos = getpos (player); 
  private _westGrp = createGroup west; 
@@ -151,4 +153,4 @@ FIX_LINE_NUMBERS()
 	{[_x] call A3A_fnc_NATOinit} forEach units _eastGrp;
 	player setpos _returnpos; 
 
-
+Info("End spawning units");

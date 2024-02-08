@@ -48,6 +48,7 @@ private _debugOutput = {
 	Info(_string);
 };
 
+Info("Start spawning vehicles");
 {
 	Info("Spawning next Faction");
 	private _fn = _x get "name";
@@ -86,3 +87,4 @@ private _debugOutput = {
 	_pos set [0, (_start_y - 30)];
 	_current_line = _lines;
 } forEach _factions;
+Info("End spawning vehicles");

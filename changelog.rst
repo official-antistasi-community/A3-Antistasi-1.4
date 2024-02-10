@@ -41,6 +41,7 @@ Version 3.5.0
 
 .. admonition:: Minor
 
+   * :issue:`3134` Added hint on old build button in Y menu to help older players find the new construction system. 
    * :issue:`3115` Rebel and enemy airstrikes will now be shown in the log. 
    * :issue:`3110` Aircraft can now be accessed from any garage, but cannot be removed unless the player is at an airbase.
    * :issue:`3102` Seaports will only cut 5% of vehicle price each (changed from 10% each) and now cap at 6 maximum, for a total of a max 30% discount on vehicles.

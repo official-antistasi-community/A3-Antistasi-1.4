@@ -17,6 +17,8 @@ else
 			_costs = round (_costs - (_costs * 0.05 * _numFriendlySeaports));
 		} else {
 			_discount = switch (true) do {
+                case (tierWar in [1,2]): { 0 };
+                case (tierWar in [3,4]): { 0 };
 				case (tierWar in [5,6]): { 1 };
 				case (tierWar in [7,8]): { 2 };
 				case (tierWar in [9,10]): { 3 };

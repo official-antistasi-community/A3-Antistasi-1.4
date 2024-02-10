@@ -59,6 +59,7 @@ Version 3.5.0
 
    * :issue:`3091` WS ION - Multiple small changes to the template, mostly vehicles and weapons.
    * :issue:`3037` RHS ChDKZ - Added additional uniforms and unit templates.
+   * :issue:`2802` GM templates - Fixed mag issues, added rebel uniforms, added additional logistic nodes and adjusted some trucks.
 
 .. admonition:: Bugfixes
 

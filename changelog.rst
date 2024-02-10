@@ -49,7 +49,7 @@ Version 3.5.0
    * :issue:`3102` Seaports will only cut 5% of vehicle price each (changed from 10% each) and now cap at 6 maximum, for a total of a max 30% discount on vehicles.
    * :issue:`3102` Garage will now delete blacklisted vehicles, so hopefully no more empty "Vehicle" entities.
    * :issue:`3102` Added the last victim to the hint admins receive for friendly fire.
-   * :issue:`3098` Added larger builder boxes, with 1,000, 5,000, and 10,000 variants.
+   * :issue:`3098` & :issue:`3139` Added one additional builder box with capacity of 1500.
    * :issue:`3088` ACE Hunger - Added bananas! And sunflower seeds and humanitarian rations, but more importantly, bananas.
    * :issue:`3087` Kat's Advanced Medical (KAM) support has been updated to 2.13.3.
    * :issue:`3083` Rebel AI will now sometimes be equipped with pistols if they don't have any good primary weapons.

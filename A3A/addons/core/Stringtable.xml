@@ -14218,17 +14218,8 @@
         <Turkish>Cephane İstasyonu</Turkish>
         <Chinesesimp>弹药站</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_Utility_Items_Name_buildboxcolossal">
-        <Original>Colossal construction kit</Original>
-        <Korean>거대 건설 도구</Korean>
-      </Key>
-      <Key ID="STR_A3A_Utility_Items_Name_buildboxenormous">
-        <Original>Enormous construction kit</Original>
-        <Korean>특대형 건설 도구</Korean>
-      </Key>
-      <Key ID="STR_A3A_Utility_Items_Name_buildboxextralarge">
-        <Original>Extra Large construction kit</Original>
-        <Korean>초대형 건설 도구</Korean>
+      <Key ID="STR_A3A_Utility_Items_Name_buildboxmedium">
+        <Original>Medium construction kit</Original>
       </Key>
       <Key ID="STR_A3A_Utility_Items_Name_buildboxlarge">
         <Original>Large construction kit</Original>

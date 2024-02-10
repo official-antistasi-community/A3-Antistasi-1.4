@@ -16,7 +16,7 @@ Version 3.5.0
 
    * [Added] - Complete port for Weferlingen Summer - requires `Global Mobilisation CDLC <https://store.steampowered.com/app/1042220/Arma_3_Creator_DLC_Global_Mobilization__Cold_War_Germany/>`_
    * [Added] - Complete port for Weferlingen Winter - requires `Global Mobilisation CDLC <https://store.steampowered.com/app/1042220/Arma_3_Creator_DLC_Global_Mobilization__Cold_War_Germany/>`_
-   * In summer and in winter, resistance fighters armed with their R-700 bolt-action rifles trudge through the fields towards ill-prepared Bundeswehr and NVA roadblocks. In an occupied post-WW2 Germany, the citizens are ready to take up arms for freedom, no matter which time of the year. 
+   * In the summer and in the winter, resistance fighters armed with their R-700 bolt-action rifles trudge through the fields towards ill-prepared Bundeswehr and NVA roadblocks. In an occupied post-WW2 Germany, the citizens are ready to take up arms for freedom, no matter which time of the year. 
 
    .. rubric:: :issue:`3073` UMB Colombia Map Port
 
@@ -63,14 +63,14 @@ Version 3.5.0
    * :issue:`3116` Fixed a minor issue with outpost vehicle spawns.
    * :issue:`3114` Fixed a bug where remote-controlling players could despawn garrisons.
    * :issue:`3110` Fixed crew mounting statics while under active attack.
-   * :issue:`3110` Added garbage cleans moving dead soldiers out of their vehicle, which fixes a bug with ACE where seats would be locked if a garbage clean happened.
+   * :issue:`3110` Added that garbage cleans now move dead soldiers out of their vehicle, fixing a bug with ACE where seats would be locked if bodies were deleted in a seat.
    * :issue:`3102` Fixed a bug where the hint would be empty if you tried to purchase vehicles at HQ with enemies nearby.
    * :issue:`3102` Fixed a bug where refugee missions would spawn on top of people.
-   * :issue:`3102` Fixed Kill the Traitor mission will not succeeding if the traitor surrenders.
+   * :issue:`3102` Fixed a bug where the Kill the Traitor mission would break if the traitor surrendered.
    * :issue:`3102` Fixed Guided launchers being unlockable from large intel.
    * :issue:`3102` Fixed ASFs climbing endlessly during circling.
    * :issue:`3102` Added vehicles now have a few more restrictions before being turned into airstrikes, which fixes a few exploits.
-   * :issue:`3102` Added garage now deleting bugged vehicles instead of registering them.
+   * :issue:`3102` Added that the garage now deletes bugged vehicles instead of registering them.
    * :issue:`3093` Fixed a bug where garrisons would have trouble spawning without buildings.
    * :issue:`3092` Fixed a check broken in #3031 for patrols.
    * :issue:`3090` Fixed a tiny bug where garage interactions would cause a logs error.

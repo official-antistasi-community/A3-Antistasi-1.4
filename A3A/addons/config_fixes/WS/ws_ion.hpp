@@ -6,7 +6,7 @@ class a3a_ION_Truck_02_MRL_F : I_Truck_02_MRL_F
     side = 1;
     crew = "B_ION_Soldier_lxWS";
     faction = "BLU_ION_lxWS";
-    hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\truck_02\truck_02_kab_black_co.paa","a3\soft_f_beta\truck_02\data\truck_02_int_co.paa","a3\soft_f_gamma\truck_02\data\truck_02_mrl_co.paa"};
+    hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\truck_02\truck_02_kab_black_co.paa","a3\soft_f_beta\truck_02\data\truck_02_int_co.paa","lxws\vehicles_f_lxws\data\truck_02\zamak_mrl_brown_co.paa"};
 };
 class a3a_ION_Truck_02_Ammo_F : O_Truck_02_Ammo_F
 {
@@ -69,7 +69,7 @@ class a3a_ION_Offroad_armor : B_Tura_Offroad_armor_lxWS
     side = 1;
     crew = "B_ION_Soldier_lxWS";
     faction = "BLU_ION_lxWS";
-    textureList[] = {};
+    textureList[] = {"Black", 1};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
 class a3a_ION_Offroad_armor_at : B_Tura_Offroad_armor_AT_lxWS
@@ -77,7 +77,7 @@ class a3a_ION_Offroad_armor_at : B_Tura_Offroad_armor_AT_lxWS
     side = 1;
     crew = "B_ION_Soldier_lxWS";
     faction = "BLU_ION_lxWS";
-    textureList[] = {};
+    textureList[] = {"Black", 1};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };
 class a3a_ION_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
@@ -85,6 +85,6 @@ class a3a_ION_Offroad_armor_armed : B_Tura_Offroad_armor_armed_lxWS
     side = 1;
     crew = "B_ION_Soldier_lxWS";
     faction = "BLU_ION_lxWS";
-    textureList[] = {};
+    textureList[] = {"Black", 1};
     hiddenSelectionsTextures[] = {"lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\data\offroad_01\offroad_01_ext_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_adds_black_co.paa","lxws\vehicles_f_lxws\offroad_01\data\offroad_01_armor_black_co.paa"};
 };

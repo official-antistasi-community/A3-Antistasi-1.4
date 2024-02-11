@@ -3,6 +3,107 @@ Changelog
 ==========
 
 
+Version 3.5.0
+===============
+
+.. note::
+   11th February 2024
+
+.. admonition:: Major
+
+   .. rubric:: :issue:`3075` Weferlingen Map Ports
+
+
+   * [Added] - Complete port for Weferlingen Summer - requires `Global Mobilisation CDLC <https://store.steampowered.com/app/1042220/Arma_3_Creator_DLC_Global_Mobilization__Cold_War_Germany/>`_
+   * [Added] - Complete port for Weferlingen Winter - requires `Global Mobilisation CDLC <https://store.steampowered.com/app/1042220/Arma_3_Creator_DLC_Global_Mobilization__Cold_War_Germany/>`_
+   * In the summer and in the winter, resistance fighters armed with their R-700 bolt-action rifles trudge through the fields towards ill-prepared Bundeswehr and NVA roadblocks. In an occupied post-WW2 Germany, the citizens are ready to take up arms for freedom, no matter which time of the year. 
+
+   .. rubric:: :issue:`3073` UMB Colombia Map Port
+
+
+   * [Added] - Complete port for UMB Colombia - requires `UMB Colombia <https://steamcommunity.com/workshop/filedetails/?id=2266710560>`_
+   * The rebellion has never gotten it's money through fully ... legitimate sources. Using face paint and camouflage, the rebel squads begin their rush to the poorly-guarded poppy field. The South American jungle, just as warm as advertised.
+
+   .. rubric:: :issue:`3072` Kujari Map Port
+
+
+   * [Added] - Complete port for Kujari - requires `Kujari <https://steamcommunity.com/workshop/filedetails/?id=1726494027>`_
+   * Specks of sand in his sandals, a rebel cell leader watches the road with a pair of binoculars and a clacker. The enemy ammunition convoy is carrying high value weaponry, and they have no idea what's about to happen. Sub-Saharan Africa is a harsh climate, but is a excellent battle-ground for mercenaries and revolutionaries alike.
+
+   .. rubric:: New Templates
+
+
+   * [Added] - :issue:`3082` Vanilla Rebel LFF template
+   * [Added] - :issue:`3081` 3CB Rebel LSM template
+   * [Added] - :issue:`3022` CUP AFRF Desert template
+   * [Added] - :issue:`2802` GM BW Desert template
+   * [Added] - :issue:`2802` GM NVA Desert template
+
+.. admonition:: Minor
+
+   * :issue:`3137` Added vehicle discount functionality based on war level for maps without seaports. 
+   * :issue:`3134` Added hint on old build button in Y menu to help older players find the new construction system. 
+   * :issue:`3131` Added debug functions to test-spawn units and vehicles from templates checking. 
+   * :issue:`3115` Rebel and enemy airstrikes will now be shown in the log. 
+   * :issue:`3110` Aircraft can now be accessed from any garage, but cannot be removed unless the player is at an airbase.
+   * :issue:`3102` Seaports will only cut 5% of vehicle price each (changed from 10% each) and now cap at 6 maximum, for a total of a max 30% discount on vehicles.
+   * :issue:`3102` Garage will now delete blacklisted vehicles, so hopefully no more empty "Vehicle" entities.
+   * :issue:`3102` Added the last victim to the hint admins receive for friendly fire.
+   * :issue:`3098` & :issue:`3139` Added one additional builder box with capacity of 1500.
+   * :issue:`3088` ACE Hunger - Added bananas! And sunflower seeds and humanitarian rations, but more importantly, bananas.
+   * :issue:`3087` Kat's Advanced Medical (KAM) support has been updated to 2.13.3.
+   * :issue:`3083` Rebel AI will now sometimes be equipped with pistols if they don't have any good primary weapons.
+   * :issue:`3049` APCs in the default Arma 3 factions will now use slat cages to boost their combat effectiveness where able.
+
+ .. admonition:: Template updates
+
+   * :issue:`3091` WS ION - Multiple small changes to the template, mostly vehicles and weapons.
+   * :issue:`3037` RHS ChDKZ - Added additional uniforms and unit templates.
+   * :issue:`2802` GM templates - Fixed mag issues, added rebel uniforms, added additional logistic nodes and adjusted some trucks.
+
+.. admonition:: Bugfixes
+
+   * :issue:`3126` Fixed an exploit where helicopters could retain undercover in enemy airspace.
+   * :issue:`3116` Fixed a minor issue with outpost vehicle spawns.
+   * :issue:`3114` Fixed a bug where remote-controlling players could despawn garrisons.
+   * :issue:`3110` Fixed crew mounting statics while under active attack.
+   * :issue:`3110` Added that garbage cleans now move dead soldiers out of their vehicle, fixing a bug with ACE where seats would be locked if bodies were deleted in a seat.
+   * :issue:`3102` Fixed a bug where the hint would be empty if you tried to purchase vehicles at HQ with enemies nearby.
+   * :issue:`3102` Fixed a bug where refugee missions would spawn on top of people.
+   * :issue:`3102` Fixed a bug where the Kill the Traitor mission would break if the traitor surrendered.
+   * :issue:`3102` Fixed Guided launchers being unlockable from large intel.
+   * :issue:`3102` Fixed ASFs climbing endlessly during circling.
+   * :issue:`3102` Added vehicles now have a few more restrictions before being turned into airstrikes, which fixes a few exploits.
+   * :issue:`3102` Added that the garage now deletes bugged vehicles instead of registering them.
+   * :issue:`3093` Fixed a bug where garrisons would have trouble spawning without buildings.
+   * :issue:`3092` Fixed a check broken in #3031 for patrols.
+   * :issue:`3090` Fixed a tiny bug where garage interactions would cause a logs error.
+   * :issue:`3086` Fixed packed objects (e.g. repair station) not returning money when sold.
+   * :issue:`3079` Fixed a bug where trying to breach whilst undercover will do nothing and an exploit where you could breach for free under certain circumstances.
+   * :issue:`3053` Fixed an issue where fuel trucks could spawn fuel out of thin air with ACE.
+
+.. admonition:: Groundwork
+
+   * :issue:`3102` Added a system for blacklisting vehicles from the garage.
+
+.. admonition:: Localization
+
+   * [Multiple PRs] - Localized a few hundred hard coded strings for them to be translated.
+   * [Multiple PRs] - Multiple hundred new translations accumulative for all the supported languages
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
+
 Version 3.4.1
 ===============
 

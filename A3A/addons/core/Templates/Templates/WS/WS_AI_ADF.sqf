@@ -21,7 +21,7 @@
 //A number of these vehicles could be replaced with simple retextures
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _LightUnarmed = ["a3a_MRAP_03_grey_F"];
-private _LightArmed = ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
+private _LightArmed = ["a3a_MRAP_03_hmg_grey_F","a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
 ["vehiclesTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate;
@@ -29,14 +29,14 @@ private _LightArmed = ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F"];
 ["vehiclesFuelTrucks", ["B_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_Truck_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_blufor_F","B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["a3a_APC_Wheeled_03_cannon_blufor_F","a3a_B_APC_Wheeled_01_cannon_F", "B_APC_Tracked_01_rcws_F", "APC_Wheeled_01_atgm_base_lxWS", "a3a_APC_Wheeled_01_command_lxWS"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F", "a3a_Boat_Armed_01_hmg_blufor_F"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["a3a_APC_Wheeled_03_cannon_blufor_F","B_APC_Wheeled_01_cannon_F", "APC_Wheeled_01_atgm_base_lxWS", "APC_Wheeled_01_command_base_lxWS"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["a3a_APC_Wheeled_03_cannon_blufor_F","a3a_B_APC_Wheeled_01_cannon_F", "APC_Wheeled_01_atgm_base_lxWS", "a3a_APC_Wheeled_01_command_lxWS"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["B_D_Plane_CAS_01_dynamicLoadout_lxWS", "a3a_Plane_Fighter_03_grey_F"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["a3a_Plane_Fighter_04_grey_F"]] call _fnc_saveToTemplate;              // 
@@ -80,11 +80,11 @@ if ("enoch" in A3A_enabledDLC) then {
 	_vehiclesMilitiaCars append ["a3a_Offroad_01_covered_tan_F","a3a_Offroad_01_comms_tan_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-	_Tanks append ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]; //Closer to IFV than tank, but no passenger seats.
+    ["vehiclesLightTanks", ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
 };
 if ("expansion" in A3A_enabledDLC) then {
 	_LightUnarmed append ["a3a_MRAP_03_grey_F","B_LSV_01_unarmed_F"];
-	_LightArmed append ["a3a_MRAP_03_gmg_grey_F", "a3a_MRAP_03_hmg_grey_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
+	_LightArmed append ["B_LSV_01_AT_F","B_LSV_01_armed_F"];
 };
 if ("heli" in A3A_enabledDLC) then {
 	_HelisTransport append ["B_Heli_Transport_03_black_F", "B_Heli_Transport_03_unarmed_F"];
@@ -151,16 +151,14 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
-_loadoutData set ["lightATLaunchers", [
+_loadoutData set ["lightATLaunchers", ["launch_NLAW_F"]];
+_loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
-["launch_MRAWS_sand_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
-]];
-_loadoutData set ["ATLaunchers", ["launch_NLAW_F"]];
+["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
 _loadoutData set ["missileATLaunchers", [
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT", "Titan_AP"], [], ""],
+["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
 ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [

@@ -29,7 +29,7 @@ private _size = [_mrkDest] call A3A_fnc_sizeMarker;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _taskId = "invaderPunish" + str A3A_taskCount;
-[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDest,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate; //TODO: Localize?
+[[teamPlayer,civilian,Occupants],_taskId,[format [localize "STR_A3A_fn_base_invaderPunish_long",_nameDest,FactionGet(inv,"name")],format [localize "STR_A3A_fn_base_invaderPunish_title",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
@@ -139,6 +139,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     sidesX setVariable [_mrkDest, Invaders, true];
     garrison setVariable [_mrkDest, [], true];
     [_mrkDest] call A3A_fnc_mrkUpdate;
+    [] spawn A3A_fnc_checkCampaignEnd; // If a town is destroyed, check for loss
 };
 
 sleep 60;

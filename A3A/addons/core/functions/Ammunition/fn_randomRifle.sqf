@@ -27,7 +27,11 @@ if (_pool isEqualTo []) then {
     if (_pool isEqualTo []) then {
         _pool = A3A_rebelGear get "SMGs";
         if (_pool isEqualTo []) then {
-            _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles");
+            private _pistolPool = A3A_rebelGear get "Handguns";
+            for "_i" from 1 to (count _pistolPool) step 2 do { 
+                _pistolPool set [_i, 0.5]
+            };
+            _pool = (A3A_rebelGear get "Shotguns") + (A3A_rebelGear get "SniperRifles") + _pistolPool;
         };
     };
 };
@@ -56,7 +60,11 @@ private _magazine = compatibleMagazines _weapon select 0;
 private _magweight = 5 max getNumber (configFile >> "CfgMagazines" >> _magazine >> "mass");
 
 _unit addWeapon _weapon;
-_unit addPrimaryWeaponItem _magazine;
+if ("Handguns" in _categories) then {
+    _unit addHandgunItem _magazine;
+} else {
+    _unit addPrimaryWeaponItem _magazine;
+};
 _unit addMagazines [_magazine, round (random 0.5 + _totalMagWeight / _magWeight)];
 
 

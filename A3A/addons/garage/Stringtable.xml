@@ -607,7 +607,7 @@
       </Key>
       <Key ID="STR_HR_GRG_Generic_Mounts">
         <Original>Mounts</Original>
-        <German>Reittier</German>
+        <German>Lafetten</German>
         <Italian>Ralle</Italian>
         <Spanish>Montadas</Spanish>
         <French>Montures</French>
@@ -1150,6 +1150,109 @@
         <Portuguese>Veículos serão reparados quando recolhidos da garagem porque a garagem não tem fonte de reparação</Portuguese>
         <Turkish>Garajda bir tamir seti bulunmadığından, araçlar garajdan çıkarıldığında onarılmayacak</Turkish>
         <Chinesesimp>缺乏维修来源时从车库中被取出的载具不会被重新维修</Chinesesimp>
+      </Key>
+    </Container>
+    <Container name="HR_GRG_settings">
+      <Key ID="STR_A3A_inc_public_config_baseCapLong">
+        <Original>Base capacity of the garage at War Level 1.</Original>
+        <Korean>전쟁 레벨 1의 기본 차고 수용량입니다.</Korean>
+        <Czech>Základní kapacita garáže v úrovni války 1.</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_baseCapTitle">
+        <Original>Base Capacity</Original>
+        <Korean>기본 수용량</Korean>
+        <Polish>Pojemność bazy</Polish>
+        <Czech>Základní kapacita</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_capIncLong">
+        <Original>Capacity increase per War Level for the garage.</Original>
+        <Korean>전쟁 레벨이 오를 때마다 차고의 수용량이 증가합니다.</Korean>
+        <Czech>Zvýšení kapacity garáže dle úrovně války.</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_capIncTitle">
+        <Original>Capacity Increase</Original>
+        <Korean>수용량 증가</Korean>
+        <Czech>Zvýšení kapacity</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRearmLong">
+        <Original>Vehicles won't be rearmed when taken from the garage.</Original>
+        <Korean>차고에서 차량을 가져오면 차량이 재무장되지 않습니다.</Korean>
+        <Czech>Vozidla nebudou přezbrojena po vyndání z garáže</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRearmTitle">
+        <Original>Disable garage rearm</Original>
+        <Korean>차고 재무장 비활성화</Korean>
+        <Czech>Vypnout přezbrojení vozidel v garáži</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRefuelLong">
+        <Original>Vehicles won't be refueled when taken from the garage.</Original>
+        <Korean>차고에서 차량을 가져오면 차량이 재급유되지 않습니다.</Korean>
+        <Czech>Vozidla nebudou natankována po vyndání z garáže</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRefuelTitle">
+        <Original>Disable garage refuel</Original>
+        <Korean>차고 재급유 비활성화</Korean>
+        <Czech>Vypnout tankování vozidel v garáži</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRepairLong">
+        <Original>Vehicles won't be repaired when taken from the garage.</Original>
+        <Korean>차고에서 차량을 가져오면 차량이 수리되지 않습니다.</Korean>
+        <Czech>Vozidla nebudou opraveny po vyndání z garáže</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_disableRepairTitle">
+        <Original>Disable garage repair</Original>
+        <Korean>차량 수리 비활성화</Korean>
+        <Czech>Vypnout opravování vozidel v garáži</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_guestLimitLong">
+        <Original>Maximum number of vehicles that can be locked by a guest at once.</Original>
+        <Korean>게스트가 한 번에 잠글 수 있는 최대 차량 수입니다.</Korean>
+        <Czech>Maximální možný počet zamčených vozidel návštěvníky</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_guestLimitTitle">
+        <Original>Guest lock limit</Original>
+        <Korean>게스트 잠금 제한</Korean>
+        <Czech>Limit zamčení návštěvníky</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_lockOnGarageLong">
+        <Original>Lock vehicles automatically when garaged.</Original>
+        <Korean>차고로 이동하면 자동으로 차량을 잠급니다.</Korean>
+        <Czech>Automaticky uzamknout vozidla při garážování.</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_lockOnGarageTitle">
+        <Original>Lock garaged vehicles</Original>
+        <Korean>차고로 간 차량 잠금</Korean>
+        <Czech>Uzamknout garážovaná vozidla</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_memberLimitLong">
+        <Original>Maximum number of vehicles that can be locked by a member at once.</Original>
+        <Korean>멤버가 한 번에 잠글 수 있는 최대 차량 수입니다.</Korean>
+        <Czech>Maximální možný počet zamčených vozidel členy</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_memberLimitTitle">
+        <Original>Member lock limit</Original>
+        <Korean>멤버 잠금 제한</Korean>
+        <Czech>Limit uzamknutí členy</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_placeRaysLong">
+        <Original>Debug setting: Enables the placement rays used to check for vehicle collision.</Original>
+        <Korean>디버그 설정: 차량 충돌을 확인하는 데 사용되는 배치선을 활성화합니다.</Korean>
+        <Czech>Nastavení ladění: Povolit zobrazení paprsků pro sledování kolizí vozidel.</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_placeRaysTitle">
+        <Original>Render placement rays</Original>
+        <Korean>배치선 활성화</Korean>
+        <Czech>Zobrazit paprsky při pokládání</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_pylonEditingLong">
+        <Original>Allows pylons to be edited in the arsenal, as long as an ammo source is available.</Original>
+        <Korean>탄약 공급원이 있는 한 무기고에서 무장창을 편집하는 것을 허용합니다.</Korean>
+        <Czech>Povolí úpravu pylonů v arzenáli, pokud je dostupná munice.</Czech>
+      </Key>
+      <Key ID="STR_A3A_inc_public_config_pylonEditingTitle">
+        <Original>Allow pylon editing</Original>
+        <Korean>무장창 편집 허용</Korean>
+        <Czech>Povolit úpravu pylónů</Czech>
       </Key>
     </Container>
   </Package>

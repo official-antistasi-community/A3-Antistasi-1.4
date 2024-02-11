@@ -27,19 +27,13 @@ class B_AFV_Wheeled_01_cannon_F : AFV_Wheeled_01_base_F { class EventHandlers; }
 class a3a_AFV_Wheeled_01_cannon_F : B_AFV_Wheeled_01_cannon_F
 {
     animationList[] = {"showCamonetHull",0,"showCamonetCannon",0,"showCamonetTurret",0,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-        init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };
 class B_T_AFV_Wheeled_01_cannon_F : AFV_Wheeled_01_base_F { class EventHandlers; };
 class a3a_T_AFV_Wheeled_01_cannon_F :  B_T_AFV_Wheeled_01_cannon_F
 {
     animationList[] = {"showCamonetHull",0,"showCamonetCannon",0,"showCamonetTurret",0,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-       init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };
 
 //Gorgon
@@ -86,19 +80,13 @@ class O_APC_Wheeled_02_rcws_v2_F : APC_Wheeled_02_base_v2_F { class EventHandler
 class a3a_APC_Wheeled_02_rcws_v2_F : O_APC_Wheeled_02_rcws_v2_F
 {
     animationList[] = {"showBags",0.2,"showCanisters",0.2,"showTools",0.2,"showCamonetHull",0,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-        init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };
 class O_T_APC_Wheeled_02_rcws_v2_ghex_F : APC_Wheeled_02_base_v2_F { class EventHandlers; };
 class a3a_T_APC_Wheeled_02_rcws_v2_F : O_T_APC_Wheeled_02_rcws_v2_ghex_F
 {
     animationList[] = {"showBags",0.2,"showCanisters",0.2,"showTools",0.2,"showCamonetHull",0,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-        init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };
 
 //Kamysh
@@ -107,17 +95,11 @@ class O_APC_Tracked_02_cannon_F : O_APC_Tracked_02_base_F { class EventHandlers;
 class a3a_APC_Tracked_02_cannon_F : O_APC_Tracked_02_cannon_F
 {
     animationList[] = {"showTracks",0.5,"showCamonetHull",0,"showBags",0.5,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-        init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };
 class O_T_APC_Tracked_02_cannon_ghex_F : O_APC_Tracked_02_cannon_F {};
 class a3a_T_APC_Tracked_02_cannon_F : O_T_APC_Tracked_02_cannon_ghex_F
 {
     animationList[] = {"showTracks",0.5,"showCamonetHull",0,"showBags",0.5,"showSLATHull",1};
-    class EventHandlers : EventHandlers
-    {
-        init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";
-    };
+    // Already has initVehicle EH
 };

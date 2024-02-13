@@ -215,7 +215,7 @@ class Mission
 				class Item0
 				{
 					dataType="Layer";
-					name="airport";
+					name="airport_0";
 					class Entities
 					{
 						items=39;
@@ -223,7 +223,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12140.395,158.93355,12612.482};
-							name="airp_mortar";
+							name="airp_0_mortar";
 							markerType="ELLIPSE";
 							type="ellipse";
 							colorName="ColorYellow";
@@ -235,7 +235,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12146.631,158.89999,12615.557};
-							name="airp_mortar_1";
+							name="airp_0_mortar_1";
 							markerType="ELLIPSE";
 							type="ellipse";
 							colorName="ColorYellow";
@@ -247,7 +247,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12150.268,158.89999,12610.855};
-							name="airp_mortar_2";
+							name="airp_0_mortar_2";
 							markerType="ELLIPSE";
 							type="ellipse";
 							colorName="ColorYellow";
@@ -259,7 +259,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12186.6,158.98801,12641.588};
-							name="airp_vehicle";
+							name="airp_0_vehicle";
 							markerType="RECTANGLE";
 							type="rectangle";
 							colorName="ColorGreen";
@@ -272,7 +272,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12038.494,159,12696.121};
-							name="airp_vehicle_1";
+							name="airp_0_vehicle_1";
 							markerType="RECTANGLE";
 							type="rectangle";
 							colorName="ColorGreen";
@@ -285,7 +285,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={12102.352,158.94748,12629.086};
-							name="airport";
+							name="airport_0";
 							markerType="RECTANGLE";
 							type="rectangle";
 							colorName="ColorEAST";

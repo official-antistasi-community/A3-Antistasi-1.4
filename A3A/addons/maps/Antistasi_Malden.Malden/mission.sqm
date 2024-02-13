@@ -220,7 +220,7 @@ class Mission
 				class Item0
 				{
 					dataType="Layer";
-					name="airport";
+					name="airport_0";
 					class Entities
 					{
 						items=16;
@@ -481,7 +481,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={737.32501,28.92,12192.586};
-							name="airp_vehicle";
+							name="airp_0_vehicle";
 							markerType="RECTANGLE";
 							type="rectangle";
 							colorName="ColorGreen";
@@ -494,7 +494,7 @@ class Mission
 						{
 							dataType="Marker";
 							position[]={770.20099,28.92,12218.563};
-							name="airport";
+							name="airport_0";
 							markerType="RECTANGLE";
 							type="rectangle";
 							colorName="ColorEAST";

@@ -8927,7 +8927,7 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3978.9839,4.973,4687};
-					name="airp_mortar";
+					name="airp_0_mortar";
 					markerType="ELLIPSE";
 					type="ellipse";
 					colorName="ColorYellow";
@@ -8940,7 +8940,7 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3818.1575,4.3520899,4622.6353};
-					name="airp_vehicle";
+					name="airp_0_vehicle";
 					markerType="RECTANGLE";
 					type="rectangle";
 					colorName="ColorGreen";
@@ -8953,7 +8953,7 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3930.6348,22.849316,4636.3511};
-					name="airport";
+					name="airport_0";
 					markerType="RECTANGLE";
 					type="Empty";
 					colorName="ColorEAST";
@@ -8967,7 +8967,7 @@ class Mission
 				{
 					dataType="Marker";
 					position[]={3838.6531,4.495069,4571.7744};
-					name="airp_vehicle_1";
+					name="airp_0_vehicle_1";
 					markerType="RECTANGLE";
 					type="rectangle";
 					colorName="ColorGreen";

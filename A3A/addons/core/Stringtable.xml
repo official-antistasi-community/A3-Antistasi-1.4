@@ -2688,6 +2688,9 @@
         <Czech>Nemůžeš rychle cestovat pokud nemáš řidiče ve všech svých vozidlech, vozidla jsou požkozené a nemohou se hýbat nebo tvoje skupina je na lodi.</Czech>
         <Portuguese>Não podes fazer Viagem Rápida se não tens um condutor em todos os veículos ou os veículos estão danificados e não se conseguem mexer ou o grupo está num barco.</Portuguese>
       </Key>
+      <Key ID="STR_A3A_fn_dialogs_ftradio_no_param">
+        <Original>Fast travel is disabled for this server.</Original>
+      </Key>
       <Key ID="STR_A3A_fn_dialogs_ftradio_no_tow">
         <Original>You cannot Fast Travel with your Tow Rope out or a Vehicle attached.</Original>
         <Italian>Non puoi effettuare il Viaggio Rapido con la Corda da Traino dispiegata o un Veicolo in Traino.</Italian>
@@ -8366,6 +8369,9 @@
         <Korean>아군 AI 숙련도 (서버 숙련도에 영향을 받음)</Korean>
         <Chinesesimp>友方AI能力水平 (会被服务器设定所影响)</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Params_removeRestore_title">
+        <Original>Disable the "Restore nearby units" option on the vehicle box.</Original>
+      </Key>
       <Key ID="STR_A3A_Params_reviveTime_10s">
         <Original>10 seconds</Original>
         <Italian>10 Secondi</Italian>
@@ -13467,7 +13473,7 @@
         <Chinesesimp>建造</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
-        <Original>To construct buildings in this version, buy a construction kit from the Buy Vehicle menu and use the action on it</Original>
+        <Original>To construct buildings in this version, buy a construction kit from the Buy Vehicle menu and use the action on it.</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>

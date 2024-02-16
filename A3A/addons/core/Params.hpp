@@ -31,8 +31,8 @@ class Params
     class limitedFT
     {
         title = $STR_A3A_Params_limitedFT_title;
-        values[] = {0,1};
-        texts[] = {$STR_A3A_Params_limitedFT_any, $STR_A3A_Params_limitedFT_hq};
+        values[] = {0,1,2};
+        texts[] = {$STR_A3A_Params_limitedFT_any, $STR_A3A_Params_limitedFT_hq, $STR_A3A_Params_generic_none};
         default = 1;
     };
     class civTraffic
@@ -132,6 +132,13 @@ class Params
         values[] = {1, 2, 3};
         texts[] = {$STR_A3A_Params_builderPermissions_tl, $STR_A3A_Params_builderPermissions_engi, $STR_A3A_Params_builderPermissions_both};
         default = 3;
+    };
+    class A3A_removeRestore
+    {
+        title = $STR_A3A_Params_removeRestore_title;
+        values[] = {0,1};
+        texts[] = {$STR_antistasi_dialogs_generic_button_no_tooltip,$STR_antistasi_dialogs_generic_button_yes_text};
+        default = 0;
     };
 
     class SpacerMembership

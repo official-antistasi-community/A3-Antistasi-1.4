@@ -139,6 +139,18 @@ switch (true) do
 //			[_unit, "LIB_PTRD", 100] call _addSecondaryAndMags;
 //		};
     };
+    case (_unitType isEqualTo FactionGet(reb,"unitAT")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAT");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
+    };
+    case (_unitType isEqualTo FactionGet(reb,"unitAA")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAA");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
+    };
     case (_unitType isEqualTo FactionGet(reb,"unitSL")): {
         [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
         if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 2] };

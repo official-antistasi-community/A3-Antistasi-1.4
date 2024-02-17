@@ -71,6 +71,7 @@
 
 ["mortarMagazineHE", "uns_8Rnd_82mmHE_M1941"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "uns_8Rnd_82mmSMOKE_M1941"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "uns_8Rnd_82mmILLUM_M1941"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]

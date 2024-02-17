@@ -24,7 +24,7 @@ bigAttackInProgress = true; publicVariable "bigAttackInProgress";
 forcedSpawn pushBack "Synd_HQ"; publicVariable "forcedSpawn";
 
 private _taskId = "DEF_HQ" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[format ["The enemy has sent SpecOps to find %1. Stop them, or move the HQ before they get here.",name petros],format ["Defend %1",name petros],respawnTeamPlayer],_targPos,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId, localize "STR_A3A_fn_base_attackHQ_defendLong", localize "STR_A3A_fn_base_attackHQ_defendTitle",respawnTeamPlayer,_targPos,true,10,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "DEF_HQ", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 

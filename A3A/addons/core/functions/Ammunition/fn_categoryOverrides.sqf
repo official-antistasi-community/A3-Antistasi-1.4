@@ -2,6 +2,12 @@
 //asval, Mk17 and SCAR-H arguable
 
 private _categoryOverrideTable = [
+//Vanilla
+["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
+["hgun_PDW2000_F", ["SMGs","Weapons"]],
+["hgun_Pistol_Signal_F", ["Unknown","Weapons"]],
+
+//RHS
 ["rhs_weap_vss", ["SniperRifles","Weapons"]],
 ["rhs_weap_vss_grip", ["SniperRifles","Weapons"]],
 ["rhs_weap_vss_npz", ["SniperRifles","Weapons"]],
@@ -39,6 +45,16 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
+//Disposable flare launchers
+["rhs_weap_rsp30_white", ["Unknown","Weapons"]],
+["rhs_weap_rsp30_green", ["Unknown","Weapons"]],
+["rhs_weap_rsp30_red", ["Unknown","Weapons"]],
+
+// These have a rifle grenade muzzle but with no magazines or wells defined
+["rhs_weap_m70b1", ["Rifles","Weapons"]],
+["rhs_weap_m70b1n", ["Rifles","Weapons"]],
+["rhs_weap_m70ab2", ["Rifles","Weapons"]],
+
 ["B_rhsusf_B_BACKPACK", ["Unknown","Items"]],		// Drone backpack
 ["UK3CB_BAF_L103A2", ["Unknown","Items"]],			// Drill practice rifle, no mags
 
@@ -56,9 +72,6 @@ private _categoryOverrideTable = [
 ["UK3CB_BAF_AT4_CS_AT_Launcher", ["RocketLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
 
-["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
-["hgun_PDW2000_F", ["SMGs","Weapons"]],
-
 ["UK3CB_BAF_L86A2", ["MachineGuns","Weapons"]],
 ["UK3CB_BAF_L86A3", ["MachineGuns","Weapons"]],
 
@@ -72,6 +85,50 @@ private _categoryOverrideTable = [
 ["UK3CB_M14_Rail", ["SniperRifles","Weapons"]],
 ["UK3CB_M21_Bipod_Railed", ["SniperRifles","Weapons"]],
 ["UK3CB_M14DMR_Railed", ["SniperRifles","Weapons"]],
+["uk3cb_auga1_para", ["SMGs","Weapons"]],
+["uk3cb_auga1_para_blk", ["SMGs","Weapons"]],
+["uk3cb_auga1_para_tan", ["SMGs","Weapons"]],
+["uk3cb_auga2_para", ["SMGs","Weapons"]],
+["uk3cb_auga2_para_blk", ["SMGs","Weapons"]],
+["uk3cb_auga2_para_tan", ["SMGs","Weapons"]],
+["UK3CB_P90_black", ["SMGs","Weapons"]],
+["UK3CB_P90_camo", ["SMGs","Weapons"]],
+["UK3CB_P90_hex", ["SMGs","Weapons"]],
+["UK3CB_P90_khaki", ["SMGs","Weapons"]],
+["UK3CB_P90_TR_black", ["SMGs","Weapons"]],
+["UK3CB_P90_TR_camo", ["SMGs","Weapons"]],
+["UK3CB_P90_TR_hex", ["SMGs","Weapons"]],
+["UK3CB_P90_TR_khaki", ["SMGs","Weapons"]],
+["UK3CB_P90C_black", ["SMGs","Weapons"]],
+["UK3CB_P90C_camo", ["SMGs","Weapons"]],
+["UK3CB_P90C_hex", ["SMGs","Weapons"]],
+["UK3CB_P90C_khaki", ["SMGs","Weapons"]],
+["UK3CB_P90C_TR_black", ["SMGs","Weapons"]],
+["UK3CB_P90C_TR_camo", ["SMGs","Weapons"]],
+["UK3CB_P90C_TR_hex", ["SMGs","Weapons"]],
+["UK3CB_P90C_TR_khaki", ["SMGs","Weapons"]],
+["uk3cb_ppsh41", ["SMGs","Weapons"]],
+["uk3cb_enfield_l8", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_l8_walnut", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_no3", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_no4", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_no4_walnut", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_no5", ["SniperRifles","Weapons"]],
+["uk3cb_enfield_no5_walnut", ["SniperRifles","Weapons"]],
+["UK3CB_CZ550", ["SniperRifles","Weapons"]],
+["UK3CB_PSG1A1", ["SniperRifles","Weapons"]],
+["UK3CB_PSG1A1_RIS", ["SniperRifles","Weapons"]],
+["uk3cb_sks_01", ["SniperRifles","Weapons"]],
+["uk3cb_sks_01_sling", ["SniperRifles","Weapons"]],
+["uk3cb_sks_02", ["SniperRifles","Weapons"]],
+["UK3CB_SVD_OLD_NPZ", ["SniperRifles","Weapons"]],
+["UK3CB_MP5N_UGL", ["SMGs","Weapons","GrenadeLaunchers"]],
+["uk3cb_auga1_hbar", ["MachineGuns","Weapons"]],
+["uk3cb_auga1_hbar_tan", ["MachineGuns","Weapons"]],
+["uk3cb_auga2_sr_hbar", ["MachineGuns","Weapons"]],
+["uk3cb_auga2_sr_hbar_blk", ["MachineGuns","Weapons"]],
+["uk3cb_auga2_sr_hbar_tan", ["MachineGuns","Weapons"]],
+["UK3CB_G36_LSW", ["MachineGuns","Weapons"]],
 
 ["ace_csw_m3CarryTripod", ["StaticWeaponParts","Items"]],
 ["ace_csw_m3CarryTripodLow", ["StaticWeaponParts","Items"]],
@@ -133,11 +190,6 @@ private _categoryOverrideTable = [
 ["CUP_smg_vityaz_vfg", ["SMGs","Weapons"]],
 ["CUP_smg_vityaz_vfg_front_rail", ["SMGs","Weapons"]],
 
-["CUP_arifle_SAIGA_MK03", ["Shotguns","Weapons"]],
-["CUP_arifle_SAIGA_MK03_top_rail", ["Shotguns","Weapons"]],
-["CUP_arifle_SAIGA_MK03_Wood", ["Shotguns","Weapons"]],
-["CUP_arifle_SIAGE_MK03_Wood_top_rail", ["Shotguns","Weapons"]],
-
 ["CUP_srifle_M2010_blk", ["SniperRifles","Weapons"]],
 ["CUP_srifle_M2010_ctrgt", ["SniperRifles","Weapons"]],
 ["CUP_srifle_M2010_dsrt", ["SniperRifles","Weapons"]],
@@ -158,6 +210,8 @@ private _categoryOverrideTable = [
 
 ["CUP_arifle_MG36_hex", ["MachineGuns","Weapons"]],
 ["CUP_arifle_MG36", ["MachineGuns","Weapons"]],
+
+["CUP_hgun_FlareGun", ["Unknown","Weapons"]],
 
 ["CUP_hgun_BallisticShield_Armed_M9", ["Unknown","Weapons"]],
 ["CUP_hgun_BallisticShield_PMM", ["Unknown","Weapons"]],
@@ -198,17 +252,14 @@ private _categoryOverrideTable = [
 ["ACE_microDAGR", ["Gadgets","Items"]],
 ["ACE_DAGR", ["Gadgets","Items"]],
 
-["LIB_PTRD", ["Unknown", "Weapons"]],
-["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
-["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
 ["ACE_SatchelCharge_Remote_Mag_Throwable", ["Unknown", "Explosives", "Items"]],
 ["ACE_DemoCharge_Remote_Mag_Throwable", ["Unknown", "Explosives", "Items"]],
 //Flashlights
+["ACE_Flashlight_Maglite_ML300L", ["Unknown","Weapons"]],
 ["vn_mx991", ["Unknown","Weapons"]],
 ["vn_mx991_red", ["Unknown","Weapons"]],
 ["vn_fkb1_red", ["Unknown","Weapons"]],
 ["vn_fkb1", ["Unknown","Weapons"]],
-["ACE_Flashlight_Maglite_ML300L", ["Unknown","Weapons"]],
 
 ["vn_default_helmetbase_09", ["Unknown","Headgear"]],	//Goat Hat
 ["vn_m1897", ["Shotguns","Weapons"]],
@@ -334,6 +385,11 @@ private _categoryOverrideTable = [
 ["ACRE_VHF30108MAST", ["Gadgets","items"]],
 ["ACRE_PRC117F", ["Gadgets","items"]],
 
+["LIB_Webley_Flare", ["Unknown", "Weapons"]],
+["LIB_FLARE_PISTOL", ["Unknown", "Weapons"]],
+["LIB_PTRD", ["Unknown", "Weapons"]],
+["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
+["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
 ["LIB_M2_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_Laffete_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_BM37_Tripod", ["StaticWeaponParts","Items"]],
@@ -367,10 +423,50 @@ private _categoryOverrideTable = [
 ["gm_g3a3_dmr_des",["SniperRifles","Weapons"]],
 ["gm_svd_wud",["SniperRifles","Weapons"]],
 ["gm_hk69a1_blk", ["GrenadeLaunchers","Weapons"]],
-["gm_pallad_d_brn", ["GrenadeLaunchers","Weapons"]]	];
+["gm_pallad_d_brn", ["GrenadeLaunchers","Weapons"]],
+
+//SPE
+
+["SPE_PzFaust_30m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_PzFaust_60m", ["RocketLaunchers","Weapons","AT","Disposable"]],
+["SPE_Faustpatrone", ["RocketLaunchers","Weapons","AT","Disposable"]],
+
+["SPE_Lafette_Tripod", ["StaticWeaponParts","Items"]],
+["SPE_M1_81_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_MLE_27_31_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_M1_81_Stand", ["StaticWeaponParts","Items"]],
+["SPE_GrW278_1_Stand", ["StaticWeaponParts","Items"]],
+["SPE_M2_Tripod", ["StaticWeaponParts","Items"]],
+["SPE_GrW278_1_Barrel", ["StaticWeaponParts","Items"]],
+["SPE_MLE_27_31_Stand", ["StaticWeaponParts","Items"]],
+["SPE_Flammenwerfer41", ["Unknown", "Weapons"]],
+["SPE_M2_Flamethrower", ["Unknown", "Weapons"]],
+["SPE_K98_GW", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_K98_Late_GW", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1903A3_Springfield_M1_GL", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1_Carbine_M8", ["Rifles","Weapons","GrenadeLaunchers"]],
+["SPE_M1_Garand_M7", ["Rifles","Weapons","GrenadeLaunchers"]] ];
+
 
 //Create a local namespace.
 A3A_categoryOverrides = false call A3A_fnc_createNamespace;
 {
 	A3A_categoryOverrides setVariable [_x select 0, _x select 1];
 } forEach _categoryOverrideTable;
+
+
+A3A_specialGrenadeLaunchers = createHashMap;
+{
+	private _class = _x#0;
+	private _config = configFile >> "CfgWeapons" >> _class;
+	if !(isClass _config) then { continue };
+
+	private _baseWeapon = getText (_config >> "baseWeapon");
+	if (_baseWeapon == "") then { continue };
+
+	private _muzzle = getText (_config >> "LinkedItems" >> "LinkedItemsMuzzle" >> "item");
+	if (_muzzle == "") then { continue };
+
+	A3A_specialGrenadeLaunchers set [_class, [_baseWeapon, _muzzle]];
+
+} forEach (_categoryOverrideTable select { "GrenadeLaunchers" in _x#1 });

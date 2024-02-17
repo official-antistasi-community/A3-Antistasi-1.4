@@ -1,3 +1,6 @@
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
 private _intel = _this select 0;
 private _searchAction = _this select 2;
 
@@ -18,9 +21,9 @@ private _isTrap = !(isNull _bomb);
 if(_isTrap) exitWith
 {
     _intel remoteExecCall ["removeAllActions", 0];
-    _intel setObjectTextureGlobal [0, "Pictures\Intel\laptop_die.paa"];
+    _intel setObjectTextureGlobal [0, QPATHTOFOLDER(Pictures\Intel\laptop_die.paa)];
     {
-        [petros,"hint","The screen says:<br/><br/>Prepare to die!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];
+        [petros,"hint",localize "STR_A3A_fn_intel_laptop_die", localize "STR_A3A_fn_intel_title2"] remoteExec ["A3A_fnc_commsMP",_x];
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     sleep (2 + (random 3));
     private _bombPos = getPosWorld _bomb;
@@ -97,7 +100,7 @@ if(!(_attack == "No")) then
 _intel setVariable ["ActionNeeded", false, true];
 ["", 0, 0] params ["_errorText", "_errorChance", "_enemyCounter"];
 
-_intel setObjectTextureGlobal [0, "Pictures\Intel\laptop_downloading.paa"];
+_intel setObjectTextureGlobal [0, QPATHTOFOLDER(Pictures\Intel\laptop_downloading.paa)];
 private _lastTime = time;
 private _timeDiff = 0;
 while {_pointSum <= _neededPoints} do
@@ -113,7 +116,7 @@ while {_pointSum <= _neededPoints} do
     {
         _pointSum = 0;
         {
-            [petros,"hint","No one in range of the intel, reseting download!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x]
+            [petros,"hint",localize "STR_A3A_fn_intel_laptop_reset", localize "STR_A3A_fn_intel_title2"] remoteExec ["A3A_fnc_commsMP",_x]
         } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     };
 
@@ -135,48 +138,48 @@ while {_pointSum <= _neededPoints} do
             {
                 case ("Err_Sml_01"):
                 {
-                    _errorText = "Data Fragment Error. File {002451%12-215502%} has to be confirmed manually!";
-                    _actionText = "Confirm file";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_sm_1_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_sm_1_act";
                     _penalty = 0; //150 + random 100;
                     _picturePath = "error1";
                 };
                 case ("Err_Sml_02"):
                 {
-                    _errorText = "404 Error on server. URL incorrect. Skip URL?";
-                    _actionText = "Skip URL";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_sm_2_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_sm_2_act";
                     _penalty = 0; //150 + random 50;
                     _picturePath = "error2";
                 };
                 case ("Err_Sml_03"):
                 {
-                    _errorText = "Windows needs an update. Update now and lose all data?";
-                    _actionText = "Stop windows update";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_sm_3_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_sm_3_act";
                     _penalty = 0; //200 + random 150;
                     _picturePath = "error3";
                 };
                 case ("Err_Med_01"):
                 {
-                    _errorText = "Download port closed on server. Manual reroute required!";
-                    _actionText = "Reroute download";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_me_1_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_me_1_act";
                     _penalty = 0;// 250 + random 150;
                     _picturePath = "error4";
                 };
                 case ("Err_Med_02"):
                 {
-                    _errorText = "Error in NetworkAdapter. Hardware not responding. Restart now?";
-                    _actionText = "Restart NetworkAdapter";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_me_2_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_me_2_act";
                     _penalty = 0; //350 + random 100;
                     _picturePath = "error5";
                 };
                 case ("Err_Lar_01"):
                 {
-                    _errorText = "Critical Error in network infrastructur. Server returned ErrorCode: CRITICAL_ARMA_PROCESS_DIED";
-                    _actionText = "Restart server process";
+                    _errorText = localize "STR_A3A_fn_intel_laptop_err_la_1_err";
+                    _actionText = localize "STR_A3A_fn_intel_laptop_err_la_1_act";
                     _penalty = 0;// 600 + random 250;
                     _picturePath = "error6";
                 };
             };
-            _picturePath = format ["Pictures\Intel\laptop_%1.paa", _picturePath];
+            _picturePath = format [QPATHTOFOLDER(Pictures\Intel\laptop_%1.paa), _picturePath];
             _intel setObjectTextureGlobal [0, _picturePath];
             [
                 _intel,
@@ -185,7 +188,7 @@ while {_pointSum <= _neededPoints} do
                     {
                         (_this select 0) setVariable ["ActionNeeded", false, true];
                         (_this select 0) removeAction (_this select 2);
-                        (_this select 0) setObjectTextureGlobal [0, "Pictures\Intel\laptop_downloading.paa"];
+                        (_this select 0) setObjectTextureGlobal [0, QPATHTOFOLDER(Pictures\Intel\laptop_downloading.paa)];
                     },nil,4,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull])",4
                 ]
             ] remoteExec ["addAction", [teamPlayer, civilian], _intel];
@@ -229,7 +232,7 @@ while {_pointSum <= _neededPoints} do
             _pointSum = _pointSum + (_pointsPerSecond * _timeDiff);
         };
         {
-            [petros,"hintS", format ["Download at %1%2",((round ((_pointSum/_neededPoints) * 10000))/ 100), "%"], "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x]
+            [petros,"hintS", format [localize "STR_A3A_fn_intel_laptop_prog",((round ((_pointSum/_neededPoints) * 10000))/ 100), "%"], localize "STR_A3A_fn_intel_title2"] remoteExec ["A3A_fnc_commsMP",_x]
         } forEach _playerList;
     };
 };
@@ -238,10 +241,10 @@ _intel setVariable ["ActionNeeded", nil, true];
 
 if(_pointSum >= _neededPoints) then
 {
-    _intel setObjectTextureGlobal [0, "Pictures\Intel\laptop_complete.paa"];
+    _intel setObjectTextureGlobal [0,  QPATHTOFOLDER(Pictures\Intel\laptop_complete.paa)];
     ["Large", _side] remoteExec ["A3A_fnc_selectIntel", 2];
     {
-        [petros,"hint","You managed to download the intel!", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x];
+        [petros,"hint",localize "STR_A3A_fn_intel_laptop_success", localize "STR_A3A_fn_intel_encr_reset"] remoteExec ["A3A_fnc_commsMP",_x];
         [10,_x] call A3A_fnc_playerScoreAdd;
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     [5, theBoss] call A3A_fnc_playerScoreAdd;

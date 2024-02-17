@@ -68,6 +68,7 @@
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
@@ -213,9 +214,9 @@ _sfLoadoutData set ["slRifles", [
 ["rhs_weap_ak74mr_gp25", "rhs_acc_dtk4short", "rhs_acc_perst1ik_ris", "rhsusf_acc_ACOG_RMR", ["rhs_30Rnd_545x39_7N22_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VG40TB", "rhs_VG40OP_white"], ""],
 ["rhs_weap_ak74mr_gp25", "rhs_acc_dtk4short", "rhs_acc_perst1ik_ris", "rhsusf_acc_su230_mrds", ["rhs_30Rnd_545x39_7N22_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VG40TB", "rhs_VG40OP_white"], ""],
 ["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
-["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
+["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
 ["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
-["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
+["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
 
 _sfLoadoutData set ["rifles", [
@@ -248,7 +249,7 @@ _sfLoadoutData set ["SMGs", [
 ]];
 _sfLoadoutData set ["machineGuns", [
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ELCAN", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
-["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_su230", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_su230a", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_g33_xps3", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ACOG_RMR", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m249_light_L", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_g33_xps3", ["rhsusf_100Rnd_556x45_M995_soft_pouch"], [], "rhsusf_acc_kac_grip_saw_bipod"],
@@ -357,7 +358,7 @@ _policeLoadoutData set ["shotGuns", [
 _policeLoadoutData set ["SMGs", [
 ["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
 ["UK3CB_M16A1", "", "", "", [], [], ""],
-["rhs_weap_ak74n", "", "rhs_acc_2dpzenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
 ["UK3CB_BHP", "", "", "", [], [], ""]

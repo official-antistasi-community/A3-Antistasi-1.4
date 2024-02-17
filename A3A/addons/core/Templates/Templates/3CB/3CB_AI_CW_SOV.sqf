@@ -25,9 +25,9 @@
 ["vehiclesAmmoTrucks", ["UK3CB_CW_SOV_O_LATE_Ural_Ammo", "UK3CB_CW_SOV_O_LATE_Gaz66_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_CW_SOV_O_LATE_Gaz66_Repair", "UK3CB_CW_SOV_O_LATE_Ural_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_CW_SOV_O_LATE_Kraz255_Fuel", "UK3CB_CW_SOV_O_LATE_Ural_Fuel"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["UK3CB_CW_SOV_O_LATE_Gaz66_Med"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_LATE_BRDM2", "UK3CB_CW_SOV_O_LATE_BRDM2_ATGM", "UK3CB_CW_SOV_O_LATE_BRDM2_HQ", "UK3CB_CW_SOV_O_LATE_BTR40_MG"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_CW_SOV_O_LATE_BMD1", "UK3CB_CW_SOV_O_LATE_BMD1K", "UK3CB_CW_SOV_O_LATE_BMD1P", "UK3CB_CW_SOV_O_LATE_BMD1PK", "UK3CB_CW_SOV_O_LATE_BMD2", "UK3CB_CW_SOV_O_LATE_BMP1", "UK3CB_CW_SOV_O_LATE_BMP2", "UK3CB_CW_SOV_O_LATE_BMP2K", "UK3CB_CW_SOV_O_LATE_BRM1K", "UK3CB_CW_SOV_O_LATE_BTR60", "UK3CB_CW_SOV_O_LATE_BTR70", "UK3CB_CW_SOV_O_LATE_BTR80", "UK3CB_CW_SOV_O_LATE_BTR80a", "UK3CB_CW_SOV_O_LATE_MTLB_ZU23"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["UK3CB_CW_SOV_O_LATE_Gaz66_Med", "UK3CB_CW_SOV_O_LATE_MTLB_AMB"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_CW_SOV_O_LATE_BRDM2", "UK3CB_CW_SOV_O_LATE_BRDM2_ATGM", "UK3CB_CW_SOV_O_LATE_BRDM2_HQ", "UK3CB_CW_SOV_O_LATE_BTR40_MG","UK3CB_CW_SOV_O_LATE_MTLB_KPVT", "UK3CB_CW_SOV_O_LATE_MTLB_PKT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_CW_SOV_O_LATE_BMD1", "UK3CB_CW_SOV_O_LATE_BMD1K", "UK3CB_CW_SOV_O_LATE_BMD1P", "UK3CB_CW_SOV_O_LATE_BMD1PK", "UK3CB_CW_SOV_O_LATE_BMD2", "UK3CB_CW_SOV_O_LATE_BMP1", "UK3CB_CW_SOV_O_LATE_BMP2", "UK3CB_CW_SOV_O_LATE_BMP2K", "UK3CB_CW_SOV_O_LATE_BRM1K", "UK3CB_CW_SOV_O_LATE_BTR60", "UK3CB_CW_SOV_O_LATE_BTR70", "UK3CB_CW_SOV_O_LATE_BTR80", "UK3CB_CW_SOV_O_LATE_BTR80a", "UK3CB_CW_SOV_O_LATE_MTLB_ZU23", "UK3CB_CW_SOV_O_LATE_MTLB_BMP"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_CW_SOV_O_LATE_BMP2", "UK3CB_CW_SOV_O_LATE_BMP2K"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_CW_SOV_O_LATE_T80A", "UK3CB_CW_SOV_O_LATE_T80", "UK3CB_CW_SOV_O_LATE_T80U", "UK3CB_CW_SOV_O_LATE_T80BVK", "UK3CB_CW_SOV_O_LATE_T72BE", "UK3CB_CW_SOV_O_LATE_T72BC", "UK3CB_CW_SOV_O_LATE_T72BB", "UK3CB_CW_SOV_O_LATE_T72A", "UK3CB_CW_SOV_O_LATE_T72B", "UK3CB_CW_SOV_O_LATE_T55"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_CW_SOV_O_LATE_ZsuTank"]] call _fnc_saveToTemplate; //UK3CB_CW_SOV_O_LATE_2S6M_Tunguska
@@ -69,6 +69,7 @@
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;             //this line determines available HE-shells for the static mortars - !needs to be comtible with the mortar! -- Example: ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] - ENTER ONLY ONE OPTION
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;         //this line determines smoke-shells for the static mortar - !needs to be comtible with the mortar! -- Example: ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] - ENTER ONLY ONE OPTION
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
@@ -80,13 +81,13 @@
 ///  Identities   ///
 /////////////////////
 
-["faces", ["AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03","AsianHead_A3_04",
-"AsianHead_A3_05","AsianHead_A3_06","AsianHead_A3_07","LivonianHead_6","Sturrock",
-"WhiteHead_02","WhiteHead_03","WhiteHead_05","WhiteHead_06","WhiteHead_07",
-"WhiteHead_08","WhiteHead_09","WhiteHead_10","WhiteHead_12","WhiteHead_13",
-"WhiteHead_14","WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19",
+["faces", ["AsianHead_A3_01", "AsianHead_A3_02", "AsianHead_A3_03", "AsianHead_A3_04",
+"AsianHead_A3_05", "AsianHead_A3_06", "AsianHead_A3_07", "LivonianHead_6", "Sturrock",
+"WhiteHead_02", "WhiteHead_03", "WhiteHead_05", "WhiteHead_06", "WhiteHead_07",
+"WhiteHead_08", "WhiteHead_09", "WhiteHead_10", "WhiteHead_12", "WhiteHead_13",
+"WhiteHead_14", "WhiteHead_15", "WhiteHead_16", "WhiteHead_18", "WhiteHead_19",
 "WhiteHead_20"]] call _fnc_saveToTemplate;
-["voices", ["RHS_Male01RUS","RHS_Male02RUS","RHS_Male03RUS","RHS_Male04RUS","RHS_Male05RUS"]] call _fnc_saveToTemplate;
+["voices", ["RHS_Male01RUS", "RHS_Male02RUS", "RHS_Male03RUS", "RHS_Male04RUS", "RHS_Male05RUS"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

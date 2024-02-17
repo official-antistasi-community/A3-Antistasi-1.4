@@ -20,10 +20,12 @@ _unit setUnitPos "UP";
 _loadOut = getUnitLoadout _unit;
 removeAllItems _unit;
 removeAllAssignedItems _unit;
-removeAllWeapons _unit;
-_unit forceAddUniform (selectRandom (A3A_faction_civ get "uniforms"));
-removeHeadgear _unit;
+removeAllWeapons _unit;			// also removes magazines
 removeGoggles _unit;
+removeVest _unit;
+
+_unit addHeadgear (selectRandom (A3A_faction_civ get "headgear"));
+_unit forceAddUniform (selectRandom (A3A_faction_civ get "uniforms"));
 
 //_airportsX = airportsX + outposts;// + (controlsX select {isOnRoad getMarkerPos _x});
 while {(captive _LeaderX) and (captive _unit)} do
@@ -43,4 +45,7 @@ _unit setCombatBehaviour _oldBehaviour;
 _unit enableAI "TARGET";
 _unit enableAI "AUTOTARGET";
 _unit setUnitPos "AUTO";
+
+// Remove backpack if changed, prevents static/device dupe exploits
+if (_loadOut#5 isNotEqualTo [] and { backpack _unit != _loadOut#5#0 }) then { _loadOut set [5, []] };
 _unit setUnitLoadout _loadOut;

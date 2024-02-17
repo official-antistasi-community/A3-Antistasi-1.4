@@ -17,7 +17,7 @@ else
     if (_markerX in outposts) then
     {
         _groups = 1 + round (_size/30);
-        _buildings = nearestObjects [getMarkerPos _markerX,(["Land_TTowerBig_1_F","Land_TTowerBig_2_F","Land_Communication_F"]) + listMilBld, _size];
+        _buildings = nearestObjects [getMarkerPos _markerX,(["Land_TTowerBig_1_F","Land_TTowerBig_2_F","Land_Communication_F"]) + A3A_milBuildingWhitelist, _size];
         if (count _buildings > 0) then {_groups = _groups + 2};
         _groups = _groups min 7;
         if (_frontierX) then {_groups = _groups + 2};

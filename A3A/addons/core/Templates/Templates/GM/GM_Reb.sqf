@@ -8,28 +8,45 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "gm_ge_army_k125"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "gm_ge_army_iltis_cargo"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "gm_gc_army_uaz469_dshkm"] call _fnc_saveToTemplate;
-["vehicleTruck", "gm_ge_army_kat1_451_cargo"] call _fnc_saveToTemplate;
-["vehicleAT", "gm_gc_army_uaz469_spg9"] call _fnc_saveToTemplate;
+//////////////////////////
+//  Mission/HQ Objects  //
+//////////////////////////
 
-["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "CUP_I_V3S_Repair_TKG"] call _fnc_saveToTemplate;
+// All of bellow are optional overrides.
+["firstAidKits", ["gm_ge_firstaidkit_vehicle","gm_gc_firstaidkit_vehicle","gm_ge_army_firstaidkit_vehicle","gm_gc_army_medkit"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.
+["mediKits", ["gm_gc_army_medbox","gm_ge_army_medkit_80"]] call _fnc_saveToTemplate;  // Relies on autodetection. However, item is tested for for help and reviving.
+["toolKits", ["gm_repairkit_01"]] call _fnc_saveToTemplate;  // Relies on autodetection.
 
-["vehiclePlane", "gm_gc_civ_l410s_passenger"] call _fnc_saveToTemplate;
+["flyGear", ["gm_ge_uniform_pilot_commando_blk", "gm_ge_uniform_pilot_commando_gry", "gm_ge_uniform_pilot_commando_oli", "gm_ge_uniform_pilot_commando_rolled_blk", "gm_ge_uniform_pilot_commando_rolled_gry", "gm_ge_uniform_pilot_commando_rolled_oli"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "gm_gc_civ_p601"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "gm_gc_civ_ural375d_cargo"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "gm_gc_civ_mi2p"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Rubberboat"] call _fnc_saveToTemplate;
+//////////////////////////
+//       Vehicles       //
+//////////////////////////
 
-["staticMG", "gm_gc_army_dshkm_aatripod"] call _fnc_saveToTemplate;
-["staticAT", "gm_gc_army_spg9_tripod"] call _fnc_saveToTemplate;
+["vehiclesBasic", ["gm_ge_army_k125"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["gm_ge_army_iltis_cargo"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["gm_gc_army_uaz469_dshkm"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["gm_ge_army_kat1_451_container"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["gm_gc_army_uaz469_spg9"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
-["staticMortar", "CUP_O_2b14_82mm_RU"] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
+
+["vehiclesPlane", ["gm_gc_civ_l410s_passenger"]] call _fnc_saveToTemplate;
+
+["vehiclesCivCar", ["gm_gc_civ_p601", "gm_ge_civ_w123"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["gm_gc_civ_ural375d_cargo"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["gm_gc_civ_mi2p"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+
+["staticMGs", ["gm_gc_army_dshkm_aatripod"]] call _fnc_saveToTemplate;
+["staticAT", ["gm_gc_army_spg9_tripod"]] call _fnc_saveToTemplate;
+["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
+
+["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["mineAT", "gm_mine_at_dm21"] call _fnc_saveToTemplate;         // , "gm_mine_at_dm1233"]]
 ["mineAPERS", "gm_mine_ap_dm31"] call _fnc_saveToTemplate;
@@ -37,9 +54,7 @@
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["gm_explosive_petn_charge", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-
-["vehicleAA", "CUP_I_Ural_ZU23_NAPA"] call _fnc_saveToTemplate;
-["staticAA", "CUP_I_ZU23_NAPA"] call _fnc_saveToTemplate;
+#include "GM_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -62,6 +77,7 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc15
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR_anprc154"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155","TFAR_anprc155_coyote"]};
+_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 
 _rebUniforms = [
@@ -79,6 +95,30 @@ _rebUniforms = [
     "U_I_L_Uniform_01_deserter_F"
     ];
 
+//for later if i also add RHS to the options for GM-Templates
+_rebUniforms append [
+    "CUP_I_B_PARA_Unit_2",
+    "CUP_I_B_PARA_Unit_6",
+    "CUP_I_B_PARA_Unit_9",
+    "CUP_U_I_GUE_Anorak_01",
+    "CUP_U_I_GUE_Anorak_03",
+    "CUP_U_I_GUE_Anorak_02",
+    "CUP_U_I_GUE_WorkU_01",
+    "CUP_U_I_GUE_WorkU_02",
+    "CUP_U_I_GUE_Flecktarn2",
+    "CUP_U_I_GUE_Flecktarn3",
+    "CUP_U_I_GUE_Flecktarn",
+    "CUP_U_I_GUE_Flecktarn4",
+    "CUP_U_I_GUE_Woodland1",
+    "U_IG_Guerilla1_1",
+    "U_IG_Guerilla2_1",
+    "U_IG_Guerilla2_2",
+    "U_IG_Guerilla2_3",
+    "U_IG_Guerilla3_1",
+    "U_IG_leader",
+    "U_IG_Guerrilla_6_1",
+    "U_I_G_resistanceLeader_F"
+];
 
 private _dlcUniforms = [];
 

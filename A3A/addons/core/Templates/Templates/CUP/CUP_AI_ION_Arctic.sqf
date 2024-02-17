@@ -65,6 +65,7 @@
 
 ["mortarMagazineHE", "CUP_8Rnd_82mm_Mo_shells_veh"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "CUP_8Rnd_82mm_Mo_Smoke_white_veh"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "CUP_8Rnd_82mm_Mo_Flare_white_veh"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
@@ -82,6 +83,7 @@
 "WhiteHead_09","WhiteHead_10","WhiteHead_12","WhiteHead_13",
 "WhiteHead_17","WhiteHead_18","WhiteHead_19","WhiteHead_20"]] call _fnc_saveToTemplate;
 ["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+"NATOMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

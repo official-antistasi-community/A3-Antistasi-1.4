@@ -14,7 +14,8 @@ _roads = [];
 private _players = allPlayers - entities "HeadlessClient_F";
 private _bases = (seaports + airportsX + outposts) select {
 	call {
-		if (_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo []) exitWith {false};
+		if ((_players inAreaArray [markerPos _x, 2000, 2000] isEqualTo [])) exitWith {false};
+		if (!(_players inAreaArray [markerPos _x, 350, 350] isEqualTo [])) exitWith {false};
 		private _side = sidesX getVariable [_x, sideUnknown];
 		if (_side == teamPlayer) exitWith {false};
 		if (_x in seaports and Faction(_side) get "vehiclesGunBoats" isEqualTo []) exitWith {false};
@@ -23,10 +24,10 @@ private _bases = (seaports + airportsX + outposts) select {
 	};
 };
 if (_bases isEqualTo []) exitWith {};
-
 Debug_1("Possible patrol bases %1", _bases);
 
 _base = selectRandom _bases;
+
 _sideX = sidesX getVariable [_base,sideUnknown];
 private _faction = Faction(_sideX);
 
@@ -125,7 +126,7 @@ while {alive _veh} do
 	{
 	if (count _arrayDestinations < 2) exitWith {};
 	_destinationX = selectRandom _arrayDestinations;
-	if (debug) then {player globalChat format ["Patrulla AI generada. originX: %2 destinationX %1", _destinationX, _base]; sleep 3};
+	if (debug) then {player globalChat format ["Generated AI patrol. Origin %2, destination %1.", _destinationX, _base]; sleep 3};
 	_posDestination = getMarkerPos _destinationX;
 	if (_typePatrol == "LAND") then
 		{
@@ -139,7 +140,7 @@ while {alive _veh} do
 	_veh setFuel 1;
 
 	private _timeout = time + (_veh distance2d _posDestination) / 6 + 300;			// stuck detection
-	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or (_timeout > time) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
+	waitUntil {sleep 60; (_veh distance _posDestination < _distanceX) or (time > _timeout) or ({[_x] call A3A_fnc_canFight} count _soldiers == 0) or (!canMove _veh)};
 	if !(_veh distance _posDestination < _distanceX) exitWith {};
 	if (_typePatrol == "AIR") then
 		{

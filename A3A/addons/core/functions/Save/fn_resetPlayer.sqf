@@ -9,7 +9,7 @@ params ["_playerId", "_unit"];
 Info_2("Resetting player data for ID %1, unit %2", _playerId, _unit);
 
 // Don't restore more money than this player had previously
-private _money = playerStartingMoney;
+private _money = initialPlayerMoney;
 if (_playerId in A3A_playerSaveData) then {
     private _oldMoney = A3A_playerSaveData get _playerId get "moneyX";
     if !(isNil "_oldMoney") then { _money = _money min _oldMoney };

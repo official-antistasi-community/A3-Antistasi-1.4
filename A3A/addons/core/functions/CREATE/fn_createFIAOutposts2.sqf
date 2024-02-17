@@ -33,7 +33,7 @@ if (_isRoad) then
 		{
 		_roadcon = roadsConnectedto (_road select 0);
 		_dirveh = [_road select 0, _roadcon select 0] call BIS_fnc_DirTo;
-		_veh = FactionGet(reb,"vehicleLightArmed") createVehicle getPos (_road select 0);
+		_veh = ((FactionGet(reb,"vehiclesLightArmed")) # 0) createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -64,11 +64,11 @@ if ({alive _x} count units _groupX == 0) then
 	deleteMarker _markerX;
 	if (_isRoad) then
 		{
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_roadblockFight_lost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		}
 	else
 		{
-		["TaskFailed", ["", "Watchpost Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_crfiaOP2_lostWatchpost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		};
 	};
 

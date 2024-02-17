@@ -1,6 +1,9 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-if (count hcSelected player == 0) exitWith {["Artillery Support", "You must select an artillery group."] call A3A_fnc_customHint;};
+
+private _titleStr = localize "STR_A3A_fn_ai_artySupport_title";
+
+if (count hcSelected player == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_select"] call A3A_fnc_customHint;};
 
 private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
 
@@ -63,11 +66,11 @@ if ((_veh != _soldierX) and (not(_veh in _artyArray))) then
 	};
 } forEach _unitsX;
 
-if (!_hasArtillery) exitWith {["Artillery Support", "You must select an artillery group or it is a Mobile Mortar and it's moving"] call A3A_fnc_customHint;};
-if (!_areAlive) exitWith {["Artillery Support", "All elements in this Battery cannot fire or are disabled"] call A3A_fnc_customHint;};
-if ((_hasAmmunition < 2) and (!_areReady)) exitWith {["Artillery Support", "The Battery has no ammo to fire. Reload it on HQ"] call A3A_fnc_customHint;};
-if (!_areReady) exitWith {["Artillery Support", "Selected Battery is busy right now"] call A3A_fnc_customHint;};
-if (_typeAmmunition == "") exitWith {["Artillery Support", "Your current modset doesent support this strike type"] call A3A_fnc_customHint;};
+if (!_hasArtillery) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectOr"] call A3A_fnc_customHint;};
+if (!_areAlive) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_cannotfire"] call A3A_fnc_customHint;};
+if ((_hasAmmunition < 2) and (!_areReady)) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_noammo"] call A3A_fnc_customHint;};
+if (!_areReady) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_busy"] call A3A_fnc_customHint;};
+if (_typeAmmunition == "") exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_modno"] call A3A_fnc_customHint;};
 if (isNil "_typeAmmunition") exitWith {};
 
 hcShowBar false;
@@ -97,7 +100,7 @@ typeArty = nil;
 
 positionTel = [];
 
-["Artillery Support", "Select the position on map where to perform the Artillery strike."] call A3A_fnc_customHint;
+[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposstart"] call A3A_fnc_customHint;
 
 if (!visibleMap) then {openMap true};
 onMapSingleClick "positionTel = _pos;";
@@ -123,7 +126,7 @@ for "_i" from 0 to (count _artyArray) - 1 do
 		};
 	};
 
-if (count _artyArrayDef1 == 0) exitWith {["Artillery Support", "The position you marked is out of bounds for that Battery."] call A3A_fnc_customHint;};
+if (count _artyArrayDef1 == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_oob"] call A3A_fnc_customHint;};
 
 _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
@@ -132,10 +135,10 @@ _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
+	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal";
 	positionTel = [];
 
-	["Artillery Support", "Select the position to finish the barrage."] call A3A_fnc_customHint;
+	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
 
 	if (!visibleMap) then {openMap true};
 	onMapSingleClick "positionTel = _pos;";
@@ -170,7 +173,7 @@ if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal 
 
 if (_typeArty != "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Arty Strike";
+	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_artyStrike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;
@@ -192,7 +195,8 @@ if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _mar
 	publicVariable "forcedSpawn";
 	};
 
-_textX = format ["Requesting fire support on Grid %1. %2 Rounds.", mapGridPosition _positionTel, round _rounds];
+_roundPlural = if (round _rounds == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
+_textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPosition _positionTel, round _rounds, _roundPlural];
 [theBoss,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 
 if (_typeArty == "BARRAGE") then
@@ -201,19 +205,19 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal2 setMarkerShapeLocal "ICON";
 	_mrkFinal2 setMarkerTypeLocal "hd_destroy";
 	_mrkFinal2 setMarkerColorLocal "ColorRed";
-	_mrkFinal2 setMarkerTextLocal "Artillery Barrage End";
+	_mrkFinal2 setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal2";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
 	_timeX = time + _eta;
-	_textX = format ["Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact.",round _eta];
-	[petros,"sideChat",_textX]remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesBarrage",round _eta];
+	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	[_timeX] spawn
 		{
 		private ["_timeX"];
 		_timeX = _this select 0;
 		waitUntil {sleep 1; time > _timeX};
-		[petros,"sideChat","Splash. Out"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	};
 
@@ -272,14 +276,15 @@ if (_typeArty != "BARRAGE") then
         #define ARTILLERY_ERROR_INFORMATION [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)]
         Error_4("Params: %1,%2,%3,%4,%5",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA ARTILLERY_ERROR_INFORMATION);
     };
-	_textX = format ["Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs.",round _eta,_roundsMax - _rounds];
+	_roundPlural = if ((_roundsMax - _rounds) == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
+	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesSingle",round _eta,_roundsMax - _rounds, _roundPlural];
 	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 
 if (_typeArty != "BARRAGE") then
 	{
 	waitUntil {sleep 1; time > _timeX};
-	[petros,"sideChat","Splash. Out."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 sleep 10;
 deleteMarkerLocal _mrkFinal;

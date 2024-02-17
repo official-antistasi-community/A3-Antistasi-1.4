@@ -63,6 +63,7 @@
 ["staticMortars", ["CUP_O_2b14_82mm_RU"]] call _fnc_saveToTemplate;
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
@@ -81,6 +82,7 @@
 "WhiteHead_13","WhiteHead_14","WhiteHead_17","WhiteHead_18",
 "WhiteHead_21","WhiteHead_30"]] call _fnc_saveToTemplate;
 ["voices", ["Male01RUS","Male02RUS","Male03RUS"]] call _fnc_saveToTemplate;
+"CUP_Names_RussianMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -733,8 +735,7 @@ private _policeTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-
-    [selectRandom ["SMGs", "shotGuns"]] call _fnc_setPrimary;
+    ["SMGs"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

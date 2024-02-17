@@ -15,9 +15,18 @@ force TFAR_givePersonalRadioToRegularSoldier = false;
 force TFAR_SameLRFrequenciesForSide = false;
 force TFAR_SameSRFrequenciesForSide = false;
 
+// ACE Captives
+force ace_captives_allowHandcuffOwnSide = false;
+force ace_captives_allowSurrender = false;
+force ace_captives_requireSurrender = 2;
+force ace_captives_requireSurrenderAi = true;
+
 // ACE Crew Served Weapons
 force ace_csw_defaultAssemblyMode = false;
 force ace_csw_handleExtraMagazines = false;
 
 // ACE User Interface
 force ace_ui_groupBar = true;
+
+//ACE Headless
+force acex_headless_enabled = false;

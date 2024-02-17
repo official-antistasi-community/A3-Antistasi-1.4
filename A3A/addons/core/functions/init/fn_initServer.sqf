@@ -5,12 +5,14 @@ FIX_LINE_NUMBERS()
 logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //Sets a log level for feedback, 1=Errors, 2=Information, 3=DEBUG
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
-
 Info("Server init started");
+A3A_serverVersion = QUOTE(VERSION); publicVariable "A3A_serverVersion";
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
 
+if (isClass (missionConfigFile/"CfgFunctions"/"A3A")) exitWith {};          // Pre-mod mission will break. Messaging handled in initPreJIP
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 // hide all the HQ objects
@@ -22,6 +24,7 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 switch (toLower worldname) do {
 	case "cam_lao_nam": {};
 	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	case "spe_normandy": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
 	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
 };
 
@@ -57,26 +60,28 @@ call A3A_fnc_addNodesNearMarkers;		// Needs data from both the above
 Info("Server JNA preload started");
 ["Preload"] call jn_fnc_arsenal;
 
-// UPSMON
-Info("UPSMON init started");
-[] call compile preprocessFileLineNumbers QPATHTOFOLDER(Scripts\Init_UPSMON.sqf);
-
 Info("Background init completed");
 A3A_backgroundInitDone = true;
 
+Info("Server Initialising PATCOM Variables");
+[] call A3A_fnc_patrolInit;
 
 // **************** Starting game, param-dependent init *******************************
 
 // Wait until we have selected/created save data
 waitUntil {sleep 0.1; !isNil "A3A_saveData"};
-
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_starting"] remoteExec ["A3A_fnc_customHint", 0];
+A3A_startupState = "starting"; publicVariable "A3A_startupState";
 
 // Use true params list in case we're loading an autosave from a different version
 private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
     if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
     private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    if (getArray (_x/"values") isEqualTo [0,1]) then {
+        if (_val isEqualType 0) then { _val = _val != 0 };                      // number -> bool
+    } else {
+        if (_val isEqualType false) then { _val = [0, 1] select _val };         // bool -> number
+    };
     missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
 } forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
@@ -108,6 +113,8 @@ if (_startType != "new") then
     A3A_saveTarget = [A3A_saveData get "serverID", A3A_saveData get "gameID", worldName];
     // Sanity checks? hmm
 
+    Info_1("Loading campaign with ID %1", A3A_saveData get "gameID");
+
     // Do the actual game loading
     call A3A_fnc_loadServer;
 }
@@ -128,7 +135,7 @@ else
     call A3A_fnc_checkRadiosUnlocked;
 
     // HQ placement setup
-    _posHQ = A3A_saveData get "startPos";
+    private _posHQ = A3A_saveData get "startPos";
     // Disable all nearby roadblocks/specops
     {
         if (markerPos _x distance _posHQ < distanceSPWN) then {
@@ -137,7 +144,6 @@ else
     } forEach controlsX;
     petros setPos _posHQ;
     [_posHQ, true] call A3A_fnc_relocateHQObjects;         // sets all the other vars
-    placementDone = true; publicVariable "placementDone";           // do we need this now?
 };
 
 if (_startType != "load") then {
@@ -145,8 +151,12 @@ if (_startType != "load") then {
     private _serverID = profileNamespace getVariable ["ss_serverID", ""];
     _serverID = [_serverID, false] select (A3A_saveData get "useNewNamespace");
 
-    // TODO: check collisions or build into UI
+    // Create new campaign ID, avoiding collisions
+    private _allIDs = call A3A_fnc_collectSaveData apply { _x get "gameID" };
     private _newID = str(floor(random(90000) + 10000));
+    while { _newID in _allIDs } do { _newID = str(floor(random(90000) + 10000)) };
+
+    Info_1("Creating new campaign with ID %1", _newID);
 
     A3A_saveTarget = [_serverID, _newID, worldName];
 };
@@ -171,20 +181,22 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 if (isPlayer A3A_setupPlayer) then {
     // Add current admin (setupPlayer) to members list and make them commander
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
-    theBoss = A3A_setupPlayer; publicVariable "theBoss";
+    theBoss = A3A_setupPlayer;
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];
 
 publicVariable "membersX";
+publicVariable "theBoss";       // need to publish this even if empty
 
 
 // Needs params + factions. Might depend on saved data in the future
@@ -223,7 +235,12 @@ addMissionEventHandler ["EntityKilled", {
     params ["_victim", "_killer", "_instigator"];
     if (typeof _victim == "") exitWith {};
     private _killerSide = side group (if (isNull _instigator) then {_killer} else {_instigator});
-    Debug_2("%1 killed by %2", typeof _victim, _killerSide);
+    if (isPlayer _killer) then {
+        private _killerUID = getPlayerUID _killer;
+        Debug_3("%1 killed by %2. Killer UID: %3", typeof _victim, _killerSide, _killerUID);
+    } else {
+        Debug_2("%1 killed by %2", typeof _victim, _killerSide);
+    };
 
     if !(isNil {_victim getVariable "ownerSide"}) then {
         // Antistasi-created vehicle
@@ -232,11 +249,49 @@ addMissionEventHandler ["EntityKilled", {
     };
 }];
 
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
+};
 
-[localize "STR_A3A_feedback_serverinfo", localize "STR_A3A_feedback_serverinfo_completed"] remoteExec ["A3A_fnc_customHint", 0];
+// Could replace these with entityCreated handler instead...
+if(A3A_hasZen) then {
+    ["zen_common_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if (A3A_hasACE) then {
+    ["ace_zeus_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
 
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
+A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 
 // ********************* Initialize loops *******************************************
@@ -244,6 +299,7 @@ Info("Setting serverInitDone as true");
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop
+[] spawn A3A_fnc_garbageCleanerTracker;             // 5-minute loop
 
 savingServer = false;           // enable saving
 
@@ -279,5 +335,6 @@ savingServer = false;           // enable saving
         sleep _logPeriod;
     };
 };
+
 
 Info("initServer completed");

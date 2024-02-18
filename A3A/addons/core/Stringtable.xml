@@ -2414,8 +2414,7 @@
         <Korean>%1 세력이 %2에 있는 우리 주둔군을 상대로 대대적인 공격을 시작하고 있습니다. 가능하면 그들을 저지하거나, 살아남아 다른 날에 싸우십시오.</Korean>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_other">
-        <Original>"%1 is attacking the %2 garrison at %3.</Original>
-        <Korean>%1 세력이 %3에 있는 %2의 주둔군을 공격하고 있습니다.</Korean>
+        <Original>%1 is attacking the %2 garrison at %3.</Original>
       </Key>
       <Key ID="STR_A3A_fn_base_wavedAttack_title">
         <Original>%1 Attack</Original>
@@ -13539,12 +13538,10 @@
         <Chinesesimp>面向玩家并与其互动</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover">
-        <Original>Undercover Toggle</Original>
-        <Korean>위장 토글</Korean>
+        <Original>Undercover ON</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_undercover_tooltip">
-        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you. Using this while undercover will remove your undercover status.</Original>
-        <Korean>요구 사항과 일치하는 경우 위장이 시작됩니다. 적 AI는 당신을 알아볼 때까지 당신을 공격하지 않을 것입니다. 위장 중에 이 기능을 다시 사용하면 위장 상태가 해제됩니다.</Korean>
+        <Original>Become Undercover if you match the requirements. Enemy AI won't attack you until they discover you.</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_unlock_vehicle">
         <Original>Unlock Vehicle</Original>

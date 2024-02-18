@@ -3,6 +3,32 @@ Changelog
 ==========
 
 
+Version 3.5.1
+===============
+
+.. note::
+   18th February 2024
+
+.. admonition:: Bugfixes
+
+   * :issue:`3155` Applied Kujari map fixes
+   * :issue:`3151` Disabled forced marker spawn in artySupport
+   * :issue:`3150` Deleted rogue variable in vanilla LDF template
+   * :issue:`3147` Fixed issues regarding undercover and HQ defense
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+|
+
+
+
+
 Version 3.5.0
 ===============
 

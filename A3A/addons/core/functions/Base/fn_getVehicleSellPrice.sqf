@@ -3,6 +3,9 @@ FIX_LINE_NUMBERS()
 
 #define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 
+params [["_veh",objNull],["_isGRG",false]];
+
+if (isNull _veh) exitWith {Error("Null vehicle sent to fn_getVehicleSellPrice.")};
 /*
 Blacklisted Assets
 
@@ -12,15 +15,18 @@ Reason for this is that those items are one or more of the following:
 - are no proper "statics" in terms of weaponized statics but for example the ACE spotting scoped
 - something else
 */
-_blacklistedAssets = [
+private _blacklistedAssets = [
 "ACE_I_SpottingScope","ACE_O_SpottingScope","ACE_O_T_SpottingScope","ACE_B_SpottingScope","ACE_B_T_SpottingScope","ACE_SpottingScopeObject",
 "O_Static_Designator_02_F","B_Static_Designator_01_F","B_W_Static_Designator_01_F",
 "vn_o_nva_spiderhole_01","vn_o_nva_spiderhole_02","vn_o_nva_spiderhole_03",
 "vn_o_pl_spiderhole_01","vn_o_pl_spiderhole_02","vn_o_pl_spiderhole_03",
 "vn_o_vc_spiderhole_01","vn_o_vc_spiderhole_02","vn_o_vc_spiderhole_03"];
 
-params ["_veh"];
-private _typeX = typeOf _veh;
+private _typeX = if (_isGRG) then {
+    _veh;
+} else {
+    typeOf veh;
+};
 
 if (_typeX in _blacklistedAssets) exitWith {0};
 

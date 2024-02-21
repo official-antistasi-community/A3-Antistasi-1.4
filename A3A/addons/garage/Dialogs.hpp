@@ -103,11 +103,22 @@ class HR_GRG_VehicleSelect
                     action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_toggleLock',2];";
                     sizeEx = TEXT_SIZE_LARGE;
                 };
+                class HR_GRG_SellVeh: HR_GRG_RscButton
+                {
+                    idc = HR_GRG_IDC_SellVeh;
+                    text = $STR_HR_GRG_Generic_SellVeh;
+                    x = 26 * GRID_NOUISCALE_W;
+                    y = 0;
+                    w = 13 * GRID_NOUISCALE_W;
+                    h = 7 * GRID_NOUISCALE_H;
+                    action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_sellVehGRG',2];";
+                    sizeEx = TEXT_SIZE_LARGE;
+                };
                 class HR_GRG_Confirm: HR_GRG_RscButton
                 {
                     idc = HR_GRG_IDC_Confirm;
                     text = $STR_HR_GRG_Generic_Confirm;
-                    x = 26 * GRID_NOUISCALE_W;
+                    x = 39 * GRID_NOUISCALE_W;
                     y = 0;
                     w = 13 * GRID_NOUISCALE_W;
                     h = 7 * GRID_NOUISCALE_H;

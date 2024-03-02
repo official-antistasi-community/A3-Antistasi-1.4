@@ -111,8 +111,7 @@ recruitCooldown = 0;			//Prevents units being recruited too soon after being dis
 incomeRep = false;
 autoHeal = true;				//Should AI in player squad automatically heal teammates
 
-waitUntil {sleep 0.1; isTouchingGround;}; //setPos has issues if you try to move someone climbing on a lader or in an animation. The rest of the script needs to be put on hold until the player is moved so stuff doesnt break (namely spawner status)
-
+player switchMove ""; // kick the player out of any animation before teleporting
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 

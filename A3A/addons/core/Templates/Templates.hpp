@@ -981,6 +981,91 @@ class Templates
         file = "SPE_CIV";
     };
 */
+    // ***************************** IFA *****************************
+    class IFA_Base
+    {
+        requiredAddons[] = {"IFA3_Core"};
+        basepath = QPATHTOFOLDER(Templates\Templates\IFA);
+        logo = ""; //Can't figure out how to path to the logo at the base of the IFA AiO mod??
+        priority = 60;
+        equipFlags[] = {"lowTech"};
+        //climate[] = {"temperate","tropical"};
+        forceDLC[] = {};
+    };
+    class IFA_WEH : IFA_Base
+    {
+        side = "Inv";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_weh.paa";
+        name = "IFA WEHRMACHT";
+        priority = 65;
+        file = "IFA_AI_WEH";
+    };
+    class IFA_SOV : IFA_Base
+    {
+        side = "Inv";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_sov.paa";
+        name = "IFA SOVIET ARMY";
+        file = "IFA_AI_SOV";
+    };
+    class IFA_ALLIES : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_allies.paa";
+        name = "IFA ALLIES";
+        priority = 65;
+        file = "IFA_AI_ALLIES";
+    };
+    class IFA_US : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "IFA US ARMY";
+        file = "IFA_AI_US";
+    };
+    class IFA_UK : IFA_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
+        name = "IFA UK ARMY";
+        file = "IFA_AI_UK";
+    };
+    class IFA_FFI : IFA_Base
+    {
+        side = "Reb";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_ffi.paa";
+        name = "IFA French Resistance";
+        priority = 65;
+        file = "IFA_REB_FFI";
+        maps[] = {};
+        climate[] = {};
+    };
+    class IFA_AK : IFA_Base
+    {
+        side = "Reb";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_ak.paa";
+        name = "IFA Polish Resistance";
+        file = "IFA_REB_AK";
+        maps[] = {"Staszow"};
+        climate[] = {};
+    };
+    class IFA_CIV_FR : IFA_Base
+    {
+        side = "Civ";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_fr.paa";
+        name = "IFA French";
+        priority = 65;
+        file = "IFA_CIV_FR";
+        climate[] = {};
+    };
+    class IFA_CIV_PL : IFA_Base
+    {
+        side = "Civ";
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_pl.paa";
+        name = "IFA Polish";
+        file = "IFA_CIV_PL";
+        maps[] = {"Staszow"};
+        climate[] = {};
+    };
     // ***************************** SPE with IFA *****************************
 
     class SPE_IFA_Base

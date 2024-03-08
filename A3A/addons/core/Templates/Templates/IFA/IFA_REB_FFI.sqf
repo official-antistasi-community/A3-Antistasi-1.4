@@ -24,7 +24,7 @@
 //////////////////////////
 
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_GazM1_FFI", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["LIB_GazM1_FFI"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
 ["vehiclesTruck", ["LIB_CIV_FFI_CitC4_5"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate; //Remove maybe
@@ -58,12 +58,12 @@ switch (A3A_climate) do
 {
 	case "arid": { 
         ["vehiclesBasic", ["LIB_US_NAC_Willys_MB"]] call _fnc_saveToTemplate;
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_sand", "LIB_US_NAC_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_sand"]] call _fnc_saveToTemplate;
         ["vehiclesLightArmed", ["LIB_US_NAC_Willys_MB_M1919"]] call _fnc_saveToTemplate;
     };
 	case "arctic": { 
         ["vehiclesBasic", ["LIB_Willys_MB_w"]] call _fnc_saveToTemplate;
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI", "LIB_Willys_MB_Hood_w"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_Willys_MB_Hood_w"]] call _fnc_saveToTemplate;
         ["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919_w"]] call _fnc_saveToTemplate;
         
         ["staticAT", ["LIB_Zis3_w"]] call _fnc_saveToTemplate;

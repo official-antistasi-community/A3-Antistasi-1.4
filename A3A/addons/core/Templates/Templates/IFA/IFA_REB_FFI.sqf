@@ -70,7 +70,7 @@ switch (A3A_climate) do
         ["staticAA", ["LIB_FlaK_30_w"]] call _fnc_saveToTemplate;
     };
 	case "tropical": { 
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_camo", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_camo"]] call _fnc_saveToTemplate;
     };
 };
 

@@ -200,9 +200,9 @@ _sfLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
 _sfLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
-_sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
-_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
+_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"], ["LIB_50Rnd_45ACP", "LIB_30Rnd_45ACP"], [], ""]];
+_sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine", "LIB_M1A1_Carbine", ["LIB_DELISLE", "", "", "", ["LIB_7Rnd_45ACP"], [], ""]]];
+_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_Sten_Mk5", ["LIB_M1928_Thompson", "", "", "", ["LIB_50Rnd_45ACP", "LIB_30Rnd_45ACP"], [], ""]]];
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////

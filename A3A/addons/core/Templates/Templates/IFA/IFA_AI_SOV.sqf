@@ -134,7 +134,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_RDG"]];
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_SU"]];
@@ -194,7 +194,6 @@ _sfLoadoutData set ["backpacks", ["B_LIB_SOV_RA_Rucksack2_Gas_Kit_Shinel"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 _sfLoadoutData set ["helmets", ["H_LIB_SOV_RA_Helmet"]];
 _sfLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_Helmet"]];
-_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slWeapons", [

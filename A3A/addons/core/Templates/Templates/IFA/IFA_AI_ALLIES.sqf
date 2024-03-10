@@ -150,7 +150,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_US_M18_Green","LIB_US_M18_Red","L
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_US"]];
@@ -208,7 +208,7 @@ _sfLoadoutData set ["backpacks", ["B_LIB_US_M36_Bandoleer"]];
 _sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns"]];
 _sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
-_sfLoadoutData set ["radios", ["ItemRadio"]];
+
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", [

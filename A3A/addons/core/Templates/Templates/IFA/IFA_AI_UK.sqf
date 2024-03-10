@@ -247,7 +247,7 @@ _crewLoadoutData set ["uniforms", ["U_LIB_UK_P37_Sergeant", "U_LIB_UK_P37"]];
 _crewLoadoutData set ["vests", ["V_LIB_UK_P37_Crew"]];
 _crewLoadoutData set ["helmets", ["H_LIB_UK_Beret_Tankist", "H_LIB_UK_Beret_Headset"]];
 
-_crewLoadoutData set ["sidearms", ["LIB_Webley_mk6"]];
+_crewLoadoutData set ["sidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6", "LIB_Webley_mk6"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_LIB_US_Pilot", "U_LIB_US_Pilot_2"]];
@@ -589,11 +589,12 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
-        ["primary", 2] call _fnc_addMagazines;
+        ["primary", 3] call _fnc_addMagazines;
+    } else {
+        ["sidearms"] call _fnc_setHandgun;
+        ["handgun", 4] call _fnc_addMagazines;
     };
 
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 4] call _fnc_addMagazines;
 
     ["items_medical_basic"] call _fnc_addItemSet;
     ["items_crew_extras"] call _fnc_addItemSet;

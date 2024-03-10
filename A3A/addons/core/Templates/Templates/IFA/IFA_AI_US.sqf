@@ -612,7 +612,10 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
-        ["primary", 2] call _fnc_addMagazines;
+        ["primary", 3] call _fnc_addMagazines;
+    } else {
+        ["sidearms"] call _fnc_setHandgun;
+        ["handgun", 4] call _fnc_addMagazines;
     };
 
     ["sidearms"] call _fnc_setHandgun;

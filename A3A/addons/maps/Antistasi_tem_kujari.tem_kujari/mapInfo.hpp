@@ -23,7 +23,7 @@ class tem_kujari {
 	antennasBlacklistIndex[] = {}; 
 	banks[] = {}; //no suitable building available
 	garrison[] = {
-		{},{"airport_5","outpost_8","outpost_16","outpost_19","resource_1","resource_2","resource_13"},{},{"control_1","control_2","control_3","control_4","control_5","control_6","control_7","control_8"}
+		{},{"airport_0","outpost_8","outpost_16","outpost_19","resource_0","resource_1","resource_2"},{},{"control_1","control_2","control_3","control_4","control_5","control_6","control_7","control_8"}
 	};
 	fuelStationTypes[] = {
 		"Land_FuelStation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_01_pump_F","Land_FuelStation_02_pump_F","Land_FuelStation_03_pump_F","Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"

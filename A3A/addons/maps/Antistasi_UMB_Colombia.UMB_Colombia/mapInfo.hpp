@@ -27,7 +27,7 @@ class umb_colombia {
 	banks[] = {
 	};
 	garrison[] = {
-		{},{"airport_7", "factory_8", "outpost_37", "outpost_42", "outpost_45", "outpost_48", "seaport_4", "control_9", "control_10", "control_18", "control_19", "control_20", "control_21", "control_22"},{},
+		{},{"airport_0", "factory_8", "outpost_37", "outpost_42", "outpost_30", "outpost_0", "seaport_4", "control_9", "control_10", "control_18", "control_19", "control_20", "control_21", "control_22"},{},
 		{"control_9", "control_10", "control_18", "control_19", "control_20", "control_21", "control_22"}
 	};
 	fuelStationTypes[] = {

@@ -9,7 +9,7 @@ class sara {
 	antennasBlacklistIndex[] = {1,3,4,5,9,11,13,16,17};
 	banks[] = {}; //no suitable building available
 	garrison[] = {
-		{},{"airport_1","seaport_6","outpost_22","outpost_15","resource_9","outpost_19","outpost_14","resource_11"},{},{"control_28","control_27"}
+		{},{"airport_1","seaport_6","outpost_15","resource_9","outpost_19","outpost_14","resource_11"},{},{"control_28","control_27"}
 	};
 	fuelStationTypes[] = {"Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"};
 	climate = "arid";

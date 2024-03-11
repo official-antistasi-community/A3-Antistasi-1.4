@@ -9,7 +9,7 @@ class takistan {
 	antennasBlacklistIndex[] = {}; //no antennas that need to be blacklisted
 	banks[] = {}; //no suitable building available
 	garrison[] = {
-		{},{"airport_1","outpost_5","outpost_6","outpost_7","outpost_8","resource","resource_5","resource_6"},{},{"control","control_1","control_2","control_5","control_13","control_20","control_21","control_22","control_24","control_25","control_31"}
+		{},{"airport_1","outpost_5","outpost_6","outpost_7","outpost_8","resource_0","resource_5","resource_6"},{},{"control","control_1","control_2","control_5","control_13","control_20","control_21","control_22","control_24","control_25","control_31"}
 	};
 	fuelStationTypes[] = {"Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","Land_Fuelstation","Land_Fuelstation_army","Land_Benzina_schnell"};
 	climate = "arid";

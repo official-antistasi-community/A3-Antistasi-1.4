@@ -10,7 +10,7 @@ class gm_weferlingen_summer {
 	banks[] = {
 	};
 	garrison[] = {
-		{},{"airport_4","outpost_8","outpost_16","outpost_19","resource_6","resource_7","control_3","control_4","control_8","control_9","control_10","control_29"},{},{"control_3","control_4","control_8","control_9","control_10","control_29"}
+		{},{"airport_0","outpost_8","outpost_16","outpost_0","resource_6","resource_7","control_3","control_4","control_8","control_9","control_10","control_29"},{},{"control_3","control_4","control_8","control_9","control_10","control_29"}
 	};
 	fuelStationTypes[] = {
 		"Land_Fuelstation_Feed_F","Land_fs_feed_F","Land_FuelStation_01_pump_F","Land_FuelStation_01_pump_malevil_F","Land_FuelStation_03_pump_F","Land_FuelStation_02_pump_F","land_gm_euro_fuelpump_01_e","land_gm_euro_fuelpump_02_e","land_gm_euro_fuelpump_02_w","land_gm_euro_fuelpump_01_w"

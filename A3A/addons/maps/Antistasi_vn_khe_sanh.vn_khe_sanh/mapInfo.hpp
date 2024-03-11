@@ -29,7 +29,7 @@ class vn_khe_sanh {
 	garrison[] = {
 		{},
 		{
-			"airport_2", "airport_3", "outpost_1", "outpost_11", "outpost_12", "outpost_13", "outpost_14", "outpost_15", "outpost_16", "outpost_17", "outpost_18", "outpost_19", "outpost_20", "resource_1", "resource_2", "resource_3", "resource_5", "resource_6", "resource_7", "seaport_4", "factory_1", "factory_4"
+			"airport_2", "airport_3", "outpost_1", "outpost_11", "outpost_12", "outpost_13", "outpost_14", "outpost_15", "outpost_16", "outpost_17", "outpost_18", "outpost_19", "outpost_20", "resource_1", "resource_2", "resource_3", "resource_5", "resource_6", "resource_7", "seaport_0", "factory_0", "factory_1"
 		},
 		{},
 		{

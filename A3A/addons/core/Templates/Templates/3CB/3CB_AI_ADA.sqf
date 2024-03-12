@@ -82,6 +82,7 @@
 
 ["faces", ["AfricanHead_01", "AfricanHead_02", "AfricanHead_03", "Barklem"]] call _fnc_saveToTemplate;
 ["voices", ["Male01FRE", "Male02FRE", "Male03FRE"]] call _fnc_saveToTemplate;
+"TanoanMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -342,7 +343,9 @@ _militaryLoadoutData set ["machineGuns", [
 ["rhs_weap_fnmag", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ACOG_MDO", ["rhsusf_100Rnd_762x51_m80a1epr", "rhsusf_100Rnd_762x51_m80a1epr", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p29", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_pkp", "", "", "rhs_acc_1p78", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""],
-["rhs_weap_pkp", "", "", "rhs_acc_pkas", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""]
+["rhs_weap_pkp", "", "", "rhs_acc_pkas", ["rhs_100Rnd_762x54mmR_7N26", "rhs_100Rnd_762x54mmR_green"], [], ""],
+["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39"], [], ""],
+["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39", "UK3CB_RPD_100rnd_762x39_GM"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["UK3CB_M14DMR_Railed", "", "", "rhsusf_acc_ACOG_RMR", ["UK3CB_M14_20rnd_762x51"], [], ""],
@@ -404,7 +407,9 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 _militiaLoadoutData set ["SMGs", ["UK3CB_MP5A2"]];
 _militiaLoadoutData set ["machineGuns", [
 ["rhs_weap_fnmag", "", "", "", ["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""],
-"rhs_weap_pkm"
+"rhs_weap_pkm",
+["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39"], [], ""],
+["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39", "UK3CB_RPD_100rnd_762x39_GM"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["UK3CB_FNFAL_FULL", "", "", "uk3cb_optic_SUIT_FNFAL", ["UK3CB_FNFAL_20rnd_762x51"], [], ""]

@@ -267,9 +267,7 @@ player addEventHandler ["WeaponDisassembled", {
 }];
 
 player addEventHandler ["GetInMan", {
-    private ["_unit","_veh"];
-    _unit = _this select 0;
-    _veh = _this select 2;
+    params ["_unit", "_role", "_veh", "_turret"];
     _exit = false;
     if !([player] call A3A_fnc_isMember) then {
         if (!isNil {_veh getVariable "A3A_locked"}) then {
@@ -287,7 +285,19 @@ player addEventHandler ["GetInMan", {
                 [] spawn A3A_fnc_goUndercover;
             };
         };
+        if (_veh isKindOf "Air") then {
+            Debug_2("Installing airspace control for player %1, vehicle %2", _unit, typeof _veh);
+            private _handle = [_unit, _veh] spawn A3A_fnc_airspaceControl;
+            _unit setVariable ["airspaceControlHandle", _handle];
+        };
     };
+}];
+
+player addEventHandler ["GetOutMan", {
+    params ["_unit", "_role", "_veh", "_turret"];
+    Debug_2("Terminating airspace control for player %1, vehicle %2", _unit, typeof _veh);
+    private _handle = _unit getVariable ["airspaceControlHandle", scriptNull];
+    if (!isNull _handle) then { terminate _handle };
 }];
 
 // Prevent players getting shot by their own AIs. EH is respawn-persistent

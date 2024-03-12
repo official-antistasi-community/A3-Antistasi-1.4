@@ -184,7 +184,7 @@ else
 	_roundsMax = _rounds;
 	};
 
-_markerX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
+/*_markerX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _forcedX = false;
 
@@ -194,6 +194,7 @@ if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _mar
 	forcedSpawn pushBack _markerX;
 	publicVariable "forcedSpawn";
 	};
+*/
 
 _roundPlural = if (round _rounds == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
 _textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPosition _positionTel, round _rounds, _roundPlural];
@@ -290,7 +291,7 @@ sleep 10;
 deleteMarkerLocal _mrkFinal;
 if (_typeArty == "BARRAGE") then {deleteMarkerLocal _mrkFinal2};
 
-if (_forcedX) then
+/*if (_forcedX) then
 	{
 	sleep 20;
 	if (_markerX in forcedSpawn) then
@@ -299,3 +300,4 @@ if (_forcedX) then
 		publicVariable "forcedSpawn";
 		};
 	};
+*/

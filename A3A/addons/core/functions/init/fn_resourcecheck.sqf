@@ -182,7 +182,7 @@ while {true} do
 			_changingX = true;
 			destroyedSites = destroyedSites - [_x];
 			_nameX = [_x] call A3A_fnc_localizar;
-			["TaskSucceeded", ["", format [localize "STR_A3A_fn_init_resourceCheck_rebuilt",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
+			["TaskSucceeded", ["", format [localize "STR_A3A_fn_base_rebasset_done_1",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
 			sleep 2;
 			};
 		} forEach ((destroyedSites - citiesX) select {sidesX getVariable [_x,sideUnknown] != teamPlayer});

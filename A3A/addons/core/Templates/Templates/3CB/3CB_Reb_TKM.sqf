@@ -96,6 +96,7 @@ private _rebUniforms = [
     "UK3CB_TKC_H_Turban_04_1",
     "UK3CB_TKC_H_Turban_05_1"
 ]] call _fnc_saveToTemplate;
+"TakistaniMen" call _fnc_saveNames;
 
 /////////////////////
 ///  Identities   ///
@@ -103,6 +104,7 @@ private _rebUniforms = [
 
 ["voices", ["Male01PER", "Male02PER", "Male03PER"]] call _fnc_saveToTemplate;
 ["faces", ["PersianHead_A3_01", "PersianHead_A3_02", "PersianHead_A3_03"]] call _fnc_saveToTemplate;
+"TakistaniMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

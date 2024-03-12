@@ -405,7 +405,7 @@ _militiaLoadoutData set ["carbines", [
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["UK3CB_FAMAS_F1_GLM203", "", "", "", ["UK3CB_FAMAS_25rnd_556x45", "UK3CB_FAMAS_25rnd_556x45", "UK3CB_FAMAS_25rnd_556x45_RT"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
-_militiaLoadoutData set ["SMGs", ["UK3CB_MP5A2"]];
+_militiaLoadoutData set ["SMGs", ["uk3cb_mat49"]];
 _militiaLoadoutData set ["machineGuns", [
 ["rhs_weap_fnmag", "", "", "", ["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""]
 ]];

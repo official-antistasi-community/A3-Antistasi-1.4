@@ -112,10 +112,15 @@ if (_type == "CAS") then
         };
         case "RHSGREF_A29B_HIDF":
         {
-            _loadout = ["rhs_mag_AGM114K_2_plane","rhs_mag_FFAR_7_USAF","rhs_mag_mk82","rhs_mag_FFAR_7_USAF","rhs_mag_AGM114N_2_plane","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
+            _loadout = ["rhs_mag_agm65d","rhs_mag_M151_7_USAF_LAU131","rhs_mag_agm65d","rhs_mag_M151_7_USAF_LAU131","rhs_mag_agm65d","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
             _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
-            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher", "RHS_weap_AGM114N_Launcher"]];
+            _plane setVariable ["missileLauncher", ["rhs_weap_agm65d"]];
+            [_plane] spawn {
+                params["_plane"];
+                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
+                (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
+            };
         };
         case "UK3CB_B_Mystere_HIDF_CAS1";
         case "UK3CB_MDF_B_Mystere_CAS1":
@@ -148,6 +153,21 @@ if (_type == "CAS") then
             _loadout = ["","","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"];
             _plane setVariable ["mainGun", "weapon_Fighter_Gun20mm_AA"];
             _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher"]];
+        };
+        case "UK3CB_AAF_B_T28Trojan_CAS";
+        case "UK3CB_ION_B_Desert_T28Trojan_CAS";
+        case "UK3CB_B_T28Trojan_HIDF_CAS";
+        case "UK3CB_MDF_B_T28Trojan_NAVY_CAS";
+        case "UK3CB_MDF_B_T28Trojan_CAS":
+        {
+            _loadout = ["rhs_mag_agm114K_4","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","rhs_mag_agm114K_4"];
+            _plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
+            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher"]];
+            [_plane] spawn {
+                params["_plane"];
+                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
+                (gunner _plane) forceWeaponFire ["Laserdesignator_mounted", "Laserdesignator_mounted"];
+            };
         };
         // cup aircraft
         case "CUP_B_L39_CZ":

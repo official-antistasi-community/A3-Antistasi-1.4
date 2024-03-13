@@ -375,7 +375,7 @@ _policeLoadoutData set ["shotGuns", [
 ["rhs_weap_M590_5RD", "", "", "", ["rhsusf_5Rnd_00Buck", "rhsusf_5Rnd_Slug"], [], ""]
 ]];
 _policeLoadoutData set ["SMGs", [
-["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
+"uk3cb_port_said_m45",
 ["UK3CB_HK33KA2_RIS", "", "rhsusf_acc_M952V", "", [], [], ""],
 ["rhs_weap_ak74n", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
@@ -404,7 +404,7 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akmn_gp25", "", "", "", [], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
 ["rhs_weap_ak74n_gp25", "", "", "", [], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""]
 ]];
-_militiaLoadoutData set ["SMGs", ["UK3CB_MP5A2"]];
+_militiaLoadoutData set ["SMGs", ["uk3cb_port_said_m45"]];
 _militiaLoadoutData set ["machineGuns", [
 ["rhs_weap_fnmag", "", "", "", ["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""],
 "rhs_weap_pkm",

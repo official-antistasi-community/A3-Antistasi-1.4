@@ -96,7 +96,6 @@ private _rebUniforms = [
     "UK3CB_TKC_H_Turban_04_1",
     "UK3CB_TKC_H_Turban_05_1"
 ]] call _fnc_saveToTemplate;
-"TakistaniMen" call _fnc_saveNames;
 
 /////////////////////
 ///  Identities   ///

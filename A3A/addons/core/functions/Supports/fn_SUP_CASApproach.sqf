@@ -283,6 +283,12 @@ while {true} do
                 private _dotdir = vectorNormalized _targVector vectorDotProduct vectorDir _plane;
                 if (_dotdir < 0.90) exitWith {};
 
+                if (!(gunner _plane isEqualTo objNull)) then {
+                    (gunner _plane) doTarget _targetObj;
+                    //if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
+                    //    _targetObj = laserTarget (gunner _plane);
+                    //};
+                };
                 // Kick off the attack run and wait until it's done
                 _group setCurrentWaypoint _loiterWP;
                 private _runHandle = [_plane, _targetObj, _supportName] spawn A3A_fnc_SUP_CASRun;

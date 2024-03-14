@@ -119,14 +119,15 @@ if (_type == "CAS") then
         };
         case "RHSGREF_A29B_HIDF":
         {
-            _loadout = ["PylonRack_3Rnd_LG_scalpel","rhs_mag_M151_7_USAF_LAU131","","rhs_mag_M151_7_USAF_LAU131","PylonRack_3Rnd_LG_scalpel","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
-            _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
-            _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
-            _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
+            _loadout = ["rhs_mag_AGM114K_2_plane","rhs_mag_M151_7_USAF_LAU131","","rhs_mag_M151_7_USAF_LAU131","rhs_mag_AGM114K_2_plane","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
+            //_plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
+            //_plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
+            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher"]];
             [_plane] spawn {
                 params["_plane"];
                 while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
                 (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
+                { _plane enableVehicleSensor [_x select 0, true]} forEach ((listVehicleSensors _plane) select 0);
             };
         };
         case "UK3CB_AAF_B_T28Trojan_CAS";
@@ -135,13 +136,14 @@ if (_type == "CAS") then
         case "UK3CB_MDF_B_T28Trojan_NAVY_CAS";
         case "UK3CB_MDF_B_T28Trojan_CAS":
         {
-            _loadout = ["PylonRack_3Rnd_LG_scalpel","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","PylonRack_3Rnd_LG_scalpel"];
-            _plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
-            _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
+            _loadout = ["rhs_mag_AGM114K_2_plane","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","rhs_mag_AGM114K_2_plane"];
+            //_plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
+            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher"]];
             [_plane] spawn {
                 params["_plane"];
                 while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
                 (gunner _plane) forceWeaponFire ["Laserdesignator_mounted", "Laserdesignator_mounted"];
+                { _plane enableVehicleSensor [_x select 0, true]} forEach ((listVehicleSensors _plane) select 0);
             };
         };
         //SOG:PF

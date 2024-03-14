@@ -63,6 +63,7 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_agm65d"]];
         };
+        //RHS/3CB
         case "RHS_Su25SM_vvsc";
         case "RHS_Su25SM_CAS_vvs";
         case "rhsgref_cdf_b_su25";
@@ -83,44 +84,6 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "rhs_weap_gsh301"];
             _plane setVariable ["rocketLauncher", ["rhs_weap_s8", "rhs_weap_s8df"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_kh25mtp_Launcher"]];
-        };
-        case "vn_b_air_f4c_at":
-        {
-            _loadout = ["vn_missile_f4_out_agm45_mag_x1","vn_missile_f4_out_agm45_mag_x1","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_bomb_f4_out_750_blu1b_fb_mag_x3","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1"];
-            _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
-            _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
-        };
-        case "vn_b_air_f100d_at":
-        {
-            _loadout = ["vn_rocket_ffar_f4_lau59_m229_he_x21","vn_rocket_ffar_f4_lau59_m229_he_x21","vn_fuel_f100_335_camo_01_mag","vn_fuel_f100_335_camo_01_mag","vn_missile_agm45_03_mag_x1","vn_missile_agm45_03_mag_x1"];
-            _plane setVariable ["mainGun", "vn_m39a1_v_quad"];
-            _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
-            _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
-        };
-        case "vn_o_air_mig19_at":
-        {
-            _loadout = ["vn_rocket_s5_heat_x16","vn_rocket_s5_heat_x16","vn_missile_kh66_mag_01_x1","vn_missile_kh66_mag_01_x1"];
-            _plane setVariable ["mainGun", "vn_nr30_v_01"];
-            _plane setVariable ["rocketLauncher", ["vn_rocket_s5_heat_launcher"]];
-            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
-        };
-        case "vn_o_air_mig21_cas":
-        {
-            _loadout = ["vn_missile_mig21_kh66_mag_x1","vn_missile_mig21_kh66_mag_x1","vn_gunpod_gsh23l_v_200_mag"];
-            _plane setVariable ["mainGun", "vn_gunpod_gsh23l"];
-            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
-        };
-        case "RHSGREF_A29B_HIDF":
-        {
-            _loadout = ["rhs_mag_agm65d","rhs_mag_M151_7_USAF_LAU131","rhs_mag_agm65d","rhs_mag_M151_7_USAF_LAU131","rhs_mag_agm65d","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
-            _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
-            _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
-            _plane setVariable ["missileLauncher", ["rhs_weap_agm65d"]];
-            [_plane] spawn {
-                params["_plane"];
-                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
-                (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
-            };
         };
         case "UK3CB_B_Mystere_HIDF_CAS1";
         case "UK3CB_MDF_B_Mystere_CAS1":
@@ -154,20 +117,59 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "weapon_Fighter_Gun20mm_AA"];
             _plane setVariable ["missileLauncher", ["weapon_AGM_65Launcher"]];
         };
+        case "RHSGREF_A29B_HIDF":
+        {
+            _loadout = ["PylonRack_3Rnd_LG_scalpel","rhs_mag_M151_7_USAF_LAU131","","rhs_mag_M151_7_USAF_LAU131","PylonRack_3Rnd_LG_scalpel","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
+            _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
+            _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
+            _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
+            [_plane] spawn {
+                params["_plane"];
+                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
+                (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
+            };
+        };
         case "UK3CB_AAF_B_T28Trojan_CAS";
         case "UK3CB_ION_B_Desert_T28Trojan_CAS";
         case "UK3CB_B_T28Trojan_HIDF_CAS";
         case "UK3CB_MDF_B_T28Trojan_NAVY_CAS";
         case "UK3CB_MDF_B_T28Trojan_CAS":
         {
-            _loadout = ["rhs_mag_agm114K_4","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","rhs_mag_agm114K_4"];
+            _loadout = ["PylonRack_3Rnd_LG_scalpel","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","PylonRack_3Rnd_LG_scalpel"];
             _plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
-            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114K_Launcher"]];
+            _plane setVariable ["missileLauncher", ["missiles_SCALPEL"]];
             [_plane] spawn {
                 params["_plane"];
                 while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
                 (gunner _plane) forceWeaponFire ["Laserdesignator_mounted", "Laserdesignator_mounted"];
             };
+        };
+        //SOG:PF
+        case "vn_b_air_f4c_at":
+        {
+            _loadout = ["vn_missile_f4_out_agm45_mag_x1","vn_missile_f4_out_agm45_mag_x1","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_rocket_ffar_f4_lau3_m229_he_x57","vn_bomb_f4_out_750_blu1b_fb_mag_x3","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_f4_lau7_aim9e_mag_x2","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1","vn_missile_aim7e2_mag_x1"];
+            _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
+        };
+        case "vn_b_air_f100d_at":
+        {
+            _loadout = ["vn_rocket_ffar_f4_lau59_m229_he_x21","vn_rocket_ffar_f4_lau59_m229_he_x21","vn_fuel_f100_335_camo_01_mag","vn_fuel_f100_335_camo_01_mag","vn_missile_agm45_03_mag_x1","vn_missile_agm45_03_mag_x1"];
+            _plane setVariable ["mainGun", "vn_m39a1_v_quad"];
+            _plane setVariable ["rocketLauncher", ["vn_rocket_ffar_275in_launcher_m229"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_agm45_launcher"]];
+        };
+        case "vn_o_air_mig19_at":
+        {
+            _loadout = ["vn_rocket_s5_heat_x16","vn_rocket_s5_heat_x16","vn_missile_kh66_mag_01_x1","vn_missile_kh66_mag_01_x1"];
+            _plane setVariable ["mainGun", "vn_nr30_v_01"];
+            _plane setVariable ["rocketLauncher", ["vn_rocket_s5_heat_launcher"]];
+            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
+        };
+        case "vn_o_air_mig21_cas":
+        {
+            _loadout = ["vn_missile_mig21_kh66_mag_x1","vn_missile_mig21_kh66_mag_x1","vn_gunpod_gsh23l_v_200_mag"];
+            _plane setVariable ["mainGun", "vn_gunpod_gsh23l"];
+            _plane setVariable ["missileLauncher", ["vn_missile_kh66_launcher"]];
         };
         // cup aircraft
         case "CUP_B_L39_CZ":

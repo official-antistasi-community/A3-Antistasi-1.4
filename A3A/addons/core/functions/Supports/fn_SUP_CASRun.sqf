@@ -27,7 +27,7 @@ private _fnc_executeWeaponFire =
         (gunner _plane) doTarget (_plane getVariable "currentTarget");
         if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
             _plane setVariable ["currentTarget", laserTarget (gunner _plane)];
-            (driver _plane) doTarget laserTarget (gunner _plane);
+            //(driver _plane) doTarget laserTarget (gunner _plane);
         };
     };
 

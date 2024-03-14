@@ -22,6 +22,14 @@ private _fnc_executeWeaponFire =
     private _ammoHM = _plane getVariable "ammoCount";
 
     Debug_1("Execute weapon fire called with fireParams %1", _fireParams);
+    
+    if (!(gunner _plane isEqualTo objNull)) then {
+        (gunner _plane) doTarget (_plane getVariable "currentTarget");
+        if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
+            _plane setVariable ["currentTarget", laserTarget (gunner _plane)];
+            (driver _plane) doTarget laserTarget (gunner _plane);
+        };
+    };
 
     private _weapons = _plane getVariable ["missileLauncher", []];
     if (_missileShots > 0 && _weapons isNotEqualTo []) then

@@ -22,15 +22,6 @@ private _fnc_executeWeaponFire =
     private _ammoHM = _plane getVariable "ammoCount";
 
     Debug_1("Execute weapon fire called with fireParams %1", _fireParams);
-    
-    //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
-    if (!(gunner _plane isEqualTo objNull)) then {
-        (gunner _plane) doTarget (_plane getVariable "currentTarget");
-        //if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
-        //    _plane setVariable ["currentTarget", laserTarget (gunner _plane)];
-        //    //(driver _plane) doTarget laserTarget (gunner _plane);
-        //};
-    };
 
     private _weapons = _plane getVariable ["missileLauncher", []];
     if (_missileShots > 0 && _weapons isNotEqualTo []) then
@@ -150,6 +141,11 @@ reverse _fireIntervals;
 while { count _fireParams > count _fireIntervals } do { _fireParams deleteAt 0 };
 Debug_2("Fire intervals for run dist %1: %2", _runDist, _fireIntervals);
 
+//This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
+if (!(gunner _plane isEqualTo objNull)) then {
+    (gunner _plane) doTarget _target;
+    _plane lockCameraTo [_target, [0]]
+};
 
 addMissionEventHandler ["EachFrame",
 {
@@ -177,6 +173,10 @@ waitUntil { sleep 1; _transform#8 >= 1 };
 
 Debug_1("Gun run for %1 finished, returning control", _supportName);
 
+//This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
+if (!(gunner _plane isEqualTo objNull)) then {
+    _plane lockCameraTo [objNull, [0]]
+};
 /*
     if(_interval > 0.25 && (_fireParams#0#0)) then
     {

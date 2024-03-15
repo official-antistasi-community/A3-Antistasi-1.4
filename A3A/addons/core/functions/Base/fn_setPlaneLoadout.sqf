@@ -119,15 +119,14 @@ if (_type == "CAS") then
         };
         case "RHSGREF_A29B_HIDF":
         {
-            _loadout = ["rhs_mag_AGM114L_2","rhs_mag_M151_19","rhs_mag_AGM114L_2","rhs_mag_M151_19","rhs_mag_AGM114L_2","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
-            //_plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
-            //_plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
-            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114L_Launcher"]];
+            _loadout = ["rhs_mag_AGM114L_2","rhs_mag_M151_19","rhs_mag_gbu12","rhs_mag_M151_19","rhs_mag_AGM114L_2","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
+            _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
+            _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
+            _plane setVariable ["missileLauncher", ["rhs_weap_AGM114L_Launcher", "rhs_weap_gbu12"]];
             [_plane] spawn {
                 params["_plane"];
                 while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
                 (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
-                { _plane enableVehicleSensor [_x, true]} forEach ((listVehicleSensors _plane) select 0);
             };
         };
         case "UK3CB_AAF_B_T28Trojan_CAS";
@@ -137,14 +136,8 @@ if (_type == "CAS") then
         case "UK3CB_MDF_B_T28Trojan_CAS":
         {
             _loadout = ["rhs_mag_AGM114L_2","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","rhs_mag_AGM114L_2"];
-            //_plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
+            _plane setVariable ["mainGun", "Twin_Cannon_20mm_gunpod"];
             _plane setVariable ["missileLauncher", ["rhs_weap_AGM114L_Launcher"]];
-            [_plane] spawn {
-                params["_plane"];
-                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
-                (gunner _plane) forceWeaponFire ["Laserdesignator_mounted", "Laserdesignator_mounted"];
-                { _plane enableVehicleSensor [_x, true]} forEach ((listVehicleSensors _plane) select 0);
-            };
         };
         //SOG:PF
         case "vn_b_air_f4c_at":

@@ -23,12 +23,13 @@ private _fnc_executeWeaponFire =
 
     Debug_1("Execute weapon fire called with fireParams %1", _fireParams);
     
+    //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
     if (!(gunner _plane isEqualTo objNull)) then {
         (gunner _plane) doTarget (_plane getVariable "currentTarget");
-        if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
-            _plane setVariable ["currentTarget", laserTarget (gunner _plane)];
-            //(driver _plane) doTarget laserTarget (gunner _plane);
-        };
+        //if (!((laserTarget (gunner _plane)) isEqualTo objNull)) then {
+        //    _plane setVariable ["currentTarget", laserTarget (gunner _plane)];
+        //    //(driver _plane) doTarget laserTarget (gunner _plane);
+        //};
     };
 
     private _weapons = _plane getVariable ["missileLauncher", []];
@@ -50,6 +51,15 @@ private _fnc_executeWeaponFire =
         //Fire weapon if one is selected (guided weapons only gets fired when they have a lockon possibility on the target)
         _plane setVariable ["missileShots", _missileShots min _currentHighest];
         _plane fireAtTarget [_plane getVariable "currentTarget", _selectedWeapon];
+        
+        //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
+        if (!(gunner _plane isEqualTo objNull)) then { 
+            private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
+            private _modes = ["Direct","TopDown"] arrayIntersect getArray (_weapCfg >> "modes");
+            if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };
+            private _modeCfg = [_weapCfg >> (_modes#0), _weapCfg] select (_modes#0 == "this");
+            (driver _plane) forceWeaponFire [_selectedWeapon, configName _modeCfg];
+        };
     };
 
     private _weapons = _plane getVariable ["rocketLauncher", []];
@@ -110,6 +120,7 @@ private _fireParams =
 //private _fireParams = [[true, 0, 0, 1], [true, 0, 0, 1], [true, 0, 0, 1]];
 private _fireParams = +(_plane getVariable "fireParams");
 _plane setVariable ["currentTarget", _target];
+
 
 private _enterRunPos = getPosASL _plane;
 private _targetPos = eyePos _target;

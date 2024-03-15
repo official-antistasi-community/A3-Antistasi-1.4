@@ -46,7 +46,7 @@ private _fnc_executeWeaponFire =
         
         //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
         if (!(gunner _plane isEqualTo objNull) && !_missileFired) then { 
-            //Strictly speaking not required for the two planes this fix is for, the backup if statement would select the correct firemode regardless 
+            //Strictly speaking not required for the two planes this fix is for, the backup if statement would select the correct firemode regardless - future proofing
             private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
             private _modes = ["Direct","TopDown"] arrayIntersect getArray (_weapCfg >> "modes");
             if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };

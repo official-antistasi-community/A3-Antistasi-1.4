@@ -41,10 +41,12 @@ private _fnc_executeWeaponFire =
 
         //Fire weapon if one is selected (guided weapons only gets fired when they have a lockon possibility on the target)
         _plane setVariable ["missileShots", _missileShots min _currentHighest];
-        _plane fireAtTarget [_plane getVariable "currentTarget", _selectedWeapon];
+        private _missileFired = false;
+        _missileFired = _plane fireAtTarget [_plane getVariable "currentTarget", _selectedWeapon];
         
         //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
-        if (!(gunner _plane isEqualTo objNull)) then { 
+        if (!(gunner _plane isEqualTo objNull) && !_missileFired) then { 
+            //Strictly speaking not required for the two planes this fix is for, the backup if statement would select the correct firemode regardless 
             private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
             private _modes = ["Direct","TopDown"] arrayIntersect getArray (_weapCfg >> "modes");
             if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };

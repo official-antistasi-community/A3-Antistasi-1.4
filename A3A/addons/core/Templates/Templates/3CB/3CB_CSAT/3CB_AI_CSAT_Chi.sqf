@@ -11,9 +11,11 @@
 ["flagMarkerType", "UK3CB_Marker_CSAT_Green"] call _fnc_saveToTemplate;
 switch (A3A_climate) do 
 {
-    case "temperate":   {
+    case "arctic";
+    case "arid":   {
         //Navy (Pacific)
     };
+    case "temperate";
     case "tropical": {
         //Pacific
     };

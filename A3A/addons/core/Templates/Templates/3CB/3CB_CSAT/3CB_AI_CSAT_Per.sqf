@@ -102,31 +102,34 @@ _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 _loadoutData set ["lightATLaunchers", [
-["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
-["launch_RPG32_F", "", "", "", ["RPG32_F"], [], ""],
-["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""]
+["rhs_weap_rpg7", "", "", "", ["rhs_rpg7_PG7VL_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "", ["rhs_rpg7_OG7V_mag"], [], ""],
+"rhs_weap_rpg26",
+"rhs_weap_rpg26",
+"rhs_weap_rpg26",
+"rhs_weap_rshg2",
+"rhs_weap_rshg2"
 ]];
 _loadoutData set ["ATLaunchers", [
-["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
-["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT"], [], ""]
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3", ["rhs_rpg7_PG7VR_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v3", ["rhs_rpg7_TBG7V_mag", "rhs_rpg7_PG7VR_mag"], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
-["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
+"uk3cb_saeghe2"
 ]];
 _loadoutData set ["AALaunchers", [
-["launch_O_Titan_F", "", "acc_pointer_IR", "", ["Titan_AA"], [], ""]
+"rhs_weap_igla"
 ]];
 _loadoutData set ["sidearms", []];
 
-_loadoutData set ["ATMines", ["ATMine_Range_Mag"]];
-_loadoutData set ["APMines", ["APERSMine_Range_Mag"]];
-_loadoutData set ["lightExplosives", ["DemoCharge_Remote_Mag"]];
-_loadoutData set ["heavyExplosives", ["SatchelCharge_Remote_Mag"]];
+_loadoutData set ["ATMines", ["rhs_mine_M19_mag"]];
+_loadoutData set ["APMines", ["rhsusf_mine_m14_mag"]];
+_loadoutData set ["lightExplosives", ["rhsusf_m112_mag"]];
+_loadoutData set ["heavyExplosives", ["rhsusf_m112x4_mag"]];
 
-_loadoutData set ["antiInfantryGrenades", ["HandGrenade", "MiniGrenade"]];
-_loadoutData set ["antiTankGrenades", []];
-_loadoutData set ["smokeGrenades", ["SmokeShell"]];
-_loadoutData set ["signalsmokeGrenades", ["SmokeShellYellow", "SmokeShellRed", "SmokeShellPurple", "SmokeShellOrange", "SmokeShellGreen", "SmokeShellBlue"]];
+_loadoutData set ["antiInfantryGrenades", ["rhs_mag_rgd5","rhs_mag_rgn","rhs_mag_rgo"]];
+_loadoutData set ["smokeGrenades", ["rhs_mag_an_m8hc"]];
+_loadoutData set ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow"]];
 
 //Basic equipment. Shouldn't need touching most of the time.
 //Mods might override this, or certain mods might want items removed (No GPSs in WW2, for example)
@@ -135,9 +138,9 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", ["NVGoggles_OPFOR"]];
+_loadoutData set ["NVGs", ["rhsusf_ANPVS_14"]];
 _loadoutData set ["binoculars", ["Binocular"]];
-_loadoutData set ["rangefinders", ["Rangefinder"]];
+_loadoutData set ["rangefinders", ["rhsusf_bino_lerca_1200_black"]];
 
 _loadoutData set ["uniforms", _uniforms];
 _loadoutData set ["slUniforms", _slUniforms];
@@ -157,7 +160,7 @@ _loadoutData set ["items_medical_medic", ["MEDIC"] call A3A_fnc_itemset_medicalS
 _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials];
 
 //Unit type specific item sets. Add or remove these, depending on the unit types in use.
-private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
+private _slItems = ["Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
 

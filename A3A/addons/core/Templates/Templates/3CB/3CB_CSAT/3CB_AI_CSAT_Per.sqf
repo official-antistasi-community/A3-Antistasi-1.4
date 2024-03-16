@@ -28,6 +28,10 @@
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 ["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
+//Minefield definition
+["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
+
 private _uniforms = [];
 private _slUniforms = [];
 private _sfUniforms = [];
@@ -122,8 +126,8 @@ _loadoutData set ["AALaunchers", [
 ]];
 _loadoutData set ["sidearms", []];
 
-_loadoutData set ["ATMines", ["rhs_mine_M19_mag"]];
-_loadoutData set ["APMines", ["rhsusf_mine_m14_mag"]];
+_loadoutData set ["ATMines", ["rhs_mine_tm62m_mag"]];
+_loadoutData set ["APMines", ["rhs_mine_pmn2_mag"]];
 _loadoutData set ["lightExplosives", ["rhsusf_m112_mag"]];
 _loadoutData set ["heavyExplosives", ["rhsusf_m112x4_mag"]];
 
@@ -197,15 +201,13 @@ _sfLoadoutData set ["uniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];
 _sfLoadoutData set ["Hvests", _sfVests + _Hvests];
-//_sfLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_cbr", "B_Kitbag_cbr"]];
-//_sfLoadoutData set ["helmets", ["H_HelmetSpecO_ocamo"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons
 _sfLoadoutData set ["slRifles", [
-["UK3CB_KH2002_Carbine", "", "rhs_acc_perst1ik_ris", "rhsusf_acc_ACOG", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002", "", "rhs_acc_perst3", "rhsusf_acc_su230_mrds", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst1ik_ris", "rhsusf_acc_su230", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst3", "rhsusf_acc_ACOG_RMR", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
+["UK3CB_KH2002_Carbine", "rhsusf_acc_rotex5_grey", "rhs_acc_perst1ik_ris", "rhsusf_acc_ACOG", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
+["UK3CB_KH2002", "rhsusf_acc_rotex5_grey", "rhs_acc_perst3", "rhsusf_acc_su230_mrds", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
+["UK3CB_KH2002_UGL", "rhsusf_acc_rotex5_grey", "rhs_acc_perst1ik_ris", "rhsusf_acc_su230", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
+["UK3CB_KH2002_UGL", "rhsusf_acc_rotex5_grey", "rhs_acc_perst3", "rhsusf_acc_ACOG_RMR", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
 ]];
 _sfLoadoutData set ["rifles", [
 ["UK3CB_KH2002", "rhsusf_acc_rotex5_grey", "rhs_acc_perst1ik_ris", "rhs_acc_1p87", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
@@ -216,8 +218,8 @@ _sfLoadoutData set ["carbines", [
 ["UK3CB_KH2002", "rhsusf_acc_rotex5_grey", "rhs_acc_perst3", "rhs_acc_ekp8_18", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst1ik_ris", "rhs_acc_1p87", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst3", "rhs_acc_ekp8_18", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
+["UK3CB_KH2002_UGL", "rhsusf_acc_rotex5_grey", "rhs_acc_perst1ik_ris", "rhs_acc_1p87", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
+["UK3CB_KH2002_UGL", "rhsusf_acc_rotex5_grey", "rhs_acc_perst3", "rhs_acc_ekp8_18", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
 ["UK3CB_MP5SD5", "", "", "rhs_acc_1p87", ["UK3CB_MP5_30Rnd_9x19_Magazine"], [], ""],
@@ -238,7 +240,7 @@ _sfLoadoutData set ["marksmanRifles", [
 ["rhs_weap_svds_npz", "rhs_acc_tgpv2", "", "rhsusf_acc_LEUPOLDMK4", [], [], ""]
 ]];
 _sfLoadoutData set ["sniperRifles", [
-["rhs_acc_dh520x56", "", "", "rhs_acc_dh520x56", [], [], ""],
+["uk3cb_HS50", "", "", "rhs_acc_dh520x56", [], [], ""],
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"]
 ]];
 _sfLoadoutData set ["sidearms", [
@@ -250,13 +252,9 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-//_militaryLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
-//_militaryLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo"]];
 _militaryLoadoutData set ["vests", _vests];
 _militaryLoadoutData set ["glVests", _glVests];
 _militaryLoadoutData set ["Hvests", _Hvests];
-//_militaryLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_cbr", "B_Kitbag_cbr"]];
-//_militaryLoadoutData set ["helmets", ["H_HelmetO_ocamo", "H_HelmetLeaderO_ocamo"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 
 _militaryLoadoutData set ["slRifles", [
@@ -295,6 +293,7 @@ _militaryLoadoutData set ["marksmanRifles", [
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"],
+["rhs_weap_m24sws", "", "", "rhsusf_acc_LEUPOLDMK4", [], [], "rhsusf_acc_harris_swivel"],
 ["UK3CB_G3SG1_RIS", "", "", "uk3cb_optic_accupoint_g3", ["UK3CB_G3_20rnd_762x51"], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", ["UK3CB_PC9_ZOAF"]];
@@ -321,12 +320,9 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-//_militiaLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
-//_militiaLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo"]];
 _militiaLoadoutData set ["vests", _milVests];
 _militiaLoadoutData set ["glVests", _milVests];
 _militiaLoadoutData set ["Hvests", _milVests];
-//_militiaLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_cbr", "B_Kitbag_cbr"]];
 _militiaLoadoutData set ["helmets", _milHelmets];
 _militiaLoadoutData set ["medicHelmets", _milMedicHelmets];
 
@@ -340,7 +336,7 @@ _militiaLoadoutData set ["carbines", [
 ["rhs_weap_akm_zenitco01_b33", "rhs_acc_dtkakm", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], ["rhs_VOG25","rhs_VOG25","rhs_VOG25P","rhs_GRD40_White"], ""],
+["rhs_weap_ak103_gp25_npz", "rhs_acc_dtk", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], ["rhs_VOG25","rhs_VOG25","rhs_VOG25P","rhs_GRD40_White"], ""],
 ["UK3CB_G3KA4_GL", "", "rhs_acc_2dpZenit_ris", "rhsusf_acc_compm4", ["UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M441_HE","rhs_mag_m714_White"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
@@ -388,6 +384,20 @@ _pilotLoadoutData set ["vests", _crewVests];
 _pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_green", "rhs_zsh7a_mike_green_alt"]];
 
 _pilotLoadoutData set ["carbines", [
+["UK3CB_MP5N", "", "rhs_acc_2dpZenit_ris", "rhs_acc_okp7_picatinny", ["UK3CB_MP5_30Rnd_9x19_Magazine_G"], [], ""],
+["UK3CB_MP5A3", "", "uk3cb_acc_surefiregrip", "rhs_acc_okp7_picatinny", ["UK3CB_MP5_30Rnd_9x19_Magazine_G"], [], ""],
+["UK3CB_Uzi", "", "", "", ["UK3CB_Uzi_32Rnd_Magazine_G"], [], ""]
+]];
+
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["uniforms", _officerUniforms];
+_officerLoadoutData set ["Hvests", _vests];
+_officerLoadoutData set ["helmets", ["UK3CB_CSAT_IRAN_H_Beret"]];
+
+_officerLoadoutData set ["slRifles", [
+["rhs_weap_m4_carryhandle", "", "", "", ["UK3CB_M16_20rnd_556x45_G"], [], ""],
+["rhs_weap_m4a1_carryhandle", "", "", "", ["UK3CB_M16_20rnd_556x45_G"], [], ""],
+["rhs_weap_mk18_bk", "", "", "", ["UK3CB_M16_20rnd_556x45_G"], [], ""],
 ["UK3CB_MP5N", "", "rhs_acc_2dpZenit_ris", "rhs_acc_okp7_picatinny", ["UK3CB_MP5_30Rnd_9x19_Magazine_G"], [], ""],
 ["UK3CB_MP5A3", "", "uk3cb_acc_surefiregrip", "rhs_acc_okp7_picatinny", ["UK3CB_MP5_30Rnd_9x19_Magazine_G"], [], ""],
 ["UK3CB_Uzi", "", "", "", ["UK3CB_Uzi_32Rnd_Magazine_G"], [], ""]
@@ -890,8 +900,8 @@ private _unitTypes = [
 ["other", [["Crew", _crewTemplate]], _crewLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _squadLeaderTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _squadLeaderTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
-["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Traitor", _traitorTemplate]], _militiaLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
 ["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

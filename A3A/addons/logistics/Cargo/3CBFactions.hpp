@@ -5,6 +5,7 @@ class UK3CB_Factions_addons_UK3CB_Factions_Static_UK3CB_Factions_Static_RBS70_uk
     size = 2;
     recoil = 400;
     isWeapon = 1;
+    weaponType = TYPE_AA;
 };
 
 class UK3CB_Factions_addons_UK3CB_Factions_Static_UK3CB_Factions_Static_M240_UK3CB_Static_M240_High_p3d : TRIPLES(ADDON,Cargo,Base)
@@ -14,4 +15,5 @@ class UK3CB_Factions_addons_UK3CB_Factions_Static_UK3CB_Factions_Static_M240_UK3
     size = 4;
     recoil = 50;
     isWeapon = 1;
+    weaponType = TYPE_MG;
 };

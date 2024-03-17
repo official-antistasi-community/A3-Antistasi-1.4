@@ -37,6 +37,28 @@ private _shotsPerVolley = _numberOfRounds / 3;
 _fn_executeMortarFire =
 {
     params ["_mortar"];
+	
+	private _scudLaunchers = ["rhs_9k79","rhs_9k79_K","rhs_9k79_B"];
+	if(_mortar in _scudLaunchers) then {
+		//Intercepted
+		//Rhs scripts
+		//\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaDeploy.sqf
+		//\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaFire.sqf
+		
+        private _subTargets = _mortar getVariable ["FireOrder", []];
+        private _shellTarget = _subTargets deleteAt 0;
+		
+		
+		//private _relDir = [_mortar, _shellTarget] call BIS_fnc_relativeDirTo;
+		//_mortar setDir ((getDir _mortar) + _relDir);
+		
+		[_mortar,1] spawn rhs_fnc_ss21_AI_prepare;
+		_tochkaGrp = group _mortar;
+		sleep 30;
+		_wp = _tochkaGrp addWaypoint [ATLtoASL _shellTarget, 0];
+		_wp setWaypointType "SCRIPTED"; 
+		_wp setWaypointScript "\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaFire.sqf";
+	};
 
     _mortar addEventHandler
     [

@@ -21,7 +21,6 @@
 
 ["staticMGs", ["UK3CB_CSAT_B_O_M2_TriPod"]] call _fnc_saveToTemplate;
 ["staticAT", ["UK3CB_CSAT_B_O_Kornet"]] call _fnc_saveToTemplate;
-["staticAA", ["UK3CB_CSAT_B_O_Igla_AA_pod","UK3CB_CSAT_B_O_RBS70"]] call _fnc_saveToTemplate;
 ["staticMortars", ["RHS_M252_D"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;

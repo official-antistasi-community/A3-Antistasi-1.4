@@ -42,12 +42,7 @@
 ["uavsAttack", ["UK3CB_CSAT_B_O_Ababil_AT","UK3CB_CSAT_B_O_Fenghuang"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["UK3CB_CSAT_B_O_Darter"]] call _fnc_saveToTemplate;
 
-//Config special vehicles
-["vehiclesMilitiaLightArmed", ["UK3CB_CSAT_B_O_Offroad_HMG"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["UK3CB_CSAT_B_O_Gaz66_Open","UK3CB_CSAT_B_O_Gaz66_Covered"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["UK3CB_CSAT_B_O_Offroad_Unarmed"]] call _fnc_saveToTemplate;
-
-["vehiclesPolice", ["UK3CB_TKP_O_LandRover_Closed","UK3CB_TKP_O_LandRover_Open"]] call _fnc_saveToTemplate;
+["staticAA", ["UK3CB_CSAT_B_O_Igla_AA_pod","UK3CB_CSAT_B_O_RBS70"]] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Loadouts       //

@@ -49,6 +49,8 @@
 
 ["vehiclesPolice", ["UK3CB_CPD_O_Hilux_Open","UK3CB_CPD_O_Hilux_Closed","UK3CB_CPD_O_Hilux_Pkm","UK3CB_CPD_O_TIGR_FFV"]] call _fnc_saveToTemplate;
 
+["staticAA", ["UK3CB_CSAT_B_O_Igla_AA_pod","UK3CB_CSAT_S_O_RBS70"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

@@ -48,6 +48,8 @@
 
 ["vehiclesPolice", ["UK3CB_TKP_O_LandRover_Closed","UK3CB_TKP_O_LandRover_Open"]] call _fnc_saveToTemplate;
 
+["staticAA", ["UK3CB_CSAT_B_O_Igla_AA_pod","UK3CB_CSAT_M_O_RBS70"]] call _fnc_saveToTemplate;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////

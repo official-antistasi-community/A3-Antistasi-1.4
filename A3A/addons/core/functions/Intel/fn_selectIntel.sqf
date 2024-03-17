@@ -200,8 +200,8 @@ if (_intelType == "Large") then
         };
         case (WEAPON):
         {
-            private _notYetUnlocked = allWeapons - unlockedWeapons;
-            private _newWeapon = selectRandom _notYetUnlocked;
+            private _notYetUnlocked = allWeapons - unlockedWeapons - allMissileLaunchers; // to prevent guided launchers from being unlocked by large intel
+            _newWeapon = selectRandom _notYetUnlocked;
             [_newWeapon] remoteExec ["A3A_fnc_unlockEquipment", 2];
 
             private _weaponName = getText (configFile >> "CfgWeapons" >> _newWeapon >> "displayName");

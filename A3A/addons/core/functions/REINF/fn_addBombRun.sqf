@@ -3,46 +3,44 @@ _veh = cursortarget;
 FIX_LINE_NUMBERS()
 #define OccAndInv(VEH) (FactionGet(occ, VEH) + FactionGet(inv, VEH))
 private _titleStr = localize "STR_A3A_fn_reinf_bombrun_title";
+private _owner = _veh getVariable "ownerX";
+private _wrongOwner = !(isNil "_owner" && {_owner isEqualType ""} && {getPlayerUID player != _owner});
 
-if (isNull _veh) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_looking"] call A3A_fnc_customHint;};
-
-if (!alive _veh) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_destr"] call A3A_fnc_customHint;};
-
-_units = (player nearEntities ["Man",300]) select {([_x] call A3A_fnc_CanFight) && (side _x isEqualTo Occupants || side _x isEqualTo Invaders)};
-if (_units findIf {_unit = _x; _players = allPlayers select {(side _x isEqualTo teamPlayer) && (player distance _x < 300)}; _players findIf {_x in (_unit targets [true, 300])} != -1} != -1) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_nearby"] call A3A_fnc_customHint};
-if (_units findIf{player distance _x < 100} != -1) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_nearby"] call A3A_fnc_customHint};
-
-_near = (["Synd_HQ"] + airportsX) select {sidesX getVariable [_x,sideUnknown] isEqualTo teamplayer};
-_near = _near select {(player inArea _x) && (_veh inArea _x)};
-
-if (_near isEqualTo []) exitWith {[_titleStr, format [localize "STR_A3A_fn_reinf_bombrun_no_area",FactionGet(reb,"name")]] call A3A_fnc_customHint;};
-
-if ({isPlayer _x} count crew _veh > 0) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_empty"] call A3A_fnc_customHint;};
-
-_owner = _veh getVariable "ownerX";
-_exit = false;
-if (!isNil "_owner") then
-	{
-	if (_owner isEqualType "") then
-		{
-		if (getPlayerUID player != _owner) then {_exit = true};
-		};
-	};
-
-if (_exit) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_owner"] call A3A_fnc_customHint;};
-
-if (not(_veh isKindOf "Air")) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_airveh"] call A3A_fnc_customHint;};
-
-_typeX = typeOf _veh;
-
-if (isClass (configfile >> "CfgVehicles" >> _typeX >> "assembleInfo")) then {
-	if (count getArray (configfile >> "CfgVehicles" >> _typeX >> "assembleInfo" >> "dissasembleTo") > 0) then {
-		_exit = true;
-	};
+private _exitReason = switch (true) do {
+	case (isNull _veh):                                         {"looking"};
+	case (!alive _veh):                                         {"destr"};
+	case (_veh getVariable ["A3A_locked",false]):               {"locked"};
+	case (_wrongOwner):                                         {"owner"}; 
+	case (player isNotEqualTo vehicle player):                  {"inVehicle"};
+	case (player distance _veh > 25):                           {"distance"};
+	case ([getPosATL player] call A3A_fnc_enemyNearCheck):      {"nearby"};
+	case !(_veh isKindOf "Air"):                                {"airveh"};
+	case (count crew _veh > 0):                                 {"empty"};
+	default {""};
 };
-if (_exit) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_drone"] call A3A_fnc_customHint;};
 
+if (_exitReason isNotEqualTo "") exitWith {
+    private _exitMessage =  ["STR_A3A_fn_reinf_bombrun_no_",_exitReason] joinString "";
+    [_titleStr, localize _exitMessage] call A3A_fnc_customHint;
+    false;
+};
 
+private _validMarks = (["Synd_HQ"] + airportsX) select {sidesX getVariable [_x,sideUnknown] isEqualTo teamplayer};
+private _inArea = _validMarks findIf { count ([player, _veh] inAreaArray _x) > 1 };
+if !(_inArea > -1) exitWith {
+    [_titleStr, format [localize "STR_A3A_fn_reinf_bombrun_no_area",FactionGet(reb,"name")]] call A3A_fnc_customHint;
+    false;
+}; // not near airbase or HQ
+
+if (isClass (configfile >> "CfgVehicles" >> typeOf _veh >> "assembleInfo") && {count getArray (configfile >> "CfgVehicles" >> typeOf _veh >> "assembleInfo" >> "dissasembleTo") > 0}) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_drone"] call A3A_fnc_customHint;};
+private _cfgAssembleInto = configfile >> "CfgVehicles" >> typeOf _veh >> "assembleInfo";
+if (
+    isClass _cfgAssembleInto &&
+    {getArray (_cfgAssembleInto >> "dissasembleTo") isNotEqualTo []}
+) exitWith {
+    [_titleStr, localize "STR_A3A_fn_reinf_bombrun_no_drone"] call A3A_fnc_customHint;
+    false;
+};
 
 _pointsX = 2;
 

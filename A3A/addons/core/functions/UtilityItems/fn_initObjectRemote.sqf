@@ -66,6 +66,15 @@ if ("build" in _flags) then {
     ];
 };
 
+// building placer box with huge crap
+if ("hugebuild" in _flags) then {
+    if(A3A_hasACE) then 
+    {
+        [_object, 4] call ace_cargo_fnc_setSize;
+    };
+    // TODO: find a good way to calculate a new mass for these objects.
+};
+
 // packable object
 if ("pack" in _flags) then {
     _object addAction [

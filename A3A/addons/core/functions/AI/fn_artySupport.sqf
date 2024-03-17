@@ -135,7 +135,7 @@ _mrkFinal setMarkerColorLocal "ColorRed";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Artillery Barrage Begin";
+	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal";
 	positionTel = [];
 
 	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
@@ -173,7 +173,7 @@ if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal 
 
 if (_typeArty != "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal "Arty Strike";
+	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_artyStrike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;
@@ -184,7 +184,7 @@ else
 	_roundsMax = _rounds;
 	};
 
-_markerX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
+/*_markerX = [markersX,_positionTel] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _forcedX = false;
 
@@ -194,8 +194,10 @@ if ((not(_markerX in forcedSpawn)) and (_positionTel distance (getMarkerPos _mar
 	forcedSpawn pushBack _markerX;
 	publicVariable "forcedSpawn";
 	};
+*/
 
-_textX = format ["Requesting fire support on Grid %1. %2 Rounds.", mapGridPosition _positionTel, round _rounds];
+_roundPlural = if (round _rounds == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
+_textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPosition _positionTel, round _rounds, _roundPlural];
 [theBoss,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 
 if (_typeArty == "BARRAGE") then
@@ -204,19 +206,19 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal2 setMarkerShapeLocal "ICON";
 	_mrkFinal2 setMarkerTypeLocal "hd_destroy";
 	_mrkFinal2 setMarkerColorLocal "ColorRed";
-	_mrkFinal2 setMarkerTextLocal "Artillery Barrage End";
+	_mrkFinal2 setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal2";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
 	_timeX = time + _eta;
-	_textX = format ["Acknowledged. Fire mission is inbound. ETA %1 secs for the first impact.",round _eta];
-	[petros,"sideChat",_textX]remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesBarrage",round _eta];
+	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	[_timeX] spawn
 		{
 		private ["_timeX"];
 		_timeX = _this select 0;
 		waitUntil {sleep 1; time > _timeX};
-		[petros,"sideChat","Splash. Out"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
 	};
 
@@ -275,20 +277,21 @@ if (_typeArty != "BARRAGE") then
         #define ARTILLERY_ERROR_INFORMATION [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)]
         Error_4("Params: %1,%2,%3,%4,%5",_artyArrayDef1 select 0,_positionTel,((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0),(_artyArrayDef1 select 0) getArtilleryETA ARTILLERY_ERROR_INFORMATION);
     };
-	_textX = format ["Acknowledged. Fire mission is inbound. %2 Rounds fired. ETA %1 secs.",round _eta,_roundsMax - _rounds];
+	_roundPlural = if ((_roundsMax - _rounds) == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
+	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesSingle",round _eta,_roundsMax - _rounds, _roundPlural];
 	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 
 if (_typeArty != "BARRAGE") then
 	{
 	waitUntil {sleep 1; time > _timeX};
-	[petros,"sideChat","Splash. Out."] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
 sleep 10;
 deleteMarkerLocal _mrkFinal;
 if (_typeArty == "BARRAGE") then {deleteMarkerLocal _mrkFinal2};
 
-if (_forcedX) then
+/*if (_forcedX) then
 	{
 	sleep 20;
 	if (_markerX in forcedSpawn) then
@@ -297,3 +300,4 @@ if (_forcedX) then
 		publicVariable "forcedSpawn";
 		};
 	};
+*/

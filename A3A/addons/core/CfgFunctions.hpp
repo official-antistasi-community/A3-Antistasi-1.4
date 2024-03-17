@@ -239,7 +239,7 @@ class CfgFunctions
             class cargoSeats {};
             class cleanserVeh {};
             class countFreeSpawnPositions {};
-            class createAIAirplane {};
+            class createAIAirbase {};
             class createAICities {};
             class createAIcontrols {};
             class createAIOutposts {};
@@ -293,6 +293,8 @@ class CfgFunctions
             class installSchrodingersBuildingFix {};
             class prepFunctions {};
             class spawnDebuggingLoop {};
+            class spawnSelectedTemplateAI {};
+            class debugSpawnVics {};    
         };
 
         class Dialogs {
@@ -381,6 +383,7 @@ class CfgFunctions
             class prepareMarkerArrays {};
             class resourcecheck {};
             class tags {};
+            class checkCampaignEnd {};
         };
 
         class Intel {

@@ -27,7 +27,7 @@ _mrkorig = createMarkerLocal [format ["BRStart%1",random 1000], _pos1];
 _mrkorig setMarkerShapeLocal "ICON";
 _mrkorig setMarkerTypeLocal "hd_destroy";
 _mrkorig setMarkerColorLocal "ColorRed";
-_mrkOrig setMarkerTextLocal "Bomb Run Init";
+_mrkOrig setMarkerTextLocal localize "STR_A3A_fn_reinf_NATObomb_init";
 
 [_titleStr, localize "STR_A3A_fn_reinf_NatoBomb_select_end"] call A3A_fnc_customHint;
 
@@ -41,8 +41,9 @@ if (!visibleMap) exitWith {deleteMarker _mrkOrig};
 _pos2 = positionTel;
 positionTel = [];
 
-_ang = [_pos1,_pos2] call BIS_fnc_dirTo;
+ServerInfo_6("Commander %1 [%2] called %3 airstrike from %4 to %5, %6m from HQ", name theBoss, getPlayerUID theBoss, _typeX, _pos1, _pos2, _pos1 distance markerPos "Synd_HQ");
 
+_ang = [_pos1,_pos2] call BIS_fnc_dirTo;
 
 bombRuns = bombRuns - 1;
 publicVariable "bombRuns";
@@ -52,7 +53,7 @@ _mrkDest = createMarkerLocal [format ["BRFin%1",random 1000], _pos2];
 _mrkDest setMarkerShapeLocal "ICON";
 _mrkDest setMarkerTypeLocal "hd_destroy";
 _mrkDest setMarkerColorLocal "ColorRed";
-_mrkDest setMarkerTextLocal "Bomb Run Exit";
+_mrkDest setMarkerTextLocal localize "STR_A3A_fn_reinf_NATObomb_exit";
 
 //openMap false;
 private _typePlaneX = (FactionGet(reb,"vehiclesPlane")) # 0;
@@ -75,7 +76,7 @@ _plane flyInHeight 100;
 private _minAltASL = ATLToASL [_pos1 select 0, _pos1 select 1, 0];
 _plane flyInHeightASL [(_minAltASL select 2) +100, (_minAltASL select 2) +100, (_minAltASL select 2) +100];
 
-driver _plane sideChat "Starting Bomb Run. ETA 30 seconds.";
+driver _plane sideChat localize "STR_A3A_fn_reinf_NATObomb_run";
 _wp1 = group _plane addWaypoint [_pos1, 0];
 _wp1 setWaypointType "MOVE";
 if (!_isHelicopter) then { _wp1 setWaypointSpeed "LIMITED" };

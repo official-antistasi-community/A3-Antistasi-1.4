@@ -89,6 +89,12 @@ while {time < _timeout} do
     _target resize 0;                                       // clear target array so that a new one can be added externally
     Debug_2("%1 Next target is %2", _supportName, _targetPos);
 
+	//Gets and rotates the mortar/vehicle towards target, allowing MLRS or similar limited artillery to fire upon their target
+	//private _relDir = [_mortar, _targetPos] call BIS_fnc_relativeDirTo; 
+	//_mortar setDir ((getDir _mortar) + _relDir);
+	_mortar setDir ((getDir _mortar) + (_mortar getDir _targetPos));
+	
+	
     // 50m circular spread because it's easy
     private _subTargets = [];
     for "_i" from 1 to _shotsPerVolley do {

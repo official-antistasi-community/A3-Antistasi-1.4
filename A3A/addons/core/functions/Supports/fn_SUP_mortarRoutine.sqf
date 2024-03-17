@@ -39,7 +39,7 @@ _fn_executeMortarFire =
     params ["_mortar"];
 	
 	private _scudLaunchers = ["rhs_9k79","rhs_9k79_K","rhs_9k79_B"];
-	if(_mortar in _scudLaunchers) then {
+	if((typeOf _mortar) in _scudLaunchers) then {
 		//Intercepted
 		//Rhs scripts
 		//\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaDeploy.sqf

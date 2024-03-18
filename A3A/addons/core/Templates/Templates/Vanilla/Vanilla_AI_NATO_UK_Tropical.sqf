@@ -357,8 +357,8 @@ _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police"]];
 
 _policeLoadoutData set ["SMGs", [
-["SMG_03C_khaki", "", "", "optic_Holosight", [], [], ""],
-["SMG_03C_khaki", "", "", "optic_Aco_smg", [], [], ""],
+["SMG_03C_khaki", "", "", "", [], [], ""],
+["SMG_03C_khaki", "", "", "", [], [], ""],
 ["SMG_03C_TR_khaki", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
 ["SMG_03C_TR_khaki", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
 ["SMG_05_F", "", "acc_flashlight", "optic_Holosight_smg_blk_F", [], [], ""],
@@ -388,8 +388,8 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 ["arifle_SPAR_01_GL_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
-["SMG_03C_khaki", "", "acc_flashlight", "", [], [], ""],
-["SMG_03C_khaki", "", "acc_flashlight", "", [], [], ""],
+["SMG_03C_khaki", "", "", "", [], [], ""],
+["SMG_03C_khaki", "", "", "", [], [], ""],
 ["SMG_05_F", "", "acc_flashlight", "", [], [], ""],
 ["SMG_05_F", "", "acc_flashlight", "", [], [], ""],
 ["SMG_05_F", "", "acc_flashlight", "", [], [], ""],
@@ -401,8 +401,8 @@ _militiaLoadoutData set ["machineGuns", [
 _militiaLoadoutData set ["marksmanRifles", [
 ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "optic_Hamr_khk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
 ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "optic_MRCO", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], "bipod_01_F_blk"],
-["srifle_EBR_F", "", "acc_flashlight", "optic_Hamr_khk_F", [], [], "bipod_01_F_blk"],
-["srifle_EBR_F", "", "acc_flashlight", "optic_MRCO", [], [], "bipod_01_F_blk"]
+["srifle_DMR_06_hunter_F", "", "", "optic_KHS_blk", [], [], "bipod_01_F_blk"],
+["srifle_DMR_06_hunter_F", "", "", "optic_MRCO", [], [], "bipod_01_F_blk"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
 ["arifle_SPAR_03_blk_F", "", "", "optic_SOS", [], [], "bipod_01_F_blk"],

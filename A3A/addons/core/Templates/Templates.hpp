@@ -95,6 +95,7 @@ class Templates
         name = "A3 ION";
         file = "Vanilla_AI_PMC";
         climate[] = {};
+        forceDLC[] = {"enoch","expansion"};
     };
 
     class Vanilla_FIA : Vanilla_Base

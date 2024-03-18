@@ -88,6 +88,14 @@ class Templates
         maps[] = {"altis"};
         climate[] = {"arid"};
     };
+    class Vanilla_ION : Vanilla_Base
+    {
+        side = "Inv";
+        flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+        name = "A3 ION";
+        file = "Vanilla_AI_PMC";
+        climate[] = {};
+    };
 
     class Vanilla_FIA : Vanilla_Base
     {

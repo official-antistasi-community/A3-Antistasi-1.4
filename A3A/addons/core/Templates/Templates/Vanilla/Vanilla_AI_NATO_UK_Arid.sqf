@@ -57,8 +57,8 @@ private _HelisTransport = ["B_Heli_Transport_01_F","B_CTRG_Heli_Transport_01_san
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_tan_armed_F", "a3a_Offroad_01_tan_AT_F"];
-["vehiclesMilitiaTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-private _vehiclesMilitiaCars = ["a3a_Offroad_01_tan_F"];
+["vehiclesMilitiaTrucks", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["a3a_Offroad_01_tan_F","I_C_Offroad_02_unarmed_F"];
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -237,7 +237,7 @@ _sfLoadoutData set ["Hvests", ["V_PlateCarrierH_CTRG"]];
 _sfLoadoutData set ["backpacks", ["B_Kitbag_cbr", "B_Carryall_cbr", "B_AssaultPack_cbr"]];
 _sfLoadoutData set ["helmets", ["H_HelmetB_TI_arid_F","H_HelmetB_TI_arid_F","H_HelmetB_light_black", "H_HelmetSpecB_blk", "H_HelmetB_black", "H_HelmetB_camo","H_Watchcap_khk"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator"]];
-_sfLoadoutData set ["NVGs", ["NVGogglesB_gry_F","NVGoggles"]];
+_sfLoadoutData set ["NVGs", ["NVGoggles"]];
 _sfLoadoutData set ["facewear", ["G_Balaclava_TI_blk_F","G_Balaclava_TI_G_blk_F"]];
 
 _sfLoadoutData set ["slRifles", [
@@ -287,8 +287,8 @@ _sfLoadoutData set ["marksmanRifles", [
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
 ["srifle_GM6_F", "", "", "optic_LRPS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
-["srifle_LRR_tna_F", "", "", "optic_SOS", [], [], ""],
-["srifle_LRR_tna_F", "", "", "optic_LRPS_tna_F", [], [], ""]
+["srifle_LRR_camo_F", "", "", "optic_SOS", [], [], ""],
+["srifle_LRR_camo_F", "", "", "optic_LRPS", [], [], ""]
 ]];
 _sfLoadoutData set ["sidearms", [
 ["hgun_Pistol_heavy_01_F", "muzzle_snds_acp", "acc_flashlight_pistol", "optic_MRD", [], [], ""],
@@ -302,7 +302,7 @@ _sfLoadoutData set ["sidearms", [
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData set ["vests", ["V_PlateCarrier1_rgr_noflag_F"]];
 _militaryLoadoutData set ["Hvests", ["V_PlateCarrier2_rgr_noflag_F"]];
-_militaryLoadoutData set ["glVests", ["V_PlateCarrierGL_rgr"]];
+_militaryLoadoutData set ["glVests", ["V_PlateCarrierIAGL_oli"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_cbr", "B_Kitbag_rgr", "B_AssaultPack_rgr", "B_Kitbag_mcamo"]];
 _militaryLoadoutData set ["helmets", ["H_HelmetB_camo", "H_HelmetB", "H_HelmetSpecB", "H_HelmetB_light"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator"]];
@@ -361,9 +361,7 @@ private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch an
 _policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police"]];
-_policeLoadoutData set ["rifles", [
-["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
-]];
+
 _policeLoadoutData set ["SMGs", [
 ["SMG_03C_khaki", "", "acc_flashlight", "optic_Holosight", [], [], ""],
 ["SMG_03C_khaki", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
@@ -820,7 +818,7 @@ private _policeTemplate = {
     ["facewear"] call _fnc_setFacewear;
 
 
-    [selectRandom ["rifles", "SMGs"]] call _fnc_setPrimary;
+    ["SMGs"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

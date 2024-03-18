@@ -55,9 +55,9 @@ private _HelisTransport = ["B_Heli_Transport_01_camo_F","B_CTRG_Heli_Transport_0
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["B_T_LSV_01_armed_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["B_T_Truck_01_transport_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_T_LSV_01_unarmed_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_green_armed_F", "a3a_Offroad_01_green_AT_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["a3a_Offroad_01_green_F","I_C_Offroad_02_unarmed_F"]] call _fnc_saveToTemplate;
 
 private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
@@ -142,7 +142,7 @@ _loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_olive_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
-["launch_I_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
+["launch_B_Titan_short_tna_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
 ["launch_B_Titan_tna_F", "", "acc_pointer_IR", "", ["Titan_AA"], [], ""]
@@ -167,7 +167,7 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", ["NVGoggles_tna_F"]];
+_loadoutData set ["NVGs", ["NVGoggles_INDEP"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
@@ -176,12 +176,12 @@ _loadoutData set ["vests", []];
 _loadoutData set ["Hvests", []];
 _loadoutData set ["glVests", []];
 _loadoutData set ["backpacks", []];
-_loadoutData set ["slBackpacks", ["B_RadioBag_01_tropic_F"]];
+_loadoutData set ["slBackpacks", ["B_RadioBag_01_wdl_F"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
-_loadoutData set ["facewear", ["G_Bandanna_khk","G_Bandanna_tan","G_Combat","G_Lowprofile","G_Tactical_Black"]];
+_loadoutData set ["facewear", ["G_Bandanna_oli","G_Shades_Black","G_Combat","G_Lowprofile","G_Tactical_Black"]];
 _loadoutData set ["slHat", ["H_Beret_02"]];
-_loadoutData set ["sniHats", ["H_Booniehat_tna_F"]];
+_loadoutData set ["sniHats", ["H_Booniehat_wdl"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies];
@@ -225,11 +225,10 @@ _loadoutData set ["items_unarmed_extras", []];
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["U_B_CTRG_Soldier_F", "U_B_CTRG_Soldier_2_F", "U_B_CTRG_Soldier_3_F"]];
 _sfLoadoutData set ["vests", ["V_PlateCarrier2_wdl", "V_PlateCarrier1_wdl", "V_TacVest_oli"]];
-_sfLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_AssaultPack_rgr", "B_Carryall_wdl_F", "B_Carryall_green_F"]];
-_sfLoadoutData set ["helmets", ["H_HelmetB_light_wdl", "H_HelmetSpecB_wdl", "H_HelmetB_plain_wdl"]];
-_sfLoadoutData set ["sniHats", ["H_Booniehat_wdl"]];
+_sfLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_AssaultPack_wdl_F", "B_Carryall_wdl_F", "B_Carryall_green_F"]];
+_sfLoadoutData set ["helmets", ["H_HelmetB_TI_tna_F","H_HelmetB_TI_tna_F","H_HelmetB_light_wdl", "H_HelmetSpecB_wdl", "H_HelmetB_plain_wdl"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_03"]];
-_sfLoadoutData set ["NVGs", ["NVGogglesB_gry_F","NVGoggles"]];
+_sfLoadoutData set ["NVGs", ["NVGoggles_INDEP"]];
 _sfLoadoutData set ["facewear", ["G_Balaclava_TI_tna_F","G_Balaclava_TI_G_tna_F"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -291,12 +290,11 @@ _sfLoadoutData set ["sidearms", [
 //    Military Loadout Data    //
 /////////////////////////////////
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["backpacks", ["B_AssaultPack_tna_F", "B_Kitbag_sgg", "B_Carryall_oli"]];
 _militaryLoadoutData set ["vests", ["V_PlateCarrier1_rgr_noflag_F"]];
 _militaryLoadoutData set ["Hvests", ["V_PlateCarrier2_rgr_noflag_F"]];
 _militaryLoadoutData set ["glVests", ["V_PlateCarrierIAGL_oli"]];
-_militaryLoadoutData set ["backpacks", ["B_AssaultPack_tna_F", "B_Kitbag_sgg", "B_Carryall_oli"]];
-_militaryLoadoutData set ["helmets", ["H_HelmetB_tna_F", "H_HelmetB_Enh_tna_F", "H_HelmetB_Light_tna_F"]];
+_militaryLoadoutData set ["backpacks", ["B_AssaultPack_wdl_F", "B_Kitbag_sgg", "B_Carryall_wdl_F"]];
+_militaryLoadoutData set ["helmets", ["H_HelmetB_plain_wdl", "H_HelmetSpecB_wdl", "H_HelmetB_light_wdl"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_03"]];
 
 _militaryLoadoutData set ["rifles", [
@@ -377,8 +375,8 @@ _policeLoadoutData set ["sidearms", ["hgun_P07_khk_F"]];
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["vests", ["V_BandollierB_oli", "V_Chestrig_oli"]];
 _militiaLoadoutData set ["Hvests", ["V_TacVest_oli"]];
-_militiaLoadoutData set ["helmets", ["H_MilCap_tna_F"]];
-_militiaLoadoutData set ["backpacks", ["B_AssaultPack_tna_F", "B_Kitbag_sgg", "B_Carryall_oli"]];
+_militiaLoadoutData set ["helmets", ["H_MilCap_grn","H_MilCap_grn","H_Bandanna_sgg","H_Bandanna_surfer_grn","H_Cap_khaki_specops_UK"]];
+_militiaLoadoutData set ["backpacks", ["B_AssaultPack_wdl_F"]];
 
 _militiaLoadoutData set ["rifles", [
 ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
@@ -811,7 +809,7 @@ private _policeTemplate = {
     ["facewear"] call _fnc_setFacewear;
 
 
-    [selectRandom ["rifles", "SMGs"]] call _fnc_setPrimary;
+    ["SMGs"] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

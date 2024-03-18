@@ -424,7 +424,7 @@ _pilotLoadoutData set ["uniforms", ["U_lxWS_ION_Casual3"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_Cap_headphones", "H_HeadSet_black_F", "lxWS_H_Bandanna_blk_hs", "H_Cap_headphones_ion_lxws"]];
 _pilotLoadoutData set ["facewear", ["G_Aviator","G_Squares_Tinted","G_Tactical_Black"]];
-_crewLoadoutData set ["SMGs", [
+_pilotLoadoutData set ["SMGs", [
 ["hgun_PDW2000_F", "", "", "optic_r1_high_lxWS", [], [], ""],
 ["hgun_PDW2000_F", "", "", "optic_r1_low_lxWS", [], [], ""]
 ]];

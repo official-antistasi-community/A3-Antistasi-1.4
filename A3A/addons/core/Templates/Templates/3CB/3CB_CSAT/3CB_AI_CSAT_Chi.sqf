@@ -51,6 +51,7 @@ private _sfVests = [];
 private _backpacks = [];
 
 private _helmets = [];
+private _sfHelmets = [];
 private _slHat = [];
 private _sniHats = [];
 
@@ -143,7 +144,7 @@ _loadoutData set ["vests", []];
 _loadoutData set ["Hvests", []];
 _loadoutData set ["glVests", []];
 _loadoutData set ["backpacks", _backpacks];
-_loadoutData set ["helmets", _helmets];
+_loadoutData set ["helmets", []];
 _loadoutData set ["medicHelmets", []];
 _loadoutData set ["slHat", _slHat];
 _loadoutData set ["sniHats", _sniHats];
@@ -191,7 +192,9 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and sh
 _sfLoadoutData set ["uniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];
+_sfLoadoutData set ["helmets", _sfHelmets];
 _sfLoadoutData set ["Hvests", _sfVests + _Hvests];
+_sfLoadoutData set ["slHat", _sfHelmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons
 _sfLoadoutData set ["slRifles", [
@@ -239,6 +242,7 @@ _sfLoadoutData set ["sidearms", [
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militaryLoadoutData set ["vests", _vests];
 _militaryLoadoutData set ["glVests", _glVests];
+_militaryLoadoutData set ["helmets", _helmets];
 _militaryLoadoutData set ["Hvests", _Hvests];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 

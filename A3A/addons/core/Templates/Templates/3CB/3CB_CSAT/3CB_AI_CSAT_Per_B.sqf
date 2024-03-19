@@ -49,11 +49,11 @@
 //////////////////////////
 
 _uniforms = ["UK3CB_CSAT_B_O_U_CombatUniform_Shortsleeve", "UK3CB_CSAT_B_O_U_CombatUniform", "UK3CB_CSAT_B_O_U_Tanktop"];
-_slUniforms = ["UK3CB_CSAT_B_O_U_CombatUniform_Shortsleeve"];
-_sfUniforms = ["UK3CB_CSAT_B_O_U_JumperUniform", "UK3CB_CSAT_B_O_U_Tanktop"];
+_slUniforms = ["UK3CB_CSAT_B_O_U_JumperUniform"];
+_sfUniforms = ["UK3CB_CSAT_B_O_U_SF_CombatUniform", "UK3CB_CSAT_B_O_U_SF_CombatUniform_Shortsleeve"];
 
-_tankUniforms = ["UK3CB_CSAT_B_O_U_CombatUniform_Shortsleeve"];
-_pilotUniforms = ["UK3CB_CSAT_B_O_U_Tank_Uniform"];
+_tankUniforms = ["UK3CB_CSAT_B_O_U_Tank_Uniform"];
+_pilotUniforms = ["UK3CB_CSAT_B_O_U_H_Pilot"];
 _officerUniforms = ["UK3CB_CSAT_B_O_U_Officer"];
 
 _vests = ["UK3CB_CSAT_B_O_V_TacVest", "UK3CB_CSAT_B_O_V_Carrier_Rig_Light","UK3CB_CSAT_B_O_V_Carrier_Rig_Compact"];

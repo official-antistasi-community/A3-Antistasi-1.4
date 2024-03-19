@@ -84,14 +84,14 @@
 
 //////////////////////////
 //       Loadouts       //
-//////////////////////////
+/////////////////////////
 
 private _uniforms = ["UK3CB_CSAT_A_O_U_CombatUniform_Shortsleeve", "UK3CB_CSAT_A_O_U_CombatUniform", "UK3CB_CSAT_A_O_U_Tanktop"];
-private _slUniforms = ["UK3CB_CSAT_A_O_U_CombatUniform_Shortsleeve"];
-private _sfUniforms = ["UK3CB_CSAT_A_O_U_JumperUniform", "UK3CB_CSAT_A_O_U_Tanktop"];
+private _slUniforms = ["UK3CB_CSAT_A_O_U_JumperUniform"];
+private _sfUniforms = ["UK3CB_CSAT_A_O_U_SF_CombatUniform", "UK3CB_CSAT_A_O_U_SF_CombatUniform_Shortsleeve"];
 
-private _tankUniforms = ["UK3CB_CSAT_A_O_U_CombatUniform_Shortsleeve"];
-private _pilotUniforms = ["UK3CB_CSAT_A_O_U_Tank_Uniform"];
+private _tankUniforms = ["UK3CB_CSAT_A_O_U_Tank_Uniform"];
+private _pilotUniforms = ["UK3CB_CSAT_A_O_U_H_Pilot"];
 private _officerUniforms = ["UK3CB_CSAT_A_O_U_Officer"];
 
 private _vests = ["UK3CB_CSAT_A_O_V_TacVest", "UK3CB_CSAT_A_O_V_Carrier_Rig_Light","UK3CB_CSAT_A_O_V_Carrier_Rig_Compact"];
@@ -106,7 +106,7 @@ private _sfVests = ["UK3CB_CSAT_A_O_V_Carrier_Rig_Recon"];
 
 private _backpacks = ["UK3CB_CSAT_A_O_B_FIELDPACK","UK3CB_CSAT_A_O_B_RIF"];
 
-private _helmets = ["UK3CB_CSAT_A_O_H_6b27m", "UK3CB_CSAT_A_O_H_6b27m_ESS"];
+private _helmets = ["UK3CB_CSAT_A_H_PASGT", "UK3CB_CSAT_A_H_PASGT_RHINO"];
 private _slHat = ["UK3CB_CSAT_A_O_H_Patrolcap_Mic"];
 private _sniHats = ["UK3CB_CSAT_A_O_H_BoonieHat"];
 
@@ -218,6 +218,7 @@ _sfLoadoutData set ["uniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];
 _sfLoadoutData set ["Hvests", _sfVests + _Hvests];
+_sfLoadoutData set ["slHat", _helmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons
 _sfLoadoutData set ["slRifles", [

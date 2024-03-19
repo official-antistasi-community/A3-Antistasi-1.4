@@ -215,9 +215,11 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", _sfUniforms];
+_sfLoadoutData set ["slUniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];
-_sfLoadoutData set ["Hvests", _sfVests + _Hvests];
+_sfLoadoutData set ["Hvests", _sfVests + _Hvests];"UK3CB_CSAT_A_O_H_6b27m_Alt"
+_sfLoadoutData set ["helmets", ["UK3CB_CSAT_A_O_H_6b27m_Alt", "UK3CB_CSAT_A_O_H_6b27m_ESS_Alt"]];
 _sfLoadoutData set ["slHat", _helmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons

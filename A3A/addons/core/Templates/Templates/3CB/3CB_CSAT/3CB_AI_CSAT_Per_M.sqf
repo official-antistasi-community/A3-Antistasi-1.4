@@ -75,6 +75,7 @@ _sfVests = ["UK3CB_CSAT_M_O_V_Carrier_Rig_Recon"];
 _backpacks = ["UK3CB_CSAT_M_O_B_FIELDPACK","UK3CB_CSAT_M_O_B_RIF"];
 
 _helmets = ["UK3CB_CSAT_M_O_H_6b27m", "UK3CB_CSAT_M_O_H_6b27m_ESS"];
+_sfHelmets = ["UK3CB_CSAT_M_O_H_6b27m_Alt", "UK3CB_CSAT_M_O_H_6b27m_ESS_Alt"];
 _slHat = ["UK3CB_CSAT_M_O_H_Patrolcap_Mic"];
 _sniHats = ["UK3CB_CSAT_M_O_H_BoonieHat"];
 

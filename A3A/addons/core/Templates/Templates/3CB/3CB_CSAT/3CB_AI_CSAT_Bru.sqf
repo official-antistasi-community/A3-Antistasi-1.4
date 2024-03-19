@@ -196,6 +196,7 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", _sfUniforms];
+_sfLoadoutData set ["slUniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["helmets", _sfHelmets];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];

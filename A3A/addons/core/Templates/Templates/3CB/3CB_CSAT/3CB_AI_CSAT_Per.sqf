@@ -51,6 +51,7 @@ private _sfVests = [];
 private _backpacks = [];
 
 private _helmets = [];
+private _sfHelmets = [];
 private _slHat = [];
 private _sniHats = [];
 
@@ -61,10 +62,10 @@ switch (A3A_climate) do
 {
     case "arid":{
         if (worldname in ["Stratis","Malden","Altis"]) then {
-            //Load "temperate" aka mediterranean 
+            //Load mediterranean hex
             #include "3CB_AI_CSAT_Per_M.sqf"
         } else {
-            //Load middle east / brown hex
+            //Load brown hex
             #include "3CB_AI_CSAT_Per_B.sqf"
         };
     };
@@ -74,7 +75,7 @@ switch (A3A_climate) do
     };
     case "temperate";
     case "tropical":{
-        //Load "temperate" aka mediterranean hex
+        //Load mediterranean hex
         #include "3CB_AI_CSAT_Per_M.sqf"
     };
     default{
@@ -197,10 +198,12 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _sfLoadoutData set ["uniforms", _sfUniforms];
+_sfLoadoutData set ["slUniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["glVests", _sfVests + _glVests];
 _sfLoadoutData set ["Hvests", _sfVests + _Hvests];
-_sfLoadoutData set ["slHat", _helmets];
+_sfLoadoutData set ["helmets", _sfHelmets];
+_sfLoadoutData set ["slHat", _sfHelmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons
 _sfLoadoutData set ["slRifles", [

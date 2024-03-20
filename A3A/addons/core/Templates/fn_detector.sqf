@@ -36,15 +36,6 @@ if (isClass (configFile >> "CfgPatches" >> "LIB_Core")) then {
     ["modUnautorized",false,1,false,false] call BIS_fnc_endMission;
 };
 
-//AegisAtlas Detection
-if (
-  isClass (configFile >> "CfgPatches" >> "A3_Aegis_BaseConfig_F_Aegis") &&
-  isClass (configFile >> "CfgPatches" >> "A3_Atlas_BaseConfig_F_Atlas")
-  ) then {
-    A3A_hasAegisAtlas = true;
-    Info("Aegis and Atlas Detected.");
-};
-
 //RHS Detection
 if (isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_vdv") && isClass (configFile >> "CfgFactionClasses" >> "rhs_faction_usarmy") && isClass (configFile >> "CfgFactionClasses" >> "rhsgref_faction_tla")) then {
   A3A_hasRHS = true;

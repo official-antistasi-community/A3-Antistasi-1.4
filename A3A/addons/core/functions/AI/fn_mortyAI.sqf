@@ -7,11 +7,12 @@ _morty0 = units _groupX select 0;
 _morty1 = units _groupX select 1;
 _typeX = _this select 1;
 (getArray (configFile/"CfgVehicles"/_typeX/"assembleInfo"/"dissasembleTo")) params ["_b0", "_b1"];
-_morty0 setVariable ["typeOfSoldier", if (_typeX == FactionGet(reb,"staticMG")) then { "StaticGunner" } else { "StaticMortar" }];
+_morty0 setVariable ["typeOfSoldier", if (_typeX in FactionGet(reb,"staticMGs")) then { "StaticGunner" } else { "StaticMortar" }];
 while {(alive _morty0) and (alive _morty1)} do
 	{
 	waitUntil {sleep 1; {((unitReady _x) and (alive _x))} count units _groupX == count units _groupX};
-	_pos = position _morty0 findEmptyPosition [1,30,_typeX];
+	_pos = getPosATL _morty0 findEmptyPosition [1,30,_typeX];
+	if (_pos isEqualTo []) then { sleep 10; continue };
 	_mortarX = _typeX createVehicle _pos;
 	removeBackpackGlobal _morty0;
 	removeBackpackGlobal _morty1;
@@ -29,8 +30,10 @@ while {(alive _morty0) and (alive _morty1)} do
 
 	if (({(alive _x)} count units _groupX == count units _groupX) and !(unitReady _morty0)) then
 		{
-		_morty0 addBackpackGlobal _b0;
-		_morty1 addBackpackGlobal _b1;
+		if (!isNil "_b0") then {
+			_morty0 addBackpackGlobal _b0;
+			_morty1 addBackpackGlobal _b1;
+		};
 		unassignVehicle _morty1;
 		moveOut _morty1;
 		deleteVehicle _mortarX;

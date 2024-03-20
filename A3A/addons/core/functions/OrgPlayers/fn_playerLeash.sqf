@@ -1,7 +1,6 @@
 /*
 Maintainer: Caleb Serafin
     If the current player is not a member, it will loop every 60 seconds to check the distance from the player to HQ or any member.
-    However, if there are no members online, it will allow the player unlimited distance from HQ.
     If there is a member online, it will warn the player and begin a 61 second countdown
     See playerLeashRefresh for teleportation compatibility.
 
@@ -39,11 +38,12 @@ if (memberDistance <= 0 || !membershipEnabled) exitWith {};
 
 // Membership is rechecked in the case that a temporary membership is granted.
 while {!([player] call A3A_fnc_isMember) || _debugMode} do {
-    private _nearestLeashCentre = getPos player;  // Only 2D pos is evaluated. Default to player position when no members or ff punishment is the exemption.
+    private _nearestLeashCentre = getPosATL player;  // Only 2D pos is evaluated. Default to player position when no members or ff punishment is the exemption.
     private _withinLeash = switch (true) do {
         case (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}): { true };
+        case (player == theBoss): { true };             // covered in playerLeashCheckPosition, but shortcut
         // Add leash exemptions here.
-        default { [getPos player,_nearestLeashCentre] call A3A_fnc_playerLeashCheckPosition };
+        default { [getPosATL player,_nearestLeashCentre] call A3A_fnc_playerLeashCheckPosition };
     };
 
     if (_withinLeash) then {
@@ -70,7 +70,7 @@ while {!([player] call A3A_fnc_isMember) || _debugMode} do {
         private _compassDirections = ["N","NE","E","SE","S","SW","W","NW"];
         private _retreatDirection = _compassDirections # ((player getDir _nearestLeashCentre) / 360 * count _compassDirections);
 
-        ["Comrade, we're losing contact!", format ["Retreat <t color='#f0d498'>%1 m %2</t>, within <t color='#f0d498'>%3 s</t>.<br/>Stay within %4 km of HQ or a member. Failure to comply will re-insert you at HQ.", ceil _retreatDistance, _retreatDirection, _countDown, ceil (memberDistance/1e3)]] call A3A_fnc_customHint;
+        [localize "STR_A3A_fn_orgp_plaLeash_comrade", format [localize "STR_A3A_fn_orgp_plaLeash_retreat", ceil _retreatDistance, _retreatDirection, _countDown, ceil (memberDistance/1e3)]] call A3A_fnc_customHint;
         uiSleep 1;
         if (_countDown <= 0) then {
             // Get nearest location name for logging.

@@ -30,7 +30,7 @@ if (_marker isEqualTo "") exitWith {};
 
 // Find all non-mortar statics within marker
 private _statics = staticsToSave inAreaArray _marker;
-_statics = _statics select { !(_x isKindOf "StaticMortar") };           // don't bother with mortars yet
+_statics = _statics select { _x isKindOf "StaticWeapon" and !(_x isKindOf "StaticMortar") };           // may include bunkers. Don't bother with mortars yet
 if (count _statics == 0) exitWith {};
 
 // Find unlocked & unoccupied statics
@@ -65,12 +65,14 @@ if (isNull _staticGroup) then { _staticGroup = createGroup [teamPlayer, true] };
     if (count _possibleCrew == 0) exitWith {};
     private _unit = _possibleCrew deleteAt 0;
     [_unit] joinSilent _staticGroup;
+    [_x, clientOwner] remoteExec ["setOwner", 2];                      // otherwise unit tends to jump back off for some reason
+    [_staticGroup, clientOwner] remoteExec ["setGroupOwner", 2];            // required because joinSilent won't switch locality if the group is empty
 
     // Wait until the unit is local before we do anything else
     [_unit, _x] spawn {
         params ["_unit", "_static"];
-        private _timeout = 10;
-        waitUntil { sleep 1; _timeout = _timeout-1; _timeout < 0 or local _unit };
+        private _timeout = time + 10;
+        waitUntil { sleep 1; _timeout < time or (local _unit and local _static) };
         if (isNull objectParent _unit and isNull gunner _static and isNull objectParent _static and isNull attachedTo _static) then {
             _unit assignAsGunner _static;
             _unit moveInGunner _static;

@@ -26,7 +26,9 @@
 ["vehiclesRepairTrucks", ["UK3CB_BAF_MAN_HX60_Repair_Green_DPMT", "UK3CB_BAF_MAN_HX58_Repair_Green_DPMT"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_BAF_MAN_HX60_Fuel_Green_DPMT", "UK3CB_BAF_MAN_HX58_Fuel_Green_DPMT"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_BAF_LandRover_Amb_FFR_Green_A_DPMT"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_BAF_FV432_Mk3_GPMG_Green_DPMT", "UK3CB_BAF_FV432_Mk3_RWS_Green_DPMT", "UK3CB_BAF_Warrior_A3_W_MTP", "UK3CB_BAF_Warrior_A3_W_Cage_MTP", "UK3CB_BAF_Warrior_A3_W_Cage_Camo_MTP", "UK3CB_BAF_Warrior_A3_W_Camo_MTP"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_BAF_Coyote_Passenger_L134A1_W_DPMT", "UK3CB_BAF_Coyote_Passenger_L111A1_W_DPMT", "UK3CB_BAF_Coyote_Passenger_L111A1_W_DPMT"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_BAF_FV432_Mk3_GPMG_Green_DPMT", "UK3CB_BAF_FV432_Mk3_RWS_Green_DPMT", "UK3CB_BAF_Warrior_A3_W_MTP", "UK3CB_BAF_Warrior_A3_W_Camo_MTP"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_BAF_Warrior_A3_W_MTP", "UK3CB_BAF_Warrior_A3_W_Cage_MTP", "UK3CB_BAF_Warrior_A3_W_Cage_Camo_MTP", "UK3CB_BAF_Warrior_A3_W_Camo_MTP"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhsusf_m1a1fep_wd","rhsusf_m1a1aimwd_usarmy","rhsusf_m1a1aim_tuski_wd","rhsusf_m1a2sep1wd_usarmy","rhsusf_m1a2sep1tuskiiwd_usarmy","rhsusf_m1a2sep2wd_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
@@ -38,9 +40,10 @@
 ["vehiclesPlanesAA", ["rhsusf_f22"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_BAF_Hercules_C3_DDPM", "UK3CB_BAF_Hercules_C4_DDPM"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["UK3CB_BAF_Merlin_HC3_CSAR_DDPM_RM"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM", "UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM", "UK3CB_BAF_Chinook_HC1_DDPM"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM", "UK3CB_BAF_Apache_AH1_DDPM_RM", "UK3CB_BAF_Wildcat_AH1_CAS_6A_DDPM_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["UK3CB_BAF_Wildcat_AH1_TRN_8A_DDPM_RM"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["UK3CB_BAF_Merlin_HC3_CSAR_DDPM_RM", "UK3CB_BAF_Merlin_HC3_18_GPMG_DDPM_RM", "UK3CB_BAF_Chinook_HC1_DDPM"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_BAF_Wildcat_AH1_CAS_6A_DDPM_RM", "UK3CB_BAF_Wildcat_AH1_CAS_8A"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_BAF_Apache_AH1_CAS_DDPM_RM", "UK3CB_BAF_Apache_AH1_DDPM_RM"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsusf_m109_usarmy"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -64,10 +67,13 @@
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBBAF_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

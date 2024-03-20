@@ -18,7 +18,7 @@ if (isMultiplayer) exitWith
 		_playerX setVariable ["moneyX",_moneyJ,true];
 		if (_pointsX > 1) then
 			{
-			_textX = format ["<br/><br/><br/><br/><br/><br/>Money +%1 €",_pointsX*10];
+			_textX = format ["<br/><br/><br/><br/><br/><br/>" + localize "STR_A3A_fn_orgp_playerScoreAdd_money" + " €",_pointsX*10];
 			[petros,"income",_textX] remoteExec ["A3A_fnc_commsMP",_playerX];
 			//[] remoteExec ["A3A_fnc_statistics",_playerX];
 			};

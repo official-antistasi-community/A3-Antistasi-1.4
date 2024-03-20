@@ -15,7 +15,7 @@ Dependencies:
     Occupants, Invaders, teamPlayer, markersX, forcedSpawn, spawner,
     controlsX, airportsX, resourcesX, factories, outposts, seports,
     A3A_fnc_createAICities, A3A_fnc_createCIV, A3A_fnc_createAIcontrols,
-    A3A_fnc_createAIAirplane, A3A_fnc_createAIresources, A3A_fnc_createAIOutposts,
+    A3A_fnc_createAIAirbase, A3A_fnc_createAIresources, A3A_fnc_createAIOutposts,
     A3A_fnc_createFIAOutposts2, A3A_fnc_createSDKGarrisons
 
 Example: [] spawn A3A_fnc_distance;
@@ -119,9 +119,12 @@ private _processOccupantMarker = {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
                 };
 
+                // Prevent other routines taking spawn places 
+                [_marker, 1] call A3A_fnc_addTimeForIdle;
+
                 case (_marker in airportsX):
                 {
-                    [[_marker], "A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAIAirbase"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in resourcesX);
@@ -316,9 +319,12 @@ private _processInvaderMarker = {
                     [[_marker], "A3A_fnc_createAIcontrols"] call A3A_fnc_scheduler;
                 };
 
+                // Prevent other routines taking spawn places 
+                [_marker, 1] call A3A_fnc_addTimeForIdle;
+
                 case (_marker in airportsX):
                 {
-                    [[_marker], "A3A_fnc_createAIAirplane"] call A3A_fnc_scheduler;
+                    [[_marker], "A3A_fnc_createAIAirbase"] call A3A_fnc_scheduler;
                 };
 
                 case (_marker in resourcesX);
@@ -370,7 +376,8 @@ private _processCityCivMarker = {
 
             if !(_marker in destroyedSites) then
             {
-                [[_marker], "A3A_fnc_createCIV"] call A3A_fnc_scheduler;
+                [[_marker], "A3A_fnc_createAmbientCiv"] call A3A_fnc_scheduler;
+                [[_marker], "A3A_fnc_createAmbientCivTraffic"] call A3A_fnc_scheduler;
             };
         };
     };
@@ -409,25 +416,27 @@ do
     {
         _counter = 0;
 
-        _occupants = [];
-        _invaders = [];
-        _teamplayer = [];
+        // only count one spawner per vehicle
+        _occupants = units Occupants select { _x getVariable ["spawner", false] and _x == effectiveCommander vehicle _x };
+        _invaders = units Invaders select { _x getVariable ["spawner", false] and _x == effectiveCommander vehicle _x };
 
-        _spawners = allunits select { _x getVariable ["spawner", false]; };
+        // Exclude players in fast-moving fixed-wing aircraft
+        _teamplayer = units teamPlayer select {
+            private _veh = vehicle _x;
+            _x getVariable ["spawner", false] and _x == effectiveCommander _veh
+            and (_veh == _x or {!(_veh isKindOf "Plane" and speed _veh > 250)})
+        };
+        // Add in rebel-controlled UAVs
+        _teamplayer append (allUnitsUAV select { side group _x == teamPlayer });
 
+        // Players array is used to spawn civilians in cities and rebel garrisons, so ignore airborne units and translate remote-control
+        _players = [];
         {
-            switch (side (group _x))
-            do
-            {
-                case Occupants: { _occupants pushBack _x; };
-                case Invaders: { _invaders pushBack _x; };
-                case teamPlayer: { _teamplayer pushBack _x; };
-            };
-        } forEach _spawners;
-
-        // This array is used to spawn civilians in cities and rebel garrisons, so ignore remote controlled units
-        _players = allPlayers - entities "HeadlessClient_F";
-        _players = _players select { _x getVariable ["owner",objNull] == _x };
+            private _rp = _x getVariable ["owner", _x];         // real player unit in remote-control case
+            private _veh = vehicle _rp;
+            if (_rp != effectiveCommander _veh) then { continue };
+            if (_veh == _rp or {!(_veh isKindOf "Air" and speed _veh > 50)}) then { _players pushBack _rp };
+        } forEach (allPlayers - entities "HeadlessClient_F");
     };
 
     {

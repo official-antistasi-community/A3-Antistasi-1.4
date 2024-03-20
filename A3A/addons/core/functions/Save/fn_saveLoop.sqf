@@ -1,49 +1,71 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
 
-if (savingServer) exitWith {["Save Game", "Server data save is still in progress..."] remoteExecCall ["A3A_fnc_customHint",theBoss]};
+if (savingServer) exitWith {[localize "STR_A3A_fn_save_saveLoop_title1", localize "STR_A3A_fn_save_saveLoop_progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-["Persistent Save","Starting persistent save..."] remoteExec ["A3A_fnc_customHint",0,false];
+[localize "STR_A3A_fn_save_saveLoop_title2",localize "STR_A3A_fn_save_saveLoop_saving"] remoteExecCall ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
+
+// Select save namespace
+A3A_saveTarget params ["_serverID", "_campaignID"];
+private _saveToNewNamespace = _serverID isEqualType false;
+if (!_saveToNewNamespace) then { profileNamespace setVariable ["ss_serverID", _serverID] };			// backwards compatibility
+private _namespace = [profileNamespace, missionProfileNamespace] select _saveToNewNamespace;
+
 
 // Save each player with global flag
 {
 	[getPlayerUID _x, _x, true] call A3A_fnc_savePlayer;
 } forEach (call A3A_fnc_playableUnits);
 
-// Check if this campaign is already in the save list
-private _saveList = [profileNamespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
-private _saveIndex = -1;
+// Now write back all the player data
 {
-	if (_x select 0 == campaignID) exitWith { _saveIndex = forEachIndex };
-} forEach _saveList;
+	private _uid = _x;
+	private _playerData = _y;
+	{
+		if (isNil {_playerData get _x}) then { continue };				// old game data will have missing entries
+		[_uid, _x, _playerData get _x] call A3A_fnc_savePlayerStat;
+	} forEach ["moneyX", "loadoutPlayer", "scorePlayer", "rankPlayer", "personalGarage"];
+} forEach A3A_playerSaveData;
 
-// If not, append a new entry
-if (_saveIndex == -1) then {
-	private _gametype = if (teamPlayer isEqualTo independent) then {"Greenfor"} else {"Blufor"};
-	_saveList pushBack [campaignID, worldName, _gametype];
-	profileNamespace setVariable ["antistasiSavedGames", _saveList];
-};
+["savedPlayers", keys A3A_playerSaveData] call A3A_fnc_setStatVariable;
 
-// Update the legacy campaign ID store
-profileNamespace setVariable ["ss_campaignID", campaignID];
 
-// Save persistent global variables defined in initParam
-private _savedParams = A3A_paramTable apply { [_x#0, missionNameSpace getVariable _x#0] };
+// Move this campaign to the end of the save list
+private _saveList = [_namespace getVariable "antistasiSavedGames"] param [0, [], [[]]];
+_saveList deleteAt (_saveList findIf { _x select 0 == _campaignID });
+_saveList pushBack [_campaignID, worldName, "Greenfor"];
+_namespace setVariable ["antistasiSavedGames", _saveList];
+
+// Update the legacy campaign ID for backwards compatibility
+if (!_saveToNewNamespace) then { _namespace setVariable ["ss_campaignID", _campaignID] };
+
+
+// Save persistent global variables defined in params config
+private _savedParams = [];
+{
+    if (getArray (_x/"texts") isEqualTo [""]) then { continue };       // spacer/title
+	_savedParams pushBack [configName _x, missionNameSpace getVariable configName _x];
+} forEach ("true" configClasses (configFile/"A3A"/"Params"));
 Debug_1("Saving params: %1", _savedParams);
+
 ["params", _savedParams] call A3A_fnc_setStatVariable;
 
+// Save vars from save selector
+["name", A3A_saveData get "name"] call A3A_fnc_setStatVariable;
+["factions", A3A_saveData get "factions"] call A3A_fnc_setStatVariable;
+["DLC", A3A_saveData get "DLC"] call A3A_fnc_setStatVariable;
+["addonVics", A3A_saveData get "addonVics"] call A3A_fnc_setStatVariable;
+
 private ["_garrison"];
-["version", antistasiVersion] call A3A_fnc_setStatVariable;
-["attackCountdownOccupants", attackCountdownOccupants] call A3A_fnc_setStatVariable;
-["attackCountdownInvaders", attackCountdownInvaders] call A3A_fnc_setStatVariable;
+["version", QUOTE(VERSION_FULL)] call A3A_fnc_setStatVariable;
+["saveTime", systemTimeUTC] call A3A_fnc_setStatVariable;
 ["gameMode", gameMode] call A3A_fnc_setStatVariable;					// backwards compatibility
 ["difficultyX", skillMult] call A3A_fnc_setStatVariable;				// backwards compatibiiity
 ["bombRuns", bombRuns] call A3A_fnc_setStatVariable;
@@ -60,9 +82,9 @@ private _antennasDeadPositions = [];
 ["skillFIA", skillFIA] call A3A_fnc_setStatVariable;
 ["destroyedSites", destroyedSites] call A3A_fnc_setStatVariable;
 ["distanceSPWN", distanceSPWN] call A3A_fnc_setStatVariable;		// backwards compatibility
-["civPerc", civPerc] call A3A_fnc_setStatVariable;					// backwards compatibility
+["civPerc", globalCivilianMax] call A3A_fnc_setStatVariable;		// backwards compatibility
 ["chopForest", chopForest] call A3A_fnc_setStatVariable;
-["maxUnits", maxUnits] call A3A_fnc_setStatVariable;				// backwards compatibility
+["maxUnits", 140] call A3A_fnc_setStatVariable;				        // backwards compatibility
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
@@ -114,28 +136,43 @@ _vehInGarage = _vehInGarage + vehInGarage;
 
 _arrayEst = [];
 {
-	_veh = _x;
-	_typeVehX = typeOf _veh;
-	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
-		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not(_veh isKindOf "Building"))) and (not (_typeVehX == "C_Van_01_box_F")) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
-			_posVeh = getPosWorld _veh;
-			_xVectorUp = vectorUp _veh;
-			_xVectorDir = vectorDir _veh;
-            private _state = [_veh] call HR_GRG_fnc_getState;
-			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir, _state];
-		};
+	// Include buyable items marked as saveable
+	// TODO: Do we need to refund the others?
+	if (typeof _x in A3A_utilityItemHM and {"save" in (A3A_utilityItemHM get typeof _x)#4}) then {
+		_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
+		continue;
 	};
-} forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];
 
-_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+	if (fullCrew [_x, "", true] isEqualTo []) then { continue };			// no crew seats, not in utilityItems, not saved
+	if (_x isKindOf "StaticWeapon") then { continue };						// static weapons are accounted for in staticsToSave
+	if ({(alive _x) and (!isPlayer _x)} count crew _x > 0) then { continue };		// no AI-crewed vehicles, those are refunded
+
+	_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
+
+} forEach (vehicles inAreaArray [markerPos respawnTeamPlayer, 50, 50] select { alive _x });
+
 {
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+	if ((alive _x) and !(surfaceIsWater position _x) and (isNull attachedTo _x)) then {
 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;
 
+private _rebMarkers = (airportsX + outposts + seaports + factories + resourcesX) select { sidesX getVariable _x == teamPlayer };
+_rebMarkers append outpostsFIA; _rebMarkers pushBack "Synd_HQ";
+{
+	// Ignore if outside mission distance (temporary)
+	if (!alive _x or (_x distance2d markerPos "Synd_HQ" > distanceMission)) then { continue };
+
+	// Ignore if not within a rebel marker
+	private _building = _x;
+	private _indexes = _rebMarkers inAreaArrayIndexes [getPosATL _x, 500, 500];
+	if (-1 == _indexes findIf { _building inArea _rebMarkers#_x } ) then { continue };
+
+	_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
+} forEach A3A_buildingsToSave;
+
 ["staticsX", _arrayEst] call A3A_fnc_setStatVariable;
+
 [] call A3A_fnc_arsenalManage;
 
 _jna_dataList = [];
@@ -206,6 +243,7 @@ _arrayOutpostsFIA = [];
 ["outpostsFIA", _arrayOutpostsFIA] call A3A_fnc_setStatVariable;
 
 if (!isDedicated) then {
+	// Not currently used by loadServer due to timing bugs
 	_typesX = [];
 	{
 		private _type = _x;
@@ -217,6 +255,80 @@ if (!isDedicated) then {
 	["tasks",_typesX] call A3A_fnc_setStatVariable;
 };
 
+
+// Add resources spent on active enemy units & vehicles before saving
+private _resAttOcc = A3A_resourcesAttackOcc;
+private _resDefOcc = A3A_resourcesDefenceOcc;
+private _resAttInv = A3A_resourcesAttackInv;
+private _resDefInv = A3A_resourcesDefenceInv;
+
+// Heavily based on deleted handler in AIVehInit
+{
+	private _veh = _x;
+	private _side = _veh getVariable ["ownerSide", teamPlayer];
+	private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
+	if (!alive _veh || (_side != Occupants && _side != Invaders) || _vehCost == 0) exitWith {};
+
+	private _vehDamage = damage _veh;
+	if (getAllHitPointsDamage _veh isNotEqualTo []) then {
+		private _allHP = getAllHitPointsDamage _veh select 2;
+		private _total = 0; { _total = _total + _x } forEach _allHP;
+		_vehDamage = _vehDamage max (_total / count _allHP);
+	};
+
+	private _pool = _veh getVariable ["A3A_resPool", "legacy"];
+//	Debug_5("Vehicle type %1 deleted with side %2, pool %3, cost %4, damage %5", typeof _veh, _side, _pool, _vehCost, _vehDamage);
+
+	if (_pool == "legacy") then {
+		// If vehicle isn't prepaid, remove partial cost now if damaged
+		if (_side == Occupants) then {
+			_resAttOcc = _resAttOcc - _vehDamage*_vehCost/2;
+			_resDefOcc = _resDefOcc - _vehDamage*_vehCost/2;
+		} else {
+			_resAttInv = _resAttInv - _vehDamage*_vehCost/2;
+			_resDefInv = _resDefInv - _vehDamage*_vehCost/2;
+		};
+	} else {
+		// If vehicle is prepaid, refund if not crippled
+		// Note full refund, to reduce exploiting save-on-attack
+		if (_side == Occupants) then {
+			if (_pool == "attack") then { _resAttOcc = _resAttOcc + (1-_vehDamage)*_vehCost };
+			if (_pool == "defence") then { _resDefOcc = _resDefOcc + (1-_vehDamage)*_vehCost };
+		} else {
+			if (_pool == "attack") then { _resAttInv = _resAttInv + (1-_vehDamage)*_vehCost };
+			if (_pool == "defence") then { _resDefInv = _resDefInv + (1-_vehDamage)*_vehCost };
+		};
+	};
+} forEach vehicles;
+
+{
+	if !(_x call A3A_fnc_canFight) then { continue };
+	private _resPool = _x getVariable ["A3A_resPool", ""];
+	// TODO: potentially different values for different unit types?
+	if (_resPool == "defence") then { _resDefOcc = _resDefOcc + 10; continue };
+	if (_resPool == "attack") then { _resAttOcc = _resAttOcc + 10 };
+} forEach units Occupants;
+
+{
+	if !(_x call A3A_fnc_canFight) then { continue };
+	private _resPool = _x getVariable ["A3A_resPool", ""];
+	// TODO: potentially different values for different unit types?
+	if (_resPool == "defence") then { _resDefInv = _resDefInv + 10; continue };
+	if (_resPool == "attack") then { _resAttInv = _resAttInv + 10 };
+} forEach units Invaders;
+
+// Adjust defence resources to playerScale 1 so that it doesn't get mangled on save/load
+_resDefOcc = _resDefOcc / A3A_balancePlayerScale;
+_resDefInv = _resDefInv / A3A_balancePlayerScale;
+
+// Enemy resources. Could hashmap this instead...
+["enemyResources", [_resDefOcc, _resDefInv, _resAttOcc, _resAttInv]] call A3A_fnc_setStatVariable;
+
+// HQ knowledge
+["HQKnowledge", [A3A_curHQInfoOcc, A3A_curHQInfoInv, A3A_oldHQInfoOcc, A3A_oldHQInfoInv]] call A3A_fnc_setStatVariable;
+
+// these are obsolete? idlebases is only used short-term now, idleassets is dead
+/*
 _dataX = [];
 {
 	_dataX pushBack [_x,server getVariable _x];
@@ -230,6 +342,7 @@ _dataX = [];
 } forEach (FactionGet(all,"vehiclesArmor") + FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisAttack") + FactionGet(occ,"staticAT") + FactionGet(occ,"staticAA") + FactionGet(inv,"staticAT") + FactionGet(inv,"staticAA") + FactionGet(occ,"vehiclesGunBoats") + FactionGet(inv,"vehiclesGunBoats"));
 
 ["idleassets",_dataX] call A3A_fnc_setStatVariable;
+*/
 
 _dataX = [];
 {
@@ -238,6 +351,7 @@ _dataX = [];
 
 ["killZones",_dataX] call A3A_fnc_setStatVariable;
 
+// Only save state of the hardcoded controls
 _controlsX = controlsX select {(sidesX getVariable [_x,sideUnknown] == teamPlayer) and (controlsX find _x < defaultControlIndex)};
 ["controlsSDK",_controlsX] call A3A_fnc_setStatVariable;
 
@@ -258,8 +372,9 @@ _fuelAmountleftArray = [];
 //Saving the state of the testing timer
 ["testingTimerIsActive", testingTimerIsActive] call A3A_fnc_setStatVariable;
 
-saveProfileNamespace;
+if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
+
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save",_saveHintText] remoteExec ["A3A_fnc_customHint",0,false];
+_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," ",localize "STR_A3A_fn_save_saveLoop_text_asset"," ",_hrBackground toFixed 0,localize "STR_A3A_fn_save_saveLoop_text_money"," ",_resourcesBackground toFixed 0," ",localize "STR_A3A_fn_save_saveLoop_text_options"] joinString "";
+[localize "STR_A3A_fn_save_saveLoop_title2",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

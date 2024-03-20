@@ -21,8 +21,8 @@ private _taskId = "REP" + str A3A_taskCount;
 	[teamPlayer, civilian],
 	_taskId,
 	[
-		format ["%3 is rebuilding a radio tower in %1. If we want to keep up the enemy comms breakdown, the work must be stopped. Destroy the repair truck parked nearby or capture the zone. Work will be finished on %2.",_nameDest,_displayTime,FactionGet(occ,"name")],
-		"Tower Rebuild Disrupt",
+		format [localize "STR_A3A_fn_mission_rep_ante_text",_nameDest,_displayTime,FactionGet(occ,"name")],
+		localize "STR_A3A_fn_mission_rep_ante_titel",
 		_markerX
 	],
 	getPos _antennaDead,
@@ -40,7 +40,7 @@ if (spawner getVariable _markerX != 2) then
 	_road = [getPos _antennaDead] call A3A_fnc_findNearestGoodRoad;
 	_pos = position _road;
 	_pos = _pos findEmptyPosition [1,60,"B_T_Truck_01_repair_F"];
-	_veh = createVehicle [FactionGet(occ,"vehiclesRepairTrucks"), _pos, [], 0, "NONE"];
+	_veh = createVehicle [selectRandom (FactionGet(occ,"vehiclesRepairTrucks")), _pos, [], 0, "NONE"];
 	_veh allowdamage false;
 	_veh setDir (getDir _road);
 	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
@@ -56,36 +56,24 @@ if (spawner getVariable _markerX != 2) then
 		sleep 2;
 		};
 
-	waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (not alive _veh)};
+	waitUntil {sleep 1;(dateToNumber date > _dateLimitNum) or (not alive _veh) or (sidesX getVariable [_markerX,sideUnknown] == teamPlayer)};
 
-	if (not alive _veh) then
+	if (not alive _veh || {sidesX getVariable [_markerX,sideUnknown] == teamPlayer}) then
 		{
 		[_taskId, "REP", "SUCCEEDED"] call A3A_fnc_taskSetState;
         [Occupants, 15, 90] remoteExec ["A3A_fnc_addAggression", 2];
         [Invaders, 5, 60] remoteExec ["A3A_fnc_addAggression", 2];
-		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
+		[500, Occupants] remoteExec ["A3A_fnc_timingCA",2];
 		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-		[5,theBoss] call A3A_fnc_playerScoreAdd;
+		[10,theBoss] call A3A_fnc_playerScoreAdd;
 		};
 	};
 if (dateToNumber date > _dateLimitNum) then
 	{
-	if (sidesX getVariable [_markerX,sideUnknown] == teamPlayer) then
-		{
-		[_taskId, "REP", "SUCCEEDED"] call A3A_fnc_taskSetState;
-        [Occupants, 15, 90] remoteExec ["A3A_fnc_addAggression", 2];
-        [Invaders, 5, 60] remoteExec ["A3A_fnc_addAggression", 2];
-		[1200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
-		{if (_x distance _veh < 500) then {[10,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-		[5,theBoss] call A3A_fnc_playerScoreAdd;
-		}
-	else
-		{
-		[_taskId, "REP", "FAILED"] call A3A_fnc_taskSetState;
-		//[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
-		[-600, Occupants] remoteExec ["A3A_fnc_timingCA",2];
-		[-10,theBoss] call A3A_fnc_playerScoreAdd;
-		};
+	[_taskId, "REP", "FAILED"] call A3A_fnc_taskSetState;
+	//[5,0,_positionX] remoteExec ["A3A_fnc_citySupportChange",2];
+	[-200, Occupants] remoteExec ["A3A_fnc_timingCA",2];
+	[-10,theBoss] call A3A_fnc_playerScoreAdd;
 	[_antennaDead] remoteExec ["A3A_fnc_rebuildRadioTower", 2];
 	};
 
@@ -94,5 +82,6 @@ if (dateToNumber date > _dateLimitNum) then
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 // could make these guys return home, too much work atm
+if (isNil "_groupX") exitWith {};
 [_groupX] spawn A3A_fnc_groupDespawner;
 [_veh] spawn A3A_fnc_vehDespawner;

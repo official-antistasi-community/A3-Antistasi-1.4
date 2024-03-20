@@ -27,39 +27,12 @@ if (_markerX != "Synd_HQ") then
 			[_veh,"seaport"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian],_veh];
 		};
 	};
-	if ((_markerX in resourcesX) or (_markerX in factories)) then
-	{
-		if (not(_markerX in destroyedSites)) then
-		{
-			if ((daytime > 8) and (daytime < 18)) then
-			{
-				private _groupCiv = createGroup civilian;
-				_groups pushBack _groupCiv;
-				for "_i" from 1 to 4 do
-				{
-					if (spawner getVariable _markerX != 2) then
-					{
-						private _civ = [_groupCiv, FactionGet(civ, "unitWorker"), _positionX, [],0, "NONE"] call A3A_fnc_createUnit;
-						_nul = [_civ] spawn A3A_fnc_CIVinit;
-						_civs pushBack _civ;
-						_civ setVariable ["markerX",_markerX,true];
-						sleep 0.5;
-						_civ addEventHandler ["Killed",
-						{
-							if (({alive _x} count units group (_this select 0)) == 0) then
-							{
-								private _markerX = (_this select 0) getVariable "markerX";
-								private _nameX = [_markerX] call A3A_fnc_localizar;
-								destroyedSites pushBackUnique _markerX;
-								publicVariable "destroyedSites";
-								["TaskFailed", ["", format ["%1 Destroyed",_nameX]]] remoteExec ["BIS_fnc_showNotification",[teamPlayer,civilian]];
-							};
-						}];
-					};
-				};
-				//_nul = [_markerX,_civs] spawn destroyCheck;
-				_nul = [leader _groupCiv, _markerX, "SAFE", "SPAWNED","NOFOLLOW", "NOSHARE","DORELAX","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-			};
+
+	if ((_markerX in resourcesX) or (_markerX in factories)) then {
+		private _spawnedCivilians = [_markerX, 4] call A3A_fnc_createResourceCiv;
+		if !(isNil "_spawnedCivilians") then {
+			_groups pushBack (_spawnedCivilians # 0);
+			_civs append (_spawnedCivilians # 1);
 		};
 	};
 };
@@ -82,9 +55,11 @@ if (_typeCrew in _garrison) then
 	{
 		private _unit = [_groupMortars, _typeCrew, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		private _pos = [_positionX] call A3A_fnc_mortarPos;
-		private _veh = FactionGet(reb,"staticMortar") createVehicle _pos;
+		private _veh = (FactionGet(reb,"staticMortars")) # 0 createVehicle _pos;
 		_vehiclesX pushBack _veh;
-		_nul=[_veh] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+
+		[_groupMortars] call A3A_fnc_artilleryAdd;
+
 		_unit assignAsGunner _veh;
 		_unit moveInGunner _veh;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -104,7 +79,8 @@ if (_typeCrew in _garrison) then
 		if (isNull _groupMortars) then { _groupMortars = createGroup teamPlayer };
 		_unit = [_groupMortars, (_garrison select _index), _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
 		_unit moveInGunner _x;
-		_nul=[_x] execVM QPATHTOFOLDER(scripts\UPSMON\MON_artillery_add.sqf);//TODO need delete UPSMON link
+
+		[_groupMortars] call A3A_fnc_artilleryAdd;
 	}
 	else
 	{
@@ -144,25 +120,28 @@ while {(spawner getVariable _markerX != 2) and (_countUnits < _totalUnits)} do
 	sleep 0.5;
 };
 
-for "_i" from 0 to (count _groups) - 1 do
-{
+for "_i" from 0 to (count _groups) - 1 do {
 	_groupX = _groups select _i;
-	if (_i == 0) then
-	{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOMUP","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-	}
-	else
-	{
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+	if (_i == 0) then {
+		private _garrisonGroup = [_groupX, getMarkerPos _markerX, _size] call A3A_fnc_patrolGroupGarrison;
+		if (count _garrisonGroup > 0) then {
+			_groups append _garrisonGroup;
+		};
+	} else {
+		[_groupX, "Patrol_Defend", 0, 150, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 	};
 };
+
+["locationSpawned", [_markerX, "RebelOutpost", true]] call EFUNC(Events,triggerEvent);
+
 waitUntil {sleep 1; (spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x }; } forEach _soldiers;
-{deleteVehicle _x} forEach _civs;
+{ deleteVehicle _x } forEach _civs;
+{ deleteGroup _x } forEach _groups;
 
-{deleteGroup _x} forEach _groups;
 deleteGroup _groupStatics;
 deleteGroup _groupMortars;
 
 {if (!(_x in staticsToSave)) then {deleteVehicle _x}} forEach _vehiclesX;
+["locationSpawned", [_markerX, "RebelOutpost", false]] call EFUNC(Events,triggerEvent);

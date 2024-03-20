@@ -1,40 +1,29 @@
-params ["_impactPosition", "_sleepTime", "_supportName", "_side"];
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
 //Hugely inspired and partly copied from ALIAS https://www.armaholic.com/page.php?id=32556
 
 /*	An orbital attack, resulting in an devastating beam
 
-	Execution on: Server
+Environment: Server, must be spawned
 
-	Scope: External
+Arguments:
+    <STRING> Unique support name (mostly for logging)
+    <SIDE> Side to send support from
+    <SCALAR> Delay time in seconds
+    <POS2D> Target position for airstrike
+    <SCALAR> Amount of information to reveal to rebels, 0-1
 
-	Params:
-		_impactPosition: POSITION : Position of the impact point in format posASL
-
-	Returns:
-		Nothing
 */
-sleep _sleepTime;
 
-private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-private _reveal = _targetList select 0 select 1;
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
-private _textMarker = createMarker [format ["%1_text", _supportName], _impactPosition];
-_textMarker setMarkerShape "ICON";
-_textMarker setMarkerType "mil_dot";
-_textMarker setMarkerText "Orbital strike";
-if(_side == Occupants) then
-{
-    _textMarker setMarkerColor colorOccupants;
-}
-else
-{
-    _textMarker setMarkerColor colorInvaders;
-};
-_textMarker setMarkerAlpha 0;
-[_reveal, _impactPosition, _side, "ORBSTRIKE", format ["%1_coverage", _supportName], _textMarker] spawn A3A_fnc_showInterceptedSupportCall;
-[_side, format ["%1_coverage", _supportName]] spawn A3A_fnc_clearTargetArea;
+params ["_supportName", "_side", "_delay", "_impactPosition", "_reveal"];
+
+sleep _delay;
+
+//["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]
+[_reveal, _impactPosition, _side, "ORBITALSTRIKE", 300, 120] spawn A3A_fnc_showInterceptedSupportCall;
+
+//[_side, format ["%1_coverage", _supportName]] spawn A3A_fnc_clearTargetArea;
 
 private _startPos = +_impactPosition;
 _startPos set [2, (_startPos select 2) + 1000];
@@ -132,7 +121,7 @@ deleteVehicle _strikeObject;
 
 private _citiesInRange = (citiesX - destroyedSites) select {((getMarkerPos _x) distance2D _impactPosition) < 200};
 {
-    ["TaskFailed", ["", format ["%1 destroyed", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
+    ["TaskFailed", ["", format [localize "STR_A3A_fn_supports_cityDestroyed", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
     destroyedSites = destroyedSites + [_x];
 	publicVariable "destroyedSites";
     sidesX setVariable [_x, Invaders, true];
@@ -141,4 +130,5 @@ private _citiesInRange = (citiesX - destroyedSites) select {((getMarkerPos _x) d
     sleep 10;
 } forEach _citiesInRange;
 
-[_supportName, _side] spawn A3A_fnc_endSupport;
+if (_citiesInRange isNotEqualTo []) then {[] spawn A3A_fnc_checkCampaignEnd;}; // If a town is destroyed, check for loss
+

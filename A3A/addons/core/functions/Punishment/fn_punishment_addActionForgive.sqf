@@ -22,7 +22,7 @@ Examples:
 	[_UID] remoteExec ["A3A_fnc_punishment_addActionForgive",_admin,false];
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_UID","_offenceTotal","_name"];
 private _filename = "fn_punishment_addActionForgive";
@@ -31,7 +31,7 @@ if (_offenceTotal < 1) exitWith {false}; // If offence is less than 1, the UID i
 
 private _actionsSelf = actionIDs player;
 private _alreadyHasAction = false; // Avoids having the action added again.
-private _actionName = ["[Forgive FF] ",_name,""] joinString """";
+private _actionName = ["[" + localize "STR_A3A_fn_punishment_FF_addAcFor" + "]" ,_name,""] joinString """";
 if ((!isNil "_actionsSelf") && {!(_actionsSelf isEqualTo [])}) then {  // All players will be scanned, in-case they were previously an admin.
 	{
 		if (((player actionParams _x)#0) isEqualTo _actionName) exitWith {

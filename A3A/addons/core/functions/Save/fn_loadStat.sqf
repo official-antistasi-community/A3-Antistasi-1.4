@@ -14,17 +14,6 @@ Example:
     [_varName,_varValue] call A3A_fnc_loadStat;
 */
 
-//===========================================================================
-//ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
-/*specialVarLoads =
-[
-    "weaponsPlayer",
-    "magazinesPlayer",
-    "backpackPlayer",
-    "mrkNATO",
-    "mrkSDK",
-    "prestigeNATO","prestigeCSAT", "hr","planesAAFcurrent","helisAAFcurrent","APCAAFcurrent","tanksAAFcurrent","armas","items","backpcks","ammunition","dateX", "WitemsPlayer","prestigeOPFOR","prestigeBLUFOR","resourcesAAF","resourcesFIA","skillFIA"];
-*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
@@ -35,14 +24,16 @@ private _translateMarker = {
     _mrk;
 };
 
+//===========================================================================
+//ADD VARIABLES TO THIS ARRAY THAT NEED SPECIAL SCRIPTING TO LOAD
 private _specialVarLoads = [
-    "outpostsFIA","minesX","staticsX","attackCountdownOccupants","antennas","mrkNATO","mrkSDK","prestigeNATO",
+    "outpostsFIA","minesX","staticsX","antennas","mrkNATO","mrkSDK","prestigeNATO",
     "prestigeCSAT","posHQ","hr","armas","items","backpcks","ammunition","dateX","prestigeOPFOR",
     "prestigeBLUFOR","resourcesFIA","skillFIA","destroyedSites",
-    "garrison","tasks","smallCAmrk","membersX","vehInGarage","destroyedBuildings","idlebases",
-    "idleassets","chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
-    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders",
-    "countCA", "attackCountdownInvaders", "testingTimerIsActive", "version", "HR_Garage","A3A_fuelAmountleftArray"
+    "garrison","tasks","membersX","vehInGarage","destroyedBuildings","idlebases",
+    "chopForest","weather","killZones","jna_dataList","controlsSDK","mrkCSAT","nextTick",
+    "bombRuns","wurzelGarrison","aggressionOccupants", "aggressionInvaders", "enemyResources", "HQKnowledge",
+    "testingTimerIsActive", "version", "HR_Garage", "A3A_fuelAmountleftArray"
 ];
 
 private _varName = _this select 0;
@@ -57,14 +48,9 @@ if (_varName in _specialVarLoads) then {
         };
         A3A_saveVersion = 10000*parsenumber(_s#0) + 100*parseNumber(_s#1) + parseNumber(_s#2);
     };
-    if (_varName == 'attackCountdownOccupants') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
-    if (_varName == 'attackCountdownInvaders') then {attackCountdownInvaders = _varValue; publicVariable "attackCountdownInvaders"};
-    //Keep this for backwards compatiblity
-    if (_varName == 'countCA') then {attackCountdownOccupants = _varValue; publicVariable "attackCountdownOccupants"};
     if (_varName == 'bombRuns') then {bombRuns = _varValue; publicVariable "bombRuns"};
     if (_varName == 'nextTick') then {nextTick = time + _varValue};
     if (_varName == 'membersX') then {membersX = +_varValue; publicVariable "membersX"};
-    if (_varName == 'smallCAmrk') then {};      // Ignore. These are not persistent.
     if (_varName == 'mrkNATO') then {{sidesX setVariable [[_x] call _translateMarker,Occupants,true]} forEach _varValue;};
     if (_varName == 'mrkCSAT') then {{sidesX setVariable [[_x] call _translateMarker,Invaders,true]} forEach _varValue;};
     if (_varName == 'mrkSDK') then {{sidesX setVariable [[_x] call _translateMarker,teamPlayer,true]} forEach _varValue;};
@@ -211,6 +197,7 @@ if (_varName in _specialVarLoads) then {
                 outpostsFIA pushBack _mrk;
                 sidesX setVariable [_mrk,teamPlayer,true];
             } forEach _varvalue;
+            publicVariable "outpostsFIA";
         };
     };
     if (_varName == 'antennas') then {
@@ -239,6 +226,7 @@ if (_varName in _specialVarLoads) then {
         publicVariable "antennasDead";
     };
     if (_varname == 'prestigeOPFOR') then {
+        if (count citiesX != count _varValue) exitWith {};          // it'll be the same in the next one
         for "_i" from 0 to (count citiesX) - 1 do {
             _city = citiesX select _i;
             _dataX = server getVariable _city;
@@ -251,6 +239,14 @@ if (_varName in _specialVarLoads) then {
         };
     };
     if (_varname == 'prestigeBLUFOR') then {
+        if (count citiesX != count _varValue) exitWith {
+            Error("City count changed, setting approx support");
+            {
+                if (sidesX getVariable _x != teamPlayer) then { continue };                // sides should be loaded first
+                private _dataX = (server getVariable _x select [0,2]) + [0,75];             // 75% rebel support
+                server setVariable [_x, _dataX, true];
+            } forEach citiesX;
+        };
         for "_i" from 0 to (count citiesX) - 1 do {
             _city = citiesX select _i;
             _dataX = server getVariable _city;
@@ -262,14 +258,21 @@ if (_varName in _specialVarLoads) then {
             server setVariable [_city,_dataX,true];
         };
     };
+    if (_varname == 'enemyResources') then {
+        A3A_resourcesDefenceOcc = _varValue#0;
+        A3A_resourcesDefenceInv = _varValue#1;
+        A3A_resourcesAttackOcc = _varValue#2;
+        A3A_resourcesAttackInv = _varValue#3;
+    };
+    if (_varname == 'HQKnowledge') then {
+        A3A_curHQInfoOcc = _varValue#0;
+        A3A_curHQInfoInv = _varValue#1;
+        A3A_oldHQInfoOcc = _varValue#2;
+        A3A_oldHQInfoInv = _varValue#3;
+    };
     if (_varname == 'idlebases') then {
         {
             server setVariable [(_x select 0),(_x select 1),true];
-        } forEach _varValue;
-    };
-    if (_varname == 'idleassets') then {
-        {
-            timer setVariable [(_x select 0),(_x select 1),true];
         } forEach _varValue;
     };
     if (_varname == 'killZones') then {
@@ -318,20 +321,25 @@ if (_varName in _specialVarLoads) then {
                 if (A3A_saveVersion >= 20401) then { _veh setPosWorld _posVeh } else { _veh setPosATL _posVeh };
                 _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
             };
-            [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
-                staticsToSave pushBack _veh;
-            }
-            else {
-                if (!isNil "_state") then {
-                    [_veh, _state] call HR_GRG_fnc_setState;
+            [_veh, teamPlayer] call A3A_fnc_AIVEHinit;                  // Calls initObject instead if it's a buyable item
+
+            if (isNil {_veh getVariable "A3A_canGarage"}) then {        // Buyable items should set this
+                if (_veh isKindOf "StaticWeapon") exitWith { staticsToSave pushBack _veh };
+                if (_veh isKindOf "Building") exitWith {
+                    _veh setVariable ["A3A_building", true, true];
+                    A3A_buildingsToSave pushBack _veh;
                 };
-                [_veh] spawn A3A_fnc_vehDespawner;
+            };
+            if (!isNil "_state")  then {
+                [_veh, _state] call HR_GRG_fnc_setState;
             };
         };
         publicVariable "staticsToSave";
     };
     if (_varname == 'tasks') then {
+/*
+    // These are really dangerous. Disable for now.
+    // Should be done after all the other init is completed if we really want it
         {
             if (_x == "rebelAttack") then {
                 if(attackCountdownInvaders > attackCountdownOccupants) then
@@ -350,6 +358,7 @@ if (_varName in _specialVarLoads) then {
                 };
             };
         } forEach _varvalue;
+*/
     };
 
     if(_varname == 'A3A_fuelAmountleftArray') then {

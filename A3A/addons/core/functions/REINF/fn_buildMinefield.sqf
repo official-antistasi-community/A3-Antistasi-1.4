@@ -8,7 +8,7 @@ _typeX = _this select 0;
 _positionTel = _this select 1;
 _quantity = _this select 2;
 private _typeExp = FactionGet(reb,"unitExp");
-_costs = 2*(server getVariable _typeExp) + ([FactionGet(reb,"vehicleTruck")] call A3A_fnc_vehiclePrice);
+_costs = 2*(server getVariable _typeExp) + ([(FactionGet(reb,"vehiclesTruck")) # 0] call A3A_fnc_vehiclePrice);
 [-2,(-1*_costs)] remoteExec ["A3A_fnc_resourcesFIA",2];
 
 if (_typeX == "ATMine") then
@@ -64,7 +64,7 @@ _mrk setMarkerText _textX;
 [_mrk,0] remoteExec ["setMarkerAlpha",[Occupants,Invaders]];
 
 private _taskId = "Mines" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[format ["An Engineer Team has been deployed at your command with High Command Option. Once they reach the position, they will start to deploy %1 mines in the area. Cover them in the meantime.",_quantity],"Minefield Deploy",_mrk],_positionTel,false,0,true,"map",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[format [localize "STR_A3A_fn_reinf_buildMinefield_long",_quantity],localize "STR_A3A_fn_reinf_buildMinefield_title",_mrk],_positionTel,false,0,true,"map",true] call BIS_fnc_taskCreate;
 [_taskId, "Mines", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groupX = createGroup teamPlayer;
@@ -74,10 +74,11 @@ sleep 1;
 _unit = [_groupX, _typeExp, (getMarkerPos respawnTeamPlayer), [], 0, "NONE"] call A3A_fnc_createUnit;
 _groupX setGroupId ["MineF"];
 
+private _truckXType = (FactionGet(reb,"vehiclesTruck")) # 0;
 _road = [getMarkerPos respawnTeamPlayer] call A3A_fnc_findNearestGoodRoad;
-_pos = position _road findEmptyPosition [1,30,FactionGet(reb,"vehicleTruck")];
+_pos = position _road findEmptyPosition [1,30,_truckXType];
 
-_truckX = FactionGet(reb,"vehicleTruck") createVehicle _pos;
+_truckX = _truckXType createVehicle _pos;
 
 _groupX addVehicle _truckX;
 {[_x] spawn A3A_fnc_FIAinit; [_x] orderGetIn true} forEach units _groupX;
@@ -105,9 +106,11 @@ if ((_truckX distance _positionTel < 50) and ({alive _x} count units _groupX > 0
 		waitUntil {!(isPlayer leader _groupX)};
 		};
 	theBoss hcRemoveGroup _groupX;
-	[petros,"hint","Engineer Team deploying mines.", "Minefields"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "SHOWMARKER"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
-	sleep 30*_quantity;
+	[petros,"hint",localize "STR_A3A_fn_reinf_buildMinefield_long", localize "STR_A3A_fn_reinf_buildMinefield_buildingTitle"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionTel, true] call A3A_fnc_patrolLoop;
+
+	sleep (30 * _quantity);
 	if ((alive _truckX) and ({alive _x} count units _groupX > 0)) then
 		{
 		{deleteVehicle _x} forEach units _groupX;

@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["CUP_I_4WD_unarmed_ION"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_I_LSV_02_unarmed_ION", "CUP_I_nM1025_Unarmed_ION_WIN", "CUP_I_nM1038_4s_ION_WIN"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["CUP_B_nM1025_SOV_Mk19_ION_WIN", "CUP_B_nM1025_SOV_M2_ION_WIN", "CUP_I_SUV_Armored_ION", "CUP_I_nM1025_M240_DF_ION_WIN"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["CUP_B_nM1025_SOV_Mk19_ION_WIN", "CUP_B_nM1025_SOV_M2_ION_WIN", "CUP_I_SUV_Armored_ION", "CUP_I_nM1025_M240_DF_ION_WIN", "CUP_I_nM1036_TOW_ION_WIN"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_I_Van_Transport_ION"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["CUP_I_Van_Cargo_ION"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_I_nM1038_Ammo_ION_WIN"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_I_nM1038_Repair_ION_WIN"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_MTVR_Refuel_USA"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_nM1035_amb_ION_WIN"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_I_BTR80A_ION", "CUP_I_BTR80_ION"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_I_RG31_Mk19_W_ION", "CUP_I_RG31E_M2_W_ION", "CUP_I_RG31_M2_W_ION", "CUP_I_RG31_M2_W_GC_ION"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_I_BTR80A_ION", "CUP_I_BTR80_ION", "CUP_B_FV432_Bulldog_GB_W_RWS"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["CUP_B_FV510_GB_W_SLAT"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_Challenger2_Snow_BAF"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_I_Hilux_zu23_TK"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_B_M163_Vulcan_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["CUP_B_Zodiac_USMC"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB_USMC", "CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -40,6 +42,7 @@
 
 ["vehiclesHelisLight", ["CUP_I_MH6M_ION", "CUP_I_412_Mil_Utility_PMC"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_I_Merlin_HC3_PMC_Lux_black", "CUP_I_Merlin_HC3_PMC_Transport_black"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_I_412_dynamicLoadout_PMC", "CUP_I_412_Military_Armed_AT_PMC"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_I_Mi24_Mk3_ION"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_M270_DPICM_BAF_DES"]] call _fnc_saveToTemplate;
@@ -62,11 +65,14 @@
 
 ["mortarMagazineHE", "CUP_8Rnd_82mm_Mo_shells_veh"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "CUP_8Rnd_82mm_Mo_Smoke_white_veh"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "CUP_8Rnd_82mm_Mo_Flare_white_veh"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["CUP_MineE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -77,6 +83,7 @@
 "WhiteHead_09","WhiteHead_10","WhiteHead_12","WhiteHead_13",
 "WhiteHead_17","WhiteHead_18","WhiteHead_19","WhiteHead_20"]] call _fnc_saveToTemplate;
 ["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+"NATOMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -160,6 +167,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
+private _sfmmItems = ["CUP_optic_AN_PVS_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
@@ -190,6 +198,8 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+_sfLoadoutData set ["items_marksman_extras", (_mmItems + _sfmmItems)];
+_sfLoadoutData set ["items_sniper_extras", (_mmItems + _sfmmItems)];
 _sfLoadoutData set ["uniforms", ["CUP_I_B_PMC_Unit_30", "CUP_I_B_PMC_Unit_27", "CUP_I_B_PMC_Unit_34"]];
 _sfLoadoutData set ["vests", ["CUP_V_PMC_CIRAS_Winter_TL"]];
 _sfLoadoutData set ["mgVests", ["CUP_V_PMC_CIRAS_Winter_Patrol"]];
@@ -202,7 +212,7 @@ _sfLoadoutData set ["helmets", ["CUP_H_OpsCore_Black_NoHS"]];
 _sfLoadoutData set ["slHat", ["CUP_H_OpsCore_Black_SF"]];
 _sfLoadoutData set ["sniHats", ["CUP_H_PMC_Cap_Back_PRR_Grey"]];
 _sfLoadoutData set ["NVGs", ["CUP_NVG_GPNVG_black"]];
-_sfLoadoutData set ["binoculars", []];
+_sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [

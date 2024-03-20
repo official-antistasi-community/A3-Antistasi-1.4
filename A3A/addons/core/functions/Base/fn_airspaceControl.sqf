@@ -1,33 +1,31 @@
-#define CIV_HELI        0
-#define MIL_HELI        1
-#define JET             2
-
-params ["_vehicle"];
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
 /*  Handles the airspace control of any player aircraft, breaking undercover and calling support
 
-    Execution on: Any
+    Execution on: Client
 
     Scope: Internal
 
     Params:
-        _vehicle: OBJECT : The vehicles that should be checked against enemy positions
+        _player: OBJECT : Player who boarded the vehicle
+        _vehicle: OBJECT : The vehicle that should be checked against enemy positions
 
     Returns:
         Nothing
 */
 
-//If vehicle already has an airspace control script, exit here
-if(_vehicle getVariable ["airspaceControl", false]) exitWith {};
+#define CIV_HELI        0
+#define MIL_HELI        1
+#define JET             2
 
-_vehicle setVariable ["airspaceControl", true, true];
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
+params ["_player", "_vehicle"];
 
 //Select the kind of aircraft
 private _airType = -1;
 if(_vehicle isKindOf "Helicopter") then
 {
-    if(typeOf _vehicle == FactionGet(reb,"vehicleCivHeli")) then
+    if((typeOf _vehicle) in (FactionGet(reb,"vehiclesCivHeli"))) then
     {
         _airType = CIV_HELI;
     }
@@ -45,7 +43,7 @@ else
 private _outpostDetectionRange = [300, 500, 750] select _airType;
 private _outpostDetectionHeight = [150, 250, 500] select _airType;
 
-//Select height and range for outposts, numbers are values for [CIV_HELI, MIL_HELI, JET]
+//Select height and range for airports, numbers are values for [CIV_HELI, MIL_HELI, JET]
 private _airportDetectionRange = [500, 750, 1500] select _airType;
 private _airportDetectionHeight = [500, 500, 2500] select _airType;
 
@@ -72,20 +70,25 @@ private _fn_sendSupport =
 
     private _markerSide = sidesX getVariable [_marker, sideUnknown];
     //Reveal vehicle to all groups of the side so they can take actions
-    {
+/*    {
         if(side _x == _markerSide) then
         {
-            _x reveal [_vehicle, 4];
+            _x reveal [_vehicle, 4];            // TODO: doesn't actually work, needs remoteExec
         };
     } forEach allGroups;
-    private _revealValue = [getMarkerPos _marker, _markerSide] call A3A_fnc_calculateSupportCallReveal;
+*/
     //Take actions against the aircraft
+    // Let support system decide whether it's worth reacting to
+    private _revealValue = [getMarkerPos _marker, _markerSide] call A3A_fnc_calculateSupportCallReveal;
+    [_markerSide, _vehicle, markerPos _marker, 4, _revealValue] remoteExec ["A3A_fnc_requestSupport", 2];
+
+/*
     switch (_airType) do
     {
         case (MIL_HELI):
         {
             Debug_3("Rebel military helicopter %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide);
-            [_vehicle, 4, ["SAM", "ASF", "GUNSHIP"], _markerSide, _revealValue] remoteExec ["A3A_fnc_sendSupport", 2];
+            [_vehicle, _markerSide, markerPos _marker, 4, _revealValue] remoteExec ["A3A_fnc_requestSupport", 2];
         };
         case (JET):
         {
@@ -97,6 +100,7 @@ private _fn_sendSupport =
             Debug_3("Rebel civil helicopter %1 detected by %2 (side %3), revealed for all groups!", _vehicle, _marker, _markerSide);
         };
     };
+*/
 };
 
 private _fn_checkNoFlyZone =
@@ -131,9 +135,13 @@ private _fn_getMarkersInRange =
 };
 
 
-//While not in garage and alive and crewed we check what the aircraft is doing
-while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} do
+while {_player in crew _vehicle && alive _vehicle} do
 {
+    sleep 1;
+
+    // Only run the checks for the vehicle's commander
+    if (_player != effectiveCommander _vehicle) then { continue };
+
     //Check undercover status
     _vehicleIsUndercover = captive ((crew _vehicle) select 0);
     _vehPos = getPosASL _vehicle;
@@ -163,8 +171,8 @@ while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} d
 
         {
             //Assuming you only get a single one each second, need to split it otherwise
-            private _warningText = format ["Unidentified helicopter<br/><br/>You are closing in on the airspace of %1.<br/><br/> Change your course or we will take defensive actions!", [_x] call A3A_fnc_localizar];
-            ["Undercover", _warningText] remoteExec ["A3A_fnc_customHint", (crew _vehicle)];
+            private _warningText = format [localize "STR_A3A_fn_base_airspacecontrol_undercover_text", [_x] call A3A_fnc_localizar]; // TODO: I don't get this weird line but here is the string - STR_A3A_fn_base_airspacecontrol_warning
+            [localize "STR_A3A_fn_base_airspacecontrol_undercover", _warningText] remoteExec ["A3A_fnc_customHint", (crew _vehicle)];
         } forEach (_newAirports + _newOutposts);
 
         //Check if the aircraft got to close to any airport in which warning zone it already is
@@ -224,7 +232,6 @@ while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} d
             };
         };
     };
-    sleep 1;
 };
 
-_vehicle setVariable ["airspaceControl", nil, true];
+Debug_2("Exiting airspace control for player %1, vehicle %2", _player, typeof _vehicle);

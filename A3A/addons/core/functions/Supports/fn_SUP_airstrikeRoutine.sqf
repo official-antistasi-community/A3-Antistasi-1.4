@@ -1,109 +1,79 @@
-params ["_side", "_timerIndex", "_sleepTime", "_bombType", "_airport", "_targetPos", "_supportName"];
+/*  Send airstrike against target
+
+Environment: Server, must be spawned
+
+Arguments:
+    <STRING> Unique support name (mostly for logging)
+    <SIDE> Side to send support from
+    <SCALAR> Delay time in seconds
+    <POS2D> Target position for airstrike
+    <STRING> Marker name of source airport
+    <STRING> Resource pool of support, "attack" or "defence"
+    <STRING> Classname of aircraft to use
+    <STRING> Bomb type to use, "HE", "CLUSTER" or "NAPALM"
+    <SCALAR> Amount of information to reveal to rebels, 0-1
+
+*/
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-//Sleep to simulate preparetion time
-while {_sleepTime > 0} do
-{
-    sleep 1;
-    _sleepTime = _sleepTime - 1;
-    if((spawner getVariable _airport) != 2) exitWith {};
-};
 
-private _faction = Faction(_side);
-private _plane = selectRandom (_faction get "vehiclesPlanesCAS");
-private _crewUnits = _faction get "unitPilot";
-private _isHelicopter = _plane isKindOf "Helicopter";
+params ["_supportName", "_side", "_sleepTime", "_targetPos", "_airport", "_resPool", "_planeType", "_bombType", "_reveal"];
 
+//Sleep to simulate preparation time
+sleep _sleepTime;
+
+private _isHelicopter = _planeType isKindOf "Helicopter";
 private _spawnPos = (getMarkerPos _airport) vectorAdd [0, 0, if (_isHelicopter) then {150} else {500}];
-private _strikePlane = createVehicle [_plane, _spawnPos, [], 0, "FLY"];     // FLY forces 100m alt
+private _plane = createVehicle [_planeType, _spawnPos, [], 0, "FLY"];     // FLY forces 100m alt
 private _targDir = _spawnPos getDir _targetPos;
-_strikePlane setDir _targDir;
-_strikePlane setPosATL _spawnPos;                                           // setPosATL kills velocity
-_strikePlane setVelocityModelSpace [0, 100, 0];
+_plane setDir _targDir;
+_plane setPosATL _spawnPos;                                           // setPosATL kills velocity
+_plane setVelocityModelSpace [0, 100, 0];
+[_plane, _side, _resPool] call A3A_fnc_AIVEHInit;
 
-private _strikeGroup = createGroup _side;
-private _pilot = [_strikeGroup, _crewUnits, getPos _strikePlane] call A3A_fnc_createUnit;
-_pilot moveInDriver _strikePlane;
-_strikeGroup deleteGroupWhenEmpty true;
+private _group = [_side, _plane] call A3A_fnc_createVehicleCrew;
+_group deleteGroupWhenEmpty true;
+{
+    [_x, nil, false, _resPool] call A3A_fnc_NATOinit; 
+    _x disableAI "TARGET";
+    _x disableAI "AUTOTARGET";
+} forEach units _group;
 
-_strikePlane disableAI "TARGET";
-_strikePlane disableAI "AUTOTARGET";
+// Should we really have these?
+_plane addEventHandler ["Killed", {
+    params ["_plane"];
+    ["TaskSucceeded", ["", localize "STR_A3A_fn_supports_airStrikeVesselDown"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
+}];
 
-private _timerArray = if(_side == Occupants) then {occupantsAirstrikeTimer} else {invadersAirstrikeTimer};
-_timerArray set [_timerIndex, time + 1800];
-
-//Setting up the EH for support destruction
-// Could probably just use NATOinit/AIVEHinit
-_strikePlane addEventHandler
-[
-    "Killed",
-    {
-        params ["_strikePlane"];
-        ["TaskSucceeded", ["", "Airstrike Vessel Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-        [_strikePlane] spawn A3A_fnc_postMortem;
-        [(_strikePlane getVariable "side"), 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
-    }
-];
-
-_pilot addEventHandler
-[
-    "Killed",
-    {
-        params ["_unit"];
-        ["TaskSucceeded", ["", "Airstrike crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-        [_unit] spawn A3A_fnc_postMortem;
-    }
-];
-
-private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-private _reveal = _targetList select 0 select 1;
-
-private _markerColor = if(_side == Occupants) then {colorOccupants} else {colorInvaders};
-
-private _targetMarker = createMarkerLocal [format ["%1_target", _supportName], _targetPos];
-_targetMarker setMarkerShapeLocal "ELLIPSE";
-_targetMarker setMarkerBrushLocal "Grid";
-_targetMarker setMarkerSizeLocal [25, 100];
-_targetMarker setMarkerDirLocal _targDir;
-_targetMarker setMarkerColorLocal _markerColor;
-_targetMarker setMarkerAlphaLocal 0;
-
-private _textMarker = createMarkerLocal [format ["%1_text", _supportName], _targetPos];
-_textMarker setMarkerShapeLocal "ICON";
-_textMarker setMarkerTypeLocal "mil_dot";
-_textMarker setMarkerTextLocal "Airstrike";
-_textMarker setMarkerColorLocal _markerColor;
-_textMarker setMarkerAlphaLocal 0;
-
-[_reveal, _targetPos, _side, "AIRSTRIKE", _targetMarker, _textMarker] spawn A3A_fnc_showInterceptedSupportCall;
+//["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]
+[_reveal, _targetPos, _side, "Airstrike", 150, 120] spawn A3A_fnc_showInterceptedSupportCall;
 //[_side, format ["%1_coverage", _supportName]] spawn A3A_fnc_clearTargetArea;
 
-_strikePlane flyInHeight 150;
+
+//Determine speed and bomb count on aggression
+private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+private _bombCount = [2, 3, 4] select (round random [1, _aggroValue / 50, 0]);
+if (_bombType == "HE") then {_bombCount = _bombCount * 2};
+private _bombParams = [_plane, _bombType, _bombCount, 200];
+private _flightSpeed = ["LIMITED", "NORMAL", "FULL"] select (round random [1, _aggroValue / 50, 0]);
+if (_isHelicopter) then {_flightSpeed = "FULL"};
+Info_5("Airstrike %1 against %2 with %3 %4 bombs at %5 speed", _supportName, _targetPos, _bombCount, _bombType, toLower _flightSpeed);
+
+_plane flyInHeight 150;
 private _minAltASL = (ATLToASL [_targetPos select 0, _targetPos select 1, 0])#2 +150;
-_strikePlane flyInHeightASL [_minAltASL, _minAltASL, _minAltASL];
-Debug_2("Fly height ASL: %1 | Target hight: %2", _minAltASL, _targetPos);
+_plane flyInHeightASL [_minAltASL, _minAltASL, _minAltASL];
 
 private _startBombPosition = _targetPos getPos [100, _targDir + 180];
 _startBombPosition set [2, 150];
 private _endBombPosition = _targetPos getPos [100, _targDir];
 _endBombPosition set [2, 150];
 
-//Determine speed and bomb count on aggression
-private _aggroValue = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _flightSpeed = ["LIMITED", "NORMAL", "FULL"] select (round random [1, _aggroValue / 50, 0]);
-private _bombCount = [2, 3, 4] select (round random [1, _aggroValue / 50, 0]);
-if (_bombType == "HE") then {_bombCount = _bombCount * 2};
-private _bombParams = [_strikePlane, _bombType, _bombCount, 200];
-
-if (_isHelicopter) then {_flightSpeed = "FULL"};
-Info_3("Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed);
-
-private _wp2 = _strikeGroup addWaypoint [_startBombPosition, 0];
+private _wp2 = _group addWaypoint [_startBombPosition, 0];
 _wp2 setWaypointType "MOVE";
 _wp2 setWaypointSpeed _flightSpeed;
 _wp2 setWaypointBehaviour "CARELESS";
 
-[_startBombPosition, driver _strikePlane, _bombParams] spawn
+[_startBombPosition, driver _plane, _bombParams] spawn
 {
     params ["_pos", "_pilot", "_bombParams"];
     waitUntil {sleep 1; ((_pos distance2D _pilot) < 500) || {isNull (objectParent _pilot)}};
@@ -113,31 +83,26 @@ _wp2 setWaypointBehaviour "CARELESS";
     _bombParams spawn A3A_fnc_airbomb;
 };
 
-private _wp3 = _strikeGroup addWaypoint [_endBombPosition, 1];
+private _wp3 = _group addWaypoint [_endBombPosition, 1];
 _wp3 setWaypointType "MOVE";
 _wp3 setWaypointSpeed _flightSpeed;
 _wp3 setWaypointBehaviour "CARELESS";
 
-private _wp4 = _strikeGroup addWaypoint [getMarkerPos _airport, 2];
+private _wp4 = _group addWaypoint [getMarkerPos _airport, 2];
 _wp4 setWaypointType "MOVE";
 _wp4 setWaypointSpeed "FULL";
 
 private _timeout = time + (_targetPos distance _spawnPos) / 20;
-waitUntil { sleep 2; (currentWaypoint _strikeGroup == 4) or (time > _timeOut) };
+waitUntil { sleep 2; (currentWaypoint _group > 3) or (time > _timeOut) };
 // could potentially "optimize" with this, or an upper-bounds speed version:
-//sleep ((time - _timeout) min (_targetPos distance _strikePlane / (speed _strikePlane / 3.6)))
+//sleep ((time - _timeout) min (_targetPos distance _plane / (speed _plane / 3.6)))
 
 if (time >_timeOut) then {
     Info_1("Plane for %1 did not return before timeout", _supportName);
-    // should this be done anyway? Depends how reliable the waypoints are...
-    if !(canMove _strikePlane) then { _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600] };
-    [_strikeGroup] spawn A3A_fnc_groupDespawner;
-    [_strikePlane] spawn A3A_fnc_vehDespawner;
+    [_group] spawn A3A_fnc_groupDespawner;
+    [_plane] spawn A3A_fnc_vehDespawner;
 } else {
-    deleteVehicle _pilot;
-    deleteVehicle _strikePlane;
+    Info_1("Cleaning up %1", _supportName);
+    { deleteVehicle _x } forEach units _group;
+    deleteVehicle _plane;
 };
-
-deleteMarker _targetMarker;
-deleteMarker _textMarker;
-[_supportName, _side, 5] spawn A3A_fnc_endSupport;            // hold the coverage marker for a bit

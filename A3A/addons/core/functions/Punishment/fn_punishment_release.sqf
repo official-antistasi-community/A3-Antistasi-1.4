@@ -23,7 +23,7 @@ Examples:
 	[_UID,"forgive"] remoteExecCall ["A3A_fnc_punishment_release",2]; // Forgive all sins and release from Ocean Gulag.
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params ["_UID",["_source",""]];
 #include "..\..\script_component.hpp"
@@ -57,7 +57,7 @@ switch (_source) do {
 		call _releaseFromSentence;
         Info_1("RELEASE | %1", _playerStats);
 		if (isPlayer _detainee) then {
-			["FF Punishment", "Enough then."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
+			[localize "STR_A3A_fn_punish_ff_pun", localize "STR_A3A_fn_punish_punRel_enough"] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
 		true;
 	};
@@ -66,7 +66,7 @@ switch (_source) do {
 		call _releaseFromSentence;
         Info_1("FORGIVE | %1", _playerStats);
 		if (isPlayer _detainee) then {
-			["FF Punishment", "An admin looks with pity upon your soul.<br/>You have been forgiven."] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
+			[localize "STR_A3A_fn_punish_ff_pun", localize "STR_A3A_fn_punish_punRel_admin"] remoteExecCall ["A3A_fnc_customHint", _detainee, false];
 		};
 		true;
 	};

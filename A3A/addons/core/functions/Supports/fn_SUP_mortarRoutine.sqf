@@ -1,49 +1,42 @@
-params ["_mortar", "_crewGroup", "_supportName", "_side", "_sleepTime"];
+/*  Create and maintain mortar and artillery supports
 
-/*  The routine which controls the mortar support in all aspects
+Environment: Server, must be spawned
 
-    Execution on: Server
+Arguments:
+    <ARRAY> Active support data, see initSupports
+    <OBJECT> Mortar/artillery vehicle
+    <GROUP> Crew group of mortar/artillery vehicle
+    <SCALAR> Delay time in seconds
+    <SCALAR> Amount of information to reveal to rebels, 0-1
 
-    Scope: Internal
-
-    Params:
-        _mortar: OBJECT : The actual mortar object
-        _crewGroup: GROUP : The crewgroup of the mortar
-        _supportName: STRING : The callsign of the support
-        _side: SIDE : The side of the support
-
-    Returns:
-        Nothing
 */
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
+params ["_suppData", "_mortar", "_crewGroup", "_sleepTime", "_reveal"];
+_suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_target"];
 
 //Sleep to simulate the time it would need to set the support up
 sleep _sleepTime;
 
 //Decrease number of rounds and time alive if aggro is low
 private _sideAggression = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-private _numberOfRounds = 32;
-private _timeAlive = 900;
+private _numberOfRounds = 24;
+private _timeAlive = 1200;
 
 //If the aggro is low, the mortar will shoot less and stay longer in one spot
-if((30 + (random 40)) >_sideAggression) then
+if((30 + random 40) >_sideAggression) then
 {
-    _numberOfRounds = 16;
+    _numberOfRounds = 12;
     _timeAlive = 1800;
 };
-private _shotsPerVoley = _numberOfRounds / 4;
-
-_mortar setVariable ["Callsign", _supportName, true];
+private _shotsPerVolley = _numberOfRounds / 3;
 
 //A function to repeatedly fire onto a target without loops by using an EH
 _fn_executeMortarFire =
 {
     params ["_mortar"];
-
-    private _targets = _mortar getVariable ["FireOrder", []];
-    private _target = _targets deleteAt 0;
-    _mortar setVariable ["FireOrder", _targets, true];
 
     _mortar addEventHandler
     [
@@ -51,144 +44,73 @@ _fn_executeMortarFire =
         {
             params ["_mortar"];
 
-            private _targets = _mortar getVariable ["FireOrder", []];
-
-            if(count _targets == 0) exitWith
+            private _subTargets = _mortar getVariable ["FireOrder", []];
+            if(count _subTargets == 0) exitWith
             {
                 _mortar removeEventHandler ["Fired", _thisEventHandler];
-                _mortar setVariable ["CurrentlyFiring", false, true];
-                _mortar setVariable ["FireOrder", nil, true];
-
-                private _supportName = _mortar getVariable "Callsign";
-                [_supportName] spawn
-                {
-                    private _name = _this select 0;
-                    sleep 60;
-                    deleteMarker (format ["%1_targetMarker", _name]);
-                    deleteMarker (format ["%1_text", _name]);
-                };
+                _mortar setVariable ["FireOrder", nil];
             };
+            private _shellTarget = _subTargets deleteAt 0;
 
-            private _target = _targets deleteAt 0;
-            _mortar setVariable ["FireOrder", _targets, true];
-
-            [_target, _mortar] spawn
+            [_shellTarget, _mortar] spawn
             {
-                params ["_target", "_mortar"];
+                params ["_shellTarget", "_mortar"];
                 sleep 0.5;
-                _mortar doArtilleryFire [_target, _mortar getVariable "shellType", 1];
+                _mortar doArtilleryFire [_shellTarget, _mortar getVariable "shellType", 1];
             }
         }
     ];
+
+    sleep 30;           // Give players a bit more warning before the shells land
+    private _subTargets = _mortar getVariable ["FireOrder", []];
+    private _target = _subTargets deleteAt 0;
     _mortar doArtilleryFire [_target, _mortar getVariable "shellType", 1];
 };
 
-_mortar setVariable ["CurrentlyFiring", false, true];
-while {_timeAlive > 0} do
+private _timeout = time + _timeAlive;
+while {time < _timeout} do
 {
-    if !(_mortar getVariable "CurrentlyFiring") then
-    {
-        //Mortar is currently not attacking a target, search for new order
-        private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-        if (count _targetList > 0) then
-        {
-            //New target active, read in
-            private _target = _targetList deleteAt 0;
-            server setVariable [format ["%1_targets", _supportName], _targetList, true];
+    sleep 5;
 
-            Debug_1("Next target is %1", _target);
-
-            //Parse targets
-            private _targetParams = _target select 0;
-            private _reveal = _target select 1;
-
-            private _subTargets = [];
-            private _targetPos = _targetParams select 0;
-            private _precision = _targetParams select 1;
-            private _distance = random (125 - ((_precision/4) * (_precision/4) * 100));
-
-            for "_i" from 1 to _shotsPerVoley do
-            {
-                _subTargets pushBack (_targetPos getPos [random _distance, random 360]);
-            };
-
-            //Show target to players if change is high enough
-            private _targetMarker = createMarker [format ["%1_targetMarker", _supportName], _targetPos];
-            _targetMarker setMarkerShape "ELLIPSE";
-            _targetMarker setMarkerBrush "Grid";
-            _targetMarker setMarkerSize [_distance + 25, _distance + 25];
-
-            private _textMarker = createMarker [format ["%1_text", _supportName], _targetPos];
-            _textMarker setMarkerShape "ICON";
-            _textMarker setMarkerType "mil_dot";
-            _textMarker setMarkerText "Artillery";
-
-            //Makes sure that all units escape before attacking
-            [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;
-
-            if(_side == Occupants) then
-            {
-                _targetMarker setMarkerColor colorOccupants;
-                _textMarker setMarkerColor colorOccupants;
-            }
-            else
-            {
-                _targetMarker setMarkerColor colorInvaders;
-                _textMarker setMarkerColor colorInvaders;
-            };
-            _targetMarker setMarkerAlpha 0;
-            _textMarker setMarkerAlpha 0;
-
-            [_reveal, _targetPos, _side, "MORTAR", _targetMarker, _textMarker] spawn A3A_fnc_showInterceptedSupportCall;
-
-            _mortar setVariable ["CurrentlyFiring", true, true];
-            _mortar setVariable ["FireOrder", _subTargets, true];
-
-            [_mortar] spawn _fn_executeMortarFire;
-            _numberOfRounds = _numberOfRounds - _shotsPerVoley;
-        };
-    };
-
-    //Mortar somehow destroyed
-    if
-    (
-        !(alive _mortar) ||
-        {({alive _x} count (units _crewGroup)) == 0 ||
-        {_mortar getVariable ["Stolen", false]}}
-    ) exitWith
-    {
+    //Mortar somehow disabled/stolen
+    if !(canFire _mortar && side _mortar == _side) exitWith {
         Info_1("%1 has been destroyed or crew killed, aborting routine", _supportName);
-        [_side, 20, 45] remoteExec ["A3A_fnc_addAggression", 2];
     };
 
-    if (!(_mortar getVariable "CurrentlyFiring") && (_numberOfRounds <= 0)) exitWith
-    {
+    if !(isNil {_mortar getVariable "FireOrder"}) then { continue };        // mortar still firing at last target
+
+    if (_numberOfRounds <= 0) exitWith {
         Info_1("%1 has no more rounds left to fire, aborting routine", _supportName);
     };
 
-    sleep 5;
-    _timeAlive = _timeAlive - 5;
+    // Read in new target if there is one
+    if (_target isEqualTo []) then { continue };         // no new target added yet
+    private _targetPos = _target select 1;                  // only use position here, not target object
+    _target resize 0;                                       // clear target array so that a new one can be added externally
+    Debug_2("%1 Next target is %2", _supportName, _targetPos);
+
+    // 50m circular spread because it's easy
+    private _subTargets = [];
+    for "_i" from 1 to _shotsPerVolley do {
+        _subTargets pushBack (_targetPos getPos [random 50, random 360]);
+    };
+
+    // Start shooting
+    _mortar setVariable ["FireOrder", _subTargets];
+    [_mortar] spawn _fn_executeMortarFire;
+    _numberOfRounds = _numberOfRounds - _shotsPerVolley;
+    _timeout = _timeout max (time + 60);                // don't cleanup until the volley is done
+
+    //Makes sure that all units escape before attacking
+    // [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;
+
+    [_reveal, _targetPos, _side, _suppType, 150, 5*60] spawn A3A_fnc_showInterceptedSupportCall;
 };
 
-//Mortar already destroyed
 _mortar removeAllEventHandlers "Fired";
+_suppData set [4, 0];           // Set radius to zero to signal completion
 
-//Do not allow further shots and get the unit out
-_crewGroup setCombatMode "GREEN";
-doGetOut (units _crewGroup);
-_crewGroup setBehaviour "SAFE";
+{ unassignVehicle _x } forEach units _crewGroup;
 
-if({alive _x} count (units _crewGroup) != 0) then
-{
-    //Crew left, activating despawner
-    [_crewGroup] spawn A3A_fnc_groupDespawner;
-};
-
-if(alive _mortar && {!(_mortar getVariable ["Stolen", false])}) then
-{
-    //Mortar left, activating despawner
-    [_mortar] spawn A3A_fnc_VEHdespawner;
-};
-
-//Deleting all the support data here
-[_supportName, _side] call A3A_fnc_endSupport;
+[_crewGroup] spawn A3A_fnc_groupDespawner;
+[_mortar] spawn A3A_fnc_VEHdespawner;

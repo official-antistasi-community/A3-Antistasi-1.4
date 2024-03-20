@@ -14,7 +14,6 @@ Public: Yes
 Dependencies:
     <HashMap> A3A_faction_civ
     <HashMap> A3A_faction_reb
-    <ARRAY> reportedVehs
     <ARRAY> controlsX
     <ARRAY> airportsX
     <ARRAY> outposts
@@ -35,7 +34,9 @@ Example:
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
 
+private _titleStr = localize "STR_A3A_fn_undercover_title";
 private _result = [] call A3A_fnc_canGoUndercover;
 
 if(!(_result select 0)) exitWith
@@ -44,22 +45,20 @@ if(!(_result select 0)) exitWith
     {
         if !(isNull (objectParent player)) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
             {
                 if ((isPlayer _x) && (captive _x)) then
                 {
-                    [_x, false] remoteExec["setCaptive"];
-                    _x setCaptive false;
+                    [_x, false] remoteExec["setCaptive", _x];
                 };
             } forEach ((crew(objectParent player)) + (assignedCargo(objectParent player)) - [player]);
         };
     };
 };
 
-["Undercover ON", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+[localize "STR_A3A_fn_undercover_goUn_on", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
 
-[player, true] remoteExec["setCaptive", 0, player];
 player setCaptive true;
 [] spawn A3A_fnc_statistics;
 if (player == leader group player) then
@@ -74,8 +73,9 @@ if (player == leader group player) then
 
 private _roadblocks = controlsX select {isOnRoad(getMarkerPos _x)};
 private _secureBases = airportsX + outposts + seaports + _roadblocks;
-private _isInRoadblock = false;
+private _lastBaseInside = "";
 private _reason = "";
+["Undercover", [""]] call EFUNC(Events,triggerEvent);
 
 while {_reason == ""} do
 {
@@ -101,9 +101,14 @@ while {_reason == ""} do
             _reason = "VNoCivil"
         };
 
-        if (_veh in reportedVehs) exitWith
+        if (_veh getVariable ["A3A_reported", false]) exitWith
         {
             _reason = "VCompromised"
+        };
+
+        if (_veh getVariable ["SA_Tow_Ropes", []] isNotEqualTo []) exitWith
+        {
+            _reason = "VTowRopes"
         };
 
         if (A3A_hasACE) then
@@ -125,7 +130,7 @@ while {_reason == ""} do
             _reason = "NoFly";
         };
 
-        if ((_vehType != FactionGet(reb,"vehicleCivHeli")) && (!(_vehType isEqualTo FactionGet(reb,"vehicleCivBoat")))) then
+        if (_vehType isKindOf "Land") then
         {
             if (!(isOnRoad position _veh) && {count (_veh nearRoads 50) == 0}) then
             {
@@ -133,40 +138,6 @@ while {_reason == ""} do
                 {
                     _reason = "Highway";
                 };
-            };
-
-            if(_reason != "") exitWith {};
-
-            private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
-            private _onDetectionMarker = (detectionAreas findIf {player inArea _x} != -1);
-            private _onBaseMarker = (player inArea _base);
-            private _baseSide = (sidesX getVariable [_base, sideUnknown]);
-            if ((_onBaseMarker || _onDetectionMarker) && (_baseSide != teamPlayer)) then
-            {
-                if !(_isInRoadblock) then
-                {
-                    private _aggro = if (_baseSide == Occupants) then {aggressionOccupants + (tierWar * 10)} else {aggressionInvaders + (tierWar * 10)};
-                    //Probability of being spotted. Unless we're in an airfield - then we're always spotted.
-                    if (_base in airportsX || _onDetectionMarker || random 100 < _aggro) then
-                    {
-                        if (_base in _roadblocks) then
-                        {
-                            _reason = "distanceX";
-                        }
-                        else
-                        {
-                            _reason = "Control";
-                        };
-                    }
-                    else
-                    {
-                        _isInRoadblock = true;
-                    };
-                };
-            }
-            else
-            {
-                _isInRoadblock = false;
             };
         };
     }
@@ -198,12 +169,38 @@ while {_reason == ""} do
         {
             _reason = "Compromised";
         };
+        if (!isNull (player getVariable ["SA_Tow_Ropes_Vehicle", objNull])) exitWith
+        {
+            _reason = "TowRopes";
+        };
+    };
+    if (_reason != "") exitWith {};
+
+    // Don't do location checks on air vehicles. AirspaceControl handles that.
+    if (!isNull _veh and { _veh isKindOf "Air" }) then { continue };
+
+    private _base = [_secureBases, player] call BIS_fnc_nearestPosition;
+    private _onDetectionMarker = detectionAreas findIf {player inArea _x} != -1;
+    private _onBaseMarker = player inArea _base;
+    private _baseSide = sidesX getVariable [_base, sideUnknown];
+    if ((_onBaseMarker || _onDetectionMarker) && (_baseSide != teamPlayer) && (_base != _lastBaseInside)) then
+    {
+        if (_base in airportsX || _onDetectionMarker) exitWith
+        {
+            _reason = "Airport";
+        };
+
+        private _aggro = if (_baseSide == Occupants) then {aggressionOccupants + (tierWar * 10)} else {aggressionInvaders + (tierWar * 10)};
+        if (random 100 < _aggro) exitWith
+        {
+            _reason = ["Outpost", "Roadblock"] select (_base in _roadblocks);
+        };
+        _lastBaseInside = _base;            // Don't check this base again once we passed the check
     };
 };
 
 if (captive player) then
 {
-    [player, false] remoteExec["setCaptive"];
     player setCaptive false;
 };
 
@@ -212,24 +209,23 @@ if !(isNull (objectParent player)) then
     {
         if (isPlayer _x) then
         {
-            [_x, false] remoteExec["setCaptive", 0, _x];
-            _x setCaptive false;
+            [_x, false] remoteExec["setCaptive", _x];
         }
     } forEach((assignedCargo(vehicle player)) + (crew(vehicle player)) - [player]);
 };
 
-["Undercover OFF", 0, 0, 4, 0, 0, 4] spawn bis_fnc_dynamicText;
+[localize "STR_A3A_fn_undercover_goUn_off", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
+
 [] spawn A3A_fnc_statistics;
 
 switch (_reason) do
 {
     case "Reported":
     {
-        ["Undercover", "You have been reported or spotted by the enemy!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_reported"] call A3A_fnc_customHint;
         if (vehicle player != player) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
         }
         else
         {
@@ -238,53 +234,64 @@ switch (_reason) do
     };
     case "VNoCivil":
     {
-        ["Undercover", "You entered a non civilian vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_entered_veh1"] call A3A_fnc_customHint;
     };
     case "VCompromised":
     {
-        ["Undercover", "You entered a reported vehicle!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_entered_veh2"] call A3A_fnc_customHint;
+    };
+    case "VTowRopes":
+    {
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_towrope1"] call A3A_fnc_customHint;
+    };
+    case "TowRopes":
+    {
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_towrope2"] call A3A_fnc_customHint;
     };
     case "SpotBombTruck":
     {
-        ["Undercover", "Explosives have been spotted on your vehicle!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique (objectParent player);
-        publicVariable "reportedVehs";
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_explo"] call A3A_fnc_customHint;
+        (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "Highway":
     {
-        ["Undercover", "You went too far away from any roads and have been spotted!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique (objectParent player);
-        publicVariable "reportedVehs";
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_distance"] call A3A_fnc_customHint;
+        (objectParent player) setVariable ["A3A_reported", true, true];
     };
     case "clothes":
     {
-        ["Undercover", "You cannot stay Undercover while:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_1"] call A3A_fnc_customHint;
     };
     case "clothes2":
     {
-        ["Undercover", "You cannot stay Undercover while showing:<br/><br/>A weapon is visible<br/>Wearing a vest<br/>Wearing a helmet<br/>Wearing NVGs<br/>Wearing a mil uniform<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_2"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "BadMedic":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_3"] call A3A_fnc_customHint;
     };
     case "BadMedic2":
     {
-        ["Undercover", "You cannot stay Undercover while healing a compromised resistance member<br/><br/>The enemy added you to their Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_no_reason_4"] call A3A_fnc_customHint;
         player setVariable["compromised", dateToNumber[date select 0, date select 1, date select 2, date select 3, (date select 4) + 30]];
     };
     case "Compromised":
     {
-        ["Undercover", "You left your vehicle and you are still on the Wanted List!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_leftveh"] call A3A_fnc_customHint;
     };
-    case "distanceX":
+    case "Airport"; case "Roadblock"; case "Outpost":
     {
-        ["Undercover", "You have gotten too close to an enemy Base, Outpost or Roadblock!"] call A3A_fnc_customHint;
+        private _text = switch (_reason) do {
+            case "Airport": {localize "STR_A3A_fn_undercover_goUn_trespass"};
+            case "Outpost": {localize "STR_A3A_fn_undercover_goUn_detect_outp"};
+            case "Roadblock": {localize "STR_A3A_fn_undercover_goUn_detect_roadb"};
+        };
+        [_titleStr, _text] call A3A_fnc_customHint;
+
         if !(isNull objectParent player) then
         {
-            reportedVehs pushBackUnique (objectParent player);
-            publicVariable "reportedVehs";
+            (objectParent player) setVariable ["A3A_reported", true, true];
         }
         else
         {
@@ -295,20 +302,14 @@ switch (_reason) do
     {
         private _veh = objectParent player;
         private _detectedBy = _veh getVariable "NoFlyZoneDetected";
-        ["Undercover", format ["You have violated the airspace of %1!", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique _veh;
-        publicVariable "reportedVehs";
+        [_titleStr, format [localize "STR_A3A_fn_undercover_goUn_detect_airspace", [_detectedBy] call A3A_fnc_localizar]] call A3A_fnc_customHint;
+        _veh setVariable ["A3A_reported", true, true];
         _veh setVariable ["NoFlyZoneDetected", nil, true];
-    };
-    case "Control":
-    {
-        ["Undercover", "The Installation Garrison has recognised you!"] call A3A_fnc_customHint;
-        reportedVehs pushBackUnique(vehicle player);
-        publicVariable "reportedVehs";
     };
     default
     {
         Error_1("Unknown reason given, was %1", _reason);
-        ["Undercover", "Unknown error occured in undercover execution routine!"] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_undercover_goUn_Error"] call A3A_fnc_customHint;
     };
 };
+["Undercover", [_reason]] call EFUNC(Events,triggerEvent);

@@ -20,17 +20,18 @@
 ["vehiclesBasic", ["UK3CB_ADA_I_Quadbike"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_ANA_B_M1152", "UK3CB_ANA_B_M998_2DR", "UK3CB_ANA_B_M998_4DR", "UK3CB_ANA_B_Offroad", "UK3CB_ANA_B_Hilux_Open", "UK3CB_ANA_B_Hilux_Closed"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["UK3CB_ANA_B_Hilux_Dshkm", "UK3CB_ANA_B_Hilux_Pkm", "UK3CB_ANA_B_Hilux_Spg9", "UK3CB_ANA_B_M1025_M2", "UK3CB_ANA_B_M1025_MK19", "UK3CB_ANA_B_M1151_GPK_M2",
-"UK3CB_ANA_B_M1151_GPK_M240", "UK3CB_ANA_B_M1151_OGPK_M2", "UK3CB_ANA_B_M1151_OGPK_M240"]] call _fnc_saveToTemplate;
+"UK3CB_ANA_B_M1151_GPK_M240", "UK3CB_ANA_B_M1151_OGPK_M2", "UK3CB_ANA_B_M1151_OGPK_M240", "UK3CB_ANA_B_Ural_Zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_ANA_B_Ural", "UK3CB_ANA_B_Ural_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_ANA_B_Ural_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_ANA_B_Ural_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_ANA_B_Ural_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_ANA_B_Ural_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_ANA_B_M113_AMB"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_ANA_B_BMP1", "UK3CB_ANA_B_BMP2", "UK3CB_ANA_B_M1117",
-"UK3CB_ANA_B_M113_M2", "UK3CB_ANA_B_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_ANA_B_M113_M2", "UK3CB_ANA_B_M113_MK19", "UK3CB_ANA_B_M113_M240", "UK3CB_ANA_B_MaxxPro_MK19", "UK3CB_ANA_B_MaxxPro_M2", "UK3CB_ANA_B_M1117"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_ANA_B_BMP1", "UK3CB_ANA_B_BMP2"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_ANA_B_BMP2"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_ANA_B_T72BM", "UK3CB_ANA_B_T72B", "UK3CB_ANA_B_T72A", "UK3CB_ANA_B_T55", "UK3CB_ANA_B_T72A"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["UK3CB_ANA_B_ZsuTank", "UK3CB_ANA_B_Ural_Zu23"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["UK3CB_ANA_B_ZsuTank"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["UK3CB_TKA_B_RHIB"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["UK3CB_TKA_B_RHIB_Gunboat"]] call _fnc_saveToTemplate;
@@ -42,7 +43,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_ANA_B_UH1H", "UK3CB_ANA_B_Benches_MH9"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_ANA_B_B_UH60M2", "UK3CB_ANA_B_B_UH60M", "UK3CB_ANA_B_Mi8AMT", "UK3CB_ANA_B_Mi8", "UK3CB_ANA_B_UH1H_M240"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_ANA_B_Mi_24P","UK3CB_ANA_B_Mi_24V","UK3CB_ANA_B_Mi8AMTSh","UK3CB_ANA_B_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_ANA_B_Mi8AMTSh", "UK3CB_ANA_B_UH1H_GUNSHIP"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_ANA_B_Mi_24P", "UK3CB_ANA_B_Mi_24V"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_ANA_B_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -66,9 +68,12 @@
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "rhs_mag_3vs25m_10"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["rhs_mine_tm62m"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhs_mine_pmn2"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -208,9 +213,9 @@ _sfLoadoutData set ["slRifles", [
 ["rhs_weap_ak74mr_gp25", "rhs_acc_dtk4short", "rhs_acc_perst1ik_ris", "rhsusf_acc_ACOG_RMR", ["rhs_30Rnd_545x39_7N22_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VG40TB", "rhs_VG40OP_white"], ""],
 ["rhs_weap_ak74mr_gp25", "rhs_acc_dtk4short", "rhs_acc_perst1ik_ris", "rhsusf_acc_su230_mrds", ["rhs_30Rnd_545x39_7N22_AK"], ["rhs_VOG25", "rhs_VOG25", "rhs_VG40TB", "rhs_VG40OP_white"], ""],
 ["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
-["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
+["rhs_weap_m4a1_blockII_bk", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], [], ""],
 ["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
-["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
+["rhs_weap_m4a1_m203s", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_su230_mrds_c", ["rhs_mag_30Rnd_556x45_Mk262_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
 
 _sfLoadoutData set ["rifles", [
@@ -243,7 +248,7 @@ _sfLoadoutData set ["SMGs", [
 ]];
 _sfLoadoutData set ["machineGuns", [
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ELCAN", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
-["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_su230", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_su230a", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_g33_xps3", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240G", "rhsusf_acc_ARDEC_M240", "", "rhsusf_acc_ACOG_RMR", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m249_light_L", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_g33_xps3", ["rhsusf_100Rnd_556x45_M995_soft_pouch"], [], "rhsusf_acc_kac_grip_saw_bipod"],
@@ -350,7 +355,7 @@ _policeLoadoutData set ["shotGuns", [
 _policeLoadoutData set ["SMGs", [
 ["UK3CB_MP5A2", "", "uk3cb_acc_surefiregrip", "", [], [], ""],
 ["UK3CB_M16A1", "", "", "", [], [], ""],
-["rhs_weap_ak74n", "", "rhs_acc_2dpzenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
+["rhs_weap_ak74n", "", "rhs_acc_2dpZenit", "", ["rhs_30Rnd_545x39_7N10_AK"], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
 ["UK3CB_BHP", "", "", "", [], [], ""]

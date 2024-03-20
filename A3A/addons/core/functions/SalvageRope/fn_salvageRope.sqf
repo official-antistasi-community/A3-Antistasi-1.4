@@ -4,7 +4,7 @@ private _filename = "fn_salvageRope.sqf";
 A3A_SR_canDeployWinch = { //can deploy winch if player is not in a vehicle, is within 10m, theres no rope deployed yet and the vehicle can load cargo
     private _vehicle = cursorTarget;
     if (_vehicle isKindOf "Ship") then {
-        vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && !([_vehicle, boxX] call A3A_fnc_logistics_canLoad isEqualTo -7);
+        vehicle player == player && player distance _vehicle < 10 && isNil {_vehicle getVariable "WinchRope"} && !([_vehicle, boxX] call A3A_Logistics_fnc_canLoad isEqualTo -7);
     } else {
         false;
     };
@@ -79,13 +79,13 @@ A3A_SR_stowRope = {
 A3A_SR_LoadSalvage = {
     params ["_vehicle", "_cargo"];
     ["Loading cargo"] remoteExec ["systemChat"];
-    _return = [_vehicle, _cargo] call A3A_fnc_logistics_canLoad;
+    _return = [_vehicle, _cargo] call A3A_Logistics_fnc_canLoad;
     if (_return isEqualType 0) exitWith {
         private _cargoName = getText (configFile >> "CfgVehicles" >> typeOf _object >> "displayName");
         private _vehicleName = getText (configFile >> "CfgVehicles" >> typeOf _vehicle >> "displayName");
-        ["Logistics", format ["%1 does not have enough space to load %2.", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
+        [localize "STR_A3A_logi_title", format [localize "STR_A3A_logi_salvagerope_nospace", _vehicleName, _cargoName]] remoteExec ["A3A_fnc_customHint", remoteExecutedOwner];
     };
-    _return spawn A3A_fnc_logistics_load;
+    _return spawn A3A_Logistics_fnc_load;
 };
 
 //Attach action
@@ -126,22 +126,22 @@ A3A_SR_attachRope = {
     //load cargo onto boat
     ropeDestroy _rope;
     [[_vehicle, _cargo], A3A_SR_LoadSalvage] remoteExecCall ["call", 2];
-    [_cargo] call A3A_fnc_logistics_addLoadAction;
+    [_cargo] call A3A_Logistics_fnc_addLoadAction;
 
     _vehicle setVariable ["WinchRope",nil,true];
 };
 
 //adding of actions
 A3A_SR_addplayerWinchActions = {
-    player addAction ["Deploy Winch", {
+    player addAction [localize "STR_A3A_fn_salvRope_addact_deploy", {
         [player] call A3A_SR_DeployWinch;
     }, nil, 0, false, true, "", "call A3A_SR_canDeployWinch"];
 
-    player addAction ["Stow Winch", {
+    player addAction [localize "STR_A3A_fn_salvRope_addact_stow", {
         [player] call A3A_SR_stowRope;
     }, nil, 0, false, true, "", "call A3A_SR_canStow"];
 
-    player addAction ["Attach Rope", {
+    player addAction [localize "STR_A3A_fn_salvRope_addact_attach", {
         [player] call A3A_SR_attachRope;
     }, nil, 0, false, true, "", "call A3A_SR_canAttach"];
 

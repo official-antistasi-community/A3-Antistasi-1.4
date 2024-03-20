@@ -1,57 +1,50 @@
-private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_helpX","_helped","_textX","_isPlayer","_camTarget","_saveVolumeVoice"];
-_unit = _this select 0;
-//if (_unit getVariable "inconsciente") exitWith {};
-//if (damage _unit < 0.9) exitWith {};
-//if (!local _unit) exitWith {};
-//_unit setVariable ["inconsciente",true,true];
+private ["_unit","_groupX","_groups","_isLeader","_dummyGroup","_bleedOut","_suicide","_saveVolume","_isPlayer","_camTarget","_saveVolumeVoice"];
+
+params ["_unit", "_injurer", "_fatalWound"];
+
+_unit setDamage 0.9;
+if (!_fatalWound) then { _unit setHitPointDamage ["hitface", 0.5]; };			// fatal wound marker
+
 _bleedOut = time + 300;//300
 _isPlayer = false;
 _playersX = false;
 _inPlayerGroup = false;
 _unit setBleedingremaining 300;
-_injurer = _this select 1;
 
 if (isPlayer _unit) then
-	{
+{
 	_isPlayer = true;
-	if (!isMultiplayer) then {_bleedOut = time + 600};//50
-	_unit spawn
-		{
-		sleep 5;
-		_this allowDamage true;
-		};
+	_unit spawn { sleep 5; _this allowDamage true };
 	closeDialog 0;
+	openMap false;
 	if (!isNil "respawnMenu") then {(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu]};
 	respawnMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",
-		{
-		_handled = false;
-		if (_this select 1 == 19) then
-			{
-			if (player getVariable ["incapacitated",false]) then
-				{
-				(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
-				[player] spawn A3A_fnc_respawn;
-				};
-			};
-		_handled;
-		}];
-	//if (side _unit == teamPlayer) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
-	if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
-	openMap false;
 	{
-	if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
+		if !(player getVariable ["incapacitated",false]) exitWith {false};
+		if (_this select 1 == 19) then {
+			[player] spawn A3A_fnc_respawn;
+		};
+		if (_this select 1 == 35) then {
+			if (A3A_selfReviveMethods) then { [] spawn A3A_fnc_selfRevive };
+			//if (A3A_selfReviveMethods == 2) then { [] spawn A3A_fnc_transferToAI };		// different keys later?
+		};
+		false;
+	}];
+	if (_injurer != Invaders) then {_unit setCaptive true};
+	{
+		if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
 	} forEach units group _unit;
-	}
+}
 else
-	{
+{
 	if ({isPlayer _x} count units  group _unit > 0) then {_inPlayerGroup = true};
 	_unit stop true;
 	if (_inPlayerGroup) then
 		{
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//[_unit,"carry"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-		//_unit call A3A_fnc_logistics_addLoadAction;
-		if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true};
+		//_unit call A3A_Logistics_fnc_addLoadAction;
+		if (_injurer != Invaders) then {_unit setCaptive true};
 		}
 	else
 		{
@@ -59,7 +52,7 @@ else
 			{
 			_playersX = true;
 			[_unit,"heal"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-			if (_unit != petros) then {if (_injurer != Invaders) then {[_unit,true] remoteExec ["setCaptive",0,_unit]; _unit setCaptive true}};
+			if (_unit != petros) then {if (_injurer != Invaders) then {_unit setCaptive true}};
 			};
 		};
 	};
@@ -85,57 +78,38 @@ if (_isPlayer) then
 	};
 
 
-while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (alive _unit) and (!(_unit getVariable ["respawning",false]))} do
-	{
-	if (random 10 < 1) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50];};
-	if (_isPlayer) then
-		{
-		_helped = _unit getVariable ["helped",objNull];
-		if (isNull _helped) then
-			{
-			_helpX = [_unit] call A3A_fnc_askHelp;
-			if (isNull _helpX) then
-				{
-				_textX = format ["<t size='0.6'>There is no AI near to help you.<t size='0.5'><br/>Hit R to Respawn"];
-				}
-			else
-				{
-				if (_helpX != _unit) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
-				};
-			}
-		else
-			{
-			if (!isNil "_helpX") then
-				{
-				if (!isNull _helpX) then {_textX = format ["<t size='0.6'>%1 is on the way to help you.<t size='0.5'><br/>Hit R to Respawn",name _helpX]} else {_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn"};
-				}
-			else
-				{
-				_textX = "<t size='0.6'>Wait until you get assistance or<t size='0.5'><br/>Hit R to Respawn";
-				};
-			};
-		[_textX,0,0,3,0,0,4] spawn bis_fnc_dynamicText;
-		if (_unit getVariable "respawning") exitWith {};
-		}
-	else
-		{
-		if (_inPlayerGroup) then
-			{
-			if (autoheal) then
-				{
-				_helped = _unit getVariable ["helped",objNull];
-				if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
-				};
-			}
-		else
-			{
-			_helped = _unit getVariable ["helped",objNull];
-			if (isNull _helped) then {[_unit] call A3A_fnc_askHelp;};
-			};
-		};
-	sleep 3;
-	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + 4};
+private _nextRequest = 0;
+while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (alive _unit)} do
+{
+	// Space out help requests increasingly with failures
+	private _helper = _unit getVariable ["helped", objNull];
+	if (isNull _helper and _nextRequest < time) then {
+		_helper = [_unit] call A3A_fnc_askHelp;
+		private _requestGap = (2 + (_unit getVariable ["helpFailed", 0]))^2;
+		_nextRequest = if (isPlayer _unit) then { time + _requestGap/2 } else { time + _requestGap };
 	};
+
+	if (_isPlayer) then	{
+		private _helpText = "<t size='0.8'>" + call {
+			if (isNull _helper) exitWith {localize "STR_A3A_fn_revive_unconscious_noAI"};
+			if (_helper distance _unit < 3) exitWith { format [localize "STR_A3A_fn_revive_unconscious_helping", name _helper] };
+			format [localize "STR_A3A_fn_revive_unconscious_onTheWay", name _helper];
+		};
+		private _respawnText = "<t size='0.6'><br/>" + localize "STR_A3A_fn_revive_unconscious_respawn";
+		private _reviveText = call {
+			if (A3A_selfReviveMethods) exitWith { "<br/>" + localize "STR_A3A_fn_revive_unconscious_selfRevive" };
+			//if (A3A_selfReviveMethods == 2) exitWith { "<br/>Hit H to take over nearest AI ally" };
+			""
+		};
+		private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
+		[_helpText + _respawnText + _reviveText,0,0,3,0,0,_layer] spawn bis_fnc_dynamicText;
+	};
+
+	private _sleepTime = [3, 1] select (isPlayer _unit);
+	sleep _sleepTime;
+	if !(isNull attachedTo _unit) then {_bleedOut = _bleedOut + _sleepTime};			// delay bleedout if dragged or loaded into vehicle
+	if (random 60 < _sleepTime) then {playSound3D [(selectRandom injuredSounds),_unit,false, getPosASL _unit, 1, 1, 50]};
+};
 
 if (_isPlayer) then
 	{
@@ -157,24 +131,26 @@ else
 		};
 	};
 
-if (captive _unit) then {[_unit,false] remoteExec ["setCaptive",0,_unit]; _unit setCaptive false};
-_unit setVariable ["overallDamage",damage _unit];
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 
 if (time > _bleedOut) exitWith
-	{
-	if (_isPlayer) then
-		{
-		[_unit] call A3A_fnc_respawn
-		}
-	else
-		{
-		_unit setDamage 1;
-		};
-	};
+{
+	if (isPlayer _unit) exitWith { [player] spawn A3A_fnc_respawn };
+	if (captive _unit) then {_unit setCaptive false};
+	_unit setDamage 1;
+};
 if (alive _unit) then
-	{
+{
 	_unit setUnconscious false;
-	_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	//_unit playMoveNow "AmovPpneMstpSnonWnonDnon_healed";
+	_unit playMoveNow "unconsciousoutprone";
 	_unit setBleedingremaining 0;
+
+	// Temp invulnerability on revive
+	_unit allowDamage false;
+	_unit spawn {
+		sleep 5;
+		if (captive _this) then {_this setCaptive false};
+		_this allowDamage true;
 	};
+};

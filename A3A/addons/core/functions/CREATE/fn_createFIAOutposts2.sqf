@@ -33,7 +33,7 @@ if (_isRoad) then
 		{
 		_roadcon = roadsConnectedto (_road select 0);
 		_dirveh = [_road select 0, _roadcon select 0] call BIS_fnc_DirTo;
-		_veh = FactionGet(reb,"vehicleLightArmed") createVehicle getPos (_road select 0);
+		_veh = ((FactionGet(reb,"vehiclesLightArmed")) # 0) createVehicle getPos (_road select 0);
 		_veh setDir _dirveh + 90;
 		_veh lock 3;
 		[_veh, teamPlayer] call A3A_fnc_AIVEHinit;
@@ -50,6 +50,7 @@ else
 	_groupX setCombatMode "GREEN";
 	{[_x,_markerX] spawn A3A_fnc_FIAinitBases;} forEach units _groupX;
 	};
+["locationSpawned", [_markerX, "RebelRoadblock", true]] call EFUNC(Events,triggerEvent);
 
 waitUntil {sleep 1; ((spawner getVariable _markerX == 2)) or ({alive _x} count units _groupX == 0) or (not(_markerX in outpostsFIA))};
 
@@ -63,11 +64,11 @@ if ({alive _x} count units _groupX == 0) then
 	deleteMarker _markerX;
 	if (_isRoad) then
 		{
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_roadblockFight_lost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		}
 	else
 		{
-		["TaskFailed", ["", "Watchpost Lost"]] remoteExec ["BIS_fnc_showNotification", 0];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_crfiaOP2_lostWatchpost"]] remoteExec ["BIS_fnc_showNotification", 0];
 		};
 	};
 
@@ -76,3 +77,4 @@ waitUntil {sleep 1; (spawner getVariable _markerX == 2) or (not(_markerX in outp
 if (_isRoad) then { if (!isNull _veh) then { deleteVehicle _veh } };
 { deleteVehicle _x } forEach units _groupX;
 deleteGroup _groupX;
+["locationSpawned", [_markerX, "RebelRoadblock", false]] call EFUNC(Events,triggerEvent);

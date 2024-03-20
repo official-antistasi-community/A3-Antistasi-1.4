@@ -67,11 +67,11 @@ for "_i" from 1 to 5 do {
     _squads pushBack [
         unit(military, "SquadLeader"),
         selectRandomWeighted [unit(military, "LAT"), 2, unit(military, "MachineGunner"), 1],
-        selectRandomWeighted [unit(military, "Rifleman"), 2, unit(military, "Grenadier"), 1],
+        selectRandomWeighted [unit(military, "Rifleman"), 1, unit(military, "Grenadier"), 2],
         selectRandomWeighted [unit(military, "MachineGunner"), 2, unit(military, "Marksman"), 1],
-        selectRandomWeighted [unit(military, "Rifleman"), 4, unit(military, "AT"), 1],
-        selectRandomWeighted [unit(military, "AA"), 1, unit(military, "Engineer"), 4],
-        unit(military, "Rifleman"),
+        selectRandomWeighted [unit(military, "Engineer"), 3, unit(military, "AT"), 1],
+        selectRandomWeighted [unit(military, "AA"), 1, unit(military, "Rifleman"), 3],
+        selectRandomWeighted [unit(military, "Rifleman"), 2, unit(military, "Marksman"), 1],
         unit(military, "Medic")
     ];
 };
@@ -175,6 +175,8 @@ _faction set ["unitGL", unit(militia, "Grenadier")];
 _faction set ["unitRifle", unit(militia, "Rifleman")];
 _faction set ["unitSL", unit(militia, "SquadLeader")];
 _faction set ["unitEng", unit(militia, "Engineer")];
+_faction set ["unitAA", unit(militia, "AA")];
+_faction set ["unitAT", unit(militia, "AT")];
 
 //groups
 _faction set ["groupMedium", [_faction get "unitSL", _faction get "unitGL", _faction get "unitMG", _faction get "unitRifle"]];
@@ -212,7 +214,7 @@ _faction set ["groupSquadSupp", [
 _faction set ["groupSniper", double( _faction get "unitSniper" )];
 _faction set ["groupSentry", [_faction get "unitGL", _faction get "unitRifle"]];
 
-_faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew"]];
+_faction set ["unitsSoldiers", (_faction get "groupSquadEng") + [_faction get "unitSniper", _faction get "unitCrew", _faction get "unitAA", _faction get "unitAT"]];
 
 };
 

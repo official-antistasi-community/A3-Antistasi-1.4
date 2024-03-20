@@ -2,8 +2,7 @@ params ["_unit", "_side"];
 
 private _marker = respawnTeamPlayer;
 if (_side != teamPlayer) then {
-	_marker = respawnOccupants;
-	private _potentials = (outposts + airportsX + resourcesX + factories);
+	private _potentials = (outposts + airportsX + resourcesX + factories + seaports);
 	_potentials = _potentials select { sidesX getVariable [_x, sideUnknown] == _side };
 	_potentials = _potentials select { spawner getVariable _x != 0 };		// only flee to unspawned locations
 	if (count _potentials == 0) exitWith {};

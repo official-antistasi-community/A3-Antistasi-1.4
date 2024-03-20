@@ -1,21 +1,24 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _varName = _this select 0;
 
-_loadVariable = {
-	private ["_varName","_varValue"];
-	_varName = _this select 0;
-	_varSaveName = [_varName] call A3A_fnc_varNameToSaveName;
-	//Return the value of this statement
-	profileNameSpace getVariable (_varSaveName);
+params ["_varname"];
+A3A_saveTarget params ["_serverID", "_campaignID", "_map"];
+
+// Simple version for new missionProfileNamespace saves
+if (_serverID isEqualType false) exitWith {
+	missionProfileNamespace getVariable format ["%1%2", _varName, _campaignID];
 };
 
-private _varValue = [_varName] call _loadVariable;
+private _saveExt = if (_map == "Tanoa") then {
+	format["%1%2%3",_serverID,_campaignID,"WotP"];
+} else {
+	format["%1%2%3%4",_serverID,_campaignID,"Antistasi",_map];
+};
+
+private _varValue = profileNamespace getVariable (_varname + _saveExt);
 if (isNil "_varValue") then {
 	_spanishVarName = [_varName] call A3A_fnc_translateVariable;
-	_varValue = [_spanishVarName] call _loadVariable;
+	_varValue = profileNamespace getVariable (_spanishVarName + _saveExt);
 };
-if (isNil "_varValue") exitWith {
-    Error_1("Variable %1 does not exist.", _varName);
-};
+if (isNil "_varValue") exitWith {};
 _varValue;

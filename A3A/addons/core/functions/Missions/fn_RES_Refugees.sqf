@@ -17,7 +17,7 @@ _POWs = [];
 
 _radiusX = [_markerX] call A3A_fnc_sizeMarker;
 //_houses = nearestObjects [_positionX, ["house"], _radiusX];
-_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in UPSMON_Bld_remove)};
+_houses = (nearestObjects [_positionX, ["house"], _radiusX]) select {!((typeOf _x) in A3A_buildingBlacklist)};
 _posHouse = [];
 _houseX = _houses select 0;
 while {count _posHouse < 3} do
@@ -40,18 +40,18 @@ _displayTime = [_dateLimit] call A3A_fnc_dateToTimeString;//Converts the time po
 
 _sideX = if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then {Occupants} else {Invaders};
 private _faction = Faction(_sideX);
-_textX = if (_sideX == Occupants) then {format ["A group of smugglers have been arrested in %1 and they are about to be sent to prison. Go there and free them in order to make them join our cause. Do this before %2",_nameDest,_displayTime]} else {format ["A group of %3 supportes are hidden in %1 awaiting for evacuation. We have to find them before %2 does it. If not, there will be a certain death for them. Bring them back to HQ",_nameDest,FactionGet(inv,"name"),FactionGet(reb,"name")]};
+_textX = if (_sideX == Occupants) then {format [localize "STR_A3A_fn_mission_res_refu_text1",_nameDest,_displayTime]} 
+else {format [localize "STR_A3A_fn_mission_res_refu_text2",_nameDest,FactionGet(inv,"name"),FactionGet(reb,"name")]};
 _posTsk = if (_sideX == Occupants) then {(position _houseX) getPos [random 100, random 360]} else {position _houseX};
 
 private _taskId = "RES" + str A3A_taskCount;
-[[teamPlayer,civilian],_taskId,[_textX,"Refugees Evac",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian],_taskId,[_textX,localize "STR_A3A_fn_mission_res_refu_titel",_nameDest],_posTsk,false,0,true,"run",true] call BIS_fnc_taskCreate;
 [_taskId, "RES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 _groupPOW = createGroup teamPlayer;
 for "_i" from 1 to (((count _posHouse) - 1) min 15) do
 	{
 	_unit = [_groupPOW, FactionGet(reb,"unitUnarmed"), _posHouse select _i, [], 0, "NONE"] call A3A_fnc_createUnit;
-	[_unit, selectRandom (A3A_faction_reb get "faces"), selectRandom (A3A_faction_reb get "voices")] call BIS_fnc_setIdentity;
 	_unit allowdamage false;
 	_unit disableAI "MOVE";
 	_unit disableAI "AUTOTARGET";
@@ -71,7 +71,6 @@ sleep 5;
 {_x allowDamage true} forEach _POWs;
 
 sleep 30;
-_mrk = "";
 _groupX = grpNull;
 _veh = objNull;
 _groupX1 = grpNull;
@@ -80,11 +79,12 @@ if (_sideX == Invaders) then
 	[_houseX, _difficultX] spawn
 	{
 		params ["_house", "_isDifficult"];
-		if (_isDifficult) then {sleep 300} else {sleep 300 + (random 1800)};
+		if (_isDifficult) then {sleep 300} else {sleep (300 + random 1800)};
 		if !(_taskId call BIS_fnc_taskCompleted) then
 		{
-            private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
-            [getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_sendSupport", 2];
+			// Needs rework
+            //private _reveal = [_positionX , Invaders] call A3A_fnc_calculateSupportCallReveal;
+            //[getPos _house, 4, ["QRF"], Invaders, _reveal] remoteExec ["A3A_fnc_createSupport", 2];
 		};
 	};
 }
@@ -120,13 +120,6 @@ else
 	sleep 15;
 	_veh allowDamage true;
 	_nul = [_veh, Occupants] call A3A_fnc_AIVEHinit;
-	_mrk = createMarkerLocal [format ["%1patrolarea", floor random 100], getPos _houseX];
-	_mrk setMarkerShapeLocal "RECTANGLE";
-	_mrk setMarkerSizeLocal [50,50];
-	_mrk setMarkerTypeLocal "hd_warning";
-	_mrk setMarkerColorLocal "ColorRed";
-	_mrk setMarkerBrushLocal "DiagGrid";
-	_mrk setMarkerAlphaLocal 0;
 	if ((random 100 < aggressionOccupants) or (_difficultX)) then
 		{
 		_groupX = [getPos _houseX,Occupants,  selectRandom (_faction get "groupsSquads")] call A3A_fnc_spawnGroup;
@@ -142,7 +135,9 @@ else
 		_dog = [_groupX, "Fin_random_F",_positionX,[],0,"FORM"] call A3A_fnc_createUnit;
 		[_dog] spawn A3A_fnc_guardDog;
 		};
-	_nul = [leader _groupX, _mrk, "SAFE","SPAWNED", "NOVEH2","RANDOM", "NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);
+
+	[_groupX, "Patrol_Area", 25, 50, 100, true, _positionX, true] call A3A_fnc_patrolLoop;
+	
 	{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 	_groupX1 = [_houseX buildingExit 0, Occupants, _faction get "groupPolice"] call A3A_fnc_spawnGroup;
 	};
@@ -213,7 +208,6 @@ deleteGroup _groupPOW;
 
 if (_sideX == Occupants) then
 {
-	deleteMarkerLocal _mrk;
 	if (!isNull _veh) then { [_veh] spawn A3A_fnc_vehDespawner };
 	if (!isNull _groupX1) then { [_groupX1] spawn A3A_fnc_groupDespawner };
 	[_groupX] spawn A3A_fnc_groupDespawner;

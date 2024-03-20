@@ -81,26 +81,22 @@ allCosmeticGlasses deleteAt (allCosmeticGlasses find "UK3CB_G_Balaclava_Neck_She
 ////////////////
 If (A3A_hasTFAR || A3A_hasTFARBeta) then {
 	private _allRadioItems = allRadios;
-	private _encryptRebel = ["tf_guer_radio_code", "tf_independent_radio_code"];  // tf_independent_radio_code may not exist. More investigation needed.
-	private _encryptEnemy = ["tf_west_radio_code", "tf_east_radio_code"];
-
-	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
-	if (count allRadios == 0) then { ["_encryptRebel","_encryptEnemy"] call BIS_fnc_swapVars };    // Fallback to east and west.
+	private _encryptRebel = A3A_faction_reb getOrDefault ["attributeTFARCodes", ["tf_guer_radio_code", "tf_independent_radio_code"]];
+    // tf_independent_radio_code may not exist. More investigation needed.
 	allRadios = _allRadioItems select { getText (configFile >> "CfgWeapons" >> _x >> "tf_encryptionCode") in _encryptRebel };
 	if (count allRadios == 0) then {
 		Error("No TFAR radios with matching encryption codes found. Recommendation is to remove TFAR from the mod-set, and use the vanilla radio channel system.");
 	};
 
-	private _allHostileRadio = [];
 	private _backpacksToDelete = [];
 	{
 		private _encrypt = getText (configFile >> "CfgVehicles" >> _x >> "tf_encryptionCode");
-		if (_encrypt in _encryptRebel) then { allBackpacksRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] } else {
-			if (_encrypt in _encryptEnemy) then { _allHostileRadio pushBack _x; _backpacksToDelete insert [0,[_forEachIndex]] };
-		};
+		if (_encrypt != "") then { _backpacksToDelete pushBack _x };
+		if (_encrypt in _encryptRebel) then { allBackpacksRadio pushBack _x };
 	} forEach allBackpacksEmpty;
-	{ allBackpacksEmpty deleteAt _x } forEach _backpacksToDelete;  // Removes Radios from allBackpacksEmpty
+	allBackpacksEmpty = allBackpacksEmpty - _backpacksToDelete;
 };
+
 /////////////////
 // UAVTerminal //
 /////////////////
@@ -115,7 +111,7 @@ allMagBullet = allMagBullet select { getText (configFile >> "CfgMagazines" >> _x
 
 //Remove False NVGs
 allNVGs = allNVGs select { getarray (configFile >> "CfgWeapons" >> _x >> "visionMode") isnotequalto ["Normal","Normal"]};
-/*
+
 private _removableDefaultItems = [
 	[allFirstAidKits,"FirstAidKit","firstAidKits"],
 	[allMedikits,"Medikit","mediKits"],
@@ -129,4 +125,4 @@ private _removableDefaultItems = [
 		_itemCategoryArray deleteAt (_itemCategoryArray find _vanillaItem);
 	};
 } forEach _removableDefaultItems;
-*/
+

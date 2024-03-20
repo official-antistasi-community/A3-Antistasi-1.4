@@ -1,27 +1,35 @@
+//TODO: add header
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 private ["_thingX","_playerX","_id","_isStatic","_sites","_markerX","_size","_positionX"];
+private _titleStr = localize "STR_A3A_fn_dialogs_movehqobj_title";
 
 _thingX = _this select 0;
 _playerX = _this select 1;
 _id = _this select 2;
 _isStatic = (_thingX isKindOf "StaticWeapon");
 
-if (!_isStatic && player != theBoss) exitWith {["Move HQ", "Only Player Commander is allowed to move HQ assets."] call A3A_fnc_customHint;};
-if (!(isNull attachedTo _thingX)) exitWith {["Move HQ", "The asset you want to move is being moved by another player."] call A3A_fnc_customHint;};
-if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle."] call A3A_fnc_customHint;};
+if (!_isStatic && player != theBoss) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_commander"] call A3A_fnc_customHint;};
+if (!(isNull attachedTo _thingX)) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_already"] call A3A_fnc_customHint;};
+if (vehicle _playerX != _playerX) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_vehicle"] call A3A_fnc_customHint;};
 
-if (([_playerX] call A3A_fnc_countAttachedObjects) > 0) exitWith {["Move HQ", "You have other things attached, you cannot move this."] call A3A_fnc_customHint;};
+if (([_playerX] call A3A_fnc_countAttachedObjects) > 0) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_attached"] call A3A_fnc_customHint;};
+
 _sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 _markerX = [_sites,_playerX] call BIS_fnc_nearestPosition;
 _size = [_markerX] call A3A_fnc_sizeMarker;
 _positionX = getMarkerPos _markerX;
-if (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset needs to be closer to it relative zone center to be able to be moved."] call A3A_fnc_customHint;};
+if (_playerX distance2D _positionX > _size) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_closer"] call A3A_fnc_customHint;};
 
 if (captive _playerX) then { _playerX setCaptive false };
 
 _thingX setVariable ["objectBeingMoved", true];
 if !(_isStatic) then { _thingX removeAction _id };
+if (_isStatic) then { _thingX lock true };
+
+if (isNil {_thingX getVariable "A3A_originalMass"}) then { _thingX setVariable ["A3A_originalMass", getMass _thingX] };
+[_thingX, 1e-12] remoteExecCall ["setMass", 0]; 
 
 private _spacing = 2 max (1 - (boundingBoxReal _thingX select 0 select 1));
 private _height = 0.1 - (boundingBoxReal _thingX select 0 select 2);
@@ -67,14 +75,18 @@ private _fnc_placeObject = {
 
 	// _thingX setPosATL [getPosATL _thingX select 0,getPosATL _thingX select 1,0.1];
 
+	if (_thingX isKindOf "StaticWeapon") then { _thingX lock false };
+
 	_thingX setVariable ["objectBeingMoved", false];
+
+	[_thingX, _thingX getVariable "A3A_originalMass"] remoteExecCall ["setMass", _thingX];
 };
 
-private _actionX = _playerX addAction ["Drop Here", {
+private _actionX = _playerX addAction [localize "STR_A3A_fn_dialogs_movehqobj_addact_drop", {
 	(_this select 3) params ["_thingX", "_fnc_placeObject"];
 
 	[_thingX, player, (_this select 2)] call _fnc_placeObject;
-}, [_thingX, _fnc_placeObject],4,true,true,"",""];
+}, [_thingX, _fnc_placeObject],6,true,true,"",""];
 
 waitUntil {sleep 1;
 	(_playerX != attachedTo _thingX)
@@ -86,8 +98,8 @@ waitUntil {sleep 1;
 };
 
 [_thingX, _playerX, _actionX] call _fnc_placeObject;
-if !(_isStatic) then { _thingX addAction ["Move this asset", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"] };
+if !(_isStatic) then { _thingX addAction [localize "STR_A3A_fn_dialogs_movehqobj_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)"] };
 
-if (vehicle _playerX != _playerX) exitWith {["Move HQ", "You cannot move HQ assets while in a vehicle."] call A3A_fnc_customHint;};
+if (vehicle _playerX != _playerX) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_vehicle"] call A3A_fnc_customHint;};
 
-if  (_playerX distance2D _positionX > _size) exitWith {["Move HQ", "This asset cannot be moved more far away for its zone center."] call A3A_fnc_customHint;};
+if  (_playerX distance2D _positionX > _size) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_movehqobj_no_far"] call A3A_fnc_customHint;};

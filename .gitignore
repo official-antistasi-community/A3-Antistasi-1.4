@@ -1,5 +1,6 @@
 .vscode/
 .github/
+.idea/
 build
 *.biprivatekey
 *.log
@@ -22,3 +23,8 @@ PreparedMissions/
 
 #Ignore test templates
 Map-Templates/Antistasi-TEST-**
+
+
+#Ignore Python bytecode files and bytecode-cache folder
+__pycache__/
+*.py[cod]

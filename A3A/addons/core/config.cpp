@@ -6,7 +6,7 @@ class CfgPatches {
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {};
+        requiredAddons[] = {"A3A_Events"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";
@@ -17,6 +17,7 @@ class CfgPatches {
 #include "CfgSounds.hpp"
 class A3A {
     #include "Templates.hpp"
+    #include "Params.hpp"
 
 #if __A3_DEBUG__
     #include "CfgFunctions.hpp"
@@ -36,9 +37,26 @@ class A3A {
     #include "CfgFunctions.hpp"
 #endif
 
+// Load external member list if present
+#if __has_include("\A3AMembers.hpp")
+#include "\A3AMembers.hpp"
+#endif
+
 #ifndef UseDoomGUI
     #include "defines.hpp"
     #include "dialogs.hpp"
 #endif
 
 #include "keybinds.hpp"
+
+class CfgMPGameTypes {
+    class ANTI {
+        name = "Antistasi";
+        shortcut = "ANTI";
+        id = 30;
+        picture = QPATHTOFOLDER(Pictures\antistasi_logo_small.paa);
+        description = "";
+    };
+};
+
+#include "CfgMarkers.hpp"

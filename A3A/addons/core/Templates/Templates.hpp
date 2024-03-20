@@ -185,6 +185,25 @@ class Templates
         name = "WS NATO Desert";
         file = "WS_AI_NATO_Desert";
     };
+    // **************************** Aegis ****************************
+    class Aegis_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"A3_Aegis_Data_F_Aegis"};
+        logo = "\A3_Aegis\Data_F_Aegis\Logos\arma3_aegis_logo_CA.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\Aegis); //the path to the template folder
+        priority = 15;
+        forceDLC[] = {};
+    };
+    class Atlas_Base : Aegis_Base
+    {
+        requiredAddons[] = {"A3_Aegis_Data_F_Aegis","A3_Atlas_Data_F_Atlas"};
+        logo = "\A3_Atlas\Data_F_Atlas\Logos\arma3_Atlas_logo_CA.paa";
+    };
+    class Atlas_OF_Base : Atlas_Base
+    {
+        requiredAddons[] = {"A3_Aegis_Data_F_Aegis","A3_Atlas_Data_F_Atlas","A3_Opf_Data_F_Opf"};
+        logo = "\A3_Opf\Data_F_Opf\Logos\arma3_Opfor_logo_CA.paa";
+    };
     // ***************************** VN *****************************
 
     class VN_Base

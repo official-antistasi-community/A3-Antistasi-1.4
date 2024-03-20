@@ -11,7 +11,7 @@ if (_marker in airportsX) then {
     _mrkD setMarkerTypeLocal (_faction get "flagMarkerType");
     _mrkD setMarkerColorLocal "Default";
 } else {
-    if (_marker in destroyedSites) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
+    if (_marker in destroyedSites and _marker in citiesX) exitWith { _mrkD setMarkerColorLocal "ColorBlack" };
     if (_mrkSide == teamPlayer) exitWith { _mrkD setMarkerColorLocal colorTeamPlayer };
     _mrkD setMarkerColorLocal ([colorOccupants, colorInvaders] select (_mrkSide == Invaders));
 };
@@ -27,6 +27,13 @@ private _mrkText = call {
 
 if (_mrkSide == teamPlayer) then {
     private _numTroops = count (garrison getVariable [_marker, []]);
-    if (_numTroops > 0) then { _mrkText = format ["%1: %2", _mrkText, _numTroops] };
+    private _limit = [_marker] call A3A_fnc_getGarrisonLimit;
+    if (_numTroops > 0) then { 
+        _mrkText = format ["%1: %2%3", 
+            _mrkText, 
+            _numTroops, 
+            if (_limit != -1) then {format ["/%1", _limit]} else {""}
+        ]; 
+    };
 };
 _mrkD setMarkerText _mrkText;

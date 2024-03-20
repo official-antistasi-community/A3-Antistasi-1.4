@@ -5,17 +5,18 @@ if (isServer) then {
     Info("Starting Persistent Load.");
 	petros allowdamage false;
 
+	// Set all main markers to occupant control by default, overridden by mrkSDK & mrkCSAT
+	{ 
+		if (sidesX getVariable _x != Occupants) then { sidesX setVariable [_x, Occupants, true] };
+	} forEach (airportsX + resourcesX + factories + outposts + seaports);
+
 	A3A_saveVersion = 0;
 	["version"] call A3A_fnc_getStatVariable;
-	["savedPlayers"] call A3A_fnc_getStatVariable;
-	["outpostsFIA"] call A3A_fnc_getStatVariable; publicVariable "outpostsFIA";
+	["outpostsFIA"] call A3A_fnc_getStatVariable;
 	["mrkSDK"] call A3A_fnc_getStatVariable;
 	["mrkCSAT"] call A3A_fnc_getStatVariable;
 	["destroyedSites"] call A3A_fnc_getStatVariable;
 	["minesX"] call A3A_fnc_getStatVariable;
-	["attackCountdownOccupants"] call A3A_fnc_getStatVariable;
-    ["attackCountdownInvaders"] call A3A_fnc_getStatVariable;
-    ["countCA"] call A3A_fnc_getStatVariable;
 	["antennas"] call A3A_fnc_getStatVariable;
 	["hr"] call A3A_fnc_getStatVariable;
 	["dateX"] call A3A_fnc_getStatVariable;
@@ -31,15 +32,14 @@ if (isServer) then {
     ["HR_Garage"] call A3A_fnc_getStatVariable;
     ["A3A_fuelAmountleftArray"] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
-	["idlebases"] call A3A_fnc_getStatVariable;
-	["idleassets"] call A3A_fnc_getStatVariable;
+	["enemyResources"] call A3A_fnc_getStatVariable;
+	["HQKnowledge"] call A3A_fnc_getStatVariable;
+//	["idlebases"] call A3A_fnc_getStatVariable;			// Might bring this back at some point
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;
-	waitUntil {!isNil "arsenalInit"};
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	//===========================================================================
-	#include "\A3\Ui_f\hpp\defineResinclDesign.inc"
 
 	//RESTORE THE STATE OF THE 'UNLOCKED' VARIABLES USING JNA_DATALIST
 	{
@@ -58,23 +58,18 @@ if (isServer) then {
 	call A3A_fnc_checkRadiosUnlocked;
 
 	//Sort optics list so that snipers pick the right sight
-	unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
+	// obsolete since rebelGear
+	//unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 
+	// Set enemy roadblock allegiance to match nearest main marker
+	private _mainMarkers = markersX - controlsX - outpostsFIA;
 	{
 		if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-			_positionX = getMarkerPos _x;
-			_nearX = [(markersX - controlsX - outpostsFIA),_positionX] call BIS_fnc_nearestPosition;
-			_sideX = sidesX getVariable [_nearX,sideUnknown];
+			private _nearX = [_mainMarkers, markerPos _x] call BIS_fnc_nearestPosition;
+			private _sideX = sidesX getVariable [_nearX,sideUnknown];
 			sidesX setVariable [_x,_sideX,true];
 		};
 	} forEach controlsX;
-
-
-	{
-		if (sidesX getVariable [_x,sideUnknown] == sideUnknown) then {
-			sidesX setVariable [_x,Occupants,true];
-		};
-	} forEach markersX;
 
 	{
 		[_x] call A3A_fnc_mrkUpdate
@@ -98,13 +93,6 @@ if (isServer) then {
 
 	["chopForest"] call A3A_fnc_getStatVariable;
 
-	/*
-	{
-	_buildings = nearestObjects [_x, listMilBld, 25, true];
-	(_buildings select 1) setDamage 1;
-	} forEach destroyedBuildings;
-	*/
-
 	["posHQ"] call A3A_fnc_getStatVariable;
 	["nextTick"] call A3A_fnc_getStatVariable;
 	["staticsX"] call A3A_fnc_getStatVariable;
@@ -112,16 +100,12 @@ if (isServer) then {
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
-	//Isn't that just tierCheck.sqf?
-//	tierWar = 1 + (floor (((5*({(_x in outposts) or (_x in resourcesX) or (_x in citiesX)} count _sites)) + (10*({_x in seaports} count _sites)) + (20*({_x in airportsX} count _sites)))/10));
-//	if (tierWar > 10) then {tierWar = 10};
-//	publicVariable "tierWar";
+	// Move headless client logic objects near HQ so that firedNear EH etc. work more reliably
+	private _hcpos = markerPos respawnTeamPlayer vectorAdd [-100, -100, 0];
+	{ _x setPosATL _hcpos } forEach (entities "HeadlessClient_F");
 
 	tierPreference = 1;
 	publicVariable "tierPreference";
-	//Updating the preferences based on war level
-//	[] call A3A_fnc_updatePreference;
-
 	// update war tier silently, calls updatePreference if changed
 	[true] call A3A_fnc_tierCheck;
 
@@ -143,75 +127,26 @@ if (isServer) then {
     //Load state of testing timer
     ["testingTimerIsActive"] call A3A_fnc_getStatVariable;
 
-	clearMagazineCargoGlobal boxX;
-	clearWeaponCargoGlobal boxX;
-	clearItemCargoGlobal boxX;
-	clearBackpackCargoGlobal boxX;
+	// Load all player data into A3A_playerSaveData hashmap. Works around issues with game copies
+	_savedPlayers = "savedPlayers" call A3A_fnc_returnSavedStat;
+	if (isNil "_savedPlayers") then { _savedPlayers = [] };
+	{
+		private _uid = _x;
+		private _playerData = createHashMap;
+		{
+			_playerData set [_x, [_uid, _x] call A3A_fnc_retrievePlayerStat];
+		} forEach ["moneyX", "loadoutPlayer", "scorePlayer", "rankPlayer", "personalGarage"];
 
-	[] remoteExec ["A3A_fnc_statistics",[teamPlayer,civilian]];
+		if (isNil {_playerData get "moneyX"}) then { Error_1("Saved player %1 has no money var", _uid); continue };
+		A3A_playerSaveData set [_uid, _playerData];
+	} forEach _savedPlayers;
+
     Info("Persistent Load Completed.");
-    Info("Generating Map Markers.");
+
+	// uh, why here?
 	["tasks"] call A3A_fnc_getStatVariable;
-	if !(isMultiplayer) then {
-		{//Can't we go around this using the initMarker? And only switching marker?
-			_pos = getMarkerPos _x;
-			_dmrk = createMarker [format ["Dum%1",_x], _pos];
-			_dmrk setMarkerShape "ICON";
-			[_x] call A3A_fnc_mrkUpdate;
-			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-				_nul = [_x] call A3A_fnc_createControls;
-			};
-		} forEach airportsX;
 
-		{
-			_pos = getMarkerPos _x;
-			_dmrk = createMarker [format ["Dum%1",_x], _pos];
-			_dmrk setMarkerShape "ICON";
-			_dmrk setMarkerType "loc_rock";
-			_dmrk setMarkerText "Resources";
-			[_x] call A3A_fnc_mrkUpdate;
-			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-				_nul = [_x] call A3A_fnc_createControls;
-			};
-		} forEach resourcesX;
-
-		{
-			_pos = getMarkerPos _x;
-			_dmrk = createMarker [format ["Dum%1",_x], _pos];
-			_dmrk setMarkerShape "ICON";
-			_dmrk setMarkerType "u_installation";
-			_dmrk setMarkerText "Factory";
-			[_x] call A3A_fnc_mrkUpdate;
-			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-				_nul = [_x] call A3A_fnc_createControls;
-			};
-		} forEach factories;
-
-		{
-			_pos = getMarkerPos _x;
-			_dmrk = createMarker [format ["Dum%1",_x], _pos];
-			_dmrk setMarkerShape "ICON";
-			_dmrk setMarkerType "loc_bunker";
-			[_x] call A3A_fnc_mrkUpdate;
-			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-				_nul = [_x] call A3A_fnc_createControls;
-			};
-		} forEach outposts;
-
-		{
-			_pos = getMarkerPos _x;
-			_dmrk = createMarker [format ["Dum%1",_x], _pos];
-			_dmrk setMarkerShape "ICON";
-			_dmrk setMarkerType "b_naval";
-			_dmrk setMarkerText "Sea Port";
-			[_x] call A3A_fnc_mrkUpdate;
-			if (sidesX getVariable [_x,sideUnknown] != teamPlayer) then {
-				_nul = [_x] call A3A_fnc_createControls;
-			};
-		} forEach seaports;
-	};
 	statsLoaded = 0; publicVariable "statsLoaded";
-	placementDone = true; publicVariable "placementDone";
 	petros allowdamage true;
 };
 Info("loadServer Completed.");

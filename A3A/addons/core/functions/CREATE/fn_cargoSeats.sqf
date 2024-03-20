@@ -20,7 +20,7 @@ if (_cargoSeats < 4) exitWith
 	_faction get "groupSentry";
 };
 
-if (_cargoSeats < 7) exitWith			// fudge for Warrior
+if (_cargoSeats < 6 or { _cargoSeats == 6 and random 3 < 1}) exitWith			// 6-man normally uses clipped full squad
 {
 	if (_isMilitia) exitWith { selectRandom (_faction get "groupsMilitiaMedium") };
 	if (_veh in (_faction get "vehiclesPolice")) exitWith { (_faction get "groupPolice") + [_faction get "unitPoliceGrunt", _faction get "unitPoliceGrunt"] };
@@ -29,7 +29,9 @@ if (_cargoSeats < 7) exitWith			// fudge for Warrior
 
 private _squad = call {
 	if (_isMilitia) exitWith { selectRandom (_faction get "groupsMilitiaSquads") };
-    selectRandom (_faction get "groupsSquads")
+    selectRandom (_faction get "groupsSquads");
 };
-if (_cargoSeats == 7) then { _squad deleteAt 7 };
+while { count _squad > _cargoSeats } do {
+	_squad deleteAt (1 + floor random (count _squad - 1));		// don't remove the squad leader
+};
 _squad;

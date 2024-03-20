@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1025_Unarmed_USA_DES", "CUP_B_nM1025_Unarmed_DF_USA_DES", "CUP_B_nM1038_DF_USA_DES", "CUP_B_nM1038_USA_DES", "CUP_B_nM1038_4s_DF_USA_DES", "CUP_B_nM1038_4s_USA_DES", "CUP_B_M1151_USA"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["CUP_B_nM1025_M2_USA_DES", "CUP_B_nM1025_M2_DF_USA_DES", "CUP_B_nM1025_M240_USA_DES", "CUP_B_nM1025_M240_DF_USA_DES", "CUP_B_nM1025_Mk19_USA_DES", "CUP_B_nM1025_Mk19_DF_USA_DES", "CUP_B_nM1025_SOV_M2_USA_DES", "CUP_B_nM1025_SOV_Mk19_USA_DES", "CUP_B_nM1036_TOW_USA_DES", "CUP_B_nM1036_TOW_DF_USA_DES", "CUP_B_M1151_M2_USA", "CUP_B_M1151_Deploy_USA", "CUP_B_M1151_Mk19_USA", "CUP_B_M1165_GMV_USA", "CUP_B_M1167_USA", "CUP_B_RG31_Mk19_USA", "CUP_B_RG31E_M2_USA", "CUP_B_RG31_M2_USA", "CUP_B_RG31_M2_GC_USA"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["CUP_B_nM1025_M2_USA_DES", "CUP_B_nM1025_M2_DF_USA_DES", "CUP_B_nM1025_M240_USA_DES", "CUP_B_nM1025_M240_DF_USA_DES", "CUP_B_nM1025_Mk19_USA_DES", "CUP_B_nM1025_Mk19_DF_USA_DES", "CUP_B_nM1025_SOV_M2_USA_DES", "CUP_B_nM1025_SOV_Mk19_USA_DES", "CUP_B_nM1036_TOW_USA_DES", "CUP_B_nM1036_TOW_DF_USA_DES", "CUP_B_M1151_M2_USA", "CUP_B_M1151_Deploy_USA", "CUP_B_M1151_Mk19_USA", "CUP_B_M1165_GMV_USA", "CUP_B_M1167_USA", "CUP_I_LR_AA_RACS", "CUP_B_M1135_ATGMV_Desert"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["CUP_I_MTVR_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["CUP_I_MTVR_Ammo_RACS", "CUP_I_M113A3_Reammo_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["CUP_I_MTVR_Repair_RACS", "CUP_I_M113A3_Repair_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_I_MTVR_Refuel_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_LR_Ambulance_RACS", "CUP_I_M113A1_Med_RACS"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_M2Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D", "CUP_B_M7Bradley_USA_D", "CUP_B_M6LineBacker_USA_D", "CUP_B_M1126_ICV_M2_Desert", "CUP_B_M1126_ICV_MK19_Desert", "CUP_B_M1135_ATGMV_Desert", "CUP_B_M1129_MC_MK19_Desert", "CUP_I_LAV25_RACS", "CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_I_M113A1_RACS", "CUP_I_M113A1_RACS_URB", "CUP_B_RG31_Mk19_USA", "CUP_B_RG31E_M2_USA", "CUP_B_RG31_M2_USA", "CUP_B_RG31_M2_GC_USA"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_M1126_ICV_M2_Desert", "CUP_B_M1126_ICV_MK19_Desert", "CUP_I_LAV25_RACS", "CUP_I_LAV25M240_RACS", "CUP_I_AAV_RACS"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["CUP_B_M2Bradley_USA_D", "CUP_B_M7Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D", "CUP_B_M2A3Bradley_USA_D"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_M1A2C_Desert_US_Army", "CUP_B_M1A2C_TUSK_II_Desert_US_Army", "CUP_B_M1A2C_TUSK_Desert_US_Army", "CUP_I_M60A3_RACS", "CUP_I_M60A3_TTS_RACS", "CUP_B_M1A2SEP_RACS", "CUP_B_M1A2SEP_TUSK_RACS", "CUP_I_T72_RACS"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["CUP_I_M163_Vulcan_RACS", "CUP_I_LR_AA_RACS"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["CUP_B_M6LineBacker_USA_D", "CUP_I_M163_Vulcan_RACS"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["CUP_B_RHIB2Turret_USMC"]] call _fnc_saveToTemplate;
@@ -36,11 +38,12 @@
 
 ["vehiclesPlanesCAS", ["CUP_B_A10_DYN_USA"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["CUP_I_JAS39_RACS"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["CUP_B_MV22_USMC_RAMPGUN"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["CUP_I_C130J_RACS"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["CUP_I_MH6J_RACS", "CUP_I_UH1H_RACS"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_I_SA330_Puma_HC1_RACS", "CUP_I_SA330_Puma_HC2_RACS", "CUP_I_CH47F_RACS", "CUP_I_UH60L_RACS", "CUP_I_UH60L_FFV_RACS", "CUP_I_UH60L_Unarmed_RACS", "CUP_I_UH60L_Unarmed_FFV_Racs"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["CUP_I_AH6J_AT_RACS", "CUP_I_AH6J_RACS", "CUP_B_AH64D_DL_USA", "CUP_I_UH1H_gunship_RACS"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_I_AH6J_AT_RACS", "CUP_I_AH6J_RACS", "CUP_I_UH1H_gunship_RACS"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["CUP_B_AH64D_DL_USA"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_I_M270_HE_RACS"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["CUP_I_M270_HE_RACS", ["CUP_12Rnd_MLRS_HE"]]]] call _fnc_saveToTemplate;
@@ -60,9 +63,12 @@
 ["staticMortars", ["CUP_I_M252_RACS"]] call _fnc_saveToTemplate;
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -74,6 +80,7 @@
 "WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18","WhiteHead_19",
 "WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+"SahraniNames" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -152,7 +159,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
-private _sfmmItems = ["cup_optic_an_pvs_10_black"];
+private _sfmmItems = ["CUP_optic_AN_PVS_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];

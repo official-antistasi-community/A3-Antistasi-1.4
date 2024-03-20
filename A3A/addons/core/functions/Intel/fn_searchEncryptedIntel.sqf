@@ -58,7 +58,7 @@ private _largeAttackChance = switch (true) do {
 private _attack = selectRandomWeighted ["No", _noAttackChance, "Small", 0.6, "Large", _largeAttackChance];
 if (_attack != "No") then {
     private _isLargeAttack = (_attack == "Large");
-    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
+//    [[_marker, _side, _isLargeAttack],"A3A_fnc_singleAttack"] remoteExec ["A3A_fnc_scheduler",2];
 };
 
 //decryption proccess
@@ -78,7 +78,7 @@ while {_pointSum <= _neededPoints} do {
     {
         _pointSum = 0;
         {
-            [petros,"hint","No one in range of the intel, need to start from scratch", "Search Intel"] remoteExec ["A3A_fnc_commsMP",_x]
+            [petros,"hint",localize "STR_A3A_fn_intel_encr_reset", localize "STR_A3A_fn_intel_title2"] remoteExec ["A3A_fnc_commsMP",_x]
         } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     };
 
@@ -94,23 +94,23 @@ while {_pointSum <= _neededPoints} do {
             private _actionTime = 1;
             switch (_error) do {
                 case 1: {
-                    _errorText = "Reference to unknown loaction, need to locate location to continue decifering";
-                    _actionText = "Locate location";
+                    _errorText = localize "STR_A3A_fn_intel_encr_err_1_err";
+                    _actionText = localize "STR_A3A_fn_intel_encr_err_1_act";
                     _actionTime = 3;
                 };
                 case 2: {
-                    _errorText = "Ilegible text encountered, need to decifer meaning from context";
-                    _actionText = "Decifer meaning";
+                    _errorText = localize "STR_A3A_fn_intel_encr_err_2_err";
+                    _actionText = localize "STR_A3A_fn_intel_encr_err_2_act";
                     _actionTime = 5;
                 };
                 case 3: {
-                    _errorText = "Unkown codename encountered, need to decifer the codename reference";
-                    _actionText = "Decifer codename";
+                    _errorText = localize "STR_A3A_fn_intel_encr_err_3_err";
+                    _actionText = localize "STR_A3A_fn_intel_encr_err_3_act";
                     _actionTime = 10;
                 };
                 case 4: {
-                    _errorText = "Section of texts meaning hidden behind a riddle, have to solve it to continue";
-                    _actionText = "Solve riddle";
+                    _errorText = localize "STR_A3A_fn_intel_encr_err_4_err";
+                    _actionText = localize "STR_A3A_fn_intel_encr_err_4_act";
                     _actionTime = 15;
                 }
             };
@@ -141,24 +141,23 @@ while {_pointSum <= _neededPoints} do {
     if (_actionNeeded) then {
         //if action needed hint to nearby players
         [
-            "Search Intel"
+            localize "STR_A3A_fn_intel_title2"
             , _errorText
         ] remoteExec ["A3A_fnc_customHint", (_intel nearEntities ["CAManBase", 25]) select {isPlayer _x}];
     } else {
         //else tick up pointsum and notify nearby players of progress
         _pointSum = _pointSum + (_pointsPerSecond * _timeDiff);
         [
-            "Search Intel"
-            , "Decryption progress at "+ str (round (_pointSum/_neededPoints * 100) min 100) + "%"
+            localize "STR_A3A_fn_intel_title2"
+            , localize "STR_A3A_fn_intel_encr_prog"+ str (round (_pointSum/_neededPoints * 100) min 100) + "%"
         ] remoteExec ["A3A_fnc_customHint", (_intel nearEntities ["CAManBase", 25]) select {isPlayer _x}];
     };
 };
 
 if (_pointSum >= _neededPoints) then {
-    private _intelText = ["Large", _side] call A3A_fnc_selectIntel;
-    [_intelText] remoteExec ["A3A_fnc_showIntel", 0];
+    ["Large", _side] remoteExec ["A3A_fnc_selectIntel", 2];
     {
-        ["Search Intel", "You managed to decifer the intel!"] call A3A_fnc_customHint;
+        [localize "STR_A3A_fn_intel_title2", localize "STR_A3A_fn_intel_encr_success"] call A3A_fnc_customHint;
         [10,_x] call A3A_fnc_playerScoreAdd;
     } forEach ([50,0,_intel,teamPlayer] call A3A_fnc_distanceUnits);
     [5, theBoss] call A3A_fnc_playerScoreAdd;

@@ -23,7 +23,7 @@ private _fnc_addSecondaryAndMags = {
     params ["_unit", "_weapon", "_totalMagWeight"];
 
     _unit addWeapon _weapon;
-    private _magazine = getArray (configFile / "CfgWeapons" / _weapon / "magazines") select 0;
+    private _magazine = compatibleMagazines _weapon select 0;
     _unit addSecondaryWeaponItem _magazine;
 
     if ("Disposable" in (_weapon call A3A_fnc_equipmentClassToCategories)) exitWith {};
@@ -138,6 +138,18 @@ switch (true) do
 //		if (A3A_hasIFA) then {
 //			[_unit, "LIB_PTRD", 100] call _addSecondaryAndMags;
 //		};
+    };
+    case (_unitType isEqualTo FactionGet(reb,"unitAT")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAT");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
+    };
+    case (_unitType isEqualTo FactionGet(reb,"unitAA")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAA");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
     };
     case (_unitType isEqualTo FactionGet(reb,"unitSL")): {
         [_unit, "Rifles", 50] call A3A_fnc_randomRifle;

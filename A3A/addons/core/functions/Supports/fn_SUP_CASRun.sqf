@@ -1,167 +1,91 @@
-params ["_strikePlane", "_target", "_supportName"];
+/*  CAS routine to perform a low-level attack run
+
+Environment: Server, scheduled, internal
+
+Arguments:
+    <OBJECT> Aircraft object to use
+    <OBJECT> Target object for attack run
+    <STRING> Name of support (for debug logging)
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-//Take over control
+
+params ["_plane", "_target", "_supportName"];
 Debug_1("%1 has started gun run", _supportName);
-_strikePlane setVariable ["OnRun", true];
-private _supportMarker = format ["%1_coverage", _supportName];
-
-//When reached, update run path
-private _targetPos = (getPosASL _target) vectorAdd [0, 0, 2];
-private _targetVector = [400, 0];
-private _dir = (_strikePlane getDir _target) + 90;
-_targetVector = [_targetVector, -_dir] call BIS_fnc_rotateVector2D;
-private _sideVector = [_targetVector, -_dir + 90] call BIS_fnc_rotateVector2D;
-_sideVector set [2, 0];
-
-_enterRunPos = getPosASL _strikePlane;
-private _exitRunPos = _targetPos vectorAdd _targetVector;
-private _forward = _exitRunPos vectorDiff _enterRunPos;
-private _upVector = (_forward vectorCrossProduct _sideVector) vectorMultiply -1;
-private _forwardSpeed = (velocityModelSpace _strikePlane) select 1;
-private _timeForRun = 1620 / _forwardSpeed;
-private _speedVector = (vectorNormalized _forward) vectorMultiply _forwardSpeed;
-
-private _interval = 0;
-private _realTime = 0;
 
 //Creating the startpoint for the fire EH loop
 private _fnc_executeWeaponFire =
 {
-    params ["_strikePlane", "_fireParams"];
+    params ["_plane", "_fireParams"];
     _fireParams params ["_armed", "_mainGunShots", "_rocketShots", "_missileShots"];
-    private _ammoCount = _strikePlane getVariable "ammoCount";
+    private _ammoHM = _plane getVariable "ammoCount";
 
-    if(_mainGunShots > 0) then
-    {
-        //Fire main gun with selected mode
-        private _weapon = _strikePlane getVariable ["mainGun", ""];
-        private _modes = getArray (configFile >> "cfgweapons" >> _weapon >> "modes");
-        private _mode =  _modes select 0;
-        if (_mode == "this") then
-        {
-            _mode = _weapon;
-        }
-        else
-        {
-            if ("close" in _modes) then
-            {
-                _mode = "close";
-            };
-        };
+    Debug_1("Execute weapon fire called with fireParams %1", _fireParams);
 
-        //Force weapon fire
-        _strikePlane setVariable ["mainGunShots", (_mainGunShots - 1)];
-        (driver _strikePlane) forceWeaponFire [_weapon, _mode];
-    };
-    if(_rocketShots > 0) then
-    {
-        //Select rocket weapon for use
-        private _weapons = _strikePlane getVariable ["rocketLauncher", []];
-        private _selectedWeapon = objNull;
-        if(count _weapons > 1) then
-        {
-
-            private _currentHighest = 0;
-            {
-                private _weapon = _x;
-                private _index = _ammoCount findIf {_x select 0 == _weapon};
-                if ((_selectedWeapon == "") || {_ammoCount#_index#1 > _currentHighest}) then
-                {
-                    _selectedWeapon = _weapon;
-                    _currentHighest = _ammoCount#_index#1;
-                };
-                //Weapon with more shots then needed found, using it
-                if(_currentHighest >= _rocketShots) exitWith {};
-            } forEach _weapons;
-            if(_currentHighest < _rocketShots) then
-            {
-                _strikePlane setVariable ["OutOfAmmo", true];
-            };
-        }
-        else
-        {
-            if(count _weapons == 1) then
-            {
-                _selectedWeapon = _weapons#0;
-                private _index = _ammoCount findIf {_x select 0 == _selectedWeapon};
-                if(_ammoCount#_index#1 < _rocketShots) then
-                {
-                    _strikePlane setVariable ["OutOfAmmo", true];
-                };
-            };
-        };
-
-        //If weapon available fire it
-        if(_selectedWeapon isEqualType "") then
-        {
-            //Select fire mode for weapon
-            private _modes = (getArray (configFile >> "cfgweapons" >> _selectedWeapon >> "modes"));
-            private _mode = _modes select 0;
-            if (_mode == "this") then
-            {
-                _mode = _selectedWeapon;
-            }
-            else
-            {
-                if ("Close_AI" in _modes) then
-                {
-                    _mode = "Close_AI";
-                };
-                if("Single" in _modes) then
-                {
-                    _mode = "Single";
-                };
-            };
-
-            //Force weapon fire
-            _strikePlane setVariable ["rocketShots", (_rocketShots - 1)];
-            (driver _strikePlane) forceWeaponFire [_selectedWeapon, _mode];
-        };
-    };
-    if(_missileShots > 0) then
+    private _weapons = _plane getVariable ["missileLauncher", []];
+    if (_missileShots > 0 && _weapons isNotEqualTo []) then
     {
         //Select missile weapon
-        private _weapons = _strikePlane getVariable ["missileLauncher", []];
         private _selectedWeapon = "";
-        if(count _weapons > 1) then
+        private _currentHighest = -1;
         {
-            private _currentHighest = 0;
-            {
-                private _weapon = _x;
-                private _index = _ammoCount findIf {_x select 0 == _weapon};
-                if ((_selectedWeapon == "") || {_ammoCount#_index#1 > _currentHighest}) then
-                {
-                    _selectedWeapon = _weapon;
-                    _currentHighest = _ammoCount#_index#1;
-                };
-                //Weapon with more shots then needed found, using it
-                if(_currentHighest >= _missileShots) exitWith {};
-            } forEach _weapons;
-            if(_currentHighest < _missileShots) then
-            {
-                _strikePlane setVariable ["OutOfAmmo", true];
+            if (_ammoHM get _x > _currentHighest) then {
+                _selectedWeapon = _x;
+                _currentHighest = _ammoHM get _x;
             };
-        }
-        else
-        {
-            if(count _weapons == 1) then
-            {
-                _selectedWeapon = _weapons#0;
-                private _index = _ammoCount findIf {_x select 0 == _selectedWeapon};
-                if(_ammoCount#_index#1 < _missileShots) then
-                {
-                    _strikePlane setVariable ["OutOfAmmo", true];
-                };
-            };
-        };
+            if (_currentHighest >= _missileShots) exitWith {};
+        } forEach _weapons;
+        Debug_2("Selected missile %1, remaining shots %2", _selectedWeapon, _currentHighest);
+        if (_currentHighest <= 0) exitWith {};
 
         //Fire weapon if one is selected (guided weapons only gets fired when they have a lockon possibility on the target)
-        if(_selectedWeapon isEqualType "") then
+        _plane setVariable ["missileShots", _missileShots min _currentHighest];
+        _plane fireAtTarget [_plane getVariable "currentTarget", _selectedWeapon];
+    };
+
+    private _weapons = _plane getVariable ["rocketLauncher", []];
+    if (_rocketShots > 0 && _weapons isNotEqualTo []) then
+    {
+        //Select rocket weapon for use
+        private _selectedWeapon = "";
+        private _currentHighest = -1;
         {
-            _strikePlane fireAtTarget [_strikePlane getVariable "currentTarget", _selectedWeapon];
-            _strikePlane setVariable ["missileShots", (_missileShots - 1)];
-        };
+            if (_ammoHM get _x > _currentHighest) then {
+                _selectedWeapon = _x;
+                _currentHighest = _ammoHM get _x;
+            };
+            if (_currentHighest >= _rocketShots) exitWith {};
+        } forEach _weapons;
+        Debug_2("Selected rocket %1, remaining shots %2", _selectedWeapon, _currentHighest);
+        if (_currentHighest <= 0) exitWith {};
+
+        private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
+        private _modes = ["Single", "Close_AI"] arrayIntersect getArray (_weapCfg >> "modes");
+        if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };
+        private _modeCfg = [_weapCfg >> (_modes#0), _weapCfg] select (_modes#0 == "this");
+
+        //Force weapon fire
+        _plane setVariable ["rocketShots", _rocketShots min _currentHighest];
+        _plane setVariable ["rocketReload", getNumber (_modeCfg >> "reloadTime")];
+        Debug_3("Firing %1 shots with mode %2 and reload %3", _plane getVariable "rocketShots", configName _modeCfg, _plane getVariable "rocketReload");
+        (driver _plane) forceWeaponFire [_selectedWeapon, configName _modeCfg];
+    };
+
+    private _selectedWeapon = _plane getVariable ["mainGun", ""];
+    if(_mainGunShots > 0 && _selectedWeapon != "") then
+    {
+        //Fire main gun with selected mode. Assume that we won't run out of ammo...
+        private _weapCfg = configFile >> "cfgWeapons" >> _selectedWeapon;
+        private _modes = ["close"] arrayIntersect getArray (_weapCfg >> "modes");           // can add preferred modes here in priority order
+        if (_modes isEqualTo []) then { _modes = getArray (_weapCfg >> "modes") };
+        private _modeCfg = [_weapCfg >> (_modes#0), _weapCfg] select (_modes#0 == "this");
+
+        //Force weapon fire
+        _plane setVariable ["mainGunShots", _mainGunShots];
+        _plane setVariable ["mainGunReload", getNumber (_modeCfg >> "reloadTime")];
+        Debug_3("Firing %1 shots with mode %2 and reload %3", _plane getVariable "mainGunShots", configName _modeCfg, _plane getVariable "mainGunReload");
+        (driver _plane) forceWeaponFire [_selectedWeapon, configName _modeCfg];
     };
 };
 
@@ -174,111 +98,92 @@ private _fireParams =
     [true, 40, 7, 0]
 ];
 */
-private _fireParams = +(_strikePlane getVariable "fireParams");
+//private _fireParams = [[true, 30, 0, 0], [true, 30, 0, 0], [true, 30, 0, 0]];
+//private _fireParams = [[true, 0, 0, 1], [true, 0, 0, 1], [true, 0, 0, 1]];
+private _fireParams = +(_plane getVariable "fireParams");
+_plane setVariable ["currentTarget", _target];
 
-while {_interval < 0.95 && alive _strikePlane && {!(isNull (driver _strikePlane))}} do
-{
-    if(!(alive _target) || {!(_strikePlane getVariable ["InArea", false]) || {!(getPos _target inArea _supportMarker)}}) exitWith
-    {
-        Debug_1("%1 target eliminated or escaped, returning to loitering", _supportName);
-        _strikePlane setVariable ["currentTarget", objNull];
-    };
+private _enterRunPos = getPosASL _plane;
+private _targetPos = eyePos _target;
+if(terrainIntersectASL [_enterRunPos, _targetPos]) exitWith {
+    Debug_1("%1 gun way is blocked, recalculating", _supportName);
+};
+private _exitRunPos = _targetPos vectorAdd [0,0,20];
 
-    if(_realTime > 0.5) then
-    {
-        //Update course of plane
-        _realTime = 0;
-        _targetPos = (getPosASL _target) vectorAdd [0, 0, 2];
-        _targetVector = [400, 0];
-        _dir = (_strikePlane getDir _target) + 90;
-        _sideVector = [_targetVector, -_dir + 90] call BIS_fnc_rotateVector2D;
-        _targetVector = [_targetVector, -_dir] call BIS_fnc_rotateVector2D;
-        _targetVector pushBack 100;
-        _sideVector pushBack 0;
-        _exitRunPos = _targetPos vectorAdd _targetVector;
+private _forwardSpeed = (velocityModelSpace _plane) select 1;
+private _timeForRun = (_enterRunPos vectorDistance _exitRunPos) / _forwardSpeed;
 
-        private _strikePlanePos = getPosASL _strikePlane;
-        private _way = _strikePlanePos vectorDiff _exitRunPos;
+private _forward = _enterRunPos vectorFromTo _exitRunPos;
+private _speedVector = _forward vectorMultiply _forwardSpeed;
+private _upVector = _forward vectorCrossProduct (vectorUp _plane) vectorCrossProduct _forward;
 
-        _enterRunPos = _exitRunPos vectorAdd (_way vectorMultiply (1/(1-_interval)));
-        _forward = _exitRunPos vectorDiff _enterRunPos;
-        _speedVector = (vectorNormalized _forward) vectorMultiply _forwardSpeed;
-        _upVector = (_forward vectorCrossProduct _sideVector) vectorMultiply -1;
-
-        if(terrainIntersect [getPosASL _strikePlane, _targetPos]) exitWith
-        {
-            Debug_1("%1 gun way is blocked, recalculating", _supportName);
-            _strikePlane setVariable ["needsRecalculation", true];
-        };
-    };
-
-    if(_strikePlane getVariable ["needsRecalculation", false]) exitWith {};
-
-    _strikePlane setVelocityTransformation
-    [
+private _transform = [
         _enterRunPos, _exitRunPos,
         _speedVector, _speedVector,
         _forward, _forward,
-        _upVector, _upVector,
-        _interval
-    ];
+        _upVector, _upVector, 0];
 
-    sleep 0.05;
-    _interval = _interval + (0.05 / _timeForRun);
-    _realTime = _realTime + 0.05;
+// Set up intervals at which to fire
+private _fireIntervals = [];
+private _runDist = _plane distance2d _target;
+{ if (_runDist > _x) then { _fireIntervals pushBack (1 - _x / _runDist) } } forEach [700, 1000, 1500];
+reverse _fireIntervals;
+while { count _fireParams > count _fireIntervals } do { _fireParams deleteAt 0 };
+Debug_2("Fire intervals for run dist %1: %2", _runDist, _fireIntervals);
 
-    //FIRE MECHANISM
-    //First burst
+
+addMissionEventHandler ["EachFrame",
+{
+    _thisArgs params ["_plane", "_target", "_startTime", "_timeForRun", "_transform", "_fireParams", "_fireFnc", "_fireIntervals"];
+    _interval = (time - _startTime) / _timeForRun;
+
+    if (!alive _target or (_plane distance2d _target) < 300 or _interval > 0.95 or !canMove _plane or isNull driver _plane) exitWith {
+        Debug_1("EachFrame handler terminated with interval %1", _interval);
+        _transform set [8, 1];      // signal completion to the waitUntil
+        removeMissionEventHandler ["EachFrame", _thisEventHandler];
+    };
+
+    _transform set [8, _interval];
+    _plane setVelocityTransformation _transform;
+
+    if (_interval > _fireIntervals#0) then {
+        if (_fireParams#0#0) then { [_plane, _fireParams#0] spawn _fireFnc };
+        _fireParams deleteAt 0;
+        _fireIntervals deleteAt 0;
+    };
+
+}, [_plane, _target, time, _timeForRun, _transform, _fireParams, _fnc_executeWeaponFire, _fireIntervals]];
+
+waitUntil { sleep 1; _transform#8 >= 1 };
+
+Debug_1("Gun run for %1 finished, returning control", _supportName);
+
+/*
     if(_interval > 0.25 && (_fireParams#0#0)) then
     {
+        Debug_1("Rounds to fire in first phase: %1", _fireParams#0);
         //Execute fire params
-        [_strikePlane, _fireParams#0] spawn _fnc_executeWeaponFire;
+        [_plane, _fireParams#0] spawn _fireFnc;
         (_fireParams#0) set [0, false];
     };
     //Second burst
     if(_interval > 0.5 && (_fireParams#1#0)) then
     {
+        Debug_3("Rounds unfired in first phase: %1, %2, %3", _plane getVariable "mainGunShots", _plane getVariable "rocketShots", _plane getVariable "missileShots");
+        Debug_1("Rounds to fire in second phase: %1", _fireParams#1);
         //Execute fire params
-        [_strikePlane, _fireParams#1] spawn _fnc_executeWeaponFire;
+        [_plane, _fireParams#1] spawn _fireFnc;
         (_fireParams#1) set [0, false];
     };
     //Third burst
     if(_interval > 0.75 && (_fireParams#2#0)) then
     {
+        Debug_3("Rounds unfired in second phase: %1, %2, %3", _plane getVariable "mainGunShots", _plane getVariable "rocketShots", _plane getVariable "missileShots");
+        Debug_1("Rounds to fire in third phase: %1", _fireParams#2);
         //Execute fire params
-        [_strikePlane, _fireParams#2] spawn _fnc_executeWeaponFire;
+        [_plane, _fireParams#2] spawn _fireFnc;
         (_fireParams#2) set [0, false];
     };
-    //FIRE MECHANISM END
-};
 
-//Plane died, exit
-if(!(alive _strikePlane) || (isNull driver _strikePlane)) exitWith {};
-
-if(_strikePlane getVariable ["InArea", false]) then
-{
-    //Plane is alive, set new circle waypoint
-    private _group = group driver _strikePlane;
-    for "_i" from (count waypoints _group - 1) to 0 step -1 do
-    {
-    	deleteWaypoint [_group, _i];
-    };
-
-    private _loiterWP = (group driver _strikePlane) addWaypoint [(getMarkerPos _supportMarker), 0];
-    _loiterWP setWaypointSpeed "NORMAL";
-    _loiterWP setWaypointType "Loiter";
-    _loiterWP setWaypointLoiterRadius 2000;
-};
-
-//Await until the plane arrived at a specific height until breaking control
-waitUntil
-{
-    private _velocity = velocity _strikePlane;
-    _velocity set [2, (_velocity select 2) + 0.5];
-    _strikePlane setVelocity _velocity;
-    sleep 0.5;
-    ((getPos _strikePlane) select 2) > 450
-};
-Debug_1("Gun run for %1 finished, returning control", _supportName);
-_strikePlane setVariable ["OnRun", false];
-_strikePlane setVariable ["needsRecalculation", true];
+Debug_3("Rounds unfired in third phase: %1, %2, %3", _plane getVariable "mainGunShots", _plane getVariable "rocketShots", _plane getVariable "missileShots");
+*/

@@ -16,6 +16,7 @@ if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea 
 _vehiclesX = [];
 _soldiers = [];
 private _dogs = [];
+private _groups = [];
 _pilots = [];
 _conquered = false;
 _groupX = grpNull;
@@ -73,10 +74,16 @@ if (_isControl) then
 		if !(A3A_hasIFA) then
 			{
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+			if (worldname == "SPE_Normandy") then {
+				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+				_bunker setDir _dirveh;
+				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+			} else {
+				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker setDir _dirveh;
+				_pos = getPosATL _bunker;
+			};
 			_vehiclesX pushBack _bunker;
-			_bunker setDir _dirveh;
-			_pos = getPosATL _bunker;
 			_typeVehX = selectRandom (_faction get "staticMGs");
 			_veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
@@ -90,10 +97,27 @@ if (_isControl) then
 			_soldiers pushBack _unit;
 			sleep 1;
 			_pos = [getPos (_roads select 0), 7, _dirveh + 90] call BIS_Fnc_relPos;
-			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
-			_vehiclesX pushBack _bunker;
-			_bunker setDir _dirveh + 180;
-			_pos = getPosATL _bunker;
+			if (worldname == "SPE_Normandy") then {
+				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+				_bunker setDir _dirveh + 180;
+				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+				_vehiclesX pushBack _bunker;
+				_typeVehX = selectRandom (_faction get "staticMGs");
+				_veh = _typeVehX createVehicle _positionX;
+				_vehiclesX pushBack _veh;
+				_veh setPosATL _pos;
+				_veh setDir _dirVeh + 180;
+
+				_typeUnit = _faction get "unitStaticCrew";
+				_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+				_unit moveInGunner _veh;
+				_soldiers pushBack _unit;
+			} else {
+				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker setDir _dirveh + 180;
+				_pos = getPosATL _bunker;
+				_vehiclesX pushBack _bunker;
+			};
 			_pos = [getPos _bunker, 6, getDir _bunker] call BIS_fnc_relPos;
 			_typeVehX = _faction get "flag";
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
@@ -123,14 +147,17 @@ if (_isControl) then
 				_dogs pushBack _dog;
 				[_dog,_groupX] spawn A3A_fnc_guardDog;
 				};
-			_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+
+			[_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
+			_groups pushBack _groupX;
+
 			// Forced non-spawner as they're very static.
 			{[_x,"",false] call A3A_fnc_NATOinit; _soldiers pushBack _x} forEach units _groupX;
 			};
 		}
 	else
 		{
-		_typeVehX = selectRandom (_faction get (if !(A3A_hasIFA) then {"vehiclesMilitiaLightArmed"} else {"vehiclesMilitiaCars"}));
+		_typeVehX = selectRandom (_faction get "vehiclesMilitiaLightArmed");
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -169,7 +196,10 @@ else
 				};
 			};
 		_groupX = [_positionX,_sideX, _cfg] call A3A_fnc_spawnGroup;
-		_nul = [leader _groupX, _markerX, "SAFE","SPAWNED","RANDOM","NOVEH2","NOFOLLOW"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+
+		[_groupX, "Patrol_Area", 25, 150, 300, false, [], false] call A3A_fnc_patrolLoop;
+		_groups pushBack _groupX;
+
 		_typeVehX = selectRandom (_faction get "uavsPortable");
 		if !(isNil "_typeVehX") then
 			{
@@ -182,7 +212,7 @@ else
 			{[_x] joinSilent _groupX; _pilots pushBack _x} forEach units _groupUAV;
 			deleteGroup _groupUAV;
 			};
-		{[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
+		{[_x, "", false] call A3A_fnc_NATOinit} forEach units _groupX;
 		}
 	else
 		{
@@ -241,8 +271,8 @@ if (spawner getVariable _markerX != 2) then
     Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
 	if (_isControl) then
 		{
-		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
+		["TaskSucceeded", ["", localize "STR_A3A_fn_base_craicts_rbDestr"]] remoteExec ["BIS_fnc_showNotification",_winner];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_roadblockFight_lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
 		};
 	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 		{
@@ -277,7 +307,8 @@ waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
 
 { if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
 { deleteVehicle _x } forEach _dogs;
-deleteGroup _groupX;
+
+{ deleteGroup _x } forEach _groups;
 
 {
 	// delete all vehicles that haven't been captured

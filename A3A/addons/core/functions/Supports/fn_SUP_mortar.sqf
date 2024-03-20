@@ -1,199 +1,86 @@
-params ["_side", "_timerIndex", "_supportPos", "_supportName"];
+/*  Sets up a mortar support
 
-/*  Places the mortar used for fire support and initializes them
+Environment: Server, scheduled, internal
 
-    Execution on: Server
+Arguments:
+    <STRING> The (unique) name of the support, mostly for logging
+    <SIDE> The side from which the support should be sent
+    <STRING> Resource pool used for this support. Should be "attack" or "defence"
+    <SCALAR> Maximum resources to spend. Not used here.
+    <OBJECT|BOOL> Target of the support, or objNull for positional strike. "false" creates with no initial target
+    <POS2D> Target position for initial mortar strike
+    <SCALAR> 0-1, higher values more information provided about support
+    <SCALAR> Setup delay time in seconds, if negative will calculate based on war tier
 
-    Scope: Internal
-
-    Params:
-        _side: SIDE : The side for which the support should be called in
-        _timerIndex: NUMBER
-        _supportPos: POSITION : The position the mortar should be able to target
-        _supportName: STRING : The call name of the mortar support
-
-    Returns:
-        The name of the marker, covering the whole support area
+Returns:
+    <SCALAR> Resource cost of support call, -1 for failed
 */
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
+params ["_supportName", "_side", "_resPool", "_maxSpend", "_target", "_targPos", "_reveal", "_delay"];
+
 private _faction = Faction(_side);
-private _mortarType = selectRandom (_faction get "staticMortars");
+private _vehType = selectRandom (_faction get "staticMortars");
 private _shellType = _faction get "mortarMagazineHE";
-private _isMortar = true;
+([_vehType, _shellType] call A3A_fnc_getArtilleryRanges) params ["_minRange", "_maxRange"];
 
-//If war level between 6 and 8 there is a chance (25%/50%/75%) that it switches to a howitzer instead, above it howitzer is guaranteed
-if((25 * (tierWar - 5)) > random 100) then
+Info_6("Mortar support %1 against %2 will be carried out by a %3 with %4 mags, min range %5 max %6", _supportName, _targPos, _vehType, _shellType, _minRange, _maxRange);
+
+//Search for a outpost, that isnt more than 3 kilometers away, which isnt spawned
+private _possibleBases = (outposts + airportsX) select
 {
-    _mortarType = selectRandom (_faction get "vehiclesArtillery");
-    _shellType = ((_faction get "magazines") get _mortarType) #0;
-    _isMortar = false;
+    (sidesX getVariable [_x, sideUnknown] == _side) &&
+    {(markerPos _x distance2D _targPos <= _maxRange) &&
+    {(markerPos _X distance2D _targPos > _minRange) &&
+    {spawner getVariable _x == 2}}}
 };
+if(count _possibleBases == 0) exitWith { Debug("No bases found for mortar support"); -1 };
 
-Info_3("Mortar support %1 will be carried out by a %2 with %3 mags", _supportName, _mortarType, _shellType);
-
-private _mortar = objNull;
-private _spawnRadius = 5;
-private _spawnPos = [];
-private _spawnDir = 0;
-
-
-if(_isMortar) then
+//Search for an outpost with a designated mortar position if possible
+private _spawnRadius = 0;
+private _spawnParams = false;
 {
-    //Search for a outpost, that isnt more than 2 kilometers away, which isnt spawned
-    private _possibleBases = (outposts + airportsX) select
-    {
-        (sidesX getVariable [_x, sideUnknown] == _side) &&
-        {((getMarkerPos _x) distance2D _supportPos <= 3000) &&
-        {spawner getVariable [_x, -1] == 2}}
-    };
+    _spawnParams = [_x, "Mortar"] call A3A_fnc_findSpawnPosition;
+    if (_spawnParams isEqualType []) exitWith {};
+} forEach _possibleBases;
 
-    if(count _possibleBases == 0) exitWith {};
-
-    //Search for an outpost with a designated mortar position if possible
-    private _index = -1;
-    private _spawnParams = -1;
-    {
-        _spawnParams = [_x, "Mortar"] call A3A_fnc_findSpawnPosition;
-        if (_spawnParams isEqualType []) exitWith
-        {
-            //Will occupy a mortar spawn position until the outpost spawnes in and despawns again (Currently we dont spawn mortars at outposts anyways)
-            _spawnRadius = 0;
-            _index = _forEachIndex;
-        };
-        [_x] spawn A3A_fnc_freeSpawnPositions;
-    } forEach _possibleBases;
-
-    if(_index != -1) then
-    {
-        _spawnPos = _spawnParams select 0;
-        _spawnDir = _spawnParams select 1;
-    }
-    else
-    {
-        private _base = selectRandom _possibleBases;
-        _spawnPos = getMarkerPos _base;
-    };
-}
-else
+// Otherwise just put it somewhere near the flag
+if !(_spawnParams isEqualType []) then 
 {
-    private _possibleBases = airportsX select
-    {
-        (sidesX getVariable [_x, sideUnknown] == _side) &&
-        {((getMarkerPos _x) distance2D _supportPos <= 10000) &&
-        {((getMarkerPos _X) distance2D _supportPos > 2000) &&
-        {spawner getVariable [_x, -1] == 2}}}
-    };
-
-    if(count _possibleBases == 0) exitWith {};
-
     private _base = selectRandom _possibleBases;
-    _spawnPos = getMarkerPos _base;
-    _spawnDir = random 360;
-    _spawnRadius = 50;
+    _spawnParams = [markerPos _base, 0, nil];
+    _spawnRadius = 10;
 };
 
-if(_spawnPos isEqualTo []) exitWith
-{
-    Info_1("Couldn't spawn in mortar %1, no suitable position found!", _supportName);
-    ["", 0, 0];
+
+// Spawn in mortar
+private _vehicle = [_vehType, _spawnParams#0, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
+_vehicle setVariable ["spawnPlace", _spawnParams#2];
+_vehicle setVariable ["shellType", _shellType];
+[_vehicle, _side, _resPool] call A3A_fnc_AIVehInit;
+
+// Spawn in crew
+private _group = [_side, _vehicle] call A3A_fnc_createVehicleCrew;
+{ [_x, nil, false, _resPool] call A3A_fnc_NATOinit } forEach units _group;
+_group deleteGroupWhenEmpty true;
+
+private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
+if (_delay < 0) then { _delay = (0.5 + random 1) * (250 - 10*tierWar - 1*_aggro) };
+
+private _targArray = [];
+if (_target isEqualType objNull) then {
+    A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 20*60, 20*60, 100];
+    _targArray = [_target, _targPos];
 };
 
-//Spawn in mortar
-_mortar = [_mortarType, _spawnPos, _spawnRadius, 5, true] call A3A_fnc_safeVehicleSpawn;
+// name, side, suppType, pos, radius, remTargets, targets
+private _suppData = [_supportName, _side, "MORTAR", _spawnParams#0, _maxRange, _targArray, _minRange];
+A3A_activeSupports pushBack _suppData;
+[_suppData, _vehicle, _group, _delay, _reveal] spawn A3A_fnc_SUP_mortarRoutine;
 
-//Spawn in crew
-private _mortarGroup = [_side, _mortar] call A3A_fnc_createVehicleCrew;
+[_reveal, _side, "MORTAR", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 
-_mortar setVariable ["shellType", _shellType, true];
-[_mortar] call A3A_fnc_addArtilleryTrailEH;
-
-//Creates the marker which coveres the area in which the support can help
-private _coverageMarker = createMarker [format ["%1_coverage", _supportName], getPos _mortar];
-_coverageMarker setMarkerShape "ELLIPSE";
-_coverageMarker setMarkerBrush "Grid";
-if(_side == Occupants) then
-{
-    _coverageMarker setMarkerColor colorOccupants;
-}
-else
-{
-    _coverageMarker setMarkerColor colorInvaders;
-};
-
-private _timerArray = if(_side == Occupants) then {occupantsMortarTimer} else {invadersMortarTimer};
-if(_isMortar) then
-{
-    _coverageMarker setMarkerSize [3000, 3000];
-    _timerArray set [_timerIndex, time + 3600];
-}
-else
-{
-    _coverageMarker setMarkerSize [10000, 10000];
-    _timerArray set [_timerIndex, time + 7200];
-};
-
-_coverageMarker setMarkerAlpha 0;
-
-_mortar setVariable ["TimerArray", _timerArray, true];
-_mortar setVariable ["TimerIndex", _timerIndex, true];
-
-//Setting up the EH for support destruction
-_mortar addEventHandler
-[
-    "Killed",
-    {
-        params ["_mortar"];
-        ["TaskSucceeded", ["", "Mortar Support Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-        private _timerArray = _mortar getVariable "TimerArray";
-        private _timerIndex = _mortar getVariable "TimerIndex";
-        _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 7200];
-    }
-];
-
-_mortar addEventHandler
-[
-    "GetIn",
-    {
-        params ["_vehicle", "_role", "_unit", "_turret"];
-        if(side (group _unit) == teamPlayer) then
-        {
-            ["TaskSucceeded", ["", "Mortar Support Stolen"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-            _vehicle setVariable ["Stolen", true, true];
-            _vehicle removeAllEventHandlers "GetIn";
-            private _timerArray = _vehicle getVariable "TimerArray";
-            private _timerIndex = _vehicle getVariable "TimerIndex";
-            _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 7200];
-        };
-    }
-];
-
-_mortarGroup setVariable ["Mortar", _mortar, true];
-{
-    _x addEventHandler
-    [
-        "Killed",
-        {
-            params ["_unit"];
-            private _group = group _unit;
-            if({alive _x} count (units _group) == 0) then
-            {
-                ["TaskSucceeded", ["", "Mortar Support crew killed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
-                private _mortar = _group getVariable "Mortar";
-                private _timerArray = _mortar getVariable "TimerArray";
-                private _timerIndex = _mortar getVariable "TimerIndex";
-                _timerArray set [_timerIndex, (_timerArray select _timerIndex) + 3600];
-            };
-        }
-    ];
-} forEach (units _mortarGroup);
-
-private _setupTime = 900 - ((tierWar - 1) * 75);
-private _minSleepTime = (1 - (tierWar - 1) * 0.1) * _setupTime;
-private _sleepTime = _minSleepTime + random (_setupTime - _minSleepTime);
-
-_mortarGroup deleteGroupWhenEmpty true;
-[_mortar, _mortarGroup, _supportName, _side, _sleepTime] spawn A3A_fnc_SUP_mortarRoutine;
-
-private _result = [_coverageMarker, _minSleepTime, _setupTime];
-_result;
+// Mortar cost (might be free?) + extra support cost for balance
+(A3A_vehicleResourceCosts getOrDefault [_vehType, 0]) + 100;

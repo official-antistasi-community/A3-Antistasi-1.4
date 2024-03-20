@@ -26,7 +26,9 @@
 ["vehiclesRepairTrucks", ["uns_M35A2_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["uns_M35A2_fueltanker", "uns_M35A2_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["uns_M577_amb"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["uns_xm706e2", "uns_xm706e1", "uns_M113_XM182", "uns_M113_M60", "uns_M113_M134", "uns_M113A1_M2", "uns_M113_30cal", "uns_M113_transport"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["uns_xm706e2", "uns_xm706e1", "uns_M113_XM182", "uns_M113_M134", "uns_M113_30cal", "uns_M113_M2"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["uns_M113A1_XM182", "uns_M113A1_M60", "uns_M113A1_M134", "uns_M113A1_M2", "uns_M113A1_M40", "uns_M132"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["uns_m48a3", "uns_m551", "uns_M67A"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["uns_m163"]] call _fnc_saveToTemplate;
 
@@ -38,9 +40,11 @@
 ["vehiclesPlanesAA", ["uns_F4E_CAP", "uns_f100b_CAP"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["uns_c1a5cargo", "uns_C130_H"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["uns_H13_transport_Army", "uns_H13_gunship_Army", "uns_oh6_transport", "uns_oh6_m27"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["uns_UH1D_m60", "uns_UH1D_m60_light", "uns_UH1H_m60", "uns_UH1H_m60_light", "uns_h21c_mg", "uns_ch47_m60_army", "uns_hh53b_m134_usaf"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UNS_AH1G_SUU11", "UNS_AH1G_M195", "UNS_AH1G_M200", "UNS_AH1G", "uns_UH1C_M21_M200", "uns_UH1C_M21_M158", "UNS_UH1C_M3_ARA", "UNS_UH1B_TOW", "uns_UH1C_M6_M200_1AC"]] call _fnc_saveToTemplate;
+// First these three are all three-seaters. Not worth the heli?
+["vehiclesHelisLight", ["uns_H13_transport_Army", "uns_oh6_transport", "uns_oh6_m27", "uns_UH1D_m60_light", "uns_UH1H_m60_light"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["uns_UH1D_m60_light", "uns_UH1H_m60_light", "uns_UH1D_m60", "uns_UH1H_m60", "uns_h21c_mg", "uns_ch47_m60_army", "uns_hh53b_m134_usaf"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["uns_UH1C_M21_M200", "uns_UH1C_M21_M158", "UNS_UH1C_M3_ARA", "uns_UH1C_M6_M200_1AC"]] call _fnc_saveToTemplate;           // "UNS_UH1B_TOW" no other weapons
+["vehiclesHelisAttack", ["UNS_AH1G_SUU11", "UNS_AH1G_M195", "UNS_AH1G_M200", "UNS_AH1G"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["uns_m110sp", "uns_m107sp", "uns_M113_M30"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -66,11 +70,14 @@
 
 ["mortarMagazineHE", "uns_8Rnd_60mmHE_M2"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "uns_8Rnd_60mmSMOKE_M2"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "uns_8Rnd_60mmILLUM_M2"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["uns_mine_tm57"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["uns_mine_m16"]] call _fnc_saveToTemplate;
+
+#include "UNS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -217,7 +224,7 @@ _sfLoadoutData set ["sidearms", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["UNS_USMC_BDU_65"]];
-_militaryLoadoutData set ["vests", ["uns_simc_flak_55", "uns_simc_flak_55_M61_79_belt", "uns_simc_flak_55_bandoleer", "uns_Simc_flak_55_M61_med", "uns_simc_flak_55_M61", "uns_simc_flak_55_mk2_belt_open", "uns_simc_flak_55_mk2_bandoleer_belt"]];
+_militaryLoadoutData set ["vests", ["uns_simc_flak_55_M61_79_belt", "uns_simc_flak_55_bandoleer", "uns_Simc_flak_55_M61_med", "uns_simc_flak_55_M61", "uns_simc_flak_55_mk2_belt_open", "uns_simc_flak_55_mk2_bandoleer_belt"]];
 _militaryLoadoutData set ["backpacks", ["UNS_Alice_F1", "UNS_Alice_FR",  "UNS_USMC_MED", "UNS_USMC_R1", "uns_simc_MC_packboard_flak_3"]];
 _militaryLoadoutData set ["helmets", ["UNS_M1_2", "uns_simc_m1_bitch_op"]];
 _militaryLoadoutData set ["binoculars", ["uns_binocular_army"]];

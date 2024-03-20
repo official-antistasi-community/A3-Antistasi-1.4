@@ -30,16 +30,18 @@
 //////////////////////////
 
 ["vehiclesBasic", ["vn_b_wheeled_m151_01"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["vn_b_wheeled_m151_01", "vn_b_wheeled_m151_02"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["vn_b_wheeled_m151_mg_02", "vn_b_wheeled_m151_mg_03", "vn_b_wheeled_m151_mg_04", "vn_b_wheeled_m151_mg_05"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["vn_b_wheeled_m151_01", "vn_b_wheeled_m151_02", "vn_b_wheeled_m274_01_01"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["vn_b_wheeled_m151_mg_02", "vn_b_wheeled_m151_mg_03", "vn_b_wheeled_m151_mg_04", "vn_b_wheeled_m151_mg_05", "vn_b_wheeled_m54_mg_02", "vn_b_wheeled_m274_mg_01_01"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["vn_b_wheeled_m54_01", "vn_b_wheeled_m54_02"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["vn_b_wheeled_m54_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["vn_b_wheeled_m54_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["vn_b_wheeled_m54_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["vn_b_wheeled_m54_mg_03", "vn_b_wheeled_m54_mg_01", "vn_b_armor_m113_acav_04", "vn_b_armor_m113_acav_02", "vn_b_armor_m113_acav_01", "vn_b_armor_m113_acav_06", "vn_b_armor_m113_acav_03", "vn_b_armor_m113_acav_05", "vn_b_armor_m113_01"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["vn_b_armor_m41_01_02"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["vn_b_wheeled_m54_mg_03", "vn_b_wheeled_m54_mg_01", "vn_b_armor_m113_01"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["vn_b_armor_m113_acav_04", "vn_b_armor_m113_acav_02", "vn_b_armor_m113_acav_01", "vn_b_armor_m113_acav_06", "vn_b_armor_m113_acav_03", "vn_b_armor_m113_acav_05"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["vn_b_armor_m67_01_01"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["vn_b_armor_m41_01_02", "vn_b_armor_m48_01_01"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["vn_b_wheeled_m54_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["vn_o_boat_02_01", "vn_b_boat_10_01", "vn_b_boat_09_01"]] call _fnc_saveToTemplate;
@@ -51,15 +53,16 @@
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["vn_b_air_ch34_01_01"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["vn_b_air_uh1c_07_01", "vn_b_air_uh1d_02_01", "vn_b_air_ch34_01_01", "vn_b_air_ch34_03_01"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["vn_b_air_ah1g_02", "vn_b_air_ah1g_03", "vn_b_air_ah1g_04", "vn_b_air_uh1c_01_01", "vn_b_air_uh1c_02_01", "vn_b_air_uh1c_03_01"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["vn_b_air_uh1c_07_01", "vn_b_air_uh1d_02_01", "vn_b_air_ch34_01_01", "vn_b_air_ch34_03_01", "vn_b_air_ch47_04_02", "vn_b_air_ch47_01_02"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["vn_b_air_uh1c_01_01", "vn_b_air_uh1c_02_01", "vn_b_air_uh1c_03_01","vn_b_air_ach47_04_01","vn_b_air_ach47_03_01","vn_b_air_ach47_05_01","vn_b_air_ach47_01_01","vn_b_air_ach47_02_01"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["vn_b_air_ah1g_02", "vn_b_air_ah1g_03", "vn_b_air_ah1g_04", "vn_b_air_ah1g_07", "vn_b_air_ah1g_08", "vn_b_air_ah1g_09"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["vn_b_army_static_m101_02"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["vn_b_army_static_m101_02", ["vn_cannon_m101_mag_he_x8", "vn_cannon_m101_mag_ab_x8", "vn_cannon_m101_mag_wp_x8"]]
 ]] call _fnc_saveToTemplate;
 
-["uavsAttack", []] call _fnc_saveToTemplate;
+["uavsAttack", ["vn_b_air_oh6a_01"]] call _fnc_saveToTemplate;				// scout helis are fine for this
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
@@ -69,18 +72,21 @@
 
 ["vehiclesPolice", ["vn_b_wheeled_m151_02_mp"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["vn_b_army_static_m2_high", "vn_b_army_static_m60_high", "vn_b_army_static_m1919a4_high"]] call _fnc_saveToTemplate;
+["staticMGs", ["vn_b_army_static_m2_high", "vn_b_army_static_m2_high", "vn_b_army_static_m60_high", "vn_b_army_static_m1919a4_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["vn_b_army_static_tow", "vn_b_army_static_m40a1rr"]] call _fnc_saveToTemplate;
 ["staticAA", ["vn_b_army_static_m45", "vn_b_navy_static_l70mk2", "vn_b_navy_static_l60mk3"]] call _fnc_saveToTemplate;
 ["staticMortars", ["vn_b_army_static_mortar_m2"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "vn_mortar_m2_mag_he_x8"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "vn_mortar_m2_mag_wp_x8"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "vn_mortar_m2_mag_lume_x8"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["vn_mine_m15"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["vn_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "VN_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

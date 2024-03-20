@@ -19,14 +19,16 @@
 
 ["vehiclesBasic", ["UK3CB_MDF_B_Quadbike"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["UK3CB_MDF_B_M1151", "UK3CB_MDF_B_M998_2DR", "UK3CB_MDF_B_M998_4DR"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["UK3CB_MDF_B_M1025_M2", "UK3CB_MDF_B_M1025_TOW", "UK3CB_MDF_B_M1151_GPK_M2", "UK3CB_MDF_B_M1151_GPK_M240", "UK3CB_MDF_B_M1151_GPK_MK19", "UK3CB_MDF_B_M1151_OGPK_M2", "UK3CB_MDF_B_M1151_OGPK_M240", "UK3CB_MDF_B_Offroad_HMG"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["UK3CB_MDF_B_M1025_M2", "UK3CB_MDF_B_M1025_TOW", "UK3CB_MDF_B_M1151_GPK_M2", "UK3CB_MDF_B_M1151_GPK_M240", "UK3CB_MDF_B_M1151_GPK_MK19", "UK3CB_MDF_B_M1151_OGPK_M2", "UK3CB_MDF_B_M1151_OGPK_M240", "UK3CB_MDF_B_Offroad_HMG", "UK3CB_MDF_B_LSV_02_Armed"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["UK3CB_MDF_B_MTVR_Closed", "UK3CB_MDF_B_MTVR_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["UK3CB_MDF_B_MTVR_Recovery"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["UK3CB_MDF_B_MTVR_Reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["UK3CB_MDF_B_MTVR_Repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["UK3CB_MDF_B_MTVR_Refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_MDF_B_M113_Medical"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Cage_Camo", "UK3CB_MDF_B_Warrior_Camo", "UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["UK3CB_MDF_B_M113_M2", "UK3CB_MDF_B_M113_M240", "UK3CB_MDF_B_M113_MK19"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_MDF_B_Warrior", "UK3CB_MDF_B_Warrior_Cage", "UK3CB_MDF_B_Warrior_Camo"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["UK3CB_MDF_B_Warrior_Cage"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_MDF_B_M60A3"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
@@ -40,7 +42,8 @@
 
 ["vehiclesHelisLight", ["UK3CB_MDF_B_UH1H", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_MDF_B_UH1H_M240", "UK3CB_MDF_B_Bell412_Utility"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_Bell412_Armed_NAVY", "UK3CB_MDF_B_Bell412_Armed_AT_NAVY"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["UK3CB_MDF_B_UH1H_GUNSHIP", "UK3CB_MDF_B_UH1H_GUNSHIP_NAVY", "UK3CB_MDF_B_Bell412_Armed_NAVY", "UK3CB_MDF_B_Bell412_Armed_AT_NAVY"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["UK3CB_MDF_B_AH1Z_NAVY", "UK3CB_MDF_B_AH1Z_CS_NAVY", "UK3CB_MDF_B_AH1Z_GS_NAVY"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["UK3CB_CW_US_B_EARLY_M109"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -64,11 +67,14 @@
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "3CBFactions_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -203,18 +209,18 @@ _sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slRifles", [
-["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
+["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_RMR", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_d", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_hk416d145", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15_bk", "rhsusf_acc_ACOG_RMR", ["rhs_mag_30Rnd_556x45_Mk318_PMAG"], [], "rhsusf_acc_kac_grip"],
-["rhs_weap_hk416d145", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15_bk", "rhsusf_acc_su230a", ["rhs_mag_30Rnd_556x45_Mk318_PMAG"], [], "rhsusf_acc_kac_grip"],
-["rhs_weap_hk416d145", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15_bk", "rhsusf_acc_su230a_mrds", ["rhs_mag_30Rnd_556x45_Mk318_PMAG"], [], "rhsusf_acc_kac_grip"],
-["UK3CB_FAMAS_F1", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a_mrds", ["UK3CB_FAMAS_25rnd_556x45"], [], ""],
+["rhs_weap_hk416d145", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15_bk", "rhsusf_acc_su230", ["rhs_mag_30Rnd_556x45_Mk318_PMAG"], [], "rhsusf_acc_kac_grip"],
+["rhs_weap_hk416d145", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15_bk", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_Mk318_PMAG"], [], "rhsusf_acc_kac_grip"],
+["UK3CB_FAMAS_F1", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230_mrds", ["UK3CB_FAMAS_25rnd_556x45"], [], ""],
 ["UK3CB_FAMAS_F1", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_ACOG_RMR", ["UK3CB_FAMAS_25rnd_556x45"], [], ""],
-["UK3CB_FAMAS_F1", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a", ["UK3CB_FAMAS_25rnd_556x45"], [], ""],
-["UK3CB_FAMAS_F1_GLM203", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a_mrds", ["UK3CB_FAMAS_25rnd_556x45"], ["rhs_mag_M441_HE", "rhs_mag_M397_HET", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["UK3CB_FAMAS_F1", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230", ["UK3CB_FAMAS_25rnd_556x45"], [], ""],
+["UK3CB_FAMAS_F1_GLM203", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230_mrds", ["UK3CB_FAMAS_25rnd_556x45"], ["rhs_mag_M441_HE", "rhs_mag_M397_HET", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["UK3CB_FAMAS_F1_GLM203", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_ACOG_RMR", ["UK3CB_FAMAS_25rnd_556x45"], ["rhs_mag_M441_HE", "rhs_mag_M397_HET", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
-["UK3CB_FAMAS_F1_GLM203", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230a", ["UK3CB_FAMAS_25rnd_556x45"], ["rhs_mag_M441_HE", "rhs_mag_M397_HET", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
+["UK3CB_FAMAS_F1_GLM203", "rhsusf_acc_rotex5_grey", "rhsusf_acc_anpeq15A", "rhsusf_acc_su230", ["UK3CB_FAMAS_25rnd_556x45"], ["rhs_mag_M441_HE", "rhs_mag_M397_HET", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
 
 _sfLoadoutData set ["rifles", [
@@ -267,8 +273,8 @@ _sfLoadoutData set ["machineGuns", [
 ["rhs_weap_m249_light_L", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_RMR", ["rhsusf_100Rnd_556x45_M995_soft_pouch"], [], "rhsusf_acc_kac_grip_saw_bipod"],
 ["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ELCAN", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_MDO", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
-["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
-["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230_mrds", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230a", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230a_mrds", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_g33_xps3", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""],
 ["rhs_weap_m240B", "rhsusf_acc_ARDEC_M240", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_RMR", ["rhsusf_100Rnd_762x51_m61_ap", "rhsusf_100Rnd_762x51_m62_tracer"], [], ""]
 ]];

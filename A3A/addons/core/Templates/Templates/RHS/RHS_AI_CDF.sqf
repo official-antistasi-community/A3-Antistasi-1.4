@@ -7,7 +7,7 @@
 
 ["flag", "Flag_AltisColonial_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhs_flag_insurgents"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_cdf"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -19,16 +19,18 @@
 
 ["vehiclesBasic", ["I_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_cdf_b_reg_uaz", "rhsgref_cdf_b_reg_uaz_open", "rhsgref_BRDM2UM_b"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["rhsgref_cdf_b_reg_uaz_ags", "rhsgref_cdf_b_reg_uaz_dshkm", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2_HQ_b"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["rhsgref_cdf_b_reg_uaz_ags", "rhsgref_cdf_b_reg_uaz_dshkm", "rhsgref_cdf_b_ural_Zu23", "rhsgref_cdf_b_gaz66_zu23"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhsgref_cdf_b_gaz66", "rhsgref_cdf_b_gaz66_flat", "rhsgref_cdf_b_gaz66o", "rhsgref_cdf_b_gaz66o_flat", "rhsgref_cdf_b_ural", "rhsgref_cdf_b_ural_open", "rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_flatbed_cover", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_zil131_flatbed"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhsgref_cdf_b_gaz66", "rhsgref_cdf_b_gaz66_flat", "rhsgref_cdf_b_gaz66o", "rhsgref_cdf_b_gaz66o_flat", "rhsgref_cdf_b_ural", "rhsgref_cdf_b_ural_open", "rhsgref_cdf_b_zil131", "rhsgref_cdf_b_zil131_flatbed_cover", "rhsgref_cdf_b_zil131_open", "rhsgref_cdf_b_zil131_flatbed"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsgref_cdf_b_gaz66_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsgref_cdf_b_gaz66_repair", "rhsgref_cdf_b_ural_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["rhsgref_cdf_b_ural_fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhsgref_cdf_b_gaz66_ap2"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["rhsgref_cdf_b_btr60", "rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr80", "rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd1p", "rhsgref_cdf_b_bmd1pk", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmd2k", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp1k", "rhsgref_cdf_b_bmp1p", "rhsgref_cdf_b_bmp2e", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d", "rhsgref_cdf_b_bmp2k"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_cdf_b_btr60", "rhsgref_cdf_b_btr70", "rhsgref_cdf_b_btr80", "rhsgref_BRDM2_b", "rhsgref_BRDM2_ATGM_b", "rhsgref_BRDM2_HQ_b"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhsgref_cdf_b_bmd1", "rhsgref_cdf_b_bmd1k", "rhsgref_cdf_b_bmd1p", "rhsgref_cdf_b_bmd1pk", "rhsgref_cdf_b_bmd2", "rhsgref_cdf_b_bmd2k", "rhsgref_cdf_b_bmp1", "rhsgref_cdf_b_bmp1d", "rhsgref_cdf_b_bmp1k", "rhsgref_cdf_b_bmp1p", "rhsgref_cdf_b_bmp2e", "rhsgref_cdf_b_bmp2", "rhsgref_cdf_b_bmp2d", "rhsgref_cdf_b_bmp2k"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhsgref_cdf_b_t72ba_tv", "rhsgref_cdf_b_t72bb_tv", "rhsgref_cdf_b_t80b_tv", "rhsgref_cdf_b_t80bv_tv"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["rhsgref_cdf_b_ural_Zu23", "rhsgref_cdf_b_gaz66_zu23", "rhsgref_cdf_b_zsu234"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["rhsgref_cdf_b_zsu234"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
@@ -40,11 +42,12 @@
 
 ["vehiclesHelisLight", ["rhsgref_cdf_reg_Mi8amt"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhsgref_cdf_reg_Mi8amt"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhsgref_cdf_b_Mi24D", "rhsgref_cdf_b_Mi24D_Early", "rhsgref_b_mi24g_CAS", "rhsgref_cdf_b_Mi35", "rhsgref_cdf_b_reg_Mi17Sh"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["rhsgref_cdf_b_reg_Mi17Sh"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["rhsgref_cdf_b_Mi24D", "rhsgref_cdf_b_Mi24D_Early", "rhsgref_b_mi24g_CAS", "rhsgref_cdf_b_Mi35"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhsgref_cdf_b_2s1", "rhsgref_cdf_b_reg_d30", "rhsgref_cdf_b_reg_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_cdf_b_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_cdf_b_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_cdf_b_reg_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_cdf_b_reg_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate;
@@ -66,10 +69,13 @@
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+
+#include "RHS_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -80,6 +86,7 @@
 "WhiteHead_13", "WhiteHead_15", "WhiteHead_16", "WhiteHead_17", "WhiteHead_18",
 "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+"CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -197,8 +204,8 @@ _sfLoadoutData set ["slRifles", [
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230_mrds", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_RMR", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
-["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
-["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
+["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230a_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
+["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_RMR", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_d", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_kac_grip"],

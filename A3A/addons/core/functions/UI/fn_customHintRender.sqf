@@ -20,7 +20,7 @@ Examples:
     call A3A_fnc_customHintRender;
 
 Authors: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
@@ -40,16 +40,12 @@ if (A3A_customHint_MSGs isEqualTo []) then {
     private _dismissKey = actionKeysNames QGVAR(customHintDismiss);
     _dismissKey = _dismissKey select [1, count _dismissKey - 2];
     private _topMSGIndex = count A3A_customHint_MSGs - 1;
-    private _keyBind = if (_dismissKey isEqualTo "") then {
-        "<br/><t size='0.8' color='#e5b348' shadow='1' shadowColor='#000000' valign='top' >"+  // No alphaHex fading to allow longer reading time.
-            str _topMSGIndex+" Previous Hints<br/>"+
-            "Bind dismiss key by: <t color='#f0d498'>Escape Menu</t> &gt; <t color='#f0d498'>CONFIGURE</t> &gt; <t color='#f0d498'>CONTROLS</t> &gt; <t color='#f0d498'>SHOW: Antistasi</t> &gt; <t color='#f0d498'>Dismiss Previous Hint</t>"+
-        "</t>"
-    } else {
-        "<br/><t size='0.8' color='#"+_alphaHex+"e5b348' shadow='1' shadowColor='#"+_alphaHex+"000000' valign='top' >"+
-            "Press <t color='#"+_alphaHex+"f0d498' >"+_dismissKey+"</t> to dismiss. +"+str _topMSGIndex+
-        "</t>";
-    }; // Needs to be added to string table.
+
+    private _keyBind = [
+        format [localize "STR_A3A_customHint_dismiss", (_alphaHex + "e5b348"), (_alphaHex + "000000"), (_alphaHex + "f0d498"), _dismissKey, str _topMSGIndex],
+        format [localize "STR_A3A_customHint_dismiss_no_key", _topMSGIndex]
+    ] select (_dismissKey isEqualTo "");
+
     private _previousNotifications = ["<t color='#",_alphaHex,"e5b348' font='RobotoCondensed' align='center' valign='middle' underline='0' shadow='1' shadowColor='#",_alphaHex,"000000' shadowOffset='0.0625'>"];
     if (_topMSGIndex < 4) then {
         private _size = (-20/(8-_topMSGIndex) +4.6);

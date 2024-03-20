@@ -1,31 +1,45 @@
-params ["_helicopter"];
+/*  Helicopter flies a combat landing approach, lands and unloads cargo group before returning to base
 
-private _originPos = _helicopter getVariable "PosOrigin";
-private _posDestination = _helicopter getVariable "PosDestination";
-private _landingPad = _helicopter getVariable "LandingPad";
-private _crewGroup = group driver _helicopter;
-private _cargoGroup = grpNull;
+Scope: Server or HC
+Environment: Scheduled, spawned
 
-{
-    if(group _x != _crewGroup) exitWith
-    {
-        _cargoGroup = group _x;
-    };
-} forEach (crew _helicopter);
+Parameters:
+    <OBJECT> The helicopter to control
+    <GROUP> Crew group for helicopter
+    <GROUP> Cargo group for helicopter
+    <POSATL> Destination position for troops to attack after landing
+    <POSATL> Position for heli to return to after offloading
+    <POSATL> Landing position for heli
+*/
 
-private _endPos = getPosASL _landingPad;
+params ["_helicopter", "_crewGroup", "_cargoGroup", "_posDestination", "_originPos", "_landPos"];
+
+// avoid weird situations where they receive RTB instructions before they finish unloading
+_crewGroup setVariable ["A3A_AIScriptHandle", _thisScript];
+_cargoGroup setVariable ["A3A_AIScriptHandle", _thisScript];
+
+private _landPad = createVehicle ["Land_HelipadEmpty_F", _landpos, [], 0, "NONE"];
+_helicopter setVariable ["LandingPad", _landPad, true];             // cleared up (eventually) by heli deletion handler
+
+//Create the waypoints for the crewGroup
+private _vehWP0 = _crewGroup addWaypoint [_landpos, 0];
+_vehWP0 setWaypointType "MOVE";
+_vehWP0 setWaypointSpeed "FULL";
+_vehWP0 setWaypointCompletionRadius 150;
+_vehWP0 setWaypointBehaviour "CARELESS";
+
+private _midHeight = [100, 150] select (A3A_climate isEqualTo "tropical");
+_helicopter flyInHeight _midHeight;
+
+waitUntil {sleep 1; (_helicopter distance2D _landPos) < 600};
+
+_helicopter flyInHeight 0;                  // helps to keep it near the ground after landing
+_helicopter land "LAND";                    // also drops the gear on the huron
+
+// Landing path setup
+private _endPos = getPosASL _landPad;
 private _startPos = getPosASL _helicopter;
-
-private _midPos = +_endPos;
-if(A3A_climate isEqualTo "tropical") then
-{
-    _midPos set [2, (_endPos select 2) + 250];
-}
-else
-{
-    _midPos set [2, (_endPos select 2) + 100];
-};
-
+private _midPos = _endPos vectorAdd [0,0,_midHeight];
 
 private _initialVelocity = (velocity _helicopter);
 _initialVelocity set [2, 0];
@@ -45,8 +59,6 @@ private _midToEndVector = _endPos vectorDiff _midPos;
 
 private _vectorDir = vectorDir _helicopter;
 private _vectorUp = vectorUp _helicopter;
-
-_helicopter flyInHeight 0;
 
 private _interval = 0;
 private _time = 0;
@@ -101,30 +113,39 @@ while {_interval < 0.9999} do
     _velocityVector = _lineEnd vectorDiff _lineStart;
     _velocityVector = (vectorNormalized _velocityVector) vectorMultiply (_initialSpeed * (1 - _interval));
 
-    if((!(alive _helicopter)) || (!(alive _driver))) exitWith {};
+    if(!canMove _helicopter || !alive _driver) exitWith {};
 };
 
-if((!(alive _helicopter)) || (!(alive _driver))) exitWith {};
-
-[_helicopter] call A3A_fnc_smokeCoverAuto;
-
-(units _cargoGroup) allowGetIn false;
-doGetOut (units _cargoGroup);
-
-sleep 3;
-_helicopter flyInHeight 100;
-
-private _vehWP1 = _crewGroup addWaypoint [_originPos, 0];
-_vehWP1 setWaypointType "MOVE";
-_vehWP1 setWaypointStatements ["true", "if !(local this) exitWith {}; deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList"];
-_vehWP1 setWaypointBehaviour "CARELESS";
-_crewGroup setCurrentWaypoint _vehWP1;
-
-_cargoGroup spawn A3A_fnc_attackDrillAI;
-private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 1];
+_cargoGroup leaveVehicle _helicopter;
+private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 10];
 _cargoWP1 setWaypointType "MOVE";
 _cargoWP1 setWaypointBehaviour "AWARE";
 _cargoWP1 setWaypointSpeed "FULL";
-private _cargoWP2 = _cargoGroup addWaypoint [_posDestination, 2];
+private _cargoWP2 = _cargoGroup addWaypoint [_posDestination, 50];
 _cargoWP2 setWaypointType "SAD";
 _cargoWP2 setWaypointBehaviour "COMBAT";
+_cargoGroup spawn A3A_fnc_attackDrillAI;
+
+if(!canMove _helicopter || !alive _driver) exitWith { deleteVehicle _landPad };
+
+// Dirty hack to stop the heli lurching around near the ground
+private _dismountTime = 5 + count units _cargoGroup;
+[_helicopter, time + _dismountTime, _midHeight, _landPad] spawn {
+    params ["_heli", "_endTime", "_flyHeight", "_landPad"];
+    while { time < _endTime } do {
+        _heli setVelocity [0,0,-0.5];
+        sleep 1;
+    };
+    _heli flyInHeight _flyHeight;
+    deleteVehicle _landPad;
+};
+[_helicopter] call A3A_fnc_smokeCoverAuto;          // Already done by GetOut handler in AIVehInit?
+
+sleep _dismountTime;
+
+// Heli RTB
+private _vehWP1 = _crewGroup addWaypoint [_originPos, 0];
+_vehWP1 setWaypointType "MOVE";
+_vehWP1 setWaypointStatements ["true", "if (local this and alive this) then { deleteVehicle (vehicle this); {deleteVehicle _x} forEach thisList }"];
+_vehWP1 setWaypointBehaviour "CARELESS";
+_crewGroup setCurrentWaypoint _vehWP1;

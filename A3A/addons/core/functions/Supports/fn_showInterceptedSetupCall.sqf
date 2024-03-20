@@ -1,14 +1,5 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params
-[
-    ["_reveal", 0, [0]],
-    ["_side", sideEnemy, [sideEnemy]],
-    ["_supportType", "", [""]],
-    ["_position", [], [[]]],
-    ["_minSetupTime", 60, [0]],
-    ["_maxSetupTime", 400, [0]]
-];
 
 /*  Shows the intercepted radio setup message to the players
 
@@ -17,138 +8,114 @@ params
     Scope: Internal
 
     Parameters:
-        _reveal: NUMBER : Decides how much of the info will be revealed
+        _reveal: NUMBER : 0-1, determines how much info to revealed
         _side: SIDE : The side which called in the support
-        _supportType: NAME : The name of the support (not the callsign!!)
+        _supportType: STRING : The type of the support
+        _position: ARRAY : Target position of support
+        _setupTime : NUMBER : Approximate setup time in seconds
 
     Returns:
         Nothing
 */
 
-_fn_getTimeString =
-{
-    params
-    [
-        ["_time", 0, [0]],
-        ["_isLower", true, [true]]
-    ];
+// TODO: add source/setup position?
 
-    _time = _time / 60;
-
-    private _result = "";
-    if(_time < 1) then
-    {
-        _result = "&lt;1";
-    }
-    else
-    {
-        _time = _time - 0.49;
-        if(_isLower) then
-        {
-            _result = format ["%1", round _time];
-        }
-        else
-        {
-            _result = format ["%1", (round _time) + 1];
-        };
-    };
-
-    _result;
-};
-
-//If you have found a key before, you get the full message if it is somewhere around your HQ
-if(_position distance2D (getMarkerPos "Synd_HQ") < distanceMission) then
-{
-    if(_side == Occupants) then
-    {
-        if(occupantsRadioKeys > 0) then
-        {
-            occupantsRadioKeys = occupantsRadioKeys - 1;
-            publicVariable "occupantsRadioKeys";
-            _reveal = 1;
-        };
-    }
-    else
-    {
-        if(invaderRadioKeys > 0) then
-        {
-            invaderRadioKeys = invaderRadioKeys - 1;
-            publicVariable "invaderRadioKeys";
-            _reveal = 1;
-        };
-    };
-};
+params ["_reveal", "_side", "_supportType", "_position", "_setupTime"];
 
 //Nothing will be revealed
 if(_reveal <= 0.2) exitWith {};
 
 private _text = "";
-private _sideName = if(_side == Occupants) then {FactionGet(occ,"name")} else {FactionGet(inv,"name")};
+private _sideName = Faction(_side) get "name";
 if (_reveal <= 0.5) then
 {
     //Side and setup is revealed
-    _text = format ["%1 is setting up an unknown support", _sideName];
+    _text = format [localize "STR_A3A_fn_support_showIntStpCll_unknown", _sideName];
 }
 else
 {
-    switch (_supportType) do
+    switch (toupper _supportType) do
     {
-        case ("QRF"):
+        case ("MAJORATTACK"):
         {
-            _text = format ["%1 just sent a QRF", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MAJORATTACK", _sideName];
+        };
+        case ("COUNTERATTACK"):
+        {
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_COUNTERATTACK", _sideName];
+        };
+        case ("QRFAIR"):
+        {
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFAIR", _sideName];
+        };
+        case ("QRFLAND"):
+        {
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_QRFLAND", _sideName];
         };
         case ("AIRSTRIKE"):
         {
-            _text = format ["%1 is preparing an airstrike", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_AIRSTRIKE", _sideName];
         };
         case ("MORTAR"):
         {
-            _text = format ["%1 is setting up a mortar position", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_MORTAR", _sideName];
         };
-        case ("ORBSTRIKE"):
+        case ("ARTILLERY"):
         {
-            _text = format ["A %1 satellite is preparing an orbital strike", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ARTILLERY", _sideName];
         };
-        case ("MISSILE"):
+        case ("ORBITALSTRIKE"):
         {
-            _text = format ["A %1 cruiser is readying a cruise missile", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ORBITALSTRIKE", _sideName];
+        };
+        case ("CRUISEMISSILE"):
+        {
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CRUISEMISSILE", _sideName];
         };
         case ("SAM"):
         {
-            _text = format ["%1 is setting up a SAM launcher", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_SAM", _sideName];
         };
-        case ("CARPETBOMB"):
+        case ("CARPETBOMBS"):
         {
-            _text = format ["A heavy %1 bomber is on the way", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CARPETBOMBS", _sideName];
         };
         case ("ASF"):
         {
-            _text = format ["%1 is readying an air superiority fighter", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_ASF", _sideName];
         };
         case ("CAS"):
         {
-            _text = format ["%1 is readying a CAS bomber", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_CAS", _sideName]; 
         };
         case ("GUNSHIP"):
         {
-            _text = format ["%1 is loading up a heavy gunship", _sideName];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_GUNSHIP", _sideName];
+        };
+        case ("UAV"):
+        {
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_UAV", _sideName];
         };
         default
         {
-            _text = format ["%1 is setting up %2 support", _sideName, _supportType];
+            _text = format [localize "STR_A3A_fn_support_showIntStpCll_default", _sideName, _supportType];
         };
     };
 };
 
+// Randomise setup time less with higher reveal value
+_setupTime = _setupTime * (_reveal + random (2 - 2*_reveal));
+private _timeStr = if(_setupTime < 60) then { "&lt;1" } else { str round (_setupTime / 60) };
+
 if(_reveal >= 0.8) then
 {
-    if(_supportType == "QRF") then
+    if(toupper _supportType in ["QRFLAND", "QRFAIR", "COUNTERATTACK", "MAJORATTACK"]) then
     {
-        _text = format ["%1. Estimated arrival in %2 to %3 minutes", _text, [_minSetupTime, true] call _fn_getTimeString, [_maxSetupTime, false] call _fn_getTimeString];
+        _text = [_text,format[localize "STR_A3A_fn_support_showIntStpCll_arrivalTime",_timeStr]] joinString " ";
     }
     else
     {
-        _text = format ["%1. Estimated setup: %2 to %3 minutes", _text, [_minSetupTime, true] call _fn_getTimeString, [_maxSetupTime, false] call _fn_getTimeString];
+        _text = [_text,format[localize "STR_A3A_fn_support_showIntStpCll_setupTime",_timeStr]] joinString " ";
     };
 };
 

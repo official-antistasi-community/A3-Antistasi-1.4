@@ -1,6 +1,10 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
+
 private _groupX = _this;
+if !(isNil {_groupX getVariable "A3A_AIScriptHandle"}) exitWith {};			// hmm
+_groupX setVariable ["A3A_AIScriptHandle", _thisScript];
+
 _objectivesX = _groupX call A3A_fnc_enemyList;
 _groupX setVariable ["objectivesX",_objectivesX];
 _groupX setVariable ["taskX","Patrol"];
@@ -98,28 +102,15 @@ while {true} do
 		_groupX setVariable ["objectivesX",_objectivesX];
 		if !(_objectivesX isEqualTo []) then
 			{
-			_air = objNull;
-			_tanksX = objNull;
+			private _air = objNull;
+			private _tank = objNull;
 			{
-			_eny = assignedVehicle (_x select 4);
-			if (_eny isKindOf "Tank") then
-				{
-				_tanksX = _eny;
-				}
-			else
-				{
-				if (_eny isKindOf "Air") then
-					{
-					if (count (weapons _eny) > 1) then
-						{
-						_air = _eny;
-						};
-					};
-				};
-			if (!(isNull _air) and !(isNull _tanksX)) exitWith {};
+				_eny = assignedVehicle (_x select 4);
+				if (_eny isKindOf "Tank" and canFire _eny and count (weapons _eny) > 1) exitWith { _tank = _eny };
+				if (_eny isKindOf "Air" and canFire _eny and count (weapons _eny) > 1) exitWith { _air = _eny };
 			} forEach _objectivesX;
 			_LeaderX = leader _groupX;
-			_allNearFriends = allUnits select {(_x distance _LeaderX < (distanceSPWN/2)) and (side group _x in _friendlies)};
+			_allNearFriends = units side _groupX inAreaArray [getPosATL _LeaderX, distanceSPWN/2, distanceSPWN/2];
 			{
 			_unit = _x;
 			{
@@ -132,46 +123,32 @@ while {true} do
 			} forEach _objectivesX;
 			} forEach (_allNearFriends select {_x == leader _x}) - [_LeaderX];
 			_numNearFriends = count _allNearFriends;
-			//_air = objNull;
-			//_tanksX = objNull;
 			_numObjectives = count _objectivesX;
 			_taskX = _groupX getVariable ["taskX","Patrol"];
 			_nearX = _groupX call A3A_fnc_nearEnemy;
 			_soldiers = ((units _groupX) select {[_x] call A3A_fnc_canFight}) - [_groupX getVariable ["mortarX",objNull]];
 			_numSoldiers = count _soldiers;
+
+			// Support calls may work here, but disabled for now
 			if !(isNull _air) then
 			{
-                private _supportTypes = [_groupX, _air] call A3A_fnc_chooseSupport;
-                if ((count _supportTypes) > 0) then
-                {
-                    [_groupX, _supportTypes, _air] spawn A3A_fnc_callForSupport;
-                };
+                //[_groupX, _air] spawn A3A_fnc_callForSupport;
 				_groupX setVariable ["taskX","Hide"];
 				_taskX = "Hide";
 			};
-			if !(isNull _tanksX) then
+			if !(isNull _tank) then
 			{
-                private _supportTypes = [_groupX, _tanksX] call A3A_fnc_chooseSupport;
-                if ((count _supportTypes) > 0) then
-                {
-                    [_groupX, _supportTypes, _tanksX] spawn A3A_fnc_callForSupport;
-                };
+                //[_groupX, _tank] spawn A3A_fnc_callForSupport;
 				_groupX setVariable ["taskX","Hide"];
 				_taskX = "Hide";
 			};
-			if (_numObjectives > 2 * _numNearFriends) then
+			if (_numObjectives > 2 * _numNearFriends and !isNull _nearX) then
 			{
-				if !(isNull _nearX) then
-				{
-                    private _supportTypes = [_groupX, _nearX] call A3A_fnc_chooseSupport;
-                    if ((count _supportTypes) > 0) then
-                    {
-                        [_groupX, _supportTypes, _nearX] spawn A3A_fnc_callForSupport;
-                    };
-				};
+                //[_groupX, _nearX] spawn A3A_fnc_callForSupport;
 				_groupX setVariable ["taskX","Hide"];
 				_taskX = "Hide";
 			};
+
 			_transporte = _groupX getVariable ["transporte",objNull];
 			if (isNull(_groupX getVariable ["transporte",objNull])) then
 				{
@@ -309,7 +286,7 @@ while {true} do
 
 			if (_taskX == "Hide") then
 				{
-				if ((isNull _tanksX) and {isNull _air} and {_numObjectives <= 2*_numNearFriends}) then
+				if ((isNull _tank) and {isNull _air} and {_numObjectives <= 2*_numNearFriends}) then
 					{
 					_groupX setVariable ["taskX","Patrol"];
 					}
@@ -335,7 +312,7 @@ while {true} do
 					{[_x] spawn A3A_fnc_autoRearm; sleep 1} forEach (_movable select {!(_x getVariable ["maneuvering",false])});
 					};
 				};
-			if !(isNull(_groupX getVariable ["transporte",objNull])) then
+			if (!isNull(_groupX getVariable ["transporte",objNull]) and !(_groupX getVariable ["A3A_forceDismount",false])) then
 				{
 				(units _groupX select {vehicle _x == _x}) allowGetIn true;
 				};

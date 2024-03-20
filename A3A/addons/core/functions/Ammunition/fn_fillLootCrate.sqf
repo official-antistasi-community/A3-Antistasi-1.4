@@ -34,8 +34,8 @@ if (typeOf _crate in FactionGet(all,"vehiclesAmmoTrucks")) then {
 };
 
 
-private _quantityScalingFactor = if (!cratePlayerScaling) then {1} else {
-	private _playerCount = if(!isNil "spoofedPlayerCount") then {spoofedPlayerCount} else {count (call A3A_fnc_playableUnits)};
+private _quantityScalingFactor = if (!cratePlayerScaling or minWeaps < 0) then {1} else {
+	private _playerCount = if(!isNil "spoofedPlayerCount") then {spoofedPlayerCount} else {A3A_activePlayerCount};
 	//Scale it down to a 50% loot rate at 20 players.
 	1 / (1 + _playerCount / 20);
 };
@@ -44,14 +44,14 @@ private _quantityScalingFactor = if (!cratePlayerScaling) then {1} else {
 //Format [allWeapons, unlockedWeapons, Weighting].
 //We need to know the corresponding unlockedWeapons array, so we can check if they're all unlocked.
 private _weaponLootInfo = [
-	[allRifles, unlockedRifles, 3],
-	[allHandguns, unlockedHandguns, 1.2],
+	[allRifles, unlockedRifles, 5],
+	[allHandguns, unlockedHandguns, 1],
 	[allMachineGuns, unlockedMachineGuns, 2],
 	[allShotguns, unlockedShotguns, 1],
-	[allSMGs, unlockedSMGs, 2],
-	[allSniperRifles, unlockedSniperRifles, 0.9],
-	[allRocketLaunchers, unlockedRocketLaunchers, 0.5],
-	[allMissileLaunchers, unlockedMissileLaunchers, 0.5] //Increase weighting for RHS.
+	[allSMGs, unlockedSMGs, 1],
+	[allSniperRifles, unlockedSniperRifles, 2],
+	[allRocketLaunchers, unlockedRocketLaunchers, 3],
+	[allMissileLaunchers, unlockedMissileLaunchers, 2]
 ];
 
 //Build the weighting array, as used by selectRandomWeighted
@@ -203,7 +203,7 @@ if (_crateWepTypeMax != 0) then {
 			_crate addWeaponWithAttachmentsCargoGlobal [[ _loot, "", "", "", [], [], ""], _amount];
             Verbose_2("Adding %1 weapons of type %2", _amount, _loot);
 
-			private _magazines = getArray (configFile / "CfgWeapons" / _loot / "magazines");
+			private _magazines = compatibleMagazines _loot;
 			if (count _magazines < 1) exitWith {};
 			if (_loot in allShotguns) then { _magazines = [_magazines select 0] };		// prevent doomsday
 
@@ -224,19 +224,20 @@ if (_crateWepTypeMax != 0) then {
 //Items Loot
 if (_crateItemTypeMax != 0) then {
     Debug("Generating Items");
+
+	private _itemLootLists = [
+		allGPS + allUAVTerminals - unlockedGPS - unlockedUAVTerminals, 0.5,
+		lootNVG - unlockedNVGs, 1,
+		lootItem - unlockedItems, 1.5
+	];
+
 	for "_i" from 0 to floor random _crateItemTypeMax do {
-		_available = (lootItem - _unlocks - itemCargo _crate);
-        Verbose_3("Breakdown: %1, %2, %3", lootItem, _unlocks, itemCargo _crate);
-        Verbose_1("Items available: %1", _available);
-		_loot = selectRandom _available;
-		if (isNil "_loot") then {
-            Debug("No Items Left in Loot List");
-		}
-		else {
-			_amount = if (isNil "_crateItemNum") then { round random crateItemNumMax;} else {_crateItemNum};
-			_crate addItemCargoGlobal [_loot,_amount];
-            Verbose_2("Spawning %1 of %2", _amount,_loot);
-		};
+		private _lootList = selectRandomWeighted _itemLootLists;
+		if (_lootList isEqualTo []) then { continue };
+		private _loot = selectRandom _lootList;
+		private _amount = if (isNil "_crateItemNum") then {crateItemNumMax call _fnc_pickAmount;} else {_crateItemNum};
+		_crate addItemCargoGlobal [_loot,_amount];
+		Verbose_2("Spawning %1 of %2", _amount,_loot);
 	};
 };
 //Ammo Loot
@@ -263,7 +264,7 @@ if (_crateExplosiveTypeMax != 0) then {
             Debug("No Explosives Left in Loot List");
 		}
 		else {
-			_amount = if (isNil "_crateExplosiveNum") then { round random crateExplosiveNumMax;} else {_crateExplosiveNum};
+			_amount = if (isNil "_crateExplosiveNum") then {crateExplosiveNumMax call _fnc_pickAmount;} else {_crateExplosiveNum};
 			_crate addMagazineCargoGlobal [_loot,_amount];
             Verbose_2("Spawning %1 of %2", _amount,_loot);
 		};

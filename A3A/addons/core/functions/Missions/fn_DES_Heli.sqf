@@ -1,4 +1,14 @@
-//Mission: Destroy the helicopter
+/*
+    Maintainer: Bob Murphy
+    Creates a "Destroy the helicopter" type mission in a random location near input marker.
+
+    Arguments:
+        <STRING> Marker
+
+	Public: Yes
+    Example:
+        ["airport"] call A3A_fnc_DES_Heli;
+*/
 if (!isServer and hasInterface) exitWith{};
 
 private _missionOrigin = _this select 0;
@@ -30,12 +40,13 @@ while {true} do {
 };
 
 // selecting Aircraft
-private _heliPool = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") + (_faction get "vehiclesHelisAttack");
+private _heliPool = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") + (_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack");
 private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
-    ["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
     Error("No aircrafts in arrays vehiclesHelisLight, vehiclesHelisTransport or vehiclesHelisAttack. Reselecting DES mission");
+    ["DES"] remoteExec ["A3A_fnc_missionRequest",2];
 };
+private _isAttackHeli = _typeVehH in ((_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack"));
 
 //refining crash spawn position, to avoid exploding on spawn or "Armaing" during mission
 private _flatPos = [_posCrashOrigin, 0, 1000, 0, 0, 0.1] call BIS_fnc_findSafePos;
@@ -48,7 +59,7 @@ Debug_2("Crash Location: %1, Aircraft: %2", _posCrash, _typeVehH);
 private _vehicles = [];
 private _groups = [];
 
-//createing crashed helicopter
+//creating crashed helicopter
 private _crater = "CraterLong" createVehicle _posCrash;
 private _heli = createVehicle [_typeVehH, [_posCrash select 0, _posCrash select 1, 0.9], [], 0, "CAN_COLLIDE"];
 private _smoke = "test_EmptyObjectForSmoke" createVehicle _posCrash; _smoke attachTo [_heli,[0,1.5,-1]];
@@ -86,8 +97,8 @@ private _dateLimitNum = dateToNumber _dateLimit;
 Info("Creating Helicopter Down mission");
 private _location = [_missionOrigin] call A3A_fnc_localizar;
 private _taskId = "DES" + str A3A_taskCount;
-private _text = format ["We have downed a helicopter. There is a good chance to destroy it before it is recovered. Do it before a recovery team from %1 reaches the crash site. MOVE QUICKLY",_location];
-[[teamPlayer,civilian],_taskId,[_text,"Downed Heli",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
+private _text = format [localize "STR_A3A_fn_mission_des_heli_text",_location];
+[[teamPlayer,civilian],_taskId,[_text,localize "STR_A3A_fn_mission_des_heli_titel",_taskMrk],_posCrashMrk,false,0,true,"Destroy",true] call BIS_fnc_taskCreate;
 [_taskId, "DES", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 ////////////////
@@ -181,7 +192,7 @@ if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
     _guardWP = [_guard, _posCrash, 10] call BIS_fnc_taskPatrol;
 
     Debug_1("Location: %1, Guard Squad spawned", _posCrash);
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {
+    if (_isAttackHeli) then {
         //if attack helicopter
         //creating transport vehicle
         _typeVeh = selectRandom (_faction get "vehiclesTrucks");
@@ -205,6 +216,20 @@ _groups pushBack _pilots;
 private _pilotsWP = _pilots addWaypoint [_posCrash, 0];
 _pilotsWP setWaypointType "HOLD";
 _pilotsWP setWaypointBehaviour "STEALTH";
+
+// Remove undercover from players that approach the crash site
+[_heli] spawn {
+    params ["_heli"];
+
+    private _undercoverBreakDistance = 50;
+    private _initialHeliPosition = getPosATL _heli;
+
+    while {alive _heli && { _heli getVariable "ownerSide" != teamPlayer } } do {
+        private _nearbyPlayers = allPlayers inAreaArray [_initialHeliPosition, _undercoverBreakDistance, _undercoverBreakDistance];
+        { if (captive _x) then { [_x, false] remoteExec ["setCaptive", _x] } } forEach _nearbyPlayers;
+        sleep 5;
+    };
+};
 
 Debug_3("Waiting until %1 reaches origin or rebel base, gets destroyed, timer expires at %3 or %2 reaches %1", _heli, _vehR, _dateLimit);
 waitUntil
@@ -326,16 +351,15 @@ if ((not alive _heli) || (_heli distance (getMarkerPos respawnTeamPlayer) < 100)
     };
     [_taskId, "DES", "SUCCEEDED"] call A3A_fnc_taskSetState;
     [0,300*_bonus] remoteExec ["A3A_fnc_resourcesFIA",2];
-    [1800*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     {if (_x distance _heli < 500) then {[10*_bonus,_x] call A3A_fnc_playerScoreAdd}} forEach (allPlayers - (entities "HeadlessClient_F"));
-    [5*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {[600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    [10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
 } else {
     Debug_2("%1 was successfully recovered by %2, mission failed", _heli, _sideX);
     [_taskId, "DES", "FAILED"] call A3A_fnc_taskSetState;
-    [-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2];
+    [-200, _sideX] remoteExec ["A3A_fnc_timingCA",2];
     [-10*_bonus,theBoss] call A3A_fnc_playerScoreAdd;
-    if (_typeVehH in (_faction get "vehiclesHelisAttack")) then {[-600*_bonus, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
+    if (_isAttackHeli) then {[-200, _sideX] remoteExec ["A3A_fnc_timingCA",2]};
 };
 Info("Downed Heli mission completed");
 ////////////

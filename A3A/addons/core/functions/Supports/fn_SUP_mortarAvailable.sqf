@@ -1,57 +1,23 @@
-params ["_side"];
+/*  Get mortar support selection weight against target
+
+Arguments:
+    <OBJECT> Target object
+    <SIDE> Side to send support from
+    <SCALAR> Max resource spend (not currently used)
+    <ARRAY> Array of strings of available types for this faction
+
+Return value:
+    <SCALAR> Weight value, 0 for unavailable or useless
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-private _faction = Faction(_side);
-if(tierWar < 2) exitWith {-1};
 
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "MORTAR" && {(_lastSupport select 1) > time}) exitWith {-1};
+params ["_target", "_side", "_maxSpend", "_availTypes"];
 
-//Mortars not available, block support
-if ((_faction get "staticMortars" isEqualTo []) || (_faction get "vehiclesArtillery" isEqualTo [])) exitWith {-1};
+if (_target isKindOf "Air") exitWith { 0 };     // can't hit air
 
-//Select a timer index and the max number of timers available
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/5)) + 1;
-
-//Search for a timer which allows the support to be fired
-if(_side == Occupants) then
-{
-    if(count occupantsMortarTimer < _playerAdjustment) then
-    {
-        _timerIndex = count occupantsMortarTimer;
-        for "_i" from ((count occupantsMortarTimer) + 1) to _playerAdjustment do
-        {
-            occupantsMortarTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = occupantsMortarTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-if(_side == Invaders) then
-{
-    if(count invadersMortarTimer < _playerAdjustment) then
-    {
-        _timerIndex = count invadersMortarTimer;
-        for "_i" from ((count invadersMortarTimer) + 1) to _playerAdjustment do
-        {
-            invadersMortarTimer pushBack -1;
-        };
-    }
-    else
-    {
-        _timerIndex = invadersMortarTimer findIf {_x < time};
-        if(_playerAdjustment <= _timerIndex) then
-        {
-            _timerIndex = -1;
-        };
-    };
-};
-
-_timerIndex;
+// balance this one against artillery
+if (tierWar < 2) exitWith { 0 };
+if (tierWar < 5 or !("ARTILLERY" in _availTypes)) exitWith { 1 };
+1 - (tierWar - 4) / 8;       // // 87.5% at tier 5, 25% at tier 10

@@ -18,15 +18,22 @@ Example: [civilian, "Templates\AddonVics\rds_Civ.sqf"] call A3A_fnc_loadAddon;
 
 License: MIT License
 */
-params ["_side", "_path"];
-private _factionPrefix = ["occ", "inv", "reb", "civ"] # ([west,east,resistance,civilian] find _side);
+#include "..\..\script_component.hpp"
+params [["_side","",[""]], ["_path","",[""]]];
+_side = toLower _side;
+if !(fileExists _path) exitWith {
+    Error_2("File missing! - Side: %1 File: %2", _side, _path);
+};
+if !(_side in ["occ", "inv", "reb", "civ"]) exitWith {
+    Error_2("Invalid side of addon - Side: %1 File: %2", _side, _path);
+};
 
 //get the addon data
 private _addon = createHashMap;
 call compile preprocessFileLineNumbers _path;
 
 //add the addon data to the faction data
-private _faction = missionNamespace getVariable ["A3A_faction_"+_factionPrefix, createHashMap];
+private _faction = missionNamespace getVariable ["A3A_faction_"+_side, createHashMap];
 {
     _faction set [_x, (_faction get _x) + _y];
 } forEach _addon;

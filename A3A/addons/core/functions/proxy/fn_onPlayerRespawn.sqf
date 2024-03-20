@@ -1,6 +1,5 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-#define OccAndInv(VAR) (FactionGet(occ,VAR) + FactionGet(inv,VAR))
 if (isDedicated) exitWith {};
 private ["_newUnit","_oldUnit"];
 _newUnit = _this select 0;
@@ -28,11 +27,13 @@ _nul = [_oldUnit] spawn A3A_fnc_postmortem;
 _oldUnit setVariable ["incapacitated",false,true];
 _newUnit setVariable ["incapacitated",false,true];
 
+[true] call A3A_fnc_selfReviveReset;
+
 if (side group player == teamPlayer) then
 	{
 	_owner = _oldUnit getVariable ["owner",_oldUnit];
 
-	if (_owner != _oldUnit) exitWith {["Remote AI", "Died while remote controlling AI."] call A3A_fnc_customHint; selectPlayer _owner; disableUserInput false; deleteVehicle _newUnit};
+	if (_owner != _oldUnit) exitWith {[localize "STR_A3A_fn_proxy_remAI_titel", localize "STR_A3A_fn_proxy_remAI_text"] call A3A_fnc_customHint; selectPlayer _owner; disableUserInput false; deleteVehicle _newUnit};
 
 	_nul = [0,-1,getPos _oldUnit] remoteExec ["A3A_fnc_citySupportChange",2];
 
@@ -79,7 +80,7 @@ if (side group player == teamPlayer) then
 		[_newUnit, true] remoteExec ["A3A_fnc_theBossTransfer", 2];
 		};
 	//Give them a map, in case they're commander and need to replace petros.
-	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ get "uniforms") + (A3A_faction_reb get "uniforms")), []],[],[],selectRandom (A3A_faction_civ get "headgear"),"",[],
+	_newUnit setUnitLoadout [[],[],[],[selectRandom ((A3A_faction_civ get "uniforms") + (A3A_faction_reb get "uniforms")), []],[],[],[],"",[],
 	[(selectRandom unlockedmaps),"","",(selectRandom unlockedCompasses),(selectRandom unlockedwatches),""]];
 
 	if (!isPlayer (leader group player)) then {(group player) selectLeader player};
@@ -124,7 +125,7 @@ if (side group player == teamPlayer) then
 			{
 			_containerX = _this select 1;
 			_typeX = typeOf _containerX;
-			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX in OccAndInv("ammobox"))) then
+			if (((_containerX isKindOf "CAManBase") and (!alive _containerX)) or (_typeX in [A3A_faction_occ get "ammobox", A3A_faction_inv get "ammobox"])) then
 				{
 				if ({if (((side _x== Invaders) or (side _x== Occupants)) and (_x knowsAbout _playerX > 1.4)) exitWith {1}} count allUnits > 0) then
 					{
@@ -218,7 +219,7 @@ if (side group player == teamPlayer) then
 				};
 				_markersX = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 				_pos = position _veh;
-				if (_markersX findIf {_pos inArea _x} != -1) then {["Static Deployed", "Static weapon has been deployed for use in a nearby zone, and will be used by garrison militia if you leave it here the next time the zone spawns."] call A3A_fnc_customHint;};
+				if (_markersX findIf {_pos inArea _x} != -1) then {[localize "STR_A3A_fn_proxy_statDepl_titel", localize "STR_A3A_fn_proxy_statDepl_text"] call A3A_fnc_customHint;};
 			};
 		}];
 	player addEventHandler ["WeaponDisassembled",
@@ -233,7 +234,6 @@ if (side group player == teamPlayer) then
 		];
 	[] spawn A3A_fnc_unitTraits;
 	[] spawn A3A_fnc_statistics;
-	if (LootToCrateEnabled) then {call A3A_fnc_initLootToCrate};
 	call A3A_fnc_dropObject;
 	}
 else

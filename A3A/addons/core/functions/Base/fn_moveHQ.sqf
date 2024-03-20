@@ -29,9 +29,10 @@ Example:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 private _possible = [] call A3A_fnc_canMoveHQ;
+private _titleStr = localize "STR_A3A_fn_base_movehq_garrison";
+
 if !(_possible#0) exitWith {};
 
-[petros,"remove"] remoteExec ["A3A_fnc_flagaction",0];
 private _groupPetros = group petros;
 [petros] join theBoss;
 deleteGroup _groupPetros;
@@ -54,7 +55,7 @@ if (count _garrison > 0) then
     private _hr = 0;
     if (allUnits findIf {(alive _x) && (!captive _x) && ((side (group _x) == Occupants) || (side (group _x) == Invaders)) && {_x distance2D _posHQ < 500}} != -1) then
     {
-        ["Garrison", "HQ Garrison will stay here and distract the enemy."] call A3A_fnc_customHint;
+        [_titleStr, localize "STR_A3A_fn_base_movehq_stay"] call A3A_fnc_customHint;
         //Is there a despawn routine attached to them?
         //Why are they getting refunded if they stay?
     }
@@ -71,13 +72,13 @@ if (count _garrison > 0) then
                     {
                         if (_unitType == FactionGet(reb,"unitCrew")) then
                         {
-                            _costs = _costs - ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
+                            _costs = _costs - ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)
                         };
                         _hr = _hr - 1;
                         _costs = _costs - (server getVariable (_unitType));
                     };
                 };
-                if (typeOf (vehicle _x) == FactionGet(reb,"staticMortar")) then
+                if (typeOf (vehicle _x) in FactionGet(reb,"staticMortars")) then
                 {
                     deleteVehicle vehicle _x
                 };
@@ -88,16 +89,14 @@ if (count _garrison > 0) then
     {
         if (_x == FactionGet(reb,"unitCrew")) then
         {
-            _costs = _costs + ([FactionGet(reb,"staticMortar")] call A3A_fnc_vehiclePrice)
+            _costs = _costs + ([(FactionGet(reb,"staticMortars")) # 0] call A3A_fnc_vehiclePrice)
         };
         _hr = _hr + 1;
         _costs = _costs + (server getVariable _x);
     } forEach _garrison;
     [_hr,_costs] remoteExec ["A3A_fnc_resourcesFIA",2];
     garrison setVariable ["Synd_HQ",[],true];
-    ["Garrison", format ["Garrison removed<br/><br/>Recovered Money: %1 €<br/>Recovered HR: %2",_costs,_hr]] call A3A_fnc_customHint;
+    [_titleStr, format [localize "STR_A3A_fn_base_movehq_removed",_costs,_hr]] call A3A_fnc_customHint;
 };
 
 sleep 5;
-
-petros addAction ["Build HQ here", A3A_fnc_buildHQ, nil, 0, false, true];

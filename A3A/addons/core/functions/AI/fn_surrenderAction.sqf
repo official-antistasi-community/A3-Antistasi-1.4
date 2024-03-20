@@ -47,14 +47,11 @@ if (_grpIdx == -1) then {
 };
 
 // create surrender box
-private _surrenderCrateType = Faction(side group _unit) get "surrenderCrate";
+private _surrenderCrateType = FactionGet(reb,"surrenderCrate");
 private _boxX = _surrenderCrateType createVehicle position _unit;
 _boxX allowDamage false;
-clearMagazineCargoGlobal _boxX;
-clearWeaponCargoGlobal _boxX;
-clearItemCargoGlobal _boxX;
-clearBackpackCargoGlobal _boxX;
-[_boxX] call A3A_fnc_logistics_addLoadAction;
+[_boxX] call A3A_fnc_initObject;
+
 
 // move all unit's equipment except uniform into the surrender crate
 private _loadout = getUnitLoadout _unit;
@@ -82,15 +79,15 @@ if (_unitSide == Occupants) then {
 	[0, 1, getPos _unit] remoteExec ["A3A_fnc_citySupportChange", 2];
 };
 
-// check for zone capture
 private _markerX = _unit getVariable "markerX";
-if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneCheck",2] };
+if (!isNil "_markerX") then { [_markerX, _unitSide] remoteExec ["A3A_fnc_zoneCheck", 2] };
+
 
 // timed cleanup functions
 [_unit] spawn A3A_fnc_postmortem;
 [_boxX] spawn A3A_fnc_postmortem;
 
-sleep 2;				// Also protects against box kills
+sleep 3;				// Also protects against box kills
 _unit allowDamage true;
 _unit addEventHandler ["HandleDamage", {
 	// If unit gets injured after the delay, run away

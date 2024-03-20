@@ -29,30 +29,35 @@
 //       Vehicles       //
 //////////////////////////
 
+["attributeLowAir", true] call _fnc_saveToTemplate;             // Use fewer air units in general
+
 ["vehiclesBasic", ["vn_o_bicycle_01"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["vn_o_wheeled_btr40_01"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02", "vn_o_wheeled_btr40_mg_01"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["vn_o_wheeled_btr40_mg_02", "vn_o_wheeled_btr40_mg_01", "vn_o_wheeled_btr40_mg_03", "vn_o_wheeled_z157_mg_02", "vn_o_wheeled_z157_mg_01"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", []] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["vn_o_wheeled_z157_ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["vn_o_wheeled_z157_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["vn_o_wheeled_z157_fuel"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["vn_o_wheeled_btr40_02"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["vn_o_armor_m113_acav_01","vn_o_armor_m113_acav_03","vn_o_armor_m113_01"]] call _fnc_saveToTemplate;
-["vehiclesTanks", ["vn_o_armor_m41_01","vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["vn_o_wheeled_btr40_02", "vn_o_armor_btr50pk_03"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02", "vn_o_armor_m113_01", "vn_o_armor_btr50pk_02", "vn_o_armor_btr50pk_01"]] call _fnc_saveToTemplate;             // Fill out with trucks to make the tier scaling look more plausible
+["vehiclesAPCs", ["vn_o_wheeled_z157_01", "vn_o_wheeled_z157_02", "vn_o_armor_m113_acav_01","vn_o_armor_m113_acav_03"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["vn_o_armor_m41_01","vn_o_armor_pt76a_01","vn_o_armor_pt76b_01","vn_o_armor_type63_01","vn_o_armor_t54b_01","vn_o_armor_ot54_01"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["vn_o_wheeled_btr40_mg_03", "vn_o_wheeled_z157_mg_02"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["vn_o_boat_01_mg_03"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["vn_o_boat_04_02"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["vn_o_air_mig19_at"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["vn_o_air_mig19_cap"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["vn_o_air_mig19_at", "vn_o_air_mig21_cas"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["vn_o_air_mig19_cap", "vn_o_air_mig21_cap"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["vn_o_air_mi2_01_03"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["vn_o_air_mi2_04_02", "vn_o_air_mi2_04_03", "vn_o_air_mi2_05_04"]] call _fnc_saveToTemplate;      // Don't actually work atm
+["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["vn_o_vc_static_mortar_type53", "vn_o_nva_static_h12", "vn_o_nva_static_d44_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -68,9 +73,9 @@
 
 ["vehiclesPolice", ["vn_i_wheeled_m151_02_mp"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["vn_o_nva_static_dshkm_high_01", "vn_o_nva_static_rpd_high"]] call _fnc_saveToTemplate;
+["staticMGs", ["vn_o_nva_static_dshkm_high_01", "vn_o_nva_static_rpd_high", "vn_o_nva_static_pk_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["vn_o_vc_static_type56rr"]] call _fnc_saveToTemplate;
-["staticAA", ["vn_o_nva_static_zpu4"]] call _fnc_saveToTemplate;
+["staticAA", ["vn_o_nva_static_zpu4", "vn_o_nva_static_zgu1_01"]] call _fnc_saveToTemplate;
 ["staticMortars", ["vn_o_nva_65_static_mortar_type63"]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
@@ -78,11 +83,14 @@
 
 ["mortarMagazineHE", "vn_mortar_type63_mag_he_x8"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "vn_mortar_type63_mag_wp_x8"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "vn_mortar_type63_mag_lume_x8"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["vn_mine_tripwire_arty"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["vn_mine_punji_02"]] call _fnc_saveToTemplate;
+
+#include "VN_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

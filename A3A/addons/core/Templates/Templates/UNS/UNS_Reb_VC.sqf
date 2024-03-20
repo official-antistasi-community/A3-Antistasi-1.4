@@ -8,29 +8,29 @@
 ["flagTexture", "\uns_flags\flag_vc_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "Faction_UNS_VC"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "uns_m274"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "uns_Type55"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "uns_Type55_LMG"] call _fnc_saveToTemplate;
-["vehicleTruck", "uns_nvatruck_open"] call _fnc_saveToTemplate;
-["vehicleAT", "uns_Type55_RR57"] call _fnc_saveToTemplate;
-["vehicleAA", "uns_nvatruck_zpu"] call _fnc_saveToTemplate;
+["vehiclesBasic", ["uns_m274"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["uns_Type55"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["uns_Type55_LMG"]] call _fnc_saveToTemplate;
+["vehiclesTruck",["uns_nvatruck_open"]] call _fnc_saveToTemplate;
+["vehiclesAT", ["uns_Type55_RR57"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["uns_nvatruck_zpu"]] call _fnc_saveToTemplate;
 
-["vehicleBoat", "UNS_VC_Sampan_Transport"] call _fnc_saveToTemplate;
-["vehicleRepair", "uns_zil157_repair"] call _fnc_saveToTemplate;
+["vehiclesBoat", ["UNS_VC_Sampan_Transport"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "uns_an2"] call _fnc_saveToTemplate;
+["vehiclesPlane", ["uns_an2"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "uns_willys"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "uns_zil157"] call _fnc_saveToTemplate;
-["vehicleCivHeli", ""] call _fnc_saveToTemplate;
-["vehicleCivBoat", "UNS_skiff2_C"] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["uns_willys"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["uns_zil157"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", []] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["UNS_skiff2_C"]] call _fnc_saveToTemplate;
 
-["staticMG", "uns_pk_high_VC"] call _fnc_saveToTemplate;
-["staticAT", "uns_Type36_57mm_VC"] call _fnc_saveToTemplate;
-["staticAA", "uns_ZPU2_VC"] call _fnc_saveToTemplate;
-["staticMortar", "uns_m1941_82mm_mortarVC"] call _fnc_saveToTemplate;
+["staticMGs", ["uns_pk_high_VC"]] call _fnc_saveToTemplate;
+["staticAT", ["uns_Type36_57mm_VC"]] call _fnc_saveToTemplate;
+["staticAA", ["uns_ZPU2_VC"]] call _fnc_saveToTemplate;
+["staticMortars", ["uns_m1941_82mm_mortarVC"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "uns_8Rnd_82mmHE_M1941"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "uns_8Rnd_82mmSMOKE_M1941"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "uns_8Rnd_82mmILLUM_M1941"] call _fnc_saveToTemplate;
 
 ["mineAT", "uns_mine_AT_mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "uns_mine_AP_mag"] call _fnc_saveToTemplate;
@@ -38,12 +38,16 @@
 ["breachingExplosivesAPC", [["uns_M118_mag_remote", 1],["PipeBomb", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["PipeBomb", 2],["uns_M118_mag_remote", 2],["uns_mine_TM_mag", 1]]] call _fnc_saveToTemplate;
 
+#include "UNS_Reb_Vehicle_Attributes.sqf"
+
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
 
 private _initialRebelEquipment = [
 "uns_baikal", "uns_mosin", "uns_kar98k", "uns_mas36", "uns_type99", "uns_nagant_m1895", "uns_m127a1_flare", "uns_1Rnd_M127_mag",
+["uns_rpg2", 15], ["uns_rpg2grenade", 45],
+["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
 "uns_12gaugemag_2", "uns_mosinmag", "uns_kar98kmag", "uns_mas36mag", "uns_type99mag", "uns_nagant_m1895mag", "uns_f1gren", "uns_molotov_mag", "uns_rdg2",
 "uns_men_NVA_65_AS3_Bag", "uns_simc_ARVN_ruck_1", "uns_simc_ARVN_ruck_2", "UNS_VC_R1",
 "uns_vc_chestrig", "UNS_VC_A2",
@@ -53,6 +57,9 @@ if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "UNS_ItemR
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "UNS_ItemRadio_PRC_90_TFAR"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment pushBack "UNS_USMC_RTO"};
+["attributeTFARCodes", ["tf_west_radio_code"]] call _fnc_saveToTemplate;
+
+_initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

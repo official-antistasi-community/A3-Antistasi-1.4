@@ -23,7 +23,7 @@ Examples:
     [true] call A3A_fnc_customHintDismiss; // Clear all
 
 Author: Caleb Serafin
-License: MIT License, Copyright (c) 2019 Barbolani & The Official AntiStasi Community
+License: MIT License, Copyright (c) 2019 Barbolani & The Official Antistasi Community
 */
 params [["_dismissAll",false]];
 private _filename = "fn_customHintDismiss.sqf";

@@ -26,7 +26,9 @@
 ["vehiclesRepairTrucks", ["CUP_B_T810_Repair_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["CUP_B_T810_Refuel_CZ_DES"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_B_LR_Ambulance_CZ_D", "CUP_B_BMP2_AMB_CZ_Des"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_HQ_CZ_Des", "CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_CZ_Des", "CUP_B_BRDM2_HQ_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["CUP_B_BMP2_CZ_Des"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["CUP_B_T72_CZ"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_B_nM1097_AVENGER_USA_DES"]] call _fnc_saveToTemplate;
 
@@ -40,6 +42,7 @@
 
 ["vehiclesHelisLight", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_Mi171Sh_Unarmed_ACR"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["CUP_B_Mi171Sh_ACR"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["CUP_B_Mi35_Dynamic_CZ", "CUP_B_Mi35_Dynamic_CZ_Des"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["CUP_B_RM70_CZ"]] call _fnc_saveToTemplate;
@@ -60,9 +63,12 @@
 ["staticMortars", ["CUP_B_2b14_82mm_ACR"]] call _fnc_saveToTemplate;
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", ["CUP_Mine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+#include "CUP_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///
@@ -75,6 +81,7 @@
 "WhiteHead_14","WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18",
 "WhiteHead_19","WhiteHead_21","WhiteHead_30"]] call _fnc_saveToTemplate;
 ["voices", ["CUP_D_Male01_CZ_ACR","CUP_D_Male02_CZ_ACR","CUP_D_Male03_CZ_ACR","CUP_D_Male04_CZ_ACR","CUP_D_Male05_CZ_ACR"]] call _fnc_saveToTemplate;
+"CUP_Names_CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -155,7 +162,7 @@ _loadoutData set ["items_miscEssentials", [] call A3A_fnc_itemset_miscEssentials
 private _slItems = ["Laserbatteries", "Laserbatteries", "Laserbatteries"];
 private _eeItems = ["ToolKit", "MineDetector"];
 private _mmItems = [];
-private _sfmmItems = ["cup_optic_an_pvs_10_black"];
+private _sfmmItems = ["CUP_optic_AN_PVS_10_black"];
 
 if (A3A_hasACE) then {
 	_slItems append ["ACE_microDAGR", "ACE_DAGR"];
@@ -251,7 +258,7 @@ _sfLoadoutData set ["marksmanRifles", [
 _sfLoadoutData set ["sniperRifles", [
     ["CUP_srifle_AWM_blk", "CUP_muzzle_snds_AWM", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_5Rnd_86x70_L115A1"], [], "bipod_01_F_blk"],
     ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "CUP_optic_LeupoldMk4_25x50_LRT", ["CUP_10Rnd_127x99_M107"], [], ""],
-    ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "cup_optic_an_pas_13c2", ["CUP_10Rnd_127x99_M107"], [], ""]
+    ["CUP_srifle_M107_Base", "CUP_muzzle_mfsup_Suppressor_M107_Black", "", "CUP_optic_AN_PAS_13c2", ["CUP_10Rnd_127x99_M107"], [], ""]
 ]];
 _sfLoadoutData set ["lightATLaunchers", [
     ["CUP_launch_RPG18", "", "", "", [""], [], ""],

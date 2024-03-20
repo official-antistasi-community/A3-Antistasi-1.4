@@ -1,38 +1,29 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params [["_location", []]];
+params ["_location"];
 
-private _oldPetros = if (isNil "petros") then {objNull} else {petros};
-private _groupPetros = if (!isNull _oldPetros && {side group _oldPetros == teamPlayer}) then {group _oldPetros} else {createGroup teamPlayer};
+private _groupPetros = if (isNull petros or {side group petros != teamPlayer}) then {createGroup teamPlayer} else {group petros};
 
-// Hack-fix for bugged case where petros is killed by enemy while being moved
-if (count _location > 0 && count units _groupPetros > 1) then { _groupPetros = createGroup teamPlayer };
+// Don't re-use group if petros was killed by enemy while being moved
+if (!isNil "_location" && count units _groupPetros > 1) then { _groupPetros = createGroup teamPlayer };
 
-private _position = if (count _location > 0) then {
-	_location
-} else {
-	if (getPos _oldPetros isEqualTo [0,0,0]) then {
-		getMarkerPos respawnTeamPlayer
+if (isNil "_location") then {
+	if (count units _groupPetros > 1) then {
+		_location = getPosATL petros
 	} else {
-		getPos _oldPetros
+		_location = getMarkerPos respawnTeamPlayer
 	};
 };
 
-petros = [_groupPetros, FactionGet(reb,"unitPetros"), _position, [], 10, "NONE"] call A3A_fnc_createUnit;
+private _oldPetros = petros;
+private _identity = createHashMapFromArray [
+    ["firstName", "Petros"],
+    ["face", "GreekHead_A3_01"], 
+    ["speaker", "Male06GRE"],
+    ["pitch", 1.1]
+];
+petros = [_groupPetros, FactionGet(reb,"unitPetros"), _location, [], 10, "NONE", _identity] call A3A_fnc_createUnit;
 publicVariable "petros";
-
 deleteVehicle _oldPetros;		// Petros should now be leader unless there's a player in the group
-
-[petros, "GreekHead_A3_01", "Male06GRE", 1.1, "Petros", "Petros"] call BIS_fnc_setIdentity;
-
-if (petros == leader _groupPetros) then {
-	_groupPetros setGroupIdGlobal ["Petros","GroupColor4"];
-	petros disableAI "MOVE";
-	petros disableAI "AUTOTARGET";
-	petros setBehaviour "SAFE";
-	[Petros,"mission"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian]]
-} else {
-	[Petros,"buildHQ"] remoteExec ["A3A_fnc_flagaction",[teamPlayer,civilian]]
-};
 
 call A3A_fnc_initPetros;

@@ -12,18 +12,14 @@ class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba
 {
 	class EventHandlers : EventHandlers
 	{
-		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-		init = "";
-		killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
+        class rhs_flag_init{};
 	};
 };
 class a3a_rhs_chdkz_72b : rhsgref_ins_t72bb
 {
 	class EventHandlers : EventHandlers
 	{
-		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-		init = "";
-		killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
+        class rhs_flag_init{};
 	};
 };
 class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc
@@ -38,9 +34,7 @@ class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc
 	};
 	class EventHandlers : EventHandlers
 	{
-		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
-		init = "";
-		killed = "_this call (uinamespace getvariable 'BIS_fnc_effectKilled');";
+        class rhs_flag_init{};
 	};
 };
 

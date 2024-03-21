@@ -12,14 +12,14 @@ class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba
 {
 	class EventHandlers : EventHandlers
 	{
-        class rhs_flag_init{};
+		class rhs_flag_init{};
 	};
 };
 class a3a_rhs_chdkz_72b : rhsgref_ins_t72bb
 {
 	class EventHandlers : EventHandlers
 	{
-        class rhs_flag_init{};
+		class rhs_flag_init{};
 	};
 };
 class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc
@@ -34,7 +34,7 @@ class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc
 	};
 	class EventHandlers : EventHandlers
 	{
-        class rhs_flag_init{};
+		class rhs_flag_init{};
 	};
 };
 

@@ -1,13 +1,16 @@
 //RHS - chdkz_rhs.hpp
 
 //Armour
-class rhsgref_ins_t72ba;
-class rhsgref_ins_t72bb;
-class rhsgref_ins_t72bc;
+class rhs_t72ba_tv;
+class rhs_t72bb_tv;
+class rhs_t72bc_tv;
+class rhsgref_ins_t72ba : rhs_t72ba_tv {class EventHandlers; };
+class rhsgref_ins_t72bb : rhs_t72bb_tv {class EventHandlers; };
+class rhsgref_ins_t72bc : rhs_t72bc_tv {class EventHandlers; };
 
 class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba
 {
-	class EventHandlers
+	class EventHandlers : EventHandlers
 	{
 		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
 		init = "";
@@ -16,7 +19,7 @@ class a3a_rhs_chdkz_72a : rhsgref_ins_t72ba
 };
 class a3a_rhs_chdkz_72b : rhsgref_ins_t72bb
 {
-	class EventHandlers
+	class EventHandlers : EventHandlers
 	{
 		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
 		init = "";
@@ -33,7 +36,7 @@ class a3a_rhs_chdkz_72c : rhsgref_ins_t72bc
 		"rhsafrf\addons\rhs_t72\data\rhs_t72b_04_co.paa",
 		"rhsafrf\addons\rhs_t72\data\rhs_t72b_05_co.paa"
 	};
-	class EventHandlers
+	class EventHandlers : EventHandlers
 	{
 		fired = "_this call (uinamespace getvariable 'BIS_fnc_effectFired');";
 		init = "";

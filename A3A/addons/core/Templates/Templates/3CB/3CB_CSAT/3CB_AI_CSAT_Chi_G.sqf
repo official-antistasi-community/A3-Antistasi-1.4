@@ -70,7 +70,7 @@ _milVests = ["UK3CB_CSAT_G_O_V_TacVest", "UK3CB_TKA_I_V_6Sh92_Oli","UK3CB_TKA_I_
 
 _medicVests = ["UK3CB_CSAT_G_O_V_Carrier_Rig_Heavy_Med","UK3CB_CSAT_G_O_V_Carrier_Rig_Light_Med"];
 _crewVests = ["UK3CB_CSAT_G_O_V_Carrier_Rig_Crew"];
-_sfVests = ["UK3CB_CSAT_G_O_V_Carrier_Rig_Recon"];
+_sfVests = ["UK3CB_CSAT_G_O_V_Carrier_Rig_Tactical_OLI","UK3CB_CSAT_G_O_V_Carrier_Rig_Recon_OLI","UK3CB_CSAT_G_O_V_Carrier_Rig_CQB_OLI","UK3CB_CSAT_G_O_V_Carrier_Rig_Light_Oli","UK3CB_CSAT_G_O_V_Carrier_Rig_Heavy_Oli"];
 
 _backpacks = ["UK3CB_CSAT_G_O_B_FIELDPACK","UK3CB_CSAT_G_O_B_RIF"];
 

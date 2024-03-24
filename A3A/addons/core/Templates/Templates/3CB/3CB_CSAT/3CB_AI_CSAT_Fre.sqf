@@ -102,7 +102,7 @@ private _milVests = ["UK3CB_CSAT_A_O_V_TacVest", "UK3CB_TKA_I_V_6Sh92_Oli","UK3C
 
 private _medicVests = ["UK3CB_CSAT_A_O_V_Carrier_Rig_Heavy_Med","UK3CB_CSAT_A_O_V_Carrier_Rig_Light_Med"];
 private _crewVests = ["UK3CB_CSAT_A_O_V_Carrier_Rig_Crew"];
-private _sfVests = ["UK3CB_CSAT_A_O_V_Carrier_Rig_Recon"];
+private _sfVests = ["UK3CB_CSAT_A_O_V_Carrier_Rig_Tactical_TAN","UK3CB_CSAT_A_O_V_Carrier_Rig_Recon_TAN","UK3CB_CSAT_A_O_V_Carrier_Rig_CQB_TAN","UK3CB_CSAT_A_O_V_Carrier_Rig_Light_Tan","UK3CB_CSAT_A_O_V_Carrier_Rig_Heavy_Tan"];
 
 private _backpacks = ["UK3CB_CSAT_A_O_B_FIELDPACK","UK3CB_CSAT_A_O_B_RIF"];
 
@@ -217,8 +217,8 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and sh
 _sfLoadoutData set ["uniforms", _sfUniforms];
 _sfLoadoutData set ["slUniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
-_sfLoadoutData set ["glVests", _sfVests + _glVests];
-_sfLoadoutData set ["Hvests", _sfVests + _Hvests];"UK3CB_CSAT_A_O_H_6b27m_Alt"
+_sfLoadoutData set ["glVests", _sfVests];
+_sfLoadoutData set ["Hvests", _sfVests];
 _sfLoadoutData set ["helmets", ["UK3CB_CSAT_A_O_H_6b27m_Alt", "UK3CB_CSAT_A_O_H_6b27m_ESS_Alt"]];
 _sfLoadoutData set ["slHat", _helmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];

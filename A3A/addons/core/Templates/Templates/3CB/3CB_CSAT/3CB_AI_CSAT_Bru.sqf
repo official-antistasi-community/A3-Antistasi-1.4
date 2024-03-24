@@ -200,8 +200,8 @@ _sfLoadoutData set ["uniforms", _sfUniforms];
 _sfLoadoutData set ["slUniforms", _sfUniforms];
 _sfLoadoutData set ["vests", _sfVests];
 _sfLoadoutData set ["helmets", _sfHelmets];
-_sfLoadoutData set ["glVests", _sfVests + _glVests];
-_sfLoadoutData set ["Hvests", _sfVests + _Hvests];
+_sfLoadoutData set ["glVests", _sfVests];
+_sfLoadoutData set ["Hvests", _sfVests];
 _sfLoadoutData set ["slHat", _sfHelmets];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 //SF Weapons

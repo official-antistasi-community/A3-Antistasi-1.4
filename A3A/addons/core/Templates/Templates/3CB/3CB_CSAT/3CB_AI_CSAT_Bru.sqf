@@ -246,7 +246,9 @@ _sfLoadoutData set ["sniperRifles", [
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"]
 ]];
 _sfLoadoutData set ["sidearms", [
-["UK3CB_PC9_ZOAF", "rhsusf_acc_omega9k", "", "", [], [], ""]
+["UK3CB_PC9_ZOAF", "rhsusf_acc_omega9k", "", "", [], [], ""],
+["rhs_weap_pp2000_folded", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n31_44","rhs_mag_9x19mm_7n31_20"], [], ""],
+["rhs_weap_6p53", "", "", "", ["rhs_18rnd_9x21mm_7N28", "rhs_18rnd_9x21mm_7N29", "rhs_18rnd_9x21mm_7BT3"], [], ""]
 ]];
 
 /////////////////////////////////
@@ -261,45 +263,41 @@ _militaryLoadoutData set ["Hvests", _Hvests];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_02"]];
 
 _militaryLoadoutData set ["slRifles", [
-["UK3CB_KH2002_Carbine", "", "rhs_acc_perst1ik_ris", "rhsusf_acc_ACOG", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002", "", "rhs_acc_perst3", "rhsusf_acc_su230_mrds", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst1ik_ris", "rhsusf_acc_su230", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst3", "rhsusf_acc_ACOG_RMR", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
+["rhs_weap_ak74m_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst3_top", "rhsusf_acc_ACOG", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], [], "rhs_acc_grip_rk2"],
+["rhs_weap_ak74mr", "rhs_acc_uuk", "rhs_acc_perst3_top", "rhsusf_acc_su230_mrds", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], [], "rhs_acc_grip_rk2"],
+["rhs_weap_ak74mr_gp25", "rhs_acc_uuk", "rhs_acc_perst3_top", "rhsusf_acc_su230", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""],
+["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "", "rhsusf_acc_ACOG_RMR", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
-["UK3CB_KH2002", "", "rhs_acc_perst1ik_ris", "rhs_acc_1p87", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002", "", "rhs_acc_perst3", "rhs_acc_ekp8_18", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""]
+["rhs_weap_ak74m_npz", "rhs_acc_uuk", "rhs_acc_perst1ik", "rhs_acc_ekp8_18", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_ak74mr", "rhs_acc_uuk", "rhs_acc_perst3_top", "rhs_acc_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], "rhs_acc_grip_ffg2"]
 ]];
 _militaryLoadoutData set ["carbines", [
-["UK3CB_KH2002_Carbine", "", "rhs_acc_perst1ik_ris", "rhsusf_acc_RX01", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""],
-["UK3CB_KH2002_Carbine", "", "rhs_acc_perst3", "rhsusf_acc_RX01_NoFilter", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], [], ""]
+["rhs_weap_ak105_npz", "rhs_acc_uuk", "rhs_acc_perst1ik", "rhs_acc_ekp8_18", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""],
+["rhs_weap_ak105_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst1ik", "rhs_acc_ekp8_18", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_AK_plum_green"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst1ik_ris", "rhs_acc_1p87", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M397_HET","rhs_mag_m714_White"], ""],
-["UK3CB_KH2002_UGL", "", "rhs_acc_perst3", "rhs_acc_ekp8_18", ["UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_G", "UK3CB_KH2002_30rnd_556x45_GT"], ["rhs_mag_M397_HET","rhs_mag_M433_HEDP","rhs_mag_m714_White"], ""]
+["rhs_weap_ak74mr_gp25", "rhs_acc_uuk", "rhs_acc_perst3_top", "rhs_acc_1p87", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""],
+["rhs_weap_ak74m_gp25_npz", "rhs_acc_uuk", "", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
 ["rhs_weap_aks74un", "rhs_acc_uuk", "", "rhs_acc_okp7_dovetail", [], [], ""],
 ["rhs_weap_aks74un", "rhs_acc_uuk", "", "rhs_acc_okp7_dovetail", [], [], ""],
-["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n21_44"], [], ""],
-["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", [], [], ""]
+["rhs_weap_pp2000", "", "", "rhs_acc_rakursPM", ["rhs_mag_9x19mm_7n21_44"], [], ""],
+["rhs_weap_pp2000", "", "", "rhs_acc_rakursPM", [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["UK3CB_MG3_Railed", "", "", "rhsusf_acc_ELCAN", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhsusf_acc_ELCAN", ["UK3CB_MG3_100rnd_762x51_G", "UK3CB_MG3_100rnd_762x51_GM", "UK3CB_MG3_100rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhs_acc_1p87", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhs_acc_1p87", ["UK3CB_MG3_100rnd_762x51_G", "UK3CB_MG3_100rnd_762x51_GM", "UK3CB_MG3_100rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhs_acc_1p87", ["UK3CB_MG3_50rnd_762x51", "UK3CB_MG3_50rnd_762x51","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["UK3CB_MG3_Railed", "", "", "rhs_acc_1p87", ["UK3CB_MG3_100rnd_762x51", "UK3CB_MG3_100rnd_762x51", "UK3CB_MG3_100rnd_762x51_GT"], [], ""]
+["rhs_weap_pkp", "", "", "rhs_acc_nita", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
+["rhs_weap_rpk74m_npz", "rhs_acc_ak5", "rhs_acc_perst1ik", "rhs_acc_ekp8_18", ["UK3CB_RPK74_60rnd_545x39_G", "UK3CB_RPK74_60rnd_545x39_GM", "UK3CB_RPK74_60rnd_545x39_GT"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["UK3CB_G3SG1_RIS", "", "", "uk3cb_optic_ZFSG1", ["UK3CB_G3_20rnd_762x51", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], [], ""]
+["rhs_weap_svdp_npz", "", "", "rhsusf_acc_M8541_low", [], [], ""],
+["rhs_weap_svds_npz", "", "", "rhsusf_acc_M8541_low", [], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
-["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"],
-["UK3CB_G3SG1_RIS", "", "", "uk3cb_optic_accupoint_g3", ["UK3CB_G3_20rnd_762x51"], [], ""]
+["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"]
 ]];
-_militaryLoadoutData set ["sidearms", ["UK3CB_PC9_ZOAF"]];
+_militaryLoadoutData set ["sidearms", ["rhs_weap_pya"]];
 ///////////////////////////////
 //    Police Loadout Data    //
 ///////////////////////////////
@@ -316,7 +314,7 @@ _policeLoadoutData set ["SMGs", [
 ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", [], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", [
-["UK3CB_PC9_ZOAF", "", "acc_flashlight_pistol", "", [], [], ""]
+"rhs_weap_makarov_pm","rhs_weap_pya"
 ]];
 
 ////////////////////////////////
@@ -331,40 +329,32 @@ _militiaLoadoutData set ["helmets", _milHelmets];
 _militiaLoadoutData set ["medicHelmets", _milMedicHelmets];
 
 _militiaLoadoutData set ["rifles", [
-["UK3CB_G3A3_RIS", "", "", "rhs_acc_1p87", ["UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], [], ""],
-["UK3CB_G3KA4", "", "rhs_acc_2dpZenit_ris", "rhs_acc_1p87", ["UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], [], ""]
+["rhs_weap_ak74n_npz", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["rhs_weap_ak103_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], [], ""],
-["rhs_weap_ak104_zenitco01_b33", "rhs_acc_uuk", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], [], ""],
-["rhs_weap_akm_zenitco01_b33", "rhs_acc_uukakm", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], [], ""]
+["rhs_weap_aks74n_npz", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_2mag_AK", "rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["rhs_weap_ak103_gp25_npz", "rhs_acc_uuk", "rhs_acc_perst3_2dp_light_h", "rhs_acc_ekp8_18", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], ["rhs_VOG25","rhs_VOG25","rhs_VOG25P","rhs_GRD40_White"], ""],
-["UK3CB_G3KA4_GL", "", "rhs_acc_2dpZenit_ris", "rhsusf_acc_compm4", ["UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M441_HE","rhs_mag_m714_White"], ""]
+["rhs_weap_ak74n_gp25_npz", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""],
+["rhs_weap_aks74n_gp25_npz", "rhs_acc_dtk", "", "", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25","rhs_VOG25","rhs_GRD40_White"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
-["rhs_weap_aks74un", "rhs_acc_uuk", "", "rhs_acc_okp7_dovetail", [], [], ""],
-["rhs_weap_aks74un", "rhs_acc_uuk", "", "rhs_acc_okp7_dovetail", [], [], ""]
+["rhs_weap_aks74un", "rhs_acc_uuk", "", "", [], [], ""],
+["rhs_weap_aks74un", "rhs_acc_uuk", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["rhs_weap_pkp", "", "", "rhs_acc_1p63", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
-["UK3CB_RPKN_BLK", "", "", "rhs_acc_1p29", ["UK3CB_RPK_40rnd_762x39_GM", "UK3CB_RPK_40rnd_762x39_GT"], [], ""]
+["rhs_weap_pkm", "", "", "", ["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
+["rhs_weap_rpk74m_npz", "rhs_acc_uuk", "rhs_acc_2dpZenit", "", ["rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_7N10_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["rhs_weap_ak103_2", "rhs_acc_uuk", "rhs_acc_2dpZenit", "rhs_acc_pso1m21", ["rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer", "rhs_30Rnd_762x39mm_polymer_tracer"], [], ""],
-["UK3CB_G3A3", "", "", "uk3cb_optic_ZFSG1", ["UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_GT"], [], ""],
-["rhs_weap_svdp", "", "", "rhs_acc_pso1m21", [], [], ""],
-["rhs_weap_svds", "", "", "rhs_acc_pso1m21", [], [], ""]
+["rhs_weap_ak74n", "rhs_acc_uuk", "rhs_acc_2dpZenit", "rhs_acc_pso1m21", ["rhs_30Rnd_545x39_7N10_AK", "rhs_30Rnd_545x39_7N10_AK","rhs_30Rnd_545x39_AK_green"], [], ""],
+["UK3CB_SVD_OLD", "", "", "rhs_acc_pso1m21", [], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["rhs_weap_svdp_npz", "", "", "rhsusf_acc_M8541_low", [], [], ""],
-["rhs_weap_svds_npz", "", "", "rhsusf_acc_M8541_low", [], [], ""],
-["rhs_weap_m24sws", "", "", "rhsusf_acc_LEUPOLDMK4", [], [], "rhsusf_acc_harris_swivel"],
-["rhs_weap_m24sws", "", "", "rhsusf_acc_LEUPOLDMK4", [], [], "rhsusf_acc_harris_swivel"]
+["UK3CB_SVD_OLD_NPZ", "", "", "rhsusf_acc_M8541_low", [], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", [
-["UK3CB_PC9_ZOAF", "", "acc_flashlight_pistol", "", [], [], ""]
+"rhs_weap_makarov_pm"
 ]];
 //////////////////////////
 //    Misc Loadouts     //

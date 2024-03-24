@@ -349,14 +349,14 @@ _militiaLoadoutData set ["carbines", [
 ["UK3CB_FNFAL_PARA", "", "", "", ["UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["UK3CB_FNFAL_OSW_GL", "", "rhs_acc_1p87", "rhsusf_acc_compm4", ["UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M441_HE","rhs_mag_m714_White"], ""]
+["UK3CB_FNFAL_OSW_GL", "", "", "", ["UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], ["rhs_mag_M433_HEDP","rhs_mag_M441_HE","rhs_mag_m714_White"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
-["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n21_44","rhs_mag_9x19mm_7n21_20","rhs_mag_9x19mm_7n21_20"], [], ""]
+["rhs_weap_pp2000", "", "", "", ["rhs_mag_9x19mm_7n21_44","rhs_mag_9x19mm_7n21_20","rhs_mag_9x19mm_7n21_20"], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
 ["UK3CB_FNLAR", "", "", "", ["UK3CB_Bren_30Rnd_762x51_Magazine_G", "UK3CB_Bren_30Rnd_762x51_Magazine_G", "UK3CB_Bren_30Rnd_762x51_Magazine_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""]
+["rhs_weap_fnmag", "", "", "", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["UK3CB_FNFAL_FOREGRIP", "", "", "rhsgref_acc_l1a1_l2a2", ["UK3CB_FNFAL_20rnd_762x51", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], ""],

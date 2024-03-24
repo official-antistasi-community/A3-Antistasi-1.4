@@ -82,7 +82,7 @@
 
 ["faces", ["AfricanHead_01", "AfricanHead_02", "AfricanHead_03", "Barklem"]] call _fnc_saveToTemplate;
 ["voices", ["Male01FRE", "Male02FRE", "Male03FRE"]] call _fnc_saveToTemplate;
-"TanoanMen" call _fnc_saveNames;
+"AfricanDesertMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

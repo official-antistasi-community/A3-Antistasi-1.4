@@ -296,16 +296,13 @@ _militaryLoadoutData set ["SMGs", [
 ["rhs_weap_pp2000", "", "", "rhs_acc_okp7_picatinny", ["rhs_mag_9x19mm_7n21_44","rhs_mag_9x19mm_7n21_20","rhs_mag_9x19mm_7n21_20"], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["rhs_weap_fnmag", "", "", "rhsusf_acc_ELCAN", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhsusf_acc_ELCAN", ["UK3CB_MG3_100rnd_762x51_G", "UK3CB_MG3_100rnd_762x51_GM", "UK3CB_MG3_100rnd_762x51_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["UK3CB_MG3_50rnd_762x51_G", "UK3CB_MG3_50rnd_762x51_GM","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["UK3CB_MG3_100rnd_762x51_G", "UK3CB_MG3_100rnd_762x51_GM", "UK3CB_MG3_100rnd_762x51_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["UK3CB_MG3_50rnd_762x51", "UK3CB_MG3_50rnd_762x51","UK3CB_MG3_50rnd_762x51_GT"], [], ""],
-["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["UK3CB_MG3_100rnd_762x51", "UK3CB_MG3_100rnd_762x51", "UK3CB_MG3_100rnd_762x51_GT"], [], ""]
+["rhs_weap_fnmag", "", "", "rhsusf_acc_ELCAN", ["rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m62_tracer"], [], ""],
+["rhs_weap_fnmag", "", "", "rhs_acc_1p87", ["rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m80a1epr","rhsusf_50Rnd_762x51_m62_tracer"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["UK3CB_FNFAL_OSW", "rhs_acc_perst3", "", "rhsusf_acc_su230a", ["UK3CB_FNFAL_20rnd_762x51", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], "rhs_acc_harris_swivel"],
-["UK3CB_FNFAL_OSW", "rhs_acc_perst3", "", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_FNFAL_20rnd_762x51", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], "rhs_acc_harris_swivel"]
+["UK3CB_FNFAL_OSW", "", "rhs_acc_perst3", "rhsusf_acc_su230a", ["UK3CB_FNFAL_20rnd_762x51", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], "rhs_acc_harris_swivel"],
+["UK3CB_FNFAL_OSW", "", "rhs_acc_perst3", "rhsusf_acc_LEUPOLDMK4", ["UK3CB_FNFAL_20rnd_762x51", "UK3CB_FNFAL_20rnd_762x51_G", "UK3CB_FNFAL_20rnd_762x51_GT"], [], "rhs_acc_harris_swivel"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", [], [], "rhs_acc_harris_swivel"],

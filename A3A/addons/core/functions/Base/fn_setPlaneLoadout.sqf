@@ -63,6 +63,15 @@ if (_type == "CAS") then
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_agm65d"]];
         };
+        case "UK3CB_CSAT_A_O_Su25SM";
+        case "UK3CB_CSAT_B_O_Su25SM";
+        case "UK3CB_CSAT_F_O_Su25SM";
+        case "UK3CB_CSAT_M_O_Su25SM";
+        case "UK3CB_CSAT_G_O_Su25SM";
+        case "UK3CB_CSAT_N_O_Su25SM";
+        case "UK3CB_CSAT_U_O_Su25SM";
+        case "UK3CB_CSAT_S_O_Su25SM";
+        case "UK3CB_CSAT_W_O_Su25SM";
         case "RHS_Su25SM_vvsc";
         case "RHS_Su25SM_CAS_vvs";
         case "rhsgref_cdf_b_su25";
@@ -289,6 +298,15 @@ if (_type == "AA") then
             _loadout = ["rhs_mag_aim9m","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_zpl20_mixed","rhs_mag_aim120","rhs_mag_aim120","rhs_mag_aim9m","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"];
         };
         //RHS Russian Air superiority
+        case "UK3CB_CSAT_A_O_MIG29SM";
+        case "UK3CB_CSAT_B_O_MIG29SM";
+        case "UK3CB_CSAT_F_O_MIG29SM";
+        case "UK3CB_CSAT_M_O_MIG29SM";
+        case "UK3CB_CSAT_N_O_MIG29SM";
+        case "UK3CB_CSAT_G_O_MIG29SM";
+        case "UK3CB_CSAT_S_O_MIG29SM";
+        case "UK3CB_CSAT_U_O_MIG29SM";
+        case "UK3CB_CSAT_W_O_MIG29SM";
         case "rhs_mig29sm_vvs";
         case "rhs_mig29s_vvs";
         case "rhsgref_cdf_b_mig29s";

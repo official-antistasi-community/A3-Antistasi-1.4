@@ -34,7 +34,7 @@
 ["vehiclesAmphibious", ["UK3CB_CSAT_A_O_Marid","UK3CB_CSAT_A_O_BTR80a","UK3CB_CSAT_A_O_BTR80a","UK3CB_CSAT_A_O_BMD2","UK3CB_CSAT_A_O_BMP3MERA","UK3CB_CSAT_A_O_BMP3M","UK3CB_CSAT_A_O_BMP3LATE"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["UK3CB_CSAT_A_O_Su25SM"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["UK3CB_CSAT_A_O_MIG29S","UK3CB_CSAT_A_O_MIG29SM"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["UK3CB_CSAT_A_O_MIG29SM"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["UK3CB_AAF_B_C130J_G"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_CSAT_A_O_Orca","UK3CB_CSAT_A_O_Bell412_Utility"]] call _fnc_saveToTemplate;

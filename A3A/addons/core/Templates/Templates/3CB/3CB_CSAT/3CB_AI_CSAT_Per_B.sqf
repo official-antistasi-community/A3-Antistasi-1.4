@@ -14,16 +14,16 @@
 ["vehiclesFuelTrucks", ["UK3CB_CSAT_B_O_MAZ_543_Refuel","UK3CB_CSAT_B_O_Ural_Fuel","UK3CB_CSAT_B_O_Kamaz_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["UK3CB_CSAT_B_O_Gaz66_Med","UK3CB_CSAT_B_O_GAZ_Vodnik_MedEvac","UK3CB_CSAT_B_O_Marid_Amb"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["UK3CB_CSAT_B_O_Marid","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BMD2"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["UK3CB_CSAT_B_O_Marid","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BMD2"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["UK3CB_CSAT_B_O_BMP3MERA","UK3CB_CSAT_B_O_BMP3M","UK3CB_CSAT_B_O_BMP3LATE"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["UK3CB_CSAT_B_O_T80A","UK3CB_CSAT_B_O_T80BV","UK3CB_CSAT_B_O_T80BVK","UK3CB_CSAT_B_O_T80U","UK3CB_CSAT_B_O_T80UK"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["UK3CB_CSAT_B_O_ZsuTank","UK3CB_CSAT_B_O_ZSU39"]] call _fnc_saveToTemplate;
 
 
-["vehiclesAmphibious", ["UK3CB_CSAT_B_O_Marid","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BMD2","UK3CB_CSAT_B_O_BMP3MERA","UK3CB_CSAT_B_O_BMP3M","UK3CB_CSAT_B_O_BMP3LATE"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["UK3CB_CSAT_B_O_Marid","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BTR80a","UK3CB_CSAT_B_O_BMD2","UK3CB_CSAT_B_O_BMP3MERA","UK3CB_CSAT_B_O_BMP3M","UK3CB_CSAT_B_O_BMP3LATE"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["UK3CB_CSAT_B_O_Su25SM"]] call _fnc_saveToTemplate;
-["vehiclesPlanesAA", ["UK3CB_CSAT_B_O_MIG29S","UK3CB_CSAT_B_O_MIG29SM"]] call _fnc_saveToTemplate;
+["vehiclesPlanesAA", ["UK3CB_CSAT_B_O_MIG29SM"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["UK3CB_CSAT_B_O_Orca","UK3CB_CSAT_B_O_Bell412_Utility"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["UK3CB_CSAT_B_O_Taru_covered","UK3CB_CSAT_B_O_Mi8"]] call _fnc_saveToTemplate;

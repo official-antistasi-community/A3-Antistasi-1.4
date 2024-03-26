@@ -349,6 +349,7 @@ class Templates
         side = "Inv";
         //Belarusian CSAT - proper camo for: temperate, arctic - suitable for: tropical and arid
         climate[] = {"temperate","tropical","arctic","arid"};
+        maps[] = {"enoch","vt7"};
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_cst\flag\csat_w_regiment_flag_co.paa";
         name = "3CB CSAT BEAR";
         file = "3CB_AI_CSAT_Bru";
@@ -358,6 +359,7 @@ class Templates
         side = "Inv";
         //Chinese CSAT - proper camo for: tropical - Suitable for: temperate
         climate[] = {"temperate","tropical"};
+        maps[] = {"tanoa"};
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_cst\flag\csat_g_regiment_flag_co.paa";
         name = "3CB CSAT VIPER";
         file = "3CB_AI_CSAT_Chi";
@@ -367,6 +369,7 @@ class Templates
         side = "Inv";
         //African CSAT - proper camo for: arid - ok for: temperate
         climate[] = {"arid"};
+        maps[] = {"malden"};
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_cst\flag\csat_a_regiment_flag_co.paa";
         name = "3CB CSAT SCIMITAR";
         file = "3CB_AI_CSAT_Fre";
@@ -376,6 +379,7 @@ class Templates
         side = "Inv";
         //Iranian CSAT - proper camo for: arid, temperate - suitable for: arctic - ok for: tropical
         climate[] = {"temperate","tropical","arctic","arid"};
+        maps[] = {"altis"};
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_cst\flag\csat_b_regiment_flag_co.paa";
         name = "3CB CSAT GRYPHON";
         file = "3CB_AI_CSAT_Per";

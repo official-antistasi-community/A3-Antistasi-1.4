@@ -424,6 +424,29 @@ _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B"]];
 
 
+if ("rf" in A3A_enabledDLC) then {
+
+
+    _sfLoadoutData set ["sidearms", [
+    ["hgun_Glock19_RF", "muzzle_snds_L", "acc_pointer_IR_pistol_RF", "optic_MRD_black", [], [], ""],
+    ["hgun_Glock19_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_black", [], [], ""]
+    ]];
+    
+    _militaryLoadoutData set ["sidearms", [
+    ["hgun_Glock19_khk_RF", "", "acc_pointer_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_khk_RF", "", "acc_pointer_IR_pistol_RF", "", [], [], ""]
+    ]];
+    
+    _policeLoadoutData set ["sidearms", [
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""]
+    ]];
+    
+    _militiaLoadoutData set ["sidearms", [
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""]
+    ]];
+    
+    _officerLoadoutData set ["sidearms", ["hgun_Glock19_RF"]];
+};
 if ("mark" in A3A_enabledDLC) then {
     (_sfLoadoutData get "machineGuns") append [
     ["MMG_02_black_F", "muzzle_snds_338_green", "acc_pointer_IR", "optic_Hamr_khk_F", [], [], "bipod_01_F_khk"], 

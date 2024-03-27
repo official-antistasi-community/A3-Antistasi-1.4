@@ -123,11 +123,6 @@ if (_type == "CAS") then
             _plane setVariable ["mainGun", "rhs_weap_M3W_A29"];
             _plane setVariable ["rocketLauncher", ["rhs_weap_FFARLauncher"]];
             _plane setVariable ["missileLauncher", ["rhs_weap_AGM114L_Launcher", "rhs_weap_gbu12"]];
-            [_plane] spawn {
-                params["_plane"];
-                while {((gunner _plane) isEqualTo objNull)} do {sleep 1};
-                (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
-            };
         };
         case "UK3CB_AAF_B_T28Trojan_CAS";
         case "UK3CB_ION_B_Desert_T28Trojan_CAS";

@@ -264,6 +264,16 @@ class Templates
         maps[] = {"chernarus_summer","chernarus_winter","chernarus"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
     };
+    class RHS_HIDF : RHS_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa";
+        name = "RHS HIDF";
+        file = "RHS_AI_HIDF";
+        maps[] = {"Tanoa"};
+        climate[] = {"tropical"};
+        logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+    };
     
     class RHS_CDF : RHS_Base
     {

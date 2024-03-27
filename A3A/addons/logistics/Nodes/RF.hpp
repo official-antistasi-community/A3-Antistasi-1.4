@@ -3,7 +3,7 @@
 //Default open pickup
 class lxRF_vehicles_rf_pickup_01_pickup_01_unarmed_rf_p3d : TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
+    class Nodes
     {
         class Node1
         {
@@ -19,7 +19,7 @@ class lxRF_vehicles_rf_pickup_01_pickup_01_unarmed_rf_p3d : TRIPLES(ADDON,Nodes,
 };
 class lxRF_vehicles_rf_pickup_01_pickup_01_mmg_rf_p3d : TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
+    class Nodes
     {
         class Node1
         {
@@ -35,7 +35,7 @@ class lxRF_vehicles_rf_pickup_01_pickup_01_mmg_rf_p3d : TRIPLES(ADDON,Nodes,Base
 };
 class lxRF_vehicles_rf_pickup_01_pickup_01_service_rf_p3d : TRIPLES(ADDON,Nodes,Base)
 {
-        class Nodes
+    class Nodes
     {
         class Node1
         {

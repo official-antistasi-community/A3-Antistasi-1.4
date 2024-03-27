@@ -52,7 +52,7 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesLightUnarmed append ["I_C_Pickup_rf"];
     _vehiclesLightArmed append ["I_C_Pickup_mmg_rf"];
     _staticMortars append ["I_G_CommandoMortar_RF"];
-    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_01_civ_RF","C_Heli_EC_04_rescue_RF"];
+    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
 };
 
 ["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
@@ -90,8 +90,6 @@ if ("enoch" in A3A_enabledDLC) then {
 if ("rf" in A3A_enabledDLC) then {
     _initialRebelEquipment append ["srifle_h6_oli_rf","10Rnd_556x45_AP_Stanag_red_khk_RF","10Rnd_556x45_AP_Stanag_khk_RF","10Rnd_556x45_AP_Stanag_green_khk_RF"];
     _initialRebelEquipment = _initialRebelEquipment - ["SMG_05_F","hgun_PDW2000_F","30Rnd_9x21_Mag_SMG_02"];
-} else {
-    _initialRebelEquipment append ["SMG_05_F","hgun_PDW2000_F","30Rnd_9x21_Mag_SMG_02"];
 };
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -126,25 +124,28 @@ private _rebUniforms = [
 
 private _dlcUniforms = [];
 
-if ("enoch" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_I_L_Uniform_01_camo_F"
-];
+if ("enoch" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_I_L_Uniform_01_camo_F"
+    ];
 };
 
-if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_lxWS_ION_Casual1",
-    "U_lxWS_ION_Casual2",
-    "U_lxWS_ION_Casual3",
-    "U_lxWS_ION_Casual4",
-    "U_lxWS_ION_Casual5",
-    "U_lxWS_SFIA_deserter"
-];
+if ("ws" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_lxWS_ION_Casual1",
+        "U_lxWS_ION_Casual2",
+        "U_lxWS_ION_Casual3",
+        "U_lxWS_ION_Casual4",
+        "U_lxWS_ION_Casual5",
+        "U_lxWS_SFIA_deserter"
+    ];
 };
 
-if ("rf" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_IG_Guerrilla_RF",
-    "U_IG_leader_RF"
-];
+if ("rf" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_IG_Guerrilla_RF",
+        "U_IG_leader_RF"
+    ];
 };
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;

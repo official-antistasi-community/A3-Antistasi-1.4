@@ -430,9 +430,9 @@ if ("rf" in A3A_enabledDLC) then {
     (_sfLoadoutData get "rifles") append [["arifle_ash12_blk_RF","suppressor_127x55_small_RF","acc_pointer_IR","optic_Holosight_blk_F",["20Rnd_127x55_Mag_RF","20Rnd_127x55_Mag_RF","20Rnd_127x55_Mag_RF"], [], ""]];
     (_sfLoadoutData get "grenadeLaunchers") append [["arifle_ash12_GL_blk_RF", "suppressor_127x55_small_RF", "acc_pointer_IR", "optic_Holosight_blk_F", ["20Rnd_127x55_Mag_RF","20Rnd_127x55_Mag_RF","20Rnd_127x55_Mag_RF"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]];
     (_sfLoadoutData get "marksmanRifles") append [
-    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF""acc_pointer_IR","optic_Arco_blk_F",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"],
-    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF""acc_pointer_IR","optic_DMS",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"],
-    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF""acc_pointer_IR","optic_SOS",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"]  
+    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF","acc_pointer_IR","optic_Arco_blk_F",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF","acc_pointer_IR","optic_DMS",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_blk_RF","suppressor_127x55_small_RF","acc_pointer_IR","optic_SOS",["10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF","10Rnd_127x55_Mag_RF"], [], "bipod_02_F_hex"]  
     ];
     (_sfLoadoutData get "helmets") append [
         "H_HelmetHeavy_Hex_RF",
@@ -442,30 +442,19 @@ if ("rf" in A3A_enabledDLC) then {
     (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
     (_sfLoadoutData get "SMGs") append [
     ["SMG_01_black_RF", "muzzle_snds_acp", "", "optic_Holosight", [], [], ""],
-    ["SMG_01_black_RF", "muzzle_snds_acp", "", "optic_Aco_smg", [], [], ""],
-    ["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "optic_Aco_smg", [], [], ""],
-    ["SMG_02_F", "muzzle_snds_L", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_02_F", "muzzle_snds_L", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]
+    ["SMG_01_black_RF", "muzzle_snds_acp", "", "optic_Aco_smg", [], [], ""]
     ];
     (_militaryLoadoutData get "SMGs") append [
     ["SMG_01_black_RF", "", "", "optic_Holosight", [], [], ""],
-    ["SMG_01_black_RF", "", "", "optic_Aco_smg", [], [], ""],
-    ["SMG_03C_TR_camo", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_03C_TR_camo", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""],
-    ["SMG_02_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_02_F", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]];
+    ["SMG_01_black_RF", "", "", "optic_Aco_smg", [], [], ""]
+    ];
     (_militiaLoadoutData get "SMGs") append [
-    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "", [], [], ""],
-    ["SMG_02_F", "", "acc_flashlight", "", [], [], ""]];
-    _policeLoadoutData set ["SMGs", [
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "", [], [], ""]
+    ];
+    (_policeLoadoutData get "SMGs") append [
     ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
-    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""],
-    ["SMG_03C_TR_black", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_03C_TR_black", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
-    ["SMG_02_F", "", "acc_flashlight", "optic_Holosight_blk_F", [], [], ""],
-    ["SMG_02_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""]
-    ]];
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""]
+    ];
     (_militaryLoadoutData get "helmets") append ["H_HelmetO_ocano_sb_hex_RF"];
     (_militiaLoadoutData get "helmets") append ["H_HelmetO_ocamo_sb_hex_RF"];
 };

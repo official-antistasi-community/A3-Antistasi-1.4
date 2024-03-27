@@ -9,13 +9,6 @@
 ["flagTexture", "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_Tanoa"] call _fnc_saveToTemplate;
 
-/////////////////////
-///  Identities   ///
-/////////////////////
-
-["faces", ["TanoanHead_A3_01","TanoanHead_A3_02","TanoanHead_A3_03","TanoanHead_A3_04",
-"TanoanHead_A3_05","TanoanHead_A3_06","TanoanHead_A3_07","TanoanHead_A3_08"]] call _fnc_saveToTemplate;
-["voices", ["Male01ENGFRE","Male02ENGFRE"]] call _fnc_saveToTemplate;
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
@@ -40,7 +33,7 @@
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
 
-["vehiclesTransportBoats", ["rhsgref_hidf_rhib","rhsgref_assault_boat"]] call _fnc_saveToTemplate;
+["vehiclesTransportBoats", ["rhsgref_hidf_rhib","B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
@@ -64,7 +57,7 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["rhsusf_m1151_m240_v3_usmc_wd"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["rhsusf_m1151_m240_v1_usarmy_wd"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["rhs_zil131_msv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_hidf_m998_4dr","rhsgref_hidf_M998_2dr"]] call _fnc_saveToTemplate;
 
@@ -82,21 +75,32 @@
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
-["minefieldAPERS", ["rhsusf_mine_m14"]] call _fnc_saveToTemplate;
+["minefieldAPERS", ["rhs_mine_Mk2_tripwire", "rhsusf_mine_m49a1_6m"]] call _fnc_saveToTemplate;
 
 #include "RHS_Vehicle_Attributes.sqf"
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["TanoanHead_A3_01","TanoanHead_A3_02","TanoanHead_A3_03","TanoanHead_A3_04",
+"TanoanHead_A3_05","TanoanHead_A3_06","TanoanHead_A3_07","TanoanHead_A3_08"]] call _fnc_saveToTemplate;
+["voices", ["Male01ENGFRE","Male02ENGFRE"]] call _fnc_saveToTemplate;
+["sfFaces", ["AfricanHead_01", "AfricanHead_02", "AfricanHead_03", "Barklem", "GreekHead_A3_05", "GreekHead_A3_06", "GreekHead_A3_07", "GreekHead_A3_08", "GreekHead_A3_09", "Sturrock", "WhiteHead_01", "WhiteHead_02", "WhiteHead_03", "WhiteHead_04", "WhiteHead_05", "WhiteHead_06", "WhiteHead_08", "WhiteHead_09", "WhiteHead_10", "WhiteHead_11", "WhiteHead_12", "WhiteHead_13", "WhiteHead_14", "WhiteHead_15", "WhiteHead_16", "WhiteHead_17", "WhiteHead_18", "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
+["sfVoices", ["Male01ENG", "Male02ENG", "Male03ENG", "Male04ENG", "Male05ENG", "Male06ENG", "Male07ENG", "Male08ENG", "Male09ENG", "Male10ENG", "Male11ENG", "Male12ENG"]] call _fnc_saveToTemplate;
+"TanoanMen" call _fnc_saveNames;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
 private _loadoutData = call _fnc_createLoadoutData;
-_loadoutData set ["rifles", [];
+_loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["gltube", [["rhs_weap_m79", "", "", "",["1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","UGL_FlareRed_F"], [], ""]]];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", [
-];
+_loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", ["rhs_weap_m72a7"]];
@@ -113,12 +117,12 @@ _loadoutData set ["AALaunchers", ["rhs_weap_fim92"]];
 _loadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 
 _loadoutData set ["ATMines", ["rhs_mine_M19_mag"]];
-_loadoutData set ["APMines", ["APERSTripMine","APERSMine", "APERSBoundingMine"]];
+_loadoutData set ["APMines", ["rhs_mine_Mk2_tripwire_mag","rhs_mine_Mk2_tripwire_mag", "rhsusf_mine_m49a1_6m_mag"]];
 _loadoutData set ["lightExplosives", ["rhsusf_m112_mag", "rhs_ec200_mag"]];
 _loadoutData set ["heavyExplosives", ["rhsusf_m112x4_mag", "rhs_ec400_mag"]];
 
 _loadoutData set ["antiTankGrenades", []];
-_loadoutData set ["antiInfantryGrenades", ["rhs_grenade_mkii_mag","rhs_grenade_mkiiia1_mag","rhs_mag_f1"]];
+_loadoutData set ["antiInfantryGrenades", ["rhs_grenade_mkii_mag"]];
 _loadoutData set ["smokeGrenades", ["rhs_grenade_m15_mag"]];
 _loadoutData set ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow","rhs_mag_nspn_red"]];
 
@@ -180,7 +184,7 @@ _sfLoadoutData set ["backpacks", ["rhsgref_hidf_alicepack"]];
 _sfLoadoutData set ["helmets", ["H_Bandanna_khk_hs", "H_Cap_oli_hs", "rhsusf_ach_helmet_M81", "rhsusf_ach_bare_headset_ess", "rhsusf_ach_bare_headset", "rhsusf_ach_bare_ess", "rhsusf_ach_bare"]];
 _sfLoadoutData set ["binoculars", ["Rangefinder"]];
 _sfLoadoutData set ["slHat", ["H_MilCap_tna_F"]];
-_sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15", ""]];
+_sfLoadoutData set ["NVGs", ["rhsusf_ANPVS_15", "rhsusf_ANPVS_14"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["rifles", [
@@ -195,7 +199,7 @@ _sfLoadoutData set ["carbines", [
 ["rhs_weap_m4a1_carryhandle", "rhsusf_acc_rotex5_grey", "acc_flashlight", "", 		["rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["rhs_weap_m4a1_carryhandle_M203", "", "", "rhsusf_acc_compm4",	["rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","UGL_FlareRed_F"], ""]]];
+["rhs_weap_m4a1_carryhandle_m203", "rhsusf_acc_rotex5_grey", "", "rhsusf_acc_compm4",	["rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","UGL_FlareRed_F"], ""]]];
 _sfLoadoutData set ["SMGs", [
 ["rhs_weap_m3a1_specops", "", "", "rhsusf_acc_compm4", ["rhsgref_30rnd_1143x23_M1911B_SMG"], [], ""],
 ["rhs_weap_m4a1_carryhandle", "rhsusf_acc_rotex5_grey", "acc_flashlight", "", ["rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""]
@@ -207,7 +211,7 @@ _sfLoadoutData set ["marksmanRifles", [
 ["rhs_weap_m14_rail_fiberglass", "rhsusf_acc_aac_m14dcqd_silencer", "", "rhsusf_acc_M8541_low", ["rhsusf_20Rnd_762x51_m80_Mag"], [], "rhsusf_acc_m14_bipod"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
-["rhs_weap_m24sws", "", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
+["rhs_weap_m24sws", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m993_Mag"], [], "rhsusf_acc_harris_swivel"],
 ["rhs_weap_m14_rail_fiberglass", "rhsusf_acc_aac_m14dcqd_silencer", "", "rhsusf_acc_M8541_low", ["rhsusf_20Rnd_762x51_m118_special_Mag"], [], "rhsusf_acc_m14_bipod"]
 ]];
 //_sfLoadoutData set ["sidearms", []];
@@ -245,7 +249,7 @@ _militaryLoadoutData set ["machineGuns", [
 _militaryLoadoutData set ["marksmanRifles", [
 ["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2",["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
 ["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2",["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
-["rhs_weap_m14_rail", "", "", "rhsusf_acc_M8541_low",["rhsusf_20Rnd_762x51_m80_Mag"], [], "rhsusf_acc_m14_bipod"]]
+["rhs_weap_m14_rail", "", "", "rhsusf_acc_M8541_low",["rhsusf_20Rnd_762x51_m80_Mag"], [], "rhsusf_acc_m14_bipod"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["rhs_weap_m14_rail", "", "", "rhsusf_acc_M8541_low",["rhsusf_20Rnd_762x51_m80_Mag"], [], "rhsusf_acc_m14_bipod"], 
@@ -284,8 +288,10 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["rhsgref_uniform_og107", "rhsgref_uniform_og107_erdl"]];
 _militiaLoadoutData set ["vests", ["rhsgref_chestrig","rhsgref_chicom","rhsgref_alice_webbing"]];
 _militiaLoadoutData set ["backpacks", ["rhsusf_falconii"]];
-_militiaLoadoutData set ["helmets", ["rhsgref_hat_M1951"]];
+_militiaLoadoutData set ["helmets", ["rhsgref_hat_M1951","rhsgref_helmet_M1_bare","rhsgref_helmet_M1_erdl"]];
 _militiaLoadoutData set ["NVGs", []];
+
+_militiaLoadoutData set ["antiInfantryGrenades", ["rhs_mag_f1"]];
 
 _militiaLoadoutData set ["ATLaunchers", [
 ["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HE"], [], ""],
@@ -298,6 +304,7 @@ _militiaLoadoutData set ["rifles", [
 ]];
 _militiaLoadoutData set ["carbines", ["rhs_weap_m1garand_sa43"]];
 _militiaLoadoutData set ["grenadeLaunchers", [
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", 	["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
 ["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", 	["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
 ["rhs_weap_m16a4_carryhandle_M203", "rhsusf_acc_SF3P556", "", "",	["rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell","1Rnd_Smoke_Grenade_shell","UGL_FlareRed_F"], ""],
 "rhs_weap_m1garand_sa43"

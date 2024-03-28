@@ -382,15 +382,9 @@ private _riflemanTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     [selectRandomWeighted ["rifles", 3, "carbines", 1]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-
-    if (random 1 > 0.5) then {
-        ["sidearms"] call _fnc_setHandgun;
-        ["handgun", 2] call _fnc_addMagazines;
-	};
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_rifleman_extras"] call _fnc_addItemSet;
@@ -516,7 +510,6 @@ private _latTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -628,7 +621,6 @@ private _marksmanTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["marksmanRifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -654,7 +646,6 @@ private _sniperTemplate = {
     ["sniHats"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     ["sniperRifles"] call _fnc_setPrimary;
     ["primary", 7] call _fnc_addMagazines;
@@ -680,7 +671,6 @@ private _policeTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
 
     [selectRandomWeighted ["carbines", 1, "SMGs",2, "shotguns", 1]] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;

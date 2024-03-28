@@ -52,7 +52,7 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesLightUnarmed append ["I_G_Pickup_rf"];
     _vehiclesLightArmed append ["I_G_Pickup_mmg_rf"];
     _staticMortars append ["I_G_CommandoMortar_RF"];
-    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_01_civ_RF","C_Heli_EC_04_rescue_RF"];
+    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
 };
 
 if ("ws" in A3A_enabledDLC) then {
@@ -98,8 +98,6 @@ if ("expansion" in A3A_enabledDLC) then {
 if ("rf" in A3A_enabledDLC) then {
     _initialRebelEquipment append ["srifle_h6_tan_rf","10Rnd_556x45_AP_Stanag_red_Tan_RF","10Rnd_556x45_AP_Stanag_Tan_RF","10Rnd_556x45_AP_Stanag_green_Tan_RF"];
     _initialRebelEquipment = _initialRebelEquipment - ["SMG_05_F","SMG_01_F","hgun_PDW2000_F","SMG_02_F","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02"];
-} else {
-    _initialRebelEquipment append ["SMG_01_F","hgun_PDW2000_F","SMG_02_F","30Rnd_45ACP_Mag_SMG_01","30Rnd_9x21_Mag_SMG_02"];
 };
 if ("enoch" in A3A_enabledDLC) then {
     _initialRebelEquipment append ["sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
@@ -127,40 +125,44 @@ private _rebUniforms = [
 
 private _dlcUniforms = [];
 
-if ("enoch" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_I_L_Uniform_01_camo_F"
-];
+if ("enoch" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_I_L_Uniform_01_camo_F"
+    ];
 };
 
-if ("expansion" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_I_C_Soldier_Bandit_4_F",
-    "U_I_C_Soldier_Bandit_1_F",
-    "U_I_C_Soldier_Bandit_2_F",
-    "U_I_C_Soldier_Bandit_5_F",
-    "U_I_C_Soldier_Bandit_3_F",
-    "U_I_C_Soldier_Para_2_F",
-    "U_I_C_Soldier_Para_3_F",
-    "U_I_C_Soldier_Para_5_F",
-    "U_I_C_Soldier_Para_4_F",
-    "U_I_C_Soldier_Para_1_F",
-    "U_I_C_Soldier_Camo_F"
-];
+if ("expansion" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_I_C_Soldier_Bandit_4_F",
+        "U_I_C_Soldier_Bandit_1_F",
+        "U_I_C_Soldier_Bandit_2_F",
+        "U_I_C_Soldier_Bandit_5_F",
+        "U_I_C_Soldier_Bandit_3_F",
+        "U_I_C_Soldier_Para_2_F",
+        "U_I_C_Soldier_Para_3_F",
+        "U_I_C_Soldier_Para_5_F",
+        "U_I_C_Soldier_Para_4_F",
+        "U_I_C_Soldier_Para_1_F",
+        "U_I_C_Soldier_Camo_F"
+    ];
 };
 
-if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_lxWS_ION_Casual1",
-    "U_lxWS_ION_Casual2",
-    "U_lxWS_ION_Casual3",
-    "U_lxWS_ION_Casual4",
-    "U_lxWS_ION_Casual5",
-    "U_lxWS_SFIA_deserter"
-];
+if ("ws" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_lxWS_ION_Casual1",
+        "U_lxWS_ION_Casual2",
+        "U_lxWS_ION_Casual3",
+        "U_lxWS_ION_Casual4",
+        "U_lxWS_ION_Casual5",
+        "U_lxWS_SFIA_deserter"
+    ];
 };
 
-if ("rf" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_IG_Guerrilla_RF",
-    "U_IG_leader_RF"
-];
+if ("rf" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_IG_Guerrilla_RF",
+        "U_IG_leader_RF"
+    ];
 };
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;

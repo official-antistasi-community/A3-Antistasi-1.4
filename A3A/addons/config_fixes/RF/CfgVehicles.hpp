@@ -56,7 +56,7 @@ class CfgVehicles
                     class Empty {
                         attachment[] = {};
                         displayName = "Empty";
-                    }; // this is why we cant have nice things
+                    };
                 };
                 class Pylons {
                     class PylonLeft1 {
@@ -121,7 +121,7 @@ class CfgVehicles
         class Components;
     };
     class a3a_Heli_EC_02_RF : Heli_EC_02_base_RF {
-        scope = 2
+        scope = 2;
         faction = "IND_F";
         side = 2;
         hiddenSelectionTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
@@ -133,10 +133,6 @@ class CfgVehicles
                         attachment[] = {"PylonRack_4Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel"};
                         displayName = "AT";
                     };
-                    class CAS {
-                        attachment[] = {"PylonRack_19Rnd_Rocket_Skyfire","PylonMissile_1Rnd_Bomb_03_F","PylonMissile_1Rnd_Bomb_03_F","PylonRack_19Rnd_Rocket_Skyfire"};
-                        displayName = "CAS";
-                    };
                     class Default {
                         attachment[] = {"PylonRack_19Rnd_missiles_olive_RF","PylonRack_4Rnd_LG_scalpel","PylonRack_4Rnd_LG_scalpel","PylonRack_19Rnd_missiles_olive_RF"};
                         displayName = "Default";
@@ -144,11 +140,7 @@ class CfgVehicles
                     class Empty {
                         attachment[] = {};
                         displayName = "Empty";  
-                    }; // this is why we cant have nice things
-                    class HAT {
-                        attachment[] = {"PylonRack_4Rnd_LG_scalpel","PylonRack_1Rnd_Missile_AGM_01_F","PylonRack_1Rnd_Missile_AGM_01_F","PylonRack_4Rnd_LG_scalpel"};
-                        displayName = "Heavy AT"; 
-                    };
+                    }; 
                 };
                 class Pylons {
                     class PylonLeft1 {

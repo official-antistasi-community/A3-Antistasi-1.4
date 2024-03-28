@@ -6,12 +6,14 @@
 ["spawnMarkerName", "Wehrmacht Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\flag_weh.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Pictures\Flags\ifa_weh.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3a_flag_WEH"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
+
+["attributeLowAir", true] call _fnc_saveToTemplate;
 
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
@@ -61,7 +63,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_Ju87","LIB_FW190F8_2"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -94,7 +96,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 ["staticMGs", ["LIB_MG42_Lafette_low_Deployed","LIB_MG34_Lafette_low_Deployed"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Pak40_g","LIB_Pak40_g","LIB_leFH18_AT"]] call _fnc_saveToTemplate;
-["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_30","LIB_FlaK_30","LIB_FlaK_38","LIB_FlaK_38","LIB_Flakvierling_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
+["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_38","LIB_FlaK_38","LIB_FlaK_38","LIB_FlaK_38","LIB_Flakvierling_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_GrWr34","LIB_GrWr34_g"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "LIB_8Rnd_81mmHE_GRWR34"] call _fnc_saveToTemplate;
@@ -153,7 +155,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_NB39"]];
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["LIB_GER_ItemWatch"]];
 _loadoutData set ["compasses", ["LIB_GER_ItemCompass_deg"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_GER"]];
@@ -211,7 +213,6 @@ _sfLoadoutData set ["vests", ["V_LIB_GER_VestG43", "V_LIB_GER_VestSTG"]];
 _sfLoadoutData set ["slVests", ["V_LIB_GER_VestUnterofficer"]];
 _sfLoadoutData set ["backpacks", ["B_LIB_GER_Backpack"]];
 _sfLoadoutData set ["helmets", ["H_LIB_ST_Helmet2"]];
-_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", []];

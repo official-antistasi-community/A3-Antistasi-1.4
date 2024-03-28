@@ -6,12 +6,14 @@
 ["spawnMarkerName", "Soviet Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\flag_sov.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Pictures\Flags\ifa_sov.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3a_flag_SOV"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
+
+["attributeLowAir", true] call _fnc_saveToTemplate;
 
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_Lone_Big_Box"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
@@ -27,8 +29,8 @@
 ["vehiclesRepairTrucks", ["LIB_Zis6_Parm"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["LIB_Zis5v_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["LIB_Zis5v_Med"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["LIB_SOV_M3_Halftrack", "LIB_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", ["LIB_SOV_M3_Halftrack", "LIB_SdKfz251_captured_FFV"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesLightAPCs", ["LIB_SOV_M3_Halftrack", "LIB_SOV_M3_Halftrack", "LIB_SdKfz251_captured_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 ["vehiclesLightTanks", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", [
@@ -39,7 +41,7 @@
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_Pe2"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -132,7 +134,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_RDG"]];
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_SU"]];
@@ -192,7 +194,6 @@ _sfLoadoutData set ["backpacks", ["B_LIB_SOV_RA_Rucksack2_Gas_Kit_Shinel"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 _sfLoadoutData set ["helmets", ["H_LIB_SOV_RA_Helmet"]];
 _sfLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_Helmet"]];
-_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["slWeapons", [

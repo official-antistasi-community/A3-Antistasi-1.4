@@ -13,6 +13,8 @@
 //       Vehicles       //
 //////////////////////////
 
+["attributeLowAir", true] call _fnc_saveToTemplate;
+
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_BasicAmmunitionBox_US"] call _fnc_saveToTemplate;
 ["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate;
@@ -54,7 +56,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_UK_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_RAF_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -147,7 +149,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_US_M18_Green","LIB_US_M18_Red","L
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_UK"]];
@@ -198,9 +200,9 @@ _sfLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
 _sfLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
-_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
-_sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
-_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"]];
+_sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_Sten_Mk5"], ["LIB_50Rnd_45ACP", "LIB_30Rnd_45ACP"], [], ""]];
+_sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine", "LIB_M1A1_Carbine", ["LIB_DELISLE", "", "", "", ["LIB_7Rnd_45ACP"], [], ""]]];
+_sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_Sten_Mk5", ["LIB_M1928_Thompson", "", "", "", ["LIB_50Rnd_45ACP", "LIB_30Rnd_45ACP"], [], ""]]];
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
@@ -245,7 +247,7 @@ _crewLoadoutData set ["uniforms", ["U_LIB_UK_P37_Sergeant", "U_LIB_UK_P37"]];
 _crewLoadoutData set ["vests", ["V_LIB_UK_P37_Crew"]];
 _crewLoadoutData set ["helmets", ["H_LIB_UK_Beret_Tankist", "H_LIB_UK_Beret_Headset"]];
 
-_crewLoadoutData set ["sidearms", ["LIB_Webley_mk6"]];
+_crewLoadoutData set ["sidearms", ["LIB_Colt_M1911", "LIB_Webley_mk6", "LIB_Webley_mk6"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_LIB_US_Pilot", "U_LIB_US_Pilot_2"]];
@@ -587,11 +589,12 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
-        ["primary", 2] call _fnc_addMagazines;
+        ["primary", 3] call _fnc_addMagazines;
+    } else {
+        ["sidearms"] call _fnc_setHandgun;
+        ["handgun", 4] call _fnc_addMagazines;
     };
 
-    ["sidearms"] call _fnc_setHandgun;
-    ["handgun", 4] call _fnc_addMagazines;
 
     ["items_medical_basic"] call _fnc_addItemSet;
     ["items_crew_extras"] call _fnc_addItemSet;

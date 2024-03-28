@@ -5,7 +5,7 @@
 ["name", "FFI"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\flag_ffi.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Pictures\Flags\ifa_ffi.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3a_flag_FFI"] call _fnc_saveToTemplate;
 
 //////////////////////////
@@ -24,10 +24,10 @@
 //////////////////////////
 
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_GazM1_FFI", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["LIB_GazM1_FFI"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
 ["vehiclesTruck", ["LIB_CIV_FFI_CitC4_5"]] call _fnc_saveToTemplate;
-["vehiclesAT", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate; //Remove maybe
+["vehiclesAT", []] call _fnc_saveToTemplate; //Remove maybe
 ["vehiclesAA", []] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["LIB_LCA"]] call _fnc_saveToTemplate;
@@ -58,19 +58,19 @@ switch (A3A_climate) do
 {
 	case "arid": { 
         ["vehiclesBasic", ["LIB_US_NAC_Willys_MB"]] call _fnc_saveToTemplate;
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_sand", "LIB_US_NAC_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_sand"]] call _fnc_saveToTemplate;
         ["vehiclesLightArmed", ["LIB_US_NAC_Willys_MB_M1919"]] call _fnc_saveToTemplate;
     };
 	case "arctic": { 
         ["vehiclesBasic", ["LIB_Willys_MB_w"]] call _fnc_saveToTemplate;
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI", "LIB_Willys_MB_Hood_w"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_Willys_MB_Hood_w"]] call _fnc_saveToTemplate;
         ["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919_w"]] call _fnc_saveToTemplate;
         
         ["staticAT", ["LIB_Zis3_w"]] call _fnc_saveToTemplate;
         ["staticAA", ["LIB_FlaK_30_w"]] call _fnc_saveToTemplate;
     };
 	case "tropical": { 
-        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_camo", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
+        ["vehiclesLightUnarmed", ["LIB_GazM1_FFI_camo"]] call _fnc_saveToTemplate;
     };
 };
 

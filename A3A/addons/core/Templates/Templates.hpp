@@ -995,7 +995,7 @@ class Templates
     class IFA_WEH : IFA_Base
     {
         side = "Inv";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_weh.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_weh.paa";
         name = "IFA WEHRMACHT";
         priority = 65;
         file = "IFA_AI_WEH";
@@ -1003,14 +1003,14 @@ class Templates
     class IFA_SOV : IFA_Base
     {
         side = "Inv";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_sov.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_sov.paa";
         name = "IFA SOVIET ARMY";
         file = "IFA_AI_SOV";
     };
     class IFA_ALLIES : IFA_Base
     {
         side = "Occ";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_allies.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_allies.paa";
         name = "IFA ALLIES";
         priority = 65;
         file = "IFA_AI_ALLIES";
@@ -1032,7 +1032,7 @@ class Templates
     class IFA_FFI : IFA_Base
     {
         side = "Reb";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ffi.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_ffi.paa";
         name = "IFA French Resistance";
         priority = 65;
         file = "IFA_REB_FFI";
@@ -1042,7 +1042,7 @@ class Templates
     class IFA_AK : IFA_Base
     {
         side = "Reb";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ak.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_ak.paa";
         name = "IFA Polish Resistance";
         file = "IFA_REB_AK";
         maps[] = {"Staszow"};
@@ -1051,7 +1051,7 @@ class Templates
     class IFA_CIV_FR : IFA_Base
     {
         side = "Civ";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_fr.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_fr.paa";
         name = "IFA French";
         priority = 65;
         file = "IFA_CIV_FR";
@@ -1060,7 +1060,7 @@ class Templates
     class IFA_CIV_PL : IFA_Base
     {
         side = "Civ";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_pl.paa);
+        flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_pl.paa";
         name = "IFA Polish";
         file = "IFA_CIV_PL";
         maps[] = {"Staszow"};

@@ -39,25 +39,31 @@ class CfgMarkers
     class a3a_flag_FFI : flag_NATO 
     {
         name = "FFI";
-        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
-        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_ffi.paa);
+        icon = QPATHTOFOLDER(Pictures\Markers\ifa_ffi.paa);
+        texture = QPATHTOFOLDER(Pictures\Markers\ifa_ffi.paa);
+    };
+    class a3a_flag_AK : flag_NATO 
+    {
+        name = "AK";
+        icon = QPATHTOFOLDER(Pictures\Markers\ifa_ak.paa);
+        texture = QPATHTOFOLDER(Pictures\Markers\ifa_ak.paa);
     };
     class a3a_flag_ALLIES : flag_NATO 
     {
         name = "ALLIES";
-        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
-        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_allies.paa);
+        icon = QPATHTOFOLDER(Pictures\Markers\ifa_allies.paa);
+        texture = QPATHTOFOLDER(Pictures\Markers\ifa_allies.paa);
     };
     class a3a_flag_WEH : flag_NATO 
     {
         name = "WEH";
-        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
-        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_weh.paa);
+        icon = QPATHTOFOLDER(Pictures\Markers\ifa_weh.paa);
+        texture = QPATHTOFOLDER(Pictures\Markers\ifa_weh.paa);
     };
     class a3a_flag_SOV : flag_NATO 
     {
         name = "SOV";
-        icon = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
-        texture = QPATHTOFOLDER(Templates\Templates\IFA\marker_sov.paa);
+        icon = QPATHTOFOLDER(Pictures\Markers\ifa_sov.paa);
+        texture = QPATHTOFOLDER(Pictures\Markers\ifa_sov.paa);
     };
 };

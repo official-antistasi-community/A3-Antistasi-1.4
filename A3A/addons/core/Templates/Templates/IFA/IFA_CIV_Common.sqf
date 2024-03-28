@@ -4,9 +4,9 @@
 ["vehiclesCivCar", [ 
     "LIB_GazM1", 1.5, 
     "LIB_GazM1_dirty", 2.5,
-    "LIB_CIV_FFI_CitC4", 0.25, 
-    "LIB_CIV_FFI_CitC4_2", 0.25, 
-    "LIB_CIV_FFI_CitC4_3", 0.25
+    "LIB_CIV_FFI_CitC4", 0.125, 
+    "LIB_CIV_FFI_CitC4_2", 0.125, 
+    "LIB_CIV_FFI_CitC4_3", 0.125
     ]] call _fnc_saveToTemplate;             //this line determines civilian cars -- Example: ["vehiclesCivCar", ["C_Offroad_01_F"]] -- Array, can contain multiple assets
 
 ["vehiclesCivIndustrial", [

@@ -13,6 +13,8 @@
 //       Vehicles       //
 //////////////////////////
 
+["attributeLowAir", true] call _fnc_saveToTemplate;
+
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_BasicAmmunitionBox_US"] call _fnc_saveToTemplate;
 ["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate;
@@ -52,7 +54,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_P47","LIB_P47","LIB_US_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -144,7 +146,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_US_M18_Green","LIB_US_M18_Red","L
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_US"]];
@@ -610,7 +612,10 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
-        ["primary", 2] call _fnc_addMagazines;
+        ["primary", 3] call _fnc_addMagazines;
+    } else {
+        ["sidearms"] call _fnc_setHandgun;
+        ["handgun", 4] call _fnc_addMagazines;
     };
 
     ["sidearms"] call _fnc_setHandgun;

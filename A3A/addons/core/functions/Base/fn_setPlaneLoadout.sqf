@@ -433,7 +433,7 @@ if (_type == "AA") then
         {
             _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_type2_P_3rnd_M","FIR_Brimstone_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
         };
-        //AA Planes to be used without pylons, ie ww2
+        //AA Planes to be used without pylons, ie ww2 aircraft
         case "LIB_P39";
         case "LIB_RA_P39_2";
         case "LIB_RA_P39_3";

@@ -6,12 +6,14 @@
 ["spawnMarkerName", "Allies Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "\x\A3A\addons\core\Templates\Templates\IFA\flag_allies.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\x\A3A\addons\core\Pictures\Flags\ifa_allies.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "a3a_flag_ALLIES"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
+
+["attributeLowAir", true] call _fnc_saveToTemplate;
 
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_BasicAmmunitionBox_US"] call _fnc_saveToTemplate;
@@ -54,7 +56,7 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
-["vehiclesGunBoats", ["LIB_LCM3_Armed"]] call _fnc_saveToTemplate;
+["vehiclesGunBoats", ["LIB_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_P47","LIB_P47","LIB_RAF_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -148,7 +150,7 @@ _loadoutData set ["signalsmokeGrenades", ["LIB_US_M18_Green","LIB_US_M18_Red","L
 _loadoutData set ["maps", ["ItemMap"]];
 _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
-_loadoutData set ["radios", []];
+_loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", []];
 _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_US"]];
@@ -206,7 +208,6 @@ _sfLoadoutData set ["backpacks", ["B_LIB_US_M36_Bandoleer"]];
 _sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns"]];
 _sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
-_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", [
@@ -247,8 +248,7 @@ _militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson",
 _militaryLoadoutData set ["rifles", [["LIB_M1_Garand", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1_Garand" ]];
 _militaryLoadoutData set ["carbines", ["LIB_M1_Carbine"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_M3_GreaseGun", "LIB_M3_GreaseGun", "LIB_M1A1_Thompson"]];
 _militaryLoadoutData set ["machineGuns", [

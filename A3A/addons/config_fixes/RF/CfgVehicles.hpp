@@ -77,15 +77,17 @@ class CfgVehicles
                         attachment = "PylonRack_19Rnd_missiles_gray_RF";
                         hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
                         priority = 5;
+                        mirroredMissilePos = 1;
                         turret[] = {0};
-                        UIposition[] = {"0.57 + 0.04",0.35};
+                        UIposition[] = {"0.59 + 0.04",0.4};
                     };
                     class PylonRight2 {
                         attachment = "PylonRack_19Rnd_missiles_gray_RF";
                         hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
                         priority = 4;
+                        mirroredMissilePos = 2;
                         turret[] = {0};
-                        UIposition[] = {"0.59 + 0.04",0.4};
+                        UIposition[] = {"0.57 + 0.04",0.35};
                     };
 
                 };
@@ -114,7 +116,7 @@ class CfgVehicles
     };
     class a3a_green_Heli_light_03_unarmed_RF : B_Heli_light_03_unarmed_RF {
         textureList[] = {};
-        hiddenselectionstextures[] = {"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_CO.paa","\lxRF\air_rf\Heli_Light_03\data\wildcat_addons_green_co.paa"};
+        hiddenSelectionsTextures[] = {"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_CO.paa","\lxRF\air_rf\Heli_Light_03\data\wildcat_addons_green_co.paa"};
     };
 
     class Heli_EC_02_base_RF: Heli_EC_01_base_RF {
@@ -124,7 +126,7 @@ class CfgVehicles
         scope = 2;
         faction = "IND_F";
         side = 2;
-        hiddenSelectionTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
         class Components : Components {
             class TransportPylonsComponent {
                 uiPicture = "\lxRF\air_rf\heli_medium_ec\data\UI\heli_medium_ec_02_3DEN_CA.paa";
@@ -158,22 +160,21 @@ class CfgVehicles
                         UIposition[] = {0.08,0.35};
                     };
                     class PylonRight1 {
-                        attachment = "PylonRack_19Rnd_missiles_olive_RF";
-                        hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
-                        priority = 5;
-                        mirroredMissilePos = 1;
-                        turret[] = {0};
-                        UIposition[] = {0.59,0.4};
-                    };
-                    class PylonRight2 {
                         attachment = "PylonRack_4Rnd_LG_scalpel";
                         hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
-                        priority = 4;
+                        priority = 5;
                         mirroredMissilePos = 2;
                         turret[] = {0};
                         UIposition[] = {0.57,0.35};
                     };
-
+                    class PylonRight2 {
+                        attachment = "PylonRack_19Rnd_missiles_olive_RF";
+                        hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
+                        priority = 4;
+                        mirroredMissilePos = 1;
+                        turret[] = {0};
+                        UIposition[] = {0.59,0.4};
+                    };
                 };
             };
         };

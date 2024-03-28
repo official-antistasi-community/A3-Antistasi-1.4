@@ -473,11 +473,11 @@ _reportReplaced = "";
 {
 	_nameNew = [_x select 0] call _lookupConfigName;
 	_nameOld = [_x select 1] call _lookupConfigName;
-	_reportReplaced = _reportReplaced + _nameOld + localize "STR_A3A_JNA_loadinventory_kept" + _nameNew + "\n";
+	_reportReplaced = _reportReplaced + _nameOld + localize "STR_A3A_JNA_loadinventory_kept" + "<br/>" + _nameNew + "\n";
 } forEach _arrayReplaced;
 
 if!(_reportReplaced isEqualTo "")then{
-	_reportTotal = (localize "STR_A3A_JNA_loadinventory_notin_kept" + _reportReplaced+"\n");
+	_reportTotal = (localize "STR_A3A_JNA_loadinventory_notin_kept" + "<br/>" + _reportReplaced +"\n");
 };
 
 _reportMissing = "";

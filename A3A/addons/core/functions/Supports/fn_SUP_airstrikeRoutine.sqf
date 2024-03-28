@@ -42,7 +42,7 @@ _group deleteGroupWhenEmpty true;
 // Should we really have these?
 _plane addEventHandler ["Killed", {
     params ["_plane"];
-    ["TaskSucceeded", ["", "Airstrike Vessel Destroyed"]] remoteExec ["BIS_fnc_showNotification", teamPlayer]; //TODO: Localize
+    ["TaskSucceeded", ["", localize "STR_A3A_fn_supports_airStrikeVesselDown"]] remoteExec ["BIS_fnc_showNotification", teamPlayer];
 }];
 
 //["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]
@@ -57,7 +57,7 @@ if (_bombType == "HE") then {_bombCount = _bombCount * 2};
 private _bombParams = [_plane, _bombType, _bombCount, 200];
 private _flightSpeed = ["LIMITED", "NORMAL", "FULL"] select (round random [1, _aggroValue / 50, 0]);
 if (_isHelicopter) then {_flightSpeed = "FULL"};
-Info_3("Airstrike %1 will be carried out with %2 bombs at %3 speed", _supportName, _bombCount, toLower _flightSpeed);
+Info_5("Airstrike %1 against %2 with %3 %4 bombs at %5 speed", _supportName, _targetPos, _bombCount, _bombType, toLower _flightSpeed);
 
 _plane flyInHeight 150;
 private _minAltASL = (ATLToASL [_targetPos select 0, _targetPos select 1, 0])#2 +150;

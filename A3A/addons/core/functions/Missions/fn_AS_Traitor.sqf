@@ -113,7 +113,11 @@ if (random 10 < 2.5) then
 
 {[_x,""] call A3A_fnc_NATOinit} forEach units _groupX;
 
-waitUntil {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)}}}};
+waitUntil {sleep 1; 
+			(traitorIntel) || 
+			{(dateToNumber date > _dateLimitNum) ||
+			{(!([_traitor] call A3A_fnc_canFight)) ||
+			{({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0)}}}};
 
 if ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_fnc_distanceUnits) > 0) then
 	{
@@ -128,9 +132,14 @@ if ({_traitor knowsAbout _x > 1.4} count ([500,0,_traitor,teamPlayer] call A3A_f
 	_wp1 setWaypointSpeed "FULL";
 	};
 
-waitUntil  {sleep 1; (traitorIntel) || {(dateToNumber date > _dateLimitNum) or {(not alive _traitor) or {(_traitor distance _posBase < 20)}}}};
 
-if (not alive _traitor || traitorIntel) then
+waitUntil {sleep 1; 
+			(traitorIntel) || 
+			{(dateToNumber date > _dateLimitNum) || 
+			{(!([_traitor] call A3A_fnc_canFight)) ||
+			{(_traitor distance _posBase < 20)}}}};
+
+if (!([_traitor] call A3A_fnc_canFight) || traitorIntel) then
 {
 	[_taskId, "AS", "SUCCEEDED", false] call A3A_fnc_taskSetState;
 	if(traitorIntel && (alive _traitor)) then

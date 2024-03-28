@@ -43,8 +43,8 @@ while {true} do {
 private _heliPool = (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") + (_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack");
 private _typeVehH = selectRandom (_heliPool select {_x isKindOf "Helicopter"});
 if (isNil "_typeVehH") exitWith {
-    ["DES"] remoteExecCall ["A3A_fnc_missionRequest",2];
     Error("No aircrafts in arrays vehiclesHelisLight, vehiclesHelisTransport or vehiclesHelisAttack. Reselecting DES mission");
+    ["DES"] remoteExec ["A3A_fnc_missionRequest",2];
 };
 private _isAttackHeli = _typeVehH in ((_faction get "vehiclesHelisAttack") + (_faction get "vehiclesHelisLightAttack"));
 

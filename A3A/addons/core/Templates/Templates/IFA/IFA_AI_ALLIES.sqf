@@ -206,14 +206,18 @@ _sfLoadoutData set ["backpacks", ["B_LIB_US_M36_Bandoleer"]];
 _sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns"]];
 _sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
+_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
+_sfLoadoutData set ["lightATLaunchers", [
+["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+]];
 _sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_M1928A1_Thompson", "LIB_M1_Garand", "LIB_M1A1_Carbine", "LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["rifles", ["LIB_M1_Garand", "LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2", "LIB_1Rnd_G_M9A1"], ""]
 ]];
 _sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_M1A1_Thompson"]];
 _sfLoadoutData set ["machineGuns", ["LIB_M1918A2_BAR", "LIB_M1919A6"]];
@@ -234,7 +238,11 @@ _militaryLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
 _militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet_ns"]];
 _militaryLoadoutData set ["slHelmets", ["H_LIB_US_Helmet_CO"]];
 _militaryLoadoutData set ["medHelmets", ["H_LIB_US_Helmet_Med_ns"]];
+_militaryLoadoutData set ["radios", ["ItemRadio"]];
 
+_militaryLoadoutData set ["lightATLaunchers", [
+["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+]];
 _militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine", "LIB_M1_Carbine"]];
 _militaryLoadoutData set ["rifles", [["LIB_M1_Garand", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1_Garand" ]];
 _militaryLoadoutData set ["carbines", ["LIB_M1_Carbine"]];
@@ -288,10 +296,11 @@ _militiaLoadoutData set ["antiInfantryGrenades", ["LIB_MillsBomb"]];
 _militiaLoadoutData set ["smokeGrenades", ["LIB_No77"]];
 
 _militiaLoadoutData set ["ATLaunchers", ["LIB_PIAT"]];
+_militiaLoadoutData set ["lightATLaunchers", []];
 _militiaLoadoutData set ["slWeapons", [
 "LIB_M1_Carbine", "LIB_M1928A1_Thompson", 
 "LIB_Sten_Mk2", "LIB_Sten_Mk2",
-["LIB_Sten_Mk5", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""],
+"LIB_Sten_Mk5",
 ["LIB_Sten_Mk5", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["rifles", [
@@ -347,6 +356,7 @@ private _squadLeaderTemplate = {
     [["slHelmets", "helmets"] call _fnc_fallback] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["slVests"] call _fnc_setVest;
+    ["uniforms"] call _fnc_setUniform;
 
     ["backpacks"] call _fnc_setBackpack;
 
@@ -515,18 +525,27 @@ private _latTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-    ["rifles"] call _fnc_setPrimary;
+    private _latgl = [selectRandom ["lightATLaunchers", "rifles"], "rifles"] call _fnc_fallback;
+    [_latgl] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 5] call _fnc_addAdditionalMuzzleMagazines;
 
-    if(random 10 > 5) then 
+    if(_latgl == "rifles") then 
     {
-        ["ATLaunchers"] call _fnc_setLauncher;
-        ["atBackpacks"] call _fnc_setBackpack;
-        ["launcher", 1] call _fnc_addMagazines;
-        ["antiInfantryGrenades", 1] call _fnc_addItem;
+        if(random 10 > 6) then 
+        {
+            ["ATLaunchers"] call _fnc_setLauncher;
+            ["atBackpacks"] call _fnc_setBackpack;
+            ["launcher", 1] call _fnc_addMagazines;
+            ["antiInfantryGrenades", 1] call _fnc_addItem;
+        } else {
+            ["lightBackpacks"] call _fnc_setBackpack;
+            ["antiTankGrenades", 4] call _fnc_addItem;
+        };
     } else {
-        ["lightBackpacks"] call _fnc_setBackpack;
-        ["antiTankGrenades", 4] call _fnc_addItem;
+        ["backpacks"] call _fnc_setBackpack;
+        ["antiInfantryGrenades", 1] call _fnc_addItem;
+        ["antiTankGrenades", 2] call _fnc_addItem;
     };
 
     ["items_medical_standard"] call _fnc_addItemSet;

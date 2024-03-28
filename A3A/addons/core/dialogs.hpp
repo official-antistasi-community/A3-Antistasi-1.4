@@ -1317,7 +1317,7 @@ class radio_comm 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			//tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
+			tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
 			//action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
 		};
 		class 8slots_L3: A3A_core_BattleMenuRedButton

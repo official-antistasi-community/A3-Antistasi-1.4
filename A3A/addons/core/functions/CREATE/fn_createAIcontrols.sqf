@@ -73,7 +73,7 @@ if (_isControl) then
 		_groupE = grpNull;
 		if !(A3A_hasIFA) then
 			{
-            private _IFAMaps = ["Hyde_Sark", "iron_excelsior_Tobruk"];
+            private _IFAMaps = ["Hyde_Sark", "iron_excelsior_Tobruk", "Staszow"];
             private _ifLowMGs = false;
             private _bunkerClass = "Land_BagBunker_01_Small_green_F";
             private _offset = [0, 0, 0];
@@ -84,12 +84,16 @@ if (_isControl) then
                     _bunkerClass = "Land_SPE_Sandbag_Nest";
                     _offset = [-0.200684,-0.91333,-0.421184]
                 } else {
-                    _bunkerClass = "Fort_EnvelopeSmall";
-                    _offset = [0,1.5,-0.15];
-					_offset = _offset vectorAdd ([[0,0,0], [0,0.2,0.17]] select (_typeVehX == "LIB_M1919_M2"));
+					if (A3A_climate == "arid") then 
+					{
+						_bunkerClass = "Fort_EnvelopeSmall_EP1";
+					} else {
+                    	_bunkerClass = "Fort_EnvelopeSmall";
+					};
+                    _offset = ([[0,1.5,0.1], [0,1.7,0.02]] select (_typeVehX == "LIB_M1919_M2"));
                 };
             } else {
-                if (A3A_climate == "arid") then 
+                if (A3A_climate == "arid" || A3A_climate == "arctic") then 
                 {
                     _bunkerClass = "Land_BagBunker_Small_F";
                 };
@@ -291,8 +295,8 @@ if (spawner getVariable _markerX != 2) then
     Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
 	if (_isControl) then
 		{
-		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
+		["TaskSucceeded", ["", localize "STR_A3A_fn_base_craicts_rbDestr"]] remoteExec ["BIS_fnc_showNotification",_winner];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_roadblockFight_lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
 		};
 	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 		{

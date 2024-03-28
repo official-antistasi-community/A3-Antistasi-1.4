@@ -108,6 +108,16 @@ class Templates
         forceDLC[] = {"expansion"};
     };
 
+    class Vanilla_LFF : Vanilla_Base
+    {
+        side = "Reb";
+        flagTexture = "\A3\Data_F_Enoch\Flags\flag_looters_co.paa";
+        name = "A3 LFF";
+        file = "Vanilla_Reb_LFF";
+        maps[] = {"enoch","vt7"};
+        climate[] = {"temperate"};
+        forceDLC[] = {"enoch"};
+    };
     class Vanilla_Civ : Vanilla_Base
     {
         side = "Civ";
@@ -478,7 +488,7 @@ class Templates
     {
         side = "Reb";
         flagTexture = "uk3cb_factions\addons\uk3cb_factions_ion\flag\ion_flag_co.paa";
-        name = "3CB ION Rebels";
+        name = "3CB ION";
         file = "3CB_Reb_ION";
     };
     class 3CBF_TKM : 3CBF_Base
@@ -493,8 +503,16 @@ class Templates
     {
         side = "Reb";
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
-        name = "3CB FIA Rebels";
+        name = "3CB FIA";
         file = "3CB_Reb_FIA";
+    };
+    class 3CB_Reb_LSM : 3CBF_Base
+    {
+        side = "Reb";
+        flagTexture = "\UK3CB_Factions\addons\UK3CB_Factions_LSM\Flag\LSM_flag_co.paa";
+        name = "3CB LSM";
+        file = "3CB_Reb_LSM";
+        maps[] = {"enoch"};
     };
     class 3CBF_CHC : 3CBF_Base
     {
@@ -596,6 +614,12 @@ class Templates
         name = "CUP AFRF Arctic";
         file = "CUP_AI_AFRF_Arctic";
         climate[] = {"arctic"};
+    };
+    class CUP_AFRF_Desert : CUP_AFRF_Arid
+    {
+        name = "CUP AFRF Desert";
+        file = "CUP_AI_AFRF_Desert";
+        climate[] = {"arid"};
     };
 
     class CUP_BAF_Arid : CUP_Base
@@ -822,36 +846,54 @@ class Templates
     {
         side = "Inv";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
-        name = "GM Nationale Volksarmee Temperate";
+        name = "GM NVA Temperate";
         file = "GM_AI_NVA";
-        climate[] = {"temperate","tropical","arid"};
+        climate[] = {"temperate","tropical"};
     };
 
     class GM_NVA_Arctic : GM_Base
     {
         side = "Inv";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
-        name = "GM Nationale Volksarmee Arctic";
+        name = "GM NVA Arctic";
         file = "GM_AI_NVA_arctic";
         climate[] = {"arctic"};
+    };
+
+    class GM_NVA_Desert : GM_Base
+    {
+        side = "Inv";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_gc_co";
+        name = "GM NVA Desert";
+        file = "GM_AI_NVA_desert";
+        climate[] = {"arid"};
     };
 
     class GM_BW : GM_Base
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "GM Bundeswehr Temperate";
+        name = "GM BW Temperate";
         file = "GM_AI_BW";
-        climate[] = {"temperate","tropical","arid"};
+        climate[] = {"temperate","tropical"};
     };
 
     class GM_BW_Arctic : GM_Base
     {
         side = "Occ";
         flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
-        name = "GM Bundeswehr Arctic";
+        name = "GM BW Arctic";
         file = "GM_AI_BW_arctic";
         climate[] = {"arctic"};
+    };
+
+    class GM_BW_Desert : GM_Base
+    {
+        side = "Occ";
+        flagTexture = "\gm\gm_core\data\flags\gm_flag_ge_co";
+        name = "GM BW Desert";
+        file = "GM_AI_BW_desert";
+        climate[] = {"arid"};
     };
 
     class GM_Reb : GM_Base
@@ -1005,13 +1047,6 @@ class Templates
         file = "IFA_REB_AK";
         maps[] = {"Staszow"};
         climate[] = {};
-    };
-    class IFA_AK : IFA_Base
-    {
-        side = "Reb";
-        flagTexture = QPATHTOFOLDER(Templates\Templates\IFA\flag_ak.paa);
-        name = "IFA Polish Resistance";
-        file = "IFA_REB_AK";
     };
     class IFA_CIV_FR : IFA_Base
     {

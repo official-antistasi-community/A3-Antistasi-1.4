@@ -256,7 +256,7 @@ if (_spawnParameter isEqualType []) then
 		if (FactionGet(civ,"vehiclesCivFuel") isEqualTo [] and random 1 < 0.1) exitWith { selectRandom (_faction get "vehiclesFuelTrucks") };
 		private _types = if (!_isFIA) then {(_faction get "vehiclesTrucks") + (_faction get "vehiclesCargoTrucks")} else {_faction get "vehiclesMilitiaTrucks"};
 		_types = _types select { _x in FactionGet(all,"vehiclesCargoTrucks") };
-		if (count _types == 0) then { (_faction get "vehiclesCargoTrucks") } else { _types };
+		if (count _types == 0) then { _types = (_faction get "vehiclesCargoTrucks") };
 		selectRandom _types;
 	};
 	isNil {

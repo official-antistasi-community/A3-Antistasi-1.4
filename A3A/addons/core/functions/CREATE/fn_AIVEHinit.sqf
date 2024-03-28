@@ -203,19 +203,6 @@ if (_side != teamPlayer) then
 	}];
 };
 
-if(_veh isKindOf "Air") then
-{
-    //Start airspace control script if rebel player enters
-    _veh addEventHandler ["GetIn", {
-		params ["_veh", "_role", "_unit"];
-		if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
-		{
-			// TODO: check this isn't spammed
-			[_veh] spawn A3A_fnc_airspaceControl;
-		};
-    }];
-};
-
 
 // Handler for refunding vehicles after cleanup
 if (A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0] > 0) then {

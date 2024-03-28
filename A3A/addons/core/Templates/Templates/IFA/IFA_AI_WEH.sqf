@@ -159,9 +159,16 @@ _loadoutData set ["NVGs", []];
 _loadoutData set ["binoculars", ["LIB_Binocular_GER"]];
 _loadoutData set ["rangefinders", ["LIB_Binocular_GER"]];
 
-_loadoutData set ["uniforms", []];
+_loadoutData set ["uniforms", ["U_LIB_GER_Schutze", "U_LIB_GER_MG_schutze"]];
+_loadoutData set ["medUniforms", ["U_LIB_GER_Medic"]];
 _loadoutData set ["vests", []];
+_loadoutData set ["mgVests", ["V_LIB_GER_VestMG"]];
+_loadoutData set ["engVests", ["V_LIB_GER_PioneerVest"]];
+_loadoutData set ["slVests", ["V_LIB_GER_VestUnterofficer", "V_LIB_GER_FieldOfficer"]];
 _loadoutData set ["backpacks", []];
+_loadoutData set ["engBackpacks", ["B_LIB_GER_SapperBackpack_empty"]];
+_loadoutData set ["medBackpacks", ["B_LIB_GER_MedicBackpack_Empty", "B_LIB_GER_Tonister34_cowhide"]];
+_loadoutData set ["lightBackpacks", ["B_LIB_GER_A_frame"]];
 _loadoutData set ["atBackpacks", ["B_LIB_GER_Panzer_Empty"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
@@ -198,44 +205,43 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_LIB_ST_Soldier_E44_Camo2"]];
-_sfLoadoutData set ["vests", ["V_LIB_GER_VestMP40"]];
-_sfLoadoutData set ["backpacks", ["B_LIB_GER_A_frame"]];
+_sfLoadoutData set ["uniforms", ["U_LIB_ST_Soldier_E44", "U_LIB_ST_MGunner_E44"]];
+_sfLoadoutData set ["medUniforms", ["U_LIB_ST_Medic_E44"]];
+_sfLoadoutData set ["vests", ["V_LIB_GER_VestG43", "V_LIB_GER_VestSTG"]];
+_sfLoadoutData set ["slVests", ["V_LIB_GER_VestUnterofficer"]];
+_sfLoadoutData set ["backpacks", ["B_LIB_GER_Backpack"]];
 _sfLoadoutData set ["helmets", ["H_LIB_ST_Helmet2"]];
+_sfLoadoutData set ["radios", ["ItemRadio"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", []];
-_sfLoadoutData set ["slWeapons", ["LIB_MP40", "LIB_MP44", "LIB_G43"]];
-_sfLoadoutData set ["rifles", ["LIB_K98", "LIB_G43"]];
-_sfLoadoutData set ["carbines", ["LIB_G43", "LIB_FG42G"]];
+_sfLoadoutData set ["slWeapons", ["LIB_MP44", "LIB_G43"]];
+_sfLoadoutData set ["rifles", ["LIB_G43", "LIB_FG42G"]];
+_sfLoadoutData set ["carbines", ["LIB_G43", "LIB_MP44_GW"]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_30"], ""],
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_40"], ""]
+["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_40"], ""]
 ]];
 _sfLoadoutData set ["SMGs", ["LIB_MP40"]];
 _sfLoadoutData set ["machineGuns", ["LIB_MG42", "LIB_FG42G"]];
-_sfLoadoutData set ["marksmanRifles", ["LIB_K98ZF39",
-["LIB_FG42G", "", "", "LIB_Optic_Zf4", [], [], ""]
-]];
+_sfLoadoutData set ["marksmanRifles", [["LIB_FG42G", "", "", "LIB_Optic_Zf4", [], [], ""]]];
 /////////////////////////////////
 //    Military Loadout Data    //
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militaryLoadoutData set ["uniforms", ["U_LIB_GER_Schutze"]];
 _militaryLoadoutData set ["vests", ["V_LIB_GER_VestKar98"]];
-_militaryLoadoutData set ["backpacks", ["B_LIB_GER_A_frame"]];
+_militaryLoadoutData set ["backpacks", ["B_LIB_GER_Backpack"]];
 _militaryLoadoutData set ["helmets", ["H_LIB_GER_Helmet"]];
+_militaryLoadoutData set ["radios", ["ItemRadio"]];
 
 _militaryLoadoutData set ["slWeapons", ["LIB_MP40"]];
-_militaryLoadoutData set ["rifles", [["LIB_K98", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
+_militaryLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
 _militaryLoadoutData set ["carbines", ["LIB_G41"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["LIB_K98", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
-["LIB_K98", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
-["LIB_K98", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_30"], ""],
-["LIB_K98", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_40"], ""]
+["LIB_K98_Late", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
+["LIB_K98_Late", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_30"], ""],
+["LIB_K98_Late", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_40"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_MP40", "LIB_MP38"]];
 _militaryLoadoutData set ["machineGuns", ["LIB_MG34", "LIB_MG42"]];
@@ -245,21 +251,22 @@ _militaryLoadoutData set ["machineGuns", ["LIB_MG34", "LIB_MG42"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["U_LIB_GER_Schutze"]];
-_militiaLoadoutData set ["vests", ["V_LIB_GER_VestKar98"]];
-_militiaLoadoutData set ["backpacks", []];
+_militiaLoadoutData set ["vests", ["V_LIB_GER_PrivateBelt"]];
+_militiaLoadoutData set ["engVests", ["V_LIB_GER_VestMP40"]];
+_militiaLoadoutData set ["slVests", ["V_LIB_GER_FieldOfficer"]];
+_militiaLoadoutData set ["backpacks", ["B_LIB_GER_A_frame"]];
 _militiaLoadoutData set ["helmets", ["H_LIB_GER_Cap"]];
 
 _militiaLoadoutData set ["ATLaunchers", []];
-_militiaLoadoutData set ["slWeapons", ["LIB_MP38", "LIB_K98"]];
+_militiaLoadoutData set ["slWeapons", ["LIB_MP38", "LIB_K98_Late"]];
 _militiaLoadoutData set ["lightATLaunchers", ["LIB_Faustpatrone"]];
-_militiaLoadoutData set ["rifles", [["LIB_K98", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
-_militiaLoadoutData set ["carbines", ["LIB_MP38", "LIB_K98", "LIB_G3340"]];
+_militiaLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
+_militiaLoadoutData set ["carbines", ["LIB_MP38", "LIB_K98_Late", "LIB_G3340"]];
 _militiaLoadoutData set ["grenadeLaunchers", []];
 _militiaLoadoutData set ["SMGs", ["LIB_MP38"]];
-_militiaLoadoutData set ["machineGuns", ["LIB_MP38", "LIB_K98"]];
+_militiaLoadoutData set ["machineGuns", ["LIB_MP38", "LIB_K98_Late"]];
 _militiaLoadoutData set ["sidearms", ["LIB_WaltherPPK", "LIB_P38"]];
-_militiaLoadoutData set ["slSidearms", ["LIB_P38", "LIB_P38", "LIB_FLARE_PISTOL"]];
+_militiaLoadoutData set ["slSidearms", ["LIB_WaltherPPK", "LIB_P38", "LIB_FLARE_PISTOL"]];
 
 //////////////////////////
 //    Misc Loadouts     //
@@ -279,7 +286,7 @@ _pilotLoadoutData set ["sidearms", ["LIB_WaltherPPK", "LIB_P08", "LIB_M1896"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_LIB_GER_Oberst"]];
-_officerLoadoutData set ["vests", ["V_LIB_GER_OfficerVest"]];
+_officerLoadoutData set ["slVests", ["V_LIB_GER_OfficerVest"]];
 _officerLoadoutData set ["helmets", ["H_LIB_GER_OfficerCap"]];
 
 _officerLoadoutData set ["slWeapons", ["LIB_MP40"]];
@@ -297,7 +304,7 @@ _officerLoadoutData set ["slSidearms", ["LIB_P08", "LIB_M1896"]];
 private _squadLeaderTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    ["slVests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
     ["backpacks"] call _fnc_setBackpack;
@@ -331,6 +338,8 @@ private _riflemanTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
+    ["lightBackpacks"] call _fnc_setBackpack;
+
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
@@ -351,8 +360,8 @@ private _medicTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
-    ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
+    ["medUniforms"] call _fnc_setUniform;
+    ["medBackpacks"] call _fnc_setBackpack;
     
     [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -400,9 +409,9 @@ private _grenadierTemplate = {
 private _explosivesExpertTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    ["engVests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
+    ["engBackpacks"] call _fnc_setBackpack;
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -433,9 +442,9 @@ private _explosivesExpertTemplate = {
 private _engineerTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    ["engVests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
-    ["backpacks"] call _fnc_setBackpack;
+    ["engBackpacks"] call _fnc_setBackpack;
 
     [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -464,6 +473,8 @@ private _latTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
+
+    ["lightBackpacks"] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -495,13 +506,15 @@ private _atTemplate = {
     ["primary", 5] call _fnc_addMagazines;
     private _launch = ["ATLaunchers", "lightATLaunchers"] call _fnc_fallback;
     
+    [_launch] call _fnc_setLauncher;
     if (_launch == "ATLaunchers") then {
         ["atBackpacks"] call _fnc_setBackpack;
+        ["launcher", 2] call _fnc_addMagazines;
+    } else {
+        ["lightBackpacks"] call _fnc_setBackpack;
     };
     
-    [_launch] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
-    ["launcher", 2] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -526,7 +539,7 @@ private _aaTemplate = {
 private _machineGunnerTemplate = {
     ["helmets"] call _fnc_setHelmet;
     ["facewear"] call _fnc_setFacewear;
-    ["vests"] call _fnc_setVest;
+    ["mgVests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
@@ -554,6 +567,8 @@ private _marksmanTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
+
+    ["lightBackpacks"] call _fnc_setBackpack;
 
     ["marksmanRifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
@@ -607,6 +622,8 @@ private _crewTemplate = {
     ["facewear"] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
+
+    ["lightBackpacks"] call _fnc_setBackpack;
 
     if(random 10 > 5) then 
     {

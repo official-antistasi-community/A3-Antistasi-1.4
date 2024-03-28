@@ -50,7 +50,7 @@ class CfgVehicles
             class TransportPylonsComponent : TransportPylonsComponent {
                 class Presets {
                     class Default {
-                        attachment[] = {"PylonRack_19Rnd_missiles_gray_RF","PylonRack_19Rnd_missiles_gray_RF","PylonRack_19Rnd_missiles_gray_RF","PylonRack_19Rnd_missiles_gray_RF"};
+                        attachment[] = {"PylonRack_19Rnd_missiles_gray_RF","PylonWeapon_1000Rnd_20x102mm_shells_gray_RF","PylonRack_19Rnd_missiles_gray_RF","PylonWeapon_1000Rnd_20x102mm_shells_gray_RF"};
                         displayName = "Default";
                     };
                     class Empty {
@@ -67,7 +67,7 @@ class CfgVehicles
                         UIposition[] = {"0.06 + 0.02",0.4};
                     };
                     class PylonLeft2 {
-                        attachment = "PylonRack_19Rnd_missiles_gray_RF";
+                        attachment = "PylonWeapon_1000Rnd_20x102mm_shells_gray_RF";
                         hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
                         priority = 4;
                         turret[] = {0};
@@ -82,7 +82,7 @@ class CfgVehicles
                         UIposition[] = {"0.59 + 0.04",0.4};
                     };
                     class PylonRight2 {
-                        attachment = "PylonRack_19Rnd_missiles_gray_RF";
+                        attachment = "PylonWeapon_1000Rnd_20x102mm_shells_gray_RF";
                         hardpoints[] = {"DAR","DAGR","B_SHIEKER","UNI_SCALPEL","20MM_TWIN_CANNON","B_ASRRAM_EJECTOR","WEAPON_PODS_RF","B_BOMB_PYLON"};
                         priority = 4;
                         mirroredMissilePos = 2;

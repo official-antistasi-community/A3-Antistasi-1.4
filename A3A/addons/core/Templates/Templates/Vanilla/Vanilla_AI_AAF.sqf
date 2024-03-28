@@ -442,7 +442,9 @@ if ("rf" in A3A_enabledDLC) then {
     ["SMG_01_black_RF", "", "", "optic_Holosight", [], [], ""],
     ["SMG_01_black_RF", "", "", "optic_Aco_smg", [], [], ""]
     ];
-    (_militiaLoadoutData get "SMGs") append ["SMG_01_black_RF"];
+    (_militiaLoadoutData get "SMGs") append [
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "", [], [], ""]
+    ];
     (_policeLoadoutData get "SMGs") append [
     ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
     ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""]

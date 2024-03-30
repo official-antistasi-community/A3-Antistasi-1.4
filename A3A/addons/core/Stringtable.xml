@@ -13473,7 +13473,15 @@
         <Chinesesimp>建造</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_construct_tooltip">
-        <Original>To construct buildings in this version, buy a construction kit from the Buy Vehicle menu and use the action on it.</Original>
+        <Original>To construct buildings in this version, buy a construction kit from the Buy Vehicle menu and use the action on it</Original>
+        <Italian>Costruisci nel punto dove hai selezionato una struttura rivolta verso questa direzione</Italian>
+        <Spanish>Construye en el sitio el edificio seleccionado mirando hacia esta dirección</Spanish>
+        <French>Construire à l'endroit où vous vous trouvez un bâtiment sélectionné faisant face à cette direction</French>
+        <Korean>해당 버전의 건물을 건설하려면 차량 구입 메뉴에서 건설 도구를 구입하고 관련된 행동을 수행하십시오.</Korean>
+        <Russian>Постройте в том месте, где вы выбрали здание, обращенное в этом направлении</Russian>
+        <Polish>Zbuduj, w miejscu w którym jesteś, wybrany budynek zwrócony w tym kierunku</Polish>
+        <Czech>Stavějte na místě, kde jste vybraly budovu otočenou tímto směrem</Czech>
+        <Chinesesimp>在你所在的位置, 朝向此方向建造所选建筑</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_radio_comm_fast_travel">
         <Original>Fast Travel</Original>

@@ -107,9 +107,6 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
 ["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 
-["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
-["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
-
 #include "Vanilla_Vehicle_Attributes.sqf"
 
 /////////////////////
@@ -451,8 +448,6 @@ if ("rf" in A3A_enabledDLC) then {
     _militiaLoadoutData set ["sidearms", [
     ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""]
     ]];
-    
-    _officerLoadoutData set ["sidearms", ["hgun_Glock19_RF"]];
 };
 if ("mark" in A3A_enabledDLC) then {
     (_sfLoadoutData get "machineGuns") append [

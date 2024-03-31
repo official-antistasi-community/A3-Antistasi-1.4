@@ -3,13 +3,15 @@
 private ["_roads","_pos","_positionX","_groupX"];
 private _titleStr = localize "STR_A3A_fn_dialogs_ftradio_title";
 
+if (limitedFT == 2) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_ftradio_no_param"] call A3A_fnc_customHint;};
+
 _markersX = markersX + [respawnTeamPlayer];
 
 _esHC = false;
 if (count hcSelected player > 1) exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_ftradio_grp_select"] call A3A_fnc_customHint;};
 if (count hcSelected player == 1) then {_groupX = hcSelected player select 0; _esHC = true} else {_groupX = group player};
 _checkForPlayer = false;
-if ((!_esHC) and limitedFT) then {_checkForPlayer = true};
+if ((!_esHC) and (limitedFT == 0)) then {_checkForPlayer = true};
 _boss = leader _groupX;
 
 if ((_boss != player) and (!_esHC)) then {_groupX = player};
@@ -88,7 +90,7 @@ if (count _positionTel > 0) then
  				}
  			};
 		_exit = false;
-		if (limitedFT) then
+		if (limitedFT == 0) then
 			{
 			_vehicles = [];
 			{if (vehicle _x != _x) then {_vehicles pushBackUnique (vehicle _x)}} forEach units _groupX;

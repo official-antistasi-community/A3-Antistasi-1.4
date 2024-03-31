@@ -405,6 +405,16 @@ _officerLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 
 if ("expansion" in A3A_enabledDLC) then {
+    (_militaryLoadoutData get "rifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+    (_militaryLoadoutData get "grenadeLaunchers") append [
+    ["arifle_AK12_GL_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+    ];
+    (_militaryLoadoutData get "marksmanRifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], "bipod_02_F_blk"]
+    ];
+    
     (_militiaLoadoutData get "rifles") append [
     ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
     (_militiaLoadoutData get "carbines") append [
@@ -413,8 +423,9 @@ if ("expansion" in A3A_enabledDLC) then {
     ];
     (_militiaLoadoutData get "SMGs") append [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
-    (_officerLoadoutData get "slRifles") append [
-    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+    
+    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+    
     _crewLoadoutData set ["carbines", [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""],
     ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]]];
@@ -422,25 +433,17 @@ if ("expansion" in A3A_enabledDLC) then {
     (_pilotLoadoutData get "carbines") append [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]
     ];
-    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+    (_officerLoadoutData get "slRifles") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
 };
 
 if ("enoch" in A3A_enabledDLC) then {
 
-    (_militaryLoadoutData get "rifles") append [
-    ["arifle_AK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
-    ];
-    (_militaryLoadoutData get "grenadeLaunchers") append [
-    ["arifle_AK12_GL_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
-    ];
     (_militaryLoadoutData get "carbines") append [
     ["arifle_AK12U_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
     ];
     (_militaryLoadoutData get "machineGuns") append [
     ["arifle_RPK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
-    ];
-    (_militaryLoadoutData get "marksmanRifles") append [
-    ["arifle_AK12_F", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], "bipod_02_F_blk"]
     ];
     
     (_pilotLoadoutData get "carbines") append [

@@ -106,6 +106,7 @@ private _costs = call {
     if (
         (_typeX in FactionGet(all,"vehiclesHelisAttack"))
         or (_typeX in FactionGet(all,"vehiclesTanks"))
+        or (_typeX in FactionGet(all,"vehiclesHeavyTanks"))
         or (_typeX in FactionGet(all,"vehiclesAA"))
         or (_typeX in FactionGet(all,"vehiclesArtillery"))
     ) exitWith {3000};

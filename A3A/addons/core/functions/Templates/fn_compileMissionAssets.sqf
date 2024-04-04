@@ -67,6 +67,7 @@ setVar("vehiclesAPCs", OccAndInv("vehiclesAPCs") );
 setVar("vehiclesIFVs", OccAndInv("vehiclesIFVs") );
 setVar("vehiclesLightTanks", OccAndInv("vehiclesLightTanks"));
 setVar("vehiclesTanks", OccAndInv("vehiclesTanks"));
+setVar("vehiclesHeavyTanks", OccAndInv("vehiclesLightTanks"));
 setVar("vehiclesAA", OccAndInv("vehiclesAA"));
 setVar("vehiclesArtillery", OccAndInv("vehiclesArtillery"));
 setVar("vehiclesTransportAir", OccAndInv("vehiclesHelisLight") + OccAndInv("vehiclesHelisTransport") + OccAndInv("vehiclesPlanesTransport") );
@@ -135,6 +136,7 @@ setVar("vehiclesLight", _carsArmed + _carsUnarmed);
 private _vehArmor =
 getVar("vehiclesTanks")
 + getVar("vehiclesLightTanks")
++ getVar("vehiclesHeavyTanks")
 + getVar("vehiclesAA")
 + getVar("vehiclesArtillery")
 + getVar("vehiclesLightAPCs")

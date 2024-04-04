@@ -12,6 +12,7 @@
 ["placeIntel_itemLarge", ["Land_Laptop_unfolded_F",-25,true]] call _fnc_saveToTemplate;  // [classname,azimuth,isComputer].
 
 ["vehiclesLightTanks", []] call _fnc_saveToTemplate;
+["vehiclesHeavyTanks", []] call _fnc_saveToTemplate;
 
 ["attributesVehicles", []] call _fnc_saveToTemplate;
 

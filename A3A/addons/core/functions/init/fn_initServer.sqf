@@ -125,12 +125,20 @@ else
     call A3A_fnc_initGarrisons;
 
     // Do initial arsenal filling
+    private _categoriesToPublish = createHashMap;
     {
-		if (_x isEqualType "") then { _x call A3A_fnc_unlockEquipment; continue };
-		_x params ["_class", "_count"];
-		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
-		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
+        if (_x isEqualType "") then {
+            private _categories = [_x, true] call A3A_fnc_unlockEquipment;
+            _categoriesToPublish insert [true, _categories, []];
+            continue;
+        };
+        _x params ["_class", "_count"];
+        private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+        [_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
     } foreach FactionGet(reb,"initialRebelEquipment");
+
+    // Publish the unlocked categories (once each)
+    { publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;
 
     Info("Initial arsenal unlocks completed");
     call A3A_fnc_checkRadiosUnlocked;

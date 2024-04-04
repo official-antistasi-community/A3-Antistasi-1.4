@@ -2,6 +2,9 @@
 //asval, Mk17 and SCAR-H arguable
 
 private _categoryOverrideTable = [
+//Bespoke, a3a
+["a3a_UK3CB_CZ550_8mm", ["SniperRifles","Weapons"]], //UK3CB_CZ550 in 8mm
+
 //Vanilla
 ["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
 ["hgun_PDW2000_F", ["SMGs","Weapons"]],

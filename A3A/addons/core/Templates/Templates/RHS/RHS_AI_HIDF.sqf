@@ -20,16 +20,16 @@
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_hidf_M998_2dr_halftop","rhsgref_hidf_M998_4dr_halftop", "rhsgref_hidf_m1025"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19", "rhsusf_M1117_O"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["rhs_gaz66_msv","rhs_gaz66o_msv"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["rhs_gaz66_flat_msv","rhs_gaz66o_flat_msv"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["rhs_gaz66_ammo_msv"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["RHS_Ural_Repair_MSV_01"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["rhsusf_M1078A1P2_WD_fmtv_usarmy","rhsusf_M1083A1P2_WD_fmtv_usarmy", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["rhsusf_M1078A1P2_WD_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_WD_fmtv_usarmy"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["rhsusf_M977A4_AMMO_usarmy_wd"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["rhsusf_M977A4_REPAIR_usarmy_wd"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["rhsusf_M978A4_usarmy_wd"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["RHS_M2A2_wd"]] call _fnc_saveToTemplate;                //this line determines IFVs
-["vehiclesTanks", ["rhsusf_m1a1hc_wd", "rhsusf_m1a1fep_od"]] call _fnc_saveToTemplate;
+["vehiclesTanks", ["rhsusf_m1a1hc_wd"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 
 
@@ -44,7 +44,7 @@
 ["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhs_uh1h_hidf"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["rhs_uh1h_hidf_gunship"]] call _fnc_saveToTemplate; 
-["vehiclesHelisAttack", ["RHS_AH64D_wd", "RHS_AH64D_wd_CS", "RHS_AH64D_wd_AA", "RHS_AH64D_wd_GS"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_AH64D_wd"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["RHS_M119_WD"]] call _fnc_saveToTemplate;        // "rhsusf_M142_usarmy_D" - OP until we can customize magazines
 ["magazines", createHashMapFromArray [
@@ -64,7 +64,7 @@
 ["vehiclesPolice", ["rhsgref_hidf_M998_4dr_fulltop"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["RHS_M2StaticMG_WD"]] call _fnc_saveToTemplate;
-["staticAT", ["rhsgref_cdf_b_SPG9M"]] call _fnc_saveToTemplate;
+["staticAT", ["RHS_TOW_TriPod_WD"]] call _fnc_saveToTemplate;
 ["staticAA", ["RHS_Stinger_AA_pod_D"]] call _fnc_saveToTemplate;
 ["staticMortars", ["RHS_M252_WD"]] call _fnc_saveToTemplate;
 
@@ -142,7 +142,7 @@ _loadoutData set ["uniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["backpacks", ["rhs_sidor", "B_Kitbag_sgg"]];
 _loadoutData set ["longRangeRadios", []];
-_loadoutData set ["helmets", ["rhsgref_helmet_M1_painted_alt01","rhsgref_helmet_M1_painted","rhsgref_helmet_M1_bare_alt01","rhsgref_helmet_M1_bare","rhsgref_helmet_M1_erdl","rhsgref_helmet_M1_mit"]];
+_loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["H_Booniehat_tna_F"]];
 _loadoutData set ["sniHats", ["H_Booniehat_tna_F"]];
 
@@ -231,6 +231,7 @@ _militaryLoadoutData set ["rifles", [
 ["rhs_weap_m16a4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M196_2MAG_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
+["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""], 
 ["rhs_weap_m4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], [], ""], 
 "rhs_weap_m1garand_sa43"
 ]];
@@ -288,7 +289,7 @@ private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["rhsgref_uniform_og107", "rhsgref_uniform_og107_erdl"]];
 _militiaLoadoutData set ["vests", ["rhsgref_chestrig","rhsgref_chicom","rhsgref_alice_webbing"]];
 _militiaLoadoutData set ["backpacks", ["rhsusf_falconii"]];
-_militiaLoadoutData set ["helmets", ["rhsgref_hat_M1951","rhsgref_helmet_M1_bare","rhsgref_helmet_M1_erdl"]];
+_militiaLoadoutData set ["helmets", ["rhsgref_hat_m1941cap","rhsgref_hat_M1951","rhsgref_helmet_M1_bare","rhsgref_helmet_M1_erdl"]];
 _militiaLoadoutData set ["NVGs", []];
 
 _militiaLoadoutData set ["antiInfantryGrenades", ["rhs_mag_f1"]];

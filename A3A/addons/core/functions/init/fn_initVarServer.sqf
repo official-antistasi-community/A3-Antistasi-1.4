@@ -475,6 +475,7 @@ private _vehicleResourceCosts = createHashMap;
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
 { _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
+{ _vehicleResourceCosts set [_x, 280] } forEach FactionGet(all, "vehiclesHeavyTanks");
 
 { _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport");
@@ -494,6 +495,7 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
+{ _groundVehicleThreat set [_x, 500] } forEach FactionGet(all, "vehiclesHeavyTanks"); //Expect these to mostly exist in templates which lack good access of most things to deal with tanks, ie WW2
 
 
 // Rebel vehicle cost

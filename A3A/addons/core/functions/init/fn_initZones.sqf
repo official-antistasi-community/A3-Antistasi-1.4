@@ -53,7 +53,7 @@ defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
-markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"];
+markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"] + generalPOI;
 markersX apply {
 	_x setMarkerAlpha 0;
 	spawner setVariable [_x, 2, true];
@@ -332,6 +332,8 @@ publicVariable "defaultControlIndex";
 publicVariable "detectionAreas";
 publicvariable "A3A_fuelStations";
 publicvariable "A3A_fuelStationTypes";
+
+publicvariable "generalPOI";
 
 initZonesDone = true;				// signal headless clients that they can start nav init
 publicVariable "initZonesDone";

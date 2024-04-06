@@ -34,7 +34,7 @@ class pulau {
         {"DefaultKeyPoint32",31},
         {"Loholoho",233}
     };
-	disabledTowns[] = {};
+	disabledTowns[] = {"DefaultKeyPoint6","DefaultKeyPoint9","DefaultKeyPoint11","DefaultKeyPoint12","DefaultKeyPoint13","DefaultKeyPoint14","DefaultKeyPoint16","DefaultKeyPoint17","DefaultKeyPoint18","DefaultKeyPoint29","DefaultKeyPoint30","DefaultKeyPoint31"};
 	antennas[] = {
 		{6004.48,6269.15,-7.62939e-006}
     };

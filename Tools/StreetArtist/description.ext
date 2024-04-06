@@ -1,5 +1,0 @@
-#include "NG_importGUI.hpp"
-enableDebugConsole = 2;
-class CfgFunctions {
-    #include "functions.hpp"
-};

@@ -41,6 +41,9 @@ if (_base in seaports) then {
 		private _lowAir = _faction getOrDefault ["attributeLowAir", false];
 		if (!_lowAir and (_base in airportsX) and (random 1 < 0.5)) exitWith {
 			_typeCar = selectRandom (_faction get "vehiclesHelisLight");
+        	if(count (_faction get "vehiclesAirPatrol") > 0) then {
+        		_typeCar = selectRandom (_faction get "vehiclesAirPatrol");
+        	};
 			_typePatrol = "AIR";
 		};
 		_typeCar = selectRandom ((_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed"));

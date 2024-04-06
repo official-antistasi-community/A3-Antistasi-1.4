@@ -36,7 +36,7 @@ class pulau {
     };
 	disabledTowns[] = {};
 	antennas[] = {
-		{2682.94,2592.64,-0.000686646}
+		{6004.48,6269.15,-7.62939e-006}
     };
 	antennasBlacklistIndex[] = {};
 	banks[] = {

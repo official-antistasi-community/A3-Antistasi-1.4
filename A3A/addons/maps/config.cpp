@@ -38,6 +38,7 @@ class CfgMissions
         A3A_Mission(gm_weferlingen_winter)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
+        A3A_Mission(pulau)
         A3A_Mission(sara)
         A3A_Mission(SPE_Normandy)
         A3A_Mission(takistan)

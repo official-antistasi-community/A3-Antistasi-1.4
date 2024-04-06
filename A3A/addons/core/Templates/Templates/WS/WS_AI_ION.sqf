@@ -31,8 +31,7 @@ private _vehiclesLightArmed = ["a3a_ION_Offroad_armor_armed","a3a_ION_Offroad_ar
 ["vehiclesAPCs", ["a3a_ION_APC_Wheeled_01_command_lxWS","a3a_ION_APC_Wheeled_01_cannon_lxWS", "a3a_ION_APC_Wheeled_01_atgm"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["a3a_ION_APC_Tracked_02_30mm"]] call _fnc_saveToTemplate;
 private _Tanks = ["a3a_MBT_02_cannon_black_F"];
-["vehiclesAA", ["a3a_ION_Truck_02_zu23_F"]] call _fnc_saveToTemplate;
-
+private _vehiclesAA = ["a3a_ION_Truck_02_zu23_F"];
 
 ["vehiclesTransportBoats", ["B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["B_Boat_Armed_01_minigun_F", "a3a_Boat_Armed_01_hmg_blufor_F"]] call _fnc_saveToTemplate;
@@ -43,8 +42,8 @@ private _Tanks = ["a3a_MBT_02_cannon_black_F"];
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "B_ION_Heli_Light_02_unarmed_lxWS", "a3a_Heli_Light_01_ION_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["a3a_ION_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", "a3a_Heli_Light_01_dynamicLoadout_ION_F", "a3a_Heli_Light_02_black_F"]] call _fnc_saveToTemplate;
+private _HelisTransport = ["a3a_ION_Heli_Transport_02_F"];
+private _vehiclesHelisLightAttack = ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", "a3a_Heli_Light_01_dynamicLoadout_ION_F", "a3a_Heli_Light_02_black_F"];
 ["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["a3a_ION_Truck_02_MRL_F", "B_MBT_01_arty_F"]] call _fnc_saveToTemplate;
@@ -89,6 +88,17 @@ if ("enoch" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
+    _HelisTransport append ["a3a_black_Heli_light_03_unarmed_RF","a3a_tan_Heli_EC_03_RF"];
+    _vehiclesHelisLightAttack append ["a3a_black_Heli_light_03_dynamicLoadout_RF","a3a_tan_Heli_EC_04_military_RF"];
+    _vehiclesAA append ["B_ION_Pickup_aat_rf"];
+    _vehiclesMilitiaCars append ["a3a_black_Pickup_rf"];
+    _vehiclesMilitiaLightArmed append ["B_ION_Pickup_mmg_rf"];
+};
+["vehiclesAA", _vehiclesAA] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", [_HelisTransport]] call _fnc_saveToTemplate;
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
@@ -482,6 +492,39 @@ if ("expansion" in A3A_enabledDLC) then {
     ["SMG_05_F", "", "saber_light_lxWS", "optic_r1_high_lxWS", [], [], ""],
     ["SMG_05_F", "", "acc_flashlight", "optic_r1_low_lxWS", [], [], ""]
     ];
+};
+if ("rf" in A3A_enabledDLC) then {
+    // Mix of CSAT and NATO equipment; whatever they can get in bulk. The cogs of the market machine keep turning...
+    (_sfLoadoutData get "slRifles") append [
+    ["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""],
+    ["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""]
+    ];
+    (_sfLoadoutData get "rifles") append [["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Holosight_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""]];
+    (_sfLoadoutData get "grenadeLaunchers") append [["arifle_ash12_GL_desert_RF", "suppressor_127x55_small_desert_RF", "acc_pointer_IR", "optic_Holosight_blk_F", ["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]];
+    (_sfLoadoutData get "marksmanRifles") append [
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_DMS",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_SOS",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"]  
+    ];
+    (_sfLoadoutData get "sidearms") append [
+    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""]
+    ];
+    (_militaryLoadoutData get "sidearms") append [
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""]
+    ];
+    (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
+    (_sfLoadoutData get "helmets") append [
+    "H_HelmetHeavy_Sand_RF",
+    "H_HelmetHeavy_Simple_Sand_RF",
+    "H_HelmetHeavy_VisorUp_Sand_RF"];
 };
 
 

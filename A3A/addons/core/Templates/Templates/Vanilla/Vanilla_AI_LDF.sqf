@@ -99,6 +99,8 @@ if ("rf" in A3A_enabledDLC) then {
     _HelisTransport append ["I_E_Heli_light_03_unarmed_RF","I_E_Heli_EC_01A_military_RF"];
     _vehiclesHelisLightAttack append ["a3a_LDF_Heli_light_03_dynamicLoadout_RF"];
     _vehiclesHelisAttack append ["a3a_LDF_Heli_EC_02_RF"];
+    _vehiclesMilitiaCars append ["I_E_Pickup_rf"];
+    _vehiclesMilitiaLightArmed append ["a3a_LDF_Pickup_mmg_rf"];
 };
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;

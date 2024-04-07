@@ -44,7 +44,7 @@ private _vehiclesAA = ["a3a_ION_Truck_02_zu23_F"];
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "B_ION_Heli_Light_02_unarmed_lxWS", "a3a_Heli_Light_01_ION_F"]] call _fnc_saveToTemplate;
 private _HelisTransport = ["a3a_ION_Heli_Transport_02_F"];
 private _vehiclesHelisLightAttack = ["B_ION_Heli_Light_02_dynamicLoadout_lxWS", "a3a_Heli_Light_01_dynamicLoadout_ION_F", "a3a_Heli_Light_02_black_F"];
-["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F"]] call _fnc_saveToTemplate;
+private _vehiclesHelisAttack = ["O_Heli_Attack_02_dynamicLoadout_black_F"];
 
 ["vehiclesArtillery", ["a3a_ION_Truck_02_MRL_F", "B_MBT_01_arty_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -90,15 +90,17 @@ if ("orange" in A3A_enabledDLC) then {
 };
 if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
-    _HelisTransport append ["a3a_black_Heli_light_03_unarmed_RF","a3a_tan_Heli_EC_03_RF"];
-    _vehiclesHelisLightAttack append ["a3a_black_Heli_light_03_dynamicLoadout_RF","a3a_tan_Heli_EC_04_military_RF"];
+    _HelisTransport append ["a3a_black_Heli_light_03_unarmed_RF","a3a_ION_Heli_EC_03_RF"];
+    _vehiclesHelisLightAttack append ["a3a_black_Heli_light_03_dynamicLoadout_RF","a3a_ION_Heli_EC_04_military_RF"];
     _vehiclesAA append ["B_ION_Pickup_aat_rf"];
-    _vehiclesMilitiaCars append ["a3a_black_Pickup_rf"];
-    _vehiclesMilitiaLightArmed append ["B_ION_Pickup_mmg_rf"];
+    _vehiclesLightUnarmed append ["B_ION_Pickup_rf"];
+    _vehiclesLightArmed append ["B_ION_Pickup_mmg_rf"];
+    _vehiclesHelisAttack = ["a3a_ION_Heli_EC_02_RF"];
 };
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
 ["vehiclesAA", _vehiclesAA] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", [_HelisTransport]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;

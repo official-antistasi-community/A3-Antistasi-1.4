@@ -46,7 +46,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "a3a_ION_Heli_Transport_02_F", "B_CTRG_Heli_Transport_01_sand_F"];
 // Should be capable of dealing damage to ground targets without additional scripting
 private _vehiclesHelisLightAttack = ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "a3a_Heli_Light_02_black_F", "a3a_Heli_Light_01_dynamicLoadout_ION_F"];       // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F", "B_D_Heli_Attack_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+private _vehiclesHelisAttack = ["O_Heli_Attack_02_dynamicLoadout_black_F", "B_D_Heli_Attack_01_dynamicLoadout_lxWS"];
 
 ["vehiclesArtillery", ["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]] call _fnc_saveToTemplate; //this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
 //new magazines storing methode, all vehicle magazines should be defined here in format [Vehicle class, [magazines]],
@@ -97,8 +97,11 @@ if ("rf" in A3A_enabledDLC) then {
     _HelisTransport append ["B_Heli_light_03_unarmed_RF","a3a_tan_Heli_EC_03_RF"];
     _vehiclesHelisLightAttack append ["a3a_Heli_light_03_dynamicLoadout_RF","a3a_tan_Heli_EC_04_military_RF"];
     _vehiclesMilitiaCars append ["B_Pickup_rf"];
-    _vehiclesMilitiaLightArmed append ["B_Pickup_mmg_rf"];
+    _vehiclesMilitiaLightArmed append ["B_Pickup_mmg_rf","B_Pickup_mmg_rf"];
+    _vehiclesHelisAttack = _vehiclesHelisAttack - ["O_Heli_Attack_02_dynamicLoadout_black_F"];
+    _vehiclesHelisAttack append ["a3a_Heli_EC_02_RF"];
 };
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
 ["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;

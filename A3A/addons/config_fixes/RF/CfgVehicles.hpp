@@ -26,7 +26,7 @@ class CfgVehicles
     class a3a_LDF_Pickup_mmg_rf : I_G_Pickup_mmg_rf
     {
         textureList[] = {};
-        hiddenSelectionTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_ldf_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_ldf_co.paa"};
+        hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_ldf_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_ldf_co.paa"};
     };
     class a3a_hex_Pickup_mmg_rf : I_G_Pickup_mmg_rf
     {
@@ -46,12 +46,12 @@ class CfgVehicles
     class a3a_police_Pickup_comms_rf : B_Pickup_comms_rf
     {
         textureList[] = {};
-        hiddenselectionstextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_gendarmerie_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_gendarmerie_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_gendarmerie_co.paa"};
+        hiddenSelectionstextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_gendarmerie_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_gendarmerie_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_gendarmerie_co.paa"};
     };
     class a3a_police_Pickup_rf : B_Pickup_rf
     {
         textureList[] = {};
-        hiddenselectionstextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_gendarmerie_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_gendarmerie_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_gendarmerie_co.paa"};
+        hiddenSelectionstextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_gendarmerie_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_gendarmerie_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_gendarmerie_co.paa"};
     };
     
     class Heli_light_03_dynamicLoadout_base_F: Heli_light_03_base_F {
@@ -139,11 +139,11 @@ class CfgVehicles
     class Heli_EC_02_base_RF: Heli_EC_01_base_RF {
         class Components;
     };
-    class a3a_Heli_EC_02_RF : Heli_EC_02_base_RF {
+    class a3a_Heli_EC_02_RF : Heli_EC_02_base_RF { // Default camo is a lovely tan, perfect for patrolling your local desert
         scope = 2;
         faction = "IND_F";
         side = 2;
-        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
         class Components : Components {
             class TransportPylonsComponent {
                 uiPicture = "\lxRF\air_rf\heli_medium_ec\data\UI\heli_medium_ec_02_3DEN_CA.paa";
@@ -202,6 +202,10 @@ class CfgVehicles
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_03_ldf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_03_ldf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_03_ldf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
     };
+    class a3a_AAF_Heli_EC_02_RF : a3a_Heli_EC_02_RF {
+        textureList[] = {};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_02_aaf_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+    };
     class a3a_black_Heli_EC_02_RF : a3a_Heli_EC_02_RF {
         factions = "CIV_F";
         side = 2;
@@ -210,12 +214,23 @@ class CfgVehicles
     };
     class a3a_tan_Heli_EC_04_military_RF : B_Heli_EC_04_military_RF {
         textureList[] = {};
-        hiddenSelectionTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
     };
     class a3a_tan_Heli_EC_03_RF : B_Heli_EC_03_RF {
         textureList[] = {};
-        hiddenSelectionTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_09_tan_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+    };
+    class a3a_ION_Heli_EC_04_military_RF : B_Heli_EC_04_military_RF {
+        textureList[] = {};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+    };
+    class a3a_ION_Heli_EC_03_RF : B_Heli_EC_03_RF {
+        textureList[] = {};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
+    };
+    class a3a_ION_Heli_EC_02_RF : a3a_Heli_EC_02_RF {
+        textureList[] = {};
+        hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
     };
 
 };
-

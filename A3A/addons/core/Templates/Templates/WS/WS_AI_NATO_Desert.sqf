@@ -42,7 +42,7 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesHelisLight", ["B_D_Heli_Light_01_lxWS", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
 private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "B_CTRG_Heli_Transport_01_sand_F"];
 private _vehiclesHelisLightAttack = ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "B_Heli_Light_01_dynamicLoadout_F"];
-["vehiclesHelisAttack", ["B_D_Heli_Attack_01_dynamicLoadout_lxWS", "B_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+private _vehiclesHelisAttack = ["B_D_Heli_Attack_01_dynamicLoadout_lxWS", "B_Heli_Attack_01_dynamicLoadout_F"]
 
 ["vehiclesArtillery", ["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]] call _fnc_saveToTemplate; //this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
 //new magazines storing methode, all vehicle magazines should be defined here in format [Vehicle class, [magazines]],
@@ -95,7 +95,9 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesHelisLightAttack append ["a3a_Heli_light_03_dynamicLoadout_RF","a3a_tan_Heli_EC_04_military_RF"];
     _vehiclesMilitiaCars append ["B_Pickup_rf"];
     _vehiclesMilitiaLightArmed append ["B_Pickup_mmg_rf"];
+    _vehiclesHelisAttack append ["a3a_ION_Heli_EC_02_RF"];
 };
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
 ["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;

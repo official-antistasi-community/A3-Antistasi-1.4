@@ -33,8 +33,8 @@ if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
 // Only one of these two is mandatory
 if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
+if (_faction get "vehiclesHeavyTanks" isEqualTo []) then { _tankWeight = _tankWeight + _hvytWeight };
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };
-//Do vehiclesHeavyTanks need to be factored in here? How? TODO
 
 // only occupants use militia vehicles?
 if (_side == Occupants) then {

@@ -40,6 +40,7 @@
 ["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhs_l159_cdf_b_CDF_CAP"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
+["vehiclesAirPatrol", ["rhs_uh1h_hidf", "rhsgred_hidf_cessna_o3a"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhs_uh1h_hidf"]] call _fnc_saveToTemplate;

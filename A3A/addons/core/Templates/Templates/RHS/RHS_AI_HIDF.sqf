@@ -19,7 +19,7 @@
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_hidf_M998_2dr_halftop","rhsgref_hidf_M998_4dr_halftop", "rhsgref_hidf_m1025"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19", "rhsusf_M1117_O"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhsusf_M1078A1P2_WD_fmtv_usarmy","rhsusf_M1083A1P2_WD_fmtv_usarmy", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhsusf_M1078A1P2_WD_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_WD_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsusf_M977A4_AMMO_usarmy_wd"]] call _fnc_saveToTemplate;
@@ -58,7 +58,7 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["rhsusf_m1151_m240_v1_usarmy_wd"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["rhsgref_hidf_m1025_m2"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["rhs_zil131_msv"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhsgref_hidf_m998_4dr","rhsgref_hidf_M998_2dr"]] call _fnc_saveToTemplate;
 
@@ -228,13 +228,15 @@ _militaryLoadoutData set ["helmets", ["rhsgref_helmet_pasgt_erdl"]];
 
 _militaryLoadoutData set ["rifles", [
 ["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""], 
-["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
-["rhs_weap_m16a4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M196_2MAG_Stanag_Tracer_Red"], [], ""]
+["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""], 
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""], 
-["rhs_weap_m4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], [], ""], 
-"rhs_weap_m1garand_sa43"
+["rhs_weap_l1a1", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""], 
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
+["rhs_weap_m4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], [], ""],
+["rhs_weap_m16a4_carryhandle", "rhsusf_acc_SF3P556", "", "", ["rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M193_2MAG_Stanag","rhs_mag_20Rnd_556x45_M196_2MAG_Stanag_Tracer_Red"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_m4_carryhandle_m203", "rhsusf_acc_SF3P556", "", "",["rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M193_Stanag","rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], ["rhs_mag_M441_HE","rhs_mag_m714_White","rhs_mag_m662_red"], ""],

@@ -12,6 +12,7 @@ class DOUBLES(ADDON,Nodes)
     #include "Nodes\D3S.hpp"
     #include "Nodes\GM.hpp"
     #include "Nodes\RDS.hpp"
+    #include "Nodes\RF.hpp"
     #include "Nodes\RHS.hpp"
     #include "Nodes\RNT.hpp"
     #include "Nodes\SPE.hpp"

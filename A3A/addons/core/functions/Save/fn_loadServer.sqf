@@ -31,6 +31,7 @@ if (isServer) then {
 	["vehInGarage"] call A3A_fnc_getStatVariable;
     ["HR_Garage"] call A3A_fnc_getStatVariable;
     ["A3A_fuelAmountleftArray"] call A3A_fnc_getStatVariable;
+    [QEGVAR(Tasks,ActiveTasks)] call A3A_fnc_getStatVariable;
 	["destroyedBuildings"] call A3A_fnc_getStatVariable;
 	["enemyResources"] call A3A_fnc_getStatVariable;
 	["HQKnowledge"] call A3A_fnc_getStatVariable;

@@ -90,7 +90,7 @@ if ((spawner getVariable _markerX != 2) and !(sidesX getVariable [_markerX,sideU
 			["TaskFailed", ["", format ["Ammotruck Stolen in an %1",(_vehicle getVariable ["ammoTruckLocation", ""])]]] remoteExec ["BIS_fnc_showNotification",_owningSide];
 		};
 
-		_truckX removeEventHandler ["GetIn", _thisEventHandler];
+		_vehicle removeEventHandler ["GetIn", _thisEventHandler];
 	}];
 
 	waitUntil {sleep 3; (not alive _truckX) or (dateToNumber date > _dateLimitNum) or (call _fnc_truckReturnedToBase)};

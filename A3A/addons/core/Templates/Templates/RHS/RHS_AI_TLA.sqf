@@ -45,7 +45,7 @@
 
 ["vehiclesHelisLight", ["RHS_Mi8t_vv"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_Mi8mt_vv"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_vdv", "RHS_Mi8MTV3_heavy_vdv", "RHS_Mi24P_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["a3a_rhs_Mi8AMTSh_tla", "a3a_rhs_Mi8MTV3_heavy_tla", "a3a_rhs_Mi8MTV3_tla"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["rhsgref_mi24g_CAS", "RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhsgref_ins_d30", "RHS_BM21_VV_01", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;

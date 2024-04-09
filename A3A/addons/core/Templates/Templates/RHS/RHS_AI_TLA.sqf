@@ -42,7 +42,6 @@
 ["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF", "RHS_Su25SM_vvsc"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhs_l159_cdf_b_CDF_CAP"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
-["vehiclesAirPatrol", ["rhs_uh1h_hidf", "rhsgred_hidf_cessna_o3a"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["RHS_Mi8t_vv"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_Mi8mt_vv"]] call _fnc_saveToTemplate;
@@ -113,9 +112,10 @@ _loadoutData set ["ATLaunchers", [
 ["rhs_weap_rpg7", "", "", "",["rhs_rpg7_type69_airburst_mag", "rhs_rpg7_PG7VL_mag", "rhs_rpg7_OG7V_mag"], [], ""]
 ]];
 _loadoutData set ["heavyATLaunchers", [
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VR_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VS_mag"], [], ""],
-["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_TBG7V_mag"], [], ""]
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VM_mag", "rhs_rpg7_PG7VL_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VR_mag","rhs_rpg7_PG7VM_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_PG7VS_mag","rhs_rpg7_PG7VM_mag"], [], ""],
+["rhs_weap_rpg7", "", "", "rhs_acc_pgo7v",["rhs_rpg7_TBG7V_mag","rhs_rpg7_PG7VM_mag"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", ["rhs_weap_igla"]];
 _loadoutData set ["sidearms", ["rhsusf_weap_m1911a1", "rhs_weap_makarov_pm", "rhs_weap_makarov_pm"]];
@@ -126,9 +126,9 @@ _loadoutData set ["lightExplosives", ["rhs_ec200_mag"]];
 _loadoutData set ["heavyExplosives", ["rhs_ec400_mag"]];
 
 _loadoutData set ["antiTankGrenades", []];
-_loadoutData set ["antiInfantryGrenades", ["rhs_grenade_mkii_mag"]];
-_loadoutData set ["smokeGrenades", ["rhs_grenade_m15_mag"]];
-_loadoutData set ["signalsmokeGrenades", ["rhs_mag_m18_green", "rhs_mag_m18_purple", "rhs_mag_m18_red", "rhs_mag_m18_yellow","rhs_mag_nspn_red"]];
+_loadoutData set ["antiInfantryGrenades", ["rhs_mag_f1", "rhs_grenade_sthgr24_mag"]];
+_loadoutData set ["smokeGrenades", ["rhs_mag_rdg2_white", "rhs_grenade_nbhgr39_mag"]];
+_loadoutData set ["signalsmokeGrenades", ["rhs_mag_nspd"]];
 
 
 //Basic equipment. Shouldn't need touching most of the time.
@@ -183,12 +183,14 @@ _loadoutData set ["items_unarmed_extras", []];
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["rhs_uniform_mflora_patchless"]];
-_sfLoadoutData set ["vests", ["rhs_6b23_ML_6sh92"]];
+_sfLoadoutData set ["vests", ["rhs_6b23_ML_6sh92", "rhs_6b23_ML_vydra_3m"]];
 _sfLoadoutData set ["backpacks", ["rhs_rd54_vest","rhs_tortila_khaki"]];
 _sfLoadoutData set ["helmets", ["rhs_6b27m_ml","rhs_6b27m_ml_ess"]];
 _sfLoadoutData set ["binoculars", ["Rangefinder"]];
 _sfLoadoutData set ["slHat", ["rhs_fieldcap_helm_ml", "rhs_fieldcap_ml"]];
 _sfLoadoutData set ["NVGs", ["rhs_1PN138"]];
+
+_sfLoadoutData set ["antiInfantryGrenades", ["rhs_mag_rgn", "rhs_mag_rgo"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", ["rhs_weap_m72a7", "rhs_weap_rshg2"]];
@@ -199,12 +201,13 @@ _sfLoadoutData set ["ATLaunchers", [
 ]];
 
 _sfLoadoutData set ["rifles", [
-["rhs_weap_ak74n", "rhs_acc_dtk4short", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_ak74n", "rhs_acc_dtk4short", "", "rhs_acc_pkas", ["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
 ["rhs_weap_akmn", "rhs_acc_pbs1", "", "rhs_acc_pkas", ["rhs_30Rnd_762x39mm_U"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
-["rhs_weap_aks74n", "rhs_acc_dtk4short", "", "rhs_acc_ekp8_02", ["rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
-["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+["rhs_weap_aks74n", "rhs_acc_dtk4short", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_AK_green"], [], ""],
+["rhs_weap_m92", "rhs_acc_pbs1", "", "", ["rhs_30Rnd_762x39mm_U"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_aks74n_gp25", "rhs_acc_dtk4short", "", "rhs_acc_ekp8_02", 	["rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_7N6_AK", "rhs_30Rnd_545x39_AK_green"], ["rhs_VOG25", "rhs_VOG25", "rhs_GRD40_White", "rhs_VG40OP_red"], ""],
@@ -212,8 +215,7 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_akmn_gp25", "rhs_acc_pbs1", "", "rhs_acc_ekp8_02", 	["rhs_30Rnd_762x39mm_U"], ["rhs_VG40TB", "rhs_VG40TB", "rhs_GRD40_White", "rhs_VG40OP_red"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
-["rhs_weap_m3a1_specops", "", "", "rhsusf_acc_compm4", ["rhsgref_30rnd_1143x23_M1911B_SMG"], [], ""],
-["rhs_weap_aks74un", "rhs_acc_pbs4", "", "rhs_acc_okp7_dovetail", ["rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_7U1_AK", "rhs_30Rnd_545x39_AK_green"], [], ""]
+["rhs_weap_m3a1_specops", "", "", "rhs_acc_okp7_picatinny", ["rhsgref_30rnd_1143x23_M1911B_SMG"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
 ["rhs_weap_rpk74m", "rhs_acc_dtk4short", "", "rhs_acc_1p29", ["rhs_45Rnd_545X39_7U1_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_7N6_AK", "rhs_45Rnd_545X39_AK_Green"], [], ""]
@@ -231,7 +233,7 @@ _sfLoadoutData set ["sniperRifles", [
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militaryLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_1"]];
-_militaryLoadoutData set ["vests", ["rhsgref_alice_webbing","rhsgref_TacVest_ERDL","rhsgref_otv_khaki"]];
+_militaryLoadoutData set ["vests", ["rhs_lifchik","rhs_lifchik_light","rhs_6b2_lifchik","rhs_6b2_lifchik"]];
 _militaryLoadoutData set ["backpacks", ["rhs_sidor", "rhs_sidor", "rhs_rd54_flora2"]];
 _militaryLoadoutData set ["helmets", ["rhsgref_helmet_pasgt_olive","rhsgref_M56","rhs_headband"]];
 
@@ -253,9 +255,8 @@ _militaryLoadoutData set ["SMGs", [
 ]];
 _militaryLoadoutData set ["machineGuns", [
 ["rhs_weap_pkm", "", "", "",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
-["rhs_weap_pkm", "", "", "",["rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR", "rhs_100Rnd_762x54mmR_green"], [], ""],
 ["rhs_weap_fnmag", "", "", "",["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""],
-["rhs_weap_fnmag", "", "", "",["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"], [], ""]
+["rhs_weap_mg42", "", "", "",["rhsgref_50Rnd_792x57_SmE_drum", "rhsgref_50Rnd_792x57_SmE_drum", "rhsgref_50Rnd_792x57_SmE_notracers_drum"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "rhsgref_acc_l1a1_l2a2", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
@@ -290,12 +291,10 @@ _policeLoadoutData set ["shotguns", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["rhsgref_uniform_TLA_2"]];
-_militiaLoadoutData set ["vests", ["rhsgref_chestrig","rhsgref_chicom","rhsgref_alice_webbing"]];
+_militiaLoadoutData set ["vests", ["rhs_lifchik","rhs_lifchik_light"]];
 _militiaLoadoutData set ["backpacks", ["rhs_sidor"]];
 _militiaLoadoutData set ["helmets", ["rhs_headband","rhsgref_M56","rhsgref_helmet_M1_painted_alt01"]];
 _militiaLoadoutData set ["NVGs", []];
-
-_militiaLoadoutData set ["antiInfantryGrenades", ["rhs_mag_f1"]];
 
 _militiaLoadoutData set ["lightATLaunchers", ["rhs_weap_rpg18"]];
 _militiaLoadoutData set ["ATLaunchers", [
@@ -337,12 +336,12 @@ _militiaLoadoutData set ["marksmanRifles", [
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["vests", ["rhsgref_TacVest_ERDL"]];
 _crewLoadoutData set ["carbines", ["rhs_weap_m1garand_sa43"]];
-_crewLoadoutData set ["helmets", ["rhsusf_cvc_green_helmet","rhsusf_cvc_green_ess"]];
+_crewLoadoutData set ["helmets", ["rhs_tsh4","rhs_tsh4_ess"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["vests", ["rhsgref_TacVest_ERDL"]];
 _pilotLoadoutData set ["SMGs", ["rhs_weap_m3a1"]];
-_pilotLoadoutData set ["helmets", ["rhsusf_hgu56p_green", "rhsusf_hgu56p_visor_green", "rhsusf_hgu56p_visor_mask_green"]];
+_pilotLoadoutData set ["helmets", ["rhs_zsh7a_mike_green", "rhs_zsh7a_mike_green_alt"]];
 
 
 /////////////////////////////////

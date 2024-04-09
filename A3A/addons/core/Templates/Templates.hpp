@@ -294,6 +294,17 @@ class Templates
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
     };
     
+    class RHS_TLA : RHS_Base
+    {
+        side = "Inv";
+        flagTexture = "rhsgref\addons\rhsgref_main\data\flag_chdkz_co.paa";
+        name = "RHS TLA";
+        file = "RHS_AI_TLA";
+        maps[] = {"Tanoa"};
+        climate[] = {"tropical"};
+        logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+    };
+    
     class RHS_CDF : RHS_Base
     {
         side = "Occ";

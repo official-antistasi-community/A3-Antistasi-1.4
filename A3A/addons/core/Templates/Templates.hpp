@@ -296,7 +296,7 @@ class Templates
     class RHS_HIDF : RHS_Base
     {
         side = "Occ";
-        flagTexture = "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa";
+        flagTexture = "\A3\Data_F_Exp\Flags\flag_GEN_CO.paa";
         name = "RHS HIDF";
         file = "RHS_AI_HIDF";
         maps[] = {"Tanoa"};

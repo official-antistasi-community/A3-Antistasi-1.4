@@ -6,8 +6,8 @@
 ["spawnMarkerName", "HIDF support corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_Blue_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F_Exp\Flags\flag_Tanoa_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Tanoa"] call _fnc_saveToTemplate;
+["flagTexture", "\A3\Data_F_Exp\Flags\flag_GEN_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_TanoaGendarmerie"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //

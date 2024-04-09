@@ -297,7 +297,7 @@ class Templates
     class RHS_TLA : RHS_Base
     {
         side = "Inv";
-        flagTexture = "rhsgref\addons\rhsgref_main\data\flag_chdkz_co.paa";
+        flagTexture = "\rhsafrf\addons\rhs_main\data\Flag_trn_CO.paa";
         name = "RHS TLA";
         file = "RHS_AI_TLA";
         maps[] = {"Tanoa"};

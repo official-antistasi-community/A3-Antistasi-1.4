@@ -45,7 +45,7 @@
 ["vehiclesHelisLight", ["rhs_uh1h_hidf_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["rhs_uh1h_hidf"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["rhs_uh1h_hidf_gunship"]] call _fnc_saveToTemplate; 
-["vehiclesHelisAttack", ["RHS_AH64D_wd"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["RHS_M119_WD"]] call _fnc_saveToTemplate;        // "rhsusf_M142_usarmy_D" - OP until we can customize magazines
 ["magazines", createHashMapFromArray [

@@ -33,8 +33,8 @@ if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
 // Only one of these two is mandatory
 if (!(_faction get "vehiclesHeavyTanks" isEqualTo [])) then {
-    _tankWeight = _tankWeight   -   ((_hvytWeight / 10) * (10 - (_level + 1))); 1 * 2 = 2
-    _ltWeight   = _ltWeight     -   ((_hvytWeight / 10) * (_level + 1));        1 * 8 = 8
+    _tankWeight = _tankWeight   -   ((_hvytWeight / 10) * (10 - (_level + 1)));
+    _ltWeight   = _ltWeight     -   ((_hvytWeight / 10) * (_level + 1));
 };
 if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };

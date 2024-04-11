@@ -1,43 +1,42 @@
 class pulau {
 	population[] = {
-        {"DefaultKeyPoint1",38},
-        {"DefaultKeyPoint2",59},
-        {"DefaultKeyPoint3",76},
-        {"DefaultKeyPoint4",41},
-        {"DefaultKeyPoint5",57},
-        {"DefaultKeyPoint6",38},
-        {"DefaultKeyPoint7",43},
-        {"DefaultKeyPoint8",28},
-        {"DefaultKeyPoint10",47},
-        {"DefaultKeyPoint11",57},
-        {"DefaultKeyPoint12",26},
-        {"DefaultKeyPoint13",27},
-        {"DefaultKeyPoint9",47},
-        {"DefaultKeyPoint14",26},
-        {"DefaultKeyPoint15",31},
-        {"DefaultKeyPoint16",25},
-        {"DefaultKeyPoint17",25},
-        {"DefaultKeyPoint18",23},
-        {"DefaultKeyPoint19",33},
-        {"DefaultKeyPoint20",64},
-        {"DefaultKeyPoint21",34},
-        {"DefaultKeyPoint22",27},
-        {"DefaultKeyPoint23",58},
-        {"DefaultKeyPoint24",30},
-        {"DefaultKeyPoint25",38},
-        {"DefaultKeyPoint26",33},
-        {"DefaultKeyPoint27",59},
-        {"DefaultKeyPoint28",52},
-        {"DefaultKeyPoint29",20},
-        {"DefaultKeyPoint30",22},
-        {"DefaultKeyPoint31",32},
-        {"DefaultKeyPoint32",31},
-        {"Loholoho",233}
-    };
+		{"DefaultKeyPoint1",38},
+		{"DefaultKeyPoint2",59},
+		{"DefaultKeyPoint3",76},
+		{"DefaultKeyPoint4",41},
+		{"DefaultKeyPoint5",57},
+		{"DefaultKeyPoint6",38},
+		{"DefaultKeyPoint7",43},
+		{"DefaultKeyPoint8",28},
+		{"DefaultKeyPoint10",47},
+		{"DefaultKeyPoint11",57},
+		{"DefaultKeyPoint12",26},
+		{"DefaultKeyPoint13",27},
+		{"DefaultKeyPoint9",47},
+		{"DefaultKeyPoint14",26},
+		{"DefaultKeyPoint15",31},
+		{"DefaultKeyPoint16",25},
+		{"DefaultKeyPoint17",25},
+		{"DefaultKeyPoint18",23},
+		{"DefaultKeyPoint19",33},
+		{"DefaultKeyPoint20",64},
+		{"DefaultKeyPoint21",34},
+		{"DefaultKeyPoint22",27},
+		{"DefaultKeyPoint23",58},
+		{"DefaultKeyPoint24",30},
+		{"DefaultKeyPoint25",38},
+		{"DefaultKeyPoint26",33},
+		{"DefaultKeyPoint27",59},
+		{"DefaultKeyPoint28",52},
+		{"DefaultKeyPoint29",20},
+		{"DefaultKeyPoint30",22},
+		{"DefaultKeyPoint31",32},
+		{"DefaultKeyPoint32",31},
+		{"Loholoho",233}
+	};
 	disabledTowns[] = {"DefaultKeyPoint6","DefaultKeyPoint9","DefaultKeyPoint11","DefaultKeyPoint12","DefaultKeyPoint13","DefaultKeyPoint14","DefaultKeyPoint16","DefaultKeyPoint17","DefaultKeyPoint18","DefaultKeyPoint29","DefaultKeyPoint30","DefaultKeyPoint31"};
 	antennas[] = {
-		{6004.48,6269.15,-7.62939e-006}
-    };
+	};
 	antennasBlacklistIndex[] = {};
 	banks[] = {
 	};

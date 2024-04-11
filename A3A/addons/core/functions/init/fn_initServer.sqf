@@ -123,18 +123,23 @@ else
     // Fill out garrisons, set sides/names as appropriate
     call A3A_fnc_initGarrisons;
 
+    Info("Starting item unlocks");
+
     // Do initial arsenal filling
     private _categoriesToPublish = createHashMap;
+    private _equipHM = FactionGet(reb,"initialRebelEquipment") createHashMapFromArray [];       // dupe proofing
     {
         if (_x isEqualType "") then {
-            private _categories = [_x, true] call A3A_fnc_unlockEquipment;
+            private _arsenalTab = _x call jn_fnc_arsenal_itemType;
+            jna_dataList#_arsenalTab pushBack [_x, -1];         // direct add to avoid O(N^2) issue
+            private _categories = _x call A3A_fnc_equipmentClassToCategories;
             _categoriesToPublish insert [true, _categories, []];
             continue;
         };
         _x params ["_class", "_count"];
         private _arsenalTab = _class call jn_fnc_arsenal_itemType;
-        [_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
-    } foreach FactionGet(reb,"initialRebelEquipment");
+        jna_dataList#_arsenalTab pushBack [_class, _count];
+    } foreach keys _equipHM;
 
     // Publish the unlocked categories (once each)
     { publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;

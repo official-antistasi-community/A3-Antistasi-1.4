@@ -36,9 +36,11 @@ class pulau {
 	};
 	disabledTowns[] = {"DefaultKeyPoint6","DefaultKeyPoint9","DefaultKeyPoint11","DefaultKeyPoint12","DefaultKeyPoint13","DefaultKeyPoint14","DefaultKeyPoint16","DefaultKeyPoint17","DefaultKeyPoint18","DefaultKeyPoint29","DefaultKeyPoint30","DefaultKeyPoint31"};
 	antennas[] = {
+		{6004.48,6269.15,-7.62939e-006},{5367.93,8981.39,0.00322723},{7329.88,2402.91,0.0544472},{1907,7127.88,0.0916786},{9409.2,3129.01,0.885342},{7075.77,1006.8,7.62939e-005},{2626.32,1945.44,0.00999451}
 	};
 	antennasBlacklistIndex[] = {};
 	banks[] = {
+        {5934.3,5828.19,0}
 	};
 	garrison[] = {
 		{},{"seaport_1","outpost_1","outpost_18"},{},{"control_0","control_1","control_2","control_10","control_11"}

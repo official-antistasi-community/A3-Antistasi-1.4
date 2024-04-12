@@ -33,24 +33,12 @@
 ["vehiclesMedical", ["LIB_US_GMC_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["LIB_US_M3_Halftrack"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
-["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
+["vehiclesIFVs", ["LIB_M4A3_75","LIB_Cromwell_Mk4"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 
-["vehiclesLightTanks", ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"]] call _fnc_saveToTemplate;
+private _vehiclesLightTanks = ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"];
+private _vehiclesTanks = ["LIB_M4A4_FIREFLY","LIB_M4A3_76","LIB_M4A3_76_HVSS","LIB_M4A3_75","LIB_Cromwell_Mk4"];
+private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"];
 
-private _mediumTanks = [
-"LIB_M4A3_75", "LIB_M4A3_75", "LIB_M4A3_75","LIB_Cromwell_Mk4","LIB_Cromwell_Mk4"
-];
-private _heavyTanks = [
-"LIB_Churchill_Mk7","LIB_Churchill_Mk7","LIB_Churchill_Mk7_Howitzer","LIB_Churchill_Mk7_AVRE","LIB_Churchill_Mk7_Crocodile",
-"LIB_M4A4_FIREFLY", "LIB_M4A4_FIREFLY", "LIB_M4A3_76", "LIB_M4A3_76_HVSS", "LIB_M4A3_76", "LIB_M4A3_76_HVSS"
-];
-private _heavyCount = count _heavyTanks;
-private _mediumCount = count _mediumTanks;
-//We want roughly 2/3rds mediums and 1/3rd heavy, constant is how many times more than the heavies that we want to add ie 2:1
-private _tankRatio = round (2/(_mediumCount / _heavyCount)); 
-private _tanks = _heavyTanks;
-for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
-["vehiclesTanks", _tanks] call _fnc_saveToTemplate;
 
 ["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate; //Fake "truck with bofors"
 
@@ -84,6 +72,17 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 ["vehiclesMilitiaCars", ["LIB_UK_Willys_MB","LIB_UK_Willys_MB_Hood"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
+
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
+    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2"];
+};
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
+    _vehiclesTanks append ["FA_ValentineMk3"];
+    _vehiclesHeavyTanks append ["FA_M26"];
+};
+["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;
+["vehiclesTanks", _vehiclesTanks] call _fnc_saveToTemplate;
+["vehiclesHeavyTanks", _vehiclesHeavyTanks] call _fnc_saveToTemplate;
 
 ["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3","LIB_leFH18_AT"]] call _fnc_saveToTemplate;

@@ -22,7 +22,7 @@
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_Willys_MB", "LIB_Willys_MB_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_Scout_M3_FFV", "LIB_Scout_M3_FFV"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+private _vehiclesLightArmed = ["LIB_Scout_M3_FFV", "LIB_Scout_M3_FFV"];
 ["vehiclesTrucks", ["LIB_US6_Open","LIB_US6_Tent_Cargo"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_US6_Open_Cargo","LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US6_Ammo"]] call _fnc_saveToTemplate;
@@ -32,11 +32,10 @@
 ["vehiclesLightAPCs", ["LIB_SOV_M3_Halftrack", "LIB_SOV_M3_Halftrack", "LIB_SdKfz251_captured_FFV"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-["vehiclesLightTanks", []] call _fnc_saveToTemplate;
-["vehiclesTanks", [
-"LIB_T34_76", "LIB_T34_76", "LIB_T34_76", "LIB_M4A2_SOV", "LIB_M4A2_SOV",
-"LIB_T34_85","LIB_SU85","LIB_JS2_43"
-]] call _fnc_saveToTemplate;
+private _vehiclesLightTanks = [];
+["vehiclesTanks", ["LIB_T34_76", "LIB_T34_76", "LIB_T34_85", "LIB_SU85"]] call _fnc_saveToTemplate;
+private _vehiclesHeavyTanks = ["LIB_JS2_43"];
+
 ["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 
@@ -63,12 +62,26 @@
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-//These intentionally appear again above among the regular 'military' vehile, to inject some british (militia) troops into the mix
 ["vehiclesMilitiaLightArmed", ["LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
+
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
+    _vehiclesLightArmed append ["FA_BA10M", "FA_BA64"];
+};
+if (isClass (configFile >> "CfgPatches" >> "BT_BT7_M1937_c")) then {
+    _vehiclesLightTanks append ["SOV_BT_BT7_M1937", "SOV_BT_BT7A", "SOV_BT_BT7TU_M1937"];
+};
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
+    _vehiclesLightTanks append ["FA_T26", "FA_T26"];
+    _vehiclesHeavyTanks append ["FA_KV1"];
+};
+
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;
+["vehiclesHeavyTanks", _vehiclesHeavyTanks] call _fnc_saveToTemplate;
 
 ["staticMGs", ["LIB_Maxim_M30_base"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3"]] call _fnc_saveToTemplate;

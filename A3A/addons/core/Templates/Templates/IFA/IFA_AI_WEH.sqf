@@ -22,7 +22,7 @@
 // vehicles can be placed in more than one category if they fit between both. Cost will be derived by the higher category
 ["vehiclesBasic", ["LIB_Kfz1_Hood"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_Kfz1", "LIB_Kfz1_Hood"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_Kfz1_MG42", "LIB_Kfz1_MG42", "LIB_SdKfz_7_AA"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
+private _vehiclesLightArmed = ["LIB_Kfz1_MG42", "LIB_Kfz1_MG42"];             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", ["LIB_OpelBlitz_Open_Y_Camo","LIB_OpelBlitz_Tent_Y_Camo","LIB_SdKfz_7"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_OpelBlitz_Open_Y_Camo","LIB_SdKfz_7"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_SdKfz_7_Ammo","LIB_OpelBlitz_Ammo"]] call _fnc_saveToTemplate;
@@ -33,33 +33,11 @@
 ["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 
-["vehiclesLightTanks", ["LIB_StuG_III_G_WS"]] call _fnc_saveToTemplate; //Add Panzer 4 without shield, needs to be added to configs
+private _vehiclesLightTanks = ["LIB_DAK_PzKpfwIV_H"];
+["vehiclesTanks", ["LIB_StuG_III_G","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H","LIB_PzKpfwV"]] call _fnc_saveToTemplate;
+["vehiclesHeavyTanks", ["LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_1","LIB_PzKpfwVI_B"]] call _fnc_saveToTemplate;
 
-//Some shenanigans to ensure the player doesn't only face Tigers/King tigers
-private _mediumTanks = [
-"LIB_T34_76_captured3","LIB_T34_76_captured","LIB_StuG_III_G_WS",
-"LIB_StuG_III_G","LIB_StuG_III_G","LIB_StuG_III_G",
-"LIB_PzKpfwIV_H","LIB_PzKpfwIV_H_tarn51c","LIB_PzKpfwIV_H_tarn51d"];
-
-private _heavyTanks = [
-"LIB_PzKpfwVI_B","LIB_PzKpfwVI_B_tarn51c","LIB_PzKpfwVI_B_tarn51d",
-"LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_2","LIB_PzKpfwVI_E_tarn51c","LIB_PzKpfwVI_E_tarn51d","LIB_PzKpfwVI_E_tarn52c","LIB_PzKpfwVI_E_tarn52d","LIB_PzKpfwVI_E_1"
-];
-
-private _heavyCount = count _heavyTanks;
-
-for "_i" from 1 to _heavyCount do { _heavyTanks pushBack "LIB_PzKpfwV"; }; //50/50 Panzer V & Panzer VI variants
-_heavyCount = count _heavyTanks;
-private _mediumCount = count _mediumTanks;
-
-//We want roughly 2/3rds mediums and 1/3rd heavy, constant is how many times more than the heavies that we want to add ie 2:1
-private _tankRatio = round (2/(_mediumCount / _heavyCount)); 
-
-private _tanks = _heavyTanks;
-for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
-
-["vehiclesTanks", _tanks] call _fnc_saveToTemplate;
-["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
+["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind", "LIB_FlakPanzerIV_Wirbelwind", "LIB_SdKfz_7_AA"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
 
 
 ["vehiclesTransportBoats", ["LIB_LCA"]] call _fnc_saveToTemplate;
@@ -92,7 +70,18 @@ for "_i" from 1 to _tankRatio do { _tanks append _mediumTanks; };
 ["vehiclesMilitiaTrucks", ["LIB_OpelBlitz_Open_G_Camo"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["LIB_Kfz1_camo","LIB_Kfz1_Hood_camo"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt", "LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["LIB_Kfz1_Hood_sernyt","LIB_Kfz1_sernyt"]] call _fnc_saveToTemplate;
+
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
+    _vehiclesLightArmed append ["FA_BA64_Captured"];
+    ["vehiclesIFVs", ["FA_Sdkfz231", "FA_Sdkfz234", "FA_Sdkfz234_4", "FA_Sdkfz231"]] call _fnc_saveToTemplate;
+};
+if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
+    _vehiclesLightTanks = _vehiclesLightTanks - ["LIB_DAK_PzKpfwIV_H"];
+    _vehiclesLightTanks append ["FA_Panzer2", "FA_Pz38t"];
+};
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;
 
 ["staticMGs", ["LIB_MG42_Lafette_low_Deployed","LIB_MG34_Lafette_low_Deployed"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Pak40_g","LIB_Pak40_g","LIB_leFH18_AT"]] call _fnc_saveToTemplate;

@@ -111,6 +111,7 @@ recruitCooldown = 0;			//Prevents units being recruited too soon after being dis
 incomeRep = false;
 autoHeal = true;				//Should AI in player squad automatically heal teammates
 
+player switchMove ""; // kick the player out of any animation before teleporting
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 
@@ -267,9 +268,7 @@ player addEventHandler ["WeaponDisassembled", {
 }];
 
 player addEventHandler ["GetInMan", {
-    private ["_unit","_veh"];
-    _unit = _this select 0;
-    _veh = _this select 2;
+    params ["_unit", "_role", "_veh", "_turret"];
     _exit = false;
     if !([player] call A3A_fnc_isMember) then {
         if (!isNil {_veh getVariable "A3A_locked"}) then {
@@ -287,7 +286,19 @@ player addEventHandler ["GetInMan", {
                 [] spawn A3A_fnc_goUndercover;
             };
         };
+        if (_veh isKindOf "Air") then {
+            Debug_2("Installing airspace control for player %1, vehicle %2", _unit, typeof _veh);
+            private _handle = [_unit, _veh] spawn A3A_fnc_airspaceControl;
+            _unit setVariable ["airspaceControlHandle", _handle];
+        };
     };
+}];
+
+player addEventHandler ["GetOutMan", {
+    params ["_unit", "_role", "_veh", "_turret"];
+    Debug_2("Terminating airspace control for player %1, vehicle %2", _unit, typeof _veh);
+    private _handle = _unit getVariable ["airspaceControlHandle", scriptNull];
+    if (!isNull _handle) then { terminate _handle };
 }];
 
 // Prevent players getting shot by their own AIs. EH is respawn-persistent
@@ -347,7 +358,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
     _modsAndLoadText append _loadedTemplateInfoXML;
 
     if (count _modsAndLoadText isEqualTo 0) exitWith {};
-    private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ":</t>" + _x#2 }) joinString "<br/>") + "</t>";
+    private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ": </t>" + _x#2 }) joinString "<br/>") + "</t>";
     [localize "STR_A3A_fn_init_initclient_mods_loaded",_textXML] call A3A_fnc_customHint;
 };
 
@@ -373,7 +384,7 @@ _flagLight lightAttachObject [flagX, [0, 0, 4]];
 _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
-vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer) and !A3A_removeRestore", 4];
 vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 
@@ -399,7 +410,7 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
         localize "STR_A3A_fn_init_initclient_gameOpt_version"+" "+ QUOTE(VERSION_FULL) +"<br/><br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_resoBal"+" "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_unlockNo"+" "+ str minWeaps +"<br/>"+
-        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ (["No","Yes"] select limitedFT) +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ ([localize "STR_antistasi_dialogs_generic_button_no_text",localize "STR_antistasi_dialogs_generic_button_yes_text"] select limitedFT) +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_spawnDist"+" "+ str distanceSPWN + "m" +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_civLim"+" "+ str globalCivilianMax +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_timeGC"+" "+ ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)

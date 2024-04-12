@@ -36,10 +36,6 @@ Example:
 FIX_LINE_NUMBERS()
 private _layer = ["A3A_infoCenter"] call BIS_fnc_rscLayer;
 
-if (captive player) exitWith {
-    player setCaptive false;
-    [localize "STR_A3A_fn_undercover_goUn_off", 0, 0, 4, 0, 0, _layer] spawn bis_fnc_dynamicText;
-};
 private _titleStr = localize "STR_A3A_fn_undercover_title";
 private _result = [] call A3A_fnc_canGoUndercover;
 

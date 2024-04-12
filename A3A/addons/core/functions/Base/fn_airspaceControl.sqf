@@ -1,27 +1,25 @@
-#define CIV_HELI        0
-#define MIL_HELI        1
-#define JET             2
-
-params ["_vehicle"];
-#include "..\..\script_component.hpp"
-FIX_LINE_NUMBERS()
 /*  Handles the airspace control of any player aircraft, breaking undercover and calling support
 
-    Execution on: Any
+    Execution on: Client
 
     Scope: Internal
 
     Params:
-        _vehicle: OBJECT : The vehicles that should be checked against enemy positions
+        _player: OBJECT : Player who boarded the vehicle
+        _vehicle: OBJECT : The vehicle that should be checked against enemy positions
 
     Returns:
         Nothing
 */
 
-//If vehicle already has an airspace control script, exit here
-if(_vehicle getVariable ["airspaceControl", false]) exitWith {};
+#define CIV_HELI        0
+#define MIL_HELI        1
+#define JET             2
 
-_vehicle setVariable ["airspaceControl", true, true];
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
+
+params ["_player", "_vehicle"];
 
 //Select the kind of aircraft
 private _airType = -1;
@@ -72,13 +70,13 @@ private _fn_sendSupport =
 
     private _markerSide = sidesX getVariable [_marker, sideUnknown];
     //Reveal vehicle to all groups of the side so they can take actions
-    {
+/*    {
         if(side _x == _markerSide) then
         {
             _x reveal [_vehicle, 4];            // TODO: doesn't actually work, needs remoteExec
         };
     } forEach allGroups;
-
+*/
     //Take actions against the aircraft
     // Let support system decide whether it's worth reacting to
     private _revealValue = [getMarkerPos _marker, _markerSide] call A3A_fnc_calculateSupportCallReveal;
@@ -137,9 +135,13 @@ private _fn_getMarkersInRange =
 };
 
 
-//While not in garage and alive and crewed we check what the aircraft is doing
-while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} do
+while {_player in crew _vehicle && alive _vehicle} do
 {
+    sleep 1;
+
+    // Only run the checks for the vehicle's commander
+    if (_player != effectiveCommander _vehicle) then { continue };
+
     //Check undercover status
     _vehicleIsUndercover = captive ((crew _vehicle) select 0);
     _vehPos = getPosASL _vehicle;
@@ -230,7 +232,6 @@ while {!(isNull _vehicle) && {alive _vehicle && {count (crew _vehicle) != 0}}} d
             };
         };
     };
-    sleep 1;
 };
 
-_vehicle setVariable ["airspaceControl", nil, true];
+Debug_2("Exiting airspace control for player %1, vehicle %2", _player, typeof _vehicle);

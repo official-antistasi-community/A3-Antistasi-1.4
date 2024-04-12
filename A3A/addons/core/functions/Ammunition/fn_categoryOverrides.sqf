@@ -2,6 +2,15 @@
 //asval, Mk17 and SCAR-H arguable
 
 private _categoryOverrideTable = [
+//Bespoke, a3a
+["a3a_UK3CB_CZ550_8mm", ["SniperRifles","Weapons"]], //UK3CB_CZ550 in 8mm
+
+//Vanilla
+["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
+["hgun_PDW2000_F", ["SMGs","Weapons"]],
+["hgun_Pistol_Signal_F", ["Unknown","Weapons"]],
+
+//RHS
 ["rhs_weap_vss", ["SniperRifles","Weapons"]],
 ["rhs_weap_vss_grip", ["SniperRifles","Weapons"]],
 ["rhs_weap_vss_npz", ["SniperRifles","Weapons"]],
@@ -39,6 +48,11 @@ private _categoryOverrideTable = [
 ["rhs_weap_m32", ["GrenadeLaunchers","Weapons"]],
 ["rhs_weap_m79", ["GrenadeLaunchers","Weapons"]],
 
+//Disposable flare launchers
+["rhs_weap_rsp30_white", ["Unknown","Weapons"]],
+["rhs_weap_rsp30_green", ["Unknown","Weapons"]],
+["rhs_weap_rsp30_red", ["Unknown","Weapons"]],
+
 // These have a rifle grenade muzzle but with no magazines or wells defined
 ["rhs_weap_m70b1", ["Rifles","Weapons"]],
 ["rhs_weap_m70b1n", ["Rifles","Weapons"]],
@@ -60,9 +74,6 @@ private _categoryOverrideTable = [
 ["UK3CB_M79", ["GrenadeLaunchers","Weapons"]],
 ["UK3CB_BAF_AT4_CS_AT_Launcher", ["RocketLaunchers","Weapons","AT"]],
 ["UK3CB_BAF_AT4_CS_AP_Launcher", ["RocketLaunchers","Weapons","AT"]],
-
-["launch_NLAW_F", ["MissileLaunchers","Weapons","AT"]],
-["hgun_PDW2000_F", ["SMGs","Weapons"]],
 
 ["UK3CB_BAF_L86A2", ["MachineGuns","Weapons"]],
 ["UK3CB_BAF_L86A3", ["MachineGuns","Weapons"]],
@@ -182,11 +193,6 @@ private _categoryOverrideTable = [
 ["CUP_smg_vityaz_vfg", ["SMGs","Weapons"]],
 ["CUP_smg_vityaz_vfg_front_rail", ["SMGs","Weapons"]],
 
-["CUP_arifle_SAIGA_MK03", ["Shotguns","Weapons"]],
-["CUP_arifle_SAIGA_MK03_top_rail", ["Shotguns","Weapons"]],
-["CUP_arifle_SAIGA_MK03_Wood", ["Shotguns","Weapons"]],
-["CUP_arifle_SIAGE_MK03_Wood_top_rail", ["Shotguns","Weapons"]],
-
 ["CUP_srifle_M2010_blk", ["SniperRifles","Weapons"]],
 ["CUP_srifle_M2010_ctrgt", ["SniperRifles","Weapons"]],
 ["CUP_srifle_M2010_dsrt", ["SniperRifles","Weapons"]],
@@ -207,6 +213,8 @@ private _categoryOverrideTable = [
 
 ["CUP_arifle_MG36_hex", ["MachineGuns","Weapons"]],
 ["CUP_arifle_MG36", ["MachineGuns","Weapons"]],
+
+["CUP_hgun_FlareGun", ["Unknown","Weapons"]],
 
 ["CUP_hgun_BallisticShield_Armed_M9", ["Unknown","Weapons"]],
 ["CUP_hgun_BallisticShield_PMM", ["Unknown","Weapons"]],
@@ -247,17 +255,14 @@ private _categoryOverrideTable = [
 ["ACE_microDAGR", ["Gadgets","Items"]],
 ["ACE_DAGR", ["Gadgets","Items"]],
 
-["LIB_PTRD", ["Unknown", "Weapons"]],
-["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
-["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
 ["ACE_SatchelCharge_Remote_Mag_Throwable", ["Unknown", "Explosives", "Items"]],
 ["ACE_DemoCharge_Remote_Mag_Throwable", ["Unknown", "Explosives", "Items"]],
 //Flashlights
+["ACE_Flashlight_Maglite_ML300L", ["Unknown","Weapons"]],
 ["vn_mx991", ["Unknown","Weapons"]],
 ["vn_mx991_red", ["Unknown","Weapons"]],
 ["vn_fkb1_red", ["Unknown","Weapons"]],
 ["vn_fkb1", ["Unknown","Weapons"]],
-["ACE_Flashlight_Maglite_ML300L", ["Unknown","Weapons"]],
 
 ["vn_default_helmetbase_09", ["Unknown","Headgear"]],	//Goat Hat
 ["vn_m1897", ["Shotguns","Weapons"]],
@@ -383,6 +388,11 @@ private _categoryOverrideTable = [
 ["ACRE_VHF30108MAST", ["Gadgets","items"]],
 ["ACRE_PRC117F", ["Gadgets","items"]],
 
+["LIB_Webley_Flare", ["Unknown", "Weapons"]],
+["LIB_FLARE_PISTOL", ["Unknown", "Weapons"]],
+["LIB_PTRD", ["Unknown", "Weapons"]],
+["LIB_M2_Flamethrower", ["Unknown", "Weapons"]],			// don't want these two being chosen randomly by AIs
+["LIB_Bagpipes", ["Unknown","Weapons"]],					// wat
 ["LIB_M2_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_Laffete_Tripod", ["StaticWeaponParts","Items"]],
 ["LIB_BM37_Tripod", ["StaticWeaponParts","Items"]],

@@ -2536,7 +2536,7 @@
       <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
         <Original>Roadblock Deploy</Original>
         <Korean>검문소 배치</Korean>
-        <Russian>Блокпост развернут</Russian>
+        <Russian>Развертывание блокпоста</Russian>
       </Key>
       <Key ID="STR_A3A_fn_FIARadio_no">
         <Original>Enemy Comms Lost</Original>
@@ -2901,7 +2901,7 @@
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
         <Original>Antistasi has a custom save system similar to other CTIs.&lt;br/&gt;&lt;br/&gt;To Save: Your commander needs to go to the &lt;t color='#f0d498'&gt;Map Board&lt;/t&gt;, scroll-select &lt;t color='#f0d498'&gt;""Game Options""&lt;/t&gt; and click on the &lt;t color='#f0d498'&gt;""Persistent Save""&lt;/t&gt; button.</Original>
         <Korean>안티스타시에는 다른 CTI 모드와 유사한 사용자 정의 저장 시스템이 있습니다.&lt;br/&gt;&lt;br/&gt;저장 방법: 지휘관은 &lt;t color='#f0d498'&gt;지도 화이트보드&lt;/t&gt;로 이동하여 스크롤 선택으로&lt;t color='#f0d498'&gt;""게임 설정""&lt;/t&gt;을 선택하고 &lt;t color='#f0d498'&gt;""영구 저장""&lt;/t&gt; 버튼을 누르십시오.</Korean>
-        <Russian>В Antistasi есть собственная система сохранения, похожая на другие CTI.&lt;br/&gt;&lt;br/&gt; Чтобы сохранить: Ваш командир должен подойти к&lt;t color='#f0d498'&gt;Карта&lt;/t&gt;, открыть &lt;t color='#f0d498'&gt;""Настройки игры""&lt;/t&gt; и нажать на кнопку &lt;t color='#f0d498'&gt;""Сохранить игру""&lt;/t&gt;.</Russian>
+        <Russian>В Antistasi есть собственная система сохранения, похожая на другие CTI.&lt;br/&gt;&lt;br/&gt; Чтобы сохранить: Ваш командир должен подойти к &lt;t color='#f0d498'&gt;Карте&lt;/t&gt;, открыть &lt;t color='#f0d498'&gt;""Параметры""&lt;/t&gt; и нажать на кнопку &lt;t color='#f0d498'&gt;""Сохранение""&lt;/t&gt;.</Russian>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
         <Original>Current parameters are configured to auto-save every %1 minutes.</Original>
@@ -5103,7 +5103,7 @@
         <Italian>Salva rifornimenti</Italian>
         <French>Récupération de Provisions</French>
         <Korean>보급품 인양</Korean>
-        <Russian>Аварийные припасы</Russian>
+        <Russian>Затопленные припасы</Russian>
         <Polish>Odzyskaj zapasy</Polish>
         <Czech>Zachránit zásoby</Czech>
       </Key>
@@ -5892,7 +5892,7 @@
         <Italian>Caratteristiche Unità</Italian>
         <French>Attributs d'Unité</French>
         <Korean>유닛 특성</Korean>
-        <Russian>Черты юнита</Russian>
+        <Russian>Роль</Russian>
         <Polish>Cechy jednostek</Polish>
         <Czech>Vlastnosti jednotky</Czech>
         <Chinesesimp>单位特长</Chinesesimp>
@@ -5902,7 +5902,7 @@
         <Italian>Caratteristiche Unità</Italian>
         <French>Attributs d'Unité</French>
         <Korean>유닛 특성</Korean>
-        <Russian>Черты юнита</Russian>
+        <Russian>Роль</Russian>
         <Polish>Cechy jednostek</Polish>
         <Czech>Vlastnosti jednotky</Czech>
         <Chinesesimp>单位特长</Chinesesimp>
@@ -9855,7 +9855,7 @@
         <Spanish>Sacar cuerdas de remolque</Spanish>
         <French>Déployer treuil</French>
         <Korean>견인줄 꺼내기</Korean>
-        <Russian>Развернуть трос</Russian>
+        <Russian>Растянуть трос</Russian>
         <Polish>Rozłóż linkę holowniczą</Polish>
         <Czech>Vyložit tažné lano</Czech>
         <Portuguese>Tirar cordas de reboque</Portuguese>
@@ -10075,7 +10075,7 @@
         <Spanish>Ya te has revivido recientemente.</Spanish>
         <French>Vous vous êtes déjà réanimé vous-même récemment.</French>
         <Korean>당신은 이미 최근에 자가소생을 했습니다.</Korean>
-        <Russian>Вы уже пришли в себя.</Russian>
+        <Russian>Вы уже возрождали себя.</Russian>
         <Polish>Niedawno już się uleczyłeś.</Polish>
         <Czech>Již jsi se nedávno oživil.</Czech>
       </Key>

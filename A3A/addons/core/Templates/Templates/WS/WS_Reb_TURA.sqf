@@ -45,7 +45,7 @@ if ("expansion" in A3A_enabledDLC) then {
 	_vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 if ("rf" in A3A_enabledDLC) then {
-    _vehiclesCivCar append ["a3a_civ_Pickup_RF","a3a_civ_Pickup_covered_RF"];
+    _vehiclesCivCar append ["C_Pickup_RF","C_Pickup_covered_RF"];
     _vehiclesLightUnarmed append ["a3a_fia_Pickup_RF", "a3a_fia_Pickup_covered_RF"];
     _vehiclesLightArmed append ["a3a_fia_Pickup_mmg_RF", "a3a_fia_Pickup_hmg_RF"];
     _staticMortars append ["I_G_CommandoMortar_RF"];

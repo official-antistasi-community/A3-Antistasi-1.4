@@ -16,37 +16,51 @@ class CfgVehicles
     class Heli_EC_01_base_RF;
     class B_Heli_EC_04_military_RF;
     class B_Heli_EC_03_RF;
+    class B_ION_Pickup_aat_RF;
 
-
-    class a3a_civ_Pickup_RF : C_Pickup_RF {
-        textureList[] = {"Red",1,"Tan",1,"White",1,"Blue",1,"Gray",1,"Black",1,"Brown",1,"Olive",1,"Orange",1,"Yellow",1};
-        hiddenSelectionsTextures[] = {"lxrf\vehicles_rf\pickup_01\data\pickup_01_ext_white_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_adds_black_tank_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_service_white_co.paa"};
-    };
-    class a3a_civ_Pickup_covered_RF : C_Pickup_covered_RF {
-        textureList[] = {"Red",1,"Tan",1,"White",1,"Blue",1,"Gray",1,"Black",1,"Brown",1,"Olive",1,"Orange",1,"Yellow",1};
-        hiddenSelectionsTextures[] = {"lxrf\vehicles_rf\pickup_01\data\pickup_01_ext_white_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_adds_black_tank_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","lxrf\vehicles_rf\pickup_01\data\pickup_01_service_white_co.paa"};
-    };
-    class a3a_fia_Pickup_RF : I_G_Pickup_RF {
+    class a3a_armored_Pickup_RF : I_G_Pickup_RF {
         animationList[] = {"hide_bullbar",0.2,"hide_fuel_tank",1,"hide_snorkel",1,"hide_antenna",1,"hide_trunk_cover",1,"hide_trunk_door",0,"trunk_door_open",0,"hide_armor_window_armor_top",0,"window_armor_hatch_L_rot",1,"window_armor_hatch_R_rot",0,"door_F_L_open",0,"door_F_R_open",0,"door_R_L_open",0,"door_R_R_open",0,"hide_rack",1,"hide_rack_spotlights",1,"hide_frame",1,"hide_sidesteps",0.5};
+    };
+    class a3a_fia_Pickup_RF : a3a_armored_Pickup_RF {
         textureList[] = {"Guerilla_01",1,"Guerilla_02",1,"Guerilla_03",1,"Guerilla_04",1,"Guerilla_05",1,"Guerilla_06",0.1,"Guerilla_07",0.1,"Guerilla_08",0.1,"Guerilla_09",0.1};
         hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_fia_02_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_fia_02_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_fia_02_co.paa"};
     };
-    class a3a_fia_Pickup_mmg_RF : I_G_Pickup_mmg_RF {
+    class a3a_ION_Pickup_RF : a3a_armored_Pickup_RF {
+        textureList[] = {"ION",1};
+        hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_ion_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_black_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_black_co.paa"};
+    };
+    class a3a_armored_Pickup_mmg_RF : I_G_Pickup_mmg_RF {
         animationList[] = {"hide_trunk_cover",1,"hide_frame_full",1,"hide_bullbar",0.2,"hide_snorkel",1,"hide_antenna",1,"hide_trunk_door",0,"trunk_door_open",0,"hide_armor_window_armor_top",0,"window_armor_hatch_L_rot",1,"window_armor_hatch_R_rot",0,"door_F_L_open",0,"door_F_R_open",0,"door_R_L_open",0,"door_R_R_open",0,"hide_frame",0,"hide_sidesteps",0.5};
+    };
+    class a3a_fia_Pickup_mmg_RF : a3a_armored_Pickup_mmg_RF {
         textureList[] = {"Guerilla_01",1,"Guerilla_02",1,"Guerilla_03",1,"Guerilla_04",1,"Guerilla_05",1,"Guerilla_06",0.1,"Guerilla_07",0.1,"Guerilla_08",0.1,"Guerilla_09",0.1};
         hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_fia_02_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_fia_02_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_fia_02_co.paa"};
     };
-    class a3a_fia_Pickup_hmg_RF : I_G_Pickup_hmg_RF {
+    class a3a_ION_Pickup_mmg_RF : a3a_armored_Pickup_mmg_RF {
+        textureList[] = {"ION",1};
+        hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_ion_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_black_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_black_co.paa"};
+    };
+    class a3a_armored_Pickup_hmg_RF : I_G_Pickup_hmg_RF {
         animationList[] = {"Hide_Shield",1,"Hide_Rail",1,"hide_bullbar",0.2,"hide_snorkel",1,"hide_antenna",1,"hide_trunk_door",0,"trunk_door_open",0,"hide_armor_window_armor_top",0,"window_armor_hatch_L_rot",1,"window_armor_hatch_R_rot",0,"door_F_L_open",0,"door_F_R_open",0,"door_R_L_open",0,"door_R_R_open",0,"hide_rack",1,"hide_rack_spotlights",1,"hide_frame",0,"hide_sidesteps",0.5};
+    };
+    class a3a_fia_Pickup_hmg_RF : a3a_armored_Pickup_hmg_RF {
         textureList[] = {"Guerilla_01",1,"Guerilla_02",1,"Guerilla_03",1,"Guerilla_04",1,"Guerilla_05",1,"Guerilla_06",0.1,"Guerilla_07",0.1,"Guerilla_08",0.1,"Guerilla_09",0.1};
         hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_fia_02_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_fia_02_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_fia_02_co.paa"};
     };
-    class a3a_fia_Pickup_covered_RF : I_E_Pickup_covered_RF {
+    class a3a_ION_Pickup_hmg_RF : a3a_armored_Pickup_hmg_RF {
+        textureList[] = {"ION",1};
+        hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_ion_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_black_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_AAT_olive_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_Launcher_black_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_black_co.paa"};
+    };
+    class a3a_armored_Pickup_covered_RF : I_E_Pickup_covered_RF {
         animationList[] = {"hide_rack",1,"hide_rack_antenna",1,"hide_frame",1,"hide_frame_full",1,"hide_frame_full_panel",1,"hide_box",0,"hide_box_door",0,"hide_trunk_door",0,"trunk_door_open",0,"box_door_open",0,"hide_police",1,"hide_Services",1,"BeaconsServicesStart",0,"hide_bullbar",0.2,"hide_snorkel",0,"hide_antenna",1,"hide_armor_window_armor_top",0,"window_armor_hatch_L_rot",1,"window_armor_hatch_R_rot",0,"door_F_L_open",0,"door_F_R_open",0,"door_R_L_open",0,"door_R_R_open",0,"hide_rack_spotlights",0,"hide_sidesteps",0.5};
+    };
+    class a3a_fia_Pickup_covered_RF : a3a_armored_Pickup_covered_RF {
         textureList[] = {"Guerilla_01",1,"Guerilla_02",1,"Guerilla_03",1,"Guerilla_04",1,"Guerilla_05",1,"Guerilla_06",0.1,"Guerilla_07",0.1,"Guerilla_08",0.1,"Guerilla_09",0.1};
         hiddenSelectionsTextures[] = {"\lxRF\vehicles_rf\pickup_01\Data\pickup_01_ext_fia_02_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_adds_fia_02_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_ext2_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_aat_co.paa","\lxrf\vehicles_rf\pickup_01\data\pickup_01_launcher_co.paa","\lxRF\vehicles_rf\pickup_01\Data\pickup_01_service_fia_02_co.paa"};
     };
-
+    class a3a_ION_Pickup_AAT_RF : B_ION_Pickup_aat_RF {
+        animationList[] = {"hide_frame",0,"hide_frame_full",1,"hide_bullbar",0,"hide_snorkel",0,"hide_antenna",1,"hide_trunk_door",0,"trunk_door_open",0,"hide_armor_window_armor_top",0,"window_armor_hatch_L_rot",1,"window_armor_hatch_R_rot",0,"door_F_L_open",0,"door_F_R_open",0,"door_R_L_open",0,"door_R_R_open",0,"hide_rack",0,"hide_rack_spotlights",0,"hide_sidesteps",0};
+    };
     class a3a_black_Pickup_rf : a3a_fia_Pickup_RF
     {
         textureList[] = {"Black",1};
@@ -187,7 +201,7 @@ class CfgVehicles
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\A3\Air_F_EPB\Heli_Light_03\data\Heli_Light_03_base_CO.paa","\lxRF\air_rf\Heli_Light_03\data\wildcat_addons_green_co.paa"};
     };
-    class a3a_tan_Heli_light_03_unarmed_RF : a3a_Heli_light_03_dynamicLoadout_RF {
+    class a3a_tan_Heli_light_03_unarmed_RF : B_Heli_light_03_unarmed_RF {
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\lxRF\air_rf\Heli_Light_03\data\Heli_Light_03_base_tan_CO.paa","\lxRF\air_rf\Heli_Light_03\data\wildcat_addons_tan_co.paa"};
     };
@@ -281,20 +295,14 @@ class CfgVehicles
     class a3a_ION_Heli_EC_04_military_RF : B_Heli_EC_04_military_RF {
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
-        factions = "CIV_F";
-        side = 2;
     };
     class a3a_ION_Heli_EC_03_RF : B_Heli_EC_03_RF {
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
-        factions = "CIV_F";
-        side = 2;
     };
     class a3a_ION_Heli_EC_02_RF : a3a_Heli_EC_02_RF {
         textureList[] = {};
         hiddenSelectionsTextures[] = {"\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa","#(rgb,1024,1024,1)ui('lxRF_MFDMinimap','lxRF_MFDMinimap')","\lxRF\air_rf\heli_medium_ec\data\as332_adds_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_exterior_06_ion_co.paa","\lxRF\air_rf\heli_medium_ec\data\as332_int_cargo_co.paa"};
-        factions = "CIV_F";
-        side = 2;
     };
 
 };

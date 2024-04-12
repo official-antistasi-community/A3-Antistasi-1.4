@@ -40,7 +40,7 @@ private _Tanks = ["B_T_MBT_01_TUSK_F", "B_T_MBT_01_cannon_F"];
 ["vehiclesPlanesAA", ["B_Plane_Fighter_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_F"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
+private _vehiclesHelisLight = ["B_Heli_Light_01_F"];
 private _HelisTransport = ["B_Heli_Transport_01_camo_F","B_CTRG_Heli_Transport_01_tropic_F"];
 private _vehiclesHelisLightAttack = ["B_Heli_Light_01_armed_F"];
 ["vehiclesHelisAttack", ["B_Heli_Attack_01_F"]] call _fnc_saveToTemplate;
@@ -101,6 +101,7 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesMilitiaCars append ["B_T_Pickup_rf"];
     _vehiclesMilitiaLightArmed append ["B_T_Pickup_mmg_rf"];
 };
+["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
 ["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;

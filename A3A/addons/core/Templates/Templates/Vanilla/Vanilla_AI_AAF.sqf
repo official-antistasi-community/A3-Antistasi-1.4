@@ -40,7 +40,7 @@ private _AA = ["I_LT_01_AA_F"];
 ["vehiclesPlanesAA", ["I_Plane_Fighter_04_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["I_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
+private _vehiclesHelisLight = ["I_Heli_light_03_unarmed_F"];
 private _vehiclesHelisTransport = ["I_Heli_Transport_02_F"];
 private _vehiclesHelisLightAttack = ["I_Heli_light_03_dynamicLoadout_F"];
 private _vehiclesHelisAttack = ["B_Heli_Attack_01_dynamicLoadout_F"];
@@ -96,13 +96,14 @@ if ("orange" in A3A_enabledDLC) then {
 };
 if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
-    _vehiclesHelisTransport append ["a3a_AAF_Heli_light_03_unarmed_RF", "I_Heli_EC_01A_military_RF"];
-    _vehiclesHelisLightAttack append ["a3a_AAF_Heli_light_03_dynamicLoadout_RF"];
+    _vehiclesHelisTransport append ["I_Heli_EC_01A_military_RF"];
+    _vehiclesHelisLight append ["a3a_AAF_Heli_light_03_unarmed_RF"];
+    _vehiclesHelisLightAttack append ["a3a_green_Heli_light_03_unarmed_RF"];
     _vehiclesHelisAttack = ["a3a_AAF_Heli_EC_02_RF"];
     _vehiclesMilitiaCars append ["I_Pickup_rf"];
     _vehiclesMilitiaLightArmed append ["I_Pickup_mmg_rf"];
 };
-
+["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", _vehiclesHelisTransport] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;

@@ -25,6 +25,7 @@ if (isClass (configFile >> "CfgPatches" >> "RF_Vehicles")) then {
         ["C_Heli_EC_01_civ_RF", ["rebCost", 8000]],
         ["C_Heli_EC_04_rescue_RF", ["rebCost", 8000]],
         ["C_Pickup_rf", ["rebCost", 250]],
-        ["C_Pickup_covered_rf", ["rebCost", 250]]
+        ["C_Pickup_covered_rf", ["rebCost", 250]],
+        ["a3a_fia_Pickup_hmg_RF", ["rebCost", 900]]
     ];
 };

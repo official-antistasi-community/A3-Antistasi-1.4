@@ -42,7 +42,7 @@
 private _vehiclesPlanesCAS = ["sfp_jas39", "sfp_jas39_rb15"];
 
 if (allowUnfairSupports && (_side == EAST)) then {
-_vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_rb15", "sfp_jas39_bk90"];
+    _vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_rb15", "sfp_jas39_bk90"];
 };
 
 ["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;            // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
@@ -53,7 +53,7 @@ _vehiclesPlanesCAS append ["sfp_jas39", "sfp_jas39_rb15", "sfp_jas39_bk90"];
 ["vehiclesHelisTransport", ["a3a_SFP_MH60S_Unarmed_FFV_USN","a3a_SFP_MH60S_Unarmed_USN","a3a_SFP_B_UH60S_USN"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
 ["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_AW159_GB"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", ["CUP_B_AH1_DL_BAF"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
 ["vehiclesArtillery", ["sfp_fh77","sfp_grkpbv90120"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["sfp_fh77",["32Rnd_155mm_Mo_shells"]],["sfp_grkpbv90120",["sfp_2Rnd_120mm_Mo_shells"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]

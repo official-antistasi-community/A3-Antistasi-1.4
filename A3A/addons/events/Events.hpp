@@ -144,6 +144,41 @@ class Events {
             };
         };
     };
+    class factionTemplateLoaded {
+        isLocal = 1;
+        class params {
+            class _0 {
+                description = "Hashmap of loaded faction before loadout generation";
+                types[] = {"HASHMAP"};
+                optional = 0;
+            };
+            class _1 {
+                description = "Hashmap of loaded faction vechicles";
+                types[] = {"HASHMAP"};
+                optional = 0;
+            };
+        };
+    };
+    class addonTemplateBeforeAppend {
+        isLocal = 1;
+        class params {
+            class _0 {
+                description = "Hashmap of addons before begin append to faction";
+                types[] = {"HASHMAP"};
+                optional = 0;
+            };
+        };
+    };
+    class addonTemplateLoaded {
+        isLocal = 1;
+        class params {
+            class _0 {
+                description = "Hashmap of loaded faction after addons append";
+                types[] = {"HASHMAP"};
+                optional = 0;
+            };
+        };
+    };
 /*
     class Example {
         isLocal = 1;

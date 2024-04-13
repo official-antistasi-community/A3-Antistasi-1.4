@@ -124,7 +124,7 @@ _civHats = [];
 
 ["headgear", _civHats] call _fnc_saveToTemplate;            //Headgear given to Normal Civs, Workers, Undercover Rebels.
 
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 
 _loadoutData set ["uniforms", _civUniformsAI];
 _loadoutData set ["pressUniforms", _pressUniforms];

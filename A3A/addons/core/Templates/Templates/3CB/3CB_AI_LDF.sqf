@@ -90,7 +90,7 @@
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
-private _loadoutData = call _fnc_createLoadoutData;
+private _loadoutData = ["loadoutData"] call _fnc_createLoadoutData;
 _loadoutData set ["slRifles", []];
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
@@ -189,7 +189,8 @@ _loadoutData set ["items_unarmed_extras", []];
 //    Special Forces Loadout Data    //
 ///////////////////////////////////////
 
-private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _sfLoadoutData = ["sfLoadoutData"] call _fnc_createLoadoutData;
+_sfLoadoutData merge _loadoutData;
 _sfLoadoutData set ["uniforms", ["UK3CB_LDF_B_U_CombatUniform_WDL_01", "UK3CB_LDF_B_U_CombatUniform_Shortsleeve_WDL_01"]];
 _sfLoadoutData set ["helmets", ["UK3CB_LDF_B_H_MHB15_GEO", "UK3CB_LDF_B_H_MHB15_EarProtectors_GEO"]];
 _sfLoadoutData set ["vests", ["UK3CB_LDF_B_V_RIF_ALT_Vest_KKZ10_GEO", "UK3CB_LDF_B_V_Vest_KKZ10_GEO"]];
@@ -309,7 +310,8 @@ _sfLoadoutData set ["sidearms", [
 //    Military Loadout Data    //
 /////////////////////////////////
 
-private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militaryLoadoutData = ["militaryLoadoutData"] call _fnc_createLoadoutData;
+_militaryLoadoutData merge _loadoutData;
 _militaryLoadoutData set ["uniforms", ["UK3CB_LDF_B_U_JumperUniform_GEO", "UK3CB_LDF_B_U_CombatUniform_Shortsleeve_GEO", "UK3CB_LDF_B_U_CombatUniform_GEO"]];
 _militaryLoadoutData set ["helmets", ["UK3CB_LDF_B_H_HB97_GEO", "UK3CB_LDF_B_H_HB97_ESS_GEO", "UK3CB_LDF_B_H_HB97_ESS_Cover_GEO"]];
 _militaryLoadoutData set ["vests", ["UK3CB_LDF_B_V_RIF_ALT_Vest_KKZ10_GEO", "UK3CB_LDF_B_V_Vest_KKZ10_GEO"]];
@@ -374,7 +376,8 @@ _militaryLoadoutData set ["sniperRifles", [
 //    Police Loadout Data    //
 ///////////////////////////////
 
-private _policeLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _policeLoadoutData = ["policeLoadoutData"] call _fnc_createLoadoutData;
+_policeLoadoutData merge _loadoutData;
 _policeLoadoutData set ["uniforms", ["U_B_GEN_Soldier_F", "U_B_GEN_Commander_F"]];
 _policeLoadoutData set ["vests", ["V_TacVest_blk_POLICE"]];
 _policeLoadoutData set ["helmets", ["H_Cap_police"]];
@@ -396,7 +399,8 @@ _policeLoadoutData set ["sidearms", [
 //    Militia Loadout Data    //
 ////////////////////////////////
 
-private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
+private _militiaLoadoutData = ["militiaLoadoutData"] call _fnc_createLoadoutData;
+_militiaLoadoutData merge _loadoutData;
 _militiaLoadoutData set ["uniforms", ["UK3CB_LNM_B_U_CombatSmock_01", "UK3CB_LNM_B_U_CombatSmock_08", "UK3CB_LNM_B_U_CombatSmock_09"]];
 _militiaLoadoutData set ["vests", ["V_TacVest_oli", "rhsgref_chicom_m88"]];
 _militiaLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_AssaultPack_rgr"]];
@@ -454,13 +458,15 @@ _militiaLoadoutData set ["ATLaunchers", [
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _crewLoadoutData = ["crewLoadoutData"] call _fnc_createLoadoutData; // touch and shit breaks
+_crewLoadoutData merge _militaryLoadoutData; // touch and shit breaks
 _crewLoadoutData set ["uniforms", ["UK3CB_LDF_B_U_Tank_Uniform_GEO"]];
 _crewLoadoutData set ["vests", ["UK3CB_LDF_B_V_CREW_Vest_KKZ10_GEO"]];
 _crewLoadoutData set ["helmets", ["rhsusf_cvc_green_helmet", "rhsusf_cvc_green_alt_helmet", "rhsusf_cvc_green_ess"]];
 
 //The following lines are determining the loadout of the pilots
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _pilotLoadoutData = ["pilotLoadoutData"] call _fnc_createLoadoutData;
+_pilotLoadoutData merge _militaryLoadoutData;
 _pilotLoadoutData set ["uniforms", ["UK3CB_LDF_B_U_H_Pilot_GEO"]];
 _pilotLoadoutData set ["vests", ["UK3CB_V_Pilot_Vest"]];
 _pilotLoadoutData set ["helmets", ["rhsusf_hgu56p_green", "rhsusf_hgu56p_visor_green"]];

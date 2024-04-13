@@ -292,9 +292,9 @@ _sfLoadoutData set ["marksmanRifles", [
 _sfLoadoutData set ["sniperRifles", [
 ["rhs_weap_XM2010_sa", "rhsusf_acc_M2010S_sa", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_m8541", [], [], "rhsusf_acc_harris_bipod"],
 ["rhs_weap_XM2010_sa", "rhsusf_acc_M2010S_sa", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_LEUPOLDMK4_2", [], [], "rhsusf_acc_harris_bipod"],
-["rhs_weap_t5000", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_m8541", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
-["rhs_weap_t5000", "rhsusf_acc_m24_silencer_black", "", "rhsusf_acc_LEUPOLDMK4_2", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
-["rhs_weap_t5000", "rhsusf_acc_m24_silencer_black", "", "rhs_acc_dh520x56", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
+["rhs_weap_t5000", "", "", "rhsusf_acc_m8541", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
+["rhs_weap_t5000", "", "", "rhsusf_acc_LEUPOLDMK4_2", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
+["rhs_weap_t5000", "", "", "rhs_acc_dh520x56", ["rhs_5Rnd_338lapua_t5000"], [], "rhs_acc_harris_swivel"],
 ["rhs_weap_svdp_wd", "rhs_acc_tgpv2", "", "rhs_acc_pso1m2", ["rhs_10Rnd_762x54mmR_7N14"], [], ""],
 ["rhs_weap_svdp_wd_npz", "rhs_acc_tgpv2", "", "rhsusf_acc_LEUPOLDMK4", ["rhs_10Rnd_762x54mmR_7N14"], [], ""],
 ["rhs_weap_svdp_wd_npz", "rhs_acc_tgpv2", "", "rhs_acc_dh520x56", ["rhs_10Rnd_762x54mmR_7N14"], [], ""]

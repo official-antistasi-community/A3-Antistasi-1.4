@@ -325,28 +325,28 @@ _militaryLoadoutData set ["helmets", ["rhsusf_ach_bare", "rhsusf_ach_bare_ess", 
 _militaryLoadoutData set ["binoculars", ["Laserdesignator"]];
 
 _militaryLoadoutData set ["slRifles", [
-["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
+["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""],
 ["UK3CB_G3A3V_RIS", "", "", "rhsusf_acc_su230a_mrds", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], ""],
 ["rhs_weap_hk416d145", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
-["UK3CB_AG36V", "", "", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["UK3CB_AG36V", "", "", "rhsusf_acc_su230_mrds", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_hk416d145_m320", "", "", "rhsusf_acc_su230_mrds", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
-["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_552", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
-["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_compm4", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
+["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_552", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""],
+["UK3CB_G36V", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_compm4", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""],
 ["UK3CB_G3A3V_RIS", "", "", "rhsusf_acc_eotech_552", ["UK3CB_G3_20rnd_762x51_GT", "UK3CB_G3_20rnd_762x51_G", "UK3CB_G3_20rnd_762x51_G"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
-["UK3CB_G36V_K", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_552", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
-["UK3CB_G36V_C", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_compm4", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""],
+["UK3CB_G36V_K", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_552", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""],
+["UK3CB_G36V_C", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_compm4", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""],
 ["rhs_weap_hk416d10", "", "rhsusf_acc_anpeq16a", "rhsusf_acc_eotech_552", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
-["UK3CB_G36V_C", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_compm4", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], [], ""]
+["UK3CB_G36V_C", "", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_compm4", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["UK3CB_AG36V", "", "", "rhsusf_acc_eotech_552", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
-["UK3CB_AG36V", "", "", "rhsusf_acc_compm4", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["UK3CB_AG36V", "", "", "rhsusf_acc_eotech_552", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
+["UK3CB_AG36V", "", "", "rhsusf_acc_compm4", ["UK3CB_G36_30rnd_556x45", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_R", "UK3CB_G36_30rnd_556x45_RT"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""],
 ["rhs_weap_hk416d145_m320", "", "", "rhsusf_acc_eotech_552", ["rhs_mag_30Rnd_556x45_M855A1_Stanag_Tracer_Red", "rhs_mag_30Rnd_556x45_M855A1_Stanag", "rhs_mag_30Rnd_556x45_M855A1_Stanag"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [

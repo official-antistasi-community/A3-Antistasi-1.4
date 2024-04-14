@@ -11,7 +11,7 @@ Version 3.5.3
 
 .. admonition:: Minor
 
-   * :issue:`3188` Removed a case-sensitive check from fn_initZones and implemented toLower
+   * :issue:`3188` Removed a separate case-sensitive checks from fn_initZones in favour of overall toLower implementation
    * :issue:`3206` Added ACE Painkillers to the rebel starting gear
 
  .. admonition:: Template updates
@@ -29,7 +29,7 @@ Version 3.5.3
    * :issue:`3197` Fixed an issue where bipods would sometimes be deleted by the arsenal
    * :issue:`3207` Fixed a script error with CBA when spawning AI units
    * :issue:`3212` Fixed a script error from a debug command in the Garage
-   * :issue:`3215` Player corpses should now not be deleted until 15 minutes have passed, fixing an issue where many respawning players would delete corpses.
+   * :issue:`3215` Player corpses should now not be deleted until 15 minutes have passed, fixing an issue where many respawning players would delete corpses
 
 .. warning::
 

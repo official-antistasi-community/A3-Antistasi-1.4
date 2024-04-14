@@ -98,8 +98,8 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
     _HelisTransport append ["I_E_Heli_EC_01A_military_RF"];
     _vehiclesHelisLight append ["I_E_Heli_light_03_unarmed_RF"];
-    _vehiclesHelisLightAttack append ["a3a_LDF_Heli_light_03_dynamicLoadout_RF"];
-    _vehiclesHelisAttack append ["a3a_LDF_Heli_EC_02_RF"];
+    _vehiclesHelisLightAttack append ["a3a_LDF_Heli_light_03_dynamicLoadout_rf"];
+    _vehiclesHelisAttack append ["a3a_LDF_Heli_EC_02_rf"];
     _vehiclesMilitiaCars append ["I_E_Pickup_rf"];
     _vehiclesMilitiaLightArmed append ["a3a_LDF_Pickup_mmg_rf"];
 };

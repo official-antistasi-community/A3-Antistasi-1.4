@@ -211,22 +211,22 @@ _sfLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_Helmet"]];
 
 _sfLoadoutData set ["slWeapons", [
 "LIB_SVT_40",
-["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
+["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
 ]];
 _sfLoadoutData set ["rifles", ["LIB_SVT_40"]];
 _sfLoadoutData set ["carbines", [
 "LIB_SVT_40", 
-["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
+["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["LIB_M9130", "LIB_ACC_GL_DYAKONOV_Empty", "", "", [], ["LIB_1Rnd_G_DYAKONOV"], ""]
+["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", [], ["LIB_1Rnd_G_DYAKONOV"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
-["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
+["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
 "LIB_DT", "LIB_DT_OPTIC", 
-["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
+["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]]];
 _sfLoadoutData set ["sidearms", ["LIB_TT33"]];
 _sfLoadoutData set ["slSidearms", ["LIB_TT33", "LIB_TT33", "LIB_FLARE_PISTOL"]];
 /////////////////////////////////
@@ -251,11 +251,11 @@ _militaryLoadoutData set ["rifles", [
 ]];
 _militaryLoadoutData set ["carbines", ["LIB_M9130", "LIB_M44"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["LIB_M9130", "LIB_ACC_GL_DYAKONOV_Empty", "", "", [], ["LIB_1Rnd_G_DYAKONOV"], ""]
+["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", [], ["LIB_1Rnd_G_DYAKONOV"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_PPSh41_m"]];
 _militaryLoadoutData set ["machineGuns", ["LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DT", "LIB_DT", "LIB_DT_OPTIC"]];
-_militaryLoadoutData set ["sidearms", ["LIB_M1895", "LIB_TT33", "LIB_TT33"]];
+_militaryLoadoutData set ["sidearms", ["LIB_M1895", "LIB_TT33"]];
 _militaryLoadoutData set ["slSidearms", ["LIB_M1895", "LIB_TT33", "LIB_FLARE_PISTOL"]];
 
 ///////////////////////////////

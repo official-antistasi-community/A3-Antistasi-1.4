@@ -211,14 +211,14 @@ _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", [
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
 ]];
 _sfLoadoutData set ["slWeapons", ["LIB_M1928_Thompson", "LIB_M1928A1_Thompson", "LIB_M1_Garand", "LIB_M1A1_Carbine", "LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["rifles", ["LIB_M1_Garand", "LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["carbines", ["LIB_M1A1_Carbine"]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2", "LIB_1Rnd_G_M9A1"], ""]
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2", "LIB_1Rnd_G_M9A1"], ""]
 ]];
 _sfLoadoutData set ["SMGs", ["LIB_M1928_Thompson", "LIB_M1A1_Thompson"]];
 _sfLoadoutData set ["machineGuns", ["LIB_M1918A2_BAR", "LIB_M1919A6"]];
@@ -242,13 +242,14 @@ _militaryLoadoutData set ["medHelmets", ["H_LIB_US_Helmet_Med_ns"]];
 _militaryLoadoutData set ["radios", ["ItemRadio"]];
 
 _militaryLoadoutData set ["lightATLaunchers", [
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_M9A1"], ""]
 ]];
 _militaryLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1A1_Thompson", "LIB_M1_Garand", "LIB_M1_Carbine", "LIB_M1_Carbine"]];
 _militaryLoadoutData set ["rifles", [["LIB_M1_Garand", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1_Garand" ]];
 _militaryLoadoutData set ["carbines", ["LIB_M1_Carbine"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
-["LIB_M1_Garand", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""]
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2"], ""],
+["LIB_M1_Garand_M7", "LIB_ACC_GL_M7", "", "", [], ["LIB_1Rnd_G_Mk2", "LIB_1Rnd_G_M9A1"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_M3_GreaseGun", "LIB_M3_GreaseGun", "LIB_M1A1_Thompson"]];
 _militaryLoadoutData set ["machineGuns", [
@@ -309,7 +310,7 @@ _militiaLoadoutData set ["rifles", [
 ]];
 _militiaLoadoutData set ["carbines", ["LIB_M1_Carbine", "LIB_LeeEnfield_No4"]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["LIB_LeeEnfield_No4", "LIB_ACC_GL_Enfield_CUP_Empty", "", "", [], ["LIB_1Rnd_G_MillsBomb"], ""]
+["LIB_LeeEnfield_No4_CUP", "LIB_ACC_GL_Enfield_CUP_Empty", "", "", [], ["LIB_1Rnd_G_MillsBomb"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", ["LIB_Sten_Mk2"]];
 _militiaLoadoutData set ["machineGuns", ["LIB_Bren_Mk2"]];

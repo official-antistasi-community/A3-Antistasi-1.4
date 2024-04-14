@@ -15,7 +15,7 @@
 // All of bellow are optional overrides.
 ["diveGear", [""]] call _fnc_saveToTemplate;
 ["flyGear", ["U_LIB_US_Bomber_Pilot"]] call _fnc_saveToTemplate;
-["vehiclesCivSupply", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate; //We should create a inert "box truck" version
+["vehiclesCivSupply", ["a3a_lib_Zis6_BOX"]] call _fnc_saveToTemplate; //We should create a inert "box truck" version
 
 ["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate;
 
@@ -30,7 +30,7 @@
 ["vehiclesAT", []] call _fnc_saveToTemplate; //Remove maybe
 ["vehiclesAA", []] call _fnc_saveToTemplate;
 
-["vehiclesBoat", ["LIB_LCA"]] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["LIB_OpelBlitz_Ambulance_w"]] call _fnc_saveToTemplate;
@@ -84,7 +84,7 @@ private _initialRebelEquipment = [
 "LIB_WaltherPPK", "LIB_7Rnd_765x17_PPK",
 "LIB_M1895", "LIB_7Rnd_762x38",
 "LIB_FLARE_PISTOL", "LIB_1Rnd_flare_white",
-"V_LIB_SOV_RA_Belt", "V_LIB_UK_P37_Crew", 
+"V_LIB_SOV_RA_Belt", 
 ["LIB_Ladung_Small_MINE_mag", 10],
 "B_LIB_US_Bandoleer",
 "LIB_Binocular_GER"

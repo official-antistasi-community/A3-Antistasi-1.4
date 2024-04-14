@@ -124,7 +124,6 @@ private _citiesInRange = (citiesX - destroyedSites) select {((getMarkerPos _x) d
     ["TaskFailed", ["", format [localize "STR_A3A_fn_supports_cityDestroyed", [_x] call A3A_fnc_localizar]]] remoteExec ["BIS_fnc_showNotification",teamPlayer];
     destroyedSites = destroyedSites + [_x];
 	publicVariable "destroyedSites";
-    [_x] call A3A_fnc_destroyCity;
     sidesX setVariable [_x, Invaders, true];
     garrison setVariable [_x, [], true];
     [_x] call A3A_fnc_mrkUpdate;

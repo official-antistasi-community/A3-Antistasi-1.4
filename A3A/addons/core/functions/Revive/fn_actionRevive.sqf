@@ -9,7 +9,7 @@ if (captive _medic) then { _medic setCaptive false };         // medic is will b
 if !(alive _cured) exitWith
 {
     if (_player) then {[_titleStr, format [localize "STR_A3A_fn_revive_actRev_no_dead",name _cured]] call A3A_fnc_customHint;};
-    if (_inPlayerGroup) then {_medic groupChat format ["STR_A3A_fn_revive_actRev_no_dead",name _cured]};
+    if (_inPlayerGroup) then {_medic groupChat format [localize "STR_A3A_fn_revive_actRev_no_dead",name _cured]};
     false
 };
 if !([_medic] call A3A_fnc_canFight) exitWith

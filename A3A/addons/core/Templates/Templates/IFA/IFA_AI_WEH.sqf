@@ -273,7 +273,7 @@ _pilotLoadoutData set ["uniforms", ["U_LIB_GER_LW_pilot"]];
 _pilotLoadoutData set ["vests", ["V_LIB_GER_OfficerBelt"]];
 _pilotLoadoutData set ["helmets", ["H_LIB_GER_LW_PilotHelmet"]];
 _pilotLoadoutData set ["backpacks", ["B_LIB_GER_LW_Paradrop"]];
-_pilotLoadoutData set ["sidearms", ["LIB_WaltherPPK", "LIB_P08", "LIB_M1896"]];
+_pilotLoadoutData set ["sidearms", ["LIB_WaltherPPK", "LIB_P08", "LIB_M1896", "a3a_lib_M712"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_LIB_GER_Oberst"]];

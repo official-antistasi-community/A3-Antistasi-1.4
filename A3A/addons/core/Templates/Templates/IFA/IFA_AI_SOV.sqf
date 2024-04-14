@@ -211,11 +211,12 @@ _sfLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_Helmet"]];
 
 _sfLoadoutData set ["slWeapons", [
 "LIB_SVT_40",
+"a3a_lib_AVT_40", 
 ["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
 ]];
 _sfLoadoutData set ["rifles", ["LIB_SVT_40"]];
 _sfLoadoutData set ["carbines", [
-"LIB_SVT_40", 
+"a3a_lib_AVT_40", 
 ["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [

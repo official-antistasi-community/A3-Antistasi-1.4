@@ -12,6 +12,7 @@ class CfgPatches
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
         requiredAddons[] = {"IFA3_Core"};
+        skipWhenMissingDependencies = 1;
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";
@@ -20,7 +21,5 @@ class CfgPatches
 };
 
 // Uncomment when needed
-//#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
-//#include "CfgMarkers.hpp"
 #include "CfgWeapons.hpp"

@@ -91,11 +91,11 @@ if ("orange" in A3A_enabledDLC) then {
 if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
     _HelisTransport append ["a3a_ION_Heli_EC_04_military_rf"];
-    _vehiclesHelisLight append ["a3a_black_Heli_light_03_unarmed_rf"];
+    _vehiclesHelisLight append ["a3a_black_Heli_light_03_unarmed_rf","a3a_black_Heli_light_03_unarmed_rf"];
     _vehiclesHelisLightAttack append ["a3a_black_Heli_light_03_dynamicLoadout_rf","a3a_ION_Heli_EC_03_rf"];
     _vehiclesAA append ["B_ION_Pickup_aat_rf"];
     _vehiclesLightUnarmed append ["a3a_ION_Pickup_rf","a3a_ION_Pickup_rf"];
-    _vehiclesLightArmed append ["B_ION_Pickup_mmg_rf","B_ION_Pickup_mmg_rf","a3a_ION_Pickup_hmg_rfF"];
+    _vehiclesLightArmed append ["B_ION_Pickup_mmg_rf","B_ION_Pickup_mmg_rf","a3a_ION_Pickup_hmg_rf"];
     _vehiclesHelisAttack append ["a3a_ION_Heli_EC_02_rf"];
 };
 ["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;

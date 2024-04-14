@@ -11,7 +11,7 @@ Version 3.5.3
 
 .. admonition:: Minor
 
-   * :issue:`3188` Removed a separate case-sensitive checks from fn_initZones in favour of overall toLower implementation
+   * :issue:`3188` Removed separate case-sensitive checks from fn_initZones in favour of overall toLower implementation
    * :issue:`3206` Added ACE Painkillers to the rebel starting gear
 
  .. admonition:: Template updates

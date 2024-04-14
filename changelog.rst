@@ -3,6 +3,43 @@ Changelog
 ==========
 
 
+Version 3.5.3
+===============
+
+.. note::
+   14th April 2024
+
+.. admonition:: Minor
+
+   * :issue:`3188` Removed separate case-sensitive checks from fn_initZones in favour of overall toLower implementation
+   * :issue:`3206` Added ACE Painkillers to the rebel starting gear
+
+ .. admonition:: Template updates
+
+   * :issue:`3192` Added missing heavy vests for the vanilla ION factions
+   * :issue:`3211` Fixed some swapped helicopters in the Reaction Forces CDLC integration
+   * :issue:`3217` Factions with higher DLC dependencies will now appear lower on the faction selection list
+   * :issue:`3220` Fixed an issue with 3CB where the wrong magazines were being given to certain guns
+
+.. admonition:: Bugfixes
+
+   * :issue:`3195` Fixed a start-up hang when mods with too many cosmetic items were loaded
+   * :issue:`3196` Fixed incorrect order of strings for fast travel parameters
+   * :issue:`3196` Fixed an exploit in the fast travel function
+   * :issue:`3197` Fixed an issue where bipods would sometimes be deleted by the arsenal
+   * :issue:`3207` Fixed a script error with CBA when spawning AI units
+   * :issue:`3212` Fixed a script error from a debug command in the Garage
+   * :issue:`3215` Player corpses should now not be deleted until 15 minutes have passed, fixing an issue where many respawning players would delete corpses
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
 Version 3.5.2
 ===============
 

@@ -13,8 +13,6 @@
 //       Vehicles       //
 //////////////////////////
 
-["attributeLowAir", true] call _fnc_saveToTemplate;
-
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_Lone_Big_Box"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type

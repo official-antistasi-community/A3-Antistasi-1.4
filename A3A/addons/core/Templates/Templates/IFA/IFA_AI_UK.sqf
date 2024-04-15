@@ -13,8 +13,6 @@
 //       Vehicles       //
 //////////////////////////
 
-["attributeLowAir", true] call _fnc_saveToTemplate;
-
 ["ammobox", "LIB_WeaponsBox_Big_SU"] call _fnc_saveToTemplate;
 ["surrenderCrate", "LIB_BasicAmmunitionBox_US"] call _fnc_saveToTemplate;
 ["equipmentBox", "WW2_Cle_Container"] call _fnc_saveToTemplate;

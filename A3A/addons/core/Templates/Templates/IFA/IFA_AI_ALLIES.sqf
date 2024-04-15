@@ -25,17 +25,17 @@
 ["vehiclesLightArmed", ["LIB_US_Willys_MB_M1919", "LIB_US_Scout_M3_FFV", "LIB_UK_Willys_MB_M1919", "LIB_US_NAC_Scout_M3"]] call _fnc_saveToTemplate;             // Should be armed, unarmoured to lightly armoured, with 0-4 passengers
 ["vehiclesTrucks", [
 "LIB_US_GMC_Tent","LIB_US_GMC_Tent","LIB_US_GMC_Open","LIB_US_GMC_Open", 
-"LIB_UniversalCarrier", "LIB_UK_M3_Halftrack", "LIB_US_NAC_GMC_Tent","LIB_US_NAC_GMC_Open"]] call _fnc_saveToTemplate;
+"LIB_UniversalCarrier", "LIB_US_NAC_GMC_Tent","LIB_US_NAC_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["LIB_US_GMC_Tent","LIB_US_GMC_Open"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["LIB_US_GMC_Ammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["LIB_US_GMC_Parm"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["LIB_US_GMC_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["LIB_US_GMC_Ambulance"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["LIB_US_M3_Halftrack"]] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
-["vehiclesAPCs", []] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;                                             // armed, lightly armoured, with 6-8 passengers 
+["vehiclesAPCs", ["LIB_US_M3_Halftrack", "LIB_UK_M3_Halftrack"]] call _fnc_saveToTemplate;      // armed with enclosed turret, armoured, with 6-8 passengers
 ["vehiclesIFVs", ["LIB_M4A3_75","LIB_Cromwell_Mk4"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
 
-private _vehiclesLightTanks = ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"];
+private _vehiclesLightTanks = ["LIB_M8_Greyhound", "LIB_M3A3_Stuart","LIB_M5A1_Stuart"];        //There's an argument to be made to put the Greyhound in lightArmed too, leaving it here for the moment though
 private _vehiclesTanks = ["LIB_M4A4_FIREFLY","LIB_M4A3_76","LIB_M4A3_76_HVSS","LIB_M4A3_75","LIB_Cromwell_Mk4"];
 private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"];
 
@@ -74,7 +74,7 @@ private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
-    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2"];
+    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
     _vehiclesTanks append ["FA_ValentineMk3"];

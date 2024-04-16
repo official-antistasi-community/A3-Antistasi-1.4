@@ -241,16 +241,20 @@ if (_type == "CAS") then
             _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
+        case "LIB_P39";
+        case "LIB_RAF_P39";
+        case "LIB_US_P39";
         case "LIB_RAF_P39": {
             _loadout = ["LIB_1Rnd_US_500lb","LIB_30Rnd_M4_P39","LIB_1000Rnd_M2_P39"];
             _plane setVariable ["mainGun", "LIB_M4_P39"];
-            _plane setVariable ["rocketLauncher", ["LIB_4xM2_P39"]]; //I'd like it to do more than one gun run
+            _plane setVariable ["rocketLauncher", ["LIB_4xM2_P39"]]; // .50 MG because I'd like it to do more than one gun run (the M4 cannon only has 30rnds)
             _plane setVariable ["bombRacks", ["LIB_US_500lb_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 350, 110, 55, 15, [0, 0]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
         case "LIB_Ju87": {
             _loadout = ["LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50", "LIB_500Rnd_MG151_JU87"];
             _plane setVariable ["mainGun", "LIB_2xMG151_JU87"];
+            _plane setVariable ["rocketLauncher", ["LIB_2xMG151_JU87"]]; //Prevents instant RTB after bomb drop
             _plane setVariable ["bombRacks", ["LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"]];
             _plane setVariable ["diveParams", [1200, 400, 110, 55, 15, [15, -2]]];        // start (m), end (m), diveSpeed (m/s), dive start angle (deg), turnRate (deg/s), bombOffset (m)
         };
@@ -433,7 +437,7 @@ if (_type == "AA") then
         {
             _loadout = ["Tornado_AWS_AIRCMpod_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_Litening_std_P_1rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_Brimstone_type1_P_3rnd_M","FIR_GBU12_P_1rnd_M","FIR_Brimstone_type2_P_3rnd_M","FIR_Brimstone_type2_P_3rnd_M","Tornado_AWS_fuelsmall_1rnd_M","FIR_AIM9L_P_1rnd_M","Tornado_AWS_ECMpod_1rnd_M","FIR_BK27_R_M","FIR_BK27_L_M"];
         };
-        //AA Planes to be used without pylons, ie ww2 aircraft
+        //AA Planes to be used without pylons, ie ww2 aircraft who rely on guns
         case "LIB_P39";
         case "LIB_RA_P39_2";
         case "LIB_RA_P39_3";

@@ -41,7 +41,7 @@ private _vehiclesHeavyTanks = ["LIB_JS2_43"];
 ["vehiclesGunBoats", ["LIB_LCI"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["LIB_Pe2"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesCAS", ["LIB_Pe2","LIB_Pe2","LIB_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["LIB_P39","LIB_RA_P39_2","LIB_RA_P39_3"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["LIB_Li2"]] call _fnc_saveToTemplate;
 

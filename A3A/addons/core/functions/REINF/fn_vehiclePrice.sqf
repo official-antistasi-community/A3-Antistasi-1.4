@@ -3,11 +3,21 @@ FIX_LINE_NUMBERS()
 
 params ["_typeX"];
 
-private _costs = server getVariable _typeX;
+_costs = 0;
+
+if (isNil "_typeX") then 
+{
+	Error_1("Vehicle does not exist.");
+	_costs = 0;
+}
+else
+{
+	_costs = server getVariable _typeX;
+};
 
 if (isNil "_costs") then
 	{
-        Error_1("Invalid vehicle price :%1.", _typeX);
+	Error_1("Invalid vehicle price :%1.", _typeX);
 	_costs = 0;
 	}
 else

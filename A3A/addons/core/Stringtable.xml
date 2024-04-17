@@ -2925,9 +2925,9 @@
         <Russian>Текущий уровень: %2. Стоимость обучения на следующем уровне: %1 €.</Russian>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_begin">
-        <Original>Fast traveling, travel time: %1s, please wait.</Original>
-        <Korean>빠른 이동 중. 도착 시간까지: %1초, 잠시만 기다려 주십시오...</Korean>
-        <Russian>Быстрое перемещение: пожалуйста, подождите %1 сек.</Russian>
+        <Original>Fast traveling, travel time: %1, please wait.</Original>
+        <Korean>빠른 이동 중. 도착 시간까지: %1, 잠시만 기다려 주십시오...</Korean>
+        <Russian>Быстрое перемещение: пожалуйста, подождите %1.</Russian>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
         <Original>You arrived at the destination.</Original>

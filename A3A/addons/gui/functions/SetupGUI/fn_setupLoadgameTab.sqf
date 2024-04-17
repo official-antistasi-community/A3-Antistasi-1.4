@@ -81,7 +81,7 @@ switch (_mode) do
         if ((cbChecked _newGameCtrl and !cbChecked _copyGameCtrl) or !_sameMap) then { _factions = [[], [], []] };
         if (_factions isNotEqualTo (_display getVariable "savedFactions")) then {
             _display setVariable ["savedFactions", _factions];
-            ["fillFactions", [true]] call A3A_fnc_setupFactionsTab;
+            ["fillFactions", [true]] call A3A_GUI_fnc_setupFactionsTab;
         };
 
         // If it's not a new game or load params or copy game is checked, load params
@@ -90,7 +90,7 @@ switch (_mode) do
         if ((_sameMap and !cbChecked _newGameCtrl) or cbChecked _copyGameCtrl or cbChecked _oldParamsCtrl) then {
             if (count _params > 0 and _params isNotEqualTo (_display getVariable "savedParams")) then {
                 _display setVariable ["savedParams", _params];
-                ["fillParams"] call A3A_fnc_setupParamsTab;
+                ["fillParams"] call A3A_GUI_fnc_setupParamsTab;
             };
         };
     };
@@ -112,7 +112,7 @@ switch (_mode) do
             if (_varname == "name") then { _listboxCtrl setVariable ["nameCtrls", _ctrls] };
         } forEach _saveBoxColumns;
 
-        ["selectSave", [-1]] call A3A_fnc_setupLoadgameTab;
+        ["selectSave", [-1]] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("saveListClick"):
@@ -123,7 +123,7 @@ switch (_mode) do
         private _rowIndex = floor (_mpos#1 / (4*GRID_H));
         if (_rowIndex >= count A3A_setup_saveData) exitWith {};                      // ignore clicks below saves
         if (_rowIndex == _listboxCtrl getVariable "rowIndex") exitWith {};          // ignore if already selected
-        ["selectSave", [_rowIndex]] call A3A_fnc_setupLoadgameTab;
+        ["selectSave", [_rowIndex]] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("selectSave"):
@@ -137,7 +137,7 @@ switch (_mode) do
         _selectBar ctrlCommit 0;
 
         _listBoxCtrl setVariable ["rowIndex", _rowIndex];
-        ["update"] call A3A_fnc_setupLoadgameTab;
+        ["update"] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("startGame"):
@@ -169,7 +169,7 @@ switch (_mode) do
         _saveData set ["useNewNamespace", cbChecked (_display displayCtrl A3A_IDC_SETUP_NAMESPACECHECKBOX)];
 
         // Factions tab: [factions, addonvics, DLC]
-        private _factionData = ["getFactions"] call A3A_fnc_setupFactionsTab;
+        private _factionData = ["getFactions"] call A3A_GUI_fnc_setupFactionsTab;
         _saveData set ["factions", _factionData#0];
         _saveData set ["addonVics", _factionData#1];
         _saveData set ["DLC", _factionData#2];
@@ -179,11 +179,11 @@ switch (_mode) do
         _confirmText = _confirmText + endl + format [localize "STR_A3A_fn_GUI_setupLoadgameTab_occInv", _occName, _invName];
 
         // Params tab: Array of [name, value]
-        private _paramsData = ["getParams"] call A3A_fnc_setupParamsTab;
+        private _paramsData = ["getParams"] call A3A_GUI_fnc_setupParamsTab;
         _saveData set ["params", _paramsData];
 
         // Set data & function for confirmation, then open confirmation box
-        _display setVariable ["confirmData", [_confirmText, A3A_fnc_setupLoadgameTab, "startGameConfirm"]];
+        _display setVariable ["confirmData", [_confirmText, A3A_GUI_fnc_setupLoadgameTab, "startGameConfirm"]];
         _display setVariable ["newSaveData", _saveData];
         diag_log format ["Prepared save data: %1", _saveData];
         createDialog "A3A_SetupConfirmDialog";
@@ -194,26 +194,26 @@ switch (_mode) do
         // Send the start request to the server and close dialog
 
         (_display getVariable "newSaveData") remoteExec ["A3A_fnc_startGame", 2];
-        ["serverClose"] call A3A_fnc_setupDialog;          // make sure the confirm dialog is closed first
+        ["serverClose"] call A3A_GUI_fnc_setupDialog;          // make sure the confirm dialog is closed first
     };
 
     case ("newGameCheck"):
     {
 //        if (!cbChecked _newGameCtrl && cbChecked _copyGameCtrl) exitWith { _copyGameCtrl cbSetChecked false };
-        ["update"] call A3A_fnc_setupLoadgameTab;
+        ["update"] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("copyGameCheck"):
     {
         // exitWith so that we don't infinite loop
         if (cbChecked _copyGameCtrl && cbChecked _oldParamsCtrl) exitWith { _oldParamsCtrl cbSetChecked false };
-        ["update"] call A3A_fnc_setupLoadgameTab;
+        ["update"] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("oldParamsCheck"):
     {
         if (cbChecked _copyGameCtrl && cbChecked _oldParamsCtrl) exitWith { _copyGameCtrl cbSetChecked false };
-        ["update"] call A3A_fnc_setupLoadgameTab;
+        ["update"] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("oldNamespaceCheck"):
@@ -233,7 +233,7 @@ switch (_mode) do
 
         private _saveData = A3A_setup_saveData select _index;
         private _str = format [localize "STR_A3A_fn_GUI_setupLoadgameTab_delete", _saveData get "gameID", _saveData get "mapStr"];
-        _display setVariable ["confirmData", [_str, A3A_fnc_setupLoadgameTab, "deleteGameConfirmed"]];
+        _display setVariable ["confirmData", [_str, A3A_GUI_fnc_setupLoadgameTab, "deleteGameConfirmed"]];
         createDialog "A3A_SetupConfirmDialog";
     };
 
@@ -243,7 +243,7 @@ switch (_mode) do
         private _saveData = A3A_setup_saveData select _index;
         [_saveData get "serverID", _saveData get "gameID", _saveData get "map"] remoteExecCall ["A3A_fnc_deleteSave", 2];
         A3A_setup_saveData deleteAt _index;
-        ["setSaveData"] call A3A_fnc_setupLoadgameTab;
+        ["setSaveData"] call A3A_GUI_fnc_setupLoadgameTab;
     };
 
     case ("renameGame"):

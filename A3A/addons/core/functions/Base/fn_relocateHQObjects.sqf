@@ -23,9 +23,15 @@ isNil {
 
 respawnTeamPlayer setMarkerPos _newPosition;
 posHQ = _newPosition; publicVariable "posHQ";
+"Synd_HQ" setMarkerPos _newPosition;
+chopForest = false; publicVariable "chopForest";
 
 [respawnTeamPlayer, 1, teamPlayer] call A3A_fnc_setMarkerAlphaForSide;
 [respawnTeamPlayer, 1, civilian] call A3A_fnc_setMarkerAlphaForSide;
+
+// Move headless client logic objects near HQ so that firedNear EH etc. work more reliably
+private _hcpos = _newPosition vectorAdd [-100, -100, 0];
+{ _x setPosATL _hcpos } forEach (entities "HeadlessClient_F");
 
 private _alignNormals = {
 	private _thing = _this;
@@ -60,7 +66,4 @@ mapX hideObjectGlobal false;
 fireX hideObjectGlobal false;
 flagX hideObjectGlobal false;
 
-
-"Synd_HQ" setMarkerPos _newPosition;
-chopForest = false; publicVariable "chopForest";
 

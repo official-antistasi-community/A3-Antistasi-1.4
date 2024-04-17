@@ -26,14 +26,11 @@ _hrSim = "";
 if (_hr > 0) then {_hrSim = "+"};
 _resourcesFIASim = "";
 if (_resourcesFIA > 0) then {_resourcesFIASim = "+"};
-if ((_hr != 0) and (_resourcesFIA != 0)) then
-	{
-	_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>HR: %3%1<br/>Money: %4%2 €",_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,FactionGet(reb,"name")]
-	}
-else
-	{
-	if (_hr != 0) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>HR: %3%1",_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,FactionGet(reb,"name")]} else {if (_resourcesFIA != 5) then {_textX = format ["<t size='0.6' color='#C1C0BB'>%5 Resources.<br/> <t size='0.5' color='#C1C0BB'><br/>Money: %4%2 €",_hr toFixed 0,_resourcesFIA toFixed 0,_hrSim,_resourcesFIASim,FactionGet(reb,"name")]}};
-	};
+
+_faction = format ["<t size='0.6' color='#C1C0BB'>" + localize "STR_A3A_fn_base_resourcesFIA_resources" + "<br/><br/> ", FactionGet(reb,"name")];
+_hr = if (floor _hr == 0) then {""} else {format ["<t size='0.5' color='#C1C0BB'>" + localize "STR_A3A_fn_base_resourcesFIA_hr" + "</t><br/>", _hrSim, _hr toFixed 0];};
+_money = if (floor _resourcesFIA == 0) then {""} else {format ["<t size='0.5' color='#C1C0BB'>" + localize "STR_A3A_fn_base_resourcesFIA_money" + "</t>", _resourcesFIASim, _resourcesFIA toFixed 0];};
+_textX = _faction + _hr + _money;
 
 if (_textX != "") then
 	{

@@ -17,26 +17,6 @@ Example:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-/*
-    Function: _fnc_remoteExecObjectJIPSafe
-    remote executes a function with a safe object JIP, The JIP key will be "FunctionName_ObjID"
-
-    Params:
-        _object - [Object] the object the JIP is tied to
-        _arguments - [ARRAY] An array of arguments for the function
-        _function - [String] the function name to be remote executed (needs to be available in the global namespace of the targets)
-*/
-private _fnc_remoteExecObjectJIPSafe = {
-    params [
-         ["_object", objNull, [objNull]]
-        ,["_arguments", [], [[]]]
-        ,["_function", "", [""]]
-    ];
-
-    private _jipKey = _function + "_" + ((str _object splitString ":") joinString "");
-    _arguments remoteExecCall [_function, 0, _jipKey];
-};
-
 private _translateMarker = {
     params ["_mrk"];
     if (_mrk find "puesto" == 0) exitWith { "outpost" + (_mrk select [6]) };
@@ -341,39 +321,18 @@ if (_varName in _specialVarLoads) then {
                 if (A3A_saveVersion >= 20401) then { _veh setPosWorld _posVeh } else { _veh setPosATL _posVeh };
                 _veh setVectorDirAndUp [_xVectorDir,_xVectorUp];
             };
-            [_veh, teamPlayer] call A3A_fnc_AIVEHinit;
-            if ((_veh isKindOf "StaticWeapon") or (_veh isKindOf "Building")) then {
-                staticsToSave pushBack _veh;
-            }
-            else {
-                if (!isNil "_state") then {
-                    [_veh, _state] call HR_GRG_fnc_setState;
-                };
-                [_veh] spawn A3A_fnc_vehDespawner;
-            };
+            [_veh, teamPlayer] call A3A_fnc_AIVEHinit;                  // Calls initObject instead if it's a buyable item
 
-        //this is less flexible than buyItem is but is fine for the specific use case of fuel drums and light sources
-        //future objects that needs initialising needs another unique handler here which might eventually become troublessome
-            //handle buyable fuel containers
-            if (typeOf _veh in [FactionGet(reb,"vehicleFuelDrum")#0,FactionGet(reb,"vehicleFuelTank")#0]) then {
-                [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
-                [_veh,[_veh],"A3A_Logistics_fnc_addLoadAction"] call _fnc_remoteExecObjectJIPSafe;
-                _veh allowDamage false;
-                _veh setVariable ["A3A_canGarage", true, true];
-                private _cat = if (typeOf _veh isEqualTo "vehicleFuelDrum") then {"vehicleFuelDrum"} else {"vehicleFuelTank"};
-                _veh setVariable ["A3A_itemPrice",
-                    FactionGet(reb,_cat)#1
-                , true];
+            if (isNil {_veh getVariable "A3A_canGarage"}) then {        // Buyable items should set this
+                if (_veh isKindOf "StaticWeapon") exitWith { staticsToSave pushBack _veh };
+                if (_veh isKindOf "Building") exitWith {
+                    _veh setVariable ["A3A_building", true, true];
+                    A3A_buildingsToSave pushBack _veh;
+                };
             };
-        /* we currently dont save the light sources (guessing because its a "building")
-            //handle buyable light sources
-            if (typeOf _veh isEqualTo FactionGet(reb,"vehicleLightSource")) then {
-                [_veh,[_veh],"A3A_fnc_initMovableObject"] call _fnc_remoteExecObjectJIPSafe;
-                _veh allowDamage false;
-                _veh setVariable ["A3A_canGarage", true, true];
-                _veh setVariable ["A3A_itemPrice", 25, true];
+            if (!isNil "_state")  then {
+                [_veh, _state] call HR_GRG_fnc_setState;
             };
-         */
         };
         publicVariable "staticsToSave";
     };

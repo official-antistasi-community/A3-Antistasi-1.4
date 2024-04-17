@@ -73,6 +73,7 @@ else            // ground vehicle
 {
     private _typeName = call {
         if (_vehType in FactionGet(all,"vehiclesTanks")) exitWith {"Tank"};
+        if (_vehType in FactionGet(all,"vehiclesLightTanks")) exitWith {"Tank"};
         if (_vehType in FactionGet(all,"vehiclesAA")) exitWith {"AA"};
         if (_vehType in FactionGet(all,"vehiclesArmor"))  exitWith {"APC"};
         if (_vehType in FactionGet(all,"vehiclesTrucks")) exitWith {"Truck"};
@@ -101,6 +102,7 @@ else            // ground vehicle
         // Vehicle has no weapons(?) and small cargo, merge crew group into cargo group
         (units _crewGroup) joinSilent _cargoGroup;
         deleteGroup _crewGroup;
+        _cargoGroup selectLeader driver _vehicle;
 
         //Create the path waypoints
         private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;

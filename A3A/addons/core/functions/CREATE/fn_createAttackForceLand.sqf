@@ -44,7 +44,9 @@ for "_i" from 1 to _vehCount do {
     private _vehType = selectRandomWeighted ([_supportPool, _transportPool] select _isTransport);
 
     private _vehData = [_vehType, "Normal", _resPool, _landPosBlacklist, _side, _base, _targPos] call A3A_fnc_createAttackVehicle;
-    if !(_vehData isEqualType []) exitWith {};          // couldn't create for some reason, assume we're out of spawn places?
+    if !(_vehData isEqualType []) exitWith {
+        Error_1("Failed to spawn land vehicle at marker %1", _base);
+    };          // couldn't create for some reason, assume we're out of spawn places?
 
     _vehicles pushBack (_vehData#0);
     if (!isNull (_vehData#1)) then { _crewGroups pushBack (_vehData#1) };
@@ -61,11 +63,13 @@ for "_i" from 1 to _vehCount do {
     sleep 10;
 };
 
-
-// TODO: Sort out the spawn positions API or don't use it
-_base spawn {
+_vehicles spawn {
     sleep 60;
-    if (spawner getVariable _this == 2) then { [_this] call A3A_fnc_freeSpawnPositions };
+    // Free spawn places for any vehicles that still exist
+    private _vehicles = _this select { !isNull _x };
+    private _spawnPlaces = _vehicles apply { _x getVariable "spawnPlace" };
+    _spawnPlaces call A3A_fnc_freeSpawnPositions;
+    { _x setVariable ["spawnPlace", nil] } forEach _vehicles;
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

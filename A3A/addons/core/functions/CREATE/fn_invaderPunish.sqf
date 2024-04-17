@@ -29,7 +29,7 @@ private _size = [_mrkDest] call A3A_fnc_sizeMarker;
 
 private _nameDest = [_mrkDest] call A3A_fnc_localizar;
 private _taskId = "invaderPunish" + str A3A_taskCount;
-[[teamPlayer,civilian,Occupants],_taskId,[format ["%2 is attacking critical positions within %1! Defend the city at all costs",_nameDest,FactionGet(inv,"name")],format ["%1 Punishment",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
+[[teamPlayer,civilian,Occupants],_taskId,[format [localize "STR_A3A_fn_base_invaderPunish_long",_nameDest,FactionGet(inv,"name")],format [localize "STR_A3A_fn_base_invaderPunish_title",FactionGet(inv,"name")],_mrkDest],_posDest,false,0,true,"Defend",true] call BIS_fnc_taskCreate;
 [_taskId, "invaderPunish", "CREATED"] remoteExecCall ["A3A_fnc_taskUpdate", 2];
 
 
@@ -63,6 +63,8 @@ if (_numCiv > 30) then {_numCiv = 30};
 private _civilians = [];
 private _civGroups = [];
 private _civWeapons = unlockedsniperrifles + unlockedmachineguns + unlockedshotguns + unlockedrifles + unlockedsmgs + unlockedhandguns;
+private _unitType = FactionGet(reb, "unitUnarmed");
+
 while {count _civilians < _numCiv} do
 {
     private _groupCivil = createGroup teamPlayer;
@@ -71,17 +73,16 @@ while {count _civilians < _numCiv} do
         private _pos = _posDest getPos [random _size / 2,random 360];
         if (!surfaceIsWater _pos) exitWith { _pos };
     };
-    for "_i" from 1 to (4 min (_numCiv - count _civilians)) do
-    {
-        private _civ = [_groupCivil, FactionGet(reb, "unitUnarmed"), _pos, [], 0, "NONE"] call A3A_fnc_createUnit;
-        [_civ, selectRandom (A3A_faction_civ get "faces"), "NoVoice"] call BIS_fnc_setIdentity;
+    for "_i" from 1 to (4 min (_numCiv - count _civilians)) do {
+        private _identity = [A3A_faction_civ, _unitType] call A3A_fnc_createRandomIdentity;
+        private _civ = [_groupCivil, _unitType, _pos, [], 0, "NONE", _identity] call A3A_fnc_createUnit;
         _civ forceAddUniform selectRandom (A3A_faction_civ get "uniforms");
         _civ addHeadgear selectRandom (A3A_faction_civ get "headgear");
         [_civ, selectRandom _civWeapons, 5, 0] call BIS_fnc_addWeapon;
         _civ setSkill 0.5;
         _civilians pushBack _civ;
     };
-    [leader _groupCivil, _mrkDest, "AWARE","SPAWNED","NOVEH2"] execVM QPATHTOFOLDER(scripts\UPSMON.sqf);//TODO need delete UPSMON link
+    [_groupCivil, "Patrol_Defend", 0, 100, -1, true, _pos, false] call A3A_fnc_patrolLoop;
 };
 
 
@@ -138,6 +139,7 @@ if (({_x call A3A_fnc_canFight} count _soldiers < count _soldiers / 3) or (time 
     sidesX setVariable [_mrkDest, Invaders, true];
     garrison setVariable [_mrkDest, [], true];
     [_mrkDest] call A3A_fnc_mrkUpdate;
+    [] spawn A3A_fnc_checkCampaignEnd; // If a town is destroyed, check for loss
 };
 
 sleep 60;

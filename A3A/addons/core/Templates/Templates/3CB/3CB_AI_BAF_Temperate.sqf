@@ -67,6 +67,7 @@
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
@@ -85,6 +86,7 @@
 "WhiteHead_14","WhiteHead_15","WhiteHead_16","WhiteHead_17","WhiteHead_18",
 "WhiteHead_19","WhiteHead_20","WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
+"EnglishMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

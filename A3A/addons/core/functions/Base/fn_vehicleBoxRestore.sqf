@@ -47,9 +47,15 @@ private _rebelPlayers = allUnits select {side _x in [teamPlayer, civilian] && {_
     if (A3A_hasACEMedical) then {
         [_x, _x] call ace_medical_treatment_fnc_fullHeal;
     };
+    if (A3A_hasACEHearing) then {
+        [{ace_hearing_deafnessDV = 0;}] remoteExec ["call", _x];
+    };
     _x setDamage 0;
     _x setVariable ["incapacitated",false,true];
     _x setVariable ["compromised", 0, true];
+    if !(A3A_hasACEMedical) then {
+        [true] remoteExecCall ["A3A_fnc_selfReviveReset", 0];
+    };
 } forEach _rebelPlayers;
 
 private _hqVehicles = (vehicles inAreaArray [_posHQ, 150, 150]) select {

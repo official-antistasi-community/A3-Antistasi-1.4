@@ -62,6 +62,7 @@
 ["staticMortars", ["CUP_O_2b14_82mm_TK"]] call _fnc_saveToTemplate;
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["minefieldAT", []] call _fnc_saveToTemplate;
 ["minefieldAPERS", []] call _fnc_saveToTemplate;
@@ -72,8 +73,9 @@
 ///  Identities   ///
 /////////////////////
 
-["voices", ["CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"]] call _fnc_saveToTemplate;
 ["faces", ["PersianHead_A3_01","PersianHead_A3_02","PersianHead_A3_03"]] call _fnc_saveToTemplate;
+["voices", ["CUP_D_Male01_TK","CUP_D_Male02_TK","CUP_D_Male03_TK","CUP_D_Male04_TK","CUP_D_Male05_TK"]] call _fnc_saveToTemplate;
+"TakistaniMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

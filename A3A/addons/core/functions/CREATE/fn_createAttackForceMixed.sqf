@@ -65,7 +65,7 @@ if (_landCount > 0) then
 
     while { !isNil "_landBase" } do
     {
-        [_landBase, 5] call A3A_fnc_addTimeForIdle;
+        [_landBase, 1] call A3A_fnc_addTimeForIdle;
         private _attackCount = round (_landCount * (0.25 + random 0.2));
         private _troops = ["Normal", "SpecOps"] select ("specops" in _modifiers and random 1 > 0.5);
         ServerDebug_3("Attempting to spawn %1 land vehicles including %2 attack from %3", _landCount, _attackCount, _landBase);

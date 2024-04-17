@@ -7,7 +7,7 @@
 
 ["flag", "Flag_AltisColonial_F"] call _fnc_saveToTemplate;
 ["flagTexture", "\rhsgref\addons\rhsgref_main\data\Flags\flag_cdf_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "rhs_flag_insurgents"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_cdf"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -47,7 +47,7 @@
 
 ["vehiclesArtillery", ["rhsgref_cdf_b_2s1", "rhsgref_cdf_b_reg_d30", "rhsgref_cdf_b_reg_BM21"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsgref_cdf_b_2s1",["rhs_mag_3of56_10"]],
+["rhsgref_cdf_b_2s1",["rhs_mag_3of56_35"]],
 ["rhsgref_cdf_b_reg_d30",["rhs_mag_3of56_10"]],
 ["rhsgref_cdf_b_reg_BM21", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate;
@@ -69,6 +69,7 @@
 
 ["mortarMagazineHE", "rhs_12Rnd_m821_HE"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["rhsusf_mine_M19"]] call _fnc_saveToTemplate;
@@ -85,6 +86,7 @@
 "WhiteHead_13", "WhiteHead_15", "WhiteHead_16", "WhiteHead_17", "WhiteHead_18",
 "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+"CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -202,8 +204,8 @@ _sfLoadoutData set ["slRifles", [
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230_mrds", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
 ["rhs_weap_vhsd2", "rhsusf_acc_nt4_black", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_ACOG_RMR", ["rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2", "rhsgref_30rnd_556x45_vhs2_t"], [], "rhsusf_acc_grip1"],
-["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
-["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
+["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230a_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
+["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_su230a_mrds_c", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_RMR", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_mk17_STD", "rhsusf_acc_aac_762sdn6_silencer", "rhsusf_acc_anpeq16a", "rhsusf_acc_ACOG_d", ["rhs_mag_20Rnd_SCAR_762x51_m61_ap"], [], "rhsusf_acc_grip2_tan"],
 ["rhs_weap_savz58v_ris", "rhsgref_acc_zendl", "rhsusf_acc_anpeq15side_bk", "rhsusf_acc_su230", ["rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58", "rhs_30Rnd_762x39mm_Savz58_tracer"], [], "rhsusf_acc_kac_grip"],

@@ -1,5 +1,5 @@
 /****************************************************************
-File: UPSMON_Inbuilding.sqf
+File: A3A_fnc_isBuildingPosition.sqf
 Author: Azroul13
 
 Description:

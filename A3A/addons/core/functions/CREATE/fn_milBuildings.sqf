@@ -4,7 +4,7 @@ private ["_positionX","_size","_buildings","_groupX","_typeUnit","_sideX","_buil
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _size = _this select 1;
-_buildings = nearestObjects [_positionX, listMilBld, _size, true];
+_buildings = nearestObjects [_positionX, A3A_milBuildingWhitelist, _size, true];
 _buildings = _buildings inAreaArray _markerX;
 
 if (count _buildings == 0) exitWith {[grpNull,[],[]]};
@@ -15,6 +15,7 @@ _frontierX = _this select 3;
 
 _vehiclesX = [];
 _soldiers = [];
+private _spawnsUsed = [];
 
 _groupX = createGroup _sideX;
 _typeUnit = _faction get "unitStaticCrew";
@@ -22,16 +23,17 @@ _typeUnit = _faction get "unitStaticCrew";
 //New system to place helis, does not care about heli types currently
 private _helicopterTypes = [];
 _helicopterTypes append (_faction get "vehiclesHelisLight");
-private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
 private _count = 1 + round (random 3); //Change these numbers as you want, first number is minimum, max is first plus second number
-while {_spawnParameter isEqualType [] && {_count > 0}} do
+while {_count > 0} do
 {
     if (_helicopterTypes isEqualTo []) exitWith {}; //no helis to pick from
     _typeVehX = selectRandom _helicopterTypes;
+    private _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
+    if !(_spawnParameter isEqualType []) exitWith {};       // out of spawn places
+    _spawnsUsed pushBack _spawnParameter#2;
     _veh = createVehicle [_typeVehX, (_spawnParameter select 0), [],0, "CAN_COLLIDE"];
     _veh setDir (_spawnParameter select 1);
     _vehiclesX pushBack _veh;
-    _spawnParameter = [_markerX, "Heli"] call A3A_fnc_findSpawnPosition;
     _count = _count - 1;
 };
 
@@ -42,8 +44,8 @@ private _fnc_spawnStatic = {
     private _veh = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
     if (!isNil "_dir") then { _veh setDir _dir };
     private _unit = [_groupX, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
-    [_unit,_markerX] call A3A_fnc_NATOinit;
     _unit moveInGunner _veh;
+    [_unit,_markerX] call A3A_fnc_NATOinit;
     _soldiers pushBack _unit;
     _vehiclesX pushBack _veh;
     _veh;
@@ -68,7 +70,8 @@ for "_i" from 0 to (count _buildings) - 1 do
     private _typeB = typeOf _building;
 
     call {
-        if (isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
+        if (damage _building >= 1 or isObjectHidden _building) exitWith {};			// don't put statics on destroyed buildings
+        //Static MGs
         if 	((_typeB == "Land_Cargo_Patrol_V1_F") or (_typeB == "Land_Cargo_Patrol_V2_F") or (_typeB == "Land_Cargo_Patrol_V3_F") or (_typeB == "Land_Cargo_Patrol_V4_F")) exitWith
         {
             private _type = selectRandom (_faction get "staticMGs");
@@ -151,7 +154,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _zpos = _zpos vectorAdd _zOffset;
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
-            sleep 0,5;
+            sleep 0.5;
             _Tdir = _dir + 180;
             _zpos = AGLToASL (_building buildingPos 16); //relative South
             _pos = _zpos getPos [-0.2, _Tdir]; //offset
@@ -159,6 +162,15 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _Tdir] call _fnc_spawnStatic;
         };
+        if     ((_typeB == "Land_SPE_Sandbag_Nest")) exitWith
+        {
+            private _type = selectRandom (_faction get "staticMGs");
+            private _dir = (getDir _building);
+            private _pos = _building modelToWorld [0.0065918,-0.489746,-0.417223];
+            [_type, _pos, _dir] call _fnc_spawnStatic;
+        };
+
+        //Static AAs
 		if 	((_typeB == "Land_Radar_01_HQ_F") or (_typeB == "Land_vn_radar_01_hq_f")) exitWith
         {
             private _type = selectRandom (_faction get "staticAA");
@@ -168,7 +180,7 @@ for "_i" from 0 to (count _buildings) - 1 do
             _pos = ASLToATL ([_pos select 0, _pos select 1, _zpos select 2]);
             [_type, _pos, _dir] call _fnc_spawnStatic;
         };
-        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F")) exitWith
+        if 	((_typeB == "Land_Cargo_HQ_V1_F") or (_typeB == "Land_Cargo_HQ_V2_F") or (_typeB == "Land_Cargo_HQ_V3_F") or (_typeB == "Land_Cargo_HQ_V4_F")) exitWith
         {
             private _type = selectRandom (_faction get "staticAA");
             private _dir = getDir _building;
@@ -251,4 +263,4 @@ for "_i" from 0 to (count _buildings) - 1 do
 
 
 
-[_groupX,_vehiclesX,_soldiers]
+[_groupX,_vehiclesX,_soldiers,_spawnsUsed]

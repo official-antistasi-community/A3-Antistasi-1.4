@@ -103,22 +103,11 @@ class HR_GRG_VehicleSelect
                     action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_toggleLock',2];";
                     sizeEx = TEXT_SIZE_LARGE;
                 };
-                class HR_GRG_SellVeh: HR_GRG_RscButton
-                {
-                    idc = HR_GRG_IDC_SellVeh;
-                    text = $STR_HR_GRG_Generic_SellVeh;
-                    x = 26 * GRID_NOUISCALE_W;
-                    y = 0;
-                    w = 13 * GRID_NOUISCALE_W;
-                    h = 7 * GRID_NOUISCALE_H;
-                    action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_sellVehGRG',2];";
-                    sizeEx = TEXT_SIZE_LARGE;
-                };
                 class HR_GRG_Confirm: HR_GRG_RscButton
                 {
                     idc = HR_GRG_IDC_Confirm;
                     text = $STR_HR_GRG_Generic_Confirm;
-                    x = 39 * GRID_NOUISCALE_W;
+                    x = 26 * GRID_NOUISCALE_W;
                     y = 0;
                     w = 13 * GRID_NOUISCALE_W;
                     h = 7 * GRID_NOUISCALE_H;
@@ -231,7 +220,7 @@ class HR_GRG_VehicleSelect
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
             y = SCREEN_TOP + 4 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
-            h = safeZoneH - (56 * GRID_NOUISCALE_H); // Screen height - title and buttons height
+            h = safeZoneH - (63 * GRID_NOUISCALE_H); // Screen height - title and buttons height
             size = TEXT_SIZE_MEDIUM;
             rowHeight = 3 * GRID_NOUISCALE_H;
             onMouseButtonClick = "_this call HR_GRG_fnc_requestMount;";
@@ -255,7 +244,7 @@ class HR_GRG_VehicleSelect
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
             y = SCREEN_TOP + 4 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
-            h = safeZoneH - (56 * GRID_NOUISCALE_H); // Screen height - title and buttons height
+            h = safeZoneH - (63 * GRID_NOUISCALE_H); // Screen height - title and buttons height
 
             class controls
             {
@@ -265,7 +254,7 @@ class HR_GRG_VehicleSelect
                     x = 0;
                     y = 0;
                     w = 39 * GRID_NOUISCALE_W;
-                    h = safeZoneH - (56 * GRID_NOUISCALE_H);
+                    h = safeZoneH - (63 * GRID_NOUISCALE_H);
                 };
 
                 class HR_GRG_MirrorCheckbox: HR_GRG_RscCheckBox
@@ -312,7 +301,7 @@ class HR_GRG_VehicleSelect
         class HR_GRG_SourcePanel: HR_GRG_RscControlsGroup
         {
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
-            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
+            y = SCREEN_BOTTOM - 59 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
             h = 7 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_MEDIUM;
@@ -361,7 +350,7 @@ class HR_GRG_VehicleSelect
         class HR_GRG_InfoPanelWrapper: HR_GRG_RscControlsGroup
         {
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
-            y = SCREEN_BOTTOM - 45 * GRID_NOUISCALE_H;
+            y = SCREEN_BOTTOM - 52 * GRID_NOUISCALE_H;
             w = 39 * GRID_NOUISCALE_W;
             h = 45 * GRID_NOUISCALE_H;
             size = TEXT_SIZE_MEDIUM;
@@ -376,6 +365,31 @@ class HR_GRG_VehicleSelect
                     w = 39 * GRID_NOUISCALE_W;
                     h = 45 * GRID_NOUISCALE_H;
                     size = TEXT_SIZE_MEDIUM;
+                };
+            };
+        };
+
+        // Sell button (this really should probably get some friends at some point)
+        class HR_GRG_SellButtonWrapper: HR_GRG_RscControlsGroup
+        {
+            x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;
+            y = SCREEN_BOTTOM - 7 * GRID_NOUISCALE_H;
+            w = 39 * GRID_NOUISCALE_W;
+            h = 7 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_LARGE;
+
+            class controls
+            {
+                class HR_GRG_SellVeh: HR_GRG_RscButton
+                {
+                    idc = HR_GRG_IDC_SellVeh;
+                    text = $STR_HR_GRG_Generic_SellVeh;
+                    x = 0;
+                    y = 0;
+                    w = 39 * GRID_NOUISCALE_W;
+                    h = 7 * GRID_NOUISCALE_H;
+                    action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_sellVehGRG',2];";
+                    sizeEx = TEXT_SIZE_LARGE;
                 };
             };
         };

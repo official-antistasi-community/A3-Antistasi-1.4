@@ -5,7 +5,6 @@ FIX_LINE_NUMBERS()
 
 params [["_veh",objNull],["_isGRG",false]];
 
-if (isNull _veh) exitWith {Error("Null vehicle sent to fn_getVehicleSellPrice.")};
 /*
 Blacklisted Assets
 
@@ -22,11 +21,7 @@ private _blacklistedAssets = [
 "vn_o_pl_spiderhole_01","vn_o_pl_spiderhole_02","vn_o_pl_spiderhole_03",
 "vn_o_vc_spiderhole_01","vn_o_vc_spiderhole_02","vn_o_vc_spiderhole_03"];
 
-private _typeX = if (_isGRG) then {
-    _veh;
-} else {
-    typeOf veh;
-};
+private _typeX = if (_isGRG) then {_veh;} else {typeOf _veh;};
 
 if (_typeX in _blacklistedAssets) exitWith {0};
 

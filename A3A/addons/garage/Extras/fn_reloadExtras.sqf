@@ -22,6 +22,7 @@
 FIX_LINE_NUMBERS()
 params [["_reloadMounts", false, [true]]];
 private _class = HR_GRG_SelectedVehicles param [2, "", [""]];
+if (!isClass (configFile >> "CfgVehicles" >> _class)) exitWith {};
 Trace("Reloading Extras");
 //Mounts
 private _disp = findDisplay HR_GRG_IDD_Garage;
@@ -151,6 +152,9 @@ private _typeSource = switch (_source find true) do {
     default {localize "STR_HR_GRG_InfoPanel_isNotSource"};
 };
 
+private _sellPrice = [HR_GRG_previewVeh] call A3A_fnc_getVehicleSellPrice;
+_sellPrice = [str _sellPrice, localize "STR_HR_GRG_InfoPanel_cannotBeSold"] select (_sellPrice == 0);
+_sellPrice = [localize "STR_HR_GRG_InfoPanel_salePrice",_sellPrice] joinString " ";
 
 //state indicator
 private _getPercentageAmmo = {
@@ -271,4 +275,4 @@ _generalInfo = composeText [
     ,image MassIcon," ",localize "STR_HR_GRG_InfoPanel_Mass"," ", str _mass
 ];
 
-_ctrl ctrlSetStructuredText composeText [_topBar, lineBreak, _typeSource, _spacer, "Vehicle state:", lineBreak, _vehicleState,lineBreak,_refuelInfo, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];
+_ctrl ctrlSetStructuredText composeText [_topBar, lineBreak, _typeSource, lineBreak, _sellPrice, _spacer, "Vehicle state:", lineBreak, _vehicleState,lineBreak,_refuelInfo, _spacer, _seatsInfo, _spacer, _cargoInfo, _spacer, _generalInfo];

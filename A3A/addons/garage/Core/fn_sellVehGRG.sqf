@@ -20,30 +20,37 @@
 
     License: APL-ND
 */
+diag_log "Starting script";
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 params ["_UID", "_player", "_selectedVehicle"];
+diag_log "Definitions done";
 
-private _fnc_hint = {
-    params ["_bodyText"];
-    private _titleStr = localize "STR_A3A_fn_base_sellveh_sell";
-    [_titleStr, localize _bodyText] remoteExecCall ["A3A_fnc_customHint",_player];
-};
-
-if (!isServer) exitWith {};
-if (_player != theBoss) then {["STR_HR_GRG_Feedback_sellVehicle_comOnly"] call _fnc_hint};
-_selectedVehicle params [["_catIndex", -1], ["_vehUID", -1], ["_veh",""]];
+if (!isServer) exitWith {"Not server executed"};
+if (_player != theBoss) exitWith {["STR_HR_GRG_Feedback_sellVehicle_comOnly"] call HR_GRG_fnc_Hint; diag_log "Not Commander"};
+_selectedVehicle params [["_catIndex", -1], ["_vehUID", -1], ["_class", ""]];
 if ( (_catIndex isEqualTo -1) || (_vehUID isEqualTo -1) ) exitWith {};
-Trace_2("Attempting to sell vehicle at cat: %1 | Vehicle ID: %2", _catIndex, _vehUID);
+//Trace_2("Attempting to sell vehicle at cat: %1 | Vehicle ID: %2 | Classname: %3", _catIndex, _vehUID, _class);
+Info_2("Attempting to sell vehicle at cat: %1 | Vehicle ID: %2 | Classname: %3", _catIndex, _vehUID, _class);
 
-if (_veh#2 isNotEqualTo "") exitWith {["STR_HR_GRG_Feedback_sellVehicle_locked"]};
+diag_log format["Grabbing sell price for vehicle: %1", _class];
+private _refund = [_class,true] call A3A_fnc_getVehicleSellPrice;
+diag_log format["Got Refund Price: %1",_refund];
+if (_refund == 0) exitWith {["STR_HR_GRG_Feedback_sellVehicle_noPrice"] call HR_GRG_fnc_Hint;};
 
-private _refund = [_veh,true] call A3A_fnc_getVehicleSellPrice;
+private _cat = HR_GRG_Vehicles#_catIndex;
+private _veh = _cat get _vehUID;
+private _lock = _veh#2;
+if !(_lock isEqualTo "") exitWith {["STR_HR_GRG_Feedback_sellVehicle_locked"] call HR_GRG_fnc_Hint; diag_log "Locked"};
 
-[_UID] remoteExecCall ["HR_GRG_fnc_removeFromPool",2];
+//[nil,_UID, -1, -1, _player, true] call HR_GRG_fnc_broadcast; // resets selected vehicle
+[_UID, _player, "HR_GRG_fnc_removeFromPool"] call HR_GRG_fnc_execForGarageUsers;
+[] remoteExec ["HR_GRG_fnc_manUpdateSelection",_player];
+[] remoteExec ["HR_GRG_fnc_reloadPreview",_player];
 
+diag_log "Removed vehicle from pool";
 [0,_refund] spawn A3A_fnc_resourcesFIA;
-
-["STR_A3A_fn_base_sellveh_sell"] call _fnc_hint;
-
-Info_2("Vehicle UID %1 sold by %2.", _vehUID, name _player);
+diag_log "Gave Money";
+["STR_A3A_fn_base_sellveh_sold"] call HR_GRG_fnc_Hint;
+diag_log "Finished Script";
+Info_3("Vehicle UID %1 sold by %2 for %3.", _vehUID, name _player, _refund);

@@ -74,6 +74,7 @@ private _fn_rotateToTarget =
 
     private _change = (_mortar getDir _targPos) - getDir _mortar;
     _change = (_change + 540) % 360 - 180;
+    if (abs _change < 1) exitWith {};
 
     addMissionEventHandler ["EachFrame", {
         _thisArgs params ["_mortar", "_startDir", "_change", "_startTime"];

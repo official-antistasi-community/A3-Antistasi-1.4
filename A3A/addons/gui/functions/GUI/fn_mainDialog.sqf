@@ -27,7 +27,10 @@ Example:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params[["_mode","onLoad"], ["_params",[]]];
+params[
+    ["_mode","onLoad"],
+    ["_params",[]]
+];
 
 // Get display
 private _display = findDisplay A3A_IDD_MAINDIALOG;
@@ -291,6 +294,18 @@ switch (_mode) do
             case ("playermanagement"):
             {
                 ["update"] call FUNC(playerManagementTab);
+            };
+        };
+    };
+
+    case ("uiEvent"):
+    {
+        private _controlNameEvent = _params # 0;
+        switch (_controlNameEvent) do {
+            case ("hideTopBarCheckBox_checked"):
+            {
+                private _isChecked = (_params # 1) isEqualTo 1;
+                ["BATTLE_MENU_CHECKBOX", _isChecked] call A3A_fnc_disableInfoBar;
             };
         };
     };

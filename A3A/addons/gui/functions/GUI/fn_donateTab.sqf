@@ -109,7 +109,7 @@ switch (_mode) do
         if (_donateToIndex == -1) exitWith {};
         private _donateTo = A3A_GUI_donateTab_sortedPlayers #_donateToIndex;
 
-        [player, _donateTo, _moneyEditBoxValue] call FUNCMAIN(donateMoney);
+        [player, _donateTo, _moneyEditBoxValue] call FUNCMAIN(sendMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";
     };
@@ -120,7 +120,7 @@ switch (_mode) do
         private _moneyEditBox = _display displayCtrl A3A_IDC_MONEYEDITBOX;
         private _moneyEditBoxValue = floor parseNumber ctrlText _moneyEditBox;
 
-        [player, "faction", _moneyEditBoxValue] call FUNCMAIN(donateMoney);
+        [player, "faction", _moneyEditBoxValue] call FUNCMAIN(sendMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";
     };

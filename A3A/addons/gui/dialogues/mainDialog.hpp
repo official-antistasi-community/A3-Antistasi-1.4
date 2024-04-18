@@ -355,6 +355,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class HideTopBarCheckBox :A3A_CheckBox
                 {
                     idc = A3A_IDC_HIDETOPBARCHECKBOX;
+                    onCheckedChanged = "params [""_control"", ""_checked""]; [""uiEvent"", [""hideTopBarCheckBox_checked"", _checked]] call A3A_GUI_fnc_mainDialog;";
                     x = 124 * GRID_W;
                     y = 47 * GRID_H;
                     w = 4 * GRID_W;

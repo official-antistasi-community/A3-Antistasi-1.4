@@ -448,6 +448,7 @@ class CfgFunctions
         class OrgPlayers {
             file = QPATHTOFOLDER(functions\OrgPlayers);
             class donateMoney {};
+            class sendMoney {};
             class isMember {};
             class makePlayerBossIfEligible {};
             class memberAdd {};

@@ -17,7 +17,7 @@ Public: Yes
 
 Example:
     [-100] call A3A_fnc_resourcesPlayer; // Backwards compatible Deduct 100 Euros
-    [420, _theAffectedPlayer] call FUNCMAIN(donateMoney); // The server-side call to add money.
+    [420, _theAffectedPlayer] call FUNCMAIN(resourcesPlayer); // The server-side call to add money.
 */
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()

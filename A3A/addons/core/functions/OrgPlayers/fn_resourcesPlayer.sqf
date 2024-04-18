@@ -23,7 +23,7 @@ Example:
 FIX_LINE_NUMBERS()
 
 if (!isServer) exitWith {
-    this remoteExecCall ["A3A_fnc_resourcesPlayer", 2];
+    _this remoteExecCall ["A3A_fnc_resourcesPlayer", 2];
 };
 
 params [

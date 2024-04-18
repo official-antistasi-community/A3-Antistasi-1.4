@@ -3038,6 +3038,13 @@
       </Key>
       <Key ID="STR_antistasi_dialogs_main_player_money_text">
         <Original>Current money: € %1</Original>
+        <German>Aktuelles Geld: € %1</German>
+        <Italian>Denaro attuale: € %1</Italian>
+        <Spanish>Dinero: € %1</Spanish>
+        <French>Argent actuel : € %1</French>
+        <Korean>현재 자금: %1€</Korean>
+        <Russian>Текущий баланс: € %1</Russian>
+        <Czech>Aktuální peníze: € %1</Czech>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_sell_vehicle">
         <Original>Sell</Original>

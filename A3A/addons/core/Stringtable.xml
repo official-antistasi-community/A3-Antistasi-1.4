@@ -2926,6 +2926,8 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_begin">
         <Original>Fast traveling, travel time: %1, please wait.</Original>
+        <Korean>빠른 이동 중. 도착 시간까지: %1초, 잠시만 기다려 주십시오...</Korean>
+        <Russian>Быстрое перемещение: пожалуйста, подождите %1 сек.</Russian>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_fastTravelRadio_end">
         <Original>You arrived at the destination.</Original>
@@ -5361,15 +5363,39 @@
     <Container name="A3A_fn_OrgPlayers">
       <Key ID="STR_A3A_fn_orgp_donMon_donated_faction">
         <Original>You have donated %1 € to the cause. This will raise your status among our forces.</Original>
+        <Italian>Hai donato 100 € alla causa. Ciò accrescerà il tuo status tra le nostre forze.</Italian>
+        <Spanish>Ha donado 100 € a la causa. Esto incrementará su estatus entre sus fuerzas.</Spanish>
+        <French>Vous avez donné 100 € à la cause. Cela va améliorer votre réputation au sein de nos forces</French>
+        <Korean>당신은 100€를 기부했습니다. 이는 우리 군에서의 당신의 지위가 높아질 것입니다.</Korean>
+        <Russian>Вы передали 100 € на общее дело. Это повысит ваш статус среди наших товарищей.</Russian>
+        <Polish>Przekazałeś 100 € na ten cel. Podniesie to twój status wśród naszych sił.</Polish>
+        <Czech>Daroval jsi 100 € na pomoc naší věci. Tento akt zvýší tvé postavení mezi námi.</Czech>
+        <Chinesesimp>你为大义慷慨贡献了 100 €. 此举将提升你在我军中的地位.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_donated_player">
         <Original>You have donated %2 € to %1.</Original>
+        <Italian>Hai donato 100 € a %1.</Italian>
+        <Spanish>Ha donado 100 € a %1.</Spanish>
+        <French>Vous avez donné 100 € à %1.</French>
+        <Korean>당신은 %1에 100€를 기부했습니다.</Korean>
+        <Russian>Вы передали 100 € %1.</Russian>
+        <Polish>Przekazałeś 100 € na rzecz %1.</Polish>
+        <Czech>Daroval jsi 100 € hráči %1.</Czech>
+        <Chinesesimp>你慷慨贡献 100 € 给了 %1.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_received_money">
         <Original>You received a %1 € donation from %2.</Original>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_no_less">
         <Original>Insufficient Funds&lt;br/&gt;You have less than %1 € to donate.</Original>
+        <Italian>Hai meno di 100 € da donare.</Italian>
+        <Spanish>Tiene menos de 100 € para donar.</Spanish>
+        <French>Vous avez moins de 100 € à donner.</French>
+        <Korean>당신은 100€보다 적은 돈을 가지고 있습니다.</Korean>
+        <Russian>У вас есть меньше 100 € для передачи.</Russian>
+        <Polish>Masz mniej niż 100 € do przekazania.</Polish>
+        <Czech>Máš méně než 100€ k darování.</Czech>
+        <Chinesesimp>你需要至少 100 € 才可以贡献.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_orgp_donMon_no_looking">
         <Original>You must be looking at a player in order to give him money.</Original>

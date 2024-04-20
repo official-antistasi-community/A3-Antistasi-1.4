@@ -44,9 +44,9 @@ private _lock = _veh#2;
 if !(_lock isEqualTo "") exitWith {["STR_HR_GRG_Feedback_sellVehicle_locked"] call HR_GRG_fnc_Hint; diag_log "Locked"};
 
 //[nil,_UID, -1, -1, _player, true] call HR_GRG_fnc_broadcast; // resets selected vehicle
-[_UID, _player, "HR_GRG_fnc_removeFromPool"] call HR_GRG_fnc_execForGarageUsers;
-[] remoteExec ["HR_GRG_fnc_manUpdateSelection",_player];
-[] remoteExec ["HR_GRG_fnc_reloadPreview",_player];
+[_UID,_player,true] remoteExecCall ["HR_GRG_fnc_removeFromPool",HR_GRG_Users];
+//[_UID, _player, "HR_GRG_fnc_removeFromPool"] call HR_GRG_fnc_execForGarageUsers;
+[] remoteExec ["HR_GRG_fnc_sellVehGRGLocal",_player];
 
 diag_log "Removed vehicle from pool";
 [0,_refund] spawn A3A_fnc_resourcesFIA;

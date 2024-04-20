@@ -17,7 +17,7 @@ class CfgFunctions
             class getLockCount {};
             class onLoad {};
             class onUnload {};
-            class manUpdateSelection {};
+            class sellVehGRGLocal {};
             class reciveBroadcast {};
             class releaseAllVehicles {};
             class reloadCategory {};

@@ -6,7 +6,7 @@
     Arguments:
     0. <Int> Client UID
     1. <Str> Player, for logging
-    2. <Bool> Whether or not to include mounts for removal (default TRUE)
+    2. <Bool> Whether or not to exclude mounts from removal (default false)
     Return Value:
     <Bool> succesfull
 
@@ -21,25 +21,29 @@
 */
 #include "defines.inc"
 FIX_LINE_NUMBERS()
-params [["_UID", "", [""]], ["_player", objNull, [objNull]], ["_removeMounts",true,[true]]];
+params [["_UID", "", [""]], ["_player", objNull, [objNull]], ["_removeMounts",false,[false]]];
 Trace_1("Removing vehicles from garage with UID: %1", _UID);
 if (_UID isEqualTo "") exitWith {false};
 
 //find vehicles to remove
 
-// private _grgCats = HR_GRG_Vehicles;
-// _grgCats deleteAt ([-1,4] select _removeMounts);
 private _toRemove = [];
-{
-    private _catIndex = _forEachIndex;
-    private _hashMap = _x;
+if (!_removeMounts) then {
     {
-        _veh = _hashMap get _x;
-        if ((_veh#3) isEqualTo _UID) then {_toRemove pushBack [_catIndex, _x, _veh]};
-    } forEach keys _x;
-// } forEach _grgCats;
-} forEach HR_GRG_Vehicles;
+    private _catIndex = _forEachIndex;
+        private _hashMap = _x;
+        {
+            _veh = _hashMap get _x;
+            if ((_veh#3) isEqualTo _UID) then {_toRemove pushBack [_catIndex, _x, _veh]};
+        } forEach keys _x;
+    } forEach HR_GRG_Vehicles;
+} else {
+    HR_GRG_SelectedVehicles params [["_catIndex", -1], ["_vehUID", -1], ["_class", ""]];
+    _toRemove pushBack [_catIndex, _vehUID, _class];
+};
 
+
+    
 //remove vehicles
 {
     //remove vehicle

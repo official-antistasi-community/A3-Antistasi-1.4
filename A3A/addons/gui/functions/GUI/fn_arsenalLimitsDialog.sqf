@@ -25,6 +25,15 @@ private _listBox = _display displayCtrl A3A_IDC_ARSLIMLISTBOX;
 
 switch (_mode) do
 {
+    case ("init"):
+    {
+        if !(player call A3A_fnc_isMember) then {
+            ["Arsenal limits", "As a guest commander you can only increase arsenal limits, not decrease them."] call A3A_fnc_customHint;
+            (_display displayctrl A3A_IDC_ARSLIMRESETBUTTON) ctrlEnable false;
+        };
+        ["typeSelect"] call A3A_fnc_arsenalLimitsDialog;
+    };
+
     case ("typeSelect"):
     {
         private _typeIndex = if (isNil "_params") then { 0 } else { (_params#0) - A3A_IDC_ARSLIMTYPESBASE };
@@ -61,6 +70,7 @@ switch (_mode) do
 
     case ("listButton"):
     {
+        if (_params#0 < 0 and !(player call A3A_fnc_isMember)) exitWith {};
         if (isNil {_display getVariable "stepSize"}) exitWith {};
         private _stepSize = _display getVariable "stepSize";
         private _curRow = lnbCurSelRow _listBox;
@@ -68,6 +78,7 @@ switch (_mode) do
 
         private _curVal = _listBox lnbValue [_curRow, 2];
         private _newVal = 0 max (_curVal + _stepSize*(_params#0));
+        _newVal = if (minWeaps < 0) then { _newVal min 100 } else { _newVal min minWeaps };
         _listBox lnbSetText [[_curRow, 2], str _newVal];
         _listBox lnbSetValue [[_curRow, 2], _newVal];
         A3A_arsenalLimits set [_class, _newVal];

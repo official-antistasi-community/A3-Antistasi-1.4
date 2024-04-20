@@ -308,7 +308,7 @@ class Params
         title = $STR_A3A_Params_guestItemLimit_title;
         values[] = {0,10,15,25,40};
         texts[] = {$STR_A3A_Params_generic_nolimit,"10","15","25","40"};
-        default = 25;
+        default = 0;
     };
     class unlockedUnlimitedAmmo
     {

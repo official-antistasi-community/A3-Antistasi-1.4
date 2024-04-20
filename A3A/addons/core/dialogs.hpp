@@ -1802,7 +1802,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Manage arsenal limitations of guests";	//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "if (player == theBoss && theBoss call A3A_fnc_isMember) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""Only member commanders have access to this function""] call A3A_fnc_customHint}";
+			action = "if (player == theBoss) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""Only commanders have access to this function""] call A3A_fnc_customHint}";
 		};
 		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{

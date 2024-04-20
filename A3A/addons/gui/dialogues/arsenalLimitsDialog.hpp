@@ -15,7 +15,7 @@ class A3A_ArsenalLimitsDialog {
     idd = A3A_IDD_ARSENALLIMITSDIALOG;
     movingenable = false;
 
-    onLoad = "['typeSelect'] spawn A3A_fnc_arsenalLimitsDialog";
+    onLoad = "['init'] spawn A3A_fnc_arsenalLimitsDialog";
     onUnload = "publicVariable 'A3A_arsenalLimits'";
 
     class ControlsBackground {

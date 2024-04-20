@@ -8605,6 +8605,18 @@
         <Korean>안티스타시의 전투 메뉴를 엽니다.</Korean>
         <Russian>Открывает меню битвы Antistasi.</Russian>
       </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_DN">
+        <Original>Respawn</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_tip">
+        <Original>Respawn when unconscious in the Antistasi medical system.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_DN">
+        <Original>Self revive</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_tip">
+        <Original>Self revive when unconscious in the Antistasi medical system.</Original>
+      </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
         <Original>Dismiss Previous Hint</Original>
         <Italian>Chiudi Suggerimento Precedente</Italian>

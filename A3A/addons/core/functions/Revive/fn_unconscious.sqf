@@ -17,19 +17,7 @@ if (isPlayer _unit) then
 	_unit spawn { sleep 5; _this allowDamage true };
 	closeDialog 0;
 	openMap false;
-	if (!isNil "respawnMenu") then {(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu]};
-	respawnMenu = (findDisplay 46) displayAddEventHandler ["KeyDown",
-	{
-		if !(player getVariable ["incapacitated",false]) exitWith {false};
-		if (_this select 1 == 19) then {
-			[player] spawn A3A_fnc_respawn;
-		};
-		if (_this select 1 == 35) then {
-			if (A3A_selfReviveMethods) then { [] spawn A3A_fnc_selfRevive };
-			//if (A3A_selfReviveMethods == 2) then { [] spawn A3A_fnc_transferToAI };		// different keys later?
-		};
-		false;
-	}];
+
 	if (_injurer != Invaders) then {_unit setCaptive true};
 	{
 		if ((!isPlayer _x) and (vehicle _x != _x) and (_x distance _unit < 50)) then {unassignVehicle _x; [_x] orderGetIn false}
@@ -60,22 +48,31 @@ else
 _unit setFatigue 1;
 sleep 2;
 if (_isPlayer) then
-	{
+{
+	addUserActionEventHandler ["A3A_core_respawn", "Activate", {
+		if !(player getVariable ["incapacitated",false]) exitWith {};
+		[player] spawn A3A_fnc_respawn;
+	}];
+	addUserActionEventHandler ["A3A_core_selfRevive", "Activate", {
+		if !(player getVariable ["incapacitated",false]) exitWith {};
+		if (A3A_selfReviveMethods) then { [] spawn A3A_fnc_selfRevive };
+	}];
+
 	if (A3A_hasTFAR || A3A_hasTFARBeta) then
-		{
+	{
 		_saveVolumeVoice = player getVariable ["tf_voiceVolume", 1.0];
 		player setVariable ["tf_unable_to_use_radio", true, true];
 		player setVariable ["tf_voiceVolume", 0];
 		_saveVolume = player getVariable ["tf_globalVolume", 1.0];
 		player setVariable ["tf_globalVolume", 0.7, true];
-		};
+	};
 	group _unit setCombatMode "YELLOW";
 	if (isMultiplayer) then
-		{
+	{
 		[_unit,"heal1"] remoteExec ["A3A_fnc_flagaction",0,_unit];
 		//[_unit,"carry"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-		};
 	};
+};
 
 
 private _nextRequest = 0;
@@ -112,24 +109,26 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 };
 
 if (_isPlayer) then
-	{
-	(findDisplay 46) displayRemoveEventHandler ["KeyDown", respawnMenu];
+{
+	removeAllUserActionEventHandlers ["A3A_core_respawn", "Activate"];
+	removeAllUserActionEventHandlers ["A3A_core_selfRevive", "Activate"];
+
 	if (A3A_hasTFAR || A3A_hasTFARBeta) then
-		{
+	{
 		player setVariable ["tf_unable_to_use_radio", false, true];
 		player setVariable ["tf_globalVolume", _saveVolume];
 		player setVariable ["tf_voiceVolume", _saveVolumeVoice, true];
-		};
+	};
 	if (isMultiplayer) then {[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",0,_unit]};
-	}
+}
 else
-	{
+{
 	_unit stop false;
 	if (_inPlayerGroup or _playersX) then
-		{
+	{
 		[_unit,"remove"] remoteExec ["A3A_fnc_flagaction",0,_unit];
-		};
 	};
+};
 
 if (_isPlayer and (_unit getVariable ["respawn",false])) exitWith {};
 

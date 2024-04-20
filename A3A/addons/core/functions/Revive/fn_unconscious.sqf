@@ -92,9 +92,9 @@ while {(time < _bleedOut) and (_unit getVariable ["incapacitated",false]) and (a
 			if (_helper distance _unit < 3) exitWith { format [localize "STR_A3A_fn_revive_unconscious_helping", name _helper] };
 			format [localize "STR_A3A_fn_revive_unconscious_onTheWay", name _helper];
 		};
-		private _respawnText = "<t size='0.6'><br/>" + localize "STR_A3A_fn_revive_unconscious_respawn";
+		private _respawnText = format ["<t size='0.6'><br/>" + localize "STR_A3A_fn_revive_unconscious_respawn", actionKeysNames "A3A_core_respawn"];
 		private _reviveText = call {
-			if (A3A_selfReviveMethods) exitWith { "<br/>" + localize "STR_A3A_fn_revive_unconscious_selfRevive" };
+			if (A3A_selfReviveMethods) exitWith { format ["<br/>" + localize "STR_A3A_fn_revive_unconscious_selfRevive", actionKeysNames "A3A_core_selfRevive"] };
 			//if (A3A_selfReviveMethods == 2) exitWith { "<br/>Hit H to take over nearest AI ally" };
 			""
 		};

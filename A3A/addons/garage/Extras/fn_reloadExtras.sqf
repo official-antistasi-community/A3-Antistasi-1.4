@@ -82,7 +82,6 @@ private _customisation = [HR_GRG_previewVeh] call BIS_fnc_getVehicleCustomizatio
 //textures
 HR_GRG_curTexture = _customisation#0;
 private _badInit = HR_GRG_curTexture isEqualTo [];
-
 {
     private _displayName = getText (_x >> "displayName");
     private _cfgName = configname _x;
@@ -99,7 +98,6 @@ private _badInit = HR_GRG_curTexture isEqualTo [];
 lbSort _ctrlExtraTexture;
 
 //animations
-
 {
     _configName = configname _x;
     _displayName = getText (_x >> "displayName");
@@ -113,12 +111,10 @@ lbSort _ctrlExtraTexture;
 } foreach (configProperties [(configfile >> "CfgVehicles" >> _class >> "animationSources"),"isclass _x",true]);
 lbSort _ctrlExtraAnim;
 
-
 HR_GRG_curAnims = _customisation#1;
 [HR_GRG_previewVeh, HR_GRG_curTexture, HR_GRG_curAnims] call BIS_fnc_initVehicle;
 
 //update source panel
-
 _ctrlSourcePanelAmmo ctrlSetStructuredText composeText ["   ", image RearmIcon, " ", image (checkboxTextures select (HR_GRG_hasAmmoSource && !HR_GRG_ServiceDisabled_Rearm))];
 _ctrlSourcePanelAmmo ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Unavailable"
@@ -126,14 +122,12 @@ _ctrlSourcePanelAmmo ctrlSetTooltip ([
     , localize "STR_HR_GRG_SourcePanel_toolTip_Ammo_Disabled"
 ] select (if (HR_GRG_ServiceDisabled_Rearm) then {2} else {HR_GRG_hasAmmoSource}));
 
-
 _ctrlSourcePanelFuel ctrlSetStructuredText composeText ["   ", image RefuelIcon, " ", image (checkboxTextures select (HR_GRG_hasFuelSource && !HR_GRG_ServiceDisabled_Refuel))];
 _ctrlSourcePanelFuel ctrlSetTooltip ([
     localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Unavailable"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Available"
     , localize "STR_HR_GRG_SourcePanel_toolTip_Fuel_Disabled"
 ] select (if (HR_GRG_ServiceDisabled_Refuel) then {2} else {HR_GRG_hasFuelSource}));
-
 
 _ctrlSourcePanelRepair ctrlSetStructuredText composeText ["   ", image RepairIcon, " ", image (checkboxTextures select (HR_GRG_hasRepairSource && !HR_GRG_ServiceDisabled_Repair))];
 _ctrlSourcePanelRepair ctrlSetTooltip ([
@@ -144,7 +138,6 @@ _ctrlSourcePanelRepair ctrlSetTooltip ([
 
 if (isNull HR_GRG_previewVeh) exitWith {};
 //update info panel
-
 private _spacer = composeText [lineBreak, lineBreak];
 private _topBar = composeText [
     image cfgIcon(_class), " ", cfgDispName(_class)

@@ -35,4 +35,5 @@ private _disp = findDisplay HR_GRG_IDD_Garage;
 } forEach [HR_GRG_IDC_ExtraMounts,HR_GRG_IDC_ExtraTexture,HR_GRG_IDC_ExtraAnim,HR_GRG_IDC_ExtraPylonsContainer];
 
 [0] call HR_GRG_fnc_switchExtrasMenu;
+[] call HR_GRG_fnc_reloadPylons;
 [] call HR_GRG_fnc_updateVehicleCount;

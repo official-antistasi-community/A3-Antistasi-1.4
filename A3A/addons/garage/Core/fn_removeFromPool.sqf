@@ -7,6 +7,7 @@
     0. <Int> Client UID
     1. <Str> Player, for logging
     2. <Bool> Whether or not to exclude mounts from removal (default false)
+
     Return Value:
     <Bool> succesfull
 
@@ -26,7 +27,6 @@ Trace_1("Removing vehicles from garage with UID: %1", _UID);
 if (_UID isEqualTo "") exitWith {false};
 
 //find vehicles to remove
-
 private _toRemove = [];
 if (!_removeMounts) then {
     {
@@ -41,8 +41,6 @@ if (!_removeMounts) then {
     HR_GRG_SelectedVehicles params [["_catIndex", -1], ["_vehUID", -1], ["_class", ""]];
     _toRemove pushBack [_catIndex, _vehUID, _class];
 };
-
-
     
 //remove vehicles
 {

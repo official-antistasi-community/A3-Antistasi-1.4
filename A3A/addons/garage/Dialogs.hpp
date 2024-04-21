@@ -292,7 +292,7 @@ class HR_GRG_VehicleSelect
                     x = 0;
                     y = 4 * GRID_NOUISCALE_H;
                     w = 38 * GRID_NOUISCALE_W;
-                    h = safeZoneH - (65 * GRID_NOUISCALE_H); // Screen height - title and buttons height 51
+                    h = safeZoneH - (67 * GRID_NOUISCALE_H); // Screen height - title and buttons height 51
                 };
             };
         };
@@ -369,7 +369,6 @@ class HR_GRG_VehicleSelect
             };
         };
 
-        // Sell button (this really should probably get some friends at some point)
         class HR_GRG_SellButtonWrapper: HR_GRG_RscControlsGroup
         {
             x = SCREEN_RIGHT - 39 * GRID_NOUISCALE_W;

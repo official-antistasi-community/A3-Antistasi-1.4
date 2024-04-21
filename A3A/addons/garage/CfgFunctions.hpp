@@ -17,7 +17,6 @@ class CfgFunctions
             class getLockCount {};
             class onLoad {};
             class onUnload {};
-            class sellVehGRGLocal {};
             class reciveBroadcast {};
             class releaseAllVehicles {};
             class reloadCategory {};
@@ -28,6 +27,7 @@ class CfgFunctions
             class requestVehicle {};
             class selectionChange {};
             class sellVehGRG {};
+            class sellVehGRGLocal {};
             class switchCategory {};
             class toggleConfirmBttn {};
             class toggleLock {};

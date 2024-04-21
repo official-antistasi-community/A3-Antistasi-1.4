@@ -22,8 +22,7 @@
 FIX_LINE_NUMBERS()
 Trace("Reloading preview");
 HR_GRG_SelectedVehicles params ["_catIndex", "_vehUID", "_class"];
-diag_log HR_GRG_previewVeh;
-diag_log HR_GRG_SelectedVehicles;
+
 //delete old vehicle
 if (!isNull HR_GRG_previewVeh) then {
     {

@@ -1,7 +1,7 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params [["_moneyX",0,[0]]];
+params [["_moneyX",0]];
 
 if !(_moneyX isEqualType 0) exitWith {Error("The parameter, the added money, must be a number"); "Error: The parameter must be a number"};
 

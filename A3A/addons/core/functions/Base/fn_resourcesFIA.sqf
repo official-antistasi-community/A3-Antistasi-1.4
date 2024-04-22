@@ -1,6 +1,6 @@
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-params [["_hr",0,[0]],["_resourcesFIA",0,[0]]];
+params [["_hr",0],["_resourcesFIA",0]];
 
 if !(_hr isEqualType 0) exitWith {Error("The first parameter, the added HR, must be a number"); "Error: The first parameter must be a number"};
 if !(_resourcesFIA isEqualType 0) exitWith {Error("The second parameter, the added money, must be a number"); "Error: The second parameter must be a number"};

@@ -5,7 +5,11 @@ if (!isServer) exitWith {Error("Server-only function miscalled")};
 waitUntil {!cityIsSupportChanging};
 cityIsSupportChanging = true;
 
-params ["_changeGov", "_changeReb", "_pos", ["_scaled", true], ["_isRadio", false]];
+params [["_changeGov",0,[0]], ["_changeReb",0,[0]], "_pos", ["_scaled", true], ["_isRadio", false]];
+if !(_changeGov isEqualType 0) exitWith {Error("The first parameter, the government support, must be a number"); "Error: The first parameter must be a number"};
+if !(_changeReb isEqualType 0) exitWith {Error("The second parameter, the rebel support, must be a number"); "Error: The second parameter must be a number"};
+if ((_changeGov > 100) || (_changeGov < -100)) exitWith {Error("The first parameter, the government support, must be between -100 and 100"); "Error: The first parameter must be between -100 and 100"};
+if ((_changeReb > 100) || (_changeReb < -100)) exitWith {Error("The second parameter, the rebel support, must be between -100 and 100"); "Error: The first parameter must be between -100 and 100"};
 
 private _city = if (_pos isEqualType "") then {_pos} else {[citiesX, _pos] call BIS_fnc_nearestPosition};
 private _cityData = server getVariable _city;

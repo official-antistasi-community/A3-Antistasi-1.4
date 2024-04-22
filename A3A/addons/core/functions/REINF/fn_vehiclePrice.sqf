@@ -30,7 +30,7 @@ else
 	else
 	{
 		_discount = 0 max ((tierWar - 4) * 0.5);	//4 is the last war tier before discounts, the 0.5 makes the discount go from 0-3 instead of 0-6.
-		_costs = round (_costs - (_costs * 0.1 * _discount));
+		_costs = 5 * round ((_costs - (_costs * 0.1 * _discount))/5); //Applies the discount, rounds to the nearest 5€
 	};
 };
 

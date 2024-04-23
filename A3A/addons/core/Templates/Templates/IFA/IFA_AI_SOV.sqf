@@ -51,10 +51,10 @@ private _vehiclesHeavyTanks = ["LIB_JS2_43"];
 ["vehiclesHelisLightAttack", []] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
-["vehiclesArtillery", ["LIB_US6_BM13", "LIB_US6_BM13_SingleFire", "LIB_US6_BM13_SingleFire"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["LIB_leFH18"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["LIB_US6_BM13", ["LIB_16Rnd_BM13"]],
-["LIB_US6_BM13_SingleFire", ["LIB_16Rnd_BM13"]]]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
+["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]]
+]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
 ["uavsPortable", []] call _fnc_saveToTemplate;

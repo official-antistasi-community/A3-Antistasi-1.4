@@ -82,10 +82,12 @@ switch (A3A_climate) do
 
 private _initialRebelEquipment = [
 "LIB_WaltherPPK", "LIB_7Rnd_765x17_PPK",
-"LIB_M1895", "LIB_7Rnd_762x38",
+["LIB_M1895", 15], "LIB_7Rnd_762x38",
 "LIB_FLARE_PISTOL", "LIB_1Rnd_flare_white",
 "V_LIB_SOV_RA_Belt", 
 ["LIB_Ladung_Small_MINE_mag", 10],
+["B_LIB_GER_Tonister34_cowhide", 3],
+["B_LIB_GER_MedicBackpack_Empty", 3],
 "B_LIB_US_Bandoleer",
 "LIB_Binocular_GER"
 ];

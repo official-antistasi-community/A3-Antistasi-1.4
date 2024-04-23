@@ -54,9 +54,8 @@ private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"
 ["vehiclesHelisLightAttack", []] call _fnc_saveToTemplate; 
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;      
 
-["vehiclesArtillery", ["LIB_FlaK_36_ARTY","LIB_leFH18"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["LIB_leFH18"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["LIB_FlaK_36_ARTY", ["LIB_45x_SprGr_KwK36_HE"]],
 ["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]]
 ]] call _fnc_saveToTemplate; //element format: [Vehicle class, [Magazines]]
 
@@ -111,7 +110,7 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
 //SpecialForces, Militia, Police Faces and Voices, these are Optional if there is no reason to Include them, leave them out.
 //UK Forces
 ["milVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
-"EnglishMen" call _fnc_saveNames;
+"NATOMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //
@@ -202,8 +201,8 @@ _sfLoadoutData set ["medVests", ["V_LIB_US_Assault_Vest_Light"]];
 _sfLoadoutData set ["slVests", ["V_LIB_US_Assault_Vest_Thompson"]];
 
 _sfLoadoutData set ["backpacks", ["B_LIB_US_M36_Bandoleer"]];
-_sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns"]];
-_sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO"]];
+_sfLoadoutData set ["helmets", ["H_LIB_US_Rangers_Helmet_ns", "H_LIB_US_Rangers_Helmet", "H_LIB_US_Rangers_Helmet_os"]];
+_sfLoadoutData set ["slHelmets", ["H_LIB_US_Rangers_Helmet_NCO", "H_LIB_US_Rangers_Helmet_First_lieutenant","H_LIB_US_Rangers_Helmet_Second_lieutenant", "H_LIB_US_Rangers_Helmet_Cap"]];
 _sfLoadoutData set ["atBackpacks", ["B_LIB_US_Backpack_RocketBag_Empty"]];
 
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
@@ -234,8 +233,8 @@ _militaryLoadoutData set ["medVests", ["V_LIB_US_Vest_Medic", "V_LIB_US_Vest_Med
 _militaryLoadoutData set ["slVests", ["V_LIB_US_Vest_Thompson_nco_Radio", "V_LIB_US_Vest_Carbine_nco_Radio"]];
 
 _militaryLoadoutData set ["backpacks", ["B_LIB_US_Backpack"]];
-_militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet_ns"]];
-_militaryLoadoutData set ["slHelmets", ["H_LIB_US_Helmet_CO"]];
+_militaryLoadoutData set ["helmets", ["H_LIB_US_Helmet_ns","H_LIB_US_Helmet","H_LIB_US_Helmet_os"]];
+_militaryLoadoutData set ["slHelmets", ["H_LIB_US_Helmet_CO","H_LIB_US_Helmet_NCO"]];
 _militaryLoadoutData set ["medHelmets", ["H_LIB_US_Helmet_Med_ns"]];
 _militaryLoadoutData set ["radios", ["ItemRadio"]];
 
@@ -262,7 +261,7 @@ _militaryLoadoutData set ["machineGuns", [
 private _policeLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _policeLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
 _policeLoadoutData set ["vests", ["V_LIB_SOV_RA_Belt"]];
-_policeLoadoutData set ["helmets", ["H_LIB_SOV_RA_PrivateCap"]]; //I did want a US Garrison/Side cap
+_policeLoadoutData set ["helmets", ["H_LIB_US_Helmet"]]; //I did want a US Garrison/Side cap
 
 _policeLoadoutData set ["rifles", [
 ["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1903A3_Springfield" //The one gun worse than an enfield for the allies
@@ -281,11 +280,11 @@ _militiaLoadoutData set ["vests", ["V_LIB_UK_P37_Rifleman"]];
 _militiaLoadoutData set ["medVests", ["V_LIB_UK_P37_Gasmask", "V_LIB_UK_P37_Heavy"]];
 _militiaLoadoutData set ["slVests", ["V_LIB_UK_P37_Holster", "V_LIB_UK_P37_Officer", "V_LIB_UK_P37_Sten"]];
 
-_militiaLoadoutData set ["backpacks", ["B_LIB_UK_HSack"]];
-_militiaLoadoutData set ["atBackpacks", ["B_LIB_UK_HSack"]];
+_militiaLoadoutData set ["backpacks", ["B_LIB_UK_HSack_Blanco", "B_LIB_UK_HSack_Blanco_Tea", "B_LIB_UK_HSack_Blanco_Cape"]];
+_militiaLoadoutData set ["atBackpacks", ["B_LIB_UK_HSack_Blanco", "B_LIB_UK_HSack_Blanco_Tea", "B_LIB_UK_HSack_Blanco_Cape"]];
 
 _militiaLoadoutData set ["helmets", ["H_LIB_UK_Helmet_Mk2"]];
-_militiaLoadoutData set ["slHelmets", ["H_LIB_UK_Beret"]];
+_militiaLoadoutData set ["slHelmets", ["H_LIB_UK_Helmet_Mk2_Beachgroup"]];
 _militiaLoadoutData set ["medHelmets", ["H_LIB_UK_Helmet_Mk2_FAK"]];
 
 _militiaLoadoutData set ["binoculars", ["LIB_Binocular_UK"]];
@@ -304,7 +303,6 @@ _militiaLoadoutData set ["slWeapons", [
 ]];
 _militiaLoadoutData set ["rifles", [
 ["LIB_LeeEnfield_No4", "LIB_ACC_No4_Mk2_Bayo", "", "", [], [], ""]
-//["LIB_LeeEnfield_No1", "LIB_ACC_P1903_Bayo", "", "", [], [], ""] //Moving to desert templates
 ]];
 _militiaLoadoutData set ["carbines", ["LIB_M1_Carbine", "LIB_LeeEnfield_No4"]];
 _militiaLoadoutData set ["grenadeLaunchers", [
@@ -335,9 +333,10 @@ _pilotLoadoutData set ["helmets", ["H_LIB_US_Helmet_Pilot"]];
 _pilotLoadoutData set ["sidearms", ["LIB_Colt_M1911"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["slUniforms", ["U_LIB_US_Cap"]];
+_officerLoadoutData set ["slUniforms", ["U_LIB_US_Pilot"]];
 _officerLoadoutData set ["vests", ["V_LIB_US_Vest_Carbine_nco"]];
-_officerLoadoutData set ["helmets", ["H_LIB_US_Helmet_Cap"]];
+_officerLoadoutData set ["helmets", ["H_LIB_US_Pilot_Cap"]];
+_officerLoadoutData set ["backpacks", []];
 
 _officerLoadoutData set ["slWeapons", ["LIB_M3_GreaseGun", "LIB_M1_Carbine"]];
 _officerLoadoutData set ["slSidearms", ["LIB_Colt_M1911"]];

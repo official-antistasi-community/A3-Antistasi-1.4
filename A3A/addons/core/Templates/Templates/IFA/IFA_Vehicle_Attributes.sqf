@@ -1,4 +1,8 @@
 
+["attributeLowAir", true] call _fnc_saveToTemplate;
+["placeIntel_itemLarge", ["Intel_File2_F",-155,false]] call _fnc_saveToTemplate;
+
+
 //Most vehicles below are inserted into categories that which normally has higher requirements in regular antistasi
 //Due to this being WW2 and the cost being much more reasonable to modify than the weights.
 //For example the SdKfz251 and the M3 Halftrack are used in the APC category despite only being suitable as lightAPCs, 
@@ -14,9 +18,6 @@
     ["LIB_UK_M3_Halftrack", ["cost", 60]],
     ["LIB_M8_Greyhound", ["cost", 80]]
 ]] call _fnc_saveToTemplate;
-
-["attributeLowAir", true] call _fnc_saveToTemplate;
-
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
     (["attributesVehicles"] call _fnc_getFromTemplate) append

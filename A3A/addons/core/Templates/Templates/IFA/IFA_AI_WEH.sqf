@@ -31,7 +31,7 @@ private _vehiclesLightArmed = ["LIB_Kfz1_MG42", "LIB_Kfz1_MG42"];             //
 ["vehiclesAPCs", ["LIB_SdKfz251","LIB_SdKfz251_FFV"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", []] call _fnc_saveToTemplate;
 
-private _vehiclesLightTanks = ["LIB_DAK_PzKpfwIV_H"];
+private _vehiclesLightTanks = [];
 ["vehiclesTanks", ["LIB_StuG_III_G","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H","LIB_PzKpfwV"]] call _fnc_saveToTemplate;
 ["vehiclesHeavyTanks", ["LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_1","LIB_PzKpfwVI_B"]] call _fnc_saveToTemplate;
 
@@ -75,7 +75,6 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
     ["vehiclesIFVs", ["FA_Sdkfz231", "FA_Sdkfz234", "FA_Sdkfz234_4", "FA_Sdkfz231"]] call _fnc_saveToTemplate;
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
-    _vehiclesLightTanks = _vehiclesLightTanks - ["LIB_DAK_PzKpfwIV_H"];
     _vehiclesLightTanks append ["FA_Panzer2", "FA_Pz38t"];
 };
 ["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;

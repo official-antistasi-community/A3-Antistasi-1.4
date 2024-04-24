@@ -31,7 +31,7 @@ private _hvytWeight =       [ 0,  0,  0,  2,  4,  6,  8, 10, 12, 14] select _lev
 private _vehAA = (_faction get "vehiclesAA") select { A3A_vehicleResourceCosts get _x >= 100 };
 if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
-// Only one of these two is mandatory
+// At least one lightTanks or Tanks is mandatory, HeavyTanks are entirely optional
 if (_faction get "vehiclesHeavyTanks" isEqualTo []) then { _ltWeight = _ltWeight + _hvytWeight/2;  _tankWeight = _tankWeight + _hvytWeight/2};
 if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };

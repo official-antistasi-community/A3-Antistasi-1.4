@@ -127,19 +127,20 @@ else
 
     // Do initial arsenal filling
     private _categoriesToPublish = createHashMap;
-    private _equipHM = FactionGet(reb,"initialRebelEquipment") createHashMapFromArray [];       // dupe proofing
+    private _addedClasses = createHashMap;       // dupe proofing
     {
-        if (_x isEqualType "") then {
-            private _arsenalTab = _x call jn_fnc_arsenal_itemType;
-            jna_dataList#_arsenalTab pushBack [_x, -1];         // direct add to avoid O(N^2) issue
-            private _categories = _x call A3A_fnc_equipmentClassToCategories;
-            _categoriesToPublish insert [true, _categories, []];
-            continue;
-        };
-        _x params ["_class", "_count"];
+        _x params ["_class", ["_count", -1]];
+        if (_class in _addedClasses) then { continue };
+        _addedClasses set [_class, nil];
+
         private _arsenalTab = _class call jn_fnc_arsenal_itemType;
-        jna_dataList#_arsenalTab pushBack [_class, _count];
-    } foreach keys _equipHM;
+        jna_dataList#_arsenalTab pushBack [_class, _count];         // direct add to avoid O(N^2) issue
+
+        private _categories = _class call A3A_fnc_equipmentClassToCategories;
+        { (missionNamespace getVariable ("unlocked" + _x)) pushBack _class } forEach _categories;
+        _categoriesToPublish insert [true, _categories, []];
+
+    } foreach FactionGet(reb,"initialRebelEquipment");
 
     // Publish the unlocked categories (once each)
     { publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;

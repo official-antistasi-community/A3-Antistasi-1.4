@@ -21,7 +21,7 @@
 #include "defines.inc"
 FIX_LINE_NUMBERS()
 
-if (isNull player) exitWith {Error("fn_manUpdateSelection was not executed by a client")};
+if (isNull player) exitWith {Error("fn_sellVehGRGLocal was not executed by a client")};
 params [["_catIndex",-1],["_vehUID",-1],["_class",""]];
 HR_GRG_SelectedVehicles = [_catIndex, _vehUID,_class];
 [] call HR_GRG_fnc_reloadPreview;

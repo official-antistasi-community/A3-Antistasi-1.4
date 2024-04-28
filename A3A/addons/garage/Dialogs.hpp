@@ -387,7 +387,7 @@ class HR_GRG_VehicleSelect
                     y = 0;
                     w = 39 * GRID_NOUISCALE_W;
                     h = 7 * GRID_NOUISCALE_H;
-                    action = "[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_sellVehGRG',2];";
+                    action = "if !(HR_GRG_SelectedVehicles isEqualTo [-1,-1,'']) then {[HR_GRG_PlayerUID, player, HR_GRG_SelectedVehicles] remoteExecCall ['HR_GRG_fnc_sellVehGRG',2];};";
                     sizeEx = TEXT_SIZE_LARGE;
                 };
             };

@@ -445,6 +445,9 @@
       <Key ID="STR_HR_GRG_Feedback_sellVehicle_noPrice">
         <Original>This vehicle is not suitable for our marketplace.</Original>
       </Key>
+      <Key ID="STR_HR_GRG_Feedback_sellVehicle_sold">
+        <Original>Vehicle sold for %1 €.</Original>
+      </Key>
       <Key ID="STR_HR_GRG_Feedback_toggleLock_limit">
         <Original>You have too many vehicles locked</Original>
         <German>Du hast zu viele Fahrzeuge abgeschlossen</German>

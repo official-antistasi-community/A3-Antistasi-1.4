@@ -67,7 +67,7 @@ if !(_owner isEqualTo "" || {getPlayerUID _player isEqualTo _owner}) exitWith { 
 if (_veh getVariable ["A3A_sellVehicle_inProgress",false]) exitWith {[_titleStr, localize "STR_A3A_fn_base_sellveh_progress"] remoteExecCall ["A3A_fnc_customHint",_player];};
 _veh setVariable ["A3A_sellVehicle_inProgress",true,false];  // Only processed on the server. It is absolutely pointless trying to network this due to race conditions.
 
-private _costs = [_veh] call A3A_fnc_getVehicleSellPrice;
+private _costs = [_veh] call HR_GRG_fnc_getVehicleSellPrice;
 
 if (_costs == 0) exitWith {
     _veh setVariable ["A3A_sellVehicle_inProgress",false,false];

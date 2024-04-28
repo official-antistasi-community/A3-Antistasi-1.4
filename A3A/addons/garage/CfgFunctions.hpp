@@ -15,6 +15,7 @@ class CfgFunctions
             class genVehUID {};
             class getCatIndex {};
             class getLockCount {};
+            class getVehicleSellPrice {};
             class onLoad {};
             class onUnload {};
             class reciveBroadcast {};

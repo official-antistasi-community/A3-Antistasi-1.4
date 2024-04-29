@@ -1,4 +1,4 @@
-#include "defines.inc"
+#include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
 #define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))

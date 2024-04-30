@@ -15,6 +15,24 @@ class UK3CB_Factions_addons_UK3CB_Factions_Vehicles_wheeled_UK3CB_Factions_Vehic
     };
 };
 
+class UK3CB_Factions_addons_UK3CB_Factions_Vehicles_wheeled_UK3CB_Factions_Vehicles_datsun_uk3cb_datsun_open_p3d : TRIPLES(ADDON,Nodes,Base)
+{
+    class Nodes
+    {
+        class Node1
+        {
+            offset[] = {0,-0.6,-1.164};
+            seats[] = {3,4};
+        };
+        class Node2
+        {
+            offset[] = {0,-1.3,-1.164};
+            seats[] = {5,6};
+        };
+    };
+};
+
+
 class UK3CB_Hilux_Closed_Base : TRIPLES(ADDON,Nodes,Base)
 {
     canLoadWeapon = 0;

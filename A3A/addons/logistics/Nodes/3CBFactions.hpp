@@ -15,22 +15,33 @@ class UK3CB_Factions_addons_UK3CB_Factions_Vehicles_wheeled_UK3CB_Factions_Vehic
     };
 };
 
-class UK3CB_Factions_addons_UK3CB_Factions_Vehicles_wheeled_UK3CB_Factions_Vehicles_datsun_uk3cb_datsun_open_p3d : TRIPLES(ADDON,Nodes,Base)
+class UK3CB_Hilux_Closed_Base : TRIPLES(ADDON,Nodes,Base)
 {
+    canLoadWeapon = 0;
     class Nodes
     {
         class Node1
         {
-            offset[] = {0,-0.6,-1.164};
-            seats[] = {3,4};
+            offset[] = {-0.05,-0.5,-0.634};
+            seats[] = {5};
         };
         class Node2
         {
-            offset[] = {0,-1.3,-1.164};
-            seats[] = {5,6};
+            offset[] = {-0.05,-1.6,-0.634};
+            seats[] = {3,4,6};
         };
     };
 };
+
+class UK3CB_APD_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_APD_I_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_ADA_I_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_ANA_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_ANP_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_ADP_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_LNM_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_TKA_B_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
+class UK3CB_C_Hilux_Closed : UK3CB_Hilux_Closed_Base {};
 
 class UK3CB_Factions_addons_UK3CB_Factions_Vehicles_wheeled_UK3CB_Factions_Vehicles_hilux_uk3cb_hilux_p3d : TRIPLES(ADDON,Nodes,Base)
 {

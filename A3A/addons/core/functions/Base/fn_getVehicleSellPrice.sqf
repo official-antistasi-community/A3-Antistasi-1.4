@@ -4,10 +4,10 @@
         Get a valid sell price for a given vehicle
 
     Arguments:
-        0. <Object, Str> Vehicle Object / Vehicle Class
+        0. <OBJECT, STRING> Vehicle object / vehicle class
 
     Return Value:
-        <Int> Sell price. 0 if invaLid or otherwise not found.
+        <INT> Sell price. 0 if invalid or otherwise not found.
 
     Scope: Any
     Environment: Any

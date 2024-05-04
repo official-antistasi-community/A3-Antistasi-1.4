@@ -29,7 +29,7 @@ HR_GRG_SelectedVehicles = [_catIndex, _vehUID,_class];
 private _disp = findDisplay HR_GRG_IDD_Garage;
 
 {
-    _ctrl = _disp displayCtrl _x;
+    private _ctrl = _disp displayCtrl _x;
     _ctrl ctrlEnable false;
     _ctrl ctrlShow false;
 } forEach [HR_GRG_IDC_ExtraMounts,HR_GRG_IDC_ExtraTexture,HR_GRG_IDC_ExtraAnim,HR_GRG_IDC_ExtraPylonsContainer];

@@ -147,8 +147,8 @@ HR_GRG_canSell = {_this isEqualTo theBoss};
 HR_GRG_getVehicleSellPrice = {
     private _disableSale = false;
     if (_disableSale) exitWith {0};
-    params ["_veh",["_isGRG",false]];
-    [_veh,_isGRG] call A3A_fnc_getVehicleSellPrice;
+    params ["_veh"];
+    [_veh] call A3A_fnc_getVehicleSellPrice;
 };
 
 

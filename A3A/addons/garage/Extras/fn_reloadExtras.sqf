@@ -156,7 +156,7 @@ private _typeSource = switch (_source find true) do {
     default {localize "STR_HR_GRG_InfoPanel_isNotSource"};
 };
 
-private _sellPrice = [HR_GRG_previewVeh,false] call HR_GRG_getVehicleSellPrice;
+private _sellPrice = [HR_GRG_previewVeh] call HR_GRG_getVehicleSellPrice;
 _sellPrice = [str _sellPrice, localize "STR_HR_GRG_InfoPanel_cannotBeSold"] select (_sellPrice == 0);
 _sellPrice = [localize "STR_HR_GRG_InfoPanel_salePrice",_sellPrice] joinString " ";
 

@@ -1,9 +1,28 @@
+/*
+    Author: Tiny
+    Description
+        Get a valid sell price for a given vehicle
+
+    Arguments:
+        0. <Object, Str> Vehicle Object / Vehicle Class
+
+    Return Value:
+        <Int> Sell price. 0 if invaLid or otherwise not found.
+
+    Scope: Any
+    Environment: Any
+    Public: Yes
+    Dependencies:
+
+    Example: [_vehicle] call A3A_getVehicleSellPrice
+*/
+
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
 #define OccAndInv(VAR) (FactionGet(occ, VAR) + FactionGet(inv, VAR))
 
-params [["_veh",objNull],["_isGRG",false]];
+params ["_veh"];
 
 /*
 Blacklisted Assets
@@ -21,7 +40,7 @@ private _blacklistedAssets = [
 "vn_o_pl_spiderhole_01","vn_o_pl_spiderhole_02","vn_o_pl_spiderhole_03",
 "vn_o_vc_spiderhole_01","vn_o_vc_spiderhole_02","vn_o_vc_spiderhole_03"];
 
-private _typeX = if (_isGRG) then {_veh;} else {typeOf _veh;};
+private _typeX = if (_veh isEqualType objNull) then {typeOf _veh} else {_veh};
 
 if (_typeX in _blacklistedAssets) exitWith {0};
 

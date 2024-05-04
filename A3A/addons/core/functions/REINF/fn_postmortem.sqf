@@ -1,6 +1,6 @@
-/*  Handles the despawn and cleanup of dead units
+/*  Handles the despawn and cleanup of dead units and vehicles
 *   Params:
-*       _victim : OBJECT : The dead unit
+*       _victim : OBJECT : The dead unit or vehicle
 *
 *   Returns:
 *       Nothing
@@ -33,7 +33,12 @@ if (_victim getVariable ["stopPostmortem", false]) exitWith {};
 if !(isnull _victim) then
 {
     Debug_1("Cleanup complete for %1 victim.", _victim);
-    deleteVehicle _victim;
+    if (_victim isKindOf "CAManBase" and !isNull objectParent _victim) then {
+        // Otherwise vehicle seats may remain blocked
+        [objectParent _victim, _victim] remoteExec ["deleteVehicleCrew", _victim];
+    } else {
+        deleteVehicle _victim;
+    };
 };
 
 if !(isnull _group) then

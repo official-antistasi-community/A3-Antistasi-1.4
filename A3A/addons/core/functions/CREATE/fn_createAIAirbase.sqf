@@ -267,7 +267,13 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 
 if (!_busy) then
 {
-	private _vehTypesHeavy = (_faction get "vehiclesLightAPCs") + (_faction get "vehiclesAPCs") + (_faction get "vehiclesIFVs") + (_faction get "vehiclesLightTanks") + (_faction get "vehiclesTanks");
+	private _vehTypesHeavy = 
+        (_faction get "vehiclesLightAPCs") + 
+        (_faction get "vehiclesAPCs") + 
+        (_faction get "vehiclesIFVs") + 
+        (_faction get "vehiclesLightTanks") + 
+        (_faction get "vehiclesTanks") + 
+        (_faction get "vehiclesHeavyTanks");
 	for "_i" from 1 to (round (random 2)) do
 	{
 		_spawnParameter = [_markerX, "Vehicle"] call A3A_fnc_findSpawnPosition;
@@ -286,7 +292,14 @@ if (!_busy) then
 	};
 };
 
-private _vehTypesLight = (_faction get "vehiclesLightArmed") + (_faction get "vehiclesLightUnarmed") + (_faction get "vehiclesTrucks") + (_faction get "vehiclesAmmoTrucks") + (_faction get "vehiclesRepairTrucks") + (_faction get "vehiclesFuelTrucks") + (_faction get "vehiclesMedical");
+private _vehTypesLight = 
+    (_faction get "vehiclesLightArmed") + 
+    (_faction get "vehiclesLightUnarmed") + 
+    (_faction get "vehiclesTrucks") + 
+    (_faction get "vehiclesAmmoTrucks") + 
+    (_faction get "vehiclesRepairTrucks") + 
+    (_faction get "vehiclesFuelTrucks") + 
+    (_faction get "vehiclesMedical");
 _countX = 0;
 
 while {_countX < _nVeh && {_countX < 3}} do

@@ -6,7 +6,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = REQUIRED_VERSION;
-		requiredAddons[] = {"A3_Data_F_AoW_Loadorder"};
+		requiredAddons[] = {"IFA3_Core"};
 		skipWhenMissingDependencies = 1;
 		author = AUTHOR;
 		authors[] = { AUTHORS };

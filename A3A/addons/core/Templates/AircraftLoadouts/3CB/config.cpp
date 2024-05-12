@@ -63,15 +63,6 @@ class A3A {
 				missileLauncher[] = {"uk3cb_weap_kh25ma_Launcher"};
 			};
 			
-			class UK3CB_TKA_B_MIG21_AT : baseCAS {
-				//Pylons
-				loadout[] = {"uk3cb_mag_kh25MA","rhs_mag_b8m1_bd3_umk2a_s8t","rhs_mag_b8m1_bd3_umk2a_s8t","uk3cb_mag_kh25MA"};
-				//Weapons
-				mainGun[] = {"uk3cb_mig21_GSh23L_23mm"};
-				rocketLauncher[] = {"rhs_weap_s8t"};
-				missileLauncher[] = {"uk3cb_weap_kh25ma_Launcher"};
-			};
-			
 			class UK3CB_AAF_B_Gripen_G : baseCAS {
 				//Pylons
 				loadout[] = {"","","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x1","PylonRack_Missile_AGM_02_x2","PylonRack_Missile_AGM_02_x2"};

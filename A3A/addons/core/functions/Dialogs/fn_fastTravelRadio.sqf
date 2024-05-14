@@ -61,7 +61,7 @@ if (count _positionTel > 0) then
 	_base = [_markersX, _positionTel] call BIS_Fnc_nearestPosition;
 	if (_checkForPlayer and ((_base != "SYND_HQ") and !(_base in airportsX)))
 	exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_ftradio_no_onlyhq"] call A3A_fnc_customHint;};
-	if ((sidesX getVariable [_base,sideUnknown] == Occupants) or (sidesX getVariable [_base,sideUnknown] == Invaders))
+    if ((sidesX getVariable [_base,sideUnknown]) in [Occupants, Invaders])
 	exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_ftradio_no_enemy2"] call A3A_fnc_customHint; openMap [false,false]};
 	if (_base in forcedSpawn)
 	exitWith {[_titleStr, localize "STR_A3A_fn_dialogs_ftradio_no_attack1"] call A3A_fnc_customHint; openMap [false,false]};

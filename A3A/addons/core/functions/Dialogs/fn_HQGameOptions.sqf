@@ -9,7 +9,7 @@ Arguments:
     <OBJECT> Player executing the change.
     <STRING> Spawn Option
     <STRING> Action
-    <SCALER> Amount to adjust by or set [DEFAULT: nil]
+    <SCALAR> Amount to adjust by or set [DEFAULT: nil]
 
 Scope: Server, Global Arguments, Global Effect
 Environment: Any

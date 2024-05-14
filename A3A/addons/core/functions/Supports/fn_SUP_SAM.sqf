@@ -54,7 +54,7 @@ _group deleteGroupWhenEmpty true;
 
 
 private _aggro = if(_side == Occupants) then {aggressionOccupants} else {aggressionInvaders};
-if (_delay < 0) then { _delay = (0.5 + random 1) * (320 - 1*_aggro) };
+if (_delay < 0) then { _delay = (0.5 + random 1) * (100 - _aggro + 22*A3A_enemyResponseTime) };
 
 private _targArray = [];
 if (_target isEqualType objNull and {!isNull _target}) then {

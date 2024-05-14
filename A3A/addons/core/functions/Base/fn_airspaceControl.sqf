@@ -57,9 +57,7 @@ private _airportWarningHeight = 750;
 
 //Initialize needed variables
 private _inWarningRangeOutpost = [];
-private _inDetectionRangeOutpost = [];
 private _inWarningRangeAirport = [];
-private _inDetectionRangeAirport = [];
 private _vehicleIsUndercover = false;
 private _supportCallAt = -1;
 private _vehPos = [];
@@ -142,6 +140,9 @@ while {_player in crew _vehicle && alive _vehicle} do
     // Only run the checks for the vehicle's commander
     if (_player != effectiveCommander _vehicle) then { continue };
 
+    // If we already made a call, wait until the timeout
+    if (time < _supportCallAt) then { continue };
+
     //Check undercover status
     _vehicleIsUndercover = captive ((crew _vehicle) select 0);
     _vehPos = getPosASL _vehicle;
@@ -196,40 +197,27 @@ while {_player in crew _vehicle && alive _vehicle} do
     }
     else
     {
-        //Vehicles will be attacked instantly once detected
-
         //Check for nearby airports
         private _airportsInRange = [_enemyAirports, _vehPos, _airportDetectionRange, _airportDetectionHeight] call _fn_getMarkersInRange;
 
-        //newAirports will contain all airports which just detected the aircraft
-        private _newAirports = _airportsInRange - _inDetectionRangeAirport;
-        _inDetectionRangeAirport = _airportsInRange;
-
-        if(count _newAirports > 0) then
+        if(count _airportsInRange > 0) then
         {
             //Vehicle detected by another airport (or multiple, lucky in that case)
-            [_vehicle, _newAirports select 0] call _fn_sendSupport;
-            _supportCallAt = time + 300;
-        }
-        else
+            _vehicle setVariable ["A3A_airKills", (_vehicle getVariable ["A3A_airKills", 0]) + 30];
+            [_vehicle, _airportsInRange select 0] call _fn_sendSupport;
+            _supportCallAt = time + 30;
+            continue;
+        };
+
+        //Check for nearby outposts
+        private _outpostsInRange = [_enemyOutposts, _vehPos, _outpostDetectionRange, _outpostDetectionHeight] call _fn_getMarkersInRange;
+
+        if(count _outpostsInRange > 0) then
         {
-            //No airport near, to save performance we only check outpost if they would be able to send support
-            if(time > _supportCallAt) then
-            {
-                //Check for nearby outposts
-                private _outpostsInRange = [_enemyOutposts, _vehPos, _outpostDetectionRange, _outpostDetectionHeight] call _fn_getMarkersInRange;
-
-                //Same as above
-                private _newOutposts = _outpostsInRange - _inDetectionRangeOutpost;
-                _inDetectionRangeOutpost = _outpostsInRange;
-
-                if(count _newOutposts > 0) then
-                {
-                    //Vehicle detected by another outpost, call support if possible
-                    [_vehicle, _newOutposts select 0] call _fn_sendSupport;
-                    _supportCallAt = time + 300;
-                };
-            };
+            //Vehicle detected by another outpost, call support if possible
+            _vehicle setVariable ["A3A_airKills", (_vehicle getVariable ["A3A_airKills", 0]) + 10];
+            [_vehicle, _outpostsInRange select 0] call _fn_sendSupport;
+            _supportCallAt = time + 30;
         };
     };
 };

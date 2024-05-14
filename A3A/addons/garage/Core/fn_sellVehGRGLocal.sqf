@@ -24,16 +24,9 @@ FIX_LINE_NUMBERS()
 if (isNull player) exitWith {Error("fn_sellVehGRGLocal was not executed by a client")};
 params [["_catIndex",-1],["_vehUID",-1],["_class",""]];
 HR_GRG_SelectedVehicles = [_catIndex, _vehUID,_class];
+
 [] call HR_GRG_fnc_reloadPreview;
 [] call HR_GRG_fnc_reloadExtras;
-private _disp = findDisplay HR_GRG_IDD_Garage;
-
-{
-    private _ctrl = _disp displayCtrl _x;
-    _ctrl ctrlEnable false;
-    _ctrl ctrlShow false;
-} forEach [HR_GRG_IDC_ExtraMounts,HR_GRG_IDC_ExtraTexture,HR_GRG_IDC_ExtraAnim,HR_GRG_IDC_ExtraPylonsContainer];
-
 [0] call HR_GRG_fnc_switchExtrasMenu;
 [] call HR_GRG_fnc_reloadPylons;
 [] call HR_GRG_fnc_updateVehicleCount;

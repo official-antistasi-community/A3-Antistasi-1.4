@@ -64,41 +64,17 @@ private _vehPos = [];
 
 private _fn_sendSupport =
 {
-    params ["_vehicle", "_marker"];
-
+    params ["_vehicle", "_marker", "_threat"];
     private _markerSide = sidesX getVariable [_marker, sideUnknown];
-    //Reveal vehicle to all groups of the side so they can take actions
-/*    {
-        if(side _x == _markerSide) then
-        {
-            _x reveal [_vehicle, 4];            // TODO: doesn't actually work, needs remoteExec
-        };
-    } forEach allGroups;
-*/
-    //Take actions against the aircraft
+
+    // Add threat to vehicle on server side. Hopefully faster than the requestSupport call
+    [_markerSide, false, _vehicle, _threat] remoteExecCall ["A3A_fnc_addRecentDamage", 2];
+
     // Let support system decide whether it's worth reacting to
     private _revealValue = [getMarkerPos _marker, _markerSide] call A3A_fnc_calculateSupportCallReveal;
     [_markerSide, _vehicle, markerPos _marker, 4, _revealValue] remoteExec ["A3A_fnc_requestSupport", 2];
 
-/*
-    switch (_airType) do
-    {
-        case (MIL_HELI):
-        {
-            Debug_3("Rebel military helicopter %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide);
-            [_vehicle, _markerSide, markerPos _marker, 4, _revealValue] remoteExec ["A3A_fnc_requestSupport", 2];
-        };
-        case (JET):
-        {
-            Debug_3("Rebel jet %1 detected by %2 (side %3), sending support now!", _vehicle, _marker, _markerSide);
-            [_vehicle, 4, ["ASF", "SAM"], _markerSide, _revealValue] remoteExec ["A3A_fnc_sendSupport", 2];
-        };
-        default
-        {
-            Debug_3("Rebel civil helicopter %1 detected by %2 (side %3), revealed for all groups!", _vehicle, _marker, _markerSide);
-        };
-    };
-*/
+    _supportCallAt = time + 30;
 };
 
 private _fn_checkNoFlyZone =
@@ -203,9 +179,7 @@ while {_player in crew _vehicle && alive _vehicle} do
         if(count _airportsInRange > 0) then
         {
             //Vehicle detected by another airport (or multiple, lucky in that case)
-            _vehicle setVariable ["A3A_airKills", (_vehicle getVariable ["A3A_airKills", 0]) + 30];
-            [_vehicle, _airportsInRange select 0] call _fn_sendSupport;
-            _supportCallAt = time + 30;
+            [_vehicle, _airportsInRange select 0, 30] call _fn_sendSupport;
             continue;
         };
 
@@ -215,9 +189,7 @@ while {_player in crew _vehicle && alive _vehicle} do
         if(count _outpostsInRange > 0) then
         {
             //Vehicle detected by another outpost, call support if possible
-            _vehicle setVariable ["A3A_airKills", (_vehicle getVariable ["A3A_airKills", 0]) + 10];
-            [_vehicle, _outpostsInRange select 0] call _fn_sendSupport;
-            _supportCallAt = time + 30;
+            [_vehicle, _outpostsInRange select 0, 10] call _fn_sendSupport;
         };
     };
 };

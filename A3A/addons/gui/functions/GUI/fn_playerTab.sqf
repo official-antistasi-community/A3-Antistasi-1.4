@@ -39,31 +39,49 @@ switch (_mode) do
         // Undercover
         private _undercoverButton = _display displayCtrl A3A_IDC_UNDERCOVERBUTTON;
         private _undercoverIcon = _display displayCtrl A3A_IDC_UNDERCOVERICON;
-        private _canGoUndercover = [] call A3A_fnc_canGoUndercover;
-        private _isUndercover = captive player;
+        ([] call A3A_fnc_canGoUndercover) params ["_canUndercover", "_reasonNotEnum", "_shortReasonNot", "_longReasonNot"];
+        private _isUndercover = _reasonNotEnum == 2; // Already undercover
         if (_isUndercover) then {
-            _undercoverButton ctrlEnable true;
-            _undercoverButton ctrlSetTooltip "";
-            _undercoverButton ctrlSetText "Go Overt";
+            // TEMPORARILY DISABLED Due to undercover system not allowing going to "not undercover" without reporting the player for 30 minutes.
+            // _undercoverButton ctrlEnable true;
+            // _undercoverButton ctrlSetTooltip "";
+            // _undercoverButton ctrlSetText "Go Overt";
+            // _undercoverButton ctrlRemoveAllEventHandlers "MouseButtonClick";
+            // _undercoverButton ctrlAddEventHandler ["MouseButtonClick", {player setCaptive false; ["update"] spawn FUNC(playerTab)}];
+            // _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call FUNC(configColorToArray));
+            // _undercoverIcon ctrlSetTooltip "";
+            // STAND IN CODE
+            _undercoverButton ctrlEnable false;
+            _undercoverButton ctrlSetTooltip "Already Undercover";
+            _undercoverButton ctrlSetText "Go Undercover";
             _undercoverButton ctrlRemoveAllEventHandlers "MouseButtonClick";
-            _undercoverButton ctrlAddEventHandler ["MouseButtonClick", {player setCaptive false; ["update"] spawn FUNC(playerTab)}];
-            _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call FUNC(configColorToArray));
-            _undercoverIcon ctrlSetTooltip "";
+            _undercoverButton ctrlAddEventHandler ["MouseButtonClick", {[] spawn {
+                [] spawn A3A_fnc_goUndercover;
+                sleep 2;  // https://github.com/official-antistasi-community/A3-Antistasi/pull/3229#issuecomment-2110708172
+                ["update"] spawn FUNC(playerTab);
+            }}];
+            _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call FUNC(configColorToArray));
+            _undercoverIcon ctrlSetTooltip "Already Undercover";
         } else {
-            if (_canGoUndercover # 0) then {
+            if (_canUndercover) then {
                 _undercoverButton ctrlEnable true;
-                _undercoverButton ctrlSetTooltip "";
+                _undercoverButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_undercover";
                 _undercoverButton ctrlSetText localize "STR_antistasi_dialogs_main_undercover";
                 _undercoverButton ctrlRemoveAllEventHandlers "MouseButtonClick";
-                _undercoverButton ctrlAddEventHandler ["MouseButtonClick", {[] spawn A3A_fnc_goUndercover; ["update"] spawn FUNC(playerTab)}];
+                _undercoverButton ctrlAddEventHandler ["MouseButtonClick", {[] spawn {
+                    [] spawn A3A_fnc_goUndercover;
+                    sleep 2;  // https://github.com/official-antistasi-community/A3-Antistasi/pull/3229#issuecomment-2110708172
+                    ["update"] spawn FUNC(playerTab)
+                }}];
                 _undercoverIcon ctrlSetTextColor ([A3A_COLOR_WHITE] call FUNC(configColorToArray));
-                _undercoverIcon ctrlSetTooltip "";
+                _undercoverIcon ctrlSetTooltip localize "STR_antistasi_dialogs_main_undercover";
             } else {
                 _undercoverButton ctrlEnable false;
-                _undercoverButton ctrlSetTooltip (_canGoUndercover # 1);
+                _undercoverButton ctrlSetTooltip (_shortReasonNot);
                 _undercoverButton ctrlSetText localize "STR_antistasi_dialogs_main_undercover";
+                _undercoverButton ctrlRemoveAllEventHandlers "MouseButtonClick";
                 _undercoverIcon ctrlSetTextColor ([A3A_COLOR_BUTTON_BACKGROUND_DISABLED] call FUNC(configColorToArray));
-                _undercoverIcon ctrlSetTooltip (_canGoUndercover # 1);
+                _undercoverIcon ctrlSetTooltip (_shortReasonNot);
             };
         };
 

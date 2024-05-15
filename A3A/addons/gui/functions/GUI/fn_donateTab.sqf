@@ -52,7 +52,9 @@ switch (_mode) do
         _moneyText ctrlSetText format ["%1 €", _money];
 
         private _playerListCtrl = _display displayCtrl A3A_IDC_DONATEPLAYERLIST;
-        A3A_GUI_donateTab_sortedPlayers = allPlayers apply {[toLower name _x,_x]} sort true apply {_x#1};
+        A3A_GUI_donateTab_sortedPlayers = allPlayers select { _x isNotEqualTo player } apply {[toLower name _x,_x]};
+        A3A_GUI_donateTab_sortedPlayers sort true;
+        A3A_GUI_donateTab_sortedPlayers = A3A_GUI_donateTab_sortedPlayers apply {_x#1};
         lbClear _playerListCtrl;
         { _playerListCtrl lbAdd name _x; } forEach A3A_GUI_donateTab_sortedPlayers;
 
@@ -109,6 +111,7 @@ switch (_mode) do
         if (_donateToIndex == -1) exitWith {};
         private _donateTo = A3A_GUI_donateTab_sortedPlayers #_donateToIndex;
 
+        systemChat ("name _donateTo: " + name _donateTo); // DEBUG!!! REMOVE FROM PULL REQUEST!!!
         [player, _donateTo, _moneyEditBoxValue] call FUNCMAIN(sendMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";

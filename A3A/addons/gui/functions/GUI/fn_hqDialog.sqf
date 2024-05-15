@@ -517,11 +517,11 @@ switch (_mode) do
     {
         private _restSlider = _display displayCtrl A3A_IDC_RESTSLIDER;
         private _restText = _display displayCtrl A3A_IDC_RESTTEXT;
-        private _time = sliderPosition _restSlider;
-        private _restTimeString = [[_time] call A3A_fnc_secondsToTimeSpan,0,0,false,2] call A3A_fnc_timeSpan_format;
-        private _postRestTime = daytime + _time;
-        if (_postRestTime > 24) then {_postRestTime = _postRestTime - 24};
-        private _postRestTimeString = [_postRestTime, "HH:MM"] call BIS_fnc_timeToString;
+        private _timeHours = sliderPosition _restSlider;
+        private _restTimeString = [[_timeHours * 60 * 60] call A3A_fnc_secondsToTimeSpan,1,1,false,2,false,true] call A3A_fnc_timeSpan_format;
+
+        private _postRestTime = (daytime + _timeHours) * 60 * 60;
+        private _postRestTimeString = [[_postRestTime] call A3A_fnc_secondsToTimeSpan,2,2,false,[1,3],true,false] call A3A_fnc_timeSpan_format;
         private _message = format [localize "STR_antistasi_dialogs_hq_rest_text" + "<br />" + localize "STR_antistasi_dialogs_hq_wakeup_text", _restTimeString, _postRestTimeString];
         _restText ctrlSetStructuredText parseText _message;
     };

@@ -176,7 +176,7 @@ switch (_mode) do
         _playerRankPicture ctrlSetText ([player, "texture"] call BIS_fnc_rankParams);
 
         private _time = time; // TODO UI-update: get time at session start, not mission start, aka after you've loaded in, and on respawns etc...
-        _aliveText ctrlSetText format [[[_time] call A3A_fnc_secondsToTimeSpan,1,0,false,2] call A3A_fnc_timeSpan_format];
+        _aliveText ctrlSetText format [[[_time] call A3A_fnc_secondsToTimeSpan,1,1,false,2,false,true] call A3A_fnc_timeSpan_format];
 
         // TODO UI-update: Make function for getting num of completed missions
         private _missions = 0;

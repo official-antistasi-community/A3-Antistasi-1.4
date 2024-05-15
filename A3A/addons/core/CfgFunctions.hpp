@@ -449,6 +449,10 @@ class CfgFunctions
             file = QPATHTOFOLDER(functions\OrgPlayers);
             class donateMoney {};
             class sendMoney {};
+            class isClientAdmin {};
+            class isClientAdminOrServer {};
+            class isLocalAdmin {};
+            class isLocalAdminOrServer {};
             class isMember {};
             class makePlayerBossIfEligible {};
             class memberAdd {};

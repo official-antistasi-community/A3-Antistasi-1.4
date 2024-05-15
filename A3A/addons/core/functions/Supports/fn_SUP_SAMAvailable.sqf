@@ -22,6 +22,6 @@ _targThreat = _targThreat + (_target getVariable ["A3A_airKills", 0]);
 
 // Avoid using SAMs against low-threat targets unless it's a low air faction
 private _lowAir = Faction(_side) getOrDefault ["attributeLowAir", false];
-if (_lowAir) then { _targThreat = _targThreat - 150 };
+if (!_lowAir) then { _targThreat = _targThreat - 150 };
 
 _targThreat / 500;

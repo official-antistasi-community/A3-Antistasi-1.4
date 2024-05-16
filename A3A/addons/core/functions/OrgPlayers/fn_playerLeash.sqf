@@ -42,7 +42,7 @@ while {!([player] call A3A_fnc_isMember) || _debugMode} do {
     private _withinLeash = switch (true) do {
         case (!isNil "A3A_FFPun_Jailed" && {(getPlayerUID player) in A3A_FFPun_Jailed}): { true };
         case (player == theBoss): { true };             // covered in playerLeashCheckPosition, but shortcut
-        case (vehicle player isKindOf "Plane" and {speed vehicle player > 270}): { true };          // no air spawning check, distance.sqf + margin
+        case (vehicle player isKindOf "Plane" and {speed vehicle player > 120}): { true };          // no air spawning check, distance.sqf + margin
         // Add leash exemptions here.
         default { [getPosATL player,_nearestLeashCentre] call A3A_fnc_playerLeashCheckPosition };
     };

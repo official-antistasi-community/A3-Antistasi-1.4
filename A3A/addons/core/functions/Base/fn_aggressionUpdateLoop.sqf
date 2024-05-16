@@ -42,8 +42,8 @@ while {true} do
     private _lastScale = A3A_balancePlayerScale;
     A3A_balancePlayerScale = (A3A_activePlayerCount ^ 0.8 + 1 + tierWar / 4) / 6;           // Normalized to 1 == 5 players @ war tier 6
     A3A_balancePlayerScale = A3A_balancePlayerScale * (A3A_enemyBalanceMul / 10);
-    A3A_balanceVehicleCost = 100 + ([tierWar * 10, 50] select (gameMode == 1));
-    A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;          // base resources gained per 10 minutes
+    A3A_balanceVehicleCost = 100 + tierWar * 10;
+    A3A_balanceResourceRate = A3A_balancePlayerScale * ([A3A_balanceVehicleCost, 140] select (gameMode == 1));          // base resources gained per 10 minutes
     publicVariable "A3A_balancePlayerScale";            // needed for determining enemy skill on headless clients
 
     // Rescale defence resources when player count or difficulty changes

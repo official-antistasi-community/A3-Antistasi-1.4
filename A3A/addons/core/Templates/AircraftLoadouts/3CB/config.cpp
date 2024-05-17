@@ -63,6 +63,16 @@ class A3A {
                 missileLauncher[] = {"weapon_AGM_65Launcher"};
             };
             class UK3CB_AAF_B_Gripen_DG : UK3CB_AAF_B_Gripen_G {};
+            
+            class UK3CB_B_T28Trojan_HIDF_CAS : baseCAS {
+                loadout[] = {"rhs_mag_AGM114L_2","PylonWeapon_300Rnd_20mm_shells","PylonWeapon_300Rnd_20mm_shells","rhs_mag_AGM114L_2"};
+                mainGun[] = {"Twin_Cannon_20mm_gunpod"};
+                missileLauncher[] = {"rhs_weap_AGM114L_Launcher"};
+            };
+            class UK3CB_AAF_B_T28Trojan_CAS : UK3CB_B_T28Trojan_HIDF_CAS {};
+            class UK3CB_ION_B_Desert_T28Trojan_CAS : UK3CB_B_T28Trojan_HIDF_CAS {};
+            class UK3CB_MDF_B_T28Trojan_NAVY_CAS : UK3CB_B_T28Trojan_HIDF_CAS {};
+            class UK3CB_MDF_B_T28Trojan_CAS : UK3CB_B_T28Trojan_HIDF_CAS {};
         };
         class CAPPlane
         {

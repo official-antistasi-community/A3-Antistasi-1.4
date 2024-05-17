@@ -48,10 +48,10 @@ class A3A {
                 missileLauncher[] = {"rhs_weap_kh25mtp_Launcher"};
             };
             class RHSGREF_A29B_HIDF : baseCAS {
-                loadout[] = {"rhs_mag_AGM114K_2_plane","rhs_mag_FFAR_7_USAF","rhs_mag_mk82","rhs_mag_FFAR_7_USAF","rhs_mag_AGM114N_2_plane","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"};
+                loadout[] = {"rhs_mag_AGM114L_2","rhs_mag_M151_19","rhs_mag_gbu12","rhs_mag_M151_19","rhs_mag_AGM114L_2","rhsusf_ANALE40_CMFlare_Chaff_Magazine_x2"};
                 mainGun[] = {"rhs_weap_M3W_A29"};
                 rocketLauncher[] = {"rhs_weap_FFARLauncher"};
-                missileLauncher[] = {"rhs_weap_AGM114K_Launcher", "RHS_weap_AGM114N_Launcher"};
+                missileLauncher[] = {"rhs_weap_AGM114L_Launcher", "rhs_weap_gbu12"};
             };
         };
         class CAPPlane

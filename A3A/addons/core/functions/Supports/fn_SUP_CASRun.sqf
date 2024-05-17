@@ -144,10 +144,11 @@ while { count _fireParams > count _fireIntervals } do { _fireParams deleteAt 0 }
 Debug_2("Fire intervals for run dist %1: %2", _runDist, _fireIntervals);
 
 //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
-if (!(gunner _plane isEqualTo objNull)) then {
+private _gunnerLaser = getText(configFile >> "A3A" >> "Loadouts" >> "CASPlane" >> typeOf _plane >> "gunnerLaser";
+if (_gunnerLaser isNotEqualTo "") then {
     (gunner _plane) doTarget _target;
     _plane lockCameraTo [_target, [0]];
-    (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
+    (gunner _plane) forceWeaponFire [_gunnerLaser, _gunnerLaser];
 };
 
 addMissionEventHandler ["EachFrame",
@@ -177,9 +178,9 @@ waitUntil { sleep 1; _transform#8 >= 1 };
 Debug_1("Gun run for %1 finished, returning control", _supportName);
 
 //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
-if (!(gunner _plane isEqualTo objNull)) then {
+if (_gunnerLaser isNotEqualTo "") then {
     _plane lockCameraTo [objNull, [0]];
-    (gunner _plane) forceWeaponFire ["rhs_weap_laserDesignator_AI", "rhs_weap_laserDesignator_AI"];
+    (gunner _plane) forceWeaponFire [_gunnerLaser, _gunnerLaser];
 };
 /*
     if(_interval > 0.25 && (_fireParams#0#0)) then

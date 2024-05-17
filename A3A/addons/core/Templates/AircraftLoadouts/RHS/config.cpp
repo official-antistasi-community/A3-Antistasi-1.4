@@ -52,6 +52,7 @@ class A3A {
                 mainGun[] = {"rhs_weap_M3W_A29"};
                 rocketLauncher[] = {"rhs_weap_FFARLauncher"};
                 missileLauncher[] = {"rhs_weap_AGM114L_Launcher", "rhs_weap_gbu12"};
+                gunnerLaser = "rhs_weap_laserDesignator_AI";
             };
         };
         class CAPPlane

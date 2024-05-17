@@ -33,6 +33,7 @@ class A3A {
                 diveParams[] = {};
                 //General script, runs just after spawn
                 code = "";
+                gunnerLaser = "";
             };
         };
         class CAPPlane

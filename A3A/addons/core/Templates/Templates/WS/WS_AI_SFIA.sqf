@@ -43,7 +43,7 @@
 ["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["O_Heli_Transport_04_covered_black_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["O_Heli_Light_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["O_SFIA_Heli_Attack_02_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;
+private _vehiclesHelisAttack = ["O_SFIA_Heli_Attack_02_dynamicLoadout_lxWS"];
 
 ["vehiclesArtillery", ["O_SFIA_Truck_02_MRL_lxWS", "O_MBT_02_arty_F"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -80,6 +80,13 @@ if ("enoch" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
+    _vehiclesMilitiaCars append ["O_Pickup_rf"];
+    _vehiclesMilitiaLightArmed append ["a3a_hex_Pickup_mmg_rf","a3a_hex_Pickup_mmg_rf"];
+    _vehiclesHelisAttack append ["a3a_sfia_Heli_EC_02_rf"];
+};
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
 ["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
@@ -405,6 +412,16 @@ _officerLoadoutData set ["sidearms", ["hgun_ACPC2_F"]];
 
 
 if ("expansion" in A3A_enabledDLC) then {
+    (_militaryLoadoutData get "rifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
+    ];
+    (_militaryLoadoutData get "grenadeLaunchers") append [
+    ["arifle_AK12_GL_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+    ];
+    (_militaryLoadoutData get "marksmanRifles") append [
+    ["arifle_AK12_F", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], "bipod_02_F_blk"]
+    ];
+    
     (_militiaLoadoutData get "rifles") append [
     ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]];
     (_militiaLoadoutData get "carbines") append [
@@ -413,8 +430,9 @@ if ("expansion" in A3A_enabledDLC) then {
     ];
     (_militiaLoadoutData get "SMGs") append [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
-    (_officerLoadoutData get "slRifles") append [
-    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
+    
+    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+    
     _crewLoadoutData set ["carbines", [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""],
     ["arifle_AKM_F", "", "", "", ["30Rnd_762x39_Mag_Green_F","30Rnd_762x39_Mag_Tracer_Green_F"], [], ""]]];
@@ -422,32 +440,42 @@ if ("expansion" in A3A_enabledDLC) then {
     (_pilotLoadoutData get "carbines") append [
     ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]
     ];
-    _militiaLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
+    (_officerLoadoutData get "slRifles") append [
+    ["arifle_AKS_F", "", "", "", ["30Rnd_545x39_Mag_Green_F", "30Rnd_545x39_Mag_Tracer_Green_F"], [], ""]];
 };
 
 if ("enoch" in A3A_enabledDLC) then {
 
-    (_militaryLoadoutData get "rifles") append [
-    ["arifle_AK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
-    ];
-    (_militaryLoadoutData get "grenadeLaunchers") append [
-    ["arifle_AK12_GL_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
-    ];
     (_militaryLoadoutData get "carbines") append [
     ["arifle_AK12U_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
     ];
     (_militaryLoadoutData get "machineGuns") append [
     ["arifle_RPK12_F", "", "acc_pointer_IR", selectRandom _milSights, ["75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_F", "75rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
     ];
-    (_militaryLoadoutData get "marksmanRifles") append [
-    ["arifle_AK12_F", "", "acc_pointer_IR", "optic_Arco_AK_blk_F", ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], "bipod_02_F_blk"]
-    ];
     
     (_pilotLoadoutData get "carbines") append [
     ["arifle_AK12U_F", "", "acc_pointer_IR", selectRandom _milSights, ["30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_F", "30Rnd_762x39_AK12_Mag_Tracer_F"], [], ""]
     ];
 };
-
+if ("rf" in A3A_enabledDLC) then {
+    (_sfLoadoutData get "slRifles") append [
+    ["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""],
+    ["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""]
+    ];
+    (_sfLoadoutData get "rifles") append [["arifle_ash12_desert_RF","suppressor_127x55_small_desert_RF","acc_pointer_IR","optic_Holosight_blk_F",["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], [], ""]];
+    (_sfLoadoutData get "grenadeLaunchers") append [["arifle_ash12_GL_desert_RF", "suppressor_127x55_small_desert_RF", "acc_pointer_IR", "optic_Holosight_blk_F", ["20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF","20Rnd_127x55_Mag_desert_RF"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]];
+    (_sfLoadoutData get "marksmanRifles") append [
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_Arco_blk_F",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_DMS",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"],
+    ["arifle_ash12_LR_desert_RF","suppressor_127x55_big_desert_RF","acc_pointer_IR","optic_SOS",["10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF","10Rnd_127x55_Mag_desert_RF"], [], "bipod_02_F_hex"]  
+    ];
+    (_sfLoadoutData get "helmets") append [
+        "H_HelmetHeavy_Sand_RF",
+        "H_HelmetHeavy_Simple_Sand_RF",
+        "H_HelmetHeavy_VisorUp_Sand_RF"
+    ];
+    (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
+};
 
 /////////////////////////////////
 //    Unit Type Definitions    //

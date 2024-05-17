@@ -42,11 +42,11 @@ private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesPlanesAA", ["a3a_Plane_Fighter_04_grey_F"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["B_T_VTOL_01_infantry_blue_F"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["O_Heli_Light_02_unarmed_F", "a3a_Heli_Light_01_ION_F"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
+private _vehiclesHelisLight = ["O_Heli_Light_02_unarmed_F", "a3a_Heli_Light_01_ION_F"]; // ideally fragile & unarmed helis seating 4+
 private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F", "a3a_ION_Heli_Transport_02_F", "B_CTRG_Heli_Transport_01_sand_F"];
 // Should be capable of dealing damage to ground targets without additional scripting
-["vehiclesHelisLightAttack", ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "a3a_Heli_Light_02_black_F", "a3a_Heli_Light_01_dynamicLoadout_ION_F"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
-["vehiclesHelisAttack", ["O_Heli_Attack_02_dynamicLoadout_black_F", "B_D_Heli_Attack_01_dynamicLoadout_lxWS"]] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
+private _vehiclesHelisLightAttack = ["B_D_Heli_Light_01_dynamicLoadout_lxWS", "a3a_Heli_Light_02_black_F", "a3a_Heli_Light_01_dynamicLoadout_ION_F"];       // Utility helis with fixed or door guns + rocket pods
+private _vehiclesHelisAttack = ["B_D_Heli_Attack_01_dynamicLoadout_lxWS"];
 
 ["vehiclesArtillery", ["B_MBT_01_arty_F","B_MBT_01_mlrs_F"]] call _fnc_saveToTemplate; //this line determines artillery vehicles -- Example: ["vehiclesArtillery", ["B_MBT_01_arty_F"]] -- Array, can contain multiple assets
 //new magazines storing methode, all vehicle magazines should be defined here in format [Vehicle class, [magazines]],
@@ -59,7 +59,7 @@ private _HelisTransport = ["B_D_Heli_Transport_01_lxWS", "B_Heli_Transport_01_F"
 ["uavsPortable", ["B_UAV_01_F", "B_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_armed_F","a3a_tan_Offroad_armor_armed","a3a_Offroad_01_tan_AT_F","a3a_tan_Offroad_armor_at"];
 ["vehiclesMilitiaTrucks", ["I_C_Van_02_transport_F", "I_C_Van_01_transport_brown_F"]] call _fnc_saveToTemplate;
 private _vehiclesMilitiaCars = ["a3a_tan_Offroad_armor","a3a_Offroad_01_tan_F"];
 
@@ -92,6 +92,19 @@ if ("heli" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
 	_vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
+    _HelisTransport = ["a3a_tan_Heli_EC_04_military_rf"];
+    _vehiclesHelisLight = ["a3a_tan_Heli_light_03_unarmed_rf"];
+    _vehiclesHelisLightAttack = ["a3a_tan_Heli_light_03_dynamicLoadout_rf","a3a_tan_Heli_EC_03_rf"];
+    _vehiclesMilitiaCars append ["B_Pickup_rf"];
+    _vehiclesMilitiaLightArmed append ["B_Pickup_mmg_rf","B_Pickup_mmg_rf"];
+    _vehiclesHelisAttack = ["a3a_Heli_EC_02_rf"];
+};
+["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", _vehiclesHelisAttack] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
 ["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
@@ -156,6 +169,7 @@ _loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_sand_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""]
+]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT", "Titan_AP"], [], ""],
 ["launch_B_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
@@ -499,6 +513,27 @@ if ("expansion" in A3A_enabledDLC) then {
 	["arifle_SPAR_03_snd_F", "muzzle_snds_B_snd_F", "acc_pointer_IR", "optic_Hamr_sand_lxWS", [], [], "bipod_01_F_snd"],
 	["arifle_SPAR_03_snd_F", "suppressor_h_sand_lxWS", "acc_pointer_IR_sand_lxWS", "optic_ERCO_snd_F", [], [], "bipod_01_F_snd"]
 	];
+};
+if ("rf" in A3A_enabledDLC) then {
+    (_sfLoadoutData get "sidearms") append [
+    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_tan_RF", [], [], ""]
+    ];
+    (_militaryLoadoutData get "sidearms") append [
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_Tan_RF", "", "acc_flashlight_pistol", "optic_MRD_tan_RF", [], [], ""],
+    ["hgun_Glock19_auto_Tan_RF", "", "acc_flashlight_pistol", "", [], [], ""]
+    ];
+    (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
+    (_sfLoadoutData get "helmets") append [
+    "H_HelmetHeavy_Sand_RF",
+    "H_HelmetHeavy_Simple_Sand_RF",
+    "H_HelmetHeavy_VisorUp_Sand_RF"];
 };
 
 /////////////////////////////////

@@ -67,6 +67,27 @@ class Templates
         climate[] = {"tropical"};
         forceDLC[] = {"expansion"};
     };
+    class Vanilla_NATO_UK_Tropical : Vanilla_NATO_Apex
+    {
+        flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
+        name = "A3 NATO/UK Tropical";
+        file = "Vanilla_AI_NATO_UK_Tropical";
+        climate[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+        priority = 5;
+    };
+    class Vanilla_NATO_UK_Temperate : Vanilla_NATO_UK_Tropical
+    {
+        name = "A3 NATO/UK Temperate";
+        climate[] = {"temperate", "arctic"};
+    };
+    class Vanilla_NATO_UK_Arid : Vanilla_NATO_UK_Tropical
+    {
+        name = "A3 NATO/UK Arid";
+        file = "Vanilla_AI_NATO_UK_Arid";
+        climate[] = {"arid"};
+        forceDLC[] = {"expansion"};
+    };
 
     class Vanilla_LDF : Vanilla_Base
     {
@@ -87,6 +108,16 @@ class Templates
         file = "Vanilla_AI_AAF";
         maps[] = {"altis"};
         climate[] = {"arid"};
+    };
+    class Vanilla_ION : Vanilla_Base
+    {
+        side = "Inv";
+        flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
+        name = "A3 ION";
+        file = "Vanilla_AI_PMC";
+        climate[] = {};
+        forceDLC[] = {"enoch","expansion"};
+        priority = 5;
     };
 
     class Vanilla_FIA : Vanilla_Base

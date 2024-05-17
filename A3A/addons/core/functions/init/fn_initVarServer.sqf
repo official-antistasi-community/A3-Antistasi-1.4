@@ -262,8 +262,7 @@ Info("Setting up faction and DLC equipment flags");
 
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
 private _loadedDLC = getLoadedModsInfo select {
-	(_x#3 or {_x#0 isEqualTo "Arma 3 Creator DLC: Western Sahara"})
-	and {!(_x#1 in ["A3","curator","argo","tacops"])}
+	(_x#3) and {!(_x#1 in ["A3","curator","argo","tacops"])}
 } apply {tolower (_x#1)};
 A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
 {
@@ -476,8 +475,9 @@ private _vehicleResourceCosts = createHashMap;
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
 { _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
+{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesHeavyTanks");
 
-{ _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
+{ _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight") + FactionGet(all, "vehiclesAirPatrol");
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport");
 { _vehicleResourceCosts set [_x, 130] } forEach FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesPlanesTransport");
 { _vehicleResourceCosts set [_x, 250] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
@@ -495,6 +495,7 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
+{ _groundVehicleThreat set [_x, 500] } forEach FactionGet(all, "vehiclesHeavyTanks"); //Expect these to mostly exist in templates which lack good access of most things to deal with tanks, ie WW2
 
 
 // Rebel vehicle cost

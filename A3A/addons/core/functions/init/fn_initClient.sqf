@@ -111,6 +111,7 @@ recruitCooldown = 0;			//Prevents units being recruited too soon after being dis
 incomeRep = false;
 autoHeal = true;				//Should AI in player squad automatically heal teammates
 
+player switchMove ""; // kick the player out of any animation before teleporting
 player setPos (getMarkerPos respawnTeamPlayer);
 player setVariable ["spawner",true,true];
 
@@ -357,7 +358,7 @@ if (isServer || player isEqualTo theBoss || (call BIS_fnc_admin) > 0) then {  //
     _modsAndLoadText append _loadedTemplateInfoXML;
 
     if (count _modsAndLoadText isEqualTo 0) exitWith {};
-    private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ":</t>" + _x#2 }) joinString "<br/>") + "</t>";
+    private _textXML = "<t align='left'>" + ((_modsAndLoadText apply { "<t color='#f0d498'>" + _x#1 + ": </t>" + _x#2 }) joinString "<br/>") + "</t>";
     [localize "STR_A3A_fn_init_initclient_mods_loaded",_textXML] call A3A_fnc_customHint;
 };
 
@@ -366,12 +367,15 @@ waituntil {!isnull (finddisplay 46)};
 GVAR(keys_battleMenu) = false; //initilize key flags to false
 
 
+{
+    _x addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_carryItem, 
+        nil,0,false,true,"", "(_this == theBoss) and (isNull objectParent _this) and !(call A3A_fnc_isCarrying)", 4];
+} forEach [boxX, flagX, vehicleBox, fireX, mapX];
+
 boxX allowDamage false;			// hmm...
 boxX addAction [localize "STR_A3A_fn_init_initclient_addact_transfer", {[] spawn A3A_fnc_empty;}, 4];
-boxX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 flagX allowDamage false;
 flagX addAction [localize "STR_A3A_fn_init_initclient_addact_recruit", {if ([getPosATL player] call A3A_fnc_enemyNearCheck) then {[localize "STR_A3A_fn_init_initclient_recunit", localize "STR_A3A_fn_init_initclient_recunit_no"] call A3A_fnc_customHint;} else { [] spawn A3A_fnc_unit_recruit; }},nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)"];
-flagX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 
 //Adds a light to the flag
 private _flagLight = "#lightpoint" createVehicle (getPos flagX);
@@ -383,7 +387,7 @@ _flagLight lightAttachObject [flagX, [0, 0, 4]];
 _flagLight setLightAttenuation [7, 0, 0.5, 0.5];
 
 vehicleBox allowDamage false;
-vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
+vehicleBox addAction [localize "STR_A3A_actions_restore_units", A3A_fnc_vehicleBoxRestore,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer) and !A3A_removeRestore", 4];
 vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_arsenal", JN_fnc_arsenal_handleAction, [], 0, true, false, "", "alive _target && vehicle _this != _this", 10];
 [vehicleBox] call HR_GRG_fnc_initGarage;
 
@@ -395,10 +399,6 @@ vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_buyveh", {
     }
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 
-call A3A_fnc_dropObject;
-
-vehicleBox addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
-
 fireX allowDamage false;
 [fireX, "fireX"] call A3A_fnc_flagaction;
 
@@ -409,7 +409,7 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
         localize "STR_A3A_fn_init_initclient_gameOpt_version"+" "+ QUOTE(VERSION_FULL) +"<br/><br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_resoBal"+" "+ (A3A_enemyBalanceMul / 10 toFixed 1) + "x" +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_unlockNo"+" "+ str minWeaps +"<br/>"+
-        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ (["No","Yes"] select limitedFT) +"<br/>"+
+        localize "STR_A3A_fn_init_initclient_gameOpt_limFT"+" "+ ([localize "STR_antistasi_dialogs_generic_button_no_text",localize "STR_antistasi_dialogs_generic_button_yes_text"] select limitedFT) +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_spawnDist"+" "+ str distanceSPWN + "m" +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_civLim"+" "+ str globalCivilianMax +"<br/>"+
         localize "STR_A3A_fn_init_initclient_gameOpt_timeGC"+" "+ ([[serverTime-A3A_lastGarbageCleanTime] call A3A_fnc_secondsToTimeSpan,1,0,false,2,false,true] call A3A_fnc_timeSpan_format)
@@ -422,7 +422,6 @@ mapX addAction [localize "STR_A3A_fn_init_initclient_addact_gameOpt", {
     nil;
 },nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
 mapX addAction [localize "STR_A3A_fn_init_initclient_addact_mapinfo", A3A_fnc_cityinfo,nil,0,false,true,"","(isPlayer _this) and (_this == _this getVariable ['owner',objNull]) and (side (group _this) == teamPlayer)", 4];
-mapX addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_moveHQObject,nil,0,false,true,"","(_this == theBoss)", 4];
 if (isMultiplayer) then {mapX addAction [localize "STR_A3A_fn_init_initclient_addact_ailoadinfo", { [] remoteExec ["A3A_fnc_AILoadInfo",2];},nil,0,false,true,"","((_this == theBoss) || (serverCommandAvailable ""#logout""))"]};
 
 [] call A3A_fnc_unitTraits;

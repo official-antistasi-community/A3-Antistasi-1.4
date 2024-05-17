@@ -144,7 +144,7 @@ while { count _fireParams > count _fireIntervals } do { _fireParams deleteAt 0 }
 Debug_2("Fire intervals for run dist %1: %2", _runDist, _fireIntervals);
 
 //This should only affect RHSGREF_A29B_HIDF and UK3CB_B_T28Trojan_HIDF_CAS
-private _gunnerLaser = getText(configFile >> "A3A" >> "Loadouts" >> "CASPlane" >> typeOf _plane >> "gunnerLaser";
+private _gunnerLaser = getText(configFile >> "A3A" >> "Loadouts" >> "CASPlane" >> typeOf _plane >> "gunnerLaser");
 if (_gunnerLaser isNotEqualTo "") then {
     (gunner _plane) doTarget _target;
     _plane lockCameraTo [_target, [0]];

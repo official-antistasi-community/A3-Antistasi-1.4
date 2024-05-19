@@ -160,6 +160,8 @@ class CfgFunctions
             class placementSelection {};
             class playableUnits {};
             class getSideRadioTowerInfluence {};
+            class postmortem {};
+            class postmortemLoop {};
             class powerReorg {};
             class radioCheck {};
             class rebuildAssets {};
@@ -541,7 +543,6 @@ class CfgFunctions
             class garrisonAdd {};
             class garrisonDialog {};
             class NATObomb {};
-            class postmortem {};
             class reDress {};
             class reinfPlayer {};
             class spawnHCGroup {};

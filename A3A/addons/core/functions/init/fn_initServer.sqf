@@ -310,6 +310,7 @@ A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 // ********************* Initialize loops *******************************************
 
+[] spawn A3A_fnc_postmortemLoop;                    // Postmortem cleanup loop
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop

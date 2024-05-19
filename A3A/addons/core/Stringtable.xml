@@ -9091,6 +9091,9 @@
         <Polish>Tryb gry - NIE zmieniaj tego w trakcie misji</Polish>
         <Chinesesimp>游玩模式 - 请勿在游玩过程中改变此选项</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Params_gcMaxObjects_title">
+        <Original>Maximum number of corpses and wrecks</Original>
+      </Key>
       <Key ID="STR_A3A_Params_GCThreshold_title">
         <Original>Garbage Cleaner Threshold for Automatic GC</Original>
         <Italian>Soglia Pulisci Immondizia per PI Automatico</Italian>

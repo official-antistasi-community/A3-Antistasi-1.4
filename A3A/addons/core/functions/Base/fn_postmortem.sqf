@@ -21,7 +21,7 @@ if (_victim isKindOf "CAManBase") then {
     if (isNull _group or isGroupDeletedWhenEmpty _group) exitWith {};     // tested, global argument works
     [_group, true] remoteExecCall ["deleteGroupWhenEmpty", groupOwner _group];
 } else {
-	if !(_victim in staticsToSave) exitWith {};
+    if !(_victim in staticsToSave) exitWith {};
     Debug_1("Removing %1 from statics list", _victim);
     staticsToSave = staticsToSave - [_victim];
     publicVariable "staticsToSave";

@@ -355,7 +355,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 class HideTopBarCheckBox :A3A_CheckBox
                 {
                     idc = A3A_IDC_HIDETOPBARCHECKBOX;
-                    onCheckedChanged = "params [""_control"", ""_checked""]; [""uiEvent"", [""hideTopBarCheckBox_checked"", _checked]] call A3A_GUI_fnc_mainDialog;";
+                    onCheckedChanged = "params [""_control"", ""_checked""]; [""uiEvent_hideTopBarCheckBox_checked"", [_checked]] call A3A_GUI_fnc_mainDialog;";
                     x = 124 * GRID_W;
                     y = 47 * GRID_H;
                     w = 4 * GRID_W;
@@ -1382,72 +1382,72 @@ class A3A_MainDialog : A3A_TabbedDialog
                     onChar = "[""spawnDistanceEditBoxChanged""] spawn A3A_GUI_fnc_adminTab";
                 };
 
-                class AiLimiterLabel : A3A_Text
-                {
-                    idc = -1;
-                    text = $STR_antistasi_dialogs_main_admin_ai_limiter_label;
-                    sizeEx = GUI_TEXT_SIZE_MEDIUM;
-                    x = 74 * GRID_W;
-                    y = 28 * GRID_H;
-                    w = 24 * GRID_W;
-                    h = 4 * GRID_H;
-                };
+                // class AiLimiterLabel : A3A_Text
+                // {
+                //     idc = -1;
+                //     text = $STR_antistasi_dialogs_main_admin_ai_limiter_label;
+                //     sizeEx = GUI_TEXT_SIZE_MEDIUM;
+                //     x = 74 * GRID_W;
+                //     y = 28 * GRID_H;
+                //     w = 24 * GRID_W;
+                //     h = 4 * GRID_H;
+                // };
 
-                class AiLimiterSlider : A3A_Slider
-                {
-                    idc = A3A_IDC_AILIMITERSLIDER;
-                    x = 98 * GRID_W;
-                    y = 28 * GRID_H;
-                    w = 40 * GRID_W;
-                    h = 4 * GRID_H;
-                    onSliderPosChanged = "[""aiLimiterSliderChanged""] spawn A3A_GUI_fnc_adminTab";
-                };
+                // class AiLimiterSlider : A3A_Slider
+                // {
+                //     idc = A3A_IDC_AILIMITERSLIDER;
+                //     x = 98 * GRID_W;
+                //     y = 28 * GRID_H;
+                //     w = 40 * GRID_W;
+                //     h = 4 * GRID_H;
+                //     onSliderPosChanged = "[""aiLimiterSliderChanged""] spawn A3A_GUI_fnc_adminTab";
+                // };
 
-                class AiLimiterEditBox : A3A_Edit
-                {
-                    idc = A3A_IDC_AILIMITEREDITBOX;
-                    style = ST_RIGHT;
-                    text = "0";
-                    sizeEx = GUI_TEXT_SIZE_MEDIUM;
-                    x = 140 * GRID_W;
-                    y = 28 * GRID_H;
-                    w = 12 * GRID_W;
-                    h = 4 * GRID_H;
-                    onChar = "[""aiLimiterEditBoxChanged""] spawn A3A_GUI_fnc_adminTab";
-                };
+                // class AiLimiterEditBox : A3A_Edit
+                // {
+                //     idc = A3A_IDC_AILIMITEREDITBOX;
+                //     style = ST_RIGHT;
+                //     text = "0";
+                //     sizeEx = GUI_TEXT_SIZE_MEDIUM;
+                //     x = 140 * GRID_W;
+                //     y = 28 * GRID_H;
+                //     w = 12 * GRID_W;
+                //     h = 4 * GRID_H;
+                //     onChar = "[""aiLimiterEditBoxChanged""] spawn A3A_GUI_fnc_adminTab";
+                // };
 
-                class AiSectionWarningBackground : A3A_Background
-                {
-                    idc = -1;
-                    colorBackground[] = {0,0,0,0.6};
-                    x = 75 * GRID_W;
-                    y = 37 * GRID_H;
-                    w = 52 * GRID_W;
-                    h = 10 * GRID_H;
-                };
+                // class AiSectionWarningBackground : A3A_Background
+                // {
+                //     idc = -1;
+                //     colorBackground[] = {0,0,0,0.6};
+                //     x = 75 * GRID_W;
+                //     y = 37 * GRID_H;
+                //     w = 52 * GRID_W;
+                //     h = 10 * GRID_H;
+                // };
 
-                class AiSectionWarningIcon : A3A_Picture
-                {
-                    idc = -1;
-                    text = A3A_Icon_Warning;
-                    colorText[] = A3A_COLOR_ERROR;
-                    x = 76 * GRID_W;
-                    y = 38 * GRID_H;
-                    w = 8 * GRID_W;
-                    h = 8 * GRID_H;
-                };
+                // class AiSectionWarningIcon : A3A_Picture
+                // {
+                //     idc = -1;
+                //     text = A3A_Icon_Warning;
+                //     colorText[] = A3A_COLOR_ERROR;
+                //     x = 76 * GRID_W;
+                //     y = 38 * GRID_H;
+                //     w = 8 * GRID_W;
+                //     h = 8 * GRID_H;
+                // };
 
-                class AiSectionWarning : A3A_TextMulti
-                {
-                    idc = -1;
-                    text = $STR_antistasi_dialogs_main_admin_ai_section_warning;
-                    sizeEx = GUI_TEXT_SIZE_SMALL;
-                    font = "PuristaLight";
-                    x = 85 * GRID_W;
-                    y = 37 * GRID_H;
-                    w = 42 * GRID_W;
-                    h = 10 * GRID_H;
-                };
+                // class AiSectionWarning : A3A_TextMulti
+                // {
+                //     idc = -1;
+                //     text = $STR_antistasi_dialogs_main_admin_ai_section_warning;
+                //     sizeEx = GUI_TEXT_SIZE_SMALL;
+                //     font = "PuristaLight";
+                //     x = 85 * GRID_W;
+                //     y = 37 * GRID_H;
+                //     w = 42 * GRID_W;
+                //     h = 10 * GRID_H;
+                // };
 
                 class CommitAiButton : A3A_Button
                 {

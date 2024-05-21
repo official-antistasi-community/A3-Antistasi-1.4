@@ -111,7 +111,6 @@ switch (_mode) do
         if (_donateToIndex == -1) exitWith {};
         private _donateTo = A3A_GUI_donateTab_sortedPlayers #_donateToIndex;
 
-        systemChat ("name _donateTo: " + name _donateTo); // DEBUG!!! REMOVE FROM PULL REQUEST!!!
         [player, _donateTo, _moneyEditBoxValue] call FUNCMAIN(sendMoney);
         // Reset
         _moneyEditBox ctrlSetText "0";

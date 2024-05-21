@@ -10,6 +10,7 @@ Arguments:
     <STRING> Spawn Option
     <STRING> Action
     <SCALAR> Amount to adjust by or set [DEFAULT: nil]
+    <BOOL> False to use hints. True to hide hints [DEFAULT: False]
 
 Scope: Server, Global Arguments, Global Effect
 Environment: Any
@@ -23,14 +24,17 @@ params [
     ["_player",objNull,[objNull]],
     ["_option","",[""]],
     ["_action","",[""]],
-    ["_amount",nil,[nil,0]]
+    ["_amount",nil,[nil,0]],
+    ["_noHints",false,[false]]
 ];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-////////////////////
-// Authentication //
-////////////////////
+if (!isServer) exitWith {
+    Warning("A3A_fnc_HQGameOptions should be executed on the server.");
+    _this remoteExecCall ["A3A_fnc_HQGameOptions",2];
+};
+
 private _optionLocalisationTable = [["maxUnits","distanceSPWN","globalCivilianMax"],[localize "STR_A3A_fn_dialogs_HQGameOptions_AILimit",localize "STR_A3A_fn_dialogs_HQGameOptions_spwnDistance",localize "STR_A3A_fn_dialogs_HQGameOptions_civLimit"]];
 private _hintTitle = localize "STR_A3A_fn_dialogs_HQGameOptions_title";
 
@@ -65,8 +69,14 @@ private _fnc_processAction = {
         _hintText = " set to "+str _finalAmount;
         Info("SET | "+name _player+" ["+ getPlayerUID _player +"] ["+ str owner _player +"] changed "+_optionName+" from " + str _originalAmount +" to " + str _finalAmount);
     } else {
-        _hintText = " " + [localize "STR_A3A_fn_dialogs_HQGameOptions_lower", localize "STR_A3A_fn_dialogs_HQGameOptions_upper"] select _inRange + str _originalAmount;
+        _hintText = " " + ([localize "STR_A3A_fn_dialogs_HQGameOptions_lower", localize "STR_A3A_fn_dialogs_HQGameOptions_upper"] select _inRange) + str _originalAmount;
     };
+
+    if (_noHints) exitWith {
+        if (_inRange != 2) then {
+            Warning(_hintText);
+        }
+     };
 
     private _graphic = "--------------------------------------------------";
     private _padding = _graphic;
@@ -88,8 +98,8 @@ private _fnc_valueOrDefault = {
 
 // ADD NEW OPTIONS HERE
 switch (_option) do {
-    case "maxUnits": { [_option,_action,200,80,10] call _processAction; };
-    case "globalCivilianMax": { [_option,_action,150,0,1] call _processAction; };
+    //case "maxUnits": { [_option,_action,200,80,[_amount,10] call _fnc_valueOrDefault] call _fnc_processAction; };
+    case "globalCivilianMax": { [_option,_action,150,0,[_amount,1] call _fnc_valueOrDefault] call _fnc_processAction; };
     case "distanceSPWN": {  // So close to generalising all of this away 😥, but then:
         [_option,_action,2000,600,[_amount,100] call _fnc_valueOrDefault] call _fnc_processAction;
         distanceSPWN1 = distanceSPWN * 1.3;

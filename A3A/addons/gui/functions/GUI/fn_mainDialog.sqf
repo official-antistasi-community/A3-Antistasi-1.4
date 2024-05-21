@@ -42,7 +42,7 @@ switch (_mode) do
         Debug("MainDialog onLoad starting...");
 
         // Disable/hide unavailable tab buttons
-        if (player != theBoss) then {
+        if (player isNotEqualTo theBoss) then {
             private _commanderTabButton = _display displayCtrl A3A_IDC_COMMANDERTABBUTTON;
             _commanderTabButton ctrlEnable false;
             _commanderTabButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_tab_disabled_tooltip";
@@ -298,16 +298,11 @@ switch (_mode) do
         };
     };
 
-    case ("uiEvent"):
+    case ("uiEvent_hideTopBarCheckBox_checked"):
     {
-        private _controlNameEvent = _params # 0;
-        switch (_controlNameEvent) do {
-            case ("hideTopBarCheckBox_checked"):
-            {
-                private _isChecked = (_params # 1) isEqualTo 1;
-                ["BATTLE_MENU_CHECKBOX", _isChecked] call A3A_fnc_disableInfoBar;
-            };
-        };
+        _params params ["_isCheckedNum", 0, [0]];
+        private _isChecked = _isCheckedNum isEqualTo 1;
+        ["BATTLE_MENU_CHECKBOX", _isChecked] call A3A_fnc_disableInfoBar;
     };
 
     default {

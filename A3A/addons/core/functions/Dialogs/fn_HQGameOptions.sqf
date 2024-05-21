@@ -33,23 +33,6 @@ FIX_LINE_NUMBERS()
 ////////////////////
 private _optionLocalisationTable = [["maxUnits","distanceSPWN","globalCivilianMax"],[localize "STR_A3A_fn_dialogs_HQGameOptions_AILimit",localize "STR_A3A_fn_dialogs_HQGameOptions_spwnDistance",localize "STR_A3A_fn_dialogs_HQGameOptions_civLimit"]];
 private _hintTitle = localize "STR_A3A_fn_dialogs_HQGameOptions_title";
-private _authenticate = _option in ["maxUnits","distanceSPWN","globalCivilianMax"];
-
-if (_authenticate && {!(_player == theBoss || admin owner _player > 0 || _player == player)}) exitWith {
-    [_hintTitle, localize "STR_A3A_fn_dialogs_HQGameOptions_commOnly"+(_optionLocalisationTable#1#(_optionLocalisationTable#0 find _option))] remoteExecCall ["A3A_fnc_customHint",_player];
-    Error("ACCESS VIOLATION | "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] attempted calling restricted backing method "+str _this);
-    nil;
-};
-if (owner _player != remoteExecutedOwner) exitWith {
-    private _allPlayers = allPlayers;
-    private _index = _allPlayers findIf {owner _x == remoteExecutedOwner};
-    private _realPlayer = objNull;
-    if (_index != -1) then {
-        _realPlayer = _allPlayers#_index;
-    };
-    Error("HACKING | "+ name _realPlayer + " ["+(getPlayerUID _realPlayer) + "] ["+ str remoteExecutedOwner +"] attempted impersonating "+ name _player + " ["+(getPlayerUID _player) + "] ["+ str owner _player +"] while calling "+str _this);
-    nil;
-};
 
 // Increase/Decrease/Set
 private _fnc_processAction = {

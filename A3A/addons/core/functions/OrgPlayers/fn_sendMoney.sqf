@@ -74,8 +74,8 @@ if (isNull _donateTo || !isPlayer _donateTo) exitWith {
 
 if ([-_donateAmount, _donateFrom] call A3A_fnc_resourcesPlayer) exitWith {
     [_donateAmount, _donateTo] call A3A_fnc_resourcesPlayer;
-    [_title, format [localize "STR_A3A_fn_orgp_donMon_donated_player", name _target, 100]] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
-    [_title, format [localize "STR_A3A_fn_orgp_donMon_received_money", 100, name _donateFrom]] remoteExecCall ["A3A_fnc_customHint", _donateTo];
+    [_title, format [localize "STR_A3A_fn_orgp_donMon_donated_player", name _donateTo, _donateAmount]] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
+    [_title, format [localize "STR_A3A_fn_orgp_donMon_received_money", _donateAmount, name _donateFrom]] remoteExecCall ["A3A_fnc_customHint", _donateTo];
     true;  // Return
 };
 [_title, format [localize "STR_A3A_fn_orgp_donMon_no_less", _donateAmount]] remoteExecCall ["A3A_fnc_customHint", _donateFrom];

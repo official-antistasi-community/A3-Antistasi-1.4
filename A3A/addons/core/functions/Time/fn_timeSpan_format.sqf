@@ -12,7 +12,7 @@ Arguments:
     <SCALAR> Symbol Set.    0 are full names. 1 are abbreviations. 2 are condensed colons & en-dash.                                                        [DEFAULT=0]
     <SCALAR> Show Zeros.    0 will only show non-zero fields. 1 will show in-between zeros between non-zeros. 2 will show all zeros.                        [DEFAULT=0]
     <BOOLEAN> Show Positive.false will hide the positive sign. true will allow the positive sign all fields                                                 [DEFAULT=false]
-    <SCALAR> Fields Amount | <SCALAR,SCALAR> Slice   Number of significant fields to display. | First & last Index to be displayed. Days #0, hours #1 ect.. [DEFAULT=1e7]
+    <SCALAR> Fields Amount | <SCALAR,SCALAR> Slice   Number of significant fields to display. | First & last index to be displayed. Days #0, hours #1 etc. [DEFAULT=1e7]
     <BOOLEAN> Pad.          All fields will be padded, Days will be padded to 2 characters.                                                                 [DEFAULT=false]
     <BOOLEAN> Localise.     false for Great British English symbols, true for localised symbols.                                                            [DEFAULT=false]
 

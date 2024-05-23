@@ -57,6 +57,7 @@
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvsc"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhs_mig29s_vvs","rhs_mig29sm_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesAirPatrol", ["a3a_rhs_Mi8mt_chdkz"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["a3a_rhs_Mi8T_chdkz"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["a3a_rhs_Mi8mt_chdkz","a3a_rhs_Mi8mt_chdkz", "RHS_Mi24Vt_vvsc"]] call _fnc_saveToTemplate; //Mi8mt has pk's, Mi24Vt has 12.7 turret only

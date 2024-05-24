@@ -128,14 +128,19 @@ for "_i" from 0 to (count _artyArray) - 1 do
 
 if (count _artyArrayDef1 == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_oob"] call A3A_fnc_customHint;};
 
+private _mrkEllipse1 = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
+_mrkEllipse1 setMarkerShapeLocal "ELLIPSE";
+_mrkEllipse1 setMarkerBrushLocal "FDIAGONAL";
+_mrkEllipse1 setMarkerSizeLocal [30, 30];        // actually a radius
+_mrkEllipse1 setMarkerColor "ColorGUER";
 _mrkFinal = createMarkerLocal [format ["Arty%1", random 100], _positionTel];
 _mrkFinal setMarkerShapeLocal "ICON";
 _mrkFinal setMarkerTypeLocal "hd_destroy";
-_mrkFinal setMarkerColorLocal "ColorRed";
+_mrkFinal setMarkerColor "ColorBlack";
 
 if (_typeArty == "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal";
+	_mrkFinal setMarkerText localize "STR_A3A_fn_ai_artySupport_mrkFinal";
 	positionTel = [];
 
 	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
@@ -149,7 +154,7 @@ if (_typeArty == "BARRAGE") then
 	_positionTel2 = positionTel;
 	};
 
-if ((_typeArty == "BARRAGE") and (isNil "_positionTel2")) exitWith {deleteMarkerLocal _mrkFinal};
+if ((_typeArty == "BARRAGE") and (isNil "_positionTel2")) exitWith {deleteMarker _mrkFinal; deleteMarker _mrkEllipse1};
 
 if (_typeArty != "BARRAGE") then
 	{
@@ -173,7 +178,7 @@ if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal 
 
 if (_typeArty != "BARRAGE") then
 	{
-	_mrkFinal setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_artyStrike";
+	_mrkFinal setMarkerText localize "STR_A3A_fn_ai_artySupport_artyStrike";
 	_rounds = roundsX;
 	_roundsMax = _rounds;
 	roundsX = nil;
@@ -202,11 +207,16 @@ _textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPositi
 
 if (_typeArty == "BARRAGE") then
 	{
+	private _mrkEllipse2 = createMarkerLocal [format ["Arty%1", random 100], _positionTel2];
+	_mrkEllipse2 setMarkerShapeLocal "ELLIPSE";
+	_mrkEllipse2 setMarkerBrushLocal "FDIAGONAL";
+	_mrkEllipse2 setMarkerSizeLocal [30, 30];
+	_mrkEllipse2 setMarkerColor "ColorGUER";
 	_mrkFinal2 = createMarkerLocal [format ["Arty%1", random 100], _positionTel2];
 	_mrkFinal2 setMarkerShapeLocal "ICON";
 	_mrkFinal2 setMarkerTypeLocal "hd_destroy";
-	_mrkFinal2 setMarkerColorLocal "ColorRed";
-	_mrkFinal2 setMarkerTextLocal localize "STR_A3A_fn_ai_artySupport_mrkFinal2";
+	_mrkFinal2 setMarkerColorLocal "ColorBlack";
+	_mrkFinal2 setMarkerText localize "STR_A3A_fn_ai_artySupport_mrkFinal2";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
 	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
@@ -220,7 +230,30 @@ if (_typeArty == "BARRAGE") then
 		waitUntil {sleep 1; time > _timeX};
 		[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 		};
-	};
+	_barrageCenterX = (_positionTel#0 + _positionTel2#0)/2;
+	_barrageCenterY = (_positionTel#1 + _positionTel2#1)/2;
+	private _mrkBarrageLine = createMarkerLocal [format ["ArtyBarrage%1", random 100], [_barrageCenterX,_barrageCenterY]];
+	_mrkBarrageLine setMarkerShapeLocal "RECTANGLE";
+	_mrkBarrageLine setMarkerDirLocal _ang;
+	_mrkBarrageLine setMarkerColorLocal "ColorGUER";
+	_mrkBarrageLine setMarkerBrushLocal "FDIAGONAL";
+	_distance = _positionTel distance2D _positionTel2;
+	_mrkBarrageLine setMarkerSize [30, _distance/2];
+	} else {_mrkEllipse1 setMarkerText localize "STR_A3A_fn_ai_artySupport_artyStrike";};
+
+//Broadcast message to nearby players
+private _isSmoke = (_typeAmmunition in FactionGet(reb,"staticMortarMagSmoke"));
+private _string = if (_isSmoke) then {
+	["STR_A3A_fn_ai_artySupport_precisionHintSmoke","STR_A3A_fn_ai_artySupport_barrageHintSmoke"] select (_typeArty == "BARRAGE");
+} else {
+	["STR_A3A_fn_ai_artySupport_precisionHintHE","STR_A3A_fn_ai_artySupport_barrageHintHE"] select (_typeArty == "BARRAGE");
+};
+private _text = format [localize _string, mapGridPosition _positionTel];
+private _nearbyPlayers = allPlayers select {(_x distance2D _positionTel) <= 500};
+if(count _nearbyPlayers > 0) then
+{
+    ["MessageHQ", [_text]] remoteExec ["BIS_fnc_showNotification",_nearbyPlayers];
+};
 
 _pos = [_positionTel,random 10,random 360] call BIS_fnc_relPos;
 
@@ -287,9 +320,10 @@ if (_typeArty != "BARRAGE") then
 	waitUntil {sleep 1; time > _timeX};
 	[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
 	};
-sleep 10;
-deleteMarkerLocal _mrkFinal;
-if (_typeArty == "BARRAGE") then {deleteMarkerLocal _mrkFinal2};
+sleep 10 + _rounds * 3;
+deleteMarker _mrkFinal;
+deleteMarker _mrkEllipse1;
+if (_typeArty == "BARRAGE") then {deleteMarker _mrkFinal2; deleteMarker _mrkEllipse2; deleteMarker _mrkBarrageLine;};
 
 /*if (_forcedX) then
 	{

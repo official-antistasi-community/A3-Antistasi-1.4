@@ -46,7 +46,7 @@ _plane addEventHandler ["Killed", {
 }];
 
 //["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]
-[_reveal, _targetPos, _side, "Airstrike", 150, 120] spawn A3A_fnc_showInterceptedSupportCall;
+[_reveal, _targetPos, _side, "Airstrike", 150, 120] spawn A3A_fnc_showInterceptedSupportCall; // no better way to time this with the current system, unfortunantly
 //[_side, format ["%1_coverage", _supportName]] spawn A3A_fnc_clearTargetArea;
 
 

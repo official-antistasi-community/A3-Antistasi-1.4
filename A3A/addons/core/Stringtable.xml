@@ -46,7 +46,7 @@
     </Container>
     <Container name="A3A_fn_ai">
       <Key ID="STR_A3A_fn_ai_artySupport_artyStrike">
-        <Original>Artillery Strike</Original>
+        <Original>Mortar Strike</Original>
         <French>Frappe d'artillerie</French>
         <Korean>포병 타격</Korean>
         <Russian>Артиллерийский удар</Russian>
@@ -99,14 +99,14 @@
         <Chinesesimp>你当前的模式设定不支持这种类型的火力支援.</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal">
-        <Original>Artillery Barrage Begin</Original>
+        <Original>Mortar Barrage Begin</Original>
         <French>Début du barrage d'artillerie</French>
         <Korean>포병 연발타격 시작</Korean>
         <Russian>Начало огня</Russian>
         <Chinesesimp>重炮火力投送开始</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_ai_artySupport_mrkFinal2">
-        <Original>Artillery Barrage End</Original>
+        <Original>Mortar Barrage End</Original>
         <French>Fin du barrage d'artillerie</French>
         <Korean>포병 연발타격 끝</Korean>
         <Russian>Конец огня</Russian>
@@ -614,6 +614,18 @@
         <Portuguese>Alvo Automático Estático.</Portuguese>
         <Turkish>Statik Otomatik Hedef</Turkish>
         <Chinesesimp>固定式武器 自动追踪</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_barrageHintHE">
+        <Original>Mortar barrage is inbound, starting grid %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_precisionHintHE">
+        <Original>Mortar fire support is inbound, grid %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_barrageHintSmoke">
+        <Original>Smoke barrage is inbound, starting grid %1.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_ai_artySupport_precisionHintSmoke">
+        <Original>Smoke rounds are inbound, grid %1.</Original>
       </Key>
     </Container>
     <Container name="A3A_fn_ammo">

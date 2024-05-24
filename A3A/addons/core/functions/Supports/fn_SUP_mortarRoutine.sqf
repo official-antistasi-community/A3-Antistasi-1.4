@@ -14,7 +14,7 @@ Arguments:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-params ["_suppData", "_mortar", "_crewGroup", "_sleepTime", "_reveal"];
+params ["_suppData", "_mortar", "_crewGroup", "_sleepTime", "_reveal","_isHeavyArty"];
 _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRadius", "_target"];
 
 //Sleep to simulate the time it would need to set the support up
@@ -103,8 +103,12 @@ while {time < _timeout} do
 
     //Makes sure that all units escape before attacking
     // [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;
-
-    [_reveal, _targetPos, _side, _suppType, 150, 5*60] spawn A3A_fnc_showInterceptedSupportCall;
+    private _flightTime = _mortar getArtilleryETA [_targetPos, _mortar getVariable "shellType"];
+    private _mortarType = typeOf _mortar;
+    private _weaponArray = getArray (configFile >> "CfgVehicles" >> _mortarType >> "Turrets" >> "MainTurret" >> "weapons");
+    private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _weaponArray#0 >> "reloadTime");
+    private _realReloadTime = _reloadTime max ([3,5] select _isHeavyArty);
+    [_reveal, _targetPos, _side, _suppType, 150, 30+_flightTime+_realReloadTime*_numberOfRounds] spawn A3A_fnc_showInterceptedSupportCall;
 };
 
 _mortar removeAllEventHandlers "Fired";

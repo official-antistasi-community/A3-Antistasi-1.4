@@ -45,11 +45,11 @@ if ("expansion" in A3A_enabledDLC) then {
 	_vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
 if ("rf" in A3A_enabledDLC) then {
-    _vehiclesCivCar append ["C_Pickup_rf"];
-    _vehiclesLightUnarmed append ["I_Tura_Pickup_01_RF"];
-    _vehiclesLightArmed append ["I_Tura_Pickup_01_mmg_rf"];
-    _staticMortars append ["I_G_CommandoMortar_RF"];
-    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
+    _vehiclesCivCar append ["C_Pickup_rf","C_Pickup_covered_rf"];
+    _vehiclesLightUnarmed append ["a3a_FIA_Pickup_rf", "a3a_FIA_Pickup_covered_rf"];
+    _vehiclesLightArmed append ["a3a_FIA_Pickup_mmg_rf", "a3a_FIA_Pickup_hmg_rf"];
+    _staticMortars append ["I_G_CommandoMortar_rf"];
+    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_rf","C_Heli_EC_04_rescue_rf"];
 };
 
 ["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;

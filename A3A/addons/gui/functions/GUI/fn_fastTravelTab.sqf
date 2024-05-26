@@ -221,10 +221,10 @@ switch (_mode) do
         if (_hcMode) then {
             private _hcGroup = _fastTravelMap getVariable ["hcGroup", grpNull];
             closeDialog 1;
-            [_hcGroup, markerPos _marker] call FUNCMAIN(fastTravelAsync);
+            [] spawn FUNCMAIN(fastTravelRadio);
         } else {
             closeDialog 1;
-            [player, markerPos _marker] call FUNCMAIN(fastTravelAsync);
+            [] spawn FUNCMAIN(fastTravelRadio);
         };
     };
 

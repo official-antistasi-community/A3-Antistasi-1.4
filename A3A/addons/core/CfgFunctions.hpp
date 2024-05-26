@@ -305,7 +305,6 @@ class CfgFunctions
             class createDialog_shouldLoadPersonalSave {};
             class dialogHQ {};
             class fastTravelRadio {};
-            class fastTravelAsync {};
             class HQGameOptions {};
             class loadPreviousSession {};
             class mineDialog {};

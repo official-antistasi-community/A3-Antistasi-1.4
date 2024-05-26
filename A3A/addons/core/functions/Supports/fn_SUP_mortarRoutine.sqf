@@ -34,7 +34,7 @@ if((30 + random 40) >_sideAggression) then
 private _shotsPerVolley = _numberOfRounds / 3;
 
 //A function to repeatedly fire onto a target without loops by using an EH
-_fn_executeMortarFire =
+private _fn_executeMortarFire =
 {
     params ["_mortar"];
 
@@ -55,7 +55,7 @@ _fn_executeMortarFire =
             [_shellTarget, _mortar] spawn
             {
                 params ["_shellTarget", "_mortar"];
-                sleep 0.5;
+                sleep 1;
                 _mortar doArtilleryFire [_shellTarget, _mortar getVariable "shellType", 1];
             }
         }
@@ -66,6 +66,28 @@ _fn_executeMortarFire =
     private _target = _subTargets deleteAt 0;
     _mortar doArtilleryFire [_target, _mortar getVariable "shellType", 1];
 };
+
+
+private _fn_rotateToTarget =
+{
+    params ["_mortar", "_targPos"];
+
+    private _change = (_mortar getDir _targPos) - getDir _mortar;
+    _change = (_change + 540) % 360 - 180;
+    if (abs _change < 1) exitWith {};
+
+    addMissionEventHandler ["EachFrame", {
+        _thisArgs params ["_mortar", "_startDir", "_change", "_startTime"];
+
+        private _interval = 10 * (time - _startTime) / abs _change;        // 10 degree/sec turn
+        private _newDir = _startDir + _change * (_interval min 1);
+        _mortar setDir  _newDir;
+        if (!alive _mortar or !alive gunner _mortar or _interval >= 1) exitWith {
+            removeMissionEventHandler ["EachFrame", _thisEventHandler];
+        };
+    }, [_mortar, getDir _mortar, _change, time]];
+};
+
 
 private _timeout = time + _timeAlive;
 while {time < _timeout} do
@@ -97,6 +119,7 @@ while {time < _timeout} do
 
     // Start shooting
     _mortar setVariable ["FireOrder", _subTargets];
+    [_mortar, _targetPos] spawn _fn_rotateToTarget;
     [_mortar] spawn _fn_executeMortarFire;
     _numberOfRounds = _numberOfRounds - _shotsPerVolley;
     _timeout = _timeout max (time + 60);                // don't cleanup until the volley is done

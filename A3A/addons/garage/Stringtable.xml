@@ -436,6 +436,18 @@
         <Turkish>Statik monte edilemez</Turkish>
         <Chinesesimp>无法装载固定式武器</Chinesesimp>
       </Key>
+      <Key ID="STR_HR_GRG_Feedback_sellVehicle_comOnly">
+        <Original>Only the Commander can sell vehicles.</Original>
+      </Key>
+      <Key ID="STR_HR_GRG_Feedback_sellVehicle_locked">
+        <Original>You cannot sell a locked vehicle. If this is your vehicle, make sure to unlock it first.</Original>
+      </Key>
+      <Key ID="STR_HR_GRG_Feedback_sellVehicle_noPrice">
+        <Original>This vehicle is not suitable for our marketplace.</Original>
+      </Key>
+      <Key ID="STR_HR_GRG_Feedback_sellVehicle_sold">
+        <Original>Vehicle sold for %1 €.</Original>
+      </Key>
       <Key ID="STR_HR_GRG_Feedback_toggleLock_limit">
         <Original>You have too many vehicles locked</Original>
         <German>Du hast zu viele Fahrzeuge abgeschlossen</German>
@@ -661,6 +673,9 @@
         <Turkish>Statikler</Turkish>
         <Chinesesimp>固定武器</Chinesesimp>
       </Key>
+      <Key ID="STR_HR_GRG_Generic_SellVeh">
+        <Original>Sell Vehicle</Original>
+      </Key>
       <Key ID="STR_HR_GRG_Generic_Texture">
         <Original>Texture</Original>
         <German>Textur</German>
@@ -702,6 +717,9 @@
         <Portuguese>Disponível:</Portuguese>
         <Turkish>Mevcut:</Turkish>
         <Chinesesimp>可用:</Chinesesimp>
+      </Key>
+      <Key ID="STR_HR_GRG_InfoPanel_cannotBeSold">
+        <Original>Cannot be sold.</Original>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_Capacity">
         <Original>Capacity:</Original>
@@ -814,6 +832,9 @@
         <Portuguese>Massa:</Portuguese>
         <Turkish>Yığın:</Turkish>
         <Chinesesimp>重量:</Chinesesimp>
+      </Key>
+      <Key ID="STR_HR_GRG_InfoPanel_salePrice">
+        <Original>Sell Price:</Original>
       </Key>
       <Key ID="STR_HR_GRG_InfoPanel_Seats">
         <Original>Seats:</Original>

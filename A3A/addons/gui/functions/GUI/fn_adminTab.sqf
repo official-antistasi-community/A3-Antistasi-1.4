@@ -212,6 +212,54 @@ switch (_mode) do
         }];
     };
 
+    case ("tpPetrosToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        petros setPos (player modelToWorld [0,2,0]);
+    };
+
+    case ("tpArsenalToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        boxX setPos (player modelToWorld [0,2,0]);
+    };
+
+    case ("tpVehicleToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        vehicleBox setPos (player modelToWorld [0,2,0]);
+    };
+
+    case ("tpFlagToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        flagX setPos (player modelToWorld [0,2,0]);
+    };
+
+    case ("tpTentToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        fireX setPos (player modelToWorld [0,2,0]);
+    };
+
+    case ("tpMapBoardToAdmin"): {
+        private _posHQ = getMarkerPos "Synd_HQ";
+        if (player distance2D _posHQ >= 50) exitWith {
+            [localize "STR_antistasi_dialogs_main_admin_tp_label", "You need to be within 50m of HQ to teleport assets."] call A3A_fnc_customHint;
+        };
+        mapX setPos (player modelToWorld [0,2,0]);
+    };
+
     default
     {
         // Log error if attempting to call a mode that doesn't exist

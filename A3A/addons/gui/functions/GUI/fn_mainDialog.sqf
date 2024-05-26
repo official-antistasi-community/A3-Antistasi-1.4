@@ -29,7 +29,7 @@ FIX_LINE_NUMBERS()
 
 params[
     ["_mode","onLoad"],
-    ["_params",[]]
+    ["_params", []]
 ];
 
 // Get display
@@ -300,7 +300,7 @@ switch (_mode) do
 
     case ("uiEvent_hideTopBarCheckBox_checked"):
     {
-        _params params ["_isCheckedNum", 0, [0]];
+        _params params [["_isCheckedNum", 0, [0]]];
         private _isChecked = _isCheckedNum isEqualTo 1;
         ["BATTLE_MENU_CHECKBOX", _isChecked] call A3A_fnc_disableInfoBar;
     };

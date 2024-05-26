@@ -1482,7 +1482,8 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_petros_button;
-                    onButtonClick = "petros setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpPetrosToAdmin""] call A3A_GUI_fnc_adminTab;";
+                    //tooltip = $STR_antistasi_dialogs_main_fast_travel_tooltip;
                     x = 74 * GRID_W;
                     y = 64 * GRID_H;
                     w = 16 * GRID_H;
@@ -1493,7 +1494,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_arsenal_box_button;
-                    onButtonClick = "boxX setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpArsenalToAdmin""] call A3A_GUI_fnc_adminTab;";
                     x = 103 * GRID_W;
                     y = 64 * GRID_H;
                     w = 16 * GRID_H;
@@ -1504,7 +1505,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_vehicle_box_button;
-                    onButtonClick = "vehicleBox setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpVehicleToAdmin""] call A3A_GUI_fnc_adminTab;";
                     x = 132 * GRID_W;
                     y = 64 * GRID_H;
                     w = 16 * GRID_H;
@@ -1515,7 +1516,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_flag_button;
-                    onButtonClick = "flagX setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpFlagToAdmin""] call A3A_GUI_fnc_adminTab;";
                     x = 74 * GRID_W;
                     y = 80 * GRID_H;
                     w = 16 * GRID_H;
@@ -1526,7 +1527,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_tent_button;
-                    onButtonClick = "fireX setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpTentToAdmin""] call A3A_GUI_fnc_adminTab;";
                     x = 103 * GRID_W;
                     y = 80 * GRID_H;
                     w = 16 * GRID_H;
@@ -1537,7 +1538,7 @@ class A3A_MainDialog : A3A_TabbedDialog
                 {
                     idc = -1;
                     text = $STR_antistasi_dialogs_main_admin_tp_map_button;
-                    onButtonClick = "mapX setPos (player modelToWorld [0,2,0]);";
+                    onButtonClick = "[""tpMapBoardToAdmin""] call A3A_GUI_fnc_adminTab;";
                     x = 132 * GRID_W;
                     y = 80 * GRID_H;
                     w = 16 * GRID_H;

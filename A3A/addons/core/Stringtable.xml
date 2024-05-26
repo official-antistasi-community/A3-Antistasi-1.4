@@ -2378,7 +2378,7 @@
         <Chinesesimp>出售载具</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_sellveh_sold">
-        <Original>Vehicle Sold.</Original>
+        <Original>Vehicle sold.</Original>
         <German>Fahrzeuge verkauft</German>
         <Italian>Veicolo Venduto.</Italian>
         <Spanish>Vehículo vendido.</Spanish>
@@ -2536,7 +2536,7 @@
       <Key ID="STR_A3A_fn_createOutpostsFIA_RB_title">
         <Original>Roadblock Deploy</Original>
         <Korean>검문소 배치</Korean>
-        <Russian>Блокпост развернут</Russian>
+        <Russian>Развертывание блокпоста</Russian>
       </Key>
       <Key ID="STR_A3A_fn_FIARadio_no">
         <Original>Enemy Comms Lost</Original>
@@ -2901,7 +2901,7 @@
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line1">
         <Original>Antistasi has a custom save system similar to other CTIs.&lt;br/&gt;&lt;br/&gt;To Save: Your commander needs to go to the &lt;t color='#f0d498'&gt;Map Board&lt;/t&gt;, scroll-select &lt;t color='#f0d498'&gt;""Game Options""&lt;/t&gt; and click on the &lt;t color='#f0d498'&gt;""Persistent Save""&lt;/t&gt; button.</Original>
         <Korean>안티스타시에는 다른 CTI 모드와 유사한 사용자 정의 저장 시스템이 있습니다.&lt;br/&gt;&lt;br/&gt;저장 방법: 지휘관은 &lt;t color='#f0d498'&gt;지도 화이트보드&lt;/t&gt;로 이동하여 스크롤 선택으로&lt;t color='#f0d498'&gt;""게임 설정""&lt;/t&gt;을 선택하고 &lt;t color='#f0d498'&gt;""영구 저장""&lt;/t&gt; 버튼을 누르십시오.</Korean>
-        <Russian>В Antistasi есть собственная система сохранения, похожая на другие CTI.&lt;br/&gt;&lt;br/&gt; Чтобы сохранить: Ваш командир должен подойти к&lt;t color='#f0d498'&gt;Карта&lt;/t&gt;, открыть &lt;t color='#f0d498'&gt;""Настройки игры""&lt;/t&gt; и нажать на кнопку &lt;t color='#f0d498'&gt;""Сохранить игру""&lt;/t&gt;.</Russian>
+        <Russian>В Antistasi есть собственная система сохранения, похожая на другие CTI.&lt;br/&gt;&lt;br/&gt; Чтобы сохранить: Ваш командир должен подойти к &lt;t color='#f0d498'&gt;Карте&lt;/t&gt;, открыть &lt;t color='#f0d498'&gt;""Параметры""&lt;/t&gt; и нажать на кнопку &lt;t color='#f0d498'&gt;""Сохранение""&lt;/t&gt;.</Russian>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_createDialog_SLPS_line2">
         <Original>Current parameters are configured to auto-save every %1 minutes.</Original>
@@ -4712,6 +4712,7 @@
         <Russian>Офицер %3 осматривает %1. Отправляйтесь туда и убейте его до %2.</Russian>
         <Polish>Oficer %4 przeprowadza inspekcję %1. Idź tam i zabij go przed %2:%3."</Polish>
         <Czech>Důstojník %3 kontroluje %1. Jděte tam a zabijte ho před %2.</Czech>
+        <Chinesesimp>一名 %3 军官正在视察 %1。赶在 %2 之前杀了他。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_off_titel">
         <Original>Kill the Officer</Original>
@@ -4727,6 +4728,7 @@
         <Original>Special Forces team decimated at a %1.</Original>
         <Korean>특수부대 팀이 %1에서 전멸하였습니다.</Korean>
         <Russian>Команда спецназа уничтожена в %1.</Russian>
+        <Chinesesimp>特种部队在 %1 处被消灭。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_text">
         <Original>We have spotted a %3 Special Forces team patrolling around a %1. Ambush them and we will have one less problem. Do this before %2. Be careful, they are tough boys.</Original>
@@ -4736,6 +4738,7 @@
         <Russian>Мы заметили группу спецназа %3, патрулирующую район %1. Устройте им засаду, и у нас будет на одну проблему меньше. Сделайте это до %2. Будьте осторожны, они крутые парни.</Russian>
         <Polish>Zauważyliśmy zespół %3 sił specjalnych patrolujący okolice %1. Przeprowadź na nich skuteczną zasadzkę, a będziemy mieli jeden problem mniej. Zrób to przed %2. Uważaj, to twardziele.</Polish>
         <Czech>Zpozorovali jsme tým speciálních jednotek %3, který hlídá okolí %1. Přepadněte je a budeme mít o jeden problém méně. Udělejte to před %2. Buďte opatrní, jsou to tvrdí borci.</Czech>
+        <Chinesesimp>我们发现一支 %3 特种部队正在 %1 附近巡逻。如果能伏击他们，我们就少了一件麻烦事。在 %2 之前行动。小心点，这可是个硬骨头。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_specop_titel">
         <Original>Special Forces</Original>
@@ -4756,7 +4759,7 @@
         <Russian>Кто-то нашел информацию о семье предателей, он больше не доставит никаких проблем!</Russian>
         <Polish>Ktoś znalazł informacje o rodzinie zdrajcy, nie będzie już sprawiał problemów!</Polish>
         <Czech>Někdo našel informace o rodině zrádce. Další problémy už působit nebude.</Czech>
-        <Chinesesimp>线人收集到一些关于叛徒家人的资料,他很快就不会是我们的问题了!</Chinesesimp>
+        <Chinesesimp>线人收集到一些关于叛徒家人的资料，他很快就不会是我们的问题了!</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_text">
         <Original>A traitor has scheduled a meeting with %3 forces in %1. Kill him before he provides enough intel to give us trouble. Do this before %2. We don't know where exactly this meeting will happen. You will recognize the building by the nearby parked vehicle and %3 presence.</Original>
@@ -4766,6 +4769,7 @@
         <Russian>Предатель назначил встречу с силами %3 в %1. Убейте его, прежде чем он предоставит достаточно информации, чтобы доставить нам неприятности. Сделайте это до %2. Мы не знаем, где именно произойдет эта встреча. Вы узнаете здание по припаркованному поблизости автомобилю и присутствию %3.</Russian>
         <Polish>Zdrajca zaplanował spotkanie z %4 w %1. Zabij go, zanim przekaże im wystarczająco dużo informacji przez którę będziemy mieli kłopoty. Zrób to przed %2. Nie wiemy, gdzie dokładnie odbędzie się to spotkanie. Budynek rozpoznasz po pobliskim Offroadzie i obecności %3.</Polish>
         <Czech>Zrádce naplánoval setkání s %3 v %1. Zabijte ho dříve, než poskytne dost informací, které by nám způsobily problémy. Udělejte to před %2. Nevíme přesně, kde to setkání proběhne. Budovu poznáte podle nedalekého zaparkovaného vozidla, a přítomnosti %3.</Czech>
+        <Chinesesimp>一名叛徒计划在 %1 与 %3 部队会面。务必在 %2 之前干掉他，以避免他提供足以给我们造成麻烦的情报。我们不知道具体的会面地点，但你可以通过附近停放的车和 %3 的存在认出这栋建筑。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_as_traitor_titel">
         <Original>Kill the Traitor</Original>
@@ -4785,6 +4789,7 @@
         <Russian>%1 был бы прекрасным дополнением к нашему делу. Идите туда и захватите до %2.</Russian>
         <Polish>%1 będzie dobrym wzmocnieniem naszej sprawy. Udaj się tam i zdobądź to przed %2.</Polish>
         <Czech>%1 by se nám hodilo. Jděte tam a zaberte to před %2.</Czech>
+        <Chinesesimp>一个 %1 会为我们的事业添砖加瓦。在 %2 之前去那里占领它。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_text2">
         <Original>A %1 is disturbing our operations in the area. Go there and capture it before %2.</Original>
@@ -4794,11 +4799,13 @@
         <Russian>%1 мешает нашим операциям в этом районе. Отправляйтесь туда и захватите его до того, как %2.</Russian>
         <Polish>Obiekt %1 zakłóca nasze operacje w okolicy. Udaj się tam i zdobądź go przed %2.</Polish>
         <Czech>%1 narušuje naše operace v této oblasti. Jděte tam a zaberte to před %2.</Czech>
+        <Chinesesimp>一个 %1 正在干扰我们在该地区的行动。在 %2 之前去那里占领它。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_text3">
         <Original>An enemy garrison here is disturbing our operations in the area. Go there and secure the area before %1.</Original>
         <Korean>이 곳의 적 주둔군이 해당 지역에서 우리 작전을 방해하고 있습니다. 가서 %1 전까지 지역을 확보하십시오.</Korean>
         <Russian>Вражеский гарнизон здесь мешает нашим операциям в этом районе. Отправляйтесь туда и обезопасьте район до %1.</Russian>
+        <Chinesesimp>一个敌军驻地正在干扰我们在该地区的行动，在 %1 之前去那里肃清这个区域。</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel1">
         <Original>Resource Acquisition</Original>
@@ -4808,6 +4815,7 @@
         <Russian>Захват Ресурсов</Russian>
         <Polish>Pozyskiwanie zasobów</Polish>
         <Czech>Získávání zdrojů</Czech>
+        <Chinesesimp>资源获取</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel2">
         <Original>Take the Outpost</Original>
@@ -4823,11 +4831,14 @@
         <Original>Destroy Roadblock</Original>
         <Korean>검문소 파괴</Korean>
         <Russian>Уничтожить блокпост</Russian>
+        <Chinesesimp>摧毁路障</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conq_outp_titel4">
         <Original>Secure the AO</Original>
+        <French>Sécuriser l'OA</French>
         <Korean>작전 구역 확보</Korean>
         <Russian>Защита Оперативной зоны</Russian>
+        <Chinesesimp>肃清区域</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_mission_conv_ammo_text">
         <Original>A convoy from %1 is about to depart at %2. It will provide ammunition to %3. Try to intercept it. Steal or destroy that truck before it reaches its destination.</Original>
@@ -5103,7 +5114,7 @@
         <Italian>Salva rifornimenti</Italian>
         <French>Récupération de Provisions</French>
         <Korean>보급품 인양</Korean>
-        <Russian>Аварийные припасы</Russian>
+        <Russian>Затопленные припасы</Russian>
         <Polish>Odzyskaj zapasy</Polish>
         <Czech>Zachránit zásoby</Czech>
       </Key>
@@ -5318,7 +5329,7 @@
         <Czech>Skupina pašeráků byla zatčena v %1 a mají být posláni do vězení. Jděte tam a osvoboďte je, aby se připojili k naší věci. Udělejte to před %2.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_mission_res_refu_text2">
-        <Original>A group of %3 supporters are hidden in %1 awaiting for evacuation. We have to find them before %2 does. If not, there will be a certain death for them. Bring them back to HQ.</Original>
+        <Original>A group of %3 supporters are hidden in %1 awaiting for evacuation. We have to find them before %2 does. If not, there will be a certain death for them. Bring them back to HQ before %4.</Original>
         <Italian>Un gruppo di sostenitori %3 sono nascosti a %1 in attesa di essere evacuati. Dobbiamo trovarli prima che lo faccia %2. Se non ci riusciremo verranno sicuramente giustiziati. Portali al QG.</Italian>
         <Spanish>Un grupo de seguidores de %3 están escondidos en %1 esperando una evacuación. Tenemos que encontrares antes de que %2 lo haga. De lo contrario, su muerte está asegurada. Traedlos  de vuelta al CG.</Spanish>
         <French>Un groupe de %3 partisans sont cachés à %1 et attendent une evacuation. Nous devons les trouver avant que %2 ne le fasse. Sinon leur mort est certaine. Ramenez les au QG.</French>
@@ -5898,7 +5909,7 @@
         <Italian>Caratteristiche Unità</Italian>
         <French>Attributs d'Unité</French>
         <Korean>유닛 특성</Korean>
-        <Russian>Черты юнита</Russian>
+        <Russian>Роль</Russian>
         <Polish>Cechy jednostek</Polish>
         <Czech>Vlastnosti jednotky</Czech>
         <Chinesesimp>单位特长</Chinesesimp>
@@ -5908,7 +5919,7 @@
         <Italian>Caratteristiche Unità</Italian>
         <French>Attributs d'Unité</French>
         <Korean>유닛 특성</Korean>
-        <Russian>Черты юнита</Russian>
+        <Russian>Роль</Russian>
         <Polish>Cechy jednostek</Polish>
         <Czech>Vlastnosti jednotky</Czech>
         <Chinesesimp>单位特长</Chinesesimp>
@@ -9861,7 +9872,7 @@
         <Spanish>Sacar cuerdas de remolque</Spanish>
         <French>Déployer treuil</French>
         <Korean>견인줄 꺼내기</Korean>
-        <Russian>Развернуть трос</Russian>
+        <Russian>Растянуть трос</Russian>
         <Polish>Rozłóż linkę holowniczą</Polish>
         <Czech>Vyložit tažné lano</Czech>
         <Portuguese>Tirar cordas de reboque</Portuguese>
@@ -10081,7 +10092,7 @@
         <Spanish>Ya te has revivido recientemente.</Spanish>
         <French>Vous vous êtes déjà réanimé vous-même récemment.</French>
         <Korean>당신은 이미 최근에 자가소생을 했습니다.</Korean>
-        <Russian>Вы уже пришли в себя.</Russian>
+        <Russian>Вы уже возрождали себя.</Russian>
         <Polish>Niedawno już się uleczyłeś.</Polish>
         <Czech>Již jsi se nedávno oživil.</Czech>
       </Key>

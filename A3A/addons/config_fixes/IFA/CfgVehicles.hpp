@@ -48,7 +48,6 @@ class CfgVehicles
 			};
 			class Hide_Rail {
 				animPeriod = 0.01;
-				//displayName = "Hide rail";
 				initPhase = 1;
 				source = "user";
 				useSource = 1;

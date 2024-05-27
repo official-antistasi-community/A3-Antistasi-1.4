@@ -71,7 +71,7 @@ private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
-    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
+    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
     _vehiclesTanks append ["FA_ValentineMk3"];
@@ -81,7 +81,8 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
 ["vehiclesTanks", _vehiclesTanks] call _fnc_saveToTemplate;
 ["vehiclesHeavyTanks", _vehiclesHeavyTanks] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
+//["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
+["staticMGs", ["a3a_hmg_02_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Pak40_g"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate; //Fake Bofors
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;

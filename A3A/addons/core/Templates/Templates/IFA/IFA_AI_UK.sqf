@@ -78,7 +78,8 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
 ["vehiclesTanks", _vehiclesTanks] call _fnc_saveToTemplate;
 ["vehiclesHeavyTanks", _vehiclesHeavyTanks] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
+//["staticMGs", ["LIB_M1919_M2"]] call _fnc_saveToTemplate;
+["staticMGs", ["a3a_hmg_02_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Pak40_g"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;

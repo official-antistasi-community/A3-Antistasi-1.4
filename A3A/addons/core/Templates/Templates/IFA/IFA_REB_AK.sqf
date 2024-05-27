@@ -25,7 +25,7 @@
 
 ["vehiclesBasic", ["LIB_Willys_MB"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["LIB_GazM1_SOV"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
+["vehiclesLightArmed", ["a3a_LIB_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
 ["vehiclesTruck", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate;
 ["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;

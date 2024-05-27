@@ -29,8 +29,8 @@ private _vehiclesLightArmed = ["LIB_Scout_M3_FFV", "LIB_Scout_M3_FFV"];
 ["vehiclesMedical", ["LIB_Zis5v_Med"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;             // armed, lightly armoured, with 6-8 passengers 
 ["vehiclesAPCs", ["LIB_SOV_M3_Halftrack", "LIB_SOV_M3_Halftrack", "LIB_SdKfz251_captured_FFV"]] call _fnc_saveToTemplate;                  // armed with enclosed turret, armoured, with 6-8 passengers
-["vehiclesIFVs", []] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
-private _vehiclesLightTanks = [];
+["vehiclesIFVs", ["LIB_T34_76", "LIB_SU85"]] call _fnc_saveToTemplate;                  // capable of surviving multiple rockets, cannon armed, with 6-8 passengers
+private _vehiclesLightTanks = ["LIB_T34_76"];
 ["vehiclesTanks", ["LIB_T34_76", "LIB_T34_76", "LIB_T34_85", "LIB_SU85"]] call _fnc_saveToTemplate;
 private _vehiclesHeavyTanks = ["LIB_JS2_43"];
 
@@ -60,7 +60,7 @@ private _vehiclesHeavyTanks = ["LIB_JS2_43"];
 ["uavsPortable", []] call _fnc_saveToTemplate;
 
 //Config special vehicles
-["vehiclesMilitiaLightArmed", ["LIB_UK_Willys_MB_M1919", "LIB_UK_Willys_MB_M1919"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["a3a_LIB_Willys_MB_M1919", "a3a_LIB_Willys_MB_M1919"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["LIB_GazM1_SOV","LIB_GazM1_SOV_camo_sand"]] call _fnc_saveToTemplate;
 
@@ -74,14 +74,15 @@ if (isClass (configFile >> "CfgPatches" >> "BT_BT7_M1937_c")) then {
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
     _vehiclesLightTanks append ["FA_T26", "FA_T26"];
-    _vehiclesHeavyTanks append ["FA_KV1"];
+    _vehiclesHeavyTanks append ["FA_KV1","FA_KV1"];
 };
 
 ["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;
 ["vehiclesHeavyTanks", _vehiclesHeavyTanks] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_Maxim_M30_base"]] call _fnc_saveToTemplate;
+//["staticMGs", ["LIB_Maxim_M30_base"]] call _fnc_saveToTemplate;
+["staticMGs", ["a3a_hmg_02_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_BM37"]] call _fnc_saveToTemplate;

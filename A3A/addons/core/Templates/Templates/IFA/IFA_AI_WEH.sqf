@@ -29,10 +29,10 @@ private _vehiclesLightArmed = ["LIB_Kfz1_MG42", "LIB_Kfz1_MG42"];             //
 ["vehiclesMedical", ["LIB_OpelBlitz_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["LIB_SdKfz251","LIB_SdKfz251_FFV"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+_vehiclesIFVs = ["LIB_StuG_III_G_WS","a3a_lib_PzKpfwIV_noShield"];
 
-private _vehiclesLightTanks = [];
-["vehiclesTanks", ["LIB_StuG_III_G","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H","LIB_PzKpfwV"]] call _fnc_saveToTemplate;
+private _vehiclesLightTanks = ["a3a_lib_PzKpfwIV_noShield"];
+["vehiclesTanks", ["LIB_StuG_III_G_WS","LIB_StuG_III_G","LIB_PzKpfwIV_H","LIB_PzKpfwIV_H","LIB_PzKpfwV","a3a_lib_PzKpfwIV_noShield"]] call _fnc_saveToTemplate;
 ["vehiclesHeavyTanks", ["LIB_PzKpfwVI_E","LIB_PzKpfwVI_E_1","LIB_PzKpfwVI_B"]] call _fnc_saveToTemplate;
 
 ["vehiclesAA", ["LIB_FlakPanzerIV_Wirbelwind", "LIB_FlakPanzerIV_Wirbelwind", "LIB_SdKfz_7_AA"]] call _fnc_saveToTemplate;                    // ideally heavily armed with anti-ground capability and enclosed turret. Passengers will be ignored
@@ -72,16 +72,18 @@ private _vehiclesLightTanks = [];
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
     _vehiclesLightArmed append ["FA_BA64_Captured"];
-    ["vehiclesIFVs", ["FA_Sdkfz231", "FA_Sdkfz234", "FA_Sdkfz234_4", "FA_Sdkfz231"]] call _fnc_saveToTemplate;
+    _vehiclesIFVs append ["FA_Sdkfz231", "FA_Sdkfz234", "FA_Sdkfz234_4", "FA_Sdkfz231"];
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
-    _vehiclesLightTanks append ["FA_Panzer2", "FA_Pz38t"];
+    _vehiclesLightTanks = ["FA_Panzer2", "FA_Pz38t", "FA_Pz38t"];
 };
 ["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;
 
-["staticMGs", ["LIB_MG42_Lafette_low_Deployed","LIB_MG34_Lafette_low_Deployed"]] call _fnc_saveToTemplate;
-["staticAT", ["LIB_Pak40_g"]] call _fnc_saveToTemplate;
+//["staticMGs", ["LIB_MG42_Lafette_Deployed","LIB_MG34_Lafette_Deployed","LIB_MG42_Lafette_low_Deployed","LIB_MG34_Lafette_low_Deployed"]] call _fnc_saveToTemplate;
+["staticMGs", ["a3a_hmg_02_high"]] call _fnc_saveToTemplate;
+["staticAT", ["LIB_Pak40"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_FlaK_36_AA","LIB_FlaK_38","LIB_FlaK_38","LIB_FlaK_38","LIB_FlaK_38","LIB_Flakvierling_38","LIB_Flakvierling_38"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_GrWr34","LIB_GrWr34_g"]] call _fnc_saveToTemplate;
 

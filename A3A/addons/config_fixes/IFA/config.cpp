@@ -11,7 +11,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"IFA3_Core"};
+        requiredAddons[] = {"IFA3_Core","WW2_Assets_c_Weapons_InfantryWeapons_c"};
         skipWhenMissingDependencies = 1;
         author = AUTHOR;
         authors[] = { AUTHORS };

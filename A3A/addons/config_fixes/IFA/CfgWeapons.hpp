@@ -8,7 +8,7 @@ class CfgWeapons
 		picture = "\WW2\Assets_t\Weapons\Equipment_t\Weapons\MuzzleItem\Gear_ACC_BAR_Bipod_ca.paa";
 	};
 	class LIB_M1918A2_BAR_Handle : ItemCore{
-		picture = "WW2\Assets_t\Weapons\Equipment_t\Weapons\MuzzleItem\Gear_ACC_BAR_Handle_ca.paa";
+		picture = "\WW2\Assets_t\Weapons\Equipment_t\Weapons\MuzzleItem\Gear_ACC_BAR_Handle_ca.paa";
 	};
     class LIB_RIFLE;
     class LIB_PISTOL;

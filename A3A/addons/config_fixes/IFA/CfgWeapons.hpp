@@ -3,14 +3,21 @@
 //Fun weapons for finding in lootcrates or on SF
 class CfgWeapons 
 {
+	class ItemCore;
+	class LIB_M1918A2_BAR_Bipod : ItemCore{
+		picture = "\WW2\Assets_t\Weapons\Equipment_t\Weapons\MuzzleItem\Gear_ACC_BAR_Bipod_ca.paa";
+	};
+	class LIB_M1918A2_BAR_Handle : ItemCore{
+		picture = "WW2\Assets_t\Weapons\Equipment_t\Weapons\MuzzleItem\Gear_ACC_BAR_Handle_ca.paa";
+	};
     class LIB_RIFLE;
+    class LIB_PISTOL;
     class LIB_M1_Carbine : LIB_RIFLE {
         class Short;
     };
     class LIB_SVT_40 : LIB_RIFLE {
         class Short;
     };
-    class LIB_PISTOL;
     class LIB_M1896 : LIB_PISTOL{
         class Single;
     };

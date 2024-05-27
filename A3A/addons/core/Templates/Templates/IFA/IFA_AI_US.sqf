@@ -262,7 +262,7 @@ _policeLoadoutData set ["vests", ["V_LIB_SOV_RA_Belt"]];
 _policeLoadoutData set ["helmets", ["H_LIB_US_Helmet"]]; //I did want a US Garrison/Side cap
 
 _policeLoadoutData set ["rifles", [
-["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1903A3_Springfield" //The one gun worse than an enfield for the allies
+["LIB_M1903A3_Springfield", "LIB_ACC_M1_Bayo", "", "", [], [], ""],"LIB_M1903A3_Springfield"
 ]];
 
 ////////////////////////////////
@@ -286,7 +286,7 @@ _militiaLoadoutData set ["carbines", ["LIB_M1903A3_Springfield"]];
 _militiaLoadoutData set ["SMGs", ["LIB_M3_GreaseGun"]];
 _militiaLoadoutData set ["machineGuns", [
 "LIB_M3_GreaseGun",
-["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], "LIB_M1918A2_BAR_Bipod"]
+["LIB_M1918A2_BAR", "", "LIB_M1918A2_BAR_Handle", "", [], [], ""]
 ]];
 
 //////////////////////////

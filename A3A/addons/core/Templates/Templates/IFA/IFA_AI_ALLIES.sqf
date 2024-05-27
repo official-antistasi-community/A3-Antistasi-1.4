@@ -47,7 +47,7 @@ private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"
 
 ["vehiclesPlanesCAS", ["LIB_P47","LIB_RAF_P39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["LIB_P47","LIB_RAF_P39","LIB_US_P39","LIB_US_P39_2"]] call _fnc_saveToTemplate;              // 
-["vehiclesPlanesTransport", ["LIB_C47_RAF", "LIB_C47_Skytrain"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["LIB_C47_RAF", "LIB_C47_Skytrain", "LIB_C47_Skytrain"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", []] call _fnc_saveToTemplate;       
 ["vehiclesHelisTransport", []] call _fnc_saveToTemplate;

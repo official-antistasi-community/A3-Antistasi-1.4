@@ -69,7 +69,7 @@ private _vehiclesHeavyTanks = ["LIB_Churchill_Mk7","LIB_Churchill_Mk7_Crocodile"
 ["vehiclesPolice", ["LIB_GazM1"]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
-    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
+    _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
     _vehiclesTanks append ["FA_ValentineMk3","FA_ValentineMk3"];

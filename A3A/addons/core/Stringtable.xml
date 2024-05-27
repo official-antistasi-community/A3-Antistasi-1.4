@@ -7728,14 +7728,14 @@
         <Chinesesimp>%1正在赶来救助你的路上</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_respawn">
-        <Original>Press R to respawn.</Original>
+        <Original>Press %1 to respawn.</Original>
         <French>Appuyez sur R pour réapparaître.</French>
         <Korean>R 키를 눌러 리스폰합니다.</Korean>
         <Russian>Нажмите R, чтобы возродиться.</Russian>
         <Chinesesimp>按R键重生</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_selfRevive">
-        <Original>Press H to shake off the injury.</Original>
+        <Original>Press %1 to shake off the injury.</Original>
         <French>Appuyez sur H pour vous débarrasser de la blessure.</French>
         <Korean>H 키를 눌러 부상을 떨쳐냅니다.</Korean>
         <Russian>Нажмите H, чтобы избавиться от повреждения.</Russian>
@@ -8615,6 +8615,18 @@
         <French>Ouvre le menu de bataille d'Antistasi.</French>
         <Korean>안티스타시의 전투 메뉴를 엽니다.</Korean>
         <Russian>Открывает меню битвы Antistasi.</Russian>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_DN">
+        <Original>Respawn</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_tip">
+        <Original>Respawn when unconscious in the Antistasi medical system.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_DN">
+        <Original>Self revive</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_tip">
+        <Original>Self revive when unconscious in the Antistasi medical system.</Original>
       </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
         <Original>Dismiss Previous Hint</Original>

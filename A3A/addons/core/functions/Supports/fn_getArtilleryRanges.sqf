@@ -12,7 +12,7 @@ Return array:
 
 Examples:
     ["UK3CB_ADA_I_BM21", "rhs_mag_m21of_1"] call A3A_fnc_getArtilleryRanges;
-    ["O_MBT_02_arty_F", "32Rnd_155mm_Mo_shells_O"] call A3A_fnc_getArtileryRanges;
+    ["O_MBT_02_arty_F", "32Rnd_155mm_Mo_shells_O"] call A3A_fnc_getArtilleryRanges;
 */
 
 #include "..\..\script_component.hpp"
@@ -22,7 +22,7 @@ params ["_vehType", "_shellType"];
 
 private _turretCfg = call {
     private _allTurrets = configProperties [configFile >> "CfgVehicles" >> _vehType >> "Turrets"];
-    private _idx = _allTurrets findIf { getNumber (_x >> "elevationMode") == 3 };       // no idea if this is a valid check
+    private _idx = _allTurrets findIf { getNumber (_x >> "elevationMode") != 0 };       // no idea if this is a valid check
     if (_idx == -1) exitWith {
         Error_1("Artillery turret not found on %1", _vehType);
         configFile >> "CfgVehicles" >> _vehType >> "Turrets" >> "MainTurret";
@@ -35,15 +35,30 @@ private _weapon = getText (configfile >> "CfgMagazines" >> _shellType >> "pylonW
 if (_weapon == "") then { _weapon = getArray (_turretCfg >> "Weapons") # 0 };
 private _weaponCfg = configFile >> "CfgWeapons" >> _weapon;
 
+// Find min and max charges
+private _minCharge = 1;
+private _maxCharge = 0;
+{
+    private _modeCfg = if (_x == "this") then { _weaponCfg } else { _weaponCfg >> _x };
+    private _charge = getNumber (_modeCfg >> "artilleryCharge");
+    if (_charge == 0) then { continue };
+    _minCharge = _charge min _minCharge;
+    _maxCharge = _charge max _maxCharge;
+} forEach getArray (_weaponCfg >> "modes");
+
+if (_maxCharge == 0) then { Error_1("Artillery charge lookup failed for %1", _vehType); _minCharge = 1; _maxCharge = 1; };
+
 // Assume that there's no speed override on weapon, probably true for arty
 private _initSpeed = getNumber (configFile >> "CfgMagazines" >> _shellType >> "initSpeed");
-private _maxElev = getNumber (_turretCfg >> "maxElev");
 // Simple formula works because Arma doesn't calculate air resistance for artillery
-private _maxRange = (_initSpeed)^2 * sin (2*45) / 9.807;
+private _maxRange = (_initSpeed * _maxCharge)^2 * sin (2*45) / 9.807;
 
-// Assumes first fire mode is closest range, probably true because artillery computer
-private _minCharge = getNumber (_weaponCfg >> getArray (_weaponCfg >> "modes")#0 >> "artilleryCharge");
-if (_minCharge == 0) then { Error_1("Artillery charge lookup failed for %1", _vehType); _minCharge = 1 };
-private _minRange = (_minCharge * _initSpeed)^2 * sin (2*_maxElev) / 9.807;
+// TODO: Figure out max elevation. Seems to be relative to model default. Might be impossible.
+//private _maxElev = getNumber (_turretCfg >> "maxElev");
+//private _minRange = (_minCharge * _initSpeed)^2 * sin (2*_maxElev) / 9.807;
+
+// Whatever, life's too short for this shit
+private _minRange = [900, 100] select (_vehType isKindOf "StaticMortar");
+//private _reloadTime = getNumber (_weaponCfg >> "reloadTime");
 
 [_minRange+100, _maxRange-100];     // make sure we can spread shots

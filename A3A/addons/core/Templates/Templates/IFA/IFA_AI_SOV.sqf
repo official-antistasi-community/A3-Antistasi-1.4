@@ -120,11 +120,13 @@ _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", ["LIB_M9130PU"]];
+_loadoutData set ["marksmanRifles", [
+["LIB_M9130PU", "", "", "", [], ["LIB_5Rnd_762x54_t46","LIB_5Rnd_762x54_t30","LIB_5Rnd_762x54_D","LIB_5Rnd_762x54_b30"], ""]
+]];
 
 _loadoutData set ["ATRifle", ["LIB_PTRD"]];
-_loadoutData set ["lightATLaunchers", []];
-_loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka"]];
+_loadoutData set ["lightATLaunchers", ["LIB_PzFaust_30m", "LIB_PzFaust_30m", "LIB_PzFaust_60m"]];
+_loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka", "LIB_M1A1_Bazooka", "LIB_RPzB"]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", []];
 _loadoutData set ["sidearms", []];
@@ -254,7 +256,7 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ["LIB_M9130_DYAKONOV", "LIB_ACC_GL_DYAKONOV_Empty", "", "", [], ["LIB_1Rnd_G_DYAKONOV"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", ["LIB_PPSh41_m"]];
-_militaryLoadoutData set ["machineGuns", ["LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DP28", "LIB_DT", "LIB_DT", "LIB_DT_OPTIC"]];
+_militaryLoadoutData set ["machineGuns", ["LIB_DP28"]];
 _militaryLoadoutData set ["sidearms", ["LIB_M1895", "LIB_TT33"]];
 _militaryLoadoutData set ["slSidearms", ["LIB_M1895", "LIB_TT33", "LIB_FLARE_PISTOL"]];
 
@@ -303,6 +305,11 @@ private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["U_LIB_SOV_Tank_ryadovoi"]];
 _crewLoadoutData set ["vests", ["V_LIB_SOV_RA_Belt"]];
 _crewLoadoutData set ["helmets", ["H_LIB_SOV_TankHelmet"]];
+
+_crewLoadoutData set ["machineGuns", [
+"LIB_DT", "LIB_DT_OPTIC", 
+["LIB_PPSh41_d", "", "", "", ["LIB_71Rnd_762x25"], [], ""]
+]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_LIB_SOV_Pilot"]];
@@ -499,25 +506,45 @@ private _latTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-    if ((random 10 > 2.5)) then {
-        ["rifles"] call _fnc_setPrimary;
-        ["primary", 5] call _fnc_addMagazines;
-        if(random 10 > 5) then 
-        {
+	private _type = selectRandomWeighted ["light", 3,"heavy", 1,"rifle", 2,"grenade", 1];
+
+    switch(_type){
+        case "light":{
+            ["rifles"] call _fnc_setPrimary;
+            ["lightBackpacks"] call _fnc_setBackpack;
+
+            ["primary", 5] call _fnc_addMagazines;
+            ["lightATLaunchers"] call _fnc_setLauncher;
+
+            ["launcher", 1] call _fnc_addMagazines;
+            ["antiTankGrenades", 2] call _fnc_addItem;
+        };
+        case "heavy":{
+            ["rifles"] call _fnc_setPrimary;
+            ["primary", 5] call _fnc_addMagazines;
+
             ["ATLaunchers"] call _fnc_setLauncher;
             ["atBackpacks"] call _fnc_setBackpack;
+
             ["launcher", 1] call _fnc_addMagazines;
             ["antiInfantryGrenades", 1] call _fnc_addItem;
-        } else {
-            ["antiTankGrenades", 4] call _fnc_addItem;
-        
-            ["lightBackpacks"] call _fnc_setBackpack;
         };
-    } else {
-        ["ATRifle"] call _fnc_setPrimary;
-        ["primary",  round (random [5, 7.5, 10])] call _fnc_addMagazines;
-        ["sidearms"] call _fnc_setHandgun;
-        ["handgun", 5] call _fnc_addMagazines;
+        case "rifle":{
+            ["lightBackpacks"] call _fnc_setBackpack;
+
+            ["ATRifle"] call _fnc_setPrimary;
+            ["primary",  round (random [5, 7, 10])] call _fnc_addMagazines;
+
+            ["sidearms"] call _fnc_setHandgun;
+            ["handgun", 5] call _fnc_addMagazines;
+        };
+        case "grenade":{
+            ["lightBackpacks"] call _fnc_setBackpack;
+
+            ["rifles"] call _fnc_setPrimary;
+            ["primary", 5] call _fnc_addMagazines;
+            ["antiTankGrenades", 4] call _fnc_addItem;
+        };
     };
 
     ["items_medical_standard"] call _fnc_addItemSet;
@@ -629,15 +656,9 @@ private _sniperTemplate = {
 };
 
 private _policeTemplate = {
-    if(random 10 > 7.5) then 
-    {
-        ["slHelmets"] call _fnc_setHelmet;
-        ["slUniforms"] call _fnc_setUniform;
-    } 
-    else {
-        ["helmets"] call _fnc_setHelmet;
-        ["uniforms"] call _fnc_setUniform;
-    };
+    ["helmets"] call _fnc_setHelmet;
+    ["uniforms"] call _fnc_setUniform;
+    
     ["vests"] call _fnc_setVest;
 
     ["rifles"] call _fnc_setPrimary;
@@ -653,6 +674,14 @@ private _policeTemplate = {
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
 };
+private _policeSLTemplate = {
+    call _policeTemplate;
+    if(random 10 > 6) then 
+    {
+        ["slHelmets"] call _fnc_setHelmet;
+        ["slUniforms"] call _fnc_setUniform;
+    };
+};
 
 private _crewTemplate = {
     ["helmets"] call _fnc_setHelmet;
@@ -665,6 +694,10 @@ private _crewTemplate = {
     if(random 10 > 5) then 
     {
         [selectRandom ["SMGs", "carbines"]] call _fnc_setPrimary;
+		if(random 10 > 8) then 
+		{
+			["machineGuns"] call _fnc_setPrimary;
+		};
         ["primary", 2] call _fnc_addMagazines;
     };
 
@@ -786,7 +819,7 @@ private _unitTypes = [
 ////////////////////////
 private _prefix = "police";
 private _unitTypes = [
-    ["SquadLeader", _policeTemplate],
+    ["SquadLeader", _policeSLTemplate],
     ["Standard", _policeTemplate]
 ];
 

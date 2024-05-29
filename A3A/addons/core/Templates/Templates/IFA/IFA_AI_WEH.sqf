@@ -118,7 +118,9 @@ _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", ["LIB_K98ZF39"]];
+_loadoutData set ["marksmanRifles", [
+["LIB_K98ZF39", "LIB_ACC_K98_Bayo", "", "", [], ["LIB_5Rnd_792x57_t","LIB_5Rnd_792x57_sS","LIB_5Rnd_792x57_SMK"], ""]
+]];
 
 _loadoutData set ["lightATLaunchers", ["LIB_PzFaust_30m", "LIB_PzFaust_60m"]];
 _loadoutData set ["ATLaunchers", ["LIB_RPzB"]];
@@ -207,16 +209,16 @@ _sfLoadoutData set ["antiInfantryGrenades", ["LIB_M39"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
 _sfLoadoutData set ["lightATLaunchers", []];
-_sfLoadoutData set ["slWeapons", ["LIB_MP44"]];
+_sfLoadoutData set ["slWeapons", [["LIB_MP44", "", "", "", ["LIB_30Rnd_792x33"], [], ""]]];
 _sfLoadoutData set ["rifles", ["LIB_G43"]];
 _sfLoadoutData set ["carbines", ["LIB_G43"]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_40"], ""],
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_40"], ""],
-["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_40", "LIB_1Rnd_G_SPRGR_30"], ""]
+["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", ["LIB_30Rnd_792x33"], ["LIB_1Rnd_G_SPRGR_30"], ""],
+["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", ["LIB_30Rnd_792x33"], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_40"], ""],
+["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", ["LIB_30Rnd_792x33"], ["LIB_1Rnd_G_PZGR_40"], ""],
+["LIB_MP44_GW", "LIB_ACC_GW_SB_Empty", "", "", ["LIB_30Rnd_792x33"], ["LIB_1Rnd_G_PZGR_40", "LIB_1Rnd_G_SPRGR_30"], ""]
 ]];
-_sfLoadoutData set ["SMGs", ["LIB_MP44"]];
+_sfLoadoutData set ["SMGs", [["LIB_MP44", "", "", "", ["LIB_30Rnd_792x33"], [], ""]]];
 _sfLoadoutData set ["machineGuns", ["LIB_FG42G"]];
 _sfLoadoutData set ["marksmanRifles", [["LIB_FG42G", "", "", "LIB_Optic_Zf4", [], [], ""]]];
 
@@ -230,15 +232,18 @@ _militaryLoadoutData set ["backpacks", ["B_LIB_GER_SapperBackpack_empty","B_LIB_
 _militaryLoadoutData set ["helmets", ["H_LIB_GER_Helmet"]];
 _militaryLoadoutData set ["radios", ["ItemRadio"]];
 
-_militaryLoadoutData set ["slWeapons", ["LIB_MP40"]];
-_militaryLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
+_militaryLoadoutData set ["slWeapons", [["LIB_MP40", "", "", "", ["LIB_32Rnd_9x19"], [], ""]]];
+_militaryLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], ["LIB_5Rnd_792x57"], ""]]];
 _militaryLoadoutData set ["carbines", ["LIB_G41"]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["LIB_K98_Late_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30"], ""],
 ["LIB_K98_Late_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_SPRGR_30", "LIB_1Rnd_G_PZGR_30"], ""],
 ["LIB_K98_Late_GW", "LIB_ACC_GW_SB_Empty", "", "", [], ["LIB_1Rnd_G_PZGR_30", "LIB_1Rnd_G_SPRGR_30"], ""]
 ]];
-_militaryLoadoutData set ["SMGs", ["LIB_MP40", "LIB_MP38"]];
+_militaryLoadoutData set ["SMGs", [
+["LIB_MP40", "", "", "", ["LIB_32Rnd_9x19"], [], ""],
+["LIB_MP38", "", "", "", ["LIB_32Rnd_9x19"], [], ""]
+]];
 _militaryLoadoutData set ["machineGuns", ["LIB_MG34", "LIB_MG42"]];
 
 ////////////////////////////////
@@ -254,13 +259,24 @@ _militiaLoadoutData set ["helmets", ["H_LIB_GER_Cap"]];
 
 _militiaLoadoutData set ["antiInfantryGrenades", ["LIB_Shg24"]];
 _militiaLoadoutData set ["ATLaunchers", []];
-_militiaLoadoutData set ["slWeapons", ["LIB_MP38", "LIB_K98_Late"]];
+_militiaLoadoutData set ["slWeapons", [
+["LIB_MP38", "", "", "", ["LIB_32Rnd_9x19"], [], ""], 
+"LIB_K98_Late"
+]];
 _militiaLoadoutData set ["lightATLaunchers", ["LIB_Faustpatrone"]];
-_militiaLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], [], ""]]];
-_militiaLoadoutData set ["carbines", ["LIB_G3340"]];
+_militiaLoadoutData set ["rifles", [["LIB_K98_Late", "LIB_ACC_K98_Bayo", "", "", [], ["LIB_5Rnd_792x57"], ""]
+]];
+_militiaLoadoutData set ["carbines", [
+["LIB_G3340", "", "", "", [], ["LIB_5Rnd_792x57"], ""]
+]];
 _militiaLoadoutData set ["grenadeLaunchers", []];
-_militiaLoadoutData set ["SMGs", ["LIB_MP38"]];
-_militiaLoadoutData set ["machineGuns", ["LIB_MP38", "LIB_K98_Late"]];
+_militiaLoadoutData set ["SMGs", [
+["LIB_MP38", "", "", "", ["LIB_32Rnd_9x19"], [], ""]
+]];
+_militiaLoadoutData set ["machineGuns", [
+["LIB_MP38", "", "", "", ["LIB_32Rnd_9x19"], [], ""], 
+"LIB_K98_Late"
+]];
 _militiaLoadoutData set ["sidearms", ["LIB_WaltherPPK", "LIB_P38"]];
 _militiaLoadoutData set ["slSidearms", ["LIB_WaltherPPK", "LIB_P38", "LIB_FLARE_PISTOL"]];
 
@@ -285,7 +301,9 @@ _officerLoadoutData set ["uniforms", ["U_LIB_GER_Oberst"]];
 _officerLoadoutData set ["slVests", ["V_LIB_GER_OfficerVest"]];
 _officerLoadoutData set ["helmets", ["H_LIB_GER_OfficerCap"]];
 
-_officerLoadoutData set ["slWeapons", ["LIB_MP40"]];
+_officerLoadoutData set ["slWeapons", [
+["LIB_MP40", "", "", "", ["LIB_32Rnd_9x19"], [], ""]
+]];
 _officerLoadoutData set ["slSidearms", ["LIB_P08", "LIB_M1896"]];
 
 /////////////////////////////////
@@ -338,6 +356,7 @@ private _riflemanTemplate = {
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
     ["items_medical_standard"] call _fnc_addItemSet;
     ["items_rifleman_extras"] call _fnc_addItemSet;
@@ -361,6 +380,7 @@ private _medicTemplate = {
     
     [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -411,6 +431,7 @@ private _explosivesExpertTemplate = {
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
 
     ["sidearms"] call _fnc_setHandgun;
@@ -444,6 +465,7 @@ private _engineerTemplate = {
 
     [["SMGs", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;
@@ -474,6 +496,7 @@ private _latTemplate = {
 
     ["rifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
     [["lightATLaunchers", "ATLaunchers"] call _fnc_fallback] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
@@ -500,6 +523,8 @@ private _atTemplate = {
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
+	
     private _launch = ["ATLaunchers", "lightATLaunchers"] call _fnc_fallback;
     
     [_launch] call _fnc_setLauncher;
@@ -541,6 +566,7 @@ private _machineGunnerTemplate = {
 
     [["machineGuns", "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 4] call _fnc_addMagazines;
+    ["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 4] call _fnc_addMagazines;
@@ -568,6 +594,7 @@ private _marksmanTemplate = {
 
     ["marksmanRifles"] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
+    ["primary", 3] call _fnc_addAdditionalMuzzleMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 4] call _fnc_addMagazines;
@@ -597,7 +624,7 @@ private _policeTemplate = {
     ["backpacks"] call _fnc_setBackpack;
 
     ["rifles"] call _fnc_setPrimary;
-    ["primary", 3] call _fnc_addMagazines;
+    ["primary", 5] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;
     ["handgun", 2] call _fnc_addMagazines;

@@ -271,6 +271,7 @@ _policeLoadoutData set ["rifles", [
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _militiaLoadoutData set ["uniforms", ["U_LIB_US_Private"]];
+_militiaLoadoutData set ["engUniforms", ["U_LIB_US_Eng"]];
 _militiaLoadoutData set ["slUniforms", ["U_LIB_US_Sergeant"]];
 _militiaLoadoutData set ["vests", ["V_LIB_US_Vest_Garand"]];
 _militiaLoadoutData set ["backpacks", ["B_LIB_US_M36"]];

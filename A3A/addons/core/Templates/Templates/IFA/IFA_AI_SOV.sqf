@@ -246,7 +246,7 @@ _militaryLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_OfficerCap", "H_LIB_SOV_RA
 _militaryLoadoutData set ["radios", ["ItemRadio"]];
 
 _militaryLoadoutData set ["slWeapons", [
-["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25", "LIB_35Rnd_762x25", "LIB_35Rnd_762x25"], [], ""],
+["LIB_PPSh41_m", "", "", "", ["LIB_71Rnd_762x25", "LIB_35Rnd_762x25", "LIB_35Rnd_762x25", "LIB_35Rnd_762x25", "LIB_35Rnd_762x25"], [], ""],
 "LIB_PPSh41_m", "LIB_M9130", "LIB_SVT_40"]];
 _militaryLoadoutData set ["rifles", [
 ["LIB_M9130", "LIB_ACC_M1891_Bayo", "", "", [], [], ""]

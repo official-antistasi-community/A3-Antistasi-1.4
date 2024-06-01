@@ -125,7 +125,7 @@ _loadoutData set ["marksmanRifles", [
 ]];
 
 _loadoutData set ["ATRifle", ["LIB_PTRD"]];
-_loadoutData set ["lightATLaunchers", ["LIB_PzFaust_30m", "LIB_PzFaust_30m", "LIB_PzFaust_60m"]];
+_loadoutData set ["lightATLaunchers", ["LIB_Faustpatrone","LIB_PzFaust_30m", "LIB_PzFaust_30m", "LIB_PzFaust_60m"]];
 _loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka", "LIB_M1A1_Bazooka", "LIB_RPzB"]];
 _loadoutData set ["missileATLaunchers", []];
 _loadoutData set ["AALaunchers", []];
@@ -288,6 +288,9 @@ _militiaLoadoutData set ["slVests", ["V_LIB_SOV_RA_TankOfficerSet"]];
 _militiaLoadoutData set ["backpacks", ["B_LIB_SOV_RA_MGAmmoBag_Empty", "B_LIB_SOV_RA_GasBag"]];
 _militiaLoadoutData set ["helmets", ["H_LIB_SOV_RA_PrivateCap"]];
 _militiaLoadoutData set ["slHelmets", ["H_LIB_SOV_RA_OfficerCap"]];
+
+_militiaLoadoutData set ["ATLaunchers", []];
+_militiaLoadoutData set ["lightATLaunchers", ["LIB_Faustpatrone"]];
 
 _militiaLoadoutData set ["rifles", [
 ["LIB_M9130", "LIB_ACC_M1891_Bayo", "", "", [], [], ""]
@@ -508,8 +511,9 @@ private _latTemplate = {
 
 	private _type = selectRandomWeighted ["light", 3,"rifle", 2,"grenade", 1];
 
-    switch(_type){
-        case "light":{
+    switch(_type) do {
+        case "light":
+        {
             ["rifles"] call _fnc_setPrimary;
             ["lightBackpacks"] call _fnc_setBackpack;
 
@@ -519,7 +523,8 @@ private _latTemplate = {
             ["launcher", 1] call _fnc_addMagazines;
             ["antiTankGrenades", 2] call _fnc_addItem;
         };
-        case "rifle":{
+        case "rifle":
+        {
             ["lightBackpacks"] call _fnc_setBackpack;
 
             ["ATRifle"] call _fnc_setPrimary;
@@ -528,7 +533,8 @@ private _latTemplate = {
             ["sidearms"] call _fnc_setHandgun;
             ["handgun", 5] call _fnc_addMagazines;
         };
-        case "grenade":{
+        case "grenade":
+        {
             ["lightBackpacks"] call _fnc_setBackpack;
 
             ["rifles"] call _fnc_setPrimary;

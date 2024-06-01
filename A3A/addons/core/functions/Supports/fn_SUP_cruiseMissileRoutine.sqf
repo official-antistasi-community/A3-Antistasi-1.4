@@ -1,83 +1,105 @@
-params ["_launcher", "_side", "_supportName"];
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
-sleep (random 90);
 
-private _rounds = 4;
-private _onlineTime = 3600;
+params ["_suppData", "_launcher", "_group", "_delay", "_reveal"];
+_suppData params ["_supportName", "_side", "_suppType", "_center", "_radius", "_suppTarget"];
 
-while {_onlineTime > 0} do
+sleep _delay;
+
+_launcher addEventHandler ["Fired", {
+    params ["_launcher", "_weapon", "_muzzle", "_mode", "_ammo", "_magazine", "_projectile", "_gunner"];
+    _launcher setVariable ["A3A_currentMissile", _projectile];
+}];
+
+private _targetObj = objNull;
+private _laser = objNull;
+private _timeout = time + 900;
+private _targTimeout = 0;
+private _acquisition = 0;
+private _missiles = 1; //2
+while {true} do
 {
-    private _targetList = server getVariable [format ["%1_targets", _supportName], []];
-    if (count _targetList > 0) then
-    {
-        private _target = _targetList deleteAt 0;
-        server setVariable [format ["%1_targets", _supportName], _targetList, true];
-
-        private _targetParams = _target select 0;
-        private _reveal = _target select 1;
-
-        private _targetObj = _targetParams select 0;
-        private _precision = _targetParams select 1;
-
-        //Show target to players if change is high enough
-        private _textMarker = createMarker [format ["%1_text_%2", _supportName, _rounds], getPos _targetObj];
-        _textMarker setMarkerShape "ICON";
-        _textMarker setMarkerType "mil_objective";
-        _textMarker setMarkerText "Cruise Missile Target";
-
-        if(_side == Occupants) then
-        {
-            _textMarker setMarkerColor colorOccupants;
-        }
-        else
-        {
-            _textMarker setMarkerColor colorInvaders;
-        };
-        _textMarker setMarkerAlpha 0;
-
-        [_textMarker, _targetObj] spawn
-        {
-            params ["_textMarker", "_targetObj"];
-            private _maxTime = 300;
-            while {_maxTime > 0} do
-            {
-                _textMarker setMarkerPos (getPos _targetObj);
-
-                sleep 0.5;
-                _maxTime = _maxTime - 0.5;
-
-                if(isNull _targetObj || {!(alive _targetObj)}) exitWith {};
-            };
-            deleteMarker _textMarker;
-        };
-
-        [_reveal, getPos _targetObj, _side, "MISSILE", _textMarker, ""] spawn A3A_fnc_showInterceptedSupportCall;
-
-        //Creates the laser target to mark the target
-        private _laser = createVehicle ["LaserTargetE", (getPos _targetObj), [], 0, "CAN_COLLIDE"];
-        Info_1("Trying to attack laser to %1", _targetObj);
-        _laser attachTo [_targetObj, [0,0,0]];
-
-        //Send the laser target to the launcher
-        _side reportRemoteTarget [_laser, 300];
-        _laser confirmSensorTarget [_side, true];
-        _launcher fireAtTarget [_laser, "weapon_vls_01"];
-
-        _rounds = _rounds - 1;
+    // check if launcher/crew are intact
+    if !(canFire _launcher and gunner _launcher call A3A_fnc_canFight) exitWith {
+        Info_1("%1 has been destroyed or disabled, aborting routine", _supportName);
     };
 
-    if(_rounds <= 0) exitWith
-    {
-        Info_1("%1 has no missiles left to fire, aborting", _supportName);
+    // check if we're past the active time/missiles
+    if (time > _timeout or _missiles <= 0) exitWith {
+        Info_1("%1 has timed out or run out of missiles, aborting", _supportName);
     };
 
-    sleep 30;
-    _onlineTime = _onlineTime - 30;
+    if (isNull _targetObj) then
+    {
+        if (_suppTarget isEqualTo []) then { sleep 5; continue };
+            
+        // New target sent
+        _targetObj = _suppTarget select 0;
+        if !(alive _targetObj) exitWith {
+            _suppTarget resize 0;
+            Debug_1("%1 skips target, as it is already dead", _supportName);
+            continue;
+        };
+        Debug_2("Next target for %2 is %1", _suppTarget, _supportName);
+
+        
+        _targTimeout = (time + 120);
+        _acquisition = 0;
+    };
+
+    //Target no longer valid
+    if (!canMove _targetObj or time > _targTimeout) then {
+        Debug_1("%1 target lost or destroyed, returning to idle", _supportName);
+        _suppTarget resize 0;
+        _targetObj = objNull;
+        _launcher doWatch objNull;
+        continue;
+    };
+
+    /* // Update acquisition depending on whether path to target is blocked
+    private _dir = _launcher getDir _targetObj;
+    private _intercept = (getPosASL _launcher) getPos [250, _dir] vectorAdd [0,0,300];
+    private _isBlocked = terrainIntersectASL [_intercept, getPosASL _targetObj];
+    _acquisition = _acquisition + ([0.1, -0.1] select _isBlocked);
+    _acquisition = 1 min _acquisition max 0;
+    _launcher doWatch _intercept;
+    if (_acquisition < 1) then { sleep 1; continue }; */
+
+    // wait for previous missile to have effect (or not)
+    if (alive (_launcher getVariable ["A3A_currentMissile", objNull])) then { sleep 1; continue };
+
+    // Actually fire
+    Debug("Firing at target");
+    //Creates the laser target to mark the target
+    _laser = createVehicle ["LaserTargetE", (getPos _targetObj), [], 0, "CAN_COLLIDE"];
+    Info_1("Trying to attack laser to %1", _targetObj);
+    _laser attachTo [_targetObj, [0,0,0]];
+
+    //Send the laser target to the launcher
+    _side reportRemoteTarget [_laser, 300];
+    _laser confirmSensorTarget [_side, true];
+    //_launcher setWeaponReloadingTime [gunner _launcher, currentMuzzle (gunner _launcher), 0.1];
+    //_launcher loadMagazine [[-1], "weapon_vls_01", "ammo_Missile_Cruise_01_Cluster"];
+    //gameLogic action ["SwitchMagazine", m1a1, gunner m1a1, 1];
+    _launcher fireAtTarget [_laser, "weapon_vls_01"];
+    diag_log (currentMagazine _launcher);
+    [_reveal, getPosATL _targetObj, _side, "CRUISEMISSILE", _targetObj, 60] spawn A3A_fnc_showInterceptedSupportCall;
+
+    /* _launcher setWeaponReloadingTime [gunner _launcher, currentMuzzle (gunner _launcher), 0.05];
+    _launcher loadMagazine [[0], currentMuzzle (gunner _launcher), "magazine_Missiles_Cruise_01_Cluster_x18"];
+    _side reportRemoteTarget [_laser, 300];
+    _laser confirmSensorTarget [_side, true];
+    _launcher fireAtTarget [_laser, "weapon_vls_01"]; */
+
+    //_launcher setWeaponReloadingTime [gunner _launcher, "weapon_vls_01", 1];
+
+    _missiles = _missiles - 1;
+    _targTimeout = (time + 120);
+    sleep 1;
 };
 
-private _holdObject = attachedTo _launcher;
-deleteVehicle _holdObject;
-deleteVehicle _launcher;
+_suppData set [4, 0];       // zero radius to signal termination
 
-[_supportName, _side] spawn A3A_fnc_endSupport;
+[_launcher] spawn A3A_fnc_vehDespawner;
+[_group] spawn A3A_fnc_groupDespawner;
+deleteVehicle _laser;

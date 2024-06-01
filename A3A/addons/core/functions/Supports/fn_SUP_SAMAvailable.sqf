@@ -15,7 +15,7 @@ FIX_LINE_NUMBERS()
 
 params ["_target", "_side", "_maxSpend", "_availTypes"];
 
-if !(_target isKindOf "Air") exitWith { 0 };     // can't hit anything except air
+if !(_target isKindOf "Air") exitWith { 0 }; // can't hit anything except air
 
 // Should limit to certain templates?
 

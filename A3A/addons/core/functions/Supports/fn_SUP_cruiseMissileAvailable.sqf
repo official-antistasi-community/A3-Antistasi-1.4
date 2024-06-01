@@ -1,49 +1,16 @@
-params ["_side", "_position"];
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
-//Deactivated due to arma glitching, looking into it later
-if(true) exitWith {-1};
+params ["_target", "_side", "_maxSpend", "_availTypes"];
 
-if(tierWar < 8) exitWith {-1};
-
-private _lastSupport = server getVariable ["lastSupport", ["", 0]];
-if((_lastSupport select 0) == "MISSILE" && {(_lastSupport select 1) > time}) exitWith {-1};
-
+///if(tierWar < 7) exitWith {-1}; don't forget to uncommnet it
 if !(allowUnfairSupports) exitWith {-1};
 private _loadedTemplate = if (_side isEqualTo Occupants) then {A3A_Occ_template} else {A3A_Inv_template};
 if (toLower _loadedTemplate isEqualTo "VN") exitWith {-1}; //dont allow with VN
+if ("lowTech" in A3A_factionEquipFlags) exitWith {-1}; //leave it like this untill, we add CM launcher vehicle type, and if WW2 modsets have V-2 rockets or something
 
-private _shipMarker = "";
-if(_side == Occupants) then
-{
-    _shipMarker = "NATO_carrier";
-}
-else
-{
-    _shipMarker = "CSAT_carrier";
-};
+if (_target isKindOf "Air") exitWith { 0 };     // can't hit anything except air
 
-//Cruise missile range is 16 km (it can have 32km, but I limit it here)
-if((getMarkerPos _shipMarker) distance2D _position > 16000) exitWith {-1};
+// Should limit to certain templates?
 
-private _timerIndex = -1;
-private _playerAdjustment = (floor ((count allPlayers)/10)) + 1;
-private _supportTimer = if(_side == Occupants) then {occupantsCruiseMissileTimer} else {invadersCruiseMissileTimer};
-
-if(count _supportTimer < _playerAdjustment) then
-{
-    _timerIndex = count _supportTimer;
-    for "_i" from ((count _supportTimer) + 1) to _playerAdjustment do
-    {
-        _supportTimer pushBack -1;
-    };
-}
-else
-{
-    _timerIndex = _supportTimer findIf {_x < time};
-    if(_playerAdjustment <= _timerIndex) then
-    {
-        _timerIndex = -1;
-    };
-};
-
-_timerIndex;
+1;          // maybe set higher, especially if it's fixed-wing aircraft?

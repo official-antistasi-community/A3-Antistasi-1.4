@@ -506,7 +506,7 @@ private _latTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-	private _type = selectRandomWeighted ["light", 3,"heavy", 1,"rifle", 2,"grenade", 1];
+	private _type = selectRandomWeighted ["light", 3,"rifle", 2,"grenade", 1];
 
     switch(_type){
         case "light":{
@@ -518,16 +518,6 @@ private _latTemplate = {
 
             ["launcher", 1] call _fnc_addMagazines;
             ["antiTankGrenades", 2] call _fnc_addItem;
-        };
-        case "heavy":{
-            ["rifles"] call _fnc_setPrimary;
-            ["primary", 5] call _fnc_addMagazines;
-
-            ["ATLaunchers"] call _fnc_setLauncher;
-            ["atBackpacks"] call _fnc_setBackpack;
-
-            ["launcher", 1] call _fnc_addMagazines;
-            ["antiInfantryGrenades", 1] call _fnc_addItem;
         };
         case "rifle":{
             ["lightBackpacks"] call _fnc_setBackpack;
@@ -594,7 +584,7 @@ private _atTemplate = {
 };
 
 private _aaTemplate = {
-    call _latTemplate;
+    call (selectRandom [_latTemplate, _atTemplate]);
 };
 
 private _machineGunnerTemplate = {

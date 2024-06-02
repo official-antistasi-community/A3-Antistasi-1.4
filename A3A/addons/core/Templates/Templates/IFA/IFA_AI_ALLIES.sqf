@@ -122,7 +122,11 @@ _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", ["LIB_M1903A4_Springfield"]];
+_loadoutData set ["marksmanRifles", [
+["LIB_M1903A4_Springfield", "", "", "", [], [], ""],
+["LIB_M1903A4_Springfield", "", "", "", ["LIB_5Rnd_762x63","LIB_5Rnd_762x63","LIB_5Rnd_762x63_t"], [], ""],
+["LIB_M1903A4_Springfield", "", "", "", ["LIB_5Rnd_762x63","LIB_5Rnd_762x63","LIB_5Rnd_762x63_M1"], [], ""]
+]];
 
 _loadoutData set ["lightATLaunchers", []];
 _loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka"]];
@@ -311,7 +315,11 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 ]];
 _militiaLoadoutData set ["SMGs", ["LIB_Sten_Mk2"]];
 _militiaLoadoutData set ["machineGuns", ["LIB_Bren_Mk2"]];
-_militiaLoadoutData set ["marksmanRifles", ["LIB_LeeEnfield_No4_Scoped"]];
+_militiaLoadoutData set ["marksmanRifles", [
+["LIB_LeeEnfield_No4_Scoped", "", "", "", [], [], ""],
+["LIB_LeeEnfield_No4_Scoped", "", "", "", [], [], ""],
+["LIB_LeeEnfield_No4_Scoped", "", "", "", ["LIB_10Rnd_770x56_MkVIII"], [], ""]
+]];
 
 _militiaLoadoutData set ["sidearms", ["LIB_Webley_mk6"]];
 _militiaLoadoutData set ["slSidearms", ["LIB_Webley_mk6", "LIB_Webley_mk6", "LIB_Webley_Flare"]];

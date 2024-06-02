@@ -121,7 +121,10 @@ _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", [
-["LIB_M9130PU", "", "", "", [], ["LIB_5Rnd_762x54_t46","LIB_5Rnd_762x54_t30","LIB_5Rnd_762x54_D","LIB_5Rnd_762x54_b30"], ""]
+["LIB_M9130PU", "", "", "", ["LIB_5Rnd_762x54","LIB_5Rnd_762x54","LIB_5Rnd_762x54_t46"],[],  ""],
+["LIB_M9130PU", "", "", "", ["LIB_5Rnd_762x54","LIB_5Rnd_762x54","LIB_5Rnd_762x54_t30"],[],  ""],
+["LIB_M9130PU", "", "", "", ["LIB_5Rnd_762x54","LIB_5Rnd_762x54","LIB_5Rnd_762x54_D"],	[],  ""],
+["LIB_M9130PU", "", "", "", ["LIB_5Rnd_762x54","LIB_5Rnd_762x54","LIB_5Rnd_762x54_b30"],[],  ""]
 ]];
 
 _loadoutData set ["ATRifle", ["LIB_PTRD"]];

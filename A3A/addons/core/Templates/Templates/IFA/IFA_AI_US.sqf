@@ -113,7 +113,11 @@ _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
-_loadoutData set ["marksmanRifles", ["LIB_M1903A4_Springfield"]];
+_loadoutData set ["marksmanRifles", [
+["LIB_M1903A4_Springfield", "", "", "", [], [], ""],
+["LIB_M1903A4_Springfield", "", "", "", ["LIB_5Rnd_762x63","LIB_5Rnd_762x63","LIB_5Rnd_762x63_t"], [], ""],
+["LIB_M1903A4_Springfield", "", "", "", ["LIB_5Rnd_762x63","LIB_5Rnd_762x63","LIB_5Rnd_762x63_M1"], [], ""]
+]];
 
 _loadoutData set ["lightATLaunchers", []];
 _loadoutData set ["ATLaunchers", ["LIB_M1A1_Bazooka"]];

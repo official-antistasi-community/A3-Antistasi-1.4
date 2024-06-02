@@ -117,7 +117,11 @@ _loadoutData set ["grenadeLaunchers", [
 ]];
 _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", ["LIB_Bren_Mk2"]];
-_loadoutData set ["marksmanRifles", ["LIB_LeeEnfield_No4_Scoped"]];
+_loadoutData set ["marksmanRifles", [
+["LIB_LeeEnfield_No4_Scoped", "", "", "", [], [], ""],
+["LIB_LeeEnfield_No4_Scoped", "", "", "", [], [], ""],
+["LIB_LeeEnfield_No4_Scoped", "", "", "", ["LIB_10Rnd_770x56_MkVIII"], [], ""]
+]];
 
 _loadoutData set ["lightATLaunchers", []];
 _loadoutData set ["ATLaunchers", ["LIB_PIAT"]];

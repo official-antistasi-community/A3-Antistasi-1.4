@@ -70,7 +70,7 @@ _unit addMagazines [_magazine, round (random 0.5 + _totalMagWeight / _magWeight)
 
 private _compatOptics = A3A_rebelOpticsCache get _weapon;
 if (isNil "_compatOptics") then {
-    private _compatItems = [_weapon] call BIS_fnc_compatibleItems;		// cached, should be fast
+    private _compatItems = compatibleItems _weapon;		// cached, should be fast
     _compatOptics = _compatItems arrayIntersect call {
         if (_weaponType in ["Rifles", "MachineGuns"]) exitWith { A3A_rebelGear get "OpticsMid" };
         if (_weaponType == "SniperRifles") exitWith { A3A_rebelGear get "OpticsLong" };

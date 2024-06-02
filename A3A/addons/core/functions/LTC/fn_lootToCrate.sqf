@@ -49,12 +49,11 @@ _lootBodies = {
 
     private _gear = [[],[],[],[]];//weapons, mags, items, backpacks
     //build list of all gear
-    _weapons = [handgunWeapon _unit];
-    _attachments = handgunItems _unit;
 
-    _weapons = _weapons select {!(_x isEqualTo "")};
+    _weapons = weapons _unit;
     {(_gear#0) pushBack (_x call BIS_fnc_baseWeapon)} forEach _weapons;
-    _attachments = _attachments select {!(_x isEqualTo "")};
+
+    _attachments = primaryWeaponItems _unit + secondaryWeaponItems _unit + handgunItems _unit - [""];
     (_gear#2) append _attachments;
 
     (_gear#2) append assignedItems _unit;
@@ -87,7 +86,7 @@ _lootBodies = {
     };
 
     if !(backpack _unit isEqualTo "") then {
-        (_gear#3) pushBack ((backpack _unit) call BIS_fnc_basicBackpack);
+        (_gear#3) pushBack ((backpack _unit) call A3A_fnc_basicBackpack);
         removeBackpackGlobal _unit;
     };
 

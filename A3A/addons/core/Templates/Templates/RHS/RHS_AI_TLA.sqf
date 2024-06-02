@@ -20,8 +20,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["rhsgref_BRDM2UM_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["rhsgref_BRDM2_HQ_msv","rhsgref_BRDM2_msv"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["rhsgref_BRDM2_HQ_msv","rhsgref_BRDM2UM_msv"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["rhsgref_BRDM2_msv"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhs_gaz66_msv"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhs_gaz66_flat_msv"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhs_gaz66_ammo_msv"]] call _fnc_saveToTemplate;
@@ -87,7 +87,7 @@
 
 ["faces", ["TanoanHead_A3_01","TanoanHead_A3_02","TanoanHead_A3_03","TanoanHead_A3_04",
 "TanoanHead_A3_05","TanoanHead_A3_06","TanoanHead_A3_07","TanoanHead_A3_08"]] call _fnc_saveToTemplate;
-["voices", ["Male01ENGFRE","Male02ENGFRE"]] call _fnc_saveToTemplate;
+["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
 ["sfFaces", ["AsianHead_A3_01","AsianHead_A3_02","AsianHead_A3_03","AsianHead_A3_04","AsianHead_A3_05","AsianHead_A3_06","AsianHead_A3_07"]] call _fnc_saveToTemplate;
 ["sfVoices", ["Male01CHI","Male02CHI","Male03CHI"]] call _fnc_saveToTemplate;
 "TanoanMen" call _fnc_saveNames;
@@ -138,7 +138,7 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", ["rhs_1PN138", ""]];
+_loadoutData set ["NVGs", ["rhs_1PN138", "", ""]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 

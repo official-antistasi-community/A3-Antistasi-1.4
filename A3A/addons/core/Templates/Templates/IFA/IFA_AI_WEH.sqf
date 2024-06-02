@@ -75,7 +75,7 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
     _vehiclesIFVs append ["FA_Sdkfz231", "FA_Sdkfz234", "FA_Sdkfz234_4", "FA_Sdkfz231"];
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
-    _vehiclesLightTanks = ["FA_Panzer2", "FA_Pz38t", "FA_Pz38t"];
+    _vehiclesLightTanks = ["FA_Panzer2", "FA_Panzer2", "FA_Pz38t", "FA_Pz38t", "FA_Pz38t"];
 };
 ["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
 ["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;

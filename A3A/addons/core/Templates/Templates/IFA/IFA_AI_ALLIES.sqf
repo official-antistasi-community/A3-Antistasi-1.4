@@ -74,7 +74,7 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {
     _vehiclesLightTanks append ["FA_T17E1", "FA_DaimlerMk2", "FA_DaimlerMk2"];               //There's an argument to be made to put these in lightArmed too, leaving them here for the moment though
 };
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
-    _vehiclesTanks append ["FA_ValentineMk3"];
+    _vehiclesTanks append ["FA_ValentineMk3","FA_ValentineMk3"];
     _vehiclesHeavyTanks append ["FA_M26"];
 };
 ["vehiclesLightTanks", _vehiclesLightTanks] call _fnc_saveToTemplate;

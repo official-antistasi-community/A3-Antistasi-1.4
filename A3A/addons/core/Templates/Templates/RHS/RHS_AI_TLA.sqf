@@ -306,6 +306,7 @@ _militiaLoadoutData set ["heavyATLaunchers", [
 ]];
 
 _militiaLoadoutData set ["rifles", [
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
 ["rhs_weap_pm63", "rhs_acc_dtkakm", "", "", 	["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 ["rhs_weap_akm", "rhs_acc_dtkakm", "", "", 	["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""]
 ]];
@@ -325,6 +326,7 @@ _militiaLoadoutData set ["machineGuns", [
 "rhs_weap_m1garand_sa43"
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
+["rhs_weap_l1a1_wood", "rhsgref_acc_falMuzzle_l1a1", "", "", ["rhs_mag_20Rnd_762x51_m80_fnfal"], [], ""],
 ["rhs_weap_akmn", "rhs_acc_dtkakm", "", "rhs_acc_pso1m2", 	["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
 "rhs_weap_m1garand_sa43"
 ]];

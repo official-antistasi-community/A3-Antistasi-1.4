@@ -474,6 +474,7 @@
         <Russian>Единая Германия - лучшая Германия.</Russian>
         <Polish>Zjednoczone Niemcy to najlepsze Niemcy</Polish>
         <Czech>Spojené Německo je nejlepší Německo.</Czech>
+        <Chinesesimp>统一的德国才是最好的德国</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -483,6 +484,7 @@
         <Russian>Станьте лидером Сопротивления. Сражайтесь с противником, превосходящим вас в технологиях, численности, активах и транспортных средствах. Используйте партизанскую тактику в полностью динамичном мире, где около 18 сторонних миссий, везде, в любое время, на чем угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_short_text">
         <Original>Antistasi Weferlingen Summer</Original>
@@ -491,6 +493,7 @@
         <Korean>안티스타시 웨퍼링겐 여름</Korean>
         <Russian>Antistasi Веферлинген Лето</Russian>
         <Czech>Antistasi Léto ve Weferlingenu</Czech>
+        <Chinesesimp>Antistasi 夏季韦弗林根</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_summer_mapname_text">
         <Original>Antistasi - Liberation of Weferlingen - Summer</Original>
@@ -499,6 +502,7 @@
         <Korean>안티스타시 - 웨퍼링겐 해방 - 여름</Korean>
         <Russian>Antistasi - Освобождение Веферлингена - Лето</Russian>
         <Czech>Antistasi - Osvobození Weferlingenu - Léto</Czech>
+        <Chinesesimp>Antistasi - 解放 韦弗林根</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_blurb_text">
         <Original>United Germany is Best Germany, also in the winter.</Original>
@@ -508,6 +512,7 @@
         <Russian>Единая Германия - лучшая Германия и даже зимой</Russian>
         <Polish>Zjednoczone Niemcy to najlepsze Niemcy, również w zimę.</Polish>
         <Czech>Spojené Německo je nejlepší Německo, i přes zimu.</Czech>
+        <Chinesesimp>统一的德国才是最好的德国，无论春夏秋冬</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -517,6 +522,7 @@
         <Russian>Стань лидером Сопротивления. Сражайся против врага превосходящего в технологии, количестве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире с около 18 побочными заданиями, в любом месте, в любое время, против чего угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_short_text">
         <Original>Antistasi Weferlingen Winter</Original>
@@ -525,6 +531,7 @@
         <Korean>안티스타시 웨퍼링겐 겨울</Korean>
         <Russian>Antistasi Веферлинген Зима</Russian>
         <Czech>Antistasi Weferlingenská Zima</Czech>
+        <Chinesesimp>Antistasi 冬季韦弗林根</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_gm_weferlingen_winter_mapname_text">
         <Original>Antistasi - Liberation of Weferlingen - Winter</Original>
@@ -533,6 +540,7 @@
         <Korean>안티스타시 - 웨퍼링겐 해방 - 겨울</Korean>
         <Russian>Antistasi - Освобождение Веферлингена - Зима</Russian>
         <Czech>Antistasi - Osvobození Weferlingenu - Zima</Czech>
+        <Chinesesimp>Antistasi - 解放 冬季韦弗林根</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_blurb_text">
         <Original>African Islands under siege</Original>
@@ -541,6 +549,7 @@
         <Korean>포위당한 아프리카의 섬들</Korean>
         <Russian>Африканские острова в осаде</Russian>
         <Polish>Oblężenie Afrykańskich wysp</Polish>
+        <Chinesesimp>围攻下的非洲岛屿</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -550,6 +559,7 @@
         <Russian>Стань лидером Сопротивления. Сражайся против врага превосходящего в технологии, количестве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире с около 18 побочными заданиями, в любом месте, в любое время, против чего угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_mapname_short_text">
         <Original>Antistasi Isla Duala</Original>
@@ -558,6 +568,7 @@
         <Korean>안티스타시 이슬라 듀알라</Korean>
         <Russian>Antistasi Исла Дуала</Russian>
         <Czech>Antistasi Ostrov Duala</Czech>
+        <Chinesesimp>Antistasi - Isla Duala</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_isladuala3_mapname_text">
         <Original>Antistasi - Liberation of Isla Duala</Original>
@@ -566,6 +577,7 @@
         <Korean>안티스타시 - 이슬라 듀알라 해방</Korean>
         <Russian>Antistasi - Освобождение Исла Дуала</Russian>
         <Czech>Antistasi - Osvobození Ostrova Duala</Czech>
+        <Chinesesimp>Antistasi - 解放 Isla Duala</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_kujari_blurb_text">
         <Original>African Action</Original>
@@ -575,6 +587,7 @@
         <Russian>Действия в Африке </Russian>
         <Polish>Afrykańska Akcja</Polish>
         <Czech>Africká Mise</Czech>
+        <Chinesesimp>非洲阵营</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_kujari_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -584,6 +597,7 @@
         <Russian>Стань лидером Сопротивления. Сражайся против врага превосходящего в технологии, количестве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире с около 18 побочными заданиями, в любом месте, в любое время, против чего угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_kujari_mapname_short_text">
         <Original>Antistasi Kujari</Original>
@@ -593,6 +607,7 @@
         <Russian>Antistasi Куджари</Russian>
         <Polish>Antistasi Kujari</Polish>
         <Czech>Antistasi Kujari</Czech>
+        <Chinesesimp>Antistasi Kujari</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_kujari_mapname_text">
         <Original>Antistasi - Liberation of Kujari</Original>
@@ -602,6 +617,7 @@
         <Russian>Antistasi - Освобождение Куджари</Russian>
         <Polish>Antistasi - Wyzwolenie Kujari</Polish>
         <Czech>Antistasi - Osvobození Kujari</Czech>
+        <Chinesesimp>Antistasi - 解放 Kujari</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_kunduz_blurb_text">
         <Original>Sand and blood</Original>
@@ -1082,6 +1098,7 @@
         <Russian>Что-то с кокаином или типо того</Russian>
         <Polish>Coś z kokainą lub czymś podobnym.</Polish>
         <Czech>Něco s kokainem, nebo tak něco.</Czech>
+        <Chinesesimp>和白粉等诸如此类之物有关.</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_umb_colombia_description_text">
         <Original>Be the Resistance Leader. Fight against a superior enemy in technology, number, assets and vehicles. Use guerrilla tactics in a totally dynamic world, with around 18 sidemissions, everywhere, anytime, anything.</Original>
@@ -1091,6 +1108,7 @@
         <Russian>Стань лидером Сопротивления. Сражайся против врага превосходящего в технологии, количестве, вооружении и технике. Используй партизанскую тактику в полностью динамическом мире с около 18 побочными заданиями, в любом месте, в любое время, против чего угодно.</Russian>
         <Polish>Bądź liderem ruchu oporu. Walcz z lepszym wrogiem pod względem technologii, liczby żołnierzy, zasobów i pojazdów. Używaj taktyk partyzanckich w całkowicie dynamicznym świecie, z około 18 misjami pobocznymi, w dowolnym miejscu i czasie.</Polish>
         <Czech>Buďte vůdcem odboje. Bojujte proti nadřazenému nepříteli v technologii, počtu, majetku a vozidlech. Použijte partyzánskou taktiku ve zcela dynamickém světě, přibližně s 18 vedlejšími misemi, všude kdykoli a cokoli.</Czech>
+        <Chinesesimp>成为抵抗军领袖。与技术、数量、资产和载具远胜于你的强大敌人作战。面对完全动态的世界和大约18种支线任务, 任何时间, 任何地点, 任何情况, 运用游击战术。</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_short_text">
         <Original>Antistasi Colombia</Original>
@@ -1100,6 +1118,7 @@
         <Russian>Antistasi Колумбия</Russian>
         <Polish>Antistasi Columbia</Polish>
         <Czech>Antistasi Kolumbie</Czech>
+        <Chinesesimp>Antistasi 哥伦比亚</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_umb_colombia_mapname_text">
         <Original>Antistasi - Liberation of Colombia</Original>
@@ -1109,6 +1128,7 @@
         <Russian>Antistasi - Освобождение Колумбии</Russian>
         <Polish>Antistasi - Wyzwolenie Kolumbii</Polish>
         <Czech>Antistasi - Osvobození Kolumbie</Czech>
+        <Chinesesimp>Antistasi - 解放 哥伦比亚</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_mission_info_vn_khe_sanh_blurb_text">
         <Original>Another jungle, another fight.</Original>

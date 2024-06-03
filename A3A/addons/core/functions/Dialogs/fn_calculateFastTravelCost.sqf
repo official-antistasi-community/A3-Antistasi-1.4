@@ -56,7 +56,7 @@ private _secondsPerKmForInfantry = 1.0 / _distanceReference;
 private _secondsPerKmForVehicle = 5.0 / _distanceReference;
 private _secondsPerKmForCargo = 20.0 / _distanceReference;
 
-// Get all cargo that is
+// Get all cargo that is being fast travelled.
 private _allObjectCargo = [];
 private _allInfantryCargo = [];
 {
@@ -69,13 +69,9 @@ private _allInfantryCargo = [];
 } forEach _things;
 
 // Remove object cargo from things. (It gets special pricing)
-{
-    private _index = _things find _x;
-    if (_index >= 0) then {
-        _things deleteAt _index;
-    }
-} forEach _allObjectCargo;
-// Add infantry to things. Tehre s no unique version of mergee. Maybe we should move all these to hashmaps, benchmark first though.
+_things = _things - _allObjectCargo
+
+// Add infantry to things. There is no unique version of merge.
 { _things pushBackUnique _x } forEach _allInfantryCargo;
 
 // Calculate cost of things.

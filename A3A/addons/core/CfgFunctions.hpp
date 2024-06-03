@@ -449,7 +449,6 @@ class CfgFunctions
             class donateMoney {};
             class sendMoney {};
             class isClientAdmin {};
-            class isClientAdminOrServer {};
             class isLocalAdmin {};
             class isLocalAdminOrServer {};
             class isMember {};

@@ -127,7 +127,7 @@ if (_isCollision) then {
 
 /////////Checks for important roles/////////
 _exemption = switch (true) do {
-    case ([_instigator] call A3A_fnc_isClientAdminOrServer): {  // Local host included.
+    case ([_instigator] call A3A_fnc_isClientAdmin): {  // Local host included.
         [localize "STR_A3A_fn_punishment_evalEvent_admin"] call _notifyInstigator; // Admin not reported to victim in case of Zeus remote control.
         format ["ADMIN, %1", ["Server","Voted","Logged"] select (admin owner _instigator)];
     };

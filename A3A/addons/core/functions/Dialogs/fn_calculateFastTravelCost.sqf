@@ -69,7 +69,7 @@ private _allInfantryCargo = [];
 } forEach _things;
 
 // Remove object cargo from things. (It gets special pricing)
-_things = _things - _allObjectCargo
+_things = _things - _allObjectCargo;
 
 // Add infantry to things. There is no unique version of merge.
 { _things pushBackUnique _x } forEach _allInfantryCargo;

@@ -1317,7 +1317,7 @@ class radio_comm 		{
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = "Experimental Battle Menu. Work in Progress." // Don't localize, tempory button.
+			tooltip = "Experimental Battle Menu. Work in Progress."; // Don't localize, tempory button.
 			action = "closeDialog 0;_nul = createDialog ""A3A_MainDialog"";";
 		};
 		class 8slots_L3: A3A_core_BattleMenuRedButton

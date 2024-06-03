@@ -34,6 +34,13 @@ private _oldParamsCtrl = _display displayCtrl A3A_IDC_SETUP_OLDPARAMSCHECKBOX;
 
 private _saveBoxColumns = [["gameID", "ID", 0, 9], ["mapStr", "Map", 9, 25], ["name", "Name", 25, 45], ["verStr", "Version", 70, 12], ["timeStr", "Time", 82, 15], ["fileStr", "File", 97, 9]];
 
+private _fnc_factionLoaded = {
+    private _addonsArray = getArray (A3A_SETUP_CONFIGFILE/"A3A"/"Templates"/_this/"requiredAddons"); 
+    private _validAddons = _addonsArray findIf {!(_x in A3A_setup_loadedPatches)};
+    private _validAddonsBool = _validAddons isEqualTo -1;
+    _validAddonsBool;
+};
+
 switch (_mode) do
 {
     case ("onLoad"):
@@ -62,11 +69,14 @@ switch (_mode) do
         };
         private _sameMap = (worldName == _saveData get "map");
         private _newGame = cbChecked _newGameCtrl;
+        private _factionData = ["getFactions"] call A3A_fnc_setupFactionsTab;
+        private _usableFactions = _factionData#0 findIf {!(_x call _fnc_factionLoaded)};
 
         // Update the controls according to selections
         _copyGameCtrl ctrlEnable (_sameMap and _newGame);
         if (!_sameMap and cbChecked _copyGameCtrl) exitWith { _copyGameCtrl cbSetChecked false };       // will re-call update
-        _startCtrl ctrlEnable (_sameMap or _newGame);
+        _startCtrl ctrlEnable ((_sameMap or _newGame) and (_usableFactions isEqualTo -1));
+        if (_usableFactions isNotEqualTo -1) then {_startCtrl ctrlSetTooltip (localize "STR_A3A_fn_GUI_setupLoadgameTab_badFactions");} else {_startCtrl ctrlSetTooltip "";};
         _copyGameCtrl ctrlShow _newGame;
         _oldParamsCtrl ctrlShow _newGame;
         (_display displayCtrl A3A_IDC_SETUP_NAMESPACECHECKBOX) ctrlshow _newGame;

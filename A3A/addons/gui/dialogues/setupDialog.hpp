@@ -282,29 +282,6 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     h = 20 * GRID_H;
                 };
 
-                class AddonVicsLabel: A3A_SectionLabelRight {
-                    idc = -1;
-                    text = $STR_antistasi_dialogs_setup_addonvics;
-                    x = 4 * GRID_W;
-                    y = 56 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 4 * GRID_H;
-                };
-                class AddonVicsBackground: A3A_Background {
-                    idc = -1;
-                    x = 4 * GRID_W;
-                    y = 60 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 36 * GRID_H;
-                };
-                class AddonVicsBox: A3A_ControlsGroup {
-                    idc = A3A_IDC_SETUP_ADDONVICSBOX;
-                    x = 4 * GRID_W;
-                    y = 60 * GRID_H;
-                    w = 34 * GRID_W;
-                    h = 36 * GRID_H;
-                };
-
                 class OccupantsLabel: A3A_SectionLabelRight {
                     idc = -1;
                     text = $STR_antistasi_dialogs_setup_occupants;
@@ -425,6 +402,45 @@ class A3A_SetupDialog : A3A_TabbedDialog
                     y = 34 * GRID_H;
                     w = 32 * GRID_W;
                     h = 62 * GRID_H;
+                };
+                class AddonVicsBox: A3A_ControlsGroup {
+                    idc = A3A_IDC_SETUP_ADDONVICSBOX;
+                    x = 124 * GRID_W;
+                    y = 34 * GRID_H;
+                    w = 32 * GRID_W;
+                    h = 62 * GRID_H;
+                };
+                class DLCToggle: A3A_Button {
+                    idc = A3A_IDC_SETUP_DLCTOGGLE;
+                    text = $STR_antistasi_dialogs_setup_toggleAddons_addons;
+                    onButtonClick = "['switchAddons'] call A3A_fnc_setupFactionsTab;";
+                    x = 124 * GRID_W;
+                    y = 92 * GRID_H;
+                    w = 32 * GRID_W;
+                    h = 4 * GRID_H;
+                };
+                class InfoLabel: A3A_SectionLabelRight {
+                    idc = A3A_IDC_SETUP_INFOLABEL;
+                    text = $STR_antistasi_dialogs_setup_factionInfo;
+                    x = 4 * GRID_W;
+                    y = 56 * GRID_H;
+                    w = 34 * GRID_W;
+                    h = 4 * GRID_H;
+                };
+                class InfoBackground: A3A_Background {
+                    idc = -1;
+                    x = 4 * GRID_W;
+                    y = 60 * GRID_H;
+                    w = 34 * GRID_W;
+                    h = 36 * GRID_H;
+                };
+                class InfoBox: A3A_TextMulti {
+                    idc = A3A_IDC_SETUP_INFOBOX;
+                    SizeEx = GUI_TEXT_SIZE_TINY;
+                    x = 4 * GRID_W;
+                    y = 60 * GRID_H;
+                    w = 34 * GRID_W;
+                    h = 32 * GRID_H;
                 };
             };
         };

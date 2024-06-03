@@ -16173,5 +16173,196 @@
         <Chinesesimp>与指挥部班组车辆管理相关的选项</Chinesesimp>
       </Key>
     </Container>
+    <Container name="A3A_templates">
+      <Key ID="STR_A3A_templates_lore_CSAT">
+        <Original>A coalition of Middle-Eastern and Asian nations led by Iran and China, the Canton protocol Strategic Alliance Treaty's meteoric rise rivals the power of the western NATO coalition. CSAT forces prefer to use the Katiba assault rifle, chambered in 6.5x39mm Caseless.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CSATApex">
+        <Original>CSAT forces are frequently operating in the Pacific island of Tanoa at the request of the local government and use Chinese weapons more frequently. They prefer the 5.8x42mm intermediate caliber for the CAR-95 assault rifles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_NATO">
+        <Original>Since its founding in 1949, the North Atlantic Treaty Organization has been dedicated to ensuring the safety and security of all nations involved in the alliance, leading to one of the world's most lethal superpowers. NATO forces use the 6.5x39mm cartridge for almost all small arms.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_NATOUK">
+        <Original>Since its founding in 1949, the North Atlantic Treaty Organization has been dedicated to ensuring the safety and security of all nations involved in the alliance, with this regiment hailing from the United Kingdom and using the SPAR-16 and SPAR-17 rifles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_LDF">
+        <Original>The dedicated protectors of a small Eastern European territory near Belarus, the Livonia Defense Force are a relatively small but deceptively capable army. They use custom-made Promet rifles, often utilizing custom sights and underbarrel shotgun attachments.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_AAF">
+        <Original>The Altis Armed Forces are comprised mostly of combat veterans and patriotic citizens from their home island, with an outdated arsenal being actively renovated. They prefer to use the Mk20 bullpup assault rifle chambered in 5.56x45mm STANAG NATO-standard magazines.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_ION">
+        <Original>Ruthless and willing to do anything for a quick buck, the private military corporation of ION Services, Incorporated and it's diverse set of contractors believe every job has a reasonable price. The company buys assets in bulk for dirt-cheap, and there is no standard-issue rifle.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_FIA">
+        <Original>The AAF's treatment of the civilans on Altis has left many moving for a change in leadership, and the Freedom and Independence Army is here to restore freedom and a government with the people in mind. The FIA primarily use sub-machine guns to start with, quickly transitioning to stolen enemy weapons.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SDK">
+        <Original>Syndikat supporters see through the reign of CSAT on the Pacific island of Tanoa and are actively attempting to overthrow the government responsible for allowing foreign occupation. Similar to the FIA, they typically use sub-machine guns for hit-and-run tactics.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_LFF">
+        <Original>The Livonia Freedom Fighters believe that the LDF has grown corrupt and that the government needs to be reevaluated, whether peacefully or manually by the rebellion forming in Livonia. The LFF often use basic hunting shotguns until the opportunity to steal an enemy weapon presents itself.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CIV">
+        <Original>No rebellion is won without the support of the civilians, whether they choose to report information to the rebels or volunteer to fight for what is right. Whatever their role may be, the rebellion is always fighting for their freedom.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_WS_AI_ION">
+        <Original>ION Services, Incorporated forces around Sefrou Ramal are still classified as independent contractors, but are hired by third parties for specific jobs in the destabilized region. They use the custom-made XMS bullpup rifles with standard STANAG magazines.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_WS_AI_SIFA">
+        <Original>The Sefrawi Freedom and Independence Army is a state-backed paramilitary group, funded and reporting directly to the Arganian government for the work that's too dirty for the ADF's soldiers. They typically use the Velko rifles, which are domestically sourced.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_WS_AI_ADF">
+        <Original>The Arganian Defense Force is the organized army defending Argana. They take the role of the benevolent overlords, leaving the SFIA to do the dirty work under the sponsorship of the ADF. They use the Velko rifles along with the Mk20 bullpup rifle.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_WS_Reb_Tura">
+        <Original>The Tura are an ancient tribe that opposes the urbanization and military presence in Sefrawi and is willing to take up arms to retake what once was their home. They use weapons stolen from the enemy, as well as armored pickups and technicals for assault.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_WS_CIV">
+        <Original>Many of the citizens of Sefrou-Ramal have not had the chance to evacuate yet, making the area very dangerous for any noncombatants. The Tura look to help the residents of their homeland however possible.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_VN_AI_MACV">
+        <Original>The Military Assistance Command, Vietnam are the operational group of the US military tasked with invading Vietnam. They normally use later World War II weapons with a few fresh faces, like the M14, M16, and M60.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_VN_AI_PAVN">
+        <Original>The People's Army of Vietnam are the citizens and militia of Vietnam dedicated to fighting the invasion of the US, with weapons funded from surrounding Eastern countries such as China and the Soviet Union. They typically use Type 56 assault rifles and the SKS battle rifle.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_VN_Reb_POF">
+        <Original>The Pissed Off Farmers are an excellent example of what happens when you mess with the rice paddies. They use weapons stolen from the PAVN, so often Type 56 AK-clones and the SKS rifle.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_VN_Civ">
+        <Original>The noncombatant civilians of Vietnam wish for no part in this war, solely looking to go back to the time where they could farm in peace.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_AFRF">
+        <Original>The Armed Forces of the Russian Federation are the current-age Russian Army. Equipping a variety of cutting edge and Cold-War era vehicles, the AFRF typically use homegrown AK assault rifles chambered in 5.45 and 7.62 calibers.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_RHS_AI_ChDKZ">
+        <Original>The Chernarussian Movement of the Red Star is a pro-Russian seperatist movement that quickly evolved to an active civilian militia to a powerful force capable of challenging governments directly. They normally use Cold-War era Soviet equipment and vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CDF">
+        <Original>The Chernarus Defense Force are the culmination of the land, air, and sea branches dedicated to the defense of Chernarus. They typically use more recent Soviet and AFRF weaponry, and are the primary counter-insurgency force against the ChDKZ.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_USAF">
+        <Original>The United States Army are one of the world's most dangerous military superpowers, with their alliance to NATO making them a difficult threat. They typically produce and use a substantial amount of NATO weaponry, including 5.56 STANAG and 7.62 calibers.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_USMC">
+        <Original>The United States Marine Corps are the primary branch of the US military deployed overseas. They retain the same lethality as their domestic counterparts, with equipment fitted for operating on the high seas. Their small arms are predominantly the same as the standard US Army.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_NAPA">
+        <Original>The National Party formed as a civilian militia during the civil war between the CDF and the ChDKZ. As the territory was previously part of the Soviet Union, NAPA uses weapons it can steal from either Russian-backed force.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_RHS_AI_SAF">
+        <Original>The Serbian Armed Forces used to primarily use Soviet equipment, but have since diversified their arsenal after the fall of the Soviet Union. They often wield the HK G36, and commonly use American Humvees along with a host of more modern Russian vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_ADA">
+        <Original>The African Desert Army is a coalition of North African nations around the Sahara. They primarily use very old Soviet equipment and Vietnam-War era US equipment, and prefer a variety of mass-produced rifles like the M16, AK-74, and G3.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_ANA">
+        <Original>The Afghan National Army has, like its host country, undergone quite the history since it's conception in 1997. They use a mix of locally-sourced, Soviet, and American weapons, as well as Soviet surplus equipment supported by the remnants of American occupation.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_CW_Sov">
+        <Original>The Soviets after the end of World War II built up their own military superpower and nuclear program, independent of the US. With the development of the AK-47 and mass-produced variants like the AKM, the Soviets became one of the two leading world powers.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_CW_US">
+        <Original>After the victories on the Pacific Front during World War II, the United States realized it was woefully ill-prepared for another prolonged war and put itself at the forefront of military innovation and industry. They typically use the M16 and M14 rifles which have been in service to this day.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_HIDF">
+        <Original>The Horizon Island Defense Force are the small military force defending the Pacific island of Tanoa. They typically use Vietnam-war era and similar US gear, rounded with a variety of imported European weapons and vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_MDF">
+        <Original>The Malden Defense Force are the small military force defending the island of Malden, close to the Gibraltar Strait. They use US imported weaponry and vehicles, as well as the French Mystere fighter for aerial operations.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_East">
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction uses primarily Eastern, or Russian, vehicles and weaponry.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_West">
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction uses primarily Western, or United States, vehicles and weaponry.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_Mix">
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction is transitioning between military backers and uses a mix of United States and Russian vehicles and weaponry.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AAF">
+        <Original>The Altis Armed Forces are comprised mostly of combat veterans and patriotic citizens from their home island, with an outdated arsenal of U.S. and Soviet equipment, which is being actively renovated. They typically use the HK G3 and HK G36.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_LDF">
+        <Original>The dedicated protectors of a small Eastern European territory near Belarus, the Livonia Defense Force are a relatively small but deceptively capable army. As a former Soviet territory, the military uses any surplus Soviet gear it can scavenge.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_AI_KRG">
+        <Original>The Kyrgystan Royal Guard is the primary defending force of the Middle-Eastern country of Kyrgystan. Outfitted primarily with U.S. surplus equipment, the KRG make use of a variety of small arms imported from various neighboring countries.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_Reb_CCM">
+        <Original>The Chernorussian Communist Militia is quite similar to NAPA, with a group of citizens that takes faith in the old ways of the Soviet Union over the modern ideology of capitalism. Similar to NAPA, they scavenge whatever Soviet weapons they can.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_Reb_ION">
+        <Original>A detachment of ION Services, Incorporated, is sent by an unknown client to cause instability in the region. ION mercenaries have better funding and access to a wider variety of assets than other grassroots rebellions.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_TKM">
+        <Original>The Takistani militia is an unexpectedly well-armed group of civilians who hold a significant opposition to the foreign occupation and support the acting government is attempting to use to bolster its ranks. They use a variety of scavenged weapons from wherever they can find.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_3CB_Reb_LSM">
+        <Original>The Livonia Seperatist Militia works against the, per their view, tyrannic rule of the LDF. They use scavenged LDF weapons wherever possible since many members are defectors with previous military experience, but many prefer shotguns for the thick forest.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CHC">
+        <Original>The civilians of Chernarus already have enough on their plate with the active civil war in their home country. It's your job to end the rule of the corrupt government over these people's lives.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_TKC">
+        <Original>The remainder of the civilians who were unable to evacuate the combat zone, the Takistani civilians are always on alert and have learned not to trust anyone. Make sure you restore peace to their lands.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_BAF">
+        <Original>The British Armed Forces have quite the history, and their unique assortment of weaponry and equipment clearly shows it. They typically use the L85 series of assault rifles, chambered in 5.56 NATO.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CUP_AI_RACS">
+        <Original>The Royal Army Corps of Sahrani use a variety of NATO and U.S. vehicles and weaponry, with some diversity depending on individual preference, often including versions of the FN FAL or HK G36.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CUP_AI_SLA">
+        <Original>The Sahrani Liberation Army are a group that opposes the Western support of the current government and has successfully acquired assets from a variety of Eastern nations to execute a violent coup in Sahrani. They use a wide variety of AK-pattern rifles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CUP_AI_TKA">
+        <Original>The Takistani Army maintains a healthy stockpile of Soviet-era equipment and small arms after the end of official Soviet occupation. Their arsenal is rounded out with the occaisonal foreign rifle, such as the FAL 50.61.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CUP_AI_BW">
+        <Original>The Bundesweher are the current armed forces for Germany. They frequently use domestically produced rifles, such as the G36, HK416, and HK417 for small arms. Their armored units are rounded out with many NATO and U.S. produced vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CUP_AI_HIL">
+        <Original>The Horizon Island Legion are the small military force defending the Pacific island of Tanoa. They typically use Gulf-war era and similar US gear, rounded with a variety of imported European weapons and vehicles and a substantial amount of Vietnam-era small arms.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_UNS_AI_US">
+        <Original>This is the Military Assistance Command, Vietnam, and are the operational of the US military tasked with invading Vietnam. They normally use later World War 2 weapons with a few fresh faces, like the M14, M16, and M60.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_UNS_AI_PAVN">
+        <Original>The People's Army of Vietnam are the citizens and militia of Vietnam dedicated to fighting the invasion of the US, with weapons funded from surrounding Eastern countries such as China and the Soviet Union. They typically use Type 56 assault rifles and the SKS battle rifle.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_UNS_Reb_VC">
+        <Original>The Vietcong are a milita seperatist force directly fighting the PAVN and it's reliance on the power of foreign nations. Due to the high availablilty, the VC typically use similar weapons as the PAVN, including a variety of AK variants and AK clones.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_GM_AI_NVA">
+        <Original>The NVA were the predominant armed forces in Germany from 1956 to 1990, with the fall of the Soviet Union. They typically use a wide variety of AK pattern rifles due to the overwhelming availability.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_GM_AI_BW">
+        <Original>The Bundesweher are the current armed forces for Germany. They frequently use domestically produced rifles, such as the G36 and HK33 for small arms. Their armored units are rounded out with many NATO and U.S. produced vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_GM_Reb">
+        <Original>The Freedom and Independence Army is a group of civilians opposing the occupation of the BW and NVA. They make good use of their ample suply of Mosin-Nagants, but rapidly switch to locally produced rifles when they can be acquired.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_GM_Civ">
+        <Original>The civilians of Germany never wanted a civil war, yet the conflicting interests of two leaders has led the country and its citizens into a very poor position. The FIA aim to lift this burden by taking matters into their own hands.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_BWA3_AI_BW">
+        <Original>The Bundesweher are the current armed forces for Germany. They frequently use domestically produced rifles, such as the G27, G36, and G38 for small arms. Their armored units are rounded out with many NATO and U.S. produced vehicles.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SPE_IFA_AI_US">
+        <Original>The United States represented the industrial backbone of the Allies during World War II. U.S. forces typically use a wide variety of battle rifles and SMGs, such as the M1 Garand and M1A1 Thompson.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SPE_IFA_AI_WEH">
+        <Original>The Wehrmacht were the armed forces of Germany during World War II. They typically use the Kar98K, and a variety of sub-machine guns like the MP38 and MP40, and created the first true assault rifle, the STG 44.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SPE_IFA_Reb_FFF">
+        <Original>The Free French Forces are a seperatist movement defending themselves primarily against the Wehrmacht, and later against the aggression of the United Kingdom and other Allied countries. Many Kar98K rifles are available, making them the precision weapon of choice for any revolutionary.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SPE_IFA_CIV">
+        <Original>The civilians of France have certainly seen their fair share of turmoil over the last 300 years, but the impact of World War II has been unlike anything seen before. The FFF wishes to liberate these people from the clutches of the Germans.</Original>
+      </Key>
+    </Container>
   </Package>
 </Project>

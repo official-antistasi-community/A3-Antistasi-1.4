@@ -37,6 +37,28 @@ private _shotsPerVolley = _numberOfRounds / 3;
 private _fn_executeMortarFire =
 {
     params ["_mortar"];
+	
+	private _scudLaunchers = ["rhs_9k79","rhs_9k79_K","rhs_9k79_B"];
+	if((typeOf _mortar) in _scudLaunchers) then {
+		//Intercepted
+		//Rhs scripts
+		//\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaDeploy.sqf
+		//\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaFire.sqf
+		
+        private _subTargets = _mortar getVariable ["FireOrder", []];
+        private _shellTarget = _subTargets deleteAt 0;
+		
+		
+		//private _relDir = [_mortar, _shellTarget] call BIS_fnc_relativeDirTo;
+		//_mortar setDir ((getDir _mortar) + _relDir);
+		
+		[_mortar,1] spawn rhs_fnc_ss21_AI_prepare;
+		_tochkaGrp = group _mortar;
+		sleep 30;
+		_wp = _tochkaGrp addWaypoint [ATLtoASL _shellTarget, 0];
+		_wp setWaypointType "SCRIPTED"; 
+		_wp setWaypointScript "\rhsafrf\addons\rhs_c_rva\scripts\WP_TochkaFire.sqf";
+	};
 
     _mortar addEventHandler
     [
@@ -111,6 +133,12 @@ while {time < _timeout} do
     _target resize 0;                                       // clear target array so that a new one can be added externally
     Debug_2("%1 Next target is %2", _supportName, _targetPos);
 
+	//Gets and rotates the mortar/vehicle towards target, allowing MLRS or similar limited artillery to fire upon their target
+	//private _relDir = [_mortar, _targetPos] call BIS_fnc_relativeDirTo; 
+	//_mortar setDir ((getDir _mortar) + _relDir);
+	_mortar setDir ((getDir _mortar) + (_mortar getDir _targetPos));
+	
+	
     // 50m circular spread because it's easy
     private _subTargets = [];
     for "_i" from 1 to _shotsPerVolley do {

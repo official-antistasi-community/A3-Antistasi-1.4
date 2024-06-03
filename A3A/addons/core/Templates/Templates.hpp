@@ -1055,4 +1055,13 @@ class Templates
         name = "SPE_IFA Civs";
         file = "SPE_IFA_CIV";
     };
+#if __A3_DEBUG__
+    class RHS_SCUD_TEST : RHS_AFRF_Arid
+    {
+        flagTexture = "A3\Data_F\Flags\Flag_CSAT_CO.paa";
+        name = "RHS SCUD TEST";
+        file = "RHS_SCUD_TEST";
+        climate[] = {};
+    }; 
+#endif
 };

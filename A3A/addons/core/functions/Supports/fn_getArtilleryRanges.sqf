@@ -46,4 +46,11 @@ private _minCharge = getNumber (_weaponCfg >> getArray (_weaponCfg >> "modes")#0
 if (_minCharge == 0) then { Error_1("Artillery charge lookup failed for %1", _vehType); _minCharge = 1 };
 private _minRange = (_minCharge * _initSpeed)^2 * sin (2*_maxElev) / 9.807;
 
+
+private _scudLaunchers = ["rhs_9k79","rhs_9k79_K","rhs_9k79_B"];
+if(_vehType in _scudLaunchers) then {
+	_minRange = 1000;
+	_maxRange = 40000;
+};
+
 [_minRange+100, _maxRange-100];     // make sure we can spread shots

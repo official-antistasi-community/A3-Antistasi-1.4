@@ -22,14 +22,15 @@ Example:
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-if (!isServer) exitWith {
-    _this remoteExecCall ["A3A_fnc_resourcesPlayer", 2];
-};
-
 params [
     ["_moneyAdjustment", 0, [0]],
     ["_playerObject", player, [objNull]]
 ];
+
+if (!isServer) exitWith {
+    [_moneyAdjustment, _playerObject] remoteExecCall ["A3A_fnc_resourcesPlayer", 2];
+    false;
+};
 
 private _storedMoney = _playerObject getVariable ["moneyX", 0];
 Trace_1("_moneyAdjustment: %1",_moneyAdjustment);

@@ -60,11 +60,13 @@ if (typeName _donateTo isEqualTo "STRING") exitWith {
                 true;
             };
             [_title, format [localize "STR_A3A_fn_orgp_donMon_no_less", _donateAmount]] remoteExecCall ["A3A_fnc_customHint", _donateFrom];
-            if (true) exitWith {false};  // Return
+            false;  // Return
         };
     };
-    Error("Switch case ("+toLower _donateTo+") does not match any options.");
-    false;  // false
+    default {
+        Error("Switch case ("+toLower _donateTo+") does not match any options.");
+        false;  // Return
+    };
 };
 
 if (isNull _donateTo || !isPlayer _donateTo) exitWith {

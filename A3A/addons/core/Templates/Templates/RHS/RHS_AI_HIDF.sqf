@@ -20,14 +20,14 @@
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_hidf_M998_2dr_halftop","rhsgref_hidf_M998_4dr_halftop", "rhsgref_hidf_m1025"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19"]] call _fnc_saveToTemplate;
-["vehiclesTrucks", ["rhsusf_M1078A1P2_WD_fmtv_usarmy","rhsusf_M1083A1P2_WD_fmtv_usarmy", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
+["vehiclesTrucks", ["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_M998_2dr_fulltop", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["rhsusf_M1078A1P2_WD_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_WD_fmtv_usarmy"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["rhsusf_M977A4_AMMO_usarmy_wd"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["rhsusf_M977A4_REPAIR_usarmy_wd"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["rhsusf_M978A4_usarmy_wd"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;            //this line determines light APCs
-["vehiclesAPCs", ["rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2"]] call _fnc_saveToTemplate;            //this line determines light APCs
+["vehiclesAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19","rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["RHS_M2A2_wd"]] call _fnc_saveToTemplate;                //this line determines IFVs
 ["vehiclesTanks", ["rhsusf_m1a1hc_wd"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
@@ -47,10 +47,8 @@
 ["vehiclesHelisLightAttack", ["rhs_uh1h_hidf_gunship"]] call _fnc_saveToTemplate; 
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["RHS_M119_WD"]] call _fnc_saveToTemplate;        // "rhsusf_M142_usarmy_D" - OP until we can customize magazines
+["vehiclesArtillery", ["RHS_M119_WD"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhsusf_m109_usarmy", ["rhs_mag_155mm_m795_28"]],
-["rhsusf_M142_usarmy_WD", ["rhs_mag_m26a1_6", "rhs_mag_mgm168_block4_1", "rhs_mag_mgm140b_1"]],//Cluster, 500lb HE, 69 Small HE Rockets
 ["RHS_M119_WD", ["RHS_mag_m1_he_12"]]
 ]] call _fnc_saveToTemplate;
 
@@ -59,8 +57,8 @@
 
 //Config special vehicles
 ["vehiclesMilitiaLightArmed", ["rhsgref_hidf_m1025_m2"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["rhs_zil131_msv"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["rhsgref_hidf_m998_4dr","rhsgref_hidf_M998_2dr"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhsgref_hidf_M998_2dr"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["rhsgref_hidf_m998_4dr"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhsgref_hidf_M998_4dr_fulltop"]] call _fnc_saveToTemplate;
 

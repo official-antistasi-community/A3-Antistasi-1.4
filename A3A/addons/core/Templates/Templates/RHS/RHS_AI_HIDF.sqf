@@ -104,14 +104,17 @@ _loadoutData set ["sniperRifles", []];
 
 _loadoutData set ["lightATLaunchers", ["rhs_weap_m72a7"]];
 _loadoutData set ["ATLaunchers", [
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HEAT"], [], ""],
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HE"], [], ""],
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HEDP"], [], ""],
-["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE"], [], ""],
+["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HEAT"], [], ""],
+["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HE"], [], ""],
+["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HEDP"], [], ""],
+["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE"], [], ""],
 ["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HE","rhs_mag_maaws_HEDP"], [], ""],
 ["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HE","rhs_mag_maaws_HEAT"], [], ""]
 ]];
-_loadoutData set ["missileATLaunchers", []];
+_loadoutData set ["heavyATLaunchers", [
+["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HEDP"], [], ""],
+["rhs_weap_maaws", "", "", "rhs_optic_maaws", ["rhs_mag_maaws_HEAT"], [], ""]
+]];
 _loadoutData set ["AALaunchers", ["rhs_weap_fim92"]];
 _loadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 
@@ -538,7 +541,7 @@ private _atTemplate = {
     [selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
 
-    ["ATLaunchers"] call _fnc_setLauncher;
+    [selectRandom["ATLaunchers", "heavyATLaunchers"]] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
 

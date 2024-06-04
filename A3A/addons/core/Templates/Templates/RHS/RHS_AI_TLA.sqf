@@ -30,14 +30,14 @@
 ["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_tla_btr60"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["rhs_bmp1_msv"]] call _fnc_saveToTemplate;                //this line determines IFVs
+["vehiclesIFVs", ["rhs_bmp1_msv", "rhs_bmp1k_msv", "rhs_bmp1p_msv", "rhs_bmp1d_msv"]] call _fnc_saveToTemplate;                //this line determines IFVs
 ["vehiclesTanks", ["rhs_t72ba_tv"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate;
 
 
 ["vehiclesTransportBoats", ["rhsgref_hidf_rhib","B_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhsgref_tla_btr60"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["rhsgref_tla_btr60","rhs_bmp1_msv", "rhs_bmp1k_msv", "rhs_bmp1p_msv","rhsgref_BRDM2_HQ_msv","rhsgref_BRDM2UM_msv","rhsgref_BRDM2_msv"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["RHSGREF_A29B_HIDF", "RHS_Su25SM_vvsc"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhs_l159_cdf_b_CDF_CAP"]] call _fnc_saveToTemplate;
@@ -46,9 +46,9 @@
 ["vehiclesHelisLight", ["RHS_Mi8t_vv"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_Mi8mt_vv"]] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", ["a3a_rhs_Mi8AMTSh_tla", "a3a_rhs_Mi8MTV3_heavy_tla", "a3a_rhs_Mi8MTV3_tla"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhsgref_mi24g_CAS", "RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["RHS_Mi24V_vvsc"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["rhs_2s1_tv", "rhsgref_ins_d30", "RHS_BM21_VV_01", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["rhsgref_ins_d30", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["rhs_2s1_tv", ["rhs_mag_3of56_35"]],
 ["rhsgref_ins_d30",["rhs_mag_3of56_10"]],
@@ -66,8 +66,8 @@
 ["vehiclesPolice", ["rhsgref_cdf_b_reg_uaz_open", "rhsgref_cdf_b_reg_uaz"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["RHS_M2StaticMG_WD", "rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
-["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate;
-["staticAA", ["rhs_Igla_AA_pod_msv", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
+["staticAT", ["rhsgref_tla_SPG9"]] call _fnc_saveToTemplate;
+["staticAA", ["RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
 ["staticMortars", ["rhs_2b14_82mm_msv"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;

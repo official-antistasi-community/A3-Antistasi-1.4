@@ -3,6 +3,26 @@ Changelog
 ==========
 
 
+Version 3.5.4
+===============
+
+.. note::
+   28th April 2024
+
+.. admonition:: Bugfixes
+
+   * :issue:`3226` Fixed reordering and unlockedXXX arrays in initial unlocks
+   * :issue:`3235` Fixed case where HC vehicles are remote-spawned with no roads near HQ
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
 Version 3.5.3
 ===============
 

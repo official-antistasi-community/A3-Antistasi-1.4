@@ -58,7 +58,7 @@
 ["uavsPortable", ["rhs_pchela1t_vvsc"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["rhsgref_ins_uaz_dshkm", "rhsgref_ins_uaz_spg9", "rhsgref_ins_uaz_ags"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_spg9", "rhsgref_nat_uaz_ags"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["rhsgref_ins_zil131", "rhsgref_ins_zil131_open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"]] call _fnc_saveToTemplate;
 

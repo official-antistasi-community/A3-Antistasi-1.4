@@ -16202,7 +16202,7 @@
         <Original>Syndikat supporters see through the reign of CSAT on the Pacific island of Tanoa and are actively attempting to overthrow the government responsible for allowing foreign occupation. Similar to the FIA, they typically use sub-machine guns for hit-and-run tactics.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_LFF">
-        <Original>The Livonia Freedom Fighters believe that the LDF has grown corrupt and that the government needs to be reevaluated, whether peacefully or manually by the rebellion forming in Livonia. The LFF often use basic hunting shotguns until the opportunity to steal an enemy weapon presents itself.</Original>
+        <Original>The Livonia Freedom Fighters believe that the LDF has grown corrupt and that the government needs to be reevaluated, whether peacefully or with force by the hands of the rebellion forming in Livonia. The LFF often use basic hunting shotguns until the opportunity to steal an enemy weapon presents itself.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_CIV">
         <Original>No rebellion is won without the support of the civilians, whether they choose to report information to the rebels or volunteer to fight for what is right. Whatever their role may be, the rebellion is always fighting for their freedom.</Original>
@@ -16229,7 +16229,7 @@
         <Original>The People's Army of Vietnam are the citizens and militia of Vietnam dedicated to fighting the invasion of the US, with weapons funded from surrounding Eastern countries such as China and the Soviet Union. They typically use Type 56 assault rifles and the SKS battle rifle.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_VN_Reb_POF">
-        <Original>The Pissed Off Farmers are an excellent example of what happens when you mess with the rice paddies. They use weapons stolen from the PAVN, so often Type 56 AK-clones and the SKS rifle.</Original>
+        <Original>The Pissed Off Farmers are an excellent example of what happens when you mess with the rice paddies. They have a high supply of Mosin-Nagants, due to the incredible mass-production during World War II.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_VN_Civ">
         <Original>The noncombatant civilians of Vietnam wish for no part in this war, solely looking to go back to the time where they could farm in peace.</Original>
@@ -16250,7 +16250,7 @@
         <Original>The United States Marine Corps are the primary branch of the US military deployed overseas. They retain the same lethality as their domestic counterparts, with equipment fitted for operating on the high seas. Their small arms are predominantly the same as the standard US Army.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_NAPA">
-        <Original>The National Party formed as a civilian militia during the civil war between the CDF and the ChDKZ. As the territory was previously part of the Soviet Union, NAPA uses weapons it can steal from either Russian-backed force.</Original>
+        <Original>The National Party formed as a civilian militia during the civil war between the CDF and the ChDKZ. As the territory was previously part of the Soviet Union, NAPA uses weapons it can steal from either Russian-backed force, but many militiamen fall back on the commonly available Kar98K.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_RHS_AI_SAF">
         <Original>The Serbian Armed Forces used to primarily use Soviet equipment, but have since diversified their arsenal after the fall of the Soviet Union. They often wield the HK G36, and commonly use American Humvees along with a host of more modern Russian vehicles.</Original>
@@ -16274,13 +16274,13 @@
         <Original>The Malden Defense Force are the small military force defending the island of Malden, close to the Gibraltar Strait. They use US imported weaponry and vehicles, as well as the French Mystere fighter for aerial operations.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_East">
-        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction uses primarily Eastern, or Russian, vehicles and weaponry.</Original>
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates in the faction selector. This faction uses primarily Eastern, or Russian, vehicles and weaponry.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_West">
-        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction uses primarily Western, or United States, vehicles and weaponry.</Original>
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates in the faction selector. This faction uses primarily Western, or United States, vehicles and weaponry.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_AI_TKA_Mix">
-        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates. This faction is transitioning between military backers and uses a mix of United States and Russian vehicles and weaponry.</Original>
+        <Original>The Takistani Army is backed by a variety of sources, which are represented as individual templates in the faction selector. This faction is transitioning between military backers and uses a mix of United States and Russian vehicles and weaponry.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_AAF">
         <Original>The Altis Armed Forces are comprised mostly of combat veterans and patriotic citizens from their home island, with an outdated arsenal of U.S. and Soviet equipment, which is being actively renovated. They typically use the HK G3 and HK G36.</Original>
@@ -16298,10 +16298,10 @@
         <Original>A detachment of ION Services, Incorporated, is sent by an unknown client to cause instability in the region. ION mercenaries have better funding and access to a wider variety of assets than other grassroots rebellions.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_TKM">
-        <Original>The Takistani militia is an unexpectedly well-armed group of civilians who hold a significant opposition to the foreign occupation and support the acting government is attempting to use to bolster its ranks. They use a variety of scavenged weapons from wherever they can find.</Original>
+        <Original>The Takistani militia is an unexpectedly well-armed group of civilians who hold a significant opposition to the foreign occupation and support the acting government is attempting to use to bolster its ranks. They use a variety of scavenged weapons, commonly relying on bolt-action rifles.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_Reb_LSM">
-        <Original>The Livonia Seperatist Militia works against the, per their view, tyrannic rule of the LDF. They use scavenged LDF weapons wherever possible since many members are defectors with previous military experience, but many prefer shotguns for the thick forest.</Original>
+        <Original>The Livonia Seperatist Militia works against the, per their view, tyrannic rule of the current government. They use scavenged weapons wherever possible since many members are defectors with previous military experience, but many prefer shotguns for the thick forest.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_CHC">
         <Original>The civilians of Chernarus already have enough on their plate with the active civil war in their home country. It's your job to end the rule of the corrupt government over these people's lives.</Original>
@@ -16362,6 +16362,12 @@
       </Key>
       <Key ID="STR_A3A_templates_lore_SPE_IFA_CIV">
         <Original>The civilians of France have certainly seen their fair share of turmoil over the last 300 years, but the impact of World War II has been unlike anything seen before. The FFF wishes to liberate these people from the clutches of the Germans.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_CSATEnoch">
+        <Original>CSAT forces operating in Livonia are Russian-based and use modern Russian gear along with weapons from other nations in the alliance. They typically use the Katiba assault rifle, similar to traditional CSAT doctrine.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_ACR">
+        <Original>The Army of the Czech Republic, as a landlocked country, primarily focuses on it's Air Force and ground forces. Many of the weapons the ACR use are standard NATO-issue, but they tend to diversify with a variety of homegrown weapons, such as the vz. 58 or CZ BREN.</Original>
       </Key>
     </Container>
   </Package>

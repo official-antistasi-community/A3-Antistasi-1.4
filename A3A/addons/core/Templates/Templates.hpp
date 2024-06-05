@@ -41,6 +41,7 @@ class Templates
         file = "Vanilla_AI_CSAT_Enoch";
         climate[] = {"temperate"};
         forceDLC[] = {"enoch"};
+        lore = $STR_A3A_templates_lore_CSATEnoch;
     };
 
     class Vanilla_NATO_Arid : Vanilla_Base
@@ -193,7 +194,7 @@ class Templates
         flagTexture = "\A3\Data_F\Flags\flag_ion_CO.paa";
         name = "WS ION";
         file = "WS_AI_ION";
-        shortName = "WS ION";
+        shortName = "ION";
         lore = $STR_A3A_templates_lore_WS_AI_ION;
     };
     class WS_SIFA : WS_Base
@@ -220,7 +221,7 @@ class Templates
         flagTexture = "A3\Data_F\Flags\Flag_CSAT_CO.paa";
         name = "WS CSAT North Africa";
         file = "WS_AI_CSAT_NAfrica";
-        shortName = "WS CSAT";
+        shortName = "CSAT";
         lore = $STR_A3A_templates_lore_CSAT;
     };
     class WS_TURA : WS_Base
@@ -238,7 +239,7 @@ class Templates
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
         name = "Western Sahara";
         file = "WS_Civ";
-        shortName = "WS Civ";
+        shortName = "WS CIV";
         lore = $STR_A3A_templates_lore_WS_CIV;
     };
     class WS_NATO : WS_Base
@@ -247,7 +248,7 @@ class Templates
         flagTexture = "\A3\Data_F\Flags\Flag_NATO_CO.paa";
         name = "WS NATO Desert";
         file = "WS_AI_NATO_Desert";
-        shortName = "WS NATO";
+        shortName = "NATO";
         lore = $STR_A3A_templates_lore_NATO;     
     };
     // ***************************** VN *****************************
@@ -720,7 +721,7 @@ class Templates
         file = "CUP_AI_ACR_Arid";
         climate[] = {"arid"};
         shortName = "ACR";
-        lore = "The Army of the Czech Republic, as a landlocked country, primarily focuses on it's Air Force and ground forces. Many of the weapons the ACR use are standard NATO-issue, but they tend to diversify with a variety of homegrown weapons, such as the vz. 58 or CZ BREN.";
+        lore = $STR_A3A_templates_lore_ACR;
     };
     class CUP_ACR_Temperate : CUP_ACR_Arid
     {
@@ -737,7 +738,7 @@ class Templates
         file = "CUP_AI_AFRF_Arid";
         climate[] = {"arid"};
         shortName = "AFRF";
-        lore = "The Armed Forces of the Russian Federation are the current-age Russian Army. Equipping a variety of cutting edge and cold-war era vehicles, the AFRF typically use AK style assault rifles chambered in 5.45 and 7.62";
+        lore = $STR_A3A_templates_lore_AFRF;
     };
     class CUP_AFRF_Temperate : CUP_AFRF_Arid
     {
@@ -938,14 +939,14 @@ class Templates
         flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
         name = "CUP TKC";
         file = "CUP_Civ_TKC";
-        shortName = "CIV TKC";
+        shortName = "CIV TK";
         lore = $STR_A3A_templates_lore_TKC;
     };
     class CUP_Civ : CUP_Base
     {
         side = "Civ";
         flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_chernarus_co.paa";
-        name = "CUP CHC";
+        name = "CUP CH";
         file = "CUP_Civ_CHC";
         shortName = "CIV CHC";
         lore = $STR_A3A_templates_lore_CHC;

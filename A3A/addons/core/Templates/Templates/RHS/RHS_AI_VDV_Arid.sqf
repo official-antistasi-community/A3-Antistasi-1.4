@@ -39,16 +39,16 @@
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "RHS_T50_vvs_generic_ext"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["RHS_Mi8AMT_vdv"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["rhs_ka60_grey"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24Vt_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_CAS_vdv", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["rhs_2s1_tv", ["rhs_mag_3of56_10"]],
+["rhs_2s1_tv", ["rhs_mag_3of56_35"]],
 ["rhs_2s3_tv",["rhs_mag_HE_2a33", "rhs_mag_WP_2a33"]],
 ["RHS_BM21_VV_01", ["rhs_mag_m21of_1"]]
 ]] call _fnc_saveToTemplate;

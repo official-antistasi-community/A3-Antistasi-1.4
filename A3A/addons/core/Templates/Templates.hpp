@@ -290,8 +290,16 @@ class Templates
     {
         side = "Inv"; 
         flagTexture = "rhsafrf\addons\rhs_main\data\Flag_vdv_CO.paa"; 
-        name = "RHS VDV"; 
+        name = "RHS VDV Temperate"; 
         file = "RHS_AI_VDV_Temperate"; 
+        climate[] = {"temperate","tropical","arctic"};
+    };
+
+    class RHS_VDV_Arid : RHS_VDV_Temperate
+    {
+        name = "RHS VDV Arid"; 
+        file = "RHS_AI_VDV_Arid"; 
+        climate[] = {"arid"};
     };
 
     class RHS_CHDKZ : RHS_Base

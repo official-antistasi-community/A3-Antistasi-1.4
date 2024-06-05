@@ -286,6 +286,14 @@ class Templates
         climate[] = {"temperate","tropical","arctic"};
     };
 
+    class RHS_VDV_Temperate : RHS_Base
+    {
+        side = "Inv"; 
+        flagTexture = "rhsafrf\addons\rhs_main\data\Flag_vdv_CO.paa"; 
+        name = "RHS VDV"; 
+        file = "RHS_AI_VDV_Temperate"; 
+    };
+
     class RHS_CHDKZ : RHS_Base
     {
         side = "Inv";

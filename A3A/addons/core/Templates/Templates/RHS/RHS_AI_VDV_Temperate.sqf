@@ -374,7 +374,7 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 _militiaLoadoutData set ["SMGs", ["rhs_weap_pp2000"]];
 _militiaLoadoutData set ["machineGuns", ["rhs_weap_pkm"]];
 _militiaLoadoutData set ["marksmanRifles", [
-["rhs_weap_m38_rail", "", "", "optic_KHS_old", ["rhsgref_5Rnd_762x54_m38"], [], ""]
+["rhs_weap_m38_rail", "", "", "rhsusf_acc_LEUPOLDMK4", ["rhsgref_5Rnd_762x54_m38"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", ["rhs_weap_m38"]];
 

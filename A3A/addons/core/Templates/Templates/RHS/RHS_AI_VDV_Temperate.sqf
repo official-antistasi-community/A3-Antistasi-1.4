@@ -62,9 +62,9 @@
 ["vehiclesMilitiaTrucks", ["rhsgref_ins_zil131", "rhsgref_ins_zil131_open"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaCars", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F", "rhs_uaz_open_vv"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["rhs_uaz_open_vv"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["rhs_KORD_high_MSV", "rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
+["staticMGs", ["rhs_KORD_high_MSV"]] call _fnc_saveToTemplate;
 ["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate;
 ["staticAA", ["rhs_Igla_AA_pod_msv", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
 ["staticMortars", ["rhs_2b14_82mm_msv"]] call _fnc_saveToTemplate;

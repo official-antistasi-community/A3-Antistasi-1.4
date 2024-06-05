@@ -127,10 +127,7 @@ while {time < _timeout} do
     //Makes sure that all units escape before attacking
     // [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;
     private _flightTime = _mortar getArtilleryETA [_targetPos, _mortar getVariable "shellType"];
-    private _mortarType = typeOf _mortar;
-    private _weaponArray = getArray (configFile >> "CfgVehicles" >> _mortarType >> "Turrets" >> "MainTurret" >> "weapons");
-    private _reloadTime = getNumber (configFile >> "CfgWeapons" >> _weaponArray#0 >> "reloadTime");
-    private _realReloadTime = _reloadTime max ([3,5] select _isHeavyArty);
+    private _reloadTime = [3,10] select (_mortar isKindOf "StaticMortar");
     [_reveal, _targetPos, _side, _suppType, 150, 30+_flightTime+_realReloadTime*_numberOfRounds] spawn A3A_fnc_showInterceptedSupportCall;
 };
 

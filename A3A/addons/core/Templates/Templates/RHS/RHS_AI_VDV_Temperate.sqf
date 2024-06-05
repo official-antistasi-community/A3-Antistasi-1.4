@@ -6,8 +6,9 @@
 ["spawnMarkerName", "VDV Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "rhs_Flag_Russia_F"] call _fnc_saveToTemplate;
-["flagTexture", "rhsafrf\addons\rhs_main\data\flag_rus_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Russia"] call _fnc_saveToTemplate;
+["flagTexture", "rhsafrf\addons\rhs_main\data\Flag_vdv_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "rhs_flag_vdv"] call _fnc_saveToTemplate;
+
 
 //////////////////////////
 //       Vehicles       //

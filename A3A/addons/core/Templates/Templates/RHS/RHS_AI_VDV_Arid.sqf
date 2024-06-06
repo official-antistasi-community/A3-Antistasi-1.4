@@ -26,10 +26,10 @@
 ["vehiclesRepairTrucks", ["rhs_gaz66_repair_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VDV_01"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_vdv"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_vdv", "rhs_btr80a_vdv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate; // sand camos available for atleast the BTR-80A, will need config fixes to add though :P
-["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_prp3_vdv"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["rhs_bmd4_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2k"]] call _fnc_saveToTemplate;
-["vehiclesLightTanks", ["rhs_sprut_vdv"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_BRDM2_vdv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_btr80a_vdv", "rhs_bmd2k"]] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["rhs_bmd2m"]] call _fnc_saveToTemplate;
+["vehiclesLightTanks", ["rhs_sprut_vdv", "rhs_sprut_vdv", "rhs_bmd4_vdv", "rhs_bmd4ma_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhs_t72be_tv", "rhs_t72bd_tv", "rhs_t90sab_tv", "rhs_t90a_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["rhs_zsu234_aa"]] call _fnc_saveToTemplate;
 
@@ -43,10 +43,10 @@
 
 ["vehiclesHelisLight", ["rhs_ka60_grey"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate; 
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // check variants
-["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate; // check variants
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_CAS_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
 ["rhs_2s1_tv", ["rhs_mag_3of56_35"]],
 ["rhs_2s3_tv",["rhs_mag_HE_2a33", "rhs_mag_WP_2a33"]],

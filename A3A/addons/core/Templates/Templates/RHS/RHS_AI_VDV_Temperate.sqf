@@ -27,7 +27,7 @@
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VDV_01"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["rhs_gaz66_ap2_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["rhsgref_BRDM2_vdv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_btr80a_vdv", "rhs_bmd2k"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_btr80a_vdv", "rhs_bmd2k", "rhs_bmd2k", "rhs_bmd2k"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhs_bmd2m"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["rhs_sprut_vdv", "rhs_sprut_vdv", "rhs_bmd4_vdv", "rhs_bmd4ma_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["rhs_t72be_tv", "rhs_t72bd_tv", "rhs_t90sab_tv", "rhs_t90a_tv", "rhs_t90sm_tv"]] call _fnc_saveToTemplate;

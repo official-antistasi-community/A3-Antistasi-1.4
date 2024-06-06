@@ -17,7 +17,7 @@
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
-[["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhs_tigr_3camo_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["rhs_tigr_sts_3camo_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhs_kamaz5350_open_vdv", "rhs_kamaz5350_flatbed_cover_vdv"]] call _fnc_saveToTemplate;
@@ -35,7 +35,7 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate; // VMF for amphib?
+["vehiclesAmphibious", ["rhs_btr80_vdv", "rhs_btr80a_vdv"]] call _fnc_saveToTemplate; 
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "RHS_T50_vvs_generic_ext"]] call _fnc_saveToTemplate;
@@ -193,9 +193,9 @@ _sfLoadoutData set ["vests", ["rhs_6b45_desert", "rhs_6sh92_vsr_vog_headset"]];
 _sfLoadoutData set ["slVests", ["rhs_6b23_ML_vydra_3m"]];
 _sfLoadoutData set ["glVests", ["rhs_6b23_ML_6sh92_vog_headset"]];
 _sfLoadoutData set ["backpacks", ["rhsgref_tortila_specter", "rhs_tortila_khaki"]];
-_sfLoadoutData set ["helmets", ["rhs_altyn_visordown", "rhs_fieldcap_helm_ml", "rhssaf_helmet_m97_black_nocamo_black_ess"]]; // SAF helmet?
+_sfLoadoutData set ["helmets", ["rhs_altyn_visordown", "rhs_fieldcap_helm_ml"]]; 
 _sfLoadoutData set ["slHat", ["rhs_beret_vdv_early"]];
-_sfLoadoutData set ["binoculars", ["rhs_pdu4"]]; // rangefinder instead of laserdes?
+_sfLoadoutData set ["binoculars", ["Laserdesignator"]];
 
 _sfLoadoutData set ["slRifles", [
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk4screws", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm_89"], [], "rhs_acc_grip_ffg2"],
@@ -275,7 +275,7 @@ _militaryLoadoutData set ["slVests", ["rhs_6b45_desert"]];
 _militaryLoadoutData set ["glVests", ["rhs_6b23_ML_6sh92_vog"]];
 _militaryLoadoutData set ["backpacks", ["rhsgref_tortila_specter", "rhs_tortila_khaki", "B_AssaultPack_cbr"]];
 _militaryLoadoutData set ["helmets", ["rhs_6b27m_ml_bala", "rhs_6b27m_ML_ess_bala", "rhs_fieldcap_helm_ml", "rhs_fieldcap_ml"]];
-_militaryLoadoutData set ["binoculars", ["rhsusf_bino_m24_ARD"]]; // US binos instead of laserdes?
+_militaryLoadoutData set ["binoculars", ["rhsusf_bino_m24_ARD", "rhsusf_bino_m24_ARD", "Laserdesignator"]]; 
 
 _militaryLoadoutData set ["slRifles", [
 ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],

@@ -35,7 +35,7 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate; // VMF for amphib?
+["vehiclesAmphibious", ["rhs_btr80_vdv", "rhs_btr80a_vdv"]] call _fnc_saveToTemplate; 
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "RHS_T50_vvs_generic_ext"]] call _fnc_saveToTemplate;
@@ -275,7 +275,7 @@ _militaryLoadoutData set ["slVests", ["rhs_6b45_off"]];
 _militaryLoadoutData set ["glVests", ["rhs_6b45_grn"]];
 _militaryLoadoutData set ["backpacks", ["rhs_rk_sht_30_emr", "rhs_tortila_emr", "rhs_rk_sht_30_emr_engineer_empty"]];
 _militaryLoadoutData set ["helmets", ["rhs_6b47_ess_bala", "rhs_6b7_1m_bala2_emr", "rhs_6b7_1m_emr_ess", "rhs_6b28_ess", "rhs_6b7_1m_olive", "rhs_6b7_1m_bala2_olive"]];
-_militaryLoadoutData set ["binoculars", ["Laserdesignator_03"]];
+_militaryLoadoutData set ["binoculars", ["rhsusf_bino_m24_ARD", "rhsusf_bino_m24_ARD", "Laserdesignator_03"]];
 
 _militaryLoadoutData set ["slRifles", [
 ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],

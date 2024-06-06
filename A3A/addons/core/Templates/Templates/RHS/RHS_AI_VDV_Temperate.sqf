@@ -301,7 +301,7 @@ _militaryLoadoutData set ["rifles", [
 ]];
 _militaryLoadoutData set ["carbines", [
 ["rhs_weap_asval", "", "", "rhs_acc_pso1m21", ["rhs_20rnd_9x39mm_SP6"], [], ""],
-["rhs_weap_scorpion", "", "", "", ["rhsgref_20rnd_765x17_vz61"], [], ""]
+"rhs_weap_pp2000"
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["rhs_weap_ak103_gp25_npz", "rhs_acc_dtkakm", "", "rhs_acc_1p87", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], ["rhs_VOG25", "rhs_VOG25", "rhs_VOG25P", "rhs_VG40OP_white"], ""],
@@ -340,7 +340,10 @@ _policeLoadoutData set ["rifles", [
 _policeLoadoutData set ["shotGuns", [
 ["rhs_weap_Izh18", "", "", "", ["rhsgref_1Rnd_00Buck", "rhsgref_1Rnd_Slug"], [], ""]
 ]];
-_policeLoadoutData set ["SMGs", ["rhs_weap_pp2000"]];
+_policeLoadoutData set ["SMGs", [
+["rhs_weap_scorpion", "", "", "", ["rhsgref_20rnd_765x17_vz61"], [], ""],
+"rhs_weap_pp2000"
+]];
 
 ////////////////////////////////
 //    Militia Loadout Data    //

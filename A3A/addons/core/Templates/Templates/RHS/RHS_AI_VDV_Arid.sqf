@@ -6,8 +6,8 @@
 ["spawnMarkerName", "VDV Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "rhs_Flag_Russia_F"] call _fnc_saveToTemplate;
-["flagTexture", "rhsafrf\addons\rhs_main\data\flag_rus_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_Russia"] call _fnc_saveToTemplate;
+["flagTexture", "rhsafrf\addons\rhs_main\data\Flag_vdv_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "rhs_flag_vdv"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -17,16 +17,16 @@
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
-["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["rhs_tigr_3camo_vv"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["rhs_tigr_sts_3camo_vv"]] call _fnc_saveToTemplate;
+[["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["rhs_tigr_3camo_vdv"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["rhs_tigr_sts_3camo_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhs_kamaz5350_open_vdv", "rhs_kamaz5350_flatbed_cover_vdv"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_msv", "rhs_kamaz5350_flatbed_msv"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_vdv", "rhs_kamaz5350_flatbed_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["RHS_Ural_Ammo_VDV_01"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["rhs_gaz66_repair_msv"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_vdv", "rhs_btr80a_vv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["rhs_gaz66_repair_vdv"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VDV_01"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["rhs_gaz66_ap2_vdv"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_vdv", "rhs_btr80a_vdv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate; // sand camos available for atleast the BTR-80A, will need config fixes to add though :P
 ["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_prp3_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhs_bmd4_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2k"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["rhs_sprut_vdv"]] call _fnc_saveToTemplate;
@@ -35,16 +35,16 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate; // VMF for amphib?
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "RHS_T50_vvs_generic_ext"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["RHS_Mi8AMT_vdv"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["RHS_Mi8AMT_vdv"]] call _fnc_saveToTemplate; // Mi-8 as paratrooper plane
 
 ["vehiclesHelisLight", ["rhs_ka60_grey"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_CAS_vdv", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate; 
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // check variants
+["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate; // check variants
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
@@ -57,16 +57,16 @@
 ["uavsPortable", ["rhs_pchela1t_vvsc"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
-["vehiclesMilitiaLightArmed", ["rhsgref_ins_uaz_dshkm", "rhsgref_ins_uaz_spg9", "rhsgref_ins_uaz_ags"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["rhsgref_ins_zil131", "rhsgref_ins_zil131_open"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", ["rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_spg9", "rhsgref_nat_uaz_ags"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhs_zil131_vdv", "rhs_zil131_open_vdv"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["rhs_uaz_open_vdv", "rhs_uaz_vdv"]] call _fnc_saveToTemplate;
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F", "rhs_uaz_open_vv"]] call _fnc_saveToTemplate;
+["vehiclesPolice", ["rhs_uaz_open_vv"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["rhs_KORD_high_MSV", "rhsgref_ins_DSHKM"]] call _fnc_saveToTemplate;
-["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate;
-["staticAA", ["rhs_Igla_AA_pod_msv", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
-["staticMortars", ["rhs_2b14_82mm_msv"]] call _fnc_saveToTemplate;
+["staticMGs", ["rhs_KORD_high_VDV"]] call _fnc_saveToTemplate;
+["staticAT", ["rhs_Kornet_9M133_2_vdv"]] call _fnc_saveToTemplate;
+["staticAA", ["rhs_Igla_AA_pod_vdv", "RHS_ZU23_VDV"]] call _fnc_saveToTemplate;
+["staticMortars", ["rhs_2b14_82mm_vdv"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;
@@ -193,9 +193,9 @@ _sfLoadoutData set ["vests", ["rhs_6b45_desert", "rhs_6sh92_vsr_vog_headset"]];
 _sfLoadoutData set ["slVests", ["rhs_6b23_ML_vydra_3m"]];
 _sfLoadoutData set ["glVests", ["rhs_6b23_ML_6sh92_vog_headset"]];
 _sfLoadoutData set ["backpacks", ["rhsgref_tortila_specter", "rhs_tortila_khaki"]];
-_sfLoadoutData set ["helmets", ["rhs_altyn_visordown", "rhs_fieldcap_helm_ml", "rhssaf_helmet_m97_black_nocamo_black_ess"]];
+_sfLoadoutData set ["helmets", ["rhs_altyn_visordown", "rhs_fieldcap_helm_ml", "rhssaf_helmet_m97_black_nocamo_black_ess"]]; // SAF helmet?
 _sfLoadoutData set ["slHat", ["rhs_beret_vdv_early"]];
-_sfLoadoutData set ["binoculars", ["rhs_pdu4"]];
+_sfLoadoutData set ["binoculars", ["rhs_pdu4"]]; // rangefinder instead of laserdes?
 
 _sfLoadoutData set ["slRifles", [
 ["rhs_weap_ak104_zenitco01", "rhs_acc_dtk4screws", "rhs_acc_perst3_2dp_h", "rhs_acc_1p29", ["rhs_30Rnd_762x39mm_89"], [], "rhs_acc_grip_ffg2"],
@@ -275,7 +275,7 @@ _militaryLoadoutData set ["slVests", ["rhs_6b45_desert"]];
 _militaryLoadoutData set ["glVests", ["rhs_6b23_ML_6sh92_vog"]];
 _militaryLoadoutData set ["backpacks", ["rhsgref_tortila_specter", "rhs_tortila_khaki", "B_AssaultPack_cbr"]];
 _militaryLoadoutData set ["helmets", ["rhs_6b27m_ml_bala", "rhs_6b27m_ML_ess_bala", "rhs_fieldcap_helm_ml", "rhs_fieldcap_ml"]];
-_militaryLoadoutData set ["binoculars", ["rhsusf_bino_m24_ARD"]];
+_militaryLoadoutData set ["binoculars", ["rhsusf_bino_m24_ARD"]]; // US binos instead of laserdes?
 
 _militaryLoadoutData set ["slRifles", [
 ["rhs_weap_ak103_zenitco01_b33", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhs_acc_okp7_picatinny", ["rhs_30Rnd_762x39mm", "rhs_30Rnd_762x39mm_tracer"], [], ""],
@@ -373,7 +373,7 @@ _militiaLoadoutData set ["grenadeLaunchers", [
 _militiaLoadoutData set ["SMGs", ["rhs_weap_pp2000"]];
 _militiaLoadoutData set ["machineGuns", ["rhs_weap_pkm"]];
 _militiaLoadoutData set ["marksmanRifles", [
-["rhs_weap_m38_rail", "", "", "optic_KHS_old", ["rhsgref_5Rnd_762x54_m38"], [], ""]
+["rhs_weap_m38_rail", "", "", "rhsusf_acc_LEUPOLDMK4", ["rhsgref_5Rnd_762x54_m38"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", ["rhs_weap_m38"]];
 

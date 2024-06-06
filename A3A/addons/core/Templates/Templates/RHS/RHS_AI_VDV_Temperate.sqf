@@ -9,7 +9,6 @@
 ["flagTexture", "rhsafrf\addons\rhs_main\data\Flag_vdv_CO.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "rhs_flag_vdv"] call _fnc_saveToTemplate;
 
-
 //////////////////////////
 //       Vehicles       //
 //////////////////////////
@@ -19,15 +18,15 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["rhs_tigr_3camo_vv"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["rhs_tigr_sts_3camo_vv"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", ["rhs_tigr_3camo_vdv"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["rhs_tigr_sts_3camo_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhs_kamaz5350_open_vdv", "rhs_kamaz5350_flatbed_cover_vdv"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_msv", "rhs_kamaz5350_flatbed_msv"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["rhs_kamaz5350_flatbed_cover_vdv", "rhs_kamaz5350_flatbed_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["RHS_Ural_Ammo_VDV_01"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["rhs_gaz66_repair_msv"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["RHS_Ural_Fuel_MSV_01"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["rhs_gaz66_ap2_msv"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_vdv", "rhs_btr80a_vv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["rhs_gaz66_repair_vdv"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VDV_01"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["rhs_gaz66_ap2_vdv"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["rhsgref_BRDM2UM_vdv", "rhsgref_BRDM2_vdv", "rhs_btr80a_vdv", "rhs_btr80_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["rhs_bmd1p", "rhs_bmd1k", "rhs_bmd1r", "rhs_prp3_vdv"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["rhs_bmd4_vdv", "rhs_bmd4ma_vdv", "rhs_bmd2m", "rhs_bmd2k"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["rhs_sprut_vdv"]] call _fnc_saveToTemplate;
@@ -36,15 +35,15 @@
 
 ["vehiclesTransportBoats", ["O_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["rhsusf_mkvsoc"]] call _fnc_saveToTemplate;
-["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate;
+["vehiclesAmphibious", ["rhs_btr80_vmf", "rhs_btr80a_vmf"]] call _fnc_saveToTemplate; // VMF for amphib?
 
 ["vehiclesPlanesCAS", ["RHS_Su25SM_vvs"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["RHS_T50_vvs_blueonblue", "RHS_T50_vvs_054", "RHS_T50_vvs_generic_ext"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_Mi8AMT_vdv"]] call _fnc_saveToTemplate; // Mi-8 as paratrooper plane
 
 ["vehiclesHelisLight", ["rhs_ka60_grey"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate; // check variant
-["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_CAS_vdv", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // check variant
+["vehiclesHelisTransport", ["RHS_Mi8mt_vvs", "RHS_Mi8mt_vvs", "RHS_Mi8mt_Cargo_vvs", "RHS_Mi24Vt_vvs"]] call _fnc_saveToTemplate; 
+["vehiclesHelisLightAttack", ["RHS_Mi8MTV3_heavy_vvs", "RHS_Mi24P_vvs", "RHS_Mi8MTV3_heavy_vvs"]] call _fnc_saveToTemplate; // check variants
 ["vehiclesHelisAttack", ["rhs_mi28n_vvs", "RHS_Ka52_vvs", "rhs_mi28n_vvs", "RHS_Ka52_vvs"]] call _fnc_saveToTemplate; // check variants
 
 ["vehiclesArtillery", ["rhs_2s1_tv", "rhs_2s3_tv", "RHS_BM21_VV_01"]] call _fnc_saveToTemplate;
@@ -59,15 +58,15 @@
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities -- Example:
 ["vehiclesMilitiaLightArmed", ["rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_dshkm", "rhsgref_nat_uaz_spg9", "rhsgref_nat_uaz_ags"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaTrucks", ["rhsgref_ins_zil131", "rhsgref_ins_zil131_open"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["rhs_uaz_open_MSV_01", "RHS_UAZ_MSV_01"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaTrucks", ["rhs_zil131_vdv", "rhs_zil131_open_vdv"]] call _fnc_saveToTemplate;
+["vehiclesMilitiaCars", ["rhs_uaz_open_vdv", "rhs_uaz_vdv"]] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", ["rhs_uaz_open_vv"]] call _fnc_saveToTemplate;
 
-["staticMGs", ["rhs_KORD_high_MSV"]] call _fnc_saveToTemplate;
-["staticAT", ["rhs_Kornet_9M133_2_msv"]] call _fnc_saveToTemplate;
-["staticAA", ["rhs_Igla_AA_pod_msv", "RHS_ZU23_MSV"]] call _fnc_saveToTemplate;
-["staticMortars", ["rhs_2b14_82mm_msv"]] call _fnc_saveToTemplate;
+["staticMGs", ["rhs_KORD_high_VDV"]] call _fnc_saveToTemplate;
+["staticAT", ["rhs_Kornet_9M133_2_vdv"]] call _fnc_saveToTemplate;
+["staticAA", ["rhs_Igla_AA_pod_vdv", "RHS_ZU23_VDV"]] call _fnc_saveToTemplate;
+["staticMortars", ["rhs_2b14_82mm_vdv"]] call _fnc_saveToTemplate;
 
 ["mortarMagazineHE", "rhs_mag_3vo18_10"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "rhs_mag_d832du_10"] call _fnc_saveToTemplate;

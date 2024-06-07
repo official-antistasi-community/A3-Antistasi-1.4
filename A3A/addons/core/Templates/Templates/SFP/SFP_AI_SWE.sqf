@@ -47,9 +47,10 @@ if (allowUnfairSupports && (_side == EAST)) then {
 
 ["vehiclesPlanesCAS", _vehiclesPlanesCAS] call _fnc_saveToTemplate;            // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
-["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["sfp_tp84_2015"]] call _fnc_saveToTemplate;
+["vehiclesAirPatrol", ["sfp_hkp6","sfp_hkp9"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
+["vehiclesHelisLight", ["sfp_hkp9", "sfp_hkp9_sog", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+
 ["vehiclesHelisTransport", ["a3a_SFP_MH60S_Unarmed_FFV_USN","a3a_SFP_MH60S_Unarmed_USN","a3a_SFP_B_UH60S_USN"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
 ["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_AW159_GB"]] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods

@@ -39,11 +39,12 @@
 ["vehiclesGunBoats", ["sfp_strb90"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["sfp_pbv302_snow","sfp_pbv302_mounted_snow","sfp_pbv302_snow"]] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["sfp_jas39"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
+["vehiclesPlanesCAS", ["sfp_jas39", "sfp_jas39_rb15"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
 ["vehiclesPlanesAA", ["sfp_jas39_cap"]] call _fnc_saveToTemplate;              // 
-["vehiclesPlanesTransport", ["sfp_tp84_2015","sfp_s100b" ]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["sfp_tp84_2015"]] call _fnc_saveToTemplate;
+["vehiclesAirPatrol", ["sfp_hkp6","sfp_hkp9"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["sfp_hkp6","sfp_hkp9", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;
+["vehiclesHelisLight", ["sfp_hkp9", "sfp_hkp9_sog", "sfp_hkp9_sog"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["CUP_B_CH47F_GB"]] call _fnc_saveToTemplate;
 // Should be capable of dealing damage to ground targets without additional scripting
 ["vehiclesHelisLightAttack", ["sfp_hkp9_rb55","CUP_B_UH1D_armed_GER_KSK_Des"]] call _fnc_saveToTemplate;

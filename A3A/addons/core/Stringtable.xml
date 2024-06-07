@@ -16241,7 +16241,7 @@
         <Original>The Chernarussian Movement of the Red Star is a pro-Russian seperatist movement that quickly evolved to an active civilian militia to a powerful force capable of challenging governments directly. They normally use Cold-War era Soviet equipment and vehicles.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_CDF">
-        <Original>The Chernarus Defense Force are the culmination of the land, air, and sea branches dedicated to the defense of Chernarus. They typically use more recent Soviet and AFRF weaponry, and are the primary counter-insurgency force against the ChDKZ.</Original>
+        <Original>The Chernarus Defense Force are the culmination of the land, air, and sea branches dedicated to the defense of Chernarus. They typically use a variety of surplus Russian weaponry, but have cut all ties with the previous government. They are the primary counter-insurgency force against the ChDKZ.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_USAF">
         <Original>The United States Army are one of the world's most dangerous military superpowers, with their alliance to NATO making them a difficult threat. They typically produce and use a substantial amount of NATO weaponry, including 5.56 STANAG and 7.62 calibers.</Original>
@@ -16301,7 +16301,7 @@
         <Original>The Takistani militia is an unexpectedly well-armed group of civilians who hold a significant opposition to the foreign occupation and support the acting government is attempting to use to bolster its ranks. They use a variety of scavenged weapons, commonly relying on bolt-action rifles.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_3CB_Reb_LSM">
-        <Original>The Livonia Seperatist Militia works against the, per their view, tyrannic rule of the current government. They use scavenged weapons wherever possible since many members are defectors with previous military experience, but many prefer shotguns for the thick forest.</Original>
+        <Original>The Livonia Seperatist Militia works against the, per their view, tyrannic rule of the current government. They use scavenged weapons wherever possible since many members are defectors with previous military experience, but many prefer to fall back on the CZ550, a hunting rifle in 8mm Mauser.</Original>
       </Key>
       <Key ID="STR_A3A_templates_lore_CHC">
         <Original>The civilians of Chernarus already have enough on their plate with the active civil war in their home country. It's your job to end the rule of the corrupt government over these people's lives.</Original>

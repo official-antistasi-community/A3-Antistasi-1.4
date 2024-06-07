@@ -174,7 +174,7 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
         name = "A3 Civilians";
         file = "Vanilla_Civ";
-        shortName = "CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_CIV;
     };
 
@@ -239,7 +239,7 @@ class Templates
         flagTexture = "\lxws\data_f_lxws\img\flags\flag_Argana_CO.paa";
         name = "Western Sahara";
         file = "WS_Civ";
-        shortName = "WS CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_WS_CIV;
     };
     class WS_NATO : WS_Base
@@ -299,7 +299,7 @@ class Templates
         flagTexture = "\vn\objects_f_vietnam\flags\vn_flag_01_lao_co.paa";
         name = "Cam Lao Nam";
         file = "VN_Civ";
-        shortName = "VN CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_VN_Civ;
     };
 
@@ -399,7 +399,7 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "RHS";
         file = "RHS_Civ";
-        shortName = "RHS CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_CIV;
     };
 
@@ -647,7 +647,7 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "3CB Cherno";
         file = "3CB_Civ_CHC";
-        shortName = "CIV CHC";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_CHC;
     };
 
@@ -658,7 +658,7 @@ class Templates
         name = "3CB Takistan";
         file = "3CB_Civ_TKC";
         maps[] = {"takistan","tem_anizay","kunduz"};
-        shortName = "CIV TKC";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_TKC;
     };
 
@@ -939,7 +939,7 @@ class Templates
         flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_tka_co.paa";
         name = "CUP TKC";
         file = "CUP_Civ_TKC";
-        shortName = "CIV TK";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_TKC;
     };
     class CUP_Civ : CUP_Base
@@ -948,7 +948,7 @@ class Templates
         flagTexture = "\CUP\BaseConfigs\CUP_BaseConfigs\data\Flags\flag_chernarus_co.paa";
         name = "CUP CH";
         file = "CUP_Civ_CHC";
-        shortName = "CIV CHC";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_CHC;
     };
 

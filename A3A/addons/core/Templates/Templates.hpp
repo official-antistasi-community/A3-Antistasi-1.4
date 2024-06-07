@@ -74,6 +74,7 @@ class Templates
         file = "Vanilla_AI_NATO_UK_Tropical";
         climate[] = {"tropical"};
         forceDLC[] = {"expansion"};
+        priority = 5;
     };
     class Vanilla_NATO_UK_Temperate : Vanilla_NATO_UK_Tropical
     {
@@ -116,6 +117,7 @@ class Templates
         file = "Vanilla_AI_PMC";
         climate[] = {};
         forceDLC[] = {"enoch","expansion"};
+        priority = 5;
     };
 
     class Vanilla_FIA : Vanilla_Base

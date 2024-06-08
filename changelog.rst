@@ -3,6 +3,96 @@ Changelog
 ==========
 
 
+Version 3.6.0
+===============
+
+.. note::
+   XXth XXXX 2024
+
+.. admonition:: Major
+
+   .. rubric:: :issue:`` 
+
+   * [Added] - 
+
+.. admonition:: Minor
+
+   * :issue:`3233` Switched respawn & self-revive keys to custom keybinds
+   * :issue:`3234` Allow guests to use of arsenal limits dialog and set default guest limit to 0
+   * :issue:`3237` Added Garage Sell Button
+   * :issue:`3238` Added Parameter fencing for debug commands
+   * :issue:`3250` Reworked anti-air support response balance
+   * :issue:`3257` Removed restriction from AILoadInfo action
+   * :issue:`3259` Added Parachutes to airbase crates
+   * :issue:`3261` Added a few RHS items to Garbage Cleaner
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+
+.. admonition:: Template updates
+
+   * :issue:`3203` Added Poseidon II to RHS NAPA
+   * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
+   * :issue:`3208` Added vehicles for vehiclesAirPatrol to some RHS templates
+   * :issue:`3258` "Re-added" the RPD to the 3CB SOV template
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+
+.. admonition:: Bugfixes
+
+   * :issue:`3172` Added/Fixed planes from RHS and 3CB (A-29 & T-28)
+   * :issue:`3205` Fixed case where seats may not be unlocked when dead crew are deleted
+   * :issue:`3228` Updated fn_vehiclePrice to not fail on absent vehicles
+   * :issue:`3231` Fixed artillery not rotating to target before firing
+   * :issue:`3242` Added Cargo nodes for 3CB Hilux (Covered)
+   * :issue:`3251` Fixed breaking error in citySupportChange type-safety checks
+   * :issue:`3254` Fixed Refugee mission timer
+   * :issue:`3264` Fixed lootToCrate issues with IFA gear
+   * :issue:`3266` Improved getArtilleryRanges & fixed IFA mortar case
+   * :issue:`` 
+
+.. admonition:: Groundwork
+
+   * :issue:`3200` Added vehiclesHeavyTanks template category
+   * :issue:`3208` Added vehiclesAirPatrol template category
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+
+
+.. admonition:: Localization
+
+   * :issue:`Multiple PRs` Added tons of new translations to different languages
+
+.. admonition:: Refactor
+
+   * :issue:`3210` Merged item carrying code and switch to blacklist for carry blocking
+   * :issue:`3227` Moved Airplane loadouts to configs
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
 Version 3.5.4
 ===============
 

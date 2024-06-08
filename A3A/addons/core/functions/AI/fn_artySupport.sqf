@@ -207,7 +207,7 @@ _textX = format [localize "STR_A3A_fn_ai_artySupport_fireMission", mapGridPositi
 
 if (_typeArty == "BARRAGE") then
 	{
-	private _mrkEllipse2 = createMarkerLocal [format ["Arty%1", random 100], _positionTel2];
+	_mrkEllipse2 = createMarkerLocal [format ["Arty%1", random 100], _positionTel2];
 	_mrkEllipse2 setMarkerShapeLocal "ELLIPSE";
 	_mrkEllipse2 setMarkerBrushLocal "FDIAGONAL";
 	_mrkEllipse2 setMarkerSizeLocal [30, 30];
@@ -232,7 +232,7 @@ if (_typeArty == "BARRAGE") then
 		};
 	_barrageCenterX = (_positionTel#0 + _positionTel2#0)/2;
 	_barrageCenterY = (_positionTel#1 + _positionTel2#1)/2;
-	private _mrkBarrageLine = createMarkerLocal [format ["ArtyBarrage%1", random 100], [_barrageCenterX,_barrageCenterY]];
+	_mrkBarrageLine = createMarkerLocal [format ["ArtyBarrage%1", random 100], [_barrageCenterX,_barrageCenterY]];
 	_mrkBarrageLine setMarkerShapeLocal "RECTANGLE";
 	_mrkBarrageLine setMarkerDirLocal _ang;
 	_mrkBarrageLine setMarkerColorLocal "ColorGUER";

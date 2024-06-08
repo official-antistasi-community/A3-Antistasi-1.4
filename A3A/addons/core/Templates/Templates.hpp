@@ -293,6 +293,7 @@ class Templates
         name = "RHS VDV Temperate"; 
         file = "RHS_AI_VDV_Temperate"; 
         climate[] = {"temperate","tropical","arctic"};
+        logo = "\rhsafrf\addons\rhs_main\data\rhs_logo_ca.paa";
     };
 
     class RHS_VDV_Arid : RHS_VDV_Temperate

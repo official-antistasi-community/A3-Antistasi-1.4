@@ -27,7 +27,7 @@ class EditorData
 	};
 };
 binarizationWanted=0;
-sourceName="Antistasi_Enoch";
+sourceName="Antistasi-Livonia";
 addons[]=
 {
 	"A3_Structures_F_Mil_Helipads",

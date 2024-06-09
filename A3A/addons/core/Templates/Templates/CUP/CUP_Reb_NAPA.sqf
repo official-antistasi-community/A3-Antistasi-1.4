@@ -27,7 +27,7 @@
 ["vehiclesCivBoat", ["C_Rubberboat","C_Boat_Civil_01_F"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["CUP_I_DSHKM_NAPA", "CUP_B_DSHkM_MiniTriPod_NAPA"]] call _fnc_saveToTemplate;
-["staticAT", ["CUP_I_SPG9_NAPA", "CUP_I_M119_RACS"]] call _fnc_saveToTemplate;
+["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;
 ["staticAA", ["CUP_I_ZU23_NAPA"]] call _fnc_saveToTemplate;
 
 ["staticMortars", ["CUP_I_2b14_82mm_NAPA"]] call _fnc_saveToTemplate;

@@ -128,7 +128,7 @@ A3A_recentDamageInv = [];
 // Balance params updated by aggressionUpdateLoop
 A3A_balancePlayerScale = 1;					// Important due to load/save scaling to 1 playerScale
 A3A_balanceVehicleCost = 110;
-A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
+A3A_balanceResourceRate = A3A_balancePlayerScale * ([A3A_balanceVehicleCost, 140] select (gameMode == 1));
 
 // Current resources, overwritten by saved game
 A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max

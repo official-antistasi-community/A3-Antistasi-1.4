@@ -2,6 +2,12 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi gui">
     <Container name="arsenal_limits_dialog">
+      <Key ID="STR_antistasi_arsenal_limits_dialog_hint_title">
+        <Original>Arsenal Guest Limits</Original>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_guest_warning">
+        <Original>As a guest commander you can't reduce arsenal limits below default, or below values set by members.</Original>
+      </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_close">
         <Original>CLOSE</Original>
         <German>Schließen</German>
@@ -57,6 +63,9 @@
         <Portuguese>REÍNICIO</Portuguese>
         <Turkish>RESET</Turkish>
         <Chinesesimp>重置</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_reset_tooltip">
+        <Original>Reset all items in this category to the default guest limit</Original>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_step">
         <Original>STEP</Original>

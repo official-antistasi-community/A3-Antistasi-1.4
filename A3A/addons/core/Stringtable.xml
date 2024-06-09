@@ -9449,6 +9449,18 @@
         <Russian>Очень низкая</Russian>
         <Chinesesimp>非常低</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Params_generic_veryslow">
+        <Original>Very slow</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_slow">
+        <Original>Slow</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_fast">
+        <Original>Fast</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_veryfast">
+        <Original>Very fast</Original>
+      </Key>
       <Key ID="STR_A3A_Params_globalCivilianMax_title">
         <Original>Maximum global civilians</Original>
         <Italian>Numero massimo globale di civili </Italian>
@@ -9530,6 +9542,9 @@
         <Korean>점령군과 관련된 침략군에 대한 자원 승수</Korean>
         <Russian>Множитель ресурсов для захватчиков по отношению к оккупантам</Russian>
         <Chinesesimp>入侵者相对于占领者的资源倍增</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyResponseTime_title">
+        <Original>Speed of enemy air responses</Original>
       </Key>
       <Key ID="STR_A3A_Params_limitedFT_any">
         <Original>Any friendly position</Original>

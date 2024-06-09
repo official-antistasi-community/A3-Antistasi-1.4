@@ -228,6 +228,14 @@ class Params
         texts[] =  {"1.0x","1.1x","1.2x","1.3x","1.4x","1.5x"};
         default = 12;
     };
+    class A3A_enemyResponseTime
+    {
+        attr[] = {"server"};
+        title = $STR_A3A_Params_enemyResponseTime_title;
+        values[] = {20,15,10,7,5};
+        texts[] =  {$STR_A3A_Params_generic_veryslow, $STR_A3A_Params_generic_slow, $STR_A3A_Params_generic_normal, $STR_A3A_Params_generic_fast, $STR_A3A_Params_generic_veryfast};
+        default = 10;
+    };
     class A3A_attackHQProximityMul
     {
         attr[] = {"server"};
@@ -308,7 +316,7 @@ class Params
         title = $STR_A3A_Params_guestItemLimit_title;
         values[] = {0,10,15,25,40};
         texts[] = {$STR_A3A_Params_generic_nolimit,"10","15","25","40"};
-        default = 25;
+        default = 0;
     };
     class unlockedUnlimitedAmmo
     {

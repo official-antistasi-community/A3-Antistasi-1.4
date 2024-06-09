@@ -297,7 +297,7 @@ _militaryLoadoutData set ["rifles", [
 ["rhs_weap_ak74mr", "rhs_acc_uuk", "rhs_acc_perst1ik", "rhs_acc_1p87", ["rhs_30Rnd_545x39_7N10_AK"], [], "rhs_acc_grip_ffg2"],
 ["rhs_weap_ak74mr", "rhs_acc_uuk", "rhs_acc_perst1ik", "rhs_acc_rakursPM", ["rhs_30Rnd_545x39_7N10_AK"], [], "rhs_acc_grip_rk2"],
 ["rhs_weap_ak74m_camo_npz", "rhs_acc_dtk3", "rhs_acc_2dpZenit", "rhs_acc_ekp8_18", ["rhs_30Rnd_545x39_7N22_AK"], [], ""],
-["rhs_weap_ak74m_zenitco01", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhsusf_acc_rm05_fwd", ["rhs_30Rnd_545x39_7N22_AK"], [], "rhs_acc_grip_ffg2"]
+["rhs_weap_ak74m_zenitco01", "rhs_acc_dtk", "rhs_acc_perst1ik", "rhsusf_acc_RM05_fwd", ["rhs_30Rnd_545x39_7N22_AK"], [], "rhs_acc_grip_ffg2"]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["rhs_weap_asval", "", "", "rhs_acc_pso1m21", ["rhs_20rnd_9x39mm_SP6"], [], ""],

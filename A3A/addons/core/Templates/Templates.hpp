@@ -999,7 +999,7 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "Unsung civs";
         file = "UNS_Civ";
-        shortName = "UNS CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_VN_Civ;
     };
 
@@ -1097,7 +1097,7 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_fia_co.paa";
         name = "GM civs";
         file = "GM_Civ";
-        shortName = "GM CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_GM_Civ;
     };
 
@@ -1220,7 +1220,7 @@ class Templates
         flagTexture = QPATHTOFOLDER(Templates\Templates\SPE_IFA\flag_fr.paa);
         name = "SPE_IFA Civs";
         file = "SPE_IFA_CIV";
-        shortName = "IFA CIV";
+        shortName = "Civilian";
         lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
     };
 };

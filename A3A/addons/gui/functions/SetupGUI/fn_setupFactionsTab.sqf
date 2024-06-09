@@ -37,8 +37,6 @@ private _worldName = toLower worldName;
 private _addonTable = _display displayCtrl A3A_IDC_SETUP_ADDONVICSBOX;
 private _dlcTable = _display displayCtrl A3A_IDC_SETUP_DLCBOX;
 
-_addonTable ctrlShow false; // Hide addon packs by default
-
 if (isNil "A3A_setup_loadedPatches") exitWith { Error("No patch data. Load order fuckup?") };
 
 // Input: faction config, output: true/false
@@ -119,8 +117,11 @@ if (isNil {_display getVariable "validFactions"}) then
 
 switch (_mode) do
 {
-    case ("update"): {};			// Don't hide anything here, nothing to do
-
+    case ("update"): {
+        _addonTable ctrlShow false;
+        private _buttonCtrl = _display displayCtrl A3A_IDC_SETUP_DLCTOGGLE;
+        _buttonCtrl ctrlSetText localize "STR_antistasi_dialogs_setup_toggleAddons_addons";
+    };
     case ("switchAddons"): 
     {
         private _buttonCtrl = _display displayCtrl A3A_IDC_SETUP_DLCTOGGLE;

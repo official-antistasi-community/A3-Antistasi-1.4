@@ -5,7 +5,7 @@ private _titleStr = localize "STR_A3A_fn_ai_artySupport_title";
 
 if (count hcSelected player == 0) exitWith {[_titleStr, localize "STR_A3A_fn_ai_artySupport_select"] call A3A_fnc_customHint;};
 
-private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_timeX","_eta","_countX","_pos","_ang"];
+private ["_groups","_artyArray","_artyRoundsArr","_hasAmmunition","_areReady","_hasArtillery","_areAlive","_soldierX","_veh","_typeAmmunition","_typeArty","_positionTel","_artyArrayDef1","_artyRoundsArr1","_piece","_isInRange","_positionTel2","_rounds","_roundsMax","_markerX","_size","_forcedX","_textX","_mrkFinal","_mrkFinal2","_mrkEllipse2","_mrkBarrageLine","_timeX","_eta","_countX","_pos","_ang"];
 
 _groups = hcSelected player;
 _unitsX = [];

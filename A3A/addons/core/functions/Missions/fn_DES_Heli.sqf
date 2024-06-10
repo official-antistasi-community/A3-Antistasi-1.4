@@ -86,7 +86,7 @@ while {_counter != _counterLimit} do {
 //creating ammobox if not armed
 _ammoBox = objNull;
 if (!_isAttackHeli) then {
-    _ammoBox = [_faction get "ammobox", _posCrash, 15, 5, true] call A3A_fnc_safeVehicleSpawn; // Allegedly there's alternative syntax that allows you to check which classnames can be slingloaded
+    _ammoBox = [_faction get "ammobox", _posCrash, 10, 5, true] call A3A_fnc_safeVehicleSpawn; // Allegedly there's alternative syntax that allows you to check which classnames can be slingloaded
     // For that alternative syntax, no results are accurate for the ammoboxes we use so I'm spawning it to test it
     if !(_heli canSlingLoad _ammoBox) exitWith {
     	deleteVehicle _ammoBox;
@@ -316,6 +316,7 @@ if (_vehR distance _heli < 50) then {
         private _notAlivePilots = true;
         {if ([_x] call A3A_fnc_canFight) exitWith {_notAlivePilots = false}}forEach units _pilots;
 
+        if (!isNull _ammoBox && _ammoBox distance _heli < 50) then {Debug("Crate is alive recovering now"); _heli setSlingLoad _ammoBox;};
 
         if (_typeVehH in ( (_faction get "vehiclesHelisLight") + (_faction get "vehiclesHelisTransport") )) then {
             if !(_typeVehH in (_faction get "vehiclesHelisLight")) then {
@@ -405,7 +406,8 @@ deleteMarker _taskMrk;
 deleteMarker _mrkCrash;
 
 //delete units, vehicles and groups
+if (!isNull _ammoBox && (getSlingLoad _heli == _ammoBox) && (_ammoBox distance _missionOriginPos < 400)) then {deleteVehicle _ammoBox;};
 {[_x] spawn A3A_fnc_vehDespawner} forEach _vehicles;
 {[_x] spawn A3A_fnc_groupDespawner} forEach _groups;
-if (!isNull _ammoBox && alive _ammoBox) then {_ammoBox spawn A3A_fnc_vehDespawner};
+
 Debug("Downed Heli clean up complete");

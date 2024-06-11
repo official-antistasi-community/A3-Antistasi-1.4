@@ -48,7 +48,7 @@ switch (_mode) do
             _commanderTabButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_commander_tab_disabled_tooltip";
         };
 
-        if !([] call A3A_fnc_isLocalAdmin) then {
+        if !([] call FUNCMAIN(isLocalAdmin)) then {
             private _adminTabButton = _display displayCtrl A3A_IDC_ADMINTABBUTTON;
             _adminTabButton ctrlEnable false;
             _adminTabButton ctrlshow false;
@@ -173,7 +173,7 @@ switch (_mode) do
 
             case ("admin"):
             {
-                if ([] call A3A_fnc_isLocalAdmin) then {
+                if ([] call FUNCMAIN(isLocalAdmin)) then {
                     _selectedTabIDC = A3A_IDC_ADMINTAB;
                 };
             };
@@ -302,7 +302,7 @@ switch (_mode) do
     {
         _params params [["_isCheckedNum", 0, [0]]];
         private _isChecked = _isCheckedNum isEqualTo 1;
-        ["BATTLE_MENU_CHECKBOX", _isChecked] call A3A_fnc_disableInfoBar;
+        ["BATTLE_MENU_CHECKBOX", _isChecked] call FUNCMAIN(disableInfoBar);
     };
 
     default {

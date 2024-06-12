@@ -17,14 +17,24 @@ Version 3.6.0
 
 .. admonition:: Minor
 
+   * :issue:`3229` Added GUI prefix and Experimental Battle Menu
    * :issue:`3233` Switched respawn & self-revive keys to custom keybinds
-   * :issue:`3234` Allow guests to use of arsenal limits dialog and set default guest limit to 0
+   * :issue:`3234` Allowed guests to use of arsenal limits dialog and set default guest limit to 0
    * :issue:`3237` Added Garage Sell Button
    * :issue:`3238` Added Parameter fencing for debug commands
    * :issue:`3250` Reworked anti-air support response balance
+   * :issue:`3255` Converted corpse/wreck timed cleanup into a server queue with max cap
    * :issue:`3257` Removed restriction from AILoadInfo action
    * :issue:`3259` Added Parachutes to airbase crates
    * :issue:`3261` Added a few RHS items to Garbage Cleaner
+   * :issue:`3269` Added Setup GUI Factions Info
+   * :issue:`3274` Added tank platoon support as alternative to CAS
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 
@@ -33,11 +43,11 @@ Version 3.6.0
 
    * :issue:`3203` Added Poseidon II to RHS NAPA
    * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
+   * :issue:`3208` Added RHS HIDF template
    * :issue:`3208` Added vehicles for vehiclesAirPatrol to some RHS templates
    * :issue:`3258` "Re-added" the RPD to the 3CB SOV template
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
+   * :issue:`3271` Added RHS VDV templates
+   * :issue:`3267` Added RHS Tanoan Liberation Army (TLA) template
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 
@@ -51,8 +61,20 @@ Version 3.6.0
    * :issue:`3242` Added Cargo nodes for 3CB Hilux (Covered)
    * :issue:`3251` Fixed breaking error in citySupportChange type-safety checks
    * :issue:`3254` Fixed Refugee mission timer
+   * :issue:`3256` Destroy Heli mission
    * :issue:`3264` Fixed lootToCrate issues with IFA gear
    * :issue:`3266` Improved getArtilleryRanges & fixed IFA mortar case
+   * :issue:`3273` Prevented concurrent major attacks, and added a planning cost
+   * :issue:`3281` Fixed 3CB Factions baseWeapon config
+   * :issue:`3283` Fixed incorrect config array specifier for diveParams
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
    * :issue:`` 
 
 .. admonition:: Groundwork

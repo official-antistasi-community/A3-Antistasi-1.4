@@ -15,7 +15,7 @@ Dependencies:
     None
 
 Example:
-    [_someGroup] call A3A_fnc_getGroupVehicle; // Returns the group vehicle if it has one, objNull if not
+    [_someGroup] call FUNC(getGroupVehicle); // Returns the group vehicle if it has one, objNull if not
 */
 
 // This function was part of A3A_fnc_vehStats

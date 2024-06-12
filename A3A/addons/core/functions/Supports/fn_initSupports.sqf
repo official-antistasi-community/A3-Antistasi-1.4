@@ -37,11 +37,12 @@ private _initData = [
     ["ARTILLERY",       "AREA", 0.5, 0.9, 150,  85,  "", "vehiclesArtillery"],           // balanced against mortars (50/50 at tier 10), total will be 0.5/0.9
     ["MORTAR",          "AREA", 0.5, 0.9, 100,  50,  "", "staticMortars"],
     ["ASF",           "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesAA"],            // balanced against SAMs (if available), 66/33 weighting
-    ["CAS",           "TARGET", 1.0, 0.4,   0, 100,  "", "vehiclesPlanesCAS"],
+    ["CAS",           "TARGET", 0.5, 0.3,   0, 100,  "", "vehiclesPlanesCAS"],
+    ["TANK",          "TARGET", 0.5, 0.7,   0, 100,  "", ""],                            // balanced against CAS, lowAir based
     ["QRFLAND",       "TROOPS", 1.0, 1.4,   0,   0,  "", ""],
     ["QRFAIR",        "TROOPS", 0.5, 0.1,   0,   0,  "", ""],
     ["CARPETBOMBS",     "AREA", 0.5, 0.1, 200,   0, "u", ""],                            // balanced against airstrikes
-    ["SAM",           "TARGET", 1.0, 1.0,   0, 100, "u", ""],                             // balanced against ASF
+    ["SAM",           "TARGET", 1.0, 1.0,   0, 100,  "", ""],                             // balanced against ASF
     ["ORBITALSTRIKE",   "AREA", 0.2, 0.0, 300,   0, "f", ""]
 //    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
 ];

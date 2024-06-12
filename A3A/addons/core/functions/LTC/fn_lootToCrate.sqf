@@ -126,6 +126,7 @@ _lootBodies = {
     if (_remaining isEqualTo [[],[],[],[]]) exitWith {};
     _pos = getPos _unit;
     _container = "GroundWeaponHolder" createVehicle _pos;
+    [_container, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
     {
         _container addWeaponCargoGlobal [_x, 1];
     } forEach (_remaining#0);
@@ -161,6 +162,7 @@ _allUnlockedArray = [];
     if !(_remainder isEqualTo [[],[],[],[]]) then {
 
         _newContainer = "GroundWeaponHolder" createVehicle _pos;
+        [_newContainer, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
 
         _remainder params ["_weaponsArray", "_magsArray", "_itemsArray", "_backpacksArray"];
 

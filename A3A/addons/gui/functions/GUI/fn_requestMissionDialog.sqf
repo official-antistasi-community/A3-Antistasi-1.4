@@ -16,7 +16,7 @@ Dependencies:
     None
 
 Example:
-    ["missionButtonClicked", ["CON"]] call A3A_fnc_requestMissionDialog;
+    ["missionButtonClicked", ["CON"]] call FUNC(requestMissionDialog);
 */
 
 #include "..\..\script_component.hpp"

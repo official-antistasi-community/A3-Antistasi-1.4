@@ -25,13 +25,13 @@ class A3A {
                 loadout[] = {"LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50"};
                 mainGun[] = {"LIB_2xMG151_JU87"};
                 bombRacks[] = {"LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"};
-                diveParams[] = {1200, 300, 110, 55, 15, [15, -2]};
+                diveParams[] = {1200, 300, 110, 55, 15, {15, -2}};
             };
             class LIB_Pe2 : baseCAS {
                 loadout[] = {"LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250"};
                 mainGun[] = {"LIB_UBK_PE2"};
                 bombRacks[] = {"LIB_FAB250_Bomb_Mount"};
-                diveParams[] = {1200, 300, 110, 55, 15, [12, 0]};
+                diveParams[] = {1200, 300, 110, 55, 15, {12, 0}};
             };
         };
         class CAPPlane

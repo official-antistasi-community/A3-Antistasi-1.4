@@ -21,11 +21,11 @@
 ["vehiclesLightUnarmed", ["rhsgref_hidf_M998_2dr_halftop","rhsgref_hidf_M998_4dr_halftop", "rhsgref_hidf_m1025"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_M998_2dr_fulltop", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
-["vehiclesCargoTrucks", ["rhsusf_M1078A1P2_WD_flatbed_fmtv_usarmy","rhsusf_M1083A1P2_WD_flatbed_fmtv_usarmy", "rhsusf_M1084A1P2_WD_fmtv_usarmy"]] call _fnc_saveToTemplate;
-["vehiclesAmmoTrucks", ["rhsusf_M977A4_AMMO_usarmy_wd"]] call _fnc_saveToTemplate;
-["vehiclesRepairTrucks", ["rhsusf_M977A4_REPAIR_usarmy_wd"]] call _fnc_saveToTemplate;
-["vehiclesFuelTrucks", ["rhsusf_M978A4_usarmy_wd"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["rhsusf_M1085A1P2_B_WD_Medical_fmtv_usarmy"]] call _fnc_saveToTemplate;
+["vehiclesCargoTrucks", ["RHS_Ural_VMF_01","RHS_Ural_Open_VMF_01"]] call _fnc_saveToTemplate;
+["vehiclesAmmoTrucks", ["RHS_Ural_Ammo_VMF_01"]] call _fnc_saveToTemplate;
+["vehiclesRepairTrucks", ["RHS_Ural_Repair_VMF_01"]] call _fnc_saveToTemplate;
+["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VMF_01"]] call _fnc_saveToTemplate;
+["vehiclesMedical", ["rhsusf_m113_usarmy_medical"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19","rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["RHS_M2A2_wd"]] call _fnc_saveToTemplate;                //this line determines IFVs

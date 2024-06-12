@@ -138,23 +138,22 @@ _mrkFinal setMarkerShapeLocal "ICON";
 _mrkFinal setMarkerTypeLocal "hd_destroy";
 _mrkFinal setMarkerColor "ColorBlack";
 
+positionTel2 = [];
 if (_typeArty == "BARRAGE") then
 	{
 	_mrkFinal setMarkerText localize "STR_A3A_fn_ai_artySupport_mrkFinal";
-	positionTel = [];
 
 	[_titleStr, localize "STR_A3A_fn_ai_artySupport_selectposend"] call A3A_fnc_customHint;
 
 	if (!visibleMap) then {openMap true};
-	onMapSingleClick "positionTel = _pos;";
+	onMapSingleClick "positionTel2 = _pos;";
 
-	waitUntil {sleep 1; (count positionTel > 0) or (!visibleMap)};
+	waitUntil {sleep 1; (count positionTel2 > 0) or (!visibleMap)};
 	onMapSingleClick "";
-
-	_positionTel2 = positionTel;
 	};
+private _positionTel2 = positionTel2;
 
-if ((_typeArty == "BARRAGE") and (isNil "_positionTel2")) exitWith {deleteMarker _mrkFinal; deleteMarker _mrkEllipse1};
+if ((_typeArty == "BARRAGE") and (count _positionTel2 < 2)) exitWith {deleteMarker _mrkFinal; deleteMarker _mrkEllipse1}; // map was closed after initial target selection
 
 if (_typeArty != "BARRAGE") then
 	{
@@ -174,7 +173,7 @@ if (_typeArty != "BARRAGE") then
 	waitUntil {!dialog or (!isNil "roundsX")};
 	};
 
-if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal _mrkFinal};
+if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal _mrkFinal; deleteMarker _mrkEllipse1};
 
 if (_typeArty != "BARRAGE") then
 	{
@@ -219,17 +218,6 @@ if (_typeArty == "BARRAGE") then
 	_mrkFinal2 setMarkerText localize "STR_A3A_fn_ai_artySupport_mrkFinal2";
 	_ang = [_positionTel,_positionTel2] call BIS_fnc_dirTo;
 	sleep 5;
-	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
-	_timeX = time + _eta;
-	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesBarrage",round _eta];
-	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-	[_timeX] spawn
-		{
-		private ["_timeX"];
-		_timeX = _this select 0;
-		waitUntil {sleep 1; time > _timeX};
-		[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-		};
 	_barrageCenterX = (_positionTel#0 + _positionTel2#0)/2;
 	_barrageCenterY = (_positionTel#1 + _positionTel2#1)/2;
 	_mrkBarrageLine = createMarkerLocal [format ["ArtyBarrage%1", random 100], [_barrageCenterX,_barrageCenterY]];
@@ -239,6 +227,20 @@ if (_typeArty == "BARRAGE") then
 	_mrkBarrageLine setMarkerBrushLocal "FDIAGONAL";
 	_distance = _positionTel distance2D _positionTel2;
 	_mrkBarrageLine setMarkerSize [30, _distance/2];
+	private _barrageMarkers = [_mrkFinal,_mrkEllipse1,_mrkFinal2,_mrkEllipse2,_mrkBarrageLine];
+	_eta = (_artyArrayDef1 select 0) getArtilleryETA [_positionTel, ((getArtilleryAmmo [(_artyArrayDef1 select 0)]) select 0)];
+	_timeX = time + _eta;
+	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesBarrage",round _eta];
+	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	[_timeX, _rounds, _barrageMarkers] spawn
+		{
+		params ["_timeX","_rounds", "_barrageMarkers"];
+		waitUntil {sleep 1; time > _timeX};
+		[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+		private _sleepTime = _rounds*4;
+		sleep _sleepTime;
+		{deleteMarker _x;} forEach _barrageMarkers;
+		};
 	} else {_mrkEllipse1 setMarkerText localize "STR_A3A_fn_ai_artySupport_artyStrike";};
 
 //Broadcast message to nearby players
@@ -313,17 +315,12 @@ if (_typeArty != "BARRAGE") then
 	_roundPlural = if ((_roundsMax - _rounds) == 1) then {localize "STR_A3A_fn_ai_artySupport_singleRound"} else {localize "STR_A3A_fn_ai_artySupport_multiRound"};
 	_textX = format [localize "STR_A3A_fn_ai_artySupport_yesSingle",round _eta,_roundsMax - _rounds, _roundPlural];
 	[petros,"sideChat",_textX] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
-	};
-
-if (_typeArty != "BARRAGE") then
-	{
 	waitUntil {sleep 1; time > _timeX};
 	[petros,"sideChat",localize "STR_A3A_fn_ai_artySupport_splash"] remoteExec ["A3A_fnc_commsMP",[teamPlayer,civilian]];
+	sleep 10;
+	deleteMarker _mrkFinal;
+	deleteMarker _mrkEllipse1;
 	};
-sleep 10 + _rounds * 3;
-deleteMarker _mrkFinal;
-deleteMarker _mrkEllipse1;
-if (_typeArty == "BARRAGE") then {deleteMarker _mrkFinal2; deleteMarker _mrkEllipse2; deleteMarker _mrkBarrageLine;};
 
 /*if (_forcedX) then
 	{

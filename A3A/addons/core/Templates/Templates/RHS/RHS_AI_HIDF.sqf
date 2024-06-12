@@ -19,16 +19,16 @@
 
 ["vehiclesBasic", ["B_T_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_hidf_M998_2dr_halftop","rhsgref_hidf_M998_4dr_halftop", "rhsgref_hidf_m1025"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed",["rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_m2","rhsgref_hidf_m1025_mk19","a3a_rhs_m966_olive"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["rhsgref_hidf_M998_2dr_fulltop","rhsgref_hidf_M998_2dr_fulltop", "rhsgref_hidf_m113a3_unarmed"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["RHS_Ural_VMF_01","RHS_Ural_Open_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["RHS_Ural_Ammo_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["RHS_Ural_Repair_VMF_01"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["RHS_Ural_Fuel_VMF_01"]] call _fnc_saveToTemplate;
-["vehiclesMedical", ["rhsusf_m113_usarmy_medical"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2"]] call _fnc_saveToTemplate;            //this line determines light APCs
+["vehiclesMedical", ["a3a_rhs_m113_olive_medical"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["a3a_rhs_m113_hidf_M240","a3a_rhs_m113_hidf_M240","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2"]] call _fnc_saveToTemplate;            //this line determines light APCs
 ["vehiclesAPCs", ["rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_m2","rhsgref_hidf_m113a3_mk19","rhsgref_hidf_m113a3_mk19"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", ["RHS_M2A2_wd"]] call _fnc_saveToTemplate;                //this line determines IFVs
+["vehiclesIFVs", ["a3a_RHS_M2A2_olive"]] call _fnc_saveToTemplate;                //this line determines IFVs
 ["vehiclesTanks", ["rhsusf_m1a1hc_wd"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["RHS_M6_wd"]] call _fnc_saveToTemplate;
 

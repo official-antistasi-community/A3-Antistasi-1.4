@@ -88,7 +88,7 @@ switch (_mode) do
         // Fast travel
         private _fastTravelButton = _display displayCtrl A3A_IDC_FASTTRAVELBUTTON;
         private _fastTravelIcon = _display displayCtrl A3A_IDC_FASTTRAVELICON;
-        [player] call A3A_fnc_canFastTravel params ["_isFastTravelAllowed","_fastTravelBlockers"];
+        [player, player] call A3A_fnc_canFastTravel params ["_isFastTravelAllowed","_fastTravelBlockers"];
         if (_isFastTravelAllowed) then {
             _fastTravelButton ctrlEnable true;
             _fastTravelButton ctrlSetTooltip localize "STR_antistasi_dialogs_main_fast_travel_tooltip";

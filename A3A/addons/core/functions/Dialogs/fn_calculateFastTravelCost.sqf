@@ -24,11 +24,14 @@ Example:
 FIX_LINE_NUMBERS()
 params [
     ["_initiator", objNull, [objNull]],
-    ["_things", objNull, [objNull, []]],
+    ["_things", objNull, [objNull, grpNull, []]],
     ["_destination", nil, [[]], [2,3]]  // Rather than using [0,0] as default for destination. We will explicitly log errors when nothing is passed.
 ];
 if (isNil "_destination") exitWith {
     Error("_destination was nil");
+};
+if (_things isEqualType objNull || _things isEqualType grpNull) then {
+    _things = [_things];
 };
 
 /*

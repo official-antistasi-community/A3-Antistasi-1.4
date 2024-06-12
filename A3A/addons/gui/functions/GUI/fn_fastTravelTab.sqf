@@ -82,9 +82,9 @@ switch (_mode) do
             private _canFastTravelTuple = [];
             if (_hcMode) then {
                 private _hcGroup = _fastTravelMap getVariable "hcGroup";
-                _canFastTravelTuple = [_hcGroup, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
+                _canFastTravelTuple = [player, _hcGroup, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
             } else {
-                _canFastTravelTuple = [player, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
+                _canFastTravelTuple = [player, player, markerPos _selectedMarker] call A3A_fnc_canFastTravel;
             };
             _canFastTravelTuple params ["_isFastTravelAllowed","_fastTravelBlockers"];
             Trace_1("_canFastTravelTuple: %1", _canFastTravelTuple);

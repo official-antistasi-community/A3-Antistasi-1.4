@@ -18,16 +18,22 @@ Environment: Any
 Public: Yes
 
 Example:
-    [player] call A3A_fnc_canFastTravel params ["_isFastTravelAllowed","_fastTravelBlockers"];
+    [player, player] call A3A_fnc_canFastTravel params ["_isFastTravelAllowed","_fastTravelBlockers"];
     if (!_isFastTravelAllowed) exitWith {
         { systemChat _x } foreach _fastTravelBlockers;
     }
     [] call A3A_fnc_fastTravelRadio;
 */
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 params [
     ["_player", objNull, [objNull]],
+    ["_things", objNull, [objNull, grpNull, []]],
     ["_destination", nil, [[]], [2,3]]
 ];
+if (_things isEqualType objNull || _things isEqualType grpNull) then {
+    _things = [_things];
+};
 
 [true,[]];
 

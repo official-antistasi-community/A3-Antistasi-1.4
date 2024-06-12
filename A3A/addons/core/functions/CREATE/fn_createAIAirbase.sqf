@@ -258,7 +258,11 @@ private _ammoBox = if (garrison getVariable [_markerX + "_lootCD", 0] == 0) then
 	[_ammoBox] spawn {
 		sleep 1;    //make sure fillLootCrate finished clearing the crate
 		{
-			_this#0 addItemCargoGlobal [_x, round random [5,15,15]];
+			if (getText(configFile >> "CfgVehicles" >> _x >> "vehicleClass") isEqualTo "Backpacks") then {
+				_this#0 addBackpackCargoGlobal [_x, round random [5,15,15]];
+			} else {
+				_this#0 addItemCargoGlobal [_x, round random [5,15,15]];
+			};
 		} forEach (A3A_faction_reb get "flyGear");
 	};
 	_ammoBox;

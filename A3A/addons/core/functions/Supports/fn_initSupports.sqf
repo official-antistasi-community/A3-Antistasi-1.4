@@ -41,7 +41,7 @@ private _initData = [
     ["QRFLAND",       "TROOPS", 1.0, 1.4,   0,   0,  "", ""],
     ["QRFAIR",        "TROOPS", 0.5, 0.1,   0,   0,  "", ""],
     ["CARPETBOMBS",     "AREA", 0.5, 0.1, 200,   0, "u", ""],                            // balanced against airstrikes
-    ["SAM",           "TARGET", 1.0, 1.0,   0, 100, "u", ""],                             // balanced against ASF
+    ["SAM",           "TARGET", 1.0, 1.0,   0, 100,  "", ""],                             // balanced against ASF
     ["ORBITALSTRIKE",   "AREA", 0.2, 0.0, 300,   0, "f", ""]
 //    ["GUNSHIP",    ["AREA",   0.2,  50,   0]],                 // uh. Does AREA work for this? Only lasts 5 minutes so maybe...
 ];

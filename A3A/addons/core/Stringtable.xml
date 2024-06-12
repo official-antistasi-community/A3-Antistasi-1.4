@@ -7734,14 +7734,14 @@
         <Chinesesimp>%1正在赶来救助你的路上</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_respawn">
-        <Original>Press R to respawn.</Original>
+        <Original>Press %1 to respawn.</Original>
         <French>Appuyez sur R pour réapparaître.</French>
         <Korean>R 키를 눌러 리스폰합니다.</Korean>
         <Russian>Нажмите R, чтобы возродиться.</Russian>
         <Chinesesimp>按R键重生</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_revive_unconscious_selfRevive">
-        <Original>Press H to shake off the injury.</Original>
+        <Original>Press %1 to shake off the injury.</Original>
         <French>Appuyez sur H pour vous débarrasser de la blessure.</French>
         <Korean>H 키를 눌러 부상을 떨쳐냅니다.</Korean>
         <Russian>Нажмите H, чтобы избавиться от повреждения.</Russian>
@@ -8622,6 +8622,18 @@
         <Korean>안티스타시의 전투 메뉴를 엽니다.</Korean>
         <Russian>Открывает меню битвы Antistasi.</Russian>
       </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_DN">
+        <Original>Respawn</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_respawn_tip">
+        <Original>Respawn when unconscious in the Antistasi medical system.</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_DN">
+        <Original>Self revive</Original>
+      </Key>
+      <Key ID="STR_A3A_keybinds_CfgUserAct_selfRevive_tip">
+        <Original>Self revive when unconscious in the Antistasi medical system.</Original>
+      </Key>
       <Key ID="STR_A3A_keybinds_CfgUserAct_cusHintDiss_DN">
         <Original>Dismiss Previous Hint</Original>
         <Italian>Chiudi Suggerimento Precedente</Italian>
@@ -9443,6 +9455,18 @@
         <Russian>Очень низкая</Russian>
         <Chinesesimp>非常低</Chinesesimp>
       </Key>
+      <Key ID="STR_A3A_Params_generic_veryslow">
+        <Original>Very slow</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_slow">
+        <Original>Slow</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_fast">
+        <Original>Fast</Original>
+      </Key>
+      <Key ID="STR_A3A_Params_generic_veryfast">
+        <Original>Very fast</Original>
+      </Key>
       <Key ID="STR_A3A_Params_globalCivilianMax_title">
         <Original>Maximum global civilians</Original>
         <Italian>Numero massimo globale di civili </Italian>
@@ -9524,6 +9548,9 @@
         <Korean>점령군과 관련된 침략군에 대한 자원 승수</Korean>
         <Russian>Множитель ресурсов для захватчиков по отношению к оккупантам</Russian>
         <Chinesesimp>入侵者相对于占领者的资源倍增</Chinesesimp>
+      </Key>
+      <Key ID="STR_A3A_Params_enemyResponseTime_title">
+        <Original>Speed of enemy air responses</Original>
       </Key>
       <Key ID="STR_A3A_Params_limitedFT_any">
         <Original>Any friendly position</Original>

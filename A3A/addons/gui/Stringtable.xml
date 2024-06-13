@@ -2,6 +2,12 @@
 <Project name="A3-Antistasi">
   <Package name="A3-Antistasi gui">
     <Container name="arsenal_limits_dialog">
+      <Key ID="STR_antistasi_arsenal_limits_dialog_hint_title">
+        <Original>Arsenal Guest Limits</Original>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_guest_warning">
+        <Original>As a guest commander you can't reduce arsenal limits below default, or below values set by members.</Original>
+      </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_close">
         <Original>CLOSE</Original>
         <German>Schließen</German>
@@ -57,6 +63,9 @@
         <Portuguese>REÍNICIO</Portuguese>
         <Turkish>RESET</Turkish>
         <Chinesesimp>重置</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_arsenal_limits_dialog_reset_tooltip">
+        <Original>Reset all items in this category to the default guest limit</Original>
       </Key>
       <Key ID="STR_antistasi_arsenal_limits_dialog_step">
         <Original>STEP</Original>
@@ -3044,7 +3053,7 @@
         <Chinesesimp>无可用载具</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_main_player_money_text">
-        <Original>Current money:&lt;br/&gt;€ %1</Original>
+        <Original>Current money: € %1</Original>
         <German>Aktuelles Geld:&lt;br/&gt;€ %1</German>
         <Italian>Denaro attuale:&lt;br/&gt;€ %1</Italian>
         <Spanish>Dinero:&lt;br/&gt;€ %1</Spanish>
@@ -4102,7 +4111,7 @@
         <Chinesesimp>删除存档</Chinesesimp>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_dlc">
-        <Original>DLC</Original>
+        <Original>DLC and Addons</Original>
         <German>DLC</German>
         <Italian>DLC</Italian>
         <Spanish>DLC</Spanish>
@@ -4128,6 +4137,9 @@
         <Portuguese>Fações</Portuguese>
         <Turkish>Hizipler</Turkish>
         <Chinesesimp>派系</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_factionInfo">
+        <Original>Faction Information</Original>
       </Key>
       <Key ID="STR_antistasi_dialogs_setup_invaders">
         <Original>Invaders</Original>
@@ -4367,6 +4379,12 @@
         <Turkish>ANTİSTASİ KURULUMU</Turkish>
         <Chinesesimp>ANTISTASI设置</Chinesesimp>
       </Key>
+      <Key ID="STR_antistasi_dialogs_setup_toggleAddons_addons">
+        <Original>Switch to Addons</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_toggleAddons_DLC">
+        <Original>Switch to DLCs</Original>
+      </Key>
       <Key ID="STR_antistasi_dialogs_setup_use_new_namespace">
         <Original>Use New Save file</Original>
         <German>Nutze neue Spielstand Datei</German>
@@ -4380,6 +4398,15 @@
         <Portuguese>Usar novo ficheiro</Portuguese>
         <Turkish>Yeni kayıt dosyası kullan</Turkish>
         <Chinesesimp>使用新的存档文件</Chinesesimp>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_infoPanel_header">
+        <Original>%1 Information</Original>
+      </Key>
+      <Key ID="STR_antistasi_dialogs_setup_prettyAddons">
+        <Original>Required Addons: %1</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_GUI_setupLoadgameTab_badFactions">
+        <Original>The currently selected factions are not loaded.\nGo to the Factions tab and select available factions.</Original>
       </Key>
     </Container>
   </Package>

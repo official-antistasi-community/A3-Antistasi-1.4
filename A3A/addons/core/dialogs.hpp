@@ -1312,13 +1312,13 @@ class radio_comm 		{
 		class 8slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
-			text = "";		//$STR_antistasi_dialogs_radio_comm_construct;
+			text = "New Battle Menu";		// Don't localize, tempory button.
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.415981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			tooltip = $STR_antistasi_dialogs_radio_comm_construct_tooltip;
-			//action = "closeDialog 0;_nul = createDialog ""construction_menu"";";
+			tooltip = "Experimental Battle Menu. Work in Progress."; // Don't localize, tempory button.
+			action = "closeDialog 0; if (A3A_GUIDevPreview) then { _nul = createDialog ""A3A_MainDialog""; } else {[localize ""$STR_A3A_Params_GUIDevPreview_title"",""This paraemter must be enabled in params""] call A3A_fnc_customHint; };";
 		};
 		class 8slots_L3: A3A_core_BattleMenuRedButton
 		{
@@ -1802,7 +1802,7 @@ class commander_comm 		{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = "Manage arsenal limitations of guests";	//$STR_antistasi_dialogs_commander_comm_faction_garage_tooltip;
-			action = "if (player == theBoss && theBoss call A3A_fnc_isMember) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""Only member commanders have access to this function""] call A3A_fnc_customHint}";
+			action = "if (player == theBoss) then {closeDialog 0; createDialog ""A3A_ArsenalLimitsDialog""} else {[""Arsenal limits"", ""Only commanders have access to this function""] call A3A_fnc_customHint}";
 		};
 		class 8slots_L4: A3A_core_BattleMenuRedButton
 		{
@@ -2287,7 +2287,7 @@ class player_money 			{
 			y = 0.317959 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
-			action = "[true] call A3A_fnc_donateMoney;";
+			action = "[player, cursorObject, 100] call A3A_fnc_sendMoney;";
 		};
 		class HQ_button_AA: A3A_core_BattleMenuRedButton
 		{
@@ -2298,7 +2298,7 @@ class player_money 			{
 			w = 0.175015 * safezoneW;
 			h = 0.0560125 * safezoneH;
 			tooltip = $STR_antistasi_dialogs_player_money_donate_faction_tooltip;
-			action = "[] call A3A_fnc_donateMoney;";
+			action = "[player, 'faction', 100] call A3A_fnc_sendMoney;";
 		};
 	};
 };

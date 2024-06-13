@@ -40,6 +40,7 @@ switch _typeX do
         petros addAction [localize "STR_A3A_fn_base_flagaction_asset_move", A3A_fnc_carryItem,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros) and (isNull objectParent _this) and !(call A3A_fnc_isCarrying)"];
 
         petros addAction [localize "STR_A3A_fn_base_flagaction_hq_build", A3A_fnc_buildHQ,nil,0,false,true,"","(_this == theBoss) and (petros != leader group petros)",4];
+        //petros addAction ["Experimental HQ Management. Work in Progress.", { createDialog "A3A_HqDialog"; },nil,0,false,true,"","A3A_GUIDevPreview and (_this == theBoss) and (petros == leader group petros)",4];
     };
     case "truckX":
     {
@@ -151,14 +152,14 @@ switch _typeX do
     case "Intel_Small":
     {
         _flag addAction [
-            localize "STR_A3A_fn_base_flagaction_intel_search", 
-            A3A_fnc_searchIntelOnLeader, 
-            nil, 
-            4, 
-            true, 
-            false, 
-            "", 
-            "!([_target] call A3A_fnc_canFight) && !(_target getVariable ['intelSearchDone', false]) && isPlayer _this", 
+            localize "STR_A3A_fn_base_flagaction_intel_search",
+            A3A_fnc_searchIntelOnLeader,
+            nil,
+            4,
+            true,
+            false,
+            "",
+            "!([_target] call A3A_fnc_canFight) && !(_target getVariable ['intelSearchDone', false]) && isPlayer _this",
             4
         ];
     };

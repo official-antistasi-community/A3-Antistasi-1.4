@@ -71,7 +71,7 @@ if (!(isNull(_group getVariable ["mortarsX",objNull])) or ({_x call A3A_fnc_type
 };
 
 // Get group vehicle
-private _groupVehicle = [_group] call A3A_fnc_getGroupVehicle;
+private _groupVehicle = [_group] call FUNC(getGroupVehicle);
 
 // Get group icon
 private _groupIconId = _group getVariable "BIS_MARTA_ICON_TYPE";

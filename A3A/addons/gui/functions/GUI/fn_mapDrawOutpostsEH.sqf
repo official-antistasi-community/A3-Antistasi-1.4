@@ -20,10 +20,12 @@
         <ARRAY> citiesX
 
     Example:
-        _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_mapDrawOutpostsEH"];
+        _fastTravelMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_mapDrawOutpostsEH"];
 */
 
 #include "..\..\dialogues\textures.inc"
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 params ["_map"];
 
@@ -42,8 +44,8 @@ private _markerSize = ((_maxMarkerSize + (_minMarkerSize - _maxMarkerSize) * ((_
 private _outpostIconData = [];
 {
     private _marker = _x;
-    private _type = _marker call A3A_fnc_getLocationMarkerType;
-    private _name = [_marker] call A3A_fnc_getLocationMarkerName;
+    private _type = "outpost";//_marker call A3A_fnc_getLocationMarkerType;  // ToDo define
+    private _name = "Outpost";//[_marker] call A3A_fnc_getLocationMarkerName;  // ToDo define
     private _pos = getMarkerPos _marker;
     private _side = sidesX getVariable [_marker,sideUnknown];
     private _color = [1,1,1,1];
@@ -72,44 +74,43 @@ private _outpostIconData = [];
     };
 
     private _fadedColor = [_color # 0, _color # 1, _color # 2, _alpha];
-
-    private _icon = A3A_missionRootPath + A3A_Icon_Map_Blank;
+    private _icon = A3A_Icon_Map_Blank;
     if (_mapScale < _fadeEnd) then {
         _icon = switch (_type) do {
             case ("hq"): {
-                A3A_missionRootPath + A3A_Icon_Map_HQ;
+                A3A_Icon_Map_HQ;
             };
 
             case ("city"): {
-                A3A_missionRootPath + A3A_Icon_Map_City;
+                A3A_Icon_Map_City;
             };
 
             case ("factory"): {
-                A3A_missionRootPath + A3A_Icon_Map_Factory;
+                A3A_Icon_Map_Factory;
             };
 
             case ("resource"): {
-                A3A_missionRootPath + A3A_Icon_Map_Resource;
+                A3A_Icon_Map_Resource;
             };
 
             case ("seaport"): {
-                A3A_missionRootPath + A3A_Icon_Map_Seaport;
+                A3A_Icon_Map_Seaport;
             };
 
             case ("airport"): {
-                A3A_missionRootPath + A3A_Icon_Map_Airport;
+                A3A_Icon_Map_Airport;
             };
 
             case ("outpost"): {
-                A3A_missionRootPath + A3A_Icon_Map_Outpost;
+                A3A_Icon_Map_Outpost;
             };
 
             case ("watchpost"): {
-                A3A_missionRootPath + A3A_Icon_Map_Watchpost;
+                A3A_Icon_Map_Watchpost;
             };
 
             case ("roadblock"): {
-                A3A_missionRootPath + A3A_Icon_Map_Roadblock;
+                A3A_Icon_Map_Roadblock;
             };
 
             default {

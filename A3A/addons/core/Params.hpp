@@ -105,6 +105,13 @@ class Params
         texts[] = {$STR_A3A_Params_generic_2min, $STR_A3A_Params_generic_5min, $STR_A3A_Params_generic_15min, $STR_A3A_Params_generic_30min, $STR_A3A_Params_generic_disabled};
         default = 900;
     };
+    class A3A_gcMaxObjects
+    {
+        title = $STR_A3A_Params_gcMaxObjects_title;
+        values[] = {50,100,150,200,300};
+        texts[] = {"50","100","150","200","300"};
+        default = 150;
+    };
     class A3A_GCThreshold
     {
         title = $STR_A3A_Params_GCThreshold_title;

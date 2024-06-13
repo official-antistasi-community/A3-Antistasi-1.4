@@ -16,7 +16,7 @@ Dependencies:
     None
 
 Example:
-    ["update"] call A3A_fnc_constructTab;
+    ["update"] call FUNC(constructTab);
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -37,7 +37,7 @@ switch (_mode) do
         private _backButton = _display displayCtrl A3A_IDC_MAINDIALOGBACKBUTTON;
         _backButton ctrlRemoveAllEventHandlers "MouseButtonClick";
         _backButton ctrlAddEventHandler ["MouseButtonClick", {
-            ["switchTab", ["player"]] call A3A_fnc_mainDialog;
+            ["switchTab", ["player"]] call FUNC(mainDialog);
         }];
         _backButton ctrlShow true;
 

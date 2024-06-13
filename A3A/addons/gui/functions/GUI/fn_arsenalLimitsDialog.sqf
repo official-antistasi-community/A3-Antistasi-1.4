@@ -8,7 +8,7 @@ Arguments:
 Returns:
     Nothing
 
-Environment: 
+Environment:
     Should not be called by onLoad because findDisplay and ctrlParent do not work in that context.
 */
 
@@ -33,7 +33,7 @@ switch (_mode) do
             [localize "STR_antistasi_arsenal_limits_dialog_hint_title", localize "STR_antistasi_arsenal_limits_dialog_guest_warning"] call A3A_fnc_customHint;
             (_display displayctrl A3A_IDC_ARSLIMRESETBUTTON) ctrlEnable false;
         };
-        ["typeSelect", [A3A_IDC_ARSLIMTYPESBASE]] call A3A_fnc_arsenalLimitsDialog;
+        ["typeSelect", [A3A_IDC_ARSLIMTYPESBASE]] call A3A_GUI_fnc_ArsenalLimitsDialog;
     };
 
     case ("typeSelect"):
@@ -82,12 +82,12 @@ switch (_mode) do
                 _button ctrlCommit 0;
                 _button ctrlSetText _text;
                 _button setVariable ["A3A_params", [_valCtrl, _adjust]];
-                _button ctrlAddEventHandler ["ButtonClick", { ["listButton", _this] call A3A_fnc_arsenalLimitsDialog }];
+                _button ctrlAddEventHandler ["ButtonClick", { ["listButton", _this] call A3A_GUI_fnc_ArsenalLimitsDialog }];
             } forEach [["R", "R", 66], ["-", -5, 70], ["+", 5, 82], ["U", "U", 86]];
 
         } forEach (jna_datalist#_typeIndex select {_x#1>0});        // only show non-unlocked items
 
-        // color-invert the selected button, restore the others 
+        // color-invert the selected button, restore the others
         {
             private _ctrl = _display displayctrl (A3A_IDC_ARSLIMTYPESBASE + _x);
             _ctrl ctrlEnable ([true, false] select (_x == _typeIndex));
@@ -129,7 +129,7 @@ switch (_mode) do
             A3A_arsenalLimits deleteAt (_x#0);
         } forEach (jna_datalist#_typeIndex);
 
-        ["typeSelect", [_typeIndex + A3A_IDC_ARSLIMTYPESBASE]] call A3A_fnc_arsenalLimitsDialog;          // refresh the display
+        ["typeSelect", [_typeIndex + A3A_IDC_ARSLIMTYPESBASE]] call A3A_GUI_fnc_ArsenalLimitsDialog;          // refresh the display
     };
 
 /*    case ("stepButton"):

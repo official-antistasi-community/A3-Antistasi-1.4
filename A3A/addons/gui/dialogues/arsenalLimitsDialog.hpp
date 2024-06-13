@@ -4,7 +4,7 @@ class A3A_ArsenalLimitsDialog : A3A_DefaultDialog {
     idd = A3A_IDD_ARSENALLIMITSDIALOG;
     movingenable = false;
 
-    onLoad = "['init'] spawn A3A_fnc_arsenalLimitsDialog";
+    onLoad = "['init'] spawn A3A_GUI_fnc_arsenalLimitsDialog";
     onUnload = "publicVariable 'A3A_arsenalLimits'";
 
     class Controls {
@@ -43,7 +43,7 @@ class A3A_ArsenalLimitsDialog : A3A_DefaultDialog {
             y = DIALOG_Y + 78*GRID_H;
             text = $STR_antistasi_arsenal_limits_dialog_reset;
             tooltip = $STR_antistasi_arsenal_limits_dialog_reset_tooltip;
-            onButtonClick = "['resetButton'] call A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['resetButton'] call A3A_GUI_fnc_ArsenalLimitsDialog";
         };
 
         class CloseButton : A3A_Button {
@@ -60,8 +60,8 @@ class A3A_ArsenalLimitsDialog : A3A_DefaultDialog {
             idc = A3A_IDC_ARSLIMSTEPBUTTON;
             x = AL_CENTER_X - 20*AL_GRID_W;
             text = "";              // stringtable combination doesn't work so prep in onLoad instead
-            onButtonClick = "['stepButton'] call A3A_fnc_arsenalLimitsDialog";
-            onLoad = "['stepButton'] spawn A3A_fnc_arsenalLimitsDialog";
+            onButtonClick = "['stepButton'] call A3A_GUI_fnc_arsenalLimitsDialog";
+            onLoad = "['stepButton'] spawn A3A_GUI_fnc_arsenalLimitsDialog";
         };
 */
         class TypeSelection : A3A_ControlsGroup {
@@ -76,7 +76,7 @@ class A3A_ArsenalLimitsDialog : A3A_DefaultDialog {
                     idc = A3A_IDC_ARSLIMTYPESBASE + 0;
                     text="\A3\Ui_f\data\GUI\Rsc\RscDisplayArsenal\PrimaryWeapon_ca.paa";
                     tooltip="$STR_A3_RscDisplayArsenal_tab_PrimaryWeapon";
-                    onButtonClick = "['typeSelect', [ctrlIDC (_this#0)]] call A3A_fnc_arsenalLimitsDialog";
+                    onButtonClick = "['typeSelect', [ctrlIDC (_this#0)]] call A3A_GUI_fnc_arsenalLimitsDialog";
                     colorDisabled[] = {0,0,0,1};
                     colorBackgroundDisabled[] = {1,1,1,1};
                     x = 0;

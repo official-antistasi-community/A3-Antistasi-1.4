@@ -15,10 +15,12 @@ Dependencies:
     Main Dialog must be open
 
 Example:
-    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_fnc_fireMissionEH"];
+    _commanderMap ctrlAddEventHandler ["Draw","_this call A3A_GUI_fnc_fireMissionEH"];
 */
 
 #include "..\..\dialogues\ids.inc"
+#include "..\..\script_component.hpp"
+FIX_LINE_NUMBERS()
 
 private _display = findDisplay A3A_IDD_MAINDIALOG;
 private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;

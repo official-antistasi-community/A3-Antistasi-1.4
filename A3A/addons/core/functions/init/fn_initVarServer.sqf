@@ -35,8 +35,6 @@ private _declareServerVariable = {
 ////////////////////////////////////////
 Info("initialising general server variables");
 
-//time to delete dead bodies, vehicles etc..
-DECLARE_SERVER_VAR(cleantime, 3600);
 //initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
 //User-adjustable variables are now declared in initParams
 //DECLARE_SERVER_VAR(distanceSPWN, 1000);
@@ -167,6 +165,10 @@ testingTimerIsActive = false;
 A3A_tasksData = [];
 
 A3A_buildingsToSave = [];
+
+A3A_gcQueue = [];				// List of postmortem objects to clean up
+A3A_gcCleanTime = 1800;			// Base time for deleting postmortem objects
+A3A_gcMaxBumps = 3;				// Max times to delay cleanup for an object that's near players
 
 hcArray = [];					// array of headless client IDs
 

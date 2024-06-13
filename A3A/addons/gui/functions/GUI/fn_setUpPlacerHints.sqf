@@ -1,16 +1,16 @@
 /*
 Author: [Killerswin2]
-    creates the controls for the dialog. Picture and Button are created. Data Saved to buttons. 
+    creates the controls for the dialog. Picture and Button are created. Data Saved to buttons.
 Arguments:
 1. <string> string for initilizer
 Return Value:
 NONE
 Scope: Client
 Environment: scheduled
-Public: 
+Public:
 no
 Example:
-["onLoad"] spawn A3A_fnc_teamLeaderRTSPlacerDialog
+["onLoad"] spawn A3A_GUI_fnc_teamLeaderRTSPlacerDialog
 */
 
 

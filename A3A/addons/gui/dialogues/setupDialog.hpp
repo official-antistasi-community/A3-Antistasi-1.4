@@ -413,7 +413,7 @@ class A3A_SetupDialog : A3A_TabbedDialog
                 class DLCToggle: A3A_Button {
                     idc = A3A_IDC_SETUP_DLCTOGGLE;
                     text = $STR_antistasi_dialogs_setup_toggleAddons_addons;
-                    onButtonClick = "['switchAddons'] call A3A_fnc_setupFactionsTab;";
+                    onButtonClick = "['switchAddons'] call A3A_GUI_fnc_setupFactionsTab;";
                     x = 124 * GRID_W;
                     y = 92 * GRID_H;
                     w = 32 * GRID_W;

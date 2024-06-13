@@ -140,11 +140,16 @@ switch (_mode) do
         private _infoBox = _display displayCtrl A3A_IDC_SETUP_INFOBOX;
         private _infoLabel = _display displayCtrl A3A_IDC_SETUP_INFOLABEL;
         private _path = (configFile  >>  "A3A"  >>  "Templates" >>  _faction);
-        private _shortName = getText(_path/"shortName");
+        private _shortName = if !(isNull (_path/"shortName")) then 
+        {  
+            getText(_path/"shortName");
+        } else {
+            "Faction"; //  DO NOT LOCALIZE -- This is a debug string that should only show up when a template author hasn't put a short name in.
+        };
 
         _infoLabel ctrlSetText format [localize "STR_antistasi_dialogs_setup_infoPanel_header",_shortName];
         private _requiredAddons = getArray(_path/"requiredAddons") + getArray(_path/"forceDLC") - ["ws","vn","gm","spe"]; // CDLCs are listed twice for forced DLC and dependency
-        private _prettyAddonHM = createHashMapFromArray [
+        private _prettyAddonHM = createHashMapFromArray [ // TODO: Do we want to trim down the dependencies list? CUP Vehicles has dependencies on CUP Units and CUP Vehicles
             ["Weapons_1_F_lxWS", "Western Sahara CDLC"]
             ,["vn_weapons", "S.O.G Prairie Fire CDLC"]
             ,["rhsgref_main", "RHSGREF"]
@@ -182,7 +187,12 @@ switch (_mode) do
             format [localize "STR_antistasi_dialogs_setup_prettyAddons",_prettyAddons joinString ", "];
         };
 
-        private _lore = getText(_path/"lore");
+        private _lore = if !(isNull(_path/"lore")) then 
+        {
+            getText(_path/"lore");
+        } else {
+            "The template author has not added a description to this template."; // TODO: Do we localize a debug string?
+        };
         private _fullString = [_prettyAddons,endl,endl,_lore] joinString "";
         _infoBox ctrlSetText _fullString;
     };

@@ -66,7 +66,7 @@ switch (_mode) do
         };
         private _sameMap = (worldName == _saveData get "map");
         private _newGame = cbChecked _newGameCtrl;
-        private _factionData = ["getFactions"] call A3A_fnc_setupFactionsTab;
+        private _factionData = ["getFactions"] call A3A_GUI_fnc_setupFactionsTab;
         private _usableFactions = _factionData#0 findIf {!(_x call _fnc_factionLoaded)};
 
         // Update the controls according to selections

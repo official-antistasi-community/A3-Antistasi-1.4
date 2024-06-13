@@ -339,6 +339,8 @@ class Templates
         file = "RHS_AI_VDV_Temperate"; 
         climate[] = {"temperate","tropical","arctic"};
         logo = "\rhsafrf\addons\rhs_main\data\rhs_logo_ca.paa";
+        shortName = "VDV";
+        lore = $STR_A3A_templates_lore_VDV;
     };
 
     class RHS_VDV_Arid : RHS_VDV_Temperate
@@ -368,6 +370,8 @@ class Templates
         maps[] = {"Tanoa"};
         climate[] = {"tropical"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+        shortName = "HIDF";
+        lore = $STR_A3A_templates_lore_3CB_AI_HIDF;
     };
     
     class RHS_TLA : RHS_Base
@@ -379,6 +383,8 @@ class Templates
         maps[] = {"Tanoa"};
         climate[] = {"tropical"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
+        shortName = "TLA";
+        lore = $STR_A3A_templates_lore_TLA;
     };
     
     class RHS_CDF : RHS_Base

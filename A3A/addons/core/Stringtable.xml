@@ -16419,6 +16419,12 @@
       <Key ID="STR_A3A_templates_lore_ACR">
         <Original>The Army of the Czech Republic, as a landlocked country, primarily focuses on it's Air Force and ground forces. Many of the weapons the ACR use are standard NATO-issue, but they tend to diversify with a variety of homegrown weapons, such as the vz. 58 or CZ BREN.</Original>
       </Key>
+      <Key ID="STR_A3A_templates_lore_TLA">
+        <Original>The Tanoa Liberation Army is built on the dreams of hundreds, even thousands of soldiers to return the volcanic island of Tanoa to its former glory. They are very poorly funded, and typically use some of the oldest Cold War Soviet technology.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_VDV">
+        <Original>The Russian Air Forces fill a vital gap in the AFRF's capability of cohesive aerial assaults. They typically use standard issue Russian equipment, but their vehicles and gear are modified to be more lightweight for ease of aerial operations.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

@@ -1,23 +1,19 @@
 ["attributesVehicles", [
-    // light armed stuff
+    // light armed Cars
     ["CUP_I_Datsun_PK", ["rebCost", 600]],
-	
-    // lightarmed
-    ["CUP_I_Hilux_armored_BTR60_IND_G_F", ["rebcost", 4000]],
     
-    // static at
-    ["CUP_I_D30_AT_TK_GUE", ["rebcost", 5000]],
-    
-    // civcars
+    // light armed boats
+    ["CUP_I_RHIB_RACS", ["rebCost", 1000]],
+        
+    // civ cars
     ["CUP_C_Pickup_unarmed_CIV", ["rebcost", 300]],
     ["CUP_C_SUV_CIV", ["rebcost", 400]],
 
-    // civtrucks
+    // civ trucks
     ["CUP_C_Ikarus_Chernarus", ["rebcost", 500]],
 
-    //civ plane
+    // civ plane
     ["CUP_C_C47_CIV", ["rebcost", 8000]],
-
 
     // civ helicopters
     ["CUP_I_Merlin_HC3_PMC_Lux_3C", ["rebCost", 8000]]

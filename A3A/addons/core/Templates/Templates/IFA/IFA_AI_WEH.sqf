@@ -52,9 +52,8 @@ private _vehiclesLightTanks = ["a3a_lib_PzKpfwIV_noShield"];
 ["vehiclesHelisLightAttack", []] call _fnc_saveToTemplate;      // Utility helis with fixed or door guns + rocket pods
 ["vehiclesHelisAttack", []] call _fnc_saveToTemplate;           // Proper attack helis: Apache, Hind etc
 
-["vehiclesArtillery", ["LIB_Nebelwerfer41","LIB_FlaK_36_ARTY","LIB_leFH18","LIB_SdKfz124"]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["LIB_FlaK_36_ARTY","LIB_leFH18","LIB_SdKfz124"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [
-["LIB_Nebelwerfer41", ["LIB_6Rnd_NbW41"]],
 ["LIB_FlaK_36_ARTY", ["LIB_45x_SprGr_KwK36_HE"]],
 ["LIB_leFH18", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]],
 ["LIB_SdKfz124", ["LIB_20x_Shell_105L28_Gr39HlC_HE"]]

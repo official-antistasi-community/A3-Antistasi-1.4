@@ -424,7 +424,7 @@ do
         _teamplayer = units teamPlayer select {
             private _veh = vehicle _x;
             _x getVariable ["spawner", false] and _x == effectiveCommander _veh
-            and (_veh == _x or {!(_veh isKindOf "Plane" and speed _veh > 250)})
+            and (_veh == _x or {!(_veh isKindOf "Plane" and (!isTouchingGround _veh or speed _veh > 80))})
         };
         // Add in rebel-controlled UAVs
         _teamplayer append (allUnitsUAV select { side group _x == teamPlayer });

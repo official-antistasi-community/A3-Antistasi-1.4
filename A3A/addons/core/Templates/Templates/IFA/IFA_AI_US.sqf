@@ -568,7 +568,7 @@ private _atTemplate = {
 };
 
 private _aaTemplate = {
-    call _latTemplate;
+    call (selectRandom [_latTemplate, _atTemplate]);
 };
 
 private _machineGunnerTemplate = {

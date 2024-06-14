@@ -575,13 +575,10 @@ private _atTemplate = {
 
     [[selectRandom ["SMGs", "carbines"], "rifles"] call _fnc_fallback] call _fnc_setPrimary;
     ["primary", 5] call _fnc_addMagazines;
-    private _launch = ["ATLaunchers", "lightATLaunchers"] call _fnc_fallback;
+
+    ["atBackpacks"] call _fnc_setBackpack;
     
-    if (_launch == "ATLaunchers") then {
-        ["atBackpacks"] call _fnc_setBackpack;
-    };
-    
-    [_launch] call _fnc_setLauncher;
+    ["ATLaunchers"] call _fnc_setLauncher;
     //TODO - Add a check if it's disposable.
     ["launcher", 2] call _fnc_addMagazines;
 
@@ -602,7 +599,7 @@ private _atTemplate = {
 };
 
 private _aaTemplate = {
-    call _latTemplate;
+    call (selectRandom [_latTemplate, _atTemplate]);
 };
 
 private _machineGunnerTemplate = {

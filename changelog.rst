@@ -11,9 +11,7 @@ Version 3.6.0
 
 .. admonition:: Major
 
-   .. rubric:: :issue:`` 
-
-   * [Added] - 
+   .. rubric:: :issue:`3214` Added Map Port of Pulau
 
 .. admonition:: Minor
 

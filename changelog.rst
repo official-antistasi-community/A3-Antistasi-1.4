@@ -27,6 +27,7 @@ Version 3.6.0
    * :issue:`3261` Added a few RHS items to Garbage Cleaner
    * :issue:`3269` Added Setup GUI Factions Info
    * :issue:`3274` Added tank platoon support as alternative to CAS
+   * :issue:`3278` Updated SF spawn locations on Livonia
    * :issue:`3284` Added logging for temporary membership
    * :issue:`` 
    * :issue:`` 

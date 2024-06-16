@@ -40,7 +40,7 @@ Version 3.6.0
 
 .. admonition:: Template updates
 
-   * :issue:`2800` Added Swedish Forces Pack (SFP) templates
+   * :issue:`2800` Added Swedish Forces Pack (SFP) templates (requires CUP Units, Vehicles and Weapons loaded)
    * :issue:`3166` Added Iron Front AiO templates
    * :issue:`3203` Added Poseidon II to RHS NAPA
    * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
@@ -49,7 +49,7 @@ Version 3.6.0
    * :issue:`3258` "Re-added" the RPD to the 3CB SOV template
    * :issue:`3271` Added RHS VDV templates
    * :issue:`3267` Added RHS Tanoan Liberation Army (TLA) template
-   * :issue:`` 
+   * :issue:`3277` Updated buyable vehicles for CUP
    * :issue:`` 
    * :issue:`` 
 

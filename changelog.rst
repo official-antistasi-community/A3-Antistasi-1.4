@@ -28,9 +28,9 @@ Version 3.6.0
    * :issue:`3269` Added Setup GUI Factions Info
    * :issue:`3274` Added tank platoon support as alternative to CAS
    * :issue:`3278` Updated SF spawn locations on Livonia
+   * :issue:`3282` Allowed commanders to make custom HC squads
    * :issue:`3284` Added logging for temporary membership
-   * :issue:`` 
-   * :issue:`` 
+   * :issue:`3295` Added explosiveSpecialist and UAVHacker traits to default commander slot
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 
@@ -62,8 +62,8 @@ Version 3.6.0
    * :issue:`3242` Added Cargo nodes for 3CB Hilux (Covered)
    * :issue:`3251` Fixed breaking error in citySupportChange type-safety checks
    * :issue:`3254` Fixed Refugee mission timer
-   * :issue:`3256` Destroy Heli mission
-   * :issue:`3260` Artillery marker improvements
+   * :issue:`3256` Fixed destroy Heli mission
+   * :issue:`3260` Applied Artillery marker improvements
    * :issue:`3264` Fixed lootToCrate issues with IFA gear
    * :issue:`3266` Improved getArtilleryRanges & fixed IFA mortar case
    * :issue:`3273` Prevented concurrent major attacks, and added a planning cost
@@ -71,9 +71,9 @@ Version 3.6.0
    * :issue:`3283` Fixed incorrect config array specifier for diveParams
    * :issue:`3286` Fixed inconsistent parameter bug with createAttackForceLand
    * :issue:`3287` Fixed WW2 factions using SAM supports
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
+   * :issue:`3293` Fixed potential double-carry or double-drop errors under heavy script load
+   * :issue:`3294` Fixed fetching current arsenal data before displaying the arsenal limits dialog
+   * :issue:`3297` Switched over init order to fix error in initRemoteObject JIP function
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 

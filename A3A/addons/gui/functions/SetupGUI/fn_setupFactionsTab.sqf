@@ -167,6 +167,7 @@ switch (_mode) do
             ,["bwa3_common", "BWMod"]
             ,["ww2_spe_assets_c_characters_germans_c", "Spearhead 1944 CDLC"]
             ,["IFA3_Core", "IFA3 AIO"]
+            ,["Swedish_Forces_Pack","Swedish Forces Pack"]
         ];
 
         private _prettyAddons = _requiredAddons apply 
@@ -175,9 +176,7 @@ switch (_mode) do
             {   
                 getText(configFile >> "CfgMods" >> _x >> "nameShort");
             } else {
-                private _addon = _prettyAddonHM getOrDefault [_x,"UNKNOWNADDON"];
-                if (_addon == "UNKNOWNADDON") then {Error_1("Unlisted addon: %1. Please add this faction manually in fn_setupFactionsTab.",_x)};
-                _addon;
+                _prettyAddonHM getOrDefault [_x,_x];
             };
         };
 

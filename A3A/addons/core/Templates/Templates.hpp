@@ -473,6 +473,7 @@ class Templates
         logo = "\sfp_config\data\logos\sfp_logo_ca.paa";
 	    flagTexture = "\sfp_config\data\flag_sweden_co.paa";
         priority = 70;
+        shortName = "SDF";
     };
     class SFP_SAF00 : SFP_Base
     {
@@ -480,13 +481,15 @@ class Templates
         name = "SFP Early SDF";
         file = "SFP_AI_SWE_early";
         climate[] = {"temperate","tropical","arid"};
+        lore = $STR_A3A_templates_lore_SFP_SAF00;
     };
     class SFP_SAF00_Arctic : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP Early SDF ARTIC";
+        name = "SFP Early SDF ARCTIC";
         file = "SFP_AI_SWE_early_snow";
         climate[] = {"arctic"};
+        lore = $STR_A3A_templates_lore_SFP_SAF00;
     };
     class SFP_SAF15 : SFP_Base
     {
@@ -494,13 +497,15 @@ class Templates
         name = "SFP Modern SDF";
         file = "SFP_AI_SWE";
         climate[] = {"temperate","tropical","arid"};
+        lore = $STR_A3A_templates_lore_SFP_SAF15;
     };
     class SFP_SAF15_Arctic : SFP_Base
     {
 	    side = "Occ";
-        name = "SFP Modern SDF ARTIC";
+        name = "SFP Modern SDF ARCTIC";
         file = "SFP_AI_SWE_snow";
         climate[] = {"arctic"};
+        lore = $STR_A3A_templates_lore_SFP_SAF15;
     };
     //************* 3CB Factions ***************************************************
 
@@ -1272,6 +1277,8 @@ class Templates
         name = "IFA WEHRMACHT";
         priority = 65;
         file = "IFA_AI_WEH";
+        shortName = "WEH";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_WEH;
     };
     class IFA_SOV : IFA_Base
     {
@@ -1279,6 +1286,8 @@ class Templates
         flagTexture = "\x\A3A\addons\core\Pictures\Flags\ifa_sov.paa";
         name = "IFA SOVIET ARMY";
         file = "IFA_AI_SOV";
+        shortName = "SOV";
+        lore = $STR_A3A_templates_lore_IFA_AI_SOV.
     };
     class IFA_ALLIES : IFA_Base
     {
@@ -1287,6 +1296,8 @@ class Templates
         name = "IFA ALLIES";
         priority = 65;
         file = "IFA_AI_ALLIES";
+        shortName = "ALLIES";
+        lore = $STR_A3A_templates_lore_IFA_AI_ALLIES;
     };
     class IFA_US : IFA_Base
     {
@@ -1294,6 +1305,8 @@ class Templates
         flagTexture = "a3\data_f\flags\flag_us_co.paa";
         name = "IFA US ARMY";
         file = "IFA_AI_US";
+        shortName = "US";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_US;
     };
     class IFA_UK : IFA_Base
     {
@@ -1301,6 +1314,8 @@ class Templates
         flagTexture = "\A3\Data_F\Flags\flag_uk_co.paa";
         name = "IFA UK ARMY";
         file = "IFA_AI_UK";
+        shortName = "UK";
+        lore = $STR_A3A_templates_lore_IFA_AI_UK;
     };
     class IFA_FFI : IFA_Base
     {
@@ -1311,6 +1326,8 @@ class Templates
         file = "IFA_REB_FFI";
         maps[] = {};
         climate[] = {};
+        shortName = "FFI";
+        lore = $STR_A3A_templates_IFA_Reb_FFI;
     };
     class IFA_AK : IFA_Base
     {
@@ -1320,6 +1337,8 @@ class Templates
         file = "IFA_REB_AK";
         maps[] = {"Staszow"};
         climate[] = {};
+        shortName = "AK";
+        lore = $STR_A3A_templates_IFA_REB_AK;
     };
     class IFA_CIV_FR : IFA_Base
     {
@@ -1329,6 +1348,8 @@ class Templates
         priority = 65;
         file = "IFA_CIV_FR";
         climate[] = {};
+        shortName = "CIV";
+        lore = $STR_A3A_templates_IFA_CIV_FR;
     };
     class IFA_CIV_PL : IFA_Base
     {
@@ -1338,6 +1359,8 @@ class Templates
         file = "IFA_CIV_PL";
         maps[] = {"Staszow"};
         climate[] = {};
+        shortName = "CIV";
+        lore = $STR_A3A_templates_IFA_CIV_PL;
     };
     // ***************************** SPE with IFA *****************************
 

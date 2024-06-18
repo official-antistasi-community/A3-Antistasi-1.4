@@ -16437,6 +16437,33 @@
       <Key ID="STR_A3A_templates_lore_VDV">
         <Original>The Russian Air Forces fill a vital gap in the AFRF's capability of cohesive aerial assaults. They typically use standard issue Russian equipment, but their vehicles and gear are modified to be more lightweight for ease of aerial operations.</Original>
       </Key>
+      <Key ID="STR_A3A_templates_lore_SFP_SAF00">
+        <Original>The Swedish Defense Force was never focused on any exploratory ventures into surrounding nations, instead opting to maintain its alliances and fortify the Swedish border from any kind of enemy attack. They use a variety of homegrown weapons, often using the AK4, a variant of the G3.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_SFP_SAF15">
+        <Original>The Swedish Defense Force was never focused on any exploratory ventures into surrounding nations, instead opting to maintain its alliances and fortify the Swedish border from any kind of enemy attack. They use a variety of homegrown weapons, often using the AK5, a variant of the FN FNC.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_IFA_AI_SOV">
+        <Original>The Soviets during World War II worked with the Allies after Russian territory was invaded during the Wehrmacht's destructive path to power. They most often use the PPSH-41 submachine gun and Mosin-Nagant rifle, with few exceptions.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_IFA_AI_ALLIES">
+        <Original>The Allies of World War II were a coalition of nations dedicated to fighting the Wehrmacht's ruthless invasion of it's neighboring countries. They most often use American-exported weapons, such as the M1 Garand, M1A1 Thompson, and M1 Carbine.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_lore_IFA_AI_UK">
+        <Original>The United Kingdom was at the forefront of World War II, a final show of force from an once-great empire. They commonly use a variety of home-grown weapons like the Sten and Enfield, mixed with a variety of American export weaponry.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_IFA_Reb_FFI">
+        <Original>The French Resistance is battling the Wehrmacht invasion of their country, along with the Allied powers who they believe are being far too heavy handed with civilian casualities and need to be stopped. They use a much older but wealthy supply of Walther PPKs.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_IFA_REB_AK">
+        <Original>The Polish resistance is in an extremely bad spot. Surrounded by the Wehrmacht on one side and the Soviets on the other, the Polish townspeople have no choice but to fight for the safety and freedom of their country. They use a much older but wealthy supply of Walther PPKs.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_IFA_CIV_FR">
+        <Original>As well as managing a large country in the middle of Europe, France also controls several offshore territories. Throughout all of these provinces, the French civilians simply wish for the war to end in their home country.</Original>
+      </Key>
+      <Key ID="STR_A3A_templates_IFA_CIV_PL">
+        <Original>In World War II, Poland was trapped in a very awkward position between the Soviets and Germans. The people of Poland have suffered through an occupied, and the recent change in relations has opened a window of opportunity for the Polish Resistance.</Original>
+      </Key>
     </Container>
   </Package>
 </Project>

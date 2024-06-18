@@ -173,7 +173,7 @@ if (_typeArty != "BARRAGE") then
 	waitUntil {!dialog or (!isNil "roundsX")};
 	};
 
-if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarkerLocal _mrkFinal; deleteMarker _mrkEllipse1};
+if ((isNil "roundsX") and (_typeArty != "BARRAGE")) exitWith {deleteMarker _mrkFinal; deleteMarker _mrkEllipse1};
 
 if (_typeArty != "BARRAGE") then
 	{

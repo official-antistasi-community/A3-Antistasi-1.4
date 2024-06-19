@@ -20,7 +20,8 @@ Example:
 params ["_item", "_player"];         // standard addAction
 
 // Redo the checks, because this function might be delayed by script load
-if ((count crew _item != 0) or (!isNull attachedTo _item) or (call A3A_fnc_isCarrying) or (!isNull objectParent _player)) exitWith {};
+if ((!isNull attachedTo _item) or (call A3A_fnc_isCarrying) or (!isNull objectParent _player)) exitWith {};
+if (_item isKindOf "StaticWeapon" and count crew _item != 0) exitWith {};
 
 // Go unscheduled to keep the state consistent
 isNil {

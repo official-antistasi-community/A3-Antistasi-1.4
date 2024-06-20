@@ -14,7 +14,7 @@
 
 // All of bellow are optional overrides.
 ["diveGear", [""]] call _fnc_saveToTemplate;
-["flyGear", ["U_LIB_US_Bomber_Pilot"]] call _fnc_saveToTemplate;
+["flyGear", ["U_LIB_US_Bomber_Pilot","B_LIB_US_Type5"]] call _fnc_saveToTemplate;
 ["vehiclesCivSupply", ["a3a_lib_Zis6_BOX"]] call _fnc_saveToTemplate; //We should create a inert "box truck" version
 
 ["surrenderCrate", "LIB_BasicWeaponsBox_GER"] call _fnc_saveToTemplate;

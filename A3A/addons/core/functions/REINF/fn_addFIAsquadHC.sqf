@@ -9,11 +9,6 @@ if (markerAlpha respawnTeamPlayer == 0) exitWith {[_titleStr, localize "STR_A3A_
 if (!([player] call A3A_fnc_hasRadio)) exitWith {if !(A3A_hasIFA) then {[_titleStr, localize "STR_A3A_fn_reinf_addSqdHC_no_radio"] call A3A_fnc_customHint;} else {[_titleStr, localize "STR_A3A_fn_reinf_addSqdHC_no_radio2"] call A3A_fnc_customHint;}};
 if ([getPosATL petros] call A3A_fnc_enemyNearCheck) exitWith {[_titleStr, localize "STR_A3A_fn_reinf_addSqdHC_no_enemy"] call A3A_fnc_customHint;};
 
-private _maxGroups = [6,10] select (player call A3A_fnc_isMember);
-if (count hcAllGroups player >= _maxGroups) exitWith {
-    [_titleStr, localize "STR_A3A_fn_reinf_addSqdHC_no_many"] call A3A_fnc_customHint;
-};
-
 private _exit = false;
 if (_typeGroup isEqualType "") then {
 	if (_typeGroup == "") then {_exit = true; [_titleStr, localize "STR_A3A_fn_reinf_addSqdHC_no_notsupp"] call A3A_fnc_customHint;};

@@ -5,13 +5,13 @@
 
 class CfgPatches 
 {
-    class PATCHNAME(A3) 
+    class PATCHNAME(IFA)
     {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"IFA3_Core","WW2_Assets_c_Weapons_InfantryWeapons_c"};
+        requiredAddons[] = {"IFA3_Core","WW2_Core_c_IF_ZZZ_LastLoaded_c"};
         skipWhenMissingDependencies = 1;
         author = AUTHOR;
         authors[] = { AUTHORS };
@@ -23,3 +23,4 @@ class CfgPatches
 // Uncomment when needed
 #include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"
+#include "CfgAmmo.hpp"

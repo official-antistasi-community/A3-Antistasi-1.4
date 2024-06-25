@@ -1,5 +1,6 @@
 //IFA - CfgVehicles.hpp
 
+class DefaultEventHandlers;
 class CfgVehicles 
 {
 	class LIB_US_Willys_MB_M1919;
@@ -54,5 +55,11 @@ class CfgVehicles
 			};
 		};
 		animationList[] ={};
+	};
+
+	// CBA event handlers fix
+	class Tank;
+	class LIB_Armored_Target_Dummy : Tank {
+		delete EventHandlers;
 	};
 };

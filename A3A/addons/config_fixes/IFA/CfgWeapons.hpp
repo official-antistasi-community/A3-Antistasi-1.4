@@ -1,6 +1,7 @@
 //IFA - CfgWeapons.hpp
 
 //Fun weapons for finding in lootcrates or on SF
+class Mode_SemiAuto;
 class CfgWeapons 
 {
 	class ItemCore;
@@ -81,5 +82,41 @@ class CfgWeapons
             showToPlayer = 1;
         };
         modes[] = {"Single","Full","Far","Medium","Short"};
+    };
+
+    // Adjust so that the mortars aren't wildly inaccurate at longer ranges
+    class LIB_MortarCannon_base;
+    class LIB_GRWR34 : LIB_MortarCannon_base {
+        class Single1 : Mode_SemiAuto {
+            artilleryDispersion = 4;
+        };
+        class Single2 : Single1 {
+            artilleryDispersion = 4;
+        };
+        class Single3 : Single1 {
+            artilleryDispersion = 4;
+        };
+    };
+    class LIB_BM37 : LIB_MortarCannon_base {
+        class Single1 : Mode_SemiAuto {
+            artilleryDispersion = 4;
+        };
+        class Single2 : Single1 {
+            artilleryDispersion = 4;
+        };
+        class Single3 : Single1 {
+            artilleryDispersion = 4;
+        };
+    };
+    class LIB_M2_60 : LIB_MortarCannon_base {
+        class Single1 : Mode_SemiAuto {
+            artilleryDispersion = 4;
+        };
+        class Single2 : Single1 {
+            artilleryDispersion = 4;
+        };
+        class Single3 : Single1 {
+            artilleryDispersion = 4;
+        };
     };
 };

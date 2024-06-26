@@ -24,12 +24,14 @@ class A3A {
             class LIB_Ju87 : baseCAS {
                 loadout[] = {"LIB_1Rnd_SC50","LIB_1Rnd_SC50","LIB_1Rnd_SC500","LIB_1Rnd_SC50","LIB_1Rnd_SC50"};
                 mainGun[] = {"LIB_2xMG151_JU87"};
+				rocketLauncher[] = {"LIB_2xMG151_JU87"};
                 bombRacks[] = {"LIB_SC500_Bomb_Mount","LIB_SC50_Bomb_Mount"};
                 diveParams[] = {1200, 300, 110, 55, 15, {15, -2}};
             };
             class LIB_Pe2 : baseCAS {
                 loadout[] = {"LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250","LIB_1Rnd_FAB250"};
-                mainGun[] = {"LIB_UBK_PE2"};
+                mainGun[] = {"LIB_UBK_PE2", "LIB_ShKAS_PE2"};
+				rocketLauncher[] = {"LIB_UBK_PE2"};
                 bombRacks[] = {"LIB_FAB250_Bomb_Mount"};
                 diveParams[] = {1200, 300, 110, 55, 15, {12, 0}};
             };
@@ -49,8 +51,8 @@ class A3A {
             };
             class LIB_P39 : baseCAS {
                 loadout[] = {"LIB_1Rnd_US_500lb","LIB_30Rnd_M4_P39","LIB_1000Rnd_M2_P39"};
-                mainGun[] = {"LIB_M4_P39"};
-                rocketLauncher[] = {"LIB_4xM2_P39"};
+                mainGun[] = {"LIB_4xM2_P39"};
+                rocketLauncher[] = {"LIB_M4_P39"};
                 bombRacks[] = {"LIB_US_500lb_Bomb_Mount"};
                 diveParams[] = {1200, 350, 110, 55, 15, {20, 0}};
             };

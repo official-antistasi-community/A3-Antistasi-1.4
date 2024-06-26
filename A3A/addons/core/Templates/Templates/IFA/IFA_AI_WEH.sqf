@@ -47,7 +47,7 @@ private _vehiclesLightTanks = ["a3a_lib_PzKpfwIV_noShield"];
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
 ["vehiclesPlanesCAS", ["LIB_Ju87","LIB_FW190F8_2"]] call _fnc_saveToTemplate;             // Will be used with CAS script, must be defined in setPlaneLoadout. Needs fixed gun and either rockets or missiles
-["vehiclesPlanesAA", ["LIB_FW190F8","LIB_FW190F8_4","LIB_FW190F8_2","LIB_FW190F8_5","LIB_FW190F8_3"]] call _fnc_saveToTemplate;              // 
+["vehiclesPlanesAA", ["LIB_FW190F8","LIB_FW190F8_2"]] call _fnc_saveToTemplate;              // 
 ["vehiclesPlanesTransport", ["LIB_C47_RAF"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", []] call _fnc_saveToTemplate;            // ideally fragile & unarmed helis seating 4+

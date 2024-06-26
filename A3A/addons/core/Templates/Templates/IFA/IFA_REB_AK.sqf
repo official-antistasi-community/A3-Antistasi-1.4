@@ -28,7 +28,7 @@
 ["vehiclesLightArmed", ["a3a_LIB_Willys_MB_M1919"]] call _fnc_saveToTemplate;  //replace with a version in plain green
 ["vehiclesTruck", ["LIB_Zis5v"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate;
-["vehiclesAA", ["LIB_Zis5v_61K"]] call _fnc_saveToTemplate;
+["vehiclesAA", []] call _fnc_saveToTemplate;
 
 ["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 
@@ -43,7 +43,7 @@
 
 ["staticMGs", ["LIB_Maxim_M30_base"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Zis3"]] call _fnc_saveToTemplate;
-["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
+["staticAA", ["LIB_FlaK_30"]] call _fnc_saveToTemplate;
 ["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "LIB_8Rnd_60mmHE_M2"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", ""] call _fnc_saveToTemplate;

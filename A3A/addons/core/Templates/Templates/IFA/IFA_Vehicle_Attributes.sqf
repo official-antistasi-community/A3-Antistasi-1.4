@@ -14,7 +14,18 @@
     ["LIB_US_M3_Halftrack", ["cost", 60]],
     ["LIB_SOV_M3_Halftrack", ["cost", 60]],
     ["LIB_UK_M3_Halftrack", ["cost", 60]],
-    ["LIB_M8_Greyhound", ["cost", 80]]
+    ["LIB_M8_Greyhound", ["cost", 80]],
+    ["LIB_Ju87", ["cost", 75]],
+    ["LIB_Pe2", ["cost", 75]],
+    ["LIB_FW190F8", ["cost", 75]],
+    ["LIB_FW190F8_2", ["cost", 75]],
+    ["LIB_P47", ["cost", 75]],
+    ["LIB_P39", ["cost", 75]],
+    ["LIB_RA_P39_2", ["cost", 75]],
+    ["LIB_RA_P39_3", ["cost", 75]],
+    ["LIB_RAF_P39", ["cost", 75]],
+    ["LIB_US_P39", ["cost", 75]],
+    ["LIB_US_P39_2", ["cost", 75]]
 ]] call _fnc_saveToTemplate;
 
 if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Armored_Cars")) then {

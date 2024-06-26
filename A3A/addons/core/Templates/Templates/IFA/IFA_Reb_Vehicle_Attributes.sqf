@@ -16,8 +16,8 @@
     ["LIB_Maxim_M30_base", ["rebCost", 800]],
     ["LIB_Zis3", ["rebCost", 2000]],
     ["LIB_Zis3_w", ["rebCost", 2000]],
-    ["LIB_M2_60", ["rebCost", 2000]],
+    ["LIB_M2_60", ["rebCost", 1000]],
     ["LIB_FlaK_30", ["rebCost", 1200]],
     ["LIB_FlaK_30_w", ["rebCost", 1200]],
-    ["LIB_61k", ["rebCost", 1700]]
+    ["LIB_61k", ["rebCost", 2500]]
 ]] call _fnc_saveToTemplate;

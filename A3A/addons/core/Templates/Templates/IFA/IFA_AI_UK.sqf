@@ -86,10 +86,10 @@ if (isClass (configFile >> "CfgPatches" >> "FA_WW2_Tanks")) then {
 ["staticMGs", ["a3a_hmg_02_high"]] call _fnc_saveToTemplate;
 ["staticAT", ["LIB_Pak40_g"]] call _fnc_saveToTemplate;
 ["staticAA", ["LIB_61k"]] call _fnc_saveToTemplate;
-["staticMortars", ["LIB_M2_60"]] call _fnc_saveToTemplate;
+["staticMortars", ["LIB_GrWr34_g"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "LIB_8Rnd_60mmHE_M2"] call _fnc_saveToTemplate;
-["mortarMagazineSmoke", ""] call _fnc_saveToTemplate;
+["mortarMagazineHE", "LIB_8Rnd_81mmHE_GRWR34"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", "LIB_81mm_GRWR34_SmokeShell"] call _fnc_saveToTemplate;
 
 //Minefield definition
 //CFGVehicles variant of Mines are needed "ATMine", "APERSTripMine", "APERSMine"

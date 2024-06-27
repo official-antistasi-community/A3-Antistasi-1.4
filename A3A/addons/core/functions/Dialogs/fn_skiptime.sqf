@@ -17,13 +17,23 @@ private _posHQ = getMarkerPos respawnTeamPlayer;
 if ((_x distance _posHQ > 100) and (side _x in [teamPlayer,civilian])) then {_absentPlayers pushBackUnique name _x;};
 } forEach (allPlayers - (entities "HeadlessClient_F"));
 
-if (count _absentPlayers > 0) exitWith {
-	if (count _absentPlayers > 10) then {
-		[_titleStr, localize "STR_A3A_fn_dialogs_skiptime_no_radius"] call A3A_fnc_customHint;};
-	} else {
-		private _lastPlayer = _absentPlayers deleteAt (count _absentPlayers - 1);
-		private _absentString = _absentPlayers joinString ", ";
-		[_titleStr, format [localize "STR_A3A_fn_dialogs_skiptime_no_radius",_absentString,_lastPlayer]] call A3A_fnc_customHint;
+switch (true) do {
+	case (count _absentPlayers == 0): 
+	{
+		remoteExec ["A3A_fnc_resourcecheckSkipTime", 0];
 	};
-
-remoteExec ["A3A_fnc_resourcecheckSkipTime", 0];
+	case (count _absentPlayers == 1): 
+	{
+		[_titleStr, format [localize "STR_A3A_fn_dialogs_skiptime_no_radius_singleplayer",_absentPlayers#0]] call A3A_fnc_customHint;
+	};
+	case (count _absentPlayers > 10): 
+	{
+		[_titleStr, localize "STR_A3A_fn_dialogs_skiptime_no_radius"] call A3A_fnc_customHint;
+	};
+	default 
+	{
+		private _lastPlayer = _absentPlayers deleteAt 0;
+		private _absentString = _absentPlayers joinString ", ";
+		[_titleStr, format [localize "STR_A3A_fn_dialogs_skiptime_no_radius_players",_absentString,_lastPlayer]] call A3A_fnc_customHint;
+	};
+};

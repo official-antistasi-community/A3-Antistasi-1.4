@@ -3444,7 +3444,7 @@
         <Czech>Nemůžeš odpočívat když HQ je pod útokem.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius">
-        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;More than 10 players are absent from HQ currently.</Original>
+        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;&lt;br/&gt;More than 10 players are absent from HQ currently.</Original>
         <Italian>Tutti i giocatori devono trovarsi entro 100m dal QG per riposare.</Italian>
         <Spanish>Todos los jugadores deben estar en un radio de 100m del CG para poder descansar.</Spanish>
         <French>Tous les joueurs doivent se trouver dans un rayon de 100 m du QG pour pouvoir se reposer.</French>
@@ -3455,6 +3455,9 @@
       </Key>
       <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius_players">
         <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;The following players are not at HQ: %1, and %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius_singleplayer">
+        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;&lt;br/&gt;%1 is currently not at HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_skiptime_title">
         <Original>Skip Time / Rest</Original>

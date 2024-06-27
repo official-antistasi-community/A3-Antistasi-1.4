@@ -76,7 +76,7 @@ if(!A3A_DoSendAdminData) exitWith {};
             ];
 
             private _admin = [] call A3A_fnc_getAdmin;
-            if (isNull _admin) exitWith {};
+            if (isNull _admin) exitWith { terminate _thisScript; };
 
             (owner _admin) publicVariableClient "A3A_AdminData";
         } 

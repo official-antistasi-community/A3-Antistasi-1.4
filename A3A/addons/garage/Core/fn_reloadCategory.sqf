@@ -29,7 +29,7 @@ lbClear _ctrl;
 private _selected = -1;
 private _HR_GRG_SelectedVehicles = [-1,-1,""];
 {
-    _y params ["_displayName", "_class", "_lockedUID", "_checkedOut", "", ["_lockName", ""]];
+    _y params ["_displayName", "_class", "_lockedUID", "_checkedOut", "", ["_lockName", ""], ["_lockTime", systemTimeUTC]];
     private _index = _ctrl lbAdd _displayName;
     _ctrl lbSetData [_index, str _x];
     _ctrl lbSetValue [_index, _x];
@@ -54,6 +54,11 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
         _ctrl lbSetPictureRight [_index, LockIcon];
         _ctrl lbSetPictureRightColor [_index, _color];
         _tooltipText = _tooltipText + ( localize "STR_HR_GRG_Feedback_LockedToolTip" )+" "+ _lockName;
+        // hack to get timespan format to work...
+        private _timeSpan = [systemTimeUTC, _locktime] call A3A_fnc_timeSpanTo_A3A_timeSpan;
+        _tooltipText = format ["%1 %2 ago", _tooltipText, 
+            [_timeSpan] call A3A_fnc_timeSpan_format
+        ];
     };
     _ctrl lbSetTooltip [_index, _tooltipText];
     _ctrl lbSetPictureRightColorSelected [_index, [0.85,0.85,0.55,1]];

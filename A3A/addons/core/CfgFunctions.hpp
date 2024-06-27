@@ -733,6 +733,7 @@ class CfgFunctions
             class secondsToTimeSpan {};
             class systemTime_format_S {};
             class timeSpan_format {};
+            class timeSpanTo_A3A_timeSpan {};
         };
 
         class UI {

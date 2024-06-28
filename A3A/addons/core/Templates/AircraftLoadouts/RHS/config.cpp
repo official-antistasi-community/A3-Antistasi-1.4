@@ -42,7 +42,7 @@ class A3A {
             class RHS_Su25SM_CAS_vvs : RHS_Su25SM_vvsc {};
             class rhsgref_cdf_b_su25 : RHS_Su25SM_vvsc {};
 			
-            class RHS_T50_vvs_generic_ext : baseCAP {
+            class RHS_T50_vvs_generic_ext : baseCAS {
                 loadout[] = {"rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","","","rhs_mag_kab250","rhs_mag_kab250","rhs_mag_Kh38mte","rhs_mag_Kh38mte","rhs_mag_kab250","rhs_mag_kab250"};
 				mainGun[] = {"rhs_weap_gsh301"};
                 missileLauncher[] = {"rhs_weap_kh38mae_Launcher"};

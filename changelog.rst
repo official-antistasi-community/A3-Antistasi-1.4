@@ -31,7 +31,7 @@ Version 3.6.0
    * :issue:`3282` Allowed commanders to make custom HC squads
    * :issue:`3284` Added logging for temporary membership
    * :issue:`3295` Added explosiveSpecialist and UAVHacker traits to default commander slot
-   * :issue:`` 
+   * :issue:`3319` Adjusted air support response for cheap planes
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 
@@ -74,8 +74,8 @@ Version 3.6.0
    * :issue:`3293` Fixed potential double-carry or double-drop errors under heavy script load
    * :issue:`3294` Fixed fetching current arsenal data before displaying the arsenal limits dialog
    * :issue:`3297` Switched over init order to fix error in initRemoteObject JIP function
-   * :issue:`` 
-   * :issue:`` 
+   * :issue:`3315` Buffed IFA mortars to be closer to MK6
+   * :issue:`3322` Fixed conflicting addon messages from aircraft loadout configs
    * :issue:`` 
    * :issue:`` 
 

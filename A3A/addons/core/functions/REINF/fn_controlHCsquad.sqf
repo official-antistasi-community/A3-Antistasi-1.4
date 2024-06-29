@@ -14,7 +14,7 @@ Example:
     // Easy use.
     private _selectedSquads = hcSelected player;
     if (count _selectedSquads == 1) then {
-        [_selectedSquads #0] spawn A3A_fnc_controlHCSquad;
+        [_selectedSquads] spawn A3A_fnc_controlHCSquad;
     };
 
     // Intermediate

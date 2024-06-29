@@ -743,8 +743,10 @@ switch (_mode) do
         private _display = findDisplay A3A_IDD_MAINDIALOG;
         private _commanderMap = _display displayCtrl A3A_IDC_COMMANDERMAP;
         private _group = _commanderMap getVariable ["selectedGroup", grpNull];
-        closeDialog 1;
-        [_group] spawn A3A_fnc_controlHCsquad;
+        if (_group isNotEqualTo grpNull) then {
+            closeDialog 1;
+            [[_group]] spawn A3A_fnc_controlHCSquad;
+        }
     };
 
     case ("groupDismissButtonClicked"):

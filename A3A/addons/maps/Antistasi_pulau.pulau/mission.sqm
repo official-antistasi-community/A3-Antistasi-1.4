@@ -207,29 +207,16 @@ dlcs[]=
 	"Oldman"
 };
 randomSeed=9715782;
-class ScenarioData
-{
-	author="Ante";
-};
 class Mission
 {
 	class Intel
 	{
+		briefingName=$STR_antistasi_mission_info_pulau_mapname_text;
 		resistanceWest=0;
-		timeOfChanges=1800.0002;
-		startWeather=0.30000001;
-		startWind=0.1000001;
-		startWaves=0.1;
-		forecastWeather=0.2;
-		forecastWind=0.1;
-		forecastWaves=0.1;
-		forecastLightnings=0.1;
-		year=2018;
-		month=7;
-		day=1;
-		hour=12;
-		startFogDecay=0.014;
-		forecastFogDecay=0.014;
+		year=2035;
+		month=6;
+		hour=10;
+		minute=0;
 	};
 	class Entities
 	{

@@ -1,9 +1,9 @@
 #include "..\missionDescription\master.hpp"
 
-OnLoadName = $STR_antistasi_mission_info_Pulau_mapname_short_text;
-OnLoadMission = $STR_antistasi_mission_info_Pulau_blurb_text;
-briefingName = $STR_antistasi_mission_info_Pulau_mapname_text;
-overviewText = $STR_antistasi_mission_info_Pulau_description_text;
+OnLoadName = $STR_antistasi_mission_info_pulau_mapname_short_text;
+OnLoadMission = $STR_antistasi_mission_info_pulau_blurb_text;
+briefingName = $STR_antistasi_mission_info_pulau_mapname_text;
+overviewText = $STR_antistasi_mission_info_pulau_description_text;
 loadScreen = "Pictures\Mission\pic.jpg"; // NB, this will resolve from root
 overviewPicture = "Pictures\Mission\pic.jpg"; // NB, this will resolve from root
 

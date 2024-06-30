@@ -44,8 +44,8 @@ Version 3.6.0
          - Make sure you use `Iron Front in Arma 3 ACE compatibility <https://steamcommunity.com/workshop/filedetails/?id=773759919>`_ when playing with ACE
    * :issue:`3203` Added Poseidon II to RHS NAPA
    * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
-   * :issue:`3208` Added RHS HIDF template
    * :issue:`3208` Added vehicles for vehiclesAirPatrol to some RHS templates
+   * :issue:`3209` Added RHS HIDF template
    * :issue:`3258` "Re-added" the RPD to the 3CB SOV template
    * :issue:`3271` Added RHS VDV templates
    * :issue:`3267` Added RHS Tanoan Liberation Army (TLA) template
@@ -68,7 +68,6 @@ Version 3.6.0
    * :issue:`3281` Fixed 3CB Factions baseWeapon config
    * :issue:`3283` Fixed incorrect config array specifier for diveParams
    * :issue:`3286` Fixed inconsistent parameter bug with createAttackForceLand
-   * :issue:`3287` Fixed WW2 factions using SAM supports
    * :issue:`3293` Fixed potential double-carry or double-drop errors under heavy script load
    * :issue:`3294` Fixed fetching current arsenal data before displaying the arsenal limits dialog
    * :issue:`3297` Switched over init order to fix error in initRemoteObject JIP function
@@ -79,6 +78,7 @@ Version 3.6.0
 
    * :issue:`3200` Added vehiclesHeavyTanks template category
    * :issue:`3208` Added vehiclesAirPatrol template category
+   * :issue:`3287` Fixed WW2 factions using SAM supports
 
 .. admonition:: Localization
 

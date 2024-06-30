@@ -11,7 +11,7 @@ Version 3.6.0
 
 .. admonition:: Major
 
-   .. rubric:: :issue:`3214` Added Map Port of Pulau
+   .. rubric:: :issue:`3214` Added Map Port of `Pulau <https://steamcommunity.com/workshop/filedetails/?id=1423583812>`_
 
 .. admonition:: Minor
 
@@ -32,16 +32,11 @@ Version 3.6.0
    * :issue:`3284` Added logging for temporary membership
    * :issue:`3295` Added explosiveSpecialist and UAVHacker traits to default commander slot
    * :issue:`3319` Adjusted air support response for cheap planes
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
 
 .. admonition:: Template updates
 
-   * :issue:`2800` Added Swedish Forces Pack (SFP) templates (requires CUP Units, Vehicles and Weapons loaded)
-   * :issue:`3166` Added Iron Front AiO templates
+   * :issue:`2800` Added `Swedish Forces Pack (SFP) <https://steamcommunity.com/workshop/filedetails/?id=826911897>`_ templates (requires CUP Units, Vehicles and Weapons loaded)
+   * :issue:`3166` Added `Iron Front AiO <https://steamcommunity.com/workshop/filedetails/?id=2648308937>`_ templates
    * :issue:`3203` Added Poseidon II to RHS NAPA
    * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
    * :issue:`3208` Added RHS HIDF template
@@ -50,8 +45,6 @@ Version 3.6.0
    * :issue:`3271` Added RHS VDV templates
    * :issue:`3267` Added RHS Tanoan Liberation Army (TLA) template
    * :issue:`3277` Updated buyable vehicles for CUP
-   * :issue:`` 
-   * :issue:`` 
 
 .. admonition:: Bugfixes
 
@@ -76,21 +69,11 @@ Version 3.6.0
    * :issue:`3297` Switched over init order to fix error in initRemoteObject JIP function
    * :issue:`3315` Buffed IFA mortars to be closer to MK6
    * :issue:`3322` Fixed conflicting addon messages from aircraft loadout configs
-   * :issue:`` 
-   * :issue:`` 
 
 .. admonition:: Groundwork
 
    * :issue:`3200` Added vehiclesHeavyTanks template category
    * :issue:`3208` Added vehiclesAirPatrol template category
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-
 
 .. admonition:: Localization
 
@@ -100,13 +83,6 @@ Version 3.6.0
 
    * :issue:`3210` Merged item carrying code and switch to blacklist for carry blocking
    * :issue:`3227` Moved Airplane loadouts to configs
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
 
 .. warning::
 

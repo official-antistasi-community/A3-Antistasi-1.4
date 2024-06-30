@@ -36,7 +36,12 @@ Version 3.6.0
 .. admonition:: Template updates
 
    * :issue:`2800` Added `Swedish Forces Pack (SFP) <https://steamcommunity.com/workshop/filedetails/?id=826911897>`_ templates (requires CUP Units, Vehicles and Weapons loaded)
+         - Make sure you use `SFP - ACE Compatibility <https://steamcommunity.com/sharedfiles/filedetails/?id=2282227267>`_ when playing with ACE
    * :issue:`3166` Added `Iron Front AiO <https://steamcommunity.com/workshop/filedetails/?id=2648308937>`_ templates
+         - Plus optional support for `WW2 Tanks <https://steamcommunity.com/workshop/filedetails/?id=2842504702>`_
+         - Plus optional support for `WW2 Armoured Cars <https://steamcommunity.com/sharedfiles/filedetails/?id=2811202098>`_
+         - Plus optional support for `Bystrokhodny Tanks - BT7 And Variants <https://steamcommunity.com/sharedfiles/filedetails/?id=2398198697>`_
+         - Make sure you use `Iron Front in Arma 3 ACE compatibility <https://steamcommunity.com/workshop/filedetails/?id=773759919>`_ when playing with ACE
    * :issue:`3203` Added Poseidon II to RHS NAPA
    * :issue:`3204` Added Reaction Forces CDLC compatibility for Western Sahara templates
    * :issue:`3208` Added RHS HIDF template

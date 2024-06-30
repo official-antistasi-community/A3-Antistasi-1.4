@@ -146,7 +146,7 @@ switch (_mode) do
         publicVariableServer "A3A_DoSendAdminData";
 
         // stop admin tab if not nil
-        if(!isNull (_display getVariable ["A3A_adminTabUpdateSpawn", scriptNull])) then { terminate (_display getVariable "A3A_adminTabUpdateSpawn"); };
+        terminate (_display getVariable ["A3A_adminTabUpdateSpawn", scriptNull]);
 
         Debug("MainDialog onUnload complete.");
     };
@@ -257,7 +257,7 @@ switch (_mode) do
         _selectedTabCtrl ctrlShow true;
 
         // stop admin tab if not nil
-        if(!isNull (_display getVariable ["A3A_adminTabUpdateSpawn", scriptNull])) then { terminate (_display getVariable "A3A_adminTabUpdateSpawn"); };
+        terminate (_display getVariable ["A3A_adminTabUpdateSpawn", scriptNull]);
 
         // Update tab
         Debug("Updating selected tab");

@@ -14,6 +14,7 @@
 //////////////////////////
 
 ["attributeLowAir", true] call _fnc_saveToTemplate;             // Use fewer air units in general
+["attributeNoSAM", true] call _fnc_saveToTemplate;              // Don't use SAM supports
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
 ["surrenderCrate", "SPE_Weaponcrate_MP40_GER"] call _fnc_saveToTemplate;
@@ -74,7 +75,7 @@
 ["minefieldAT", ["SPE_US_M1A1_ATMINE"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["SPE_US_M3_Pressure_MINE", "SPE_US_M3_MINE"]] call _fnc_saveToTemplate;
 
-//#include "3CBFactions_Vehicle_Attributes.sqf"
+#include "SPE_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

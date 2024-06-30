@@ -36,17 +36,23 @@ Debug_2("Current resources %1, max resources %2", _curResources, _maxResources);
 if (_curResources < 0) exitWith { 0 };
 
 
-// If target is air, use a global spend limit and only consider anti-air spends
+// If target is air, use global anti-air and target threat specific spend limits
 if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
 {
-    // TODO: should we consider aircraft type here?
-    // ideally want to prevent supports being spammed against unarmed aircraft
-    // but this might need to be the concern of the airspace manager
+    private _targThreat = A3A_vehicleResourceCosts getOrDefault [typeOf _target, 0];
+    _targThreat = _targThreat + (_target getVariable ["A3A_airKills", 0]);
 
-    // TODO: Might need to constrain this with the strike list so that you don't get multiple supports sent against one aircraft
-    
-    private _isArmed = typeOf _target in (FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesHelisAttack") + FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA"));
-    private _maxAASpend = _maxResources * ([0.1, 0.3] select _isArmed);
+    private _targSpend = 0;
+    {
+        _x params ["_sside", "_btype", "_starg", "_endtime", "_dur", "_pow"];
+        if (_sside == _side && _starg isEqualTo _target) then { _targSpend = _targSpend + _pow };
+    } forEach A3A_supportStrikes;
+
+    private _threshold = [A3A_airThresholdOcc, A3A_airThresholdInv] select (_side == Invaders);
+    private _threshold = _threshold * 0.6 * (4 min _maxResources / _curResources);
+    private _maxSpendTarg = _targThreat - _targSpend - _threshold;
+
+    private _maxAASpend = _maxResources * 0.3;
     private _curAASpend = 0;
     {
         _x params ["_spSide", "_spCallPos", "_spTargPos", "_spRes", "_spTime"];
@@ -59,8 +65,8 @@ if (_target isEqualType objNull and {_target isKindOf "Air"}) exitWith
 
     } forEach A3A_supportSpends;
 
-    Debug_2("Cur AA spend %1, max AA spend %2", _curAASpend, _maxAASpend);
-    _curResources min (_maxAASpend - _curAASpend);
+    Debug_5("Cur AA spend %1, max AA spend %2, targ threat %3, targ spend %4, threshold %5", _curAASpend, _maxAASpend, _targThreat, _targSpend, _threshold);
+    _curResources min _maxSpendTarg min (_maxAASpend - _curAASpend);
 };
 
 

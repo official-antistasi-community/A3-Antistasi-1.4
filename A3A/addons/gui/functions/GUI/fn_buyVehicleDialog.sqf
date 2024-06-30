@@ -13,7 +13,7 @@ Public: No
 Dependencies:
     None
 Example:
-    ["onLoad"] spawn A3A_fnc_buyVehicleDialog; // initialization
+    ["onLoad"] spawn A3A_GUI_fnc_buyVehicleDialog; // initialization
 */
 
 #include "..\..\dialogues\ids.inc"
@@ -98,10 +98,10 @@ switch (_mode) do
         (A3A_faction_reb get 'staticAT') +
         (A3A_faction_reb get 'staticAA');
 
-        ["vehicles", [A3A_IDC_BUYCIVVEHICLEMAIN, A3A_IDC_CIVVEHICLESGROUP, _civilianVehicles]] call A3A_fnc_buyVehicleTabs;
-        ["vehicles", [A3A_IDC_BUYREBVEHICLEMAIN, A3A_IDC_REBVEHICLESGROUP, _militaryVehicles]] call A3A_fnc_buyVehicleTabs;
-        ["vehicles", [A3A_IDC_BUYSTATICMAIN, A3A_IDC_STATICSGROUP, _statics]] call A3A_fnc_buyVehicleTabs;
-        ["other"] call A3A_fnc_buyVehicleTabs;
+        ["vehicles", [A3A_IDC_BUYCIVVEHICLEMAIN, A3A_IDC_CIVVEHICLESGROUP, _civilianVehicles]] call A3A_GUI_fnc_buyVehicleTabs;
+        ["vehicles", [A3A_IDC_BUYREBVEHICLEMAIN, A3A_IDC_REBVEHICLESGROUP, _militaryVehicles]] call A3A_GUI_fnc_buyVehicleTabs;
+        ["vehicles", [A3A_IDC_BUYSTATICMAIN, A3A_IDC_STATICSGROUP, _statics]] call A3A_GUI_fnc_buyVehicleTabs;
+        ["other"] call A3A_GUI_fnc_buyVehicleTabs;
 
         // show the vehicle tab so that user don't freak out
         private _display = findDisplay A3A_IDD_BUYVEHICLEDIALOG;

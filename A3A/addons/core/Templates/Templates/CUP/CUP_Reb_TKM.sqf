@@ -14,16 +14,16 @@
 ["vehiclesTruck", ["CUP_V3S_Open_NAPA"]] call _fnc_saveToTemplate;
 ["vehiclesAT", ["CUP_I_Hilux_SPG9_NAPA"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["CUP_I_Ural_ZU23_NAPA", "CUP_I_Hilux_zu23_NAPA"]] call _fnc_saveToTemplate;
-["vehiclesBoat", ["I_G_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_G_Boat_Transport_01_F", "CUP_I_RHIB_RACS"]] call _fnc_saveToTemplate;
 
 ["vehiclesPlane", ["CUP_C_DC3_CIV"]] call _fnc_saveToTemplate;
 ["vehiclesCivPlane", ["CUP_C_AN2_CIV", "CUP_C_C47_CIV"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["CUP_I_LR_Ambulance_RACS"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["CUP_O_Hilux_unarmed_CR_CIV"]] call _fnc_saveToTemplate;
-["vehiclesCivTruck", ["CUP_C_Ural_Civ_03"]] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["CUP_O_Hilux_unarmed_CR_CIV", "CUP_C_Pickup_unarmed_CIV", "CUP_C_SUV_CIV"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["CUP_C_Ikarus_Chernarus", "CUP_C_Ural_Civ_03"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["CUP_C_Mi17_Civilian_RU"]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", ["C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Rubberboat", "CUP_C_Fishing_Boat_Chernarus", "CUP_C_Zodiac_CIV"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["CUP_I_DSHKM_NAPA"]] call _fnc_saveToTemplate;
 ["staticAT", ["CUP_I_SPG9_NAPA"]] call _fnc_saveToTemplate;

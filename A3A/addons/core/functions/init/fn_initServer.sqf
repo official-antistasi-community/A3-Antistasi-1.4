@@ -258,7 +258,7 @@ addMissionEventHandler ["EntityKilled", {
 
     if !(isNil {_victim getVariable "ownerSide"}) then {
         // Antistasi-created vehicle
-        [_victim, _killerSide, false] call A3A_fnc_vehKilledOrCaptured;
+        [_victim, _killerSide, false, _killer] call A3A_fnc_vehKilledOrCaptured;
         [_victim] spawn A3A_fnc_postmortem;
     };
 }];
@@ -303,13 +303,14 @@ if (A3A_hasACE) then {
 };
 
 
+A3A_startupState = "completed"; publicVariable "A3A_startupState";
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
-A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 
 // ********************* Initialize loops *******************************************
 
+[] spawn A3A_fnc_postmortemLoop;                    // Postmortem cleanup loop
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop

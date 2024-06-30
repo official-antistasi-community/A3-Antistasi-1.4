@@ -35,8 +35,6 @@ private _declareServerVariable = {
 ////////////////////////////////////////
 Info("initialising general server variables");
 
-//time to delete dead bodies, vehicles etc..
-DECLARE_SERVER_VAR(cleantime, 3600);
 //initial spawn distance. Less than 1Km makes parked vehicles spawn in your nose while you approach.
 //User-adjustable variables are now declared in initParams
 //DECLARE_SERVER_VAR(distanceSPWN, 1000);
@@ -128,7 +126,7 @@ A3A_recentDamageInv = [];
 // Balance params updated by aggressionUpdateLoop
 A3A_balancePlayerScale = 1;					// Important due to load/save scaling to 1 playerScale
 A3A_balanceVehicleCost = 110;
-A3A_balanceResourceRate = A3A_balancePlayerScale * A3A_balanceVehicleCost;
+A3A_balanceResourceRate = A3A_balancePlayerScale * ([A3A_balanceVehicleCost, 140] select (gameMode == 1));
 
 // Current resources, overwritten by saved game
 A3A_resourcesDefenceOcc = A3A_balanceResourceRate * 3;													// 30% of max
@@ -167,6 +165,10 @@ testingTimerIsActive = false;
 A3A_tasksData = [];
 
 A3A_buildingsToSave = [];
+
+A3A_gcQueue = [];				// List of postmortem objects to clean up
+A3A_gcCleanTime = 1800;			// Base time for deleting postmortem objects
+A3A_gcMaxBumps = 3;				// Max times to delay cleanup for an object that's near players
 
 hcArray = [];					// array of headless client IDs
 
@@ -475,8 +477,9 @@ private _vehicleResourceCosts = createHashMap;
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesAPCs");
 { _vehicleResourceCosts set [_x, 150] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _vehicleResourceCosts set [_x, 230] } forEach FactionGet(all, "vehiclesTanks");
+{ _vehicleResourceCosts set [_x, 300] } forEach FactionGet(all, "vehiclesHeavyTanks");
 
-{ _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight");
+{ _vehicleResourceCosts set [_x, 70] } forEach FactionGet(all, "vehiclesHelisLight") + FactionGet(all, "vehiclesAirPatrol");
 { _vehicleResourceCosts set [_x, 100] } forEach FactionGet(all, "vehiclesHelisTransport");
 { _vehicleResourceCosts set [_x, 130] } forEach FactionGet(all, "vehiclesHelisLightAttack") + FactionGet(all, "vehiclesPlanesTransport");
 { _vehicleResourceCosts set [_x, 250] } forEach FactionGet(all, "vehiclesPlanesCAS") + FactionGet(all, "vehiclesPlanesAA");
@@ -494,6 +497,7 @@ private _groundVehicleThreat = createHashMap;
 { _groundVehicleThreat set [_x, 120] } forEach FactionGet(all, "vehiclesAPCs");
 { _groundVehicleThreat set [_x, 200] } forEach FactionGet(all, "vehiclesAA") + FactionGet(all, "vehiclesArtillery") + FactionGet(all, "vehiclesIFVs") + FactionGet(all, "vehiclesLightTanks");
 { _groundVehicleThreat set [_x, 300] } forEach FactionGet(all, "vehiclesTanks");
+{ _groundVehicleThreat set [_x, 500] } forEach FactionGet(all, "vehiclesHeavyTanks"); //Expect these to mostly exist in templates which lack good access of most things to deal with tanks, ie WW2
 
 
 // Rebel vehicle cost

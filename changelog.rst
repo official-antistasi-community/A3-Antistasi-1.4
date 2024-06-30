@@ -82,7 +82,7 @@ Version 3.6.0
 
 .. admonition:: Localization
 
-   * :issue:`Multiple PRs` Added tons of new translations to different languages
+   * [Multiple PRs] - Added tons of new translations to different languages
 
 .. admonition:: Refactor
 

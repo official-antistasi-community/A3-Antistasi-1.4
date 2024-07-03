@@ -422,6 +422,9 @@
         <Turkish>Aracı kilitledi</Turkish>
         <Chinesesimp>载具被上锁，它属于</Chinesesimp>
       </Key>
+      <Key ID="STR_HR_GRG_Feedback_LockedToolTip_Ago">
+        <Original>%1: %2 ago</Original>
+      </Key>
       <Key ID="STR_HR_GRG_Feedback_requestMount_Denied">
         <Original>Can't mount static</Original>
         <German>Kann gegenstand nicht montieren.</German>

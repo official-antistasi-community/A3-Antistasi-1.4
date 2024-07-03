@@ -55,7 +55,7 @@ private _HR_GRG_SelectedVehicles = [-1,-1,""];
         _ctrl lbSetPictureRightColor [_index, _color];
         _tooltipText = _tooltipText + ( localize "STR_HR_GRG_Feedback_LockedToolTip" )+" "+ _lockName;
         private _timeSpan = [systemTimeUTC, _locktime] call A3A_fnc_systemTimeDurationToTimeSpan;
-        _tooltipText = format ["%1 %2 ago", _tooltipText, 
+        _tooltipText = format [localize "STR_HR_GRG_Feedback_LockedToolTip_Ago", _tooltipText, 
             [_timeSpan, 0,0,false,2] call A3A_fnc_timeSpan_format
         ];
     };

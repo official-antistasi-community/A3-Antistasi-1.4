@@ -49,6 +49,6 @@ private _lockTime = systemTimeUTC;
 
 _veh set [2, _UID];
 _veh set [5, [name _player, ""] select (_UID isEqualTo "")];
-_veh set [6, [_lockTime, 0] select (_UID isEqualTo "")];
+_veh set [7, [_lockTime, 0] select (_UID isEqualTo "")];
 [_UID, nil, _catIndex, _vehUID, _player, false, _lockTime] call HR_GRG_fnc_broadcast;
 Info_3("Lock state toggled for Vehicle ID: %1 | By: %2 | Locked: %3", _vehUID, name _player, (_UID isNotEqualTo ""));

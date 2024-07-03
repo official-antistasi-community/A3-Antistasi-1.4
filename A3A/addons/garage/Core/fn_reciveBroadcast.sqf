@@ -37,7 +37,7 @@ if (_switch) then { [getPlayerUID _player] call HR_GRG_fnc_releaseAllVehicles };
 if (!isNil "_lockUID") then {
     _vehicle set [2, _lockUID];
     _vehicle set [5, if (_lockUID isEqualTo "") then { "" } else { name _player }];
-    _vehicle set [6, [_time, 0] select (_lockUID isEqualTo "")];
+    _vehicle set [7, [_time, []] select (_lockUID isEqualTo "")];
 };
 
 if (!isNil "_checkoutUID") then {

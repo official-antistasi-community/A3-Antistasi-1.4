@@ -51,8 +51,8 @@ jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, minWeaps];
 jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, minWeaps];
 
 if (minWeaps == -1) then {
-	jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, A3A_guestItemLimit*3];
-	jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, A3A_guestItemLimit*3];
+    jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAG, A3A_guestItemLimit*3];
+    jna_minItemMember set [IDC_RSCDISPLAYARSENAL_TAB_CARGOMAGALL, A3A_guestItemLimit*3];
 };
 
 //server

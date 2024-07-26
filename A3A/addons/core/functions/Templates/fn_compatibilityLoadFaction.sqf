@@ -34,7 +34,7 @@ private _baseUnitClass = switch (_side) do {
 
 private _unitClassMap = if (_side isNotEqualTo independent) then { createHashMap } else {
     createHashMapFromArray [                // Cases matter. Lower case here because allVariables on namespace returns lowercase
-        ["militia_Unarmed", "I_G_Survivor_F"],
+        ["militia_Unarmed", "a3a_unit_reb_unarmed"],
         ["militia_Rifleman", "a3a_unit_reb"],
         ["militia_staticCrew", "a3a_unit_reb"],
         ["militia_Medic", "a3a_unit_reb_medic"],

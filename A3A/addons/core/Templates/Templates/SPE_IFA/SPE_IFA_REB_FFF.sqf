@@ -26,10 +26,10 @@
 //       Vehicles       //
 //////////////////////////
 
-["vehiclesBasic", ["SPE_FFI_OpelBlitz_Open"]] call _fnc_saveToTemplate;
-["vehiclesLightUnarmed", ["LIB_Kfz1_sernyt","LIB_Kfz1_Hood_sernyt"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["SPE_US_M3_Halftrack","LIB_Kfz1_MG42_sernyt"]] call _fnc_saveToTemplate;
-["vehiclesTruck", ["SPE_US_M3_Halftrack_Unarmed"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["SPE_FFI_R200_Unarmed","SPE_FFI_R200_Hood"]] call _fnc_saveToTemplate;
+["vehiclesLightUnarmed", []] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["SPE_FFI_R200_MG34"]] call _fnc_saveToTemplate;
+["vehiclesTruck", ["SPE_CCKW_353_Open","SPE_CCKW_353","SPE_FFI_OpelBlitz_Open"]] call _fnc_saveToTemplate;
 ["vehiclesAT", []] call _fnc_saveToTemplate;
 ["vehiclesAA", ["SPE_OpelBlitz_Flak38"]] call _fnc_saveToTemplate;
 
@@ -64,13 +64,15 @@
 ["vehicleHealthStation", ["", 75]] call _fnc_saveToTemplate;
 ["vehicleRepairStation", ["", 5000]] call _fnc_saveToTemplate;
 
+#include "SPE_Reb_Vehicle_Attributes.sqf"
+
 ///////////////////////////
 //  Rebel Starting Gear  //
 ///////////////////////////
 
 private _initialRebelEquipment = [
-    "SPE_Fusil_Mle_208_12", "SPE_Fusil_Mle_208_12_Sawedoff", "SPE_K98",
-    "SPE_2Rnd_12x65_Pellets", "SPE_2Rnd_12x65_Slug", "SPE_5Rnd_792x57",
+    "SPE_Fusil_Mle_208_12", "SPE_Fusil_Mle_208_12_Sawedoff", "SPE_MAS_36",
+    "SPE_2Rnd_12x65_Pellets", "SPE_2Rnd_12x65_Slug", "SPE_5Rnd_75x54",
     "SPE_P08", "SPE_8Rnd_9x19_P08",
     ["SPE_PzFaust_30m", 50], ["SPE_1Rnd_PzFaust_30m", 50],
     ["SPE_Ladung_Small_MINE_mag", 10], ["SPE_US_TNT_half_pound_mag", 10], ["SPE_US_TNT_4pound_mag", 3], ["SPE_Ladung_Big_MINE_mag", 3],

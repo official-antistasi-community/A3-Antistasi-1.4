@@ -32,6 +32,8 @@
     "SPE_OpelBlitz_Fuel", 0.1
 ]] call _fnc_saveToTemplate;
 
+#include "SPE_Vehicle_Attributes.sqf"
+
 /////////////////////
 ///  Identities   ///
 /////////////////////

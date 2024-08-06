@@ -3,17 +3,19 @@
 //////////////////////////    
 
 ["vehiclesCivCar", [
-    "SPE_OpelBlitz", 1
-    , "SPE_OpelBlitz_Open", 1
-    , "LIB_GazM1", 1
-    , "LIB_GazM1_dirty", 1
-    , "LIB_GazM1_SOV_camo_sand", 1
-    , "LIB_GazM1_SOV", 1
+    "LIB_GazM1", 1.5, 
+    "LIB_GazM1_dirty", 2.5,
+    "LIB_CIV_FFI_CitC4", 0.125, 
+    "LIB_CIV_FFI_CitC4_2", 0.125, 
+    "LIB_CIV_FFI_CitC4_3", 0.125, 
+    "LIB_GazM1_SOV_camo_sand", 1, 
+    "LIB_GazM1_SOV", 1
     ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivIndustrial", [
-    "SPE_OpelBlitz", 1
-    , "SPE_OpelBlitz_Open", 1
+    "LIB_CIV_FFI_CitC4", 0.25, 
+    "LIB_CIV_FFI_CitC4_2", 0.25, 
+    "LIB_CIV_FFI_CitC4_3", 0.25
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivBoat", [
@@ -21,15 +23,12 @@
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivRepair", [
-    "SPE_OpelBlitz_Repair", 0.1
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivMedical", [
-    "SPE_OpelBlitz_Ambulance", 0.1
 ]] call _fnc_saveToTemplate;
 
 ["vehiclesCivFuel", [
-    "SPE_OpelBlitz_Fuel", 0.1
 ]] call _fnc_saveToTemplate;
 
 #include "SPE_Vehicle_Attributes.sqf"

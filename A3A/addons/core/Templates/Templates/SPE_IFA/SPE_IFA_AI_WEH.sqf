@@ -89,6 +89,7 @@
 ["milVoices", ["spe_male01fre", "spe_male02fre"]] call _fnc_saveToTemplate;
 ["polFaces", ["LivonianHead_6","SPE_Arnold","SPE_Connors","SPE_Davidson","SPE_Elliot","SPE_Oberst","SPE_Seppmeyer","SPE_Walter","WhiteHead_01","WhiteHead_02","WhiteHead_05","WhiteHead_06","WhiteHead_07","WhiteHead_08","WhiteHead_12","WhiteHead_15","WhiteHead_18"]] call _fnc_saveToTemplate;
 ["polVoices", ["spe_male01fre", "spe_male02fre"]] call _fnc_saveToTemplate;
+"SPE_GermanMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

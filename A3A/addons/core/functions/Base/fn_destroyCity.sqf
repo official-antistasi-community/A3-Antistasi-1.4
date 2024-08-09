@@ -3,7 +3,7 @@ params ["_markerX"];
 private _positionX = getMarkerPos _markerX;
 private _size = [_markerX] call A3A_fnc_sizeMarker;
 
-private _buildings = _positionX nearobjects ["house",_size];
+private _buildings = _positionX nearObjects ["house",_size];
 
 {
     private _hitpoints = getAllHitPointsDamage _x;

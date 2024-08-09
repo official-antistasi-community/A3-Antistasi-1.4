@@ -369,7 +369,6 @@ GVAR(keys_battleMenu) = false; //initilize key flags to false
 
 
 {
-    _x enableRopeAttach false;
     _x addAction [localize "STR_A3A_fn_init_initclient_addact_move", A3A_fnc_carryItem, 
         nil,0,false,true,"", "(_this == theBoss) and (isNull objectParent _this) and !(call A3A_fnc_isCarrying)", 4];
 } forEach [boxX, flagX, vehicleBox, fireX, mapX];

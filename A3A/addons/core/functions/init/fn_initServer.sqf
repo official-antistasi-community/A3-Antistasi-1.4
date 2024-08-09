@@ -17,6 +17,7 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 
 // hide all the HQ objects
 {
+    _x enableRopeAttach false;
     _x allowDamage false;
     _x hideObjectGlobal true;
 } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];

@@ -36,7 +36,7 @@ switch (_action) do {
             {
                 params ["_target","_caller","_actionID","_breakUC"];
                 [_target] remoteExecCall ["A3A_Logistics_fnc_tryLoad",2];
-                if (_breakUC) then (_caller setCaptive false);
+                if (_breakUC) then {_caller setCaptive false};
             },
             _breakUC,
             -5,

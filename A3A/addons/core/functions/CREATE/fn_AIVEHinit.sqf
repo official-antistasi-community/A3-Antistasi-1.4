@@ -104,7 +104,7 @@ else
 			_veh addEventHandler ["RopeAttach", {
 				params ["_object1", "_rope", "_object2"];
 				{
-					_x setCaptive false;
+					[_x, false] remoteExec ["setCaptive", _x];
 				} forEach crew _object1;
 			}];
 		};

@@ -13,6 +13,7 @@ class mapInfo {
     #include "Antistasi_Malden.Malden\mapInfo.hpp"
     #include "Antistasi_pulau.pulau\mapInfo.hpp"
     #include "Antistasi_sara.sara\mapInfo.hpp"
+    #include "Antistasi_SPE_Mortain.SPE_Mortain\mapInfo.hpp"
     #include "Antistasi_SPE_Normandy.SPE_Normandy\mapInfo.hpp"
     #include "Antistasi_Stratis.Stratis\mapInfo.hpp"
     #include "Antistasi_takistan.takistan\mapInfo.hpp"

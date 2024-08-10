@@ -116,6 +116,7 @@ switch (_mode) do
             ,["tem_anizay", "Anizay"]
             ,["cup_chernarus_A3", "Cherno 2020"]
             ,["SPE_Normandy", "Normandy"]
+            ,["SPE_Mortain", "Mortain"]
         ];
         {
             private _realMap = _x get "map";

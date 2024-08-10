@@ -326,6 +326,15 @@ _militiaLoadoutData set ["slRifles", [
 ["SPE_MAS_36", "", "", "", ["SPE_5Rnd_75x54"], [], ""],
 ["SPE_MP35", "", "", "", ["SPE_24Rnd_MP35_9x19", "SPE_24Rnd_MP35_9x19", "SPE_24rnd_MP35_9x19_t"], [], ""]
 ]];
+_militiaLoadoutData set ["grenadeLaunchers", [
+["SPE_MAS_36", "", "", "", ["SPE_5Rnd_75x54"], [], ""]
+]];
+_militiaLoadoutData set ["marksmanRifles", [
+["SPE_MAS_36", "", "", "", ["SPE_5Rnd_75x54"], [], ""]
+]];
+_militiaLoadoutData set ["sniperRifles", [
+["SPE_MAS_36", "", "", "", ["SPE_5Rnd_75x54"], [], ""]
+]];
 _militiaLoadoutData set ["SMGs", [
 ["SPE_MAS_36", "", "", "", ["SPE_5Rnd_75x54"], [], ""],
 ["SPE_MP35", "", "", "", ["SPE_24Rnd_MP35_9x19", "SPE_24Rnd_MP35_9x19", "SPE_24rnd_MP35_9x19_t"], [], ""]
@@ -536,7 +545,7 @@ private _latTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-    [selectRandomWeighted ["rifles", 3, "SMGs", 1.5]] call _fnc_setPrimary;
+    ["rifles"] call _fnc_setPrimary;
     ["primary", 8] call _fnc_addMagazines;
 
     ["lightATLaunchers"] call _fnc_setLauncher;
@@ -563,7 +572,7 @@ private _atTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-    [selectRandomWeighted ["rifles", 3, "SMGs", 1.5]] call _fnc_setPrimary;
+    [selectRandomWeighted ["rifles", 4, "SMGs", 1]] call _fnc_setPrimary;
     ["primary", 8] call _fnc_addMagazines;
 
     [["ATLaunchers", "lightATLaunchers"] call _fnc_fallback] call _fnc_setLauncher;
@@ -590,7 +599,7 @@ private _aaTemplate = {
     ["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-    [selectRandomWeighted ["rifles", 3, "SMGs", 1.5]] call _fnc_setPrimary;
+    ["rifles"] call _fnc_setPrimary;
     ["primary", 8] call _fnc_addMagazines;
 
     ["lightATLaunchers"] call _fnc_setLauncher;
@@ -687,7 +696,7 @@ private _policeTemplate = {
     ["vests"] call _fnc_setVest;
     ["uniforms"] call _fnc_setUniform;
 
-    [selectRandom ["rifles", "rifles", "shotGuns"]] call _fnc_setPrimary;
+    [selectRandomWeighted ["rifles", 3, "shotGuns", 1]] call _fnc_setPrimary;
     ["primary", 3] call _fnc_addMagazines;
 
     ["sidearms"] call _fnc_setHandgun;

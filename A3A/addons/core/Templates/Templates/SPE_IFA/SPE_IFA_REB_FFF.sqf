@@ -73,6 +73,7 @@
 private _initialRebelEquipment = [
     "SPE_Fusil_Mle_208_12", "SPE_Fusil_Mle_208_12_Sawedoff",
     "SPE_2Rnd_12x65_Pellets", "SPE_2Rnd_12x65_Slug",
+    "SPE_MAS_36", "SPE_5Rnd_75x54",
     "SPE_P08", "SPE_8Rnd_9x19_P08",
     ["SPE_PzFaust_30m", 50], ["SPE_1Rnd_PzFaust_30m", 50],
     ["SPE_Ladung_Small_MINE_mag", 10], ["SPE_US_TNT_half_pound_mag", 10], ["SPE_US_TNT_4pound_mag", 3], ["SPE_Ladung_Big_MINE_mag", 3],
@@ -82,7 +83,6 @@ private _initialRebelEquipment = [
     "B_SPE_FFI_Gasbag", "B_SPE_CIV_musette", "B_SPE_CIV_satchel",
     "SPE_Binocular_GER"
 ];
-_initialRebelEquipment append (selectRandom[["SPE_MAS_36", "SPE_5Rnd_75x54"],["SPE_K98", "SPE_5Rnd_792x57"],["SPE_No3_Mk1_Enfield", "SPE_5Rnd_770x56"]]);
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr", "tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {
@@ -124,6 +124,9 @@ private _rebUniforms = [
     "H_SPE_CIV_Fedora_Cap_4",
     "H_SPE_CIV_Fedora_Cap_5",
     "H_SPE_CIV_Fedora_Cap_6",
+    "H_SPE_CIV_Worker_Cap_1",
+    "H_SPE_CIV_Worker_Cap_2",
+    "H_SPE_CIV_Worker_Cap_3",
     "H_SPE_CIV_Worker_Cap_1",
     "H_SPE_CIV_Worker_Cap_2",
     "H_SPE_CIV_Worker_Cap_3"

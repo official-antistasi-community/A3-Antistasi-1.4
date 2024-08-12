@@ -14,6 +14,7 @@
 //////////////////////////
 
 ["attributeLowAir", true] call _fnc_saveToTemplate;             // Use fewer air units in general
+["attributeMoreTrucks", true] call _fnc_saveToTemplate;         // Use more truck for transports
 ["attributeNoSAM", true] call _fnc_saveToTemplate;              // Don't use SAM supports
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
@@ -30,7 +31,7 @@
 ["vehiclesFuelTrucks", ["SPE_ST_OpelBlitz_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["SPE_ST_OpelBlitz_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["SPE_StuG_III_G_SKB","SPE_StuG_III_G_Late"]] call _fnc_saveToTemplate;
+["vehiclesAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["SPE_StuG_III_G_SKB","SPE_StuG_III_G_Late"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks",["SPE_PzKpfwIII_N", "SPE_PzKpfwIII_L", "SPE_PzKpfwIII_M", "SPE_PzKpfwIII_J", "SPE_StuG_III_G_Late", "SPE_Nashorn"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["SPE_PzKpfwIII_M", "SPE_PzKpfwIV_G", "SPE_PzKpfwIV_G", "SPE_PzKpfwV_G"]] call _fnc_saveToTemplate;

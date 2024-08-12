@@ -73,9 +73,8 @@
 private _initialRebelEquipment = [
     "SPE_Fusil_Mle_208_12", "SPE_Fusil_Mle_208_12_Sawedoff",
     "SPE_2Rnd_12x65_Pellets", "SPE_2Rnd_12x65_Slug",
-    "SPE_MAS_36", "SPE_5Rnd_75x54",
     "SPE_P08", "SPE_8Rnd_9x19_P08",
-    ["SPE_PzFaust_30m", 50], ["SPE_1Rnd_PzFaust_30m", 50],
+    ["SPE_Faustpatrone", 50], ["SPE_1Rnd_Faustpatrone", 50],
     ["SPE_Ladung_Small_MINE_mag", 10], ["SPE_US_TNT_half_pound_mag", 10], ["SPE_US_TNT_4pound_mag", 3], ["SPE_Ladung_Big_MINE_mag", 3],
     "SPE_NB39", "SPE_Shg24",
     "V_SPE_FFI_Vest_Pouch","V_SPE_FFI_Vest_Pouch_frag", "V_SPE_FFI_Vest_rifle","V_SPE_FFI_Vest_rifle_frag",

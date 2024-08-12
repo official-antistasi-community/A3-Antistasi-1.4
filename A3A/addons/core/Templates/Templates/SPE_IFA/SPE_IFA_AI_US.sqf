@@ -14,6 +14,7 @@
 //////////////////////////
 
 ["attributeLowAir", true] call _fnc_saveToTemplate;             // Use fewer air units in general
+["attributeMoreTrucks", true] call _fnc_saveToTemplate;         // Use more truck for transports
 ["attributeNoSAM", true] call _fnc_saveToTemplate;              // Don't use SAM supports
 
 ["ammobox", "B_supplyCrate_F"] call _fnc_saveToTemplate;
@@ -30,7 +31,7 @@
 ["vehiclesFuelTrucks", ["SPE_US_M3_Halftrack_Fuel","SPE_CCKW_353_Fuel","SPE_CCKW_353_Fuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["SPE_US_M3_Halftrack_Ambulance","SPE_CCKW_353_Ambulance","SPE_US_G503_MB_Ambulance"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["SPE_US_M3_Halftrack","SPE_M20_AUC"]] call _fnc_saveToTemplate; //These got no protected  turret, sufficent troop capacity, cost reduced - used here instead to not reduce weight of trucks
+["vehiclesAPCs", ["SPE_US_M3_Halftrack","SPE_M20_AUC"]] call _fnc_saveToTemplate; //These got no protected  turret, sufficent troop capacity, cost reduced
 ["vehiclesIFVs", ["SPE_M4A0_75_Early", "SPE_M4A0_75","SPE_M4A0_composite","SPE_M4A0_105","SPE_M4A3_105","SPE_M10"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks",["SPE_M18_Hellcat","SPE_M18_Hellcat","SPE_M10"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["SPE_M4A1_75_erla","SPE_M4A1_76", "SPE_M4A1_75","SPE_M4A3_75","SPE_M4A3_76"]] call _fnc_saveToTemplate;

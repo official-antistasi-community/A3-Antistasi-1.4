@@ -35,7 +35,7 @@ if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 if (_faction get "vehiclesHeavyTanks" isEqualTo []) then { _ltWeight = _ltWeight + _hvytWeight/2;  _tankWeight = _tankWeight + _hvytWeight/2};
 if (_faction get "vehiclesLightTanks" isEqualTo []) then { 
     if (_level < 3) exitWith {_carWeight + _ltWeight};
-    _tankWeight = _tankWeight + _ltWeight 
+    _tankWeight = _tankWeight + _ltWeight;
 };
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };
 

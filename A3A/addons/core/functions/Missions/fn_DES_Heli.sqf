@@ -167,7 +167,8 @@ deleteGroup _groupX;
 
 //moving to crash site
 private _escortWP = _groupVeh addWaypoint [_posCrash, 0];
-_escortWP setWaypointType "GETOUT";
+//_escortWP setWaypointType "GETOUT";
+_escortWP setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this)"];
 _escortWP setWaypointBehaviour "SAFE";
 Debug_2("Placed Group: %1 in Lite Vehicle and set waypoint %2", _typeGroup, _posCrash);
 

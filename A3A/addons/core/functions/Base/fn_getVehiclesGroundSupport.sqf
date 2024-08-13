@@ -20,8 +20,8 @@ private _fnc_addArrayToWeights = {
 
 private _vehWeights = [];
 
-private _milCarWeight =     [50, 40, 30, 20, 10,  0,  0,  0,  0,  0] select _level;
-private _carWeight =        [50, 50, 50, 50, 50, 50, 50, 40, 35, 30] select _level;
+private _milCarWeight =     [100, 70, 50, 30, 10,  0,  0,  0,  0,  0] select _level;
+private _carWeight =        [ 0, 30, 30, 40, 50, 50, 50, 40, 35, 30] select _level;
 private _aaWeight =         [ 0,  0,  3,  5,  7,  8, 10, 12, 13, 14] select _level;
 private _ltWeight =         [ 0,  5,  7,  8,  8,  8,  8,  8,  8,  8] select _level;
 private _tankWeight =       [ 0,  0,  3,  5,  8, 11, 14, 17, 20, 28] select _level;

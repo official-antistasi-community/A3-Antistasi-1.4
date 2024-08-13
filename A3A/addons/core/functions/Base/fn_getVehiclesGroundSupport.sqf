@@ -33,7 +33,10 @@ if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
 // At least one lightTanks or Tanks is mandatory, HeavyTanks are entirely optional
 if (_faction get "vehiclesHeavyTanks" isEqualTo []) then { _ltWeight = _ltWeight + _hvytWeight/2;  _tankWeight = _tankWeight + _hvytWeight/2};
-if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
+if (_faction get "vehiclesLightTanks" isEqualTo []) then { 
+    if (_level < 3) exitWith {_carWeight + _ltWeight};
+    _tankWeight = _tankWeight + _ltWeight 
+};
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };
 
 [_faction get "vehiclesLightTanks", _ltWeight] call _fnc_addArrayToWeights;

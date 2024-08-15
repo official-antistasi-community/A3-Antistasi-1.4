@@ -121,7 +121,7 @@ class CfgVehicles
 
     // Base side types
 
-    class B_G_Soldier_F;
+    class B_G_Soldier_F : I_G_Soldier_base_F{};
     class a3a_unit_west : B_G_Soldier_F {
         backpack = "";
         linkedItems[] = {"ItemMap","ItemCompass","ItemWatch"};
@@ -129,7 +129,7 @@ class CfgVehicles
         weapons[] = {"Throw","Put"};
     };
 
-    class O_G_Soldier_F;
+    class O_G_Soldier_F : I_G_Soldier_base_F{};
     class a3a_unit_east : O_G_Soldier_F {
         backpack = "";
         linkedItems[] = {"ItemMap","ItemCompass","ItemWatch"};

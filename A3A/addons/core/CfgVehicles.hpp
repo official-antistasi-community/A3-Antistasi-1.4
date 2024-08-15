@@ -5,8 +5,10 @@ class CfgVehicles
         class EventHandlers;
     };
     class I_G_Soldier_base_F : SoldierGB {
-        class EventHandlers : EventHandlers{
+        class EventHandlers : EventHandlers //Unbreaking the broken EventHandlers chain of inheritance 
+        {
             init = "if (local (_this select 0)) then {[(_this select 0), [], []] call BIS_fnc_unitHeadgear;};";
+            //init line to perserve the behaviour BI intended for the I_G_Soldier_base_F classs
         };
     };
     // Rebel AI unit types

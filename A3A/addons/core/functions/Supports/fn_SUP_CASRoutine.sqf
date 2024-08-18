@@ -35,6 +35,8 @@ private _group = [_side, _plane] call A3A_fnc_createVehicleCrew;
 { [_x, nil, false, _resPool] call A3A_fnc_NATOinit } forEach units _group;
 _group deleteGroupWhenEmpty true;
 _group setBehaviourStrong "CARELESS";
+[-10 * count units _group, _side, _resPool] call A3A_fnc_addEnemyResources;
+
 
 _plane addEventHandler ["Killed", {
     params ["_plane"];

@@ -30,10 +30,19 @@ private _lapcWeight =      [30, 40, 50, 50, 45, 40, 35, 30, 25, 20] select _leve
 private _apcWeight =       [ 0, 10, 15, 20, 25, 30, 35, 40, 40, 40] select _level;
 private _ifvWeight =       [ 0,  0,  2,  4,  6,  8, 12, 16, 20, 25] select _level;
 
-// Assumption is that at least one of APC or battle bus exists
-if (_faction get "vehiclesIFVs" isEqualTo []) then { _apcWeight = _apcWeight + _ifvWeight };
-if (_faction get "vehiclesAPCs" isEqualTo []) then { _lapcWeight = _lapcWeight + _apcWeight };
+if (_faction getOrDefault ["attributeMoreTrucks", false]) then {
+    _truckWeight =     [60, 60, 60, 60, 60, 60, 55, 50, 45, 40] select _level;
+    _lapcWeight =      [10, 15, 20, 20, 20, 20, 20, 20, 20, 20] select _level;
+    _apcWeight =       [ 0,  4,  8, 12, 16, 20, 20, 20, 20, 20] select _level;
+    _ifvWeight =       [ 0,  0,  2,  4,  6,  8, 12, 16, 20, 25] select _level;
+};
+
 if (_faction get "vehiclesLightAPCs" isEqualTo []) then { _apcWeight = _apcWeight + _lapcWeight/2; _truckWeight = _truckWeight + _lapcWeight/2; };
+if (_faction get "vehiclesIFVs" isEqualTo []) then { _apcWeight = _apcWeight + _ifvWeight };
+if (_faction get "vehiclesAPCs" isEqualTo []) then {
+    if (_faction get "vehiclesLightAPCs" isEqualTo []) exitWith { _ifvWeight = _ifvWeight + _apcWeight };
+    _lapcWeight = _lapcWeight + _apcWeight;
+};
 
 // only occupants use militia vehicle types?
 if (_side == Occupants) then

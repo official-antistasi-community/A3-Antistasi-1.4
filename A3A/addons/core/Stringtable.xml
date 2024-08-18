@@ -2144,7 +2144,7 @@
         <Chinesesimp>总部位置</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_rebasset_click_marker">
-        <Original>You must click near a map marker.</Original>
+        <Original>You must click near a rebel map marker.</Original>
         <Italian>Devi cliccare vicino a un marcatore sulla mappa.</Italian>
         <Spanish>Debe clicar cerca de un marcador de mapa.</Spanish>
         <French>Vous devez cliquer à côté d'un marqueur de carte.</French>
@@ -2197,8 +2197,8 @@
         <Turkish>Radyo Kulesi yeniden yapıldı.</Turkish>
         <Chinesesimp>通信塔已被重建</Chinesesimp>
       </Key>
-      <Key ID="STR_A3A_fn_base_rebasset_no">
-        <Original>You cannot rebuild that.</Original>
+      <Key ID="STR_A3A_fn_base_rebasset_no_nothing">
+        <Original>There is nothing to rebuild on this site.</Original>
         <Italian>Non puoi ricostruire ciò.</Italian>
         <Spanish>No puede reconstruir esto.</Spanish>
         <French>Vous ne pouvez pas reconstruire ceci.</French>
@@ -2222,30 +2222,6 @@
         <Portuguese>Não tens dinheiro suficiente para reconstruir qualquer Ativo. Precisas de 5.000€.</Portuguese>
         <Turkish>Yeni ekipman yapmak için yeterinde paranız yok. 5.000 €'ya ihtiyacınız var.</Turkish>
         <Chinesesimp>你当前的资金不足以重建任何资产. 你需要 5.000 €.</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_base_rebasset_no_notower">
-        <Original>That Outpost does not have a destroyed Radio Tower.</Original>
-        <Italian>Quell'Avamposto non ha un Torre Radio distrutta.</Italian>
-        <Spanish>Esa base no tiene una torre de radio destruida.</Spanish>
-        <French>Cet Avant-Poste n'a pas de Tour Radio détruite.</French>
-        <Korean>이 전초기지는 파괴된 송신탑을 가지고 있지 않습니다.</Korean>
-        <Russian>На этом аванпосте нет разрушенной радиовышки.</Russian>
-        <Czech>Toto stanoviště nemá zničenou Rádiovou Věž.</Czech>
-        <Portuguese>Este Posto Avançado não tem Torre de Rádio.</Portuguese>
-        <Turkish>O karakolun yıkılmış bir Radyo Kulesi yok.</Turkish>
-        <Chinesesimp>那个哨站没有被摧毁的通信塔</Chinesesimp>
-      </Key>
-      <Key ID="STR_A3A_fn_base_rebasset_no_owner">
-        <Original>You cannot rebuild a Radio Tower in an Outpost which does not belong to %1.</Original>
-        <Italian>Non puoi ricostruire una Torre Radio in un Avamposto che non appartiene a %1.</Italian>
-        <Spanish>No puede reconstruir una torre de radio en una base que no pertenezca a %1.</Spanish>
-        <French>Vous ne pouvez pas reconstruire une Tour Radio dans un Avant-Poste qui n'appartient pas à %1.</French>
-        <Korean>%1의 소유가 아닌 전초기지의 송신탑은 재건축할 수 없습니다.</Korean>
-        <Russian>Вы не можете перестроить радиовышку на аванпосте, который не принадлежит %1.</Russian>
-        <Czech>Nemůžeš znovu postavit Radiovou věž na základně, která nespadá pod %1.</Czech>
-        <Portuguese>Não podes reconstruir a Torre de Rádio num Posto Avançado que não pertence a %1.</Portuguese>
-        <Turkish>%1 'e ait olmayan bir Karakola Radyo Kulesi dikemezsiniz.</Turkish>
-        <Chinesesimp>你无法在一个不属于 %1 的哨站里重建通信塔</Chinesesimp>
       </Key>
       <Key ID="STR_A3A_fn_base_rebasset_title">
         <Original>Rebuild Assets</Original>
@@ -3444,7 +3420,7 @@
         <Czech>Nemůžeš odpočívat když HQ je pod útokem.</Czech>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius">
-        <Original>All players must be in a 100m radius from HQ to be able to rest.</Original>
+        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;&lt;br/&gt;More than 10 players are absent from HQ currently.</Original>
         <Italian>Tutti i giocatori devono trovarsi entro 100m dal QG per riposare.</Italian>
         <Spanish>Todos los jugadores deben estar en un radio de 100m del CG para poder descansar.</Spanish>
         <French>Tous les joueurs doivent se trouver dans un rayon de 100 m du QG pour pouvoir se reposer.</French>
@@ -3452,6 +3428,12 @@
         <Russian>Все игроки должны находиться в радиусе 100 метров от штаба, чтобы иметь возможность отдохнуть.</Russian>
         <Polish>Wszyscy gracze muszą znajdować się w promieniu 100 m od siedziby głównej, aby móc odpocząć.</Polish>
         <Czech>Všichni hráči musí být v okruhu 100M od HQ abys mohl pustit odpočinek.</Czech>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius_players">
+        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;The following players are not at HQ: %1, and %2.</Original>
+      </Key>
+      <Key ID="STR_A3A_fn_dialogs_skiptime_no_radius_singleplayer">
+        <Original>All players must be in a 100m radius from HQ to be able to rest.&lt;br/&gt;&lt;br/&gt;%1 is currently not at HQ.</Original>
       </Key>
       <Key ID="STR_A3A_fn_dialogs_skiptime_title">
         <Original>Skip Time / Rest</Original>

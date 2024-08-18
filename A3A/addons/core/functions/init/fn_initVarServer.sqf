@@ -262,10 +262,12 @@ FIX_LINE_NUMBERS()
 //////////////////////////////////////
 Info("Setting up faction and DLC equipment flags");
 
+// Arma bug: Need to hardcode CDLC because arma3.cfg mod loading method doesn't register CDLC as "official"
+private _loadedDLC = getLoadedModsInfo select { (_x#2) and !(_x#1 in ["A3","curator","argo","tacops"]) };
+_loadedDLC append (getLoadedModsInfo select { tolower (_x#1) in ["gm", "rf", "spe", "vn", "ws"] });
+_loadedDLC = _loadedDLC apply { tolower (_x#1) };
+
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification
-private _loadedDLC = getLoadedModsInfo select {
-	(_x#3) and {!(_x#1 in ["A3","curator","argo","tacops"])}
-} apply {tolower (_x#1)};
 A3A_enabledDLC = (_saveData get "DLC") apply {tolower _x};                 // should be pre-checked against _loadedDLC
 {
 	A3A_enabledDLC insert [0, getArray (configFile/"A3A"/"Templates"/_x/"forceDLC"), true];		// add unique elements only
@@ -276,7 +278,7 @@ A3A_disabledMods = A3A_disabledDLC;                 // Split to allow CUP civili
 // Everything that counts as vanilla: Official DLC plus various junk tags
 A3A_vanillaMods = (getLoadedModsInfo select {_x#2 and _x#3} apply {tolower (_x#1)}) + ["", "officialmod"];
 
-Debug_3("DLC enabled: %1 Disabled: %2 Vanilla: %3", A3A_enabledDLC, A3A_disabledDLC, A3A_vanillaMods);
+Debug_4("DLC loaded: %1 Enabled: %2 Disabled: %3 Vanilla: %4", _loadedDLC, A3A_enabledDLC, A3A_disabledDLC, A3A_vanillaMods);
 
 // TODO: fix all allowDLCxxx and A3A_hasxxx references in templates
 // for the moment just fudge the ones that we're using

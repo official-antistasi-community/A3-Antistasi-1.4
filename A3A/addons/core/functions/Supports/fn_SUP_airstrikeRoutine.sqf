@@ -38,6 +38,7 @@ _group deleteGroupWhenEmpty true;
     _x disableAI "TARGET";
     _x disableAI "AUTOTARGET";
 } forEach units _group;
+[-10 * count units _group, _side, _resPool] call A3A_fnc_addEnemyResources;
 
 // Should we really have these?
 _plane addEventHandler ["Killed", {

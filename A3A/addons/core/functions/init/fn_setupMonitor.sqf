@@ -15,10 +15,9 @@ private _addonVics = "true" configClasses (configFile/"A3A"/"AddonVics");
 
 // Ignore DLC without equipment and vehicles
 // Need the true names from here, so pass it all in
-private _loadedDLC = getLoadedModsInfo select {
-	(_x#3) and {!(_x#1 in ["A3","curator","argo","tacops"])}
-};
-
+// Arma bug: Need to hardcode CDLC because arma3.cfg mod loading method doesn't register CDLC as "official"
+private _loadedDLC = getLoadedModsInfo select { (_x#2) and !(_x#1 in ["A3","curator","argo","tacops"]) };
+_loadedDLC append (getLoadedModsInfo select { tolower (_x#1) in ["gm", "rf", "spe", "vn", "ws"] });
 
 private _autoLoadTime = "autoLoadLastGame" call BIS_fnc_getParamValue;
 private _autoLoadData = nil;

@@ -1287,7 +1287,7 @@ class Templates
         name = "IFA SOVIET ARMY";
         file = "IFA_AI_SOV";
         shortName = "SOV";
-        lore = $STR_A3A_templates_lore_IFA_AI_SOV.
+        lore = $STR_A3A_templates_lore_IFA_AI_SOV;
     };
     class IFA_ALLIES : IFA_Base
     {

@@ -20,10 +20,10 @@ Version 3.7.0
    * :issue:`3334` Added a tooltip for vehicle locktime
    * :issue:`3335` Improve CUP and IFA plane turn rates when flown by AI
    * :issue:`3343` Slowed down self-revive timeout when downed
-   * :issue:`3349` Created new classes for Antistasi AI units
+   * :issue:`3349` Created new classes for Antistasi AI units - Fixes ACE action blocking
    * :issue:`3370` Added attributeMoreTrucks and IFV-only option to ground transport selection
    * :issue:`3372` Made dive bomb runs less accurate against infantry targets
-   * :issue:`3377` Added flashlights to unit definitions (currently ony SPE specific usage)
+   * :issue:`3377` Added flashlights to unit definitions (currently only SPE specific usage)
 
 .. admonition:: Template updates
 
@@ -39,7 +39,7 @@ Version 3.7.0
    * :issue:`3365` Small sell price rework
    * :issue:`3367` Fixed support crew being provided for free and then refunded
    * :issue:`3368` Fixed inability to rebuild non-outpost radio towers
-   * :issue:`3369` Added Seaport Ammobox Protection
+   * :issue:`3369` Added Ammobox Protection
    * :issue:`3375` Replaced all uses of GETOUT waypoints
 
 .. admonition:: Groundwork

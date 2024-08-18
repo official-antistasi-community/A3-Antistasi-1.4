@@ -3,6 +3,58 @@ Changelog
 ==========
 
 
+Version 3.7.0
+===============
+
+.. note::
+   18th August 2024
+
+.. admonition:: Major
+
+   .. rubric:: :issue:`3371` Added Map Port of Mortain - 1.1 Update of the `Spearhead 1944 CDLC <https://store.steampowered.com/app/1175380/Arma_3_Creator_DLC_Spearhead_1944/>`_
+   .. rubric:: :issue:`3356` Updated SPE-IFA Templates - 1.1 Update of the `Spearhead 1944 CDLC <https://store.steampowered.com/app/1175380/Arma_3_Creator_DLC_Spearhead_1944/>`_
+
+.. admonition:: Minor
+
+   * :issue:`3327` Reduced artillery/mortar ratio at high war tiers
+   * :issue:`3334` Added a tooltip for vehicle locktime
+   * :issue:`3335` Improve CUP and IFA plane turn rates when flown by AI
+   * :issue:`3343` Slowed down self-revive timeout when downed
+   * :issue:`3349` Created new classes for Antistasi AI units
+   * :issue:`3370` Added attributeMoreTrucks and IFV-only option to ground transport selection
+   * :issue:`3372` Made dive bomb runs less accurate against infantry targets
+   * :issue:`3377` Added flashlights to unit definitions (currently ony SPE specific usage)
+
+.. admonition:: Template updates
+
+   * :issue:`3363` Removed CUP Cluster MLRS
+
+.. admonition:: Bugfixes
+
+   * :issue:`3320` Skip Time Improvements
+   * :issue:`3338` Fixed slow-server UI issue and incorrect licensing in arsenal limits
+   * :issue:`3359` Fixed issue where running destroyCity with CUP interiors could crash
+   * :issue:`3362` Disallowed sling-loading HQ objects
+   * :issue:`3364` Added workaround for Arma bug with CDLC detection and arma3.cfg mod loading method
+   * :issue:`3365` Small sell price rework
+   * :issue:`3367` Fixed support crew being provided for free and then refunded
+   * :issue:`3368` Fixed inability to rebuild non-outpost radio towers
+   * :issue:`3369` Added Seaport Ammobox Protection
+   * :issue:`3375` Replaced all uses of GETOUT waypoints
+
+.. admonition:: Groundwork
+
+   * :issue:`3333` Adjusted DoomMetal GUI Header and license
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
 Version 3.6.0
 ===============
 

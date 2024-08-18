@@ -151,7 +151,7 @@ _loadoutData set ["watches", ["SPE_GER_ItemWatch"]];
 _loadoutData set ["compasses", ["SPE_GER_ItemCompass", "SPE_GER_ItemCompass_deg"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["binoculars", ["SPE_Binocular_GER"]];
-_loadoutData set ["NVGs", ["SPE_GER_FL_Signal_Flashlight"]];
+_loadoutData set ["Flashlight", ["SPE_GER_FL_Signal_Flashlight"]];
 
 _loadoutData set ["uniforms", ["U_SPE_GER_Soldier_Boots", "U_SPE_GER_Soldier_Gaiters", "U_SPE_GER_MG_schutze", "U_SPE_GER_Gefreiter_Gaiters", "U_SPE_GER_Gefreiter", "U_SPE_GER_Oberschutze"]];
 _loadoutData set ["sniUniforms", []];
@@ -406,6 +406,7 @@ private _squadLeaderTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 
     ["binoculars"] call _fnc_addBinoculars;
 };
@@ -431,6 +432,7 @@ private _riflemanTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _medicTemplate = {
@@ -454,6 +456,7 @@ private _medicTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _grenadierTemplate = {
@@ -480,6 +483,7 @@ private _grenadierTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _explosivesExpertTemplate = {
@@ -511,6 +515,7 @@ private _explosivesExpertTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _engineerTemplate = {
@@ -538,6 +543,7 @@ private _engineerTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _latTemplate = {
@@ -564,6 +570,7 @@ private _latTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _atTemplate = {
@@ -592,6 +599,7 @@ private _atTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _aaTemplate = {
@@ -618,6 +626,7 @@ private _aaTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _machineGunnerTemplate = {
@@ -642,6 +651,7 @@ private _machineGunnerTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _marksmanTemplate = {
@@ -712,6 +722,7 @@ private _policeTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 private _policeSLTemplate = {
     call _policeTemplate;
@@ -753,6 +764,7 @@ private _unarmedTemplate = {
     ["watches"] call _fnc_addWatch;
     ["compasses"] call _fnc_addCompass;
     ["radios"] call _fnc_addRadio;
+    ["Flashlight"] call _fnc_addNVGs;
 };
 
 private _traitorTemplate = {

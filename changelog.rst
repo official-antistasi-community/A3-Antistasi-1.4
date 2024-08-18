@@ -41,6 +41,7 @@ Version 3.7.0
    * :issue:`3368` Fixed inability to rebuild non-outpost radio towers
    * :issue:`3369` Added Ammobox Protection
    * :issue:`3375` Replaced all uses of GETOUT waypoints
+   * :issue:`3381` Fixed SoldierGB inheritance chain for CBA XEH.
 
 .. admonition:: Groundwork
 

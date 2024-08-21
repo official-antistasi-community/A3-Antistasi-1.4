@@ -140,11 +140,9 @@ else
         //};
     } forEach _nearFriends;
 
-    _threatBalance = (2*_recentDamage + _enemyStr) / (_friendStr max 1);
+    _threatBalance = (2.6*_recentDamage + _enemyStr) / (1 + _friendStr + _recentDamage);
     _threatBalance = 1 min (_threatBalance - 1);
     Debug_4("Threat balance %1 from: Recent damage %2 enemy strength %3 friend strength %4", _threatBalance, _recentDamage, _enemyStr, _friendStr);
-
-//    _maxSpend = _maxSpend min 2*(2*_recentDamage + _enemyStr - _friendStr);
 };
 if (_maxSpendLoc <= 0 or _threatBalance <= 0) exitWith { 0 };                  // possible if near enemy markers
 

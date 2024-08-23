@@ -21,7 +21,7 @@ _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRad
 sleep _sleepTime;
 
 private _timeAlive = 1200;
-private _shotsPerVolley = 8;
+private _shotsForEffect = 6;
 private _maxVolleys = 3;
 private _reloadTime = [3,10] select _isHeavyArty;
 private _spreadOffset = [100, 200] select _isHeavyArty;
@@ -103,29 +103,31 @@ while {time < _timeout} do
 
     private _flightTime = _mortar getArtilleryETA [_targetPos, _mortar getVariable "shellType"];
     private _subTargets = [];
-    _subTargets pushBack [_targetPos getPos [_spreadOffset, random 360], 20];       // ranging shot
+
+    // Ranging shots
+    if (_mortar distance2d _targetPos - 1500 < random 1500) then {
+        _subTargets pushBack [_targetPos getPos [_spreadOffset, random 360], 20];
+    } else {
+        _subTargets pushBack [_targetPos getPos [_spreadOffset*1.5, random 360], 20];
+        _subTargets pushBack [_targetPos getPos [_spreadOffset*0.75, random 360], _flightTime];
+    };
 
     // Other shots draw a line through the target
     private _targDir = getPosATL _mortar vectorFromTo _targetPos;
     private _startPos = _targetPos vectorAdd (_targDir vectorMultiply -0.5*_spreadOffset);
-    private _increment = _targDir vectorMultiply (_spreadOffset / (_shotsPerVolley-2));
+    private _increment = _targDir vectorMultiply (_spreadOffset / (_shotsForEffect-1));
 
     _subTargets pushBack [_startPos, _flightTime];
-    for "_i" from 1 to (_shotsPerVolley-2) do {
+    for "_i" from 1 to (_shotsForEffect-1) do {
         private _shotPos = _startPos vectorAdd (_increment vectorMultiply _i);
         _subTargets pushBack [_shotPos, _reloadTime];
     };
 
-/*
-    // First shot 100/200m ranging, last on point, rest 50m random spread because it's easy
-    private _firstShotPos = _targetPos getPos [[100, 200] select _isHeavyArty, random 360];
-    _subTargets pushBack [_firstShotPos, 20];
-    _subTargets pushBack [_targetPos getPos [random 50, random 360], _flightTime];
-    for "_i" from 3 to (_shotsPerVolley-1) do {
-        _subTargets pushBack [_targetPos getPos [random 50, random 360], _reloadTime];
-    };
-    _subTargets pushBack [_targetPos, _reloadTime];
-*/
+    private _volleyTime = 0;
+    { _volleyTime = _volleyTime + (_x#1) } forEach _subTargets;
+    _timeout = _timeout max (time + _volleyTime);                // don't cleanup until the volley is done
+    [_reveal, _targetPos, _side, _suppType, 150, _volleyTime] spawn A3A_fnc_showInterceptedSupportCall;
+
     // Start shooting
     _mortar setVariable ["FireOrder", _subTargets];
     [_mortar, _targetPos] spawn _fn_rotateToTarget;
@@ -134,9 +136,6 @@ while {time < _timeout} do
 
     //Makes sure that all units escape before attacking
     // [_side, _targetMarker] spawn A3A_fnc_clearTargetArea;
-    private _volleyTime = 20 + _flightTime + _reloadTime*_shotsPerVolley;
-    [_reveal, _targetPos, _side, _suppType, 150, _volleyTime] spawn A3A_fnc_showInterceptedSupportCall;
-    _timeout = _timeout max (time + _volleyTime);                // don't cleanup until the volley is done
 };
 
 _mortar removeAllEventHandlers "Fired";

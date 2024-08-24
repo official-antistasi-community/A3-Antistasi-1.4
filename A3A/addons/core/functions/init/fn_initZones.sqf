@@ -132,6 +132,8 @@ sidesX setVariable ["Synd_HQ", teamPlayer, true];
 sidesX setVariable ["NATO_carrier", Occupants, true];
 sidesX setVariable ["CSAT_carrier", Invaders, true];
 
+{sidesX setVariable [_x, Occupants, true];} forEach generalPOI;
+
 
 Info("Setting up antennas");
 

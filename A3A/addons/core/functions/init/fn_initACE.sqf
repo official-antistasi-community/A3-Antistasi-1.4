@@ -23,7 +23,7 @@ if (A3A_hasACEMedical) then {
     // Appears to be local to the medic
     ["ace_treatmentSucceded", {
         params ["_caller", "_target", "_selectionName", "_className", "_itemUser", "_usedItem"];
-        if (_usedItem in ["ACE_adenosine", "ACE_epinephrine", "ACE_morphine"]) then {
+        if (_usedItem in ["ACE_adenosine", "ACE_epinephrine", "ACE_morphine", "ACE_painkillers"]) then {
             private _callerUID = ["AI",getPlayerUID _caller] select (isPlayer _caller);
             private _targetUID = ["AI",getPlayerUID _target] select (isPlayer _target);
             ServerInfo_5("Player %1 [%2] used %3 on %4 [%5]",name _caller,_callerUID,_usedItem,name _target,_targetUID);

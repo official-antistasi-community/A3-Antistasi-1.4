@@ -53,7 +53,7 @@ defaultControlIndex = (count controlsX) - 1;
 outpostsFIA = [];
 destroyedSites = [];
 garrison setVariable ["Synd_HQ", [], true];
-markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + ["Synd_HQ"] + generalPOI;
+markersX = airportsX + resourcesX + factories + outposts + seaports + controlsX + generalPOI + ["Synd_HQ"];
 markersX apply {
 	_x setMarkerAlpha 0;
 	spawner setVariable [_x, 2, true];

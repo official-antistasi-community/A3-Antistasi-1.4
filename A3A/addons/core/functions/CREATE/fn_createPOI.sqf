@@ -9,8 +9,7 @@ _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
 
-ServerInfo_1("Spawning Control Point %1", _markerX);
-ServerInfo_1("Spawning Control Point %1", _sideX);
+ServerInfo_2("Spawning Control Point %2 %1", _markerX, _sideX);
 
 if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
 if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
@@ -29,20 +28,13 @@ _isControl = if (isOnRoad _positionX) then {true} else {false};
 
 if (_isControl) then
 	{
-	_typeGroup = selectRandom (_faction get "groupsMilitiaSmall");
-	_groups pushBack [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
-	_typeGroup = selectRandom (_faction get "groupsMilitiaSmall");
-	_groups pushBack [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
+	//#include "..\POI\poi_PolPatrol.sqf"
+	#include "..\POI\poi_CivPolBattle.sqf"
 	}
 else
 	{
-	_typeGroup = selectRandom (_faction get "groupsMilitiaSmall");
-	_groups pushBack [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
-	_typeGroup = selectRandom (_faction get "groupsMilitiaSmall");
-	_groups pushBack [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
+	#include "..\POI\poi_MilPatrol.sqf"
 	};
-    
-{[_x, "Patrol_Defend", 0, 50*(1+_forEachIndex), -1, true, _positionX, false] call A3A_fnc_patrolLoop;} forEach _groups;
     
 if (_leave) exitWith {};
 

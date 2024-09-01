@@ -47,6 +47,15 @@
     "C_Van_01_fuel_F", 0.2
     ,"C_Truck_02_fuel_F", 0.1]] call _fnc_saveToTemplate;
 
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["GreekHead_A3_02", "GreekHead_A3_03", "GreekHead_A3_04", "GreekHead_A3_05", "GreekHead_A3_06",
+"GreekHead_A3_07", "GreekHead_A3_08", "GreekHead_A3_09", "Ioannou", "Barklem", "AfricanHead_02",
+"AsianHead_A3_02", "AsianHead_A3_03", "WhiteHead_05"]] call _fnc_saveToTemplate;
+"CivMen" call _fnc_saveNames;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
@@ -130,7 +139,7 @@ if (allowDLCOrange) then {
   ];
 };
 
-if (allowDLCWS && A3A_hasWS) then {
+if (allowDLCWS) then {
   _dlcUniforms append [
     "U_lxWS_C_Djella_01",
     "U_lxWS_C_Djella_02",

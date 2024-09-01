@@ -9,29 +9,28 @@
 ["flagMarkerType", "flag_Syndicat"] call _fnc_saveToTemplate;
 
 ["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
-["vehicleLightUnarmed", "I_C_Offroad_02_unarmed_F"] call _fnc_saveToTemplate;
-["vehicleLightArmed", "I_C_Offroad_02_LMG_F"] call _fnc_saveToTemplate;
-["vehicleTruck", "I_C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleAT", "I_C_Offroad_02_AT_F"] call _fnc_saveToTemplate;
-private _vehicleAA = "";
+private _vehiclesLightUnarmed = ["I_C_Offroad_02_unarmed_F", "I_G_Offroad_01_F"];
+private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F", "I_C_Offroad_02_LMG_F"];
+["vehiclesTruck", ["I_C_Van_01_transport_F"]] call _fnc_saveToTemplate;
+private _vehiclesAT = ["I_C_Offroad_02_AT_F", "I_G_Offroad_01_AT_F"];
+private _vehicleAA = [];
 
-["vehicleBoat", "I_C_Boat_Transport_02_F"] call _fnc_saveToTemplate;
-["vehicleRepair", "I_G_Offroad_01_repair_F"] call _fnc_saveToTemplate;
+["vehiclesBoat", ["I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 
-["vehiclePlane", "I_C_Plane_Civil_01_F"] call _fnc_saveToTemplate;
-["vehicleHeli", ""] call _fnc_saveToTemplate;
+["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-["vehicleCivCar", "C_Offroad_01_F"] call _fnc_saveToTemplate;
-["vehicleCivTruck", "C_Van_01_transport_F"] call _fnc_saveToTemplate;
-["vehicleCivHeli", "C_Heli_Light_02_civil_F"] call _fnc_saveToTemplate;
-["vehicleCivBoat", "C_Boat_Civil_02_F"] call _fnc_saveToTemplate;
+["vehiclesCivCar", ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_02_unarmed_F", "C_SUV_01_F"]] call _fnc_saveToTemplate;
+["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
+["vehiclesCivHeli", ["C_Heli_Light_01_civil_F", "a3a_C_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
-["staticMG", "I_G_HMG_02_high_F"] call _fnc_saveToTemplate;
-["staticAT", "I_static_AT_F"] call _fnc_saveToTemplate;
-private _staticAA = "I_static_AA_F";
-["staticMortar", "I_G_Mortar_01_F"] call _fnc_saveToTemplate;
+["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
+["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
+private _staticAA = ["I_static_AA_F"];
+["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 ["mineAT", "ATMine_Range_Mag"] call _fnc_saveToTemplate;
 ["mineAPERS", "APERSMine_Range_Mag"] call _fnc_saveToTemplate;
@@ -39,12 +38,23 @@ private _staticAA = "I_static_AA_F";
 ["breachingExplosivesAPC", [["DemoCharge_Remote_Mag", 1]]] call _fnc_saveToTemplate;
 ["breachingExplosivesTank", [["SatchelCharge_Remote_Mag", 1], ["DemoCharge_Remote_Mag", 2]]] call _fnc_saveToTemplate;
 
-if (allowDLCWS && A3A_hasWS) then {
-  _vehicleAA = "I_Tura_Truck_02_aa_lxWS";
-  _staticAA = "B_G_ZU23_lxWS_F";
+
+if ("ws" in A3A_enabledDLC) then {
+    _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
+    _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
+    _vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
+    _vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
+    _vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
-["vehicleAA", _vehicleAA] call _fnc_saveToTemplate;
+
+["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
+["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
+["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
+
+["vehiclesAA", _vehicleAA] call _fnc_saveToTemplate;
 ["staticAA", _staticAA] call _fnc_saveToTemplate;
+
+#include "Vanilla_Reb_Vehicle_Attributes.sqf"
 
 ///////////////////////////
 //  Rebel Starting Gear  //
@@ -54,12 +64,18 @@ private _initialRebelEquipment = [
     "hgun_Pistol_01_F","hgun_ACPC2_black_F",
     "SMG_05_F","sgun_Mp153_classic_F",
     "10Rnd_9x21_Mag","9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02","4Rnd_12Gauge_Pellets","MiniGrenade","SmokeShell",
+    ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
     "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_owcamo","B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_semiarid",
     "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_ChestrigF_blk","V_ChestrigF_rgr","V_ChestrigF_khk","V_ChestrigF_oli",
     "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_BandollierB_taiga_F","V_BandollierB_tna_F",
     "V_Rangemaster_belt","V_Rangemaster_belt_blk","V_Rangemaster_belt_cbr","V_Rangemaster_belt_ghex_F","V_Rangemaster_belt_khk","V_Rangemaster_belt_oli","V_Rangemaster_belt_taiga_F","V_Rangemaster_belt_tna_F",
-    "Binocular",
+    "Binocular","hgun_Pistol_Signal_F","6Rnd_GreenSignal_F","6Rnd_RedSignal_F",
     "acc_flashlight","acc_flashlight_smg_01","acc_flashlight_pistol"];
+_initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
+
+if ("enoch" in A3A_enabledDLC) then {
+    _initialRebelEquipment append ["sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
+};
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
 if (A3A_hasTFAR && startWithLongRangeRadio) then {_initialRebelEquipment append ["tf_anprc155","tf_anprc155_coyote"]};
@@ -97,18 +113,17 @@ private _rebUniforms = [
 
 private _dlcUniforms = [];
 
-if (allowDLCEnoch) then {_dlcUniforms append [
+if ("enoch" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_I_L_Uniform_01_camo_F"
 ];
 };
 
-
-if (allowDLCAoW) then {_dlcUniforms append [
+if ("orange" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_IG_Guerilla1_2_F"
 ];
 };
 
-if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
+if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
     "U_lxWS_ION_Casual1",
     "U_lxWS_ION_Casual2",
     "U_lxWS_ION_Casual3",
@@ -133,6 +148,15 @@ if (allowDLCWS && A3A_hasWS) then {_dlcUniforms append [
     "H_Bandanna_sand",
     "H_Bandanna_cbr"
 ]] call _fnc_saveToTemplate;
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["faces", ["TanoanHead_A3_01","TanoanHead_A3_02","TanoanHead_A3_03","TanoanHead_A3_04",
+"TanoanHead_A3_05","TanoanHead_A3_06","TanoanHead_A3_07","TanoanHead_A3_08"]] call _fnc_saveToTemplate;
+["voices", ["Male01FRE","Male02FRE","Male03FRE"]] call _fnc_saveToTemplate;
+"TanoanMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

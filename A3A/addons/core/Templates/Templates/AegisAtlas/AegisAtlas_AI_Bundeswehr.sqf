@@ -2,8 +2,6 @@
 //   Side Information   //
 //////////////////////////
 
-//ENTER ONLY ONE OPTION IN EVERYTHING WITHIN THIS BLOCK
-
 ["name", "Bundeswehr"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Bundeswehr Support Corridor"] call _fnc_saveToTemplate;
 
@@ -19,8 +17,6 @@
 ["surrenderCrate", "Box_IND_Wps_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
-//Nearly everything below this line is an Array, which can contain multiple assets
-
 ["vehiclesBasic", ["Atlas_B_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["Atlas_B_G_MRAP_03_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed",["Atlas_B_G_MRAP_03_hmg_F", "Atlas_B_G_MRAP_03_gmg_F"]] call _fnc_saveToTemplate;
@@ -30,11 +26,11 @@
 ["vehiclesRepairTrucks", ["Atlas_B_G_Truck_01_Repair_F"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["Atlas_B_G_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["Atlas_B_G_Truck_01_medical_F"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 private _APCs = ["Atlas_B_G_APC_Wheeled_03_cannon_F"];
+["vehiclesIFVs", []] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["Atlas_B_G_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["Atlas_B_G_LT_01_AA_F"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", []] call _fnc_saveToTemplate;			//this line determines light APCs, SO IT DOES NOTHING
-["vehiclesIFVs", []] call _fnc_saveToTemplate;				//this line determines IFVs, SO IT DOES NOTHING
 
 ["vehiclesTransportBoats", ["I_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["I_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
@@ -46,6 +42,7 @@ private _APCs = ["Atlas_B_G_APC_Wheeled_03_cannon_F"];
 
 ["vehiclesHelisLight", ["Atlas_B_G_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["Atlas_B_G_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", [""]] call _fnc_saveToTemplate;
 ["vehiclesHelisAttack", ["B_W_Heli_Attack_01_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["B_W_MBT_01_arty_F"]] call _fnc_saveToTemplate;
@@ -68,11 +65,11 @@ private _APCs = ["Atlas_B_G_APC_Wheeled_03_cannon_F"];
 ["staticAA", ["I_E_Static_AA_F"]] call _fnc_saveToTemplate;
 ["staticMortars", ["B_Mortar_01_F"]] call _fnc_saveToTemplate;
 
-["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate; 			//ENTER ONLY ONE OPTION
-["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate; 	//ENTER ONLY ONE OPTION
+["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
+["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
-//Not Magazine type would be: ["APERSBoundingMine", "APERSMine", "ATMine"]
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
@@ -82,11 +79,28 @@ if (allowDLCTanks) then {
 };
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
+#include "Vanilla_Vehicle_Attributes.sqf"
+
+/////////////////////
+///  Identities   ///
+/////////////////////
+
+["voices", ["Male01ENG","Male02ENG","Male03ENG","Male04ENG","Male05ENG","Male06ENG","Male07ENG","Male08ENG","Male09ENG","Male10ENG","Male11ENG","Male12ENG"]] call _fnc_saveToTemplate;
+["faces", ["AfricanHead_01","AfricanHead_02","AfricanHead_03","Barklem",
+"GreekHead_A3_05","GreekHead_A3_07","Sturrock","WhiteHead_01","WhiteHead_02",
+"WhiteHead_03","WhiteHead_04","WhiteHead_05","WhiteHead_06","WhiteHead_07",
+"WhiteHead_08","WhiteHead_09","WhiteHead_11","WhiteHead_12","WhiteHead_14",
+"WhiteHead_15","WhiteHead_16","WhiteHead_18","WhiteHead_19","WhiteHead_20",
+"WhiteHead_21"]] call _fnc_saveToTemplate;
+["sfVoices", ["Male01ENGB", "Male02ENGB", "Male03ENGB", "Male04ENGB", "Male05ENGB"]] call _fnc_saveToTemplate;
+"NATOMen" call _fnc_saveNames;
+
 //////////////////////////
 //       Loadouts       //
 //////////////////////////
 
 private _loadoutData = call _fnc_createLoadoutData;
+_loadoutData set ["slRifles", []];
 _loadoutData set ["rifles", []];
 _loadoutData set ["carbines", []];
 _loadoutData set ["grenadeLaunchers", []];
@@ -142,6 +156,8 @@ _loadoutData set ["Hvests", []];
 _loadoutData set ["backpacks", []];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
+_loadoutData set ["slHat", ["H_Beret_grn"]];
+_loadoutData set ["sniHats", ["H_Booniehat_flecktarn_hs"]];
 
 //Item *set* definitions. These are added in their entirety to unit loadouts. No randomisation is applied.
 _loadoutData set ["items_medical_basic", ["BASIC"] call A3A_fnc_itemset_medicalSupplies]; //this line defines the basic medical loadout for vanilla
@@ -190,15 +206,18 @@ _sfLoadoutData set ["backpacks", ["B_AssaultPack_rgr", "B_AssaultPackSpec_rgr", 
 _sfLoadoutData set ["helmets", ["H_HelmetB_light_wdl", "H_HelmetSpecB_light_wdl", "H_Watchcap_camo_hs", "H_Booniehat_flecktarn_hs"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_01_khk_F"]];
 // SF Weapons
+_sfLoadoutData set ["slRifles", [
+["arifle_SPAR_01_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""],
+["arifle_SPAR_01_GL_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+]];
 _sfLoadoutData set ["rifles", [
-["arifle_SPAR_01_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
+["arifle_SPAR_01_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["carbines", [
 ["arifle_SPAR_01_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], [], ""]
 ]];
 _sfLoadoutData set ["grenadeLaunchers", [
-["arifle_SPAR_01_GL_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_SPAR_01_GL_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_SPAR_01_GL_blk_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_red", "30Rnd_556x45_Stanag_Tracer_Red"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
 ["SMG_03C_black", "muzzle_snds_570", "", "", [], [], ""]
@@ -232,8 +251,14 @@ _militaryLoadoutData set ["backpacks", ["B_AssaultPack_flecktarn", "B_Carryall_f
 _militaryLoadoutData set ["helmets", ["H_HelmetHBK_headset_F", "H_HelmetHBK_F"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_01_khk_F"]];
 
-_militaryLoadoutData set ["rifles", [
+_militaryLoadoutData set ["slRifles", [
 ["arifle_G36_F", "", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""],
+["arifle_G36_F", "", "acc_pointer_IR", "optic_MRCO", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""],
+["arifle_G36_GL_F", "", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["arifle_G36_GL_F", "", "acc_pointer_IR", "optic_MRCO", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+]];
+_militaryLoadoutData set ["rifles", [
+["arifle_G36_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""],
 ["arifle_G36_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
@@ -242,7 +267,6 @@ _militaryLoadoutData set ["carbines", [
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["arifle_G36_GL_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_G36_GL_F", "", "acc_pointer_IR", "optic_LRCO_blk_F", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_G36_GL_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
@@ -250,7 +274,7 @@ _militaryLoadoutData set ["SMGs", [
 ["SMG_04_blk_F", "", "", "optic_Aco_smg", [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["LMG_Mk200_black_F", "", "acc_pointer_IR", "optic_LRCO_blk_F", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
+["LMG_Mk200_black_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"],
 ["LMG_Mk200_black_F", "", "acc_pointer_IR", "optic_Aco", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
@@ -294,25 +318,25 @@ _militiaLoadoutData set ["backpacks", ["B_AssaultPack_eaf_F"]];
 _militiaLoadoutData set ["helmets", ["H_MilCap_grn"]];
 
 _militiaLoadoutData set ["rifles", [
-["arifle_G36_F", "", "", "optic_Aco", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""]
+["arifle_G36_F", "", "acc_flashlight", "optic_Aco", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["arifle_G36C_F", "", "", "", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""]
+["arifle_G36C_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], [], ""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
-["arifle_G36_GL_F", "", "", "", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_G36_GL_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag", "30Rnd_65x39_caseless_msbs_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
 ["SMG_04_blk_F", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["LMG_Mk200_black_F", "", "", "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"]
+["LMG_Mk200_black_F", "", "acc_flashlight", "", ["200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Red", "200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_blk"]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["srifle_DMR_03_F", "", "", "optic_LRCO_blk_F", [], [], "bipod_01_F_blk"]
+["srifle_DMR_03_F", "", "acc_flashlight", "optic_LRCO_blk_F", [], [], "bipod_01_F_blk"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
-["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
+["srifle_GM6_F", "", "acc_flashlight", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", ["hgun_P07_blk_F"]];
 
@@ -333,26 +357,21 @@ _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_Olive_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
 
 
-// ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################
 
 
 /////////////////////////////////
 //    Unit Type Definitions    //
 /////////////////////////////////
-//These define the loadouts for different unit types.
-//For example, rifleman, grenadier, squad leader, etc.
-//In 95% of situations, you *should not need to edit these*.
-//Almost all factions can be set up just by modifying the loadout data above.
-//However, these exist in case you really do want to do a lot of custom alterations.
+
 
 private _squadLeaderTemplate = {
-	["helmets"] call _fnc_setHelmet;
+	["slHat"] call _fnc_setHelmet;
 	[["Hvests", "vests"] call _fnc_fallback] call _fnc_setVest;
 	[["slUniforms", "uniforms"] call _fnc_fallback] call _fnc_setUniform;
 
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["grenadeLaunchers", "rifles"]] call _fnc_setPrimary;
+	["slRifles"] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 	["primary", 4] call _fnc_addAdditionalMuzzleMagazines;
 
@@ -623,7 +642,7 @@ private _machineGunnerTemplate = {
 };
 
 private _marksmanTemplate = {
-	["helmets"] call _fnc_setHelmet;
+	["sniHats"] call _fnc_setHelmet;
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
@@ -649,7 +668,7 @@ private _marksmanTemplate = {
 };
 
 private _sniperTemplate = {
-	["helmets"] call _fnc_setHelmet;
+	["sniHats"] call _fnc_setHelmet;
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 

@@ -21,8 +21,7 @@ if (isPlayer _unit) then
 	if (_injurer != Invaders) then {_unit setCaptive true};
 
 	if (A3A_sendDownedNotification) then {
-		private _message = format [localize "STR_A3A_fn_revive_downed_help", name _unit];
-		[_unit, _message] remoteExec ["globalChat", 0];
+		[_unit, localize "STR_A3A_fn_revive_downed_help"] remoteExec ["globalChat", 0];
 	};
 
 	{

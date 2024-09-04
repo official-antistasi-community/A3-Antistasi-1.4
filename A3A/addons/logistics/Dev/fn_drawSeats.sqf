@@ -6,7 +6,7 @@
         Handles grabbing seat positions and index then drawing them to 3D space.
 
     Params:
-	    _vehicle    <OBJECT>
+	    _vehicle <OBJECT> <Default: ObjNull>
 
     Usage:
         [cursorObject] call A3A_logistics_fnc_drawSeats;
@@ -16,6 +16,7 @@ params [["_vehicle", ObjNull]];
 
 if (_vehicle isEqualTo ObjNull) exitWith {false};
 
+// Global so these can easily be changed whilst already drawing
 textSize = 0.05;
 iconSize = 1.5;
 icon = "a3\ui_f\data\Map\Markers\Military\dot_ca.paa";
@@ -34,12 +35,14 @@ private _selectionsCoords = [];
     private _inModelPosition = _vehicle selectionPosition [_x, "FireGeometry", "FirstPoint"];
 
 	private _splitSelections = _x splitString "";
-	private _splitSelection = (_splitSelections select -3) + (_splitSelections select -2) + (_splitSelections select -1); // get the last 3 numbers for index
+	private _splitSelection = parseNumber ((_splitSelections select -3) + (_splitSelections select -2) + (_splitSelections select -1)) - 1; // get the last 3 numbers
+	private _splitSelection = str _splitSelection; // Cargo index starts at 0 so we convert to int and -1 above
 
-    if !("cargo" in _x && {!("gunner" in _x)}) then {continue}; // if seat is not a cargo or gunner seat, do not add to the drawing list
-
-    _selectionsCoords pushBack _inModelPosition;
-    _selectionsNames pushBack _splitSelection;
+    // The below could be a false positive if a selection isn't a seat but does have cargo/gunner in its name, though I have not encountered this yet
+    if ("cargo" in _x || {"gunner" in _x}) then {
+        _selectionsCoords pushBack _inModelPosition;
+        _selectionsNames pushBack _splitSelection;
+    };
 } forEach _selections;
 
 private _helperID = addMissionEventHandler ["Draw3D", {

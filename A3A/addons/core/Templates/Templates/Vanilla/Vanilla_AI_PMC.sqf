@@ -257,7 +257,7 @@ _sfLoadoutData set ["SMGs", [
 ["SMG_01_F", "muzzle_snds_acp", "", "optic_Holosight_blk_F", [], [], ""],
 ["SMG_01_F", "muzzle_snds_acp", "", "optic_Holosight_blk_F", [], [], ""],
 ["SMG_01_F", "muzzle_snds_acp", "", "optic_Aco_smg", [], [], ""],
-["SMG_03C_TR_black", "muzzle_snds_570", "acc_pointer_IR", "optic_Yorris", [], [], ""],
+["SMG_03C_TR_black", "muzzle_snds_570", "acc_pointer_IR", "optic_Aco_smg", [], [], ""],
 ["SMG_03C_TR_black", "muzzle_snds_570", "acc_pointer_IR", "optic_Aco_smg", [], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
@@ -460,7 +460,7 @@ if ("rf" in A3A_enabledDLC) then {
     (_militaryLoadoutData get "backpacks") append ["B_DuffleBag_Black_RF","B_DuffleBag_Black_NoLogo_RF"];
     (_militaryLoadoutData get "sidearms") append ["hgun_DEagle_RF","hgun_Glock19_Tan_RF","hgun_Glock19_RF"];
     (_militaryLoadoutData get "marksmanRifles") append [
-    ["arifle_SPAR_03_blk_F", "", "acc_flashlight", "optic_DMS", ["20Rnd_556x45_AP_Stanag_red_RF"], [], "bipod_01_F_blk"]
+    ["arifle_SPAR_01_blk_F", "", "acc_flashlight", "optic_DMS", ["20Rnd_556x45_AP_Stanag_red_RF"], [], "bipod_01_F_blk"]
     ];
     
     (_militiaLoadoutData get "Hvests") append ["V_TacVest_rig_blk_RF"];

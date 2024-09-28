@@ -410,7 +410,7 @@ _officerLoadoutData set ["vests", ["V_TacVest_blk", "V_LegStrapBag_olive_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_AAF_F"]];
 _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["SMGs", [
-["hgun_PDW2000_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
+["hgun_PDW2000_F", "", "", "optic_Holosight_blk_F", [], [], ""],
 ["arifle_Mk20C_plain_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""]
 ]];
 

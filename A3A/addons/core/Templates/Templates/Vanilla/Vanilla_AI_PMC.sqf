@@ -159,10 +159,6 @@ _loadoutData set ["AALaunchers", [
 ]];
 _loadoutData set ["sidearms", []];
 
-if ("expansion" in A3A_enabledDLC) then {
-    (_loadoutData get "lightATLaunchers") append [];
-};
-
 _loadoutData set ["ATMines", ["ATMine_Range_Mag"]];
 _loadoutData set ["APMines", ["APERSMine_Range_Mag"]];
 _loadoutData set ["lightExplosives", ["DemoCharge_Remote_Mag"]];

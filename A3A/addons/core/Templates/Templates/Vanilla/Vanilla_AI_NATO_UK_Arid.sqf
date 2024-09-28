@@ -18,8 +18,8 @@
 ["equipmentBox", "Box_NATO_Equip_F"] call _fnc_saveToTemplate; //Changeing this from default will require you to define logistics attachement offset for the box type
 
 ["vehiclesBasic", ["B_Quadbike_01_F"]] call _fnc_saveToTemplate;
-private _LightUnarmed = ["B_MRAP_01_F","B_MRAP_01_F","B_LSV_01_unarmed_F"];
-private _LightArmed = ["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
+private _LightUnarmed = ["a3a_MRAP_03_grey_F","a3a_MRAP_03_grey_F","B_LSV_01_unarmed_F"];
+private _LightArmed = ["a3a_MRAP_03_hmg_grey_F", "a3a_MRAP_03_hmg_grey_F", "a3a_MRAP_03_gmg_grey_F","B_LSV_01_AT_F","B_LSV_01_armed_F"];
 ["vehiclesTrucks", ["B_Truck_01_covered_F", "B_Truck_01_transport_F"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["B_Truck_01_cargo_F", "B_Truck_01_flatbed_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["B_Truck_01_ammo_F"]] call _fnc_saveToTemplate;
@@ -94,6 +94,21 @@ if ("heli" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice = ["B_GEN_Pickup_covered_rf","a3a_police_Pickup_rf"];
+    _HelisTransport = ["a3a_tan_Heli_EC_04_military_rf"];
+
+    _vehiclesMilitiaCars = ["B_Pickup_rf","B_Pickup_Comms_rf"];
+    _vehiclesMilitiaLightArmed = ["B_Pickup_mmg_rf"];
+
+    ["vehiclesHelisLight", ["a3a_tan_Heli_light_03_unarmed_rf"]] call _fnc_saveToTemplate;
+    ["vehiclesHelisLightAttack", ["a3a_tan_Heli_EC_03_rf", "a3a_tan_Heli_light_03_dynamicLoadout_rf"]] call _fnc_saveToTemplate;
+    ["vehiclesHelisAttack", ["a3a_Heli_EC_02_rf"]] call _fnc_saveToTemplate;
+    
+    ["vehiclesAirPatrol", ["B_Heli_light_03_unarmed_RF", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
+};
+
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
 ["vehiclesLightUnarmed", _LightUnarmed] call _fnc_saveToTemplate;
@@ -440,8 +455,6 @@ _officerLoadoutData set ["SMGs", [
 ]];
 
 if ("rf" in A3A_enabledDLC) then {
-
-
     _sfLoadoutData set ["sidearms", [
     ["hgun_Glock19_RF", "muzzle_snds_L", "acc_pointer_IR_pistol_RF", "optic_MRD_black", [], [], ""],
     ["hgun_Glock19_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_black", [], [], ""]

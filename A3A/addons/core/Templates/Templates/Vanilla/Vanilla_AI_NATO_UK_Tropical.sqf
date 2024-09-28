@@ -93,6 +93,19 @@ if ("heli" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice = ["B_T_Pickup_rf","a3a_police_Pickup_rf"];
+    _HelisTransport = ["B_Heli_EC_04_military_RF"];
+
+    _vehiclesMilitiaCars = ["B_Pickup_rf","B_T_Pickup_Comms_rf"];
+    _vehiclesMilitiaLightArmed = ["B_T_Pickup_mmg_rf"];
+
+    ["vehiclesHelisLight", ["B_Heli_light_03_unarmed_RF"]] call _fnc_saveToTemplate;
+    ["vehiclesHelisLightAttack", ["B_Heli_EC_03_RF", "a3a_Heli_light_03_dynamicLoadout_rf"]] call _fnc_saveToTemplate;
+    ["vehiclesHelisAttack", ["a3a_black_Heli_EC_02_rf"]] call _fnc_saveToTemplate;
+    
+    ["vehiclesAirPatrol", ["B_Heli_light_03_unarmed_RF", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
+};
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;

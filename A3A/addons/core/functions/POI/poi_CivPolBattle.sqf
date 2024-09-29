@@ -1,32 +1,25 @@
 
+private ["_markerX"];
+
 _markerX = _this select 0;
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
 
-ServerInfo_2("Spawning Control Point %2 %1", _markerX, _sideX);
-
-if ((_sideX == teamPlayer) or (_sideX == sideUnknown)) exitWith {};
-if ({if ((sidesX getVariable [_x,sideUnknown] != _sideX) and (_positionX inArea _x)) exitWith {1}} count markersX >1) exitWith {};
 _vehiclesX = [];
 _soldiers = [];
 private _dogs = [];
 private _groups = [];
 _pilots = [];
-_conquered = false;
-_groupX = grpNull;
-_isFIA = false;
-_leave = false;
 
-
-
-_typeGroup = (_faction get "groupPoliceSquad");
+private _typeGroup = (_faction get "groupPoliceSquad");
 Verbose_2("Side: %1 spawning group composition: %2", _sideX, _typeGroup);
-_groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
-_groups pushBack _groupX;
+private _groupX = [_positionX, _sideX, _typeGroup, true] call A3A_fnc_spawnGroup;
+private _groups pushBack _groupX;
 _groupX setBehaviour "COMBAT";
 [_groupX, "Patrol_Defend", 0, 50, -1, true, _positionX, false] call A3A_fnc_patrolLoop;
 
+{_soldiers pushBack _x; [_x,"", false] call A3A_fnc_NATOinit} forEach units _groupX;
 
 // Spawn in the "civilians"
 private _numCiv = 4 + random 4;
@@ -69,6 +62,8 @@ while {count _civilians < _numCiv} do
 
         _civ setSkill 0.15; //Sub with half rebel skill?
         _civilians pushBack _civ;
+		_soldiers pushBack _civ; 
+		[_civ,"", false] call A3A_fnc_NATOinit;
     };
 };
 
@@ -78,61 +73,5 @@ while {count _civilians < _numCiv} do
 	_wp setWaypointType "SAD";
 } forEach _civGroups;
 _groups append _civGroups;
-    
-if (_leave) exitWith {};
 
-{ _x setVariable ["originalPos", getPos _x] } forEach _vehiclesX;
-
-_spawnStatus = 0;
-while {(spawner getVariable _markerX != 2) and ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers > 0)} do
-	{
-	if ((spawner getVariable _markerX == 1) and (_spawnStatus != spawner getVariable _markerX)) then
-		{
-		_spawnStatus = 1;
-		if (isMultiplayer) then
-			{
-			{if (vehicle _x == _x) then {[_x,false] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
-			}
-		else
-			{
-			{if (vehicle _x == _x) then {_x enableSimulationGlobal false}} forEach _soldiers
-			};
-		}
-	else
-		{
-		if ((spawner getVariable _markerX == 0) and (_spawnStatus != spawner getVariable _markerX)) then
-			{
-			_spawnStatus = 0;
-			if (isMultiplayer) then
-				{
-				{if (vehicle _x == _x) then {[_x,true] remoteExec ["enableSimulationGlobal",2]}} forEach _soldiers
-				}
-			else
-				{
-				{if (vehicle _x == _x) then {_x enableSimulationGlobal true}} forEach _soldiers
-				};
-			};
-		};
-	sleep 3;
-	};
-["locationSpawned", [_markerX, "POI", true]] call EFUNC(Events,triggerEvent);
-
-waitUntil {sleep 1;((spawner getVariable _markerX == 2))  or ({[_x,_markerX] call A3A_fnc_canConquer} count _soldiers == 0)};
-
-waitUntil {sleep 1;(spawner getVariable _markerX == 2)};
-
-
-{ if (alive _x) then { deleteVehicle _x } } forEach (_soldiers + _pilots);
-{ deleteVehicle _x } forEach _dogs;
-
-{ deleteGroup _x } forEach _groups;
-
-{
-	// delete all vehicles that haven't been captured
-	if (_x getVariable ["ownerSide", _sideX] == _sideX) then {
-		if (_x distance2d (_x getVariable "originalPos") < 100) then { deleteVehicle _x }
-		else { if !(_x isKindOf "StaticWeapon") then { [_x] spawn A3A_fnc_VEHdespawner } };
-	};
-} forEach _vehiclesX;
-
-["locationSpawned", [_markerX, "POI", false]] call EFUNC(Events,triggerEvent);
+[_groups, _soldiers, _vehiclesX, _dogs, _pilots]

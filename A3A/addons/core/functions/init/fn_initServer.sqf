@@ -231,7 +231,14 @@ call A3A_fnc_createPetros;
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
 //PlayerDisconnected doesn't get access to the unit, so we shouldn't use it to handle saving.
-addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClientDisconnect;false}];
+addMissionEventHandler ["PlayerDisconnected",{
+    // Remove player from arsenal in case they disconnected while in it
+    private _temp = server getVariable ["jna_playersInArsenal",[]];
+    _temp = _temp - [param [4]];
+    server setVariable ["jna_playersInArsenal",_temp,true];
+    _this call A3A_fnc_onHeadlessClientDisconnect;
+    false;
+}];
 
 addMissionEventHandler ["BuildingChanged", {
     params ["_oldBuilding", "_newBuilding", "_isRuin"];

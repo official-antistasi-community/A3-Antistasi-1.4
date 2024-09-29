@@ -35,7 +35,7 @@ switch _typeX do
 #else
             CreateDialog "mission_menu";
 #endif
-        },nil,0,false,true,"","([_this] call A3A_fnc_isMember or _this == theBoss) and (petros == leader group petros)",4];
+        },nil,0,false,true,"","([_this] call A3A_fnc_isMember or _this == theBoss) and (petros == leader group petros) and _this == _this getVariable ['owner',objNull]",4];
         petros addAction [localize "STR_A3A_fn_base_flagaction_hq_manage", A3A_fnc_dialogHQ,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros)", 4];
         petros addAction [localize "STR_A3A_fn_base_flagaction_asset_move", A3A_fnc_carryItem,nil,0,false,true,"","(_this == theBoss) and (petros == leader group petros) and (isNull objectParent _this) and !(call A3A_fnc_isCarrying)"];
 

@@ -39,6 +39,7 @@
 ["vehiclesPlanesCAS", ["RHS_A10"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["rhsusf_f22"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["RHS_C130J"]] call _fnc_saveToTemplate;
+["vehiclesAirPatrol", ["RHS_MELB_H6M"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["RHS_UH1Y_UNARMED_d"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["RHS_CH_47F_light", "rhsusf_CH53E_USMC_GAU21_D", "rhsusf_CH53E_USMC_D"]] call _fnc_saveToTemplate;

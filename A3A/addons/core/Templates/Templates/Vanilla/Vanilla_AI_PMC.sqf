@@ -216,6 +216,7 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _sfLoadoutData set ["uniforms", ["U_B_CTRG_2","U_I_G_Story_Protagonist_F","U_B_CombatUniform_mcam_tshirt"]];
 _sfLoadoutData set ["vests", ["V_PlateCarrier1_blk","V_PlateCarrier2_blk","V_PlateCarrierGL_blk", "V_PlateCarrierSpec_blk"]];
 _sfLoadoutData set ["Lvests", ["V_TacVestIR_blk"]];
+_sfLoadoutData set ["Hvests", ["V_PlateCarrierGL_blk", "V_PlateCarrierSpec_blk"]];
 _sfLoadoutData set ["backpacks", ["B_AssaultPack_blk", "B_Carryall_blk", "B_FieldPack_blk", "B_Kitbag_tan"]];
 _sfLoadoutData set ["helmets", ["H_HelmetB_sand", "H_HelmetB_black", "H_HelmetSpecB_blk", "H_HelmetSpecB_sand"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator"]];

@@ -7,7 +7,7 @@ private ["_pos","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","
 
 
 
-_markerX = _this select 0;
+params ["_markerX"];
 _positionX = getMarkerPos _markerX;
 _sideX = sidesX getVariable [_markerX,sideUnknown];
 private _faction = Faction(_sideX);
@@ -33,6 +33,18 @@ private _A3A_fnc_POI_Battle = {
 };
 
 
+//Weights for events 
+_proxyTown = 0;
+_rebelTown = 0;
+_occupTown = 0;
+_invadTown = 0;
+_rebInfluenceTown = 0;
+_occInfluenceTown = 0;
+_proxyAnyOutpost = 0;
+_proxyRebOutpost = 0;
+_proxyOccOutpost = 0;
+_proxyInvOutpost = 0;
+
 private _invaderEvents = [];
 private _militaryEvents = [];
 private _militiaEvents = [];
@@ -40,8 +52,8 @@ private _policeEvents = [];
 private _civilianEvents = [];
 private _rebelEvents = [_A3A_fnc_POI_Battle];
 
-//private _eventType = ["INVADER", "MILITARY", "MILITIA", "POLICE", "CIV", "REBEL"];
-private _eventType = "REBEL";
+private _eventClass = ["INVADER", "MILITARY", "MILITIA", "POLICE", "CIV", "REBEL"];
+private _eventClass = "REBEL";
 private _eventFunc = _A3A_fnc_POI_Battle;
 
 private _params = [_markerX];

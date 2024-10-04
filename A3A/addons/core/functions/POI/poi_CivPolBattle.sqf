@@ -32,7 +32,17 @@ while {_radiusX < 100} do
     if (count _roads > 0) exitWith {};
     _radiusX = _radiusX + 10;
 };
+if (_radiusX >= 100) then {
+    // fallback case, shouldn't happen unless the map is very broken
+    Error_2("Road error for %1 at %2", _markerX, _positionX);
+    _roads = _positionX nearRoads 20;		// guaranteed due to isOnRoad check
+    _dirveh = random 360;
+} else {
+    private _roadscon = roadsConnectedto (_roads select 0);
+    _dirveh = [_roads select 0, _roadscon select 0] call BIS_fnc_DirTo;
+};
 private _veh = _typeVehX createVehicle getPos (_roads select 0);
+_veh setDir _dirveh;
 _vehiclesX pushBack _veh;
 
 // Spawn in the "civilians"
@@ -50,7 +60,7 @@ if("vanilla" in A3A_factionEquipFlags) then {
 
 //War tier scaling on rifles and SMGs, making them more common as the war escalates, tier 1: 0, 20. tier 5: 40, 40, tier 10: 90, 65.
 //This would inhertently decrease the probability of the other weapon types
-private _weaponsWeights = [100-9*tierWar, 80-3*tierWar, 30, -10+10*tierWar, 15+10*(tierWar/2)];
+private _weaponsWeights = [70-5*tierWar, 50-3*tierWar, 30, -10+10*tierWar, 15+10*(tierWar/2)];
 {
     if !(_x isEqualType []) then {continue};
     if(count _x == 0) then {
@@ -63,11 +73,11 @@ while {count _civilians < _numCiv} do
 {
     private _groupCivil = createGroup teamPlayer;
     _civGroups pushBack _groupCivil;
-    private _pos = while {true} do {
-        private _pos = _positionX getPos [100 + (random 60),random 360];
-        if (!surfaceIsWater _pos) exitWith { _pos };
-    };
-    for "_i" from 1 to (random _numCiv) do {
+    for "_i" from 1 to (random _numCiv max (_numCiv - count _civilians)) do {
+        private _pos = while {true} do {
+            private _pos = _positionX getPos [60 + (random 60),random 360];
+            if (!surfaceIsWater _pos) exitWith { _pos };
+        };
         private _identity = [A3A_faction_civ, _unitType] call A3A_fnc_createRandomIdentity;
         private _civ = [_groupCivil, _unitType, _pos, [], 0, "NONE", _identity] call A3A_fnc_createUnit;
         _civ forceAddUniform selectRandom (A3A_faction_civ get "uniforms");

@@ -2,7 +2,7 @@ if (!isServer and hasInterface) exitWith{};
 #include "..\..\script_component.hpp"
 FIX_LINE_NUMBERS()
 
-private ["_pos","_veh","_roads","_conquered","_dirVeh","_markerX","_positionX","_vehiclesX","_soldiers","_radiusX","_bunker","_groupE","_unit","_typeGroup","_groupX","_timeLimit","_dateLimit","_dateLimitNum","_base","_dog","_sideX","_cfg","_isFIA","_leave","_isControl","_radiusX","_typeVehX","_typeUnit","_markersX","_frontierX","_uav","_groupUAV","_allUnits","_closest","_winner","_timeLimit","_dateLimit","_dateLimitNum","_size","_base","_mineX","_loser","_sideX"];
+private ["_markerX"];
 
 
 
@@ -28,22 +28,65 @@ _leave = false;
 
 
 
+private _A3A_fnc_POI_NoAction = { 
+	[[], [], [], [], []];
+};
 private _A3A_fnc_POI_Battle = { 
 	#include "..\POI\poi_CivPolBattle.sqf"
 };
 
-
 //Weights for events 
-_proxyTown = 0;
-_rebelTown = 0;
-_occupTown = 0;
-_invadTown = 0;
-_rebInfluenceTown = 0;
-_occInfluenceTown = 0;
-_proxyAnyOutpost = 0;
-_proxyRebOutpost = 0;
-_proxyOccOutpost = 0;
-_proxyInvOutpost = 0;
+private _probabilityNA = 90;
+
+private _proxyTown = 0;
+private _rebelTown = 0;
+private _occupTown = 0;
+private _aliveTown = 1;
+private _occInfluenceTown = 0;
+private _rebInfluenceTown = 0;
+
+private _proxyOutpost = 0;
+private _rebOutpost = 0;
+private _occOutpost = 0;
+private _invOutpost = 0;
+
+private _frontline = 0;
+
+private _town = "";
+private _milPos = "";
+{
+	_town = [citiesX, _positionX] call BIS_fnc_nearestPosition;
+	_proxyTown = (getMarkerPos _town) distance _positionX;
+	_proxyTown = _proxyTown max 0.01;
+	if(_town in destroyedSites) exitWith {
+		_aliveTown = 0;
+	};
+
+	private _info = server getVariable _town;
+	_occInfluenceTown = _info select 2;
+	_rebInfluenceTown = _info select 3;
+
+	if(_rebInfluenceTown > _occInfluenceTown) then {
+		_rebelTown = 1;
+	} else {
+		_occupTown = 1;
+	};
+};
+
+{
+	_milPos = [outposts + seaports + airportsX, _positionX] call BIS_fnc_nearestPosition;
+	_proxyOutpost = (getMarkerPos _milPos) distance _positionX;
+	_proxyOutpost = _proxyOutpost max 0.01;
+
+	switch (sidesX getVariable [_milPos,sideUnknown]) do {
+		case Occupants: { _occOutpost = 1 };
+		case Invaders: { _invOutpost = 1 };
+		case teamPlayer: { _rebOutpost = 1 };
+		default { };
+	};
+};
+
+_frontline = [0.0,1.0] select ([[[_town, _milPos], _positionX] call BIS_fnc_nearestPosition] call A3A_fnc_isFrontline);
 
 private _invaderEvents = [];
 private _militaryEvents = [];
@@ -52,26 +95,26 @@ private _policeEvents = [];
 private _civilianEvents = [];
 private _rebelEvents = [_A3A_fnc_POI_Battle];
 
-private _eventClass = ["INVADER", "MILITARY", "MILITIA", "POLICE", "CIV", "REBEL"];
-private _eventClass = "REBEL";
-private _eventFunc = _A3A_fnc_POI_Battle;
+private _poiEvents = [
+	_A3A_fnc_POI_NoAction, 0,
+	_A3A_fnc_POI_Battle, _aliveTown*(_rebelTown + _occupTown/2)*_frontline*(_rebInfluenceTown+_occInfluenceTown)*((1/(_proxyTown max 1)) - (1/(_proxyOutpost max 1))),
+	//event, only alive towns, 50% chance reduction from occupant town, only at the front, more likely hood in towns with high influence of both towns, less likely closer to outposts
+	_A3A_fnc_POI_NoAction, 0
+];
 
-private _params = [_markerX];
+for "_i" from 1 to (count _poiEvents) step 2 do { 
+	_poiEvents set [1, _poiEvents#1 + _i];
+};
+_poiEvents set [1, 0.1 * _probabilityNA * _poiEvents#1];
+
+private _eventClass = ["INVADER", "MILITARY", "MILITIA", "POLICE", "CIV", "REBEL"];
+private _eventFunc = selectRandomWeighted _poiEvents;
 
 private _eventReturn = [];
 
-switch (_eventType) do {
-	case "INVADER": {};
-	case "MILITARY": {};
-	case "MILITIA": {};
-	case "POLICE": {};
-	case "CIV": {};
-	case "REBEL": {
-		_eventReturn = _params call _eventFunc;
-	};
-};
+_eventReturn = [_markerX] call _eventFunc;
 
-if(count _eventReturn == 0) then {_leave = true};
+if(count _eventReturn == 0) exitWith {};
 if (_leave) exitWith {};
 
 _groups = _eventReturn#0;

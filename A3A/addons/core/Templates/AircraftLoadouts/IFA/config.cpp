@@ -54,13 +54,9 @@ class A3A {
                 mainGun[] = {"LIB_4xM2_P39"};
                 rocketLauncher[] = {"LIB_M4_P39"};
                 bombRacks[] = {"LIB_US_500lb_Bomb_Mount"};
-                diveParams[] = {1200, 350, 110, 55, 15, {20, 0}};
+                diveParams[] = {800, 350, 110, 55, 15, {20, -2}};
             };
-            class LIB_RAF_P39 : LIB_P39 {
-                loadout[] = {"LIB_1Rnd_US_500lb","LIB_30Rnd_M4_P39","LIB_1000Rnd_M2_P39"};
-                bombRacks[] = {"LIB_US_500lb_Bomb_Mount"};
-                diveParams[] = {1200, 350, 110, 55, 15, {20, 0}};
-            };
+            class LIB_RAF_P39 : LIB_P39 {};
             class LIB_US_P39 : LIB_RAF_P39 {};
         };
         class CAPPlane

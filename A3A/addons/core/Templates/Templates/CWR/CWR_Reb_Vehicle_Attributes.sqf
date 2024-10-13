@@ -1,4 +1,4 @@
-["attributesVehicles", [
+(["attributesVehicles"] call _fnc_getFromTemplate) append [
     // light armed Cars
     ["cwr3_i_uaz_dshkm", ["rebCost", 700]],
     ["cwr3_i_uaz_spg9", ["rebCost", 800]],
@@ -18,4 +18,4 @@
 
     // civ helicopters
     ["CUP_C_Mi17_Civilian_RU", ["rebCost", 8000]]
-]] call _fnc_saveToTemplate;
+];

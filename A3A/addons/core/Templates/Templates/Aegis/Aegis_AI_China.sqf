@@ -414,15 +414,9 @@ if ("mark" in A3A_enabledDLC) then {
     ["srifle_DMR_05_ghex_F", "muzzle_snds_93mmg", "acc_pointer_IR", "optic_KHS_blk", [], [], "bipod_02_F_blk"],
     ["srifle_DMR_05_blk_F", "muzzle_snds_93mmg", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_blk"]
     ];
-    
     (_militaryLoadoutData get "machineGuns") append [
     ["MMG_01_black_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_blk"],
     ["MMG_01_ghex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_blk"]
-	];
-	(_militaryLoadoutData get "shotGuns") append [
-	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
-	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Aco_smg", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
-	["sgun_aa40_lxWS", "", "acc_pointer_IR", "Aegis_optic_ROS_SMG", ["20Rnd_12Gauge_AA40_Pellets_lxWS", "20Rnd_12Gauge_AA40_Slug_lxWS"], [], ""]
 	];
     (_militaryLoadoutData get "marksmanRifles") append [
     ["srifle_DMR_07_ghex_F", "", "", "optic_KHS_blk", [], [], ""]
@@ -431,6 +425,13 @@ if ("mark" in A3A_enabledDLC) then {
     ["srifle_DMR_05_ghex_F", "", "acc_pointer_IR", "optic_KHS_blk", [], [], "bipod_02_F_blk"],
     ["srifle_DMR_05_blk_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_02_F_blk"]
     ];
+};
+if ("ws" in A3A_enabledDLC) then {
+	(_militaryLoadoutData get "shotGuns") append [
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Aco_smg", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "Aegis_optic_ROS_SMG", ["20Rnd_12Gauge_AA40_Pellets_lxWS", "20Rnd_12Gauge_AA40_Slug_lxWS"], [], ""]
+	];
 };
 
 /////////////////////////////////

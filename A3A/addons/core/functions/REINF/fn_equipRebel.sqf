@@ -32,7 +32,7 @@ private _fnc_addSecondaryAndMags = {
 
     private _compatOptics = A3A_rebelOpticsCache get _weapon;
     if (isNil "_compatOptics") then {
-        private _compatItems = [_weapon] call BIS_fnc_compatibleItems;		// cached, should be fast
+        private _compatItems = compatibleItems _weapon;		// cached, should be fast
         _compatOptics = _compatItems arrayIntersect (A3A_rebelGear get "OpticsAll");
         A3A_rebelOpticsCache set [_weapon, _compatOptics];
     };
@@ -170,7 +170,7 @@ else {
     private _weapon = primaryWeapon _unit;
     private _compatLights = A3A_rebelFlashlightsCache get _weapon;
     if (isNil "_compatLights") then {
-        private _compatItems = [_weapon] call BIS_fnc_compatibleItems;		// cached, should be fast
+        private _compatItems = compatibleItems _weapon;		// cached, should be fast
         _compatLights = _compatItems arrayIntersect (A3A_rebelGear get "LightAttachments");
         A3A_rebelFlashlightsCache set [_weapon, _compatLights];
     };

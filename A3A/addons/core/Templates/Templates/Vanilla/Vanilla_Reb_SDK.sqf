@@ -19,15 +19,15 @@ private _vehicleAA = [];
 
 ["vehiclesPlane", ["I_C_Plane_Civil_01_F"]] call _fnc_saveToTemplate;
 
-["vehiclesCivCar", ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_02_unarmed_F", "C_SUV_01_F"]] call _fnc_saveToTemplate;
+private _vehiclesCivCar = ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_Offroad_02_unarmed_F", "C_SUV_01_F"];
 ["vehiclesCivTruck", ["C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
-["vehiclesCivHeli", ["C_Heli_Light_01_civil_F", "a3a_C_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
+private _vehiclesCivHeli = ["C_Heli_Light_01_civil_F", "a3a_C_Heli_Transport_02_F"];
 ["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["I_G_HMG_02_high_F", "I_G_HMG_02_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["I_static_AT_F"]] call _fnc_saveToTemplate;
 private _staticAA = ["I_static_AA_F"];
-["staticMortars", ["I_G_Mortar_01_F"]] call _fnc_saveToTemplate;
+private _staticMortars = ["I_G_Mortar_01_F"];
 ["staticMortarMagHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["staticMortarMagSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
 ["staticMortarMagFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
@@ -47,6 +47,17 @@ if ("ws" in A3A_enabledDLC) then {
     _vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
 };
 
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesCivCar append ["C_Pickup_rf","C_Pickup_covered_rf"];
+    _vehiclesLightUnarmed append ["a3a_FIA_Pickup_rf", "a3a_FIA_Pickup_covered_rf"];
+    _vehiclesLightArmed append ["a3a_FIA_Pickup_mmg_rf", "a3a_FIA_Pickup_hmg_rf"];
+    _staticMortars append ["I_G_CommandoMortar_rf"];
+    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
+};
+
+["vehiclesCivHeli", _vehiclesCivHeli] call _fnc_saveToTemplate;
+["staticMortars", _staticMortars] call _fnc_saveToTemplate;
+["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", _vehiclesLightUnarmed] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", _vehiclesLightArmed] call _fnc_saveToTemplate;
 ["vehiclesAT", _vehiclesAT] call _fnc_saveToTemplate;
@@ -75,6 +86,10 @@ _initialRebelEquipment append [["launch_RPG7_F", 15], ["RPG7_F", 45]];
 
 if ("enoch" in A3A_enabledDLC) then {
     _initialRebelEquipment append ["sgun_HunterShotgun_01_F", "sgun_HunterShotgun_01_sawedoff_F", "2Rnd_12Gauge_Pellets", "2Rnd_12Gauge_Slug"];
+};
+if ("rf" in A3A_enabledDLC) then {
+    _initialRebelEquipment append ["srifle_h6_oli_rf","10Rnd_556x45_AP_Stanag_red_khk_RF","10Rnd_556x45_AP_Stanag_khk_RF","10Rnd_556x45_AP_Stanag_green_khk_RF"];
+    _initialRebelEquipment = _initialRebelEquipment - ["SMG_05_F","hgun_PDW2000_F","30Rnd_9x21_Mag_SMG_02"];
 };
 
 if (A3A_hasTFAR) then {_initialRebelEquipment append ["tf_microdagr","tf_anprc154"]};
@@ -109,19 +124,28 @@ private _rebUniforms = [
 
 private _dlcUniforms = [];
 
-if ("enoch" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_I_L_Uniform_01_camo_F"
-];
+if ("enoch" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_I_L_Uniform_01_camo_F"
+    ];
 };
 
-if ("ws" in A3A_enabledDLC) then {_dlcUniforms append [
-    "U_lxWS_ION_Casual1",
-    "U_lxWS_ION_Casual2",
-    "U_lxWS_ION_Casual3",
-    "U_lxWS_ION_Casual4",
-    "U_lxWS_ION_Casual5",
-    "U_lxWS_SFIA_deserter"
-];
+if ("ws" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_lxWS_ION_Casual1",
+        "U_lxWS_ION_Casual2",
+        "U_lxWS_ION_Casual3",
+        "U_lxWS_ION_Casual4",
+        "U_lxWS_ION_Casual5",
+        "U_lxWS_SFIA_deserter"
+    ];
+};
+
+if ("rf" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_IG_Guerrilla_RF",
+        "U_IG_leader_RF"
+    ];
 };
 
 ["uniforms", _rebUniforms + _dlcUniforms] call _fnc_saveToTemplate;

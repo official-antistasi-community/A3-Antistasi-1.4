@@ -130,19 +130,17 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
-_loadoutData set ["lightATLaunchers", [
+_loadoutData set ["lightATLaunchers", ["Aegis_launch_RPG7M_F"]];
+_loadoutData set ["ATLaunchers", [
 ["launch_RPG32_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
 ["launch_RPG32_F", "", "", "", ["RPG32_F"], [], ""],
-["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""],
-["Aegis_launch_RPG7M_F", "", "", "", [], [], ""],
-["Aegis_launch_RPG7M_F", "", "", "", [], [], ""]
-]];
-_loadoutData set ["ATLaunchers", [
-["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
-["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT"], [], ""]
+["launch_RPG32_F", "", "", "", ["RPG32_HE_F"], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
-["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
+["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
+["launch_O_Titan_short_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""],
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT", "Vorona_HE"], [], ""],
+["launch_O_Vorona_brown_F", "", "", "", ["Vorona_HEAT"], [], ""]
 ]];
 _loadoutData set ["AALaunchers", [
 ["launch_O_Titan_F", "", "acc_pointer_IR", "", ["Titan_AA"], [], ""]

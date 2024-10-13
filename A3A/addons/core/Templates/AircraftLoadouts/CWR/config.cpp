@@ -50,9 +50,5 @@ class A3A {
                 loadout[] = {"PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R73_x1","PylonMissile_Missile_AA_R77_x1"};
             };
         };
-        class Helicopter
-        {
-
-        };
     };
 };

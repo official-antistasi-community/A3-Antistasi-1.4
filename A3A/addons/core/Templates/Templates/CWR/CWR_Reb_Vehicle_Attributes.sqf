@@ -1,9 +1,4 @@
 (["attributesVehicles"] call _fnc_getFromTemplate) append [
-    // light armed Cars
-    ["cwr3_i_uaz_dshkm", ["rebCost", 700]],
-    ["cwr3_i_uaz_spg9", ["rebCost", 800]],
-    ["cwr3_i_ural_zu23", ["rebCost", 1000]],
-    
     // civ cars
     ["cwr3_c_mini", ["rebcost", 500]],
     ["cwr3_c_rapid", ["rebcost", 650]],

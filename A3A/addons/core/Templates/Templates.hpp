@@ -1462,8 +1462,7 @@ class Templates
 
     class CWR_Base
     {
-        requiredAddons[] = {"cwr3_core"};        // units, weapons, vehicles
-        //requiredAddons[] = {"cwr3_core"};        // vehicles requires units & weapons
+        requiredAddons[] = {"cwr3_core"};       
         basepath = QPATHTOFOLDER(Templates\Templates\CWR);
         logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
         priority = 70;

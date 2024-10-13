@@ -76,7 +76,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
-    _APCs append ["B_T_APC_Wheeled_01_atgm_lxWS", "a3a_T_APC_Wheeled_01_command_lxWS"];
+    _APCs append ["B_T_APC_Wheeled_01_atgm_lxWS_v2", "B_T_APC_Wheeled_01_command_lxWS"];
     ["uavsPortable", ["B_UAV_01_F", "B_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 if ("enoch" in A3A_enabledDLC) then {

@@ -30,7 +30,7 @@ private _cargoTrucks = ["O_R_Truck_03_transport_F","O_R_Truck_03_covered_F","O_R
 private _APCs = [];
 ["vehiclesIFVs", ["Aegis_O_R_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;
 private _Tanks = ["O_R_MBT_02_cannon_F"];
-["vehiclesAA", ["O_R_APC_Tracked_02_AA_F"]] call _fnc_saveToTemplate;
+private _AA = ["O_R_APC_Tracked_02_AA_F"];
 
 ["vehiclesTransportBoats", ["O_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["O_Boat_Armed_01_hmg_F"]] call _fnc_saveToTemplate;
@@ -77,6 +77,7 @@ private _Tanks = ["O_R_MBT_02_cannon_F"];
 if ("ws" in A3A_enabledDLC) then {
 	_cargoTrucks append ["O_R_Truck_02_cargo_F","O_R_Truck_02_flatbed_F"];
 	_APCs append ["O_R_APC_Wheeled_04_cannon_F"];
+	_AA append ["Aegis_O_R_Truck_02_aa_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
 	_Tanks append ["O_R_MBT_04_cannon_F"];
@@ -84,6 +85,8 @@ if ("tanks" in A3A_enabledDLC) then {
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 ["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 ["vehiclesTanks", _Tanks] call _fnc_saveToTemplate; 
+["vehiclesAA", _AA] call _fnc_saveToTemplate;
+
 
 #include "Vanilla_Vehicle_Attributes.sqf"
 

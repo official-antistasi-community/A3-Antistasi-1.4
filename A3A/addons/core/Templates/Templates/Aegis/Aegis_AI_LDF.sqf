@@ -27,7 +27,7 @@ private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_E_Truck_02_Medical_F", "Aegis_I_E_APC_Wheeled_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["I_E_APC_tracked_03_cannon_v2_F", "Aegis_I_E_APC_Wheeled_01_cannon_v2_F", "Aegis_I_E_APC_Wheeled_01_cannon_v2_F"]] call _fnc_saveToTemplate;
+private _APCs = ["Aegis_I_E_APC_Wheeled_01_cannon_v2_F"];
 ["vehiclesIFVs", ["I_E_APC_tracked_03_cannon_v2_F"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["Aegis_I_E_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_W_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
@@ -76,6 +76,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F","B_GEN_Offroad_01_comms_F","
 //If DLC
 if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks append ["I_E_Truck_02_cargo_lxWS","I_E_Truck_02_flatbed_lxWS"];
+	_APCs append ["Aegis_I_E_APC_Wheeled_01_atgm_v2"];
     ["uavsPortable", ["I_E_UAV_01_F", "I_UAV_02_lxWS"]] call _fnc_saveToTemplate;
 };
 if ("orange" in A3A_enabledDLC) then {
@@ -84,6 +85,7 @@ if ("orange" in A3A_enabledDLC) then {
 };
 
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
+["vehiclesAPCs", _APCs] call _fnc_saveToTemplate;
 
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", _vehiclesMilitiaTrucks] call _fnc_saveToTemplate;

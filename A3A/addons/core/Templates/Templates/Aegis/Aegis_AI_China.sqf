@@ -78,8 +78,8 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 if ("ws" in A3A_enabledDLC) then {
     _cargoTrucks append ["O_T_Truck_02_cargo_lxWS","O_T_Truck_02_flatbed_lxWS"];
     ["uavsPortable", ["O_UAV_01_F", "O_UAV_02_lxWS"]] call _fnc_saveToTemplate;
-    ["vehiclesLightAPCs", ["O_T_APC_Wheeled_02_hmg_lxWS"]] call _fnc_saveToTemplate;
-    _vehiclesIFVs append ["a3a_T_APC_Tracked_02_30mm_lxWS"];
+    ["vehiclesLightAPCs", ["O_T_APC_Wheeled_02_hmg_lxWS", "O_T_APC_Wheeled_02_unarmed_lxWS"]] call _fnc_saveToTemplate;
+    _vehiclesIFVs append ["O_T_APC_Tracked_02_30mm_lxWS"];
 };
 if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
@@ -418,6 +418,11 @@ if ("mark" in A3A_enabledDLC) then {
     (_militaryLoadoutData get "machineGuns") append [
     ["MMG_01_black_F", "", "acc_pointer_IR", "optic_Arco", [], [], "bipod_02_F_blk"],
     ["MMG_01_ghex_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_02_F_blk"]
+	];
+	(_militaryLoadoutData get "shotGuns") append [
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "optic_Aco_smg", ["8Rnd_12Gauge_AA40_Pellets_lxWS", "8Rnd_12Gauge_AA40_Slug_lxWS"], [], ""],
+	["sgun_aa40_lxWS", "", "acc_pointer_IR", "Aegis_optic_ROS_SMG", ["20Rnd_12Gauge_AA40_Pellets_lxWS", "20Rnd_12Gauge_AA40_Slug_lxWS"], [], ""]
 	];
     (_militaryLoadoutData get "marksmanRifles") append [
     ["srifle_DMR_07_ghex_F", "", "", "optic_KHS_blk", [], [], ""]

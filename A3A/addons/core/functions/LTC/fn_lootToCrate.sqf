@@ -49,12 +49,11 @@ _lootBodies = {
 
     private _gear = [[],[],[],[]];//weapons, mags, items, backpacks
     //build list of all gear
-    _weapons = [handgunWeapon _unit];
-    _attachments = handgunItems _unit;
 
-    _weapons = _weapons select {!(_x isEqualTo "")};
+    _weapons = weapons _unit;
     {(_gear#0) pushBack (_x call BIS_fnc_baseWeapon)} forEach _weapons;
-    _attachments = _attachments select {!(_x isEqualTo "")};
+
+    _attachments = primaryWeaponItems _unit + secondaryWeaponItems _unit + handgunItems _unit - [""];
     (_gear#2) append _attachments;
 
     (_gear#2) append assignedItems _unit;
@@ -87,7 +86,7 @@ _lootBodies = {
     };
 
     if !(backpack _unit isEqualTo "") then {
-        (_gear#3) pushBack ((backpack _unit) call BIS_fnc_basicBackpack);
+        (_gear#3) pushBack ((backpack _unit) call A3A_fnc_basicBackpack);
         removeBackpackGlobal _unit;
     };
 
@@ -127,6 +126,7 @@ _lootBodies = {
     if (_remaining isEqualTo [[],[],[],[]]) exitWith {};
     _pos = getPos _unit;
     _container = "GroundWeaponHolder" createVehicle _pos;
+    [_container, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
     {
         _container addWeaponCargoGlobal [_x, 1];
     } forEach (_remaining#0);
@@ -162,6 +162,7 @@ _allUnlockedArray = [];
     if !(_remainder isEqualTo [[],[],[],[]]) then {
 
         _newContainer = "GroundWeaponHolder" createVehicle _pos;
+        [_newContainer, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
 
         _remainder params ["_weaponsArray", "_magsArray", "_itemsArray", "_backpacksArray"];
 

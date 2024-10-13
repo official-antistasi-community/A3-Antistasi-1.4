@@ -38,6 +38,7 @@ _group deleteGroupWhenEmpty true;
     _x disableAI "TARGET";
     _x disableAI "AUTOTARGET";
 } forEach units _group;
+[-10 * count units _group, _side, _resPool] call A3A_fnc_addEnemyResources;
 
 // Should we really have these?
 _plane addEventHandler ["Killed", {
@@ -46,7 +47,7 @@ _plane addEventHandler ["Killed", {
 }];
 
 //["_reveal", "_position", "_side", "_supportType", "_markerType", "_markerLifeTime"]
-[_reveal, _targetPos, _side, "Airstrike", 150, 120] spawn A3A_fnc_showInterceptedSupportCall;
+[_reveal, _targetPos, _side, "Airstrike", 150, 120] spawn A3A_fnc_showInterceptedSupportCall; // no better way to time this with the current system, unfortunately
 //[_side, format ["%1_coverage", _supportName]] spawn A3A_fnc_clearTargetArea;
 
 

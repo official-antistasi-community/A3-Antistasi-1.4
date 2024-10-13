@@ -92,7 +92,6 @@ private _civUniforms = [
     "U_C_Uniform_Scientist_02_F",
     "U_C_Uniform_Scientist_01_F",
     "U_C_Poor_2", //this and below be Aegis and Atlas
-    "Atlas_U_C_Uniform_01_tshirt_white_F",
     "U_Jayholder",
     "U_C_Man_casual_7_F",
     "U_C_Man_casual_8_F",
@@ -108,7 +107,10 @@ private _civUniforms = [
 
 private _pressUniforms = [
     "U_C_Journalist",
-    "U_Marshal"
+    "U_Marshal",
+    "U_C_Uniform_Formal_01_blue_F",
+    "U_C_Uniform_Formal_01_striped_F",
+    "U_C_Uniform_Formal_01_white_F"
     ];
 
 private _workerUniforms = [

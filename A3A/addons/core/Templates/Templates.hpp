@@ -1458,4 +1458,43 @@ class Templates
         shortName = "Civilian";
         lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
     };
+     // ***************************** CWR *****************************
+
+    class CWR_Base
+    {
+        requiredAddons[] = {"cwr3_core"};        // units, weapons, vehicles
+        //requiredAddons[] = {"cwr3_core"};        // vehicles requires units & weapons
+        basepath = QPATHTOFOLDER(Templates\Templates\CWR);
+        logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
+        priority = 70;
+    };
+
+     class CWR_US_Temprate : CWR_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "CWR US Temprate";
+        file = "CWR_AI_US_Armycwr_Temperate";
+        climate[] = {"Temperate"};
+        shortName = "US Army";
+    };
+    
+    class CWR_USSR_Temprate : CWR_Base
+    {
+        side = "Inv";
+        flagTexture = "\cwr3\general\cwr3_core\data\flag_ussr_co.paa";
+        name = "CWR USSR Temperate";
+        file = "CWR_AI_USSRcwr_Temperate";
+        climate[] = {"Temperate"};
+        shortName = "USSR";
+    };
+
+    class CWR_FIA : CWR_Base
+    {
+        side = "Reb";
+        flagTexture = "\cwr3\general\cwr3_core\data\flag_fia_co.paa";
+        name = "CWR FIA";
+        file = "CWR_Reb_FIA";
+        shortName = "FIA";
+    };
 };

@@ -250,7 +250,7 @@ _sfLoadoutData set ["helmets", ["H_HelmetB_light_wdl", "H_HelmetSpecB_wdl", "H_H
 _sfLoadoutData set ["sniHats", ["H_Booniehat_wdl"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_03"]];
 
-_sfLoadoutData set ["rifles", [
+_sfLoadoutData set ["slRifles", [
 ["arifle_MX_Black_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], [], ""],
 ["arifle_MX_Black_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], [], ""],
 ["arifle_MX_GL_Black_F", "muzzle_snds_H", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],

@@ -5,9 +5,9 @@
 ["name", "BAF"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "BAF support corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_NATO"] call _fnc_saveToTemplate;
+["flag", "Flag_UK_F"] call _fnc_saveToTemplate;
+["flagTexture", "\A3\Data_F\Flags\Flag_uk_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_UK"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -74,7 +74,7 @@
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

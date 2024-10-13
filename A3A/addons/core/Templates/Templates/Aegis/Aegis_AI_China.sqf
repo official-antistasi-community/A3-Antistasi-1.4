@@ -5,9 +5,9 @@
 ["name", "China"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "China Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_CSAT_F"] call _fnc_saveToTemplate;
-["flagTexture", "A3\Data_F\Flags\Flag_CSAT_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_CSAT"] call _fnc_saveToTemplate;
+["flag", "Flag_China_F"] call _fnc_saveToTemplate;
+["flagTexture", "\A3_Aegis\Data_F_Aegis\Flags\flag_China_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_China"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -96,7 +96,7 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

@@ -6,8 +6,8 @@
 ["spawnMarkerName", "US Support Corridor"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_NATO_F"] call _fnc_saveToTemplate;
-["flagTexture", "\A3\Data_F\Flags\Flag_NATO_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_NATO"] call _fnc_saveToTemplate;
+["flagTexture", "\A3_Aegis\data_f_aegis\Flags\flag_USA_51_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_USA"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -110,7 +110,7 @@ if ("orange" in A3A_enabledDLC) then {
 
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

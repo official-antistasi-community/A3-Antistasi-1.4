@@ -88,7 +88,7 @@ if ("tanks" in A3A_enabledDLC) then {
 ["vehiclesAA", _AA] call _fnc_saveToTemplate;
 
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

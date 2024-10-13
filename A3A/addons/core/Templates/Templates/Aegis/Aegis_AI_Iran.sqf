@@ -5,9 +5,9 @@
 ["name", "Iran"] call _fnc_saveToTemplate;
 ["spawnMarkerName", "Iran Support Corridor"] call _fnc_saveToTemplate;
 
-["flag", "Flag_CSAT_F"] call _fnc_saveToTemplate;
-["flagTexture", "A3\Data_F\Flags\Flag_CSAT_CO.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_CSAT"] call _fnc_saveToTemplate;
+["flag", "Flag_Iran_F"] call _fnc_saveToTemplate;
+["flagTexture", "\A3_Aegis\Data_F_Aegis\Flags\flag_Iran_CO.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "flag_Iran"] call _fnc_saveToTemplate;
 
 //////////////////////////
 //       Vehicles       //
@@ -68,7 +68,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["mortarMagazineHE", "8Rnd_82mm_Mo_shells"] call _fnc_saveToTemplate;
 ["mortarMagazineSmoke", "8Rnd_82mm_Mo_Smoke_white"] call _fnc_saveToTemplate;
-["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;		// ENTER ONLY ONE OPTION
+["mortarMagazineFlare", "8Rnd_82mm_Mo_Flare_white"] call _fnc_saveToTemplate;
 
 //Minefield definition
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
@@ -107,7 +107,7 @@ if ("orange" in A3A_enabledDLC) then {
 
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

@@ -90,7 +90,7 @@ if ("orange" in A3A_enabledDLC) then {
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", _vehiclesMilitiaTrucks] call _fnc_saveToTemplate;
 
-#include "Vanilla_Vehicle_Attributes.sqf"
+#include "Aegis_Vehicle_Attributes.sqf"
 
 /////////////////////
 ///  Identities   ///

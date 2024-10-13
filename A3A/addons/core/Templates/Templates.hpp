@@ -1474,7 +1474,7 @@ class Templates
         side = "Occ";
         flagTexture = "a3\data_f\flags\flag_us_co.paa";
         name = "CWR US Temprate";
-        file = "CWR_AI_US_Armycwr_Temperate";
+        file = "CWR_AI_US_Army_Temperate";
         climate[] = {"Temperate"};
         shortName = "US Army";
     };
@@ -1484,7 +1484,7 @@ class Templates
         side = "Inv";
         flagTexture = "\cwr3\general\cwr3_core\data\flag_ussr_co.paa";
         name = "CWR USSR Temperate";
-        file = "CWR_AI_USSRcwr_Temperate";
+        file = "CWR_AI_USSR_Temperate";
         climate[] = {"Temperate"};
         shortName = "USSR";
     };

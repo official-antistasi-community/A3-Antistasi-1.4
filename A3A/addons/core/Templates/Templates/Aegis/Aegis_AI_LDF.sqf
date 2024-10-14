@@ -38,7 +38,7 @@ private _APCs = ["Aegis_I_E_APC_Wheeled_01_cannon_v2_F"];
 
 ["vehiclesPlanesCAS", ["I_E_Plane_Fighter_04_Cluster_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["I_E_Plane_Fighter_04_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", []] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["B_T_Plane_Transport_01_infantry_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["I_E_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["I_E_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;

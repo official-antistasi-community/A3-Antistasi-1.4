@@ -38,7 +38,7 @@ private _Tanks = ["O_T_MBT_02_cannon_ghex_F"];
 
 ["vehiclesPlanesCAS", ["O_T_Plane_CAS_02_dynamicLoadout_ghex_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["O_T_Plane_Fighter_02_ghex_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["O_T_VTOL_02_infantry_dynamicLoadout_F", "O_T_Plane_Transport_01_infantry_ghex_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["O_T_Plane_Transport_01_infantry_ghex_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["O_T_Heli_Light_02_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["O_T_Heli_Transport_04_bench_F","O_T_Heli_Transport_04_covered_F"]] call _fnc_saveToTemplate;

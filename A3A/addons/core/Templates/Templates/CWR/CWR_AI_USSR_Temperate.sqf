@@ -26,28 +26,28 @@
 ["vehiclesRepairTrucks", ["cwr3_o_ural_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["cwr3_o_ural_refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["cwr3_o_ural_mev", "cwr3_o_uaz452_mev", "cwr3_o_uaz452_mev"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["cwr3_o_brdm2", "cwr3_o_brdm2um", "cwr3_o_brdm2_atgm", "cwr3_o_bmp2_hq", "cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["cwr3_o_brdm2", "cwr3_o_brdm2um", "cwr3_o_bmp2_hq", "cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr80", "cwr3_o_btr80", "cwr3_o_bmp1", "cwr3_o_bmp1p"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["cwr3_o_bmp2"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["cwr3_o_pt76b", "CUP_I_T34_TK_GUE"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["cwr3_o_t64b", "cwr3_o_t64bv", "cwr3_o_t64bv", "cwr3_o_t72a", "cwr3_o_t72b1", "cwr3_o_t55", "cwr3_o_t55a", "cwr3_o_t55amv"]] call _fnc_saveToTemplate;
-["vehiclesAA", ["cwr3_o_mtlb_sa13", "cwr3_o_zsu", "cwr3_o_bmp2_zu23"]] call _fnc_saveToTemplate;
+["vehiclesAA", ["cwr3_o_zsu", "cwr3_o_bmp2_zu23"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["cwr3_o_zodiac"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["cwr3_o_boat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["cwr3_o_su17m4"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["cwr3_o_su17m4", "cwr3_o_mig27"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["cwr3_o_mig23"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["cwr3_o_an12"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["cwr3_o_mi8_amt"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["cwr3_o_mi8_amt"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["cwr3_o_mi8_mtv3"]] call _fnc_saveToTemplate;
-["vehiclesHelisAttack", ["cwr3_o_mi24d", "cwr3_o_mi24d", "cwr3_o_mi24p", "cwr3_o_mi24v"]] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", ["cwr3_o_mi8_mtv3", "cwr3_o_mi24p"]] call _fnc_saveToTemplate;
+["vehiclesHelisAttack", ["cwr3_o_mi24d", "cwr3_o_mi24d", "cwr3_o_mi24v"]] call _fnc_saveToTemplate;
 
-["vehiclesArtillery", ["CUP_O_BM21_RU"]] call _fnc_saveToTemplate;
-["magazines", createHashMapFromArray [["CUP_O_BM21_RU", ["CUP_40Rnd_GRAD_HE"]]]] call _fnc_saveToTemplate;
+["vehiclesArtillery", ["cwr3_o_d30"]] call _fnc_saveToTemplate;
+["magazines", createHashMapFromArray [["cwr3_o_d30", ["CUP_30Rnd_122mmHE_D30_M"]]]] call _fnc_saveToTemplate;
 
 ["uavsAttack", []] call _fnc_saveToTemplate;
 ["uavsPortable", ["O_UAV_01_F"]] call _fnc_saveToTemplate;
@@ -97,6 +97,10 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
+
+_loadoutData set ["lightATLaunchers", [
+"cwr3_launch_rpg75"
+]];
 
 _loadoutData set ["AALaunchers", [
     ["CUP_launch_9K32Strela", "", "", "", [""], [], ""]
@@ -326,12 +330,11 @@ _militaryLoadoutData set ["marksmanRifles", [
 _militaryLoadoutData set ["sniperRifles", [
     ["CUP_srifle_SVD", "", "", "CUP_optic_PSO_1", ["CUP_10Rnd_762x54_SVD_M"], [], ""]
 ]];
-_militaryLoadoutData set ["lightATLaunchers", ["cwr3_launch_rpg75"]];
 _militaryLoadoutData set ["ATLaunchers", [
-    ["CUP_launch_RPG7V", "", "", "", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
-    ["CUP_launch_RPG7V", "", "", "", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
-    ["CUP_launch_RPG7V", "", "", "", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""],
-    ["CUP_launch_RPG7V", "", "", "", ["CUP_OG7_M", "CUP_PG7V_M"], [], ""]
+    ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_OG7_M"], [], ""],
+    ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_OG7_M"], [], ""],
+    ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_OG7_M"], [], ""],
+    ["CUP_launch_RPG7V", "", "", "", ["CUP_PG7V_M", "CUP_OG7_M"], [], ""]
 ]];
 _militaryLoadoutData set ["sidearms", [
     ["CUP_hgun_Makarov", "", "", "", ["CUP_8Rnd_9x18_Makarov_M"], [], ""]
@@ -359,13 +362,13 @@ _policeLoadoutData set ["sidearms", [
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_militiaLoadoutData set ["uniforms", ["cwr3_o_uniform_klmk_1957_reddawn_spn"]];
+_militiaLoadoutData set ["uniforms", ["cwr3_o_fia_uniform_ttsko_p"]];
 _militiaLoadoutData set ["vests", ["cwr3_o_vest_beltkit_ak74"]];
 _militiaLoadoutData set ["sniVests", ["cwr3_o_vest_beltkit_officer_bino"]];
 _militiaLoadoutData set ["backpacks", ["cwr3_o_backpack_harness_roll"]];
 _militiaLoadoutData set ["slBackpacks", ["cwr3_o_backpack_harness_roll"]];
 _militiaLoadoutData set ["atBackpacks", ["CUP_B_RPGPack_Khaki"]];
-_militiaLoadoutData set ["helmets", ["cwr3_i_headgear_beanie_khaki", "cwr3_i_headgear_beanie_od"]];
+_militiaLoadoutData set ["helmets", ["cwr3_i_headgear_beanie_od", "cwr3_o_headgear_ssh68"]];
 _militiaLoadoutData set ["sniHats", ["cwr3_o_ushanka"]];
 
 _militiaLoadoutData set ["rifles", [

@@ -38,7 +38,7 @@
 
 ["vehiclesPlanesCAS", ["B_A_Plane_Fighter_05_Cluster_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["B_A_Plane_Fighter_05_F"]] call _fnc_saveToTemplate;
-["vehiclesPlanesTransport", ["B_A_VTOL_01_infantry_F"]] call _fnc_saveToTemplate;
+["vehiclesPlanesTransport", ["B_A_Plane_Transport_01_infantry_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesHelisLight", ["B_A_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", ["Aegis_B_A_Heli_Transport_02_F"]] call _fnc_saveToTemplate;

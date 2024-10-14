@@ -168,8 +168,6 @@ _loadoutData set ["NVGs", ["NVGoggles_INDEP"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
-//Basically all the clothing which the units use.
-//don't fill these lines - this is only to set the variables.
 _loadoutData set ["uniforms", []];
 _loadoutData set ["slUniforms", []];
 _loadoutData set ["vests", []];
@@ -256,10 +254,10 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ["arifle_Mk20_GL_F", "muzzle_snds_M", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _sfLoadoutData set ["SMGs", [
-["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
+["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "optic_Holosight_smg_blk_F", [], [], ""],
 ["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "optic_Aco_smg", [], [], ""],
 ["SMG_03C_TR_camo", "muzzle_snds_570", "acc_pointer_IR", "aegis_optic_ROS_SMG", [], [], ""],
-["hgun_PDW2000_F", "muzzle_snds_L", "", "optic_Holosight_blk_F", [], [], ""],
+["hgun_PDW2000_F", "muzzle_snds_L", "", "optic_Holosight_smg_blk_F", [], [], ""],
 ["hgun_PDW2000_F", "muzzle_snds_L", "", "optic_Aco_smg", [], [], ""],
 ["hgun_PDW2000_F", "muzzle_snds_L", "", "aegis_optic_ROS_SMG", [], [], ""]
 ]];
@@ -273,7 +271,13 @@ _sfLoadoutData set ["machineGuns", [
 _sfLoadoutData set ["marksmanRifles", [
 ["srifle_EBR_F", "muzzle_snds_B", "acc_pointer_IR", "optic_SOS", [], [], "bipod_03_F_blk"],
 ["srifle_EBR_F", "muzzle_snds_B", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_03_F_blk"],
-["srifle_EBR_F", "muzzle_snds_B", "acc_pointer_IR", "aegis_optic_ACOG", [], [], "bipod_03_F_blk"]
+["srifle_EBR_F", "muzzle_snds_B", "acc_pointer_IR", "aegis_optic_ACOG", [], [], "bipod_03_F_blk"],
+["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_GM6_F", "", "", "optic_SOS", ["5Rnd_127x108_Mag", "5Rnd_127x108_APDS_Mag"], [], ""],
@@ -303,32 +307,48 @@ _militaryLoadoutData set ["slRifles", [
 ["arifle_Mk20_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_MRCO", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "aegis_optic_ACOG", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_grip_F", "", "acc_pointer_IR", "optic_MRCO", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_grip_F", "", "acc_pointer_IR", "aegis_optic_ACOG", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_grip_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "optic_MRCO", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "aegis_optic_ACOG", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["rifles", [
 ["arifle_Mk20_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
 ["arifle_Mk20_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
-["arifle_Mk20_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
+["arifle_Mk20_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _militaryLoadoutData set ["carbines", [
 ["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
 ["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
-["arifle_Mk20C_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
+["arifle_Mk20C_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
+["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _militaryLoadoutData set ["grenadeLaunchers", [
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
 ["arifle_Mk20_GL_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
-["arifle_Mk20_GL_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
+["arifle_Mk20_GL_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "optic_Aco", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""],
+["Aegis_arifle_M4A1_GL_F", "", "acc_pointer_IR", "aegis_optic_ROS", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["shotGuns", [
-["sgun_M4_F", "", "", "optic_Aco", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
-["sgun_M4_F", "", "", "aegis_optic_ROS", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
+["sgun_M4_F", "", "", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
+["sgun_M4_F", "", "", "optic_Aco_smg", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
+["sgun_M4_F", "", "", "aegis_optic_ROS_SMG", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
-["SMG_03C_TR_camo", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
+["SMG_03C_TR_camo", "", "acc_pointer_IR", "optic_Holosight_smg_blk_F", [], [], ""],
 ["SMG_03C_TR_camo", "", "acc_pointer_IR", "optic_Aco_smg", [], [], ""],
 ["SMG_03C_TR_camo", "", "acc_pointer_IR", "aegis_optic_ROS_SMG", [], [], ""],
-["hgun_PDW2000_F", "", "", "optic_Holosight_blk_F", [], [], ""],
+["hgun_PDW2000_F", "", "", "optic_Holosight_smg_blk_F", [], [], ""],
 ["hgun_PDW2000_F", "", "", "optic_Aco_smg", [], [], ""],
 ["hgun_PDW2000_F", "", "", "aegis_optic_ROS_SMG", [], [], ""]
 ]];
@@ -414,17 +434,26 @@ _militiaLoadoutData set ["sidearms", ["hgun_ACPC2_black_F"]];
 //    Misc Loadouts     //
 //////////////////////////
 
-//The following lines are determining the loadout of the vehicle crew
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["U_Tank_green_F"]];
 _crewLoadoutData set ["vests", ["V_BandollierB_oli"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_I"]];
 
-//The following lines are determining the loadout of the pilots
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_I_HeliPilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_TacVest_oli"]];
 _pilotLoadoutData set ["helmets", ["H_PilotHelmetHeli_I", "H_CrewHelmetHeli_I", "H_PilotHelmetHeli_I_visor_up"]];
+
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["slUniforms", ["U_I_ParadeUniform_01_AAF_F", "U_I_ParadeUniform_01_AAF_decorated_F"]];
+_officerLoadoutData set ["vests", ["V_Rangemaster_belt_blk"]];
+_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_AAF_F"]];
+_officerLoadoutData set ["backpacks", []];
+_officerLoadoutData set ["SMGs", [
+["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
+["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
+["arifle_Mk20C_F", "", "acc_pointer_IR", "aegis_optic_ROS", [], [], ""]
+]];
 
 if ("mark" in A3A_enabledDLC) then {
 
@@ -447,8 +476,6 @@ if ("mark" in A3A_enabledDLC) then {
     ["srifle_DMR_06_olive_F", "", "", "optic_KHS_blk", [], [], ""]]];
     //Overwrites the ABR/EBR - not fitting for the AAF militia, others will still use it
 };
-
-// ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################
 
 
 /////////////////////////////////
@@ -961,7 +988,7 @@ private _unitTypes = [
 //The following lines are determining the loadout of the pilots
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

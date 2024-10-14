@@ -369,15 +369,25 @@ _militiaLoadoutData set ["sidearms", ["hgun_Pistol_heavy_01_green_F", "hgun_ACPC
 //    Misc Loadouts     //
 //////////////////////////
 
-private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _crewLoadoutData set ["uniforms", ["U_I_E_Uniform_01_shortsleeve_F"]];
 _crewLoadoutData set ["vests", ["V_CarrierRigKBT_01_EAF_F"]];
 _crewLoadoutData set ["helmets", ["H_Tank_black_F"]];
 
-private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData; // touch and shit breaks
+private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_I_E_Uniform_01_coveralls_F"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_EAF_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_I_E", "H_PilotHelmetHeli_I_E", "H_PilotHelmetHeli_I_E_visor_up"]];
+
+private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_officerLoadoutData set ["slUniforms", ["U_I_ParadeUniform_01_LDF_F", "U_I_ParadeUniform_01_LDF_decorated_F"]];
+_officerLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_holster_olive_F"]];
+_officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_LDF_F"]];
+_officerLoadoutData set ["backpacks", []];
+_officerLoadoutData set ["SMGs", [
+["arifle_MSBS65_F", "", "acc_pointer_IR", "optic_Holosight_khk_F", [], [], ""],
+["arifle_MSBS65_F", "", "acc_pointer_IR", "optic_ico_01_f", [], [], ""]
+]];
 
 if ("mark" in A3A_enabledDLC) then {
     (_sfLoadoutData get "machineGuns") append [
@@ -907,7 +917,7 @@ private _unitTypes = [
 //The following lines are determining the loadout of the pilots
 ["other", [["Pilot", _crewTemplate]], _pilotLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
-["other", [["Official", _policeTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
 ["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission

@@ -120,7 +120,7 @@ private _workerUniforms = [
 
 private _dlcUniforms = [];
 
-if (allowDLCExpansion) then {
+if ("expansion" in A3A_enabledDLC) then {
   _dlcUniforms append [
     "U_C_man_sport_1_F",
     "U_C_man_sport_2_F",
@@ -128,7 +128,7 @@ if (allowDLCExpansion) then {
   ];
 };
 
-if (allowDLCOrange) then {
+if ("orange" in A3A_enabledDLC) then {
   _dlcUniforms append [
     "U_C_Paramedic_01_F",
     "U_C_Mechanic_01_F"
@@ -141,7 +141,7 @@ if (allowDLCOrange) then {
   ];
 };
 
-if (allowDLCWS) then {
+if ("ws" in A3A_enabledDLC) then {
   _dlcUniforms append [
     "U_lxWS_C_Djella_01",
     "U_lxWS_C_Djella_02",
@@ -161,6 +161,20 @@ if (allowDLCWS) then {
     "U_lxWS_Tak_03_B",
     "U_lxWS_Tak_03_C"
   ];
+};
+
+if ("rf" in A3A_enabledDLC) then {
+    private _RFleatherJackets = [
+        "U_C_PilotJacket_black_RF",
+        "U_C_PilotJacket_brown_RF",
+        "U_C_PilotJacket_lbrown_RF",
+        "U_C_PilotJacket_open_black_RF",
+        "U_C_PilotJacket_open_brown_RF",
+        "U_C_PilotJacket_open_lbrown_RF"];
+    _dlcUniforms append _RFleatherJackets;
+    if (A3A_climate in ["temperate","arctic"]) then {
+        _civUniforms append _RFleatherJackets;
+    };
 };
 
 ["uniforms", _civUniforms + _pressUniforms + _workerUniforms + _dlcUniforms] call _fnc_saveToTemplate;

@@ -26,7 +26,7 @@
 ["vehiclesRepairTrucks", ["cwr3_o_ural_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["cwr3_o_ural_refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["cwr3_o_ural_mev", "cwr3_o_uaz452_mev", "cwr3_o_uaz452_mev"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", [""cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", ["cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr80", "cwr3_o_btr80", "cwr3_o_bmp1", "cwr3_o_bmp1p"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["cwr3_o_bmp2"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["cwr3_o_pt76b", "CUP_I_T34_TK_GUE"]] call _fnc_saveToTemplate;

@@ -48,8 +48,8 @@
 ["vehiclesArtillery", ["cwr3_b_m119"]] call _fnc_saveToTemplate;
 ["magazines", createHashMapFromArray [["cwr3_b_m119", ["CUP_30Rnd_105mmHE_M119_M"]]]] call _fnc_saveToTemplate;
 
-["uavsAttack", ["CUP_B_USMC_DYN_MQ9"]] call _fnc_saveToTemplate;
-["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
+["uavsAttack", []] call _fnc_saveToTemplate;
+["uavsPortable", []] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaLightArmed", ["cwr3_b_fia_m151_m2"]] call _fnc_saveToTemplate;
 ["vehiclesMilitiaTrucks", ["cwr3_b_m939_open"]] call _fnc_saveToTemplate;
@@ -286,8 +286,6 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ]];
 _militaryLoadoutData set ["SMGs", [
     ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_Subsonic_9x19_MP5", "CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
-    ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_Subsonic_9x19_MP5", "CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
-    ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5", "CUP_30Rnd_Yellow_Tracer_9x19_MP5"], [], ""],
     ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5", "CUP_30Rnd_Yellow_Tracer_9x19_MP5"], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
@@ -297,7 +295,6 @@ _militaryLoadoutData set ["machineGuns", [
 _militaryLoadoutData set ["marksmanRifles", [
     ["CUP_srifle_M21", "", "", "CUP_optic_artel_m14", ["CUP_20Rnd_762x51_DMR"], [], ""],
     ["CUP_srifle_M21", "", "", "CUP_optic_artel_m14", ["CUP_20Rnd_TE1_Yellow_Tracer_762x51_DMR"], [], ""],
-    ["CUP_srifle_M21", "", "", "CUP_optic_artel_m14", ["CUP_20Rnd_TE1_White_Tracer_762x51_DMR"], [], ""],
     ["CUP_srifle_M21", "", "", "", ["CUP_20Rnd_762x51_DMR"], [], ""]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
@@ -347,7 +344,6 @@ _militiaLoadoutData set ["atBackpacks", ["cwr3_b_backpack_alice"]];
 _militiaLoadoutData set ["helmets", ["cwr3_b_headgear_m1_olive"]];
 
 _militiaLoadoutData set ["rifles", [
-    ["CUP_arifle_M16A1", "", "", "", ["CUP_30Rnd_556x45_Stanag"], [], ""],
     ["CUP_arifle_M16A1", "", "", "", ["CUP_30Rnd_556x45_Stanag"], [], ""]
 ]];
 _militiaLoadoutData set ["carbines", [
@@ -365,7 +361,6 @@ _militiaLoadoutData set ["machineGuns", [
     ["CUP_lmg_M249_E1", "", "", "", ["CUP_100Rnd_TE4_Green_Tracer_556x45_M249"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-    ["CUP_srifle_M21", "", "", "", ["CUP_20Rnd_762x51_DMR"], [], ""],
     ["CUP_srifle_M21", "", "", "", ["CUP_20Rnd_762x51_DMR"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [

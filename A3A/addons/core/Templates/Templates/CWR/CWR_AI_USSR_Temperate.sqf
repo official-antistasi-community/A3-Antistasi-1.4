@@ -19,14 +19,14 @@
 
 ["vehiclesBasic", ["O_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["cwr3_o_uaz_open", "cwr3_o_uaz", "cwr3_o_uaz452"]] call _fnc_saveToTemplate;
-["vehiclesLightArmed", ["cwr3_o_uaz_dshkm", "cwr3_o_uaz_dshkm", "cwr3_o_uaz_ags30", "cwr3_o_uaz_spg9"]] call _fnc_saveToTemplate;
+["vehiclesLightArmed", ["cwr3_o_uaz_dshkm", "cwr3_o_uaz_dshkm", "cwr3_o_uaz_ags30", "cwr3_o_uaz_spg9", "cwr3_o_brdm2", "cwr3_o_brdm2um"]] call _fnc_saveToTemplate;
 ["vehiclesTrucks", ["cwr3_o_ural_open", "cwr3_o_ural"]] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", ["cwr3_o_ural_empty"]] call _fnc_saveToTemplate;
 ["vehiclesAmmoTrucks", ["cwr3_o_ural_reammo"]] call _fnc_saveToTemplate;
 ["vehiclesRepairTrucks", ["cwr3_o_ural_repair"]] call _fnc_saveToTemplate;
 ["vehiclesFuelTrucks", ["cwr3_o_ural_refuel"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["cwr3_o_ural_mev", "cwr3_o_uaz452_mev", "cwr3_o_uaz452_mev"]] call _fnc_saveToTemplate;
-["vehiclesLightAPCs", ["cwr3_o_brdm2", "cwr3_o_brdm2um", "cwr3_o_bmp2_hq", "cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
+["vehiclesLightAPCs", [""cwr3_o_mtlb_pk"]] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr60", "cwr3_o_btr80", "cwr3_o_btr80", "cwr3_o_bmp1", "cwr3_o_bmp1p"]] call _fnc_saveToTemplate;
 ["vehiclesIFVs", ["cwr3_o_bmp2"]] call _fnc_saveToTemplate;
 ["vehiclesLightTanks", ["cwr3_o_pt76b", "CUP_I_T34_TK_GUE"]] call _fnc_saveToTemplate;

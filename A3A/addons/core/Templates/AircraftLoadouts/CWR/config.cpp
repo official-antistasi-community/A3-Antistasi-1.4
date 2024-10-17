@@ -41,6 +41,13 @@ class A3A {
                 rocketLauncher[] = {"CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M"};
                 missileLauncher[] = {"PylonRack_Missile_AGM_02_x2"};
             };
+
+             class cwr3_b_f4e : baseCAS {
+                loadout[] = {"CUP_PylonPod_2Rnd_AIM_9L_LAU_Sidewinder_M","CUP_PylonPod_2Rnd_Mk82_M","CUP_PylonPod_19Rnd_CRV7_HE_plane_M","PylonRack_Missile_AGM_02_x1","CUP_PylonPod_19Rnd_CRV7_HE_plane_M","CUP_PylonPod_2Rnd_Mk82_M","CUP_PylonPod_2Rnd_AIM_9L_LAU_Sidewinder_M"};
+                mainGun[] = {"cwr3_vacannon_m61a1"};
+                rocketLauncher[] = {"CUP_PylonPod_19Rnd_CRV7_HE_plane_M"};
+                missileLauncher[] = {"PylonRack_Missile_AGM_02_x1"};
+            };
         };
         class CAPPlane
         {

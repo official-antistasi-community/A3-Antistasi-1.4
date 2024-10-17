@@ -36,7 +36,7 @@
 ["vehiclesGunBoats", ["cwr3_b_boat"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", []] call _fnc_saveToTemplate;
 
-["vehiclesPlanesCAS", ["cwr3_b_a10"]] call _fnc_saveToTemplate;
+["vehiclesPlanesCAS", ["cwr3_b_a10", "cwr3_b_f4e"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesAA", ["cwr3_b_f16c", "cwr3_b_f4e"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["cwr3_b_c130"]] call _fnc_saveToTemplate;
 
@@ -370,7 +370,7 @@ _militiaLoadoutData set ["lightATLaunchers", [
     ["cwr3_launch_m72a3", "", "", "", [""], [], ""]
 ]];
 _militiaLoadoutData set ["sidearms", [
-    ["CUP_hgun_Colt1911", "", "", "", ["CUP_7Rnd_45ACP_1911",7], [], ""]
+    ["CUP_hgun_Colt1911", "", "", "", ["CUP_7Rnd_45ACP_1911"], [], ""]
 ]];
 
 //////////////////////////

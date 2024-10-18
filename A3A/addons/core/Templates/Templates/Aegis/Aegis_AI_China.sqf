@@ -29,7 +29,7 @@ private _cargoTrucks = ["O_T_Truck_02_transport_F","O_T_Truck_02_F","O_T_Truck_0
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["O_T_APC_Wheeled_02_rcws_v2_ghex_F"]] call _fnc_saveToTemplate;
 private _vehiclesIFVs = ["a3a_T_APC_Tracked_02_cannon_F"];
-private _Tanks = ["O_T_MBT_02_cannon_ghex_F"];
+["vehiclesTanks", ["O_T_MBT_02_cannon_ghex_F"]] call _fnc_saveToTemplate; 
 ["vehiclesAA", ["O_T_APC_Tracked_02_AA_ghex_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesTransportBoats", ["O_T_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
@@ -85,14 +85,13 @@ if ("enoch" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Offroad_01_comms_F","B_GEN_Offroad_01_covered_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-    _Tanks append ["O_T_MBT_04_cannon_F","O_T_MBT_04_command_F"];
+    ["vehiclesHeavyTanks", ["O_T_MBT_04_cannon_F", "O_T_MBT_04_command_F"]] call _fnc_saveToTemplate;
 };
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 
-["vehiclesTanks", _Tanks] call _fnc_saveToTemplate; 
 ["vehiclesIFVs", _vehiclesIFVs] call _fnc_saveToTemplate;
 ["vehiclesCargoTrucks", _cargoTrucks] call _fnc_saveToTemplate;
 
@@ -400,7 +399,7 @@ _pilotLoadoutData set ["vests", ["V_Rangemaster_belt_ghex_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["slUniforms", ["U_I_ParadeUniform_01_CSAT_F", "U_I_ParadeUniform_01_CSAT_decorated_F"]];
+_officerLoadoutData set ["uniforms", ["U_I_ParadeUniform_01_CSAT_F", "U_I_ParadeUniform_01_CSAT_decorated_F"]];
 _officerLoadoutData set ["vests", ["V_Rangemaster_belt_ghex_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_CSAT_F"]];
 _officerLoadoutData set ["backpacks", []];
@@ -786,7 +785,7 @@ private _policeTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	[selectRandom ["rifles", "shotGuns", "SMGs"]] call _fnc_setPrimary;
+    [[selectRandom ["carbines", "shotGuns", "SMGs"], "SMGs"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

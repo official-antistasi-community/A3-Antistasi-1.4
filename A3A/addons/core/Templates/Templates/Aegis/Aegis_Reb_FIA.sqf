@@ -8,7 +8,7 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
-["vehicleBasic", "I_G_Quadbike_01_F"] call _fnc_saveToTemplate;
+["vehicleBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 private _vehiclesLightUnarmed = ["I_G_Offroad_01_F"];
 private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F"];
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;
@@ -82,7 +82,7 @@ private _initialRebelEquipment = [
 "SMG_02_F","sgun_Mp153_classic_F",
 "6Rnd_45ACP_Cylinder","9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02","4Rnd_12Gauge_Pellets","4Rnd_12Gauge_Slug","MiniGrenade","SmokeShell",
 ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
-"B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_owcamo","B_FieldPack_cbr","B_FieldPack_khk","B_FieldPack_semiarid",
+"B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
 "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_ChestrigF_blk","V_ChestrigF_rgr","V_ChestrigF_khk","V_ChestrigF_oli",
 "V_BandollierB_blk","V_BandollierB_cbr","V_BandollierB_rgr","V_BandollierB_khk","V_BandollierB_oli","V_BandollierB_taiga_F","V_BandollierB_tna_F",
 "V_Rangemaster_belt","V_Rangemaster_belt_blk","V_Rangemaster_belt_cbr","V_Rangemaster_belt_ghex_F","V_Rangemaster_belt_khk","V_Rangemaster_belt_oli","V_Rangemaster_belt_taiga_F","V_Rangemaster_belt_tna_F",

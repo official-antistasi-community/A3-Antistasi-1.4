@@ -51,7 +51,7 @@ private _APCs = ["Aegis_I_E_APC_Wheeled_01_cannon_v2_F"];
 ["I_E_Truck_02_MRL_F", ["12Rnd_230mm_rockets"]]
 ]] call _fnc_saveToTemplate;
 
-["uavsAttack", ["B_W_UAV_02_F"]] call _fnc_saveToTemplate;
+["uavsAttack", ["B_W_UAV_02_dynamicLoadout_F"]] call _fnc_saveToTemplate;
 ["uavsPortable", ["I_E_UAV_01_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesMilitiaLightArmed", ["a3a_Offroad_01_ldf_armed_F", "a3a_Offroad_01_ldf_AT_F"]] call _fnc_saveToTemplate;
@@ -355,7 +355,7 @@ _militiaLoadoutData set ["SMGs", [
 ["SMG_03C_black", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["75rnd_762x39_Mag_F", "75rnd_762x39_Mag_F", "75rnd_762x39_Mag_Tracer_F"], [], ""]
+["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_black_F", "", "acc_flashlight", "optic_Arco_blk_F", [], [], "bipod_02_F_blk"]
@@ -380,7 +380,7 @@ _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_EAF_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_I_E", "H_PilotHelmetHeli_I_E", "H_PilotHelmetHeli_I_E_visor_up"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["slUniforms", ["U_I_ParadeUniform_01_LDF_F", "U_I_ParadeUniform_01_LDF_decorated_F"]];
+_officerLoadoutData set ["uniforms", ["U_I_ParadeUniform_01_LDF_F", "U_I_ParadeUniform_01_LDF_decorated_F"]];
 _officerLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_holster_olive_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_LDF_F"]];
 _officerLoadoutData set ["backpacks", []];
@@ -760,7 +760,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[selectRandom ["rifles", "SMGs"]] call _fnc_setPrimary;
+    [["rifles", "SMGs"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

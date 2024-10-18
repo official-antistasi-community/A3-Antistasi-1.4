@@ -368,7 +368,7 @@ class Templates
     class Aegis_BAF_Tropical : Aegis_BAF_Arid
     {
         name = "Aegis BAF Tropical";
-        file = "Aegis_BAF_Tropical";
+        file = "Aegis_AI_BAF_Tropical";
         climate[] = {"tropical"};
         forceDLC[] = {"enoch"};
     };

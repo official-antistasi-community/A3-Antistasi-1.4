@@ -232,7 +232,7 @@ private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and sh
 _sfLoadoutData set ["uniforms", ["U_B_CombatUniform_mcam_wdl_f", "U_B_CombatUniform_vest_mcam_wdl_f", "U_B_CombatUniform_tshirt_mcam_wdL_f"]];
 _sfLoadoutData set ["vests", ["V_PlateCarrier1_wdl", "V_TacVest_grn"]];
 _sfLoadoutData set ["Hvests", ["V_PlateCarrier2_wdl"]];
-_sfLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_Carryall_rgr", "B_AssaultPack_rgr", "B_AssaultPackSpec_rgr", "B_TacticalPack_rgr"]];
+_sfLoadoutData set ["backpacks", ["B_Kitbag_rgr", "B_Carryall_wdl_F", "B_AssaultPack_rgr", "B_AssaultPackSpec_rgr", "B_TacticalPack_rgr"]];
 _sfLoadoutData set ["helmets", ["H_HelmetB_light_wdl", "H_HelmetSpecB_light_wdl", "H_Watchcap_camo_hs", "H_Cap_usblack_hs"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_03"]];
 
@@ -270,7 +270,7 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ]];
 _sfLoadoutData set ["SMGs", [
 ["SMG_01_black_F", "muzzle_mzls_smg_01", "", "optic_Holosight_smg_blk_F", [], [], ""],
-["SMG_01_black_F", "muzzle_mzls_smg_01", "", "optic_Aco_grn_smg", [], [], ""],
+["SMG_01_black_F", "muzzle_mzls_smg_01", "", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_01_black_F", "muzzle_mzls_smg_01", "", "Aegis_optic_ICO", [], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
@@ -289,12 +289,12 @@ _sfLoadoutData set ["marksmanRifles", [
 ["srifle_EBR_blk_F", "muzzle_snds_B", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
 ["srifle_EBR_blk_F", "muzzle_snds_B", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
 ["srifle_EBR_blk_F", "muzzle_snds_B", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
-["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"]
+["Aegis_arifle_SR25_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_blk"],
+["Aegis_arifle_SR25_MR_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_blk"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
@@ -357,17 +357,17 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ]];
 _militaryLoadoutData set ["shotGuns", [
 ["sgun_KSG_F", "", "", "optic_Holosight_smg_blk_F", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
-["sgun_KSG_F", "", "", "optic_Aco_grn_smg", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
+["sgun_KSG_F", "", "", "optic_ACO_grn_smg", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
 ["sgun_KSG_F", "", "", "Aegis_optic_ICO", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
 ["SMG_01_black_F", "", "", "optic_Holosight_smg_blk_F", [], [], ""],
-["SMG_01_black_F", "", "", "optic_Aco_grn_smg", [], [], ""],
+["SMG_01_black_F", "", "", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_01_black_F", "", "", "Aegis_optic_ICO", [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["arifle_MX_SW_Black_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_Tracer"], [], "bipod_01_F_blk"],
-["arifle_MX_SW_Black_F", "", "acc_pointer_IR", "optic_ACO_grn", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_Tracer"], [], "bipod_01_F_blk"],
+["arifle_MX_SW_Black_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_tracer"], [], "bipod_01_F_blk"],
+["arifle_MX_SW_Black_F", "", "acc_pointer_IR", "optic_ACO_grn", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_tracer"], [], "bipod_01_F_blk"],
 ["arifle_MX_SW_Black_F", "", "acc_pointer_IR", "Aegis_optic_ICO", ["100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag", "100Rnd_65x39_caseless_black_mag_tracer"], [], "bipod_01_F_blk"]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
@@ -405,7 +405,7 @@ _policeLoadoutData set ["carbines", [
 ["Aegis_arifle_M4A1_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _policeLoadoutData set ["shotGuns", [
-["sgun_KSG_F", "", "acc_flashlight", "", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
+["sgun_KSG_F", "", "", "", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
 ]];
 _policeLoadoutData set ["SMGs", [
 ["SMG_01_black_F", "", "acc_flashlight_smg_01", "", [], [], ""]
@@ -463,7 +463,7 @@ _pilotLoadoutData set ["vests", ["V_TacVest_blk"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_B", "H_PilotHelmetHeli_B", "H_PilotHelmetHeli_B_visor_up"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["slUniforms", ["U_I_ParadeUniform_01_US_F", "U_I_ParadeUniform_01_US_decorated_F"]];
+_officerLoadoutData set ["uniforms", ["U_I_ParadeUniform_01_US_F", "U_I_ParadeUniform_01_US_decorated_F"]];
 _officerLoadoutData set ["vests", ["V_Rangemaster_belt"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F"]];
 _officerLoadoutData set ["backpacks", []];
@@ -483,8 +483,8 @@ if ("mark" in A3A_enabledDLC) then {
     (_sfLoadoutData get "marksmanRifles") append [
     ["srifle_DMR_03_woodland_F", "muzzle_snds_B", "acc_pointer_IR", "optic_AMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"], 
     ["srifle_DMR_03_F", "muzzle_snds_B_lush_F", "acc_pointer_IR", "optic_DMS", ["20Rnd_762x51_Mag"], [], "bipod_01_F_blk"],
-    ["Aegis_arifle_SR25_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"],
-	["Aegis_arifle_SR25_MR_blk_F", "Aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"]];
+    ["Aegis_arifle_SR25_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"],
+	["Aegis_arifle_SR25_MR_blk_F", "aegis_muzzle_snds_sr25_blk", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"]];
 	(_sfLoadoutData get "sniperRifles") append [
     ["srifle_DMR_02_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"], 
     ["srifle_DMR_02_F", "muzzle_snds_338_black", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"]];
@@ -843,7 +843,7 @@ private _policeTemplate = {
 	["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
-	[selectRandom ["carbines", "shotGuns", "SMGs"]] call _fnc_setPrimary;
+    [[selectRandom ["carbines", "shotGuns", "SMGs"], "SMGs"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

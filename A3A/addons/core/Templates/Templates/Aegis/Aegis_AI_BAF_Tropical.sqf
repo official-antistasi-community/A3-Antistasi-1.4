@@ -285,12 +285,12 @@ _militaryLoadoutData set ["grenadeLaunchers", [
 ["arifle_SA80_GL_khk_F", "", "acc_pointer_IR", "Aegis_optic_ROS", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], ["1Rnd_HE_Grenade_shell", "1Rnd_HE_Grenade_shell", "1Rnd_Smoke_Grenade_shell"], ""]
 ]];
 _militaryLoadoutData set ["shotGuns", [
-["sgun_M4_F", "", "", "optic_Aco_smg", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
+["sgun_M4_F", "", "", "optic_ACO_grn_smg", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""],
 ["sgun_M4_F", "", "", "Aegis_optic_ROS_SMG", ["8Rnd_12Gauge_Pellets", "8Rnd_12Gauge_Slug"], [], ""]
 ]];
 _militaryLoadoutData set ["SMGs", [
 ["SMG_04_khk_F", "", "", "optic_Holosight_smg_khk_F", [], [], ""],
-["SMG_04_khk_F", "", "", "optic_Aco_smg", [], [], ""],
+["SMG_04_khk_F", "", "", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_04_khk_F", "", "", "Aegis_optic_ROS_SMG", [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
@@ -324,7 +324,7 @@ _policeLoadoutData set ["shotGuns", [
 ]];
 _policeLoadoutData set ["SMGs", [
 ["SMG_04_blk_F", "", "acc_flashlight", "optic_Holosight_smg_blk_F", [], [], ""],
-["SMG_04_blk_F", "", "acc_flashlight", "optic_Aco_smg", [], [], ""],
+["SMG_04_blk_F", "", "acc_flashlight", "optic_ACO_grn_smg", [], [], ""],
 ["SMG_04_blk_F", "", "acc_flashlight", "Aegis_optic_ROS_SMG", [], [], ""]
 ]];
 _policeLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
@@ -528,7 +528,7 @@ private _explosivesExpertTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["rifles", "carbines", "shotGuns"]] call _fnc_setPrimary;
+	[[selectRandom ["carbines", "shotGuns", "rifles"], selectRandom ["carbines", "rifles"]] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 
@@ -560,7 +560,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
 	["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["carbines", "SMGs", "shotGuns"]] call _fnc_setPrimary;
+	[[selectRandom ["carbines", "shotGuns", "SMGs"], selectRandom ["carbines", "SMGs"]] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

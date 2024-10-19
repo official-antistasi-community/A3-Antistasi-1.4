@@ -561,7 +561,7 @@ private _explosivesExpertTemplate = {
 	["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["rifles", "carbines", "shotGuns"]] call _fnc_setPrimary;
+	[[selectRandom ["carbines", "shotGuns", "rifles"], selectRandom ["carbines", "rifles"]] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 	["primary", 2] call _fnc_addAdditionalMuzzleMagazines;
 
@@ -593,7 +593,7 @@ private _engineerTemplate = {
 	["uniforms"] call _fnc_setUniform;
     ["backpacks"] call _fnc_setBackpack;
 
-	[selectRandom ["carbines", "SMGs", "shotGuns"]] call _fnc_setPrimary;
+	[[selectRandom ["carbines", "shotGuns", "SMGs"], selectRandom ["carbines", "SMGs"]] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

@@ -194,7 +194,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData set ["uniforms", ["U_B_UBACS_mtp_tna_f", "U_B_UBACS_vest_mtp_tna_f", "U_B_UBACS_tshirt_mtp_tna_f"]];
+_sfLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
 _sfLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_recon_olive_F","V_TacVest_grn"]];
 _sfLoadoutData set ["Hvests", ["Aegis_V_CarrierRigKBT_01_cqb_olive_F"]];
 _sfLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_TacticalPack_tna_F", "B_AssaultPack_tna_F"]];
@@ -254,7 +254,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData set ["uniforms", ["U_B_UBACS_mtp_tna_f", "U_B_UBACS_vest_mtp_tna_f", "U_B_UBACS_tshirt_mtp_tna_f"]];
+_militaryLoadoutData set ["uniforms", ["U_B_UBACS_tna_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
 _militaryLoadoutData set ["vests", ["V_CarrierRigKBT_01_light_Olive_F", "Aegis_V_CarrierRigKBT_01_cqb_olive_F"]];
 _militaryLoadoutData set ["Hvests", ["V_CarrierRigKBT_01_heavy_Olive_F", "Aegis_V_CarrierRigKBT_01_tac_olive_F"]];
 _militaryLoadoutData set ["backpacks", ["B_Carryall_tna_F", "B_Kitbag_tna_F", "B_TacticalPack_tna_F"]];
@@ -334,7 +334,7 @@ _policeLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militiaLoadoutData set ["uniforms", ["U_B_UBACS_mtp_tna_f", "U_B_UBACS_vest_mtp_tna_f", "U_B_UBACS_tshirt_mtp_tna_f"]];
+_militiaLoadoutData set ["uniforms", ["U_B_UBACS_tna_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
 _militiaLoadoutData set ["vests", ["V_Chestrig_oli", "V_CarrierRigKBT_01_Olive_F"]];
 _militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];
 _militiaLoadoutData set ["helmets", ["H_HelmetB_tna_F", "H_MilCap_tna_F", "H_Bandanna_tna_hs_F"]];
@@ -379,7 +379,7 @@ _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_Olive_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["uniforms", ["U_I_ParadeUniform_01_US_F", "U_I_ParadeUniform_01_US_decorated_F"]];
+_officerLoadoutData set ["uniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
 _officerLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_holster_olive_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F"]];
 _officerLoadoutData set ["backpacks", []];

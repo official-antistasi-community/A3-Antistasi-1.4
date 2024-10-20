@@ -404,7 +404,7 @@ _pilotLoadoutData set ["vests", ["V_Rangemaster_belt_taiga_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up", "H_PilotHelmetHeli_O"]];
 
 private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_officerLoadoutData set ["uniforms", ["U_I_ParadeUniform_01_CSAT_F", "U_I_ParadeUniform_01_CSAT_decorated_F"]];
+_officerLoadoutData set ["uniforms", ["U_O_ParadeUniform_01_CSAT_F", "U_O_ParadeUniform_01_CSAT_decorated_F"]];
 _officerLoadoutData set ["vests", ["V_Rangemaster_belt_taiga_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_CSAT_F"]];
 _officerLoadoutData set ["backpacks", []];

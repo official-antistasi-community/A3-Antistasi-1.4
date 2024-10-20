@@ -1476,6 +1476,7 @@ class Templates
         file = "CWR_AI_US_Army_Temperate";
         climate[] = {"Temperate"};
         shortName = "US Army";
+        lore = $STR_A3A_templates_lore_3CB_AI_CW_US;
     };
     
     class CWR_USSR_Temprate : CWR_Base
@@ -1486,6 +1487,7 @@ class Templates
         file = "CWR_AI_USSR_Temperate";
         climate[] = {"Temperate"};
         shortName = "USSR";
+        lore = $STR_A3A_templates_lore_3CB_AI_CW_Sov;
     };
 
     class CWR_FIA : CWR_Base
@@ -1495,5 +1497,6 @@ class Templates
         name = "CWR FIA";
         file = "CWR_Reb_FIA";
         shortName = "FIA";
+        lore = $STR_A3A_templates_lore_FIA;
     };
 };

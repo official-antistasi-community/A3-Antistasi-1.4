@@ -29,24 +29,24 @@ class A3A {
             };
 
             class cwr3_o_mig27 : baseCAS {
-                loadout[] = {"PylonRack_20Rnd_Rocket_03_HE_F","PylonRack_20Rnd_Rocket_03_HE_F","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M",""};
+                loadout[] = {"CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_1Rnd_Kh29_M","CUP_PylonPod_32Rnd_S5_plane_M","CUP_PylonPod_32Rnd_S5_plane_M","CUP_PylonPod_1Rnd_Kh29_M"};
                 mainGun[] = {"cwr3_vacannon_gsh306"};
-                rocketLauncher[] = {"Rocket_03_HE_Plane_CAS_02_F"};
+                rocketLauncher[] = {"CUP_Vmlauncher_S5_veh"};
                 missileLauncher[] = {"CUP_Vmlauncher_Kh29L_veh"};
             };
 
              class cwr3_b_a10 : baseCAS {
-                loadout[] = {"PylonRack_7Rnd_Rocket_04_HE_F","","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_1Rnd_Missile_AGM_02_F","","PylonRack_1Rnd_Missile_AGM_02_F","PylonRack_7Rnd_Rocket_04_HE_F","PylonRack_7Rnd_Rocket_04_HE_F","","PylonRack_7Rnd_Rocket_04_HE_F"};
+                loadout[] = {"CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M","CUP_PylonPod_1Rnd_AGM65_Maverick_M"};
                 mainGun[] = {"CUP_Vacannon_GAU8_veh"};
-                rocketLauncher[] = {"Rocket_04_HE_Plane_CAS_01_F"};
-                missileLauncher[] = {"Missile_AGM_02_Plane_CAS_01_F"};
+                rocketLauncher[] = {"CUP_Vmlauncher_FFAR_veh"};
+                missileLauncher[] = {"CUP_Vmlauncher_AGM65pod_veh"};
             };
 
              class cwr3_b_f4e : baseCAS {
-                loadout[] = {"CUP_PylonPod_19Rnd_CRV7_KEP_plane_M","","PylonRack_1Rnd_Missile_AGM_02_F","","PylonRack_1Rnd_Missile_AGM_02_F","","CUP_PylonPod_19Rnd_CRV7_KEP_plane_M"};
+                loadout[] = {"CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_3Rnd_AGM65_Maverick_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M","CUP_PylonPod_19Rnd_Rocket_FFAR_plane_M"};
                 mainGun[] = {"cwr3_vacannon_m61a1"};
-                rocketLauncher[] = {"CUP_Vmlauncher_CRV7_veh"};
-                missileLauncher[] = {"Missile_AGM_02_Plane_CAS_01_F"};
+                rocketLauncher[] = {"CUP_Vmlauncher_FFAR_veh"};
+                missileLauncher[] = {"CUP_Vmlauncher_AGM65pod_veh"};
             };
         };
         class CAPPlane

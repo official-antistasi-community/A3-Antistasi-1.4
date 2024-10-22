@@ -1458,4 +1458,45 @@ class Templates
         shortName = "Civilian";
         lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
     };
+     // ***************************** CWR *****************************
+
+    class CWR_Base
+    {
+        requiredAddons[] = {"cwr3_core"};       
+        basepath = QPATHTOFOLDER(Templates\Templates\CWR);
+        logo = "\CUP\Creatures\People\CUP_Creatures_People_Core\ui\logo_cup_ca_small.paa";
+        priority = 70;
+    };
+
+     class CWR_US_Temprate : CWR_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "CWR US Temprate";
+        file = "CWR_AI_US_Army_Temperate";
+        climate[] = {"Temperate"};
+        shortName = "US Army";
+        lore = $STR_A3A_templates_lore_3CB_AI_CW_US;
+    };
+    
+    class CWR_USSR_Temprate : CWR_Base
+    {
+        side = "Inv";
+        flagTexture = "\cwr3\general\cwr3_core\data\flag_ussr_co.paa";
+        name = "CWR USSR Temperate";
+        file = "CWR_AI_USSR_Temperate";
+        climate[] = {"Temperate"};
+        shortName = "USSR";
+        lore = $STR_A3A_templates_lore_3CB_AI_CW_Sov;
+    };
+
+    class CWR_FIA : CWR_Base
+    {
+        side = "Reb";
+        flagTexture = "\cwr3\general\cwr3_core\data\flag_fia_co.paa";
+        name = "CWR FIA";
+        file = "CWR_Reb_FIA";
+        shortName = "FIA";
+        lore = $STR_A3A_templates_lore_FIA;
+    };
 };

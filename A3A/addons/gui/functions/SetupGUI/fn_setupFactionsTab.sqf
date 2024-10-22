@@ -168,6 +168,7 @@ switch (_mode) do
             ,["ww2_spe_assets_c_characters_germans_c", "Spearhead 1944 CDLC"]
             ,["IFA3_Core", "IFA3 AIO"]
             ,["Swedish_Forces_Pack","Swedish Forces Pack"]
+            ,["cwr3_core","Cold War Rearmed 3"]
         ];
 
         private _prettyAddons = _requiredAddons apply 

@@ -43,7 +43,7 @@ if (!isServer) exitWith {false};
 FIX_LINE_NUMBERS()
 params [["_save", [], [[]] ]];
 private _validSave = _save params [
-    ["_garage", [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap,createHashMap], [[]], 6]//,createHashMap
+    ["_garage", [createHashMap,createHashMap,createHashMap,createHashMap,createHashMap,createHashMap,createHashMap,createHashMap], [[]], 8]//,createHashMap
     , ["_uid", 0, [0]]
     , ["_sources", [[],[],[]], [[]], 3]
 ];

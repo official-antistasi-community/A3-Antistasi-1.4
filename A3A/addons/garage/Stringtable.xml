@@ -491,6 +491,18 @@
         <Original>Helicopters</Original>
         <Russian>Вертолёты</Russian>
       </Key>
+      <Key ID="STR_HR_GRG_Generic_Cars_Undercover">
+        <Original>Undercover</Original>
+        <Russian>Под прикрытием</Russian>
+      </Key>
+      <Key ID="STR_HR_GRG_Generic_APC">
+        <Original>APC/IFV</Original>
+        <Russian>БТР/БМП</Russian>
+      </Key>
+      <Key ID="STR_HR_GRG_Generic_Heli">
+        <Original>Helicopters</Original>
+        <Russian>Вертолёты</Russian>
+      </Key>
       <Key ID="STR_HR_GRG_Generic_Plane">
         <Original>Planes</Original>
         <Russian>Самолёты</Russian>

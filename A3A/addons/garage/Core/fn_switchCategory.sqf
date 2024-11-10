@@ -26,7 +26,7 @@ if (_index isEqualTo -1) exitWith {};
 private _disp = findDisplay HR_GRG_IDD_Garage;
 
 //disables current category
-for "_i" from 0 to 6 do {
+for "_i" from 0 to 7 do {
     private _ctrl = _disp displayCtrl (HR_GRG_IDC_CatCar + _i);
     if (ctrlEnabled _ctrl) exitWith {
         _ctrl ctrlShow false;
@@ -46,12 +46,14 @@ _newCtrl ctrlShow true;
 //case 3: {localize "STR_HR_GRG_Generic_VTOL"};
 //update category text
 private _text = switch _index do {
-    case 0: {localize "STR_HR_GRG_Generic_Cars"};
-    case 1: {localize "STR_HR_GRG_Generic_Armored"};
-    case 2: {localize "STR_HR_GRG_Generic_Heli"};
-    case 3: {localize "STR_HR_GRG_Generic_Plane"};
-    case 4: {localize "STR_HR_GRG_Generic_Boat"};
-    case 5: {localize "STR_HR_GRG_Generic_Static"};
+    case 0: {localize "STR_HR_GRG_Generic_Cars_Undercover"};
+    case 1: {localize "STR_HR_GRG_Generic_Cars"};
+    case 2: {localize "STR_HR_GRG_Generic_APC"};
+    case 3: {localize "STR_HR_GRG_Generic_Armored"};
+    case 4: {localize "STR_HR_GRG_Generic_Heli"};
+    case 5: {localize "STR_HR_GRG_Generic_Plane"};
+    case 6: {localize "STR_HR_GRG_Generic_Boat"};
+    case 7: {localize "STR_HR_GRG_Generic_Static"};
     default {""};
 };
 _textCtrl = _disp displayCtrl HR_GRG_IDC_CatText;

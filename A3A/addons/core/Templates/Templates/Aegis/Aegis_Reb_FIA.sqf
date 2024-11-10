@@ -44,21 +44,19 @@ if ("expansion" in A3A_enabledDLC) then {
     _vehiclesLightArmed append ["I_C_Offroad_02_LMG_F"];
     _vehiclesAT append ["I_C_Offroad_02_AT_F"];
 };
-
-if ("rf" in A3A_enabledDLC) then {
-    _vehiclesCivCar append ["C_Pickup_rf","C_Pickup_covered_rf"];
-    _vehiclesLightUnarmed append ["a3a_FIA_Pickup_rf", "a3a_FIA_Pickup_covered_rf"];
-    _vehiclesLightArmed append ["a3a_FIA_Pickup_mmg_rf", "a3a_FIA_Pickup_hmg_rf"];
-    _staticMortars append ["I_G_CommandoMortar_rf"];
-    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
-};
-
 if ("ws" in A3A_enabledDLC) then {
     _vehicleAA append ["I_Tura_Truck_02_aa_lxWS"];
     _staticAA insert [0, ["I_Tura_ZU23_lxWS"]];
     _vehiclesLightUnarmed insert [1, ["I_G_Offroad_01_armor_base_lxWS"]];
     _vehiclesLightArmed insert [1, ["I_G_Offroad_01_armor_armed_lxWS"]];
     _vehiclesAT insert [1, ["I_G_Offroad_01_armor_AT_lxWS"]];
+};
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesCivCar append ["C_Pickup_rf","C_Pickup_covered_rf"];
+    _vehiclesLightUnarmed append ["a3a_FIA_Pickup_rf", "a3a_FIA_Pickup_covered_rf"];
+    _vehiclesLightArmed append ["a3a_FIA_Pickup_mmg_rf", "a3a_FIA_Pickup_hmg_rf"];
+    _staticMortars append ["I_G_CommandoMortar_rf"];
+    _vehiclesCivHeli append ["C_Heli_EC_01A_civ_RF","C_Heli_EC_04_rescue_RF"];
 };
 
 ["vehiclesCivCar", _vehiclesCivCar] call _fnc_saveToTemplate;
@@ -124,18 +122,12 @@ private _rebUniforms = [
     "U_IG_Guerrilla_6_1",
     "U_I_G_resistanceLeader_F",
     "U_I_L_Uniform_01_deserter_F",
-    "U_B_ION_Uniform_01_poloshirt_blue_F", //Aegis
-    "U_B_ION_Uniform_01_poloshirt_wdl_F", //Aegis
-    "U_B_ION_Uniform_01_tshirt_black_F" //Aegis
+    "U_B_ION_Uniform_01_poloshirt_blue_F",  //Aegis
+    "U_B_ION_Uniform_01_poloshirt_wdl_F",   //Aegis
+    "U_B_ION_Uniform_01_tshirt_black_F"     //Aegis
 ];
 
 private _dlcUniforms = [];
-
-if ("enoch" in A3A_enabledDLC) then {
-    _dlcUniforms append [
-        "U_I_L_Uniform_01_camo_F"
-    ];
-};
 
 if ("expansion" in A3A_enabledDLC) then {
     _dlcUniforms append [
@@ -150,6 +142,12 @@ if ("expansion" in A3A_enabledDLC) then {
         "U_I_C_Soldier_Para_4_F",
         "U_I_C_Soldier_Para_1_F",
         "U_I_C_Soldier_Camo_F"
+    ];
+};
+
+if ("enoch" in A3A_enabledDLC) then {
+    _dlcUniforms append [
+        "U_I_L_Uniform_01_camo_F"
     ];
 };
 

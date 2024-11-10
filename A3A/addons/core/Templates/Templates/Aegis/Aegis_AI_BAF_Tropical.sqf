@@ -40,9 +40,9 @@
 ["vehiclesPlanesAA", ["B_A_Plane_Fighter_05_F"]] call _fnc_saveToTemplate;
 ["vehiclesPlanesTransport", ["B_A_Plane_Transport_01_infantry_F"]] call _fnc_saveToTemplate;
 
-["vehiclesHelisLight", ["B_A_Heli_light_03_unarmed_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisTransport", ["Aegis_B_A_Heli_Transport_02_F"]] call _fnc_saveToTemplate;
-["vehiclesHelisLightAttack", ["B_A_Heli_light_03_dynamicLoadout_F"]] call _fnc_saveToTemplate;
+private _vehiclesHelisLight = ["B_A_Heli_light_03_unarmed_F"];
+private _HelisTransport = ["Aegis_B_A_Heli_Transport_02_F"];
+private _vehiclesHelisLightAttack = ["B_A_Heli_light_03_dynamicLoadout_F"];
 ["vehiclesHelisAttack", ["Aegis_B_A_Heli_Attack_03_F"]] call _fnc_saveToTemplate;
 
 ["vehiclesArtillery", ["B_T_MBT_01_mlrs_F","B_T_MBT_01_arty_F"]] call _fnc_saveToTemplate;
@@ -55,11 +55,11 @@
 ["uavsPortable", ["B_UAV_01_F"]] call _fnc_saveToTemplate;
 
 //Config special vehicles - militia vehicles are mostly used in the early game, police cars are being used by troops around cities.
-["vehiclesMilitiaLightArmed", ["B_A_LSV_01_armed_tna_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaLightArmed = ["B_A_LSV_01_armed_tna_F"];
 ["vehiclesMilitiaTrucks", ["B_A_Truck_01_covered_tna_F", "B_A_Truck_01_transport_tna_F"]] call _fnc_saveToTemplate;
-["vehiclesMilitiaCars", ["B_A_LSV_01_light_tna_F"]] call _fnc_saveToTemplate;
+private _vehiclesMilitiaCars = ["B_A_LSV_01_light_tna_F"];
 
-["vehiclesPolice", ["B_GEN_Offroad_01_gen_F"]] call _fnc_saveToTemplate;
+private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 
 ["staticMGs", ["B_G_HMG_02_high_F"]] call _fnc_saveToTemplate;
 ["staticAT", ["B_static_AT_F"]] call _fnc_saveToTemplate;
@@ -73,6 +73,24 @@
 //Minefield definition
 ["minefieldAT", ["ATMine"]] call _fnc_saveToTemplate;
 ["minefieldAPERS", ["APERSMine"]] call _fnc_saveToTemplate;
+
+if ("rf" in A3A_enabledDLC) then {
+    _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
+    _HelisTransport append ["B_Heli_EC_04_military_RF"];
+    _vehiclesHelisLight append ["B_Heli_light_03_unarmed_RF"];
+    _vehiclesHelisLightAttack append ["a3a_Heli_light_03_dynamicLoadout_rf","B_Heli_EC_03_RF"];
+    _vehiclesMilitiaCars append ["B_T_Pickup_rf"];
+    _vehiclesMilitiaLightArmed append ["B_T_Pickup_mmg_rf"];
+};
+
+["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
+["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;
+["vehiclesHelisTransport", _HelisTransport] call _fnc_saveToTemplate;
+
+["vehiclesMilitiaCars", _vehiclesMilitiaCars] call _fnc_saveToTemplate;
+["vehiclesMilitiaLightArmed", _vehiclesMilitiaLightArmed] call _fnc_saveToTemplate;
+["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
+
 
 #include "Aegis_Vehicle_Attributes.sqf"
 

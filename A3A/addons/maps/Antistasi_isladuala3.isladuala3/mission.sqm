@@ -55520,6 +55520,22 @@ class Mission
 				nAttributes=2;
 			};
 		};
+		class Item67
+		{
+			dataType="Trigger";
+			position[]={9529.1289,16.719999,1529.475};
+			class Attributes
+			{
+				condition="true";
+				onActivation="private _allTerrainObjects =  " \n "(nearestTerrainObjects [[worldSize / 2, worldSize / 2], [], worldSize * sqrt 2 / 2, false, true]); " \n "_allTerrainObjects = _allTerrainObjects select {(getModelInfo _x #0) in [ " \n """fort_bagfence_long.p3d"", " \n """fort_bagfence_round.p3d"", " \n """wf_anti_radar_east.p3d"", " \n """barel6.p3d"", " \n """bagfencelong.p3d"", " \n """bagfenceround.p3d"", " \n """misc_palletsfoiled_heap.p3d"", " \n """toilet.p3d"", " \n """misc_cargo_cont_small2.p3d"", " \n """seacrate.p3d"" " \n "]}; " \n "{ _x hideObjectGlobal true } forEach _allTerrainObjects;";
+				sizeA=0;
+				sizeB=0;
+				timeout[]={5,5,5};
+				isServerOnly=1;
+			};
+			id=5373;
+			type="EmptyDetector";
+		};
 	};
 	class Connections
 	{

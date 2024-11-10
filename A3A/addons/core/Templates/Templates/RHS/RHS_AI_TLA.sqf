@@ -356,6 +356,11 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
     (_militaryLoadoutData get "grenadeLaunchers") append [
     ["UK3CB_M16A2_UGL", "", "", "", ["rhs_mag_20Rnd_556x45_M193_Stanag", "rhs_mag_20Rnd_556x45_M193_Stanag", "rhs_mag_20Rnd_556x45_M196_Stanag_Tracer_Red"], ["rhs_mag_M441_HE", "rhs_mag_M441_HE", "rhs_mag_M433_HEDP", "rhs_mag_m714_White"], ""]
     ];
+    (_militaryLoadoutData get "machineGuns") append [
+    ["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39", "UK3CB_RPD_100rnd_762x39_G", "UK3CB_RPD_100rnd_762x39_GM", "UK3CB_RPD_100rnd_762x39_GT"], [], ""],
+    ["UK3CB_RPK", "", "", "", ["UK3CB_RPK_40rnd_762x39", "UK3CB_RPK_40rnd_762x39_G", "UK3CB_RPK_40rnd_762x39_GM", "UK3CB_RPK_40rnd_762x39_GT"], [], ""],
+    ["UK3CB_M60", "", "", "", ["UK3CB_M60_100rnd_762x51", "UK3CB_M60_100rnd_762x51_R", "UK3CB_M60_100rnd_762x51_RM", "UK3CB_M60_100rnd_762x51_RT"], [], ""]
+    ];
     (_militaryLoadoutData get "marksmanRifles") append [
     ["UK3CB_SVD_OLD", "", "", "rhs_acc_pso1m21", ["rhs_10Rnd_762x54mmR_7N1"], [], ""]
     ];
@@ -370,6 +375,11 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
     (_militiaLoadoutData get "carbines") append [
     ["uk3cb_sks_01", "", "", "", ["uk3cb_10rnd_magazine_sks", "uk3cb_10rnd_magazine_sks_G", "uk3cb_10rnd_magazine_sks_GT"], [], ""]
     ];
+    (_militiaLoadoutData get "SMGs") append [
+    "rhs_weap_m3a1",
+    ["uk3cb_ppsh41", "", "", "", ["uk3cb_PPSH_35rnd_magazine", "uk3cb_PPSH_35rnd_magazine_G", "uk3cb_PPSH_35rnd_magazine_GM", "uk3cb_PPSH_35rnd_magazine_GT"], [], ""],
+    ["uk3cb_ppsh41", "", "", "", ["uk3cb_PPSH_71rnd_magazine_GM", "uk3cb_PPSH_35rnd_magazine_G", "uk3cb_PPSH_35rnd_magazine_GM", "uk3cb_PPSH_35rnd_magazine_GT"], [], ""]
+    ];
     (_militiaLoadoutData get "machineGuns") append [
     ["UK3CB_RPD", "", "", "", ["UK3CB_RPD_100rnd_762x39", "UK3CB_RPD_100rnd_762x39_G", "UK3CB_RPD_100rnd_762x39_GM", "UK3CB_RPD_100rnd_762x39_GT"], [], ""],
     ["UK3CB_RPK", "", "", "", ["UK3CB_RPK_40rnd_762x39", "UK3CB_RPK_40rnd_762x39_G", "UK3CB_RPK_40rnd_762x39_GM", "UK3CB_RPK_40rnd_762x39_GT"], [], ""]
@@ -380,6 +390,9 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
 
     (_policeLoadoutData get "rifles") append [
     ["uk3cb_sks_01", "", "", "", ["uk3cb_10rnd_magazine_sks", "uk3cb_10rnd_magazine_sks_G", "uk3cb_10rnd_magazine_sks_GT"], [], ""]
+    ];
+    (_policeLoadoutData get "SMGs") append [
+    ["uk3cb_ppsh41", "", "", "", ["uk3cb_PPSH_35rnd_magazine", "uk3cb_PPSH_35rnd_magazine_G", "uk3cb_PPSH_35rnd_magazine_GM", "uk3cb_PPSH_35rnd_magazine_GT"], [], ""]
     ];
 };
 

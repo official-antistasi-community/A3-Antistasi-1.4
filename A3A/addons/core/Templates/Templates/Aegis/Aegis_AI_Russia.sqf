@@ -116,7 +116,7 @@ _loadoutData set ["SMGs", []];
 _loadoutData set ["machineGuns", []];
 _loadoutData set ["marksmanRifles", []];
 _loadoutData set ["sniperRifles", []];
-_loadoutData set ["lightATLaunchers", [Aegis_launch_RPG7M_F]];
+_loadoutData set ["lightATLaunchers", ["Aegis_launch_RPG7M_F"]];
 _loadoutData set ["ATLaunchers", [
 ["launch_RPG32_green_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
 ["launch_RPG32_green_F", "", "", "", ["RPG32_F", "RPG32_HE_F"], [], ""],
@@ -308,9 +308,9 @@ _militaryLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_pointer_IR", "Aegis_optic_ROS_SMG", [], [], ""]
 ]];
 _militaryLoadoutData set ["machineGuns", [
-["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_Tracer_F"], [], ""],
-["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "optic_ACO_grn", ["Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_Tracer_F"], [], ""],
-["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "Aegis_optic_ROS", ["Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_F", "Aegis_60Rnd_545x39_AK12_Mag_Tracer_F"], [], ""]
+["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", ["Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_Tracer_F"], [], ""],
+["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "optic_ACO_grn", ["Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_Tracer_F"], [], ""],
+["Aegis_arifle_RPK12_545_F", "", "acc_pointer_IR", "Aegis_optic_ROS", ["Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_F", "Aegis_60Rnd_545x39_Mag_Tracer_F"], [], ""]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_05_blk_F", "", "acc_pointer_IR", "optic_DMS_weathered_F", [], [], "bipod_02_F_blk"],

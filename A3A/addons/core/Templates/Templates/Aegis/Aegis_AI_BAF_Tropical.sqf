@@ -110,8 +110,8 @@ _loadoutData set ["ATLaunchers", [
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HE_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HEAT55_F"], [], ""],
 ["launch_MRAWS_green_rail_F", "", "acc_pointer_IR", "", ["MRAWS_HEAT_F", "MRAWS_HE_F"], [], ""],
-["launch_NLAW_F", "", "acc_pointer_IR", "", [], [], ""],
-["launch_NLAW_F", "", "acc_pointer_IR", "", [], [], ""]
+["launch_NLAW_F", "", "", "", [], [], ""],
+["launch_NLAW_F", "", "", "", [], [], ""]
 ]];
 _loadoutData set ["missileATLaunchers", [
 ["launch_B_Titan_short_tna_F", "", "acc_pointer_IR", "", ["Titan_AT"], [], ""]
@@ -374,12 +374,12 @@ _militiaLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_tna_f"]];
+_crewLoadoutData set ["uniforms", ["U_B_UBACS_vest_tna_f"]];
 _crewLoadoutData set ["vests", ["V_CarrierRigKBT_01_Olive_F"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_B"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_tna_f"]];
+_pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_tna_f"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_Olive_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
 

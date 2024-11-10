@@ -282,9 +282,9 @@ _sfLoadoutData set ["marksmanRifles", [
 ["arifle_MXM_F", "muzzle_snds_H_snd_F", "acc_pointer_IR", "optic_SOS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
 ["arifle_MXM_F", "muzzle_snds_H_snd_F", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
 ["arifle_MXM_F", "muzzle_snds_H_snd_F", "acc_pointer_IR", "optic_DMS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_snd"]
+["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_SOS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
+["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_Hamr", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
+["Aegis_arifle_SR25_MR_snd_F", "aegis_muzzle_snds_sr25_snd", "acc_pointer_IR", "optic_DMS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"]
 ]];
 _sfLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],

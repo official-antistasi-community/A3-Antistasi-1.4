@@ -36,6 +36,7 @@ class CfgMissions
         A3A_Mission(Enoch)
         A3A_Mission(gm_weferlingen_summer)
         A3A_Mission(gm_weferlingen_winter)
+        A3A_Mission(isladuala3)
         A3A_Mission(Kunduz)
         A3A_Mission(Malden)
         A3A_Mission(pulau)
@@ -52,7 +53,6 @@ class CfgMissions
         A3A_Mission(vt7)
 #if __A3_DEBUG__
         A3A_Mission(Stratis)
-        A3A_Mission(isladuala3)//set to debug only until map is fixed
 #endif
     };
 };

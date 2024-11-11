@@ -169,6 +169,7 @@ switch (_mode) do
             ,["IFA3_Core", "IFA3 AIO"]
             ,["Swedish_Forces_Pack","Swedish Forces Pack"]
             ,["cwr3_core","Cold War Rearmed 3"]
+            ,["WW2_SPEX_Assets_c_Characters_Americans_c","SPEX - Spearhead Extended"]
         ];
 
         private _prettyAddons = _requiredAddons apply 

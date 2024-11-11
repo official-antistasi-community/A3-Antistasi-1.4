@@ -288,7 +288,7 @@ _militaryLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_mtp_f"
 _militaryLoadoutData set ["vests", ["V_CarrierRigKBT_01_light_Coyote_F", "V_CarrierRigKBT_01_light_MTP_F", "Aegis_V_CarrierRigKBT_01_cqb_mtp_F", "Aegis_V_CarrierRigKBT_01_cqb_cbr_F"]];
 _militaryLoadoutData set ["Hvests", ["V_CarrierRigKBT_01_heavy_Coyote_F", "V_CarrierRigKBT_01_heavy_MTP_F", "Aegis_V_CarrierRigKBT_01_tac_cbr_F"]];
 _militaryLoadoutData set ["backpacks", ["B_Kitbag_mcamo", "B_Carryall_mcamo", "B_TacticalPack_mcamo"]];
-_militaryLoadoutData set ["helmets", ["H_HelmetB_plain_sand", "H_HelmetB_camo", "H_HelmetSpecB_sand", "H_HelmetB_plain_mcamo", "H_HelmetB_camo_mcamo", "H_HelmetSpecB_mcamo"]];
+_militaryLoadoutData set ["helmets", ["H_HelmetB_sand", "H_HelmetB_camo", "H_HelmetSpecB_sand", "H_HelmetB_plain_mcamo", "H_HelmetB_camo_mcamo", "H_HelmetSpecB_mcamo"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator"]];
 
 _militaryLoadoutData set ["rifles", [
@@ -337,9 +337,9 @@ _militaryLoadoutData set ["marksmanRifles", [
 ["arifle_MXM_F", "", "acc_pointer_IR", "optic_SOS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
 ["arifle_MXM_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
 ["arifle_MXM_F", "", "acc_pointer_IR", "optic_DMS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"],
-["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_snd"]
+["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_SOS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
+["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_Hamr", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
+["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_DMS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"]
 ]];
 _militaryLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
@@ -416,7 +416,7 @@ _pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_f"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_MTP_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
 
-private _officerLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+private _officerLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
 _officerLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_holster_cbr_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_US_F"]];
@@ -823,7 +823,7 @@ private _policeTemplate = {
 	["uniforms"] call _fnc_setUniform;
 
 
-	[["shotGuns", "SMGs"] call _fnc_fallback] call _fnc_setPrimary;
+    [[selectRandom ["shotGuns", "SMGs"], "SMGs"] call _fnc_fallback] call _fnc_setPrimary;
 	["primary", 3] call _fnc_addMagazines;
 
 	["sidearms"] call _fnc_setHandgun;

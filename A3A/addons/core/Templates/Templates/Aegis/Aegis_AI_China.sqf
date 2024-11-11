@@ -344,8 +344,7 @@ _policeLoadoutData set ["vests", ["V_TacVest_gen_F"]];
 _policeLoadoutData set ["helmets", ["H_Beret_gen_F"]];
 
 _policeLoadoutData set ["carbines", [
-["arifle_Mk20_hex_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""],
-["arifle_Mk20C_hex_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
+["arifle_Mk20C_black_F", "", "acc_flashlight", "", ["30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag", "30Rnd_556x45_Stanag_Tracer_Yellow"], [], ""]
 ]];
 _policeLoadoutData set ["shotGuns", [
 ["sgun_Mp153_black_F", "", "acc_flashlight_pistol", "", ["4Rnd_12Gauge_Pellets", "4Rnd_12Gauge_Slug"], [], ""]
@@ -414,7 +413,7 @@ _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["SMGs", [
 ["arifle_CTAR_blk_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
 ["arifle_CTAR_blk_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
-["arifle_CTAR_blk_F", "", "acc_pointer_IR", "aegis_optic_ROS", [], [], ""]
+["arifle_CTAR_blk_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""]
 ]];
 
 if ("mark" in A3A_enabledDLC) then {

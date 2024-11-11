@@ -475,9 +475,9 @@ _officerLoadoutData set ["vests", ["V_Rangemaster_belt_blk"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_AAF_F"]];
 _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["SMGs", [
-["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-["arifle_Mk20C_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
-["arifle_Mk20C_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""],
+["arifle_Mk20C_black_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
+["arifle_Mk20C_black_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
+["arifle_Mk20C_black_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""],
 ["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
 ["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
 ["Aegis_arifle_M4A1_short_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""]

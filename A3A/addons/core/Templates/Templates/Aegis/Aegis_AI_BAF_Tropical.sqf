@@ -412,7 +412,7 @@ _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["SMGs", [
 ["arifle_SA80_khk_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
 ["arifle_SA80_khk_F", "", "acc_pointer_IR", "optic_ACO_grn", [], [], ""],
-["arifle_SA80_khk_F", "", "acc_pointer_IR", "aegis_optic_ROS", [], [], ""]
+["arifle_SA80_khk_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""]
 ]];
 
 if ("mark" in A3A_enabledDLC) then {

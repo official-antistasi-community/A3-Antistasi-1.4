@@ -360,8 +360,7 @@ if (isClass (configFile >> "CfgPatches" >> "UK3CB_Factions_CHD_O")) then {
     ];
 
     (_policeLoadoutData get "rifles") append [
-    "uk3cb_enfield_l8",
-    ["uk3cb_sks_01", "", "", "", ["uk3cb_10rnd_magazine_sks", "uk3cb_10rnd_magazine_sks_G", "uk3cb_10rnd_magazine_sks_GT"], [], ""]
+    "uk3cb_enfield_l8"
     ];
 };
 

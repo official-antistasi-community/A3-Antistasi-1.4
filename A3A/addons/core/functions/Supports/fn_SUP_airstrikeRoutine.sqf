@@ -22,6 +22,11 @@ params ["_supportName", "_side", "_sleepTime", "_targetPos", "_airport", "_resPo
 //Sleep to simulate preparation time
 sleep _sleepTime;
 
+private _isCarpetBombing = false;
+if (_bombType == "CARPET") then {
+	_bombType = "HE";
+	_isCarpetBombing = true;
+};
 private _isHelicopter = _planeType isKindOf "Helicopter";
 private _spawnPos = (getMarkerPos _airport) vectorAdd [0, 0, if (_isHelicopter) then {150} else {500}];
 private _plane = createVehicle [_planeType, _spawnPos, [], 0, "FLY"];     // FLY forces 100m alt
@@ -59,6 +64,11 @@ private _bombParams = [_plane, _bombType, _bombCount, 200];
 private _flightSpeed = ["LIMITED", "NORMAL", "FULL"] select (round random [1, _aggroValue / 50, 0]);
 if (_isHelicopter) then {_flightSpeed = "FULL"};
 Info_5("Airstrike %1 against %2 with %3 %4 bombs at %5 speed", _supportName, _targetPos, _bombCount, _bombType, toLower _flightSpeed);
+
+if (_isCarpetBombing) then {
+	_bombParams set [2, 5 max _bombCount];
+	_flightSpeed = "FULL";
+};
 
 _plane flyInHeight 150;
 private _minAltASL = (ATLToASL [_targetPos select 0, _targetPos select 1, 0])#2 +150;

@@ -334,9 +334,9 @@ _militaryLoadoutData set ["machineGuns", [
 ["LMG_Mk200_plain_F", "", "acc_pointer_IR", "Aegis_optic_ROS", ["200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_snd"]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["arifle_MXM_F", "", "acc_pointer_IR", "optic_SOS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
-["arifle_MXM_F", "", "acc_pointer_IR", "optic_Hamr", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
-["arifle_MXM_F", "", "acc_pointer_IR", "optic_DMS", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
+["arifle_SPAR_03_snd_F", "", "acc_pointer_IR", "optic_SOS", [], [], "bipod_01_F_snd"],
+["arifle_SPAR_03_snd_F", "", "acc_pointer_IR", "optic_Hamr", [], [], "bipod_01_F_snd"],
+["arifle_SPAR_03_snd_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_snd"],
 ["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_SOS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
 ["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_Hamr", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"],
 ["Aegis_arifle_SR25_snd_F", "", "acc_pointer_IR", "optic_DMS", ["Aegis_20Rnd_762x51_Sand_SMAG"], [], "bipod_01_F_snd"]
@@ -373,9 +373,10 @@ _policeLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militiaLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_mtp_f", "U_B_UBACS_tshirt_mtp_f"]];
-_militiaLoadoutData set ["vests", ["V_Chestrig_rgr", "V_CarrierRigKBT_01_Coyote_F"]];
-_militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];
-_militiaLoadoutData set ["helmets", ["H_HelmetB", "H_MilCap_mcamo", "H_Bandanna_mcamo_hs"]];
+_militiaLoadoutData set ["vests", ["V_Chestrig_rgr", "V_BandollierB_rgr"]];
+_militiaLoadoutData set ["Hvests", ["V_TacVest_oli"]];
+_militiaLoadoutData set ["backpacks", ["B_TacticalPack_mcamo", "B_Kitbag_mcamo", "B_Carryall_mcamo"]];
+_militiaLoadoutData set ["helmets", ["H_MilCap_mcamo", "H_HelmetB_light_mcamo", "H_Bandanna_mcamo_hs"]];
 
 _militiaLoadoutData set ["rifles", [
 ["arifle_SA80_snd_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], ""]
@@ -393,8 +394,8 @@ _militiaLoadoutData set ["machineGuns", [
 ["LMG_Mk200_plain_F", "", "acc_flashlight", "", ["200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_snd"]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["arifle_MXM_F", "", "acc_flashlight", "optic_Hamr", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"],
-["arifle_MXM_F", "", "acc_flashlight", "optic_MRCO", ["30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag", "30Rnd_65x39_caseless_mag_Tracer"], [], "bipod_01_F_snd"]
+["arifle_SPAR_03_snd_F", "", "acc_flashlight", "optic_MRCO", [], [], "bipod_01_F_snd"],
+["arifle_SPAR_03_snd_F", "", "acc_flashlight", "optic_Hamr", [], [], "bipod_01_F_snd"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
@@ -415,6 +416,10 @@ private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_mtp_f"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_MTP_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
+
+private _traitorLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_traitorLoadoutData set ["uniforms", ["U_B_UBACS_tshirt_mtp_f"]];
+_traitorLoadoutData set ["vests", ["V_TacVest_camo"]];
 
 private _officerLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
@@ -982,6 +987,6 @@ private _unitTypes = [
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
 ["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
-["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Traitor", _traitorTemplate]], _traitorLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
 ["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

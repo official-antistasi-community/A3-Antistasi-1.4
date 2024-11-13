@@ -104,7 +104,7 @@ private _civUniforms = [
     "U_C_Uniform_Scientist_02_formal_F",
     "U_C_Uniform_Scientist_02_F",
     "U_C_Uniform_Scientist_01_F",
-    "U_C_Poor_2", //this and below be Aegis and Atlas
+    "U_C_Poor_2",   // This and below be Aegis
     "U_Jayholder",
     "U_C_Man_casual_7_F",
     "U_C_Man_casual_8_F",

@@ -212,7 +212,7 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData set ["uniforms", ["U_B_UBACS_mtp_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
+_sfLoadoutData set ["uniforms", ["U_B_UBACS_tna_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
 _sfLoadoutData set ["vests", ["Aegis_V_CarrierRigKBT_01_recon_olive_F","V_TacVest_grn"]];
 _sfLoadoutData set ["Hvests", ["Aegis_V_CarrierRigKBT_01_cqb_olive_F"]];
 _sfLoadoutData set ["backpacks", ["B_Kitbag_tna_F", "B_Carryall_tna_F", "B_TacticalPack_tna_F", "B_AssaultPack_tna_F"]];
@@ -321,9 +321,9 @@ _militaryLoadoutData set ["machineGuns", [
 ["LMG_Mk200_khk_F", "", "acc_pointer_IR", "Aegis_optic_ROS", ["200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_khk"]
 ]];
 _militaryLoadoutData set ["marksmanRifles", [
-["arifle_MXM_khk_F", "", "acc_pointer_IR", "optic_SOS_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], "bipod_01_F_khk"],
-["arifle_MXM_khk_F", "", "acc_pointer_IR", "optic_Hamr_khk_F", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], "bipod_01_F_khk"],
-["arifle_MXM_khk_F", "", "acc_pointer_IR", "optic_DMS", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], "bipod_01_F_khk"],
+["arifle_SPAR_03_khk_F", "", "acc_pointer_IR", "optic_SOS_khk_F", [], [], "bipod_01_F_khk"],
+["arifle_SPAR_03_khk_F", "", "acc_pointer_IR", "optic_Hamr_khk_F", [], [], "bipod_01_F_khk"],
+["arifle_SPAR_03_khk_F", "", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_khk"],
 ["Aegis_arifle_SR25_khk_F", "aegis_muzzle_snds_sr25_khk", "acc_pointer_IR", "optic_SOS_khk_F", [], [], "bipod_01_F_khk"],
 ["Aegis_arifle_SR25_khk_F", "aegis_muzzle_snds_sr25_khk", "acc_pointer_IR", "optic_Hamr_khk_F", [], [], "bipod_01_F_khk"],
 ["Aegis_arifle_SR25_khk_F", "aegis_muzzle_snds_sr25_khk", "acc_pointer_IR", "optic_DMS", [], [], "bipod_01_F_khk"]
@@ -361,9 +361,10 @@ _policeLoadoutData set ["sidearms", ["hgun_G17_black_F"]];
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
 _militiaLoadoutData set ["uniforms", ["U_B_UBACS_tna_f", "U_B_UBACS_vest_tna_f", "U_B_UBACS_tshirt_tna_f"]];
-_militiaLoadoutData set ["vests", ["V_Chestrig_oli", "V_CarrierRigKBT_01_Olive_F"]];
-_militiaLoadoutData set ["backpacks", ["B_AssaultPack_rgr"]];
-_militiaLoadoutData set ["helmets", ["H_HelmetB_tna_F", "H_MilCap_tna_F", "H_Bandanna_tna_hs_F"]];
+_militiaLoadoutData set ["vests", ["V_Chestrig_oli", "V_BandollierB_oli"]];
+_militiaLoadoutData set ["Hvests", ["V_TacVest_oli"]];
+_militiaLoadoutData set ["backpacks", ["B_TacticalPack_tna_F", "B_Kitbag_tna_F", "B_Carryall_tna_F"]];
+_militiaLoadoutData set ["helmets", ["H_MilCap_tna_F", "H_HelmetB_Light_tna_F", "H_Bandanna_tna_hs_F"]];
 
 _militiaLoadoutData set ["rifles", [
 ["arifle_SA80_khk_F", "", "acc_flashlight", "", ["30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag", "30Rnd_65x39_caseless_khaki_mag_Tracer"], [], ""]
@@ -381,8 +382,8 @@ _militiaLoadoutData set ["machineGuns", [
 ["LMG_Mk200_khk_F", "", "acc_flashlight", "", ["200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box","200Rnd_65x39_cased_Box_Tracer_Red"], [], "bipod_01_F_khk"]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["arifle_MXM_Black_F", "", "acc_flashlight", "optic_MRCO", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], [], "bipod_01_F_blk"],
-["arifle_MXM_Black_F", "", "acc_flashlight", "optic_Hamr", ["30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag", "30Rnd_65x39_caseless_black_mag_Tracer"], [], "bipod_01_F_blk"]
+["arifle_SPAR_03_khk_F", "", "acc_pointer_IR", "optic_MRCO", [], [], "bipod_01_F_khk"],
+["arifle_SPAR_03_khk_F", "", "acc_pointer_IR", "optic_Hamr_khk_F", [], [], "bipod_01_F_khk"]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
 ["srifle_LRR_F", "", "", "optic_SOS", [], [], ""],
@@ -403,6 +404,10 @@ private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["uniforms", ["U_B_UBACS_vest_tna_f"]];
 _pilotLoadoutData set ["vests", ["V_CarrierRigKBT_01_Olive_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O", "H_PilotHelmetHeli_O_visor_up"]];
+
+private _traitorLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_traitorLoadoutData set ["uniforms", ["U_B_UBACS_tshirt_tna_f"]];
+_traitorLoadoutData set ["vests", ["V_TacVest_camo"]];
 
 private _officerLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_B_ParadeUniform_01_US_F", "U_B_ParadeUniform_01_US_decorated_F"]];
@@ -430,17 +435,50 @@ if ("mark" in A3A_enabledDLC) then {
 	["srifle_DMR_02_F", "", "acc_pointer_IR", "optic_LRPS", [], [], "bipod_01_F_blk"],
 	["srifle_DMR_02_F", "", "acc_pointer_IR", "optic_AMS", [], [], "bipod_01_F_blk"]];
 };
+if ("rf" in A3A_enabledDLC) then {
+    (_sfLoadoutData get "sidearms") append [
+    ["hgun_Glock19_khk_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_khk_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_auto_khk_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_auto_khk_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_auto_khk_RF", "muzzle_snds_L", "acc_flashlight_IR_pistol_RF", "optic_MRD_khk_RF", [], [], ""]
+    ];
+    (_militaryLoadoutData get "sidearms") append [
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""],
+    ["hgun_Glock19_khk_RF", "", "acc_flashlight_pistol", "optic_MRD_khk_RF", [], [], ""],
+    ["hgun_Glock19_auto_khk_RF", "", "acc_flashlight_pistol", "", [], [], ""]
+    ];
+    (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
+    (_pilotLoadoutData get "uniforms") append ["U_B_HeliPilotCoveralls_MTP_RF"];
+    (_sfLoadoutData get "SMGs") append [
+    ["SMG_01_black_RF", "muzzle_snds_acp", "", "optic_Holosight", [], [], ""]
+    ];
+    (_militaryLoadoutData get "SMGs") append [
+    ["SMG_01_black_RF", "", "", "optic_Holosight", [], [], ""],
+    ["SMG_01_black_RF", "", "", "optic_Aco_smg", [], [], ""]
+    ];
+    (_militiaLoadoutData get "SMGs") append [
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "", [], [], ""]
+    ];
+    (_policeLoadoutData get "SMGs") append [
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Holosight", [], [], ""],
+    ["SMG_01_black_RF", "", "acc_flashlight_smg_01", "optic_Aco_smg", [], [], ""]
+    ];
+    (_sfLoadoutData get "helmets") append [
+    "H_HelmetB_plain_sb_tna_RF",
+    "H_HelmetHeavy_Olive_RF",
+    "H_HelmetHeavy_Simple_Olive_RF",
+    "H_HelmetHeavy_VisorUp_Olive_RF"];
+    (_militaryLoadoutData get "helmets") append ["H_HelmetB_plain_sb_tna_RF"];
+};
 
-// ##################### DO NOT TOUCH ANYTHING BELOW THIS LINE #####################
 
 /////////////////////////////////
 //    Unit Type Definitions    //
 /////////////////////////////////
-//These define the loadouts for different unit types.
-//For example, rifleman, grenadier, squad leader, etc.
-//In 95% of situations, you *should not need to edit these*.
-//Almost all factions can be set up just by modifying the loadout data above.
-//However, these exist in case you really do want to do a lot of custom alterations.
+
 
 private _squadLeaderTemplate = {
 	["slHat"] call _fnc_setHelmet;
@@ -937,6 +975,6 @@ private _unitTypes = [
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
 ["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
-["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Traitor", _traitorTemplate]], _traitorLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
 ["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

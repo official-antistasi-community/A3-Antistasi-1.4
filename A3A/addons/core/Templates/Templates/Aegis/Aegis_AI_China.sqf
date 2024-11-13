@@ -216,10 +216,10 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData;
-_sfLoadoutData set ["uniforms", ["U_O_T_Soldier_F"]];
-_sfLoadoutData set ["vests", ["V_HarnessO_ghex_F"]];
-_sfLoadoutData set ["glVests", ["V_HarnessOGL_ghex_F"]];
-_sfLoadoutData set ["Hvests", ["V_TacVest_oli"]];
+_sfLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_ghex_F", "Aegis_U_O_CombatFatigues_ghex_02_F"]];
+_sfLoadoutData set ["vests", ["Aegis_V_OCarrierLuchnik_Lite_grn_F"]];
+_sfLoadoutData set ["glVests", ["Aegis_V_OCarrierLuchnik_GL_grn_F"]];
+_sfLoadoutData set ["Hvests", ["Aegis_V_OCarrierLuchnik_CQB_grn_F"]];
 _sfLoadoutData set ["backpacks", ["B_ViperLightHarness_ghex_F", "B_ViperHarness_ghex_F"]];
 _sfLoadoutData set ["helmets", ["H_HelmetSpecO_ghex_F", "H_HelmetSpecO_blk"]];
 _sfLoadoutData set ["NVGs", ["O_NVGoggles_ghex_F"]];
@@ -381,7 +381,7 @@ _militiaLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_flashlight", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["LMG_Zafir_ghex_F", "", "acc_flashlight", "", ["150Rnd_762x54_Box", "150Rnd_762x54_Box_Tracer"], [], ""]
+["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["30Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_07_blk_F", "", "", "optic_Arco_blk_F", [], [], ""]
@@ -405,15 +405,18 @@ _pilotLoadoutData set ["uniforms", ["U_O_PilotCoveralls"]];
 _pilotLoadoutData set ["vests", ["V_Rangemaster_belt_ghex_F"]];
 _pilotLoadoutData set ["helmets", ["H_CrewHelmetHeli_O", "H_PilotHelmetHeli_O"]];
 
+private _traitorLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
+_traitorLoadoutData set ["uniforms", ["Aegis_U_O_CombatUniform_tshirt_ghex_F"]];
+_traitorLoadoutData set ["vests", ["V_TacVest_camo"]];
+
 private _officerLoadoutData = _loadoutData call _fnc_copyLoadoutData;
 _officerLoadoutData set ["uniforms", ["U_O_ParadeUniform_01_CSAT_F", "U_O_ParadeUniform_01_CSAT_decorated_F"]];
 _officerLoadoutData set ["vests", ["V_Rangemaster_belt_ghex_F"]];
 _officerLoadoutData set ["helmets", ["H_ParadeDressCap_01_CSAT_F"]];
 _officerLoadoutData set ["backpacks", []];
 _officerLoadoutData set ["SMGs", [
-["arifle_CTAR_blk_F", "", "acc_pointer_IR", "optic_Holosight_blk_F", [], [], ""],
-["arifle_CTAR_blk_F", "", "acc_pointer_IR", "optic_Aco", [], [], ""],
-["arifle_CTAR_blk_F", "", "acc_pointer_IR", "Aegis_optic_ROS", [], [], ""]
+["Aegis_arifle_AKS74_gold_F", "", "", "", [], [], ""],
+["Aegis_arifle_AK74_gold_F", "", "", "", [], [], ""]
 ]];
 
 if ("mark" in A3A_enabledDLC) then {
@@ -986,6 +989,6 @@ private _unitTypes = [
 //The following lines are determining the loadout for the unit used in the "kill the official" mission
 ["other", [["Official", _policeTemplate]], _officerLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "kill the traitor" mission
-["other", [["Traitor", _traitorTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
+["other", [["Traitor", _traitorTemplate]], _traitorLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;
 //The following lines are determining the loadout for the AI used in the "Invader Punishment" mission
 ["other", [["Unarmed", _UnarmedTemplate]], _militaryLoadoutData] call _fnc_generateAndSaveUnitsToTemplate;

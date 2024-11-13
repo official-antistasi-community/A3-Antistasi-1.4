@@ -71,8 +71,8 @@ if ("rf" in A3A_enabledDLC) then {
 
 private _initialRebelEquipment = [
     "hgun_Pistol_01_F","hgun_ACPC2_black_F",
-    "SMG_05_F","sgun_Mp153_classic_F",
-    "10Rnd_9x21_Mag","9Rnd_45ACP_Mag","30Rnd_9x21_Mag_SMG_02","4Rnd_12Gauge_Pellets","4Rnd_12Gauge_Slug","MiniGrenade","SmokeShell",
+    "sgun_Mp153_classic_F",
+    "10Rnd_9x21_Mag","9Rnd_45ACP_Mag","4Rnd_12Gauge_Pellets","4Rnd_12Gauge_Slug","MiniGrenade","SmokeShell",
     ["IEDUrbanSmall_Remote_Mag", 10], ["IEDLandSmall_Remote_Mag", 10], ["IEDUrbanBig_Remote_Mag", 3], ["IEDLandBig_Remote_Mag", 3],
     "B_FieldPack_oli","B_FieldPack_blk","B_FieldPack_ocamo","B_FieldPack_oicamo","B_FieldPack_oucamo","B_FieldPack_cbr","B_FieldPack_khk",
     "V_Chestrig_blk","V_Chestrig_rgr","V_Chestrig_khk","V_Chestrig_oli","V_ChestrigF_blk","V_ChestrigF_rgr","V_ChestrigF_khk","V_ChestrigF_oli",

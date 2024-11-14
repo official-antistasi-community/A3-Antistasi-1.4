@@ -27,8 +27,8 @@ private _cargoTrucks = ["O_R_Truck_03_transport_F","O_R_Truck_03_covered_F","O_R
 ["vehiclesFuelTrucks", ["O_R_Truck_02_fuel_F","O_R_Truck_03_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["O_R_Truck_02_medical_F","O_R_Truck_03_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-private _APCs = [];
-["vehiclesIFVs", ["Aegis_O_R_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;
+private _APCs = ["O_R_APC_Wheeled_02_rcws_v2_F", "a3a_O_R_APC_Wheeled_04_cannon_F", "a3a_O_R_APC_Wheeled_02_rcws_v2_F"];
+["vehiclesIFVs", ["a3a_Aegis_O_R_APC_Tracked_02_30mm_lxWS"]] call _fnc_saveToTemplate;
 private _Tanks = ["O_R_MBT_02_cannon_F"];
 private _AA = ["O_R_APC_Tracked_02_AA_F"];
 
@@ -76,6 +76,7 @@ private _vehiclesPolice = ["B_GEN_Offroad_01_gen_F"];
 //If Western Sahara DLC
 if ("ws" in A3A_enabledDLC) then {
 	_cargoTrucks append ["O_R_Truck_02_cargo_F","O_R_Truck_02_flatbed_F"];
+	_APCs = _APCs - ["a3a_O_R_APC_Wheeled_04_cannon_F"];
 	_APCs append ["O_R_APC_Wheeled_04_cannon_F"];
 	_AA append ["Aegis_O_R_Truck_02_aa_F"];
 };
@@ -277,7 +278,7 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData set ["uniforms", ["U_O_R_CombatUniform_taiga_F", "U_O_R_CombatUniform_taiga_F", "U_O_R_CombatUniform_tshirt_taiga_F"]];
+_militaryLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_rutaiga_F", "Aegis_U_O_CombatFatigues_02_rutaiga_F", "U_O_R_CombatUniform_tshirt_taiga_F"]];
 _militaryLoadoutData set ["slUniforms", ["U_O_R_OfficerUniform_taiga_F"]];
 _militaryLoadoutData set ["vests", ["Aegis_V_OCarrierLuchnik_Lite_F"]];
 _militaryLoadoutData set ["glVests", ["Aegis_V_OCarrierLuchnik_GL_F"]];
@@ -388,7 +389,7 @@ _militiaLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_flashlight", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["30Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""]
+["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["75Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_black_F", "", "acc_flashlight", "optic_Arco_blk_F", [], [], "bipod_02_F_blk"]

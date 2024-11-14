@@ -27,8 +27,8 @@ private _cargoTrucks = ["O_Truck_02_transport_F", "O_Truck_02_covered_F", "O_Tru
 ["vehiclesFuelTrucks", ["O_Truck_03_fuel_F", "O_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["O_Truck_02_medical_F", "O_Truck_03_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-["vehiclesAPCs", ["a3a_APC_Wheeled_02_rcws_v2_F"]] call _fnc_saveToTemplate;
-private _vehiclesIFVs = ["a3a_APC_Tracked_02_cannon_F"];
+["vehiclesAPCs", ["O_APC_Wheeled_02_rcws_v2_F", "a3a_O_APC_Wheeled_02_rcws_v2_F"]] call _fnc_saveToTemplate;
+private _vehiclesIFVs = ["a3a_O_APC_Tracked_02_cannon_F", "O_APC_Tracked_02_cannon_F"];
 ["vehiclesTanks", ["O_MBT_02_cannon_F"]] call _fnc_saveToTemplate; 
 ["vehiclesAA", ["O_APC_Tracked_02_AA_F"]] call _fnc_saveToTemplate;
 
@@ -225,10 +225,10 @@ _loadoutData set ["items_unarmed_extras", []];
 ///////////////////////////////////////
 
 private _sfLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_sfLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_F", "Aegis_U_O_CombatFatigues_02_F"]];
-_sfLoadoutData set ["vests", ["Aegis_V_OCarrierLuchnik_Lite_khk_F"]];
-_sfLoadoutData set ["glVests", ["Aegis_V_OCarrierLuchnik_GL_khk_F"]];
-_sfLoadoutData set ["Hvests", ["Aegis_V_OCarrierLuchnik_CQB_khk_F"]];
+_sfLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
+_sfLoadoutData set ["vests", ["V_HarnessO_brn", "Aegis_V_ChestrigEast_hex_F"]];
+_sfLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
+_sfLoadoutData set ["Hvests", ["V_TacVest_brn"]];
 _sfLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_ocamo", "B_AssaultPack_ocamo"]];
 _sfLoadoutData set ["helmets", ["H_HelmetSpecO_ocamo"]];
 _sfLoadoutData set ["binoculars", ["Laserdesignator_02"]];
@@ -285,11 +285,11 @@ _sfLoadoutData set ["sidearms", [
 /////////////////////////////////
 
 private _militaryLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militaryLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
+_militaryLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_F", "Aegis_U_O_CombatFatigues_02_F", "Aegis_U_O_CombatUniform_tshirt_hex_F"]];
 _militaryLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo"]];
-_militaryLoadoutData set ["vests", ["V_HarnessO_brn"]];
-_militaryLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
-_militaryLoadoutData set ["Hvests", ["V_TacVest_brn"]];
+_militaryLoadoutData set ["vests", ["Aegis_V_OCarrierLuchnik_Lite_khk_F"]];
+_militaryLoadoutData set ["glVests", ["Aegis_V_OCarrierLuchnik_GL_khk_F"]];
+_militaryLoadoutData set ["Hvests", ["Aegis_V_OCarrierLuchnik_CQB_khk_F"]];
 _militaryLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_ocamo", "B_AssaultPack_ocamo"]];
 _militaryLoadoutData set ["helmets", ["H_HelmetO_ocamo", "H_HelmetLeaderO_ocamo"]];
 _militaryLoadoutData set ["binoculars", ["Laserdesignator_02"]];
@@ -367,10 +367,10 @@ _policeLoadoutData set ["sidearms", ["hgun_Pistol_01_F"]];
 ////////////////////////////////
 
 private _militiaLoadoutData = _loadoutData call _fnc_copyLoadoutData; // touch and shit breaks
-_militiaLoadoutData set ["uniforms", ["U_O_officer_noInsignia_hex_F", "Aegis_U_O_CombatUniform_tshirt_hex_F"]];
+_militiaLoadoutData set ["uniforms", ["U_O_officer_noInsignia_hex_F"]];
 _militiaLoadoutData set ["slUniforms", ["U_O_OfficerUniform_ocamo"]];
-_militiaLoadoutData set ["vests", ["Aegis_V_ChestrigEast_hex_F", "V_BandollierB_khk"]];
-_militiaLoadoutData set ["glVests", ["Aegis_V_ChestrigEast_hex_F", "V_HarnessOGL_brn"]];
+_militiaLoadoutData set ["vests", ["V_HarnessO_brn", "Aegis_V_ChestrigEast_hex_F", "V_BandollierB_khk"]];
+_militiaLoadoutData set ["glVests", ["V_HarnessOGL_brn"]];
 _militiaLoadoutData set ["Hvests", ["V_TacVest_brn"]];
 _militiaLoadoutData set ["backpacks", ["B_TacticalPack_ocamo", "B_Carryall_ocamo", "B_FieldPack_ocamo", "B_Carryall_cbr", "B_Kitbag_cbr"]];
 _militiaLoadoutData set ["helmets", ["H_HelmetLuchnik_cover_hex_F"]];
@@ -391,7 +391,7 @@ _militiaLoadoutData set ["SMGs", [
 ["SMG_02_F", "", "acc_flashlight", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["30Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""]
+["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["75Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_F", "", "acc_flashlight", "optic_Arco_blk_F", [], [], "bipod_02_F_hex"]
@@ -406,8 +406,8 @@ _militiaLoadoutData set ["sidearms", ["hgun_Rook40_F"]];
 //////////////////////////
 
 private _crewLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
-_crewLoadoutData set ["uniforms", ["U_O_CombatUniform_ocamo"]];
-_crewLoadoutData set ["vests", ["V_HarnessO_brn"]];
+_crewLoadoutData set ["uniforms", ["Aegis_U_O_CombatFatigues_02_F"]];
+_crewLoadoutData set ["vests", ["Aegis_V_ChestrigEast_hex_F"]];
 _crewLoadoutData set ["helmets", ["H_HelmetCrew_O"]];
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;

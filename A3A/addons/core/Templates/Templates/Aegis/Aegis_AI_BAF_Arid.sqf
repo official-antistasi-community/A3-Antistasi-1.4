@@ -28,7 +28,7 @@
 ["vehiclesMedical", ["B_A_Truck_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
 ["vehiclesAPCs", ["B_A_APC_tracked_03_cannon_v2_F"]] call _fnc_saveToTemplate;
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+["vehiclesIFVs", ["a3a_B_A_APC_tracked_03_cannon_v2_F"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 

@@ -27,8 +27,8 @@ private _LightArmed = ["B_MRAP_01_hmg_F", "B_MRAP_01_hmg_F", "B_MRAP_01_gmg_F"];
 ["vehiclesFuelTrucks", ["B_Truck_01_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["B_Truck_01_medical_F", "B_APC_Wheeled_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-private _APCs = ["B_APC_Wheeled_01_cannon_v2_F", "B_APC_Tracked_01_rcws_F", "B_APC_Tracked_01_CRV_F"];           // CRV has no cargo: "B_APC_Tracked_01_CRV_F"
-["vehiclesIFVs", []] call _fnc_saveToTemplate;
+private _APCs = ["B_APC_Wheeled_01_cannon_v2_F", "B_APC_Tracked_01_rcws_F"];
+["vehiclesIFVs", ["a3a_B_APC_Wheeled_01_cannon_v2_F"]] call _fnc_saveToTemplate;
 private _Tanks = ["B_MBT_01_TUSK_F", "B_MBT_01_cannon_F"];
 ["vehiclesAA", ["B_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -84,7 +84,7 @@ if ("enoch" in A3A_enabledDLC) then {
     _vehiclesMilitiaCars append ["a3a_Offroad_01_comms_tan_F", "a3a_Offroad_01_covered_tan_F"];
 };
 if ("tanks" in A3A_enabledDLC) then {
-    ["vehiclesLightTanks", ["B_AFV_Wheeled_01_cannon_F","B_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
+    ["vehiclesLightTanks", ["a3a_AFV_Wheeled_01_cannon_F", "B_AFV_Wheeled_01_up_cannon_F"]] call _fnc_saveToTemplate;
 };
 if ("expansion" in A3A_enabledDLC) then {
     _LightUnarmed append ["B_MRAP_01_F","B_LSV_01_unarmed_F"];

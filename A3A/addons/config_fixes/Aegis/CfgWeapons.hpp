@@ -8,4 +8,3 @@ class CfgWeapons
         baseWeapon = "Aegis_arifle_AKM74_sand_F";
     };
 };
-

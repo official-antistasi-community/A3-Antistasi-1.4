@@ -21,5 +21,5 @@ class CfgPatches
 };
 
 // Uncomment when needed
-//#include "CfgVehicles.hpp" - Later for Russian BTR
+#include "CfgVehicles.hpp"
 #include "CfgWeapons.hpp"

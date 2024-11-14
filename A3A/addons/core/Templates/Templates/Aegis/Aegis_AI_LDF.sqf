@@ -27,8 +27,8 @@ private _cargoTrucks = ["I_E_Truck_02_transport_F", "I_E_Truck_02_F"];
 ["vehiclesFuelTrucks", ["I_E_Truck_02_fuel_F"]] call _fnc_saveToTemplate;
 ["vehiclesMedical", ["I_E_Truck_02_Medical_F", "Aegis_I_E_APC_Wheeled_01_medical_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightAPCs", []] call _fnc_saveToTemplate;
-private _APCs = ["Aegis_I_E_APC_Wheeled_01_cannon_v2_F"];
-["vehiclesIFVs", ["I_E_APC_tracked_03_cannon_v2_F"]] call _fnc_saveToTemplate;
+private _APCs = ["Aegis_I_E_APC_Wheeled_01_cannon_v2_F", "a3a_Aegis_I_E_APC_Wheeled_01_cannon_v2_F", "I_E_APC_tracked_03_cannon_v2_F"];
+["vehiclesIFVs", ["a3a_I_E_APC_tracked_03_cannon_v2_F"]] call _fnc_saveToTemplate;
 ["vehiclesTanks", ["Aegis_I_E_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 ["vehiclesAA", ["B_W_APC_Tracked_01_AA_F"]] call _fnc_saveToTemplate;
 
@@ -378,7 +378,7 @@ _militiaLoadoutData set ["SMGs", [
 ["SMG_03C_black", "", "", "", [], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
-["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["30Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_F", "75Rnd_762x39_Mag_Tracer_F"], [], ""]
+["arifle_RPK_F", "", "acc_flashlight_pistol", "", ["75Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_F", "30Rnd_762x39_Mag_Tracer_F"], [], ""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
 ["srifle_DMR_01_black_F", "", "acc_flashlight", "optic_Arco_blk_F", [], [], "bipod_02_F_blk"]

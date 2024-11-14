@@ -8,7 +8,7 @@
 ["flagTexture", "cwr3\general\cwr3_flags\data\fia.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "cwr3_faction_fia"] call _fnc_saveToTemplate;
 
-["vehiclesBasic", ["cwr3_c_jawa"]] call _fnc_saveToTemplate;
+["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["cwr3_i_uaz"]] call _fnc_saveToTemplate;
 ["vehiclesLightArmed", ["cwr3_i_uaz_dshkm"]] call _fnc_saveToTemplate;
 ["vehiclesTruck", ["cwr3_i_ural"]] call _fnc_saveToTemplate;

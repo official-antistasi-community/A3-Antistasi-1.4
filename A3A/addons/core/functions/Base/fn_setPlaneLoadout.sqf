@@ -13,9 +13,9 @@ FIX_LINE_NUMBERS()
 private _loadout = [];
 private _configType = switch (_type) do
 {
-	case "CAS": {"CASPlane"};
-	case "AA": {"CAPPlane"};
-	case "HELICOPTER": {"Helicopter"};
+    case "CAS": {"CASPlane"};
+    case "AA": {"CAPPlane"};
+    case "HELICOPTER": {"Helicopter"};
     default {"None"}
 };
 
@@ -26,7 +26,7 @@ if (_configType == "None") exitWith {
 private _configPath = configFile >> "A3A" >> "Loadouts" >> _configType >> typeOf _plane;
 
 if (isNull _configPath) exitWith {
-    Error_1("%1 has no loadout set, exiting", typeOf _plane);
+    Debug_1("%1 has no loadout set, exiting", typeOf _plane);
 };
 
 _loadout = getArray(_configPath >> "loadout");
@@ -44,7 +44,7 @@ if (_type == "CAS") then {
 
 if !(_loadout isEqualTo []) then
 {
-    Debug("Selected new loadout for aircraft, now equipping aircraft with it");
+    Debug("Selected new loadout for %1, now equipping %2 with it",typeOf _plane, _plane);
     {
         _plane setPylonLoadout [_forEachIndex + 1, _x, true];
         _plane setVariable ["loadout", _loadout];

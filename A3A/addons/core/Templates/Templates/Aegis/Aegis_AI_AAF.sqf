@@ -179,9 +179,7 @@ _loadoutData set ["uniforms", []];
 _loadoutData set ["slUniforms", []];
 _loadoutData set ["vests", []];
 _loadoutData set ["Hvests", []];
-_loadoutData set ["sniVests", ["V_Chestrig_oli", "V_ChestrigF_oli"]];
 _loadoutData set ["backpacks", []];
-_loadoutData set ["atBackpacks", ["B_Carryall_oli"]];
 _loadoutData set ["longRangeRadios", []];
 _loadoutData set ["helmets", []];
 _loadoutData set ["slHat", ["H_Beret_AAF_01_F"]];
@@ -721,7 +719,7 @@ private _latTemplate = {
 	[selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	[["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+	["backpacks"] call _fnc_setBackpack;
 
 	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
@@ -751,7 +749,7 @@ private _atTemplate = {
 	[selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	[["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+	["backpacks"] call _fnc_setBackpack;
 
 	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
@@ -781,7 +779,7 @@ private _aaTemplate = {
 	[selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
     ["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
-	[["atBackpacks", "backpacks"] call _fnc_fallback] call _fnc_setBackpack;
+	["backpacks"] call _fnc_setBackpack;
 
 	[selectRandom ["rifles", "carbines"]] call _fnc_setPrimary;
 	["primary", 6] call _fnc_addMagazines;
@@ -862,7 +860,7 @@ private _marksmanTemplate = {
 private _sniperTemplate = {
 	["sniHats"] call _fnc_setHelmet;
     [selectRandomWeighted [[], 1.25, "glasses", 1, "goggles", 0.75]] call _fnc_setFacewear;
-    [["sniVests","vests"] call _fnc_fallback] call _fnc_setVest;
+    ["vests"] call _fnc_setVest;
 	["uniforms"] call _fnc_setUniform;
 
 

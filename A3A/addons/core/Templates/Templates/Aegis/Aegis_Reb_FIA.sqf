@@ -8,7 +8,11 @@
 ["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
 
+<<<<<<< HEAD
 ["vehicleBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
+=======
+["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
+>>>>>>> pr/3414
 private _vehiclesLightUnarmed = ["I_G_Offroad_01_F"];
 private _vehiclesLightArmed = ["I_G_Offroad_01_armed_F"];
 ["vehiclesTruck", ["I_G_Van_01_transport_F"]] call _fnc_saveToTemplate;

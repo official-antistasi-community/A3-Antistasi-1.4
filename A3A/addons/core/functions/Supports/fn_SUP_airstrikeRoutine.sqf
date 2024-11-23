@@ -65,11 +65,6 @@ private _flightSpeed = ["LIMITED", "NORMAL", "FULL"] select (round random [1, _a
 if (_isHelicopter) then {_flightSpeed = "FULL"};
 Info_5("Airstrike %1 against %2 with %3 %4 bombs at %5 speed", _supportName, _targetPos, _bombCount, _bombType, toLower _flightSpeed);
 
-if (_isCarpetBombing) then {
-	_bombParams set [2, 5 max _bombCount];
-	_flightSpeed = "FULL";
-};
-
 _plane flyInHeight 150;
 private _minAltASL = (ATLToASL [_targetPos select 0, _targetPos select 1, 0])#2 +150;
 _plane flyInHeightASL [_minAltASL, _minAltASL, _minAltASL];
@@ -78,6 +73,16 @@ private _startBombPosition = _targetPos getPos [100, _targDir + 180];
 _startBombPosition set [2, 150];
 private _endBombPosition = _targetPos getPos [100, _targDir];
 _endBombPosition set [2, 150];
+
+if (_isCarpetBombing) then {
+    _bombParams set [2, 5 max _bombCount];
+    _flightSpeed = "FULL";
+    //Extends and wiggles the start and end position to make it feel just a little more organic
+    _startBombPosition = _startBombPosition getPos [45 + random 10, _targDir + 180];
+    _startBombPosition set [2, 150];
+    _endBombPosition = _endBombPosition getPos [45 + random 10, _targDir];
+    _endBombPosition set [2, 150];
+};
 
 private _wp2 = _group addWaypoint [_startBombPosition, 0];
 _wp2 setWaypointType "MOVE";

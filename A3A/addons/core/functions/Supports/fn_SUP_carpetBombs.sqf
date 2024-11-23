@@ -33,9 +33,9 @@ if (_delay < 0) then { _delay = (0.5 + random 1) * (350 - 15*tierWar - 1*_aggroV
 // ["_side", "_basetype", "_target", "_endtime", "_duration", "_power"]
 A3A_supportStrikes pushBack [_side, "AREA", _targPos, time + 1200, 1200, 300];
 
-[_supportName, _side, _delay, _targPos getPos [_offset, _dir+90], _airport, _resPool, _planeType, "CARPET", 0] spawn A3A_fnc_SUP_airstrikeRoutine;
+[_supportName, _side, _delay, _targPos getPos [_offset + random 2, _dir+90], _airport, _resPool, _planeType, "CARPET", 0] spawn A3A_fnc_SUP_airstrikeRoutine;
 [_supportName, _side, _delay +1, _targPos, _airport, _resPool, _planeType, "CARPET", 0] spawn A3A_fnc_SUP_airstrikeRoutine;
-[_supportName, _side, _delay +2, _targPos getPos [_offset, _dir-90], _airport, _resPool, _planeType, "CARPET", 0] spawn A3A_fnc_SUP_airstrikeRoutine;
+[_supportName, _side, _delay +2, _targPos getPos [_offset + random 2, _dir-90], _airport, _resPool, _planeType, "CARPET", 0] spawn A3A_fnc_SUP_airstrikeRoutine;
 
 [_reveal, _side, "CARPETBOMBS", _targPos, _delay] spawn A3A_fnc_showInterceptedSetupCall;
 [_reveal, _targPos, _side, "CarpetBombs", 200, 120] spawn A3A_fnc_showInterceptedSupportCall;

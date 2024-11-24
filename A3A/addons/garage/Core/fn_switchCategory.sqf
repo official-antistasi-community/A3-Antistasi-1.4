@@ -54,3 +54,5 @@ private _text = switch _index do {
 };
 _textCtrl = _disp displayCtrl HR_GRG_IDC_CatText;
 _textCtrl ctrlSetStructuredText text _text;
+
+[true] spawn HR_GRG_fnc_toggleConfirmBttn;

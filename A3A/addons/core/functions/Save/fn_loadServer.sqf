@@ -38,17 +38,25 @@ if (isServer) then {
 	["killZones"] call A3A_fnc_getStatVariable;
 	["controlsSDK"] call A3A_fnc_getStatVariable;
 	["bombRuns"] call A3A_fnc_getStatVariable;
+	["arsenalLimits"] call A3A_fnc_getStatVariable;
 	["jna_dataList"] call A3A_fnc_getStatVariable;
 	//===========================================================================
 
 	//RESTORE THE STATE OF THE 'UNLOCKED' VARIABLES USING JNA_DATALIST
+	private _categoriesToPublish = createHashMap;
 	{
 		private _arsenalTabDataArray = _x;
 		private _unlockedItemsInTab = _arsenalTabDataArray select { _x select 1 == -1 } apply { _x select 0 };
 		{
-			[_x, true] call A3A_fnc_unlockEquipment;
+			private _categories = [_x, true, true] call A3A_fnc_unlockEquipment;
+			_categoriesToPublish insert [true, _categories, []];
 		} forEach _unlockedItemsInTab;
 	} forEach jna_dataList;
+
+	Info_1("Categories to publish: %1", keys _categoriesToPublish);
+
+	// Publish the unlocked categories (once each)
+	{ publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;
 
 	if !(unlockedNVGs isEqualTo []) then {
 		haveNV = true; publicVariable "haveNV"
@@ -56,10 +64,6 @@ if (isServer) then {
 
 	//Check if we have radios unlocked and update haveRadio.
 	call A3A_fnc_checkRadiosUnlocked;
-
-	//Sort optics list so that snipers pick the right sight
-	// obsolete since rebelGear
-	//unlockedOptics = [unlockedOptics,[],{getNumber (configfile >> "CfgWeapons" >> _x >> "ItemInfo" >> "mass")},"DESCEND"] call BIS_fnc_sortBy;
 
 	// Set enemy roadblock allegiance to match nearest main marker
 	private _mainMarkers = markersX - controlsX - outpostsFIA;
@@ -100,6 +104,9 @@ if (isServer) then {
 	{_x setPos getMarkerPos respawnTeamPlayer} forEach ((call A3A_fnc_playableUnits) select {side _x == teamPlayer});
 	_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
 
+	// Move headless client logic objects near HQ so that firedNear EH etc. work more reliably
+	private _hcpos = markerPos respawnTeamPlayer vectorAdd [-100, -100, 0];
+	{ _x setPosATL _hcpos } forEach (entities "HeadlessClient_F");
 
 	tierPreference = 1;
 	publicVariable "tierPreference";

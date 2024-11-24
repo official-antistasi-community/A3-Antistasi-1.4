@@ -73,6 +73,8 @@ else            // ground vehicle
 {
     private _typeName = call {
         if (_vehType in FactionGet(all,"vehiclesTanks")) exitWith {"Tank"};
+        if (_vehType in FactionGet(all,"vehiclesLightTanks")) exitWith {"Tank"};
+        if (_vehType in FactionGet(all,"vehiclesHeavyTanks")) exitWith {"Tank"};
         if (_vehType in FactionGet(all,"vehiclesAA")) exitWith {"AA"};
         if (_vehType in FactionGet(all,"vehiclesArmor"))  exitWith {"APC"};
         if (_vehType in FactionGet(all,"vehiclesTrucks")) exitWith {"Truck"};
@@ -101,6 +103,7 @@ else            // ground vehicle
         // Vehicle has no weapons(?) and small cargo, merge crew group into cargo group
         (units _crewGroup) joinSilent _cargoGroup;
         deleteGroup _crewGroup;
+        _cargoGroup selectLeader driver _vehicle;
 
         //Create the path waypoints
         private _landPos = [_posDestination, getPosATL _vehicle, false, _landPosBlacklist] call A3A_fnc_findSafeRoadToUnload;
@@ -135,7 +138,7 @@ else            // ground vehicle
 
         //Set the waypoints for cargoGroup
         private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
-        _cargoWP0 setWaypointType "GETOUT";
+        //_cargoWP0 setWaypointType "GETOUT";
         _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
         private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 0];
         _cargoWP1 setWaypointBehaviour "AWARE";
@@ -167,7 +170,7 @@ else            // ground vehicle
 
         //Set the waypoints for cargoGroup
         private _cargoWP0 = _cargoGroup addWaypoint [_landpos, 0];
-        _cargoWP0 setWaypointType "GETOUT";
+        //_cargoWP0 setWaypointType "GETOUT";
         _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
         private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 0];
         _cargoWP1 setWaypointBehaviour "AWARE";

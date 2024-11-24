@@ -4,6 +4,7 @@ class CfgFunctions {
             file = QPATHTOFOLDER(Dev);
             class convertCargoToNew {};
             class convertNodesToNew {};
+            class drawSeats {};
             class generateCargoOffset {};
             class generateHardPoints {};
         };
@@ -27,7 +28,6 @@ class CfgFunctions {
             class getNodeConfig {};
             class getVehicleNodes {};
             class initMountedWeapon {};
-            class initPackableObjects {};
             class load {};
             class packObject {};
             class refreshVehicleLoad {};
@@ -37,7 +37,6 @@ class CfgFunctions {
             class tryLoad {};
             class unload {};
             class unpackObject {};
-            class unpackObjectAction {};
         };
     };
 };

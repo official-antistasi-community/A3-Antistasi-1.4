@@ -21,7 +21,7 @@ _suppData params ["_supportName", "_side", "_suppType", "_suppCenter", "_suppRad
 //Get available ammo count of all allowed propelled weapons
 private _ammoHM = createHashMap;
 private _loadout = _plane getVariable "loadout";
-private _weapons = [] + (_plane getVariable "rocketLauncher") + (_plane getVariable "missileLauncher");
+private _weapons = [] + (_plane getVariable ["rocketLauncher", []]) + (_plane getVariable ["missileLauncher", []]);
 {
     private _weapon = _x;
     private _magazines = getArray (configFile >> "CfgWeapons" >> _weapon >> "magazines");
@@ -34,14 +34,14 @@ private _weapons = [] + (_plane getVariable "rocketLauncher") + (_plane getVaria
     _ammoHM set [_weapon, _ammo];
 } forEach _weapons;
 _plane setVariable ["ammoCount", _ammoHM];
-Debug("Starting ammo: %1", _ammoHM);
+Debug_1("Starting ammo: %1", _ammoHM);
 
 
 // Function to calculate ammo types/quantities to use against different vehicle types
 private _fnc_getFireMatrix =
 {
     params ["_targetType", "_allowHeavyWeapon"];
-    if (_targetType in FactionGet(all,"vehiclesTanks")) exitWith
+    if (_targetType in (FactionGet(all,"vehiclesTanks") + FactionGet(all,"vehiclesHeavyTanks"))) exitWith
     {
         Debug_1("%1 target is tank", _supportName);
         if(_allowHeavyWeapon) exitWith { [[true, 25, 3, 1], [true, 25, 3, 1], [true, 35, 3, 1]] };

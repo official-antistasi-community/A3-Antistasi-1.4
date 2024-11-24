@@ -74,10 +74,16 @@ if (_isControl) then
 		if !(A3A_hasIFA) then
 			{
 			_pos = [getPos (_roads select 0), 7, _dirveh + 270] call BIS_Fnc_relPos;
-			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+			if ((worldname == "SPE_Normandy") or (worldname == "SPE_Mortain")) then {
+				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+				_bunker setDir _dirveh;
+				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+			} else {
+				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker setDir _dirveh;
+				_pos = getPosATL _bunker;
+			};
 			_vehiclesX pushBack _bunker;
-			_bunker setDir _dirveh;
-			_pos = getPosATL _bunker;
 			_typeVehX = selectRandom (_faction get "staticMGs");
 			_veh = _typeVehX createVehicle _positionX;
 			_vehiclesX pushBack _veh;
@@ -91,10 +97,27 @@ if (_isControl) then
 			_soldiers pushBack _unit;
 			sleep 1;
 			_pos = [getPos (_roads select 0), 7, _dirveh + 90] call BIS_Fnc_relPos;
-			_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
-			_vehiclesX pushBack _bunker;
-			_bunker setDir _dirveh + 180;
-			_pos = getPosATL _bunker;
+			if ((worldname == "SPE_Normandy") or (worldname == "SPE_Mortain")) then {
+				_bunker = "Land_SPE_Sandbag_Nest" createVehicle _pos;
+				_bunker setDir _dirveh + 180;
+				_pos = _bunker modelToWorld [-0.200684,-0.91333,-0.421184];
+				_vehiclesX pushBack _bunker;
+				_typeVehX = selectRandom (_faction get "staticMGs");
+				_veh = _typeVehX createVehicle _positionX;
+				_vehiclesX pushBack _veh;
+				_veh setPosATL _pos;
+				_veh setDir _dirVeh + 180;
+
+				_typeUnit = _faction get "unitStaticCrew";
+				_unit = [_groupE, _typeUnit, _positionX, [], 0, "NONE"] call A3A_fnc_createUnit;
+				_unit moveInGunner _veh;
+				_soldiers pushBack _unit;
+			} else {
+				_bunker = "Land_BagBunker_01_Small_green_F" createVehicle _pos;
+				_bunker setDir _dirveh + 180;
+				_pos = getPosATL _bunker;
+				_vehiclesX pushBack _bunker;
+			};
 			_pos = [getPos _bunker, 6, getDir _bunker] call BIS_fnc_relPos;
 			_typeVehX = _faction get "flag";
 			_veh = createVehicle [_typeVehX, _pos, [],0, "NONE"];
@@ -134,7 +157,7 @@ if (_isControl) then
 		}
 	else
 		{
-		_typeVehX = selectRandom (_faction get (if !(A3A_hasIFA) then {"vehiclesMilitiaLightArmed"} else {"vehiclesMilitiaCars"}));
+		_typeVehX = selectRandom (_faction get "vehiclesMilitiaLightArmed");
 		_veh = _typeVehX createVehicle getPos (_roads select 0);
 		_veh setDir _dirveh + 90;
 		[_veh, _sideX] call A3A_fnc_AIVEHinit;
@@ -248,8 +271,8 @@ if (spawner getVariable _markerX != 2) then
     Debug_3("Control %1 captured by %2. Is Roadblock: %3", _markerX, _winner, _isControl);
 	if (_isControl) then
 		{
-		["TaskSucceeded", ["", "Roadblock Destroyed"]] remoteExec ["BIS_fnc_showNotification",_winner];
-		["TaskFailed", ["", "Roadblock Lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
+		["TaskSucceeded", ["", localize "STR_A3A_fn_base_craicts_rbDestr"]] remoteExec ["BIS_fnc_showNotification",_winner];
+		["TaskFailed", ["", localize "STR_A3A_fn_base_roadblockFight_lost"]] remoteExec ["BIS_fnc_showNotification",_sideX];
 		};
 	if (sidesX getVariable [_markerX,sideUnknown] == Occupants) then
 		{

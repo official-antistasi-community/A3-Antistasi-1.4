@@ -14,6 +14,12 @@ FIX_LINE_NUMBERS()
 params ["_veh", "_side", "_resPool"];
 if (isNil "_veh") exitWith {};
 
+// Not a crewed vehicle, nothing to do here
+if (fullCrew [_veh, "", true] isEqualTo []) exitWith {
+	// buyable item, use initObject. Happens on game loading at the moment
+	if (typeof _veh in A3A_utilityItemHM) then { _veh call A3A_fnc_initObject };
+};
+
 if !(isNil { _veh getVariable "ownerSide" }) exitWith
 {
 	// vehicle already initialized, just swap side and exit
@@ -25,10 +31,6 @@ _veh setVariable ["ownerSide", _side, true];
 
 if (isNil "_resPool") then { _resPool = "legacy" };
 _veh setVariable ["A3A_resPool", _resPool, true];
-
-// probably just shouldn't be called for these
-if ((_veh isKindOf "Building") or (_veh isKindOf "ReammoBox_F")) exitWith {};
-//if (_veh isKindOf "ReammoBox_F") exitWith {[_veh] call A3A_fnc_NATOcrate};
 
 // this might need moving into a different function later
 if (_side == teamPlayer) then
@@ -78,7 +80,7 @@ if (_veh isKindOf "Car" or _veh isKindOf "Tank") then
 }
 else
 {
-	if ( _typeX in (FactionGet(all,"vehiclesFixedWing") + FactionGet(all,"vehiclesHelis")) ) then
+	if (_veh isKindOf "Air") then
 	{
 		_veh addEventHandler ["GetIn",
 		{
@@ -87,7 +89,7 @@ else
 			if ((!isPlayer _unit) and (_unit getVariable ["spawner",false]) and (side group _unit == teamPlayer)) then
 			{
 				moveOut _unit;
-				["General", "Only Humans can pilot an air vehicle"] call A3A_fnc_customHint;
+				[localize "STR_A3A_fn_create_aivehinit_general", localize "STR_A3A_fn_create_aivehinit_no_human"] call A3A_fnc_customHint;
 			};
 		}];
 
@@ -99,6 +101,12 @@ else
 				_veh addEventHandler ["GetOut", {private ["_veh"];_veh = _this select 0; if ((isTouchingGround _veh) and (isEngineOn _veh)) then {if (side (_this select 2) != teamPlayer) then {if (_veh getVariable "within") then {_veh setVariable ["within",false]; [_veh] call A3A_fnc_smokeCoverAuto}}}}];
 				_veh addEventHandler ["GetIn", {private ["_veh"];_veh = _this select 0; if (side (_this select 2) != teamPlayer) then {_veh setVariable ["within",true]}}];
 			};
+			_veh addEventHandler ["RopeAttach", {
+				params ["_object1", "_rope", "_object2"];
+				{
+					[_x, false] remoteExec ["setCaptive", _x];
+				} forEach crew _object1;
+			}];
 		};
 	}
 	else
@@ -142,7 +150,7 @@ if (_side == Invaders or _side == Occupants) then
 
 		// Add 1/3 cost to recent casualties list on server
 		private _vehCost = A3A_vehicleResourceCosts getOrDefault [typeof _veh, 0];
-		[_veh getVariable "ownerSide", getPos _veh, _vehCost/3] remoteExec ["A3A_fnc_addRecentDamage", 2];
+		[_veh getVariable "ownerSide", getPos _veh, _vehCost/3, _source] remoteExec ["A3A_fnc_addRecentDamage", 2];
 
 		// Attempt to call for support if there's a crew. Assume local, should be true
 		if !(isNull group _veh) then { [group _veh, _source] spawn A3A_fnc_callForSupport };
@@ -199,19 +207,6 @@ if (_side != teamPlayer) then
 		};
 		_veh removeEventHandler ["GetIn", _thisEventHandler];
 	}];
-};
-
-if(_veh isKindOf "Air") then
-{
-    //Start airspace control script if rebel player enters
-    _veh addEventHandler ["GetIn", {
-		params ["_veh", "_role", "_unit"];
-		if((side (group _unit) == teamPlayer) && {isPlayer _unit}) then
-		{
-			// TODO: check this isn't spammed
-			[_veh] spawn A3A_fnc_airspaceControl;
-		};
-    }];
 };
 
 

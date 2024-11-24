@@ -73,7 +73,7 @@ private _disabledTowns = getArray (_mapInfo/"disabledTowns");
 {server setVariable [_x select 0,_x select 1]} forEach _townPopulations;
 private _hardCodedPopulation = _townPopulations isNotEqualTo [];
 
-"(getText (_x >> ""type"") in [""NameCityCapital"", ""NameCity"", ""NameVillage"", ""CityCenter""]) &&
+"(toLower getText (_x >> ""type"") in [""namecitycapital"",""namecity"",""namevillage"",""citycenter""]) &&
 !(getText (_x >> ""Name"") isEqualTo """") &&
 !((configName _x) in _disabledTowns)"
 configClasses (configfile >> "CfgWorlds" >> worldName >> "Names") apply {
@@ -141,7 +141,7 @@ mrkAntennas = [];
 antennas = [];
 private _banktypes = ["Land_Offices_01_V1_F"];
 private _antennatypes = ["Land_TTowerBig_1_F", "Land_TTowerBig_2_F", "Land_Communication_F",
-"Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1", "Land_vn_tower_signal_01"];
+"Land_Vysilac_FM","Land_A_TVTower_base","Land_Telek1", "Land_vn_tower_signal_01","land_gm_radio_antenna_01"];
 private ["_antenna", "_mrkFinal", "_antennaProv"];
 if (debug) then {
     Debug("Setting up Radio Towers.");

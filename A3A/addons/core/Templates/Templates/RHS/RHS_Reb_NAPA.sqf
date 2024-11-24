@@ -5,8 +5,8 @@
 ["name", "NAPA"] call _fnc_saveToTemplate;
 
 ["flag", "Flag_FIA_F"] call _fnc_saveToTemplate;
-["flagTexture", "a3\data_f\flags\flag_fia_co.paa"] call _fnc_saveToTemplate;
-["flagMarkerType", "flag_FIA"] call _fnc_saveToTemplate;
+["flagTexture", "rhsgref\addons\rhsgref_main\data\Flags\flag_napa_co.paa"] call _fnc_saveToTemplate;
+["flagMarkerType", "a3a_flag_napa"] call _fnc_saveToTemplate;
 
 ["vehiclesBasic", ["I_G_Quadbike_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesLightUnarmed", ["rhsgref_tla_offroad", "rhsgref_nat_uaz_open", "rhsgref_nat_uaz"]] call _fnc_saveToTemplate;
@@ -23,7 +23,7 @@
 ["vehiclesCivCar", ["C_Offroad_01_F", "C_Hatchback_01_F", "C_Hatchback_01_sport_F", "C_SUV_01_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivTruck", ["RHS_Ural_Open_Civ_01", "C_Van_01_transport_F", "C_Van_02_transport_F", "C_Van_02_vehicle_F"]] call _fnc_saveToTemplate;
 ["vehiclesCivHeli", ["RHS_Mi8t_civilian"]] call _fnc_saveToTemplate;
-["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat"]] call _fnc_saveToTemplate;
+["vehiclesCivBoat", ["C_Boat_Civil_01_F", "C_Rubberboat", "rhsgref_civ_canoe"]] call _fnc_saveToTemplate;
 
 ["staticMGs", ["rhsgref_nat_DSHKM",  "rhsgref_nat_DSHKM_Mini_TriPod", "rhsgref_nat_NSV_TriPod", "rhs_KORD_high_VMF"]] call _fnc_saveToTemplate;
 ["staticAT", ["rhsgref_nat_SPG9"]] call _fnc_saveToTemplate;
@@ -75,8 +75,6 @@ private _rebUniforms = [
     "rhsgref_uniform_dpm_olive",
     "rhsgref_uniform_3color_desert",
     "rhsgref_uniform_gorka_1_f",
-    "rhsgref_uniform_TLA_1",
-    "rhsgref_uniform_TLA_2",
     "rhs_insurgent_uniform_1",
     "rhs_insurgent_uniform_2",
     "rhs_insurgent_uniform_3",
@@ -140,6 +138,7 @@ if (allowDLCExpansion) then {_dlcUniforms append [
 "WhiteHead_12", "WhiteHead_13", "WhiteHead_14", "WhiteHead_15", "WhiteHead_16",
 "WhiteHead_17", "WhiteHead_19", "WhiteHead_20", "WhiteHead_21"]] call _fnc_saveToTemplate;
 ["voices", ["RHS_Male01CZ", "RHS_Male02CZ", "RHS_Male03CZ", "RHS_Male04CZ", "RHS_Male05CZ"]] call _fnc_saveToTemplate;
+"CzechMen" call _fnc_saveNames;
 
 //////////////////////////
 //       Loadouts       //

@@ -34,6 +34,7 @@ _helicopter flyInHeight _midHeight;
 waitUntil {sleep 1; (_helicopter distance2D _landPos) < 600};
 
 _helicopter flyInHeight 0;                  // helps to keep it near the ground after landing
+_helicopter land "LAND";                    // also drops the gear on the huron
 
 // Landing path setup
 private _endPos = getPosASL _landPad;

@@ -32,7 +32,7 @@ private _fnc_addSecondaryAndMags = {
 
     private _compatOptics = A3A_rebelOpticsCache get _weapon;
     if (isNil "_compatOptics") then {
-        private _compatItems = [_weapon] call BIS_fnc_compatibleItems;		// cached, should be fast
+        private _compatItems = compatibleItems _weapon;		// cached, should be fast
         _compatOptics = _compatItems arrayIntersect (A3A_rebelGear get "OpticsAll");
         A3A_rebelOpticsCache set [_weapon, _compatOptics];
     };
@@ -139,6 +139,18 @@ switch (true) do
 //			[_unit, "LIB_PTRD", 100] call _addSecondaryAndMags;
 //		};
     };
+    case (_unitType isEqualTo FactionGet(reb,"unitAT")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAT");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
+    };
+    case (_unitType isEqualTo FactionGet(reb,"unitAA")): {
+        [_unit, "Rifles", 40] call A3A_fnc_randomRifle;
+
+        private _launcher = selectRandomWeighted (A3A_rebelGear get "MissileLaunchersAA");
+        if !(isNil "_launcher") then { [_unit, _launcher, 100] call _fnc_addSecondaryAndMags };
+    };
     case (_unitType isEqualTo FactionGet(reb,"unitSL")): {
         [_unit, "Rifles", 50] call A3A_fnc_randomRifle;
         if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 2] };
@@ -158,7 +170,7 @@ else {
     private _weapon = primaryWeapon _unit;
     private _compatLights = A3A_rebelFlashlightsCache get _weapon;
     if (isNil "_compatLights") then {
-        private _compatItems = [_weapon] call BIS_fnc_compatibleItems;		// cached, should be fast
+        private _compatItems = compatibleItems _weapon;		// cached, should be fast
         _compatLights = _compatItems arrayIntersect (A3A_rebelGear get "LightAttachments");
         A3A_rebelFlashlightsCache set [_weapon, _compatLights];
     };

@@ -164,7 +164,7 @@ _itemCounts =+ _availableItems;
 		_item = _x select 0;
 		_amount = (_x select 1);
 		if (_amount != -1 && !_isMember) then {
-			_itemMin = A3A_arsenalLimits getOrDefault [_item, _arrayMin];
+			_itemMin = A3A_arsenalLimits getOrDefault [_item, [_arrayMin]] select 0;
 			if (_isMagArray) then { _itemMin = _itemMin * getNumber (configfile >> "CfgMagazines" >> _item >> "count") };
 			_subArray set [_foreachindex, [_item, (_amount - _itemMin) max 0]];
 		};
@@ -473,11 +473,11 @@ _reportReplaced = "";
 {
 	_nameNew = [_x select 0] call _lookupConfigName;
 	_nameOld = [_x select 1] call _lookupConfigName;
-	_reportReplaced = _reportReplaced + _nameOld + " has been kept, because there is no " + _nameNew + "\n";
+	_reportReplaced = _reportReplaced + _nameOld + localize "STR_A3A_JNA_loadinventory_kept" + "<br/>" + _nameNew + "\n";
 } forEach _arrayReplaced;
 
 if!(_reportReplaced isEqualTo "")then{
-	_reportTotal = ("These items were not in the Arsenal, so the originals have been kept:\n" + _reportReplaced+"\n");
+	_reportTotal = (localize "STR_A3A_JNA_loadinventory_notin_kept" + "<br/>" + _reportReplaced +"\n");
 };
 
 _reportMissing = "";
@@ -488,7 +488,7 @@ _reportMissing = "";
 }forEach _arrayMissing;
 
 if!(_reportMissing isEqualTo "")then{
-	_reportTotal = (_reportTotal+"These items were not in the Arsenal:\n" + _reportMissing+"\n");
+	_reportTotal = (_reportTotal + localize "STR_A3A_JNA_loadinventory_notin" + _reportMissing+"\n");
 };
 
 if!(_reportTotal isEqualTo "")then{

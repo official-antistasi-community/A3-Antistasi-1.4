@@ -60,11 +60,15 @@ fnc_clear_actions=
 	player setVariable [idActionRemoveTeleport, nil];
 };
 
+//teleport this player and his squad except other players in his squad
 fnc_teleport= 
 {
 	private _destinPos = getPosATL destinationPole;
 	{	
-		_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+		if(_x == player || !(isPlayer _x)) then 
+		{
+			_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+		}
 	} forEach units group player;
 };
 

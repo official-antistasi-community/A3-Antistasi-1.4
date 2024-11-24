@@ -22,7 +22,9 @@
 params ["_container"];
 scopeName "Main";
 
-["Loot crate", "Looting..."] call A3A_fnc_customHint;
+private _titleStr = localize "STR_A3A_fn_ltc_title";
+
+[_titleStr, localize "STR_A3A_fn_ltc_ltc_looting"] call A3A_fnc_customHint;
 
 //break undercover
 player setCaptive false;
@@ -34,7 +36,7 @@ if (LTCLootUnlocked) then {
     _unlocked = (unlockedHeadgear + unlockedVests + unlockedNVGs + unlockedOptics + unlockedItems + unlockedWeapons + unlockedBackpacks + unlockedMagazines);
 };
 
-//AGN change
+// AGN change
 _targets = nearestObjects [getposATL _container, ["Man"], 100];
 _weaponHolders = nearestObjects [getposATL _container, ["WeaponHolder","WeaponHolderSimulated"], 100];
 
@@ -48,12 +50,11 @@ _lootBodies = {
 
     private _gear = [[],[],[],[]];//weapons, mags, items, backpacks
     //build list of all gear
-    _weapons = [handgunWeapon _unit];
-    _attachments = handgunItems _unit;
 
-    _weapons = _weapons select {!(_x isEqualTo "")};
+    _weapons = weapons _unit;
     {(_gear#0) pushBack (_x call BIS_fnc_baseWeapon)} forEach _weapons;
-    _attachments = _attachments select {!(_x isEqualTo "")};
+
+    _attachments = primaryWeaponItems _unit + secondaryWeaponItems _unit + handgunItems _unit - [""];
     (_gear#2) append _attachments;
 
     (_gear#2) append assignedItems _unit;
@@ -86,7 +87,7 @@ _lootBodies = {
     };
 
     if !(backpack _unit isEqualTo "") then {
-        (_gear#3) pushBack ((backpack _unit) call BIS_fnc_basicBackpack);
+        (_gear#3) pushBack ((backpack _unit) call A3A_fnc_basicBackpack);
         removeBackpackGlobal _unit;
     };
 
@@ -126,6 +127,7 @@ _lootBodies = {
     if (_remaining isEqualTo [[],[],[],[]]) exitWith {};
     _pos = getPos _unit;
     _container = "GroundWeaponHolder" createVehicle _pos;
+    [_container, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
     {
         _container addWeaponCargoGlobal [_x, 1];
     } forEach (_remaining#0);
@@ -161,6 +163,7 @@ _allUnlockedArray = [];
     if !(_remainder isEqualTo [[],[],[],[]]) then {
 
         _newContainer = "GroundWeaponHolder" createVehicle _pos;
+        [_newContainer, true] remoteExec ["A3A_fnc_postmortem", 2];        // clean up once players move away
 
         _remainder params ["_weaponsArray", "_magsArray", "_itemsArray", "_backpacksArray"];
 
@@ -197,9 +200,9 @@ _allUnlockedArray = [];
 } forEach _weaponHolders;
 
 if ((_allUnlockedArray findIf {!_x} isEqualTo -1)) then {
-    ["Loot crate", "Nearby loot transfered to crate."] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_ltc_ltc_transfered"] call A3A_fnc_customHint;
 } else {
-    ["Loot crate", "Unable to transfer all nearby loot."] call A3A_fnc_customHint;
+    [_titleStr, localize "STR_A3A_fn_ltc_ltc_notrans"] call A3A_fnc_customHint;
 };
 
 [_container, clientOwner, true] remoteExecCall ["A3A_fnc_canLoot", 2];

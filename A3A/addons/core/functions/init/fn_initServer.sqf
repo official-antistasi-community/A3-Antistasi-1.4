@@ -6,15 +6,18 @@ logLevel = "LogLevel" call BIS_fnc_getParamValue; publicVariable "logLevel"; //S
 A3A_logDebugConsole = "A3A_logDebugConsole" call BIS_fnc_getParamValue; publicVariable "A3A_logDebugConsole";
 
 Info("Server init started");
+A3A_serverVersion = QUOTE(VERSION); publicVariable "A3A_serverVersion";
 Info_1("Server version: %1", QUOTE(VERSION_FULL));
 
 // ********************** Pre-setup init ****************************************************
 
 if (isClass (missionConfigFile/"CfgFunctions"/"A3A")) exitWith {};          // Pre-mod mission will break. Messaging handled in initPreJIP
+if (!requiredVersion QUOTE(REQUIRED_VERSION)) exitWith { Error("Arma version is out of date") };
 if (call A3A_fnc_modBlacklist) exitWith {};
 
 // hide all the HQ objects
 {
+    _x enableRopeAttach false;
     _x allowDamage false;
     _x hideObjectGlobal true;
 } forEach [boxX, flagX, vehicleBox, fireX, mapX, petros];
@@ -22,6 +25,8 @@ if (call A3A_fnc_modBlacklist) exitWith {};
 switch (toLower worldname) do {
 	case "cam_lao_nam": {};
 	case "vn_khe_sanh": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	case "spe_normandy": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
+	case "spe_mortain": {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.paa"];};
 	default {mapX setObjectTextureGlobal [0,"Pictures\Mission\whiteboard.jpg"];};
 };
 
@@ -74,6 +79,11 @@ private _savedParamsHM = createHashMapFromArray (A3A_saveData get "params");
 {
     if (getArray (_x/"texts") isEqualTo [""]) then { continue };                // spacer/title
     private _val = _savedParamsHM getOrDefault [configName _x, getNumber (_x/"default")];
+    if (getArray (_x/"values") isEqualTo [0,1]) then {
+        if (_val isEqualType 0) then { _val = _val != 0 };                      // number -> bool
+    } else {
+        if (_val isEqualType false) then { _val = [0, 1] select _val };         // bool -> number
+    };
     missionNamespace setVariable [configName _x, _val, true];                   // just publish them all, doesn't really hurt
 } forEach ("true" configClasses (configFile/"A3A"/"Params"));
 
@@ -115,13 +125,27 @@ else
     // Fill out garrisons, set sides/names as appropriate
     call A3A_fnc_initGarrisons;
 
+    Info("Starting item unlocks");
+
     // Do initial arsenal filling
+    private _categoriesToPublish = createHashMap;
+    private _addedClasses = createHashMap;       // dupe proofing
     {
-		if (_x isEqualType "") then { _x call A3A_fnc_unlockEquipment; continue };
-		_x params ["_class", "_count"];
-		private _arsenalTab = _class call jn_fnc_arsenal_itemType;
-		[_arsenalTab, _class, _count] call jn_fnc_arsenal_addItem;
+        _x params ["_class", ["_count", -1]];
+        if (_class in _addedClasses) then { continue };
+        _addedClasses set [_class, nil];
+
+        private _arsenalTab = _class call jn_fnc_arsenal_itemType;
+        jna_dataList#_arsenalTab pushBack [_class, _count];         // direct add to avoid O(N^2) issue
+
+        private _categories = _class call A3A_fnc_equipmentClassToCategories;
+        { (missionNamespace getVariable ("unlocked" + _x)) pushBack _class } forEach _categories;
+        _categoriesToPublish insert [true, _categories, []];
+
     } foreach FactionGet(reb,"initialRebelEquipment");
+
+    // Publish the unlocked categories (once each)
+    { publicVariable ("unlocked" + _x) } forEach keys _categoriesToPublish;
 
     Info("Initial arsenal unlocks completed");
     call A3A_fnc_checkRadiosUnlocked;
@@ -173,20 +197,22 @@ if (isClass (configFile >> "AntistasiServerMembers")) then
 if (isPlayer A3A_setupPlayer) then {
     // Add current admin (setupPlayer) to members list and make them commander
     membersX pushBackUnique getPlayerUID A3A_setupPlayer;
-    theBoss = A3A_setupPlayer; publicVariable "theBoss";
+    theBoss = A3A_setupPlayer;
 };
 
-//add admin as member if not on loggin
+// Add admin as member on state change
 addMissionEventHandler ["OnUserAdminStateChanged", {
     params ["_networkId", "_loggedIn", "_votedIn"];
-    private _uid = (getUserInfo _networkId)#2;
-    if !(_uid in membersX) then {
-        membersX pushBackUnique (getUserInfo _networkId)#2;
+    private _userInfo = getUserInfo _networkId;
+    if (_userInfo isEqualTo []) exitWith {};            // happens on disconnections, apparently
+    if !(_userInfo#2 in membersX) then {
+        membersX pushBackUnique _userInfo#2;
         publicVariable "membersX";
     };
 }];
 
 publicVariable "membersX";
+publicVariable "theBoss";       // need to publish this even if empty
 
 
 // Needs params + factions. Might depend on saved data in the future
@@ -205,7 +231,14 @@ call A3A_fnc_createPetros;
 //HandleDisconnect doesn't get 'owner' param, so we can't use it to handle headless client disconnects.
 addMissionEventHandler ["HandleDisconnect",{_this call A3A_fnc_onPlayerDisconnect;false}];
 //PlayerDisconnected doesn't get access to the unit, so we shouldn't use it to handle saving.
-addMissionEventHandler ["PlayerDisconnected",{_this call A3A_fnc_onHeadlessClientDisconnect;false}];
+addMissionEventHandler ["PlayerDisconnected",{
+    // Remove player from arsenal in case they disconnected while in it
+    private _temp = server getVariable ["jna_playersInArsenal",[]];
+    _temp = _temp - [param [4]];
+    server setVariable ["jna_playersInArsenal",_temp,true];
+    _this call A3A_fnc_onHeadlessClientDisconnect;
+    false;
+}];
 
 addMissionEventHandler ["BuildingChanged", {
     params ["_oldBuilding", "_newBuilding", "_isRuin"];
@@ -234,19 +267,59 @@ addMissionEventHandler ["EntityKilled", {
 
     if !(isNil {_victim getVariable "ownerSide"}) then {
         // Antistasi-created vehicle
-        [_victim, _killerSide, false] call A3A_fnc_vehKilledOrCaptured;
+        [_victim, _killerSide, false, _killer] call A3A_fnc_vehKilledOrCaptured;
         [_victim] spawn A3A_fnc_postmortem;
     };
 }];
 
+if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
+    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
+    // disable lambs danger fsm entrypoint
+    ["CAManBase", "InitPost", {
+        params ["_unit"];
+        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
+        _unit setVariable ["lambs_danger_disableAI", true];
+    }] call CBA_fnc_addClassEventHandler;
+};
 
+// Could replace these with entityCreated handler instead...
+if(A3A_hasZen) then {
+    ["zen_common_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+if (A3A_hasACE) then {
+    ["ace_zeus_createZeus", {
+        _this spawn {
+            params ["_unit"];
+
+            // wait in case our event was called first
+            waitUntil {sleep 1; !isNull getAssignedCuratorLogic _unit};
+
+            //now add the logging to the module
+            [[getAssignedCuratorLogic _unit]] remoteExecCall ["A3A_fnc_initZeusLogging",0];
+        };
+    }] call CBA_fnc_addEventHandler;
+};
+
+
+A3A_startupState = "completed"; publicVariable "A3A_startupState";
 serverInitDone = true; publicVariable "serverInitDone";
 Info("Setting serverInitDone as true");
-A3A_startupState = "completed"; publicVariable "A3A_startupState";
 
 
 // ********************* Initialize loops *******************************************
 
+[] spawn A3A_fnc_postmortemLoop;                    // Postmortem cleanup loop
 [] spawn A3A_fnc_distance;                          // Marker spawn loop
 [] spawn A3A_fnc_resourcecheck;                     // 10-minute loop
 [] spawn A3A_fnc_aggressionUpdateLoop;              // 1-minute loop
@@ -287,14 +360,5 @@ savingServer = false;           // enable saving
     };
 };
 
-if ((isClass (configfile >> "CBA_Extended_EventHandlers")) && (
-    isClass (configfile >> "CfgPatches" >> "lambs_danger"))) then {
-    // disable lambs danger fsm entrypoint
-    ["CAManBase", "InitPost", {
-        params ["_unit"];
-        (group _unit) setVariable ["lambs_danger_disableGroupAI", true];
-        _unit setVariable ["lambs_danger_disableAI", true];
-    }] call CBA_fnc_addClassEventHandler;
-};
 
 Info("initServer completed");

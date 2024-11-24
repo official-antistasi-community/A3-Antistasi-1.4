@@ -4,10 +4,10 @@ if (!isServer) exitWith {
     Error("Miscalled server-only function");
 };
 
-if (savingServer) exitWith {["Save Game", "Server data save is still in progress..."] remoteExecCall ["A3A_fnc_customHint",theBoss]};
+if (savingServer) exitWith {[localize "STR_A3A_fn_save_saveLoop_title1", localize "STR_A3A_fn_save_saveLoop_progress"] remoteExecCall ["A3A_fnc_customHint",theBoss]};
 savingServer = true;
 Info("Starting persistent save");
-["Persistent Save","Starting persistent save..."] remoteExecCall ["A3A_fnc_customHint",0,false];
+[localize "STR_A3A_fn_save_saveLoop_title2",localize "STR_A3A_fn_save_saveLoop_saving"] remoteExecCall ["A3A_fnc_customHint",0,false];
 
 // Set next autosave time, so that we won't run another shortly after a manual save
 autoSaveTime = time + autoSaveInterval;
@@ -87,6 +87,7 @@ private _antennasDeadPositions = [];
 ["maxUnits", 140] call A3A_fnc_setStatVariable;				        // backwards compatibility
 ["nextTick", nextTick - time] call A3A_fnc_setStatVariable;
 ["weather",[fogParams,rain]] call A3A_fnc_setStatVariable;
+["arsenalLimits", A3A_arsenalLimits] call A3A_fnc_setStatVariable;
 private _destroyedPositions = destroyedBuildings apply { getPosATL _x };
 ["destroyedBuildings",_destroyedPositions] call A3A_fnc_setStatVariable;
 
@@ -134,40 +135,45 @@ _vehInGarage = _vehInGarage + vehInGarage;
 ["vehInGarage", _vehInGarage] call A3A_fnc_setStatVariable;
 ["HR_Garage", [] call HR_GRG_fnc_getSaveData] call A3A_fnc_setStatVariable;
 
-private _saveOverrides = [];
-_saveOverrides pushBackUnique ((A3A_faction_reb get 'vehicleFuelTank')#0);
-
 _arrayEst = [];
 {
-	_veh = _x;
-	_typeVehX = typeOf _veh;
-	if ((_veh distance getMarkerPos respawnTeamPlayer < 50) and !(_veh in staticsToSave) and !(_typeVehX in ["ACE_SandbagObject","Land_FoodSacks_01_cargo_brown_F","Land_Pallet_F"])) then {
-		if (((not (_veh isKindOf "StaticWeapon")) and (not (_veh isKindOf "ReammoBox")) and (not (_veh isKindOf "ReammoBox_F")) and (not(_veh isKindOf "Building"))) and (count attachedObjects _veh == 0) and (alive _veh) and ({(alive _x) and (!isPlayer _x)} count crew _veh == 0) and (not(_typeVehX == "WeaponHolderSimulated"))) then {
-			_posVeh = getPosWorld _veh;
-			_xVectorUp = vectorUp _veh;
-			_xVectorDir = vectorDir _veh;
-            private _state = [_veh] call HR_GRG_fnc_getState;
-			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir, _state];
-		};
-		if(_typeVehX in _saveOverrides) then {
-			_posVeh = getPosWorld _veh;
-			_xVectorUp = vectorUp _veh;
-			_xVectorDir = vectorDir _veh;
-			private _state = [_veh] call HR_GRG_fnc_getState;
-			_arrayEst pushBack [_typeVehX,_posVeh,_xVectorUp,_xVectorDir, _state];
-		};
+	// Include buyable items marked as saveable
+	// TODO: Do we need to refund the others?
+	if (typeof _x in A3A_utilityItemHM and {"save" in (A3A_utilityItemHM get typeof _x)#4}) then {
+		_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
+		continue;
 	};
-} forEach vehicles - [boxX,flagX,fireX,vehicleBox,mapX];
 
-_sites = markersX select {sidesX getVariable [_x,sideUnknown] == teamPlayer};
+	if (fullCrew [_x, "", true] isEqualTo []) then { continue };			// no crew seats, not in utilityItems, not saved
+	if (_x isKindOf "StaticWeapon") then { continue };						// static weapons are accounted for in staticsToSave
+	if ({(alive _x) and (!isPlayer _x)} count crew _x > 0) then { continue };		// no AI-crewed vehicles, those are refunded
+
+	_arrayEst pushBack [typeof _x, getPosWorld _x, vectorUp _x, vectorDir _x, [_x] call HR_GRG_fnc_getState];
+
+} forEach (vehicles inAreaArray [markerPos respawnTeamPlayer, 50, 50] select { alive _x });
+
 {
-	_positionX = position _x;
-	if ((alive _x) and !(surfaceIsWater _positionX) and !(isNull _x)) then {
+	if ((alive _x) and !(surfaceIsWater position _x) and (isNull attachedTo _x)) then {
 		_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
 	};
 } forEach staticsToSave;
 
+private _rebMarkers = (airportsX + outposts + seaports + factories + resourcesX) select { sidesX getVariable _x == teamPlayer };
+_rebMarkers append outpostsFIA; _rebMarkers pushBack "Synd_HQ";
+{
+	// Ignore if outside mission distance (temporary)
+	if (!alive _x or (_x distance2d markerPos "Synd_HQ" > distanceMission)) then { continue };
+
+	// Ignore if not within a rebel marker
+	private _building = _x;
+	private _indexes = _rebMarkers inAreaArrayIndexes [getPosATL _x, 500, 500];
+	if (-1 == _indexes findIf { _building inArea _rebMarkers#_x } ) then { continue };
+
+	_arrayEst pushBack [typeOf _x,getPosWorld _x,vectorUp _x, vectorDir _x];
+} forEach A3A_buildingsToSave;
+
 ["staticsX", _arrayEst] call A3A_fnc_setStatVariable;
+
 [] call A3A_fnc_arsenalManage;
 
 _jna_dataList = [];
@@ -370,6 +376,6 @@ _fuelAmountleftArray = [];
 if (_saveToNewNamespace) then { saveMissionProfileNamespace } else { saveProfileNamespace };
 
 savingServer = false;
-_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," Assets:<br/><t color='#f0d498'>HR: ",_hrBackground toFixed 0,"<br/>Money: ",_resourcesBackground toFixed 0," €</t></t><br/><br/>Further infomation is provided in <t color='#f0d498'>Map Screen > Game Options > Persistent Save-game</t>."] joinString "";
-["Persistent Save",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
+_saveHintText = ["<t size='1.5'>",FactionGet(reb,"name")," ",localize "STR_A3A_fn_save_saveLoop_text_asset"," ",_hrBackground toFixed 0,localize "STR_A3A_fn_save_saveLoop_text_money"," ",_resourcesBackground toFixed 0," ",localize "STR_A3A_fn_save_saveLoop_text_options"] joinString "";
+[localize "STR_A3A_fn_save_saveLoop_title2",_saveHintText] remoteExecCall ["A3A_fnc_customHint",0,false];
 Info("Persistent Save Completed");

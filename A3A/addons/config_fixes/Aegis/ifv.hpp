@@ -149,11 +149,12 @@ class a3a_Aegis_O_R_APC_Tracked_02_30mm_lxWS : Aegis_O_R_APC_Tracked_02_30mm_lxW
 };
 
 // Bogatyr //
-class Wheeled_APC_F;
-class APC_Wheeled_04_base_F : Wheeled_APC_F { class Turrets; };
-class O_R_APC_Wheeled_04_cannon_F : APC_Wheeled_04_base_F { class EventHandlers; class Turrets : Turrets { class MainTurret; }; };
-class a3a_O_R_APC_Wheeled_04_cannon_F : O_R_APC_Wheeled_04_cannon_F
+class APC_Wheeled_04_base_F;
+class O_R_APC_Wheeled_04_cannon_F : APC_Wheeled_04_base_F { class Turrets;};
+class a3a_O_R_APC_Wheeled_04_cannon_base : O_R_APC_Wheeled_04_cannon_F { scope = 0; class EventHandlers; class Turrets : Turrets { class MainTurret; }; };
+class a3a_O_R_APC_Wheeled_04_cannon_F : a3a_O_R_APC_Wheeled_04_cannon_base
 {
+    scope = 2;
     class EventHandlers : EventHandlers
     {
         init = "if (local (_this select 0)) then {[(_this select 0), """", [], false] call bis_fnc_initVehicle;};";

@@ -48,7 +48,9 @@ if (_popKilled > (_popTotal / 3)) then {
     isNil { ["ended", true] call A3A_fnc_writebackSaveVar };
     ["destroyedSites",false,true] remoteExec ["BIS_fnc_endMission"];
 };
-if ((_popReb > _popGov) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {
-    isNil { ["ended", true] call A3A_fnc_writebackSaveVar };
-    ["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0];
-};
+
+// AGN change
+// if ((_popReb > _popGov) and ({sidesX getVariable [_x,sideUnknown] == teamPlayer} count airportsX == count airportsX)) then {
+//     isNil { ["ended", true] call A3A_fnc_writebackSaveVar };
+//     ["end1",true,true,true,true] remoteExec ["BIS_fnc_endMission",0];
+// };

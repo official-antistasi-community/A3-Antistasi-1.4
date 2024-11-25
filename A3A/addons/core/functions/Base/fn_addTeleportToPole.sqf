@@ -64,7 +64,7 @@ fnc_clear_actions=
 fnc_teleport=
 {
 	private _destinPos = getPosATL destinationPole;
-	if (player == 	leader (group player)) then {
+	if (player == leader (group player)) then {
 		{	
 			if ( !(isPlayer _x) || _x == player) then {
    

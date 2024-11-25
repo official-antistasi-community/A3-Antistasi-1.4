@@ -1,4 +1,4 @@
-//AGN change
+	//AGN change
 /*
  *	Attaches teleport system to existing mast (flag). Teleport can also teleport player's group.
  *	
@@ -60,16 +60,21 @@ fnc_clear_actions=
 	player setVariable [idActionRemoveTeleport, nil];
 };
 
-//teleport this player and his squad except other players in his squad
-fnc_teleport= 
+//teleport this player and his squad except other players in his squad																  
+fnc_teleport=
 {
 	private _destinPos = getPosATL destinationPole;
-	{	
-		if(_x == player || !(isPlayer _x)) then 
-		{
-			_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
-		}
-	} forEach units group player;
+	if (player == 	leader (group player)) then {
+		{	
+			if ( !(isPlayer _x) || _x == player) then {
+   
+				_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+			}
+		} forEach units group player;
+	}
+	else {
+		player setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+	}
 };
 
 fnc_addTeleport= 

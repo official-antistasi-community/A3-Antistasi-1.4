@@ -1,4 +1,4 @@
-	//AGN change
+//AGN change
 /*
  *	Attaches teleport system to existing mast (flag). Teleport can also teleport player's group.
  *	
@@ -31,8 +31,9 @@ if(isNil "destinationPole") then
 	destinationPole = objNull; 
 };
 
-interactionDistance = 5;			//meters
-target = 0;							//where to run command
+interactionDistance = 5; //meters
+target = 0; //where to run command
+vicinityToLeader = 30; //how far team member should be from leader to be teleported
 
 idActionTeleport = "idActionTeleport";
 idActionAddTeleport = "idActionAddTeleport";
@@ -61,16 +62,22 @@ fnc_clear_actions=
 };
 
 //teleport this player and his squad except other players in his squad																  
-fnc_teleport=
+fnc_teleport= 
 {
 	private _destinPos = getPosATL destinationPole;
-	if (player == leader (group player)) then {
-		{	
-			if ( !(isPlayer _x) || _x == player) then {
-   
-				_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+	private _grp = group player;
+	private _candidates = [];
+
+	if (player == leader _grp) then {
+		{
+			if ( (!(isPlayer _x) && (_x distance player) < vicinityToLeader) || _x == player) then { // is AI or calling player
+				_candidates = _candidates + [_x];
 			}
-		} forEach units group player;
+		} forEach units _grp;
+				
+		{
+			_x setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
+		} forEach _candidates;
 	}
 	else {
 		player setpos [(_destinPos select 0) + random [-10, 0, 10], (_destinPos select 1) + random [-10, 0, 10], 0.2]; 
@@ -114,7 +121,8 @@ if (!(isNull teleportFormerAdmin)) then {
 };
 
 if(isNull destinationPole) then 
-{	if((player == teleportAdmin) && isNil{player getVariable idActionAddTeleport}) then 
+{	
+	if((player == teleportAdmin) && isNil{player getVariable idActionAddTeleport}) then 
 	{	
 		player setVariable [idActionAddTeleport, player addAction actionAddTeleport];
 		call fnc_publish_vars;

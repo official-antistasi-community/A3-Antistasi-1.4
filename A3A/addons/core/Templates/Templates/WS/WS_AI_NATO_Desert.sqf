@@ -553,11 +553,11 @@ if ("rf" in A3A_enabledDLC) then {
     (_policeLoadoutData get "sidearms") append ["hgun_Glock19_RF"];
     (_pilotLoadoutData get "uniforms") append ["U_B_HeliPilotCoveralls_MTP_RF"];
     (_sfLoadoutData get "helmets") append [
-    "H_HelmetB_plain_sb_mtp_RF",
+    "H_HelmetB_plain_sb_khaki_RF",
     "H_HelmetHeavy_Sand_RF",
     "H_HelmetHeavy_Simple_Sand_RF",
     "H_HelmetHeavy_VisorUp_Sand_RF"];
-    (_militaryLoadoutData get "helmets") append ["H_HelmetB_plain_sb_mtp_RF"];
+    (_militaryLoadoutData get "helmets") append ["H_HelmetB_plain_sb_khaki_RF"];
 };
 
 

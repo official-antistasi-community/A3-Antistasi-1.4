@@ -251,6 +251,34 @@ class Templates
         shortName = "NATO";
         lore = $STR_A3A_templates_lore_NATO;     
     };
+	
+    class EF_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"EF_Data"};
+        logo = "\ef\ef_data\logos\arma3_ef_logo_ca.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\EF); //the path to the template folder
+        priority = 5;
+        forceDLC[] = {"ef"};
+    };
+
+    class EF_MJTF_Arid : EF_Base
+    {
+        side = "Occ";
+        flagTexture = "\ef\ef_data\data\Flag_29thMEU_CO.paa";
+        name = "EF MJTF Arid";
+        file = "EF_AI_MJTF_Arid";
+        shortName = "MJTF";
+        lore = $STR_A3A_templates_lore_NATO;     
+        climate[] = {"arid", "arctic"};
+    };
+    
+    class EF_MJTF_Temperate : EF_MJTF_Arid
+    {
+        name = "EF MJTF Temperate";
+        file = "EF_AI_MJTF_Temperate";  
+        climate[] = {"temperate", "tropical"};
+    };
+
     // ***************************** VN *****************************
 
     class VN_Base

@@ -1581,6 +1581,59 @@ class Templates
         shortName = "Civilian";
         lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
     };
+
+    // ***************************** SPE with SPEX *****************************
+
+    class SPEX_Base
+    {
+        requiredAddons[] = {"ww2_spe_assets_c_characters_germans_c","WW2_SPEX_Assets_c_Characters_Americans_c"};
+        basepath = QPATHTOFOLDER(Templates\Templates\SPEX);
+        logo = QPATHTOFOLDER(Templates\Templates\SPEX\spe_logo.paa);
+        priority = 80;
+        equipFlags[] = {"lowTech"};
+        forceDLC[] = {"spe"};
+    };
+
+    class SPEX_US : SPEX_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_us.paa);
+        name = "SPEX US";
+        file = "SPEX_AI_US";
+        shortName = "US";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_US;
+    };
+
+    class SPEX_WEH : SPEX_Base
+    {
+        side = "Occ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_ger.paa);
+        name = "SPEX WEH";
+        file = "SPEX_AI_WEH";
+        shortName = "WEH";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_WEH;
+    };
+
+    class SPEX_Reb : SPEX_Base
+    {
+        side = "Reb";
+        flagTexture = "\WW2\SPE_Core_t\Data_t\Flags\flag_FFF_co.paa";
+        name = "SPEX FFF";
+        file = "SPEX_Reb_FFF";
+        shortName = "FFF"; // Free French Forces
+        lore = $STR_A3A_templates_lore_SPE_IFA_Reb_FFF;
+    };
+
+    class SPEX_CIV : SPEX_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_fr.paa);
+        name = "SPEX Civs";
+        file = "SPEX_CIV";
+        shortName = "Civilian";
+        lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
+    };
+
      // ***************************** CWR *****************************
 
     class CWR_Base

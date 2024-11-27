@@ -108,6 +108,12 @@ if ("rf" in A3A_enabledDLC) then {
     
     ["vehiclesAirPatrol", ["B_Heli_light_03_unarmed_RF", "B_Heli_Light_01_F"]] call _fnc_saveToTemplate;
 };
+if ("ef" in A3A_enabledDLC) then {
+    _LightArmed append ["EF_B_MRAP_01_FSV_NATO", "EF_B_MRAP_01_AT_NATO", "EF_B_MRAP_01_LAAD_NATO"];
+    ["vehiclesAA", ["B_APC_Tracked_01_AA_F", "EF_B_MRAP_01_LAAD_NATO"]] call _fnc_saveToTemplate;
+    ["vehiclesGunBoats", ["EF_B_CombatBoat_HMG_CTRG", "EF_B_CombatBoat_AT_CTRG"]] call _fnc_saveToTemplate;
+    ["vehiclesHelisAttack", ["B_Heli_Attack_01_dynamicLoadout_F", "EF_B_AH99J_NATO"]] call _fnc_saveToTemplate;
+};
 
 ["vehiclesPolice", _vehiclesPolice] call _fnc_saveToTemplate;
 

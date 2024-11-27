@@ -64,6 +64,10 @@ class A3A {
         class Helicopter
         {
             class baseHelicopter;
+            class B_Heli_Light_01_dynamicLoadout_F : baseHelicopter {
+                loadout[] = { "PylonRack_12Rnd_missiles","PylonRack_12Rnd_PG_missiles" };
+            };
+            class a3a_Heli_Light_01_ION_F : B_Heli_Light_01_dynamicLoadout_F {};
             class B_Heli_Attack_01_dynamicLoadout_F : baseHelicopter {
                 loadout[] = { "PylonMissile_1Rnd_LG_scalpel","PylonMissile_1Rnd_LG_scalpel","PylonRack_12Rnd_missiles","PylonRack_12Rnd_missiles","PylonMissile_1Rnd_LG_scalpel","PylonMissile_1Rnd_LG_scalpel" };
             };

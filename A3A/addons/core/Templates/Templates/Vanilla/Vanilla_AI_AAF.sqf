@@ -96,7 +96,6 @@ if ("orange" in A3A_enabledDLC) then {
 };
 if ("ef" in A3A_enabledDLC) then {
     ["vehiclesGunBoats", ["EF_I_CombatBoat_HMG_AAF", "EF_I_CombatBoat_AT_AAF"]] call _fnc_saveToTemplate;
-    _vehiclesHelisAttack append ["EF_B_AH99J_NATO"];
 };
 if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];

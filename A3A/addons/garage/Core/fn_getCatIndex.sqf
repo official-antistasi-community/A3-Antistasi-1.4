@@ -39,7 +39,7 @@ switch (true) do {
     case (_editorCat in ["EdSubcat_Helicopters"] || getNumber (configOf _vehicle >> "vtol") > 0): { 4 };
     //case (getNumber (configOf _vehicle >> "vtol") > 0): { 5 };
     case (_editorCat in ["EdSubcat_Planes"] && (getNumber (configOf _vehicle >> "vtol") == 0)): { 5 };
-    case (_editorCat isEqualTo "EdSubcat_Boats") || (_editorCat isEqualTo "EdSubcat_Submersibles"): { 6 };
+    case (_editorCat isEqualTo "EdSubcat_Boats" || _editorCat isEqualTo "EdSubcat_Submersibles"): { 6 };
     case (_editorCat isEqualTo "EdSubcat_Turrets"): { 7 };
 
     //rhs

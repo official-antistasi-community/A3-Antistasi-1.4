@@ -16,6 +16,7 @@
 #define TEXT_SIZE_SMALL GRID_NOUISCALE_H * 2
 #define TEXT_SIZE_MEDIUM GRID_NOUISCALE_H * 2.4
 #define TEXT_SIZE_LARGE GRID_NOUISCALE_H * 3
+#define TEXT_SIZE_HUGE GRID_NOUISCALE_H * 5
 
 //-- Category --\\
 #define HR_GRG_IDC_CatUndercoverCar 1700100
@@ -64,6 +65,7 @@
 #define HR_GRG_IDC_SourcePanelAmmo 1700141
 #define HR_GRG_IDC_SourcePanelFuel 1700142
 #define HR_GRG_IDC_SourcePanelRepair 1700143
+#define HR_GRG_IDC_OriginsPanel 1700015
 #define HR_GRG_IDC_CatText 170016
 #define HR_GRG_IDC_ExtrasText 170017
 #define HR_GRG_IDC_KeyBindHint 170018
@@ -76,8 +78,9 @@
 #define AnimationsIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayArcadeMap\icon_debug_ca.paa"
 #define PylonsIcon "\a3\ui_f\data\GUI\Cfg\Hints\warhead_types_ca.paa"
 
+#define HideVicIcon "\a3\ui_f\data\IGUI\Cfg\simpleTasks\types\unknown_ca.paa"
 #define CarIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayGarage\car_ca.paa"
-#define APCIcon "\A3\armor_f_gamma\APC_Wheeled_03\Data\UI\map_APC_Wheeled_03_CA.paa"
+#define APCIcon "\A3\armor_f_gamma\APC_Wheeled_03\data\UI\APC_Wheeled_03_ca.paa"
 #define ArmoredIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayGarage\tank_ca.paa"
 #define UnmannedIcon "\A3\Drones_F\soft_f_gamma\UGV_01\Data\UI\portrait_UGV_01_CA.paa"
 #define HeliIcon "\a3\ui_f\data\GUI\Rsc\RscDisplayGarage\helicopter_ca.paa"

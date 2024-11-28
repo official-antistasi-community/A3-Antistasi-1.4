@@ -398,6 +398,29 @@ class HR_GRG_VehicleSelect
             };
         };
 
+        // Origins Panel
+        class HR_GRG_OriginslWrapper: HR_GRG_RscControlsGroup
+        {
+            x = SCREEN_RIGHT - 81 * GRID_NOUISCALE_W;
+            y = SCREEN_BOTTOM - 7 * GRID_NOUISCALE_H;
+            w = 43 * GRID_NOUISCALE_W;
+            h = 7 * GRID_NOUISCALE_H;
+            size = TEXT_SIZE_MEDIUM;
+
+            class controls
+            {
+                class HR_GRG_OriginsPanel: HR_GRG_RscStructuredText
+                {
+                    idc = HR_GRG_IDC_OriginsPanel;
+                    x = 0;
+                    y = 0;
+                    w = 43 * GRID_NOUISCALE_W;
+                    h = 7 * GRID_NOUISCALE_H;
+                    size = TEXT_SIZE_HUGE;
+                };
+            };
+        };
+
         // Info Panel
         class HR_GRG_InfoPanelWrapper: HR_GRG_RscControlsGroup
         {

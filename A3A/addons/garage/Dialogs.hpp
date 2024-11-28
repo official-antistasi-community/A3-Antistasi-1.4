@@ -401,7 +401,7 @@ class HR_GRG_VehicleSelect
         // Origins Panel
         class HR_GRG_OriginslWrapper: HR_GRG_RscControlsGroup
         {
-            x = SCREEN_RIGHT - 81 * GRID_NOUISCALE_W;
+            x = SCREEN_RIGHT - 82 * GRID_NOUISCALE_W;
             y = SCREEN_BOTTOM - 7 * GRID_NOUISCALE_H;
             w = 43 * GRID_NOUISCALE_W;
             h = 7 * GRID_NOUISCALE_H;

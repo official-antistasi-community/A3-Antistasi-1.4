@@ -264,7 +264,7 @@ Info("Setting up faction and DLC equipment flags");
 
 // Arma bug: Need to hardcode CDLC because arma3.cfg mod loading method doesn't register CDLC as "official"
 private _loadedDLC = getLoadedModsInfo select { (_x#2) and !(_x#1 in ["A3","curator","argo","tacops"]) };
-_loadedDLC append (getLoadedModsInfo select { tolower (_x#1) in ["gm", "rf", "spe", "vn", "ws"] });
+_loadedDLC append (getLoadedModsInfo select { tolower (_x#1) in ["ef", "gm", "rf", "spe", "vn", "ws"] });
 _loadedDLC = _loadedDLC apply { tolower (_x#1) };
 
 // Set enabled & disabled DLC/CDLC arrays for faction/equipment modification

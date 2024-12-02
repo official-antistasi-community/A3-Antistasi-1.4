@@ -17,6 +17,10 @@ private _updateLoadouts = isNil "A3A_rebelLoadouts" or { A3A_rebelLoadouts get "
 if !(_updateGear or _updateLoadouts) exitWith {};
 
 if (_updateGear) then {
+    // Create/clear local accessory-compatibility caches
+    A3A_rebelOpticsCache = createHashMap;
+    A3A_rebelFlashlightsCache = createHashMap;
+
     Info("Fetching new version of rebelGear data...");
     [clientOwner, "A3A_rebelGear"] remoteExecCall ["publicVariableClient", 2];
 };
@@ -29,9 +33,3 @@ waitUntil { sleep 0.5;
     and !isNil "A3A_rebelLoadouts" and { A3A_rebelLoadouts get "Version" == A3A_rebelLoadoutsVersion };
 };
 Info("New version of rebelGear data received");
-
-// Create/clear local accessory-compatibility caches
-if (_updateGear) then {
-    A3A_rebelOpticsCache = createHashMap;
-    A3A_rebelFlashlightsCache = createHashMap;
-};

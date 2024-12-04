@@ -233,7 +233,7 @@ if (!_busy) then
 
 				{
 					private _vehs = _faction get _x;
-					if(count _vehs == 0) then {continue};
+					if (_vehs isEqualTo []) then {continue};
 					private _weight = (_typeWeight select _forEachIndex) / count _vehs;
 					{
 						_vehPool append [_x, _weight];
@@ -310,7 +310,7 @@ if (!_busy) then
 
 	{
 		private _vehs = _faction get _x;
-		if(count _vehs == 0) then {continue};
+		if (_vehs isEqualTo []) then {continue};
 		private _weight = (_typeWeight select _forEachIndex) / count _vehs;
 		{
 			_vehPool append [_x, _weight];
@@ -359,7 +359,7 @@ private _typeWeight = [
 
 {
 	private _vehs = _faction get _x;
-	if(count _vehs == 0) then {continue};
+	if(_vehs isEqualTo []) then {continue};
 	private _weight = (_typeWeight select _forEachIndex) / count _vehs;
 	{
 		_vehPool append [_x, _weight];

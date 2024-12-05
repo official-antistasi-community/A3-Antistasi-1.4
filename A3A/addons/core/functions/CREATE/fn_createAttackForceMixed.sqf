@@ -1,6 +1,6 @@
 /*  
 Maintainer: John Jordan
-    Create mixed air/land attack force
+    Create mixed air/land/sea attack force
 
 Scope: Server or HC
 Environment: Scheduled (potential long sleeps, returns after last vehicle spawned)
@@ -36,6 +36,49 @@ private _resourcesSpent = 0;
 private _vehicles = [];
 private _crewGroups = [];
 private _cargoGroups = [];
+
+// Decision to try to send a naval counterpart
+private _checkRadius = 100;
+private _nearWaterPos = 0;
+diag_log "set up  vars";
+while {_checkRadius < 500} do {
+    private _checkFrequency = linearConversion [10, 500, _checkRadius, 6, 100];
+    private _checkAngleIncrement = 360 / _checkFrequency;
+    private _contCheckAngle = 0;
+    private _finalPos = 0;
+    diag_log format ["_checkFrequency: %1 _checkAngleIncrement: %2",_checkFrequency, _checkAngleIncrement];
+    for "_i" from 1 to (round _checkAngleIncrement) do {
+        private _checkPos = _targPos getPos [_checkRadius, _contCheckAngle];
+        diag_log _checkPos;
+        if (surfaceIsWater _checkPos) exitWith {diag_log "found water"; _finalPos = _checkPos};
+        _contCheckAngle = _contCheckAngle + _checkAngleIncrement;
+        diag_log format ["_checkPos: %1, is water: %2, _newCheckAngle: %3",_checkPos, surfaceIsWater _checkPos, _contCheckAngle];
+    };
+    if (_finalPos isEqualType []) exitWith {diag_log "found water"; _nearWaterPos = _finalPos};
+    _checkRadius = _checkRadius + 10;
+    diag_log format ["new check radius: %1",_checkRadius];
+};
+if (debug) then {_nearWaterPos = _targPos;};
+private _waterDistance = 0;
+private _naval = false;
+diag_log _nearWaterPos;
+diag_log typeName _nearWaterPos;
+diag_log typeName [];
+diag_log _nearWaterPos isEqualType [];
+if (_nearWaterPos isEqualType []) then {
+    diag_log "is near water";
+    _waterDistance = _targPos distance2D _nearWaterPos;
+    diag_log _waterDistance;
+    _naval = if (_waterDistance > 400) then {false} else {
+        diag_log "is naval";
+        private _navalProb = 1100 + _waterDistance;
+        if (random _navalProb < 1100) then {true}; // at max usable distance (400) 73% chance of sending naval counterpart
+    };
+} else {
+    diag_log "is not near water";
+};
+//TINYTODO Remove this
+Debug_2("Water distance %1 Naval %2",_waterDistance,_naval)
 
 private _landRatio = if ("airboost" in _modifiers) then {     // punishment, HQ attack
     if (_lowAir) exitWith { 0.5 + random 0.5 };
@@ -122,6 +165,28 @@ if (_airBase != "") then            // uh, is that a thing
     [-(_data#0), _side, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
 
     ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x});
+};
+
+if (_naval) then
+{ // For now, boats dont play into any strength calculation and just take resources
+    private _navalSpawn = [seaAttackSpawn,_nearWaterPos] call BIS_fnc_nearestPosition;
+    Info_3("Attempted to perform naval spawn for drop point %1 at spawn point %2 distance %3 ",_nearWaterPos,_navalSpawn,_nearWaterPos distance2D getMarkerPos _navalSpawn)
+    if (_nearWaterPos distance2D getMarkerPos _navalSpawn > 4000) exitWith {Info("Naval attack aborted")};
+    private _boatCount = round (_vehCount / 5);
+    private _attackRatio = 0.3 + tierWar/30;
+    private _attackCount = round (_boatCount * _attackRatio);
+    private _troops = ["Normal", "SpecOps"] select ("specops" in _modifiers);
+    ServerDebug_3("Attempting to spawn %1 sea vehicles including %2 attack from %3", _boatCount, _attackCount, _navalSpawn);
+
+    private _data = [_side, _navalSpawn, _nearWaterPos, _resPool, _boatCount, _attackCount, _tier, _troops,_nearWaterPos] call A3A_fnc_createAttackForceSea;
+    _resourcesSpent = _resourcesSpent + _data#0;
+    _vehicles append _data#1;
+    _crewGroups append _data#2;
+    _cargoGroups append _data#3;
+
+    [-(_data#0), _side, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
+
+    ServerInfo_1("Spawn performed: Sea vehicles %1", _data#1 apply {typeOf _x});
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

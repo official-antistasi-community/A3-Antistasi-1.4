@@ -11,7 +11,8 @@ private _badModelHM = [
 "misc_palletsfoiled_heap.p3d",
 "toilet.p3d",
 "misc_cargo_cont_small2.p3d",
-"seacrate.p3d"
+"seacrate.p3d",
+"fort_rampart.p3d"
 ] createHashMapFromArray [];
 _allTerrainObjects = _allTerrainObjects select {(getModelInfo _x #0) in _badModelHM;};
 { _x hideObjectGlobal true } forEach _allTerrainObjects;

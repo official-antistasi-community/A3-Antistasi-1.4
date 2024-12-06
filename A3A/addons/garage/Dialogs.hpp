@@ -145,7 +145,7 @@ class HR_GRG_VehicleSelect
             y = SCREEN_TOP;
             w = 10 * GRID_NOUISCALE_W;
             h = 4 * GRID_NOUISCALE_H;
-            text = A3A_Icon_HideVic;
+            text = HideVicIcon;
             tooltip = $STR_HR_GRG_Generic_Cars;
             action = "[0] call HR_GRG_fnc_switchCategory;";
         };

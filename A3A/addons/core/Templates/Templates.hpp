@@ -251,6 +251,34 @@ class Templates
         shortName = "NATO";
         lore = $STR_A3A_templates_lore_NATO;     
     };
+	
+    class EF_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"EF_Data"};
+        logo = "\ef\ef_data\logos\arma3_ef_logo_ca.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\EF); //the path to the template folder
+        priority = 5;
+        forceDLC[] = {"ef"};
+    };
+
+    class EF_MJTF_Arid : EF_Base
+    {
+        side = "Occ";
+        flagTexture = "\ef\ef_data\data\Flag_29thMEU_CO.paa";
+        name = "EF MJTF Arid";
+        file = "EF_AI_MJTF_Arid";
+        shortName = "MJTF";
+        lore = $STR_A3A_templates_lore_NATO;     
+        climate[] = {"arid", "arctic"};
+    };
+    
+    class EF_MJTF_Temperate : EF_MJTF_Arid
+    {
+        name = "EF MJTF Temperate";
+        file = "EF_AI_MJTF_Temperate";  
+        climate[] = {"temperate", "tropical"};
+    };
+
     // ***************************** VN *****************************
 
     class VN_Base
@@ -301,6 +329,129 @@ class Templates
         file = "VN_Civ";
         shortName = "Civilian";
         lore = $STR_A3A_templates_lore_VN_Civ;
+    };
+
+    // ***************************** Aegis *****************************
+    class Aegis_Base : Vanilla_Base
+    {
+        requiredAddons[] = {"A3_Aegis_Weapons_F_Aegis"};
+        logo = "\A3_Aegis\Data_F_Aegis\Logos\arma3_aegis_logo_CA.paa";
+        basepath = QPATHTOFOLDER(Templates\Templates\Aegis)
+        priority = 25;
+    };
+
+    class Aegis_Iran : Aegis_Base
+    {
+        side = "Inv";
+        flagTexture = "\A3_Aegis\Data_F_Aegis\Flags\flag_Iran_CO.paa";
+        name = "Aegis Iran";
+        file = "Aegis_AI_Iran";
+        climate[] = {"arid", "arctic"};
+    };
+    class Aegis_China : Aegis_Iran
+    {
+        flagTexture = "\A3_Aegis\Data_F_Aegis\Flags\flag_China_CO.paa";
+        name = "Aegis China";
+        file = "Aegis_AI_China";
+        climate[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
+    class Aegis_Russia : Aegis_Iran
+    {
+        flagTexture = "a3_aegis\data_f_aegis\flags\flag_rus_co.paa";
+        name = "Aegis Russia";
+        file = "Aegis_AI_Russia";
+        climate[] = {"temperate"};
+        forceDLC[] = {"enoch"};
+    };
+    class Aegis_US_Arid : Aegis_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3_Aegis\data_f_aegis\Flags\flag_USA_51_CO.paa";
+        name = "Aegis US Arid";
+        file = "Aegis_AI_US_Arid";
+        climate[] = {"arid"};
+    };
+    class Aegis_US_Tropical : Aegis_US_Arid
+    {
+        name = "Aegis US Tropical";
+        file = "Aegis_AI_US_Tropical";
+        climate[] = {"tropical"};
+    };
+    class Aegis_US_Temperate : Aegis_US_Arid
+    {
+        name = "Aegis US Temperate";
+        file = "Aegis_AI_US_Temperate";
+        climate[] = {"temperate", "arctic"};
+    };
+    class Aegis_BAF_Arid : Aegis_Base
+    {
+        side = "Occ";
+        flagTexture = "\A3\Data_F\Flags\Flag_uk_CO.paa";
+        name = "Aegis BAF Arid";
+        file = "Aegis_AI_BAF_Arid";
+        climate[] = {"arid"};
+        forceDLC[] = {"enoch"};
+    };
+    class Aegis_BAF_Tropical : Aegis_BAF_Arid
+    {
+        name = "Aegis BAF Tropical";
+        file = "Aegis_AI_BAF_Tropical";
+        climate[] = {"tropical"};
+        forceDLC[] = {"enoch"};
+    };
+    class Aegis_BAF_Temperate : Aegis_BAF_Arid
+    {
+        name = "Aegis BAF Temperate";
+        file = "Aegis_AI_BAF_Temperate";
+        climate[] = {"temperate", "arctic"};
+        forceDLC[] = {"enoch"};
+    };
+    class Aegis_LDF : Aegis_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f_enoch\flags\flag_enoch_co.paa";
+        name = "Aegis LDF";
+        file = "Aegis_AI_LDF";
+        maps[] = {"enoch","vt7"};
+        climate[] = {"temperate"};
+        forceDLC[] = {"enoch"};
+    };
+    class Aegis_AAF : Aegis_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
+        name = "Aegis AAF";
+        file = "Aegis_AI_AAF";
+        maps[] = {"altis"};
+        climate[] = {"arid"};
+    };
+
+    class Aegis_FIA : Aegis_Base
+    {
+        side = "Reb";
+        flagTexture = "a3\data_f\flags\flag_fia_co.paa";
+        name = "Aegis FIA";
+        file = "Aegis_Reb_FIA";
+    };
+
+    class Aegis_SDK : Aegis_Base
+    {
+        side = "Reb";
+        flagTexture = "\A3\Data_F_exp\Flags\Flag_Synd_CO.paa";
+        name = "Aegis SDK";
+        file = "Aegis_Reb_SDK";
+        maps[] = {"Tanoa"};
+        climate[] = {"tropical"};
+        forceDLC[] = {"expansion"};
+    };
+
+    class Aegis_Civ : Aegis_Base
+    {
+        side = "Civ";
+        flagTexture = "a3\data_f\flags\flag_aaf_co.paa";
+        name = "Aegis";
+        file = "Aegis_Civ";
     };
 
     // ***************************** RHS *****************************
@@ -1458,6 +1609,59 @@ class Templates
         shortName = "Civilian";
         lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
     };
+
+    // ***************************** SPE with SPEX *****************************
+
+    class SPEX_Base
+    {
+        requiredAddons[] = {"ww2_spe_assets_c_characters_germans_c","WW2_SPEX_Assets_c_Characters_Americans_c"};
+        basepath = QPATHTOFOLDER(Templates\Templates\SPEX);
+        logo = QPATHTOFOLDER(Templates\Templates\SPEX\spe_logo.paa);
+        priority = 80;
+        equipFlags[] = {"lowTech"};
+        forceDLC[] = {"spe"};
+    };
+
+    class SPEX_US : SPEX_Base
+    {
+        side = "Inv";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_us.paa);
+        name = "SPEX US";
+        file = "SPEX_AI_US";
+        shortName = "US";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_US;
+    };
+
+    class SPEX_WEH : SPEX_Base
+    {
+        side = "Occ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_ger.paa);
+        name = "SPEX WEH";
+        file = "SPEX_AI_WEH";
+        shortName = "WEH";
+        lore = $STR_A3A_templates_lore_SPE_IFA_AI_WEH;
+    };
+
+    class SPEX_Reb : SPEX_Base
+    {
+        side = "Reb";
+        flagTexture = "\WW2\SPE_Core_t\Data_t\Flags\flag_FFF_co.paa";
+        name = "SPEX FFF";
+        file = "SPEX_Reb_FFF";
+        shortName = "FFF"; // Free French Forces
+        lore = $STR_A3A_templates_lore_SPE_IFA_Reb_FFF;
+    };
+
+    class SPEX_CIV : SPEX_Base
+    {
+        side = "Civ";
+        flagTexture = QPATHTOFOLDER(Templates\Templates\SPEX\flag_fr.paa);
+        name = "SPEX Civs";
+        file = "SPEX_CIV";
+        shortName = "Civilian";
+        lore = $STR_A3A_templates_lore_SPE_IFA_CIV;
+    };
+
      // ***************************** CWR *****************************
 
     class CWR_Base

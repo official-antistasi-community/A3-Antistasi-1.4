@@ -32,7 +32,7 @@ private _cargoTrucks = ["I_Truck_02_transport_F", "I_Truck_02_covered_F"];
 ["vehiclesTanks", ["I_MBT_03_cannon_F"]] call _fnc_saveToTemplate;
 private _AA = ["I_LT_01_AA_F"];
 
-["vehiclesTransportBoats", ["I_Boat_Transport_01_F"]] call _fnc_saveToTemplate;
+["vehiclesTransportBoats", ["I_Boat_Transport_01_F", "I_C_Boat_Transport_02_F"]] call _fnc_saveToTemplate;
 ["vehiclesGunBoats", ["I_Boat_Armed_01_minigun_F"]] call _fnc_saveToTemplate;
 ["vehiclesAmphibious", ["I_APC_Wheeled_03_cannon_F", "I_MRAP_03_hmg_F", "I_MRAP_03_gmg_F", "I_MRAP_03_F"]] call _fnc_saveToTemplate;
 
@@ -94,6 +94,9 @@ if ("enoch" in A3A_enabledDLC) then {
 if ("orange" in A3A_enabledDLC) then {
     _vehiclesPolice append ["B_GEN_Van_02_vehicle_F","B_GEN_Van_02_transport_F"];
 };
+if ("ef" in A3A_enabledDLC) then {
+    ["vehiclesGunBoats", ["EF_I_CombatBoat_HMG_AAF", "EF_I_CombatBoat_AT_AAF"]] call _fnc_saveToTemplate;
+};
 if ("rf" in A3A_enabledDLC) then {
     _vehiclesPolice append ["a3a_police_Pickup_rf", "B_GEN_Pickup_covered_rf", "a3a_police_Pickup_comms_rf"];
     _vehiclesHelisTransport append ["I_Heli_EC_01A_military_RF"];
@@ -103,6 +106,7 @@ if ("rf" in A3A_enabledDLC) then {
     _vehiclesMilitiaCars append ["I_Pickup_rf"];
     _vehiclesMilitiaLightArmed append ["I_Pickup_mmg_rf","I_Pickup_hmg_rf"];
 };
+
 ["vehiclesHelisLight", _vehiclesHelisLight] call _fnc_saveToTemplate;
 ["vehiclesHelisTransport", _vehiclesHelisTransport] call _fnc_saveToTemplate;
 ["vehiclesHelisLightAttack", _vehiclesHelisLightAttack] call _fnc_saveToTemplate;

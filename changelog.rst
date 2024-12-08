@@ -3,6 +3,99 @@ Changelog
 ==========
 
 
+Version 3.8.0
+===============
+
+.. note::
+   xxth December 2024
+
+.. admonition:: Major
+
+   * :issue:`3441` & :issue:`3442` Added Expeditionary Forces MJTF factions plus Vanilla and Western Sahara compatibility
+   * :issue:`3392` Added UI and supporting code to set custom loadouts for rebel troops
+
+.. admonition:: Minor
+
+   * :issue:`3376` Changed to have more frequent militia vehicles/transports early game
+   * :issue:`3388` Implemented mortar/artillery support ranging shot and walking barrage
+   * :issue:`3389` Added injector success and UID logging
+   * :issue:`3430` Turned Carpet bombing into triple airstrike
+ 
+.. admonition:: Template updates
+
+   * :issue:`3182` Added 3CB CSAT Scimitar, Gryphon, Bear, and Viper regiment
+   * :issue:`3407` Updated Vanilla/WS Factions, fine tuning, officer loadouts, further RF integration on missed factions
+   * :issue:`3413` & :issue:`3429` Added CWR3 Factions Templates
+   * :issue:`3414` Added Aegis Factions Compatibility
+   * :issue:`3428` Added SPEX Factions Templates
+   * :issue:`3442` Added 3CBF weapon integration into RHS factions
+   * :issue:`3437` Updated IFA Faction Templates
+   * :issue:`3451` Fixed CUP template in BAF, ION
+   * :issue:`3452` Updated 3CB Ranger and fixed artillery
+
+.. admonition:: Terrain updates
+
+   * :issue:`3424` & :issue:`3448` Updated Isla Duala to hide "bad" objects and cull obsolete enemy locations
+
+.. admonition:: Bugfixes
+
+   * :issue:`3386` Flattened out support responses and block support calls for mine kills
+   * :issue:`3390` Fixed HQ actions being available through remote controls
+   * :issue:`3393` Fixed skill upgrade tooltip not updating
+   * :issue:`3395` Fixed errors caused by tags function
+   * :issue:`3397` Fixed arsenal not clearing client IDs on disconnect
+   * :issue:`3402` Prevented rebels AIs being equipped with VN melee weapons
+   * :issue:`3406` Fixed base class for srifle_GM6_snake_lxWS
+   * :issue:`3418` Fixed precedence error in mortar/arty support routine
+   * :issue:`3416` Fixed custom WS Kamaz Textures
+   * :issue:`3436` Fixed debug line in fn_setPlaneLoadout.sqf
+   * :issue:`3443` Fixed EF CDLC detection
+   * :issue:`3446` Fixed wrong owner check in fn_addBombRun.sqf
+   * :issue:`3455` Fixed and optimized spawner selection
+
+.. admonition:: Groundwork
+
+   * :issue:`3423` Added Helicopter Config Loadout capability
+
+.. admonition:: Localization
+
+   * [No PRs] - Unfortunately no updates due to pipeline issues.
+
+.. admonition:: Tools
+
+   * :issue:`3401` Added Seat drawing dev function
+
+.. admonition:: Refactor
+
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
+Version 3.7.1
+===============
+
+.. note::
+   8th October 2024
+
+.. admonition:: Bugfixes
+
+   * :issue:`3409` Fix CUP disposable missile launchers breaking init after CBA 3.18 update
+
+.. warning::
+
+   * Please note that this changelog may contain both spelling/grammatical errors and/or factual errors. Should any factual errors exist, we apologise but with the sheer number of changes made per version it can be easy to lose or mistake a change when writing up the changelog.
+
+|
+
+-----
+
+
 Version 3.7.0
 ===============
 

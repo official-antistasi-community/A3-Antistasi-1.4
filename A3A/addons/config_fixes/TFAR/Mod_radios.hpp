@@ -2,58 +2,51 @@
 // TFAR backpacks from other mods/CDLCs than vanilla and TFAR alone
 
 // CWR3
-class cwr3_b_backpack_radio;
+class cwr3_b_backpack_alice_base;
 
-class a3a_cwr3_b_backpack_radio : cwr3_b_backpack_radio
+class cwr3_b_backpack_radio : cwr3_b_backpack_alice_base
 {
-	scope = 2;
-    scopeCurator = 2;
-	tf_dialog = "anprc155_radio_dialog;";
+	tf_dialog = "anprc155_radio_dialog";
 	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
 	tf_hasLRradio = 1;
-	tf_range = "20000";
+	tf_range = 20000;
 	tf_subtype = "digital_lr";
 };
 
 // CUP
-class CUP_B_Kombat_Radio_Olive;
-class CUP_B_Motherlode_Radio_MTP;
-class CUP_B_Predator_Radio_MTP;
+class CUP_B_Predator_Base;
 
-class a3a_CUP_B_Kombat_Radio_Olive : CUP_B_Kombat_Radio_Olive
+class CUP_B_Kombat_Radio_Olive : CUP_B_Predator_Base
 {
-	scope = 2;
     scopeCurator = 2;
-	tf_dialog = "anprc155_radio_dialog;";
+	tf_dialog = "anprc155_radio_dialog";
 	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
 	tf_hasLRradio = 1;
-	tf_range = "20000";
+	tf_range = 20000;
 	tf_subtype = "digital_lr";
 };
 
-class a3a_CUP_B_Motherlode_Radio_MTP : CUP_B_Motherlode_Radio_MTP
+class CUP_B_Motherlode_Radio_MTP : CUP_B_Predator_Base
 {
-	scope = 2;
     scopeCurator = 2;
-	tf_dialog = "anprc155_radio_dialog;";
+	tf_dialog = "anprc155_radio_dialog";
 	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
 	tf_hasLRradio = 1;
-	tf_range = "20000";
+	tf_range = 20000;
 	tf_subtype = "digital_lr";
 };
 
-class a3a_CUP_B_Predator_Radio_MTP : CUP_B_Predator_Radio_MTP
+class CUP_B_Predator_Radio_MTP : CUP_B_Predator_Base
 {
-	scope = 2;
     scopeCurator = 2;
-	tf_dialog = "anprc155_radio_dialog;";
+	tf_dialog = "anprc155_radio_dialog";
 	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
 	tf_hasLRradio = 1;
-	tf_range = "20000";
+	tf_range = 20000;
 	tf_subtype = "digital_lr";
 };
 
@@ -64,11 +57,11 @@ class a3a_rhs_r148 : rhs_r148
 {
 	scope = 2;
     scopeCurator = 2;
-	tf_dialog = "anprc155_radio_dialog;";
+	tf_dialog = "anprc155_radio_dialog";
 	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
 	tf_hasLRradio = 1;
-	tf_range = "10000"; 
+	tf_range = 10000; 
 	tf_subtype = "digital_lr";
 };
 

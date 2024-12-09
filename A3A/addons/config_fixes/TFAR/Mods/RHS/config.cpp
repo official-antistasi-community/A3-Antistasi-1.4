@@ -1,6 +1,6 @@
 //TFAR/RHS - config.cpp
 
-#include "..\script_component.hpp"
+#include "..\..\..\script_component.hpp"
 
 class CfgPatches 
 {

@@ -66,7 +66,7 @@ class a3a_TFAR_rt1523g_rhs : TFAR_rt1523g_rhs
 	tf_encryptionCode = "tf_independent_radio_code";
 };
 
-class a3a_TFAR_rt1523g_bwmod : TFAR_rt1523g_rhs_bwmod
+class a3a_TFAR_rt1523g_bwmod : TFAR_rt1523g_bwmod
 {
 	scope = 2;
     scopeCurator = 2;

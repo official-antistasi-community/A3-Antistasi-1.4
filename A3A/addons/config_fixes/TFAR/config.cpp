@@ -10,7 +10,7 @@ class CfgPatches
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","anarc164_radio_dialog"};
+        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

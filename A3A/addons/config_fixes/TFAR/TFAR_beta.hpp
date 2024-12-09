@@ -210,7 +210,7 @@ class a3a_TFAR_mr6000l : TFAR_mr6000l
 	tf_encryptionCode = "tf_independent_radio_code";
 };
 
-class a3a_TFAR_bussole : TFAR_bussole;
+class a3a_TFAR_bussole : TFAR_bussole
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;

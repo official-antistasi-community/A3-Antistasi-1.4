@@ -85,82 +85,47 @@ class a3a_B_RadioBag_01_coyote_F : B_RadioBag_01_coyote_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_B_RadioBag_01_oicamo_F : B_RadioBag_01_oicamo_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_B_RadioBag_01_green_F : B_RadioBag_01_green_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_B_RadioBag_01_sage_F : B_RadioBag_01_sage_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_B_RadioBag_01_arid_F : B_RadioBag_01_arid_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_B_RadioBag_01_taiga_F : B_RadioBag_01_taiga_F
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };
 
 class a3a_Aegis_B_RadioBag_01_des_lxWS : Aegis_B_RadioBag_01_des_lxWS
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;
-	tf_dialog = "anprc155_radio_dialog;";
-	tf_dialogUpdate = "call TFAR_fnc_updateLRDialogToChannel;";
 	tf_encryptionCode = "tf_independent_radio_code";
-	tf_hasLRradio = 1;
-	tf_range = "20000";
-	tf_subtype = "digital_lr";
 };

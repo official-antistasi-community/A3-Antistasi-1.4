@@ -181,8 +181,11 @@ switch (_typeTag) do
         [_unit, _priWeapon, "OpticsMid", 50*_ammoMod] call A3A_fnc_addPrimaryAndMags;
         if (_smokes isNotEqualTo []) then { _unit addMagazines [selectRandomWeighted _smokes, 2] };
     };
+    case ("staticCrew"): {
+        [_unit, _priWeapon, "OpticsClose", 50*_ammoMod] call A3A_fnc_addPrimaryAndMags;
+    };
     default {
-        [_unit, _priWeapon, "OpticClose", 50*_ammoMod] call A3A_fnc_addPrimaryAndMags;
+        [_unit, _priWeapon, "OpticsClose", 50*_ammoMod] call A3A_fnc_addPrimaryAndMags;
         Error_1("Unknown unit class: %1", _typeTag);
     };
 };

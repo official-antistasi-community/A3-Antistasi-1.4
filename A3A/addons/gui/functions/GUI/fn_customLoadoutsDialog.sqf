@@ -42,12 +42,16 @@ private _unitTypesData = [
     ["AA", "Missile AA", "", "MissileLaunchersAA"]
 ];
 
+// Should be ready for all commands except init
+private _loadouts = _display getVariable "loadouts";
+
 switch (_mode) do
 {
     case ("init"):
     {
         // sync data from server
         call A3A_fnc_fetchRebelGear;
+        _display setVariable ["loadouts", +A3A_rebelLoadouts];      // work with temporary copy
 
         // Fill out the listbox
         { _listBox lbAdd (_x#1) } forEach _unitTypesData;
@@ -65,7 +69,7 @@ switch (_mode) do
         _display setVariable ["currentRole", _roleIndex];
 
         private _roleData = _unitTypesData # _roleIndex;
-        private _roleGear = A3A_rebelLoadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
+        private _roleGear = _loadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
 
         private _fnc_addItems = {
             params ["_control", "_itemType", "_selClass"];
@@ -112,6 +116,9 @@ switch (_mode) do
         _curClass = _roleGear getOrDefault ["SecWeapon", "Random"];
         if (_roleData#3 != "") then { [_secWeapon, _roleData#3, _curClass] call _fnc_addItems };
         // disable if not valid?
+
+        private _priOptic = _display displayCtrl A3A_IDC_CUSLOAD_PRIOPTIC;
+        _priOptic ctrlEnable false;                  // disabled for now
 
         private _ammoQuant = _display displayCtrl A3A_IDC_CUSLOAD_AMMOQUANT;
         lbClear _ammoQuant;
@@ -171,13 +178,13 @@ switch (_mode) do
     case ("close"):
     {
         ["saveRole"] call A3A_GUI_fnc_customLoadoutsDialog;
-        A3A_rebelLoadouts remoteExecCall ["A3A_fnc_setRebelLoadouts", 2];
+        _loadouts remoteExecCall ["A3A_fnc_setRebelLoadouts", 2];
     };
 
     case ("saveRole"):
     {
         private _roleData = _unitTypesData # _roleIndex;
-        private _roleGear = A3A_rebelLoadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
+        private _roleGear = _loadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
         {
             _x params ["_tag", "_ctrl"];
             if (lbCurSel _ctrl == 0) then { _roleGear deleteAt _tag; continue };
@@ -191,7 +198,7 @@ switch (_mode) do
         private _copyPrimary = _unitTypesData#_roleIndex#2 == "";
         {
             private _roleData = _x;
-            private _roleGear = A3A_rebelLoadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
+            private _roleGear = _loadouts getOrDefaultCall [_roleData#0, {createHashMap}, true];
             {
                 _x params ["_tag", "_ctrl"];
                 if (_tag == "SecWeapon" or (_tag == "PriWeapon" and _roleData#2 != "")) then { continue };
@@ -204,13 +211,13 @@ switch (_mode) do
     case ("resetRoleButton"):
     {
         private _roleData = _unitTypesData # _roleIndex;
-        A3A_rebelLoadouts set [_roleData#0, createHashMap];
+        _loadouts set [_roleData#0, createHashMap];
         ["selectRole", [_roleIndex, false]] call A3A_GUI_fnc_customLoadoutsDialog;
     };
 
     case ("resetAllButton"):
     {
-        A3A_rebelLoadouts = createHashMap;
+        _display setVariable ["loadouts", createHashMap];
         ["selectRole", [_roleIndex, false]] call A3A_GUI_fnc_customLoadoutsDialog;
     };
 };

@@ -1,7 +1,7 @@
 #include "..\..\..\script_component.hpp"
 
 class CfgPatches {
-    class ADDON {
+    class PATCHNAME(AirLoadout_RHS) {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
@@ -41,6 +41,13 @@ class A3A {
             };
             class RHS_Su25SM_CAS_vvs : RHS_Su25SM_vvsc {};
             class rhsgref_cdf_b_su25 : RHS_Su25SM_vvsc {};
+			
+            class RHS_T50_vvs_generic_ext : baseCAS {
+                loadout[] = {"rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","rhs_mag_Kh38mte_int","","","rhs_mag_kab250","rhs_mag_kab250","rhs_mag_Kh38mte","rhs_mag_Kh38mte","rhs_mag_kab250","rhs_mag_kab250"};
+				mainGun[] = {"rhs_weap_gsh301"};
+                missileLauncher[] = {"rhs_weap_kh38mae_Launcher"};
+			};
+			
             class rhssaf_airforce_l_18 : baseCAS {
                 loadout[] = {"rhs_mag_b8m1_bd3_umk2a_s8kom","rhs_mag_b8m1_bd3_umk2a_s8kom","rhs_mag_kh25MTP_apu68_mig29","rhs_mag_kh25MTP_apu68_mig29","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"};
                 mainGun[] = {"rhs_weap_gsh301"};
@@ -69,9 +76,15 @@ class A3A {
             };
             class rhs_mig29s_vvs : rhs_mig29sm_vvs {};
             class rhsgref_cdf_b_mig29s : rhs_mig29sm_vvs {};
+			
             class RHS_T50_vvs_generic_ext : baseCAP {
                 loadout[] = {"rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R74M2_int","rhs_mag_R74M2_int","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170","rhs_mag_R77M_AKU170"};
             };
+            class RHS_T50_vvs_blueonblue : baseCAP {
+                loadout[] = {"rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R77M","rhs_mag_R74M2_int","rhs_mag_R74M2_int"};
+			};
+            class RHS_T50_vvs_054 : RHS_T50_vvs_blueonblue {};
+			
             class rhssaf_airforce_o_l_18_101 : baseCAP {
                 loadout[] = {"rhs_mag_R27ER_APU470","rhs_mag_R27ER_APU470","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_mag_R73M_APU73","rhs_BVP3026_CMFlare_Chaff_Magazine_x2"};
             };

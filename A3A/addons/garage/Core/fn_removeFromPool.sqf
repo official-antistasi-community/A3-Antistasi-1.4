@@ -28,19 +28,17 @@ if (_UID isEqualTo "") exitWith {false};
 
 //find vehicles to remove
 private _toRemove = [];
-if (!_removeMounts) then {
-    {
+private _localVehicleList = +HR_GRG_Vehicles;
+if (_removeMounts) then {_localVehicleList deleteAt 4};
+{
     private _catIndex = _forEachIndex;
-        private _hashMap = _x;
-        {
-            _veh = _hashMap get _x;
-            if ((_veh#3) isEqualTo _UID) then {_toRemove pushBack [_catIndex, _x, _veh]};
-        } forEach keys _x;
-    } forEach HR_GRG_Vehicles;
-} else {
-    HR_GRG_SelectedVehicles params [["_catIndex", -1], ["_vehUID", -1], ["_class", ""]];
-    _toRemove pushBack [_catIndex, _vehUID, _class];
-};
+    private _hashMap = _x;
+    {
+        _veh = _hashMap get _x;
+        if ((_veh#3) isEqualTo _UID) then {_toRemove pushBack [_catIndex, _x, _veh]};
+    } forEach keys _x;
+} forEach _localVehicleList;
+
     
 //remove vehicles
 {

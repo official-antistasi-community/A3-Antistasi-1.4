@@ -75,8 +75,6 @@ private _rebUniforms = [
     "rhsgref_uniform_dpm_olive",
     "rhsgref_uniform_3color_desert",
     "rhsgref_uniform_gorka_1_f",
-    "rhsgref_uniform_TLA_1",
-    "rhsgref_uniform_TLA_2",
     "rhs_insurgent_uniform_1",
     "rhs_insurgent_uniform_2",
     "rhs_insurgent_uniform_3",

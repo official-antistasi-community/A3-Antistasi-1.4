@@ -68,6 +68,7 @@ if (A3A_hasTFAR && startWithLongRangeRadio) then {
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "TFAR_anprc154"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155", "TFAR_anprc155_coyote", "TFAR_anarc164", "B_RadioBag_01_eaf_F", "B_RadioBag_01_digi_F"]};
 
+
 _initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;

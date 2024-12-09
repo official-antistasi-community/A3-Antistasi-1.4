@@ -90,7 +90,7 @@ if (A3A_hasTFAR && startWithLongRangeRadio) then {
     _initialRebelEquipment pushBack "tf_anprc155_coyote";
 };
 if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr", "TFAR_anprc154"]};
-if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155", "TFAR_anprc155_coyote", "TFAR_anarc164", "B_RadioBag_01_eaf_F", "B_RadioBag_01_digi_F"]};
+if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155", "TFAR_anprc155_coyote", "TFAR_anarc164"]};
 
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

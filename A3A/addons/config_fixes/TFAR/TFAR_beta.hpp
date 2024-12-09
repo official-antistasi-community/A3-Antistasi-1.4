@@ -165,7 +165,6 @@ class TFAR_mr3000_bwmod;
 class TFAR_mr3000_bwmod_tropen;
 class TFAR_mr3000_multicam;
 class TFAR_mr3000_rhs;
-class TFAR_mr6000l; // 40km range
 class TFAR_bussole;
 
 class a3a_TFAR_mr3000 : TFAR_mr3000
@@ -197,13 +196,6 @@ class a3a_TFAR_mr3000_multicam : TFAR_mr3000_multicam
 };
 
 class a3a_TFAR_mr3000_rhs : TFAR_mr3000_rhs
-{
-	scope = PUBLIC;
-    scopeCurator = PUBLIC;
-	tf_encryptionCode = "tf_independent_radio_code";
-};
-
-class a3a_TFAR_mr6000l : TFAR_mr6000l
 {
 	scope = PUBLIC;
     scopeCurator = PUBLIC;

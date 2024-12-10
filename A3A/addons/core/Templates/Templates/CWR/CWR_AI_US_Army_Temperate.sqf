@@ -228,7 +228,7 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ]];
 _sfLoadoutData set ["SMGs", [
     ["CUP_smg_MP5SD6", "", "", "", ["CUP_30Rnd_Subsonic_9x19_MP5", "CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
-    ["cwr3_smg_uzi", "CUP_muzzle_snds_UZI", "", "", ["CUP_72Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M"], [], ""]
+    ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5", "CUP_30Rnd_9x19_MP5"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
     ["CUP_lmg_M249_E2", "", "", "", ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249", "CUP_200Rnd_TE1_Red_Tracer_556x45_M249_Pouch"], [], ""],

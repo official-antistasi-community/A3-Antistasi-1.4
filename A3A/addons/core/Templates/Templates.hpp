@@ -522,7 +522,6 @@ class Templates
         climate[] = {"tropical"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
         shortName = "HIDF";
-        equipFlags[] = {"lowTech"};
         lore = $STR_A3A_templates_lore_3CB_AI_HIDF;
     };
     
@@ -536,7 +535,6 @@ class Templates
         climate[] = {"tropical"};
         logo = "\rhsgref\addons\rhsgref_main\data\rhs_logo_ca.paa";
         shortName = "TLA";
-        equipFlags[] = {"lowTech"};
         lore = $STR_A3A_templates_lore_TLA;
     };
     

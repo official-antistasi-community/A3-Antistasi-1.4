@@ -128,7 +128,7 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", []];
+_loadoutData set ["NVGs", ["cwr3_o_nvg_pnv57_tsh3"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
@@ -204,7 +204,6 @@ _sfLoadoutData set ["atBackpacks", ["cwr3_b_backpack_alice"]];
 _sfLoadoutData set ["helmets", ["cwr3_b_headgear_protec_full", "cwr3_b_headgear_protec_full_goggles", "cwr3_b_headgear_protec_half"]];
 _sfLoadoutData set ["slHat", ["cwr3_b_headgear_protec_half_headset_goggles"]];
 _sfLoadoutData set ["sniHats", ["cwr3_b_headgear_protec_half_plain"]];
-_sfLoadoutData set ["NVGs", ["cwr3_o_nvg_pnv57_tsh3"]];
 _sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -229,7 +228,7 @@ _sfLoadoutData set ["grenadeLaunchers", [
 ]];
 _sfLoadoutData set ["SMGs", [
     ["CUP_smg_MP5SD6", "", "", "", ["CUP_30Rnd_Subsonic_9x19_MP5", "CUP_30Rnd_Red_Tracer_9x19_MP5"], [], ""],
-    ["CUP_smg_MP5A5", "", "", "", ["CUP_30Rnd_9x19_MP5", "CUP_30Rnd_9x19_MP5"], [], ""]
+    ["cwr3_smg_uzi", "CUP_muzzle_snds_UZI", "", "", ["CUP_72Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M", "CUP_32Rnd_9x19_UZI_M"], [], ""]
 ]];
 _sfLoadoutData set ["machineGuns", [
     ["CUP_lmg_M249_E2", "", "", "", ["CUP_200Rnd_TE4_Red_Tracer_556x45_M249", "CUP_200Rnd_TE1_Red_Tracer_556x45_M249_Pouch"], [], ""],
@@ -342,6 +341,7 @@ _militiaLoadoutData set ["backpacks", ["cwr3_b_backpack_alice", "cwr3_i_bergen_b
 _militiaLoadoutData set ["slBackpacks", ["cwr3_b_backpack_radio"]];
 _militiaLoadoutData set ["atBackpacks", ["cwr3_b_backpack_alice"]];
 _militiaLoadoutData set ["helmets", ["cwr3_b_headgear_m1_olive"]];
+_militiaLoadoutData set ["NVGs", []];
 
 _militiaLoadoutData set ["rifles", [
     ["CUP_arifle_M16A1", "", "", "", ["CUP_30Rnd_556x45_Stanag"], [], ""]

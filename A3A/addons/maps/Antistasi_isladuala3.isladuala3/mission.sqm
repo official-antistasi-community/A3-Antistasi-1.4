@@ -8,11 +8,11 @@ class EditorData
 	toggles=1537;
 	class ItemIDProvider
 	{
-		nextID=5603;
+		nextID=5604;
 	};
 	class MarkerIDProvider
 	{
-		nextID=11;
+		nextID=12;
 	};
 	class LayerIndexProvider
 	{
@@ -20,10 +20,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2640.3457,149.43024,2631.3264};
-		dir[]={-0.52683455,-0.75481951,0.39083591};
-		up[]={-0.60621685,0.65593076,0.44972512};
-		aside[]={0.5958252,5.6746649e-07,0.8031525};
+		pos[]={1819.6893,118.11273,9101.3877};
+		dir[]={0.42522898,-0.42961532,0.7966271};
+		up[]={0.20230648,0.90301007,0.37900263};
+		aside[]={0.88218701,-7.5087883e-09,-0.47090042};
 	};
 };
 binarizationWanted=0;
@@ -10836,7 +10836,7 @@ class Mission
 				class Item2
 				{
 					dataType="Marker";
-					position[]={10991.965,-43.759998,5997.2666};
+					position[]={10992.984,-43.759998,4990.1729};
 					name="CSAT_carrier";
 					type="flag_CSAT";
 					id=351;

@@ -1,4 +1,4 @@
-call A3A_fnc_initServer;
+{_x allowDamage false; _x  enableSimulation false;} forEach nearestObjects [[worldSize / 2, worldSize / 2], ["Land_ibr_mostd_bez_lamp", "Land_ibr_mostd_stred30"], worldSize * sqrt 2 / 2, true];
 
 private _allTerrainObjects = 
 (nearestTerrainObjects [[worldSize / 2, worldSize / 2], ["HIDE", "HOUSE", "FENCE"], worldSize * sqrt 2 / 2, false, true]);
@@ -16,3 +16,5 @@ private _badModelHM = [
 ] createHashMapFromArray [];
 _allTerrainObjects = _allTerrainObjects select {(getModelInfo _x #0) in _badModelHM;};
 { _x hideObjectGlobal true } forEach _allTerrainObjects;
+
+call A3A_fnc_initServer;

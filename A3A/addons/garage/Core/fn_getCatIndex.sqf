@@ -36,7 +36,7 @@ switch (true) do {
     case (_editorCat isEqualTo "EdSubcat_Cars" && !(_class in undercoverVehicles)): { 1 }; 
     case (_editorCat isEqualTo "EdSubcat_APCs"): { 2 };
     case (_editorCat in ["EdSubcat_Tanks","EdSubcat_AAs","EdSubcat_Artillery"]): { 3 };
-    case (_editorCat in ["EdSubcat_Helicopters"]/*  || getNumber (configOf _vehicle >> "vtol") > 0 */): { 4 };
+    case (_editorCat in ["EdSubcat_Helicopters"] || getNumber (configOf _vehicle >> "vtol") > 0): { 4 };
     //case (getNumber (configOf _vehicle >> "vtol") > 0): { 5 };
     case (_editorCat in ["EdSubcat_Planes"] && (getNumber (configOf _vehicle >> "vtol") == 0)): { 5 };
     case (_editorCat in ["EdSubcat_Boats","EdSubcat_Submersibles"]): { 6 };

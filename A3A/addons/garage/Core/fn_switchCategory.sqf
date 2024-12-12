@@ -27,7 +27,7 @@ private _disp = findDisplay HR_GRG_IDD_Garage;
 
 //disables current category
 for "_i" from 0 to 7 do {
-    private _ctrl = _disp displayCtrl (HR_GRG_IDC_CatCar + _i);
+    private _ctrl = _disp displayCtrl (HR_GRG_IDC_CatUndercoverCar + _i);
     if (ctrlEnabled _ctrl) exitWith {
         _ctrl ctrlShow false;
         _ctrl ctrlEnable false;
@@ -36,7 +36,7 @@ for "_i" from 0 to 7 do {
 
 //refresh new category
 private _disp = findDisplay HR_GRG_IDD_Garage;
-_newCtrl = _disp displayCtrl (HR_GRG_IDC_CatCar + _index);
+_newCtrl = _disp displayCtrl (HR_GRG_IDC_CatUndercoverCar + _index);
 [_newCtrl, _index] call HR_GRG_fnc_reloadCategory;
 
 //activate new category

@@ -19,7 +19,4 @@ class CfgPatches
     };
 };
 
-// Uncomment when needed
-//#include "CfgMagazines.hpp"
 #include "CfgVehicles.hpp"
-//#include "CfgWeapons.hpp"

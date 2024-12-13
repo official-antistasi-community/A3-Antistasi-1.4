@@ -128,7 +128,7 @@ _loadoutData set ["watches", ["ItemWatch"]];
 _loadoutData set ["compasses", ["ItemCompass"]];
 _loadoutData set ["radios", ["ItemRadio"]];
 _loadoutData set ["gpses", ["ItemGPS"]];
-_loadoutData set ["NVGs", []];
+_loadoutData set ["NVGs", ["cwr3_o_nvg_pnv57_tsh3"]];
 _loadoutData set ["binoculars", ["Binocular"]];
 _loadoutData set ["rangefinders", ["Rangefinder"]];
 
@@ -204,7 +204,6 @@ _sfLoadoutData set ["atBackpacks", ["cwr3_b_backpack_alice"]];
 _sfLoadoutData set ["helmets", ["cwr3_b_headgear_protec_full", "cwr3_b_headgear_protec_full_goggles", "cwr3_b_headgear_protec_half"]];
 _sfLoadoutData set ["slHat", ["cwr3_b_headgear_protec_half_headset_goggles"]];
 _sfLoadoutData set ["sniHats", ["cwr3_b_headgear_protec_half_plain"]];
-_sfLoadoutData set ["NVGs", ["cwr3_o_nvg_pnv57_tsh3"]];
 _sfLoadoutData set ["binoculars", ["CUP_SOFLAM"]];
 //["Weapon", "Muzzle", "Rail", "Sight", [], [], "Bipod"];
 
@@ -342,6 +341,7 @@ _militiaLoadoutData set ["backpacks", ["cwr3_b_backpack_alice", "cwr3_i_bergen_b
 _militiaLoadoutData set ["slBackpacks", ["cwr3_b_backpack_radio"]];
 _militiaLoadoutData set ["atBackpacks", ["cwr3_b_backpack_alice"]];
 _militiaLoadoutData set ["helmets", ["cwr3_b_headgear_m1_olive"]];
+_militiaLoadoutData set ["NVGs", []];
 
 _militiaLoadoutData set ["rifles", [
     ["CUP_arifle_M16A1", "", "", "", ["CUP_30Rnd_556x45_Stanag"], [], ""]

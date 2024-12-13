@@ -1774,7 +1774,7 @@ class commander_comm 		{
 		class 10slots_R2: A3A_core_BattleMenuRedButton
 		{
 			idc = -1;
-			text = "Customize loadouts"; //$STR_antistasi_dialogs_commander_comm_customLoadouts;
+			text = "Customize Loadouts"; //$STR_antistasi_dialogs_commander_comm_customLoadouts;
 			x = 0.482498 * safezoneW + safezoneX;
 			y = 0.365981 * safezoneH + safezoneY;
 			w = 0.175015 * safezoneW;

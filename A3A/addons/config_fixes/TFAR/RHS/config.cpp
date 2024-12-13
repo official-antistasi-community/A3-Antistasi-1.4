@@ -1,16 +1,16 @@
-//TFAR/CUP - config.cpp
+//TFAR/RHS - config.cpp
 
-#include "..\..\..\script_component.hpp"
+#include "..\..\script_component.hpp"
 
 class CfgPatches 
 {
-    class PATCHNAME(TFAR_CUP)
+    class PATCHNAME(TFAR_RHS)
     {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","CUP_B_Predator_Base"};
+        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","rhs_c_troops"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

@@ -1,16 +1,16 @@
-//TFAR/SPE - config.cpp
+//TFAR/CUP - config.cpp
 
-#include "..\..\..\script_component.hpp"
+#include "..\..\script_component.hpp"
 
 class CfgPatches 
 {
-    class PATCHNAME(TFAR_SPE)
+    class PATCHNAME(TFAR_CUP)
     {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","WW2_SPE_Assets_c_Characters_Frenchs_U1_c_FR_Milice_Gear"};
+        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","CUP_B_Predator_Base"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

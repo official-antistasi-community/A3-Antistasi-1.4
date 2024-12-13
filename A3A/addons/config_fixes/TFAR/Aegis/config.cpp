@@ -1,16 +1,16 @@
-//TFAR/CWR3 - config.cpp
+//TFAR/Aegis - config.cpp
 
-#include "..\..\..\script_component.hpp"
+#include "..\..\script_component.hpp"
 
 class CfgPatches 
 {
-    class PATCHNAME(TFAR_CWR3)
+    class PATCHNAME(TFAR_Aegis)
     {
         name = COMPONENT_NAME;
         units[] = {};
         weapons[] = {};
         requiredVersion = REQUIRED_VERSION;
-        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","cwr3_soldiers_us","cwr3_soldiers_ru"};
+        requiredAddons[] = {"A3_Data_F_AoW_Loadorder","tfar_backpacks","A3_Aegis_Supplies_F_Aegis_Bags"};
         author = AUTHOR;
         authors[] = { AUTHORS };
         authorUrl = "";

@@ -2,5 +2,5 @@
 
 class CfgVehicles 
 {
-	#include "TFAR_beta.hpp"
+    #include "TFAR_beta.hpp"
 };

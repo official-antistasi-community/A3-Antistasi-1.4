@@ -110,7 +110,7 @@ if (A3A_hasTFARBeta) then {_initialRebelEquipment append ["TFAR_microdagr","TFAR
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155", "TFAR_anprc155_coyote", "TFAR_anarc164", "a3a_TFAR_rt1523g_rhs", "a3a_TFAR_rt1523g_bwmod", "a3a_TFAR_rt1523g"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio) then {_initialRebelEquipment append ["TFAR_anprc155", "TFAR_anprc155_coyote", "TFAR_anarc164", "a3a_TFAR_rt1523g_rhs", "a3a_TFAR_rt1523g_bwmod", "a3a_TFAR_rt1523g"]};
 if (A3A_hasTFARBeta && startWithLongRangeRadio && ("enoch" in A3A_enabledDLC)) then {
-	_initialRebelEquipment append ["B_RadioBag_01_black_F", "B_RadioBag_01_digi_F", "a3a_B_RadioBag_01_oucamo_F", "a3a_B_RadioBag_01_wdl_F"]};
+    _initialRebelEquipment append ["B_RadioBag_01_black_F", "B_RadioBag_01_digi_F", "a3a_B_RadioBag_01_oucamo_F", "a3a_B_RadioBag_01_wdl_F"]};
 _initialRebelEquipment append ["Chemlight_blue","Chemlight_green","Chemlight_red","Chemlight_yellow"];
 ["initialRebelEquipment", _initialRebelEquipment] call _fnc_saveToTemplate;
 

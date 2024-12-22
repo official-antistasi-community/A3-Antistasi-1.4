@@ -6,7 +6,7 @@
 ["spawnMarkerName", "RACS support corridor"] call _fnc_saveToTemplate;
 
 ["flag", "PRACS_Sahrani_Flag"] call _fnc_saveToTemplate;
-["flagTexture", "\PRACS_Core\Flags\KingdomofSahrani_co_mrk.paa"] call _fnc_saveToTemplate;
+["flagTexture", "\PRACS_Core\Flags\KingdomofSahrani_co.paa"] call _fnc_saveToTemplate;
 ["flagMarkerType", "PRACS_Sahrani_Flag_mrk"] call _fnc_saveToTemplate;
 
 //////////////////////////

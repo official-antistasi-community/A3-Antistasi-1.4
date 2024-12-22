@@ -1703,4 +1703,69 @@ class Templates
         shortName = "FIA";
         lore = $STR_A3A_templates_lore_FIA;
     };
+
+    // **************** PRACS *****************
+
+    class RACS_Base
+    {
+        requiredAddons[] = {"rhsgref_main"}; // to be done
+        basepath = QPATHTOFOLDER(Templates\PRACS); 
+        logo = "a3\ui_f\data\logos\arma3_white_ca.paa"; // to be done
+        maps[] = {"sara"};
+        priority = 80;
+    };
+
+    class RACS_Arid : RACS_Base
+    {
+        side = "Occ";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa";
+        name = "PRACS RACS Arid";
+        file = "RACS_AI_RACS_Arid";
+        climate[] = {"Arid"};
+        shortName = "RACS";
+        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP RACS Lore 
+    };
+
+    class RACS_Temperate : RACS_Arid
+    {
+        name = "PRACS RACS Temperate";
+        file = "RACS_AI_RACS_Temperate";
+        climate[] = {"temperate"};
+    };
+
+    class SLA_Arid : RACS_Base
+    {
+        side = "Inv";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa"; // to be done
+        name = "PRACS SLA Arid";
+        climate[] = {"Arid"};
+        file = "RACS_AI_SLA_Arid";
+        shortName = "SLA";
+        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP SLA Lore
+    };
+
+    class SLA_Temperate : SLA_Arid
+    {
+        name = "PRACS SLA Temperate";
+        file = "RACS_AI_SLA_Temperate";
+        climate[] = {"temperate"};
+    };
+
+    class SLA_Rev_Guards_Arid : RACS_Base
+    {
+        side = "Inv";
+        flagTexture = "a3\data_f\flags\flag_us_co.paa"; // to be done
+        name = "PRACS SLA Guards Arid";
+        climate[] = {"Arid"};
+        file = "RACS_AI_SLA_Rev_Guards_Arid";
+        shortName = "SLA Guards";
+        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP SLA Lore
+    };
+
+    class SLA_Rev_Guards_Temperate : SLA_Rev_Guards_Arid
+    {
+        name = "PRACS SLA Guards Temperate";
+        file = "RACS_AI_SLA_Rev_Guards_Temperate";
+        climate[] = {"temperate"};
+    };
 };

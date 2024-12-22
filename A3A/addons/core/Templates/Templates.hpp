@@ -1723,7 +1723,7 @@ class Templates
         file = "RACS_AI_RACS_Arid";
         climate[] = {"Arid"};
         shortName = "RACS";
-        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP RACS Lore 
+        lore = $STR_A3A_templates_lore_CUP_AI_RACS;
     };
 
     class RACS_Temperate : RACS_Arid
@@ -1741,7 +1741,7 @@ class Templates
         climate[] = {"Arid"};
         file = "RACS_AI_SLA_Arid";
         shortName = "SLA";
-        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP SLA Lore
+        lore = $STR_A3A_templates_lore_CUP_AI_SLA;
     };
 
     class SLA_Temperate : SLA_Arid
@@ -1759,7 +1759,7 @@ class Templates
         climate[] = {"Arid"};
         file = "RACS_AI_SLA_Rev_Guards_Arid";
         shortName = "SLA Guards";
-        // lore = $STR_A3A_templates_lore_3CB_AI_CW_US; - add the CUP SLA Lore
+        lore = $STR_A3A_templates_lore_CUP_AI_SLA;
     };
 
     class SLA_Rev_Guards_Temperate : SLA_Rev_Guards_Arid

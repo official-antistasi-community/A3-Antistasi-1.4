@@ -23,7 +23,7 @@ params ["_vehicle", "_crewGroup", "_cargoGroup", "_posDestination", "_markerOrig
 
 
 private _vehType = typeof _vehicle;
-if (_vehicle isKindOf "Air") then
+if (_vehicle isKindOf "Air") exitWith
 {
     if (_vehType in FactionGet(all,"vehiclesHelisTransport") + FactionGet(all,"vehiclesHelisLight")) exitWith
     {
@@ -68,6 +68,7 @@ if (_vehicle isKindOf "Air") then
     _vehWP0 setWaypointBehaviour "COMBAT";
     _vehWP0 setWaypointType "SAD";
     _crewGroup setCombatMode "RED";
+    _landPosBlacklist;
 
 };
 if (_vehicle isKindOf "Ship") then {
@@ -84,32 +85,48 @@ if (_vehicle isKindOf "Ship") then {
         private _bottomRightYCoord = _pos#1 - 15;
         _blacklistedCoordArray pushBack [[_topLeftXCoord,_topLeftYCoord,0],[_bottomRightXCoord,_bottomRightYCoord,0]];
     } forEach _landPosBlacklist;
-    private _landPos = [_landBase, 20, 200, 0, 2, 0, 1, _blacklistedCoordArray, [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
+    private _landPos = [_landBase, 20, 150, 0, 2, 0, 1, _blacklistedCoordArray, [[0,0,0],[0,0,0]]] call BIS_fnc_findSafePos;
     if (_landPos isEqualTo [0,0,0]) then {
-        Info_3("Could not find landing pos for %1 (%2) within 200m of hardpoint %3",_crewGroup,_vehType,_landBase)
+        Info_3("Could not find landing pos for %1 (%2) within 150m of hardpoint %3",_crewGroup,_vehType,_landBase)
         {[_x] spawn A3A_fnc_groupDespawner} forEach [_crewGroup,_cargoGroup];
         [vehicle leader _crewGroup] spawn A3A_fnc_vehDespawner; 
     };
 
     private _vehWP0 = _crewGroup addWaypoint [_landPos, 0];
     _vehWP0 setWaypointType "TR UNLOAD";
+    //_vehWP0 setWaypointCompletionRadius 200;
     _vehWP0 setWaypointBehaviour "AWARE";
+    /*
+    [_vehWP0, _vehicle, _vehType] spawn {
+        params ["_vehWP0","_vehicle","_vehType"];
+        diag_log format ["Debug WP running for WP %1 Veh %2 Type %3", _vehWP0, _vehicle, _vehType];
+        private _emptyCargo = [_vehType, false] call BIS_fnc_crewCount;
+        diag_log [_vehType, _emptyCargo];
+        waitUntil {sleep 5; count crew _vehicle > _emptyCargo};
+        diag_log format ["WP finished for WP %1 Veh %2 Type %3", _vehWP0, _vehicle, _vehType];
+        private _hasSAD = count waypoints group driver _vehicle > 1;
+        diag_log _hasSAD;
+        deleteWaypoint _vehWP0;
+    };
+    */
     _vehWP0 setWaypointStatements ["true","if !(local this) exitWith {}; [vehicle leader group this] spawn A3A_fnc_VEHDespawner; [group this] spawn A3A_fnc_enemyReturnToBase"];
     if (_attack) then {
-        _vehWP0 setWaypointStatements ["true","if !(local this) exitWith {}; if ((combatBehavior group this) != 'COMBAT') then {deleteWaypoint [group this, 1]};"];
+        diag_log "ATTACK CRAFT CREATED";
+        _vehWP0 setWaypointStatements ["true","if !(local this) exitWith {}; if ((combatBehaviour group this) != 'COMBAT') then {deleteWaypoint [group this, 1]};"];
         private _vehWPSAD = _crewGroup addWaypoint [_landPos, 0];
         _vehWPSAD setWaypointType "SAD";
         _vehWPSAD setWaypointStatements ["true","if !(local this) exitWith {}; [vehicle leader group this] spawn A3A_fnc_VEHDespawner; [group this] spawn A3A_fnc_enemyReturnToBase"];
     };
-
+    /*
     //Set the waypoints for cargoGroup
     private _cargoWP0 = _cargoGroup addWaypoint [_landPos, 0];
-    //_cargoWP0 setWaypointType "GETOUT";
+    _cargoWP0 setWaypointType "GETOUT";
     _cargoWP0 setWaypointStatements ["true", "if !(local this) exitWith {}; (group this) leaveVehicle (assignedVehicle this); (group this) spawn A3A_fnc_attackDrillAI"];
+    */
     private _cargoWP1 = _cargoGroup addWaypoint [_posDestination, 0];
     _cargoWP1 setWaypointBehaviour "AWARE";
     //Link the dismount waypoints
-    _vehWP0 synchronizeWaypoint [_cargoWP0];
+    //_vehWP0 synchronizeWaypoint [_cargoWP0];
     
 
 }

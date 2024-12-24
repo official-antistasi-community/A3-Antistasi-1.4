@@ -28,7 +28,6 @@ FIX_LINE_NUMBERS()
 params ["_side", "_marker", "_target", "_resPool", "_vehCount", "_vehAttackCount", ["_tierMod", 0], ["_troopType", "Normal"],["_dismountPos",[0,0,0]]];
 diag_log [_side, _marker, _target, _resPool, _vehCount, _vehAttackCount, _tierMod, _troopType, _dismountPos];
 private _targpos = if (_target isEqualType []) then { _target } else { markerPos _target };
-private _transportRatio = 1 - _vehAttackCount / _vehCount;
 
 private _resourcesSpent = 0;
 private _vehicles = [];
@@ -39,8 +38,7 @@ private _faction = Faction(_side);
 private _transportBoats = _faction get "vehiclesTransportBoats";
 private _attackBoats = _faction get "vehiclesGunBoats";
 
-private _numTransports = 0;
-private _isTransport = _vehAttackCount < _vehCount;            // normal case, first vehicle should be a transport
+private _isTransport = (_vehAttackCount == 0); // gunboats spawned first to cover
 
 for "_i" from 1 to _vehCount do {
     private _vehType = selectRandom ([_attackBoats, _transportBoats] select _isTransport);
@@ -55,9 +53,7 @@ for "_i" from 1 to _vehCount do {
     private _crewCost = 10 * (count units (_vehData#1) + count units (_vehData#2));
     _resourcesSpent = _resourcesSpent + _vehCost + _crewCost;
     sleep 5;
-
-    if (_isTransport) then { _numTransports = _numTransports + 1 };
-    _isTransport = _vehAttackCount == 0 or (_numTransports / _i) < _transportRatio;
+    _isTransport = (_i >= _vehAttackCount);
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

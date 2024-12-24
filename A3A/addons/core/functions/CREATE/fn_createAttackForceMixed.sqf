@@ -29,7 +29,8 @@ params ["_side", "_airbase", "_target", "_resPool", "_vehCount", "_delay", "_mod
 private _targPos = if (_target isEqualType []) then { _target } else { markerPos _target };
 // _modifiers ["tierboost", "specops", "airboost", "noairsupport"]
 
-private _lowAir = Faction(_side) getOrDefault ["attributeLowAir", false];
+private _faction = Faction(_side);
+private _lowAir = _faction getOrDefault ["attributeLowAir", false];
 private _tier = [tierWar, tierWar+2] select ("tierboost" in _modifiers);
 
 private _resourcesSpent = 0;
@@ -79,6 +80,43 @@ if (_nearWaterPos isEqualType []) then {
 };
 //TINYTODO Remove this
 Debug_2("Water distance %1 Naval %2",_waterDistance,_naval)
+private _navalSpawn = [];
+private _navalDelayTime = 0;
+if (_naval) then {
+    // For now, boats dont play into any strength calculation and just take resources
+    _navalSpawn = [seaAttackSpawn,_nearWaterPos] call BIS_fnc_nearestPosition;
+    private _spawnTgtDist = _nearWaterPos distance2D getMarkerPos _navalSpawn;
+    if (_spawnTgtDist > 4000) exitWith {_naval = false; Info("Naval attack aborted, no spawn close")};
+    private _gunboats = _faction get "vehiclesGunBoats";
+    private _speedList = [];
+    {
+        private _speed = getNumber(configfile >> "CfgVehicles" >> _x >> "maxSpeed");
+        _speedList pushBackUnique _speed;
+    } forEach _gunBoats;
+    _speedList sort false; // get fastest boat and work from that; we want to err on the side of being late
+    private _spawnTgtDistKm = _spawnTgtDist/1000; // convert to km to match speed
+    private _travelTime = _spawnTgtDistKm/(_speedList#0); // e.g. 3/70, num of hours to reach OBJ
+    _navalDelayTime = _travelTime * 3600; // convert to seconds for delay
+};
+
+private _fnc_spawnNavalAttack = { //unscheduled
+    Info_3("Attempting to perform naval spawn for drop point %1 at spawn point %2 distance %3 ",_nearWaterPos,_navalSpawn,_nearWaterPos distance2D getMarkerPos _navalSpawn)
+    private _boatCount = round (_vehCount / 5);
+    private _attackRatio = 0.3 + tierWar/30;
+    private _attackCount = round (_boatCount * _attackRatio);
+    private _troops = ["Normal", "SpecOps"] select ("specops" in _modifiers);
+    ServerDebug_3("Attempting to spawn %1 sea vehicles including %2 attack from %3", _boatCount, _attackCount, _navalSpawn);
+
+    private _data = [_side, _navalSpawn, _targPos, _resPool, _boatCount, _attackCount, _tier, _troops,_nearWaterPos] call A3A_fnc_createAttackForceSea;
+    _resourcesSpent = _resourcesSpent + _data#0;
+    _vehicles append _data#1;
+    _crewGroups append _data#2;
+    _cargoGroups append _data#3;
+
+    [-(_data#0), _side, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
+
+    ServerInfo_1("Spawn performed: Sea vehicles %1", _data#1 apply {typeOf _x});
+};
 
 private _landRatio = if ("airboost" in _modifiers) then {     // punishment, HQ attack
     if (_lowAir) exitWith { 0.5 + random 0.5 };
@@ -136,11 +174,21 @@ if (!isNil "_attackType") then {
     [_reveal, _side, _attackType, _targPos, _delay] remoteExec ["A3A_fnc_showInterceptedSetupCall", 2];
 };
 
-// Now we delay to synchronize with ground vehicle arrival
+// Now we delay to synchronize with ground vehicle arrival. Both naval and air will arrive at another time, so both need a timer
+private _runningNavalFirst = false;
+private _delayBetween = 0;
 if (_delay > 0) then {
     private _airTime = (markerPos _airbase distance2d _targPos) / 70;
-    ServerDebug_2("Remaining delay %1 and air travel time %2", _delay, _airTime);
-    sleep (0 max (_delay - _airTime));
+    ServerDebug_2("Remaining delay %1 air travel time %2 naval delay %3", _delay, _airTime, _navalDelayTime);
+    _runningNavalFirst = (_airTime > _navalDelayTime);
+    private _firstSpawnDelay = (_airTime min _navalDelayTime);
+    sleep (0 max _firstSpawnDelay);
+    _delayBetween = abs (_airTime - _navalDelayTime);
+};
+
+if (_runningNavalFirst && _naval) then {
+    call _fnc_spawnNavalAttack;
+    sleep _delayBetween;
 };
 
 if (_airBase != "") then            // uh, is that a thing
@@ -167,26 +215,9 @@ if (_airBase != "") then            // uh, is that a thing
     ServerInfo_1("Spawn performed: Air vehicles %1", _data#1 apply {typeOf _x});
 };
 
-if (_naval) then
-{ // For now, boats dont play into any strength calculation and just take resources
-    private _navalSpawn = [seaAttackSpawn,_nearWaterPos] call BIS_fnc_nearestPosition;
-    Info_3("Attempted to perform naval spawn for drop point %1 at spawn point %2 distance %3 ",_nearWaterPos,_navalSpawn,_nearWaterPos distance2D getMarkerPos _navalSpawn)
-    if (_nearWaterPos distance2D getMarkerPos _navalSpawn > 4000) exitWith {Info("Naval attack aborted")};
-    private _boatCount = round (_vehCount / 5);
-    private _attackRatio = 0.3 + tierWar/30;
-    private _attackCount = round (_boatCount * _attackRatio);
-    private _troops = ["Normal", "SpecOps"] select ("specops" in _modifiers);
-    ServerDebug_3("Attempting to spawn %1 sea vehicles including %2 attack from %3", _boatCount, _attackCount, _navalSpawn);
-
-    private _data = [_side, _navalSpawn, _nearWaterPos, _resPool, _boatCount, _attackCount, _tier, _troops,_nearWaterPos] call A3A_fnc_createAttackForceSea;
-    _resourcesSpent = _resourcesSpent + _data#0;
-    _vehicles append _data#1;
-    _crewGroups append _data#2;
-    _cargoGroups append _data#3;
-
-    [-(_data#0), _side, _resPool] remoteExec ["A3A_fnc_addEnemyResources", 2];
-
-    ServerInfo_1("Spawn performed: Sea vehicles %1", _data#1 apply {typeOf _x});
+if (!_runningNavalFirst && _naval) then {
+    sleep _delayBetween;
+    call _fnc_spawnNavalAttack;
 };
 
 [_resourcesSpent, _vehicles, _crewGroups, _cargoGroups];

@@ -368,9 +368,7 @@ _militaryLoadoutData set ["sniperRifles", [
 ["rhs_weap_m24sws", "rhsusf_acc_m24_muzzlehider_black", "", "rhsusf_acc_LEUPOLDMK4", ["rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m118_special_Mag", "rhsusf_5Rnd_762x51_m62_Mag"], [], "rhsusf_acc_harris_swivel"]
 ]];
 _militaryLoadoutData set ["lightATLaunchers", [
-"rhs_weap_m72a7",
-"rhs_weap_m72a7",
-"rhs_weap_M136_hp"
+"rhs_weap_m72a7", "rhs_weap_m72a7", "rhs_weap_M136_hp"
 ]];
 _militaryLoadoutData set ["ATLaunchers", [
 ["PRACS_SAAWS", "", "", "", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE", "rhs_mag_maaws_HEDP"], [], ""],
@@ -415,37 +413,43 @@ _militiaLoadoutData set ["uniforms", ["PRACS_M10_2PARA_SL_uniform"]];
 _militiaLoadoutData set ["vests", ["PRACS_O_CIRAS", "PRACS_SIS_Chestrig"]];
 _militiaLoadoutData set ["backpacks", ["PRACS_Assault_pack", "B_TacticalPack_oli"]];
 _militiaLoadoutData set ["atBackpacks", ["B_Kitbag_rgr"]];
-_militiaLoadoutData set ["helmets", ["PRACS_Patrol_SMAR_Cap", "H_Cap_oli", "H_Cap_oli_hs"]];
-_militiaLoadoutData set ["slHat", ["PRACS_3mtn_beret"]];
-_militiaLoadoutData set ["sniHats", ["PRACS_Booniehat_HS_SMAR"]];
+_militiaLoadoutData set ["helmets", ["PRACS_Patrol_ASDPM_B_Cap", "PRACS_ACH_ASDPM", "PRACS_ACH_ASDPM_olive", "H_Cap_oli", "H_Cap_oli_hs"]];
+_militiaLoadoutData set ["slHat", ["PRACS_para_beret"]];
+_militiaLoadoutData set ["sniHats", ["PRACS_Booniehat_ASDPM_B"]];
 
 _militiaLoadoutData set ["rifles", [
-["PRACS_galil_ARM_308", "", "", "", ["PRACS_25rd_Galil308_mag"], [], ""],
-["PRACS_galil_ARM_308", "", "", "rhsusf_acc_eotech_xps3", ["PRACS_25rd_Galil308_mag"], [], ""]
+["PRACS_CETME","","","",["PRACS_20rd_CETME_mag", "PRACS_20rd_CETME_mag", "PRACS_20rd_CETME_T_mag"],[],""],
+["PRACS_CETME_FS","","","",["PRACS_20rd_CETME_mag", "PRACS_20rd_CETME_mag", "PRACS_20rd_CETME_T_mag"],[],""]
 ]];
 _militiaLoadoutData set ["carbines", [
-["PRACS_rk62", "", "", "rhsusf_acc_RM05", ["PRACS_30Rnd_762x39_Rk_PS_mag", "PRACS_30Rnd_762x39_Rk_T_mag", "PRACS_30Rnd_762x39_Rk_7N6_mag"], [], ""]
+["PRACS_rk62", "", "", "rhsusf_acc_T1_low", ["PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_T_mag", "PRACS_30Rnd_762x39_Rk_PS_mag"], [], ""],
+["PRACS_rk62", "", "", "rhsusf_acc_T1_low", ["PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_T_mag", "PRACS_30Rnd_762x39_Rk_PS_mag"], [], ""],
+["PRACS_rk62", "", "", "rhsusf_acc_T1_high", ["PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_7N6_mag", "PRACS_30Rnd_762x39_Rk_T_mag", "PRACS_30Rnd_762x39_Rk_PS_mag"], [], ""],
+["PRACS_galil_SAR","","","",["PRACS_35rd_Galil_mag", "PRACS_35rd_Galil_mag"],[],""]
 ]];
 _militiaLoadoutData set ["grenadeLaunchers", [
 ["PRACS_g3a4t40", "", "", "rhsusf_acc_compm4", ["PRACS_20rd_G3_mag", "PRACS_20rd_CETME_mag"], ["rhs_mag_M441_HE", "rhs_mag_m576", "rhs_mag_M585_white_cluster", "rhs_mag_m714_White"], ""],
 ["PRACS_g3a3t40", "", "", "rhsusf_acc_T1_low", ["PRACS_20rd_CETME_mag", "PRACS_20rd_G3_mag"], ["rhs_mag_M441_HE", "rhs_mag_m576", "rhs_mag_M585_white_cluster", "rhs_mag_m714_White"], ""]
 ]];
 _militiaLoadoutData set ["SMGs", [
-["PRACS_UZI", "", "", "", [], [], ""]
+["PRACS_UZI","","","",["PRACS_30rd_9mm_UZI", "PRACS_30rd_9mm_UZI"],[],""],
+["PRACS_UZI","","","rhsusf_acc_T1_low",["PRACS_30rd_9mm_UZI", "PRACS_30rd_9mm_UZI"],[],""],
+["PRACS_UZI", "", "", "rhsusf_acc_mrds", ["PRACS_30rd_9mm_UZI", "PRACS_30rd_9mm_UZI"], [], ""],
+["PRACS_UZI", "", "", "rhsusf_acc_RM05", ["PRACS_30rd_9mm_UZI", "PRACS_30rd_9mm_UZI"], [], ""]
 ]];
 _militiaLoadoutData set ["machineGuns", [
 ["PRACS_HCAR_Black", "", "", "", ["PRACS_30rd_HCAR_mag", "PRACS_30rd_HCAR_T_mag"], [], ""],
-["PRACS_M60E4", "", "", "", ["rhsusf_50Rnd_762x51_m80a1epr"], [], ""]
+["PRACS_M60A2","","","",["rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51", "rhsusf_50Rnd_762x51_m62_tracer"],[],""]
 ]];
 _militiaLoadoutData set ["marksmanRifles", [
-["PRACS_g3a3_w", "", "", "rhsusf_acc_ACOG3", [], [], ""]
+["PRACS_g3a3_w", "", "", "rhsusf_acc_ACOG", ["PRACS_20rd_G3_mag", "PRACS_20rd_G3_mag", "PRACS_20rd_G3_T_mag"], [], ""]
 ]];
 _militiaLoadoutData set ["sniperRifles", [
 ["rhs_weap_m24sws", "rhsusf_acc_m24_muzzlehider_black", "", "rhsusf_acc_M8541_low", [], [], "rhsusf_acc_harris_swivel"]
 ]];
 _militiaLoadoutData set ["lightATLaunchers", ["rhs_weap_m72a7"]];
 _militiaLoadoutData set ["ATLaunchers", [
-["rhs_weap_maaws", "", "", "", ["rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE", "rhs_mag_maaws_HEDP"], [], ""]
+["PRACS_SAAWS", "", "", "", ["rhs_mag_maaws_HEDP", "rhs_mag_maaws_HEAT", "rhs_mag_maaws_HE"], [""],""]
 ]];
 _militiaLoadoutData set ["sidearms", ["rhsusf_weap_m1911a1"]];
 
@@ -463,7 +467,7 @@ _crewLoadoutData set ["carbines", [
 
 private _pilotLoadoutData = _militaryLoadoutData call _fnc_copyLoadoutData;
 _pilotLoadoutData set ["vests", ["PRACS_Heli_crew_RSN_uniform"]];
-_pilotLoadoutData set ["helmets", ["rhsusf_hgu56p_white", "rhsusf_hgu56p_visor_white", "rhsusf_hgu56p_visor_mask_tan", "rhsusf_hgu56p_visor_tan"]];
+_pilotLoadoutData set ["helmets", ["PRACS_Attack_Heli_pilot_helmet"]];
 
 /////////////////////////////////
 //    Unit Type Definitions    //

@@ -34,7 +34,7 @@ Version 3.8.0
    * :issue:`3437` Updated IFA Faction Templates to solve a bug with the large intel item. Adds Churchills to the IFA UK faction IFV lineup
    * :issue:`3451` Fixed missing comma and incorrect artillery classnames in CUP template in BAF, ION
    * :issue:`3452` Updated 3CB LDF with the Livonian Armed Forest Rangers, and corrected magazine classname for the rocket artillery
-   * :issue:`3457` Fixed NVG entry in RHS HIDF and flagged RHS HIDF and TLA as lowtech
+   * :issue:`3457` Fixed NVG entry in RHS HIDF
    * :issue:`` 
    * :issue:`` 
    * :issue:`` 

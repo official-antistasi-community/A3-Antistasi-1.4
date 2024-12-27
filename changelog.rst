@@ -11,7 +11,7 @@ Version 3.8.0
 
 .. admonition:: Major
 
-   * :issue:`3441` & :issue:`3442` Added Expeditionary Forces MJTF factions plus Vanilla and Western Sahara compatibility
+   * :issue:`3441` & :issue:`3442` Added Expeditionary Forces MJTF factions and added EF integration Vanilla and Western Sahara templates
    * :issue:`3392` Added UI and supporting code to set custom loadouts for rebel troops
 
 .. admonition:: Minor
@@ -20,22 +20,32 @@ Version 3.8.0
    * :issue:`3388` Implemented mortar/artillery support ranging shot and walking barrage
    * :issue:`3389` Added injector success and UID logging
    * :issue:`3430` Turned Carpet bombing into triple airstrike
- 
+   * :issue:`3459` Added various TFAR bagpacks and to multiple templates
+   * :issue:`3462` Improved loot-to-crate to dump to single weapon holder
+
 .. admonition:: Template updates
 
    * :issue:`3182` Added 3CB CSAT Scimitar, Gryphon, Bear, and Viper regiment
-   * :issue:`3407` Updated Vanilla/WS Factions, fine tuning, officer loadouts, further RF integration on missed factions
-   * :issue:`3413` & :issue:`3429` Added CWR3 Factions Templates
+   * :issue:`3407` Updated Vanilla/WS Factions, fine tuning, officer loadouts, further RF integration in vanilla and WS factions
+   * :issue:`3413` & :issue:`3429` & :issue:`3460` Added CWR3 Factions Templates
    * :issue:`3414` Added Aegis Factions Compatibility
    * :issue:`3428` Added SPEX Factions Templates
    * :issue:`3442` Added 3CBF weapon integration into RHS factions
    * :issue:`3437` Updated IFA Faction Templates
    * :issue:`3451` Fixed CUP template in BAF, ION
    * :issue:`3452` Updated 3CB Ranger and fixed artillery
+   * :issue:`3457` Fixed NVG entry in RHS HIDF and flagged RHS HIDF and TLA as lowtech
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
+   * :issue:`` 
 
 .. admonition:: Terrain updates
 
-   * :issue:`3424` & :issue:`3448` Updated Isla Duala to hide "bad" objects and cull obsolete enemy locations
+   * :issue:`3424` & :issue:`3448` & :issue:`3463` Updated Isla Duala to hide "bad" objects, cull obsolete enemy locations and to be taken off of 'dev' status, hence being available to play
 
 .. admonition:: Bugfixes
 
@@ -49,9 +59,10 @@ Version 3.8.0
    * :issue:`3418` Fixed precedence error in mortar/arty support routine
    * :issue:`3416` Fixed custom WS Kamaz Textures
    * :issue:`3436` Fixed debug line in fn_setPlaneLoadout.sqf
-   * :issue:`3443` Fixed EF CDLC detection
    * :issue:`3446` Fixed wrong owner check in fn_addBombRun.sqf
    * :issue:`3455` Fixed and optimized spawner selection
+   * :issue:`3458` Fixed issue with Rebel Loadouts
+   * :issue:`` 
 
 .. admonition:: Groundwork
 

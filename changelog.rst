@@ -20,7 +20,7 @@ Version 3.8.0
    * :issue:`3388` Implemented mortar/artillery support ranging shot and walking barrage
    * :issue:`3389` Added injector success and UID logging
    * :issue:`3430` Turned Carpet bombing into triple airstrike
-   * :issue:`3459` Added various TFAR bagpacks and to multiple templates
+   * :issue:`3459` Added various TFAR backpacks and to multiple templates
    * :issue:`3462` Improved loot-to-crate to dump to single weapon holder
 
 .. admonition:: Template updates
@@ -35,13 +35,6 @@ Version 3.8.0
    * :issue:`3451` Fixed missing comma and incorrect artillery classnames in CUP template in BAF, ION
    * :issue:`3452` Updated 3CB LDF with the Livonian Armed Forest Rangers, and corrected magazine classname for the rocket artillery
    * :issue:`3457` Fixed NVG entry in RHS HIDF
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
-   * :issue:`` 
 
 .. admonition:: Terrain updates
 
@@ -62,7 +55,6 @@ Version 3.8.0
    * :issue:`3446` Fixed wrong owner check in fn_addBombRun.sqf
    * :issue:`3455` Fixed and optimized spawner selection
    * :issue:`3458` Fixed issue with Rebel Loadouts
-   * :issue:`` 
 
 .. admonition:: Groundwork
 

@@ -11,7 +11,7 @@ Version 3.8.0
 
 .. admonition:: Major
 
-   * :issue:`3441` & :issue:`3442` Added Expeditionary Forces MJTF factions and added EF integration Vanilla and Western Sahara templates
+   * :issue:`3441` & :issue:`3442` Added Expeditionary Forces MJTF factions and added EF integration in Vanilla and Western Sahara templates
    * :issue:`3392` Added UI and supporting code to set custom loadouts for rebel troops
 
 .. admonition:: Minor

@@ -27,6 +27,8 @@ if ( !isClass (configFile >> "CfgVehicles" >> _class) ) exitWith { Error_1("Inva
 _class in [_vtol]; */ 
 //&& (getNumber (configOf _vehicle >> "isUav") == 0)
 //case (getNumber (configOf _vehicle >> "isUav") > 0): { 2 };
+private _vtolConfig = configFile >> "CfgVehicles" >> _class;
+
 private _editorCat = cfgEditorCat(_class);
 switch (true) do {
     //filter blacklist first
@@ -36,9 +38,9 @@ switch (true) do {
     case (_editorCat isEqualTo "EdSubcat_Cars" && !(_class in undercoverVehicles)): { 1 }; 
     case (_editorCat isEqualTo "EdSubcat_APCs"): { 2 };
     case (_editorCat in ["EdSubcat_Tanks","EdSubcat_AAs","EdSubcat_Artillery"]): { 3 };
-    case (_editorCat in ["EdSubcat_Helicopters"]): { 4 }; //  || getNumber (configOf _vehicle >> "vtol") > 0
+    case (_editorCat in ["EdSubcat_Helicopters"] || getNumber (_vtolConfig >> "vtol") > 0): { 4 };
     //case (getNumber (configOf _vehicle >> "vtol") > 0): { 5 };
-    case (_editorCat in ["EdSubcat_Planes"]): { 5 }; //  && (getNumber (configOf _vehicle >> "vtol") == 0)
+    case (_editorCat in ["EdSubcat_Planes"] && (getNumber (_vtolConfig >> "vtol") == 0)): { 5 };
     case (_editorCat in ["EdSubcat_Boats","EdSubcat_Submersibles"]): { 6 };
     case (_editorCat isEqualTo "EdSubcat_Turrets"): { 7 };
 

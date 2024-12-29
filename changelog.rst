@@ -55,6 +55,7 @@ Version 3.8.0
    * :issue:`3446` Fixed wrong owner check in fn_addBombRun.sqf
    * :issue:`3455` Fixed and optimized spawner selection
    * :issue:`3458` Fixed issue with Rebel Loadouts
+   * :issue:`3473` Fixed issue with Rebel Airstrike
 
 .. admonition:: Groundwork
 

@@ -7,7 +7,7 @@ Version 3.8.0
 ===============
 
 .. note::
-   xxth December 2024
+   29th December 2024
 
 .. admonition:: Major
 

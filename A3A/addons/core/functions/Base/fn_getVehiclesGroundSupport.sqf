@@ -20,8 +20,8 @@ private _fnc_addArrayToWeights = {
 
 private _vehWeights = [];
 
-private _milCarWeight =     [50, 40, 30, 20, 10,  0,  0,  0,  0,  0] select _level;
-private _carWeight =        [50, 50, 50, 50, 50, 50, 50, 40, 35, 30] select _level;
+private _milCarWeight =     [100, 70, 50, 30, 10,  0,  0,  0,  0,  0] select _level;
+private _carWeight =        [ 0, 30, 30, 40, 50, 50, 50, 40, 35, 30] select _level;
 private _aaWeight =         [ 0,  0,  3,  5,  7,  8, 10, 12, 13, 14] select _level;
 private _ltWeight =         [ 0,  5,  7,  8,  8,  8,  8,  8,  8,  8] select _level;
 private _tankWeight =       [ 0,  0,  3,  5,  8, 11, 14, 17, 20, 28] select _level;
@@ -33,7 +33,10 @@ if (_vehAA isEqualTo []) then { _tankWeight = _tankWeight + _aaWeight };
 
 // At least one lightTanks or Tanks is mandatory, HeavyTanks are entirely optional
 if (_faction get "vehiclesHeavyTanks" isEqualTo []) then { _ltWeight = _ltWeight + _hvytWeight/2;  _tankWeight = _tankWeight + _hvytWeight/2};
-if (_faction get "vehiclesLightTanks" isEqualTo []) then { _tankWeight = _tankWeight + _ltWeight };
+if (_faction get "vehiclesLightTanks" isEqualTo []) then { 
+    if (_level < 3) exitWith {_carWeight + _ltWeight};
+    _tankWeight = _tankWeight + _ltWeight;
+};
 if (_faction get "vehiclesTanks" isEqualTo []) then { _ltWeight = _ltWeight + _tankWeight };
 
 [_faction get "vehiclesLightTanks", _ltWeight] call _fnc_addArrayToWeights;

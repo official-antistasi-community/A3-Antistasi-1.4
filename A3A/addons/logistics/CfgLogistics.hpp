@@ -22,7 +22,7 @@ class DOUBLES(ADDON,Nodes)
     #include "Nodes\VN.hpp"
     #include "Nodes\WS.hpp"
     #include "Nodes\SFP.hpp"
-
+     #include "Nodes\CWR.hpp"
 };
 
 class DOUBLES(ADDON,Cargo)
@@ -49,7 +49,6 @@ class DOUBLES(ADDON,Cargo)
     #include "Cargo\Vanilla.hpp"
     #include "Cargo\VN.hpp"
     #include "Cargo\WS.hpp"
-
 };
 
 class DOUBLES(ADDON,Packable) {

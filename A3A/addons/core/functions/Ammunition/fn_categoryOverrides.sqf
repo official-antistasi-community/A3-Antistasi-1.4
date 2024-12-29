@@ -264,6 +264,10 @@ private _categoryOverrideTable = [
 ["vn_fkb1_red", ["Unknown","Weapons"]],
 ["vn_fkb1", ["Unknown","Weapons"]],
 
+// Melee
+["vn_m_mk2_knife_01", ["Unknown","Weapons"]],
+["vn_m_axe_01", ["Unknown","Weapons"]],
+
 ["vn_default_helmetbase_09", ["Unknown","Headgear"]],	//Goat Hat
 ["vn_m1897", ["Shotguns","Weapons"]],
 ["vn_izh54", ["Shotguns","Weapons"]],

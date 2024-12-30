@@ -146,6 +146,7 @@ class CfgFunctions
             class arePositionsConnected {};
             class joinMultipleGroups {};
             class localizar {};
+            class localReveal {};
             class lockStatic {};
             class logPerformance {};
             class markerChange {};
@@ -235,6 +236,7 @@ class CfgFunctions
         class CREATE {
             file = QPATHTOFOLDER(functions\CREATE);
             class AAFroadPatrol {};
+            class aaReveal {};
             class airportCanAttack {};
             class AIVEHinit {};
             class attackHQ {};
@@ -255,6 +257,7 @@ class CfgFunctions
             class createAttackForceMixed {};
             class createAttackVehicle {};
             class createFIAOutposts2 {};
+            class createHunterKillerTeam {};
             class createSDKGarrisons {};
             class createSDKgarrisonsTemp {};
             class createUnit {};

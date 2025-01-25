@@ -93,6 +93,31 @@ HR_GRG_onCloseEvent = {
     ["GARAGE", false] call A3A_fnc_disableInfoBar;
 };
 
+// Function to check if the vehicle class is undercover
+HR_GRG_AntistasiOrNot = {
+    params [
+        "_class" // Vehicle class
+    ];
+
+    // Check if the global variable undercoverVehicles exists
+    if (!isNil "undercoverVehicles") then {
+        // If undercoverVehicles exists
+        if (_class in undercoverVehicles) then {
+            // If _class is in undercoverVehicles
+            return 0; // undercover
+        } else {
+            // If _class is not in undercoverVehicles
+            return 1; // not undercover
+        };
+    } else {
+        // If undercoverVehicles does not exist, handle default case
+        return 0;
+    };
+
+    // If none of the conditions are met, return a default value or null
+    return -1; // Return -1 for any other cases
+};
+
 //CBA settings
 if (isClass (configfile >> "CBA_Extended_EventHandlers")) then {
 

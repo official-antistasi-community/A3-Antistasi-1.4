@@ -96,26 +96,19 @@ HR_GRG_onCloseEvent = {
 // Function to check if the vehicle class is undercover
 HR_GRG_AntistasiOrNot = {
     params [
-        "_class" // Vehicle class
+        ["_class", ""]
     ];
 
-    // Check if the global variable undercoverVehicles exists
-    if (!isNil "undercoverVehicles") then {
-        // If undercoverVehicles exists
-        if (_class in undercoverVehicles) then {
-            // If _class is in undercoverVehicles
-            return 0; // undercover
-        } else {
-            // If _class is not in undercoverVehicles
-            return 1; // not undercover
-        };
+    if (_class isEqualTo "") exitWith {-1}
+    if (isNil "undercoverVehicles") exitWith {-1};
+
+    private _isUndercover = if (_class in undercoverVehicles) then {
+        0;
     } else {
-        // If undercoverVehicles does not exist, handle default case
-        return 0;
+        1;
     };
 
-    // If none of the conditions are met, return a default value or null
-    return -1; // Return -1 for any other cases
+    _isUndercover;
 };
 
 //CBA settings
